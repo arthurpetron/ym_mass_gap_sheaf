@@ -176,6 +176,20 @@ private theorem product_reorder (a b c : RatPoly) :
     (.mul (.mul (.var 0) (.var 2)) (.var 1)) (by decide)
     (fun | 0 => a | 1 => b | _ => c)
 
+/-- Every lower-end insertion has the SAME original odd marginal. This
+exposes the pairing already used for the diagonal identity, without choosing
+a stationary source or replacing `g*Tg` by `g^2`. -/
+theorem edge_marginal_pairing (w : Q') (K width : Nat) {g p : RatPoly}
+    (hg : SupportedQuaternionBlocks (N width) g)
+    (hp : SupportedQuaternionBlocks (N width) p) :
+    quaternionHaar (N width+N width) (polyMul (edgeDensity w K width g) p) ≈
+      weightedMass w K width
+        (polyMul (polyMul g (transferStep w K width g)) p) :=
+  Q'.eqv_trans _ _ _ (lower_pairing w K width g p)
+    (Q'.eqv_trans _ _ _
+      (transferStep_weighted_symmetric w K width (supported_polyMul hg hp) hg)
+      (weightedMass_congr w K width (product_reorder g p (transferStep w K width g))))
+
 /-- The two edge diagonals are twice the SAME original temporal marginal.
 This is an identity, not a change to the endpoint weight or an invariant law. -/
 theorem edge_diagonal_identity (w : Q') (K width : Nat) {g f : RatPoly}
@@ -312,6 +326,7 @@ end YMGap.Continuum.BF4ExactSlabFixedSpatialDirichletForm
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialDirichletForm.edgeDensity_supported
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialDirichletForm.jump_supported
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialDirichletForm.edge_pairing
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialDirichletForm.edge_marginal_pairing
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialDirichletForm.edge_diagonal_identity
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialDirichletForm.energy_identity
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialDirichletForm.edgeCertificate

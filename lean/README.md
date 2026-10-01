@@ -12,6 +12,21 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Actual-mean one-loop radial budget (2026-10-01 UTC):**
+`QuaternionHaarRadialMeanYoung` supplies an exact Young square under ONE
+certified Haar weight. `BF4ExactSlabFixedSpatialWilsonMeanRadial` identifies
+the edge center and centered square with the SAME odd mean and interacting
+variance, and proves the literal trace mean has square at most four.
+`QuaternionHaarWordQuadratic` sums all four coordinate Cauchy squares before
+charging the exact link budget. `WilsonMeanQuartic` computes both cutoff
+guards and proves `t*E<=t^2*Var+(t+c^2)*R+t*(4-c^2)*L`, with
+`L=6*(1-w)*length^2` and the actual log-quartic rate R. No mixed radial
+moment remains in this literal one-loop ceiling. Thirty-eight accepted focused
+gates and independent reviews passed; no new analytic premise or broad build.
+Useful COMPLETE signed SAME-variance scaling, spatial/spacing control, survival,
+physical time/mass, full continuum QFT and all groups remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-MEAN-RADIAL-BUDGET-2026-10-01.md`.
+
 **Sharper original-source fourth moments (2026-10-01 UTC):**
 `SU2HeatQuarticLogDyadicBudget` proves the complete head/tail budget
 `888*r^4*h^2` for `h=2^(-6r)`, spin split `r*2^(3r)` and `r>=22`.
@@ -21,8 +36,8 @@ formula. The trace jump is pinned on the SAME doubled carrier and pays the
 exact factor sixteen; normalization uses only the SAME positive odd partition.
 Thirty-seven gates passed four focused checks, within {propext, Quot.sound}.
 Independent reviews passed; no new analytic premise, broad build or raised limit.
-Mixed radial control, useful signed SAME-variance scaling, survival, physical mass,
-continuum QFT and all groups remain OPEN. Evidence:
+The literal one-loop mixed term is now bounded above; useful signed scaling,
+survival, physical mass, continuum QFT and all groups remain OPEN. Evidence:
 `audits/AUDIT-ORIGINAL-LOG-QUARTIC-2026-10-01.md`.
 
 **Whole-family kinetic upper on the original carrier (2026-10-01 UTC):**

@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL actual-mean one-loop radial budget
+(2026-10-01 UTC; chart unchanged): an exact Young square now bounds the
+previously unevaluated mixed radial moment using the SAME odd variance and
+actual mean c. Full-vector word Cauchy gives L=6*(1-w)*length^2 without a
+coordinate-factor loss; the computed cutoff also pays the original log-quartic
+rate R. The normalized energy obeys t*E<=t^2*Var+(t+c^2)*R+t*(4-c^2)*L for
+every t>=0. The actual c^2<=4 proof and all spatial/terminal factors remain.
+Thirty-eight focused gates and independent reviews passed. This is a literal
+one-loop estimate, NOT a complete signed-family or useful SAME-variance scaling
+bound. Mean/rate calibration, spatial/spacing control, survival, physical mass,
+full continuum QFT and all groups remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-MEAN-RADIAL-BUDGET-2026-10-01.md`.
+
 Verified supporting sharper ORIGINAL fourth moments (2026-10-01 UTC;
 chart unchanged): the computed split S=r*2^(3r) at h=2^(-6r), r>=22,
 reduces the complete actual-source quartic ceiling to 888*r^4*h^2.

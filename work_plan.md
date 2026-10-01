@@ -25,6 +25,48 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Actual-mean one-loop radial budget with explicit remainder rates (2026-10-01 UTC)
+
+PROGRESS after `4ba8766`: remove the unevaluated mixed radial moment in the
+ORIGINAL one-loop consumer by an exact Young square about its actual mean.
+For fundamental trace f, chordal square d, any rational center c and t,
+
+    [t^2*(c-f)^2 + (t+c^2)*d^2 + t*(4-c^2)*d]
+      - t*[d*(4-f^2)+d^2]
+      = [t*(c-f)-c*d]^2 + t*d*(c-f)^2.
+
+`QuaternionHaarRadialMeanYoung` returns the actual sum-of-squares certificates
+and weighted estimates. No expectation is factorized. The original edge
+marginal is `g*Tg`, not `g^2`: `WilsonMeanRadial` pins its actual center and
+centered square to the SAME odd mean and variance, and proves c^2<=4 from
+the literal Haar-unit word. Its energy consumer cancels the original factor
+two exactly and retains both normalized chordal moments.
+
+`QuaternionHaarWordQuadratic` sums all four coordinate Cauchy squares before
+charging the existing exact link budget; the full noncommuting word gets
+`L=6*(1-w)*length^2`, without an extra factor four.
+`BF4ExactSlabFixedSpatialWilsonMeanQuartic.meanCutoff` handles BOTH the
+kinetic and quartic guards. At the existing diagnostic schedule with r>=22,
+the actual normalized energy E satisfies, for every t>=0,
+
+    t*E <= t^2*Var_odd + (t+c^2)*wordLogRate + t*(4-c^2)*L.
+
+This is an actual source-specific upper bound, not another supplied interface.
+Five accepted focused checks passed 38 gates within {propext, Quot.sound};
+independent mathematical and source/log reviews passed. One monitored worker,
+20 GiB ceiling, 12 GiB OS reserve; no full root/tree build, broad audit, guard,
+raised limit or CI change. Root imports are registered, not checked in aggregate.
+Evidence: `audits/AUDIT-ORIGINAL-MEAN-RADIAL-BUDGET-2026-10-01.md`.
+
+NEXT: useful SAME-variance calibration of BOTH the actual mean correction
+and quartic rate along a justified spatial/coupling/spacing family, or a
+cancellation-preserving COMPLETE signed-family producer. The literal cap four
+does not transfer to arbitrary signed families. Existing conservative variance
+floors do not calibrate this rate; no floor or concentration is assumed away.
+Nontrivial continuum survival, physical time/mass, full continuum OS/QFT,
+field/UV identification and every compact simple group remain OPEN. Broader
+displayed chart claims are unchanged; no ASCII reprint.
+
 ### Original-source fourth moment sharpened by a logarithmic split (2026-10-01 UTC)
 
 PROGRESS after `a9c7189`: source review found no valid route from existing

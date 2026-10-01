@@ -10,13 +10,25 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Original one-loop energy now has an actual-mean bound (2026-10-01):**
+an exact sum-of-squares argument removes its unevaluated mixed radial moment.
+For the SAME interacting mean c and variance Var, normalized energy E obeys
+`t*E <= t^2*Var + (t+c^2)*R + t*(4-c^2)*L`, for every t>=0.
+Here `L=6*(1-w)*length^2` and R is the checked fourth-moment rate; the
+original action, terminal messages and partition remain. This is a proved
+literal-loop estimate, not the required complete signed-family scaling bound:
+the mean correction and rate still need useful variance-relative calibration.
+Thirty-eight focused gates and independent reviews passed. See the
+[proof and open boundary](audits/AUDIT-ORIGINAL-MEAN-RADIAL-BUDGET-2026-10-01.md).
+
 **Sharper original-source fourth moments (2026-10-01):** a computed spin split
 now improves the existing quartic ceiling from `O(h^(4/3))` to the explicit
 `888*r^4*h^2`, where `h=2^(-6r)` and `r>=22`. The unchanged Wilson edge law
 gives actual ordered-word and fundamental trace-jump fourth moments, retaining
 the original terminal source and partition. The radial energy formula consumes
-this sharper remainder; its mixed radial moment and useful SAME-variance scaling
-estimate remain open. This is a diagnostic heat schedule, not continuum scaling.
+this sharper remainder. Its mixed term is now bounded for a literal loop above;
+useful SAME-variance scaling remains open. This is a diagnostic heat schedule,
+not continuum scaling.
 See the [proof and scope](audits/AUDIT-ORIGINAL-LOG-QUARTIC-2026-10-01.md).
 
 **Whole signed-family kinetic estimate (2026-10-01):** the original

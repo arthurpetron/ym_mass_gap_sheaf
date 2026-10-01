@@ -1,5 +1,44 @@
 # Sorry Ledger
 
+## PROVED actual-mean one-loop radial budget under the ORIGINAL law (2026-10-01 UTC)
+
+- `QuaternionHaarRadialMeanYoung.young_identity` is the exact polynomial
+  Young square about any rational center. Its square certificates and
+  `weighted_young_moments` retain ONE positive Haar weight; the retained
+  variant keeps the favorable radial centered square instead of dropping it.
+- `BF4ExactSlabFixedSpatialDirichletForm.edge_marginal_pairing` exposes the
+  existing original `g*Tg` marginal. `WilsonMeanRadial.edgeMoment_pin`,
+  `mean_pin` and `centered_edge_square_pin` identify the actual edge mean
+  and centered square with the SAME odd mean and interacting `oddVariance`.
+  `mean_square_le_four` proves the literal fundamental-word mean cap from
+  its own unit-quaternion and positive edge certificates.
+- `QuaternionHaarWordQuadratic.word_norm_quadratic_bound` sums all four
+  coordinate Cauchy squares BEFORE charging per-link displacement, avoiding
+  a factor-four loss. `WilsonMeanQuartic.word_quadratic_nome_normalized`
+  gives `L=6*(1-w)*length^2`, under the original active-edge and cutoff guards.
+  `meanCutoff` computes BOTH kinetic and quartic onsets;
+  `word_quartic_mean_normalized` pays the existing original log-quartic rate R.
+- `BF4ExactSlabFixedSpatialWilsonMeanQuartic.wilson_energy_mean_log_budget`
+  proves, for the actual odd mean c, any t>=0, and normalized temporal energy E,
+  `t*E <= t^2*oddVariance + (t+c^2)*R + t*(4-c^2)*L`.
+  No unevaluated mixed radial moment remains in this literal one-loop bound.
+  Every spatial/terminal factor and the SAME positive partition are retained.
+- Five accepted focused checks passed 38 printed gates: three empty,
+  one {propext}, thirty-four {propext, Quot.sound}. Independent mathematical
+  and source/log review passed. No new sorry, axiom, Classical, native_decide,
+  noncomputable declaration, analytic field or weakened frontier. One monitored
+  20 GiB worker and 12 GiB OS reserve; no full root/tree build, broad audit,
+  guard, raised limit or CI change. Root imports are registered, not checked
+  in aggregate. Evidence:
+  `audits/AUDIT-ORIGINAL-MEAN-RADIAL-BUDGET-2026-10-01.md`.
+- OPEN: useful comparison of the actual mean correction and quartic rate
+  with SAME variance on a justified scaling family. The cap four is specific
+  to a literal fundamental trace; the result is NOT a complete signed-family
+  estimate. Existing variance floors are not missing, but their conservative
+  calibration does not supply that comparison. Spatial/spacing control,
+  nontrivial continuum survival, physical time/mass, full continuum OS/QFT,
+  field/UV identification and every compact simple group remain OPEN.
+
 ## PROVED sharper ORIGINAL word/trace fourth moments (2026-10-01 UTC)
 
 - `SU2HeatQuarticLogDyadicBudget` uses `h=2^(-6r)`, `logSplit=r*2^(3r)`

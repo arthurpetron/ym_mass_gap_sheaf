@@ -4961,7 +4961,7 @@ import YMGap.Continuum.SU2QuaternionHeatQuarticMoment
 import YMGap.Continuum.SU2QuaternionHeatQuarticBound
 import YMGap.Continuum.BF4ExactSlabFixedSpatialQuarticMoment
 -- Full ordered word quartic control with explicit length dependence.
--- The original mixed radial moment and SAME-variance scaling comparison remain open.
+-- The mixed radial term is bounded for a literal loop below; useful scaling stays open.
 import YMGap.Continuum.QuaternionHaarWordComponents
 import YMGap.Continuum.QuaternionHaarWordQuartic
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLinkQuartic
@@ -4972,9 +4972,15 @@ import YMGap.Continuum.SU2HeatQuarticDyadicSchedule
 import YMGap.Continuum.SU2HeatQuarticDyadicBudget
 import YMGap.Continuum.BF4ExactSlabFixedSpatialDyadicQuartic
 -- A logarithmic spin split sharpens ORIGINAL word/trace fourth moments.
--- Diagnostic heat parameters only; the mixed radial/SAME-variance input stays open.
+-- Diagnostic heat parameters only; useful SAME-variance scaling stays open.
 import YMGap.Continuum.SU2HeatQuarticLogDyadicBudget
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLogQuartic
+-- Actual-mean Young removes the literal one-loop mixed radial moment.
+-- Full-word chordal and quartic budgets retain the SAME law; signed scaling is open.
+import YMGap.Continuum.QuaternionHaarRadialMeanYoung
+import YMGap.Continuum.QuaternionHaarWordQuadratic
+import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonMeanRadial
+import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonMeanQuartic
 -- The displayed majorant retains a quadratic floor; not a true-moment lower bound.
 import YMGap.Continuum.SU2HeatQuarticBudgetFloor
 -- Exact original-source Young/moment identity; raw-weight versus SAME-variance control remains open.
