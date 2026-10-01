@@ -12,6 +12,18 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Represented physical second-domain witnesses (2026-10-01 UTC):**
+`BF4WilsonAllNomeComplexBondOSSecondCore` computes sources representing T y
+and the original bounded derivativeAction L y, then constructs actual linked
+physical graph points `(T^2 y,T L y)` and `(T L y,L^2 y)` componentwise.
+The first output equals the second input on the SAME physical carrier.
+The second output's squared norm is bounded by the ORIGINAL PREIMAGE norm,
+not the norm of T^2 y. All 14 focused gates and independent reviews passed
+within {propext,Quot.sound}. No arbitrary-domain invariance, density, logarithm,
+scaled Cayley, time-group or continuum claim is made. Useful signed scaling,
+survival, physical mass, continuum QFT and all groups remain OPEN.
+Evidence: `audits/AUDIT-PHYSICAL-SECOND-GRAPH-STEP-2026-10-01.md`.
+
 **Physical graph limits and score-envelope obstruction (2026-10-01 UTC):**
 `BF4WilsonAllNomeComplexBondOSGraphNorm` proves the original full Hermitian
 graph pairing and exact squared-distance decomposition. Its constructed

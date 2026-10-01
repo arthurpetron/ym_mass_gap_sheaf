@@ -25,6 +25,31 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Constructed second-domain witnesses on the original physical carrier (2026-10-01 UTC)
+
+PROGRESS after `627d529`: explicit original Cauchy preimages y construct
+physical graph points `(T^2 y,T L y)` and `(T L y,L^2 y)`, where L is the
+EXISTING bounded derivativeAction, not a freely chosen physical generator.
+The first output equals the second input on the SAME physical bond carrier.
+Two original contraction estimates bound the second physical output's squared
+norm by the ORIGINAL PREIMAGE norm, not the actual T^2 y input norm.
+
+All 14 gates passed the final focused check within {propext,Quot.sound},
+with independent reviews. No new analytic input, domain-invariance premise,
+logarithm identification or density claim. One monitored 20 GiB worker and
+unchanged 12 GiB reserve; final swap zero. No raised limit, broad build/audit/guard
+or CI change. Evidence: `audits/AUDIT-PHYSICAL-SECOND-GRAPH-STEP-2026-10-01.md`.
+
+NEXT on the independent operator branch: compose the actual inverse-sum range
+estimate into a represented second-core density certificate, then construct
+scaled imaginary shifts and a quantitative Cayley product modulus on that core.
+The original plus/minus convention requires checking the factor-two phase
+calibration. These constructions are not supplied by this second-core proof.
+PRIMARY remains useful JOINT completeCenteredError/SAME-variance scaling on a
+justified coupling/spatial/spacing family. Survival, physical time/mass, full
+continuum OS/QFT, field/UV identification, every group and Clay remain OPEN.
+No displayed chart claim changes; no ASCII reprint.
+
 ### Original physical graph limits and score calibration obstruction (2026-10-01 UTC)
 
 PROGRESS after `888c639`: the original plus imaginary shift preserves the

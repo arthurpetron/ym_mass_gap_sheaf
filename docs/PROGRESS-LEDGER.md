@@ -4,7 +4,26 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Physical graph limits and a score calibration obstruction (2026-10-01 UTC)
+## Current increment: Constructed physical second-domain witnesses (2026-10-01 UTC)
+
+PROGRESS after `627d529`: compute represented original sources T y and L y,
+then build TWO actual physical derivative-domain points with completed-value
+pins T^2 y -> T L y -> L^2 y. Physical value injectivity joins the intermediate
+state. Two existing contraction estimates bound the second output's squared
+norm by the ORIGINAL PREIMAGE norm, not the T^2 y norm. This supplies actual
+second-derivative regularity for those inputs without assuming full-domain
+invariance, a logarithm identification or a density theorem.
+
+Fourteen focused gates and independent reviews passed within the constructive
+gate. No new analytic input, raised limit, broad build/audit/guard or ASCII
+reprint. The historical progress-metric script was not run. The next operator
+consumer needs assembled density, scaled imaginary shifts and a quantitative
+product modulus; none is silently supplied here. Primary complete signed error
+versus SAME variance along justified scaling, survival, physical mass/time,
+full continuum QFT and every group remain OPEN. Evidence:
+`audits/AUDIT-PHYSICAL-SECOND-GRAPH-STEP-2026-10-01.md`.
+
+## Earlier increment: Physical graph limits and a score calibration obstruction (2026-10-01 UTC)
 
 PROGRESS after `888c639`: original graph symmetry gives the full complex
 plus-shift graph pairing and exact sum of input/output squared distances.

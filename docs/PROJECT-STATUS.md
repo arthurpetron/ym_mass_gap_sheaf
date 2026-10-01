@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL second-domain witnesses (2026-10-01 UTC;
+chart unchanged): supplied Cauchy preimages construct linked physical graph
+points T^2 y -> T L y -> L^2 y on the SAME bond carrier. The second output's
+squared norm is bounded by the ORIGINAL PREIMAGE norm, not the actual input
+norm. Fourteen focused gates and independent reviews passed. Density, scaled
+Cayley maps and unitary time are not asserted. Primary complete signed scaling,
+survival, physical time/mass, continuum QFT and all groups remain OPEN.
+No displayed claim changed; no ASCII reprint. Evidence:
+`audits/AUDIT-PHYSICAL-SECOND-GRAPH-STEP-2026-10-01.md`.
+
 Verified supporting physical graph limits and score calibration obstruction
 (2026-10-01 UTC; chart unchanged): the original complex derivative's plus shift
 has graph pairing equal to input plus output pairing, and graph squared distance

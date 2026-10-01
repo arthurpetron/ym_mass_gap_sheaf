@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## PROVED represented second-domain witnesses on original physical carrier (2026-10-01 UTC)
+
+- `BF4WilsonAllNomeComplexBondOSSecondCore.timeSeed` and `derivativeSeed`
+  return actual original Cauchy representatives for T y and bounded L y.
+  `firstPoint`, `secondPoint`, `first` and `second` construct original
+  physical graph-domain points; all four completed-value pins retain the
+  same sources and time. `first_output_eq_second_input` joins them on the
+  SAME physical bond carrier, with values T^2 y -> T L y -> L^2 y.
+- `second_output_norm_le` uses two EXISTING derivativeAction contraction
+  estimates per component. Its ceiling is the ORIGINAL PREIMAGE squared
+  norm, NOT the norm of T^2 y or a bound on every physical derivative state.
+- All 14 gates passed the accepted focused check, exactly {propext,Quot.sound},
+  with independent mathematical/source/log review. No new sorry, axiom,
+  Classical, native_decide, noncomputable declaration, analytic field or
+  weakened frontier. No raised limit, broad build/audit/guard or CI change;
+  root import registration is not aggregate checking. Evidence:
+  `audits/AUDIT-PHYSICAL-SECOND-GRAPH-STEP-2026-10-01.md`.
+- OPEN: assembled physical second-core density, scaled imaginary shifts,
+  Cayley local errors/product modulus and continuous unitary time. No arbitrary
+  domain output is claimed to be in the domain again. Primary complete signed
+  error/SAME-variance scaling, spatial/spacing passage, continuum survival,
+  physical mass, full QFT/field/UV identification, all groups and Clay remain OPEN.
+
 ## PROVED original physical graph limits and score envelope obstruction (2026-10-01 UTC)
 
 - `BF4WilsonAllNomeComplexBondOSGraphNorm.plus_graph_pairing` proves full

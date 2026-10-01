@@ -6097,6 +6097,8 @@ import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSCayley
 -- Constructed physical graph limits retain BOTH component rates on supplied Rows.
 -- Fixed-parameter graph convergence is not a continuum Hamiltonian.
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSGraphNorm
+-- Two represented physical graph steps; preimage norm ceiling, not full-domain invariance.
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSSecondCore
 -- Original whole-family absolute kinetic upper and SAME completed time loss.
 -- Not a useful SAME-variance scaling estimate or a cross-width identification.
 import YMGap.Continuum.QuaternionHaarUniformFamilyCost
