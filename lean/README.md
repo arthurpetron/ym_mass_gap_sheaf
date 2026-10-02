@@ -12,7 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT original completed profile and normalized coefficient error (2026-10-02 UTC):**
+**CURRENT original strict prefix margin and exact coefficient identity (2026-10-02 UTC):**
+`SU2HeatJacobiFinitePrefixMargin` constructs a strict ACTUAL heatPrefix
+margin using both ORIGINAL tails at the SAME inclusive K, retaining the
+exact K+1 label count. All-later tail tolerance cutoffs are computed.
+`BernsteinNormalizedMonomialCoefficient` identifies the actual normalized
+falling quotient with the original elevated coefficient and directly
+reconstructs every monomial. Both FIRST focused explicit20-GiB checks and
+independent mathematical reviews passed; all 15 gates are allowed.
+The full nonnegative rational row, ORIGINAL Haar certificate, signed
+OWN-variance/scaling comparison and continuum endpoints remain OPEN.
+Evidence:
+`audits/AUDIT-ORIGINAL-PREFIX-MARGIN-AND-COEFFICIENT-IDENTITY-2026-10-02.md`.
+
+**EARLIER original completed profile and normalized coefficient error (2026-10-02 UTC):**
 `SU2HeatJacobiCompletedProfileBound` proves the ORIGINAL completed heat
 bound [2(1-x)]^2*K_q<=40*24576^2*(1-q)^2*K_(q*q), in sound eventual order,
 for 16/17<=q<1 and the full closed spatial interval. It joins the proved

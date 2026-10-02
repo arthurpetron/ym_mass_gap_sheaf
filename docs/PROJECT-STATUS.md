@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL common-cutoff margin and coefficient identity
+(2026-10-02 UTC; chart unchanged): both original heat prefixes retain the
+SAME inclusive K and exact K+1 labels. The actual polynomial has strict
+margin>=eta>0 with explicit tails and computed all-later tail cutoffs.
+BACKWARD: actual normalized falling coefficients equal the original
+elevated monomial row, with full exact monomial reconstruction.
+Both FIRST focused explicit20-GiB checks and independent reviews passed;
+all 15 gates are allowed. Full nonnegative rational row, ORIGINAL Haar
+certificate, signed OWN-variance/scaling comparison and every continuum
+endpoint remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-PREFIX-MARGIN-AND-COEFFICIENT-IDENTITY-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting original completed heat profile and coefficient error
 (2026-10-02 UTC; chart unchanged): for 16/17<=q<1 and EVERY x in [-1,1],
 the EXISTING original heat completion satisfies

@@ -25,7 +25,27 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Current forward-backward join: original completed profile and coefficient error (2026-10-02 UTC)
+### Current forward-backward join: original strict margin and exact coefficients (2026-10-02 UTC)
+
+PROGRESS after `0310fb9`: the completed profile and ORIGINAL finite tails
+now give r^2*H_q,K<=c*H_q*q,K+16*T_q+c*T_q*q at one common inclusive K.
+The K+1 label count is exact. The ACTUAL original heatPrefix margin has
+evaluation>=eta>0 on the full closed scalar interval. Each original tail
+has a computed all-later tolerance cutoff. BACKWARD: the cleared Pascal/
+falling identity identifies the ACTUAL normalized quotient with the
+original elevated Bernstein coefficient; exact monomial reconstruction
+follows. Both FIRST focused explicit20-GiB checks and independent reviews
+passed; all 15 gates are allowed. Evidence:
+`audits/AUDIT-ORIGINAL-PREFIX-MARGIN-AND-COEFFICIENT-IDENTITY-2026-10-02.md`.
+
+NEXT JOIN: compute the actual full rational Bernstein row and a finite
+degree ensuring its nonnegativity from this strict margin, then construct
+the ORIGINAL Haar scalar square witness. Do not substitute pointwise
+positivity for the Type-valued Certificate. Signed whole-word cancellation,
+OWN interacting variance alignment, useful changing-family/width costs and
+every continuum endpoint remain OPEN. No exact chart claim or CI change.
+
+### Earlier forward-backward join: original completed profile and coefficient error (2026-10-02 UTC)
 
 PROGRESS after `e355a57`: the computed original products, completed theta
 height and differentiated Jacobi identity now produce the original completed

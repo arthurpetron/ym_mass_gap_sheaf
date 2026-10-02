@@ -5082,6 +5082,10 @@ import YMGap.Continuum.SU2HeatJacobiHeightComparison
 -- error; ORIGINAL Haar certificate, signed variance/scaling joins remain OPEN.
 import YMGap.Continuum.SU2HeatJacobiCompletedProfileBound
 import YMGap.Continuum.BernsteinNormalizedFallingProductError
+-- ORIGINAL common-cutoff strict margin and exact normalized monomial row;
+-- nonnegative full rational row / Haar certificate and scaling remain OPEN.
+import YMGap.Continuum.SU2HeatJacobiFinitePrefixMargin
+import YMGap.Continuum.BernsteinNormalizedMonomialCoefficient
 -- SAME predecessor square cancels in original source cap and odd-mass floor.
 -- Explicit additive cutoff modulus at fixed nome/width; scaling remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRawSourceMassBound

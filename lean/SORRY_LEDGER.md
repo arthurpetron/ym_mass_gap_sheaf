@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## PROVED original strict prefix margin and exact normalized coefficient identity only (2026-10-02 UTC)
+
+- `SU2HeatJacobiFinitePrefixMargin.inclusivePrefix_chord_quartic_bound`
+  retains the original prefixes at one common inclusive K and BOTH explicit
+  spacing tails, with EXACT K+1 offsets. `eta_le_quarticMarginPolynomial`
+  pins the ACTUAL original polynomial and gives margin>=eta>0 throughout
+  the closed scalar interval. `inclusivePrefixTail_small` has an actual
+  computed all-later tolerance cutoff, not an opaque tail hypothesis.
+- `BernsteinNormalizedMonomialCoefficient.elevatedMonoCoeff_mul_falling`
+  proves the cleared Pascal/falling identity, including the zero prefix.
+  `elevatedMonoCoeff_eqv_normalizedProduct` uses the actual quotient and
+  constructed denominator positivity. `normalizedProduct_reconstruction`
+  directly transports the ORIGINAL monomial Bernstein reconstruction.
+- Both FIRST focused explicit20-GiB checks and independent mathematical
+  reviews passed; all 15 gates allowed, five prefix data functions axiom-free.
+  Two root imports registered; broad checks NOT run; CI/chart unchanged.
+  No new sorry, axiom, weakened field, alternate source or resource ceiling.
+  OPEN: full nonnegative rational row, ORIGINAL Haar certificate, signed
+  OWN-variance/scaling comparison and every continuum endpoint. Evidence:
+  `audits/AUDIT-ORIGINAL-PREFIX-MARGIN-AND-COEFFICIENT-IDENTITY-2026-10-02.md`.
+
 ## PROVED original completed heat profile and numerical coefficient error only (2026-10-02 UTC)
 
 - `SU2HeatJacobiCompletedProfileBound.pointwiseHeat_chord_quartic_bound`

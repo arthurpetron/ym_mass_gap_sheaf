@@ -22,6 +22,14 @@ The ORIGINAL Haar certificate, signed OWN-variance comparison, useful
 changing-scale costs and continuum survival remain open. See the
 [bounds and exact remaining join](audits/AUDIT-COMPLETED-HEAT-PROFILE-AND-BERNSTEIN-ERROR-2026-10-02.md).
 
+**Latest finite join:** explicit original tails now give a strict margin
+for the ACTUAL heat-prefix polynomial at one common inclusive cutoff.
+The other branch identifies the actual normalized falling coefficients
+with the original Bernstein monomial reconstruction. Both focused checks
+passed. Constructing the nonnegative full rational row and its original
+Haar certificate is next; neither continuum survival nor the Clay theorem
+is claimed. See the [checked margin and coefficient identity](audits/AUDIT-ORIGINAL-PREFIX-MARGIN-AND-COEFFICIENT-IDENTITY-2026-10-02.md).
+
 **Earlier forward-backward progress (2026-10-02):** positive-time anchoring
 constructs actual rows of the same unit Wilson-square excitation in the
 existing physical bond completion, with squared norm exactly `R(2*side)`. Its
