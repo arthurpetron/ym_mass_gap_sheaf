@@ -5015,8 +5015,11 @@ import YMGap.Continuum.BF4DyadicWilsonSquareWardMoments
 import YMGap.Continuum.SU2QuaternionCompleteRemainderProjection
 import YMGap.Continuum.BF4DyadicWilsonSquareProjectionGain
 -- Scalar heat alignment does NOT extend to arbitrary quaternion-vector sources.
--- An exact one-link witness prunes that induction; scalar whole-word control is open.
+-- An exact witness prunes that induction; original-source/full-heat control is open.
 import YMGap.Continuum.SU2QuaternionVectorAlignmentObstruction
+-- Even a positive normalized scalar source defeats the whole-word floor at K=2.
+-- Actual product kernel; no original Wilson-source or full-heat refutation.
+import YMGap.Continuum.SU2QuaternionScalarWordCutoffObstruction
 -- Integrated original Ward residual transport, not a weight/derivative identity.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialProjectedWard
 -- The displayed majorant retains a quadratic floor; not a true-moment lower bound.

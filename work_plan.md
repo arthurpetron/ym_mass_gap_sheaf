@@ -54,9 +54,18 @@ PRUNED: the scalar one-link alignment does not extend to arbitrary quaternion
 vectors. The actual source A=(0,b,-c,0) has pairing w^3/2, while x*A has
 w^8/2; at w=1/2 every K>=2 gives comparison slack -3/512. The final focused
 check and independent review passed. Do not use that matrix-order induction
-to obtain a perimeter-linear word bound. The restricted scalar-source
-whole-word claim remains OPEN; the original signed-debt consumer above is
-unchanged. Evidence: `audits/AUDIT-VECTOR-HEAT-ALIGNMENT-2026-10-02.md`.
+to obtain a perimeter-linear word bound. Evidence:
+`audits/AUDIT-VECTOR-HEAT-ALIGNMENT-2026-10-02.md`.
+
+PRUNED: even an explicitly positive scalar source with Haar mass one defeats
+the unrestricted TWO-link whole-word floor at nome 1/2 and cutoff two. Its
+degree fits the cutoff and the elementary scalar one-link guard holds; every
+q*word output is omitted. The final focused check and independent review passed.
+This is not an original Wilson terminal source, original head-guarded estimate
+or full-heat counterexample. Source-specific omitted-channel/retention control
+must precede any use of that shortcut. The live COMPLETE signed-debt-minus-gain
+estimate on OWN variance remains OPEN and unchanged. Evidence:
+`audits/AUDIT-SCALAR-WORD-CUTOFF-2026-10-02.md`.
 
 ### Current physical bulk excitation at fixed nome (2026-10-02 UTC)
 

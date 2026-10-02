@@ -10,11 +10,18 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Finite scalar cutoff obstruction (2026-10-02):** even a strictly positive,
+Haar-normalized scalar source defeats the two-link whole-word heat floor at
+cutoff two. Its degree fits the cutoff and the elementary one-link guard holds;
+observable multiplication loses the required channels. Lean verification and
+independent review passed. This is not an original Wilson-source or full-heat
+counterexample. See the [exact result and scope](audits/AUDIT-SCALAR-WORD-CUTOFF-2026-10-02.md).
+
 **Discarded induction shortcut (2026-10-02):** an exact one-link counterexample
 shows that scalar heat alignment cannot be iterated on arbitrary quaternion
 vectors, at every cutoff K>=2. Lean verification and independent review passed.
-This does not refute the scalar whole-word claim or Yang--Mills; it removes a
-false intermediate step. See the [proof and scope](audits/AUDIT-VECTOR-HEAT-ALIGNMENT-2026-10-02.md).
+That vector result alone does not settle scalar whole-word control; it removes
+a false intermediate step. See the [proof and scope](audits/AUDIT-VECTOR-HEAT-ALIGNMENT-2026-10-02.md).
 
 **Growing Wilson square with retained gain (2026-10-02):** its original
 energy upper bound now subtracts a computed nonnegative projection gain,

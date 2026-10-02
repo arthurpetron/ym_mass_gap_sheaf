@@ -25,12 +25,22 @@ zero; useful scaling control and physical calibration remain OPEN.
 Evidence: `audits/AUDIT-DYADIC-SQUARE-PROJECTION-GAIN-2026-10-02.md` and
 `audits/AUDIT-DYADIC-SQUARE-WARD-MOMENTS-2026-10-02.md`.
 
+**PRUNED unrestricted scalar word floor at cutoff two (2026-10-02 UTC):**
+`SU2QuaternionScalarWordCutoffObstruction.no_positive_scalar_word_alignment`
+refutes the two-link word floor at nome 1/2, K=2, even with normalized Haar
+mass and a supplied square certificate for source>=1/2. The scalar source
+degree fits K and the elementary sufficientCutoff guard holds. Actual omitted
+word outputs are checked, not replaced by a bare model. The final focused
+check and independent review passed; all eighteen gates are allowed. Original
+Wilson-source, adequately retained full-heat and changing-family control remain
+OPEN. Evidence: `audits/AUDIT-SCALAR-WORD-CUTOFF-2026-10-02.md`.
+
 **PRUNED vector alignment induction (2026-10-02 UTC):**
 `SU2QuaternionVectorAlignmentObstruction.no_vector_alignment` uses an explicit
 supported source to refute the arbitrary-vector extension of scalar alignment
 at EVERY K>=2. Actual heat pairings have exact half-nome slack -3/512; the final
-focused check and independent review passed. The scalar whole-word inequality
-and original signed scaling estimate remain OPEN. Evidence:
+focused check and independent review passed. Original-source/full-heat word
+control and the signed scaling estimate remain OPEN. Evidence:
 `audits/AUDIT-VECTOR-HEAT-ALIGNMENT-2026-10-02.md`.
 
 **CURRENT physical bulk spatial limit (2026-10-02 UTC):**

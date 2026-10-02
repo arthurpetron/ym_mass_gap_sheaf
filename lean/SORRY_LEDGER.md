@@ -1,5 +1,21 @@
 # Sorry Ledger
 
+## PROVED positive scalar word obstruction at cutoff two only (2026-10-02 UTC)
+
+- `SU2QuaternionScalarWordCutoffObstruction.source_degree` proves degree two
+  in both literal link blocks; `scalar_cutoff_guard` meets the elementary
+  sufficientCutoff guard. The ACTUAL product heat drops every q*word component.
+- `positiveSource_floor` returns a square certificate for 1+q/50 >= 1/2;
+  `positiveSource_haar_mass` gives mass one. `positive_alignment_defect` is
+  -1/188743680000; `no_positive_scalar_word_alignment` refutes the universal
+  finite-cutoff scalar floor with those positivity and normalization premises.
+- Final focused check and independent review passed; eighteen gates are within
+  {propext,Quot.sound}. No new sorry, axiom, analytic premise or weakened field.
+  This is NOT an original Wilson source or an all-cutoff/full-heat result.
+  OPEN: complete original signed debt/OWN-variance control on a justified
+  changing family and all continuum endpoints. Broad checks NOT run; CI/chart
+  unchanged. Evidence: `audits/AUDIT-SCALAR-WORD-CUTOFF-2026-10-02.md`.
+
 ## PROVED obstruction to quaternion vector heat alignment only (2026-10-02 UTC)
 
 - `SU2QuaternionVectorAlignmentObstruction.source_heat` and `multiplied_heat`

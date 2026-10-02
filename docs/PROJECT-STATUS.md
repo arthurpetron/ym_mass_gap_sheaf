@@ -1,11 +1,19 @@
 # Canonical one-page project status
 
+Verified positive scalar word cutoff obstruction (2026-10-02 UTC; chart
+unchanged): a normalized source with certified floor 1/2 defeats the two-link
+whole-word floor at K=2, despite degree fitting K and the elementary one-link
+guard. Exact slack is -1/188743680000. Final focused check and independent
+review passed. Original Wilson-source, full-heat and signed changing-family
+control remain OPEN. Evidence: `audits/AUDIT-SCALAR-WORD-CUTOFF-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified vector-induction obstruction (2026-10-02 UTC; chart unchanged): the
 actual supported source A=(0,b,-c,0) and ordered x*A have heat pairings w^3/2
 and w^8/2 at EVERY K>=2. Half-nome comparison slack is -3/512. Final focused
 check and independent review passed. This prunes only the arbitrary-vector
-extension of scalar alignment; the scalar whole-word claim and original signed
-scaling estimate remain OPEN. Evidence:
+extension of scalar alignment; original-source/full-heat word control and the
+signed scaling estimate remain OPEN. Evidence:
 `audits/AUDIT-VECTOR-HEAT-ALIGNMENT-2026-10-02.md`.
 No exact displayed claim changed; no ASCII reprint.
 
