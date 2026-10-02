@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Physical bulk correlation comparison (2026-10-02):** original completed
+bond correlations now agree across padded widths to a computed tolerance,
+under the existing small-nome guards. Both volumes retain their own means
+and the full `lag + 1` time buffer. Focused constructive verification and
+independent review passed. This is a fixed-coupling scalar comparison, not
+a full width map or a spacing-uniform estimate. See the
+[proof and remaining frontier](audits/AUDIT-ORIGINAL-BULK-COMPARISON-2026-10-02.md).
+
 **Physical width inclusion obstruction (2026-10-02):** at every positive
 width, an explicit boundary source is physically zero but its literal inclusion
 at every larger width is not. No map of these full physical bond completions

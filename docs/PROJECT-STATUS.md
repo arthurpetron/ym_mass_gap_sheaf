@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting CURRENT physical bulk comparison (2026-10-02 UTC; chart
+unchanged): the existing small-nome original-action bound now compares ACTUAL
+completed bond connected correlations across independent padded widths.
+Both OWN means, reflection and the full lag+one buffer remain; a computed
+spatial modulus is independent of the larger width and exterior regulators.
+Final focused check and independent math/source review passed. No full width
+map, changing-spacing control or continuum closure is asserted. Evidence:
+`audits/AUDIT-ORIGINAL-BULK-COMPARISON-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting full physical width inclusion obstruction (2026-10-02 UTC;
 chart unchanged): at EVERY positive narrow width a literal boundary source
 is bond-null, but its SAME inclusion is nonnull after EVERY strict enlargement.

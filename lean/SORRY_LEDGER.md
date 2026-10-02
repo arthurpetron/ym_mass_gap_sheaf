@@ -1,5 +1,30 @@
 # Sorry Ledger
 
+## PROVED current physical bulk correlation comparison only (2026-10-02 UTC)
+
+- `OriginalBulkComparison.expectation_inclusion_bound` passes the actual
+  original-action spatial bound to CURRENT independent fixed-width joint
+  limits. `finite_connected_inclusion_bound` retains the joint moment and
+  BOTH OWN means, with heterogeneous marginal caps.
+- `connected_inclusion_bound` retains the same bound after original heat/time
+  removal. `comparisonModulus` computes a spatial tolerance threshold from
+  the source-sized amplitude and existing geometric rate, independent of
+  the larger width, heat stage and exterior time depth.
+- `bulkSource_crossOdd` preserves reflection, source radius and time offsets.
+  `bondForm_bulkSource_pin` pads each native odd horizon at the limit without
+  shifting time. `bulkConnected_pin` and `bulkConnected_inclusion_close`
+  reach the ACTUAL original BondCompletion connected correlations, retaining
+  lag+one and each width's OWN vacuum means. No quotient/vector map is assumed.
+- Final warning-free focused check and independent math/source review passed;
+  twenty-two printed gates lie within {propext,Quot.sound}. No sorry, new
+  axiom, analytic premise, erased witness, raised limit or weakened frontier.
+  Scope: fixed nome under the existing small-nome/entropy guards; fixed finite
+  source support and lag. OPEN: justified changing-family spatial/spacing
+  control, complete signed energy/OWN-variance bound, physical calibration,
+  nontrivial continuum survival, full same-theory QFT and every group.
+  One root import; root/tree/full audit/guard/progress NOT run; chart unchanged.
+  Evidence: `audits/AUDIT-ORIGINAL-BULK-COMPARISON-2026-10-02.md`.
+
 ## PROVED full literal physical width inclusion obstruction only (2026-10-02 UTC)
 
 - `WidthInclusionObstruction.timeDefect_source_zero_iff` identifies actual

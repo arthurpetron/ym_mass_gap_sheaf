@@ -25,6 +25,26 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Current physical bulk correlations across widths (2026-10-02 UTC)
+
+PROGRESS after `3cffec4`: the existing small-nome original-action spatial
+comparison now reaches the CURRENT fixed-width joint limits and ACTUAL
+completed physical bond connected correlations. An explicit source-sized
+budget includes BOTH OWN mean corrections; its computed spatial tolerance
+modulus is independent of the larger width, heat cutoff and exterior time
+depth. The radius, reflection and full lag+one buffer remain unchanged.
+No full completed-width map is needed or asserted. Final focused check and
+independent math/source review passed; all twenty-two gates are allowed.
+Evidence: `audits/AUDIT-ORIGINAL-BULK-COMPARISON-2026-10-02.md`.
+
+NEXT: join the controlled CURRENT physical bulk correlations to the existing
+fixed-coupling spatial functional, retaining the original sources and time.
+The current small-nome guards do not supply a justified changing-spacing
+trajectory. Obtain signed boundary/determinant control on that trajectory,
+not a full literal width map or an automatic extension toward nome one.
+The primary complete signed energy/OWN-variance bound, physical calibration
+and every continuum/Clay endpoint remain OPEN. No exact chart claim changed.
+
 ### Full literal physical width inclusion is impossible (2026-10-02 UTC)
 
 PROGRESS after `a62092c`: at EVERY positive narrow width the literal boundary
@@ -16164,8 +16184,10 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
    The stronger checked `BF4WilsonAllNomeWidthInclusionObstruction` rules out
    full literal source-preserving maps between ORIGINAL bond completions at
    EVERY positive base and strict enlargement. Starting at a larger width
-   does not repair that full map. Controlled bulk or approximate comparison
-   remains a separate OPEN task; no cross-width mean identification is assumed.
+   does not repair that full map. Fixed small-nome scalar bulk correlation
+   comparison is now proved by `BF4WilsonOriginalBulkComparison`; changing-family
+   bulk/spacing control and approximate carrier maps remain OPEN. No cross-width
+   mean identification is assumed.
 5. **Keep a bounded useful frontier.** Each checkpoint should supply an actual
    object/estimate consumed by the route, reduce a named open input, or rule out
    a proposed route. State the residue. Stop extending a branch when its intended

@@ -5837,8 +5837,11 @@ import YMGap.Continuum.BF4WilsonAllNomePlaquetteUniformCapResponse
 import YMGap.Continuum.BF4WilsonAllNomeFringeCorrelation
 import YMGap.Continuum.BF4WilsonAllNomeFringeTimeKernel
 -- Literal full width inclusion fails on ORIGINAL bond null classes at EVERY positive width.
--- Restricted bulk/spatial comparisons remain open; no continuum obstruction is asserted.
+-- Changing-family bulk/spatial control remains open; no continuum obstruction is asserted.
 import YMGap.Continuum.BF4WilsonAllNomeWidthInclusionObstruction
+-- Actual completed physical bulk correlations agree to a computed tolerance at small nome.
+-- Both OWN means and lag+one survive; no full carrier map or spacing-uniform claim.
+import YMGap.Continuum.BF4WilsonOriginalBulkComparison
 import YMGap.Continuum.BF4WilsonAllNomeTimeDefectMoments
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeTail
 -- Actual physical-time decay of a supplied nonzero plaquette defect.
