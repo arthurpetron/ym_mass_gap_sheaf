@@ -12,15 +12,16 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT physical bulk comparison (2026-10-02 UTC):**
-`OriginalBulkComparison.bulkConnected_inclusion_close` compares actual
-completed bond correlations at independent padded widths, using a computed
-spatial modulus independent of the larger width. Both OWN means and the
-full lag+one buffer remain. The existing small-nome guards are retained;
-this is not a full completed-width map or changing-spacing control.
-Final focused check and independent review passed; all twenty-two printed
-gates lie within {propext,Quot.sound}. Every continuum endpoint remains OPEN.
-Evidence: `audits/AUDIT-ORIGINAL-BULK-COMPARISON-2026-10-02.md`.
+**CURRENT physical bulk spatial limit (2026-10-02 UTC):**
+`OriginalBulkComparison.bulkConnected_spatial_close` joins the ACTUAL
+completed bond correlations to the existing reflected spatial form with
+the explicit geometric modulus. `bulkConnected_included_spatial_close`
+retains the SAME smaller-source target and threshold uniformly in larger
+ambient widths. Both OWN means and the full lag+one buffer remain. The
+small-nome guards are unchanged; no full width map or changing-spacing
+control is asserted. Final focused check and independent review passed;
+all 35 printed gates lie within {propext,Quot.sound}. Continuum remains OPEN.
+Evidence: `audits/AUDIT-ORIGINAL-BULK-SPATIAL-LIMIT-2026-10-02.md`.
 
 **Full physical width inclusion obstruction (2026-10-02 UTC):**
 `WidthInclusionObstruction.no_completed_literal_inclusion` rules out ANY

@@ -25,6 +25,26 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Current physical correlations reach the spatial limit (2026-10-02 UTC)
+
+PROGRESS after `8571e62`: the ACTUAL completed physical bulk connected
+correlations now approach the EXISTING reflected spatial connected form
+with the SAME source-sized geometric budget and executable tolerance
+modulus. Both OWN means and the full lag+one clock survive. The same
+smaller-source target and threshold at epsilon/2 control EVERY larger
+ambient width; no full carrier map or width-uniform inner time modulus is
+assumed. Final focused check and independent math/source review passed;
+all 35 gates, including 13 added declarations, are allowed. Evidence:
+`audits/AUDIT-ORIGINAL-BULK-SPATIAL-LIMIT-2026-10-02.md`.
+
+NEXT: use this actual SAME-source scalar join in physical survival/decay
+consumers where their inputs already exist. The existing small-nome rate
+does not justify a changing-spacing trajectory or nome-one limit. The
+primary missing input remains useful signed boundary/determinant and
+complete energy/OWN-variance control along that justified family, followed
+by its physical calibration. Every continuum/Clay endpoint remains OPEN;
+no exact chart claim changed.
+
 ### Current physical bulk correlations across widths (2026-10-02 UTC)
 
 PROGRESS after `3cffec4`: the existing small-nome original-action spatial
@@ -16185,9 +16205,10 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
    full literal source-preserving maps between ORIGINAL bond completions at
    EVERY positive base and strict enlargement. Starting at a larger width
    does not repair that full map. Fixed small-nome scalar bulk correlation
-   comparison is now proved by `BF4WilsonOriginalBulkComparison`; changing-family
-   bulk/spacing control and approximate carrier maps remain OPEN. No cross-width
-   mean identification is assumed.
+   comparison and its SAME spatial-limit join are now proved by
+   `BF4WilsonOriginalBulkComparison`, with a smaller-source tolerance modulus
+   uniform in larger widths. Changing-family bulk/spacing control and approximate
+   carrier maps remain OPEN. No cross-width mean identification is assumed.
 5. **Keep a bounded useful frontier.** Each checkpoint should supply an actual
    object/estimate consumed by the route, reduce a named open input, or rule out
    a proposed route. State the residue. Stop extending a branch when its intended

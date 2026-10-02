@@ -1,13 +1,13 @@
 # Canonical one-page project status
 
-Verified supporting CURRENT physical bulk comparison (2026-10-02 UTC; chart
-unchanged): the existing small-nome original-action bound now compares ACTUAL
-completed bond connected correlations across independent padded widths.
-Both OWN means, reflection and the full lag+one buffer remain; a computed
-spatial modulus is independent of the larger width and exterior regulators.
-Final focused check and independent math/source review passed. No full width
-map, changing-spacing control or continuum closure is asserted. Evidence:
-`audits/AUDIT-ORIGINAL-BULK-COMPARISON-2026-10-02.md`.
+Verified supporting CURRENT physical bulk spatial limit (2026-10-02 UTC;
+chart unchanged): ACTUAL completed bond correlations approach the existing
+reflected spatial value, retaining BOTH OWN means and the full lag+one clock.
+The computed smaller-source modulus works uniformly in every larger ambient
+width. Final focused check and independent math/source review passed. The
+small-nome guards remain; no full width map, changing-spacing control or
+continuum closure is asserted. Evidence:
+`audits/AUDIT-ORIGINAL-BULK-SPATIAL-LIMIT-2026-10-02.md`.
 No exact displayed claim changed; no ASCII reprint.
 
 Verified supporting full physical width inclusion obstruction (2026-10-02 UTC;

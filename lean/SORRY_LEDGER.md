@@ -1,5 +1,30 @@
 # Sorry Ledger
 
+## PROVED current physical correlations reach the spatial limit only (2026-10-02 UTC)
+
+- `OriginalBulkComparison.finite_connected_spatial_bound` retains joint and
+  BOTH OWN marginal comparisons. `connectedMoment_spatial_tail_bound`
+  removes the original cutoff/time regulators; `connectedMoment_spatial_limit_bound`
+  sends only the later spatial row to the EXISTING spatial limit.
+- `connectedMoment_spatial_close` uses the computed `comparisonModulus`.
+  The legacy Prop convergence proofs pass inequalities only; no threshold
+  or coefficient is extracted from an erased existential.
+- `spatialLimit_crossOdd_pin` and `spatialConnectedMoment_pin` identify the
+  SAME spatial connected value with clock lag+one and checked stationary
+  means. `bulkConnected_spatial_close` reaches the ACTUAL completed physical
+  correlations. `bulkConnected_included_spatial_close` extends that estimate
+  uniformly in EVERY larger ambient width using the same smaller-source
+  threshold at epsilon/2, with no equality of finite-width means.
+- Final warning-free focused check and independent review passed; all 35
+  module gates, including 13 added declarations, lie within {propext,Quot.sound}.
+  No sorry, new axiom, analytic premise, erased modulus, raised limit or
+  weakened frontier. Scope remains fixed small nome, finite source support
+  and fixed lag. OPEN: complete signed changing-family energy/OWN-variance
+  control, spatial/spacing control along a justified trajectory, physical
+  calibration, nontrivial continuum survival, full SAME-theory QFT and every
+  group. No new root import; broad checks NOT run; CI/chart unchanged.
+  Evidence: `audits/AUDIT-ORIGINAL-BULK-SPATIAL-LIMIT-2026-10-02.md`.
+
 ## PROVED current physical bulk correlation comparison only (2026-10-02 UTC)
 
 - `OriginalBulkComparison.expectation_inclusion_bound` passes the actual

@@ -1,5 +1,9 @@
 # Original physical bulk correlation comparison
 
+The source references and verification hashes below record checkpoint
+`8571e62`. The subsequent spatial-limit join is recorded separately in
+`audits/AUDIT-ORIGINAL-BULK-SPATIAL-LIMIT-2026-10-02.md`.
+
 ## Result and scope
 
 The CURRENT original physical bond correlations of the same finite signed
