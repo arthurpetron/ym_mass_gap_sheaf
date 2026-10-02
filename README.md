@@ -18,7 +18,13 @@ reduces a sufficient survival estimate to a lag-one reserve and a bound on
 the cancellation-preserving two-lag slope. Those quantitative inputs remain
 open. See the [exact source and filtered target](audits/AUDIT-FILTERED-SIGNED-RESPONSE-AND-COEFFICIENT-OBSTRUCTION-2026-10-02.md).
 
-**New checked full-product bound:** every selected original heat factor and
+**New checked source cancellation:** the literal original radius-two loop
+source equals conditional noise MINUS a nonnegative drift square, over its
+SAME even-window partition. The original finiteValue pin and constant-shift
+invariance of the drift are checked. Useful OWN-variance-relative control
+remains open. See the [exact cancellation and scope](audits/AUDIT-ORIGINAL-FILTERED-NOISE-DRIFT-2026-10-02.md).
+
+**Checked full-product bound:** every selected original heat factor and
 the entire signed endpoint source are retained in the quartic Schur estimate.
 The coefficient `60*(1-q)^2` is independent of width and source degree on the
 guarded cutoff tail. Its cost remains RAW Haar source square, not interacting

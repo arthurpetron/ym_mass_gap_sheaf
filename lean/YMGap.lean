@@ -5112,6 +5112,9 @@ import YMGap.Continuum.SU2HeatQuarticFixedSourceObstruction
 import YMGap.Continuum.SU2QuaternionHeatQuarticSchur
 -- Full retained-product signed bound: arbitrary entire source, same RAW cost.
 import YMGap.Continuum.SU2QuaternionProductHeatQuarticSchur
+-- Literal original radius-two loop source = noise MINUS drift square,
+-- normalized by its SAME even-window partition; relative estimate remains OPEN.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFilteredNoiseDrift
 -- SAME predecessor square cancels in original source cap and odd-mass floor.
 -- Explicit additive cutoff modulus at fixed nome/width; scaling remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRawSourceMassBound

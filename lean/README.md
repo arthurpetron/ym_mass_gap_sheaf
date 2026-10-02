@@ -13,12 +13,19 @@ discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
 **CURRENT original signed filtered source and SAME response target (2026-10-02 UTC):**
+`BF4ExactSlabFixedSpatialFilteredNoiseDrift` pins the literal original loop
+source and finiteValue to noise MINUS drift square over the SAME EVEN
+window partition. Drift positivity and constant-shift invariance are checked;
+all twelve final gates passed. No odd-partition substitution or useful
+relative estimate follows. Evidence:
+`audits/AUDIT-ORIGINAL-FILTERED-NOISE-DRIFT-2026-10-02.md`.
+
 `SU2QuaternionProductHeatQuarticSchur` retains the complete selected heat
 product and the ENTIRE signed n-link source, including spectators/inactive
 coordinates. BOTH actual marginals give coefficient 60*(1-q)^2 with RAW
 source-square cost, independent of width/degree on the guarded cutoff tail.
-All eight final gates passed. OWN-variance comparison and the exact filtered
-three-slice join remain OPEN. Evidence:
+All eight final gates passed. The original three-slice source join is now
+supplied above; useful OWN-variance comparison remains OPEN. Evidence:
 `audits/AUDIT-FULL-PRODUCT-SIGNED-QUARTIC-SCHUR-2026-10-02.md`.
 
 `SU2QuaternionHeatQuarticSchur` constructs BOTH original quartic Haar

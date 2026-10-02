@@ -27,14 +27,29 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME signed filtered slope and reserve (2026-10-02 UTC)
 
+NEW CHECKED CAUSAL SOURCE JOIN: integrate the literal original radius-two
+loop window with symmetric external depths (n,2,n). With A=Tg, B=T(gf),
+C=T(gf^2), its actual finiteValue is [ell(AC-B^2)-ell((B-Af)^2)]/ell(A^2).
+The SAME EVEN partition is proved, not replaced by the finite odd one.
+Drift positivity and constant-shift invariance are checked. All twelve
+final gates passed. NEXT estimate this COMPLETE noise-minus-drift expression
+relative to OWN interacting variance, retaining the negative square and
+actual terminal/source terms. Use existing original joint/rectangle moduli
+to transport the estimate; no finite stationarity, noise positivity,
+source eigenpin or variance equality is to be assumed. The full-product
+raw Schur bound below is a separate supporting tool, not the filtered
+slope itself. Useful justified-family reserve/budget and all continuum
+endpoints remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-FILTERED-NOISE-DRIFT-2026-10-02.md`.
+
 NEW CHECKED FULL-PRODUCT PRODUCER: all distinct original selected heat
 factors and the ENTIRE n-link signed source now have BOTH exact quartic
 marginals and coefficient 60*(1-q)^2, independent of width/source degree
 on the guarded cutoff tail. All eight final gates passed. RAW cost is
 still NOT the interacting sourceMoment/OWN variance or the literal filtered
-source. The next causal source join is an ORIGINAL three-slice fold retaining
-noise MINUS drift, with its actual partition, not a false identification of
-quartic cost with R1-R2. In parallel, retain the exact signed heat-loss
+source. The ORIGINAL three-slice noise-MINUS-drift join is now supplied above,
+with its actual partition, not a false identification of quartic cost with
+R1-R2. In parallel, retain the exact signed heat-loss
 correction in RAW/OWN comparison; no channelwise centering or assumed useful
 sign. Evidence:
 `audits/AUDIT-FULL-PRODUCT-SIGNED-QUARTIC-SCHUR-2026-10-02.md`.

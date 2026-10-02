@@ -1,5 +1,22 @@
 # Sorry Ledger
 
+## PROVED literal original filtered noise-minus-drift fold only (2026-10-02 UTC)
+
+- `BF4ExactSlabFixedSpatialFilteredNoiseDrift.filtered_loop_numerator`,
+  `.filtered_loop_windowRatio` and `.filtered_loop_originalWindowScalar`
+  pin the existing signed radius-two loop source to N-D over the SAME
+  original EVEN partition. `.evenPartition_middle_pin` computes ell((Tg)^2).
+  No finite odd-partition equality, stationarity or source eigenpin is assumed.
+- `.driftSquare_nonnegative` and `.driftPolynomial_shifted` retain the actual
+  negative square and its constant-shift invariance. No noise positivity,
+  useful relative estimate, new joint limit or scaling conclusion is claimed.
+- Final FOURTH focused explicit20-GiB check passed all twelve allowed gates;
+  independent math review passed. Root import registered, not aggregate-checked.
+  No new sorry/axiom/classical shortcut/CI/chart change. Estimate COMPLETE N-D
+  relative to OWN variance with the original moduli and justified family;
+  every continuum endpoint remains OPEN. Evidence:
+  `audits/AUDIT-ORIGINAL-FILTERED-NOISE-DRIFT-2026-10-02.md`.
+
 ## PROVED full retained-product signed quartic budget only (2026-10-02 UTC)
 
 - `SU2QuaternionProductHeatQuarticSchur.quarticProduct_certificate` retains

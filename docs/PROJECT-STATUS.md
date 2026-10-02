@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL filtered noise-minus-drift fold (2026-10-02 UTC;
+chart unchanged): the literal loop source and original finiteValue in the
+symmetric (n,2,n) window equal N-D over the SAME EVEN partition ell((Tg)^2).
+D is nonnegative and invariant under rational constant shifts of f. The
+negative square is retained before estimates; no finite odd-partition,
+stationarity, noise positivity or quartic/TD equality is assumed. Final
+FOURTH focused explicit20-GiB check passed twelve allowed gates. Useful
+OWN-variance-relative control on a justified family and continuum remain
+OPEN. Evidence: `audits/AUDIT-ORIGINAL-FILTERED-NOISE-DRIFT-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting FULL retained-product signed quartic estimate (2026-10-02
 UTC; chart unchanged): all distinct selected heat factors and the ENTIRE
 signed n-link source are retained, including spectators/inactive coordinates.
