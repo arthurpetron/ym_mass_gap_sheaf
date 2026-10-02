@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL disjoint-face cross identity (2026-10-02 UTC;
+chart unchanged): literal link-disjointness kills the first-order angular
+cross before integration. The full temporal cross equals the COMPLETE signed
+remainder cross under one unchanged original density/partition, including
+the direct finite Wilson-window consumer and its original schedule. Fifteen
+focused gates and independent review passed. Interacting covariance and the
+remainder are not zero or bounded; no useful changing-family slack or continuum
+result. Evidence: `audits/AUDIT-DISJOINT-FACE-ENERGY-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting common ORIGINAL two-face cutoff (2026-10-02 UTC;
 chart unchanged): exact three-anchor polarization constructs one cutoff
 error bound for every bounded signed coefficient pair at fixed physical

@@ -25,6 +25,25 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Exact ORIGINAL cross energy of link-disjoint faces (2026-10-02 UTC)
+
+PROGRESS after `b63b4c0`: literal link-disjointness gives coefficientwise
+mixed angular cancellation on every physical block, then exact angular
+additivity under ONE unchanged original weight and partition. The FULL
+temporal mixed energy equals the mixed COMPLETE signed Taylor remainder.
+`finite_mixed_increment` joins this to the original Wilson window with its
+unchanged cutoff/depth schedule and factor TWO. Fifteen focused gates and
+independent review passed within {propext,Quot.sound}. Evidence:
+`audits/AUDIT-DISJOINT-FACE-ENERGY-2026-10-02.md`.
+
+NEXT: control that retained original mixed remainder AND interacting OWN
+covariance for useful signed slack on a justified changing family. Neither
+is zero by disjointness; no favorable original margin or scaling rate is
+supplied. A genuine base-two disjoint spatial pair is constructed, not a
+positive-margin instance. Physical/continuum/Clay endpoints stay OPEN.
+One root import; no broad check, new analytic input, raised limit or CI/chart
+change. No displayed claim changed and no ASCII chart is reprinted.
+
 ### Common ORIGINAL cutoff for bounded two-face directions (2026-10-02 UTC)
 
 PROGRESS after `ad12483`: `TwoFaceMarginCutoff.polarization` proves exact

@@ -12,6 +12,15 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Exact ORIGINAL disjoint-face cross energy (2026-10-02 UTC):**
+`DisjointFaceEnergy.blockGamma_zero` proves literal blockwise angular
+cancellation. `padded_mixed_energy` and `finite_mixed_increment` retain the
+ENTIRE temporal cross as the full signed-remainder cross under one original
+density and partition. Fifteen focused gates and independent review passed
+within {propext,Quot.sound}. Remainder/covariance bounds, useful changing-family
+slack and all physical/continuum endpoints remain OPEN. Evidence:
+`audits/AUDIT-DISJOINT-FACE-ENERGY-2026-10-02.md`.
+
 **Common ORIGINAL two-face cutoff control (2026-10-02 UTC):**
 `TwoFaceMarginCutoff.polarization` retains both ordered cross entries and OWN
 means. `cutoff` computes one modulus from THREE actual original anchor profiles;

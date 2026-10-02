@@ -4,7 +4,22 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Common ORIGINAL bounded two-face cutoff (2026-10-02 UTC)
+## Current increment: ORIGINAL disjoint-face cross energy (2026-10-02 UTC)
+
+PROGRESS after `b63b4c0`: literal link geometry removes the angular cross
+coefficientwise before weighting. Under ONE original density/partition,
+the full temporal mixed energy equals the complete signed-remainder mixed
+difference. The direct Wilson-window consumer keeps its original schedule
+and factor TWO. Fifteen focused gates and independent review passed. Evidence:
+`audits/AUDIT-DISJOINT-FACE-ENERGY-2026-10-02.md`.
+
+NEXT is a useful signed estimate on the retained original remainder and OWN
+covariance, not assumed energy additivity. No favorable original instance,
+changing-family rate, spatial control or physical/continuum endpoint supplied.
+One root import; no broad build/audit/guard/progress run, new analytic premise,
+changed safety/CI or displayed chart state. No ASCII reprint.
+
+## Earlier increment: Common ORIGINAL bounded two-face cutoff (2026-10-02 UTC)
 
 PROGRESS after `ad12483`: three-anchor polarization gives one original
 cutoff allowance for EVERY rational direction in |x|,|y|<=B. The modulus is

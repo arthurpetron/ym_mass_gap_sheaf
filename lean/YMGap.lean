@@ -6121,6 +6121,9 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialTwoFaceMarginSearch
 -- ONE original cutoff allowance for all bounded two-face signed directions.
 -- A useful positive pivot and changing-family rate remain OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialTwoFaceMarginCutoff
+-- Literal link-disjoint faces have zero angular cross, not zero temporal
+-- cross: the full original mixed energy is the complete signed remainder.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialDisjointFaceEnergy
 -- Quantified ORIGINAL passive nonvacuum attenuation and literal vacuum
 -- projection, joined to the SAME signed Taylor/Ward variance budget.
 -- No changing-source scaling bound or continuum reserve is asserted.

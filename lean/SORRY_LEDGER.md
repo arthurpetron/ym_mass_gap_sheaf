@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL disjoint-face angular cancellation only (2026-10-02 UTC)
+
+- `DisjointFaceEnergy.blockRow_separate` uses actual physical link-index
+  injectivity; `blockGamma_zero` kills the mixed angular polynomial on each
+  physical block. No statistical independence of the faces is assumed.
+- `weightedAngular_pair` keeps ONE arbitrary weight; original marginal and
+  normalization consumers keep the SAME density and partition. Signed
+  coefficients are arbitrary. Strict padding supplies original Taylor locality.
+- `padded_mixed_energy` retains full temporal cross as complete signed-remainder
+  cross. `finite_mixed_increment` is the direct original squared-window consumer
+  at its unchanged cutoff/depth, with factor TWO. A base-two disjoint geometric
+  pair is exhibited; no favorable original energy/variance instance follows.
+- Fifteen focused gates and independent review passed within
+  {propext,Quot.sound}; no sorry, axiom, new analytic premise or frontier
+  weakening. OPEN: retained signed remainder and OWN covariance control,
+  useful changing-family slack, spatial/spacing control and every physical/
+  continuum/Clay endpoint. One root import; no broad check or chart change.
+  Evidence: `audits/AUDIT-DISJOINT-FACE-ENERGY-2026-10-02.md`.
+
 ## PROVED common ORIGINAL bounded two-face cutoff only (2026-10-02 UTC)
 
 - `TwoFaceMarginCutoff.polarization` gives normalized three-anchor

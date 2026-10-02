@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Exact disjoint-face cross energy (2026-10-02):** literal link-disjointness
+removes the first-order angular cross term under the unchanged original
+density. The full temporal cross term equals the complete signed-remainder
+cross term, also on the original finite Wilson window. Focused constructive
+verification and independent review passed. Neither interacting covariance
+nor the remainder is declared zero or bounded. See the
+[identity and remaining estimate](audits/AUDIT-DISJOINT-FACE-ENERGY-2026-10-02.md).
+
 **Common two-face cutoff control (2026-10-02):** three original profiles now
 give one constructed cutoff error bound for every bounded signed coefficient
 pair. Cross terms and both endpoint means remain; a supplied positive pivot
