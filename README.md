@@ -31,8 +31,10 @@ OWN finite interacting variance at the fixed original odd mean. Exact
 Young retains radial, Young and drift-square corrections, and the actual
 mixed/matched window comparison pays the finite variance error. The same
 computed depth onset pays this error and the complete word quartic term.
-The remaining chord cost and useful changing-family relative bound remain
-open. See the [join and retained corrections](audits/AUDIT-FILTERED-OWN-VARIANCE-AND-RETAINED-SQUARES-2026-10-02.md).
+Both chord costs are now explicit, from the original whole-word cap-four
+and boundary comparison; the radial, Young and drift corrections stay.
+The useful changing-family relative bound remains open. See the
+[fully paid ceiling and remaining input](audits/AUDIT-FULLY-PAID-FILTERED-OWN-CEILING-2026-10-02.md).
 
 **Checked signed-source estimate:** that SAME source is exactly an
 original mixed-depth jump square minus TWICE the drift square. Its upper

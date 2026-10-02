@@ -13,6 +13,16 @@ discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
 **CURRENT original signed filtered source and SAME response target (2026-10-02 UTC):**
+`QuaternionHaarChordalInterval` and
+`BF4ExactSlabFixedSpatialMixedDepthChordalInsertion` pay the remaining
+mixed chord moment against the SAME even partition, via an actual whole-word
+cap4 and original common-tail comparison. The kinetic guards remain explicit.
+The complete OWN ceiling now estimates BOTH positive moments and retains
+radial, Young and drift corrections. Both final focused checks passed five
+allowed gates; independent reviews passed. Useful relative cost/reserve on
+a justified changing family remains OPEN. Evidence:
+`audits/AUDIT-FULLY-PAID-FILTERED-OWN-CEILING-2026-10-02.md`.
+
 `BF4ExactSlabFixedSpatialFilteredOwnYoung` now compares the actual mixed
 centered moment with OWN oddVariance at the SAME original odd mean,
 with explicit 32*mixRate^n error. Exact Young retains radial centered,

@@ -27,6 +27,21 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME signed filtered slope and reserve (2026-10-02 UTC)
 
+NEW CHECKED BOTH CHORD COSTS PAID: an actual Type-valued whole-word
+Interval cap4 follows from 4-|p-q|^2=|p+q|^2 under the original Haar-unit
+pins. Common-tail comparison gives L<=[6(1-w)*length^2+8*mixRate^n]*E;
+the SAME depth onset pays this error too. The matched kinetic onset and
+K>=1 are explicit, not inferred from quarticCutoff. The COMPLETE ceiling is
+t*S+2tU+2Y+2tD<=2E[t^2(OWNVar+epsilon)+(t+c^2)*b+t(4-c^2)*a],
+a=6(1-w)*length^2+epsilon, b=16*length^4*(profile+2epsilon), at the actual
+OWN mean c. All corrections remain; c^2<=4 is proved before paying L.
+Both final focused checks passed five allowed gates and independent reviews.
+NEXT control this COMPLETE retained cost versus OWN variance/lag-one reserve
+on a justified changing family. Both positive moments are now estimated;
+more absolute caps or normalization wrappers do not supply the missing
+relative estimate. No length-uniform cost or physical schedule is inferred.
+Evidence: `audits/AUDIT-FULLY-PAID-FILTERED-OWN-CEILING-2026-10-02.md`.
+
 NEW CHECKED OWN-VARIANCE JOIN: the COMPLETE signed source now meets its
 OWN finite interacting variance at the SAME original odd mean c. Exact
 Young retains U=H_W[r(c-f_upper)^2], Y=H_W[(t(c-f_upper)-c*r)^2] and D.

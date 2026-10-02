@@ -5128,6 +5128,10 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialFilteredQuarticCeiling
 -- Complete filtered source meets OWN finite variance at the fixed original
 -- odd mean; radial, Young and drift squares retained. Scaling cost stays OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFilteredOwnYoung
+-- Whole-word cap4 and original common-tail comparison pay the mixed chord
+-- cost too; all OWN-centered corrections and explicit kinetic guards remain.
+import YMGap.Continuum.QuaternionHaarChordalInterval
+import YMGap.Continuum.BF4ExactSlabFixedSpatialMixedDepthChordalInsertion
 -- Actual OWN-centered Wilson quartic insertion, SAME original positive
 -- terminal/spectator source and odd partition; not the full filtered slope.
 import YMGap.Continuum.BF4DyadicWilsonSquareSignedQuarticInsertion

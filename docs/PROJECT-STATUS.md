@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting BOTH positive chord costs paid (2026-10-02 UTC;
+chart unchanged): the actual whole-word cap4 and original common-tail
+comparison bound the mixed chord by [6(1-w)*length^2+epsilon]*SAME even
+partition, with explicit kinetic guards and the existing depth onset.
+The COMPLETE filtered OWN-variance ceiling keeps radial, Young and drift
+corrections and both explicit length-dependent costs. Both final focused
+explicit20-GiB checks passed five allowed gates; independent reviews passed.
+Useful relative cost/reserve on a justified family remains OPEN. Evidence:
+`audits/AUDIT-FULLY-PAID-FILTERED-OWN-CEILING-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting COMPLETE source to OWN variance join (2026-10-02 UTC;
 chart unchanged): exact Young keeps radial centered, Young and drift
 squares at the SAME original odd mean. The actual mixed centered moment

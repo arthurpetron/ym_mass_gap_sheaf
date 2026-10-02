@@ -4,7 +4,26 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Complete filtered source meets OWN variance (2026-10-02 UTC)
+## Current increment: Both original chord costs paid with corrections retained (2026-10-02 UTC)
+
+PROGRESS after `fb3a0bf`: construct the literal whole-word chord Interval
+cap4 using the original Haar-unit parallelogram identity. The matched
+kinetic estimate transports to the actual mixed window with error8*mixRate^n
+and SAME even partition, without an invalid mixed bilinear-order shortcut.
+Explicit K>=1 and sufficientCutoff guards remain. The SAME depth onset
+pays this error as well. The complete OWN-centered filtered-source ceiling
+now pays BOTH chord moments while retaining radial, Young and drift
+corrections. Both final focused checks passed five allowed gates;
+independent math/source/log/hash review passed. Evidence:
+`audits/AUDIT-FULLY-PAID-FILTERED-OWN-CEILING-2026-10-02.md`.
+
+NEXT: useful COMPLETE retained cost and lag-one reserve on a justified
+changing family; not more positive caps. Length^2/length^4 costs remain
+explicit and nonuniform in square size. No continuum or Clay endpoint
+closes. Two root imports registered; root/tree, broad audit/guard and
+progress metric NOT run. CI and exact chart unchanged; no ASCII reprint.
+
+## Earlier increment: Complete filtered source meets OWN variance (2026-10-02 UTC)
 
 PROGRESS after `84e6178`: exact Young retains BOTH its squared corrections
 under the SAME original Haar weight. The actual mixed centered moment is
