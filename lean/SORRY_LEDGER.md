@@ -1,5 +1,20 @@
 # Sorry Ledger
 
+## PROVED obstruction to quaternion vector heat alignment only (2026-10-02 UTC)
+
+- `SU2QuaternionVectorAlignmentObstruction.source_heat` and `multiplied_heat`
+  prove w^3/2 and w^8/2 for the actual one-link packet at EVERY K>=2.
+  The explicit supported source A=(0,b,-c,0) uses actual ordered multiplication.
+- `alignment_defect` proves -3/512 at nome 1/2; `no_vector_alignment`
+  refutes the universal vector induction step, NOT the scalar one-link theorem,
+  scalar-source whole-word claim or original interacting Wilson route.
+- Final warning-free focused check and independent review passed; all nine
+  gates are permitted. No new sorry, axiom, analytic premise or weakened field.
+  OPEN: COMPLETE original signed debt/OWN-variance control on a justified
+  changing family and every continuum endpoint. One root import; broad checks
+  NOT run; CI/chart unchanged. Evidence:
+  `audits/AUDIT-VECTOR-HEAT-ALIGNMENT-2026-10-02.md`.
+
 ## PROVED retained original loop projection gain only (2026-10-02 UTC)
 
 - `SU2QuaternionCompleteRemainderProjection.projectionGain` constructs

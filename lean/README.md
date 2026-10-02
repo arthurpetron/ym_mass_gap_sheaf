@@ -25,6 +25,14 @@ zero; useful scaling control and physical calibration remain OPEN.
 Evidence: `audits/AUDIT-DYADIC-SQUARE-PROJECTION-GAIN-2026-10-02.md` and
 `audits/AUDIT-DYADIC-SQUARE-WARD-MOMENTS-2026-10-02.md`.
 
+**PRUNED vector alignment induction (2026-10-02 UTC):**
+`SU2QuaternionVectorAlignmentObstruction.no_vector_alignment` uses an explicit
+supported source to refute the arbitrary-vector extension of scalar alignment
+at EVERY K>=2. Actual heat pairings have exact half-nome slack -3/512; the final
+focused check and independent review passed. The scalar whole-word inequality
+and original signed scaling estimate remain OPEN. Evidence:
+`audits/AUDIT-VECTOR-HEAT-ALIGNMENT-2026-10-02.md`.
+
 **CURRENT physical bulk spatial limit (2026-10-02 UTC):**
 `OriginalBulkComparison.bulkConnected_spatial_close` joins the ACTUAL
 completed bond correlations to the existing reflected spatial form with

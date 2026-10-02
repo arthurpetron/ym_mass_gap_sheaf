@@ -5014,6 +5014,9 @@ import YMGap.Continuum.BF4DyadicWilsonSquareWardMoments
 -- Raw q^2/OWN correction and COMPLETE debts remain; no scaling margin is proved.
 import YMGap.Continuum.SU2QuaternionCompleteRemainderProjection
 import YMGap.Continuum.BF4DyadicWilsonSquareProjectionGain
+-- Scalar heat alignment does NOT extend to arbitrary quaternion-vector sources.
+-- An exact one-link witness prunes that induction; scalar whole-word control is open.
+import YMGap.Continuum.SU2QuaternionVectorAlignmentObstruction
 -- Integrated original Ward residual transport, not a weight/derivative identity.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialProjectedWard
 -- The displayed majorant retains a quadratic floor; not a true-moment lower bound.

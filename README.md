@@ -10,6 +10,12 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Discarded induction shortcut (2026-10-02):** an exact one-link counterexample
+shows that scalar heat alignment cannot be iterated on arbitrary quaternion
+vectors, at every cutoff K>=2. Lean verification and independent review passed.
+This does not refute the scalar whole-word claim or Yang--Mills; it removes a
+false intermediate step. See the [proof and scope](audits/AUDIT-VECTOR-HEAT-ALIGNMENT-2026-10-02.md).
+
 **Growing Wilson square with retained gain (2026-10-02):** its original
 energy upper bound now subtracts a computed nonnegative projection gain,
 using the same positive partition for regularization and normalization.

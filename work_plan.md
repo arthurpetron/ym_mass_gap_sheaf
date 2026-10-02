@@ -50,6 +50,14 @@ spacing is NOT physical calibration. All continuum endpoints and exact chart
 claims remain OPEN. The cached seven-paper applicability check identifies
 methods, not a producer for this missing estimate.
 
+PRUNED: the scalar one-link alignment does not extend to arbitrary quaternion
+vectors. The actual source A=(0,b,-c,0) has pairing w^3/2, while x*A has
+w^8/2; at w=1/2 every K>=2 gives comparison slack -3/512. The final focused
+check and independent review passed. Do not use that matrix-order induction
+to obtain a perimeter-linear word bound. The restricted scalar-source
+whole-word claim remains OPEN; the original signed-debt consumer above is
+unchanged. Evidence: `audits/AUDIT-VECTOR-HEAT-ALIGNMENT-2026-10-02.md`.
+
 ### Current physical bulk excitation at fixed nome (2026-10-02 UTC)
 
 PROGRESS after `dfef0db`: the checked spatial join now supplies half its

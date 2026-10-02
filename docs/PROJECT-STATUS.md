@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified vector-induction obstruction (2026-10-02 UTC; chart unchanged): the
+actual supported source A=(0,b,-c,0) and ordered x*A have heat pairings w^3/2
+and w^8/2 at EVERY K>=2. Half-nome comparison slack is -3/512. Final focused
+check and independent review passed. This prunes only the arbitrary-vector
+extension of scalar alignment; the scalar whole-word claim and original signed
+scaling estimate remain OPEN. Evidence:
+`audits/AUDIT-VECTOR-HEAT-ALIGNMENT-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting growing ORIGINAL Wilson square projection gain
 (2026-10-02 UTC; chart unchanged): the existing energy upper bound subtracts
 (1-w)^2*G/2 for a constructed nonnegative G using the SAME original partition.
