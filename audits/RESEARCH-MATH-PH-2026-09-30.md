@@ -269,3 +269,50 @@ the original operator pairings before boundary cancellation; 39802 and 38295
 are lower-energy methods, not the upper temporal-energy estimate above; 39780
 constrains the specified dual replacements; 39475 and 39959 concern different
 Hamiltonian/dynamics models. No same-theory scaling or Clay obligation closed.
+
+## Applicability after collected finite evaluation (2026-10-02 02:04 UTC)
+
+The user's renewed seven-ID request was handled by a parallel Sol reviewer
+using the cached theorem screen and current source. The main agent inspected
+the primary v1 HTML for 40171, 39802, 38220 and 38295 and checked the current
+evaluator declarations. The other three assessments reuse the cached review;
+their records were not fetched again. No routine listing scan or Lean build
+ran, and no external theorem was introduced as a premise.
+
+The precise change since the preceding pass is computational, not an imported
+estimate. `BF4ExactSlabFixedSpatialCollectedFamilyMargin.finite_margin_pin`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCollectedFamilyMargin.lean:298`)
+identifies the collected evaluation with the ORIGINAL finite margin.
+`check_correct` (same file, line 332) preserves its full acceptance conditions;
+`certify` (same file, line 348) returns the EXISTING original certificate on
+success. No useful successful input has been produced.
+
+[38220, section 7 and appendix B.3](https://arxiv.org/html/2609.38220v1)
+separates search choices from exact rational/one-sided interval validation.
+This is the closest workflow match to the existing checker, not a Wilson
+estimate: its hierarchical recursion and preserved comparison order have no
+proved identification with our changing four-dimensional family. Its
+polynomial-product acceleration is likewise not a checked implementation here.
+The collector bounds stored lengths, not coefficient bits, intermediate work
+or practical runtime; see
+`audits/AUDIT-COLLECTED-FAMILY-MARGIN-2026-10-02.md`.
+
+[40171, sections 4--6](https://arxiv.org/html/2609.40171v1)
+reinforces preservation of unnormalized joint information before cancellation.
+Our `pairing_pin` (collected evaluator, line 250) already preserves the original
+two-endpoint joint pairing. That identity does not supply a signed-margin
+bound, and the paper's boundary budget fixes the regulator parameters.
+
+[39802, theorem 1](https://arxiv.org/html/2609.39802v1) remains a conditional
+lower-gap assembly theorem requiring the SAME positive-operator decomposition,
+interface, Schur-loss and coverage estimates. [38295, theorem 1.1 and equation
+(1.1)](https://arxiv.org/html/2609.38295v1) bounds variance ABOVE by gradient
+energy under isotropic, unconditional log-concavity. Neither gives the UPPER
+temporal-energy bound needed by the current survival margin. The cached
+different-model assessments of 39475/39959 and qualified dualization warning
+of 39780 are unchanged.
+
+Result: no new paper-derived mathematical input, positive accepted margin,
+justified changing-family rate or physical/continuum proof node. The actual
+next consumer remains the original checker: produce useful positive signed
+slack with its exact cutoff modulus, padding, OWN means and full jump intact.
