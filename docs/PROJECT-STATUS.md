@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL Haar cutoff energy join (2026-10-02 UTC; chart
+unchanged): the actual omitted-mode norm cap now retains the negative completed
+square and EXISTING gain through the original energy. The OWN-centered loop's
+Type-level cap16 removes its independent raw fourth moment, giving explicit
+coefficient 12*side*h+h^2/8+9*rho. SAME partition/mean and all remaining signed
+centering, cubic/angular/Ward debts remain. Three focused checks and independent
+review passed. Useful changing-family comparison, physical calibration and
+every continuum endpoint remain OPEN. Evidence:
+`audits/AUDIT-DYADIC-SQUARE-HAAR-PROJECTION-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting original centered omitted-mode norm control (2026-10-02
 UTC; chart unchanged): a computed common saturation cutoff proves symmetry
 and sharp Cauchy--Schwarz for the ACTUAL omitted form. Both cutoff debts in
@@ -7,8 +18,9 @@ the generic second-order energy bound use Haar moments rather than absolute
 leaf costs. The original centered numerator uses SAME Z, signed Z*OWNVar-C,
 and raw mass/fourth moment. Three focused checks and independent review
 passed. Norm caps need not be numerically smaller. The retained-gain ceiling
-join, useful changing-family relative control and every continuum endpoint
-remain OPEN. Evidence: `audits/AUDIT-CENTERED-OMITTED-NORM-2026-10-02.md`.
+join and fourth-moment cap are now supplied above; useful changing-family
+relative control and every continuum endpoint remain OPEN. Evidence:
+`audits/AUDIT-CENTERED-OMITTED-NORM-2026-10-02.md`.
 No exact displayed claim changed; no ASCII reprint.
 
 Verified positive scalar word cutoff obstruction (2026-10-02 UTC; chart

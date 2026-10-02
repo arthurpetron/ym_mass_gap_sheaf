@@ -12,7 +12,21 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT omitted-mode Haar norm control (2026-10-02 UTC):**
+**CURRENT original energy with Haar cutoff control and retained gain (2026-10-02 UTC):**
+`BF4DyadicWilsonSquareCenteredFourthMoment.paddedSquare_centered_squareBound`
+constructs cap16 for the original OWN-centered fundamental loop, independent
+of perimeter. The raw fourth moment is <=16 times its raw second moment under
+EVERY supported source. `BF4DyadicWilsonSquareHaarProjection`'s
+`paddedSquare_energy_haar_projection_bound` carries the ACTUAL norm bound
+through the complete remainder and EXISTING gain. Its coefficient is
+12*side*(1-w)+(1-w)^2/8+9*rho; raw mass, complete cubic/angular/Ward debts
+and SIGNED centering correction remain. SAME mean and partition; no q^2=qPq.
+Three focused checks and independent review passed; thirteen gates are allowed.
+Useful changing-family control, physical calibration and all continuum
+endpoints remain OPEN. Evidence:
+`audits/AUDIT-DYADIC-SQUARE-HAAR-PROJECTION-2026-10-02.md`.
+
+**Earlier omitted-mode Haar norm control (2026-10-02 UTC):**
 `SU2QuaternionCyclicOmittedOperator.pairOmitted_at_saturation` constructs
 one finite common-cutoff comparison for the input-dependent trees. Symmetry
 and sharp Cauchy--Schwarz follow for the ACTUAL omitted form. With
@@ -23,8 +37,8 @@ absolute-leaf costs from the generic energy ceiling, retaining cubic costs.
 original OWN-centered source, SAME partition and signed Z*OWNVar-C pin;
 raw Haar mass/fourth moment remain. Three focused checks and independent
 review passed; all 29 gates are allowed. These caps need not be numerically
-smaller. Rejoining the retained gain/angular/Ward terms and useful changing-
-family OWN-variance control remain OPEN, as do all continuum endpoints.
+smaller. The retained-gain/angular/Ward join is now supplied above; useful
+changing-family OWN-variance control and all continuum endpoints remain OPEN.
 Evidence: `audits/AUDIT-CENTERED-OMITTED-NORM-2026-10-02.md`.
 
 **Existing growing Wilson square with retained gain (2026-10-02 UTC):**

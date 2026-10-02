@@ -4,7 +4,24 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Original centered omitted-mode norm control (2026-10-02 UTC)
+## Current increment: Original Haar cutoff energy join and fourth-moment cap (2026-10-02 UTC)
+
+PROGRESS after `58a660f`: a Type-level centered-loop cap16, using the ORIGINAL
+mean, proves H[q^2*psi^4]<=16H[q^2*psi^2] independent of perimeter and under
+EVERY supported source. The ACTUAL omitted bound is integrated into the full
+original energy with the EXISTING projection gain retained. Its explicit
+variance coefficient becomes 12*side*h+h^2/8+9*rho. SAME Z, OWN mean and all
+complete signed cubic/angular/Ward/centering debts remain; no raw fourth moment
+is left. Three focused explicit20-GiB checks and independent review passed.
+Evidence: `audits/AUDIT-DYADIC-SQUARE-HAAR-PROJECTION-2026-10-02.md`.
+
+NEXT: useful comparison of the remaining complete debt minus retained gain
+with OWN variance on a physically justified changing family. Gain size,
+physical calibration and all continuum endpoints remain OPEN. One downstream
+root import; root/tree, broad checks, guards and progress metric NOT run.
+No new analytic premise, CI or exact displayed chart change. No ASCII reprint.
+
+## Earlier increment: Original centered omitted-mode norm control (2026-10-02 UTC)
 
 PROGRESS after `3c2b6b6`: the computed all-branch maximum identifies the ACTUAL
 omitted form with SAME product-heat forms at a common auxiliary cutoff.
@@ -16,9 +33,9 @@ Three focused checks and independent review passed. These caps may be larger
 than old costs; their progress is norm control, not automatic numerical gain.
 Evidence: `audits/AUDIT-CENTERED-OMITTED-NORM-2026-10-02.md`.
 
-NEXT: rejoin the new error cap with the exact cancelled remainder, negative
-square/gain and angular/Ward terms; prove useful relative moment/debt control
-on a justified changing family. Physical calibration and all continuum
+The cancelled-remainder/gain/angular/Ward join and independent fourth-moment
+bound are now supplied above. Useful relative remaining moment/debt control
+on a justified changing family, physical calibration and all continuum
 endpoints remain OPEN. One root import; root/tree, broad checks, guards and
 progress metric NOT run. No new analytic premise, safety/CI or chart change.
 No ASCII reprint.

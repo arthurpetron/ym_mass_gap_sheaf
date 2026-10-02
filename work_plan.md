@@ -25,7 +25,31 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Current omitted modes controlled by actual Haar norms (2026-10-02 UTC)
+### Current original energy with Haar cutoff control and retained gain (2026-10-02 UTC)
+
+PROGRESS after `58a660f`: insert the ACTUAL omitted-mode norm estimate through
+the exact completed-square remainder, keeping its EXISTING projection gain.
+The original mean satisfies mean^2<=4; a Type-level centered-loop certificate
+has cap16 independent of perimeter. For EVERY supported q,
+H[q^2*psi^4]<=16*H[q^2*psi^2]. This removes the independent fourth-moment
+input from the energy ceiling, without identifying q^2 with q*Pq.
+
+For h=1-w and rho=w^((K+1)*(K+3)), the actual original loop now satisfies
+E <= [12*side*h+h^2/8+9*rho]*OWNVar
+  + [h^3*(both cubic costs)+rho*H[q^2]/2+h^3*angularPairCost
+     -(h^2/8+9*rho)*C]/Z - h*OWNWard - (h^2/2)*EXISTING Gain.
+The SAME original partition, OWN mean, signed C and COMPLETE Ward remain.
+Three focused explicit20-GiB checks and independent review passed. All
+thirteen gates are allowed; no old/new-budget numerical ordering is claimed.
+Evidence: `audits/AUDIT-DYADIC-SQUARE-HAAR-PROJECTION-2026-10-02.md`.
+
+NEXT: useful OWN-variance-relative control of the remaining raw mass and
+complete signed cubic/angular/Ward/centering debt minus retained gain on a
+physically justified changing family. The gain may vanish; its useful size,
+physical spacing/mass, nonzero continuum survival, full QFT and every actual
+group remain OPEN. No exact displayed chart claim changed; no ASCII reprint.
+
+### Earlier omitted modes controlled by actual Haar norms (2026-10-02 UTC)
 
 PROGRESS after `3c2b6b6`: compute a maximum over EVERY branch of the actual
 cyclic mode tree. A common finite saturation cutoff identifies the omitted
@@ -44,12 +68,11 @@ H[q^2*psi^4]. Three focused checks and independent review passed. These
 norm caps need not be numerically smaller than the older leaf costs.
 Evidence: `audits/AUDIT-CENTERED-OMITTED-NORM-2026-10-02.md`.
 
-NEXT: carry the new actual cubic-minus-omitted estimate through the exact
-cancelled remainder, retaining the negative square/projection gain and
-angular/Ward terms. Obtain useful OWN-variance-relative control of the
-remaining moments and debts on a justified changing family. No physical
-calibration, scaling rate or continuum endpoint is supplied; exact chart
-claims remain OPEN. Do not repeat the unchanged seven-paper screen.
+The retained-gain integration and independent fourth-moment bound are now
+supplied by the current increment above. Useful OWN-variance-relative control
+of the remaining moments and debts on a justified changing family stays OPEN.
+No physical calibration, scaling rate or continuum endpoint is supplied;
+exact chart claims remain OPEN. Do not repeat the unchanged seven-paper screen.
 
 ### Existing growing Wilson square with retained projection gain (2026-10-02 UTC)
 
@@ -16314,6 +16337,9 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
    on unchanged machinery. Record the exact verification boundary, update the
    live status/ledger, and commit and push completed increments as requested.
    Keep CI off. Rust can generate certificates only for independent Lean checking.
+   For one-file checks explicitly pass `--jobs 1 --check-worker-limit-gib 20`:
+   the launcher's historical 32-GiB default does not satisfy this host's current
+   20-GiB repository invariant. Recheck dynamic capacity before every launch.
 7. **Keep the causal picture stable and informative.** Print an ASCII map only
    when its recorded proof/expansion state has changed, never merely because a
    turn or hour elapsed. Reuse the exact canonical block in

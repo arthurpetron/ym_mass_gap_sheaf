@@ -5023,6 +5023,9 @@ import YMGap.Continuum.SU2QuaternionScalarWordCutoffObstruction
 -- Actual omitted-mode norm control, with a computed common saturation cutoff.
 -- Original OWN mean, partition and signed correction retained; scaling remains open.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialCenteredOmittedNorm
+-- Actual Haar cutoff cap and perimeter-independent fourth moment in ORIGINAL energy.
+-- SAME variance, partition, signed debts and existing gain; physical scaling stays open.
+import YMGap.Continuum.BF4DyadicWilsonSquareHaarProjection
 -- Integrated original Ward residual transport, not a weight/derivative identity.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialProjectedWard
 -- The displayed majorant retains a quadratic floor; not a true-moment lower bound.

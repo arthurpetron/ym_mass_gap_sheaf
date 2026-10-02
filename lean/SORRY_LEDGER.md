@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## PROVED original Haar cutoff energy join and fourth-moment cap only (2026-10-02 UTC)
+
+- `SU2QuaternionCompleteRemainderHaarProjection.completeRemainder_le_haar_completedSquare`
+  applies the ACTUAL cubic-minus-omitted bound before retaining the negative
+  completed square; `completeRemainder_le_haar_projectionCeiling` keeps the
+  EXISTING regularized gain and the full angular-pair debt.
+- `BF4DyadicWilsonSquareCenteredFourthMoment.paddedSquare_centered_squareBound`
+  returns a Type-level cap16 witness using the SAME original mean cap4.
+  `paddedSquare_centered_fourth_le_sixteen_second` removes the independent raw
+  fourth moment for EVERY supported q, with no q^2=qPq substitution.
+- `BF4DyadicWilsonSquareHaarProjection.paddedSquare_energy_haar_projection_bound`
+  supplies the actual original energy estimate with coefficient
+  12*side*h+h^2/8+9*rho and retained -(h^2/2)*EXISTING Gain. Complete raw mass,
+  cubic/angular/Ward costs and signed -(h^2/8+9*rho)*C remain under SAME Z.
+- Three focused explicit20-GiB checks and independent review passed; all
+  thirteen gates are permitted. No new sorry, axiom, analytic premise or
+  weakened field. OPEN: useful complete signed debt/OWN-variance comparison
+  on a justified changing family, gain size, physical calibration and every
+  continuum endpoint. One downstream root import; broad checks NOT run;
+  CI/chart unchanged. Evidence:
+  `audits/AUDIT-DYADIC-SQUARE-HAAR-PROJECTION-2026-10-02.md`.
+
 ## PROVED original centered cutoff norm control only (2026-10-02 UTC)
 
 - `SU2QuaternionCyclicOmittedNorm.pairOmittedBudget_diagonal_eq` removes
@@ -19,8 +41,9 @@
 - Three final focused checks and independent review passed; 29 gates stay
   within {propext,Quot.sound}. No new sorry, axiom, analytic premise or
   weakened field. Norm caps need not improve old budgets numerically.
-  OPEN: propagation into the complete retained-gain ceiling, useful signed
-  OWN-variance control on a justified scaling family, physical calibration
+  The complete retained-gain propagation and raw fourth-moment cap are now
+  supplied above. OPEN: useful signed OWN-variance control on a justified
+  scaling family, physical calibration
   and every continuum endpoint. One root import; broad checks NOT run;
   CI/chart unchanged. Evidence: `audits/AUDIT-CENTERED-OMITTED-NORM-2026-10-02.md`.
 
