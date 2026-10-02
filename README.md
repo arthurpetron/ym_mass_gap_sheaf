@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Constructed two-face direction search (2026-10-02):** exact rational algebra
+now returns a positive signed direction or proves the entire original two-face
+margin plane nonpositive, including zero and singular pivots. Both cross terms
+remain; the original cutoff/tolerance checker still controls acceptance.
+Focused constructive verification and independent review passed. No useful
+original-theory success or scaling estimate has been produced. See the
+[algorithm and remaining input](audits/AUDIT-TWO-FACE-MARGIN-SEARCH-2026-10-02.md).
+
 **Exact original quadratic pencil (2026-10-02):** the complete signed margin
 is now a coefficient-independent covariance/jump quadratic form, with an
 equivalent original strict-slack check. Repeated faces, OWN centering and all

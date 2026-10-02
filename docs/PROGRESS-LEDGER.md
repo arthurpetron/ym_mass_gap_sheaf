@@ -4,7 +4,24 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Exact ORIGINAL signed-margin pencil (2026-10-02 UTC)
+## Current increment: Computed ORIGINAL two-face direction search (2026-10-02 UTC)
+
+PROGRESS after `175e853`: complete rational quadratic classification constructs
+a positive direction or whole-plane rejection, including zero/singular cases.
+The original two-face pin retains BOTH ordered cross terms; the computed
+profile reaches the EXISTING cutoff/tolerance checker at the SAME pivot.
+Focused verification and independent mathematical review passed; proof-free
+direction data and five generic regression tests are axiom-free. Evidence:
+`audits/AUDIT-TWO-FACE-MARGIN-SEARCH-2026-10-02.md`.
+
+NEXT remains actual useful original entries/slack on a justified changing
+family. No original successful direction, feasible moment evaluation, useful
+scaling or continuum endpoint is supplied. The result is complete for a fixed
+two-face direction plane, not larger/repeated families or certificate search.
+One root import; no broad build/audit/guard/progress run, changed safety/CI
+or displayed chart claim, and no ASCII reprint.
+
+## Earlier increment: Exact ORIGINAL signed-margin pencil (2026-10-02 UTC)
 
 PROGRESS after `0dace0c`: the original full ordered covariance/jump quadratic
 form is exactly Z^2 times its existing signed margin. Basis moments are

@@ -12,6 +12,16 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Constructed ORIGINAL two-face direction search (2026-10-02 UTC):**
+`TwoFaceMarginSearch.search` computes a positive signed original profile or
+proves every direction in the fixed two-face plane nonpositive. Both ordered
+cross entries remain; zero/singular pivots are handled without division.
+`certify` retains the existing original cutoff/tolerance checker. Focused
+verification and independent review passed; the data direction function and
+five generic regressions are axiom-free. No useful original success, scaling
+or continuum result. Evidence:
+`audits/AUDIT-TWO-FACE-MARGIN-SEARCH-2026-10-02.md`.
+
 **Exact ORIGINAL margin pencil (2026-10-02 UTC):**
 `FamilyMarginPencil.pencil_pin` proves Z^2*margin equals the full ordered
 covariance/jump quadratic form of coefficient-independent original moments.

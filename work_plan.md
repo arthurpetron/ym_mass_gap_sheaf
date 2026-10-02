@@ -25,6 +25,29 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Constructed direction search on the ORIGINAL two-face plane (2026-10-02 UTC)
+
+PROGRESS after `175e853`: `TwoFaceMarginSearch.Binary.classify` computes a
+positive rational direction or proves EVERY direction nonpositive, including
+zero/singular pivots. The proof-free direction computation and five generic
+regressions are axiom-free. `pencil_two_faces` retains BOTH ordered original
+cross entries; `search` supplies an actual signed original coefficient function
+for exactly two DISTINCT faces. `certify` uses the EXISTING checker at the SAME
+pivot, with all cutoff/tolerance guards unchanged. Focused verification and
+independent mathematical review passed within {propext,Quot.sound}. Evidence:
+`audits/AUDIT-TWO-FACE-MARGIN-SEARCH-2026-10-02.md`.
+
+NEXT: obtain actual original entries or signed estimates giving useful slack
+with its original cutoff allowance on a justified changing family. Direction
+selection in a fixed two-face plane is constructed, but no useful original
+success, feasible entry evaluation, scaling estimate or EVERY-state gap is
+claimed. Larger/repeated lists require their own aggregation/elimination;
+the supplied-pivot/tolerance consumer is not a complete certificate search.
+The existing ScoreCalibrationObstruction already rejects the isolated Ward
+ceiling near nome one; its proof was reused, not duplicated. Physical/continuum
+endpoints remain OPEN. One root import; no broad check, raised limit, CI/chart
+change or ASCII reprint.
+
 ### Exact ORIGINAL signed-margin quadratic pencil (2026-10-02 UTC)
 
 PROGRESS after `0dace0c`: `FamilyMarginPencil.pencil_pin` identifies the

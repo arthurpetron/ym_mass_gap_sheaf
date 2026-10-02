@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED computed ORIGINAL two-face direction search only (2026-10-02 UTC)
+
+- `TwoFaceMarginSearch.Binary.classify` constructs a positive rational
+  direction or proves every rational direction nonpositive, with exact zero
+  and singular cases. `direction_classify` pins its axiom-free data function;
+  five kernel-computed generic tests are axiom-free, not physical instances.
+- `pencil_two_faces` retains all four ordered original entries; `search`
+  constructs an original signed coefficient function for two DISTINCT faces.
+  `certify` returns the EXISTING original Certificate only after its actual
+  cutoff/tolerance/slack checker accepts at the SAME pivot.
+- Focused verification and independent mathematical review passed within
+  {propext,Quot.sound}. No new sorry, axiom, analytic premise, erased witness
+  or weakened frontier. No useful original success or scaling is assumed.
+- OPEN: actual useful entries/slack on a justified changing family, cutoff
+  allowance, feasible evaluation, larger-family control, physical calibration
+  and every continuum/Clay endpoint. The finite-plane result is neither an
+  EVERY-state gap nor a complete search over certificates/tolerances/pivots.
+  One root import; no broad check or chart change. Evidence:
+  `audits/AUDIT-TWO-FACE-MARGIN-SEARCH-2026-10-02.md`.
+
 ## PROVED exact ORIGINAL margin pencil, not positive scaling slack (2026-10-02 UTC)
 
 - `FamilyMarginPencil.pencil_contract` retains the full ordered cross-moment

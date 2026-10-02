@@ -6114,6 +6114,10 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialCollectedFamilyMargin
 -- Coefficient-independent ORIGINAL covariance/jump pencil, with equivalent
 -- original strict-slack check; no useful positive direction or scaling claim.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyMarginPencil
+-- Complete rational direction selection on exactly two DISTINCT original
+-- faces, retaining both cross entries and old cutoff/slack acceptance guards.
+-- No successful useful original instance or scaling estimate is supplied.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialTwoFaceMarginSearch
 -- Quantified ORIGINAL passive nonvacuum attenuation and literal vacuum
 -- projection, joined to the SAME signed Taylor/Ward variance budget.
 -- No changing-source scaling bound or continuum reserve is asserted.

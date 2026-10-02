@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL two-face direction search (2026-10-02 UTC;
+chart unchanged): exact rational classification computes a positive signed
+profile or proves the entire fixed two-face plane nonpositive, including zero
+and singular cases. BOTH original cross entries remain; the original cutoff/
+tolerance checker still controls acceptance. Focused verification and
+independent review passed. No useful original success, feasible evaluation,
+scaling or continuum result. Evidence:
+`audits/AUDIT-TWO-FACE-MARGIN-SEARCH-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting exact ORIGINAL margin pencil (2026-10-02 UTC;
 chart unchanged): Z^2*margin equals the ordered covariance/jump quadratic
 form from coefficient-independent original moments. Both OWN means, repeated
