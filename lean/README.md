@@ -12,17 +12,18 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT growing Wilson square and original Ward moments (2026-10-02 UTC):**
-`BF4DyadicWilsonSquareWardMoments.paddedSquare_gamma` proves full-slice
-curvature `L*(4-f^2)`, with `L=4*side`, reversed links and all spectators.
-`paddedSquare_variance`, `paddedSquare_angular` and `paddedSquare_ward` give
-`1+m2-m1^2`, `L*(3-m2)` and `L*(4*m2-3*m1^2)` in the ORIGINAL odd marginal;
-`m2` is the label-two character moment, not E[f^2]. The complete remainder
-of the existing variance/Taylor consumer is retained. The independent-tail
-norm identity is also proved. Both focused checks and independent reviews
-passed; nine gates lie within {propext,Quot.sound}. Useful signed scaling
-control and physical calibration remain OPEN; no bare-transfer substitution.
-Evidence: `audits/AUDIT-DYADIC-SQUARE-WARD-MOMENTS-2026-10-02.md`.
+**CURRENT growing Wilson square with retained gain (2026-10-02 UTC):**
+`BF4DyadicWilsonSquareProjectionGain.paddedSquare_energy_projection_bound`
+sharpens the existing ORIGINAL energy ceiling by subtracting `(1-w)^2*G/2`.
+The constructed G is nonnegative, regularized and normalized by the SAME
+original partition. `paddedSquare_overlap_moments` uses the checked full-loop
+curvature and keeps raw q^2 character moments distinct from OWN moments,
+with the signed correction `B=Z*OWNVar-C` intact. COMPLETE Ward, cubic,
+omitted-mode and angular-pair debts remain. Both focused checks and independent
+review passed; sixteen gates lie within {propext,Quot.sound}. The gain may be
+zero; useful scaling control and physical calibration remain OPEN.
+Evidence: `audits/AUDIT-DYADIC-SQUARE-PROJECTION-GAIN-2026-10-02.md` and
+`audits/AUDIT-DYADIC-SQUARE-WARD-MOMENTS-2026-10-02.md`.
 
 **CURRENT physical bulk spatial limit (2026-10-02 UTC):**
 `OriginalBulkComparison.bulkConnected_spatial_close` joins the ACTUAL

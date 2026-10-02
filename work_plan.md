@@ -25,27 +25,30 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Current growing Wilson square and its original Ward moments (2026-10-02 UTC)
+### Current growing Wilson square with retained projection gain (2026-10-02 UTC)
 
-PROGRESS after `67c9f07`: the literal strictly padded dyadic loop has exact
-full-slice curvature Gamma=L*(4-f^2), L=4*side, retaining reversed links and
-all spectators. The independent-tail Lagrange identity keeps both quaternion
-norms before their arbitrary-insertion unit laws are applied. The original
-odd marginal now gives OWNVar=1+m2-m1^2, Angular=L*(3-m2) and COMPLETE
-Ward=L*(4*m2-3*m1^2). Here m2=E[chi2], NOT E[f^2].
-This supplies explicit geometry and Ward inputs to the existing growing-loop
-consumer E=3*L*(1-w)*OWNVar+varianceRemainder. Its full signed remainder is
-normalizedRemainder-(1-w)*L*(4*m2-3*m1^2); no useful bound or sign is asserted.
-Both focused constructive checks and independent reviews passed. Evidence:
+PROGRESS after `b42cb79`: Haar Cauchy--Schwarz retains a computed portion of
+the negative completed square instead of discarding it. With h=1-w, L=4*side,
+original partition Z and ORIGINAL-centered psi, define B=H[(q*psi)^2] and
+d=L*(3*U0-U2)-(Z*OWNVar-C)/2. The raw U0=H[q^2] and U2=H[q^2*chi2] are
+NOT original marginal moments; the signed pin B=Z*OWNVar-C is retained.
+The constructed gain G=d^2/((B+Z)*Z) is nonnegative without assuming B>0.
+The actual original loop energy now satisfies
+E <= (3*L*h+h^2/8)*OWNVar+completeCenteredError-(h^2/2)*G.
+All original Ward, cubic, omitted-mode, angular-pair and centering debts remain.
+Both focused constructive checks and independent review passed. Evidence:
+`audits/AUDIT-DYADIC-SQUARE-PROJECTION-GAIN-2026-10-02.md`.
+The preceding exact curvature and OWN Ward moments remain recorded in
 `audits/AUDIT-DYADIC-SQUARE-WARD-MOMENTS-2026-10-02.md`.
 
-NEXT: control that COMPLETE signed remainder relative to OWNVar on a justified
-changing family, retaining the original moments, partition and growing
-perimeter. This is not another conditional consumer: the geometry and moment
-identities are proved, while the analytic estimate remains missing.
-The linear plaquette-family route retains its separate coefficient 12;
-neither route has a useful scaling estimate. Geometric dyadic spacing is NOT
-physical calibration. All continuum endpoints and exact chart claims remain OPEN.
+NEXT: control the COMPLETE signed debt minus this retained gain relative to
+OWNVar on a justified changing family. The gain may vanish; no useful positive
+margin or scaling rate is proved. Preserve the original partition, moments
+and growing perimeter. The linear plaquette-family route retains its separate
+coefficient 12; neither route has a useful scaling estimate. Geometric dyadic
+spacing is NOT physical calibration. All continuum endpoints and exact chart
+claims remain OPEN. The cached seven-paper applicability check identifies
+methods, not a producer for this missing estimate.
 
 ### Current physical bulk excitation at fixed nome (2026-10-02 UTC)
 

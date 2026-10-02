@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## PROVED retained original loop projection gain only (2026-10-02 UTC)
+
+- `SU2QuaternionCompleteRemainderProjection.projectionGain` constructs
+  d^2/(B+epsilon); `projectionGain_le_squareCompletionMass` proves it lies
+  below the SAME negative completed square without assuming B>0.
+  `completeRemainder_le_projectionCeiling` pays every prior explicit debt.
+- `BF4DyadicWilsonSquareProjectionGain.paddedSquare_overlap_moments` proves
+  d=L*(3*U0-U2)-(Z*OWNVar-C)/2. U0/U2 remain raw q^2 quantities; C remains
+  signed. `normalizedProjectionGain` uses epsilon=ORIGINAL Z and this SAME Z
+  for normalization. `paddedSquare_energy_projection_bound` subtracts h^2*G/2
+  from the existing actual energy ceiling, retaining COMPLETE Ward and debts.
+- Both warning-free final focused checks and independent review passed;
+  sixteen printed gates use only {propext,Quot.sound}. No sorry, new axiom,
+  analytic premise, erased witness, raised limit or weakened frontier.
+  OPEN: the gain may vanish; useful COMPLETE signed debt/OWN-variance control
+  on a justified changing family, physical calibration and every continuum
+  endpoint remain missing. Two root imports; broad checks NOT run; CI/chart
+  unchanged. Evidence: `audits/AUDIT-DYADIC-SQUARE-PROJECTION-GAIN-2026-10-02.md`.
+
 ## PROVED growing Wilson square curvature and Ward moments only (2026-10-02 UTC)
 
 - `SU2QuaternionIndependentTailAngularSquare.linear_angularSquare_norm`

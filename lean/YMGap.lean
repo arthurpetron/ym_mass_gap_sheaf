@@ -5010,6 +5010,10 @@ import YMGap.Continuum.BF4DyadicWilsonSquareVarianceTaylor
 -- Exact identities only: their signed scaling estimate remains open.
 import YMGap.Continuum.SU2QuaternionIndependentTailAngularSquare
 import YMGap.Continuum.BF4DyadicWilsonSquareWardMoments
+-- Computed nonnegative gain from the SAME negative square and ORIGINAL partition.
+-- Raw q^2/OWN correction and COMPLETE debts remain; no scaling margin is proved.
+import YMGap.Continuum.SU2QuaternionCompleteRemainderProjection
+import YMGap.Continuum.BF4DyadicWilsonSquareProjectionGain
 -- Integrated original Ward residual transport, not a weight/derivative identity.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialProjectedWard
 -- The displayed majorant retains a quadratic floor; not a true-moment lower bound.

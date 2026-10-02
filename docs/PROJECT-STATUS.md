@@ -1,13 +1,16 @@
 # Canonical one-page project status
 
-Verified supporting growing ORIGINAL Wilson square Ward moments
-(2026-10-02 UTC; chart unchanged): full-slice curvature is L*(4-f^2), L=4*side.
-The ORIGINAL odd marginal gives OWNVar=1+m2-m1^2, Angular=L*(3-m2) and
-COMPLETE Ward=L*(4*m2-3*m1^2), with m2 the label-two character moment.
-The existing energy/variance consumer retains its full signed remainder.
-Both focused constructive checks and independent reviews passed. Useful
-changing-family signed control and all continuum endpoints remain OPEN.
-Evidence: `audits/AUDIT-DYADIC-SQUARE-WARD-MOMENTS-2026-10-02.md`.
+Verified supporting growing ORIGINAL Wilson square projection gain
+(2026-10-02 UTC; chart unchanged): the existing energy upper bound subtracts
+(1-w)^2*G/2 for a constructed nonnegative G using the SAME original partition.
+The preceding full-loop curvature and Ward moments compute the overlap;
+raw q^2 moments and OWN variance remain distinct, with signed centering
+correction retained. COMPLETE Ward, cubic, omitted-mode and angular-pair
+debts are untouched. Both focused checks and independent review passed.
+The gain may vanish; useful changing-family signed control and every
+continuum endpoint remain OPEN. Evidence:
+`audits/AUDIT-DYADIC-SQUARE-PROJECTION-GAIN-2026-10-02.md` and
+`audits/AUDIT-DYADIC-SQUARE-WARD-MOMENTS-2026-10-02.md`.
 No exact displayed claim changed; no ASCII reprint.
 
 Verified supporting ORIGINAL physical bulk excitation (2026-10-02 UTC;

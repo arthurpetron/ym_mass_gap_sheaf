@@ -25,7 +25,7 @@ No theorem or hypothesis was imported. No numerical computation or Lean build ra
 
 ## Requested seven-paper review (2026-10-01 22:41 UTC)
 
-Latest record verification: **2026-10-02 06:29 UTC**, by two parallel Sol
+Latest complete record verification: **2026-10-02 06:29 UTC**, by two parallel Sol
 reviewers; all seven records still list only v1. The existing theorem screen
 was reused, not repeated. A narrow full-text check corrected the finite-volume
 ground-state wording for 39475 below; no new Wilson scaling estimate was found.
@@ -36,6 +36,24 @@ and `corrected_joint_margin_square_bound` (same file, line 495) found no paper
 supplying the retained signed heat/debt estimate or scaling-uniform residual
 control. The current proof and its separate focused verification are recorded
 in `audits/AUDIT-DISJOINT-FACE-JOINT-MARGIN-2026-10-02.md`.
+
+Current applicability check: **2026-10-02 07:22 UTC**, requested for these same
+seven IDs and performed by a parallel Sol reviewer. The cached theorem screen
+was reused. One batch accessed only the seven abstract records; visible version
+histories confirm unchanged v1 for 39802, 39475 and 39780, while the other
+version statements remain based on the complete 06:29 record. No listing scan
+or full-paper reread occurred. The new actual consumer is
+`paddedSquare_energy_projection_bound`
+(`lean/YMGap/Continuum/BF4DyadicWilsonSquareProjectionGain.lean:279`), with
+`paddedSquare_overlap_moments` (same file, line 190) retaining
+d=L*(3*U0-U2)-(Z*OWNVar-C)/2. The gain is computable and nonnegative but may
+vanish. None of the cached paper results supplies its quantitative size
+against COMPLETE original debts on a justified changing four-dimensional
+family. Certificate validation (38220), joint-information preservation (40171)
+and same-operator gap assembly (39802) remain methods, not discharged inputs.
+The latter bounds a sampler generator; the log-concave Poincare bound (38295)
+has the opposite direction to the present upper-energy survival estimate.
+No theorem was imported, and no proof-status node changed in this review.
 
 Most directly useful methods remain [38220, section 7 and appendix B.3](https://arxiv.org/html/2609.38220v1)
 for rigorous certificate validation, [40171, equations (8)--(10), (14)--(16)
@@ -55,7 +73,7 @@ is unchanged. Abstract summaries below are paraphrases. Applicability labels
 are our assessment, not a claim that the papers identify the repo's theory.
 Theorem screening does not constitute independent verification of full proofs.
 
-Latest requested delta review: **2026-10-02 02:23 UTC**. The main agent checked
+Earlier requested delta review: **2026-10-02 02:23 UTC**. The main agent checked
 all seven primary abstract records; all still list only v1. A parallel Sol
 reviewer reused this cached theorem screen against the current original joint
 evaluator. No additional paper argument supplying source-specific centered
