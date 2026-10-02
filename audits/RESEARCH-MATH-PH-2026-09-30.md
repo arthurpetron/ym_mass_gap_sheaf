@@ -221,3 +221,51 @@ source positivity and a bare low-mode pin. Transferring either method still
 requires control of the actual terminal `q*(f-ownmean)` on the SAME `q*P(q)`
 law, not replacement by a truncated bare mode. No literature-derived module
 or assumed analytic input was added; no routine listing scan was performed.
+
+## Applicability after the reference-depth and moment proofs (2026-10-02 UTC)
+
+The user requested a parallel review of the same seven papers. A Sol reviewer
+reused the cached theorem screen and checked its applicability against the new
+original-source declarations; the main agent checked the targeted primary v1
+texts. This was NOT a routine listing scan. No Lean source, axiom, hypothesis
+or proof status changed; no build or heavy computation ran.
+
+The current one-plaquette reference obligation is
+`4*(1-w)*(3-m2)+R <= c*(1+m2-m1*m1)`, using the COMPLETE original marginal,
+its OWN mean and the signed Taylor remainder. The two sides are identified by
+`BF4ExactSlabFixedSpatialPlaquetteWardMoments.plaquette_variance`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteWardMoments.lean:145`)
+and `padded_plaquette_energy` (same module, line 250). No reviewed paper supplies
+this estimate with a useful rate on the required changing family.
+
+The certificate pattern in [2609.38220, section 7 and appendix B](https://arxiv.org/html/2609.38220v1)
+now has a more precise possible application: test ONE finite signed margin at
+the actual reference depth, with a rigorously computed cutoff-tail allowance.
+`BF4ExactSlabFixedSpatialWilsonWindowJointCauchy.windowCutoffCauchy`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonWindowJointCauchy.lean:36`)
+already constructs fixed-depth cutoff moduli for original window insertions.
+`BF4WilsonAllNomeTemporalEnergyLimit.finiteEnergy_half_pin`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeTemporalEnergyLimit.lean:124`),
+`BF4WilsonAllNomeMarginalVarianceLimit.finiteVariance_budget_pin`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeMarginalVarianceLimit.lean:119`) and
+`BF4WilsonAllNomeCenteredTransferBondLimit.finiteScalar_connected_pin`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeCenteredTransferBondLimit.lean:177`)
+pin the energy and OWN variance to the original squared increment and connected
+moments, including BOTH finite endpoint means.
+
+Proposed certificate condition, NOT a newly checked theorem: with cutoff
+errors bounded by epsilonE and epsilonV, a verified pivot p beyond their
+explicit moduli satisfying `E_p+epsilonE <= c*(OWNVar_p-epsilonV)`, with c>=0,
+would imply the all-late-cutoff reference inequality. Its actual recipient is
+`BF4WilsonAllNomeTerminalReferenceEnergyRatio.completed_reference_ratio`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeTerminalReferenceEnergyRatio.lean:123`),
+which propagates the supplied reference coefficient to `c*(1+comparisonEta)^2`.
+No finite positive margin or useful changing-family coefficient was produced
+by this review. The hierarchical recursion of 38220 is NOT a Wilson law;
+external arithmetic still requires independent Lean checking.
+
+The other cached assessments remain unchanged: 40171 teaches preservation of
+the original operator pairings before boundary cancellation; 39802 and 38295
+are lower-energy methods, not the upper temporal-energy estimate above; 39780
+constrains the specified dual replacements; 39475 and 39959 concern different
+Hamiltonian/dynamics models. No same-theory scaling or Clay obligation closed.
