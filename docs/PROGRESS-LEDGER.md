@@ -4,7 +4,24 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Original channel active Casimir norm control (2026-10-02 UTC)
+## Current increment: Original centered growing-loop active norm ceiling (2026-10-02 UTC)
+
+PROGRESS after `9bd5464`: constructed Gram-and-square evidence retains
+the literal (q*C f)^2/3 without an eigenpin. Exact channel decomposition and
+coefficient-one active contractions reach the actual OWN-centered growing
+Wilson square. SAME Z, signed curvature, full NEGATIVE angular defect and
+ORIGINAL Ward remain. Three focused explicit20-GiB checks and independent
+math review passed; all fifteen gates are allowed. Evidence:
+`audits/AUDIT-CENTERED-WILSON-ACTIVE-CHANNEL-NORMS-2026-10-02.md`.
+
+NEXT: useful combined signed debt/OWN-variance control on a justified changing
+family; raw source/curvature dependence remains. No centered eigenpin,
+global-gain identity, numerical dominance or continuum closure. One root
+import; root/tree, broad audit/guard and progress metric NOT run. No new
+analytic premise, CI or exact chart change; no ASCII reprint. The requested
+paper review supplies methods, not the missing analytic producer.
+
+## Earlier increment: Original channel active Casimir norm control (2026-10-02 UTC)
 
 PROGRESS after `6b18002`: exact passive-channel expansion permits FULL third
 moments of the projected channels to contract to ACTIVE third moments of the

@@ -8,6 +8,10 @@ routine refresh 2026-09-30 15:38 UTC, as recorded in
 `RESEARCH-MATH-PH-2026-09-30.md`. No compiler, external checker, installation,
 heavy computation, Lean edit, or commit was performed by this reviewer.
 
+Targeted record-only recheck on 2026-10-02 16:52 UTC confirmed that the eight
+requested 2610 records still list only v1. Their existing detailed screen
+was reused; no routine listing rescan or external Lean installation was run.
+
 The new papers add potentially transferable norm-loss, moment-bootstrap,
 certificate, and algebra-construction methods. No inspected result supplies
 the missing useful estimate for the original interacting Wilson family.
@@ -35,6 +39,14 @@ These are repository work, not an estimate imported from this literature
 review. This reviewer did not run or independently audit their compilation.
 Even a checked active-footprint budget needs a useful variance-relative
 changing-family estimate; localization alone does not give that estimate.
+
+The subsequent repository milestone now joins that active budget to the
+ORIGINAL growing square centered at its OWN interacting mean, retaining the
+literal Casimir square without a centered eigenpin. Signed curvature, the
+complete angular defect and ORIGINAL Ward remain under SAME Z. This is
+repository work, not a theorem supplied by any reviewed paper. Focused
+verification and remaining inputs are recorded in
+`AUDIT-CENTERED-WILSON-ACTIVE-CHANNEL-NORMS-2026-10-02.md`.
 
 ## Seven previously reviewed papers
 

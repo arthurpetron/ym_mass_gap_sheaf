@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## PROVED original centered growing-loop active norm ceiling only (2026-10-02 UTC)
+
+- `SU2QuaternionGeneralRetainedCasimir.generalRetainedCasimirCertificate`
+  constructs the Gram-and-square bound retaining the literal q*C(f) square
+  for arbitrary supported signed q,f; no eigenpin or source positivity.
+- `SU2QuaternionPassiveChannelRetainedCasimirSobolev.sourceEnergy_le_activeSobolev_retainedCasimir`
+  applies it after exact passive-channel expansion, with coefficient-one
+  angular and active cubic/Haar contractions and signed curvature retained.
+- `BF4DyadicWilsonSquareActiveChannelSobolev.paddedSquare_energy_activeChannel_sobolev_bound`
+  reaches the ORIGINAL growing loop at OWN mean/variance and SAME Z, keeping
+  literal C(psi), the NEGATIVE angular defect and ORIGINAL Ward term.
+- Three focused explicit20-GiB checks and independent review passed; all
+  fifteen gates are allowed. No new sorry/axiom/analytic premise or weakened
+  frontier. OPEN: useful joint signed debt/OWN-variance control on a justified
+  changing family, physical calibration and every continuum endpoint.
+  No global-gain identity or numerical dominance. One root import; broad
+  checks NOT run; CI/chart unchanged. Evidence:
+  `audits/AUDIT-CENTERED-WILSON-ACTIVE-CHANNEL-NORMS-2026-10-02.md`.
+
 ## PROVED active channel cubic norm control only (2026-10-02 UTC)
 
 - `SU2QuaternionPassiveChannelCasimirCube.channelSource_thirdMoment_le_activeThirdMoment`

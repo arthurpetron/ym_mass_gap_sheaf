@@ -10,7 +10,16 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Active derivative costs in the original channel energy (2026-10-02):**
+**Active derivative costs for the original centered growing loop (2026-10-02):**
+the active-footprint estimate now reaches the growing Wilson square at its
+own interacting mean. A constructed Gram-and-square identity retains its
+literal Casimir square without assuming a centered eigenvector identity.
+The signed curvature, complete angular defect and original Ward term remain
+under the same partition. Focused Lean checks and independent review passed;
+useful variance-relative scaling control remains open. See the
+[proof and remaining input](audits/AUDIT-CENTERED-WILSON-ACTIVE-CHANNEL-NORMS-2026-10-02.md).
+
+**Earlier active derivative costs in the original channel energy (2026-10-02):**
 exact channel decomposition now bounds cubic errors using derivatives only
 on the observable's active footprint, with coefficient one and no
 channel-count multiplier. The original signed curvature, negative square,

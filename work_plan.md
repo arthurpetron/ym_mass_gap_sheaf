@@ -25,7 +25,27 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Current original channel cubic costs as active Casimir norms (2026-10-02 UTC)
+### Current original centered growing-loop active Casimir norms (2026-10-02 UTC)
+
+PROGRESS after `9bd5464`: a constructed Gram-and-square identity retains
+H[(q*C f)^2]/3 for arbitrary supported signed q,f, without an eigenpin.
+Exact passive-channel expansion and coefficient-one active contractions now
+reach the ORIGINAL growing Wilson square at its OWN interacting mean.
+The actual ceiling retains literal C(psi), signed channel curvature, the full
+angular weight defect with NEGATIVE coefficient and the ORIGINAL Ward term
+under SAME Z. Three focused explicit20-GiB checks and independent math review
+passed; all fifteen gates are allowed. Evidence:
+`audits/AUDIT-CENTERED-WILSON-ACTIVE-CHANNEL-NORMS-2026-10-02.md`.
+
+NEXT: useful combined signed debt/OWN-variance control on a physically
+justified changing family. Raw active norms and retained curvature/square
+still depend on all original parameters. No centered eigenpin, global-gain
+identification, numerical dominance or scaling/continuum closure is claimed.
+Physical calibration, nonzero continuum survival, full QFT and every actual
+group remain OPEN. Exact chart claims unchanged; no ASCII reprint. The
+requested papers supply methods, not this missing analytic producer.
+
+### Earlier original channel cubic costs as active Casimir norms (2026-10-02 UTC)
 
 PROGRESS after `6b18002`: FIRST expand the ACTUAL energy into passive Gram
 channels. Only those projected sources are passive-independent. Their FULL

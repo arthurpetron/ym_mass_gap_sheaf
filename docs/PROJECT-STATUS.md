@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL centered growing-loop active norm ceiling
+(2026-10-02 UTC; chart unchanged): a constructed Gram-and-square identity
+retains the literal Casimir square without a centered eigenpin. Exact passive
+channels and coefficient-one active contractions reach the actual growing
+loop at OWN mean/variance and SAME Z. Full signed curvature, NEGATIVE angular
+defect and ORIGINAL Ward remain. Three focused explicit20-GiB checks and
+independent math review passed. Useful changing-family relative control and
+every continuum endpoint remain OPEN; no global-gain identity or numerical
+dominance is asserted. Evidence:
+`audits/AUDIT-CENTERED-WILSON-ACTIVE-CHANNEL-NORMS-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting ORIGINAL active channel cubic norm control (2026-10-02
 UTC; chart unchanged): exact passive-channel expansion permits FULL channel
 third moments to contract to ACTIVE moments of original q, q*f and q*f^2,

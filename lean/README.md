@@ -12,7 +12,21 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT original channel cubic costs as active Casimir norms (2026-10-02 UTC):**
+**CURRENT original centered growing-loop active Casimir norms (2026-10-02 UTC):**
+`SU2QuaternionGeneralRetainedCasimir.generalRetainedCasimirCertificate`
+constructs the literal negative Casimir-square bound for arbitrary supported
+signed observables, without an eigenpin. Exact passive-channel expansion
+and coefficient-one contractions reach the original OWN-centered growing
+Wilson square in `BF4DyadicWilsonSquareActiveChannelSobolev`.
+`paddedSquare_energy_activeChannel_sobolev_bound` retains complete signed
+curvature, angular defect and original Ward under SAME Z; no sufficientCutoff
+guard is needed. Three focused explicit20-GiB checks and independent review
+passed; all fifteen gates are allowed. Useful joint signed-debt/OWN-variance
+control on a justified changing family and every continuum endpoint remain
+OPEN. Evidence:
+`audits/AUDIT-CENTERED-WILSON-ACTIVE-CHANNEL-NORMS-2026-10-02.md`.
+
+**Earlier original channel cubic costs as active Casimir norms (2026-10-02 UTC):**
 `SU2QuaternionPassiveChannelCasimirCube` contracts FULL channel third moments
 to ACTIVE moments of the original source with coefficient one, after exact
 passive-channel decomposition. `BF4ExactSlabFixedSpatialFamilyChannelSobolev`

@@ -5032,6 +5032,7 @@ import YMGap.Continuum.BF4DyadicWilsonSquareSobolevProjection
 -- Exact passive-channel expansion pays cubic errors with ACTIVE original norms.
 -- Signed curvature/negative square retained; useful OWN-variance scaling stays OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyChannelSobolev
+import YMGap.Continuum.BF4DyadicWilsonSquareActiveChannelSobolev
 -- SAME predecessor square cancels in original source cap and odd-mass floor.
 -- Explicit additive cutoff modulus at fixed nome/width; scaling remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRawSourceMassBound
