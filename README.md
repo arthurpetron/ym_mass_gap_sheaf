@@ -10,6 +10,16 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Original boundary-depth reduction (2026-10-01):** a supplied energy/OWN-
+variance ratio at ONE finite reference depth now controls every later depth
+and the SAME completed one-step time loss. Actual Wilson edge certificates
+give factor `(1+comparisonEta)^2`, with no extra partition loss. A computed
+prefix controls that relative error. All 22 focused gates and independent
+reviews passed. The cutoff-uniform reference estimate, useful changing-family
+rate and continuum endpoints remain open. This upper-energy estimate is not
+a lower spectral-gap bound. See the
+[proof and exact reduced frontier](audits/AUDIT-TERMINAL-ENERGY-RATIO-2026-10-01.md).
+
 **A generic scaling shortcut is now refuted (2026-10-01):** positivity,
 contractive heat and an exact low bare eigenmode alone do not give a
 source-uniform small energy/OWN-variance ratio. An explicit two-state family

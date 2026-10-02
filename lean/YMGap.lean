@@ -5222,6 +5222,8 @@ import YMGap.Continuum.RationalPositiveResidualRatio
 import YMGap.Continuum.BF4ExactSlabFixedSpatialWindowInput
 import YMGap.Continuum.BF4ExactSlabFixedSpatialWindowInputComparison
 import YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalComparison
+-- Actual edge-density / OWN-variance comparison; only the reference ratio is assumed.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalEnergyComparison
 import YMGap.Continuum.BF4ExactSlabFixedSpatialWindowTwoBoundary
 import YMGap.Continuum.BF4ExactSlabFixedSpatialWindowTimeLimit
 import YMGap.Continuum.BF4ExactSlabFixedSpatialWindowPadding
@@ -5290,6 +5292,7 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialJointPairingContinuity
 import YMGap.Continuum.BF4ExactSlabFixedSpatialJointPairingLimit
 import YMGap.Continuum.BF4ExactSlabFixedSpatialJointCompletedInner
 import YMGap.Continuum.QuaternionHaarDensityVariance
+import YMGap.Continuum.QuaternionHaarDensityVarianceComparison
 import YMGap.Continuum.BF4ExactSlabFixedSpatialCentralDensity
 import YMGap.Continuum.BF4ExactSlabFixedSpatialCentralDensityFloor
 import YMGap.Continuum.BF4ExactSlabFixedSpatialCentralCharacter
@@ -6082,6 +6085,9 @@ import YMGap.Continuum.BF4WilsonAllNomeCenteredTransferBondLimit
 import YMGap.Continuum.BF4WilsonAllNomeCenteredAngularBondBound
 import YMGap.Continuum.BF4WilsonAllNomeTemporalEnergyLimit
 import YMGap.Continuum.BF4WilsonAllNomeMarginalVarianceLimit
+-- ONE finite reference depth controls original completed time loss.
+-- The useful reference and changing-scale estimates remain OPEN.
+import YMGap.Continuum.BF4WilsonAllNomeTerminalReferenceEnergyRatio
 -- Whole signed interior-family response on the SAME physical bond carrier,
 -- and every integer-lag lower orbit. Fixed nome; no continuum survival claim.
 import YMGap.Continuum.BF4WilsonAllNomePlaquetteFamilyBondFloor

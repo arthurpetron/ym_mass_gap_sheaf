@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting original boundary-depth reduction (2026-10-01 UTC;
+chart unchanged): constructed edge-density comparisons and OWN raw variance
+comparison transport a supplied reference ratio with factor (1+comparisonEta)^2
+and no extra partition loss. A computed prefix controls the relative error.
+An all-late-cutoff estimate at ONE finite reference depth now reaches SAME
+completed one-step time loss / AMBIENT centered norm. All 22 focused gates
+and independent reviews passed. The reference estimate and changing-family
+rate remain OPEN; this UPPER energy bound is not a LOWER physical gap floor.
+All continuum endpoints remain OPEN. Evidence:
+`audits/AUDIT-TERMINAL-ENERGY-RATIO-2026-10-01.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting source-uniform low-mode shortcut obstruction (2026-10-01
 UTC; chart unchanged): positive symmetric Markov contractive heat and an exact
 low bare eigenmode do NOT yield E<=C*h*OWNVariance uniformly over positive

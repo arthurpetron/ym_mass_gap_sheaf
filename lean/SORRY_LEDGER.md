@@ -1,5 +1,33 @@
 # Sorry Ledger
 
+## PROVED original boundary-depth ratio transport only (2026-10-01 UTC)
+
+- `QuaternionHaarDensityVarianceComparison.rawVariance_own_mean`,
+  `raw_variance_comparison` and `energy_variance_ratio_transport` preserve
+  OWN centers and compare raw variances without an extra partition factor.
+- `BF4ExactSlabFixedSpatialTerminalEnergyComparison.edgeLowerCertificate`
+  and `edgeUpperCertificate` construct the actual original edge order with
+  squared bracket endpoints. `energy_upper`, `edgeMoment_pin` and
+  `rawEdgeVariance_pin` retain original energy and odd-chain variance.
+- `terminal_ratio_transport` gives coefficient c*(1+comparisonEta)^2;
+  `finite_reference_all_later` uses ONE reference depth. `comparisonOnset`
+  and `comparisonEta_small` construct its nome/width-dependent error threshold.
+- `BF4WilsonAllNomeTerminalReferenceEnergyRatio.finite_reference_ratio`
+  consumes an all-late-cutoff ratio at that ONE depth. `finite_reference_diagonal`
+  computes onset max k0 (s+1); `energyLimit_reference_ratio` uses the already
+  constructed Cauchy witnesses. `completed_reference_ratio` is the SAME
+  completed one-step time loss versus original AMBIENT centered norm.
+- All 22 focused gates and independent reviews passed, all {propext,Quot.sound}.
+  No new sorry, axiom, analytic bundle, erased witness or weakened frontier.
+  Evidence: `audits/AUDIT-TERMINAL-ENERGY-RATIO-2026-10-01.md`.
+- OPEN: the cutoff-uniform reference ratio itself and its useful rate on a
+  justified changing family, original cross-scale compatibility, spatial and
+  spacing control, surviving nonzero excitation, finite positive physical
+  mass, full same-theory QFT, every group and Clay. The estimate is an UPPER
+  energy bound, not a lower gap floor. Three semantic root imports added;
+  full root/tree/build/audit/guard NOT checked. CI, canonical chart and safety
+  limits unchanged; no exact displayed claim changed.
+
 ## PROVED generic positive-source low-mode scaling obstruction only (2026-10-01 UTC)
 
 - `PositiveSourceHeatModeScalingObstruction.heat_markov`, `heat_selfAdjoint`,

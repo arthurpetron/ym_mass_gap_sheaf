@@ -25,6 +25,38 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### ONE original reference depth now controls every later depth (2026-10-01 UTC)
+
+PROGRESS after `c7b30d5`: actual squared terminal-bracket certificates compare
+the original K(x,y)V(x)V(y)g_n(x)g_n(y) edge densities. Their lower comparison
+controls raw variance at each density's OWN mean; their upper comparison
+controls raw temporal energy. Partition factors cancel, giving coefficient
+c*(1+comparisonEta)^2, not an extra partition-ratio loss. `comparisonOnset`
+computes a prefix for every supplied positive error budget. The coefficient
+and prefix retain nome/width dependence, while omitting cutoff and later depth.
+
+`BF4WilsonAllNomeTerminalReferenceEnergyRatio.completed_reference_ratio`
+consumes a cutoff-uniform ratio at ONE finite reference depth, propagates it
+to every later depth and joins the existing actual energy/variance Cauchy limits.
+Its recipient is ORIGINAL completed one-step time loss versus SAME AMBIENT
+centered norm; the bond norm alone is not substituted. All 22 focused gates
+and independent reviews passed. No new analytic bundle, convergence premise,
+partition oracle, mean hypothesis or claim that the reference input is proved.
+Evidence: `audits/AUDIT-TERMINAL-ENERGY-RATIO-2026-10-01.md`.
+
+NEXT: prove the original JOINT signed energy/OWN-variance estimate at that
+finite reference depth, uniformly over late cutoff, with a useful rate on
+the justified changing family. The existing signed Taylor/Ward correction
+must still be controlled on its actual marginal. The proved depth/limit
+transport is now a recipient of this narrower input; do not assume the
+reference estimate or replace it by a generic positive-source eigenpin.
+This UPPER energy/norm control addresses response/survival; it is not the
+separate LOWER generator estimate needed for positive physical mass. Original
+cross-scale compatibility, spatial/spacing control, nonzero continuum survival,
+finite positive physical mass, full QFT, every group and Clay remain OPEN.
+Three semantic root imports added; full root/tree/build/audit/guard NOT checked.
+CI and canonical chart unchanged; no exact displayed claim changed.
+
 ### Source-uniform low-heat-mode shortcut pruned (2026-10-01 UTC)
 
 PROGRESS: `PositiveSourceHeatModeScalingObstruction.counterexample` computes,

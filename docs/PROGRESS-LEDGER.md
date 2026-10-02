@@ -4,7 +4,26 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Local Cayley consistency and commutation (2026-10-01 UTC)
+## Current increment: ONE original reference depth controls later completed energy ratios (2026-10-01 UTC)
+
+PROGRESS after `c7b30d5`: constructed original edge-density comparison
+certificates give squared terminal-bracket endpoints. Comparing raw energy
+and each density's OWN raw variance cancels partition factors and preserves
+the whole signed observable. The coefficient is c*(1+comparisonEta)^2; a
+computed nome/width-dependent prefix controls its relative-error budget.
+
+The actual recipient now consumes an all-late-cutoff ratio at ONE finite
+reference depth, propagates to later depths and passes through the existing
+Cauchy limits to SAME completed time loss / AMBIENT centered norm. All 22
+focused gates and independent reviews passed. This removes the all-depth
+analytic input, not the reference estimate or useful changing-family rate.
+Response/survival UPPER energy control is not a LOWER physical gap bound.
+Cross-scale compatibility, spatial/spacing control, survival/mass/QFT,
+every group and Clay remain OPEN. No broad build/audit/guard, progress-metric
+run, raised limit or ASCII reprint. Evidence:
+`audits/AUDIT-TERMINAL-ENERGY-RATIO-2026-10-01.md`.
+
+## Earlier increment: Local Cayley consistency and commutation (2026-10-01 UTC)
 
 PROGRESS after `fbb0002`: exact linked-domain consistency and the explicit
 `4*t^4` squared ceiling now have actual represented second-core consumers.

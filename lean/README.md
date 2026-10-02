@@ -12,6 +12,21 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original terminal-energy ratio transport (2026-10-01 UTC):**
+`QuaternionHaarDensityVarianceComparison.raw_variance_comparison` tests each
+density at its OWN mean. `TerminalEnergyComparison.edgeLowerCertificate` and
+`edgeUpperCertificate` construct actual original Wilson edge comparisons.
+`finite_reference_all_later` transports a supplied reference ratio with factor
+`(1+comparisonEta)^2`; `comparisonOnset` computes a prefix for any positive
+relative-error budget. `TerminalReferenceEnergyRatio.completed_reference_ratio`
+joins an all-late-cutoff estimate at ONE finite reference depth to the SAME
+completed one-step time loss and AMBIENT centered norm, not just the bond norm.
+All 22 focused gates and independent reviews passed, all {propext,Quot.sound}.
+The reference estimate and useful changing-family rate remain OPEN. An
+upper energy/norm bound is not a lower spectral-gap or physical mass bound.
+Three root imports added; full root/tree/build/audit/guard NOT checked.
+Evidence: `audits/AUDIT-TERMINAL-ENERGY-RATIO-2026-10-01.md`.
+
 **Generic source-uniform scaling obstruction (2026-10-01 UTC):**
 `PositiveSourceHeatModeScalingObstruction.counterexample` computes a positive
 two-state source and heat step for each nonnegative rational C, refuting
