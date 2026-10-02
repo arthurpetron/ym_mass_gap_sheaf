@@ -25,6 +25,35 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### ONE finite original signed margin supplies the reference bound (2026-10-02 UTC)
+
+PROGRESS after `f834d25`: `FiniteReferenceMargin.referenceMargin_pin`
+retains g=c*OWNVar-E as alpha*S+c*(P-U*L), with alpha=(c-1)/2 and FOUR original
+window moments. BOTH finite endpoint means remain in U*L. The constructed
+fixed-depth cutoff moduli and original mean caps give `referenceMarginCauchy`;
+the error denominator is 1+abs(alpha)+abs(c)*(1+2B), so no c/variance inverse
+or epsilon-dependent time threshold is needed.
+
+The executable finite `check` tests c>=0, epsilon>0, pivot>=computedM and
+g(pivot)>=2epsilon. Acceptance gives g>=epsilon at every later cutoff, then
+the existing original depth transport and SAME completed-carrier upper ratio.
+Zero coefficient-times-variance and zero actual variance cannot be accepted.
+Eleven focused public gates and independent math review passed, all
+{propext,Quot.sound}. Evidence: finite-margin addendum in
+`audits/AUDIT-TERMINAL-ENERGY-RATIO-2026-10-01.md`.
+
+NEXT: produce an ACTUAL accepted finite margin with a useful coefficient on a
+justified padded/changing original family, or prove a source-specific analytic
+estimate which certifies those data. This sufficient finite criterion is not
+an equivalence for zero-slack estimates. No successful certificate or feasible
+runtime for evaluating a physical instance was established. Do not add another
+conditional wrapper or assume that a fixed short plaquette is a surviving
+observable. The exact one-face moments below remain a diagnostic; signed
+multi-face terms and original cross-scale pairings remain intact. Physical
+spacing/lower gap, nonzero continuum survival, full QFT, every group and Clay
+remain OPEN. One semantic root import added; full root/tree/build/audit/guard
+and progress metric NOT run. CI, safety limits and chart unchanged.
+
 ### Original one-plaquette Ward derivative reduced to two moments (2026-10-02 UTC)
 
 PROGRESS after `7980c6e`: `PlaquetteWardMoments.plaquette_variance`,

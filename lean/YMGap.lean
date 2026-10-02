@@ -6088,6 +6088,9 @@ import YMGap.Continuum.BF4WilsonAllNomeMarginalVarianceLimit
 -- ONE finite reference depth controls original completed time loss.
 -- The useful reference and changing-scale estimates remain OPEN.
 import YMGap.Continuum.BF4WilsonAllNomeTerminalReferenceEnergyRatio
+-- A finite signed-margin check supplies that original reference estimate.
+-- Constructed fixed-depth cutoff errors; no successful scaling certificate.
+import YMGap.Continuum.BF4WilsonAllNomeFiniteReferenceMargin
 -- Exact original one-face Ward residual in two interacting character moments.
 -- Strict padding retains the full signed temporal remainder; no scaling bound.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteWardMoments

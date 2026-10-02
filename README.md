@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Finite original reference certificate (2026-10-02):** constructed cutoff
+errors give a sufficient ONE finite signed-margin test for the all-late-cutoff
+reference estimate. Acceptance reaches the SAME completed-carrier bound and cannot
+come from zero variance. Eleven focused gates and independent review passed.
+No successful small-rate certificate on a changing family has been produced;
+scaling and continuum endpoints remain open. See the
+[certificate and residue](audits/AUDIT-TERMINAL-ENERGY-RATIO-2026-10-01.md#finite-original-reference-margin-certificate-2026-10-02-utc).
+
 **Original one-plaquette calculation (2026-10-02):** the complete signed Ward
 correction is now expressed exactly in two original interacting character
 moments. OWN variance and angular cost use those same moments; padded temporal

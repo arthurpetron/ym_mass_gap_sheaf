@@ -1,5 +1,30 @@
 # Sorry Ledger
 
+## PROVED finite original reference certificate reduction only (2026-10-02 UTC)
+
+- `BF4WilsonAllNomeFiniteReferenceMargin.referenceMargin_pin` retains
+  g=c*OWNVar-E as alpha*S+c*(P-U*L), alpha=(c-1)/2, on FOUR original windows.
+  Both finite endpoint means remain; no bare-Haar or surrogate variance enters.
+- `referenceMarginCauchy` constructs the fixed-depth cutoff modulus from those
+  windows and original mean caps. `cutoffTolerance` uses 1+abs(alpha)+
+  abs(c)*(1+2B), not c or variance, as denominator. No late-time requirement.
+- The finite decidable `check` requires c>=0, epsilon>0, pivot>=computedM and
+  g(pivot)>=2epsilon. `Certificate.margin_floor` gives g>=epsilon at every
+  later cutoff; `reference_strict_ratio` retains E+epsilon<=c*OWNVar.
+  `all_later_ratio` and `completed_ratio` reach the existing ORIGINAL depth
+  transport and SAME completed time loss / AMBIENT centered norm. Acceptance
+  excludes zero coefficient-times-variance and zero actual variance.
+- Eleven focused public gates and independent math review passed, all
+  {propext,Quot.sound}. No new sorry, axiom, analytic convergence field,
+  witness erasure or weakened frontier. Evidence: finite-margin addendum in
+  `audits/AUDIT-TERMINAL-ENERGY-RATIO-2026-10-01.md`.
+- OPEN: produce accepted finite data with a useful coefficient on a justified
+  changing family; original cross-scale compatibility, physical spacing/lower
+  gap, nonzero continuum survival, full QFT, every group and Clay. No successful
+  certificate or bounded-resource computation of a physical instance is
+  asserted. One root import added; full root/tree/build/audit/guard NOT checked.
+  CI, safety limits and canonical chart unchanged; no displayed claim changed.
+
 ## PROVED original one-plaquette Ward moment calculation only (2026-10-02 UTC)
 
 - `BF4ExactSlabFixedSpatialPlaquetteWardMoments.plaquetteMoment` retains

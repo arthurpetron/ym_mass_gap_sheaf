@@ -4,7 +4,26 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Original one-plaquette Ward calculation in two moments (2026-10-02 UTC)
+## Current increment: Finite original signed margin supplies the reference bound (2026-10-02 UTC)
+
+PROGRESS after `f834d25`: constructed cutoff control of the actual joint margin
+c*OWNVar-E uses FOUR original window moments and BOTH finite endpoint means.
+It applies at an arbitrary fixed depth, without a late-time condition or a new
+convergence premise. A finite accepted positive-margin test now supplies the
+all-late-cutoff input of the original depth/completed-carrier ratio transport.
+Acceptance cannot come from zero variance. Eleven focused public gates and
+independent math review passed, all {propext,Quot.sound}.
+
+This is an actual cutoff-modulus construction and sufficient finite certificate
+reduction, not a successful original scaling-family certificate. NEXT is an
+accepted finite margin with a useful coefficient on a justified changing
+family, not another wrapper. Original cross-scale compatibility, spatial/
+spacing control, lower physical gap, survival, full QFT, every group and Clay
+remain OPEN. No root/tree/build/audit/guard, progress-metric script, raised
+limit or ASCII reprint. Evidence: finite-margin addendum in
+`audits/AUDIT-TERMINAL-ENERGY-RATIO-2026-10-01.md`.
+
+## Earlier increment: Original one-plaquette Ward calculation in two moments (2026-10-02 UTC)
 
 PROGRESS after `7980c6e`: literal curvature and character fusion compute the
 COMPLETE original-marginal Ward residual from actual m1,m2. OWN mean and

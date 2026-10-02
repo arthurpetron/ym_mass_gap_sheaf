@@ -136,3 +136,103 @@ sources and are NOT final evidence. Missing namespace/explicit arguments,
 opaque-definition pins and include/docstring placement were repaired;
 limits were not raised. Three semantic root imports added, but the full
 root/tree build, axiom audit, guard and progress-metric script were NOT run.
+
+## Finite original reference margin certificate (2026-10-02 UTC)
+
+The all-late-cutoff input at ONE reference depth now has a sufficient finite
+certificate, with its cutoff errors constructed from the original source.
+At fixed t=s+1 and c, write J for the actual originalWindowScalar and define
+
+    S = J(squareAt e 1), P = J(crossOdd x x),
+    U = J(crossOdd x unit), L = J(crossOdd unit x),
+    alpha = (c-1)/2,
+    g = c*OWNVar-E = alpha*S + c*(P-U*L).
+
+Here x is the literal radius-zero singleSlice(e). E=S/2 and OWNVar=E+P-U*L
+are the existing actual energy/variance pins; BOTH finite means and the SAME
+partition remain. This applies to signed original expressions, not merely
+a diagonal plaquette or positive coefficients. No measure is substituted.
+
+The original window bounds give a common endpoint cap B>=1. Let
+A=abs(alpha)+abs(c)*(1+2B) and delta=epsilon/(1+A). The signed margin is kept
+intact; absolute values enter ONLY the cutoff error. Four windowCutoffCauchy
+moduli at delta and the SAME fixed t supply a computable maximum M(epsilon).
+The product error is at most 2B*delta, so the total margin error is at most
+A*delta<=epsilon. No time threshold or assumed convergence field enters.
+The denominator remains positive at c=0, and no variance division occurs.
+
+The finite decidable check requires c>=0, epsilon>0, pivot>=M(epsilon) and
+g(pivot)>=2epsilon. Acceptance proves g(k)>=epsilon and E(k)+epsilon<=c*OWNVar(k)
+for EVERY k>=M(epsilon). It then feeds the existing original terminal-depth
+transport and completed_reference_ratio, with coefficient c*(1+comparisonEta)^2.
+Acceptance implies c*OWNVar(k) is not zero and OWNVar(k) is not zero. Thus a
+zero-variance/vacuum test cannot supply this certificate. No certificate for
+a physical changing family is constructed here. The positive-margin criterion
+is sufficient; no equivalence for zero-slack estimates is asserted.
+
+### Declaration map
+
+All new declarations are in
+`lean/YMGap/Continuum/BF4WilsonAllNomeFiniteReferenceMargin.lean`:
+
+| Declaration | Module:line | Role |
+| --- | --- | --- |
+| `referenceMargin_pin` | `lean/YMGap/Continuum/BF4WilsonAllNomeFiniteReferenceMargin.lean:74` | Exact signed combination of FOUR original windows. |
+| `cutoffTolerance` | `lean/YMGap/Continuum/BF4WilsonAllNomeFiniteReferenceMargin.lean:136` | Computed positive-denominator error budget. |
+| `referenceCutoff` | `lean/YMGap/Continuum/BF4WilsonAllNomeFiniteReferenceMargin.lean:143` | Maximum of four fixed-depth cutoff moduli. |
+| `referenceMarginCauchy` | `lean/YMGap/Continuum/BF4WilsonAllNomeFiniteReferenceMargin.lean:222` | Actual cutoff-only joint-margin control. |
+| `check` | `lean/YMGap/Continuum/BF4WilsonAllNomeFiniteReferenceMargin.lean:267` | Executable finite rational/natural test. |
+| `Certificate.margin_floor` | `lean/YMGap/Continuum/BF4WilsonAllNomeFiniteReferenceMargin.lean:300` | Positive margin at every later cutoff. |
+| `Certificate.reference_strict_ratio` | `lean/YMGap/Continuum/BF4WilsonAllNomeFiniteReferenceMargin.lean:308` | Retains the absolute slack. |
+| `Certificate.all_later_ratio` | `lean/YMGap/Continuum/BF4WilsonAllNomeFiniteReferenceMargin.lean:324` | Existing original terminal-depth transport. |
+| `Certificate.completed_ratio` | `lean/YMGap/Continuum/BF4WilsonAllNomeFiniteReferenceMargin.lean:332` | SAME completed time loss / AMBIENT centered norm. |
+| `Certificate.product_ne_zero` | `lean/YMGap/Continuum/BF4WilsonAllNomeFiniteReferenceMargin.lean:346` | Rejects zero coefficient-times-variance. |
+| `Certificate.variance_ne_zero` | `lean/YMGap/Continuum/BF4WilsonAllNomeFiniteReferenceMargin.lean:358` | Non-vacuous original finite variance. |
+
+The source pins are finiteEnergy_half_pin at
+`lean/YMGap/Continuum/BF4WilsonAllNomeTemporalEnergyLimit.lean:124`,
+finiteVariance_budget_pin at
+`lean/YMGap/Continuum/BF4WilsonAllNomeMarginalVarianceLimit.lean:119`, and
+finiteScalar_connected_pin at
+`lean/YMGap/Continuum/BF4WilsonAllNomeCenteredTransferBondLimit.lean:177`.
+The cutoff producer is windowCutoffCauchy at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonWindowJointCauchy.lean:36`.
+
+### Verification and residue
+
+Focused command, serialized from the repository root:
+
+```sh
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --check lean/YMGap/Continuum/BF4WilsonAllNomeFiniteReferenceMargin.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/BF4WilsonAllNomeFiniteReferenceMargin.olean --log-file /tmp/ym-finite-reference-margin-20261002-final.log
+```
+
+Exit 0. Eleven printed public gates, all {propext,Quot.sound}; no error,
+warning or sorryAx in the final log. No new sorry, axiom, Classical shortcut,
+native oracle, analytic convergence input, witness erasure or weakened
+frontier. The one-worker 20-GiB ceiling and 12-GiB OS reserve were unchanged.
+Pre/post memory pressure reported 86% free, swap zero; no compiler survived.
+Earlier draft, second and third logs contain failed elaborations and are NOT
+verification evidence. Namespace, notation-binder, include/docstring and
+rational-as-polynomial-variable issues were repaired without raising limits.
+Sol independently reviewed the actual algebra, crossed product caps, four
+fixed-depth moduli, checker soundness and scope. Luna independently checked
+the final source/log gates, hashes, declaration citations, nonzero-variance
+consequence and documentation scope. Both reviews passed. Absolute slack is
+preserved at the reference depth across cutoff; later-depth/completed consumers
+use the non-strict ratio, not a claimed transport of that absolute slack.
+
+| Artifact | SHA-256 |
+| --- | --- |
+| `BF4WilsonAllNomeFiniteReferenceMargin.lean` | `e557ef967b1fc2ef447fcdec08d40316f45b7a23d42507fa3d842cb9786f2191` |
+| `/tmp/ym-finite-reference-margin-20261002-final.log` | `b96ce07276014b18732e830ef2b3c665ad03fc9df03169043895d7ee738c5773` |
+
+NEXT: produce accepted finite data with useful c on a justified original
+padded/changing family, or prove the source-specific estimate which certifies
+them. No successful certificate or feasible runtime for a physical instance
+was established. The finite-window/mean caps and modulus retain source, nome,
+width and fixed-depth dependence. Cross-scale pairings, spatial/spacing control,
+nonzero continuum survival, finite positive physical mass, full same-theory
+QFT, every group and Clay remain OPEN. This is an UPPER energy certificate,
+not a lower physical-gap theorem. One semantic root import added; the full
+root/tree/build/axiom-audit/guard and progress-metric script were NOT run.
+CI and exact canonical chart claims unchanged; no ASCII reprint.

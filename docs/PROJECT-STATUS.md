@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting finite original reference certificate (2026-10-02 UTC;
+chart unchanged): four fixed-depth original window moduli, including BOTH
+endpoint means, compute cutoff control of c*OWNVar-E. An accepted finite
+positive-margin test reaches all late cutoffs, original later depths and SAME
+completed time loss / AMBIENT centered norm. Acceptance excludes zero variance.
+Eleven focused gates and independent math review passed. Actual accepted
+small-rate data on a changing family and all continuum endpoints remain OPEN.
+Evidence: finite-margin addendum in
+`audits/AUDIT-TERMINAL-ENERGY-RATIO-2026-10-01.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting original one-plaquette Ward calculation (2026-10-02 UTC;
 chart unchanged): actual OWN variance is 1+m2-m1*m1, angular cost 4*(3-m2),
 and complete signed Ward correction 16*m2-12*m1*m1. Both moments retain the

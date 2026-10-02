@@ -12,6 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Finite original reference margin (2026-10-02 UTC):**
+`FiniteReferenceMargin.referenceMarginCauchy` constructs cutoff control at an
+arbitrary fixed depth from FOUR original window moments and BOTH endpoint
+means. `check` tests a positive finite margin at a computed late pivot;
+`Certificate.completed_ratio` consumes it on the SAME original carrier.
+Acceptance excludes zero variance. Eleven focused gates and independent
+review passed, all {propext,Quot.sound}. No successful small-rate certificate,
+changing-family producer or continuum result is asserted. One root import
+added; full root/tree/build/audit/guard NOT checked. Evidence: finite-margin
+addendum in `audits/AUDIT-TERMINAL-ENERGY-RATIO-2026-10-01.md`.
+
 **Original one-plaquette Ward moments (2026-10-02 UTC):**
 `PlaquetteWardMoments` computes OWN variance, angular cost and the complete
 signed Ward correction from two ORIGINAL interacting character moments.
