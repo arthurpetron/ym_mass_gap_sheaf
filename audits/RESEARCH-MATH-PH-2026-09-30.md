@@ -25,9 +25,11 @@ No theorem or hypothesis was imported. No numerical computation or Lean build ra
 
 ## Requested seven-paper review (2026-10-01 22:41 UTC)
 
-Latest complete record verification: **2026-10-02 06:29 UTC**, by two parallel Sol
-reviewers; all seven records still list only v1. The existing theorem screen
-was reused, not repeated. A narrow full-text check corrected the finite-volume
+Latest complete record verification: **2026-10-02 09:03 UTC**, by the main
+agent checking all seven primary abstract records; each still lists only v1.
+A parallel Sol reviewer reused the cached theorem screen against the current
+original-source bound, without independently verifying the paper proofs.
+The earlier narrow full-text check corrected the finite-volume
 ground-state wording for 39475 below; no new Wilson scaling estimate was found.
 No routine listing refresh or Lean build ran. A further source-applicability pass
 against `DisjointFaceJointMargin.joint_margin_pin`
@@ -37,23 +39,31 @@ supplying the retained signed heat/debt estimate or scaling-uniform residual
 control. The current proof and its separate focused verification are recorded
 in `audits/AUDIT-DISJOINT-FACE-JOINT-MARGIN-2026-10-02.md`.
 
-Current applicability check: **2026-10-02 07:22 UTC**, requested for these same
-seven IDs and performed by a parallel Sol reviewer. The cached theorem screen
-was reused. One batch accessed only the seven abstract records; visible version
-histories confirm unchanged v1 for 39802, 39475 and 39780, while the other
-version statements remain based on the complete 06:29 record. No listing scan
-or full-paper reread occurred. The new actual consumer is
+Current applicability check: **2026-10-02 09:03 UTC**, requested for these same
+seven IDs and performed by a parallel Sol reviewer. No listing scan, full-paper
+reread, Lean edit or build occurred. The actual new consumers are
+`centered_sourceError_le_haar`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCenteredOmittedNorm.lean:136`)
+and `normalized_centered_sourceError_le_haar` (same file, line 149).
+Their concrete budget, `centeredHaarBudget` (same file, line 112), retains
+the COMPLETE cubic costs and
+`rho*(half*(H[q^2]+H[q^2*psi^4])+(Z*OWNVar-C))`, with the ORIGINAL
+q=P_fringe(V*g_n), OWN-centered psi, signed C and SAME positive partition Z.
+Here rho=w^((K+1)*(K+3)); its definition is `omittedRate`
+(`lean/YMGap/Continuum/SU2QuaternionCyclicOmittedNorm.lean:45`).
+
+Assessment: none of the cached paper results supplies a useful comparison of
+these remaining moments and COMPLETE debts with OWN variance on a justified
+changing four-dimensional Wilson family. The retained gain in
 `paddedSquare_energy_projection_bound`
-(`lean/YMGap/Continuum/BF4DyadicWilsonSquareProjectionGain.lean:279`), with
-`paddedSquare_overlap_moments` (same file, line 190) retaining
-d=L*(3*U0-U2)-(Z*OWNVar-C)/2. The gain is computable and nonnegative but may
-vanish. None of the cached paper results supplies its quantitative size
-against COMPLETE original debts on a justified changing four-dimensional
-family. Certificate validation (38220), joint-information preservation (40171)
-and same-operator gap assembly (39802) remain methods, not discharged inputs.
-The latter bounds a sampler generator; the log-concave Poincare bound (38295)
-has the opposite direction to the present upper-energy survival estimate.
-No theorem was imported, and no proof-status node changed in this review.
+(`lean/YMGap/Continuum/BF4DyadicWilsonSquareProjectionGain.lean:279`)
+may vanish; integration of the new budget through that ceiling remains open.
+Certificate validation (38220), joint-information preservation (40171) and
+conditional SAME-operator gap assembly (39802) remain methods, not discharged
+inputs. The latter's sampler application is not physical OS time; the
+log-concave Poincare estimate (38295) bounds variance by gradient energy,
+not temporal energy from above by OWN variance. No theorem was imported,
+useful changing-family estimate established, or proof-status node changed.
 
 Most directly useful methods remain [38220, section 7 and appendix B.3](https://arxiv.org/html/2609.38220v1)
 for rigorous certificate validation, [40171, equations (8)--(10), (14)--(16)
