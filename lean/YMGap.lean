@@ -5103,6 +5103,10 @@ import YMGap.Continuum.SU2HeatQuarticSignedCoefficientObstruction
 -- Full-series signed coefficient obstruction with a computed all-later spin cutoff.
 -- An actual original Haar witness and Wilson-specific control are separate.
 import YMGap.Continuum.SU2HeatQuarticFullCoefficientObstruction
+-- Explicit original norm-one Haar source; a fixed source obstructs EVERY later
+-- cutoff of the universal signed shortcut, not the particular Wilson-source bound.
+import YMGap.Continuum.SU2HeatQuarticSignedHaarObstruction
+import YMGap.Continuum.SU2HeatQuarticFixedSourceObstruction
 -- SAME predecessor square cancels in original source cap and odd-mass floor.
 -- Explicit additive cutoff modulus at fixed nome/width; scaling remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRawSourceMassBound

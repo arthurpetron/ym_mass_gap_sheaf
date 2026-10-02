@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED original Haar fixed-source obstruction only (2026-10-02 UTC)
+
+- `SU2HeatQuarticSignedHaarObstruction.endpoint` constructs the original
+  one-link harmonic test. Support/degree/harmonicity and `endpoint_norm`
+  are proved from original Haar reproduction, with no packet-model substitute.
+  `character_response_pin` and `characterRow_quadratic_pin` give actual
+  arbitrary-degree bilateral coefficient extraction. `affineQuadratic_negative`
+  proves the actual SAME-K residual pairing negative for every q>0,K,c,e.
+- `SU2HeatQuarticFixedSourceObstruction.fixedSource` depends on q,c only.
+  `fixedSource_negative_all_later` proves that same norm-one original source
+  has a negative residual quadratic for EVERY K>=fullCoefficientCutoff(q,c)+2
+  and every e, for 0<q<1,c>=0. This is not merely a moving edge test.
+- Two final focused explicit20-GiB checks passed 14+6=20 allowed gates;
+  independent reviews passed. Two root imports registered, not aggregate-checked.
+  No new sorry, axiom, classical shortcut, weakened field or resource ceiling.
+  CI/chart unchanged. This prunes a UNIVERSAL signed transport shortcut;
+  particular Wilson-source / OWN-variance estimates and all continuum
+  endpoints remain OPEN. Evidence:
+  `audits/AUDIT-ORIGINAL-HAAR-FIXED-SOURCE-OBSTRUCTION-2026-10-02.md`.
+
 ## PROVED full original heat coefficient obstruction only (2026-10-02 UTC)
 
 - `SU2HeatQuarticFullCoefficientObstruction.fullCoefficientCutoff` computes

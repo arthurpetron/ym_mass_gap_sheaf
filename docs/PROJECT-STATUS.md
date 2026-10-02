@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL fixed-source Haar obstruction (2026-10-02 UTC;
+chart unchanged): construct a supported degree-n harmonic endpoint with
+ORIGINAL Haar norm one. Its exact bilateral character response extracts
+the actual coefficient. One source n=fullCoefficientCutoff(q,c), independent
+of K and e, makes the original squared-nome affine quartic residual negative
+at EVERY K>=n+2, for 0<q<1,c>=0 and all e. This prunes universal signed
+transport, NOT the particular interacting Wilson-source bound. Two final
+focused explicit20-GiB checks passed all 20 allowed gates. The same-partition
+finite reserve/filtered-budget targets are recorded but remain OPEN, as do
+all continuum endpoints. Evidence:
+`audits/AUDIT-ORIGINAL-HAAR-FIXED-SOURCE-OBSTRUCTION-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting FULL heat coefficient obstruction (2026-10-02 UTC;
 chart unchanged): for 0<q<1 and c>=0, a computed spin threshold makes
 EVERY later original untruncated quartic coefficient exceed c*coeffW(q*q,j).

@@ -27,12 +27,15 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME signed filtered slope and reserve (2026-10-02 UTC)
 
-NEW CHECKED PRUNING: the full original heat sequence, not just the prefix
-edge, has `quarticCoeff(coeffW(q),j)>c*coeffW(q*q,j)` at EVERY spin beyond
-the computed `(48+6*c.num.toNat)*(1-q).den+2`, for `0<q<1,c>=0`.
-Both public gates passed. An original Haar quadratic witness remains a
-separate join; no particular Wilson-source refutation is asserted. Evidence:
-`audits/AUDIT-FULL-HEAT-COEFFICIENT-OBSTRUCTION-2026-10-02.md`.
+NEW CHECKED PRUNING: an explicit ORIGINAL norm-one one-link Haar source
+with n=fullCoefficientCutoff(q,c) makes the actual squared-nome affine
+quartic residual negative for EVERY K>=n+2 and every constant e, for
+0<q<1,c>=0. The fixed source is independent of K/e: this is no longer only
+a coefficient or moving-edge obstruction. Original support, harmonicity,
+norm and bilateral character extraction are proved. Both focused checks
+passed all 20 allowed gates. This rules out universal signed-source
+transport, NOT the bound for the actual interacting Wilson source. Evidence:
+`audits/AUDIT-ORIGINAL-HAAR-FIXED-SOURCE-OBSTRUCTION-2026-10-02.md`.
 
 PROGRESS after `10ab5b8`: FORWARD constructs one literal radius-two source
 (e0-e2)^2-(e0-e1)^2 in the ORIGINAL joint action. The existing padding
@@ -44,11 +47,11 @@ slope is exactly the one-step loss minus the first curvature. A reserve
 and a filtered budget therefore suffice; they are not supplied by this
 milestone. Three final focused explicit20-GiB checks passed all 17 gates.
 
-PRUNED: requiring nonnegative character coefficients of the SAME-cutoff
-affine quartic majorant. Its computed spin K+2 coefficient is -coeffW(q,K)<0
-for every q>0, K and affine constants. This is a checked coefficient-cone
-obstruction, NOT an assembled negative Haar operator witness or a refutation
-of the particular original centered source.
+PRUNED: universal signed transport by that affine SAME-cutoff quartic
+majorant. The earlier coefficient-cone obstruction is now strengthened by
+actual original Haar quadratics, including a fixed test for ALL later K.
+The positive-source pointwise certificate remains valid. A refutation of
+the particular original centered source is NOT asserted.
 
 NEXT ANALYTIC PRODUCER: at m=side on a justified family, prove an original
 R1 reserve gamma0 and (m-1)*(R1-R2)<=gamma0-gamma with gamma>0, retaining
@@ -60,6 +63,17 @@ structure is needed. Spatial/spacing control, useful family costs, continuum
 survival, physical mass calibration, full SAME QFT and every group remain
 OPEN; CI and the exact canonical chart claims are unchanged. Evidence:
 `audits/AUDIT-FILTERED-SIGNED-RESPONSE-AND-COEFFICIENT-OBSTRUCTION-2026-10-02.md`.
+
+CONCRETE FINITE TARGET: use signed window depths (t-1,2,t), t>=1, and the
+SAME odd marginal/energy partition Z at (t+1,t), cutoff and width. With f
+the actual square-loop polynomial, S the signed filtered window numerator,
+E the original energy numerator, and Vnum=V2*Z-M^2 from its OWN first/second
+moments, prove the paired OPEN bounds
+E*Z<=(1-gamma0)*Vnum and
+(m-1)*S*Z<=2*(gamma0-gamma)*Vnum, gamma>0,
+on the justified family and regulator tails (or with controlled normalized
+slack). Existing rectangle moduli and exact source/normalizer limit pins
+already supply the transport; do not build another assumption wrapper.
 
 ### Earlier forward-backward join: actual original Haar quartic certificate (2026-10-02 UTC)
 
