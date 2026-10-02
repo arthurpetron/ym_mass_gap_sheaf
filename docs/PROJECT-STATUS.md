@@ -1,12 +1,13 @@
 # Canonical one-page project status
 
-Verified supporting growing ORIGINAL Wilson square variance identity
-(2026-10-02 UTC; chart unchanged): full-slice Casimir is 12*side, not 12.
-OWN-mean Ward/Taylor and centered-square estimates reach the literal loop
-and existing finite energy/variance consumer, retaining the COMPLETE signed
-error. Focused constructive check and independent review passed. Useful
+Verified supporting growing ORIGINAL Wilson square Ward moments
+(2026-10-02 UTC; chart unchanged): full-slice curvature is L*(4-f^2), L=4*side.
+The ORIGINAL odd marginal gives OWNVar=1+m2-m1^2, Angular=L*(3-m2) and
+COMPLETE Ward=L*(4*m2-3*m1^2), with m2 the label-two character moment.
+The existing energy/variance consumer retains its full signed remainder.
+Both focused constructive checks and independent reviews passed. Useful
 changing-family signed control and all continuum endpoints remain OPEN.
-Evidence: `audits/AUDIT-DYADIC-SQUARE-VARIANCE-TAYLOR-2026-10-02.md`.
+Evidence: `audits/AUDIT-DYADIC-SQUARE-WARD-MOMENTS-2026-10-02.md`.
 No exact displayed claim changed; no ASCII reprint.
 
 Verified supporting ORIGINAL physical bulk excitation (2026-10-02 UTC;

@@ -25,23 +25,27 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Current growing Wilson square and its own variance (2026-10-02 UTC)
+### Current growing Wilson square and its original Ward moments (2026-10-02 UTC)
 
-PROGRESS after `b908230`: the literal strictly padded dyadic square now has
-proved full-slice Casimir kappa=12*side, with degree one on every distinct
-selected link and zero spectator contribution. The original OWN-mean Ward
-and temporal Taylor identities give E=kappa*(1-w)*OWNVar+varianceRemainder.
-The existing centered-square estimate gives leading coefficient
-kappa*(1-w)+(1-w)^2/8 and retains its COMPLETE signed error. The exact
-identity also reaches the existing finite energy/variance consumer directly.
-Focused constructive check and independent math review passed. Evidence:
-`audits/AUDIT-DYADIC-SQUARE-VARIANCE-TAYLOR-2026-10-02.md`.
+PROGRESS after `67c9f07`: the literal strictly padded dyadic loop has exact
+full-slice curvature Gamma=L*(4-f^2), L=4*side, retaining reversed links and
+all spectators. The independent-tail Lagrange identity keeps both quaternion
+norms before their arbitrary-insertion unit laws are applied. The original
+odd marginal now gives OWNVar=1+m2-m1^2, Angular=L*(3-m2) and COMPLETE
+Ward=L*(4*m2-3*m1^2). Here m2=E[chi2], NOT E[f^2].
+This supplies explicit geometry and Ward inputs to the existing growing-loop
+consumer E=3*L*(1-w)*OWNVar+varianceRemainder. Its full signed remainder is
+normalizedRemainder-(1-w)*L*(4*m2-3*m1^2); no useful bound or sign is asserted.
+Both focused constructive checks and independent reviews passed. Evidence:
+`audits/AUDIT-DYADIC-SQUARE-WARD-MOMENTS-2026-10-02.md`.
 
-NEXT: bound the complete signed remainder against OWNVar on a justified
-changing family, retaining this growing perimeter coefficient. The linear
-plaquette-family route below retains its separate coefficient 12; neither
-route has a useful scaling estimate. Geometric dyadic spacing is NOT physical
-calibration. All continuum endpoints and exact chart claims remain OPEN.
+NEXT: control that COMPLETE signed remainder relative to OWNVar on a justified
+changing family, retaining the original moments, partition and growing
+perimeter. This is not another conditional consumer: the geometry and moment
+identities are proved, while the analytic estimate remains missing.
+The linear plaquette-family route retains its separate coefficient 12;
+neither route has a useful scaling estimate. Geometric dyadic spacing is NOT
+physical calibration. All continuum endpoints and exact chart claims remain OPEN.
 
 ### Current physical bulk excitation at fixed nome (2026-10-02 UTC)
 

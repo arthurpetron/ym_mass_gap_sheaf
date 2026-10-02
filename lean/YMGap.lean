@@ -5006,6 +5006,10 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialCenteredRemainderSquare
 -- Actual growing Wilson square: perimeter Casimir and OWN-variance identity.
 -- Complete signed error remains; no justified physical scaling rate follows.
 import YMGap.Continuum.BF4DyadicWilsonSquareVarianceTaylor
+-- Original growing loop curvature and COMPLETE Ward as OWN character moments.
+-- Exact identities only: their signed scaling estimate remains open.
+import YMGap.Continuum.SU2QuaternionIndependentTailAngularSquare
+import YMGap.Continuum.BF4DyadicWilsonSquareWardMoments
 -- Integrated original Ward residual transport, not a weight/derivative identity.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialProjectedWard
 -- The displayed majorant retains a quadratic floor; not a true-moment lower bound.

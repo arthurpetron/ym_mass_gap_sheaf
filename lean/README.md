@@ -12,16 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT growing Wilson square variance identity (2026-10-02 UTC):**
-`BF4DyadicWilsonSquareVarianceTaylor.paddedSquare_casimir` proves the full
-original Casimir `12*side`. `paddedSquare_energy_variance` retains the OWN
-mean and complete signed remainder; `paddedSquare_energy_centered_square`
-retains its complete error with leading rate `12*side*(1-w)+(1-w)^2/8`.
-`finiteSquare_energy_variance` reaches the existing finite consumer at the
-SAME cutoff/depth. Seven focused gates lie within {propext,Quot.sound};
-independent math review passed. Useful scaling control and physical
-calibration remain OPEN; no linear-plaquette or bare-transfer substitution.
-Evidence: `audits/AUDIT-DYADIC-SQUARE-VARIANCE-TAYLOR-2026-10-02.md`.
+**CURRENT growing Wilson square and original Ward moments (2026-10-02 UTC):**
+`BF4DyadicWilsonSquareWardMoments.paddedSquare_gamma` proves full-slice
+curvature `L*(4-f^2)`, with `L=4*side`, reversed links and all spectators.
+`paddedSquare_variance`, `paddedSquare_angular` and `paddedSquare_ward` give
+`1+m2-m1^2`, `L*(3-m2)` and `L*(4*m2-3*m1^2)` in the ORIGINAL odd marginal;
+`m2` is the label-two character moment, not E[f^2]. The complete remainder
+of the existing variance/Taylor consumer is retained. The independent-tail
+norm identity is also proved. Both focused checks and independent reviews
+passed; nine gates lie within {propext,Quot.sound}. Useful signed scaling
+control and physical calibration remain OPEN; no bare-transfer substitution.
+Evidence: `audits/AUDIT-DYADIC-SQUARE-WARD-MOMENTS-2026-10-02.md`.
 
 **CURRENT physical bulk spatial limit (2026-10-02 UTC):**
 `OriginalBulkComparison.bulkConnected_spatial_close` joins the ACTUAL

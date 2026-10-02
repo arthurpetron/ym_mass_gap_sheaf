@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## PROVED growing Wilson square curvature and Ward moments only (2026-10-02 UTC)
+
+- `SU2QuaternionIndependentTailAngularSquare.linear_angularSquare_norm`
+  proves Gamma=4*norm(coordinate)*norm(tail)-f^2 before unit laws.
+  `fundamental_angularSquare` uses explicit selected-block independence
+  and arbitrary-insertion Haar-unit norm, with no heat or support input.
+- `BF4DyadicWilsonSquareWardMoments.paddedSquare_block_gamma` handles
+  forward/reversed selected links; `paddedSquare_gamma` retains the full
+  ORIGINAL slice and proves L*(4-f^2), L=4*side, with zero spectators.
+  `squareMoment` is the original odd-marginal character expectation.
+- `paddedSquare_variance`, `paddedSquare_angular` and `paddedSquare_ward`
+  give 1+m2-m1^2, L*(3-m2) and COMPLETE L*(4*m2-3*m1^2).
+  `paddedSquare_varianceRemainder` pins the existing signed error exactly;
+  m2=E[chi2], NOT E[f^2], and neither error nor Ward gets a favorable sign.
+- Both final warning-free focused checks and independent reviews passed;
+  nine printed gates use only {propext,Quot.sound}. No sorry, new axiom,
+  analytic premise, erased witness, raised limit or weakened frontier.
+  OPEN: useful COMPLETE signed remainder/OWN-variance control on a justified
+  changing family, physical calibration and every continuum endpoint.
+  Two root imports; broad checks NOT run; CI/chart unchanged. Evidence:
+  `audits/AUDIT-DYADIC-SQUARE-WARD-MOMENTS-2026-10-02.md`.
+
 ## PROVED growing Wilson square variance identity only (2026-10-02 UTC)
 
 - `BF4DyadicWilsonSquareVarianceTaylor.paddedSquare_casimir` proves
