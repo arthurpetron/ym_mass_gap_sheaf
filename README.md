@@ -26,7 +26,15 @@ SAME even-window partition. The original finiteValue pin and constant-shift
 invariance of the drift are checked. Useful OWN-variance-relative control
 remains open. See the [exact cancellation and scope](audits/AUDIT-ORIGINAL-FILTERED-NOISE-DRIFT-2026-10-02.md).
 
-**New checked signed-source estimate:** that SAME source is exactly an
+**New checked variance join:** the COMPLETE filtered source now meets its
+OWN finite interacting variance at the fixed original odd mean. Exact
+Young retains radial, Young and drift-square corrections, and the actual
+mixed/matched window comparison pays the finite variance error. The same
+computed depth onset pays this error and the complete word quartic term.
+The remaining chord cost and useful changing-family relative bound remain
+open. See the [join and retained corrections](audits/AUDIT-FILTERED-OWN-VARIANCE-AND-RETAINED-SQUARES-2026-10-02.md).
+
+**Checked signed-source estimate:** that SAME source is exactly an
 original mixed-depth jump square minus TWICE the drift square. Its upper
 radial term shares the drift's middle marginal, and its COMPLETE word
 quartic correction is now paid against the SAME even partition, with

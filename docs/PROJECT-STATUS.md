@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting COMPLETE source to OWN variance join (2026-10-02 UTC;
+chart unchanged): exact Young keeps radial centered, Young and drift
+squares at the SAME original odd mean. The actual mixed centered moment
+is bounded by OWNVar+32*mixRate^n after SAME even-partition normalization;
+cap16 is on the centered square. Existing heat/depth onsets pay both the
+complete word quartic and variance error. Both final focused explicit20-GiB
+checks passed 20 allowed gates, including eight legacy Young gates. The
+mixed chord cost and useful changing-family relative estimate remain OPEN.
+Evidence: `audits/AUDIT-FILTERED-OWN-VARIANCE-AND-RETAINED-SQUARES-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting COMPLETE signed-source ceiling (2026-10-02 UTC;
 chart unchanged): the original source is mixed jump J MINUS twice drift D.
 Upper radial gap uses the SAME middle marginal as D. The COMPLETE word

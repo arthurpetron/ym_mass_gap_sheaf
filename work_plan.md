@@ -27,6 +27,23 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME signed filtered slope and reserve (2026-10-02 UTC)
 
+NEW CHECKED OWN-VARIANCE JOIN: the COMPLETE signed source now meets its
+OWN finite interacting variance at the SAME original odd mean c. Exact
+Young retains U=H_W[r(c-f_upper)^2], Y=H_W[(t(c-f_upper)-c*r)^2] and D.
+The literal mixed centered moment is at most (OWNVar+32*mixRate^n)*E,
+using a constructed cap16 on the centered SQUARE and the same-probe
+mixed/matched window comparison. No finite odd/even partition equality.
+At the existing TWO computed cutoffs, for t>=0,
+t*S+2tU+2Y+2tD<=2{E[t^2(OWNVar+epsilon)+(t+c^2)*b]+t(4-c^2)*L},
+where b is the existing explicit length^4 quartic rate and L the actual
+mixed chord moment. Both final focused checks passed 20 allowed gates
+(including eight legacy Young gates). NEXT pay L by an original whole-word
+interval/common-tail comparison, then estimate the COMPLETE retained cost
+against SAME lag-one reserve on a justified family. Do not discard the
+three corrections or interpret the finite variance join as a useful
+uniform relative budget. Evidence:
+`audits/AUDIT-FILTERED-OWN-VARIANCE-AND-RETAINED-SQUARES-2026-10-02.md`.
+
 NEW CHECKED COMPLETE-SOURCE CEILING: the literal symmetric filtered
 numerator is J-2D, with J in the ORIGINAL mixed edge (n,1,n+1), not a
 matched-terminal source. Its upper radial gap has exactly the middle

@@ -4,7 +4,25 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Original signed radial drift ceiling with quartic paid (2026-10-02 UTC)
+## Current increment: Complete filtered source meets OWN variance (2026-10-02 UTC)
+
+PROGRESS after `84e6178`: exact Young retains BOTH its squared corrections
+under the SAME original Haar weight. The actual mixed centered moment is
+compared to OWN oddVariance at the fixed original odd mean with explicit
+32*mixRate^n error. Cap16 is on the centered square. The complete literal
+source ceiling keeps radial centered square, Young square and drift square;
+the existing TWO cutoffs pay the word quartic and variance error together.
+Both accepted focused checks passed 20 allowed gates, including eight
+legacy Young gates. Independent mathematical review passed. Evidence:
+`audits/AUDIT-FILTERED-OWN-VARIANCE-AND-RETAINED-SQUARES-2026-10-02.md`.
+
+NEXT: original mixed chord estimate and useful COMPLETE signed cost versus
+SAME lag-one reserve on a justified changing family. No family budget,
+positive uniform reserve, physical mass, full QFT, every-group or continuum
+endpoint is closed. One root import registered; root/tree, broad audit/guard
+and progress metric NOT run. CI and exact chart unchanged; no ASCII reprint.
+
+## Earlier increment: Original signed radial drift ceiling with quartic paid (2026-10-02 UTC)
 
 PROGRESS after `81134ca`: the literal signed source now equals J-2D under
 the ORIGINAL mixed-depth measure. Its upper radial gap shares the actual

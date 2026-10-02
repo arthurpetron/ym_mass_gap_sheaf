@@ -13,6 +13,15 @@ discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
 **CURRENT original signed filtered source and SAME response target (2026-10-02 UTC):**
+`BF4ExactSlabFixedSpatialFilteredOwnYoung` now compares the actual mixed
+centered moment with OWN oddVariance at the SAME original odd mean,
+with explicit 32*mixRate^n error. Exact Young retains radial centered,
+Young and drift squares in the COMPLETE source ceiling. Existing TWO
+cutoffs pay both variance error and word quartic. Both final focused
+checks passed 20 allowed gates, including eight legacy Young gates.
+Useful changing-family cost/reserve remains OPEN. Evidence:
+`audits/AUDIT-FILTERED-OWN-VARIANCE-AND-RETAINED-SQUARES-2026-10-02.md`.
+
 `BF4ExactSlabFixedSpatialFilteredRadialDrift` proves the literal original
 source is J-2D in its actual mixed-depth edge measure, with upper radial
 gap on the SAME middle marginal as the drift. `MixedDepthQuarticInsertion`

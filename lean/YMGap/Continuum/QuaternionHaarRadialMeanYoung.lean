@@ -239,6 +239,48 @@ private theorem weighted_radial_square_moment (n : Nat) (W f r : RatPoly) (c t :
                      | _ => polyMul (displacement c f) (displacement c f))))
     (weighted_cap n W _ t)
 
+/-- Exact moment identity retaining BOTH square corrections. No positivity,
+centering, stationarity or change of Haar weight is used. -/
+theorem weighted_young_moments_identity (n : Nat) (W f r : RatPoly) (c t : Q') :
+    (t*(quaternionHaar n (polyMul W
+        (polyMul r (polyAdd (polySmul (Q'.ofInt 4) polyOne)
+          (polyNeg (polyMul f f))))) +
+      quaternionHaar n (polyMul W (polyMul r r))) +
+      t*quaternionHaar n (polyMul W
+        (polyMul r (polyMul (displacement c f) (displacement c f))))) +
+      quaternionHaar n (polyMul W
+        (polyMul (youngSquareRoot c t f r) (youngSquareRoot c t f r))) ≈
+      (t*t)*quaternionHaar n (polyMul W
+        (polyMul (displacement c f) (displacement c f))) +
+      (t+c*c)*quaternionHaar n (polyMul W (polyMul r r)) +
+      (t*((4 : Q') + -(c*c)))*quaternionHaar n (polyMul W r) := by
+  have hp : RatPolyCoeffEqv
+      (polyAdd (polyAdd (youngLower c t f r) (radialSquare c t f r))
+        (polyMul (youngSquareRoot c t f r) (youngSquareRoot c t f r)))
+      (youngUpper c t f r) :=
+    coeffEvalExpr_eqv_of_normalize_eq
+      (.add (.add elower erbsq) (esq ed)) eupper (by decide) (env c t f r)
+  have hl : quaternionHaar n (polyMul W
+      (polyAdd (polyAdd (youngLower c t f r) (radialSquare c t f r))
+        (polyMul (youngSquareRoot c t f r) (youngSquareRoot c t f r)))) ≈
+      (t*(quaternionHaar n (polyMul W
+        (polyMul r (polyAdd (polySmul (Q'.ofInt 4) polyOne)
+          (polyNeg (polyMul f f))))) +
+        quaternionHaar n (polyMul W (polyMul r r))) +
+        t*quaternionHaar n (polyMul W
+          (polyMul r (polyMul (displacement c f) (displacement c f))))) +
+        quaternionHaar n (polyMul W
+          (polyMul (youngSquareRoot c t f r) (youngSquareRoot c t f r))) :=
+    Q'.eqv_trans _ _ _ (haar_weighted_add n W _ _)
+      (Q'.add_eqv_congr'
+        (Q'.eqv_trans _ _ _ (haar_weighted_add n W _ _)
+          (Q'.add_eqv_congr' (weighted_lower_moment n W f r c t)
+            (weighted_radial_square_moment n W f r c t)))
+        (Q'.eqv_refl _))
+  exact Q'.eqv_trans _ _ _ hl.symm
+    (Q'.eqv_trans _ _ _ (haar_of_coeff (hp.mul_left W))
+      (weighted_upper_moment n W f r c t))
+
 /-- Explicit rational-moment form of the retained Young estimate.  Every
 moment uses the same supplied weight `W`, including the mixed radial moment. -/
 theorem weighted_young_moments_retained {n : Nat} {W f r : RatPoly}
@@ -297,5 +339,6 @@ end YMGap.Continuum.QuaternionHaarRadialMeanYoung
 #print axioms YMGap.Continuum.QuaternionHaarRadialMeanYoung.youngRetainedCertificate
 #print axioms YMGap.Continuum.QuaternionHaarRadialMeanYoung.weighted_young_retained
 #print axioms YMGap.Continuum.QuaternionHaarRadialMeanYoung.weighted_young
+#print axioms YMGap.Continuum.QuaternionHaarRadialMeanYoung.weighted_young_moments_identity
 #print axioms YMGap.Continuum.QuaternionHaarRadialMeanYoung.weighted_young_moments_retained
 #print axioms YMGap.Continuum.QuaternionHaarRadialMeanYoung.weighted_young_moments

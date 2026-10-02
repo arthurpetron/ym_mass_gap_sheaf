@@ -5125,6 +5125,9 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialFilteredNoiseDrift
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFilteredRadialDrift
 import YMGap.Continuum.BF4ExactSlabFixedSpatialMixedDepthQuarticInsertion
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFilteredQuarticCeiling
+-- Complete filtered source meets OWN finite variance at the fixed original
+-- odd mean; radial, Young and drift squares retained. Scaling cost stays OPEN.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFilteredOwnYoung
 -- Actual OWN-centered Wilson quartic insertion, SAME original positive
 -- terminal/spectator source and odd partition; not the full filtered slope.
 import YMGap.Continuum.BF4DyadicWilsonSquareSignedQuarticInsertion
