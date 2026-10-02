@@ -1,6 +1,6 @@
 # Constructive Yang--Mills mass-gap formalization
 
-## Current proof boundary (2026-10-01 UTC)
+## Current proof boundary (2026-10-02 UTC)
 
 The [canonical one-page status chart](docs/PROJECT-STATUS.md) keeps fixed
 wording, layout, proof-status meanings and permanent node IDs across updates.
@@ -9,6 +9,13 @@ The Clay target remains **open**: a nontrivial continuum Yang--Mills theory on
 R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
+
+**Original one-plaquette calculation (2026-10-02):** the complete signed Ward
+correction is now expressed exactly in two original interacting character
+moments. OWN variance and angular cost use those same moments; padded temporal
+energy retains its signed remainder. Six focused gates and independent review
+passed. Useful moment/remainder estimates and scaling remain open. See the
+[calculation and scope](audits/AUDIT-PLAQUETTE-WARD-MOMENTS-2026-10-02.md).
 
 **Original boundary-depth reduction (2026-10-01):** a supplied energy/OWN-
 variance ratio at ONE finite reference depth now controls every later depth

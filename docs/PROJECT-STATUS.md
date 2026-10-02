@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting original one-plaquette Ward calculation (2026-10-02 UTC;
+chart unchanged): actual OWN variance is 1+m2-m1*m1, angular cost 4*(3-m2),
+and complete signed Ward correction 16*m2-12*m1*m1. Both moments retain the
+original V*g_n*g_(n+1) marginal. Strictly padded temporal energy retains the
+SAME signed Taylor remainder. Six focused public gates and independent math
+review passed. Useful reference moment/remainder estimates, signed multi-face
+control, changing-family joins and all continuum endpoints remain OPEN.
+Evidence: `audits/AUDIT-PLAQUETTE-WARD-MOMENTS-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting original boundary-depth reduction (2026-10-01 UTC;
 chart unchanged): constructed edge-density comparisons and OWN raw variance
 comparison transport a supplied reference ratio with factor (1+comparisonEta)^2

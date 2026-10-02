@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## PROVED original one-plaquette Ward moment calculation only (2026-10-02 UTC)
+
+- `BF4ExactSlabFixedSpatialPlaquetteWardMoments.plaquetteMoment` retains
+  the original middleRatio(n+1,n), both terminal messages and actual partition.
+  `plaquette_variance` gives OWNVar=1+m2-m1*m1 by literal character fusion.
+- `plaquette_angular` gives 4*(3-m2) by actual four-link curvature;
+  `plaquette_ward` expresses the COMPLETE differentiated-weight residual as
+  16*m2-12*m1*m1, with no favorable-sign hypothesis or bare-Haar substitution.
+- `padded_plaquette_energy` retains the SAME signed normalized Taylor remainder;
+  `plaquette_variance_remainder` retains its SUBTRACTED complete Ward term.
+- Six focused public gates passed, all {propext,Quot.sound}; independent math
+  review passed. No new sorry, axiom, analytic input, erased witness or weakened
+  frontier. Evidence: `audits/AUDIT-PLAQUETTE-WARD-MOMENTS-2026-10-02.md`.
+- OPEN: actual reference-depth moment/remainder estimates uniformly over late
+  cutoff with a useful changing-family rate; multi-face signed cross terms,
+  original cross-scale compatibility, physical spacing/mass, nonzero continuum
+  survival, full QFT, every group and Clay. This is a one-face exact calculation,
+  not a proof of the needed energy/OWN-variance upper bound. One semantic root
+  import added; full root/tree/build/audit/guard NOT checked. CI, canonical
+  chart and safety limits unchanged; no exact displayed claim changed.
+
 ## PROVED original boundary-depth ratio transport only (2026-10-01 UTC)
 
 - `QuaternionHaarDensityVarianceComparison.rawVariance_own_mean`,

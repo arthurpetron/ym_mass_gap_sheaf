@@ -4,7 +4,24 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ONE original reference depth controls later completed energy ratios (2026-10-01 UTC)
+## Current increment: Original one-plaquette Ward calculation in two moments (2026-10-02 UTC)
+
+PROGRESS after `7980c6e`: literal curvature and character fusion compute the
+COMPLETE original-marginal Ward residual from actual m1,m2. OWN mean and
+partition are retained; no derivative sign or surrogate measure is supplied.
+Strict padding reaches actual temporal energy with the SAME signed remainder.
+Six focused public gates and independent math review passed. This is an exact
+original-source diagnostic, not a new conditional compiler or scaling bound.
+
+The next original reference-depth calculation needs joint moment/remainder
+control uniformly over late cutoff. Multi-face signed cross terms, justified
+changing observables and original cross-scale pairings remain open. No original
+variance floor was found that pays the coarse absolute energy bound. Physical
+spacing/mass, continuum survival/QFT, every group and Clay remain OPEN.
+No full root/tree/build/audit/guard, progress-metric run, raised limit or ASCII
+reprint. Evidence: `audits/AUDIT-PLAQUETTE-WARD-MOMENTS-2026-10-02.md`.
+
+## Earlier increment: ONE original reference depth controls later completed energy ratios (2026-10-01 UTC)
 
 PROGRESS after `c7b30d5`: constructed original edge-density comparison
 certificates give squared terminal-bracket endpoints. Comparing raw energy

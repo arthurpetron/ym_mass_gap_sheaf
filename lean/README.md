@@ -12,6 +12,16 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original one-plaquette Ward moments (2026-10-02 UTC):**
+`PlaquetteWardMoments` computes OWN variance, angular cost and the complete
+signed Ward correction from two ORIGINAL interacting character moments.
+Strict padding retains the full signed temporal remainder. Six focused public
+gates and independent math review passed, all {propext,Quot.sound}. This
+removes differentiated-weight evaluation from the one-face reference diagnostic,
+not the missing moment/remainder estimates or changing-family rate. One root
+import added; full root/tree/build/audit/guard NOT checked. Evidence:
+`audits/AUDIT-PLAQUETTE-WARD-MOMENTS-2026-10-02.md`.
+
 **Original terminal-energy ratio transport (2026-10-01 UTC):**
 `QuaternionHaarDensityVarianceComparison.raw_variance_comparison` tests each
 density at its OWN mean. `TerminalEnergyComparison.edgeLowerCertificate` and

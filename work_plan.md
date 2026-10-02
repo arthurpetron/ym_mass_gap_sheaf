@@ -5,7 +5,7 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
-## Whole-project goal and live completion map (updated 2026-10-01 UTC)
+## Whole-project goal and live completion map (updated 2026-10-02 UTC)
 
 The unchanged mathematical target is: for each compact simple gauge group G,
 construct a nontrivial quantum Yang--Mills theory on R^4 satisfying the QFT
@@ -24,6 +24,31 @@ Legitimately inhabit the canonical pinned frontier bundles without `sorry`,
 a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
+
+### Original one-plaquette Ward derivative reduced to two moments (2026-10-02 UTC)
+
+PROGRESS after `7980c6e`: `PlaquetteWardMoments.plaquette_variance`,
+`plaquette_angular` and `plaquette_ward` compute, on the COMPLETE original
+V*g_n*g_(n+1) marginal, OWNVar=1+m2-m1*m1, angular=4*(3-m2), and signed
+normalizedWard=16*m2-12*m1*m1. The character moments are actual middleRatio
+values, not bare-Haar or surrogate heat moments. Strict padding joins actual
+temporal energy to 4*(1-w)*(3-m2)+R, retaining the SAME signed Taylor remainder.
+Six focused gates and independent math review passed within {propext,Quot.sound}.
+Evidence: `audits/AUDIT-PLAQUETTE-WARD-MOMENTS-2026-10-02.md`.
+
+NEXT: at an actual PADDED reference depth, control the original m1,m2 and
+SIGNED R jointly, uniformly over late cutoff, and test their ratio on a
+justified changing family before assuming that a fixed short plaquette is a
+viable surviving observable. The checked one-face identities remove weight
+derivative estimation from this diagnostic; they do NOT supply useful moment
+rates or a small energy/OWN-variance ratio. Do not infer Gaussian behavior,
+factor the interacting active-face weight into independent plaquettes, or
+replace signed multi-face cross terms by these diagonal formulas. The proved
+depth/limit transport remains its actual recipient. Original cross-scale
+compatibility, spatial/spacing control, continuum survival, finite positive
+physical mass, full QFT, every group and Clay remain OPEN. One semantic root
+import added; full root/tree/build/audit/guard NOT checked. CI and chart
+unchanged; no exact displayed claim changed. No safety limit was raised.
 
 ### ONE original reference depth now controls every later depth (2026-10-01 UTC)
 

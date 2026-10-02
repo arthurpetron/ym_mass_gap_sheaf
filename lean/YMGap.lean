@@ -6088,6 +6088,9 @@ import YMGap.Continuum.BF4WilsonAllNomeMarginalVarianceLimit
 -- ONE finite reference depth controls original completed time loss.
 -- The useful reference and changing-scale estimates remain OPEN.
 import YMGap.Continuum.BF4WilsonAllNomeTerminalReferenceEnergyRatio
+-- Exact original one-face Ward residual in two interacting character moments.
+-- Strict padding retains the full signed temporal remainder; no scaling bound.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteWardMoments
 -- Whole signed interior-family response on the SAME physical bond carrier,
 -- and every integer-lag lower orbit. Fixed nome; no continuum survival claim.
 import YMGap.Continuum.BF4WilsonAllNomePlaquetteFamilyBondFloor
