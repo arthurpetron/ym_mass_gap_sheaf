@@ -6130,6 +6130,9 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialDisjointFaceSecondOrder
 -- Joint ORIGINAL covariance/energy residual bound and finite reference-margin
 -- consumer; both signed heat/debt corrections and useful scaling stay open.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialDisjointFaceJointMargin
+-- Exact full-heat crossed determinants for the SAME original covariance,
+-- temporal mixed energy and finite pair-minus-singletons reference margin.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialDisjointFaceJointDeterminant
 -- Quantified ORIGINAL passive nonvacuum attenuation and literal vacuum
 -- projection, joined to the SAME signed Taylor/Ward variance budget.
 -- No changing-source scaling bound or continuum reserve is asserted.

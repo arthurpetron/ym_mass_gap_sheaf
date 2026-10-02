@@ -12,6 +12,16 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Exact ORIGINAL joint determinant (2026-10-02 UTC):**
+`DisjointFaceJointDeterminant.joint_pairing_pin` resums covariance and full
+temporal energy into ONE division-free signed pairing, retaining every heat
+factor and both original means. `reference_pairing_pin` reaches the existing
+pair-minus-singletons margin at the SAME cutoff/depth. Three focused checks,
+all eighteen printed gates and independent review passed. Useful signed
+estimates and positive changing-family slack remain OPEN, as do all continuum
+endpoints. No favorable sign or small-h bound is supplied. Evidence:
+`audits/AUDIT-JOINT-DETERMINANT-2026-10-02.md`.
+
 **Joint ORIGINAL covariance/energy bound (2026-10-02 UTC):**
 `DisjointFaceJointMargin.joint_margin_pin` joins OWN covariance and complete
 mixed energy in one residual Gram pairing, retaining both signed corrections.

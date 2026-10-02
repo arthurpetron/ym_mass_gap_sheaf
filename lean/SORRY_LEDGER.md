@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## PROVED exact original joint determinant only (2026-10-02 UTC)
+
+- `PartialSwapHeat.productHeat_partialSwap_mask` preserves EVERY product
+  heat factor under any partial slice mask, including unselected factors.
+- `HeatFourCopy.heat_fourEnergy_pin` and `covariance_fourEnergy_pin` use a
+  COMPLETE partition, retaining the full endpoint source and original weight.
+  Exact polarization preserves the entire finite-cutoff mixed energy.
+- `DisjointFaceJointDeterminant` proves both test-independence guards from
+  literal original geometry. `joint_pairing_pin` identifies one division-free
+  signed pairing with 2*Z*jointMargin. `reference_pairing_pin` reaches 2*Z^2
+  times the EXISTING pair-minus-singletons reference margin at one cutoff/depth.
+  BOTH original means, all heat factors and signed corrections remain.
+- Three warning-free focused checks and all eighteen printed gates passed
+  within {propext,Quot.sound}; independent review passed. No sorry, new axiom,
+  analytic premise, raised limit or weakened frontier. OPEN: useful signed
+  pairing and diagonal bounds exceeding the common cutoff allowance on a
+  justified changing family, actual positive slack, and every physical/
+  continuum/Clay endpoint. No favorable sign follows from Haar-CS alone.
+  One root import; root/tree and broad checks NOT run; chart unchanged.
+  Evidence: `audits/AUDIT-JOINT-DETERMINANT-2026-10-02.md`.
+
 ## PROVED joint ORIGINAL covariance/energy identity and corrected bound only (2026-10-02 UTC)
 
 - `DisjointFaceJointMargin.commutator_pair` and `commutator_source_zero`

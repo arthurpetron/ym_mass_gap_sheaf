@@ -25,6 +25,27 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Exact ORIGINAL joint determinant (2026-10-02 UTC)
+
+PROGRESS after `37e4d76`: split the COMPLETE original slice into p-face blocks
+and ALL complementary blocks. The actual disjoint q-face supplies the two
+test-independence guards; both endpoint sources remain unrestricted.
+Every product heat factor is preserved under the selected swap.
+`DisjointFaceJointDeterminant.joint_pairing_pin` gives ONE division-free signed
+pairing equal to 2*Z*jointMargin; `reference_pairing_pin` reaches 2*Z^2 times
+the EXISTING pair-minus-singletons margin at one original cutoff/depth.
+The previous heat/cubic/cutoff corrections are resummed exactly, not discarded.
+Three focused checks, eighteen printed gates and independent review passed.
+Evidence: `audits/AUDIT-JOINT-DETERMINANT-2026-10-02.md`.
+
+NEXT: obtain useful SIGNED control of this actual determinant/jump pairing
+and diagonal margins, exceeding the common cutoff allowance on a JUSTIFIED
+changing family. Haar-CS alone gives absolute control, not positive slack;
+no fixed-cutoff small-h remainder bound or source-square replacement follows.
+No useful positive instance, scaling rate or physical/continuum endpoint.
+One root import; no broad check, new premise, raised limit or CI/chart change.
+No exact displayed claim changed; no ASCII reprint.
+
 ### Joint ORIGINAL covariance and energy control (2026-10-02 UTC)
 
 PROGRESS after `3962e00`: exact Haar IBP and literal disjointness make the

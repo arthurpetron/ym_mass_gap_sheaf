@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Exact original signed determinant (2026-10-02):** covariance and complete
+temporal energy now share one signed integral, preserving every heat factor,
+both original means and the existing finite reference margin. Finite-cutoff
+corrections are retained together, not discarded. Focused constructive checks
+and independent review passed. Useful positive slack on a justified scaling
+family remains open. See the
+[identity and remaining estimate](audits/AUDIT-JOINT-DETERMINANT-2026-10-02.md).
+
 **Joint original covariance/energy control (2026-10-02):** original interacting
 means and Haar integration by parts now join the mixed covariance and temporal
 energy in ONE residual pairing. A computed matching scale and exact

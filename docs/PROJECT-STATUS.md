@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL joint determinant (2026-10-02 UTC; chart
+unchanged): a COMPLETE face/complement partition and every original heat
+factor give ONE signed pairing equal to 2*Z*jointMargin, then 2*Z^2 times the
+existing finite pair-minus-singletons reference margin. Both OWN means and
+all finite-cutoff corrections remain, resummed exactly rather than dropped.
+Three focused checks and independent review passed. Useful signed/diagonal
+estimates, positive changing-family slack and every physical/continuum endpoint
+remain OPEN. Evidence: `audits/AUDIT-JOINT-DETERMINANT-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting joint ORIGINAL covariance/energy bound (2026-10-02 UTC;
 chart unchanged): exact Haar IBP joins OWN covariance and complete mixed
 temporal energy in ONE residual pairing at original interacting means.
