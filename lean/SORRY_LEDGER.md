@@ -1,5 +1,29 @@
 # Sorry Ledger
 
+## PROVED actual original Haar quartic certificate and all-later cutoff only (2026-10-02 UTC)
+
+- `BernsteinRationalPositiveRow.unnormalizedRow_nonnegative` constructs the
+  full rational row's nonnegativity at its computed degree from an actual
+  strict polynomial margin. Exact reconstruction is proved, not supplied.
+- `QuaternionHaarBernsteinRowCertificate.strictPolynomialCertificate`
+  returns the actual Type-valued square witness. Constructed unit-coordinate
+  certificates and coefficient-level unshifting identify the original
+  scalar; `SU2HeatJacobiFinitePrefixClassPolynomial.subst_classMarginPolynomial`
+  pins the original inclusive heat-prefix margin, with shared variables.
+- `SU2HeatJacobiOriginalHaarQuarticBound.quarticMarginCertificate` constructs
+  that ORIGINAL Certificate. `selectedChordInsertion_le_original` invokes
+  the existing SAME-positive-source consumer without a heat-floor reciprocal.
+- `SU2HeatJacobiOriginalHaarQuarticCutoff.selectedChordInsertion_le_tolerance`
+  gives coefficient 40*24576^2*(1-q)^2+epsilon for 16/17<=q<1 and epsilon>0,
+  at EVERY later cutoff than its actual computed `quarticCutoff`.
+  Width, depth, active scalar, spectators and odd partition are unchanged.
+- Six final focused explicit20-GiB checks passed all 49 gates within
+  {propext,Quot.sound}. Six root imports registered; broad checks NOT run.
+  No new sorry, axiom, weakened field, alternate source or resource ceiling.
+  CI/chart unchanged. OPEN: signed centered-source / OWN-variance alignment,
+  useful scaling costs and every continuum endpoint. Evidence:
+  `audits/AUDIT-ORIGINAL-HAAR-QUARTIC-CERTIFICATE-2026-10-02.md`.
+
 ## PROVED original strict prefix margin and exact normalized coefficient identity only (2026-10-02 UTC)
 
 - `SU2HeatJacobiFinitePrefixMargin.inclusivePrefix_chord_quartic_bound`

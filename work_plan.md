@@ -25,25 +25,30 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Current forward-backward join: original strict margin and exact coefficients (2026-10-02 UTC)
+### Current forward-backward join: actual original Haar quartic certificate (2026-10-02 UTC)
 
-PROGRESS after `0310fb9`: the completed profile and ORIGINAL finite tails
-now give r^2*H_q,K<=c*H_q*q,K+16*T_q+c*T_q*q at one common inclusive K.
-The K+1 label count is exact. The ACTUAL original heatPrefix margin has
-evaluation>=eta>0 on the full closed scalar interval. Each original tail
-has a computed all-later tolerance cutoff. BACKWARD: the cleared Pascal/
-falling identity identifies the ACTUAL normalized quotient with the
-original elevated Bernstein coefficient; exact monomial reconstruction
-follows. Both FIRST focused explicit20-GiB checks and independent reviews
-passed; all 15 gates are allowed. Evidence:
+PROGRESS after `f200467`: the actual rational margin polynomial computes
+its Bernstein degree, full nonnegative row and Type-valued Haar Certificate.
+Coefficient-level substitution and unshifting identify the ORIGINAL
+heat-prefix polynomial, not merely its pointwise evaluations. The existing
+affine consumer retains the SAME positive source, spectator action, width,
+depth and odd partition. For 16/17<=q<1 and epsilon>0, an actual Nat cutoff
+gives the relative insertion bound with coefficient
+40*24576^2*(1-q)^2+epsilon at EVERY later inclusive cutoff. Both original
+tail guards and head cutoff are constructed. Six final focused explicit
+20-GiB checks passed all 49 gates within {propext,Quot.sound}; no heat-floor
+reciprocal is used. Evidence:
+`audits/AUDIT-ORIGINAL-HAAR-QUARTIC-CERTIFICATE-2026-10-02.md`.
+
+NEXT FORWARD: identify the exact signed centered source and retain its
+cross terms; do not apply the positive-source estimate to it without a
+proved bridge. NEXT BACKWARD: connect complete signed cost to OWN
+interacting variance and the SAME completed response on a justified
+changing family. These are still mathematical obligations, not certificate
+formatting. Useful spatial/spacing costs, continuum survival, physical mass
+calibration, full canonical OS/QFT and every group remain OPEN. No exact
+chart claim or CI change. Previous margin/coefficient evidence remains in
 `audits/AUDIT-ORIGINAL-PREFIX-MARGIN-AND-COEFFICIENT-IDENTITY-2026-10-02.md`.
-
-NEXT JOIN: compute the actual full rational Bernstein row and a finite
-degree ensuring its nonnegativity from this strict margin, then construct
-the ORIGINAL Haar scalar square witness. Do not substitute pointwise
-positivity for the Type-valued Certificate. Signed whole-word cancellation,
-OWN interacting variance alignment, useful changing-family/width costs and
-every continuum endpoint remain OPEN. No exact chart claim or CI change.
 
 ### Earlier forward-backward join: original completed profile and coefficient error (2026-10-02 UTC)
 

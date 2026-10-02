@@ -5086,6 +5086,14 @@ import YMGap.Continuum.BernsteinNormalizedFallingProductError
 -- nonnegative full rational row / Haar certificate and scaling remain OPEN.
 import YMGap.Continuum.SU2HeatJacobiFinitePrefixMargin
 import YMGap.Continuum.BernsteinNormalizedMonomialCoefficient
+-- Actual computed Bernstein/Haar certificate for the ORIGINAL quartic margin,
+-- and SAME-positive-source all-later cutoff; signed variance/scaling remain OPEN.
+import YMGap.Continuum.BernsteinRationalPositiveRow
+import YMGap.Continuum.QuaternionHaarBernsteinRowCertificate
+import YMGap.Continuum.QuaternionHaarUnitIntervalCoordinate
+import YMGap.Continuum.SU2HeatJacobiFinitePrefixClassPolynomial
+import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticBound
+import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticCutoff
 -- SAME predecessor square cancels in original source cap and odd-mass floor.
 -- Explicit additive cutoff modulus at fixed nome/width; scaling remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRawSourceMassBound

@@ -12,7 +12,21 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT original strict prefix margin and exact coefficient identity (2026-10-02 UTC):**
+**CURRENT actual original Haar quartic certificate (2026-10-02 UTC):**
+`BernsteinRationalPositiveRow` computes the degree, exact full rational
+row and nonnegativity from a strict margin. `QuaternionHaarBernsteinRowCertificate`
+returns a Type-valued square witness; `QuaternionHaarUnitIntervalCoordinate`
+and `SU2HeatJacobiFinitePrefixClassPolynomial` pin its coefficient-level
+transport to the ORIGINAL heat margin. `SU2HeatJacobiOriginalHaarQuarticBound`
+uses the existing SAME-positive-source consumer; `SU2HeatJacobiOriginalHaarQuarticCutoff`
+computes an all-later inclusive cutoff for coefficient
+40*24576^2*(1-q)^2+epsilon, for 16/17<=q<1 and epsilon>0.
+Six final focused explicit20-GiB checks passed all 49 allowed gates.
+Signed centered source / OWN-variance alignment, useful scaling costs and
+every continuum endpoint remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-HAAR-QUARTIC-CERTIFICATE-2026-10-02.md`.
+
+**EARLIER original strict prefix margin and exact coefficient identity (2026-10-02 UTC):**
 `SU2HeatJacobiFinitePrefixMargin` constructs a strict ACTUAL heatPrefix
 margin using both ORIGINAL tails at the SAME inclusive K, retaining the
 exact K+1 label count. All-later tail tolerance cutoffs are computed.

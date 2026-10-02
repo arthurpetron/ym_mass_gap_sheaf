@@ -10,25 +10,21 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Current forward-backward progress (2026-10-02):** the original completed
-heat kernel now obeys `[2(1-x)]^2*K_q(x) <= 40*24576^2*(1-q)^2*K_(q*q)(x)`
-for `16/17<=q<1` and the full closed interval `-1<=x<=1`. The proof joins
-the computed original Jacobi block, height and differentiated identities;
-no heat-floor reciprocal or replacement kernel is used. From the other
-end, explicit cutoffs now control the actual normalized falling coefficients
-needed by a Bernstein certificate compiler. Both final focused checks and
-independent mathematical reviews passed within the constructive axiom gate.
-The ORIGINAL Haar certificate, signed OWN-variance comparison, useful
-changing-scale costs and continuum survival remain open. See the
-[bounds and exact remaining join](audits/AUDIT-COMPLETED-HEAT-PROFILE-AND-BERNSTEIN-ERROR-2026-10-02.md).
+**Current forward-backward join (2026-10-02):** the original heat-prefix
+margin now computes a nonnegative rational Bernstein row and an actual
+Type-valued Haar square certificate for the ORIGINAL polynomial. The
+existing consumer bounds its quartic insertion against the SAME positive
+source, spectator action and partition. For `16/17<=q<1`, every positive
+rational tolerance has a computed cutoff valid at EVERY later cutoff;
+the relative coefficient is `40*24576^2*(1-q)^2+tolerance`, without a
+heat-floor reciprocal. Six focused checks passed all 49 constructive
+axiom gates. Signed centered-source control and comparison to OWN
+interacting variance are next; useful scaling costs, continuum survival,
+physical mass calibration, full QFT and every group remain open. See the
+[checked original certificate and its boundary](audits/AUDIT-ORIGINAL-HAAR-QUARTIC-CERTIFICATE-2026-10-02.md).
 
-**Latest finite join:** explicit original tails now give a strict margin
-for the ACTUAL heat-prefix polynomial at one common inclusive cutoff.
-The other branch identifies the actual normalized falling coefficients
-with the original Bernstein monomial reconstruction. Both focused checks
-passed. Constructing the nonnegative full rational row and its original
-Haar certificate is next; neither continuum survival nor the Clay theorem
-is claimed. See the [checked margin and coefficient identity](audits/AUDIT-ORIGINAL-PREFIX-MARGIN-AND-COEFFICIENT-IDENTITY-2026-10-02.md).
+Earlier producers are documented in the [completed heat-profile audit](audits/AUDIT-COMPLETED-HEAT-PROFILE-AND-BERNSTEIN-ERROR-2026-10-02.md)
+and [strict-margin/coefficient audit](audits/AUDIT-ORIGINAL-PREFIX-MARGIN-AND-COEFFICIENT-IDENTITY-2026-10-02.md).
 
 **Earlier forward-backward progress (2026-10-02):** positive-time anchoring
 constructs actual rows of the same unit Wilson-square excitation in the

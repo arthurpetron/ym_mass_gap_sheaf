@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting actual ORIGINAL Haar quartic certificate
+(2026-10-02 UTC; chart unchanged): the strict original polynomial margin
+computes an exact rational Bernstein row, nonnegative coefficients and
+the Type-valued original Haar square witness. Coefficient-level pins
+retain the SAME source and scalar. The existing positive-source consumer
+then gives coefficient 40*24576^2*(1-q)^2+epsilon at EVERY later cutoff,
+with an actual computed cutoff and no heat-floor reciprocal.
+Six final focused explicit20-GiB checks passed all 49 allowed gates.
+Signed centered source / OWN-variance alignment, useful changing-family
+costs and every continuum endpoint remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-HAAR-QUARTIC-CERTIFICATE-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting ORIGINAL common-cutoff margin and coefficient identity
 (2026-10-02 UTC; chart unchanged): both original heat prefixes retain the
 SAME inclusive K and exact K+1 labels. The actual polynomial has strict
