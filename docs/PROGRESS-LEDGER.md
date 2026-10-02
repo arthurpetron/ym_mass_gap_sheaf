@@ -4,7 +4,26 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Exact heat response and original variance loss (2026-10-02 UTC)
+## Current increment: Complete centered energy and explicit heat loss (2026-10-02 UTC)
+
+PROGRESS after `027c121`: the COMPLETE original centered energy now has exact
+signed identity E=s(A+muJ)+T-D at OWN mean. Actual moment estimates prove
+J^2<=L*A and A<=2Z*OWNVar+16L; the constructed cross cap and root-free Young
+give the separate sufficient ceiling E/Z<=4s*OWNVar+(16+34s+8/s)*L/Z.
+Four focused explicit20-GiB checks and independent mathematical/evidence review
+passed; all 31 printed outputs are allowed. Evidence:
+`audits/AUDIT-CENTERED-ENERGY-HEAT-LOSS-2026-10-02.md`.
+
+NEXT: useful COMPLETE signed-energy control relative to OWN variance on a
+physically justified changing family. Preserve T-D cancellation; the L-only
+ceiling is optional and its 8/s coefficient is singular. No useful scaling
+bound or completed-state join is supplied here. Physical calibration and all
+continuum endpoints remain OPEN. One root import; root/tree, broad audit/guard
+and progress metric NOT run. No new analytic premise, CI or exact chart change;
+no ASCII reprint. Requested eight-paper v1 records verified, cached methods
+reused; no routine listing scan or external theorem import.
+
+## Earlier increment: Exact heat response and original variance loss (2026-10-02 UTC)
 
 PROGRESS after `a20b86d`: exact heat images give original E/Z=B/(2Z)-I/(4Z)
 with I>=0 and R<=I, retaining the computed response-square gain without Taylor

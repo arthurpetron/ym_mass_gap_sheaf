@@ -12,7 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT exact heat response and OWN-variance loss (2026-10-02 UTC):**
+**CURRENT complete centered energy and explicit heat loss (2026-10-02 UTC):**
+`BF4DyadicWilsonSquareCenteredEnergyLoss.paddedSquare_energy_centered_loss_identity`
+retains the exact signed T-D polarization at the ORIGINAL OWN mean.
+`paddedSquare_energy_centered_loss_bound` gives the separate sufficient
+ceiling E/Z<=4s*OWNVar+(16+34s+8/s)*L/Z, with s=1-w^(12*side) and actual
+L=M-Z. Appended original moment estimates prove J^2<=L*A and
+A<=2Z*OWNVar+16L. Four focused explicit20-GiB checks and independent review
+passed; all 31 printed outputs are allowed. No variance inverse, centered
+eigenpin or original-source factorization is used. Small L is not asserted
+necessary; the signed route remains available. Useful changing-family
+relative-energy control and every continuum endpoint remain OPEN. Evidence:
+`audits/AUDIT-CENTERED-ENERGY-HEAT-LOSS-2026-10-02.md`.
+
+**EARLIER exact heat response and OWN-variance loss (2026-10-02 UTC):**
 `BF4DyadicWilsonSquareChannelExactResponse.paddedSquare_energy_exactChannel_response_bound`
 gives E/Z<=B/(2Z)-R/(4Z), with exact signed heat cost and computed response
 on the ORIGINAL channels. Its separate guards are headCutoff(w)<=K and 2<=K.

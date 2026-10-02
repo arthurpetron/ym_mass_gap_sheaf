@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting COMPLETE centered energy and explicit heat loss
+(2026-10-02 UTC; chart unchanged): the ORIGINAL growing-square energy has
+exact signed polarization E=s(A+muJ)+T-D at OWN mean and SAME Z. Actual
+J^2<=L*A and A<=2Z*OWNVar+16L, a constructed cross cap and root-free Young
+give the separate sufficient ceiling E/Z<=4s*OWNVar+(16+34s+8/s)*L/Z.
+Four focused explicit20-GiB checks and independent review passed; all 31
+printed outputs are allowed. Small L is not asserted necessary; the signed
+route remains available. Useful physical-scale relative-energy control and
+every continuum endpoint remain OPEN. Evidence:
+`audits/AUDIT-CENTERED-ENERGY-HEAT-LOSS-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting exact heat response and ORIGINAL variance loss
 (2026-10-02 UTC; chart unchanged): exact heat images retain the computed
 negative response square in E/Z<=B/(2Z)-R/(4Z), without Taylor error budgets.

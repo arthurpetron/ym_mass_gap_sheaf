@@ -12,8 +12,8 @@ Targeted record-only recheck on 2026-10-02 16:52 UTC confirmed that the eight
 requested 2610 records still list only v1. Their existing detailed screen
 was reused; no routine listing rescan or external Lean installation was run.
 
-A further targeted primary-record refresh on 2026-10-02 confirmed the same
-eight v1 records. The cached full-text screen was reused; no listing scan,
+A further targeted primary-record refresh completed at **2026-10-02 18:14 UTC**
+confirmed the same eight v1 records. The cached full-text screen was reused; no listing scan,
 external dependency installation or paper theorem import was performed.
 
 The new papers add potentially transferable norm-loss, moment-bootstrap,
@@ -25,12 +25,14 @@ does not independently verify the complete paper proofs.
 
 ## Current mathematical consumer
 
-The latest repository proof now retains exact heat response squares without
-Taylor budgets and bounds the SAME original OWN-variance/channel mismatch
-by actual heat loss M-Z. Useful control of that loss and the remaining signed
-energy terms on a justified changing family remains OPEN. This is separately
-checked repository mathematics, not an estimate supplied by these papers;
-see `AUDIT-EXACT-HEAT-RESPONSE-VARIANCE-LOSS-2026-10-02.md`.
+The latest repository proof retains the exact signed centered energy identity
+E=s(A+muJ)+T-D and separately proves the sufficient original loss ceiling
+E/Z<=4s*OWNVar+(16+34s+8/s)*L/Z, with actual L=M-Z. Small L is not asserted
+necessary; the cancellation-preserving route remains available. Useful
+physical-scale control on a justified changing family remains OPEN. This is
+separately checked repository mathematics, not an estimate supplied by these
+papers; see `AUDIT-CENTERED-ENERGY-HEAT-LOSS-2026-10-02.md` and the earlier
+`AUDIT-EXACT-HEAT-RESPONSE-VARIANCE-LOSS-2026-10-02.md`.
 
 The current task is to compare active third-Casimir source moments and the
 complete signed curvature, Ward, centering and remainder costs, retaining the

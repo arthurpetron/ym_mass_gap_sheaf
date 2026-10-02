@@ -10,7 +10,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Exact heat ceiling and original variance comparison (2026-10-02):**
+**Complete centered energy and explicit heat loss (2026-10-02):**
+the original growing Wilson square now retains an exact signed polarization
+at its own interacting mean. A separate checked ceiling is
+`E/Z <= 4s*OWNVar + (16+34s+8/s)*L/Z`, where `s=1-w^(12*side)` and
+`L=M-Z` is its actual channel heat loss. It is an optional sufficient bound,
+not a necessary small-loss criterion or a physical-scale estimate. Focused
+constructive Lean checks and independent review passed. Useful control of
+the complete signed energy on a justified scaling family remains open. See
+the [identity, bound and scope](audits/AUDIT-CENTERED-ENERGY-HEAT-LOSS-2026-10-02.md).
+
+**Earlier exact heat ceiling and original variance comparison (2026-10-02):**
 the growing Wilson square now retains its computed negative channel response
 without Taylor or cutoff-error budgets. A separate checked bound relates
 raw channels at the original interacting mean to the SAME variance:

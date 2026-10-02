@@ -25,7 +25,31 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Current exact heat response and original variance loss (2026-10-02 UTC)
+### Current complete centered energy and explicit heat loss (2026-10-02 UTC)
+
+PROGRESS after `027c121`: exact centered polarization now reaches the
+COMPLETE original growing-square energy at OWN mean: E=s(A+muJ)+T-D.
+Both T and D remain SIGNED. Appended original moment estimates prove
+J^2<=L*A and A<=2Z*OWNVar+16L. A constructed centered cap gives T<=16L;
+root-free rational absorption joins the actual optional ceiling
+E/Z<=4s*OWNVar+(16+34s+8/s)*L/Z, with s=1-w^(12*side) and L=M-Z.
+No Taylor budget, variance inverse, source factorization or new analytic
+premise. Four focused explicit20-GiB checks and independent review passed;
+all 31 printed outputs are allowed. Evidence:
+`audits/AUDIT-CENTERED-ENERGY-HEAT-LOSS-2026-10-02.md`.
+
+NEXT: useful control of the SAME complete signed energy relative to OWN
+variance at physical scale on a justified changing family. Retain the
+cancellation-preserving T-D route; the L-only ceiling is an alternative,
+not a necessary small-loss criterion. Its explicit 8/s coefficient is
+singular as s approaches zero. No useful loss/variance/spacing bound or
+completed-state join is supplied by this finite scalar result. Physical
+calibration, nonzero continuum survival, full QFT and every actual group
+remain OPEN. Exact chart claims unchanged; no ASCII reprint. The eight
+requested v1 paper records were verified and their cached method review
+reused; no listing scan or external theorem/dependency import.
+
+### Earlier exact heat response and original variance loss (2026-10-02 UTC)
 
 PROGRESS after `a20b86d`: BOTH actual growing-square heat images normalize
 the exact channel identity to E/Z=B/(2Z)-I/(4Z)<=B/(2Z)-R/(4Z), retaining

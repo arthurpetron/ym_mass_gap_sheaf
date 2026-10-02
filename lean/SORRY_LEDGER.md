@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## PROVED complete centered energy and heat-loss ceiling only (2026-10-02 UTC)
+
+- `SU2QuaternionProductHeatCenteredEnergyLoss.sourceEnergy_centered_polarization`
+  preserves the AFFINE centered heat image and both signed cross/defect terms;
+  `sourceHeatCross_le_cap_loss` constructs the cap certificate.
+- Appended `BF4DyadicWilsonSquareChannelVarianceLoss` original-moment results
+  prove the interacting first moment is zero, J^2<=L*A, A>=0 and
+  A<=2Z*OWNVar+16L. Its original 385-line prefix is unchanged.
+- `BF4DyadicWilsonSquareCenteredEnergyLoss.paddedSquare_energy_centered_loss_identity`
+  proves actual E=s(A+muJ)+T-D at OWN mean and SAME Z;
+  `paddedSquare_energy_centered_loss_bound` proves the optional complete ceiling
+  E/Z<=4s*OWNVar+(16+34s+8/s)*L/Z, with explicit positive s.
+- Four focused explicit20-GiB checks and independent review passed; all 31
+  printed outputs are allowed. No new sorry/axiom, variance inverse, classical
+  shortcut or weakened frontier. OPEN: useful SAME-energy/OWN-variance control
+  on a justified changing family, physical calibration and all continuum
+  endpoints. Small L is not imposed as necessary; the explicit loss ceiling
+  is optional. No scaling or numerical dominance is claimed. One root import;
+  broad checks NOT run; CI/chart
+  unchanged. Evidence: `audits/AUDIT-CENTERED-ENERGY-HEAT-LOSS-2026-10-02.md`.
+
 ## PROVED exact heat ceiling and original channel variance loss only (2026-10-02 UTC)
 
 - `SU2QuaternionProductHeatMomentDefect.heatLossPair_cauchySchwarz` proves
