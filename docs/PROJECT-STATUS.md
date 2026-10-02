@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting exact heat response and ORIGINAL variance loss
+(2026-10-02 UTC; chart unchanged): exact heat images retain the computed
+negative response square in E/Z<=B/(2Z)-R/(4Z), without Taylor error budgets.
+The actual original channels at OWN mean satisfy L=M-Z>=0 and
+(A-Z*OWNVar)^2<=16*L*A, with sharp aggregation and SAME partition.
+Three focused explicit20-GiB checks and independent review passed; all
+twenty gates are allowed. Useful loss and remaining signed-cost control on
+a justified changing family, physical calibration and every continuum
+endpoint remain OPEN. Evidence:
+`audits/AUDIT-EXACT-HEAT-RESPONSE-VARIANCE-LOSS-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting EXACT original channel moment ceiling (2026-10-02 UTC;
 chart unchanged): full growing-loop curvature and literal centered Casimir
 square give P^2*(5F-8M) in the SAME existing channel moments. Retain angular

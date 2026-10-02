@@ -25,7 +25,30 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Current exact original growing-loop channel moments (2026-10-02 UTC)
+### Current exact heat response and original variance loss (2026-10-02 UTC)
+
+PROGRESS after `a20b86d`: BOTH actual growing-square heat images normalize
+the exact channel identity to E/Z=B/(2Z)-I/(4Z)<=B/(2Z)-R/(4Z), retaining
+the computed response gain without Taylor/cubic/omitted-mode budgets.
+Sharp original heat-loss CS gives actual L=M-Z>=0 and
+(A-Z*OWNVar)^2<=16*L*A for the SAME channels at OWN mean, without count
+loss or source factorization. The energy guard 2<=K is separate from
+headCutoff(w)<=K; the variance-loss estimate needs no extra label-two guard.
+Three focused explicit20-GiB checks and independent review passed;
+all twenty gates are allowed. Evidence:
+`audits/AUDIT-EXACT-HEAT-RESPONSE-VARIANCE-LOSS-2026-10-02.md`.
+
+NEXT: useful control of actual L/Z and the COMPLETE remaining signed
+mass/mean/response/cost terms relative to OWN variance on a physically
+justified changing family. L control alone does not prove the needed energy
+estimate. Preserve the signed F coefficient; raw F is not A or OWNVar.
+Do not identify channel corrections with the earlier global gain. Physical
+calibration, nonzero continuum survival, full QFT and every actual group
+remain OPEN. No analytic premise or exact chart change; no ASCII reprint.
+The eight requested October papers were checked directly and their cached
+method review reused; no routine listing scan or external Lean import.
+
+### Earlier exact original growing-loop channel moments (2026-10-02 UTC)
 
 PROGRESS after `6d6c5d8`: full original C Gamma and C(psi) evaluate the signed
 quadratic contribution as P^2*(5F-8M), where P=4*side and M,F are the ACTUAL

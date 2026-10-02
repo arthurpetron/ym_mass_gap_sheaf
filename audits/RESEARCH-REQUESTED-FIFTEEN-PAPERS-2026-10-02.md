@@ -12,6 +12,10 @@ Targeted record-only recheck on 2026-10-02 16:52 UTC confirmed that the eight
 requested 2610 records still list only v1. Their existing detailed screen
 was reused; no routine listing rescan or external Lean installation was run.
 
+A further targeted primary-record refresh on 2026-10-02 confirmed the same
+eight v1 records. The cached full-text screen was reused; no listing scan,
+external dependency installation or paper theorem import was performed.
+
 The new papers add potentially transferable norm-loss, moment-bootstrap,
 certificate, and algebra-construction methods. No inspected result supplies
 the missing useful estimate for the original interacting Wilson family.
@@ -20,6 +24,13 @@ theorems about the repository. Screening statements and selected arguments
 does not independently verify the complete paper proofs.
 
 ## Current mathematical consumer
+
+The latest repository proof now retains exact heat response squares without
+Taylor budgets and bounds the SAME original OWN-variance/channel mismatch
+by actual heat loss M-Z. Useful control of that loss and the remaining signed
+energy terms on a justified changing family remains OPEN. This is separately
+checked repository mathematics, not an estimate supplied by these papers;
+see `AUDIT-EXACT-HEAT-RESPONSE-VARIANCE-LOSS-2026-10-02.md`.
 
 The current task is to compare active third-Casimir source moments and the
 complete signed curvature, Ward, centering and remainder costs, retaining the

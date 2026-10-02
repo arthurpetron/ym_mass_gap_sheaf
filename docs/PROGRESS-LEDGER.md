@@ -4,7 +4,25 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Exact original channel moment ceiling (2026-10-02 UTC)
+## Current increment: Exact heat response and original variance loss (2026-10-02 UTC)
+
+PROGRESS after `a20b86d`: exact heat images give original E/Z=B/(2Z)-I/(4Z)
+with I>=0 and R<=I, retaining the computed response-square gain without Taylor
+budgets. A sharp loss form on the SAME channels proves actual L=M-Z>=0
+and (A-Z*OWNVar)^2<=16*L*A at the OWN mean, with no channel-count loss.
+Three focused explicit20-GiB checks and independent mathematical review
+passed; all twenty gates are allowed. Third accepted log has ten harmless
+unused-variable warnings. Evidence:
+`audits/AUDIT-EXACT-HEAT-RESPONSE-VARIANCE-LOSS-2026-10-02.md`.
+
+NEXT: useful L/Z and COMPLETE remaining signed energy control relative to
+OWN variance on a physically justified changing family. Loss control alone
+does not close that ceiling; physical calibration and all continuum endpoints
+remain OPEN. Two root imports; root/tree, broad audit/guard and progress metric
+NOT run. No new analytic premise, CI or exact chart change; no ASCII reprint.
+Requested paper methods are cached separately; no routine listing scan.
+
+## Earlier increment: Exact original channel moment ceiling (2026-10-02 UTC)
 
 PROGRESS after `6d6c5d8`: actual growing-loop curvature and literal centered
 Casimir square contract to P^2*(5F-8M) in SAME channel moments. Retaining the

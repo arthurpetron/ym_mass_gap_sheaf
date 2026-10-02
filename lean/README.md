@@ -12,7 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT exact original growing-loop channel moments (2026-10-02 UTC):**
+**CURRENT exact heat response and OWN-variance loss (2026-10-02 UTC):**
+`BF4DyadicWilsonSquareChannelExactResponse.paddedSquare_energy_exactChannel_response_bound`
+gives E/Z<=B/(2Z)-R/(4Z), with exact signed heat cost and computed response
+on the ORIGINAL channels. Its separate guards are headCutoff(w)<=K and 2<=K.
+`BF4DyadicWilsonSquareChannelVarianceLoss.paddedSquare_channel_variance_loss_bound`
+proves (A-Z*OWNVar)^2<=16*(M-Z)*A at the SAME original center; M-Z>=0.
+Sharp heat-loss CS aggregates the actual channels without a count factor.
+Three focused explicit20-GiB checks and independent review passed; all
+twenty gates are allowed. No Taylor/error estimate enters this exact ceiling.
+Useful loss and remaining signed-cost control on a justified changing family,
+physical calibration and every continuum endpoint remain OPEN. Evidence:
+`audits/AUDIT-EXACT-HEAT-RESPONSE-VARIANCE-LOSS-2026-10-02.md`.
+
+**Earlier exact original growing-loop channel moments (2026-10-02 UTC):**
 `BF4DyadicWilsonSquareCasimirCurvature` evaluates full C(f^2), C Gamma and
 constant shifts on the original Haar carrier. The exact angular generic
 ceiling retains its channel sum, with no Bessel enlargement.

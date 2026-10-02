@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## PROVED exact heat ceiling and original channel variance loss only (2026-10-02 UTC)
+
+- `SU2QuaternionProductHeatMomentDefect.heatLossPair_cauchySchwarz` proves
+  sharp coefficient-one loss-form CS; `rawMoment_difference_pin` preserves
+  the SAME original sourceMoment orientation.
+- `BF4DyadicWilsonSquareChannelExactResponse.paddedSquare_energy_exactChannel_increment`
+  proves E/Z=B/(2Z)-I/(4Z); `paddedSquare_energy_exactChannel_response_bound`
+  retains the computed response R<=I. Signed coefficient and SAME Z remain;
+  headCutoff(w)<=K and 2<=K are separate guards. No Taylor debts enter.
+- `BF4DyadicWilsonSquareChannelVarianceLoss.paddedSquare_channel_heatLoss_nonnegative`
+  proves actual L=M-Z>=0; `paddedSquare_channel_variance_loss_bound` proves
+  (A-Z*OWNVar)^2<=16*L*A on the ORIGINAL channels at OWN mean, without a
+  count multiplier, sign, source factorization or analytic premise.
+- Three focused explicit20-GiB checks and independent review passed;
+  all twenty gates are allowed. Third accepted log has ten unused-variable
+  warnings and no errors. No new sorry/axiom or weakened frontier. OPEN:
+  useful actual loss and COMPLETE signed-cost control on a justified changing
+  family, physical calibration and all continuum endpoints. Two root imports;
+  broad checks NOT run; CI/chart unchanged. Evidence:
+  `audits/AUDIT-EXACT-HEAT-RESPONSE-VARIANCE-LOSS-2026-10-02.md`.
+
 ## PROVED exact original channel moment ceiling only (2026-10-02 UTC)
 
 - `BF4DyadicWilsonSquareCasimirCurvature` proves actual full-Casimir and

@@ -5034,6 +5034,10 @@ import YMGap.Continuum.BF4DyadicWilsonSquareSobolevProjection
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyChannelSobolev
 import YMGap.Continuum.BF4DyadicWilsonSquareActiveChannelSobolev
 import YMGap.Continuum.BF4DyadicWilsonSquareChannelMomentBalance
+-- Exact heat response and SAME original channel/OWN-variance loss;
+-- useful changing-family control remains OPEN.
+import YMGap.Continuum.BF4DyadicWilsonSquareChannelExactResponse
+import YMGap.Continuum.BF4DyadicWilsonSquareChannelVarianceLoss
 -- SAME predecessor square cancels in original source cap and odd-mass floor.
 -- Explicit additive cutoff modulus at fixed nome/width; scaling remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRawSourceMassBound
