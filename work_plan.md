@@ -25,7 +25,32 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Current completed growing-square integer-lag response with retained exterior (2026-10-02 UTC)
+### Current pruning of the coarse growing-square certificate (2026-10-02 UTC)
+
+PROGRESS after `698daaa`: the ACTUAL squareResponseFraction r<=1/1024
+uniformly for every strict nome. Its lag-side power satisfies
+r^side(scale)<=spacing(scale). The explicit epsilon.den modulus applies
+to ANY strict changing-nome schedule, and to the FULL printed response
+floor r^side*starRatio. Neither coefficient can have a positive all-scale
+rational lower floor. One final focused explicit20-GiB check and independent
+mathematical review passed; all eight printed gates are allowed. Evidence:
+`audits/AUDIT-DYADIC-SPECTATOR-FLOOR-COLLAPSE-2026-10-02.md`.
+
+This prunes THIS lower certificate as a standalone continuum-survival
+producer. It does NOT upper-bound actual response or prove its vanishing.
+The existing fixed-parameter positive response theorem remains valid.
+
+NEXT: improve the actual joint signed energy against OWN variance on a
+justified changing family. The existing exact identity is E=s*(A+muJ)+T-D,
+with D=A-Z*OWNVar and s=1-a. Seek useful joint control of
+s*muJ+T-a*D, retaining cancellation; small L is not necessary. The ENTIRE
+energy and OWN variance already have SAME completed-state limit pins, so
+do not require separate signed-piece limits or add another completion
+wrapper. No useful joint estimate or physical trajectory is supplied here.
+Physical calibration, nonzero continuum survival, full QFT and every group
+remain OPEN. Exact displayed chart claims unchanged; no ASCII reprint.
+
+### Earlier completed growing-square integer-lag response with retained exterior (2026-10-02 UTC)
 
 PROGRESS after `257a7b8`: full word heat transmission retains the ACTUAL
 exterior and every remaining kinetic factor. A single-edge zero moment and

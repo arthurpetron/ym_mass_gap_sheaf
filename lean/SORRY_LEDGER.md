@@ -1,5 +1,23 @@
 # Sorry Ledger
 
+## PROVED collapse of the existing response certificate only (2026-10-02 UTC)
+
+- `BF4DyadicSpectatorFloorCollapse.squareResponseFraction_le_one1024`
+  proves the ACTUAL r<=1/1024 for every strict nome. The lag-side power is
+  <=assigned dyadic spacing, with an explicit epsilon.den modulus uniform
+  over ANY strict nome schedule.
+- `scheduled_responseFloor_side_small` covers the FULL existing completed
+  theorem's rational lower floor r^side*starRatio. `not_uniform_certified_floor`
+  and `not_uniform_response_floor` rule out positive all-scale rational
+  lower floors for THESE certificates, not for actual Wilson response.
+- Final focused explicit20-GiB check and independent math review passed;
+  eight gates are exactly {propext,Quot.sound}. No new sorry/axiom or weakened
+  field. OPEN: a better actual signed-energy/OWN-variance estimate on a
+  justified changing family, physical calibration and every continuum endpoint.
+  Existing ENTIRE energy/variance limit pins suffice for the future join.
+  Root import added; broad checks NOT run; CI/chart unchanged. Evidence:
+  `audits/AUDIT-DYADIC-SPECTATOR-FLOOR-COLLAPSE-2026-10-02.md`.
+
 ## PROVED original completed growing-square integer-lag response only (2026-10-02 UTC)
 
 - `SU2QuaternionProductHeatSpectatorWilsonWord.productMap_fundamental_word_spectator`

@@ -12,7 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT SAME completed growing-square response at every integer lag (2026-10-02 UTC):**
+**CURRENT pruning of the existing response certificate (2026-10-02 UTC):**
+`BF4DyadicSpectatorFloorCollapse` proves the ACTUAL fraction r<=1/1024
+and r^side<=spacing, with an explicit epsilon.den modulus for ANY strict
+nome schedule. The FULL printed floor r^side*starRatio also tends to zero;
+neither certificate has a positive all-scale rational floor. Final focused
+explicit20-GiB checking and independent review passed; all eight gates are
+allowed. This is NOT an actual-response upper bound or a continuum-survival
+refutation. Improve the original joint signed energy versus OWN variance;
+the ENTIRE energy and variance already have SAME completed-state pins.
+Useful physical-scale control and every continuum endpoint remain OPEN.
+Evidence: `audits/AUDIT-DYADIC-SPECTATOR-FLOOR-COLLAPSE-2026-10-02.md`.
+
+**EARLIER SAME completed growing-square response at every integer lag (2026-10-02 UTC):**
 `BF4DyadicWilsonSquareSpectatorResponse.paddedSquare_energy_band` proves
 E/Z<=(1-r)*OWNVar with the full original exterior retained and no small-loss
 premise. `BF4WilsonAllNomeDyadicSpectatorResponse.dyadicExcitation_oneStep_floor`

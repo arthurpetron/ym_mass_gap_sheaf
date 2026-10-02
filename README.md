@@ -10,6 +10,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Checked limitation of the current response bound (2026-10-02):** its
+explicit lower-floor coefficient tends to zero along growing squares for
+every strict coupling schedule, with a computable uniform modulus. Changing
+the coupling schedule alone cannot repair that certificate. This does not
+show that the actual response vanishes; the fixed-parameter positivity proof
+remains valid. The next estimate must improve the original complete signed
+energy relative to its own interacting variance. See the
+[pruning proof and remaining estimate](audits/AUDIT-DYADIC-SPECTATOR-FLOOR-COLLAPSE-2026-10-02.md).
+
 **Completed growing-square response at every integer lag (2026-10-02):** the original
 Wilson square now has a positive response floor on its existing completed
 carrier. The proof retains the exterior action, compares complete energy

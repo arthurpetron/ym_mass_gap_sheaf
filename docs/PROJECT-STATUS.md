@@ -1,5 +1,19 @@
 # Canonical one-page project status
 
+Verified pruning of the EXISTING growing-square response certificate
+(2026-10-02 UTC; chart unchanged): the ACTUAL r<=1/1024 and
+r^side<=spacing uniformly for every strict nome. The explicit epsilon.den
+modulus applies to ANY strict changing-nome schedule and to the FULL printed
+r^side*starRatio floor. No positive rational all-scale floor is available
+from THESE certificates. Final focused explicit20-GiB checking and independent
+review passed; all eight gates are allowed. No upper bound on actual Wilson
+response or claim of its vanishing follows. The fixed-parameter response
+proof remains valid. Return to useful joint signed-energy/OWN-variance
+control on a justified changing family; ENTIRE energy/variance limit pins
+already exist. Every continuum endpoint remains OPEN. Evidence:
+`audits/AUDIT-DYADIC-SPECTATOR-FLOOR-COLLAPSE-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting SAME completed growing-square integer-lag response
 (2026-10-02 UTC; chart unchanged): retain the ACTUAL exterior in full word
 heat transmission, then use constructed local bands to prove
