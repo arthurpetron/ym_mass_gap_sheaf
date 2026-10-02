@@ -12,7 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT finite scalar sampling reduction (2026-10-02 UTC):**
+**CURRENT original response comparison and Jacobi estimates (2026-10-02 UTC):**
+`BF4WilsonAllNomeDyadicNomeComparison` constructs a fixed-geometry two-nome
+bound from existing raw original moment costs, retaining BOTH own means and
+partitions. Exact cancellation pays the mean-square correction only once;
+the actual norm floor is explicit. `SU2HeatJacobiNomeWidening` proves
+q*S_q(2N)<=(4+q)*S_(q*q)(N) for EVERY strict nome and x>=-1.
+`SU2HeatJacobiProductWidening` proves a quantitative normalized-factor
+comparison on the named amplitude block [1/4,3/4]. Three final focused
+explicit20-GiB checks and independent reviews passed; all 11 gates are
+allowed. Full heat-product amplification/limit/Haar certificates, useful
+changing-geometry/width comparison and continuum survival remain OPEN.
+Evidence: `audits/AUDIT-NOME-COMPARISON-AND-JACOBI-FACTORS-2026-10-02.md`.
+
+**EARLIER finite scalar sampling reduction (2026-10-02 UTC):**
 `BF4WilsonAllNomeDyadicResponseSampling` proves a table error eta gives
 eta+half^(p+1) comparison for every covered matched integer-time cell of
 the ORIGINAL anchored normalized response, including different nomes and

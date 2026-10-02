@@ -5065,6 +5065,13 @@ import YMGap.Continuum.BF4WilsonAllNomeRealBondAnchorContinuity
 -- Finite ORIGINAL scalar tables control all matched anchored integer cells;
 -- cross-scale table estimates and a nonzero limiting response remain OPEN.
 import YMGap.Continuum.BF4WilsonAllNomeDyadicResponseSampling
+-- Constructed fixed-geometry coupling comparison of the actual unit response;
+-- not a changing-geometry/width estimate or a scaling tail.
+import YMGap.Continuum.BF4WilsonAllNomeDyadicNomeComparison
+-- Quantitative ORIGINAL Jacobi S pairs and amplitude-block product factors;
+-- full heat profile, original Haar shape certificate and survival remain OPEN.
+import YMGap.Continuum.SU2HeatJacobiNomeWidening
+import YMGap.Continuum.SU2HeatJacobiProductWidening
 -- SAME predecessor square cancels in original source cap and odd-mass floor.
 -- Explicit additive cutoff modulus at fixed nome/width; scaling remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRawSourceMassBound

@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting original coupling comparison and Jacobi estimates
+(2026-10-02 UTC; chart unchanged): construct a fixed-scale/width/lag bound
+on the ORIGINAL unit response at two nomes, retaining BOTH own means and
+explicit finite-pivot costs. NEW Jacobi estimates control consecutive
+logarithmic-derivative terms and contract normalized factors on [1/4,3/4].
+Three final focused explicit20-GiB checks and independent reviews passed;
+all 11 gates are allowed. Full heat amplification/limit/Haar certificates,
+useful changing-family costs, geometry/width control and continuum survival
+remain OPEN. Evidence:
+`audits/AUDIT-NOME-COMPARISON-AND-JACOBI-FACTORS-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting finite scalar sampling reduction (2026-10-02 UTC;
 chart unchanged): one-dimensional ORIGINAL response tables with error eta
 control every covered matched integer-time cell with error eta+half^(p+1),

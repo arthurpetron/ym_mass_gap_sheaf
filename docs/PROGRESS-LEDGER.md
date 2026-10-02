@@ -4,7 +4,27 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Finite scalar sampling reduction (2026-10-02 UTC)
+## Current increment: Original coupling comparison and Jacobi factors (2026-10-02 UTC)
+
+PROGRESS after `5a053a9`: a constructed fixed-scale/width/lag comparison
+of the ORIGINAL unit response retains both own means and explicit finite
+pivots. Reuse the existing raw coupling producer; exact normalization pays
+the shared mean correction once. NEW actual Jacobi S-pair and amplitude-block
+factor bounds supply quantitative inputs to the heat-profile analysis.
+Three final focused explicit20-GiB checks and independent review passed;
+all 11 gates are allowed. Evidence:
+`audits/AUDIT-NOME-COMPARISON-AND-JACOBI-FACTORS-2026-10-02.md`.
+
+NEXT: useful coupling costs on a justified scaling family and its missing
+geometry/width leg; retained-factor counting/product amplification, theta
+height/limit control and an original Haar heat-shape certificate. Signed
+whole-word cancellation and OWN-variance alignment remain open even after
+the quartic mass consumer. No survival or continuum endpoint is closed.
+Three root imports; full root/tree, broad audit/guard and progress metric
+NOT run. CI, canonical fields and exact chart unchanged; no paper-list or
+unchanged ASCII reprint.
+
+## Earlier increment: Finite scalar sampling reduction (2026-10-02 UTC)
 
 PROGRESS after `2fc8245`: literal anchored response samples at assigned
 geometric time v/2^p control every covered matched integer-time cell.

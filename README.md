@@ -10,14 +10,16 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Current forward-backward progress (2026-10-02):** a kernel-checked finite
-sampling theorem narrows anchored cross-scale comparison to one-dimensional
-tables of the original normalized responses. Table error eta controls every
-covered integer query with error eta + half a mesh, even across different
-couplings and widths; supplied sample moduli have a computed finite maximum.
-The table estimates themselves, nonzero limiting response and physical
-calibration remain open. The earlier uniform real-time continuity is retained.
-See the [proof and precise remaining inputs](audits/AUDIT-DYADIC-RESPONSE-SAMPLING-2026-10-02.md).
+**Current forward-backward progress (2026-10-02):** the original normalized
+response now has a constructed comparison at two couplings with fixed loop
+geometry, retaining both own means and explicit finite-pivot costs. From the
+heat-analysis side, two new quantitative Jacobi estimates control paired
+logarithmic-derivative terms and contract factors on an explicit amplitude
+block. All three focused checks and independent mathematical reviews passed.
+The full heat profile, its original Haar certificate, useful changing-scale
+costs and continuum survival remain open. The earlier finite sampling and
+uniform real-time continuity are retained. See the
+[proofs and exact remaining inputs](audits/AUDIT-NOME-COMPARISON-AND-JACOBI-FACTORS-2026-10-02.md).
 
 **Earlier forward-backward progress (2026-10-02):** positive-time anchoring
 constructs actual rows of the same unit Wilson-square excitation in the

@@ -25,7 +25,32 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Current forward-backward join: finite scalar tables (2026-10-02 UTC)
+### Current forward-backward join: original coupling and heat factors (2026-10-02 UTC)
+
+PROGRESS after `5a053a9`: construct an ORIGINAL normalized-response
+comparison between two strict nomes at FIXED scale/width/lag. The existing
+raw finite-pivot producer is reused, not duplicated. Exact signed
+normalization retains BOTH own means and pays their square correction once.
+Every pivot, face count and inverse original norm floor remains explicit.
+Independently, NEW Jacobi estimates prove q*S_q(2N)<=(4+q)*S_(q*q)(N)
+and quantitative factor contraction on the amplitude block [1/4,3/4].
+Three final focused explicit20-GiB checks and independent reviews passed;
+all 11 gates are allowed. Evidence:
+`audits/AUDIT-NOME-COMPARISON-AND-JACOBI-FACTORS-2026-10-02.md`.
+
+NEXT BACKWARD: this pays only the coupling leg at fixed geometry of the
+actual scalar samples. Prove small effective costs on a justified family
+and the geometry/width leg; do not infer a scaling tail or carrier map.
+NEXT FORWARD: explicitly count and multiply retained Jacobi block factors,
+control theta heights and pass the original limits. A pointwise heat
+profile still needs an ORIGINAL Haar square certificate to supply
+`BF4ExactSlabFixedSpatialHeatNomeComparison.affine_original_bound`.
+Even that quartic mass estimate leaves signed whole-word cross terms and
+OWN-variance alignment. Do not apply a positive-source consumer to a
+signed centered source. Survival, physical calibration, full canonical
+OS/QFT and every group remain OPEN. No chart, CI or canonical field changed.
+
+### Earlier forward-backward join: finite scalar tables (2026-10-02 UTC)
 
 PROGRESS after `2fc8245`: ORIGINAL samples
 R_k(2*side(k)+v*2^(k-p)) at assigned geometric time v/2^p control all
