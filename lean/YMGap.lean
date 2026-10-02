@@ -6111,6 +6111,9 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyJointDegree
 -- Coalesce ORIGINAL terminal steps and evaluate the SAME finite margin;
 -- stored-length bounds only, not a successful useful-rate certificate.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialCollectedFamilyMargin
+-- Coefficient-independent ORIGINAL covariance/jump pencil, with equivalent
+-- original strict-slack check; no useful positive direction or scaling claim.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyMarginPencil
 -- Quantified ORIGINAL passive nonvacuum attenuation and literal vacuum
 -- projection, joined to the SAME signed Taylor/Ward variance budget.
 -- No changing-source scaling bound or continuum reserve is asserted.

@@ -1,5 +1,23 @@
 # Sorry Ledger
 
+## PROVED exact ORIGINAL margin pencil, not positive scaling slack (2026-10-02 UTC)
+
+- `FamilyMarginPencil.pencil_contract` retains the full ordered cross-moment
+  sum from one coefficient-independent original density; `pencil_pin`
+  identifies it with Z^2 times the existing OWN-centered signed margin.
+- `pencil_slack_iff` cancels only the proved positive original partition;
+  `pencilCheck_correct` preserves all original cutoff/padding/slack conditions.
+  `pencilCertify` returns the existing original Certificate or none.
+- Focused verification and independent source/sign review passed within
+  {propext,Quot.sound}. No sorry, new axiom, analytic premise, witness erasure
+  or frontier weakening. The signed/repeated quadratic regression is kernel
+  computed, not a physical margin instance.
+- OPEN: useful accepted ORIGINAL direction with cutoff allowance on a
+  justified changing family; source-specific coercivity, evaluation cost,
+  EVERY-state scaling/gap and all physical/continuum endpoints. One root import;
+  no broad build/audit/guard or chart change. Evidence:
+  `audits/AUDIT-ORIGINAL-MARGIN-PENCIL-2026-10-02.md`.
+
 ## PROVED gcd-reduced original evaluator storage only (2026-10-02 UTC)
 
 - `Q'.reduce_eqv`, `reduce_coprime`, `reduce_den_le`, `reduce_numAbs_le`

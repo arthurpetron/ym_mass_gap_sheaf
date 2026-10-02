@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting exact ORIGINAL margin pencil (2026-10-02 UTC;
+chart unchanged): Z^2*margin equals the ordered covariance/jump quadratic
+form from coefficient-independent original moments. Both OWN means, repeated
+faces and every signed cross term remain. The equivalent strict-slack check
+returns the existing original certificate on success. Focused verification
+and independent review passed. No useful accepted direction, source-specific
+coercivity, runtime or scaling bound; every physical/continuum endpoint stays
+OPEN. Evidence: `audits/AUDIT-ORIGINAL-MARGIN-PENCIL-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting gcd-reduced ORIGINAL coefficients (2026-10-02 UTC;
 chart unchanged): first inserts and same-key sums are reduced exactly.
 Every stored terminal/numerator coefficient is coprime; original moment and

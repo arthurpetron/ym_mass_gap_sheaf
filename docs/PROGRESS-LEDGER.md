@@ -4,7 +4,23 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Gcd-reduced actual ORIGINAL coefficients (2026-10-02 UTC)
+## Current increment: Exact ORIGINAL signed-margin pencil (2026-10-02 UTC)
+
+PROGRESS after `0dace0c`: the original full ordered covariance/jump quadratic
+form is exactly Z^2 times its existing signed margin. Basis moments are
+independent of observable coefficients at fixed original density. Both OWN
+means, repeated faces and every signed cross term remain. Clearing the proved
+positive partition preserves the original checker and its certificate type.
+Focused verification and independent review passed. Evidence:
+`audits/AUDIT-ORIGINAL-MARGIN-PENCIL-2026-10-02.md`.
+
+NEXT remains useful positive ORIGINAL slack on a justified changing family.
+No successful direction, matrix coercivity, runtime or physical/continuum
+endpoint is supplied. A one-direction test is not an EVERY-state gap.
+One root import; no broad build/audit/guard/progress run, changed safety/CI
+or canonical chart, and no ASCII reprint.
+
+## Earlier increment: Gcd-reduced actual ORIGINAL coefficients (2026-10-02 UTC)
 
 PROGRESS after `3da7af8`: the actual collector now computes exact gcd reduction
 on every inserted/merged coefficient. Stored terminal and compressed numerator

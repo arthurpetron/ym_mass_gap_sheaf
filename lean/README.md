@@ -12,6 +12,15 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Exact ORIGINAL margin pencil (2026-10-02 UTC):**
+`FamilyMarginPencil.pencil_pin` proves Z^2*margin equals the full ordered
+covariance/jump quadratic form of coefficient-independent original moments.
+`pencil_slack_iff` and `pencilCheck_correct` preserve the existing finite
+checker; `pencilCertify` returns its original certificate. Focused verification
+and independent review passed. No useful accepted direction, scaling or
+runtime bound; all physical/continuum endpoints remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-MARGIN-PENCIL-2026-10-02.md`.
+
 **Gcd-reduced ORIGINAL coefficients (2026-10-02 UTC):**
 `Q'.reduce` computes exact signed fraction reduction. The actual collector
 reduces every inserted/merged coefficient; `terminal_reduced` and

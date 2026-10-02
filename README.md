@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Exact original quadratic pencil (2026-10-02):** the complete signed margin
+is now a coefficient-independent covariance/jump quadratic form, with an
+equivalent original strict-slack check. Repeated faces, OWN centering and all
+cross terms are preserved. Focused constructive verification and independent
+review passed. No useful positive direction, scaling estimate or continuum
+claim follows yet. See the
+[identity and remaining input](audits/AUDIT-ORIGINAL-MARGIN-PENCIL-2026-10-02.md).
+
 **Exact coefficient reduction (2026-10-02):** the actual margin evaluator now
 gcd-reduces every stored terminal/numerator coefficient while preserving its
 original moments and checker. Focused proofs and signed-fraction regressions

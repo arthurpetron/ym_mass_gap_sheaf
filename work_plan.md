@@ -25,6 +25,27 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Exact ORIGINAL signed-margin quadratic pencil (2026-10-02 UTC)
+
+PROGRESS after `0dace0c`: `FamilyMarginPencil.pencil_pin` identifies the
+ordered covariance/jump quadratic form with Z^2 times the EXISTING original
+margin. One fixed density supplies coefficient-independent basis moments;
+both OWN means, repeated faces and every signed cross term remain.
+`pencil_slack_iff` clears the positive partition exactly;
+`pencilCheck_correct` preserves original acceptance, and `pencilCertify`
+returns the EXISTING original certificate on success. The focused check and
+independent mathematical review passed within {propext,Quot.sound}.
+Evidence: `audits/AUDIT-ORIGINAL-MARGIN-PENCIL-2026-10-02.md`.
+
+NEXT: obtain actual original moment entries or a source-specific estimate
+giving useful positive signed slack with the original cutoff allowance on
+a justified changing family. The pencil permits direction searches without
+discarding cross terms; it supplies no successful direction, matrix coercivity,
+memoization/runtime bound or scaling estimate. A single accepted direction
+is not an EVERY-state gap. Physical/continuum endpoints remain OPEN. One root
+import; no broad build/audit/guard/progress run, raised limit, CI/chart change
+or ASCII reprint.
+
 ### Gcd-reduced coefficients in the actual original evaluator (2026-10-02 UTC)
 
 PROGRESS after `3da7af8`: `Q'.reduce` computes exact signed gcd reduction;
