@@ -25,9 +25,11 @@ No theorem or hypothesis was imported. No numerical computation or Lean build ra
 
 ## Requested seven-paper review (2026-10-01 22:41 UTC)
 
-Latest record verification: **2026-10-02 03:58:07 UTC**, by the parallel Sol
-reviewer; all seven records still list only v1. The following theorem screen
-is cached, not a new full-paper review. A further source-applicability pass
+Latest record verification: **2026-10-02 06:29 UTC**, by two parallel Sol
+reviewers; all seven records still list only v1. The existing theorem screen
+was reused, not repeated. A narrow full-text check corrected the finite-volume
+ground-state wording for 39475 below; no new Wilson scaling estimate was found.
+No routine listing refresh or Lean build ran. A further source-applicability pass
 against `DisjointFaceJointMargin.joint_margin_pin`
 (`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialDisjointFaceJointMargin.lean:476`)
 and `corrected_joint_margin_square_bound` (same file, line 495) found no paper
@@ -101,11 +103,17 @@ No identification bridge for this repo is supplied.
 ### 2609.39475 — blockade Hamiltonian gap
 
 [Excitation gap of a blockade structure with Z2 topological order](https://arxiv.org/html/2609.39475v1), Simon Fell et al.
-Theorem 1 and equation (6) establish a size-uniform gap and fourfold ground-state
-degeneracy for a two-dimensional blockade Hamiltonian at sufficiently small
-Omega and sufficiently large size. The argument uses gap stability and local
-symmetry; the paper also discusses extensions to other quantum-double
-structures and non-Abelian sector issues.
+Theorem 1, with Definition 1 and equation (6), separates a four-state
+low-energy band from higher excitations for a two-dimensional blockade
+Hamiltonian at sufficiently small positive Omega and sufficiently large size.
+The band splitting delta_L tends to zero; it is not four exactly degenerate
+finite-volume ground eigenstates. Proposition 2 proves that the actual
+finite-volume lowest ground state is unique in the stated regime. The proof
+of Theorem 1 uses gamma=min(Delta E_bd, Delta_min/2), with a band-to-higher-state
+gap at least gamma-delta_L; Delta E_bd is independent of size, not asserted
+independent of Omega. The argument uses gap stability and local symmetry;
+the paper also discusses extensions to other quantum-double structures and
+non-Abelian sector issues.
 
 Assessment: a different interacting Hamiltonian, dimension and perturbative
 regime. No original Wilson transfer, scaling, continuum survival or physical
