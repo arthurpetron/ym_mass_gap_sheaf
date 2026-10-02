@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting collected ORIGINAL margin evaluator (2026-10-02 UTC;
+chart unchanged): equal monomials are combined during every terminal step,
+with coefficient equality to the SAME original message. Actual stored message
+and numerator lengths have fixed-cutoff bounds. The checker accepts exactly
+the original finite data and returns the existing certificate on success.
+Thirty-nine focused gates and independent reviews passed. No useful accepted
+instance, coefficient-bit or feasible-runtime bound; changing-family signed
+control and every continuum endpoint remain OPEN. Evidence:
+`audits/AUDIT-COLLECTED-FAMILY-MARGIN-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting original signed-margin degree control (2026-10-02 UTC;
 chart unchanged): the original terminal message resets to degree K at every
 depth. Literal kinetic/spatial factors give joint density degree 8*K per block;

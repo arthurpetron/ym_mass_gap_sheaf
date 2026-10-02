@@ -1,5 +1,29 @@
 # Sorry Ledger
 
+## PROVED collected ORIGINAL evaluator and representation length only (2026-10-02 UTC)
+
+- `SU2QuaternionSparseCoefficientCollector.collect_coeff` preserves all
+  coefficient probes; `collect_keys`, `collect_nodup`, `collect_nonzero`
+  certify an actual sparse output. `collect_length_le_cover` bounds its length.
+- `BF4ExactSlabFixedSpatialCollectedFamilyMargin.terminal_coeff` identifies the
+  coalesced iteration with the ORIGINAL terminal at every depth. BOTH endpoint
+  factors remain; `pairing_pin` and `finite_margin_pin` preserve the same
+  projected law, OWN centering, full signed jump and reference-checker input.
+- `terminal_length` gives a cutoff/width bound at every depth;
+  `numerator_length` gives a cutoff/family-length bound on all six actual
+  stored numerators. Neither bounds coefficient bit size or intermediate cost.
+- `check_correct` proves exactly the original acceptance conditions;
+  `certify` returns Option of the EXISTING original finite certificate as data.
+  No successful useful-margin instance or analytical conclusion is assumed.
+- Thirty-nine focused gates and independent reviews passed, within
+  {propext,Quot.sound}; collector definitions are axiom-free. No new sorry,
+  axiom, analytic premise, erased witness or weakened frontier. Evidence:
+  `audits/AUDIT-COLLECTED-FAMILY-MARGIN-2026-10-02.md`.
+- OPEN: actual useful signed moment/margin control on a justified changing
+  family, feasible evaluation, cross-scale identification and all physical/
+  continuum/Clay endpoints. One root import; full root/tree/build/audit/guard
+  NOT run. CI, safety limits and canonical chart claims unchanged.
+
 ## PROVED original fixed-cutoff degree and actual margin exponent universe only (2026-10-02 UTC)
 
 - `BF4ExactSlabFixedSpatialKineticDegree.kineticWeight_lower_degree` and

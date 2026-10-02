@@ -25,6 +25,29 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Coalesced original recurrence and finite certificate evaluator (2026-10-02 UTC)
+
+PROGRESS after `6f05511`: equal exponent keys are combined before every next
+terminal step. `CollectedFamilyMargin.terminal_coeff` proves the SAME original
+message coefficientwise. BOTH edge endpoints, spatial/kinetic weights, joint
+spectator projection, OWN mean and complete signed jump are preserved.
+`terminal_length` bounds stored messages by cutoff/width at every depth;
+`numerator_length` bounds all six stored margin numerators by cutoff/family
+length. `check_correct` proves identical acceptance conditions, and `certify`
+computes an Option of the EXISTING original finite Certificate. Thirty-nine
+focused gates and independent reviews passed, within {propext,Quot.sound};
+collector definitions are axiom-free. Evidence:
+`audits/AUDIT-COLLECTED-FAMILY-MARGIN-2026-10-02.md`.
+
+NEXT: use this exact evaluator or a source-specific analytic argument to obtain
+actual original joint moments with useful signed margin on a justified changing
+family. No accepted useful instance, coefficient-bit, intermediate-work or
+feasible-runtime bound is claimed. Degree and sparse storage do not supply
+the missing Ward/Taylor sign or variance-relative control. Every physical/
+continuum endpoint remains OPEN. One root import; no full root/tree/build/
+audit/guard or progress metric. CI, ONE 20-GiB compiler, 12-GiB reserve and
+canonical chart unchanged; no ASCII reprint.
+
 ### Original signed-margin degree reset and finite exponent universe (2026-10-02 UTC)
 
 PROGRESS after `8ad6f62`: literal kinetic degree <=K and spatial degree <=6*K

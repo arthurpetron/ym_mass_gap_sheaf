@@ -4,7 +4,24 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Original signed-margin degree reset and finite exponent universe (2026-10-02 UTC)
+## Current increment: Collected ORIGINAL recurrence and finite-margin evaluator (2026-10-02 UTC)
+
+PROGRESS after `6f05511`: coalescing now happens DURING actual terminal
+iteration, with full coefficient equality to the original message at every
+depth. BOTH original edge endpoints and all signed/centered moments survive.
+Actual stored message/numerator lengths have proved finite-cover ceilings.
+The new checker is acceptance-equivalent to the original, and its executable
+producer returns the EXISTING finite certificate or none. Thirty-nine focused
+gates and independent reviews passed, within {propext,Quot.sound}.
+
+NEXT remains actual useful original signed slack on a justified changing
+family; coefficient bit sizes, intermediate work and feasible runtime remain
+OPEN. No successful useful-margin instance or continuum result. One root
+import; no broad build/audit/guard, progress metric, raised limit, CI change
+or ASCII reprint. Evidence:
+`audits/AUDIT-COLLECTED-FAMILY-MARGIN-2026-10-02.md`.
+
+## Earlier increment: Original signed-margin degree reset and finite exponent universe (2026-10-02 UTC)
 
 PROGRESS after `8ad6f62`: the actual terminal message degree resets to K at
 every depth. Literal kinetic K, spatial 6*K and terminal K give joint edge

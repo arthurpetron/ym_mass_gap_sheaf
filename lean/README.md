@@ -12,6 +12,18 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Collected ORIGINAL margin evaluator (2026-10-02 UTC):**
+`SparseCoefficientCollector.collect` preserves all coefficient probes and
+distinct output keys. `CollectedFamilyMargin.terminal` collects during every
+step; `terminal_length` and `numerator_length` bound ACTUAL stored term lists.
+`check_correct` preserves the original cutoff/slack/padded family; `certify`
+computes an Option of the existing original finite certificate. Thirty-nine
+focused gates and independent reviews passed, within {propext,Quot.sound};
+the two collector definitions are axiom-free. No useful accepted instance,
+coefficient-bit or runtime bound is asserted. One root import; full root/tree/
+build/audit/guard NOT run. Evidence:
+`audits/AUDIT-COLLECTED-FAMILY-MARGIN-2026-10-02.md`.
+
 **Original signed-margin degree control (2026-10-02 UTC):**
 `FamilyJointDegree.terminalMessage_degree` resets the actual message degree
 to K at every depth. `density_degree` gives <=8*K per original endpoint block;
