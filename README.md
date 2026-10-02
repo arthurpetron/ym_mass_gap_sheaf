@@ -10,7 +10,16 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Current forward-backward progress (2026-10-02):** the original action now
+**Current forward-backward progress (2026-10-02):** positive-time anchoring
+constructs actual rows of the same unit Wilson-square excitation in the
+existing physical bond completion, with squared norm exactly `R(2*side)`. Its
+squared increments obey `distance <= (j/(n+1))^2`; at `n>=side`, this gives a computed
+small-increment radius uniform in nome and width at assigned geometric time.
+Both focused Lean checks and independent review passed. A nonzero limiting
+norm, cross-scale convergence, physical calibration and full QFT remain open.
+See the [construction and remaining join](audits/AUDIT-POSITIVE-TIME-BOND-ANCHOR-2026-10-02.md).
+
+**Earlier forward-backward progress (2026-10-02):** the original action now
 supplies the signed overlap bound `G*D >= a*(U^2-S*D)`, retaining its actual
 source and OWN mean. On the same completed unit state, the response is exactly
 `R(m)=1-m*loss+curvatureGain`, with computed nonnegative gain. This avoids

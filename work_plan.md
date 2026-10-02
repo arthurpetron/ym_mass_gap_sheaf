@@ -25,7 +25,41 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Current forward-backward join: signed overlap and response curvature (2026-10-02 UTC)
+### Current forward-backward join: positive-time physical bond anchor (2026-10-02 UTC)
+
+PROGRESS after `37fac6e`: the existing unit Wilson-square excitation u now
+has actual rows in ORIGINAL BondCompletion representing T(side+lag)u.
+Its Gram kernel is exactly R(2*side+i+j); vacuum orthogonality and original
+integer-time action are preserved. The supplied preimage T(side+lag-1)u
+passes through the existing time-range constructor, preventing an extra
+sqrt(T) bond shift. The SAME transfer's squared increment estimate is
+(j/(n+1))^2*B(x,x). For u and n>=side, it gives (j*spacing)^2 with computed
+positive radius min(epsilon,1), uniform over strict nomes and widths.
+Both final focused explicit20-GiB checks and independent review passed;
+all 24 gates are allowed. Evidence:
+`audits/AUDIT-POSITIVE-TIME-BOND-ANCHOR-2026-10-02.md`.
+
+NEXT FORWARD: useful joint control of the actual original response at
+2*side on a justified changing family. The earlier source-overlap estimate
+retains a spectator that erases selected-loop links; the recurrence alone
+does not estimate its missing alignment. Do not infer independence or
+near-unit overlap from a->1. Use the original complete energy/variance
+pins or retained completed curvature, not another assumed survival bundle.
+
+NEXT BACKWARD: use this positive-time anchored route rather than require
+continuity of the raw changing-family unit states at time zero. The
+integer-grid continuity input is now explicit on SAME physical bond points.
+The squared anchor norm is R(2*side), so its separate positive all-scale floor
+remains OPEN; the existing curvature criterion at m=2*side is exact.
+Do not normalize an anchor with a potentially vanishing norm and retain
+the unit-preimage continuity constant without proof. Cross-scale/joint
+functional convergence with explicit moduli, full canonical reflected
+half-space carrier, admissible renormalized YM field identification and
+physical calibration remain OPEN. No real-time continuum semigroup, full
+QFT or every-group endpoint is closed. Exact chart claims unchanged;
+no paper-list or unchanged chart reprint.
+
+### Earlier forward-backward join: signed overlap and response curvature (2026-10-02 UTC)
 
 PROGRESS after `7c96317`: the actual original source and predecessor spectator
 give a*U^2<=(G+a*S)*D, hence G*D>=a*(U^2-S*D), with S=Z*OWNVar.

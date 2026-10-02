@@ -1,5 +1,19 @@
 # Canonical one-page project status
 
+Verified supporting positive-time physical bond anchor (2026-10-02 UTC;
+chart unchanged): actual rows in the EXISTING BondCompletion represent
+T(side+lag)u with Gram entries R(2*side+i+j), original vacuum orthogonality
+and original integer-time action. SAME squared increments are bounded by
+(j/(n+1))^2; at n>=side this gives (j*spacing)^2 and computed positive radius
+min(epsilon,1), uniform in nome and width. Two accepted focused explicit20-GiB
+checks and independent review passed; all 24 gates are allowed. Fixed-parameter
+nonzero norm does not give nonzero limiting norm. Integer-grid continuity
+on this anchored route does not supply cross-scale convergence, physical
+time calibration, full canonical half-space/QFT structure or every group.
+Every continuum endpoint remains OPEN. Evidence:
+`audits/AUDIT-POSITIVE-TIME-BOND-ANCHOR-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting signed overlap, curvature and bounded rounding
 (2026-10-02 UTC; chart unchanged): the actual ORIGINAL source gives
 G*D>=a*(U^2-S*D), retaining its OWN center and predecessor spectator.

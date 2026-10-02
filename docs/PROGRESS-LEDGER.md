@@ -4,7 +4,28 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Signed overlap and exact response curvature (2026-10-02 UTC)
+## Current increment: Positive-time physical bond anchor (2026-10-02 UTC)
+
+PROGRESS after `37fac6e`: construct ORIGINAL physical bond rows of
+T(side+lag)u from an exact supplied T(1) preimage and the existing range
+constructor. The SAME squared bond norm is R(2*side+2*lag), with no unintended
+half-step. Original vacuum orthogonality and time action are pinned.
+The actual squared increment bound is (j/(n+1))^2*B(x,x); the literal unit
+instance at n>=side gives (j*spacing)^2 and a computed positive radius
+min(epsilon,1), uniform in nome and width. Both final focused explicit20-GiB
+checks and independent reviews passed; all 24 gates are allowed. Evidence:
+`audits/AUDIT-POSITIVE-TIME-BOND-ANCHOR-2026-10-02.md`.
+
+NEXT: useful original response/gain control at 2*side, and cross-scale
+convergence on a justified changing family. Raw-unit zero-time continuity
+is not needed for THIS anchored integer-grid estimate. Its norm can still
+vanish with scale; do not renormalize it without a useful uniform floor.
+Full canonical half-space structure, field identification, physical
+calibration, full QFT and every group remain OPEN. Two root imports;
+root/tree, broad audit/guard and progress metric NOT run. No new analytic
+premise, CI or exact chart change; no chart or paper-list reprint.
+
+## Earlier increment: Signed overlap and exact response curvature (2026-10-02 UTC)
 
 PROGRESS after `7c96317`: actual ORIGINAL source/OWN centering and predecessor
 spectator give G*D>=a*(U^2-S*D), retaining actual overlap rather than coarse

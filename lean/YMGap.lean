@@ -5054,6 +5054,10 @@ import YMGap.Continuum.BF4DyadicWilsonSquareSignedOverlapGain
 import YMGap.Continuum.BF4WilsonAllNomeResponseCurvatureGain
 -- Uniform bounded integer shifts within each SAME normalized state, not cross-scale convergence.
 import YMGap.Continuum.BF4WilsonAllNomeDyadicResponseRounding
+-- SAME unit excitation anchored in ORIGINAL physical bond rows; uniform grid increments,
+-- not a nonzero scaling limit, full continuum carrier or physical-time calibration.
+import YMGap.Continuum.BF4WilsonAllNomePositiveLagIncrement
+import YMGap.Continuum.BF4WilsonAllNomeDyadicBondAnchor
 -- SAME predecessor square cancels in original source cap and odd-mass floor.
 -- Explicit additive cutoff modulus at fixed nome/width; scaling remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRawSourceMassBound

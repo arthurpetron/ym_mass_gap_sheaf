@@ -12,7 +12,25 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT signed overlap and exact response curvature (2026-10-02 UTC):**
+**CURRENT positive-time physical bond anchor (2026-10-02 UTC):**
+`BF4WilsonAllNomePositiveLagIncrement` proves the actual squared norm
+increment bound `(j/(n+1))^2*B(x,x)` for SAME T. For the constructed unit
+excitation at n>=side, it gives the geometric bound `(j*spacing)^2` and
+computed positive radius min(epsilon,1), uniformly in nome and width.
+`BF4WilsonAllNomeDyadicBondAnchor` constructs ORIGINAL physical bond rows
+of T(side+lag)u, exact Gram entries R(2*side+i+j), vacuum orthogonality,
+original integer-time action and the same uniform increment estimates.
+The exact T(1) preimage prevents an extra bond half-step; no new carrier or
+inverse transfer is used. Two accepted focused explicit20-GiB checks and
+independent review passed; all 24 gates are allowed. Nonzero anchor norm is
+proved only at fixed parameters, not in a changing-family limit. This
+supplies integer-grid continuity for this anchored route, not raw-unit
+zero-time continuity, cross-scale convergence, a full canonical OS root,
+renormalized YM field identification or physical calibration. Every
+continuum endpoint remains OPEN. Evidence:
+`audits/AUDIT-POSITIVE-TIME-BOND-ANCHOR-2026-10-02.md`.
+
+**EARLIER signed overlap and exact response curvature (2026-10-02 UTC):**
 `BF4DyadicWilsonSquareSignedOverlapGain` proves `G*D>=a*(U^2-S*D)` using the
 actual ORIGINAL source, OWN mean and predecessor spectator, without local
 band replacements or source/variance division. `BF4WilsonAllNomeResponseCurvatureGain`
