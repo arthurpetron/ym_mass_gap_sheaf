@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL signed quartic Schur bound (2026-10-02 UTC;
+chart unchanged): BOTH actual one-link quartic marginals equal
+d(q)=5-8*q^3+3*q^8. Original kernel-certificate positivity on the endpoint
+difference square gives the signed bound, with no operator PSD assumption
+or division. Its explicit coefficient is 60*(1-q)^2 for EVERY supported
+signed endpoint and every K>=max(headCutoff q,2), 0<q<1. The source consumer
+retains RAW Haar source^2*f^2, NOT OWN interacting variance. The final focused
+explicit20-GiB check passed all eight allowed gates. Full-product/inactive
+projection, useful raw/OWN alignment, filtered control and continuum remain
+OPEN. Evidence: `audits/AUDIT-SIGNED-QUARTIC-SCHUR-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting ORIGINAL fixed-source Haar obstruction (2026-10-02 UTC;
 chart unchanged): construct a supported degree-n harmonic endpoint with
 ORIGINAL Haar norm one. Its exact bilateral character response extracts

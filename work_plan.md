@@ -27,6 +27,17 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME signed filtered slope and reserve (2026-10-02 UTC)
 
+NEW CHECKED FORWARD PRODUCER: the ORIGINAL one-link quartic kernel has both
+computed d(q) Haar marginals. Its square certificate times the actual
+endpoint-difference square proves a SIGNED Schur bound with coefficient
+60*(1-q)^2 for K>=max(headCutoff q,2), 0<q<1. All eight gates passed.
+This valid identity-form replacement pays RAW H[source^2*f^2], not OWN
+interacting variance or squared-nome heat mass. Next extend only through
+proved original product marginals/inactive projection, then retain and
+estimate the signed raw-to-interacting correction. Do not assume its sign
+or add a wrapper declaring the missing comparison. Evidence:
+`audits/AUDIT-SIGNED-QUARTIC-SCHUR-2026-10-02.md`.
+
 NEW CHECKED PRUNING: an explicit ORIGINAL norm-one one-link Haar source
 with n=fullCoefficientCutoff(q,c) makes the actual squared-nome affine
 quartic residual negative for EVERY K>=n+2 and every constant e, for

@@ -5107,6 +5107,9 @@ import YMGap.Continuum.SU2HeatQuarticFullCoefficientObstruction
 -- cutoff of the universal signed shortcut, not the particular Wilson-source bound.
 import YMGap.Continuum.SU2HeatQuarticSignedHaarObstruction
 import YMGap.Continuum.SU2HeatQuarticFixedSourceObstruction
+-- Valid original signed quartic Schur bound: 60*(1-q)^2 costs RAW Haar norm,
+-- not squared-nome heat mass or OWN interacting variance.
+import YMGap.Continuum.SU2QuaternionHeatQuarticSchur
 -- SAME predecessor square cancels in original source cap and odd-mass floor.
 -- Explicit additive cutoff modulus at fixed nome/width; scaling remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRawSourceMassBound

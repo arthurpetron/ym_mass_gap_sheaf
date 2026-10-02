@@ -18,6 +18,14 @@ reduces a sufficient survival estimate to a lag-one reserve and a bound on
 the cancellation-preserving two-lag slope. Those quantitative inputs remain
 open. See the [exact source and filtered target](audits/AUDIT-FILTERED-SIGNED-RESPONSE-AND-COEFFICIENT-OBSTRUCTION-2026-10-02.md).
 
+**New checked forward bound:** the original one-link quartic kernel now
+obeys a SIGNED Schur bound with coefficient `60*(1-q)^2`, from its two
+computed Haar marginals and an actual square certificate. It needs no
+positive-source or operator-PSD assumption. All eight constructive gates
+passed. Its source cost is RAW Haar `source^2*f^2`, not interacting variance;
+full-product and useful same-variance comparison remain open. See the
+[bound and precise remaining join](audits/AUDIT-SIGNED-QUARTIC-SCHUR-2026-10-02.md).
+
 **Checked stronger pruning:** one constructed norm-one ORIGINAL Haar source
 gives a negative quadratic for the squared-nome affine quartic majorant
 at EVERY sufficiently large cutoff. Its source is fixed across those

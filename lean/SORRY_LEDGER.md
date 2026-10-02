@@ -1,5 +1,23 @@
 # Sorry Ledger
 
+## PROVED signed original one-link quartic Schur bound only (2026-10-02 UTC)
+
+- `SU2QuaternionHeatQuarticSchur.quarticKernel_certificate` constructs the
+  actual original quartic kernel witness. `quarticKernel_upper_marginal`
+  and `quarticKernel_lower_marginal` compute BOTH d(q) marginals, K>=2.
+- `quartic_signed_schur` proves signed bilateral domination by d(q) times
+  RAW Haar squared norm, with no quartic-operator PSD hypothesis or division.
+  `quartic_signed_budget` gives coefficient 60*(1-q)^2 for 0<q<1 and
+  K>=max(headCutoff q,2), independent of signed source degree. The direct
+  `source_quartic_signed_budget` costs rawSourceMoment(source,f^2), NOT
+  the original interacting sourceMoment or Z*OWNVar.
+- Final focused explicit20-GiB check passed all eight allowed gates;
+  independent review passed. One root import registered, not aggregate-checked.
+  No new sorry, axiom, classical shortcut, weakened field or resource ceiling.
+  CI/chart unchanged. Full-product/inactive joins, signed raw/OWN-variance
+  comparison, actual filtered control and every continuum endpoint remain
+  OPEN. Evidence: `audits/AUDIT-SIGNED-QUARTIC-SCHUR-2026-10-02.md`.
+
 ## PROVED original Haar fixed-source obstruction only (2026-10-02 UTC)
 
 - `SU2HeatQuarticSignedHaarObstruction.endpoint` constructs the original
