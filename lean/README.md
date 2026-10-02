@@ -12,6 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original signed-family joint density (2026-10-02 UTC):**
+`FamilyJointDensity.density` integrates BOTH spectator copies from the complete
+original edge. `compressedPairing_pin` evaluates its insertions on <=8 blocks
+per face; `variance_pin`, `temporalEnergy_pin` and `finite_margin_pin` retain
+OWN mean, whole signed increment and original reference-checker input.
+Fifteen focused gates and independent math review passed, all
+{propext,Quot.sound}. Original-carrier positivity is certified; a standalone
+compressed-density certificate, runtime bound or useful scaling margin is
+NOT asserted. One root import added; full root/tree/build/audit/guard NOT run.
+Evidence: `audits/AUDIT-FAMILY-JOINT-DENSITY-2026-10-02.md`.
+
 **Existing family-band calibration obstruction (2026-10-02 UTC):**
 `FamilyBandCalibrationObstruction` proves the computed response-band energy
 coefficient is >=1-2^(-280) for nonempty families at every strict nome.

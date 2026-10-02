@@ -4,7 +4,23 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Existing response-band coefficient cannot supply small scaling (2026-10-02 UTC)
+## Current increment: Exact original joint margin on the family footprint (2026-10-02 UTC)
+
+PROGRESS after `2f927dc`: one COMPLETE original edge is conditioned on the
+common two-endpoint family footprint, retaining positivity and original mass.
+An explicit embedding evaluates insertions on <=8 blocks per face. OWN mean,
+whole signed squared increment and actual original finite reference margin are
+preserved. Fifteen focused gates and independent math review passed, all
+{propext,Quot.sound}. Evidence:
+`audits/AUDIT-FAMILY-JOINT-DENSITY-2026-10-02.md`.
+
+NEXT is actual reduced joint-moment control/evaluation that pays a useful
+scaling margin on a justified changing family. No degree, coefficient-size,
+projection-cost, runtime or rate bound follows from variable-support reduction.
+Every continuum endpoint stays OPEN. One root import; no broad build/audit/
+guard, progress metric, raised limit, CI change or ASCII reprint.
+
+## Earlier increment: Existing response-band coefficient cannot supply small scaling (2026-10-02 UTC)
 
 PROGRESS after `de466e2`: rho<=(1/32)^(56*size) at every strict nome, so the
 existing original signed-family energy-band coefficient is >=1-2^(-280)

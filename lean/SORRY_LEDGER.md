@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## PROVED original joint conditioning and reduced Haar evaluation only (2026-10-02 UTC)
+
+- `BF4ExactSlabFixedSpatialFamilyJointDensity.density` projects the literal
+  original edge over BOTH copies of the COMMON signed-family spectator set.
+  `density_certificate` retains actual K/V/terminal factors on the original
+  carrier; `mass_pin` and `compressedMass_pin` preserve its odd-chain partition.
+- `footprintEmbedding`, `density_local` and `compressedPairing_pin` construct
+  exact insertion evaluation on <=8*qs.length quaternion blocks. Coefficients,
+  repetitions and signs survive. No degree, construction-cost or runtime bound.
+- `variance_pin` uses OWN mean; `temporalEnergy_pin` retains whole signed
+  jump squared; `finite_margin_pin` reaches the existing original finite
+  reference-checker input for actual padded physical families.
+- Fifteen focused gates and independent math review passed, all
+  {propext,Quot.sound}. No new sorry, axiom, analytic input, erased witness or
+  weakened frontier. No standalone small-carrier positivity certificate asserted.
+  Evidence: `audits/AUDIT-FAMILY-JOINT-DENSITY-2026-10-02.md`.
+- OPEN: control the ORIGINAL reduced joint moments/coefficients sufficiently
+  for a positive scaling-useful margin on a justified changing family. Physical
+  spacing/lower gap, continuum survival/QFT, every group and Clay remain OPEN.
+  One root import added; full root/tree/build/audit/guard NOT run. CI, safety
+  limits and exact canonical chart claims unchanged.
+
 ## PROVED existing family-band coefficient obstruction only (2026-10-02 UTC)
 
 - `BF4WilsonAllNomeFamilyBandCalibrationObstruction.familyResponseFraction_le_ceiling`

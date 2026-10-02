@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting original joint-density reduction (2026-10-02 UTC;
+chart unchanged): both spectator copies are integrated from the COMPLETE
+original edge, preserving its positive certificate, partition, OWN variance
+and whole signed increment. Exact Haar evaluation on <=8 quaternion blocks
+per face reaches the existing original reference margin. Fifteen focused
+gates and independent math review passed. Variable count is bounded; degree,
+coefficient complexity, projection cost, runtime and a useful scaling margin
+remain OPEN, as do all continuum endpoints. Evidence:
+`audits/AUDIT-FAMILY-JOINT-DENSITY-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting family-band calibration obstruction (2026-10-02 UTC;
 chart unchanged): for nonempty signed families, the existing positive response
 band gives a computed energy coefficient >=1-2^(-280) at EVERY strict nome.

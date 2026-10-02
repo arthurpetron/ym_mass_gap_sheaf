@@ -25,6 +25,26 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Exact original joint margin evaluated on the family footprint (2026-10-02 UTC)
+
+PROGRESS after `2f927dc`: `FamilyJointDensity.density` constructs one projected
+ORIGINAL central edge with BOTH spectator copies integrated, not factorized.
+`compressedPairing_pin` evaluates actual insertions on <=8*qs.length quaternion
+blocks. Its numerator and partition both use the explicit smaller embedding;
+OWN variance, whole signed temporal energy and the original finite reference
+margin are pinned exactly. Fifteen focused gates and independent math review
+passed, all {propext,Quot.sound}. Evidence:
+`audits/AUDIT-FAMILY-JOINT-DENSITY-2026-10-02.md`.
+
+NEXT: bound/evaluate the actual reduced JOINT moments with a positive margin
+and useful coefficient on a justified changing original family. This removes
+irrelevant variables from Haar evaluation, NOT their influence on coefficients.
+Degree, coefficient complexity, full projection cost and feasible runtime remain
+unbounded; no small-rate instance or continuum endpoint closed. Original-carrier
+positivity is certified, not a standalone compact-density certificate. One root
+import; no full root/tree/build/audit/guard or progress-metric run. CI, one-worker
+20-GiB limit, 12-GiB reserve and canonical chart unchanged; no ASCII reprint.
+
 ### Existing family response-band constant cannot supply small scaling (2026-10-02 UTC)
 
 PROGRESS after `de466e2`: the original padded signed-family bound DOES exist:

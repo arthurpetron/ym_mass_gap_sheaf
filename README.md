@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Original joint-density reduction (2026-10-02):** the full signed family's
+energy, OWN variance and reference margin now have an exact Haar evaluation
+on at most eight quaternion blocks per face, retaining the original action,
+terminal messages and partition. Fifteen focused gates and independent math
+review passed. This bounds variable support, not evaluation cost or the
+missing scaling-useful margin. See the
+[proof and remaining input](audits/AUDIT-FAMILY-JOINT-DENSITY-2026-10-02.md).
+
 **A computed-bound shortcut is ruled out (2026-10-02):** the existing
 signed-family response-band coefficient is at least `1-2^(-280)` for every
 nonempty family and strict coupling nome; depth transport cannot make it

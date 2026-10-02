@@ -6102,6 +6102,9 @@ import YMGap.Continuum.BF4WilsonAllNomePlaquetteFamilyBondOrbit
 -- depth transport cannot turn that bound into a small scaling coefficient.
 -- This is NOT a lower bound on the true energy/OWN-variance ratio.
 import YMGap.Continuum.BF4WilsonAllNomeFamilyBandCalibrationObstruction
+-- Exact joint conditioning and <=8-blocks/face Haar evaluation of ORIGINAL
+-- signed family energy/OWN variance; no useful scaling rate is supplied.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyJointDensity
 -- Quantified ORIGINAL passive nonvacuum attenuation and literal vacuum
 -- projection, joined to the SAME signed Taylor/Ward variance budget.
 -- No changing-source scaling bound or continuum reserve is asserted.
