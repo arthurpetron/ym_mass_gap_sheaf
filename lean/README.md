@@ -12,6 +12,16 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original buffered spin-zero clock (2026-10-02 UTC):**
+`SpinZeroClock.completedMultiply_spin_zero` proves the ambient all-nome identity;
+`act_spin_zero_time` identifies the actual physical bond insertion with one
+ORIGINAL transfer step. `wordAct_spin_zero_value` retains the full word length
+on EVERY bond class; `wordAct_spin_zero_source_pairing` reaches the original
+reflected joint limit with both signed sources. The final focused check and
+independent review passed; all nine printed gates lie within {propext,Quot.sound}.
+No new analytic premise or physical-spacing/continuum claim. Evidence:
+`audits/AUDIT-ALL-NOME-SPIN-ZERO-CLOCK-2026-10-02.md`.
+
 **Existing endpoint-tail certificate fence (2026-10-02 UTC):**
 `EndpointTailCalibrationObstruction.tail_certificate_heat_weight_ceiling`
 proves `3*w^(L*(L+2)) <= 1` for `1/2 <= w < 1`, `L >= 1`, whenever the

@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## PROVED original buffered spin zero clock only (2026-10-02 UTC)
+
+- `BF4WilsonAllNomeSpinZeroClock.completedMultiply_spin_zero` uses original
+  PADDED joint congruence to prove the ambient multiplier identity at every
+  strict nome and literal width. No small-nome carrier is substituted.
+- `act_spin_zero_time` proves actual equality of the physical bond insertion
+  and one ORIGINAL time step on EVERY bond class. Both half-step buffers are
+  retained. `wordAct_spin_zero_value` preserves the full word length;
+  `wordAct_spin_zero_source_pairing` pins every signed-source matrix element
+  to the same original reflected joint limit. `wordAct_insert_spin_zero`
+  retains an explicit time step between arbitrary surrounding words.
+- Final focused check and independent review passed. All nine printed gates
+  are within {propext,Quot.sound}; no sorry, new axiom, analytic premise,
+  witness erasure, raised limit or weakened frontier. The empty word is
+  identity and the vacuum remains fixed; no inequality from a deleted-word
+  operator is claimed. OPEN: the original signed scaling estimate, physical
+  calibration, nontrivial continuum survival, full same-theory QFT structure
+  and every-group realization. One root import; broad/root/tree checks NOT
+  run; chart unchanged. Evidence:
+  `audits/AUDIT-ALL-NOME-SPIN-ZERO-CLOCK-2026-10-02.md`.
+
 ## PROVED limitation of the existing endpoint tail certificate only (2026-10-02 UTC)
 
 - `EndpointTailCalibrationObstruction.endpointRelativeCap_formula` keeps

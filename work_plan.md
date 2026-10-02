@@ -25,6 +25,24 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Original buffered spin zero insertion clock (2026-10-02 UTC)
+
+PROGRESS after `d657337`: PADDED original joint congruence proves the spin-zero
+multiplier identity on the CURRENT all-nome ambient completion. The actual
+physical bond insertion equals ORIGINAL time one on EVERY class, not an
+assumed equal-time sector restriction. Every all-zero word retains its full
+length; every signed-source matrix element reaches the same reflected joint
+limit. An interior zero letter retains an explicit step between arbitrary
+words. Final focused check and independent review passed; all nine printed
+gates lie within {propext,Quot.sound}. Evidence:
+`audits/AUDIT-ALL-NOME-SPIN-ZERO-CLOCK-2026-10-02.md`.
+
+NEXT: use this exact clock pin in same-theory separated-correlator consumers;
+do not erase buffers or assert equality with an equal-time algebra. The primary
+original signed energy/OWN-variance estimate on a justified changing family
+remains OPEN, as do physical calibration and every continuum/Clay endpoint.
+No new premise, raised limit, broad check or exact chart-claim change.
+
 ### Existing endpoint tail certificate loses a near identity heat floor (2026-10-02 UTC)
 
 PROGRESS after `bcb514f`: the original one-link angular tail budget and a

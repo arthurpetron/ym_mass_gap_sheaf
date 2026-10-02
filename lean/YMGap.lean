@@ -6278,6 +6278,8 @@ import YMGap.Continuum.BF4WilsonAllNomeBondOSSubgapResolvent
 import YMGap.Continuum.BF4WilsonAllNomeWindowExpectation
 import YMGap.Continuum.BF4WilsonAllNomeBondOSInsertion
 import YMGap.Continuum.BF4WilsonAllNomeBondOSSeparatedWords
+-- A spin-zero buffered letter is original time one; word length is retained.
+import YMGap.Continuum.BF4WilsonAllNomeSpinZeroClock
 -- Actual complex word action, adjoints and original moments; buffered letters only.
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSSeparatedWords
 import YMGap.Continuum.BF4WilsonAllNomeBondOSConnectedDecay

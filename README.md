@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Original insertion clock (2026-10-02):** the spin-zero time-zero multiplier
+is the identity, but its buffered physical insertion is exactly one original
+transfer step. Every zero-labelled word retains its full length on every bond
+state, with signed-source correlations pinned to the original joint limit.
+Focused constructive verification and independent review passed. This verifies
+same-theory timekeeping, not scaling or continuum reconstruction. See the
+[proof and scope](audits/AUDIT-ALL-NOME-SPIN-ZERO-CLOCK-2026-10-02.md).
+
 **Endpoint tail certificate limitation (2026-10-02):** for `1/2 <= w < 1`,
 every positive degree meeting the existing source-tail certificate has retained
 heat weight at most `1/3`. The actual computed tail modulus meets this condition

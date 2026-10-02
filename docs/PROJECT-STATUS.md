@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL spin-zero insertion clock (2026-10-02 UTC;
+chart unchanged): the ambient multiplier is identity, while the physical
+buffered insertion equals one ORIGINAL transfer step on EVERY bond class.
+Every all-zero word retains its full length, including in the original signed
+source correlations. Final focused check and independent review passed;
+nine printed gates lie within {propext,Quot.sound}. Empty words are identity;
+no inequality against deletion is claimed. Useful signed changing-family
+control, physical calibration and every continuum endpoint remain OPEN.
+Evidence: `audits/AUDIT-ALL-NOME-SPIN-ZERO-CLOCK-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting endpoint-tail certificate fence (2026-10-02 UTC; chart
 unchanged): for 1/2<=w<1, EVERY positive degree meeting the existing angular
 tail certificate has retained heat weight <=1/3. The ACTUAL computed tail
