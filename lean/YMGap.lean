@@ -5842,6 +5842,9 @@ import YMGap.Continuum.BF4WilsonAllNomeWidthInclusionObstruction
 -- Actual completed physical bulk correlations agree to a computed tolerance at small nome.
 -- Both OWN means and lag+one survive; no full carrier map or spacing-uniform claim.
 import YMGap.Continuum.BF4WilsonOriginalBulkComparison
+-- Same spatial response floor on an explicitly OWN-centered original physical bulk vector.
+-- Fixed nome only; the computed interior threshold is uniform in larger ambient widths.
+import YMGap.Continuum.BF4WilsonOriginalBulkPositiveResponse
 import YMGap.Continuum.BF4WilsonAllNomeTimeDefectMoments
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeTail
 -- Actual physical-time decay of a supplied nonzero plaquette defect.

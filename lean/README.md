@@ -23,6 +23,16 @@ control is asserted. Final focused check and independent review passed;
 all 35 printed gates lie within {propext,Quot.sound}. Continuum remains OPEN.
 Evidence: `audits/AUDIT-ORIGINAL-BULK-SPATIAL-LIMIT-2026-10-02.md`.
 
+**CURRENT physical bulk excitation (2026-10-02 UTC):**
+`OriginalBulkPositiveResponse.positiveExcitation` returns the literal
+plaquette's explicitly OWN-centered BondCompletion vector, a positive
+rational norm/response floor and an interior threshold uniform in larger
+ambient widths. It uses the checked spatial join at nome 1/1024 and retains
+the bond clock at physical lags one and two. All 24 focused gates are allowed;
+independent source/math review passed. Prior finite-width family survival
+already existed; changing-spacing and continuum survival remain OPEN.
+Evidence: `audits/AUDIT-ORIGINAL-BULK-POSITIVE-RESPONSE-2026-10-02.md`.
+
 **Full physical width inclusion obstruction (2026-10-02 UTC):**
 `WidthInclusionObstruction.no_completed_literal_inclusion` rules out ANY
 function preserving ALL literal dense sources between independently

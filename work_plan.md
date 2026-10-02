@@ -25,6 +25,31 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Current physical bulk excitation at fixed nome (2026-10-02 UTC)
+
+PROGRESS after `dfef0db`: the checked spatial join now supplies half its
+original response floor to the literal fundamental plaquette on EVERY larger
+original physical carrier beyond a computed smaller-source interior threshold.
+The explicit mean-centered BondCompletion vector retains its OWN computed mean,
+scalar Cauchy data and actual original time. Its norm and first two physical
+responses have floor nome^36/32 at nome 1/1024; physical lags one/two retain
+spatial times two/three. Final focused check and independent math review passed;
+all 24 gates are allowed. Evidence:
+`audits/AUDIT-ORIGINAL-BULK-POSITIVE-RESPONSE-2026-10-02.md`.
+
+This is not first finite-width survival: prior `PlaquetteFamilyBondOrbit`
+already gives fixed-nome family lower bounds. The addition is the SAME spatial
+floor, computed larger-width-independent threshold and explicit physical
+centering. No exact chart claim closed; continuum survival remains OPEN.
+
+NEXT: stop extending fixed-nome survival wrappers. The changing-family
+consumer is still `FamilyVarianceTaylor.padded_family_energy_variance`:
+E=12*(1-w)*OWNVar+varianceRemainder. Obtain useful signed control of the
+COMPLETE remainder against OWNVar on a justified scaling trajectory, then
+its physical time/spacing calibration. The small-nome spatial modulus and
+the new positive vector do not supply that estimate. Full SAME-theory QFT,
+every compact simple group and the continuum/Clay target remain OPEN.
+
 ### Current physical correlations reach the spatial limit (2026-10-02 UTC)
 
 PROGRESS after `8571e62`: the ACTUAL completed physical bulk connected

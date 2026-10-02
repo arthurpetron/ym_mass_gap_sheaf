@@ -18,6 +18,15 @@ and independent review passed. This is fixed-coupling small-nome control,
 not a full width map or a spacing-uniform estimate. See the
 [proof and remaining frontier](audits/AUDIT-ORIGINAL-BULK-SPATIAL-LIMIT-2026-10-02.md).
 
+**Physical bulk excitation (2026-10-02):** the literal plaquette now returns
+an explicit vector in the original physical completion, centered by its own
+computed mean. At nome `1/1024`, its norm and first two time responses retain
+half the checked spatial response floor beyond a computed interior threshold
+independent of larger ambient width. Focused constructive verification and
+independent review passed. This connects existing fixed-coupling results;
+it does not establish continuum survival. See the
+[construction and scope](audits/AUDIT-ORIGINAL-BULK-POSITIVE-RESPONSE-2026-10-02.md).
+
 **Physical width inclusion obstruction (2026-10-02):** at every positive
 width, an explicit boundary source is physically zero but its literal inclusion
 at every larger width is not. No map of these full physical bond completions

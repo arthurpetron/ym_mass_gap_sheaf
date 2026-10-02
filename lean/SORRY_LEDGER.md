@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## PROVED original physical bulk excitation at fixed nome only (2026-10-02 UTC)
+
+- `OriginalBulkPositiveResponse.bulk_lag_one_floor` and `bulk_lag_two_floor`
+  transfer half the checked spatial response floor to ACTUAL original bond
+  correlations at physical lags one and two. `responseModulus` uses the
+  smaller-source budget at F/4; `excitationModulus` is uniform in larger widths.
+- `centeredPhysical` constructs an original BondCompletion class using the
+  actual root-image representative, OWN computed unit coefficient and explicit
+  QCauchy scalar data. `centeredPhysical_time_pairing` and
+  `excitation_time_pairing` retain the SAME original time and both means.
+  `excitation_norm_floor`, `excitation_ne_zero` and `positiveExcitation` give
+  an actual nonzero vacuum-orthogonal physical vector with norm/response floor
+  F/2=nome^36/32 at FIXED nome 1/1024, with the vector and threshold as data.
+- This is not first finite-width survival: `PlaquetteFamilyBondOrbit` already
+  gives fixed-nome signed-family response floors. The new spatial-floor join
+  and explicit physical centering add no changing-family estimate. Final
+  warning-free focused check, 24 allowed gates and independent math review
+  passed. No sorry, new axiom, analytic premise, erased witness or weakened
+  frontier. OPEN: complete signed scaling-family energy/OWN-variance bound,
+  physical calibration, continuum survival, full SAME-theory QFT and every
+  group. Root import added; broad checks NOT run; CI/chart unchanged.
+  Evidence: `audits/AUDIT-ORIGINAL-BULK-POSITIVE-RESPONSE-2026-10-02.md`.
+
 ## PROVED current physical correlations reach the spatial limit only (2026-10-02 UTC)
 
 - `OriginalBulkComparison.finite_connected_spatial_bound` retains joint and

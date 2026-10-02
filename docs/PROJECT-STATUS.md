@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL physical bulk excitation (2026-10-02 UTC;
+chart unchanged): an explicit OWN-centered BondCompletion vector retains
+half the checked spatial response floor in its norm and first two original
+physical time responses at nome 1/1024. The computed interior threshold is
+uniform in larger ambient widths, with spatial times two/three matching
+physical lags one/two. Final focused check and independent review passed.
+Prior fixed-nome family survival already existed. Changing-family signed
+control and every continuum endpoint remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-BULK-POSITIVE-RESPONSE-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting CURRENT physical bulk spatial limit (2026-10-02 UTC;
 chart unchanged): ACTUAL completed bond correlations approach the existing
 reflected spatial value, retaining BOTH OWN means and the full lag+one clock.
