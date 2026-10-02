@@ -12,6 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original signed-margin degree control (2026-10-02 UTC):**
+`FamilyJointDegree.terminalMessage_degree` resets the actual message degree
+to K at every depth. `density_degree` gives <=8*K per original endpoint block;
+`margin_numerators_monomials` places ALL six compressed margin numerators in
+one computed finite exponent list depending only on cutoff and family length.
+Twenty-nine focused gates and independent math review passed, all within
+{propext,Quot.sound}; `marginMonomials` is axiom-free. Coefficient size, raw
+multiplicity, runtime and a useful changing-family margin remain OPEN. One
+root import added; full root/tree/build/audit/guard NOT run. Evidence:
+`audits/AUDIT-FAMILY-JOINT-DEGREE-2026-10-02.md`.
+
 **Original signed-family joint density (2026-10-02 UTC):**
 `FamilyJointDensity.density` integrates BOTH spectator copies from the complete
 original edge. `compressedPairing_pin` evaluates its insertions on <=8 blocks

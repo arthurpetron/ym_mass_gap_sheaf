@@ -25,6 +25,28 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Original signed-margin degree reset and finite exponent universe (2026-10-02 UTC)
+
+PROGRESS after `8ad6f62`: literal kinetic degree <=K and spatial degree <=6*K
+combine with `FamilyJointDegree.terminalMessage_degree` to reset the ORIGINAL
+terminal message degree to K at EVERY depth. The complete joint edge has
+degree <=8*K per block. ALL six actual margin insertions have degree <=2,
+retaining BOTH means and the COMPLETE signed jump square. Their compressed
+numerator terms belong to one computed finite list depending only on cutoff
+and family length, independent of width, depth, nome and signed coefficients.
+Twenty-nine focused gates and independent math review passed, within
+{propext,Quot.sound}; `marginMonomials` is axiom-free. Evidence:
+`audits/AUDIT-FAMILY-JOINT-DEGREE-2026-10-02.md`.
+
+NEXT: control/evaluate actual ORIGINAL coefficients and joint moments in this
+finite universe, preserving shared partitions and cancellations, to produce
+an accepted useful margin on a justified changing family. Degree grows with
+cutoff; no all-cutoff finite list, coefficient-size, raw-multiplicity or feasible
+runtime bound is claimed. This is a concrete input to the original finite
+reference calculation, not a scaling rate or continuum result. One root
+import; no full root/tree/build/audit/guard or progress-metric run. CI, one-worker
+20-GiB limit, 12-GiB reserve and canonical chart unchanged; no ASCII reprint.
+
 ### Exact original joint margin evaluated on the family footprint (2026-10-02 UTC)
 
 PROGRESS after `2f927dc`: `FamilyJointDensity.density` constructs one projected
@@ -39,8 +61,9 @@ passed, all {propext,Quot.sound}. Evidence:
 NEXT: bound/evaluate the actual reduced JOINT moments with a positive margin
 and useful coefficient on a justified changing original family. This removes
 irrelevant variables from Haar evaluation, NOT their influence on coefficients.
-Degree, coefficient complexity, full projection cost and feasible runtime remain
-unbounded; no small-rate instance or continuum endpoint closed. Original-carrier
+Fixed-cutoff degree is now addressed by the followup above; coefficient
+complexity, full projection cost and feasible runtime remain unbounded.
+No small-rate instance or continuum endpoint closed. Original-carrier
 positivity is certified, not a standalone compact-density certificate. One root
 import; no full root/tree/build/audit/guard or progress-metric run. CI, one-worker
 20-GiB limit, 12-GiB reserve and canonical chart unchanged; no ASCII reprint.

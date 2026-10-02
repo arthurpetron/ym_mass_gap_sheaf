@@ -6105,6 +6105,9 @@ import YMGap.Continuum.BF4WilsonAllNomeFamilyBandCalibrationObstruction
 -- Exact joint conditioning and <=8-blocks/face Haar evaluation of ORIGINAL
 -- signed family energy/OWN variance; no useful scaling rate is supplied.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyJointDensity
+-- Cutoff-only block degree and one finite exponent universe for those SAME
+-- signed margin numerators; no coefficient/runtime or useful-rate claim.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyJointDegree
 -- Quantified ORIGINAL passive nonvacuum attenuation and literal vacuum
 -- projection, joined to the SAME signed Taylor/Ward variance budget.
 -- No changing-source scaling bound or continuum reserve is asserted.

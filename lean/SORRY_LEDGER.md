@@ -1,5 +1,29 @@
 # Sorry Ledger
 
+## PROVED original fixed-cutoff degree and actual margin exponent universe only (2026-10-02 UTC)
+
+- `BF4ExactSlabFixedSpatialKineticDegree.kineticWeight_lower_degree` and
+  `kineticWeight_upper_degree` give K per original kinetic block.
+  `BF4ExactSlabFixedSpatialSpatialDegree.spatialWeight_degree` gives 6*K
+  from the literal incident-face list, not coefficient-equivalence transport.
+- `BF4ExactSlabFixedSpatialFamilyJointDegree.terminalMessage_degree` gives
+  K at EVERY terminal depth; `density_degree` gives 8*K for the complete
+  original edge projected over BOTH spectator copies.
+- `marginInsertions_degree` includes BOTH means and the complete signed jump
+  square. `margin_numerators_monomials` puts every compressed numerator term
+  in one computed list from cutoff and family length, with ceiling 8*K+2.
+  Width, depth, nome and signed coefficients do not enter that list.
+- Twenty-nine focused gates and independent math review passed, all within
+  {propext,Quot.sound}; `marginMonomials` is axiom-free. No new sorry, axiom,
+  analytic input, erased witness or weakened frontier. Evidence:
+  `audits/AUDIT-FAMILY-JOINT-DEGREE-2026-10-02.md`.
+- OPEN: actual coefficient/moment control, feasible evaluation and an accepted
+  useful margin on a justified changing family. This does not bound raw term
+  multiplicity or give an all-cutoff finite list. Physical spacing/lower gap,
+  continuum survival/QFT, every group and Clay remain OPEN. One root import;
+  full root/tree/build/audit/guard NOT run. CI, safety limits and exact canonical
+  chart claims unchanged.
+
 ## PROVED original joint conditioning and reduced Haar evaluation only (2026-10-02 UTC)
 
 - `BF4ExactSlabFixedSpatialFamilyJointDensity.density` projects the literal
@@ -8,7 +32,8 @@
   carrier; `mass_pin` and `compressedMass_pin` preserve its odd-chain partition.
 - `footprintEmbedding`, `density_local` and `compressedPairing_pin` construct
   exact insertion evaluation on <=8*qs.length quaternion blocks. Coefficients,
-  repetitions and signs survive. No degree, construction-cost or runtime bound.
+  repetitions and signs survive. No degree, construction-cost or runtime bound
+  follows from this reduction alone; fixed-cutoff degree is addressed above.
 - `variance_pin` uses OWN mean; `temporalEnergy_pin` retains whole signed
   jump squared; `finite_margin_pin` reaches the existing original finite
   reference-checker input for actual padded physical families.

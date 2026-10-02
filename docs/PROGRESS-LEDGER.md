@@ -4,7 +4,25 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Exact original joint margin on the family footprint (2026-10-02 UTC)
+## Current increment: Original signed-margin degree reset and finite exponent universe (2026-10-02 UTC)
+
+PROGRESS after `8ad6f62`: the actual terminal message degree resets to K at
+every depth. Literal kinetic K, spatial 6*K and terminal K give joint edge
+degree 8*K per block. ALL six actual margin insertions cost at most two more,
+including BOTH means and the COMPLETE signed jump square. Compressed numerator
+terms belong to one computed finite exponent list from cutoff and family
+length, independent of width, depth, nome and signed coefficients.
+Twenty-nine focused gates and independent math review passed, within
+{propext,Quot.sound}; the list constructor is axiom-free. Evidence:
+`audits/AUDIT-FAMILY-JOINT-DEGREE-2026-10-02.md`.
+
+NEXT: actual coefficient/joint-moment control or evaluation producing a useful
+accepted original margin on a justified changing family. Fixed-cutoff degree
+control is new; coefficient size, raw multiplicity, runtime, all-cutoff control
+and every continuum endpoint remain OPEN. One root import; no broad build/
+audit/guard, progress metric, raised limit, CI change or ASCII reprint.
+
+## Earlier increment: Exact original joint margin on the family footprint (2026-10-02 UTC)
 
 PROGRESS after `2f927dc`: one COMPLETE original edge is conditioned on the
 common two-endpoint family footprint, retaining positivity and original mass.

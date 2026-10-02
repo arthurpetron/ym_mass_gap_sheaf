@@ -1,13 +1,25 @@
 # Canonical one-page project status
 
+Verified supporting original signed-margin degree control (2026-10-02 UTC;
+chart unchanged): the original terminal message resets to degree K at every
+depth. Literal kinetic/spatial factors give joint density degree 8*K per block;
+ALL six actual margin numerators have degree <=8*K+2. Their exponents belong
+to one computed finite list depending only on cutoff and family length, not
+width, depth, nome or signed coefficients. Twenty-nine focused gates and
+independent math review passed. Coefficient size, raw multiplicity, feasible
+runtime, useful changing-family margin and every continuum endpoint remain
+OPEN. Evidence: `audits/AUDIT-FAMILY-JOINT-DEGREE-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting original joint-density reduction (2026-10-02 UTC;
 chart unchanged): both spectator copies are integrated from the COMPLETE
 original edge, preserving its positive certificate, partition, OWN variance
 and whole signed increment. Exact Haar evaluation on <=8 quaternion blocks
 per face reaches the existing original reference margin. Fifteen focused
-gates and independent math review passed. Variable count is bounded; degree,
-coefficient complexity, projection cost, runtime and a useful scaling margin
-remain OPEN, as do all continuum endpoints. Evidence:
+gates and independent math review passed. Variable count is bounded;
+fixed-cutoff degree is now addressed above. Coefficient complexity, projection
+cost, runtime and a useful scaling margin remain OPEN, as do all continuum
+endpoints. Evidence:
 `audits/AUDIT-FAMILY-JOINT-DENSITY-2026-10-02.md`.
 No exact displayed claim changed; no ASCII reprint.
 

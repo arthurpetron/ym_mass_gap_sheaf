@@ -10,6 +10,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Original signed-margin degree control (2026-10-02):** at fixed cutoff K,
+the original joint density has block degree <=8K and all six margin
+numerators have degree <=8K+2, independently of width and terminal depth.
+Their exponents belong to one computed finite list depending only on cutoff
+and family length. Twenty-nine focused gates and independent math review
+passed. Coefficient control, feasible evaluation and a useful positive margin
+remain open. See the
+[proof and exact scope](audits/AUDIT-FAMILY-JOINT-DEGREE-2026-10-02.md).
+
 **Original joint-density reduction (2026-10-02):** the full signed family's
 energy, OWN variance and reference margin now have an exact Haar evaluation
 on at most eight quaternion blocks per face, retaining the original action,
