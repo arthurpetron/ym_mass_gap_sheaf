@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting actual OWN-centered signed quartic insertion
+(2026-10-02 UTC; chart unchanged): the original positive terminal/spatial
+source and ALL other selected heat factors remain. Signed Young retains
+BOTH endpoint moments, and the actual cap16/profile producer gives
+abs(insertion)<=16*(40*24576^2*(1-q)^2+epsilon)*SAME oddMass at its
+computed all-later cutoff, for 16/17<=q<1. RAW norm cost is avoided for
+THIS particular insertion, not for the complete filtered slope or OWN
+variance. The final focused explicit20-GiB check passed five allowed gates.
+Evidence: `audits/AUDIT-ORIGINAL-SIGNED-QUARTIC-INSERTION-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting SAME-state blocked survival (2026-10-02 UTC;
 chart unchanged): a supplied reserve gamma0<=R1 and bounded relative
 filtered budget m*(R1-R2)<=C*R1 give Rm>=gamma0*(1/4)^(2*C), for

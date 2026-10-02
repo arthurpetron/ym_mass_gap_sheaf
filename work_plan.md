@@ -27,6 +27,19 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME signed filtered slope and reserve (2026-10-02 UTC)
 
+NEW CHECKED PARTICULAR-SOURCE PRODUCER: the actual OWN-centered square's
+signed selected-quartic insertion retains positive V*terminal_depth at
+BOTH endpoints and ALL other selected heat factors. Signed Young first
+keeps both diagonal insertions; cap16 plus the constructed original-prefix
+cutoff gives abs(insertion)<=16*(40*24576^2*(1-w)^2+epsilon)*SAME oddMass,
+for 16/17<=w<1, with coefficient independent of width/square/depth.
+The final focused check passed five allowed gates. This avoids RAW Haar
+cost for THIS insertion; it is not a general norm comparison, the literal
+filtered slope or an OWN-variance estimate. NEXT connect only the actual
+source terms justified by a proved decomposition and estimate COMPLETE
+N-D/relative response, not a newly assumed quartic/TD identification.
+Evidence: `audits/AUDIT-ORIGINAL-SIGNED-QUARTIC-INSERTION-2026-10-02.md`.
+
 NEW CHECKED BACKWARD REDUCTION: the SAME dyadic unit response now needs
 only a bounded RELATIVE filtered budget, not a small total linear budget.
 For any fixed Nat C>=1 and m>=4*C, gamma0<=R1 and

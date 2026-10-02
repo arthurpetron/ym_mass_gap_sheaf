@@ -5119,6 +5119,9 @@ import YMGap.Continuum.SU2QuaternionProductHeatQuarticSchur
 -- Literal original radius-two loop source = noise MINUS drift square,
 -- normalized by its SAME even-window partition; relative estimate remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFilteredNoiseDrift
+-- Actual OWN-centered Wilson quartic insertion, SAME original positive
+-- terminal/spectator source and odd partition; not the full filtered slope.
+import YMGap.Continuum.BF4DyadicWilsonSquareSignedQuarticInsertion
 -- SAME predecessor square cancels in original source cap and odd-mass floor.
 -- Explicit additive cutoff modulus at fixed nome/width; scaling remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRawSourceMassBound

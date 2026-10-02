@@ -4,7 +4,26 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Filtered survival with any finite relative budget (2026-10-02 UTC)
+## Current increment: Original centered signed quartic insertion (2026-10-02 UTC)
+
+PROGRESS after `f7c3565`: the particular OWN-centered original square has
+a two-sided selected-quartic estimate without RAW Haar source cost.
+Construct the actual positive source/spectator weight; signed Young retains
+BOTH diagonal insertions, then cap16 and the original all-later cutoff
+give abs(insertion)<=16*(40*24576^2*(1-w)^2+epsilon)*SAME oddMass,
+for 16/17<=w<1. Width, square and depth remain explicit but do not enter
+the coefficient. The final SECOND focused explicit20-GiB check passed
+all five allowed gates; independent review passed. Evidence:
+`audits/AUDIT-ORIGINAL-SIGNED-QUARTIC-INSERTION-2026-10-02.md`.
+
+NEXT: an actual decomposition and budget for the COMPLETE signed radius-two
+source, relative to SAME lag-one response/OWN variance on a justified
+family. This selected insertion is NOT that slope. Useful reserve/rate
+control and every continuum endpoint remain OPEN. One root import;
+root/tree, broad audit/guard and progress metric NOT run. No new analytic
+premise, CI or exact chart change; no paper-list or unchanged ASCII reprint.
+
+## Earlier increment: Filtered survival with any finite relative budget (2026-10-02 UTC)
 
 PROGRESS after `435c96e`: backward reduction no longer requires the total
 filtered decrement to fit a small linear reserve. SAME-operator positivity

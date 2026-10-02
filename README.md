@@ -26,6 +26,14 @@ SAME even-window partition. The original finiteValue pin and constant-shift
 invariance of the drift are checked. Useful OWN-variance-relative control
 remains open. See the [exact cancellation and scope](audits/AUDIT-ORIGINAL-FILTERED-NOISE-DRIFT-2026-10-02.md).
 
+**New checked particular-source bound:** the OWN-centered Wilson-square
+signed quartic insertion is bounded on both sides by
+`16*(40*24576^2*(1-q)^2+epsilon)` times its SAME original odd partition.
+All terminal and spectator factors remain; both diagonal moments are
+also retained before the cap. The computed-cutoff estimate avoids raw-Haar
+norm cost, but is not the complete filtered slope or an OWN-variance bound.
+See the [bound and missing causal join](audits/AUDIT-ORIGINAL-SIGNED-QUARTIC-INSERTION-2026-10-02.md).
+
 **Checked full-product bound:** every selected original heat factor and
 the entire signed endpoint source are retained in the quartic Schur estimate.
 The coefficient `60*(1-q)^2` is independent of width and source degree on the

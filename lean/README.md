@@ -13,6 +13,15 @@ discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
 **CURRENT original signed filtered source and SAME response target (2026-10-02 UTC):**
+`BF4DyadicWilsonSquareSignedQuarticInsertion` retains the actual positive
+terminal/spatial source, ALL other selected heat factors and the OWN odd
+center at both endpoints. Signed Young keeps BOTH diagonal moments; cap16
+and the computed original cutoff give abs(insertion)<=
+16*(40*24576^2*(1-q)^2+epsilon)*SAME oddMass, for 16/17<=q<1.
+The final focused check passed five allowed gates. No raw source norm,
+full filtered-slope identity or OWN-variance estimate is assumed.
+Evidence: `audits/AUDIT-ORIGINAL-SIGNED-QUARTIC-INSERTION-2026-10-02.md`.
+
 `RationalBlockedSurvival` and `BF4WilsonAllNomeDyadicFilteredGeometricSurvival`
 prove a stronger sufficient survival criterion on the SAME unit state:
 R1>=gamma0 and m*(R1-R2)<=C*R1 imply Rm>=gamma0*(1/4)^(2*C), for
