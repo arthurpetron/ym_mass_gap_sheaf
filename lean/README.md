@@ -12,6 +12,16 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Local ORIGINAL disjoint-face mixed bound (2026-10-02 UTC):**
+`DisjointFaceSecondOrder.mixedEnergy_mass_pin` retains the original source,
+partition and complete signed cubic/cutoff debt. `corrected_mixedEnergy_square_bound`
+bounds the debt-corrected cross by two LOCAL commutator squares at order
+(1-w)^4, with no extra sufficientCutoff guard. Twelve focused gates and
+independent review passed within {propext,Quot.sound}. OWN-covariance/debt
+control, useful changing-family slack and all physical/continuum endpoints
+remain OPEN. Evidence:
+`audits/AUDIT-DISJOINT-FACE-SECOND-ORDER-2026-10-02.md`.
+
 **Exact ORIGINAL disjoint-face cross energy (2026-10-02 UTC):**
 `DisjointFaceEnergy.blockGamma_zero` proves literal blockwise angular
 cancellation. `padded_mixed_energy` and `finite_mixed_increment` retain the

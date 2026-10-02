@@ -25,6 +25,26 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Local ORIGINAL disjoint-face cross control (2026-10-02 UTC)
+
+PROGRESS after `86aad1b`: disjointness cancels the mixed angular-weight defect,
+first-order source term and quadratic source flux BEFORE any estimate.
+`DisjointFaceSecondOrder.mixedEnergy_mass_pin` identifies Z*E_mix with
+-(1-w)^2 times the LOCAL source-commutator pairing plus the COMPLETE signed
+cubic-minus-omitted mixed debt. `corrected_mixedEnergy_square_bound` gives
+sharp Haar-CS control after subtracting that debt. Original source, depth,
+partition and padding remain; no extra sufficientCutoff guard is needed.
+Twelve focused gates and independent review passed within {propext,Quot.sound}.
+Evidence: `audits/AUDIT-DISJOINT-FACE-SECOND-ORDER-2026-10-02.md`.
+
+NEXT: jointly control ORIGINAL OWN covariance, local commutator squares/cross,
+signed debt and diagonal margins for useful slack exceeding the common cutoff
+allowance on a justified changing family. This avoids global source-Casimir
+budgets in the disjoint corrected cross estimate, not the missing physical
+scaling rate. No useful original margin or continuum endpoint follows. One
+root import; no broad check, new analytic premise, raised limit or CI/chart
+change. No displayed claim changed and no ASCII chart is reprinted.
+
 ### Exact ORIGINAL cross energy of link-disjoint faces (2026-10-02 UTC)
 
 PROGRESS after `b63b4c0`: literal link-disjointness gives coefficientwise

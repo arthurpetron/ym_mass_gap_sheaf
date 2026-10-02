@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting LOCAL original disjoint corrected cross bound (2026-10-02
+UTC; chart unchanged): mixed first-order, source-flux and signed angular-weight
+terms cancel BEFORE estimates. Z*E_mix retains -(1-w)^2 times the local
+source-commutator cross plus COMPLETE signed cubic/cutoff debt. Sharp Haar-CS
+bounds the debt-corrected energy by two actual commutator squares, with original
+head cutoff and partition unchanged. Twelve focused gates and independent
+review passed. OWN-covariance/debt control, useful changing-family slack and
+every physical/continuum endpoint remain OPEN. Evidence:
+`audits/AUDIT-DISJOINT-FACE-SECOND-ORDER-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting ORIGINAL disjoint-face cross identity (2026-10-02 UTC;
 chart unchanged): literal link-disjointness kills the first-order angular
 cross before integration. The full temporal cross equals the COMPLETE signed

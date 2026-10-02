@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Local disjoint-face cross control (2026-10-02):** the original mixed energy
+is now a signed local commutator pairing at order (1-w)^2 plus the complete
+cubic/cutoff debt. A sharp bound controls the energy AFTER subtracting that
+signed debt, with the original source and partition unchanged and no extra
+heat-cutoff guard. Focused constructive verification and independent review
+passed. Debt/OWN-covariance control and useful scaling slack remain open. See
+the [identity, bound and residue](audits/AUDIT-DISJOINT-FACE-SECOND-ORDER-2026-10-02.md).
+
 **Exact disjoint-face cross energy (2026-10-02):** literal link-disjointness
 removes the first-order angular cross term under the unchanged original
 density. The full temporal cross term equals the complete signed-remainder

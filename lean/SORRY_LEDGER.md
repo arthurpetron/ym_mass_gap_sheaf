@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## PROVED local ORIGINAL disjoint corrected cross bound only (2026-10-02 UTC)
+
+- `DisjointFaceSecondOrder.angularWeightDefect_pair` removes the mixed signed
+  defect without changing its original density. The first-order source and
+  quadratic source-flux crosses cancel under their SAME actual weights.
+- `signedRemainder_pair` retains -(1-w)^2*H(Bp*Bq) and COMPLETE signed mixed
+  cubic-minus-omitted debt; `mixedEnergy_mass_pin` uses the SAME odd partition,
+  original head cutoff, physical face membership and strict padding.
+- `corrected_mixedEnergy_square_bound` bounds ONLY the debt-corrected original
+  mixed energy by the two actual local commutator squares. No sufficientCutoff
+  guard, source independence, favorable debt sign or OWN-variance estimate.
+- Twelve focused gates and independent review passed within
+  {propext,Quot.sound}; no sorry, new axiom, analytic premise or frontier
+  weakening. OPEN: joint covariance/debt/source-square and diagonal-margin
+  control on a justified changing family, useful slack, spatial/spacing control
+  and all physical/continuum/Clay endpoints. One root import; no broad check
+  or chart change. Evidence:
+  `audits/AUDIT-DISJOINT-FACE-SECOND-ORDER-2026-10-02.md`.
+
 ## PROVED ORIGINAL disjoint-face angular cancellation only (2026-10-02 UTC)
 
 - `DisjointFaceEnergy.blockRow_separate` uses actual physical link-index

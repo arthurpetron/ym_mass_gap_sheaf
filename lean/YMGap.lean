@@ -6124,6 +6124,9 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialTwoFaceMarginCutoff
 -- Literal link-disjoint faces have zero angular cross, not zero temporal
 -- cross: the full original mixed energy is the complete signed remainder.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialDisjointFaceEnergy
+-- Original disjoint cross energy is a signed LOCAL commutator pairing at
+-- second order plus complete cubic/cutoff debt; no useful scaling slack.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialDisjointFaceSecondOrder
 -- Quantified ORIGINAL passive nonvacuum attenuation and literal vacuum
 -- projection, joined to the SAME signed Taylor/Ward variance budget.
 -- No changing-source scaling bound or continuum reserve is asserted.

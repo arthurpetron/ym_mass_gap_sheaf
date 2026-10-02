@@ -4,7 +4,23 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL disjoint-face cross energy (2026-10-02 UTC)
+## Current increment: Local ORIGINAL disjoint corrected cross bound (2026-10-02 UTC)
+
+PROGRESS after `86aad1b`: mixed first-order, source-flux and angular-weight
+terms cancel before estimates. Original Z*E_mix is -(1-w)^2 times the LOCAL
+commutator cross plus COMPLETE signed cubic/cutoff debt. Sharp Haar-CS bounds
+the corrected energy with two actual source-commutator squares, not global
+source Casimir budgets. Original head cutoff suffices. Twelve focused gates
+and independent review passed. Evidence:
+`audits/AUDIT-DISJOINT-FACE-SECOND-ORDER-2026-10-02.md`.
+
+NEXT: joint ORIGINAL OWN-covariance/debt/commutator and diagonal-margin control
+for useful signed changing-family slack. No favorable original instance,
+scaling or continuum endpoint supplied. One root import; no broad build/audit/
+guard/progress run, new analytic premise, changed safety/CI or chart state.
+No ASCII reprint.
+
+## Earlier increment: ORIGINAL disjoint-face cross energy (2026-10-02 UTC)
 
 PROGRESS after `b63b4c0`: literal link geometry removes the angular cross
 coefficientwise before weighting. Under ONE original density/partition,
