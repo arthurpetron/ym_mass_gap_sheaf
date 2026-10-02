@@ -25,7 +25,37 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Current forward-backward join: signed defect and unit excitation (2026-10-02 UTC)
+### Current forward-backward join: signed overlap and response curvature (2026-10-02 UTC)
+
+PROGRESS after `7c96317`: the actual original source and predecessor spectator
+give a*U^2<=(G+a*S)*D, hence G*D>=a*(U^2-S*D), with S=Z*OWNVar.
+Only the positive a is cancelled; no coarse local bands or source/variance
+inverses. Separately, actual SAME mixed moments compute a nonnegative
+triangular curvature gain C_m and prove the exact normalized response
+R(m)=1-m*e+C_m. Bounded integer shifts satisfy
+0<=R(n)-R(n+j)<=j/(n+1), with a computed tolerance modulus uniform in nome
+and width at n>=side(scale). Three accepted focused explicit20-GiB checks
+and independent review passed; all 20 gates are allowed. Evidence:
+`audits/AUDIT-SIGNED-OVERLAP-CURVATURE-ROUNDING-2026-10-02.md`.
+
+NEXT FORWARD: obtain useful uniform actual overlap/dual-moment control, or
+direct joint response control, on a justified changing family. The cleared
+inequality itself supplies neither a favorable sign nor a scaling bound.
+Do not divide by D without a proved usable positive floor. Join through the
+ENTIRE original energy/variance pins; separate defect limits are not required.
+
+NEXT BACKWARD: use the exact criterion m*e-C_m<=1-gamma, gamma>0 common
+along the family, rather than insist on the stronger sufficient m*e<1.
+The curvature gain is computed, not estimated uniformly. The earlier linear
+and geometric criteria remain optional sufficient routes; no new bundle
+merely assumes survival. Bounded rounding error is now supplied, but only
+within each SAME state at lags>=side and bounded offsets. It supplies no
+dyadic neighboring-state comparison, cross-scale Cauchy modulus, zero-time
+continuity, field identification or physical calibration. Those joins, full
+SAME QFT and every group remain OPEN. Canonical chart claims unchanged;
+no paper-list or unchanged chart reprint.
+
+### Earlier forward-backward join: signed defect and unit excitation (2026-10-02 UTC)
 
 PROGRESS after `c0258b4`: the actual ORIGINAL active-source polynomial
 C=P(q*f)-a*(Pq)*f is constructed, with q=V*terminalMessage and

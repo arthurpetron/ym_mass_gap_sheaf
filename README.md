@@ -10,7 +10,16 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Forward-backward progress (2026-10-02):** the original energy now has the
+**Current forward-backward progress (2026-10-02):** the original action now
+supplies the signed overlap bound `G*D >= a*(U^2-S*D)`, retaining its actual
+source and OWN mean. On the same completed unit state, the response is exactly
+`R(m)=1-m*loss+curvatureGain`, with computed nonnegative gain. This avoids
+discarding curvature when seeking a surviving response. Bounded integer-time
+rounding also has a computed modulus uniform in nome and width. Three focused
+checks and independent review passed. Useful scaling estimates and cross-scale
+convergence remain open. See the [results and remaining join](audits/AUDIT-SIGNED-OVERLAP-CURVATURE-ROUNDING-2026-10-02.md).
+
+**Earlier forward-backward progress (2026-10-02):** the original energy has the
 checked exact form `E/Z=(1-a)*OWNVar-G/Z`, with a computed signed heat
 multiplication defect G and no assumed sign. From the other end, each existing
 Wilson-square excitation is constructively rescaled to norm exactly one on

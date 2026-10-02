@@ -12,7 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT forward-backward join (2026-10-02 UTC):**
+**CURRENT signed overlap and exact response curvature (2026-10-02 UTC):**
+`BF4DyadicWilsonSquareSignedOverlapGain` proves `G*D>=a*(U^2-S*D)` using the
+actual ORIGINAL source, OWN mean and predecessor spectator, without local
+band replacements or source/variance division. `BF4WilsonAllNomeResponseCurvatureGain`
+computes nonnegative triangular gain on SAME T and proves the unit response
+`R(m)=1-m*loss+gain`, including the exact lower-floor equivalence.
+`BF4WilsonAllNomeDyadicResponseRounding` constructs a nome/width-uniform
+modulus for bounded shifts within each SAME unit state at lags>=side(scale).
+Three accepted focused explicit20-GiB checks and independent review passed;
+all 20 gates are allowed. Useful overlap/curvature scaling control, cross-scale
+convergence, zero-time continuity and every continuum endpoint remain OPEN.
+Evidence: `audits/AUDIT-SIGNED-OVERLAP-CURVATURE-ROUNDING-2026-10-02.md`.
+
+**EARLIER forward-backward join (2026-10-02 UTC):**
 `BF4DyadicWilsonSquareSignedHeatDefect` constructs the ORIGINAL active heat
 multiplication defect and proves E/Z=(1-a)*OWNVar-G/Z, retaining its SIGN.
 OWN centering removes the exact source first moment; no K>=1/K>=2 guard,

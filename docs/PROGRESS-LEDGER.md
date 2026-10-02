@@ -4,7 +4,26 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Original signed defect and unit excitation (2026-10-02 UTC)
+## Current increment: Signed overlap and exact response curvature (2026-10-02 UTC)
+
+PROGRESS after `7c96317`: actual ORIGINAL source/OWN centering and predecessor
+spectator give G*D>=a*(U^2-S*D), retaining actual overlap rather than coarse
+local bands. Actual completed mixed moments compute nonnegative C_m and
+prove unit response R(m)=1-m*e+C_m, with the exact gamma-floor equivalence.
+The SAME unit response also has an explicit bounded integer-shift tolerance
+modulus uniform in nome/width at n>=side(scale). Three final focused
+explicit20-GiB checks and independent reviews passed; all 20 gates are
+allowed. Evidence:
+`audits/AUDIT-SIGNED-OVERLAP-CURVATURE-ROUNDING-2026-10-02.md`.
+
+NEXT: useful original overlap/curvature estimates on a justified changing
+family, targeting m*e-C_m<=1-gamma rather than unnecessarily small first loss.
+No uniform survival producer, cross-scale convergence, zero-time continuity,
+physical calibration, full QFT or all-groups construction is closed. Three
+root imports; root/tree, broad audit/guard and progress metric NOT run.
+No new analytic premise, CI or exact chart change; no chart/paper-list reprint.
+
+## Earlier increment: Original signed defect and unit excitation (2026-10-02 UTC)
 
 PROGRESS after `c0258b4`: construct the actual active polynomial
 C=P(q*f)-a*(Pq)*f, retaining the ORIGINAL q=V*terminalMessage. Exact OWN

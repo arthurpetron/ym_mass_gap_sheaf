@@ -1,5 +1,19 @@
 # Canonical one-page project status
 
+Verified supporting signed overlap, curvature and bounded rounding
+(2026-10-02 UTC; chart unchanged): the actual ORIGINAL source gives
+G*D>=a*(U^2-S*D), retaining its OWN center and predecessor spectator.
+The SAME completed unit response is exactly R(m)=1-m*e+C_m with computed
+nonnegative C_m. Its exact floor criterion retains that gain instead of
+discarding curvature. Bounded integer shifts within each SAME unit state
+have a computed tolerance modulus uniform in nome/width at lags>=side.
+Three accepted focused explicit20-GiB checks and independent review passed;
+all 20 gates are allowed. Useful scaling control of the actual overlap/gain,
+cross-scale convergence, zero-time continuity and every continuum endpoint
+remain OPEN. Evidence:
+`audits/AUDIT-SIGNED-OVERLAP-CURVATURE-ROUNDING-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified forward-backward support (2026-10-02 UTC; chart unchanged): the
 ORIGINAL active-source multiplication defect is constructed and its actual
 OWN-centered energy satisfies E/Z=(1-a)*OWNVar-G/Z, with G signed and

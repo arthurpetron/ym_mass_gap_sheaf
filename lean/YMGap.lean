@@ -5049,6 +5049,11 @@ import YMGap.Continuum.BF4WilsonAllNomeDyadicSpectatorResponse
 import YMGap.Continuum.BF4DyadicSpectatorFloorCollapse
 import YMGap.Continuum.BF4DyadicWilsonSquareSignedHeatDefect
 import YMGap.Continuum.BF4WilsonAllNomeDyadicUnitExcitation
+-- Actual signed overlap gain and exact positive curvature, not assumed scaling bounds.
+import YMGap.Continuum.BF4DyadicWilsonSquareSignedOverlapGain
+import YMGap.Continuum.BF4WilsonAllNomeResponseCurvatureGain
+-- Uniform bounded integer shifts within each SAME normalized state, not cross-scale convergence.
+import YMGap.Continuum.BF4WilsonAllNomeDyadicResponseRounding
 -- SAME predecessor square cancels in original source cap and odd-mass floor.
 -- Explicit additive cutoff modulus at fixed nome/width; scaling remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRawSourceMassBound
