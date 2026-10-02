@@ -32,6 +32,20 @@ is unchanged. Abstract summaries below are paraphrases. Applicability labels
 are our assessment, not a claim that the papers identify the repo's theory.
 Theorem screening does not constitute independent verification of full proofs.
 
+Latest requested delta review: **2026-10-02 02:23 UTC**. The main agent checked
+all seven primary abstract records; all still list only v1. A parallel Sol
+reviewer reused this cached theorem screen against the current original joint
+evaluator. No additional paper argument supplying source-specific centered
+Gram coercivity, signed-remainder control or a useful positive scaling margin
+was identified. Gcd reduction changes stored arithmetic, not those estimates.
+The current consumer is still
+`BF4ExactSlabFixedSpatialCollectedFamilyMargin.finite_margin_pin`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCollectedFamilyMargin.lean:316`),
+with `check_correct` (line 350) and `certify` (line 366); a useful accepted
+input remains missing. No full-paper reread, routine listing scan, Lean build
+or proof-status change occurred. The assessments below are reused, not new
+mathematical progress.
+
 ### 2609.40171 — boundary reconstruction
 
 [Information-preserving boundary reconstruction for center-flux energetics in a regulated SU(3) gauge ladder](https://arxiv.org/html/2609.40171v1), Hongyu Ma.
@@ -116,7 +130,7 @@ physical mass gap without a same-theory bridge.
 
 ### 2609.38295 — unconditional log-concave variance bound
 
-[A dimension-free bound for the isoperimetric constant of unconditional log-concave measures](https://arxiv.org/html/2609.38295v1), Dan Mikulincer and Ilias Zadik.
+[A dimension-free bound for isoperimetry of unconditional log-concave measures](https://arxiv.org/html/2609.38295v1), Dan Mikulincer and Ilias Zadik.
 Theorem 1.1, equation (1.2), bounds the Poincare constant independently of
 dimension for isotropic, unconditional, log-concave probability laws on R^n.
 The proof transforms the measure and analyzes an associated Dunkl–Langevin
