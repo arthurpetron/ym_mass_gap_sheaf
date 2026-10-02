@@ -4,7 +4,25 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Original centered growing-loop active norm ceiling (2026-10-02 UTC)
+## Current increment: Exact original channel moment ceiling (2026-10-02 UTC)
+
+PROGRESS after `6d6c5d8`: actual growing-loop curvature and literal centered
+Casimir square contract to P^2*(5F-8M) in SAME channel moments. Retaining the
+exact angular sum P*(4M-F) removes an avoidable Bessel enlargement. The
+original energy ceiling is [(h+t)P(4M-F)+tP^2(5F-8M)+D_A]/Z, preserving
+OWN mean in D_A and SAME Z. The earlier variance/Ward ceiling remains.
+Three focused explicit20-GiB checks and independent math review passed;
+all twenty-two gates are allowed. Evidence:
+`audits/AUDIT-EXACT-WILSON-CHANNEL-MOMENTS-2026-10-02.md`.
+
+NEXT: useful COMPLETE signed moment/OWN-variance control on a justified
+changing family; no favorable sign or source factorization is supplied.
+Physical calibration and all continuum endpoints remain OPEN. One root
+import; root/tree, broad audit/guard and progress metric NOT run. No new
+analytic premise, CI or exact chart change; no ASCII reprint or literature
+rescan.
+
+## Earlier increment: Original centered growing-loop active norm ceiling (2026-10-02 UTC)
 
 PROGRESS after `9bd5464`: constructed Gram-and-square evidence retains
 the literal (q*C f)^2/3 without an eigenpin. Exact channel decomposition and

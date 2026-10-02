@@ -5033,6 +5033,7 @@ import YMGap.Continuum.BF4DyadicWilsonSquareSobolevProjection
 -- Signed curvature/negative square retained; useful OWN-variance scaling stays OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyChannelSobolev
 import YMGap.Continuum.BF4DyadicWilsonSquareActiveChannelSobolev
+import YMGap.Continuum.BF4DyadicWilsonSquareChannelMomentBalance
 -- SAME predecessor square cancels in original source cap and odd-mass floor.
 -- Explicit additive cutoff modulus at fixed nome/width; scaling remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRawSourceMassBound

@@ -25,7 +25,29 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Current original centered growing-loop active Casimir norms (2026-10-02 UTC)
+### Current exact original growing-loop channel moments (2026-10-02 UTC)
+
+PROGRESS after `6d6c5d8`: full original C Gamma and C(psi) evaluate the signed
+quadratic contribution as P^2*(5F-8M), where P=4*side and M,F are the ACTUAL
+existing channel mass/square moment. Keep the angular channel sum EXACTLY
+P*(4M-F), removing the earlier angular Bessel enlargement. The original
+energy now has ceiling [(h+t)P(4M-F)+tP^2(5F-8M)+D_A]/Z, with OWN mean in
+the active cubic/cutoff budget and SAME Z. The earlier variance/Ward-rebased
+ceiling is preserved separately. Three focused explicit20-GiB checks and
+independent math review passed; all twenty-two gates are allowed. Evidence:
+`audits/AUDIT-EXACT-WILSON-CHANNEL-MOMENTS-2026-10-02.md`.
+
+NEXT: a useful bound on this COMPLETE signed moment ceiling relative to OWN
+interacting variance on a physically justified changing family. Do not
+factor original q as an active-independent spectator. Cap F<=4M only gives
+quadratic contribution<=12P^2*M; a favorable sign would need 5F<=8M, which
+is not proved or imposed as a necessary route. Preserve joint cancellation.
+Physical calibration, nonzero continuum survival, full QFT and every actual
+group remain OPEN. No global-gain identity or comparison with that entire
+ceiling, new analytic premise or exact chart change. No ASCII reprint or
+literature rescan.
+
+### Earlier original centered growing-loop active Casimir norms (2026-10-02 UTC)
 
 PROGRESS after `9bd5464`: a constructed Gram-and-square identity retains
 H[(q*C f)^2]/3 for arbitrary supported signed q,f, without an eigenpin.

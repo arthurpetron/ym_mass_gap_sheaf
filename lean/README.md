@@ -12,7 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT original centered growing-loop active Casimir norms (2026-10-02 UTC):**
+**CURRENT exact original growing-loop channel moments (2026-10-02 UTC):**
+`BF4DyadicWilsonSquareCasimirCurvature` evaluates full C(f^2), C Gamma and
+constant shifts on the original Haar carrier. The exact angular generic
+ceiling retains its channel sum, with no Bessel enlargement.
+`BF4DyadicWilsonSquareChannelMomentBalance.paddedSquare_energy_exact_channel_moment_bound`
+gives E/Z<=[(h+t)P(4M-F)+tP^2(5F-8M)+D_A]/Z with ACTUAL original channel
+moments, OWN mean in D_A and SAME Z. The earlier variance-rebased ceiling
+is also retained with its exact quadratic moments. Three focused explicit
+20-GiB checks and independent math review passed; all twenty-two gates are
+allowed. Cap four gives no favorable sign. Useful changing-family
+OWN-variance control and every continuum endpoint remain OPEN. Evidence:
+`audits/AUDIT-EXACT-WILSON-CHANNEL-MOMENTS-2026-10-02.md`.
+
+**Earlier original centered growing-loop active Casimir norms (2026-10-02 UTC):**
 `SU2QuaternionGeneralRetainedCasimir.generalRetainedCasimirCertificate`
 constructs the literal negative Casimir-square bound for arbitrary supported
 signed observables, without an eigenpin. Exact passive-channel expansion

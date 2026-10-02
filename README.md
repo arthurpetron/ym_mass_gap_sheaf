@@ -10,7 +10,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Active derivative costs for the original centered growing loop (2026-10-02):**
+**Exact channel moments in the original growing-loop energy (2026-10-02):**
+the signed curvature and literal Casimir square are now evaluated as
+`P^2*(5F-8M)`, using the same channel mass M and square moment F. The angular
+sum is retained exactly as `P*(4M-F)`, removing an avoidable Bessel enlargement.
+The resulting original energy ceiling keeps its own mean and partition.
+Focused Lean verification and independent review passed. Useful control
+against the original interacting variance on a justified scaling family
+remains open. See the
+[exact bound and remaining estimate](audits/AUDIT-EXACT-WILSON-CHANNEL-MOMENTS-2026-10-02.md).
+
+**Earlier active derivative costs for the original centered growing loop (2026-10-02):**
 the active-footprint estimate now reaches the growing Wilson square at its
 own interacting mean. A constructed Gram-and-square identity retains its
 literal Casimir square without assuming a centered eigenvector identity.

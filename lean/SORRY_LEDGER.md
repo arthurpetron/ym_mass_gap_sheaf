@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## PROVED exact original channel moment ceiling only (2026-10-02 UTC)
+
+- `BF4DyadicWilsonSquareCasimirCurvature` proves actual full-Casimir and
+  constant-shift carrier pins; C(psi)=3P*f, never 3P*psi.
+- `SU2QuaternionPassiveChannelRetainedCasimirSobolev.sourceEnergy_le_exactChannelAngular_activeSobolev_retainedCasimir`
+  retains the actual angular channel sum and bounds only the active error.
+  Existing proofs remain unchanged.
+- `BF4DyadicWilsonSquareChannelMomentBalance.paddedSquare_channel_secondOrder_balance`
+  evaluates -R-S/3=P^2*(5F-8M) in the SAME existing moments;
+  `paddedSquare_channelAngular_moments` evaluates the exact P*(4M-F).
+- `paddedSquare_energy_exact_channel_moment_bound` joins them to ACTUAL
+  original E/Z, OWN mean in D_A and SAME Z. No Ward term is dropped: this
+  raw-channel route never rebases angular energy to variance. The earlier
+  variance/Ward ceiling remains separately available.
+- Three focused explicit20-GiB checks and independent review passed; all
+  twenty-two printed gates are allowed. No new sorry/axiom/analytic premise
+  or weakened field. OPEN: useful COMPLETE signed moment/OWN-variance control
+  on a justified changing family, physical calibration and every continuum
+  endpoint. No factorization or favorable sign. One root import; broad
+  checks NOT run; CI/chart unchanged. Evidence:
+  `audits/AUDIT-EXACT-WILSON-CHANNEL-MOMENTS-2026-10-02.md`.
+
 ## PROVED original centered growing-loop active norm ceiling only (2026-10-02 UTC)
 
 - `SU2QuaternionGeneralRetainedCasimir.generalRetainedCasimirCertificate`

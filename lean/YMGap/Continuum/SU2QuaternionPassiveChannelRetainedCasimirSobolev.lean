@@ -192,9 +192,58 @@ theorem sourceEnergy_le_activeSobolev_retainedCasimir (tail : Nat) {w : Q'}
       (Q'.le_trans' _ _ _ (Q'.le_of_eqv (channelSum_budget cs h t A R S E))
         (Q'.add_le_add hA (Q'.add_le_add (Q'.le_refl' _) hE))))
 
+/-- The exact original channel angular sum is retained with no Bessel loss.
+Only the cubic and omitted-mode errors are bounded by the active budget;
+the signed curvature and literal full-Casimir square are unchanged. -/
+theorem sourceEnergy_le_exactChannelAngular_activeSobolev_retainedCasimir
+    (tail : Nat) {w : Q'} (hw0 : (0 : Q') ≤ w) (hw1 : w < (1 : Q')) (K : Nat)
+    (passive active : List Nat) (hnd : passive.Nodup)
+    (hpassive : ∀ i, i ∈ passive → i < tail+1)
+    (hactive : ∀ i, i ∈ active → i < tail+1)
+    (hnot : ∀ i, i ∈ passive → i ∉ active)
+    (hcover : (passive++active).Perm (List.range (tail+1)))
+    (q f : RatPoly) (hq : SupportedQuaternionBlocks (tail+1) q)
+    (hf : SupportedQuaternionBlocks (tail+1) f)
+    (hind : ∀ i, i ∈ passive → QuaternionBlockIndependent i f) :
+    let h := (1 : Q')-w
+    let t := HalfPow.half*(h*h)
+    sourceEnergy (tail+1) w K (List.range (tail+1)) q f ≤
+      (h+t)*channelSum (productChannels (tail+1) w K passive)
+        (fun c => weightedAngularEnergy tail (channelSource passive q c) f)+
+        (t*(-channelCurvature tail w K passive q f-
+          oneThird*channelCasimirSquare tail w K passive q f)+
+          activeSourceSobolevErrorBudget tail active w K q f) := by
+  dsimp only
+  let cs := productChannels (tail+1) w K passive
+  let b := fun c => channelSource passive q c
+  let A := fun c => weightedAngularEnergy tail (b c) f
+  let R := fun c => H (tail+1) (polyMul (polyMul (b c) (b c))
+    (activeCasimirPolynomial (List.range (tail+1)) (activeGamma (List.range (tail+1)) f f)))
+  let S := fun c => H (tail+1) (polyMul
+    (polyMul (b c) (activeCasimirPolynomial (List.range (tail+1)) f))
+    (polyMul (b c) (activeCasimirPolynomial (List.range (tail+1)) f)))
+  let E := fun c => sourceSobolevErrorBudget tail w K (b c) f
+  let h := (1 : Q')-w
+  let t := HalfPow.half*(h*h)
+  have hraw : channelSum cs (fun c =>
+      sourceEnergy (tail+1) w K (List.range (tail+1)) (b c) f) ≤
+      channelSum cs (fun c => (h+t)*A c+(t*(-R c-oneThird*S c)+E c)) :=
+    channelSum_le _ _ cs (productChannels_nonnegative (tail+1) hw0 K passive)
+      (fun c hc => sourceEnergy_le_sobolev_retainedCasimir tail hw0 hw1 K (b c.2) f
+        (channelSource_supported (tail+1) w K passive hpassive hq c hc) hf)
+  have hE := channelSource_sobolevError_sum_le_active tail hw0 hw1 K passive active
+    hnd hpassive hactive hnot hcover q f hq hf hind
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv
+    (sourceEnergy_projected_channels (tail+1) w K active passive hactive hpassive
+      hnot hcover q f hq hf hind))
+    (Q'.le_trans' _ _ _ hraw
+      (Q'.le_trans' _ _ _ (Q'.le_of_eqv (channelSum_budget cs h t A R S E))
+        (Q'.add_le_add (Q'.le_refl' _) (Q'.add_le_add (Q'.le_refl' _) hE))))
+
 #print axioms channelCurvature
 #print axioms channelCasimirSquare
 #print axioms sourceEnergy_le_sobolev_retainedCasimir
 #print axioms sourceEnergy_le_activeSobolev_retainedCasimir
+#print axioms sourceEnergy_le_exactChannelAngular_activeSobolev_retainedCasimir
 
 end YMGap.Continuum.SU2QuaternionPassiveChannelRetainedCasimirSobolev

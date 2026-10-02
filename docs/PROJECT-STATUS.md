@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting EXACT original channel moment ceiling (2026-10-02 UTC;
+chart unchanged): full growing-loop curvature and literal centered Casimir
+square give P^2*(5F-8M) in the SAME existing channel moments. Retain angular
+sum P*(4M-F) exactly, without Bessel enlargement. The original E/Z ceiling
+uses these moments, OWN mean in active D_A and SAME Z. Three focused
+explicit20-GiB checks and independent review passed. Useful COMPLETE signed
+moment/OWN-variance control and every continuum endpoint remain OPEN;
+no favorable sign or original-source factorization is asserted. Evidence:
+`audits/AUDIT-EXACT-WILSON-CHANNEL-MOMENTS-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting ORIGINAL centered growing-loop active norm ceiling
 (2026-10-02 UTC; chart unchanged): a constructed Gram-and-square identity
 retains the literal Casimir square without a centered eigenpin. Exact passive
