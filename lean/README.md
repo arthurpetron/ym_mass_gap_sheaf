@@ -12,7 +12,21 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT original raw mass with an explicit cutoff modulus (2026-10-02 UTC):**
+**CURRENT original cubic costs as full Casimir norms (2026-10-02 UTC):**
+`SU2QuaternionCyclicCubicOperator` proves positivity and sharp
+Cauchy--Schwarz for the ACTUAL negative cubic form. `CyclicCasimirCube`
+identifies its full third moment as H[(Cp)(C^2p)] and bounds each diagonal
+by h^3/6 times that moment. `BF4DyadicWilsonSquareSobolevProjection`'s
+`paddedSquare_energy_sobolev_projection_bound` removes BOTH cubic
+absolute-leaf costs from an ACTUAL original-loop energy ceiling, retaining
+the SAME source/OWN mean/variance/partition, full signed debts and EXISTING
+gain. Four focused explicit20-GiB checks and independent review passed.
+No numerical dominance or active-only replacement is claimed. Useful
+OWN-variance-relative changing-family control and continuum endpoints
+remain OPEN. Evidence:
+`audits/AUDIT-CUBIC-SOBOLEV-PROJECTION-2026-10-02.md`.
+
+**Earlier original raw mass with an explicit cutoff modulus (2026-10-02 UTC):**
 `BF4ExactSlabFixedSpatialRawSourceMassBound.rawSourceMass_bound` proves
 H[q^2]<=B(w,width)*Z for every late cutoff and positive terminal depth.
 The source cap and original partition floor share the SAME predecessor

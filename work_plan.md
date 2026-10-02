@@ -25,7 +25,28 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Current original raw mass with an explicit cutoff modulus (2026-10-02 UTC)
+### Current original cubic costs as full Casimir norms (2026-10-02 UTC)
+
+PROGRESS after `b88b0a2`: the ACTUAL negative cubic remainder is a positive
+bilinear form. Sharp Cauchy--Schwarz and Young control its original mixed
+source sign. Each diagonal is <=h^3/6 times the literal FULL third Casimir
+moment S3(p)=H[(Cp)(C^2p)]. BOTH cubic absolute-leaf costs are replaced by
+h^3/6*[half*(S3(q)+S3(q*psi^2))+S3(q*psi)] in the ACTUAL growing-loop
+energy ceiling. SAME source, OWN mean/variance, signed centering correction,
+raw Haar mass, angular/Ward debts and EXISTING projection gain are retained.
+Four focused explicit20-GiB checks and independent math review passed.
+Evidence: `audits/AUDIT-CUBIC-SOBOLEV-PROJECTION-2026-10-02.md`.
+
+NEXT: useful control of these FULL third moments and COMPLETE signed
+angular/Ward/centering debt minus retained gain relative to OWN variance
+on a physically justified changing family. The new cap need not be smaller
+than the older leaf budget. Active-only cubic replacement is not proved.
+Physical calibration, continuum survival, full QFT and every actual group
+remain OPEN. The parallel requested seven-paper review reused the recent
+version check and found methods, not a producer for that missing estimate.
+No exact displayed chart claim changed; no ASCII reprint.
+
+### Earlier original raw mass with an explicit cutoff modulus (2026-10-02 UTC)
 
 PROGRESS after `f57bfc6`: the ACTUAL source cap and ORIGINAL odd-marginal
 floor at depth n+1 share the SAME predecessor mass squared. Scaled

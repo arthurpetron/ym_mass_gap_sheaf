@@ -10,6 +10,16 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Original cubic costs replaced by Casimir norms (2026-10-02):** the
+negative cubic remainder is now proved to be a positive bilinear form.
+Its original mixed correction is bounded by three full third Casimir
+moments, replacing both cubic absolute-leaf costs in the actual growing-loop
+energy ceiling while retaining the existing gain and all signed corrections.
+Focused Lean verification and independent review passed. This is not yet
+a useful variance-relative scaling estimate, nor a claim that the new cap
+is numerically smaller. See the
+[proof and remaining input](audits/AUDIT-CUBIC-SOBOLEV-PROJECTION-2026-10-02.md).
+
 **Original raw-mass cutoff control (2026-10-02):** the actual source cap
 and original partition floor share a common predecessor-mass factor.
 Cancelling it gives an explicit cutoff modulus that makes the raw-mass

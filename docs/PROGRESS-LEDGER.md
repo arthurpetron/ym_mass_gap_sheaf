@@ -4,7 +4,27 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Original raw mass and explicit cutoff modulus (2026-10-02 UTC)
+## Current increment: Original cubic Casimir norm control (2026-10-02 UTC)
+
+PROGRESS after `b88b0a2`: positivity and sharp Cauchy--Schwarz for the ACTUAL
+negative cubic form turn its mixed source sign into three diagonal costs.
+Full-path eigenaction identifies S3(p)=H[(Cp)(C^2p)]; each diagonal is
+<=h^3*S3(p)/6. The resulting bound removes BOTH cubic absolute-leaf
+costs in the ACTUAL original growing-loop energy ceiling. SAME source,
+OWN mean/variance, signed C, raw H[q^2], angular/Ward debts, SAME Z and
+EXISTING gain remain. Four focused explicit20-GiB checks and independent
+math review passed. Evidence:
+`audits/AUDIT-CUBIC-SOBOLEV-PROJECTION-2026-10-02.md`.
+
+NEXT: useful FULL-moment/complete-signed-debt-minus-gain control relative
+to OWN variance on a justified changing family. Numerical improvement and
+active-only replacement are not proved. Physical calibration and every
+continuum endpoint remain OPEN. One downstream root import; root/tree,
+broad checks, guards and progress metric NOT run. No new analytic premise,
+CI or exact displayed chart change; no ASCII reprint. The parallel requested
+paper review reused recent verified versions; it supplies no scaling producer.
+
+## Earlier increment: Original raw mass and explicit cutoff modulus (2026-10-02 UTC)
 
 PROGRESS after `f57bfc6`: source cap and ORIGINAL odd-mass floor at positive
 depth share the SAME predecessor square. Scaled substitution proves

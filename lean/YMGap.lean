@@ -5026,6 +5026,9 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialCenteredOmittedNorm
 -- Actual Haar cutoff cap and perimeter-independent fourth moment in ORIGINAL energy.
 -- SAME variance, partition, signed debts and existing gain; physical scaling stays open.
 import YMGap.Continuum.BF4DyadicWilsonSquareHaarProjection
+-- Actual positive cubic form and FULL third Casimir moments in ORIGINAL energy.
+-- Existing gain and complete signed debts retained; OWN-variance scaling is OPEN.
+import YMGap.Continuum.BF4DyadicWilsonSquareSobolevProjection
 -- SAME predecessor square cancels in original source cap and odd-mass floor.
 -- Explicit additive cutoff modulus at fixed nome/width; scaling remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRawSourceMassBound

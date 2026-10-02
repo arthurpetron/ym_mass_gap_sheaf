@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL cubic Casimir norm control (2026-10-02 UTC;
+chart unchanged): the actual negative cubic form is positive bilinear;
+its signed source correction is bounded by three FULL third Casimir
+moments. BOTH cubic absolute-leaf costs are removed from an actual original
+growing-loop ceiling, retaining OWN mean/variance, SAME Z, signed centering,
+angular/Ward debts and EXISTING gain. Four focused explicit20-GiB checks
+and independent review passed. Useful changing-family OWN-variance control
+and all continuum endpoints remain OPEN; no active-only replacement or
+numerical dominance is claimed. Evidence:
+`audits/AUDIT-CUBIC-SOBOLEV-PROJECTION-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting ORIGINAL raw-mass cutoff control (2026-10-02 UTC; chart
 unchanged): the actual source cap and original odd-mass floor share the SAME
 predecessor square. H[q^2]<=B(w,width)*Z uniformly in positive depth and late

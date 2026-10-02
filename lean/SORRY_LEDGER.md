@@ -1,5 +1,29 @@
 # Sorry Ledger
 
+## PROVED original cubic Casimir norm control only (2026-10-02 UTC)
+
+- `SU2QuaternionCyclicCubicOperator.cubicGNSData` constructs positivity and
+  bilinearity for the ACTUAL negative cubic form; its sharp Cauchy--Schwarz
+  and signed Young bound use no supplied PSD input or input-tree linearity.
+- `SU2QuaternionCyclicCasimirCube.full_cubeMoment_eq_literal` identifies
+  S3(p)=H[(Cp)(C^2p)] using full-path eigenaction. Each negative cubic
+  diagonal is <=h^3*S3(p)/6. This is the FULL carrier Casimir.
+- `SU2QuaternionCyclicSobolevProjection.sourceCubic_le_thirdMoments` pays
+  the complete signed source cubic term by three actual third moments.
+  Its complete-remainder ceiling retains the negative square and EXISTING
+  projection gain. No comparison with old absolute-leaf budgets is assumed.
+- `BF4DyadicWilsonSquareSobolevProjection.paddedSquare_energy_sobolev_projection_bound`
+  replaces BOTH cubic absolute-leaf costs in the ACTUAL original energy.
+  SAME q, OWN mean/variance, signed C, raw H[q^2], full angular/Ward debts,
+  SAME Z and EXISTING gain remain. Four focused explicit20-GiB checks and
+  independent math review passed; all thirty gates are allowed.
+- OPEN: useful FULL-moment/complete-signed-debt control relative to OWN
+  variance on a justified changing family, physical calibration and every
+  continuum endpoint. No active-only replacement, numerical dominance,
+  new sorry/axiom/analytic premise or weakened frontier. One downstream
+  root import; broad checks NOT run; CI/chart unchanged. Evidence:
+  `audits/AUDIT-CUBIC-SOBOLEV-PROJECTION-2026-10-02.md`.
+
 ## PROVED additive original raw-mass cutoff control only (2026-10-02 UTC)
 
 - `BF4ExactSlabFixedSpatialRawSourceMassBound.rawSourceInterval` constructs
