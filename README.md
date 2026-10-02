@@ -26,6 +26,14 @@ SAME even-window partition. The original finiteValue pin and constant-shift
 invariance of the drift are checked. Useful OWN-variance-relative control
 remains open. See the [exact cancellation and scope](audits/AUDIT-ORIGINAL-FILTERED-NOISE-DRIFT-2026-10-02.md).
 
+**New checked signed-source estimate:** that SAME source is exactly an
+original mixed-depth jump square minus TWICE the drift square. Its upper
+radial term shares the drift's middle marginal, and its COMPLETE word
+quartic correction is now paid against the SAME even partition, with
+explicit `16*length^4`, heat-cutoff and boundary-depth costs. The signed
+radial-minus-drift comparison to interacting variance on a justified family
+remains open. See the [estimate and remaining analytic input](audits/AUDIT-FILTERED-RADIAL-DRIFT-QUARTIC-CEILING-2026-10-02.md).
+
 **New checked particular-source bound:** the OWN-centered Wilson-square
 signed quartic insertion is bounded on both sides by
 `16*(40*24576^2*(1-q)^2+epsilon)` times its SAME original odd partition.

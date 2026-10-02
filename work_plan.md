@@ -27,6 +27,22 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME signed filtered slope and reserve (2026-10-02 UTC)
 
+NEW CHECKED COMPLETE-SOURCE CEILING: the literal symmetric filtered
+numerator is J-2D, with J in the ORIGINAL mixed edge (n,1,n+1), not a
+matched-terminal source. Its upper radial gap has exactly the middle
+V*g_(n+1)^2 marginal used by D. Constructed original certificates give
+S<=2*R_upper+2*Q_word-2D. Existing profile and common-tail bounds now
+pay Q_word<=[16*length^4*(40*24576^2*(1-w)^2+2*epsilon)]*SAME evenPartition
+at BOTH computed all-later cutoffs, for 16/17<=w<1. Per-link error before
+the depth onset is 32*mixRate^n; that onset depends on nome/width/tolerance,
+not K or selected link. All 28 final gates passed. NEXT estimate the
+COMPLETE signed radial-minus-drift residual relative to OWN variance and
+lag-one reserve on a justified changing family, including the explicit
+length^4 remainder. Do not bound R and D separately, equate inserted
+endpoint marginals, infer a uniform onset in width, or identify the old
+matched signed insertion with this mixed weight. Evidence:
+`audits/AUDIT-FILTERED-RADIAL-DRIFT-QUARTIC-CEILING-2026-10-02.md`.
+
 NEW CHECKED PARTICULAR-SOURCE PRODUCER: the actual OWN-centered square's
 signed selected-quartic insertion retains positive V*terminal_depth at
 BOTH endpoints and ALL other selected heat factors. Signed Young first
@@ -35,9 +51,9 @@ cutoff gives abs(insertion)<=16*(40*24576^2*(1-w)^2+epsilon)*SAME oddMass,
 for 16/17<=w<1, with coefficient independent of width/square/depth.
 The final focused check passed five allowed gates. This avoids RAW Haar
 cost for THIS insertion; it is not a general norm comparison, the literal
-filtered slope or an OWN-variance estimate. NEXT connect only the actual
-source terms justified by a proved decomposition and estimate COMPLETE
-N-D/relative response, not a newly assumed quartic/TD identification.
+filtered slope or an OWN-variance estimate. The COMPLETE source now has
+the separate actual mixed-weight ceiling above. Retain its signed
+radial/drift residual; no quartic/TD identification is assumed.
 Evidence: `audits/AUDIT-ORIGINAL-SIGNED-QUARTIC-INSERTION-2026-10-02.md`.
 
 NEW CHECKED BACKWARD REDUCTION: the SAME dyadic unit response now needs

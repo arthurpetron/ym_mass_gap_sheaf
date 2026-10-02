@@ -13,6 +13,17 @@ discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
 **CURRENT original signed filtered source and SAME response target (2026-10-02 UTC):**
+`BF4ExactSlabFixedSpatialFilteredRadialDrift` proves the literal original
+source is J-2D in its actual mixed-depth edge measure, with upper radial
+gap on the SAME middle marginal as the drift. `MixedDepthQuarticInsertion`
+and `FilteredQuarticCeiling` pay its COMPLETE word fourth moment against
+the SAME even partition, using original profile and boundary-forgetting
+producers. Coefficient 16*length^4 and both computed regulator onsets
+remain explicit; the depth onset depends on nome/width. Three final focused
+checks passed all 28 allowed gates. The signed radial-minus-drift versus
+OWN variance on a justified family remains OPEN. Evidence:
+`audits/AUDIT-FILTERED-RADIAL-DRIFT-QUARTIC-CEILING-2026-10-02.md`.
+
 `BF4DyadicWilsonSquareSignedQuarticInsertion` retains the actual positive
 terminal/spatial source, ALL other selected heat factors and the OWN odd
 center at both endpoints. Signed Young keeps BOTH diagonal moments; cap16

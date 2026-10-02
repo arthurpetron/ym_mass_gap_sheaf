@@ -4,7 +4,27 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Original centered signed quartic insertion (2026-10-02 UTC)
+## Current increment: Original signed radial drift ceiling with quartic paid (2026-10-02 UTC)
+
+PROGRESS after `81134ca`: the literal signed source now equals J-2D under
+the ORIGINAL mixed-depth measure. Its upper radial gap shares the actual
+middle marginal with D. The whole word quartic correction is paid against
+the SAME even partition using the existing original profile and common-tail
+producers, with explicit 16*length^4 and computed K/depth onsets. Negative
+2D remains in both numerator and original normalized-window ceilings.
+The actual padded square discharges active-link hypotheses. Three final
+focused explicit20-GiB checks passed all 28 allowed gates; independent
+review passed. Evidence:
+`audits/AUDIT-FILTERED-RADIAL-DRIFT-QUARTIC-CEILING-2026-10-02.md`.
+
+NEXT: control the COMPLETE signed radial-minus-drift residual and the
+length-dependent correction relative to OWN variance/lag-one response
+on a justified changing family. No useful reserve/budget, physical mass,
+full QFT, every-group or continuum endpoint is closed. Three root imports
+registered; root/tree, broad audit/guard and progress metric NOT run.
+CI and exact canonical chart unchanged; no paper-list or ASCII reprint.
+
+## Earlier increment: Original centered signed quartic insertion (2026-10-02 UTC)
 
 PROGRESS after `f7c3565`: the particular OWN-centered original square has
 a two-sided selected-quartic estimate without RAW Haar source cost.

@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting COMPLETE signed-source ceiling (2026-10-02 UTC;
+chart unchanged): the original source is mixed jump J MINUS twice drift D.
+Upper radial gap uses the SAME middle marginal as D. The COMPLETE word
+quartic correction is paid by its SAME even partition, with explicit
+16*length^4 profile cost and computed heat/depth onsets; the latter depends
+on nome/width. Three final focused explicit20-GiB checks passed 28 allowed
+gates. Useful signed radial-minus-drift versus OWN variance and all
+displayed changing-family/continuum claims remain OPEN. Evidence:
+`audits/AUDIT-FILTERED-RADIAL-DRIFT-QUARTIC-CEILING-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting actual OWN-centered signed quartic insertion
 (2026-10-02 UTC; chart unchanged): the original positive terminal/spatial
 source and ALL other selected heat factors remain. Signed Young retains
