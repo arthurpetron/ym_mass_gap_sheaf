@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting family-band calibration obstruction (2026-10-02 UTC;
+chart unchanged): for nonempty signed families, the existing positive response
+band gives a computed energy coefficient >=1-2^(-280) at EVERY strict nome.
+The original depth/completion transport cannot improve that bound. Seven
+focused gates and independent math review passed. This rejects using THAT
+constant as a spacing-small producer, not a stronger true energy/OWN-variance
+estimate. Useful signed changing-family control and every continuum endpoint
+remain OPEN. Evidence:
+`audits/AUDIT-FAMILY-BAND-CALIBRATION-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting finite original reference certificate (2026-10-02 UTC;
 chart unchanged): four fixed-depth original window moduli, including BOTH
 endpoint means, compute cutoff control of c*OWNVar-E. An accepted finite

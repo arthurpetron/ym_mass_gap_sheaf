@@ -12,6 +12,16 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Existing family-band calibration obstruction (2026-10-02 UTC):**
+`FamilyBandCalibrationObstruction` proves the computed response-band energy
+coefficient is >=1-2^(-280) for nonempty families at every strict nome.
+Original depth/completion transport cannot decrease it. Seven focused gates
+and independent review passed, all {propext,Quot.sound}. This rejects a
+computed-bound scaling shortcut, not the true ratio or Yang--Mills. Useful
+joint signed control and every continuum endpoint remain OPEN. One root
+import added; full root/tree/build/audit/guard NOT checked. Evidence:
+`audits/AUDIT-FAMILY-BAND-CALIBRATION-2026-10-02.md`.
+
 **Finite original reference margin (2026-10-02 UTC):**
 `FiniteReferenceMargin.referenceMarginCauchy` constructs cutoff control at an
 arbitrary fixed depth from FOUR original window moments and BOTH endpoint

@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## PROVED existing family-band coefficient obstruction only (2026-10-02 UTC)
+
+- `BF4WilsonAllNomeFamilyBandCalibrationObstruction.familyResponseFraction_le_ceiling`
+  gives rho<=(1/32)^(56*size), every strict rational nome and list size.
+  `family_band_coefficient_floor` gives 1-rho>=1-2^(-280) for nonempty lists.
+- `referenceCoefficient_ge_input` and
+  `transported_family_band_coefficient_floor` prove that original depth/
+  completion transport cannot improve this computed bound.
+  `transported_family_band_linear_budget_false` rejects paying C*a<1/2
+  with THIS coefficient, without assuming a is physical spacing.
+- This is NOT a lower bound on true energy/OWN-variance, a refutation of
+  useful actual finite margins, or a Yang--Mills counterexample. The genuine
+  original fixed-nome `finite_family_energy_band` remains proved and useful.
+- Seven focused gates and independent math review passed, all
+  {propext,Quot.sound}; no new sorry, axiom, analytic premise, erased witness
+  or weakened frontier. Evidence:
+  `audits/AUDIT-FAMILY-BAND-CALIBRATION-2026-10-02.md`.
+- OPEN: joint original signed scaling estimate or accepted small-rate finite
+  data on a justified changing family, cross-scale pairings, physical spacing/
+  lower gap, nonzero continuum survival, full QFT, every group and Clay.
+  One root import added; full root/tree/build/audit/guard NOT checked.
+  CI, safety limits and exact canonical chart claims unchanged.
+
 ## PROVED finite original reference certificate reduction only (2026-10-02 UTC)
 
 - `BF4WilsonAllNomeFiniteReferenceMargin.referenceMargin_pin` retains

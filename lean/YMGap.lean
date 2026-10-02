@@ -6098,6 +6098,10 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteWardMoments
 -- and every integer-lag lower orbit. Fixed nome; no continuum survival claim.
 import YMGap.Continuum.BF4WilsonAllNomePlaquetteFamilyBondFloor
 import YMGap.Continuum.BF4WilsonAllNomePlaquetteFamilyBondOrbit
+-- The existing response-band coefficient stays near one for nonempty families;
+-- depth transport cannot turn that bound into a small scaling coefficient.
+-- This is NOT a lower bound on the true energy/OWN-variance ratio.
+import YMGap.Continuum.BF4WilsonAllNomeFamilyBandCalibrationObstruction
 -- Quantified ORIGINAL passive nonvacuum attenuation and literal vacuum
 -- projection, joined to the SAME signed Taylor/Ward variance budget.
 -- No changing-source scaling bound or continuum reserve is asserted.

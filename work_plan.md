@@ -25,6 +25,31 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Existing family response-band constant cannot supply small scaling (2026-10-02 UTC)
+
+PROGRESS after `de466e2`: the original padded signed-family bound DOES exist:
+`PlaquetteFamilyBondFloor.finite_family_energy_band` gives
+E <= (1-rho)*OWNVar at all positive depths and late cutoffs, at fixed nome.
+But `FamilyBandCalibrationObstruction.familyResponseFraction_le_ceiling`
+proves rho <= (1/32)^(56*size) at EVERY strict nome. For a nonempty family,
+its computed coefficient is >=1-2^(-280). The actual reference transport
+multiplies by (1+comparisonEta)^2>=1; width, nome and reference depth cannot
+make THIS coefficient small. In particular it cannot pay C*a when C*a<1/2.
+Seven focused gates and independent math review passed, all
+{propext,Quot.sound}. Evidence:
+`audits/AUDIT-FAMILY-BAND-CALIBRATION-2026-10-02.md`.
+
+This bounds the existing UPPER-BOUND COEFFICIENT, not the true E/OWNVar
+ratio. Stop using this absolute response band as a scaling producer; keep
+its genuine fixed-nome nontriviality results. NEXT is useful actual original
+signed-margin data or joint source/Taylor/Ward cancellation on a justified
+padded/changing family, consumed by the existing finite certificate and
+original cutoff/depth/completed-carrier transport. No small-rate instance,
+changing-family join or continuum endpoint was proved. All physical/Clay
+obligations remain OPEN. One root import added; no full root/tree/build/audit/
+guard or progress-metric run. ONE 20-GiB compiler, unchanged 12-GiB reserve;
+CI and canonical chart unchanged, no ASCII reprint.
+
 ### ONE finite original signed margin supplies the reference bound (2026-10-02 UTC)
 
 PROGRESS after `f834d25`: `FiniteReferenceMargin.referenceMargin_pin`

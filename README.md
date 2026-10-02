@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**A computed-bound shortcut is ruled out (2026-10-02):** the existing
+signed-family response-band coefficient is at least `1-2^(-280)` for every
+nonempty family and strict coupling nome; depth transport cannot make it
+small. Seven focused gates and independent review passed. This constrains
+that bound, not the true energy/variance ratio or Yang--Mills. The next input
+remains a useful signed scaling estimate. See the
+[proof and scope](audits/AUDIT-FAMILY-BAND-CALIBRATION-2026-10-02.md).
+
 **Finite original reference certificate (2026-10-02):** constructed cutoff
 errors give a sufficient ONE finite signed-margin test for the all-late-cutoff
 reference estimate. Acceptance reaches the SAME completed-carrier bound and cannot

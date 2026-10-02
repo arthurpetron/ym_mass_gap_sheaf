@@ -4,7 +4,23 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Finite original signed margin supplies the reference bound (2026-10-02 UTC)
+## Current increment: Existing response-band coefficient cannot supply small scaling (2026-10-02 UTC)
+
+PROGRESS after `de466e2`: rho<=(1/32)^(56*size) at every strict nome, so the
+existing original signed-family energy-band coefficient is >=1-2^(-280)
+for nonempty lists. The actual original reference transport cannot decrease
+it. Seven focused gates and independent math review passed, all
+{propext,Quot.sound}. This prunes use of THAT computed band constant as a
+spacing-small upper-energy producer, not the true energy/OWN-variance ratio
+or the original Yang--Mills route. The genuine fixed-nome bound is preserved.
+
+NEXT remains actual useful finite margin data or joint signed original
+source/Taylor/Ward control on a justified padded/changing family. No small-rate
+instance or continuum endpoint closed. No broad build/audit/guard, progress
+metric, raised limit, CI change or ASCII reprint. Evidence:
+`audits/AUDIT-FAMILY-BAND-CALIBRATION-2026-10-02.md`.
+
+## Earlier increment: Finite original signed margin supplies the reference bound (2026-10-02 UTC)
 
 PROGRESS after `f834d25`: constructed cutoff control of the actual joint margin
 c*OWNVar-E uses FOUR original window moments and BOTH finite endpoint means.
