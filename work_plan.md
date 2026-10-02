@@ -27,14 +27,26 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME signed filtered slope and reserve (2026-10-02 UTC)
 
+NEW CHECKED FULL-PRODUCT PRODUCER: all distinct original selected heat
+factors and the ENTIRE n-link signed source now have BOTH exact quartic
+marginals and coefficient 60*(1-q)^2, independent of width/source degree
+on the guarded cutoff tail. All eight final gates passed. RAW cost is
+still NOT the interacting sourceMoment/OWN variance or the literal filtered
+source. The next causal source join is an ORIGINAL three-slice fold retaining
+noise MINUS drift, with its actual partition, not a false identification of
+quartic cost with R1-R2. In parallel, retain the exact signed heat-loss
+correction in RAW/OWN comparison; no channelwise centering or assumed useful
+sign. Evidence:
+`audits/AUDIT-FULL-PRODUCT-SIGNED-QUARTIC-SCHUR-2026-10-02.md`.
+
 NEW CHECKED FORWARD PRODUCER: the ORIGINAL one-link quartic kernel has both
 computed d(q) Haar marginals. Its square certificate times the actual
 endpoint-difference square proves a SIGNED Schur bound with coefficient
 60*(1-q)^2 for K>=max(headCutoff q,2), 0<q<1. All eight gates passed.
 This valid identity-form replacement pays RAW H[source^2*f^2], not OWN
-interacting variance or squared-nome heat mass. Next extend only through
-proved original product marginals/inactive projection, then retain and
-estimate the signed raw-to-interacting correction. Do not assume its sign
+interacting variance or squared-nome heat mass. The full-product extension
+is supplied above. Retain and estimate the signed raw-to-interacting
+correction through the actual source projection. Do not assume its sign
 or add a wrapper declaring the missing comparison. Evidence:
 `audits/AUDIT-SIGNED-QUARTIC-SCHUR-2026-10-02.md`.
 

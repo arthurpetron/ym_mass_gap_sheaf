@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting FULL retained-product signed quartic estimate (2026-10-02
+UTC; chart unchanged): all distinct selected heat factors and the ENTIRE
+signed n-link source are retained, including spectators/inactive coordinates.
+BOTH actual marginals give coefficient 60*(1-q)^2 independent of width/source
+degree on the guarded cutoff tail. RAW source-square cost is retained, NOT
+identified with OWN variance or the radius-two filtered slope. Final SECOND
+focused explicit20-GiB check passed eight allowed gates. The useful signed
+raw/OWN comparison and literal three-slice noise/drift join remain OPEN.
+Evidence: `audits/AUDIT-FULL-PRODUCT-SIGNED-QUARTIC-SCHUR-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting ORIGINAL signed quartic Schur bound (2026-10-02 UTC;
 chart unchanged): BOTH actual one-link quartic marginals equal
 d(q)=5-8*q^3+3*q^8. Original kernel-certificate positivity on the endpoint

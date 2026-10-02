@@ -5110,6 +5110,8 @@ import YMGap.Continuum.SU2HeatQuarticFixedSourceObstruction
 -- Valid original signed quartic Schur bound: 60*(1-q)^2 costs RAW Haar norm,
 -- not squared-nome heat mass or OWN interacting variance.
 import YMGap.Continuum.SU2QuaternionHeatQuarticSchur
+-- Full retained-product signed bound: arbitrary entire source, same RAW cost.
+import YMGap.Continuum.SU2QuaternionProductHeatQuarticSchur
 -- SAME predecessor square cancels in original source cap and odd-mass floor.
 -- Explicit additive cutoff modulus at fixed nome/width; scaling remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRawSourceMassBound

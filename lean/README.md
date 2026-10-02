@@ -13,13 +13,22 @@ discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
 **CURRENT original signed filtered source and SAME response target (2026-10-02 UTC):**
+`SU2QuaternionProductHeatQuarticSchur` retains the complete selected heat
+product and the ENTIRE signed n-link source, including spectators/inactive
+coordinates. BOTH actual marginals give coefficient 60*(1-q)^2 with RAW
+source-square cost, independent of width/degree on the guarded cutoff tail.
+All eight final gates passed. OWN-variance comparison and the exact filtered
+three-slice join remain OPEN. Evidence:
+`audits/AUDIT-FULL-PRODUCT-SIGNED-QUARTIC-SCHUR-2026-10-02.md`.
+
 `SU2QuaternionHeatQuarticSchur` constructs BOTH original quartic Haar
 marginals and proves signed domination by RAW Haar squared norm with
 coefficient 60*(1-q)^2, for 0<q<1 and K>=max(headCutoff q,2). The actual
 source-square consumer keeps rawSourceMoment(source,f^2); no OWN-variance
-identification is assumed. All eight final gates passed. Full-product/
-inactive projection, useful signed raw/OWN comparison and filtered control
-remain OPEN. Evidence: `audits/AUDIT-SIGNED-QUARTIC-SCHUR-2026-10-02.md`.
+identification is assumed. All eight final gates passed. Its full-product
+extension is now supplied above; useful signed raw/OWN comparison and
+filtered control remain OPEN. Evidence:
+`audits/AUDIT-SIGNED-QUARTIC-SCHUR-2026-10-02.md`.
 
 `SU2HeatQuarticSignedHaarObstruction` now constructs the ORIGINAL supported
 harmonic source with norm one and arbitrary-degree bilateral extraction.

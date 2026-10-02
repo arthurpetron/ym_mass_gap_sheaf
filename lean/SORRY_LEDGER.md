@@ -1,5 +1,22 @@
 # Sorry Ledger
 
+## PROVED full retained-product signed quartic budget only (2026-10-02 UTC)
+
+- `SU2QuaternionProductHeatQuarticSchur.quarticProduct_certificate` retains
+  every selected original heat factor. BOTH `quarticProduct_upper_marginal`
+  and `quarticProduct_lower_marginal` compute d(q) with all distinct-factor
+  and carrier guards explicit; no source/fringe independence is required.
+- `quarticProduct_signed_schur`, `quarticProduct_signed_budget` and
+  `source_quarticProduct_signed_budget` apply to the ENTIRE signed n-link
+  endpoint. Coefficient 60*(1-q)^2 is independent of width/source degree
+  on the guarded cutoff tail. RAW H[source^2*f^2] is NOT OWN variance.
+- Final SECOND focused explicit20-GiB check passed eight allowed gates;
+  independent math review passed. Root import registered, not aggregate-checked.
+  No new sorry/axiom/classical shortcut/CI/chart change. Useful signed
+  raw/OWN comparison, the literal three-slice filtered join, justified-family
+  costs and all continuum endpoints remain OPEN. Evidence:
+  `audits/AUDIT-FULL-PRODUCT-SIGNED-QUARTIC-SCHUR-2026-10-02.md`.
+
 ## PROVED signed original one-link quartic Schur bound only (2026-10-02 UTC)
 
 - `SU2QuaternionHeatQuarticSchur.quarticKernel_certificate` constructs the
