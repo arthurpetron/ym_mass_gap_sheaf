@@ -12,7 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT original energy with Haar cutoff control and retained gain (2026-10-02 UTC):**
+**CURRENT original raw mass with an explicit cutoff modulus (2026-10-02 UTC):**
+`BF4ExactSlabFixedSpatialRawSourceMassBound.rawSourceMass_bound` proves
+H[q^2]<=B(w,width)*Z for every late cutoff and positive terminal depth.
+The source cap and original partition floor share the SAME predecessor
+mass squared; no predecessor or variance is inverted. The computed
+`rawSourceMassCutoff` and `omitted_half_rawSourceMass_bound` pay the
+original raw-mass cutoff contribution to epsilon/2 at EVERY positive depth.
+Final focused explicit20-GiB verification and independent review passed.
+This is additive fixed-parameter control, NOT useful OWN-variance-relative
+scaling control. Complete signed debts, physical calibration and every
+continuum endpoint remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-RAW-SOURCE-MASS-2026-10-02.md`.
+
+**Earlier original energy with Haar cutoff control and retained gain (2026-10-02 UTC):**
 `BF4DyadicWilsonSquareCenteredFourthMoment.paddedSquare_centered_squareBound`
 constructs cap16 for the original OWN-centered fundamental loop, independent
 of perimeter. The raw fourth moment is <=16 times its raw second moment under

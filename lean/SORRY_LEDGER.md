@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## PROVED additive original raw-mass cutoff control only (2026-10-02 UTC)
+
+- `BF4ExactSlabFixedSpatialRawSourceMassBound.rawSourceInterval` constructs
+  a Type-level interval for ACTUAL q at depth n+1. `rawSourceMass_cleared`
+  uses the SAME predecessor square in source cap and ORIGINAL odd-mass floor.
+  Only the fixed positive floor coefficient is inverted in
+  `rawSourceMassConstant`; no predecessor or variance is divided out.
+- `rawSourceMass_bound` proves H[q^2]<=B(w,width)*Z independently of late
+  cutoff and positive depth. `rawSourceMassCutoff` computes a tolerance
+  modulus, including the original head guard; `omitted_half_rawSourceMass_bound`
+  gives rho*H[q^2]/(2Z)<=epsilon/2 at every later cutoff and positive depth.
+- Final focused explicit20-GiB check passed; ten gates are within
+  {propext,Quot.sound}. Independent math review passed with the halved
+  consumer wording corrected. No new sorry, axiom, analytic premise or
+  weakened frontier. OPEN: useful complete signed debt/OWN-variance estimate
+  on a justified changing family, physical calibration and all continuum
+  endpoints. One root import; broad checks NOT run; CI/chart unchanged.
+  Evidence: `audits/AUDIT-ORIGINAL-RAW-SOURCE-MASS-2026-10-02.md`.
+
 ## PROVED original Haar cutoff energy join and fourth-moment cap only (2026-10-02 UTC)
 
 - `SU2QuaternionCompleteRemainderHaarProjection.completeRemainder_le_haar_completedSquare`

@@ -5026,6 +5026,9 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialCenteredOmittedNorm
 -- Actual Haar cutoff cap and perimeter-independent fourth moment in ORIGINAL energy.
 -- SAME variance, partition, signed debts and existing gain; physical scaling stays open.
 import YMGap.Continuum.BF4DyadicWilsonSquareHaarProjection
+-- SAME predecessor square cancels in original source cap and odd-mass floor.
+-- Explicit additive cutoff modulus at fixed nome/width; scaling remains OPEN.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialRawSourceMassBound
 -- Integrated original Ward residual transport, not a weight/derivative identity.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialProjectedWard
 -- The displayed majorant retains a quadratic floor; not a true-moment lower bound.

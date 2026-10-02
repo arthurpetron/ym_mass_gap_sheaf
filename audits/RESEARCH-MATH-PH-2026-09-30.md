@@ -25,8 +25,32 @@ No theorem or hypothesis was imported. No numerical computation or Lean build ra
 
 ## Requested seven-paper review (2026-10-01 22:41 UTC)
 
-Latest complete record verification: **2026-10-02 09:03 UTC**, by the main
-agent checking all seven primary abstract records; each still lists only v1.
+Latest complete record verification: **2026-10-02 09:27 UTC**, by a parallel
+Sol reviewer checking all seven primary arXiv records; each still lists only v1.
+This explicit requested check reused the cached full-text screen, with no
+listing scan, full-paper reread or independent verification of paper proofs.
+
+Current applicability: certificate validation (38220), retention of
+unnormalized joint information before cancellation (40171), and conditional
+same-operator Schur/interface assembly (39802) remain the useful methods.
+No new paper result supplies complete signed cubic/angular/Ward/centering
+control minus the retained gain relative to OWN variance on a justified
+changing four-dimensional Wilson family. The other four papers retain their
+different-model/operator, qualified-obstruction and inequality-direction
+limits below. This review closes no proof node and imports no Lean premise.
+
+Separate proof progress after this check constructs original raw-mass
+cutoff control in `BF4ExactSlabFixedSpatialRawSourceMassBound.rawSourceMass_bound`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRawSourceMassBound.lean:190`)
+and `omitted_half_rawSourceMass_bound` (same module, line 265).
+The shared predecessor-square cancellation gives H[q^2]<=B(w,width)*Z
+uniformly in positive depth and late cutoff; its explicit modulus pays
+rho*H[q^2]/(2Z) to epsilon/2. This is additive fixed-parameter control,
+not an OWN-variance-relative scaling producer from the papers. Evidence:
+`audits/AUDIT-ORIGINAL-RAW-SOURCE-MASS-2026-10-02.md`.
+
+Earlier complete record verification: **2026-10-02 09:03 UTC**, by the main
+agent checking all seven primary abstract records; each listed only v1.
 A parallel Sol reviewer reused the cached theorem screen against the current
 original-source bound, without independently verifying the paper proofs.
 The earlier narrow full-text check corrected the finite-volume
@@ -39,7 +63,7 @@ supplying the retained signed heat/debt estimate or scaling-uniform residual
 control. The current proof and its separate focused verification are recorded
 in `audits/AUDIT-DISJOINT-FACE-JOINT-MARGIN-2026-10-02.md`.
 
-Current applicability check: **2026-10-02 09:03 UTC**, requested for these same
+Earlier applicability check: **2026-10-02 09:03 UTC**, requested for these same
 seven IDs and performed by a parallel Sol reviewer. No listing scan, full-paper
 reread, Lean edit or build occurred. The actual new consumers are
 `centered_sourceError_le_haar`

@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL raw-mass cutoff control (2026-10-02 UTC; chart
+unchanged): the actual source cap and original odd-mass floor share the SAME
+predecessor square. H[q^2]<=B(w,width)*Z uniformly in positive depth and late
+cutoff. An explicit tolerance modulus pays rho*H[q^2]/(2Z) to epsilon/2 at
+EVERY positive depth. Final focused check and independent review passed.
+This is additive fixed-parameter control, not OWN-variance-relative scaling
+or width/coupling uniformity. Complete signed debts and all continuum
+endpoints remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-RAW-SOURCE-MASS-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting ORIGINAL Haar cutoff energy join (2026-10-02 UTC; chart
 unchanged): the actual omitted-mode norm cap now retains the negative completed
 square and EXISTING gain through the original energy. The OWN-centered loop's

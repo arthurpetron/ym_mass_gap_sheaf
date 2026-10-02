@@ -25,7 +25,29 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Current original energy with Haar cutoff control and retained gain (2026-10-02 UTC)
+### Current original raw mass with an explicit cutoff modulus (2026-10-02 UTC)
+
+PROGRESS after `f57bfc6`: the ACTUAL source cap and ORIGINAL odd-marginal
+floor at depth n+1 share the SAME predecessor mass squared. Scaled
+substitution, without predecessor or variance inversion, proves
+H[q^2] <= B(w,width)*Z, with B=sourceCapScale/sourceFloorScale. These
+explicit coefficients have no cutoff or terminal-depth argument.
+The computed rawSourceMassCutoff(w,width,epsilon) proves
+rho*H[q^2]/(2Z) <= epsilon/2 for EVERY later cutoff and positive depth.
+The SAME partition is retained. Final focused explicit20-GiB verification
+and independent review passed. Evidence:
+`audits/AUDIT-ORIGINAL-RAW-SOURCE-MASS-2026-10-02.md`.
+
+NEXT: useful OWN-variance-relative control of COMPLETE signed cubic,
+angular, Ward and centering debt minus the retained gain on a physically
+justified changing family. The new result is ADDITIVE cutoff control at
+fixed nome/width, not that estimate or width/coupling uniformity. Physical
+calibration, nonzero continuum survival, full QFT and every actual group
+remain OPEN. A parallel check found all seven requested papers still v1;
+their cached methods supply no missing scaling producer. No chart claim
+changed and no ASCII chart is reprinted.
+
+### Earlier original energy with Haar cutoff control and retained gain (2026-10-02 UTC)
 
 PROGRESS after `58a660f`: insert the ACTUAL omitted-mode norm estimate through
 the exact completed-square remainder, keeping its EXISTING projection gain.
@@ -43,8 +65,8 @@ Three focused explicit20-GiB checks and independent review passed. All
 thirteen gates are allowed; no old/new-budget numerical ordering is claimed.
 Evidence: `audits/AUDIT-DYADIC-SQUARE-HAAR-PROJECTION-2026-10-02.md`.
 
-NEXT: useful OWN-variance-relative control of the remaining raw mass and
-complete signed cubic/angular/Ward/centering debt minus retained gain on a
+The additive raw-mass cutoff estimate is supplied above. NEXT: useful
+OWN-variance-relative control of complete signed cubic/angular/Ward/centering debt minus retained gain on a
 physically justified changing family. The gain may vanish; its useful size,
 physical spacing/mass, nonzero continuum survival, full QFT and every actual
 group remain OPEN. No exact displayed chart claim changed; no ASCII reprint.

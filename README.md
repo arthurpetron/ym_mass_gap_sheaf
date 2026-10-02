@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Original raw-mass cutoff control (2026-10-02):** the actual source cap
+and original partition floor share a common predecessor-mass factor.
+Cancelling it gives an explicit cutoff modulus that makes the raw-mass
+energy contribution arbitrarily small, uniformly over positive terminal
+depths at fixed coupling and width. Lean verification and independent review
+passed. This is additive cutoff control, not the missing variance-relative
+scaling estimate. See the [proof and scope](audits/AUDIT-ORIGINAL-RAW-SOURCE-MASS-2026-10-02.md).
+
 **Finite scalar cutoff obstruction (2026-10-02):** even a strictly positive,
 Haar-normalized scalar source defeats the two-link whole-word heat floor at
 cutoff two. Its degree fits the cutoff and the elementary one-link guard holds;

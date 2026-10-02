@@ -4,7 +4,26 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Original Haar cutoff energy join and fourth-moment cap (2026-10-02 UTC)
+## Current increment: Original raw mass and explicit cutoff modulus (2026-10-02 UTC)
+
+PROGRESS after `f57bfc6`: source cap and ORIGINAL odd-mass floor at positive
+depth share the SAME predecessor square. Scaled substitution proves
+H[q^2]<=B(w,width)*Z without predecessor or variance inversion. B is computed
+independently of cutoff and depth. The explicit rawSourceMassCutoff gives
+rho*H[q^2]/(2Z)<=epsilon/2 at EVERY later cutoff and positive depth, retaining
+the SAME partition. Final focused explicit20-GiB verification and independent
+review passed. Evidence: `audits/AUDIT-ORIGINAL-RAW-SOURCE-MASS-2026-10-02.md`.
+
+NEXT: useful OWN-variance-relative control of the complete signed debt minus
+retained gain on a physically justified changing family. The new estimate
+is additive and not width/coupling-uniform; physical calibration and all
+continuum endpoints stay OPEN. One root import; root/tree, broad checks,
+guards and progress metric NOT run. No new analytic premise, CI or exact
+displayed chart change. No ASCII reprint. The parallel requested seven-paper
+version check found no revisions or missing scaling producer; cached methods
+remain guidance, not proof inputs.
+
+## Earlier increment: Original Haar cutoff energy join and fourth-moment cap (2026-10-02 UTC)
 
 PROGRESS after `58a660f`: a Type-level centered-loop cap16, using the ORIGINAL
 mean, proves H[q^2*psi^4]<=16H[q^2*psi^2] independent of perimeter and under
