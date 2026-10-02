@@ -25,7 +25,33 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Current growing Wilson square with retained projection gain (2026-10-02 UTC)
+### Current omitted modes controlled by actual Haar norms (2026-10-02 UTC)
+
+PROGRESS after `3c2b6b6`: compute a maximum over EVERY branch of the actual
+cyclic mode tree. A common finite saturation cutoff identifies the omitted
+pairing as a difference of SAME product-heat forms, proving symmetry and
+sharp Cauchy--Schwarz without assuming input-tree linearity. With
+rho=w^((K+1)*(K+3)), the actual cutoff debts satisfy
+0<=O(p,p)<=rho*H[p^2] and O(p,t)^2<=rho^2*H[p^2]*H[t^2].
+The required negative mixed sign is bounded by rho*(H[p^2]+H[t^2])/2.
+Both omitted absolute-leaf costs are removed from an actual generic
+second-order energy bound; the complete cubic budgets remain.
+
+The ORIGINAL q=P_fringe(V*g_n), OWN-centered psi and SAME positive partition
+are joined in `normalized_centered_sourceError_le_haar`. Its diagonal is
+rho*(Z*OWNVar-C), with C signed; mixed control retains raw H[q^2] and
+H[q^2*psi^4]. Three focused checks and independent review passed. These
+norm caps need not be numerically smaller than the older leaf costs.
+Evidence: `audits/AUDIT-CENTERED-OMITTED-NORM-2026-10-02.md`.
+
+NEXT: carry the new actual cubic-minus-omitted estimate through the exact
+cancelled remainder, retaining the negative square/projection gain and
+angular/Ward terms. Obtain useful OWN-variance-relative control of the
+remaining moments and debts on a justified changing family. No physical
+calibration, scaling rate or continuum endpoint is supplied; exact chart
+claims remain OPEN. Do not repeat the unchanged seven-paper screen.
+
+### Existing growing Wilson square with retained projection gain (2026-10-02 UTC)
 
 PROGRESS after `b42cb79`: Haar Cauchy--Schwarz retains a computed portion of
 the negative completed square instead of discarding it. With h=1-w, L=4*side,

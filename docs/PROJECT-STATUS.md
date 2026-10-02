@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting original centered omitted-mode norm control (2026-10-02
+UTC; chart unchanged): a computed common saturation cutoff proves symmetry
+and sharp Cauchy--Schwarz for the ACTUAL omitted form. Both cutoff debts in
+the generic second-order energy bound use Haar moments rather than absolute
+leaf costs. The original centered numerator uses SAME Z, signed Z*OWNVar-C,
+and raw mass/fourth moment. Three focused checks and independent review
+passed. Norm caps need not be numerically smaller. The retained-gain ceiling
+join, useful changing-family relative control and every continuum endpoint
+remain OPEN. Evidence: `audits/AUDIT-CENTERED-OMITTED-NORM-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified positive scalar word cutoff obstruction (2026-10-02 UTC; chart
 unchanged): a normalized source with certified floor 1/2 defeats the two-link
 whole-word floor at K=2, despite degree fitting K and the elementary one-link

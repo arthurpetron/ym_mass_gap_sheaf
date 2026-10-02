@@ -4,7 +4,26 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Joint ORIGINAL covariance/energy control (2026-10-02 UTC)
+## Current increment: Original centered omitted-mode norm control (2026-10-02 UTC)
+
+PROGRESS after `3c2b6b6`: the computed all-branch maximum identifies the ACTUAL
+omitted form with SAME product-heat forms at a common auxiliary cutoff.
+Symmetry and sharp Cauchy--Schwarz supply diagonal/mixed Haar-norm caps with
+explicit rho=w^((K+1)*(K+3)). The actual generic second-order energy no longer
+uses either omitted absolute-leaf cost. The original OWN-centered numerator
+and SAME Z normalization retain signed Z*OWNVar-C and raw fourth moment.
+Three focused checks and independent review passed. These caps may be larger
+than old costs; their progress is norm control, not automatic numerical gain.
+Evidence: `audits/AUDIT-CENTERED-OMITTED-NORM-2026-10-02.md`.
+
+NEXT: rejoin the new error cap with the exact cancelled remainder, negative
+square/gain and angular/Ward terms; prove useful relative moment/debt control
+on a justified changing family. Physical calibration and all continuum
+endpoints remain OPEN. One root import; root/tree, broad checks, guards and
+progress metric NOT run. No new analytic premise, safety/CI or chart change.
+No ASCII reprint.
+
+## Earlier increment: Joint ORIGINAL covariance/energy control (2026-10-02 UTC)
 
 PROGRESS after `3962e00`: Haar IBP yields mixed orthogonality at ORIGINAL
 interacting means. ONE residual pairing now joins OWN covariance and complete

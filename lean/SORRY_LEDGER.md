@@ -1,5 +1,29 @@
 # Sorry Ledger
 
+## PROVED original centered cutoff norm control only (2026-10-02 UTC)
+
+- `SU2QuaternionCyclicOmittedNorm.pairOmittedBudget_diagonal_eq` removes
+  absolute values by actual full-path positivity. `pairOmitted_diagonal_le_haar`
+  proves O(p,p)<=rho*H[p^2], rho=w^((K+1)*(K+3)), without a degree guard.
+- `SU2QuaternionCyclicOmittedOperator.pathMax` computes an all-branch finite
+  envelope. `pairOmitted_at_saturation` and `pairOmitted_symm` identify both
+  ragged trees with SAME product-heat forms at ONE common cutoff.
+  `pairOmitted_square_le_haar` proves the sharp squared mixed Haar bound;
+  `neg_pairOmitted_le_haar` controls the actual negative mixed energy sign.
+  `sourceEnergy_le_secondOrder_haar` pays BOTH omitted debts by Haar norms,
+  retaining both complete cubic costs and the signed second-order coefficient.
+- `BF4ExactSlabFixedSpatialCenteredOmittedNorm.centered_sourceError_le_haar`
+  uses original q=P_fringe(V*g_n), OWN-centered psi and signed Z*OWNVar-C.
+  `normalized_centered_sourceError_le_haar` divides BOTH sides by SAME Z.
+  The mixed raw Haar mass/fourth moment remain explicit, not called variance.
+- Three final focused checks and independent review passed; 29 gates stay
+  within {propext,Quot.sound}. No new sorry, axiom, analytic premise or
+  weakened field. Norm caps need not improve old budgets numerically.
+  OPEN: propagation into the complete retained-gain ceiling, useful signed
+  OWN-variance control on a justified scaling family, physical calibration
+  and every continuum endpoint. One root import; broad checks NOT run;
+  CI/chart unchanged. Evidence: `audits/AUDIT-CENTERED-OMITTED-NORM-2026-10-02.md`.
+
 ## PROVED positive scalar word obstruction at cutoff two only (2026-10-02 UTC)
 
 - `SU2QuaternionScalarWordCutoffObstruction.source_degree` proves degree two

@@ -12,7 +12,22 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT growing Wilson square with retained gain (2026-10-02 UTC):**
+**CURRENT omitted-mode Haar norm control (2026-10-02 UTC):**
+`SU2QuaternionCyclicOmittedOperator.pairOmitted_at_saturation` constructs
+one finite common-cutoff comparison for the input-dependent trees. Symmetry
+and sharp Cauchy--Schwarz follow for the ACTUAL omitted form. With
+rho=w^((K+1)*(K+3)), its diagonal is <=rho*H[p^2] and mixed square is
+<=rho^2*H[p^2]*H[t^2]. `sourceEnergy_le_secondOrder_haar` removes BOTH omitted
+absolute-leaf costs from the generic energy ceiling, retaining cubic costs.
+`CenteredOmittedNorm.normalized_centered_sourceError_le_haar` joins the
+original OWN-centered source, SAME partition and signed Z*OWNVar-C pin;
+raw Haar mass/fourth moment remain. Three focused checks and independent
+review passed; all 29 gates are allowed. These caps need not be numerically
+smaller. Rejoining the retained gain/angular/Ward terms and useful changing-
+family OWN-variance control remain OPEN, as do all continuum endpoints.
+Evidence: `audits/AUDIT-CENTERED-OMITTED-NORM-2026-10-02.md`.
+
+**Existing growing Wilson square with retained gain (2026-10-02 UTC):**
 `BF4DyadicWilsonSquareProjectionGain.paddedSquare_energy_projection_bound`
 sharpens the existing ORIGINAL energy ceiling by subtracting `(1-w)^2*G/2`.
 The constructed G is nonnegative, regularized and normalized by the SAME

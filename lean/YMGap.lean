@@ -5020,6 +5020,9 @@ import YMGap.Continuum.SU2QuaternionVectorAlignmentObstruction
 -- Even a positive normalized scalar source defeats the whole-word floor at K=2.
 -- Actual product kernel; no original Wilson-source or full-heat refutation.
 import YMGap.Continuum.SU2QuaternionScalarWordCutoffObstruction
+-- Actual omitted-mode norm control, with a computed common saturation cutoff.
+-- Original OWN mean, partition and signed correction retained; scaling remains open.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialCenteredOmittedNorm
 -- Integrated original Ward residual transport, not a weight/derivative identity.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialProjectedWard
 -- The displayed majorant retains a quadratic floor; not a true-moment lower bound.
