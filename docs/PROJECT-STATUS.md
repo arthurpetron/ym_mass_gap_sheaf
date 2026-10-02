@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting common ORIGINAL two-face cutoff (2026-10-02 UTC;
+chart unchanged): exact three-anchor polarization constructs one cutoff
+error bound for every bounded signed coefficient pair at fixed physical
+parameters. Both original mixed entries and endpoint means remain. A supplied
+positive pivot reaches the existing completed carrier without weakening the
+old direction-specific checker. Twelve focused gates and independent review
+passed. No useful original instance, scaling rate or continuum result. Evidence:
+`audits/AUDIT-TWO-FACE-MARGIN-CUTOFF-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting ORIGINAL two-face direction search (2026-10-02 UTC;
 chart unchanged): exact rational classification computes a positive signed
 profile or proves the entire fixed two-face plane nonpositive, including zero

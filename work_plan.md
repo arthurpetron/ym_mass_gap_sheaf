@@ -25,6 +25,28 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Common ORIGINAL cutoff for bounded two-face directions (2026-10-02 UTC)
+
+PROGRESS after `ad12483`: `TwoFaceMarginCutoff.polarization` proves exact
+normalized three-anchor reconstruction under one ORIGINAL joint density.
+`cutoff` computes a maximum of THREE existing anchor moduli at
+epsilon/(1+5*B^2); `uniform_bound` controls EVERY rational |x|,|y|<=B at fixed
+physical parameters. Both ordered cross entries, endpoint means and full jump
+remain. A supplied positive finite pivot feeds the existing SAME completed
+carrier directly, retaining its c*(1+comparisonEta)^2 coefficient. Twelve
+focused gates and independent mathematical review passed within
+{propext,Quot.sound}. Evidence:
+`audits/AUDIT-TWO-FACE-MARGIN-CUTOFF-2026-10-02.md`.
+
+NEXT: obtain actual useful original entries/slack on a justified changing
+family, preserving this cutoff allowance. No successful original instance,
+runtime bound, direction normalization into a chosen square, scaling rate or
+EVERY-state gap is supplied. This shared cutoff is NOT automatically the old
+per-direction checker guard; that checker and all frontier fields are unchanged.
+The uniformity is in bounded rational coefficients ONLY, not nome, spatial
+width, reference depth or physical spacing. All continuum/Clay endpoints stay
+OPEN. One root import; no broad check, raised limit, CI/chart change or reprint.
+
 ### Constructed direction search on the ORIGINAL two-face plane (2026-10-02 UTC)
 
 PROGRESS after `175e853`: `TwoFaceMarginSearch.Binary.classify` computes a

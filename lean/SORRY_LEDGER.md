@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED common ORIGINAL bounded two-face cutoff only (2026-10-02 UTC)
+
+- `TwoFaceMarginCutoff.polarization` gives normalized three-anchor
+  reconstruction under one actual original density, retaining OWN means,
+  both cross entries and complete temporal energy.
+- `cutoff` computes Type-level data from THREE constructed original
+  QCauchy moduli at epsilon/(1+5*B^2). `uniform_bound` proves both directions
+  for every rational |x|,|y|<=B, with all physical parameters fixed and named.
+- `margin_floor` uses a SUPPLIED positive finite pivot beyond that cutoff;
+  `completed_ratio` feeds its all-late bound to the EXISTING completed carrier,
+  retaining the original propagated coefficient. No claim of old-checker
+  acceptance or domination of its DIFFERENT direction-specific cutoff.
+- Twelve focused gates and independent source review passed within
+  {propext,Quot.sound}. No sorry, axiom, analytic hypothesis, witness erasure
+  or frontier weakening. OPEN: useful original signed slack on a justified
+  changing family, feasible evaluation, larger-family control, EVERY-state
+  scaling/gap and all physical/continuum/Clay endpoints. One root import;
+  no broad check or chart change. Evidence:
+  `audits/AUDIT-TWO-FACE-MARGIN-CUTOFF-2026-10-02.md`.
+
 ## PROVED computed ORIGINAL two-face direction search only (2026-10-02 UTC)
 
 - `TwoFaceMarginSearch.Binary.classify` constructs a positive rational

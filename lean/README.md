@@ -12,6 +12,15 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Common ORIGINAL two-face cutoff control (2026-10-02 UTC):**
+`TwoFaceMarginCutoff.polarization` retains both ordered cross entries and OWN
+means. `cutoff` computes one modulus from THREE actual original anchor profiles;
+`uniform_bound` covers every bounded signed direction, and `completed_ratio`
+uses the existing carrier without weakening the old checker. Twelve focused
+gates and independent review passed within {propext,Quot.sound}. Useful signed
+slack on a justified changing family and all continuum endpoints remain OPEN.
+Evidence: `audits/AUDIT-TWO-FACE-MARGIN-CUTOFF-2026-10-02.md`.
+
 **Constructed ORIGINAL two-face direction search (2026-10-02 UTC):**
 `TwoFaceMarginSearch.search` computes a positive signed original profile or
 proves every direction in the fixed two-face plane nonpositive. Both ordered

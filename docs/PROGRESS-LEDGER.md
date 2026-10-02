@@ -4,7 +4,24 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Computed ORIGINAL two-face direction search (2026-10-02 UTC)
+## Current increment: Common ORIGINAL bounded two-face cutoff (2026-10-02 UTC)
+
+PROGRESS after `ad12483`: three-anchor polarization gives one original
+cutoff allowance for EVERY rational direction in |x|,|y|<=B. The modulus is
+computed from THREE existing anchor QCauchy data at epsilon/(1+5*B^2).
+Signed mixed terms, OWN means and complete energy remain; a supplied positive
+finite pivot feeds the SAME completed carrier with its original coefficient.
+Twelve focused gates and independent mathematical review passed. Evidence:
+`audits/AUDIT-TWO-FACE-MARGIN-CUTOFF-2026-10-02.md`.
+
+NEXT remains useful original signed slack on a justified changing family.
+No positive useful instance, feasible evaluation or scaling rate is supplied;
+the old per-direction checker guard is not inferred from the shared modulus.
+Physical parameters remain fixed, every continuum endpoint stays OPEN, and
+no exact displayed chart claim changed. One root import; no broad build/audit/
+guard/progress run, raised limit, CI change or ASCII reprint.
+
+## Earlier increment: Computed ORIGINAL two-face direction search (2026-10-02 UTC)
 
 PROGRESS after `175e853`: complete rational quadratic classification constructs
 a positive direction or whole-plane rejection, including zero/singular cases.

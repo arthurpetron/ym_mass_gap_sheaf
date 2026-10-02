@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Common two-face cutoff control (2026-10-02):** three original profiles now
+give one constructed cutoff error bound for every bounded signed coefficient
+pair. Cross terms and both endpoint means remain; a supplied positive pivot
+feeds the existing completed-carrier theorem directly. Focused constructive
+verification and independent review passed. This is not a useful positive
+margin or scaling estimate. See the
+[proof and scope](audits/AUDIT-TWO-FACE-MARGIN-CUTOFF-2026-10-02.md).
+
 **Constructed two-face direction search (2026-10-02):** exact rational algebra
 now returns a positive signed direction or proves the entire original two-face
 margin plane nonpositive, including zero and singular pivots. Both cross terms
