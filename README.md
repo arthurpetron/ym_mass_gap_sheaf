@@ -21,6 +21,12 @@ nonnegative-coefficient quartic-majorant shortcut, not the Wilson-source
 bound or continuum survival. Three final focused checks passed all 17
 constructive gates. See the [source, filtered target and precise pruning](audits/AUDIT-FILTERED-SIGNED-RESPONSE-AND-COEFFICIENT-OBSTRUCTION-2026-10-02.md).
 
+**Checked stronger pruning:** a computed spin threshold makes every later
+ORIGINAL full heat quartic coefficient exceed the fixed squared-nome affine
+majorant. This is not merely a prefix-edge effect. Both constructive gates
+passed; an original Haar witness and the particular interacting Wilson-source
+estimate are separate obligations. See the [full-coefficient theorem](audits/AUDIT-FULL-HEAT-COEFFICIENT-OBSTRUCTION-2026-10-02.md).
+
 **Earlier forward-backward join (2026-10-02):** the original heat-prefix
 margin now computes a nonnegative rational Bernstein row and an actual
 Type-valued Haar square certificate for the ORIGINAL polynomial. The

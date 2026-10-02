@@ -27,6 +27,13 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME signed filtered slope and reserve (2026-10-02 UTC)
 
+NEW CHECKED PRUNING: the full original heat sequence, not just the prefix
+edge, has `quarticCoeff(coeffW(q),j)>c*coeffW(q*q,j)` at EVERY spin beyond
+the computed `(48+6*c.num.toNat)*(1-q).den+2`, for `0<q<1,c>=0`.
+Both public gates passed. An original Haar quadratic witness remains a
+separate join; no particular Wilson-source refutation is asserted. Evidence:
+`audits/AUDIT-FULL-HEAT-COEFFICIENT-OBSTRUCTION-2026-10-02.md`.
+
 PROGRESS after `10ab5b8`: FORWARD constructs one literal radius-two source
 (e0-e2)^2-(e0-e1)^2 in the ORIGINAL joint action. The existing padding
 theorem, not assumed finite stationarity, cancels its common lag-zero term.

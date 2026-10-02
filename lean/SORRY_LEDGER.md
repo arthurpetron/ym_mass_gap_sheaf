@@ -1,5 +1,19 @@
 # Sorry Ledger
 
+## PROVED full original heat coefficient obstruction only (2026-10-02 UTC)
+
+- `SU2HeatQuarticFullCoefficientObstruction.fullCoefficientCutoff` computes
+  `(48+6*c.num.toNat)*(1-q).den+2`. `full_quartic_coefficient_gt` proves
+  `c*coeffW(q*q,j)<quarticCoeff(coeffW(q),j)` for EVERY later spin, with
+  `0<q<1` and `c>=0`. The ORIGINAL full sequence is retained; this is not
+  the finite-prefix edge theorem or an original Haar quadratic witness.
+- The final focused explicit20-GiB check passed both allowed gates and
+  independent review passed. One root import registered, not aggregate-checked.
+  No new sorry, axiom, classical shortcut, weakened field or resource ceiling.
+  CI/chart unchanged. Useful particular signed Wilson-source control and
+  every continuum endpoint remain OPEN. Evidence:
+  `audits/AUDIT-FULL-HEAT-COEFFICIENT-OBSTRUCTION-2026-10-02.md`.
+
 ## PROVED actual signed filtered source and SAME-response inequality only (2026-10-02 UTC)
 
 - `BF4WilsonAllNomeFilteredIncrement.filteredExpression` is the literal

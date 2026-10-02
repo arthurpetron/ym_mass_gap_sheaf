@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting FULL heat coefficient obstruction (2026-10-02 UTC;
+chart unchanged): for 0<q<1 and c>=0, a computed spin threshold makes
+EVERY later original untruncated quartic coefficient exceed c*coeffW(q*q,j).
+The obstruction is not confined to a zero-extended prefix edge. This is
+still coefficient-level: no Haar quadratic or particular Wilson-source
+refutation is claimed. The final focused explicit20-GiB check passed both
+allowed gates. Useful signed-source / OWN-variance control and all continuum
+endpoints remain OPEN. Evidence:
+`audits/AUDIT-FULL-HEAT-COEFFICIENT-OBSTRUCTION-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting SAME signed filtered source and response target
 (2026-10-02 UTC; chart unchanged): one original radius-two signed insertion,
 after the EXISTING OWN normalizer squared, equals 2*(R1-R2). On the SAME

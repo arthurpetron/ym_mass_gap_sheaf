@@ -13,6 +13,13 @@ discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
 **CURRENT original signed filtered source and SAME response target (2026-10-02 UTC):**
+The full-series coefficient shortcut is now separately pruned by
+`SU2HeatQuarticFullCoefficientObstruction`: its actual Nat cutoff makes
+every later untruncated quartic coefficient exceed the squared-nome affine
+coefficient, for `0<q<1,c>=0`. Both allowed gates passed. This is not a Haar
+quadratic witness or a particular Wilson-source refutation. Evidence:
+`audits/AUDIT-FULL-HEAT-COEFFICIENT-OBSTRUCTION-2026-10-02.md`.
+
 `BF4WilsonAllNomeFilteredIncrement` constructs a common-radius-two signed
 source and pins its OWN normalizer-squared image to 2*(R1-R2) for the actual
 dyadic unit response. `BF4WilsonAllNomeDyadicFilteredSurvival` proves
