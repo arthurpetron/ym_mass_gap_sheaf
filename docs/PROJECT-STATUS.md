@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting endpoint-tail certificate fence (2026-10-02 UTC; chart
+unchanged): for 1/2<=w<1, EVERY positive degree meeting the existing angular
+tail certificate has retained heat weight <=1/3. The ACTUAL computed tail
+modulus meets that premise for 0<epsilon<=1. One focused check, five public
+gates and independent review passed. This prunes a near-identity argument
+using THAT budget, not sharper actual-source or signed estimates. The true
+tail/response and useful changing-family slack remain unproved; every physical/
+continuum endpoint remains OPEN. Evidence:
+`audits/AUDIT-ENDPOINT-TAIL-CALIBRATION-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting ORIGINAL joint determinant (2026-10-02 UTC; chart
 unchanged): a COMPLETE face/complement partition and every original heat
 factor give ONE signed pairing equal to 2*Z*jointMargin, then 2*Z^2 times the

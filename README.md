@@ -10,6 +10,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Endpoint tail certificate limitation (2026-10-02):** for `1/2 <= w < 1`,
+every positive degree meeting the existing source-tail certificate has retained
+heat weight at most `1/3`. The actual computed tail modulus meets this condition
+for `0 < epsilon <= 1` at positive degrees beyond that modulus.
+This rules out a near-identity argument using that budget, not a sharper source
+estimate or the true transfer response. Focused constructive verification and
+independent review passed. See the
+[proof and redirected frontier](audits/AUDIT-ENDPOINT-TAIL-CALIBRATION-2026-10-02.md).
+
 **Exact original signed determinant (2026-10-02):** covariance and complete
 temporal energy now share one signed integral, preserving every heat factor,
 both original means and the existing finite reference margin. Finite-cutoff

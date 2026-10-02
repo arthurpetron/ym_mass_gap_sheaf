@@ -12,6 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Existing endpoint-tail certificate fence (2026-10-02 UTC):**
+`EndpointTailCalibrationObstruction.tail_certificate_heat_weight_ceiling`
+proves `3*w^(L*(L+2)) <= 1` for `1/2 <= w < 1`, `L >= 1`, whenever the
+displayed angular tail certificate is at most one. The actual computed
+`endpointTailDegree` supplies this premise for `0 < epsilon <= 1`.
+Five public gates passed a focused check within {propext,Quot.sound};
+independent review passed. The true tail and response are NOT bounded by
+this fence. Use a sharper actual-source or cancellation-preserving estimate,
+not this budget as a near-identity producer. All continuum endpoints remain
+OPEN. Evidence: `audits/AUDIT-ENDPOINT-TAIL-CALIBRATION-2026-10-02.md`.
+
 **Exact ORIGINAL joint determinant (2026-10-02 UTC):**
 `DisjointFaceJointDeterminant.joint_pairing_pin` resums covariance and full
 temporal energy into ONE division-free signed pairing, retaining every heat

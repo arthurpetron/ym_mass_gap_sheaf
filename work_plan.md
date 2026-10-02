@@ -25,6 +25,28 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Existing endpoint tail certificate loses a near identity heat floor (2026-10-02 UTC)
+
+PROGRESS after `bcb514f`: the original one-link angular tail budget and a
+near-identity retained-heat floor cannot be combined. For `1/2 <= w < 1`
+and EVERY positive degree L satisfying `6*endpointRelativeCap(w)^2 <=
+(L+1)*(L+3)`, `EndpointTailCalibrationObstruction` proves
+`3*w^(L*(L+2)) <= 1`. The ACTUAL `endpointTailDegree` modulus supplies that
+premise for `0 < epsilon <= 1`. First omitted and largest retained Casimirs
+remain distinct; no source-degree guard or uninhabited input is assumed.
+Five public gates passed one focused check; independent math/source review
+passed. Evidence: `audits/AUDIT-ENDPOINT-TAIL-CALIBRATION-2026-10-02.md`.
+
+NEXT: do not promote THIS raw or conditional angular-tail budget into a
+near-identity centered-source argument. Obtain a sharper actual-source
+comparison, or preserve cancellation between the original covariance/energy
+terms in the signed determinant and diagonal margins. The true tail,
+response and energy/OWN-variance ratio are not bounded by this obstruction.
+Useful signed slack beyond the common cutoff allowance on a justified
+changing family, and every physical/continuum endpoint, remain OPEN.
+One root import; no broad check, new premise, raised limit or CI/chart change.
+No exact displayed claim changed; no ASCII reprint.
+
 ### Exact ORIGINAL joint determinant (2026-10-02 UTC)
 
 PROGRESS after `37e4d76`: split the COMPLETE original slice into p-face blocks

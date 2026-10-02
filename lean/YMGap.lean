@@ -5083,6 +5083,9 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialChannelCoefficientFence
 -- The original-partition floor below retains four-link heat;
 -- SAME centered-variance/scaling comparisons remain OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialEndpointSpectralTail
+-- The existing tail certificate forces retained heat weight <=1/3 near w=1;
+-- this prunes that near-identity argument, not the true source or response.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialEndpointTailCalibrationObstruction
 import YMGap.Continuum.BF4ExactSlabFixedSpatialEndpointChannelTail
 -- Computed nome-only first-moment floor for the SAME original endpoint channels.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialEndpointChannelHeatFloor

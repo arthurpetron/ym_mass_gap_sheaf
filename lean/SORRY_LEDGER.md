@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## PROVED limitation of the existing endpoint tail certificate only (2026-10-02 UTC)
+
+- `EndpointTailCalibrationObstruction.endpointRelativeCap_formula` keeps
+  the exact computed endpoint cap, distinct from the marginal score cap.
+- `tail_certificate_heat_weight_ceiling` proves retained heat weight <=1/3
+  for EVERY L>=1 meeting the displayed tail certificate when 1/2<=w<1.
+  First omitted and largest retained Casimirs are not interchanged.
+- `endpointTailDegree_heat_weight_ceiling` and `endpointTailDegree_not_half_floor`
+  instantiate the ACTUAL computed modulus for 0<epsilon<=1; this is not a
+  hypothetical uninhabited certificate. Five public gates passed one focused
+  check within {propext,Quot.sound}; independent review passed. No sorry, new
+  axiom, analytic premise, erased witness, raised limit or weakened frontier.
+- OPEN: sharper source-specific or cancellation-preserving signed estimates
+  for the original energy/OWN-variance margin on a justified changing family,
+  and every physical/continuum/Clay endpoint. This does NOT bound the true
+  source tail below or actual response above. One root import; root/tree and
+  broad checks NOT run; chart unchanged. Evidence:
+  `audits/AUDIT-ENDPOINT-TAIL-CALIBRATION-2026-10-02.md`.
+
 ## PROVED exact original joint determinant only (2026-10-02 UTC)
 
 - `PartialSwapHeat.productHeat_partialSwap_mask` preserves EVERY product
