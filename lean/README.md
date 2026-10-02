@@ -12,7 +12,22 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT original response comparison and Jacobi estimates (2026-10-02 UTC):**
+**CURRENT counted original Jacobi products and completed height (2026-10-02 UTC):**
+`SU2HeatJacobiActiveFactorCount` computes an actual contiguous block for
+16/17<=q<1, with N>=2, N*(1-q)>=1/16 and amplitudes in [1/4,3/4].
+`SU2HeatJacobiProductAmplification` retains all original Euler factors and
+extracts a quadratic multiplier. `SU2HeatJacobiNearOneProductBound` joins
+those producers to the actual finite products, with coefficient
+24576^2*(1-q)^2 and an explicit block-containing cutoff.
+`SU2HeatJacobiHeightComparison` proves the original completed theta height
+Theta_q(1)<=2*Theta_(q*q)(1) in sound eventual order for ALL strict nomes.
+Four final focused explicit20-GiB checks and independent reviews passed;
+all 14 public gates are allowed. Full original heat-profile limits, original
+Haar shape certificates, useful changing-family costs and continuum survival
+remain OPEN. Evidence:
+`audits/AUDIT-COUNTED-JACOBI-PRODUCT-AND-HEIGHT-2026-10-02.md`.
+
+**EARLIER original response comparison and Jacobi estimates (2026-10-02 UTC):**
 `BF4WilsonAllNomeDyadicNomeComparison` constructs a fixed-geometry two-nome
 bound from existing raw original moment costs, retaining BOTH own means and
 partitions. Exact cancellation pays the mean-square correction only once;

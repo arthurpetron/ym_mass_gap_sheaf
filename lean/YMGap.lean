@@ -5072,6 +5072,12 @@ import YMGap.Continuum.BF4WilsonAllNomeDyadicNomeComparison
 -- full heat profile, original Haar shape certificate and survival remain OPEN.
 import YMGap.Continuum.SU2HeatJacobiNomeWidening
 import YMGap.Continuum.SU2HeatJacobiProductWidening
+-- Computed original factor count, retained quadratic product amplification,
+-- and completed theta height; full heat/Haar/scaling joins remain OPEN.
+import YMGap.Continuum.SU2HeatJacobiActiveFactorCount
+import YMGap.Continuum.SU2HeatJacobiProductAmplification
+import YMGap.Continuum.SU2HeatJacobiNearOneProductBound
+import YMGap.Continuum.SU2HeatJacobiHeightComparison
 -- SAME predecessor square cancels in original source cap and odd-mass floor.
 -- Explicit additive cutoff modulus at fixed nome/width; scaling remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRawSourceMassBound

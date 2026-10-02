@@ -1,5 +1,30 @@
 # Sorry Ledger
 
+## PROVED counted original Jacobi products and completed theta height only (2026-10-02 UTC)
+
+- `SU2HeatJacobiActiveFactorCount.activeFactorCount_two`,
+  `activeFactorCount_mass` and `activeFactor_amplitude_bounds` produce an
+  actual block of ORIGINAL odd amplitudes, not supplied counting hypotheses.
+  For 16/17<=q<1 its computed N>=2, N*(1-q)>=1/16 and amplitudes lie in [1/4,3/4].
+- `SU2HeatJacobiProductAmplification.Ppart_partial_block_amplification`
+  retains EVERY original Euler factor and counts exactly min N(M-start).
+  `quadraticAmplification_le_power` extracts the actual floor-half multiplier.
+  `SU2HeatJacobiNearOneProductBound.Ppart_nome_gap_bound` joins the computed
+  block to the finite cross-normalized bound with coefficient 24576^2*(1-q)^2.
+- `SU2HeatJacobiHeightComparison.bareTheta_doubled_height` pairs the ORIGINAL
+  Gaussian series. `thetaProduct_squared_nome_height` transfers its height
+  bound to the EXISTING completed products, for ALL 0<q<1 in sound eventual order.
+- Four final focused explicit20-GiB checks and independent mathematical
+  reviews passed; all 14 public gates are within {propext,Quot.sound}.
+  Intermediate classical-dependency outputs were rejected; two separate
+  decidable Nat comparisons remove that dependency without changing types.
+  No new sorry, axiom, weakened field or resource ceiling. Four root imports
+  registered; aggregate root/tree/guard checks NOT run; CI/chart unchanged.
+  OPEN: full original heat-profile limit join, ORIGINAL Haar shape certificate,
+  effective SAME-energy/OWN-variance scaling, continuum survival/calibration,
+  full QFT and every group. Evidence:
+  `audits/AUDIT-COUNTED-JACOBI-PRODUCT-AND-HEIGHT-2026-10-02.md`.
+
 ## PROVED collapse of the existing response certificate only (2026-10-02 UTC)
 
 - `BF4DyadicSpectatorFloorCollapse.squareResponseFraction_le_one1024`

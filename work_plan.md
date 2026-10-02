@@ -25,7 +25,32 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Current forward-backward join: original coupling and heat factors (2026-10-02 UTC)
+### Current forward-backward join: counted original products and theta height (2026-10-02 UTC)
+
+PROGRESS after `28ad06a`: compute the actual original odd-factor block,
+including N>=2 and N*(1-q)>=1/16 for 16/17<=q<1. Retain EVERY original Euler
+prefactor while multiplying factor estimates and extracting the computed
+floor-half quadratic multiplier. The actual finite cross-normalized product
+now has coefficient 24576^2*(1-q)^2 at all cutoffs containing that block.
+Independently, pair the ORIGINAL Gaussian theta series and use its existing
+Jacobi identity to prove completed Theta_q(1)<=2*Theta_(q*q)(1) for ALL strict
+nomes. Four final focused explicit20-GiB checks and independent reviews
+passed; all 14 gates are allowed. A hidden classical branch dependency in an
+intermediate proof was removed by splitting two decidable Nat comparisons.
+Evidence: `audits/AUDIT-COUNTED-JACOBI-PRODUCT-AND-HEIGHT-2026-10-02.md`.
+
+NEXT FORWARD: pass the actual cross-normalized product and paired S bounds
+through the original completions, use the proved theta height, and identify
+the SAME original heat series. Do not assume a full heat profile. Even a
+pointwise profile still needs an ORIGINAL Haar square certificate plus
+explicit representation-cutoff error for the existing affine consumer.
+Signed whole-word cross terms and OWN-variance alignment remain separate.
+NEXT BACKWARD: effective original scalar sample costs on a justified family
+and the geometry/width leg; no full carrier embedding or surrogate action.
+Continuum survival, physical calibration, full canonical OS/QFT and every
+group remain OPEN. No canonical field, CI or displayed chart claim changed.
+
+### Earlier forward-backward join: original coupling and heat factors (2026-10-02 UTC)
 
 PROGRESS after `5a053a9`: construct an ORIGINAL normalized-response
 comparison between two strict nomes at FIXED scale/width/lag. The existing

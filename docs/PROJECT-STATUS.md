@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting counted original products and completed theta height
+(2026-10-02 UTC; chart unchanged): the computed original odd-factor block
+has N>=2 and N*(1-q)>=1/16 for 16/17<=q<1. EVERY original Euler factor is
+retained in the actual finite product bound with coefficient 24576^2*(1-q)^2.
+The original completed theta height is at most twice its squared-nome height,
+for ALL strict nomes in sound eventual order. Four final focused explicit20-GiB
+checks and independent reviews passed; all 14 gates are allowed. Original
+heat-profile limits/Haar certificates, useful changing-family costs and every
+continuum endpoint remain OPEN. Evidence:
+`audits/AUDIT-COUNTED-JACOBI-PRODUCT-AND-HEIGHT-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting original coupling comparison and Jacobi estimates
 (2026-10-02 UTC; chart unchanged): construct a fixed-scale/width/lag bound
 on the ORIGINAL unit response at two nomes, retaining BOTH own means and
