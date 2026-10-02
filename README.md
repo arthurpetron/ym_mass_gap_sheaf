@@ -10,17 +10,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Current forward-backward progress (2026-10-02):** an explicitly computed
-block of the original Jacobi factors now proves a finite product comparison
-with a `(1-q)^2` coefficient, for `16/17<=q<1`. All original Euler factors
-are retained. Separately, the existing completed theta products obey the
-height bound `Theta_q(1)<=2*Theta_(q*q)(1)` for every strict nome. Four final
-focused checks and independent mathematical reviews passed within the
-constructive axiom gate. The full original heat-profile limit join, Haar
-certificate, useful changing-scale costs and continuum survival remain open.
-The earlier original two-coupling response comparison, finite sampling and
-uniform real-time continuity are retained. See the
-[bounds and precise remaining joins](audits/AUDIT-COUNTED-JACOBI-PRODUCT-AND-HEIGHT-2026-10-02.md).
+**Current forward-backward progress (2026-10-02):** the original completed
+heat kernel now obeys `[2(1-x)]^2*K_q(x) <= 40*24576^2*(1-q)^2*K_(q*q)(x)`
+for `16/17<=q<1` and the full closed interval `-1<=x<=1`. The proof joins
+the computed original Jacobi block, height and differentiated identities;
+no heat-floor reciprocal or replacement kernel is used. From the other
+end, explicit cutoffs now control the actual normalized falling coefficients
+needed by a Bernstein certificate compiler. Both final focused checks and
+independent mathematical reviews passed within the constructive axiom gate.
+The ORIGINAL Haar certificate, signed OWN-variance comparison, useful
+changing-scale costs and continuum survival remain open. See the
+[bounds and exact remaining join](audits/AUDIT-COMPLETED-HEAT-PROFILE-AND-BERNSTEIN-ERROR-2026-10-02.md).
 
 **Earlier forward-backward progress (2026-10-02):** positive-time anchoring
 constructs actual rows of the same unit Wilson-square excitation in the

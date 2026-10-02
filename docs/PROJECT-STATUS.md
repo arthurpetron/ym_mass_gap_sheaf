@@ -1,5 +1,19 @@
 # Canonical one-page project status
 
+Verified supporting original completed heat profile and coefficient error
+(2026-10-02 UTC; chart unchanged): for 16/17<=q<1 and EVERY x in [-1,1],
+the EXISTING original heat completion satisfies
+[2(1-x)]^2*K_q<=40*24576^2*(1-q)^2*K_(q*q) in sound eventual order.
+The actual original products, height and differentiated identity are joined;
+no heat-minimum reciprocal is used. BACKWARD: actual normalized falling
+coefficients have a computed denominator floor and tolerance cutoff.
+Two final focused explicit20-GiB checks and independent reviews passed;
+all 15 gates are allowed. ORIGINAL Haar certificates, signed OWN-variance
+alignment, useful changing-family costs and every continuum endpoint remain
+OPEN. Evidence:
+`audits/AUDIT-COMPLETED-HEAT-PROFILE-AND-BERNSTEIN-ERROR-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting counted original products and completed theta height
 (2026-10-02 UTC; chart unchanged): the computed original odd-factor block
 has N>=2 and N*(1-q)>=1/16 for 16/17<=q<1. EVERY original Euler factor is

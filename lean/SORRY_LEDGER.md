@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## PROVED original completed heat profile and numerical coefficient error only (2026-10-02 UTC)
+
+- `SU2HeatJacobiCompletedProfileBound.pointwiseHeat_chord_quartic_bound`
+  constructs [2(1-x)]^2*K_q<=40*24576^2*(1-q)^2*K_(q*q) for the EXISTING
+  original pointwiseHeatCReal, in sound eventual order, for 16/17<=q<1
+  and BOTH endpoints. The proved original theta/derivative identities and
+  actual nome factors are retained; no heat-minimum reciprocal is used.
+- `BernsteinNormalizedFallingProductError.normalizedProduct_close` gives
+  an explicit tolerance cutoff for the ACTUAL normalized falling quotient.
+  Its denominator floor>=1/2 and positivity are constructed, not assumed;
+  both errors, low orders and truncated numerators are covered.
+- Two final focused explicit20-GiB checks and independent mathematical
+  reviews passed; all 15 gates are within {propext,Quot.sound}. Rejected
+  local elaboration errors were repaired without changing statements.
+  No new sorry, axiom, classical shortcut, weakened field or resource ceiling.
+  Two root imports registered; broad checks NOT run; CI/chart unchanged.
+  OPEN: ORIGINAL Haar polynomial certificate, signed whole-word/OWN-variance
+  alignment, useful changing-family costs, continuum survival/calibration,
+  full QFT and every group. Evidence:
+  `audits/AUDIT-COMPLETED-HEAT-PROFILE-AND-BERNSTEIN-ERROR-2026-10-02.md`.
+
 ## PROVED counted original Jacobi products and completed theta height only (2026-10-02 UTC)
 
 - `SU2HeatJacobiActiveFactorCount.activeFactorCount_two`,

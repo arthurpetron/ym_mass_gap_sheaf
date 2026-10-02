@@ -25,7 +25,31 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Current forward-backward join: counted original products and theta height (2026-10-02 UTC)
+### Current forward-backward join: original completed profile and coefficient error (2026-10-02 UTC)
+
+PROGRESS after `e355a57`: the computed original products, completed theta
+height and differentiated Jacobi identity now produce the original completed
+heat bound [2(1-x)]^2*K_q<=40*24576^2*(1-q)^2*K_(q*q), for 16/17<=q<1
+and BOTH spatial endpoints. Positive original theta height and the SAME
+rational factor 2*q*q are cancelled; no heat-floor reciprocal or alternate
+kernel is used. BACKWARD: actual normalized falling products have a computed
+denominator floor, two-sided coefficient errors and a tolerance modulus.
+Two final focused explicit20-GiB checks and independent reviews passed;
+all 15 gates are allowed. Evidence:
+`audits/AUDIT-COMPLETED-HEAT-PROFILE-AND-BERNSTEIN-ERROR-2026-10-02.md`.
+
+NEXT FORWARD: use the ORIGINAL spacing tails at common inclusive heatPrefix
+K (there are K+1 labels) to construct an explicit strict polynomial margin.
+NEXT BACKWARD: identify actual normalized falling coefficients with the
+unnormalized Bernstein reconstruction and compile the positive rational row
+through ORIGINAL scalar interval/square certificates. The meeting object
+is the Type-valued ORIGINAL Haar Certificate required by affine_original_bound,
+not pointwise positivity. Signed whole-word cross terms and OWN interacting
+variance alignment remain separate. Useful changing-family costs, geometry,
+continuum survival, physical calibration, full canonical OS/QFT and every
+group remain OPEN. CI and the exact canonical chart claims are unchanged.
+
+### Earlier forward-backward join: counted original products and theta height (2026-10-02 UTC)
 
 PROGRESS after `28ad06a`: compute the actual original odd-factor block,
 including N>=2 and N*(1-q)>=1/16 for 16/17<=q<1. Retain EVERY original Euler

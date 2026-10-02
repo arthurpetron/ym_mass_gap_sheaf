@@ -5078,6 +5078,10 @@ import YMGap.Continuum.SU2HeatJacobiActiveFactorCount
 import YMGap.Continuum.SU2HeatJacobiProductAmplification
 import YMGap.Continuum.SU2HeatJacobiNearOneProductBound
 import YMGap.Continuum.SU2HeatJacobiHeightComparison
+-- Original completed pointwise profile and explicit normalized coefficient
+-- error; ORIGINAL Haar certificate, signed variance/scaling joins remain OPEN.
+import YMGap.Continuum.SU2HeatJacobiCompletedProfileBound
+import YMGap.Continuum.BernsteinNormalizedFallingProductError
 -- SAME predecessor square cancels in original source cap and odd-mass floor.
 -- Explicit additive cutoff modulus at fixed nome/width; scaling remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRawSourceMassBound

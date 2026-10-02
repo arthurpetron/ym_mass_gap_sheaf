@@ -12,7 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT counted original Jacobi products and completed height (2026-10-02 UTC):**
+**CURRENT original completed profile and normalized coefficient error (2026-10-02 UTC):**
+`SU2HeatJacobiCompletedProfileBound` proves the ORIGINAL completed heat
+bound [2(1-x)]^2*K_q<=40*24576^2*(1-q)^2*K_(q*q), in sound eventual order,
+for 16/17<=q<1 and the full closed spatial interval. It joins the proved
+original product/height/differentiated identities, without a heat-floor
+reciprocal or alternate completion. `BernsteinNormalizedFallingProductError`
+constructs an actual quotient with denominator>=1/2 and explicit two-sided
+coefficient errors and tolerance cutoff. Two final focused explicit20-GiB
+checks and independent mathematical reviews passed; all 15 gates are allowed.
+The ORIGINAL Haar certificate, signed OWN-variance/scaling comparison and
+all continuum endpoints remain OPEN. Evidence:
+`audits/AUDIT-COMPLETED-HEAT-PROFILE-AND-BERNSTEIN-ERROR-2026-10-02.md`.
+
+**EARLIER counted original Jacobi products and completed height (2026-10-02 UTC):**
 `SU2HeatJacobiActiveFactorCount` computes an actual contiguous block for
 16/17<=q<1, with N>=2, N*(1-q)>=1/16 and amplitudes in [1/4,3/4].
 `SU2HeatJacobiProductAmplification` retains all original Euler factors and
