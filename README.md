@@ -10,7 +10,19 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Complete centered energy and explicit heat loss (2026-10-02):**
+**Completed growing-square response at every integer lag (2026-10-02):** the original
+Wilson square now has a positive response floor on its existing completed
+carrier. The proof retains the exterior action, compares complete energy
+with the loop's own interacting variance, and passes through the exact
+original limits. Positive-form propagation gives
+`B(v,T(m)v) >= r^m*B(v,v) >= r^m*starRatio > 0` at every integer lag,
+including the square's side. It needs no small-total-heat-loss assumption. Focused Lean
+checks and independent mathematical review passed. The explicit floor depends
+on coupling, perimeter and lag; uniform survival at fixed physical time along a
+justified scaling family remains open. See the
+[response proof and scope](audits/AUDIT-DYADIC-SPECTATOR-RESPONSE-2026-10-02.md).
+
+**Earlier complete centered energy and explicit heat loss (2026-10-02):**
 the original growing Wilson square now retains an exact signed polarization
 at its own interacting mean. A separate checked ceiling is
 `E/Z <= 4s*OWNVar + (16+34s+8/s)*L/Z`, where `s=1-w^(12*side)` and

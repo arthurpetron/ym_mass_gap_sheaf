@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## PROVED original completed growing-square integer-lag response only (2026-10-02 UTC)
+
+- `SU2QuaternionProductHeatSpectatorWilsonWord.productMap_fundamental_word_spectator`
+  retains the full transformed exterior; `fundamental_word_first_moment`
+  isolates one absent edge without a heat/cutoff premise.
+- `BF4DyadicWilsonSquareSpectatorResponse.paddedSquare_energy_band` proves
+  actual E/Z<=(1-r)*OWNVar at positive depth, with separate headCutoff and
+  label-one guards. The explicit r depends only on nome and perimeter.
+- `BF4WilsonAllNomeDyadicSpectatorResponse.dyadicExcitation_oneStep_fraction`
+  joins SAME original regulator limits to the EXISTING completed excitation;
+  `dyadicExcitation_oneStep_floor` gives r*starRatio>0. Direct existing
+  positive-form propagation proves `dyadicExcitation_time_geometric_floor`:
+  B(v,T(m)v)>=r^m*starRatio>0 at every integer lag, including side(scale).
+  No small-loss input,
+  variance inverse, original-source independence or replacement state.
+- Three final focused explicit20-GiB target checks and independent mathematical review
+  passed; all 21 gates lie within {propext,Quot.sound}. No new sorry/axiom
+  or weakened frontier. OPEN: useful physical-time scaling control, continuum
+  survival/calibration, full QFT and every group. One root import; broad
+  checks NOT run; CI/chart unchanged. Evidence:
+  `audits/AUDIT-DYADIC-SPECTATOR-RESPONSE-2026-10-02.md`.
+
 ## PROVED complete centered energy and heat-loss ceiling only (2026-10-02 UTC)
 
 - `SU2QuaternionProductHeatCenteredEnergyLoss.sourceEnergy_centered_polarization`

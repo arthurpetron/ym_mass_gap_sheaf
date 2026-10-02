@@ -1,5 +1,19 @@
 # Canonical one-page project status
 
+Verified supporting SAME completed growing-square integer-lag response
+(2026-10-02 UTC; chart unchanged): retain the ACTUAL exterior in full word
+heat transmission, then use constructed local bands to prove
+E/Z<=(1-r)*OWNVar. Exact original regulator limits give the EXISTING dyadic
+excitation, then existing positive-form propagation gives
+B(v,T(m)v)>=r^m*B(v,v)>=r^m*starRatio>0 at every integer lag, including side(scale),
+without small total heat loss. Three final focused explicit20-GiB target
+checks and independent mathematical review passed; all 21 gates are allowed.
+The explicit r depends on nome/perimeter and its power depends on lag;
+this is not uniform fixed-physical-time scaling survival.
+Useful changing-family control and every continuum endpoint remain OPEN.
+Evidence: `audits/AUDIT-DYADIC-SPECTATOR-RESPONSE-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting COMPLETE centered energy and explicit heat loss
 (2026-10-02 UTC; chart unchanged): the ORIGINAL growing-square energy has
 exact signed polarization E=s(A+muJ)+T-D at OWN mean and SAME Z. Actual

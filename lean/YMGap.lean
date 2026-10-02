@@ -5041,6 +5041,9 @@ import YMGap.Continuum.BF4DyadicWilsonSquareChannelVarianceLoss
 -- COMPLETE original centered energy: signed T-D retained, optional explicit loss ceiling.
 -- Useful changing-family variance-relative control remains OPEN.
 import YMGap.Continuum.BF4DyadicWilsonSquareCenteredEnergyLoss
+-- Retained-exterior response of the SAME original completed growing square.
+-- Positive one-step fraction at fixed nome/scale; physical scaling stays OPEN.
+import YMGap.Continuum.BF4WilsonAllNomeDyadicSpectatorResponse
 -- SAME predecessor square cancels in original source cap and odd-mass floor.
 -- Explicit additive cutoff modulus at fixed nome/width; scaling remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRawSourceMassBound

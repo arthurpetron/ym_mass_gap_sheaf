@@ -12,7 +12,21 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT complete centered energy and explicit heat loss (2026-10-02 UTC):**
+**CURRENT SAME completed growing-square response at every integer lag (2026-10-02 UTC):**
+`BF4DyadicWilsonSquareSpectatorResponse.paddedSquare_energy_band` proves
+E/Z<=(1-r)*OWNVar with the full original exterior retained and no small-loss
+premise. `BF4WilsonAllNomeDyadicSpectatorResponse.dyadicExcitation_oneStep_floor`
+joins the exact original limits to the EXISTING dyadic excitation. The direct
+positive-form propagation `dyadicExcitation_time_geometric_floor` proves
+B(v,T(m)v)>=r^m*starRatio>0 for every integer lag, including side(scale).
+Three final focused explicit20-GiB target checks and independent mathematical
+review passed; all 21 gates are allowed. The explicit r depends on nome and
+perimeter, not width, cutoff or positive depth; its power depends on lag. It is
+not useful changing-family physical-time control or continuum survival.
+Those inputs and every continuum endpoint remain OPEN. Evidence:
+`audits/AUDIT-DYADIC-SPECTATOR-RESPONSE-2026-10-02.md`.
+
+**EARLIER complete centered energy and explicit heat loss (2026-10-02 UTC):**
 `BF4DyadicWilsonSquareCenteredEnergyLoss.paddedSquare_energy_centered_loss_identity`
 retains the exact signed T-D polarization at the ORIGINAL OWN mean.
 `paddedSquare_energy_centered_loss_bound` gives the separate sufficient

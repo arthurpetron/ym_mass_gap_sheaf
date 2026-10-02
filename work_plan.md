@@ -25,7 +25,31 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Current complete centered energy and explicit heat loss (2026-10-02 UTC)
+### Current completed growing-square integer-lag response with retained exterior (2026-10-02 UTC)
+
+PROGRESS after `257a7b8`: full word heat transmission retains the ACTUAL
+exterior and every remaining kinetic factor. A single-edge zero moment and
+existing original local bands prove E/Z<=(1-r)*OWNVar, where
+r=w^(12*side)*localLower(w,4*side)^2/localUpper(w,4*side)^2>0.
+No small-total-heat-loss premise, original-source independence or variance
+inverse. Exact original regulator limits join this to the EXISTING dyadic
+excitation, then existing positive-form propagation proves for EVERY integer m:
+B(v,T(m)v)>=r^m*B(v,v)>=r^m*starRatio>0, including m=side(scale).
+Three final focused explicit20-GiB target checks and independent mathematical
+review passed; all 21 printed gates are
+allowed. Evidence: `audits/AUDIT-DYADIC-SPECTATOR-RESPONSE-2026-10-02.md`.
+
+NEXT: useful fixed-physical-time control on a justified changing family.
+Fixed-parameter lag-side response is now unconditional; r depends on
+nome/perimeter and its power depends on lag, despite having no
+width/cutoff/depth argument. The proved floor supplies no uniform scaling
+floor by itself. Improving that dependence, with a SAME original physical
+trajectory and carrier join, is still required. Signed-energy
+and optional loss-only routes remain alternatives. Physical calibration,
+nonzero continuum survival, full QFT and every actual group remain OPEN.
+Exact chart claims unchanged; no ASCII reprint or literature rescan.
+
+### Earlier complete centered energy and explicit heat loss (2026-10-02 UTC)
 
 PROGRESS after `027c121`: exact centered polarization now reaches the
 COMPLETE original growing-square energy at OWN mean: E=s(A+muJ)+T-D.
