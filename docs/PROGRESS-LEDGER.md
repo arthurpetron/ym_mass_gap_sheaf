@@ -4,7 +4,26 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Local ORIGINAL disjoint corrected cross bound (2026-10-02 UTC)
+## Current increment: Joint ORIGINAL covariance/energy control (2026-10-02 UTC)
+
+PROGRESS after `3962e00`: Haar IBP yields mixed orthogonality at ORIGINAL
+interacting means. ONE residual pairing now joins OWN covariance and complete
+mixed temporal energy; both signed heat/debt corrections remain. The matching
+scale is computed for arbitrary rational c. The direct pair-minus-singletons
+identity reaches the existing original reference margin at the SAME cutoff
+and depth. Nineteen new-module and four covariance-module focused gates
+passed within {propext,Quot.sound}; independent review passed. Evidence:
+`audits/AUDIT-DISJOINT-FACE-JOINT-MARGIN-2026-10-02.md`.
+
+NEXT: useful residual-square, SIGNED heat/debt and diagonal-margin estimates
+exceeding the common cutoff allowance on a justified changing family. Raw
+Haar norms are not the original physical variance. No favorable original
+instance, useful scaling rate or physical/continuum endpoint is supplied.
+One root import; root/tree and broad checks, guards and progress metric NOT
+run. No new analytic premise, safety/CI change or exact displayed chart change.
+No ASCII reprint.
+
+## Earlier increment: Local ORIGINAL disjoint corrected cross bound (2026-10-02 UTC)
 
 PROGRESS after `86aad1b`: mixed first-order, source-flux and angular-weight
 terms cancel before estimates. Original Z*E_mix is -(1-w)^2 times the LOCAL

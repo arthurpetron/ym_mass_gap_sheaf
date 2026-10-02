@@ -12,6 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Joint ORIGINAL covariance/energy bound (2026-10-02 UTC):**
+`DisjointFaceJointMargin.joint_margin_pin` joins OWN covariance and complete
+mixed energy in one residual Gram pairing, retaining both signed corrections.
+`matchingRightScale_pin` computes the matching guard for any rational c;
+`reference_margin_difference_pin` reaches the existing pair-minus-singleton
+reference margins at the SAME cutoff/depth. Nineteen new-module gates and
+four covariance-module gates passed focused checks within {propext,Quot.sound};
+independent review passed. Useful residual/debt/heat and diagonal estimates
+on a justified changing family, and every continuum endpoint, remain OPEN.
+Evidence: `audits/AUDIT-DISJOINT-FACE-JOINT-MARGIN-2026-10-02.md`.
+
 **Local ORIGINAL disjoint-face mixed bound (2026-10-02 UTC):**
 `DisjointFaceSecondOrder.mixedEnergy_mass_pin` retains the original source,
 partition and complete signed cubic/cutoff debt. `corrected_mixedEnergy_square_bound`

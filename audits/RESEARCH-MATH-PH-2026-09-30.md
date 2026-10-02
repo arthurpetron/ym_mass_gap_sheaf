@@ -25,6 +25,27 @@ No theorem or hypothesis was imported. No numerical computation or Lean build ra
 
 ## Requested seven-paper review (2026-10-01 22:41 UTC)
 
+Latest record verification: **2026-10-02 03:58:07 UTC**, by the parallel Sol
+reviewer; all seven records still list only v1. The following theorem screen
+is cached, not a new full-paper review. A further source-applicability pass
+against `DisjointFaceJointMargin.joint_margin_pin`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialDisjointFaceJointMargin.lean:476`)
+and `corrected_joint_margin_square_bound` (same file, line 495) found no paper
+supplying the retained signed heat/debt estimate or scaling-uniform residual
+control. The current proof and its separate focused verification are recorded
+in `audits/AUDIT-DISJOINT-FACE-JOINT-MARGIN-2026-10-02.md`.
+
+Most directly useful methods remain [38220, section 7 and appendix B.3](https://arxiv.org/html/2609.38220v1)
+for rigorous certificate validation, [40171, equations (8)--(10), (14)--(16)
+and theorems 1--2](https://arxiv.org/html/2609.40171v1) for retaining joint
+unnormalized information before cancellation, and [39802, section 2.1,
+theorem 1](https://arxiv.org/html/2609.39802v1) for conditional Schur-loss gap
+assembly on the SAME operator. Their hierarchical recursion, fixed-regulator
+ladder hypotheses and positive-operator interface inputs, respectively, are
+not proved identifications or estimates for the original Wilson family.
+The cached different-model, opposite-inequality and qualified-duality limits
+of the other four papers remain unchanged. No external premise is imported.
+
 This targeted review was requested by the user and performed by a parallel Sol
 reviewer, with primary-source record checks by the main agent. All seven v1
 records resolve. It is NOT a routine listing refresh; the scan record above

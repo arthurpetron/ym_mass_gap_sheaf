@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting joint ORIGINAL covariance/energy bound (2026-10-02 UTC;
+chart unchanged): exact Haar IBP joins OWN covariance and complete mixed
+temporal energy in ONE residual pairing at original interacting means.
+Both SIGNED heat/debt corrections remain. A computed matching scale and direct
+pair-minus-singletons identity reach the existing finite reference margin
+at the SAME cutoff/depth. Nineteen new-module and four covariance-module
+focused gates and independent review passed. Useful residual/debt estimates,
+changing-family slack and every physical/continuum endpoint remain OPEN.
+Evidence: `audits/AUDIT-DISJOINT-FACE-JOINT-MARGIN-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting LOCAL original disjoint corrected cross bound (2026-10-02
 UTC; chart unchanged): mixed first-order, source-flux and signed angular-weight
 terms cancel BEFORE estimates. Z*E_mix retains -(1-w)^2 times the local

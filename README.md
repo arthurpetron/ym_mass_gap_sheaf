@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Joint original covariance/energy control (2026-10-02):** original interacting
+means and Haar integration by parts now join the mixed covariance and temporal
+energy in ONE residual pairing. A computed matching scale and exact
+pair-minus-singletons identity reach the existing finite reference margin.
+Focused constructive checks and independent review passed. Both signed
+corrections remain; useful residual/debt estimates and scaling slack are open.
+See the [joint bound and remaining input](audits/AUDIT-DISJOINT-FACE-JOINT-MARGIN-2026-10-02.md).
+
 **Local disjoint-face cross control (2026-10-02):** the original mixed energy
 is now a signed local commutator pairing at order (1-w)^2 plus the complete
 cubic/cutoff debt. A sharp bound controls the energy AFTER subtracting that

@@ -25,6 +25,27 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Joint ORIGINAL covariance and energy control (2026-10-02 UTC)
+
+PROGRESS after `3962e00`: exact Haar IBP and literal disjointness make the
+mixed centered-source/commutator pairings vanish at ORIGINAL interacting
+means. `DisjointFaceJointMargin.joint_margin_pin` joins OWN covariance and
+complete mixed energy in ONE residual Gram pairing, with signed heat defect
+and COMPLETE mixed debt retained. A computed matching scale works for every
+rational c; `reference_margin_difference_pin` reaches the existing finite
+pair-minus-singletons reference margin at the SAME cutoff/depth. Nineteen
+new-module and four covariance-module focused gates passed within
+{propext,Quot.sound}; independent review passed. Evidence:
+`audits/AUDIT-DISJOINT-FACE-JOINT-MARGIN-2026-10-02.md`.
+
+NEXT: obtain useful JOINT SIGNED control of heat defect and mixed debt,
+residual squares and diagonal margins, exceeding the common cutoff allowance
+on a JUSTIFIED changing family. Do not replace OWN variance by the source
+square or these auxiliary Haar norms. No favorable original instance, useful
+scaling rate or continuum endpoint is supplied. One root import; no broad
+check, new analytic premise, raised limit or CI/chart change. The seven-paper
+review supplies methods, not this missing estimate. No ASCII reprint.
+
 ### Local ORIGINAL disjoint-face cross control (2026-10-02 UTC)
 
 PROGRESS after `86aad1b`: disjointness cancels the mixed angular-weight defect,

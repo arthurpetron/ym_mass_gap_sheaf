@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## PROVED joint ORIGINAL covariance/energy identity and corrected bound only (2026-10-02 UTC)
+
+- `DisjointFaceJointMargin.commutator_pair` and `commutator_source_zero`
+  derive exact Haar IBP orthogonality; literal disjointness gives zero mixed
+  centered-source/commutator pairings at BOTH ORIGINAL interacting means.
+- `joint_margin_pin` retains the original odd partition and identifies the
+  joint covariance/energy margin with one residual pairing PLUS the signed
+  heat defect MINUS complete mixed debt. `corrected_joint_margin_square_bound`
+  applies Haar-CS only after retaining those corrections. Auxiliary Haar
+  norms are not identified with the physical OS norm.
+- `matchingRightScale_pin` computes the matching guard for arbitrary rational
+  c. `reference_margin_difference_pin` reaches the existing original finite
+  pair-minus-singleton margins at the SAME cutoff and depth, without assuming
+  a positive checker result. The existing `centered_cross_pin` is now public;
+  its proof and statement are unchanged.
+- Nineteen new-module and four covariance-module focused gates passed within
+  {propext,Quot.sound}; independent review passed. No sorry, axiom, analytic
+  premise, witness erasure or frontier weakening. OPEN: useful residual-square,
+  SIGNED heat/debt and diagonal-margin control exceeding the common cutoff
+  allowance on a justified changing family, and every physical/continuum/Clay
+  endpoint. One root import; root/tree and broad checks NOT run; chart unchanged.
+  Evidence: `audits/AUDIT-DISJOINT-FACE-JOINT-MARGIN-2026-10-02.md`.
+
 ## PROVED local ORIGINAL disjoint corrected cross bound only (2026-10-02 UTC)
 
 - `DisjointFaceSecondOrder.angularWeightDefect_pair` removes the mixed signed

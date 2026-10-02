@@ -93,7 +93,8 @@ private theorem centered_mean_zero {blocks : Nat} {W q : RatPoly}
         (.add (.var 0) (.mul (.neg (.var 0)) (.const 1))) (.const 0)
         (by decide) (fun _ => m)))
 
-private theorem centered_cross_pin {blocks : Nat} {W p q : RatPoly}
+/-- Both observables are centered at their OWN means under the SAME weight. -/
+theorem centered_cross_pin {blocks : Nat} {W p q : RatPoly}
     (hZ : (0 : Q') < quaternionHaar blocks W) :
     normalizedMoment blocks W
       (polyMul (shifted p (normalizedMoment blocks W p hZ))
@@ -324,6 +325,7 @@ theorem covariance_sq_le_variance_deficit {blocks : Nat} {W p q : RatPoly}
     (normalizedVariance_nonnegative H hZ hq) hcovCS hfloor
 
 #print axioms normalizedCovariance
+#print axioms centered_cross_pin
 #print axioms normalizedVariance_nonnegative
 #print axioms covariance_sq_le_variance_deficit
 
