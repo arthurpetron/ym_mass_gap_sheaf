@@ -4,7 +4,29 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Uniform real-time anchor continuity (2026-10-02 UTC)
+## Current increment: Finite scalar sampling reduction (2026-10-02 UTC)
+
+PROGRESS after `2fc8245`: literal anchored response samples at assigned
+geometric time v/2^p control every covered matched integer-time cell.
+Monotonicity pays ONE half-mesh error per direction: eta+half^(p+1), not
+eta+two mesh errors. Different nomes and widths retain their OWN unit state
+and original transfer. Exact sample-time arithmetic, quotient/remainder
+coverage and the finite maximum of supplied per-sample moduli are checked.
+The tail consumer uses only valid scales k,l>=p. The final focused
+explicit20-GiB check and independent mathematical review passed; all nine
+gates are allowed. Evidence:
+`audits/AUDIT-DYADIC-RESPONSE-SAMPLING-2026-10-02.md`.
+
+NEXT: produce actual cross-scale comparisons of these finite scalar tables
+on a justified changing family, plus a useful original R(2*side) floor.
+Neither estimate is supplied by this conditional reduction. Forward review
+reconfirmed the existing absolute energy ceiling; the coarse starRatio
+join is already refuted, so it is not a new survival producer. Full canonical
+OS/QFT, physical calibration and every group remain OPEN. One root import;
+root/tree, broad audit/guard and progress metric NOT run. CI and the exact
+chart block are unchanged; no paper-list or unchanged chart reprint.
+
+## Earlier increment: Uniform real-time anchor continuity (2026-10-02 UTC)
 
 PROGRESS after `9feb526`: extend the actual anchored bond increment estimate
 from integer offsets to ALL represented positive real times. Existing

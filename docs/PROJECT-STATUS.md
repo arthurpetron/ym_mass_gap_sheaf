@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting finite scalar sampling reduction (2026-10-02 UTC;
+chart unchanged): one-dimensional ORIGINAL response tables with error eta
+control every covered matched integer-time cell with error eta+half^(p+1),
+including different nomes and widths. The geometric sample pin and finite
+maximum of supplied sample moduli are checked. The final focused check and
+independent mathematical review passed; all nine gates are allowed.
+Actual cross-scale table estimates, nonzero limiting response and all
+continuum endpoints remain OPEN. Evidence:
+`audits/AUDIT-DYADIC-RESPONSE-SAMPLING-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting uniform real-time anchor continuity (2026-10-02 UTC;
 chart unchanged): EVERY represented positive real increment with assigned
 geometric time at most half*half^epsilon.den has squared bond distance at

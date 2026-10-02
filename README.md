@@ -10,13 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Current forward-backward progress (2026-10-02):** the anchored excitation
-now has a computed continuity radius for every represented positive real
-time increment, not only integer offsets. The bound is uniform in nome,
-width and scale at assigned geometric time, on the same original physical
-bond action. Both focused Lean checks and independent review passed.
-Nonzero limiting response, cross-scale convergence and physical calibration
-remain open. See the [proof and remaining join](audits/AUDIT-REAL-BOND-ANCHOR-CONTINUITY-2026-10-02.md).
+**Current forward-backward progress (2026-10-02):** a kernel-checked finite
+sampling theorem narrows anchored cross-scale comparison to one-dimensional
+tables of the original normalized responses. Table error eta controls every
+covered integer query with error eta + half a mesh, even across different
+couplings and widths; supplied sample moduli have a computed finite maximum.
+The table estimates themselves, nonzero limiting response and physical
+calibration remain open. The earlier uniform real-time continuity is retained.
+See the [proof and precise remaining inputs](audits/AUDIT-DYADIC-RESPONSE-SAMPLING-2026-10-02.md).
 
 **Earlier forward-backward progress (2026-10-02):** positive-time anchoring
 constructs actual rows of the same unit Wilson-square excitation in the

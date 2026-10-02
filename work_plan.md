@@ -25,7 +25,39 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Current forward-backward join: uniform real-time anchor continuity (2026-10-02 UTC)
+### Current forward-backward join: finite scalar tables (2026-10-02 UTC)
+
+PROGRESS after `2fc8245`: ORIGINAL samples
+R_k(2*side(k)+v*2^(k-p)) at assigned geometric time v/2^p control all
+matched integer-time cells. Table error eta incurs only half^(p+1)
+additional error, uniformly over strict nomes and padded widths. Exact
+sample-time arithmetic and quotient/remainder coverage are checked. A
+computed finite maximum consumes the supplied per-sample tail moduli; it
+does not construct those estimates. The final focused explicit20-GiB check
+and independent mathematical review passed; all nine gates are allowed.
+Evidence: `audits/AUDIT-DYADIC-RESPONSE-SAMPLING-2026-10-02.md`.
+
+NEXT BACKWARD: target these finite ONE-dimensional original scalar tables,
+not a full width embedding or a two-dimensional Gram comparison. The
+existing anchored pairing pin is R(2*side+i+j); matching sum-time cells
+therefore reduce its integer-grid comparison to this consumer. Prove
+effective sample drift and a positive limiting anchor norm before claiming
+changing-family convergence or nontrivial survival. Uniform real-time
+continuity is already available, but no all-real cross-scale theorem is
+constructed by the new file. The next sampling task must produce actual
+comparisons; further continuity or coverage wrappers are not the frontier.
+
+NEXT FORWARD: source-specific cancellation in the actual signed energy or
+retained response curvature, relative to OWN interacting variance. The
+existing source-derivative-free bound E/Z<=192*(1-w)*side^2 is absolute;
+the coarse starRatio survival join is already refuted. Do not repackage
+either as a new producer or discard the signed radial/cross terms. Both
+ends still require a justified coupling/spatial/spacing family. Full
+canonical half-space support, renormalized YM field identification, actual
+physical calibration, full QFT and every group remain OPEN. No canonical
+field, CI or exact chart change; no paper-list or unchanged chart reprint.
+
+### Earlier forward-backward join: uniform real-time anchor continuity (2026-10-02 UTC)
 
 PROGRESS after `9feb526`: existing dyadic dissipation and SAME original
 increment-row limits extend the anchored estimate to ALL represented

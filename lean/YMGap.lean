@@ -5062,6 +5062,9 @@ import YMGap.Continuum.BF4WilsonAllNomeDyadicBondAnchor
 -- geometric-uniform radius; no cross-scale limit, surviving norm or physical calibration.
 import YMGap.Continuum.BF4WilsonAllNomeDyadicBondAnchorContinuity
 import YMGap.Continuum.BF4WilsonAllNomeRealBondAnchorContinuity
+-- Finite ORIGINAL scalar tables control all matched anchored integer cells;
+-- cross-scale table estimates and a nonzero limiting response remain OPEN.
+import YMGap.Continuum.BF4WilsonAllNomeDyadicResponseSampling
 -- SAME predecessor square cancels in original source cap and odd-mass floor.
 -- Explicit additive cutoff modulus at fixed nome/width; scaling remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRawSourceMassBound

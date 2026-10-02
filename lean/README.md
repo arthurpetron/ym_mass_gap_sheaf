@@ -12,7 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT uniform real-time anchor continuity (2026-10-02 UTC):**
+**CURRENT finite scalar sampling reduction (2026-10-02 UTC):**
+`BF4WilsonAllNomeDyadicResponseSampling` proves a table error eta gives
+eta+half^(p+1) comparison for every covered matched integer-time cell of
+the ORIGINAL anchored normalized response, including different nomes and
+widths. Exact geometric sample times and quotient/remainder coverage are
+checked; a computed finite maximum consumes supplied per-sample tail moduli.
+The final focused explicit20-GiB check and independent mathematical review
+passed; all nine gates are allowed. No cross-scale table estimate or positive
+limiting norm is constructed. Physical calibration and every continuum
+endpoint remain OPEN. Evidence:
+`audits/AUDIT-DYADIC-RESPONSE-SAMPLING-2026-10-02.md`.
+
+**EARLIER uniform real-time anchor continuity (2026-10-02 UTC):**
 `BF4WilsonAllNomeDyadicBondAnchorContinuity` and
 `BF4WilsonAllNomeRealBondAnchorContinuity` extend the actual anchor estimate
 to EVERY represented positive real increment. The computed geometric radius
