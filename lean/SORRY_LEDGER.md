@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## PROVED full literal physical width inclusion obstruction only (2026-10-02 UTC)
+
+- `WidthInclusionObstruction.timeDefect_source_zero_iff` identifies actual
+  completed physical defect nullity with the OWN-centered ORIGINAL one-step
+  kernel, using the computed vacuum projection and existing strict gap.
+- `boundary_timeDefect_source_zero` exhibits a literal rational null source
+  at EVERY positive width. `included_boundary_timeDefect_source_ne_zero`
+  proves that SAME included source nonnull after EVERY strict enlargement.
+- `no_completed_literal_inclusion` rules out ANY function preserving ALL
+  dense sources between these ORIGINAL physical bond completions. No
+  linearity, continuity, time-intertwining or cross-width mean law is assumed.
+  This includes full maps beginning at widths greater than one, but not
+  restricted bulk or approximate comparisons and not continuum construction.
+- Final focused check and independent reviews passed; thirteen printed gates
+  lie within {propext,Quot.sound}, with `boundaryFace` axiom-free. No sorry,
+  new axiom, analytic premise, raised limit, erased witness or weakened field.
+  OPEN: controlled bulk volume/spacing comparisons, signed changing-family
+  energy/OWN-variance control, physical calibration and every continuum/Clay
+  endpoint. One root import; broad/root/tree checks NOT run; chart unchanged.
+  Evidence: `audits/AUDIT-PHYSICAL-WIDTH-INCLUSION-2026-10-02.md`.
+
 ## PROVED original buffered spin zero clock only (2026-10-02 UTC)
 
 - `BF4WilsonAllNomeSpinZeroClock.completedMultiply_spin_zero` uses original

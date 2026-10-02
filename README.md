@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Physical width inclusion obstruction (2026-10-02):** at every positive
+width, an explicit boundary source is physically zero but its literal inclusion
+at every larger width is not. No map of these full physical bond completions
+can preserve all dense sources. Focused constructive verification and
+independent review passed. This redirects the spatial join to controlled bulk
+comparisons; it does not refute thermodynamic or continuum construction. See
+the [proof and scope](audits/AUDIT-PHYSICAL-WIDTH-INCLUSION-2026-10-02.md).
+
 **Original insertion clock (2026-10-02):** the spin-zero time-zero multiplier
 is the identity, but its buffered physical insertion is exactly one original
 transfer step. Every zero-labelled word retains its full length on every bond

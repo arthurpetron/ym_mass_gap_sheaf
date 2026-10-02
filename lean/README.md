@@ -12,6 +12,16 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Full physical width inclusion obstruction (2026-10-02 UTC):**
+`WidthInclusionObstruction.no_completed_literal_inclusion` rules out ANY
+function preserving ALL literal dense sources between independently
+constructed ORIGINAL bond completions, at EVERY positive narrow width and
+EVERY strict enlargement. The explicit rational defect is null narrow and
+nonnull after inclusion, without comparing OWN means. Final focused check
+and independent reviews passed; thirteen gates lie within {propext,Quot.sound}.
+Controlled bulk/approximate comparisons and every continuum endpoint remain
+OPEN. Evidence: `audits/AUDIT-PHYSICAL-WIDTH-INCLUSION-2026-10-02.md`.
+
 **Original buffered spin-zero clock (2026-10-02 UTC):**
 `SpinZeroClock.completedMultiply_spin_zero` proves the ambient all-nome identity;
 `act_spin_zero_time` identifies the actual physical bond insertion with one

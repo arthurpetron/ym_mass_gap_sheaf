@@ -5836,6 +5836,9 @@ import YMGap.Continuum.BF4WilsonAllNomePlaquetteUniformCapResponse
 -- Actual finite-width boundary kernel; not a continuum or bulk refutation.
 import YMGap.Continuum.BF4WilsonAllNomeFringeCorrelation
 import YMGap.Continuum.BF4WilsonAllNomeFringeTimeKernel
+-- Literal full width inclusion fails on ORIGINAL bond null classes at EVERY positive width.
+-- Restricted bulk/spatial comparisons remain open; no continuum obstruction is asserted.
+import YMGap.Continuum.BF4WilsonAllNomeWidthInclusionObstruction
 import YMGap.Continuum.BF4WilsonAllNomeTimeDefectMoments
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeTail
 -- Actual physical-time decay of a supplied nonzero plaquette defect.

@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting full physical width inclusion obstruction (2026-10-02 UTC;
+chart unchanged): at EVERY positive narrow width a literal boundary source
+is bond-null, but its SAME inclusion is nonnull after EVERY strict enlargement.
+No function on those full ORIGINAL physical bond completions preserves ALL
+dense sources. Final focused check and independent reviews passed, within
+{propext,Quot.sound}. Controlled bulk or approximate comparisons, signed
+changing-family control and every continuum endpoint remain OPEN. Evidence:
+`audits/AUDIT-PHYSICAL-WIDTH-INCLUSION-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting ORIGINAL spin-zero insertion clock (2026-10-02 UTC;
 chart unchanged): the ambient multiplier is identity, while the physical
 buffered insertion equals one ORIGINAL transfer step on EVERY bond class.

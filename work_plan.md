@@ -25,6 +25,22 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Full literal physical width inclusion is impossible (2026-10-02 UTC)
+
+PROGRESS after `a62092c`: at EVERY positive narrow width the literal boundary
+plaquette minus its one-step advance is physically bond-null. EVERY strict
+enlargement makes its SAME included source nonnull. Thus NO function between
+these ORIGINAL bond completions can preserve ALL literal dense sources,
+without needing linearity, continuity, time intertwining or equal means.
+Final focused constructive check and independent reviews passed. Evidence:
+`audits/AUDIT-PHYSICAL-WIDTH-INCLUSION-2026-10-02.md`.
+
+NEXT: prove quantitative SAME-source bulk moment comparisons with volume/
+spacing control, not a full completed-width map from syntactic inclusion.
+Restricted or approximate comparisons are not refuted or constructed here.
+The primary signed energy/OWN-variance estimate on a justified changing
+family and every physical/continuum/Clay endpoint remain OPEN. No chart change.
+
 ### Original buffered spin zero insertion clock (2026-10-02 UTC)
 
 PROGRESS after `d657337`: PADDED original joint congruence proves the spin-zero
@@ -16145,6 +16161,11 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
    kernel (`BF4WilsonAllNomeFringeTimeKernel`). Handle the fringe in controlled
    bulk/spatial/scaling comparison; do not discard its positive-norm states
    or infer a completed width map from syntactic naturality.
+   The stronger checked `BF4WilsonAllNomeWidthInclusionObstruction` rules out
+   full literal source-preserving maps between ORIGINAL bond completions at
+   EVERY positive base and strict enlargement. Starting at a larger width
+   does not repair that full map. Controlled bulk or approximate comparison
+   remains a separate OPEN task; no cross-width mean identification is assumed.
 5. **Keep a bounded useful frontier.** Each checkpoint should supply an actual
    object/estimate consumed by the route, reduce a named open input, or rule out
    a proposed route. State the residue. Stop extending a branch when its intended
