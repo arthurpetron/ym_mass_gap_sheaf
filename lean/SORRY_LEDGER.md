@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## PROVED actual signed filtered source and SAME-response inequality only (2026-10-02 UTC)
+
+- `BF4WilsonAllNomeFilteredIncrement.filteredExpression` is the literal
+  radius-two difference (e0-e2)^2-(e0-e1)^2. `filteredIncrement_pin` uses
+  the existing constructive padding theorem and cancels the SAME lag-zero
+  moment. `dyadicUnit_filtered_source_pin` transports its original joint
+  value through the EXISTING OWN normalizer squared to 2*(R1-R2).
+- `BF4WilsonAllNomeDyadicFilteredSurvival.dyadicUnitResponse_filtered_lower`
+  proves Rm>=R1-(m-1)*(R1-R2), m>=1, on that unchanged completed unit state.
+  Its slope pin retains first curvature. `dyadicUnitResponse_filtered_floor`
+  and `dyadicUnitResponse_filtered_ne_zero` consume quantitative reserve
+  and filtered-budget inputs; these inputs are NOT produced along a family.
+- `SU2HeatQuarticSignedCoefficientObstruction.affineResidual_top_negative`
+  proves the actual SAME-cutoff residual top character coefficient is
+  -coeffW(q,K)<0 for q>0, all K and arbitrary c/e. This rules out its
+  nonnegative-coefficient route only; no negative Haar witness is assembled.
+- Three final focused explicit20-GiB checks passed all 17 allowed gates.
+  Three root imports registered; broad checks NOT run; CI/chart unchanged.
+  No new sorry, axiom, weakened field, source change or resource ceiling.
+  OPEN: useful SAME signed filtered/OWN-variance control and all continuum
+  endpoints. Evidence:
+  `audits/AUDIT-FILTERED-SIGNED-RESPONSE-AND-COEFFICIENT-OBSTRUCTION-2026-10-02.md`.
+
 ## PROVED actual original Haar quartic certificate and all-later cutoff only (2026-10-02 UTC)
 
 - `BernsteinRationalPositiveRow.unnormalizedRow_nonnegative` constructs the

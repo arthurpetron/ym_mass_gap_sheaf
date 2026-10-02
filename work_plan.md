@@ -25,7 +25,36 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Current forward-backward join: actual original Haar quartic certificate (2026-10-02 UTC)
+### Current mathematical target: SAME signed filtered slope and reserve (2026-10-02 UTC)
+
+PROGRESS after `10ab5b8`: FORWARD constructs one literal radius-two source
+(e0-e2)^2-(e0-e1)^2 in the ORIGINAL joint action. The existing padding
+theorem, not assumed finite stationarity, cancels its common lag-zero term.
+The actual OWN normalizer squared pins it to 2*(R1-R2) for the EXISTING
+dyadic unit response. BACKWARD proves Rm>=R1-(m-1)*(R1-R2), m>=1, using
+positive mixed time/defect moments of that SAME operator. The filtered
+slope is exactly the one-step loss minus the first curvature. A reserve
+and a filtered budget therefore suffice; they are not supplied by this
+milestone. Three final focused explicit20-GiB checks passed all 17 gates.
+
+PRUNED: requiring nonnegative character coefficients of the SAME-cutoff
+affine quartic majorant. Its computed spin K+2 coefficient is -coeffW(q,K)<0
+for every q>0, K and affine constants. This is a checked coefficient-cone
+obstruction, NOT an assembled negative Haar operator witness or a refutation
+of the particular original centered source.
+
+NEXT ANALYTIC PRODUCER: at m=side on a justified family, prove an original
+R1 reserve gamma0 and (m-1)*(R1-R2)<=gamma0-gamma with gamma>0, retaining
+the WHOLE signed radius-two source before estimates and its OWN interacting
+normalization. Do not replace it with separate absolute increment bounds
+or apply a positive-source certificate to a signed bilateral source.
+The older complete signed-gain route remains available. No new frontier
+structure is needed. Spatial/spacing control, useful family costs, continuum
+survival, physical mass calibration, full SAME QFT and every group remain
+OPEN; CI and the exact canonical chart claims are unchanged. Evidence:
+`audits/AUDIT-FILTERED-SIGNED-RESPONSE-AND-COEFFICIENT-OBSTRUCTION-2026-10-02.md`.
+
+### Earlier forward-backward join: actual original Haar quartic certificate (2026-10-02 UTC)
 
 PROGRESS after `f200467`: the actual rational margin polynomial computes
 its Bernstein degree, full nonnegative row and Type-valued Haar Certificate.

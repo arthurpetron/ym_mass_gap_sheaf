@@ -5094,6 +5094,12 @@ import YMGap.Continuum.QuaternionHaarUnitIntervalCoordinate
 import YMGap.Continuum.SU2HeatJacobiFinitePrefixClassPolynomial
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticBound
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticCutoff
+-- Literal original signed two-lag source meets the SAME unit response slope;
+-- a curvature-retaining sufficient bound, not a scaling input producer.
+import YMGap.Continuum.BF4WilsonAllNomeFilteredIncrement
+import YMGap.Continuum.BF4WilsonAllNomeDyadicFilteredSurvival
+-- Only the nonnegative-character-coefficient quartic majorant is pruned.
+import YMGap.Continuum.SU2HeatQuarticSignedCoefficientObstruction
 -- SAME predecessor square cancels in original source cap and odd-mass floor.
 -- Explicit additive cutoff modulus at fixed nome/width; scaling remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRawSourceMassBound

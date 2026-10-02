@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting SAME signed filtered source and response target
+(2026-10-02 UTC; chart unchanged): one original radius-two signed insertion,
+after the EXISTING OWN normalizer squared, equals 2*(R1-R2). On the SAME
+dyadic unit state, Rm>=R1-(m-1)*(R1-R2), m>=1. The sufficient lag-one
+reserve and filtered budget remain OPEN. An exact negative spin K+2
+coefficient prunes only the nonnegative-character-coefficient quartic
+majorant route, not a particular signed source or continuum survival.
+Three final focused explicit20-GiB checks passed all 17 allowed gates.
+All main signed-cost/scaling and continuum endpoint boxes remain OPEN.
+Evidence:
+`audits/AUDIT-FILTERED-SIGNED-RESPONSE-AND-COEFFICIENT-OBSTRUCTION-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting actual ORIGINAL Haar quartic certificate
 (2026-10-02 UTC; chart unchanged): the strict original polynomial margin
 computes an exact rational Bernstein row, nonnegative coefficients and

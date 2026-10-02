@@ -12,7 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT actual original Haar quartic certificate (2026-10-02 UTC):**
+**CURRENT original signed filtered source and SAME response target (2026-10-02 UTC):**
+`BF4WilsonAllNomeFilteredIncrement` constructs a common-radius-two signed
+source and pins its OWN normalizer-squared image to 2*(R1-R2) for the actual
+dyadic unit response. `BF4WilsonAllNomeDyadicFilteredSurvival` proves
+Rm>=R1-(m-1)*(R1-R2), m>=1, and a conditional reserve/budget consumer.
+`SU2HeatQuarticSignedCoefficientObstruction` proves the SAME-cutoff affine
+residual has negative top character coefficient; this prunes only that
+nonnegative-coefficient route, not a particular Wilson-source bound.
+Three final focused explicit20-GiB checks passed all 17 allowed gates.
+Useful quantitative filtered control and every continuum endpoint remain
+OPEN. Evidence:
+`audits/AUDIT-FILTERED-SIGNED-RESPONSE-AND-COEFFICIENT-OBSTRUCTION-2026-10-02.md`.
+
+**EARLIER actual original Haar quartic certificate (2026-10-02 UTC):**
 `BernsteinRationalPositiveRow` computes the degree, exact full rational
 row and nonnegativity from a strict margin. `QuaternionHaarBernsteinRowCertificate`
 returns a Type-valued square witness; `QuaternionHaarUnitIntervalCoordinate`

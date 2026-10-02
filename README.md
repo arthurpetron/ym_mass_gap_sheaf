@@ -10,7 +10,18 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Current forward-backward join (2026-10-02):** the original heat-prefix
+**Current forward-backward target (2026-10-02):** the original signed
+radius-two observable is exactly twice `R(1)-R(2)` after the EXISTING unit
+state's normalizer squared. On that SAME completed state,
+`R(m) >= R(1)-(m-1)*(R(1)-R(2))` for `m>=1`. This retains curvature and
+reduces a sufficient survival estimate to a lag-one reserve and a bound on
+the cancellation-preserving two-lag slope. Those quantitative inputs remain
+open. A separate exact negative top character coefficient rules out the
+nonnegative-coefficient quartic-majorant shortcut, not the Wilson-source
+bound or continuum survival. Three final focused checks passed all 17
+constructive gates. See the [source, filtered target and precise pruning](audits/AUDIT-FILTERED-SIGNED-RESPONSE-AND-COEFFICIENT-OBSTRUCTION-2026-10-02.md).
+
+**Earlier forward-backward join (2026-10-02):** the original heat-prefix
 margin now computes a nonnegative rational Bernstein row and an actual
 Type-valued Haar square certificate for the ORIGINAL polynomial. The
 existing consumer bounds its quartic insertion against the SAME positive
