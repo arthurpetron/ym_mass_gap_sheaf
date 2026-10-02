@@ -1,5 +1,22 @@
 # Sorry Ledger
 
+## PROVED growing Wilson square variance identity only (2026-10-02 UTC)
+
+- `BF4DyadicWilsonSquareVarianceTaylor.paddedSquare_casimir` proves
+  kappa=12*side on the full original slice, with reversed links and spectators
+  accounted for. `paddedSquare_normalized_ward` retains the OWN marginal mean.
+- `paddedSquare_energy_variance` gives E=kappa*(1-w)*OWNVar+varianceRemainder;
+  `paddedSquare_energy_centered_square` retains the complete error with leading
+  coefficient kappa*(1-w)+(1-w)^2/8. `finiteSquare_energy_variance` reaches
+  existing finiteEnergy/finiteVariance at the SAME original cutoff and depth.
+- Final warning-free focused check, seven allowed gates and independent Sol
+  mathematics review passed. No sorry, new axiom, analytic premise, raised
+  limit or weakened frontier. OPEN: useful signed error/OWN-variance control
+  on a justified scaling family, physical calibration and every continuum
+  endpoint. This growing loop is NOT a linear plaquette family. One root
+  import; broad checks NOT run; CI/chart unchanged. Evidence:
+  `audits/AUDIT-DYADIC-SQUARE-VARIANCE-TAYLOR-2026-10-02.md`.
+
 ## PROVED original physical bulk excitation at fixed nome only (2026-10-02 UTC)
 
 - `OriginalBulkPositiveResponse.bulk_lag_one_floor` and `bulk_lag_two_floor`

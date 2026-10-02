@@ -10,6 +10,13 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Growing Wilson square variance identity (2026-10-02):** the literal
+dyadic square now has an exact original energy/OWN-variance identity with
+perimeter-dependent coefficient `12*side*(1-w)`. Its centered-square bound
+retains the complete signed error. Focused constructive verification and
+independent review passed; useful scaling control remains open. See the
+[identity and missing estimate](audits/AUDIT-DYADIC-SQUARE-VARIANCE-TAYLOR-2026-10-02.md).
+
 **Physical bulk spatial limit (2026-10-02):** original completed bond
 correlations now approach the existing reflected spatial value to a computed
 tolerance, uniformly in larger ambient widths. Both volumes retain their

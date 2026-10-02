@@ -25,6 +25,24 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Current growing Wilson square and its own variance (2026-10-02 UTC)
+
+PROGRESS after `b908230`: the literal strictly padded dyadic square now has
+proved full-slice Casimir kappa=12*side, with degree one on every distinct
+selected link and zero spectator contribution. The original OWN-mean Ward
+and temporal Taylor identities give E=kappa*(1-w)*OWNVar+varianceRemainder.
+The existing centered-square estimate gives leading coefficient
+kappa*(1-w)+(1-w)^2/8 and retains its COMPLETE signed error. The exact
+identity also reaches the existing finite energy/variance consumer directly.
+Focused constructive check and independent math review passed. Evidence:
+`audits/AUDIT-DYADIC-SQUARE-VARIANCE-TAYLOR-2026-10-02.md`.
+
+NEXT: bound the complete signed remainder against OWNVar on a justified
+changing family, retaining this growing perimeter coefficient. The linear
+plaquette-family route below retains its separate coefficient 12; neither
+route has a useful scaling estimate. Geometric dyadic spacing is NOT physical
+calibration. All continuum endpoints and exact chart claims remain OPEN.
+
 ### Current physical bulk excitation at fixed nome (2026-10-02 UTC)
 
 PROGRESS after `dfef0db`: the checked spatial join now supplies half its

@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting growing ORIGINAL Wilson square variance identity
+(2026-10-02 UTC; chart unchanged): full-slice Casimir is 12*side, not 12.
+OWN-mean Ward/Taylor and centered-square estimates reach the literal loop
+and existing finite energy/variance consumer, retaining the COMPLETE signed
+error. Focused constructive check and independent review passed. Useful
+changing-family signed control and all continuum endpoints remain OPEN.
+Evidence: `audits/AUDIT-DYADIC-SQUARE-VARIANCE-TAYLOR-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting ORIGINAL physical bulk excitation (2026-10-02 UTC;
 chart unchanged): an explicit OWN-centered BondCompletion vector retains
 half the checked spatial response floor in its norm and first two original

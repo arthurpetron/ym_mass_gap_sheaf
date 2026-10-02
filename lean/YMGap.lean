@@ -5003,6 +5003,9 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialRemainderCancellation
 -- Complete the negative source square; SAME-variance correction and Ward debt remain signed.
 import YMGap.Continuum.SU2QuaternionCompleteRemainderSquare
 import YMGap.Continuum.BF4ExactSlabFixedSpatialCenteredRemainderSquare
+-- Actual growing Wilson square: perimeter Casimir and OWN-variance identity.
+-- Complete signed error remains; no justified physical scaling rate follows.
+import YMGap.Continuum.BF4DyadicWilsonSquareVarianceTaylor
 -- Integrated original Ward residual transport, not a weight/derivative identity.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialProjectedWard
 -- The displayed majorant retains a quadratic floor; not a true-moment lower bound.

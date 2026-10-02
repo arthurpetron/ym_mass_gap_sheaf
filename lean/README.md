@@ -12,6 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**CURRENT growing Wilson square variance identity (2026-10-02 UTC):**
+`BF4DyadicWilsonSquareVarianceTaylor.paddedSquare_casimir` proves the full
+original Casimir `12*side`. `paddedSquare_energy_variance` retains the OWN
+mean and complete signed remainder; `paddedSquare_energy_centered_square`
+retains its complete error with leading rate `12*side*(1-w)+(1-w)^2/8`.
+`finiteSquare_energy_variance` reaches the existing finite consumer at the
+SAME cutoff/depth. Seven focused gates lie within {propext,Quot.sound};
+independent math review passed. Useful scaling control and physical
+calibration remain OPEN; no linear-plaquette or bare-transfer substitution.
+Evidence: `audits/AUDIT-DYADIC-SQUARE-VARIANCE-TAYLOR-2026-10-02.md`.
+
 **CURRENT physical bulk spatial limit (2026-10-02 UTC):**
 `OriginalBulkComparison.bulkConnected_spatial_close` joins the ACTUAL
 completed bond correlations to the existing reflected spatial form with
