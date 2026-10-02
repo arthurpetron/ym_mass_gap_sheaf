@@ -13,6 +13,14 @@ discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
 **CURRENT original signed filtered source and SAME response target (2026-10-02 UTC):**
+`RationalBlockedSurvival` and `BF4WilsonAllNomeDyadicFilteredGeometricSurvival`
+prove a stronger sufficient survival criterion on the SAME unit state:
+R1>=gamma0 and m*(R1-R2)<=C*R1 imply Rm>=gamma0*(1/4)^(2*C), for
+Nat C>=1,m>=4*C. C need not be small. The original reserve and relative
+filtered budget remain missing; uniformity requires fixed family-wide C
+and gamma0. Both final focused checks passed all eleven allowed gates.
+Evidence: `audits/AUDIT-FILTERED-BLOCK-SURVIVAL-2026-10-02.md`.
+
 `BF4ExactSlabFixedSpatialFilteredNoiseDrift` pins the literal original loop
 source and finiteValue to noise MINUS drift square over the SAME EVEN
 window partition. Drift positivity and constant-shift invariance are checked;

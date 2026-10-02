@@ -27,6 +27,19 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME signed filtered slope and reserve (2026-10-02 UTC)
 
+NEW CHECKED BACKWARD REDUCTION: the SAME dyadic unit response now needs
+only a bounded RELATIVE filtered budget, not a small total linear budget.
+For any fixed Nat C>=1 and m>=4*C, gamma0<=R1 and
+m*(R1-R2)<=C*R1 imply Rm>=gamma0*(1/4)^(2*C). Shifted adjacent-response
+propagation uses the original positive completed time powers at integer
+lags; a rational block estimate computes the floor without a CReal inverse
+or spectral theorem. Both final focused checks passed eleven allowed gates.
+Uniform family-wide C and positive gamma0 remain unavailable. PRIORITY:
+prove the ACTUAL signed-source budget m*(R1-R2)<=C*R1 on a justified
+family; do not impose C<gamma0 or discard the drift square. The older
+linear criterion below remains an optional stronger sufficient route.
+Evidence: `audits/AUDIT-FILTERED-BLOCK-SURVIVAL-2026-10-02.md`.
+
 NEW CHECKED CAUSAL SOURCE JOIN: integrate the literal original radius-two
 loop window with symmetric external depths (n,2,n). With A=Tg, B=T(gf),
 C=T(gf^2), its actual finiteValue is [ell(AC-B^2)-ell((B-Af)^2)]/ell(A^2).
@@ -92,7 +105,8 @@ The positive-source pointwise certificate remains valid. A refutation of
 the particular original centered source is NOT asserted.
 
 NEXT ANALYTIC PRODUCER: at m=side on a justified family, prove an original
-R1 reserve gamma0 and (m-1)*(R1-R2)<=gamma0-gamma with gamma>0, retaining
+positive R1 reserve gamma0 and m*(R1-R2)<=C*R1 with a fixed finite Nat C,
+retaining
 the WHOLE signed radius-two source before estimates and its OWN interacting
 normalization. Do not replace it with separate absolute increment bounds
 or apply a positive-source certificate to a signed bilateral source.
@@ -108,10 +122,13 @@ the actual square-loop polynomial, S the signed filtered window numerator,
 E the original energy numerator, and Vnum=V2*Z-M^2 from its OWN first/second
 moments, prove the paired OPEN bounds
 E*Z<=(1-gamma0)*Vnum and
-(m-1)*S*Z<=2*(gamma0-gamma)*Vnum, gamma>0,
+m*S*Z<=2*C*(Vnum-E*Z), with fixed Nat C>=1 and gamma0>0,
 on the justified family and regulator tails (or with controlled normalized
 slack). Existing rectangle moduli and exact source/normalizer limit pins
 already supply the transport; do not build another assumption wrapper.
+These are OPEN proposed finite estimates, not an asserted finite N-D/odd-Z
+identity. The older bound (m-1)*S*Z<=2*(gamma0-gamma)*Vnum remains an optional
+sufficient alternative; its small-total-budget constraint is unnecessary.
 
 ### Earlier forward-backward join: actual original Haar quartic certificate (2026-10-02 UTC)
 

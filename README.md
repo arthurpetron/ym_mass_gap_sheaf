@@ -13,10 +13,12 @@ Mathlib-free Lean with explicit witnesses and moduli.
 **Current forward-backward target (2026-10-02):** the original signed
 radius-two observable is exactly twice `R(1)-R(2)` after the EXISTING unit
 state's normalizer squared. On that SAME completed state,
-`R(m) >= R(1)-(m-1)*(R(1)-R(2))` for `m>=1`. This retains curvature and
-reduces a sufficient survival estimate to a lag-one reserve and a bound on
-the cancellation-preserving two-lag slope. Those quantitative inputs remain
-open. See the [exact source and filtered target](audits/AUDIT-FILTERED-SIGNED-RESPONSE-AND-COEFFICIENT-OBSTRUCTION-2026-10-02.md).
+the stronger sufficient bound now permits ANY finite relative budget:
+if `R(1)>=gamma0` and `m*(R(1)-R(2))<=C*R(1)`, then
+`R(m)>=gamma0*(1/4)^(2*C)` for integers `C>=1`, `m>=4*C`.
+Both useful quantitative inputs remain open on a justified changing family;
+the same fixed C and positive reserve would make the floor uniform. See the
+[checked implication and remaining producer](audits/AUDIT-FILTERED-BLOCK-SURVIVAL-2026-10-02.md).
 
 **New checked source cancellation:** the literal original radius-two loop
 source equals conditional noise MINUS a nonnegative drift square, over its

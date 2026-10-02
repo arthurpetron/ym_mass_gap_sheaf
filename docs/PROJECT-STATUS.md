@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting SAME-state blocked survival (2026-10-02 UTC;
+chart unchanged): a supplied reserve gamma0<=R1 and bounded relative
+filtered budget m*(R1-R2)<=C*R1 give Rm>=gamma0*(1/4)^(2*C), for
+Nat C>=1,m>=4*C. Arbitrary finite C is permitted; uniformity across scales
+requires fixed C and positive gamma0. No actual family budget is produced.
+Both final focused explicit20-GiB checks passed eleven allowed gates.
+The signed analytic producer and all displayed continuum claims remain OPEN.
+Evidence: `audits/AUDIT-FILTERED-BLOCK-SURVIVAL-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting ORIGINAL filtered noise-minus-drift fold (2026-10-02 UTC;
 chart unchanged): the literal loop source and original finiteValue in the
 symmetric (n,2,n) window equal N-D over the SAME EVEN partition ell((Tg)^2).

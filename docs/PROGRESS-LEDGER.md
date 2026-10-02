@@ -4,7 +4,27 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Original coupling comparison and Jacobi factors (2026-10-02 UTC)
+## Current increment: Filtered survival with any finite relative budget (2026-10-02 UTC)
+
+PROGRESS after `435c96e`: backward reduction no longer requires the total
+filtered decrement to fit a small linear reserve. SAME-operator positivity
+propagates an adjacent response ratio from ANY integer starting lag. A
+computed rational block estimate gives Rm>=gamma0*(1/4)^(2*C) from
+gamma0<=R1 and m*(R1-R2)<=C*R1, for Nat C>=1,m>=4*C. No half-time state,
+real reciprocal or spectral measure is used. Both final focused
+explicit20-GiB checks passed all eleven allowed public gates; independent
+mathematical review passed. Evidence:
+`audits/AUDIT-FILTERED-BLOCK-SURVIVAL-2026-10-02.md`.
+
+NEXT: produce that actual complete signed-source relative budget and a
+positive lag-one reserve on a justified changing family, keeping fixed
+family-wide C and gamma0. The finite N-D pin retains its even partition;
+use original moduli, not a finite odd/even identification. No quantitative
+family input or continuum endpoint is closed. Two root imports registered;
+root/tree, broad audit/guard and progress metric NOT run. CI, canonical
+fields and exact chart unchanged; no paper-list or unchanged ASCII reprint.
+
+## Earlier increment: Original coupling comparison and Jacobi factors (2026-10-02 UTC)
 
 PROGRESS after `5a053a9`: a constructed fixed-scale/width/lag comparison
 of the ORIGINAL unit response retains both own means and explicit finite

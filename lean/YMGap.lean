@@ -5098,6 +5098,10 @@ import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticCutoff
 -- a curvature-retaining sufficient bound, not a scaling input producer.
 import YMGap.Continuum.BF4WilsonAllNomeFilteredIncrement
 import YMGap.Continuum.BF4WilsonAllNomeDyadicFilteredSurvival
+-- A bounded relative filtered slope suffices without small total cost.
+-- SAME unit state and integer time; actual reserve/family budget remain OPEN.
+import YMGap.Continuum.RationalBlockedSurvival
+import YMGap.Continuum.BF4WilsonAllNomeDyadicFilteredGeometricSurvival
 -- Only the nonnegative-character-coefficient quartic majorant is pruned.
 import YMGap.Continuum.SU2HeatQuarticSignedCoefficientObstruction
 -- Full-series signed coefficient obstruction with a computed all-later spin cutoff.
