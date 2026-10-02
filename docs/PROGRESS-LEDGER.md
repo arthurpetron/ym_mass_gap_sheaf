@@ -4,7 +4,23 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Collected ORIGINAL recurrence and finite-margin evaluator (2026-10-02 UTC)
+## Current increment: Gcd-reduced actual ORIGINAL coefficients (2026-10-02 UTC)
+
+PROGRESS after `3da7af8`: the actual collector now computes exact gcd reduction
+on every inserted/merged coefficient. Stored terminal and compressed numerator
+coefficients are coprime, retaining all original moment/checker pins. Explicit
+kernel-computed regression tests cover signed cancellation and repeated halves.
+Fifty-eight focused gates and independent source review passed; data reducers
+are axiom-free. A draft core-lemma choice dependency was constructively removed.
+
+NEXT remains actual useful original signed margin on a justified changing
+family. Genuine coefficient growth, raw arithmetic before collection,
+intermediate expansion and runtime remain unbounded. No useful accepted
+instance or continuum endpoint closed. No broad check/progress metric, new
+root import, limit/CI/chart change or ASCII reprint. Evidence:
+`audits/AUDIT-GCD-REDUCED-MARGIN-2026-10-02.md`.
+
+## Earlier increment: Collected ORIGINAL recurrence and finite-margin evaluator (2026-10-02 UTC)
 
 PROGRESS after `6f05511`: coalescing now happens DURING actual terminal
 iteration, with full coefficient equality to the original message at every

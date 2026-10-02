@@ -1,8 +1,9 @@
 /-
 # Exact-key sparse collection for rational quaternion polynomials
 
-This computable collector merges the first equal monomial key and discards
-coefficients with zero numerator. It preserves every coefficient probe and
+This computable collector merges the first equal monomial key, reduces its
+rational coefficient by an exact gcd, and discards coefficients with zero
+numerator. It preserves every coefficient probe and
 never introduces a new key. Consequently a supplied finite key cover bounds
 the number of collected terms, independently of raw multiplicities. This is
 only a representation-length bound: coefficient bit sizes, collection work,
@@ -12,6 +13,7 @@ and any Yang--Mills margin estimate are not controlled here.
 import YMGap.Continuum.SU2QuaternionRatPolyDifferential
 import YMGap.Continuum.SU2QuaternionBlockDegreeBound
 import YMGap.Continuum.FiniteBoolGraphSimplePaths
+import YMGap.Constructive.RationalReduction
 
 namespace YMGap.Continuum.SU2QuaternionSparseCoefficientCollector
 
@@ -30,10 +32,10 @@ local infix:50 " ≈ " => Q'.eqv
 /-- Merge into the first identical key, deleting a zero sum. No order on keys
 or quotient by sphere relations is used. -/
 def insertKey (key : List Nat) (coefficient : Q') : RatPoly → RatPoly
-  | [] => if coefficient.num = 0 then [] else [(key, coefficient)]
+  | [] => if coefficient.num = 0 then [] else [(key, Q'.reduce coefficient)]
   | (other, value) :: rest =>
       if key = other then
-        let combined := coefficient + value
+        let combined := Q'.reducedAdd coefficient value
         if combined.num = 0 then rest else (other, combined) :: rest
       else (other, value) :: insertKey key coefficient rest
 
@@ -70,11 +72,17 @@ theorem weighted_insert (weight : List Nat → Q')
               (Q'.eqv_refl 0))
             (QPoly.q_zero_add_eqv 0))
       · simp only [insertKey, if_neg hz, ratWeightedSum]
-        exact Q'.eqv_refl _
+        exact Q'.add_eqv_congr_right _ _ _
+          (Q'.mul_eqv_congr_right _ _ _ (Q'.reduce_eqv coefficient))
   | (other, value) :: rest => by
       by_cases he : key = other
       · subst other
-        let combined := coefficient + value
+        let combined := Q'.reducedAdd coefficient value
+        have hcombined : combined * weight key ≈
+            coefficient * weight key + value * weight key :=
+          Q'.eqv_trans _ _ _
+            (Q'.mul_eqv_congr_right _ _ _ (Q'.reducedAdd_eqv coefficient value))
+            (Q'.add_mul_eqv coefficient value (weight key))
         by_cases hz : combined.num = 0
         · rw [insertKey, if_pos rfl, if_pos hz]
           change ratWeightedSum weight rest ≈
@@ -87,7 +95,7 @@ theorem weighted_insert (weight : List Nat → Q')
               ratWeightedSum weight rest) _ ?_ (Q'.add_assoc_eqv _ _ _)
           exact Q'.add_eqv_congr'
             (Q'.eqv_symm (Q'.eqv_trans _ _ _
-              (Q'.eqv_symm (Q'.add_mul_eqv coefficient value (weight key)))
+              (Q'.eqv_symm hcombined)
               (weighted_zero weight key combined hz)))
             (Q'.eqv_refl _)
         · rw [insertKey, if_pos rfl, if_neg hz]
@@ -96,7 +104,7 @@ theorem weighted_insert (weight : List Nat → Q')
               (value * weight key + ratWeightedSum weight rest)
           exact Q'.eqv_trans _ _ _
             (Q'.add_eqv_congr_right _ _ _
-              (Q'.add_mul_eqv coefficient value (weight key)))
+              hcombined)
             (Q'.add_assoc_eqv _ _ _)
       · simp only [insertKey, if_neg he, ratWeightedSum]
         refine Q'.eqv_trans _
@@ -137,7 +145,7 @@ private theorem insert_keys (key : List Nat) (coefficient : Q') :
         exact Or.inl he
   | (other, value) :: rest, m, hm => by
       by_cases he : key = other
-      · by_cases hz : (coefficient + value).num = 0
+      · by_cases hz : (Q'.reducedAdd coefficient value).num = 0
         · have hr : m ∈ rest.map Prod.fst := by
             simpa [insertKey, he, hz] using hm
           exact Or.inr (List.mem_cons_of_mem _ hr)
@@ -173,7 +181,7 @@ private theorem insert_nodup (key : List Nat) (coefficient : Q') :
   | (other, value) :: rest, hp => by
       have hparts := List.nodup_cons.mp (by simpa only [List.map_cons] using hp)
       by_cases he : key = other
-      · by_cases hz : (coefficient + value).num = 0
+      · by_cases hz : (Q'.reducedAdd coefficient value).num = 0
         · simpa [insertKey, he, hz] using hparts.2
         · simpa [insertKey, he, hz] using hp
       · have htail := insert_nodup key coefficient rest hparts.2
@@ -199,16 +207,16 @@ private theorem insert_nonzero (key : List Nat) (coefficient : Q') :
   | [], _, t, ht => by
       by_cases hz : coefficient.num = 0
       · simp [insertKey, hz] at ht
-      · have he : t = (key, coefficient) := by
+      · have he : t = (key, Q'.reduce coefficient) := by
           simpa [insertKey, hz] using ht
         subst t
-        exact hz
+        exact fun hzero => hz ((Q'.reduce_num_zero_iff coefficient).mp hzero)
   | (other, value) :: rest, hp, t, ht => by
       by_cases he : key = other
-      · by_cases hz : (coefficient + value).num = 0
+      · by_cases hz : (Q'.reducedAdd coefficient value).num = 0
         · have hr : t ∈ rest := by simpa [insertKey, he, hz] using ht
           exact hp t (List.mem_cons_of_mem _ hr)
-        · have hr : t = (other, coefficient + value) ∨ t ∈ rest := by
+        · have hr : t = (other, Q'.reducedAdd coefficient value) ∨ t ∈ rest := by
             simpa [insertKey, he, hz] using ht
           rcases hr with hhead | htail
           · subst t; exact hz
@@ -227,6 +235,56 @@ theorem collect_nonzero (p : RatPoly) :
   induction p with
   | nil => intro t ht; exact False.elim (List.not_mem_nil ht)
   | cons term rest ih => exact insert_nonzero term.1 term.2 (collect rest) ih
+
+private theorem insert_reduced (key : List Nat) (coefficient : Q') :
+    ∀ p : RatPoly,
+      (∀ t, t ∈ p → Nat.Coprime t.2.num.natAbs t.2.den) →
+      ∀ t, t ∈ insertKey key coefficient p → Nat.Coprime t.2.num.natAbs t.2.den
+  | [], _, t, ht => by
+      by_cases hz : coefficient.num = 0
+      · simp [insertKey, hz] at ht
+      · have he : t = (key, Q'.reduce coefficient) := by
+          simpa [insertKey, hz] using ht
+        subst t
+        exact Q'.reduce_coprime coefficient
+  | (other, value) :: rest, hp, t, ht => by
+      by_cases he : key = other
+      · by_cases hz : (Q'.reducedAdd coefficient value).num = 0
+        · have hr : t ∈ rest := by simpa [insertKey, he, hz] using ht
+          exact hp t (List.mem_cons_of_mem _ hr)
+        · have hr : t = (other, Q'.reducedAdd coefficient value) ∨ t ∈ rest := by
+            simpa [insertKey, he, hz] using ht
+          rcases hr with hhead | htail
+          · subst t; exact Q'.reduce_coprime (coefficient + value)
+          · exact hp t (List.mem_cons_of_mem _ htail)
+      · have hr : t = (other, value) ∨ t ∈ insertKey key coefficient rest := by
+          simpa [insertKey, he] using ht
+        rcases hr with hhead | htail
+        · subst t; exact hp _ List.mem_cons_self
+        · exact insert_reduced key coefficient rest
+            (fun u hu => hp u (List.mem_cons_of_mem _ hu)) t htail
+
+/-- Every stored output coefficient is in gcd-reduced form. This controls
+representation redundancy, not the magnitude of the actual coefficient. -/
+theorem collect_reduced (p : RatPoly) :
+    ∀ t, t ∈ collect p → Nat.Coprime t.2.num.natAbs t.2.den := by
+  induction p with
+  | nil => intro t ht; exact False.elim (List.not_mem_nil ht)
+  | cons term rest ih => exact insert_reduced term.1 term.2 (collect rest) ih
+
+/-- A kernel-computed regression for actual same-key rational merging. -/
+theorem collect_half_plus_three_quarters :
+    collect [([], (⟨2, 3⟩ : Q')), ([], (⟨6, 7⟩ : Q'))] =
+      [([], (⟨5, 3⟩ : Q'))] := by decide
+
+/-- Exact signed cancellation still deletes the key after gcd reduction. -/
+theorem collect_signed_cancel :
+    collect [([], (⟨2, 3⟩ : Q')), ([], (⟨-3, 5⟩ : Q'))] = [] := by decide
+
+/-- Repeated additions do not retain a product of all input denominators. -/
+theorem collect_sixty_four_halves :
+    collect (List.replicate 64 ([], (⟨1, 1⟩ : Q'))) =
+      [([], (⟨32, 0⟩ : Q'))] := by decide
 
 /-- Any list with distinct exponent keys has length bounded by an arbitrary
 finite covering key list; the cover itself need not be duplicate-free. -/
@@ -277,6 +335,10 @@ theorem collect_degree {block d : Nat} {p : RatPoly}
 #print axioms collect_keys
 #print axioms collect_nodup
 #print axioms collect_nonzero
+#print axioms collect_reduced
+#print axioms collect_half_plus_three_quarters
+#print axioms collect_signed_cancel
+#print axioms collect_sixty_four_halves
 #print axioms length_le_cover
 #print axioms collect_length_le_cover
 #print axioms collect_supported

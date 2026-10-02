@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Exact coefficient reduction (2026-10-02):** the actual margin evaluator now
+gcd-reduces every stored terminal/numerator coefficient while preserving its
+original moments and checker. Focused proofs and signed-fraction regressions
+passed the constructive gate. This removes redundant fraction factors, not
+intermediate expansion or genuine coefficient growth; the useful scaling
+margin remains open. See the
+[proof and computation boundary](audits/AUDIT-GCD-REDUCED-MARGIN-2026-10-02.md).
+
 **Collected original margin evaluator (2026-10-02):** equal monomials are now
 combined during every terminal step. Stored message/numerator lengths have
 proved fixed-cutoff bounds; the alternative checker accepts exactly the same

@@ -25,6 +25,25 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Gcd-reduced coefficients in the actual original evaluator (2026-10-02 UTC)
+
+PROGRESS after `3da7af8`: `Q'.reduce` computes exact signed gcd reduction;
+`reduce_eqv`, `reduce_coprime` and the numerator/denominator size comparisons
+prove its storage meaning. The ACTUAL collector reduces first inserts and
+all same-key sums. `terminal_reduced` and `numerator_reduced` certify every
+stored original coefficient. All original pins and `check_correct` passed
+again. Fifty-eight focused gates passed; the data computations and structural
+fraction/cancellation regression tests are axiom-free. A draft core-lemma
+Classical.choice dependency was caught and constructively removed. Evidence:
+`audits/AUDIT-GCD-REDUCED-MARGIN-2026-10-02.md`.
+
+NEXT remains useful positive ORIGINAL signed slack on a justified changing
+family. This removes redundant stored fraction factors, not genuine growth,
+raw within-step arithmetic or intermediate expansion. No useful successful
+margin, feasible-runtime or scaling estimate is asserted. Physical/continuum
+endpoints stay OPEN. No new root import, broad build/audit/guard/progress run,
+changed limits, CI or canonical chart; no ASCII reprint.
+
 ### Coalesced original recurrence and finite certificate evaluator (2026-10-02 UTC)
 
 PROGRESS after `6f05511`: equal exponent keys are combined before every next

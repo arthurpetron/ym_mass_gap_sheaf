@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED gcd-reduced original evaluator storage only (2026-10-02 UTC)
+
+- `Q'.reduce_eqv`, `reduce_coprime`, `reduce_den_le`, `reduce_numAbs_le`
+  prove exact signed gcd reduction and per-operation representation bounds.
+  Reduction and reduced arithmetic are axiom-free data computations.
+- The ACTUAL `SparseCoefficientCollector` reduces first inserts and every
+  same-key sum; `collect_coeff` retains all original probes and
+  `collect_reduced` certifies every stored coefficient. Kernel regression
+  tests cover fractional sums, signed cancellation and 64 repeated halves.
+- `CollectedFamilyMargin.terminal_reduced` and `numerator_reduced` reach the
+  original evaluation path; all coefficient/moment pins and `check_correct`
+  passed again. Fifty-eight focused gates and independent source review
+  passed, within {propext,Quot.sound}; a draft Classical.choice dependency
+  was removed, not accepted. No new sorry, axiom or analytic premise.
+- OPEN: useful accepted signed slack on a justified changing family,
+  intermediate coefficient/expansion costs, feasible evaluation and every
+  physical/continuum/Clay endpoint. No frontier or original checker weakened.
+  No broad build/audit/guard; safety limits, CI and chart unchanged. Evidence:
+  `audits/AUDIT-GCD-REDUCED-MARGIN-2026-10-02.md`.
+
 ## PROVED collected ORIGINAL evaluator and representation length only (2026-10-02 UTC)
 
 - `SU2QuaternionSparseCoefficientCollector.collect_coeff` preserves all

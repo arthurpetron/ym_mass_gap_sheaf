@@ -12,6 +12,15 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Gcd-reduced ORIGINAL coefficients (2026-10-02 UTC):**
+`Q'.reduce` computes exact signed fraction reduction. The actual collector
+reduces every inserted/merged coefficient; `terminal_reduced` and
+`numerator_reduced` reach the existing evaluator. Fifty-eight focused gates
+and independent source review passed; data reducers and structural regression
+tests are axiom-free. Raw within-step arithmetic, genuine growth, runtime
+and useful changing-family margin remain OPEN. No broad build/audit/guard.
+Evidence: `audits/AUDIT-GCD-REDUCED-MARGIN-2026-10-02.md`.
+
 **Collected ORIGINAL margin evaluator (2026-10-02 UTC):**
 `SparseCoefficientCollector.collect` preserves all coefficient probes and
 distinct output keys. `CollectedFamilyMargin.terminal` collects during every

@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting gcd-reduced ORIGINAL coefficients (2026-10-02 UTC;
+chart unchanged): first inserts and same-key sums are reduced exactly.
+Every stored terminal/numerator coefficient is coprime; original moment and
+checker pins still pass. Fifty-eight focused gates and independent source
+review passed. No useful successful margin, uniform bit-size or runtime bound;
+raw within-step arithmetic and every physical/continuum endpoint remain OPEN.
+Evidence: `audits/AUDIT-GCD-REDUCED-MARGIN-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting collected ORIGINAL margin evaluator (2026-10-02 UTC;
 chart unchanged): equal monomials are combined during every terminal step,
 with coefficient equality to the SAME original message. Actual stored message

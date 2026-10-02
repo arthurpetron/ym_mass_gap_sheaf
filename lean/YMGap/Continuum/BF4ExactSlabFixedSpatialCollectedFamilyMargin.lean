@@ -111,6 +111,15 @@ theorem iterate_nodup (blocks : Nat) (kernel weight : RatPoly)
   | zero => exact collect_nodup input
   | succ count ih => exact ih _
 
+/-- All stored terminal coefficients are gcd-reduced at EVERY depth. -/
+theorem iterate_reduced (blocks : Nat) (kernel weight : RatPoly)
+    (count : Nat) (input : RatPoly) :
+    ∀ t, t ∈ iterate blocks kernel weight count input →
+      Nat.Coprime t.2.num.natAbs t.2.den := by
+  induction count generalizing input with
+  | zero => exact collect_reduced input
+  | succ count ih => exact ih _
+
 /-- The original kinetic/spatial polynomials are collected once as inputs to
 the recursive evaluator. No terminal message is supplied as a hypothesis. -/
 def terminal (w : Q') (K width depth : Nat) : RatPoly :=
@@ -120,6 +129,10 @@ def terminal (w : Q') (K width depth : Nat) : RatPoly :=
 theorem terminal_coeff (w : Q') (K width depth : Nat) :
     RatPolyCoeffEqv (terminal w K width depth) (terminalMessage w K width depth) :=
   iterate_coeff (N width) (collect_coeff _) (collect_coeff _) depth (.refl _)
+
+theorem terminal_reduced (w : Q') (K width depth : Nat) :
+    ∀ t, t ∈ terminal w K width depth → Nat.Coprime t.2.num.natAbs t.2.den :=
+  iterate_reduced _ _ _ _ _
 
 theorem terminal_supported (w : Q') (K width depth : Nat) :
     SupportedQuaternionBlocks (N width) (terminal w K width depth) :=
@@ -208,6 +221,11 @@ theorem compress_coeff {source target : Nat} (E : BlockEmbedding source target)
 /-- Computed collected numerator; the input signed polynomial is unchanged. -/
 def numerator (w : Q') (K width depth : Nat) (qs : List Z4Plaq) (p : RatPoly) : RatPoly :=
   collect ((footprintEmbedding width qs).compress (polyMul (density w K width depth qs) p))
+
+/-- The ACTUAL compressed numerator stores only gcd-reduced coefficients. -/
+theorem numerator_reduced (w : Q') (K width depth : Nat) (qs : List Z4Plaq) (p : RatPoly) :
+    ∀ t, t ∈ numerator w K width depth qs p → Nat.Coprime t.2.num.natAbs t.2.den :=
+  collect_reduced _
 
 theorem numerator_coeff (w : Q') (K width depth : Nat) (qs : List Z4Plaq) (p : RatPoly) :
     RatPolyCoeffEqv (numerator w K width depth qs p)
@@ -362,8 +380,10 @@ end Checker
 #print axioms iterate_supported
 #print axioms iterate_degree
 #print axioms iterate_nodup
+#print axioms iterate_reduced
 #print axioms terminal
 #print axioms terminal_coeff
+#print axioms terminal_reduced
 #print axioms terminal_supported
 #print axioms terminal_degree
 #print axioms terminal_length
@@ -372,6 +392,7 @@ end Checker
 #print axioms density_degree
 #print axioms compress_coeff
 #print axioms numerator
+#print axioms numerator_reduced
 #print axioms numerator_coeff
 #print axioms numerator_length
 #print axioms pairing
