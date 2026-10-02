@@ -12,7 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT positive-time physical bond anchor (2026-10-02 UTC):**
+**CURRENT uniform real-time anchor continuity (2026-10-02 UTC):**
+`BF4WilsonAllNomeDyadicBondAnchorContinuity` and
+`BF4WilsonAllNomeRealBondAnchorContinuity` extend the actual anchor estimate
+to EVERY represented positive real increment. The computed geometric radius
+half*half^epsilon.den is independent of nome, width, scale and anchor lag;
+it also controls every forward orbit point of the SAME original bond action.
+Both final focused explicit20-GiB checks and independent review passed;
+all 13 gates are allowed. This supplies within-family equicontinuity, not
+cross-scale convergence, surviving anchor norm, physical calibration or a
+canonical continuum OS/QFT construction. Every continuum endpoint remains OPEN.
+Evidence: `audits/AUDIT-REAL-BOND-ANCHOR-CONTINUITY-2026-10-02.md`.
+
+**EARLIER positive-time physical bond anchor (2026-10-02 UTC):**
 `BF4WilsonAllNomePositiveLagIncrement` proves the actual squared norm
 increment bound `(j/(n+1))^2*B(x,x)` for SAME T. For the constructed unit
 excitation at n>=side, it gives the geometric bound `(j*spacing)^2` and

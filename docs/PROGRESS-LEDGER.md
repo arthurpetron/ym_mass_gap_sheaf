@@ -4,7 +4,26 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Positive-time physical bond anchor (2026-10-02 UTC)
+## Current increment: Uniform real-time anchor continuity (2026-10-02 UTC)
+
+PROGRESS after `9feb526`: extend the actual anchored bond increment estimate
+from integer offsets to ALL represented positive real times. Existing
+dyadic dissipation and original increment-row limits give the computed
+geometric radius half*half^epsilon.den, uniform in nome/width/scale/anchor
+lag. The SAME original bond action propagates it to every forward orbit
+point. Both final focused explicit20-GiB checks and independent reviews
+passed; all 13 gates are allowed. Evidence:
+`audits/AUDIT-REAL-BOND-ANCHOR-CONTINUITY-2026-10-02.md`.
+
+NEXT: useful original signed alignment or retained-curvature survival at
+R(2*side), plus effective cross-scale anchored-Gram convergence. Neither is
+produced by equicontinuity. Do not normalize away a potentially vanishing
+anchor or infer physical calibration from geometric spacing. Full canonical
+OS/QFT and every group remain OPEN. Two root imports; root/tree, broad
+audit/guard and progress metric NOT run. No new analytic premise, CI or
+exact chart change; no paper-list or unchanged chart reprint.
+
+## Earlier increment: Positive-time physical bond anchor (2026-10-02 UTC)
 
 PROGRESS after `37fac6e`: construct ORIGINAL physical bond rows of
 T(side+lag)u from an exact supplied T(1) preimage and the existing range

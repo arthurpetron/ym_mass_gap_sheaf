@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting uniform real-time anchor continuity (2026-10-02 UTC;
+chart unchanged): EVERY represented positive real increment with assigned
+geometric time at most half*half^epsilon.den has squared bond distance at
+most epsilon, uniformly in nome, width, scale and anchor lag. The SAME
+original action and forward orbit retain this radius. Both final focused
+explicit20-GiB checks and independent review passed; all 13 gates are allowed.
+Cross-scale convergence, nonzero limiting response, physical calibration and
+every continuum endpoint remain OPEN. Evidence:
+`audits/AUDIT-REAL-BOND-ANCHOR-CONTINUITY-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting positive-time physical bond anchor (2026-10-02 UTC;
 chart unchanged): actual rows in the EXISTING BondCompletion represent
 T(side+lag)u with Gram entries R(2*side+i+j), original vacuum orthogonality

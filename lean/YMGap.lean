@@ -5058,6 +5058,10 @@ import YMGap.Continuum.BF4WilsonAllNomeDyadicResponseRounding
 -- not a nonzero scaling limit, full continuum carrier or physical-time calibration.
 import YMGap.Continuum.BF4WilsonAllNomePositiveLagIncrement
 import YMGap.Continuum.BF4WilsonAllNomeDyadicBondAnchor
+-- ALL represented positive real increments on SAME anchors, with a computed
+-- geometric-uniform radius; no cross-scale limit, surviving norm or physical calibration.
+import YMGap.Continuum.BF4WilsonAllNomeDyadicBondAnchorContinuity
+import YMGap.Continuum.BF4WilsonAllNomeRealBondAnchorContinuity
 -- SAME predecessor square cancels in original source cap and odd-mass floor.
 -- Explicit additive cutoff modulus at fixed nome/width; scaling remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRawSourceMassBound

@@ -10,7 +10,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Current forward-backward progress (2026-10-02):** positive-time anchoring
+**Current forward-backward progress (2026-10-02):** the anchored excitation
+now has a computed continuity radius for every represented positive real
+time increment, not only integer offsets. The bound is uniform in nome,
+width and scale at assigned geometric time, on the same original physical
+bond action. Both focused Lean checks and independent review passed.
+Nonzero limiting response, cross-scale convergence and physical calibration
+remain open. See the [proof and remaining join](audits/AUDIT-REAL-BOND-ANCHOR-CONTINUITY-2026-10-02.md).
+
+**Earlier forward-backward progress (2026-10-02):** positive-time anchoring
 constructs actual rows of the same unit Wilson-square excitation in the
 existing physical bond completion, with squared norm exactly `R(2*side)`. Its
 squared increments obey `distance <= (j/(n+1))^2`; at `n>=side`, this gives a computed

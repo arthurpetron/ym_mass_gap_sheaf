@@ -25,7 +25,32 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Current forward-backward join: positive-time physical bond anchor (2026-10-02 UTC)
+### Current forward-backward join: uniform real-time anchor continuity (2026-10-02 UTC)
+
+PROGRESS after `9feb526`: existing dyadic dissipation and SAME original
+increment-row limits extend the anchored estimate to ALL represented
+positive real increments. The computed geometric radius half*half^epsilon.den
+is independent of nome, width, scale and anchor lag; original bond-action
+contraction propagates it to every forward orbit point. Both final focused
+explicit20-GiB checks and independent review passed; all 13 gates are allowed.
+Evidence: `audits/AUDIT-REAL-BOND-ANCHOR-CONTINUITY-2026-10-02.md`.
+
+NEXT FORWARD: quantitative cancellation-preserving source alignment or
+retained completed curvature yielding useful R(2*side) survival on a justified
+changing family. The current recurrence retains no estimate of the loop
+modes erased by the spectator; raw/channel bounds do not supply this input.
+No separate normalized signed-defect limit need be assumed: its value is
+already (1-a)*varianceLimit-energyLimit through the original exact identity.
+
+NEXT BACKWARD: effective cross-scale comparison of the anchored original
+Gram entries, with computed moduli and a nonzero limiting anchor norm.
+Within-family real-time equicontinuity is now explicit, but is not cross-scale
+compactness or convergence. Full reflected half-space support/domain,
+renormalized YM field identification, actual physical time/mass calibration,
+full SAME QFT and every group remain OPEN. No canonical field, CI or exact
+chart change; no paper-list or unchanged chart reprint.
+
+### Earlier forward-backward join: positive-time physical bond anchor (2026-10-02 UTC)
 
 PROGRESS after `37fac6e`: the existing unit Wilson-square excitation u now
 has actual rows in ORIGINAL BondCompletion representing T(side+lag)u.
