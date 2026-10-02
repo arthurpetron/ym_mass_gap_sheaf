@@ -1,5 +1,19 @@
 # Canonical one-page project status
 
+Verified forward-backward support (2026-10-02 UTC; chart unchanged): the
+ORIGINAL active-source multiplication defect is constructed and its actual
+OWN-centered energy satisfies E/Z=(1-a)*OWNVar-G/Z, with G signed and
+unestimated. Separately, the EXISTING dyadic Wilson excitation is explicitly
+rescaled to norm EXACTLY ONE in its SAME vacuum complement, with constructive
+QCauchy data and SAME time-response pin. The inverse-root normalization needs
+no scale-uniform unrenormalized norm floor, but leaves the relative response
+coefficient unchanged. Three accepted focused explicit20-GiB target checks
+and independent review passed; all 25 gates are allowed. The signed relative
+energy producer, cross-family carrier/convergence, acceptable field
+renormalization and all continuum endpoints remain OPEN. Evidence:
+`audits/AUDIT-SIGNED-HEAT-DEFECT-UNIT-EXCITATION-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified pruning of the EXISTING growing-square response certificate
 (2026-10-02 UTC; chart unchanged): the ACTUAL r<=1/1024 and
 r^side<=spacing uniformly for every strict nome. The explicit epsilon.den

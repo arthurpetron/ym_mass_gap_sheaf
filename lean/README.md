@@ -12,7 +12,23 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT pruning of the existing response certificate (2026-10-02 UTC):**
+**CURRENT forward-backward join (2026-10-02 UTC):**
+`BF4DyadicWilsonSquareSignedHeatDefect` constructs the ORIGINAL active heat
+multiplication defect and proves E/Z=(1-a)*OWNVar-G/Z, retaining its SIGN.
+OWN centering removes the exact source first moment; no K>=1/K>=2 guard,
+source independence, variance inverse or favorable sign is needed here.
+`BF4WilsonAllNomeDyadicUnitExcitation` separately constructs the actual
+norm-one rescaling, its QCauchy data, nonzero proof and SAME time-response
+pin. Its constructive inverse root uses the witnessed original positive norm.
+Three accepted focused explicit20-GiB target checks and independent review
+passed; all 25 gates use only propext and Quot.sound.
+Normalization leaves the collapsing relative response certificate unchanged.
+Useful signed relative-energy control, changing-family carrier/modulus and
+renormalized Yang--Mills field identification remain OPEN, as do all continuum
+endpoints. Evidence:
+`audits/AUDIT-SIGNED-HEAT-DEFECT-UNIT-EXCITATION-2026-10-02.md`.
+
+**EARLIER pruning of the existing response certificate (2026-10-02 UTC):**
 `BF4DyadicSpectatorFloorCollapse` proves the ACTUAL fraction r<=1/1024
 and r^side<=spacing, with an explicit epsilon.den modulus for ANY strict
 nome schedule. The FULL printed floor r^side*starRatio also tends to zero;

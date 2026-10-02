@@ -5047,6 +5047,8 @@ import YMGap.Continuum.BF4WilsonAllNomeDyadicSpectatorResponse
 -- THIS explicit lag-side lower certificate tends to zero for ANY strict nome schedule.
 -- No actual-response upper bound is proved here; signed-energy scaling control is OPEN.
 import YMGap.Continuum.BF4DyadicSpectatorFloorCollapse
+import YMGap.Continuum.BF4DyadicWilsonSquareSignedHeatDefect
+import YMGap.Continuum.BF4WilsonAllNomeDyadicUnitExcitation
 -- SAME predecessor square cancels in original source cap and odd-mass floor.
 -- Explicit additive cutoff modulus at fixed nome/width; scaling remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRawSourceMassBound

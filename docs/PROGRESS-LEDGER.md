@@ -4,7 +4,27 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Complete centered energy and explicit heat loss (2026-10-02 UTC)
+## Current increment: Original signed defect and unit excitation (2026-10-02 UTC)
+
+PROGRESS after `c0258b4`: construct the actual active polynomial
+C=P(q*f)-a*(Pq)*f, retaining the ORIGINAL q=V*terminalMessage. Exact OWN
+centering gives E/Z=(1-a)*OWNVar-G/Z with G=H[q*psi*C] SIGNED. Separately,
+compute the witnessed inverse-root scalar and its QCauchy data to rescale the
+EXISTING dyadic excitation to norm ONE, retaining the SAME completed time
+operator and exact response scaling. Its old relative floor r^lag is unchanged.
+Three final focused explicit20-GiB checks and independent reviews passed;
+all 25 gates are allowed. Evidence:
+`audits/AUDIT-SIGNED-HEAT-DEFECT-UNIT-EXCITATION-2026-10-02.md`.
+
+NEXT: prove useful signed gain versus OWN variance on a justified changing
+family, joining the ENTIRE existing energy/variance limits. The rescaled route
+does not require a uniform unrenormalized norm floor; it still needs useful
+relative response, cross-family convergence and permitted YM field
+renormalization. No scaling producer or continuum endpoint is closed.
+Two root imports; root/tree, broad audit/guard and progress metric NOT run.
+No new analytic premise, CI or exact chart change; no ASCII/paper-list reprint.
+
+## Earlier increment: Complete centered energy and explicit heat loss (2026-10-02 UTC)
 
 PROGRESS after `027c121`: the COMPLETE original centered energy now has exact
 signed identity E=s(A+muJ)+T-D at OWN mean. Actual moment estimates prove

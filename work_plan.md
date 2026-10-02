@@ -25,7 +25,43 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Current pruning of the coarse growing-square certificate (2026-10-02 UTC)
+### Current forward-backward join: signed defect and unit excitation (2026-10-02 UTC)
+
+PROGRESS after `c0258b4`: the actual ORIGINAL active-source polynomial
+C=P(q*f)-a*(Pq)*f is constructed, with q=V*terminalMessage and
+a=w^(12*side). OWN centering gives exact E/Z=(1-a)*OWNVar-G/Z,
+G=H[q*psi*C], without an eigenpin, sign assumption or extra K>=1/K>=2 guard.
+The other front now computes the inverse-root scalar, QCauchy data and
+actual norm-ONE dyadic excitation on the SAME existing completion; its
+time-response pin is the original connected correlator times that real square.
+Three accepted focused explicit20-GiB target checks and independent review
+passed; all 25 printed gates are allowed. Evidence:
+`audits/AUDIT-SIGNED-HEAT-DEFECT-UNIT-EXCITATION-2026-10-02.md`.
+
+NEXT FORWARD: useful SIGNED lower control of the computed G against Z*OWNVar,
+not small absolute defect, source independence or positivity alone.
+NEXT BACKWARD: for m=side, a sufficient late-regulator target is
+m*G>=(m*(1-a)-eta)*Z*OWNVar-zeta*Z with a common 0<=eta<1 and computable
+cutoff/depth thresholds for EVERY zeta>0 at each scale. This would give
+m*(E/Z)<=eta*OWNVar+zeta; the existing ENTIRE energy/variance limit pins and
+moment convexity then give a relative lag-m floor. This producer is OPEN,
+not a new checked scaling theorem; neither a->1 nor absolute-smallness of G
+is necessary. The geometric propagation route remains another sufficient
+option and need not satisfy this stronger linear lag budget.
+
+For the explicitly rescaled family, unit norm removes the requirement for a
+positive UNRENORMALIZED scale-uniform variance floor. It does not improve
+the collapsing r^side certificate. Normalizer moduli depend on nome and
+original norm; additive finite errors are amplified by the normalizer's
+square (the inverse original norm).
+Common-carrier transport/convergence with explicit cross-scale moduli,
+admissible renormalized YM field identification and physical time/mass
+calibration remain separate OPEN joins. Do not infer them from norm one.
+Full SAME QFT and every compact simple group remain OPEN. Preserve the
+canonical chart: no existing displayed node is closed by these supporting
+results. No paper-list or unchanged chart reprint.
+
+### Earlier pruning of the coarse growing-square certificate (2026-10-02 UTC)
 
 PROGRESS after `698daaa`: the ACTUAL squareResponseFraction r<=1/1024
 uniformly for every strict nome. Its lag-side power satisfies
