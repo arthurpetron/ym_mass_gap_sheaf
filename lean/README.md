@@ -12,7 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT original cubic costs as full Casimir norms (2026-10-02 UTC):**
+**CURRENT original channel cubic costs as active Casimir norms (2026-10-02 UTC):**
+`SU2QuaternionPassiveChannelCasimirCube` contracts FULL channel third moments
+to ACTIVE moments of the original source with coefficient one, after exact
+passive-channel decomposition. `BF4ExactSlabFixedSpatialFamilyChannelSobolev`
+joins the resulting raw norm budget to the ACTUAL signed family energy,
+preserving signed curvature, negative 48-square, OWN variance and SAME Z.
+Three focused explicit20-GiB checks and independent review passed. No passive
+derivative or channel count is paid; raw source norms still depend on all
+original parameters.
+Useful changing-family variance control and every continuum endpoint stay
+OPEN. The earlier global-gain route is unchanged. Evidence:
+`audits/AUDIT-ACTIVE-CUBIC-CHANNEL-NORMS-2026-10-02.md`.
+
+**Earlier original cubic costs as full Casimir norms (2026-10-02 UTC):**
 `SU2QuaternionCyclicCubicOperator` proves positivity and sharp
 Cauchy--Schwarz for the ACTUAL negative cubic form. `CyclicCasimirCube`
 identifies its full third moment as H[(Cp)(C^2p)] and bounds each diagonal

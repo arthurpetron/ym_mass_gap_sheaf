@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## PROVED active channel cubic norm control only (2026-10-02 UTC)
+
+- `SU2QuaternionPassiveChannelCasimirCube.channelSource_thirdMoment_le_activeThirdMoment`
+  contracts FULL moments of actual passive-independent channels to the
+  original ACTIVE third moment with coefficient one. Its inserted version
+  covers q*f and q*f^2 through exact passive-independent pullback.
+- `SU2QuaternionPassiveChannelSobolevError.channelSource_sobolevError_sum_le_active`
+  aggregates cubic and omitted-mode errors using coefficient-one third-moment
+  and Haar Bessel contractions. No passive derivative or channel count remains.
+- `BF4ExactSlabFixedSpatialFamilyChannelSobolev.padded_family_energy_le_activeSobolevChannelVariance`
+  uses original q at terminal depth n+1, actual family partition, signed
+  curvature, retained negative 48-square, OWN variance and SAME Z.
+- Three focused explicit20-GiB checks and independent review passed;
+  all sixteen gates are within
+  {propext,Quot.sound}. No new sorry/axiom/analytic premise or weakened field.
+  OPEN: useful active-norm/signed-curvature balance relative to OWN variance
+  on a justified changing family, physical calibration and every continuum
+  endpoint. No global cubic-weight replacement, global-gain identification
+  or numerical dominance. One downstream root import; broad checks NOT run;
+  CI/chart unchanged. Evidence:
+  `audits/AUDIT-ACTIVE-CUBIC-CHANNEL-NORMS-2026-10-02.md`.
+
 ## PROVED original cubic Casimir norm control only (2026-10-02 UTC)
 
 - `SU2QuaternionCyclicCubicOperator.cubicGNSData` constructs positivity and

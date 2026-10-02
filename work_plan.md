@@ -25,7 +25,29 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Current original cubic costs as full Casimir norms (2026-10-02 UTC)
+### Current original channel cubic costs as active Casimir norms (2026-10-02 UTC)
+
+PROGRESS after `6b18002`: FIRST expand the ACTUAL energy into passive Gram
+channels. Only those projected sources are passive-independent. Their FULL
+third moments contract with coefficient one to ACTIVE third moments of the
+ORIGINAL q, q*f and q*f^2. Haar-square errors also contract with coefficient
+one. `padded_family_energy_le_activeSobolevChannelVariance` joins that
+computed budget to the original signed plaquette-family energy, preserving
+signed curvature, negative 48-square, OWN variance and SAME partition.
+Three focused explicit20-GiB checks and independent math review passed. Evidence:
+`audits/AUDIT-ACTIVE-CUBIC-CHANNEL-NORMS-2026-10-02.md`.
+
+NEXT: useful active-norm and signed-curvature/square balance relative to OWN
+variance on a physically justified changing family. Original raw norms still
+depend on nome, width, cutoff and depth. No global cubic-weight substitution,
+identification with the earlier global projection gain, numerical dominance
+or uniform scaling is claimed. Physical calibration, continuum survival,
+full QFT and every actual group remain OPEN. Exact chart claims unchanged;
+no ASCII reprint. The targeted fifteen-paper review supplies useful moment
+bootstrap and same-space norm-loss methods, not the missing original scaling
+input; see `audits/RESEARCH-REQUESTED-FIFTEEN-PAPERS-2026-10-02.md`.
+
+### Earlier original cubic costs as full Casimir norms (2026-10-02 UTC)
 
 PROGRESS after `b88b0a2`: the ACTUAL negative cubic remainder is a positive
 bilinear form. Sharp Cauchy--Schwarz and Young control its original mixed

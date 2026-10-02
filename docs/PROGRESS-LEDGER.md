@@ -4,7 +4,28 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Original cubic Casimir norm control (2026-10-02 UTC)
+## Current increment: Original channel active Casimir norm control (2026-10-02 UTC)
+
+PROGRESS after `6b18002`: exact passive-channel expansion permits FULL third
+moments of the projected channels to contract to ACTIVE third moments of the
+original source, coefficient one. The same holds for inserted q*f and q*f^2;
+Haar-square errors also contract with coefficient one. The ACTUAL original
+signed family energy retains curvature, negative 48-square, OWN variance and
+SAME Z with the computed active budget. Three focused explicit20-GiB checks
+and independent math review passed. Evidence:
+`audits/AUDIT-ACTIVE-CUBIC-CHANNEL-NORMS-2026-10-02.md`.
+
+NEXT: useful active-norm and signed-curvature balance against OWN variance
+on a justified changing family. Raw norm dependence on the original source,
+nome, width, cutoff and depth remains. No global cubic-weight substitution,
+global-gain identification, numerical dominance or continuum closure is
+claimed. One downstream root import; root/tree, broad checks, guards and
+progress metric NOT run. No new analytic premise, CI or exact displayed
+chart change; no ASCII reprint. The targeted fifteen-paper review supplies
+methods but no missing original scaling input; see
+`audits/RESEARCH-REQUESTED-FIFTEEN-PAPERS-2026-10-02.md`.
+
+## Earlier increment: Original cubic Casimir norm control (2026-10-02 UTC)
 
 PROGRESS after `b88b0a2`: positivity and sharp Cauchy--Schwarz for the ACTUAL
 negative cubic form turn its mixed source sign into three diagonal costs.

@@ -10,6 +10,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Active derivative costs in the original channel energy (2026-10-02):**
+exact channel decomposition now bounds cubic errors using derivatives only
+on the observable's active footprint, with coefficient one and no
+channel-count multiplier. The original signed curvature, negative square,
+interacting variance and partition are retained. Focused Lean checks and
+independent mathematical review passed.
+The raw norms still depend on the original parameters; useful scaling control
+remains open. See the [proof and scope](audits/AUDIT-ACTIVE-CUBIC-CHANNEL-NORMS-2026-10-02.md).
+
 **Original cubic costs replaced by Casimir norms (2026-10-02):** the
 negative cubic remainder is now proved to be a positive bilinear form.
 Its original mixed correction is bounded by three full third Casimir

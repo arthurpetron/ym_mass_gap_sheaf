@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL active channel cubic norm control (2026-10-02
+UTC; chart unchanged): exact passive-channel expansion permits FULL channel
+third moments to contract to ACTIVE moments of original q, q*f and q*f^2,
+with coefficient one. Haar errors also contract with coefficient one. The
+ACTUAL family energy retains signed curvature, negative 48-square, OWN
+variance and SAME Z. Three focused explicit20-GiB checks and independent
+math review passed. Useful changing-family relative control and every
+continuum endpoint remain OPEN;
+no global-weight replacement or global-gain identification is asserted.
+Evidence: `audits/AUDIT-ACTIVE-CUBIC-CHANNEL-NORMS-2026-10-02.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting ORIGINAL cubic Casimir norm control (2026-10-02 UTC;
 chart unchanged): the actual negative cubic form is positive bilinear;
 its signed source correction is bounded by three FULL third Casimir
