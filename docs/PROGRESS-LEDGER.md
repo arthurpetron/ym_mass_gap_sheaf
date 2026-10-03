@@ -4,7 +4,29 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Original signed gain relative to its SAME square at every guarded cutoff (2026-10-03 UTC)
+## Current increment: Original terminal shape at every depth and guarded cutoff (2026-10-03 UTC)
+
+PROGRESS after `d8d9451`: construct actual heat deviation eta=1/1000 and
+six-face action deviation delta=1/128. An actual factor-floor contraction,
+with every other kinetic factor retained, supplies the invariant radius
+r=1/80000. The original terminal's positive bare Haar amplitude a_n and
+cleared centered square satisfy H[(g_n-a_n)^2]<=r^2*a_n^2 at EVERY depth
+and guarded finite cutoff, fixed w=1/16 and width two. All-insertion
+original/cube transport is checked rather than raw-message locality assumed.
+The exact terminal test keeps the full original V*g_n source. Separately,
+the actual OWN-centered endpoint cost is now paid by Q<=16*SAME evenPartition
+at every depth. Seven final focused checks passed 27 permitted gates.
+
+NEXT: compare the actual weighted odd law V*g_n*g_(n+1) with the constructed
+Haar amplitudes, then prove the original tested-overlap and useful S/E floor.
+The Young relative-gain consumer is checked, but its S/E premise is unpaid.
+No later-depth favorable gain, scaling family, completed survival, physical
+calibration or continuum/QFT/group endpoint is claimed. Root imports are
+registration-only; aggregate root, broad audit/guard and progress metric
+NOT run. CI and exact chart unchanged. Evidence:
+`audits/AUDIT-ORIGINAL-TERMINAL-SHAPE-2026-10-03.md`.
+
+## Earlier increment: Original signed gain relative to its SAME square at every guarded cutoff (2026-10-03 UTC)
 
 PROGRESS after `d73d8d4`: move the exact plaquette kinetic test through
 the ORIGINAL transfer before estimating the action tail. Its w^12 factor

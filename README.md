@@ -10,7 +10,18 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**New checked cutoff-uniform relative signed gain:** at `w=1/16`, width two
+**New checked all-depth original terminal estimate:** at `w=1/16`, width two,
+every guarded finite cutoff and every depth has
+`H[(g_n-H(g_n))^2] <= (H(g_n)/80000)^2`, for the ORIGINAL terminal message.
+The proof constructs its positive Haar mass, keeps all kinetic factors,
+and uses a square-root-free invariant-radius induction. Separately, the
+actual OWN-centered Young cost is at most `16` times the SAME even partition
+at every depth. Seven focused checks passed 27 permitted gates. The weighted
+OWN mean, tested-overlap floor and useful filtered-square/partition lower
+bound remain open at later depths; no scaling survival follows yet. See the
+[checked induction and next joins](audits/AUDIT-ORIGINAL-TERMINAL-SHAPE-2026-10-03.md).
+
+**Checked cutoff-uniform relative signed gain:** at `w=1/16`, width two
 and terminal depth zero, EVERY cutoff satisfying both original guards has
 `G_K >= S_K/4 >= 2^-127 > 0`, where `G_K` is the existing commutator gain
 at its actual interacting OWN mean and `S_K` its SAME filtered square.

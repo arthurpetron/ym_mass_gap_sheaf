@@ -27,6 +27,19 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
+NOW CHECKED ORIGINAL ALL-DEPTH TERMINAL SHAPE:
+`BF4ExactSlabFixedSpatialOriginalTerminalShape.original_terminal_variance_bound`
+proves H[(g_n-a_n)^2]<=(a_n/80000)^2 with a_n=H(g_n)>0, for every
+depth and guarded finite cutoff at fixed w=1/16 and width two. Actual
+heat/action certificates, full-factor centered contraction, square-root-free
+radius induction and all-insertion original-source transport are constructed.
+`CubeTerminalTest.terminal_centered_test` keeps the full original weighted
+source at arbitrary depth. `OwnGainYoungBudget` pays Q<=16E for the SAME
+even partition at every depth; G>=S/4 still requires S>=32*a_ref^2*E.
+Seven focused checks passed 27 permitted gates. Haar amplitude is not
+the original odd partition or OS norm. Evidence:
+`audits/AUDIT-ORIGINAL-TERMINAL-SHAPE-2026-10-03.md`.
+
 NOW CHECKED ORIGINAL CUTOFF-UNIFORM RELATIVE SIGNED GAIN:
 `BF4ExactSlabFixedSpatialCubeAllCutoffOwnGain.originalOwnGain_relative_lower`
 and its `originalOwnGain_floor` prove G_K>=S_K/4>=2^-127>0 at fixed
@@ -41,11 +54,11 @@ This removes the finite pilot's cutoff-one restriction, not its fixed
 coupling/width/depth restrictions. Root imports are registration-only.
 Evidence: `audits/AUDIT-CUBE-ALL-CUTOFF-RELATIVE-GAIN-2026-10-03.md`.
 
-FORWARD NEXT: use exact kinetic testing with the full ORIGINAL source
-V*g_n, not a cube-only replacement. Terminal positivity supplies a positive
-normalizing mass, but not a quantitative relative projection signal or
-endpoint-cost comparison. Identify and prove those estimates before
-extrapolating the depth-zero floor. BACKWARD NEXT remains the SAME
+FORWARD NEXT: pay the actual OWN odd-law mean for V*g_n*g_(n+1), then
+the tested V*g_n overlap relative to a_n and the useful S/E floor. Preserve
+the sharper original action channel before subtracting the terminal error;
+do not substitute the already weakened n=0 floor. The Q/E cost leg is now
+paid, but the S/E lower leg is not. BACKWARD NEXT remains the SAME
 macroscopic ratio or sufficient signed block-Rayleigh bound on a JUSTIFIED
 changing family. Fixed-small-nome gain is a mechanism witness, not that
 trajectory. All continuum/Clay endpoint fields remain OPEN.

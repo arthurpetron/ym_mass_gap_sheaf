@@ -12,7 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT original cutoff-uniform relative gain (2026-10-03 UTC):**
+**CURRENT all-depth original terminal shape (2026-10-03 UTC):**
+`BF4ExactSlabFixedSpatialOriginalTerminalShape.original_terminal_variance_bound`
+proves the ORIGINAL cleared Haar centered square is at most `(1/80000)^2`
+times its OWN positive Haar mass squared, at every depth and guarded finite
+cutoff, with fixed w=1/16 and width two. The certified-floor kinetic
+contraction retains every other actual factor. `OwnGainYoungBudget` pays the
+actual OWN cost Q<=16E at every depth, but its relative-gain consumer still
+needs the useful original S/E lower bound. Seven focused checks passed
+27 permitted gates without errors/warnings; root imports registered only.
+No weighted OWN-mean/overlap floor, scaling survival or continuum claim is
+produced. Evidence: `audits/AUDIT-ORIGINAL-TERMINAL-SHAPE-2026-10-03.md`.
+
+**Earlier original cutoff-uniform relative gain (2026-10-03 UTC):**
 `BF4ExactSlabFixedSpatialCubeAllCutoffOwnGain` proves the EXISTING
 OWN-centered commutator gain is at least one quarter of its SAME filtered
 square, hence >=2^-127>0, at every K satisfying K>=1 and headCutoff(w)<=K.
