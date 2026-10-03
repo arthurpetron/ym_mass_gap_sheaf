@@ -1,6 +1,6 @@
 # Constructive Yang--Mills mass-gap formalization
 
-## Current proof boundary (2026-10-02 UTC)
+## Current proof boundary (2026-10-03 UTC)
 
 The [canonical one-page status chart](docs/PROJECT-STATUS.md) keeps fixed
 wording, layout, proof-status meanings and permanent node IDs across updates.
@@ -38,7 +38,9 @@ all spectator variables retained. A two-copy certificate also proves the
 sharp conditional coordinate covariance bound with rate `(1-w^8)/4`.
 The original quadratic gain has a full-source consumer retaining its exact
 finite mean correction. The conditional source loss is NOT the interacting
-variance; the useful signed comparison remains open. See the
+variance. The full ordered-word identity is consumed by the ACTUAL padded
+Wilson square, retaining the original terminal and OWN center. The useful
+signed comparison remains open. See the
 [finite-heat bridge and missing quantitative join](audits/AUDIT-FINITE-HEAT-SOURCE-GRADIENT-2026-10-02.md).
 
 **New checked source cancellation:** the literal original radius-two loop

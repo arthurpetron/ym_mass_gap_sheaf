@@ -5149,6 +5149,8 @@ import YMGap.Continuum.SU2QuaternionSelectedHeatStein
 import YMGap.Continuum.SU2QuaternionConditionalCovarianceCertificate
 import YMGap.Continuum.SU2QuaternionRelativeHeatCoordinateCovariance
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFilteredGainSourcePair
+import YMGap.Continuum.SU2QuaternionProductHeatWilsonStein
+import YMGap.Continuum.BF4DyadicWilsonSquareFilteredGainStein
 -- Scalar alignment cannot amplify to arbitrary quaternion-valued sources.
 -- Exact original low-degree obstruction; narrower scalar word stays OPEN.
 import YMGap.Continuum.SU2QuaternionHeatAlignmentAmplificationObstruction

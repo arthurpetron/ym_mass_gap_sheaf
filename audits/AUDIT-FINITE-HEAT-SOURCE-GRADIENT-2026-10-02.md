@@ -5,6 +5,8 @@ pairing with derivatives of the entire original source. Independently, a
 two-copy witness gives the sharp conditional coordinate covariance bound
 with all spectator variables shared. The original BF4 quadratic gain has
 a literal full-source consumer, retaining its finite moving-mean correction.
+The ordered-word telescope and actual growing-square consumer are also
+checked: no separate geometric/source recoding hypothesis remains here.
 These results do not establish the changing-family relative budget or reserve.
 The continuum theory, full QFT axioms, physical mass calibration, nontrivial
 survival and every compact simple group remain open.
@@ -40,6 +42,38 @@ transports this identity to any distinct selected lower/upper pair on the
 complete carrier, with supported entire source and retained polynomial.
 The chart permutation is explicit; no spectator integration or independence
 of the source is inferred.
+
+## Ordered word and actual growing square
+
+`word_retained_source_gradient`,
+`lean/YMGap/Continuum/SU2QuaternionProductHeatWilsonStein.lean:407`,
+telescopes the original ordered word into four coordinate Green pairings
+per selected link. The upper prefix grows while the entire source, original
+kinetic set and upper test remain fixed. Other kinetic factors, prefix/suffix
+coefficients and upper test are left undifferentiated only after their
+selected-head independence is proved. Distinct mapped word links are explicit.
+There is no quaternion-vector amplification inequality or source eigenpin.
+
+`multiplicationDefect_fundamental_word_source_gradient` at line 553
+identifies the literal multiplication-defect pairing with that computed
+signed sum; the original fundamental trace factor TWO is paid by the upper
+test, not by replacing the source. All orientations and spectator links stay.
+
+`paddedSquare_commutatorGain_source_gradient`,
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareFilteredGainStein.lean:141`,
+proves at the actual square, for K>=1 and side(scale)<width,
+
+    G2 = paddedSquareGradient + (w^(12*side)-1)*c*ell(A*b).
+
+`paddedSquareGradient` at line 127 computes the original active kinetic
+indices, q=V*g_n and upper test 2*V*b. Actual mapped-link distinctness,
+activity, original sourceWord recoding and perimeter4*side are proved from
+the square geometry, not supplied as interface assumptions.
+`fullSourceDefectPair_productMap` at line 89 uses the original transfer
+equality, not a kinetic approximation or projected replacement source.
+`paddedSquare_own_commutatorGain_source_gradient` at line 190 substitutes
+the actual finite OWN mean at that same depth, with the separate original
+head-cutoff guard. The mean correction is still present.
 
 ## Sharp conditional covariance with shared spectators
 
@@ -103,11 +137,16 @@ carrier; see the preceding quadratic-gain audit.
 
 The missing quantitative join is a useful SIGNED full-source gain bound
 relative to the SAME interacting lag-one reserve on a justified changing
-family. A conditional source-loss cost or a raw source-gradient norm cannot
+family. The exact word/source recoding is now checked, but its signed
+gradient sum has no favorable sign or useful relative estimate here.
+A conditional source-loss cost or a raw source-gradient norm cannot
 silently replace that reserve. The exact moving-mean residue must also be
 paid with the original boundary moduli. Family-wide C and gamma0 remain open.
 
 ## Focused verification evidence
+
+Accepted checks occurred on 2026-10-03 UTC (2026-10-02 in America/Los_Angeles).
+The artifact filenames retain the local session date 2026-10-02.
 
 Each accepted source below was checked separately with one Lean worker,
 12 GiB OS reserve and explicit 20 GiB worker ceiling after a fresh live
@@ -118,6 +157,10 @@ uses explicit Nat zero-sum elimination and the final check below passes.
 Independent mathematical reviews and source/log QA passed. Root imports
 are registered, not aggregate-checked. No broad build, audit, CI or chart
 change is claimed.
+The word proof's earlier carrier rewrite triggered expansion of the computed
+inverse. Its accepted source transports only the Haar carrier, leaves the
+Green polynomial opaque and uses the default heartbeat limit; increasing
+the local limit was not the accepted repair.
 
 | Source basename | Accepted log under /tmp | Printed gates |
 | --- | --- | --- |
@@ -127,6 +170,8 @@ change is claimed.
 | SU2QuaternionConditionalCovarianceCertificate.lean | ym-conditional-covariance-20261002-first.log | 7 |
 | SU2QuaternionRelativeHeatCoordinateCovariance.lean | ym-relative-heat-coordinate-covariance-20261002-fourth.log | 11 |
 | BF4ExactSlabFixedSpatialFilteredGainSourcePair.lean | ym-filtered-gain-source-pair-20261002-third.log | 4 |
+| SU2QuaternionProductHeatWilsonStein.lean | ym-product-heat-wilson-stein-20261002-sixth.log | 6 |
+| BF4DyadicWilsonSquareFilteredGainStein.lean | ym-dyadic-square-filtered-gain-stein-20261002-first.log | 4 |
 
 Sources are under `lean/YMGap/Continuum/`. SHA256 pairs (source, accepted log):
 
@@ -136,3 +181,5 @@ Sources are under `lean/YMGap/Continuum/`. SHA256 pairs (source, accepted log):
 - ConditionalCovarianceCertificate: `e2eb2cbac31aed7170269ea8e482bcc2133db7975fcec422a866c1d20001a00a`, `ec82cebb3a70f211e5895c743fc2b4c6dc468240bc0bbdc31e24827d9d08f5a3`.
 - RelativeHeatCoordinateCovariance: `a1bb1de35580a7382f0326b6f829f73cf9776b5aa8274729eafec6a56529b716`, `10c79cdee5c51d047308cbbb2650f492fd38d92919188084265f741b9f200d0d`.
 - FilteredGainSourcePair: `65227c9a64d74cbf361512c1e7f02536245cb0d89e6e43f809760fc76de67e98`, `f7aa87822f827508f867cf6a98453241bb2a522707977c92818b7a6171f5a8f1`.
+- ProductHeatWilsonStein: `4bfe85cb550bace5c9343bf939f3e2b74cacc5d2988abba9d3c926558dc04ba0`, `931a392e412660fb0e7f6dd01629abbd66b8d62db62cf07a5c1714be6e8254a6`.
+- DyadicWilsonSquareFilteredGainStein: `b6e3ba8ad3fa83982cabf044c8aeb6adfc6b1216f318e202cdadb10faa197e15`, `50759bd3f4291e92012326e7ebfb6a0d00404b3ccf7b19c0d1132470bc6f7eee`.

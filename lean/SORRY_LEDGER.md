@@ -1,6 +1,6 @@
 # Sorry Ledger
 
-## PROVED finite heat source bridge and conditional coordinate covariance only (2026-10-02 UTC)
+## PROVED finite heat source bridge and conditional coordinate covariance only (2026-10-03 UTC)
 
 - `SU2QuaternionHeadCasimirInverse.potential_poisson` computes the inverse
   modulo the CONDITIONAL mean. `source_gradient_identity`, the relative
@@ -14,7 +14,11 @@
 - `BF4ExactSlabFixedSpatialFilteredGainSourcePair.commutatorGain_source_pair`
   preserves full original K,V,g_n,b and exact (a-1)*c*ell(A*b). No finite
   stationarity, free centered eigenpin or gain sign is assumed.
-- All six focused checks and constructive gates passed, with independent
+- `SU2QuaternionProductHeatWilsonStein` proves the complete ordered source
+  telescope. `BF4DyadicWilsonSquareFilteredGainStein` consumes it on the actual
+  original growing square and OWN center, proving activity/distinctness,
+  source recoding and perimeter rather than assuming those joins.
+- All eight focused checks and constructive gates passed, with independent
   mathematical review. Root imports registered, not aggregate-checked.
   No new sorry, axiom, classical shortcut, CI or displayed chart change.
   Useful signed source-loss/OWN-reserve comparison on a justified scaling

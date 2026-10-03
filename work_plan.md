@@ -5,7 +5,7 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
-## Whole-project goal and live completion map (updated 2026-10-02 UTC)
+## Whole-project goal and live completion map (updated 2026-10-03 UTC)
 
 The unchanged mathematical target is: for each compact simple gauge group G,
 construct a nontrivial quantum Yang--Mills theory on R^4 satisfying the QFT
@@ -64,6 +64,10 @@ the original two-copy wedge gives C_i^2<=((1-w^8)/4)*conditionalSourceLoss
 under any certified retained action, for K>=max(headCutoff(w),2).
 The original G2 is the complete uncentered defect pairing plus
 (a-1)*c*ell(A*b); do not discard its finite moving-mean correction.
+The ordered four-coordinate telescope keeps the ENTIRE source and kinetic
+set fixed. The actual padded-square consumer proves its geometry/source
+recoding and expresses G2 as the computed full-source gradient sum plus
+that exact correction, with a=w^(12*side); its actual OWN mean is included.
 FORWARD: use these exact finite identities and certificates with the actual
 terminal V*g. BACKWARD: retain the SAME completed-state requirements
 m*(R1-R2)<=C*R1 and R1>=gamma0. MEETING INPUT: a useful signed source
@@ -71,6 +75,9 @@ estimate relative to that SAME lag-one reserve, with the original boundary
 errors paid and family-wide constants on a justified trajectory.
 Conditional source loss and raw source derivative norms are not that reserve.
 No new conclusion-only interface is needed for this missing analytic estimate.
+Do not reopen the now-checked word/source recoding or expand computed Green
+polynomials during carrier transport; the next input is quantitative, not
+another generic identity or a presumed sign.
 Evidence: `audits/AUDIT-FINITE-HEAT-SOURCE-GRADIENT-2026-10-02.md`.
 
 NEW CHECKED ORDERED CROSS COST: the original whole-word chord is exactly

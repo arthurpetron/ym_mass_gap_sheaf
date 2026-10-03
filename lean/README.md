@@ -39,6 +39,10 @@ with explicit nome/cutoff guards. `FilteredGainSourcePair` folds the original
 BF4 G2 into the complete source defect plus (a-1)*c*ell(A*b), keeping the
 finite OWN mean residue. Neither conditional source loss nor raw source
 norm is identified with SAME interacting variance or lag-one reserve.
+`SU2QuaternionProductHeatWilsonStein` telescopes the actual full-word defect
+without changing its source or kinetic set. The actual geometry and original
+source V*g_n and upper test 2*V*b are joined by `BF4DyadicWilsonSquareFilteredGainStein`,
+including its OWN-center instance; no geometric recoding hypothesis remains.
 The changing-family signed budget and positive reserve remain OPEN.
 Evidence: `audits/AUDIT-FINITE-HEAT-SOURCE-GRADIENT-2026-10-02.md`.
 
