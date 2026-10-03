@@ -12,6 +12,16 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**CURRENT checked finite-flow/bracket prerequisites (2026-10-03 UTC):**
+Actual overlapping angular brackets, antisymmetry and disjoint commutation
+are proved; headMap saturation, later-cutoff stability and nome-one
+reproduction retain the literal shared spectators under every Haar insertion.
+The computed cutoff is source-specific, not scaling-uniform; reproduction
+does not assert kernel positivity at one. Two focused checks passed seven
+permitted gates. Casimir centrality, Bochner/conditional variance and the
+original signed-window scaling budget remain OPEN. Evidence:
+`audits/AUDIT-FINITE-HEAT-FLOW-ANGULAR-BRACKETS-2026-10-03.md`.
+
 **CURRENT checked ORIGINAL active-variance cutoff comparison (2026-10-03 UTC):**
 A common center retains the mean-mismatch square and constructs LINEAR
 conditional variance order from unit marginal pins and a kernel order

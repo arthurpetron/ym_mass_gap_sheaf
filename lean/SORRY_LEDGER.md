@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## PROVED actual angular brackets and finite heat-flow endpoint only (2026-10-03 UTC)
+
+`SU2QuaternionAngularLieBracket.overlapping_planes_bracket` proves
+[Dij,Djk]=Dik on the actual Haar carrier for three distinct HEAD indices<4,
+0<blocks and arbitrary signed p/shared spectators. Antisymmetry and disjoint
+commutation have coefficient strength. Existing angularDerivative_carrier
+preserves subsequent head derivatives; other-block use needs real reindexing.
+`SU2QuaternionHeadHeatFiniteFlow.inputCutoff` constructs the harmonic
+reassembly's degree bound; `headMap_saturated`, `headMap_cutoff_stable` and
+`headMap_one_reproduction` retain the actual spectator-preserving map and
+EVERY Haar insertion. Endpoint reproduction is NOT kernel positivity at one,
+and the input cutoff is NOT changing-family uniform. Two focused checks passed
+seven permitted gates; independent reviews passed. No sorry/axiom/field/CI or
+exact-chart change; root registration only. Evidence:
+`audits/AUDIT-FINITE-HEAT-FLOW-ANGULAR-BRACKETS-2026-10-03.md`.
+OPEN: Casimir centrality, Bochner square, conditional finite heat-flow variance,
+semigroup/generator and constructive interval-order joins. A fresh-output
+diagonal identification with a shared spectator is NOT supplied by arbitrary
+Haar insertions or existing involution reindexing. Prove the particular
+pullback if used, or construct the original boundary-pinned certificate.
+The SAME surviving-norm complete signed-window budget and justified scaling,
+physical calibration/survival, full continuum QFT, every-group and Clay remain OPEN.
+
 ## PROVED ORIGINAL conditional variance near-unit cutoff leg only (2026-10-03 UTC)
 
 `SU2QuaternionConditionalVarianceOrder.centered_square_minimization_pin`

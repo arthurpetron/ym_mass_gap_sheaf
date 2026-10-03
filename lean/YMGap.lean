@@ -7198,3 +7198,9 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepProjectedDerivativeEnergy
 import YMGap.Continuum.SU2QuaternionConditionalVarianceOrder
 import YMGap.Continuum.SU2QuaternionProductHeatRelativeCutoff
 import YMGap.Continuum.BF4ExactSlabFixedSpatialProjectedVarianceCutoff
+
+-- Concrete prerequisites for conditional finite heat flow: actual angular
+-- brackets and spectator-preserving saturation/endpoint reproduction.
+-- Bochner/conditional Poincare and the original scaling budget remain OPEN.
+import YMGap.Continuum.SU2QuaternionAngularLieBracket
+import YMGap.Continuum.SU2QuaternionHeadHeatFiniteFlow

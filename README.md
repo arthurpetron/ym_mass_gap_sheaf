@@ -10,6 +10,12 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Checked heat-flow prerequisites:** the actual rotation-field brackets and
+finite harmonic heat-flow saturation/endpoint reproduction are proved,
+preserving shared spectators. The conditional Bochner/variance estimate is
+still open; no continuum claim closes. See the
+[proofs and remaining seams](audits/AUDIT-FINITE-HEAT-FLOW-ANGULAR-BRACKETS-2026-10-03.md).
+
 **Checked original-variance cutoff comparison:** the remaining projected
 conditional variance is bounded by a reference-cutoff variance with one
 factor `1+eta`, retaining arbitrary output weights and the ORIGINAL source,

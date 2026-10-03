@@ -27,6 +27,26 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
 
+NOW CHECKED ACTUAL ANGULAR BRACKETS AND FINITE HEAT-FLOW ENDPOINT:
+The real six rotation fields have proved overlapping bracket [Dij,Djk]=Dik,
+plane antisymmetry and disjoint commutation; further HEAD angular transport
+uses the existing genuine derivative-carrier theorem. The actual headMap
+has an explicit input cutoff, saturated harmonic formula, later-cutoff
+stability and nome-one reproduction under every surviving insertion.
+Shared spectators remain; nome-one kernel positivity is NOT asserted.
+Two focused checks passed seven permitted gates; independent reviews passed.
+Evidence: `audits/AUDIT-FINITE-HEAT-FLOW-ANGULAR-BRACKETS-2026-10-03.md`.
+NEXT: actual Casimir centrality/Bochner square plus conditional finite heat-flow
+comparison. Prove semigroup/generator and constructive endpoint order as needed;
+do not assume a generic rational mean-value theorem exists. Keep intermediate
+coordinates distinct. Fresh-output identification with an existing spectator
+needs an explicit particular unit-block pullback, or avoid it by constructing
+the final boundary-pinned conditional certificate directly. HCE arbitrary
+insertions alone are not a diagonal delta insertion. Only AFTER this genuine
+reference estimate join the ORIGINAL Q_K, signed Taylor/action terms and
+SAME surviving norm to the normalized-window consumer. Aggregate scaling,
+physical/continuum/QFT/every-group/Clay remain OPEN; no chart reprint.
+
 NOW CHECKED ORIGINAL ACTIVE-VARIANCE NEAR-UNIT CUTOFF LEG:
 Unit conditional kernels P,R and a common reference center give
 c*Var_R-Var_P=I[(cR-P)*(Q-lift(I(RQ)))^2]+(I(PQ)-I(RQ))^2.

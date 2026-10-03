@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting actual brackets/finite heat-flow endpoint (2026-10-03 UTC;
+chart unchanged): real angular brackets and spectator-preserving headMap
+saturation/stability/nome-one reproduction are checked under every insertion.
+Input cutoff is explicit but source-specific; no endpoint kernel positivity.
+Two focused checks passed seven permitted gates. Actual Bochner/conditional
+variance and signed-window scaling remain OPEN, as do physical/continuum/QFT/
+every-group/Clay. Evidence:
+`audits/AUDIT-FINITE-HEAT-FLOW-ANGULAR-BRACKETS-2026-10-03.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting ORIGINAL active-variance cutoff leg (2026-10-03 UTC;
 chart unchanged): linear own-mean variance order and explicit product tails
 construct a ONE-factor 1+eta comparison under arbitrary certified W.
