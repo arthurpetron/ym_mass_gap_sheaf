@@ -12,6 +12,16 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**CURRENT original cutoff-uniform relative gain (2026-10-03 UTC):**
+`BF4ExactSlabFixedSpatialCubeAllCutoffOwnGain` proves the EXISTING
+OWN-centered commutator gain is at least one quarter of its SAME filtered
+square, hence >=2^-127>0, at every K satisfying K>=1 and headCutoff(w)<=K.
+The fixed parameters are w=1/16, width two, terminal depth zero. Seven
+focused checks passed 49 permitted gates without errors/warnings. Root
+imports registered only, NOT aggregate-checked. No terminal-depth/scaling
+survival or continuum claim is produced. Evidence:
+`audits/AUDIT-CUBE-ALL-CUTOFF-RELATIVE-GAIN-2026-10-03.md`.
+
 **CURRENT original antipodal sign (2026-10-03 UTC):**
 The three antipodal heat modules check an explicit negative original
 single-factor Ricci-two cleared expression beyond both cutoff guards.

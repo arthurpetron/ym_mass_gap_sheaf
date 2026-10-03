@@ -4,7 +4,28 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: An actual antipodal sign prunes a pointwise shortcut (2026-10-03 UTC)
+## Current increment: Original signed gain relative to its SAME square at every guarded cutoff (2026-10-03 UTC)
+
+PROGRESS after `d73d8d4`: move the exact plaquette kinetic test through
+the ORIGINAL transfer before estimating the action tail. Its w^12 factor
+survives at EVERY K>=1. Construct shared-variable heat/action intervals,
+the actual guarded original vacuum interval, the positive OWN odd partition
+and actual mean cap. The complete original Young cost then proves
+G_K>=S_K/4>=2^-127>0 at w=1/16, width two, terminal depth zero, uniformly
+in every cutoff satisfying BOTH original guards. This is an actual relative
+signed producer, not a favorable-gain premise. Seven final focused checks
+passed 49 distinct permitted gates without errors/warnings.
+
+NEXT: retain the full original terminal source V*g_n in the exact tested
+identity; its relative projection signal and endpoint cost are unpaid.
+Do not extrapolate the depth-zero cube floor to late depth, growing loops
+or a justified changing family. The SAME macroscopic ratio, physical
+calibration, QFT/group joins and continuum target remain OPEN. Root imports
+registered only; root aggregate, broad audit and progress metric NOT run.
+CI and exact chart unchanged. Evidence:
+`audits/AUDIT-CUBE-ALL-CUTOFF-RELATIVE-GAIN-2026-10-03.md`.
+
+## Earlier increment: An actual antipodal sign prunes a pointwise shortcut (2026-10-03 UTC)
 
 PROGRESS after `70cca27`: original quaternion jets and finite Casimir tails
 prove a negative single-heat Ricci-two cleared expression at w=5/8 and the

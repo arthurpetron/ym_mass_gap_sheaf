@@ -10,6 +10,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**New checked cutoff-uniform relative signed gain:** at `w=1/16`, width two
+and terminal depth zero, EVERY cutoff satisfying both original guards has
+`G_K >= S_K/4 >= 2^-127 > 0`, where `G_K` is the existing commutator gain
+at its actual interacting OWN mean and `S_K` its SAME filtered square.
+An exact kinetic test preserves its `w^12` factor before the action-tail
+estimate. Seven focused checks passed 49 permitted axiom gates. This removes
+the cutoff-one restriction, NOT terminal-depth, spatial or scaling-family
+control. See the [proof and next unpaid estimates](audits/AUDIT-CUBE-ALL-CUTOFF-RELATIVE-GAIN-2026-10-03.md).
+
 **Checked route correction:** the original single heat factor has an explicit
 negative cleared curvature expression at the antipode, even beyond its cutoff
 guards. This excludes a pointwise bare-factor positive-curvature shortcut,

@@ -27,6 +27,29 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
+NOW CHECKED ORIGINAL CUTOFF-UNIFORM RELATIVE SIGNED GAIN:
+`BF4ExactSlabFixedSpatialCubeAllCutoffOwnGain.originalOwnGain_relative_lower`
+and its `originalOwnGain_floor` prove G_K>=S_K/4>=2^-127>0 at fixed
+w=1/16, width two, terminal depth zero, for EVERY finite K satisfying
+K>=1 and the original head guard.
+G_K is the EXISTING commutator gain at its actual OWN odd mean; S_K is
+its SAME original filtered square. Exact kinetic testing preserves w^12
+before the six-face action-tail estimate. Explicit shared-variable intervals,
+original vacuum transport, positive odd partition, actual mean and complete
+Young cost are constructed. Seven focused checks passed 49 allowed gates.
+This removes the finite pilot's cutoff-one restriction, not its fixed
+coupling/width/depth restrictions. Root imports are registration-only.
+Evidence: `audits/AUDIT-CUBE-ALL-CUTOFF-RELATIVE-GAIN-2026-10-03.md`.
+
+FORWARD NEXT: use exact kinetic testing with the full ORIGINAL source
+V*g_n, not a cube-only replacement. Terminal positivity supplies a positive
+normalizing mass, but not a quantitative relative projection signal or
+endpoint-cost comparison. Identify and prove those estimates before
+extrapolating the depth-zero floor. BACKWARD NEXT remains the SAME
+macroscopic ratio or sufficient signed block-Rayleigh bound on a JUSTIFIED
+changing family. Fixed-small-nome gain is a mechanism witness, not that
+trajectory. All continuum/Clay endpoint fields remain OPEN.
+
 CHECKED BACKTRACK: the ORIGINAL heat at w=5/8, lower identity and upper
 antipode has h>0, Dh=0 and D^2h>2h at EVERY K>=4. Its actual Ricci-two
 cleared polynomial is negative beyond BOTH existing cutoff guards. This

@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL cutoff-uniform relative gain (2026-10-03 UTC;
+chart unchanged): at fixed w=1/16, width two, depth zero, EVERY finite
+cutoff satisfying BOTH original guards has G_K>=S_K/4>=2^-127>0 for
+the EXISTING gain, OWN interacting mean and SAME filtered square.
+The exact kinetic multiplier is retained outside the action-tail error.
+Seven focused checks passed 49 permitted gates. This removes the earlier
+cutoff-one restriction, not terminal-depth, spatial or changing-family
+control. All displayed scaling/continuum claims remain OPEN. Evidence:
+`audits/AUDIT-CUBE-ALL-CUTOFF-RELATIVE-GAIN-2026-10-03.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting ORIGINAL antipodal sign (2026-10-03 UTC; chart unchanged):
 the single heat factor at w=5/8 has a negative Ricci-two cleared polynomial
 at an explicit unit-quaternion configuration, uniformly in later finite cutoff
