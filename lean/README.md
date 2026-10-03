@@ -12,7 +12,21 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT all-depth original relative gain and completed support (2026-10-03 UTC):**
+**CURRENT completed signed gain and bent orbit (2026-10-03 UTC):**
+`BF4WilsonSmallNomeBentSignedLimit` constructs the actual SAME completed
+`C2-w^18*C1>=C2/4>=2^-130`, retaining the existing OWN-centered limit.
+`BF4WilsonSmallNomeBentSignedOrbit` extracts rho=(4/3)*w^18 and proves
+`||T(n+1)v||^2>=rho^(2*n)*2^-128>0` for every natural n, fixed w=1/16,
+width two and the literal bent state. No supplied gain bound or real inverse.
+`BF4WilsonAllNomeGainStrengthConstraint` proves gamma<=1-a whenever the
+SAME next response has a positive floor and actual gain >=gamma*Cnext;
+its exact ceiling deficit is a*(Cprevious-Cnext). Three focused checks
+passed 20 permitted gates. Root imports are registration-only.
+The original combined signed cost, justified changing family and all
+continuum/Clay fields remain OPEN. Evidence:
+`audits/AUDIT-COMPLETED-BENT-SIGNED-ORBIT-2026-10-03.md`.
+
+**Earlier all-depth original relative gain and completed support (2026-10-03 UTC):**
 `BF4ExactSlabFixedSpatialCubeTerminalGain` constructs the actual
 OWN-centered `S/E>=2^-128` and `G>=S/4>0` at EVERY depth and guarded
 cutoff, fixed w=1/16 and width two. `BF4WilsonSmallNomeBentCompletedGain`

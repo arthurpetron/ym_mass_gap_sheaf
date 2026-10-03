@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting SAME completed signed gain and bent orbit
+(2026-10-03 UTC; chart unchanged): the actual C2-w^18*C1>=C2/4>=2^-130
+and rho=(4/3)*w^18 construct positive norm floors for EVERY integer-time
+image of the literal bent state, fixed w=1/16,width2. The original
+OWN-centered limit, state and time map are retained. A necessary strength
+bound gamma<=1-a and exact gain-ceiling deficit identify the stronger
+response-drop target. Three focused checks passed 20 permitted gates.
+The fixed rho gives no scale-uniform cost or changing-family survival;
+all displayed scaling/continuum claims remain OPEN. Evidence:
+`audits/AUDIT-COMPLETED-BENT-SIGNED-ORBIT-2026-10-03.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting ORIGINAL all-depth relative gain and completed support
 (2026-10-03 UTC; chart unchanged): at fixed w=1/16, width two, EVERY
 guarded cutoff and terminal depth has S/E>=2^-128 and G>=S/4>0 for the

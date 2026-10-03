@@ -10,7 +10,18 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**New checked original relative gain and completed support:** at `w=1/16`,
+**New checked completed signed gain and bent orbit:** on the SAME original
+centered bent-loop state, fixed `w=1/16` and width two,
+`C_2 - w^18*C_1 >= C_2/4 >= 2^-130`. With the constructed
+`rho=(4/3)*w^18`, every integer-time image obeys
+`||T(n+1)v||^2 >= rho^(2*n)*2^-128 > 0`. No gain input, replacement
+state or normalization is assumed. A separate checked constraint proves
+that any positive-response relative gain fraction must satisfy
+`gamma <= 1-a`; its deficit to that ceiling is exactly the scaled response
+drop. Three focused checks cover 20 permitted gates, not an aggregate audit.
+See the [proof and sharper scaling target](audits/AUDIT-COMPLETED-BENT-SIGNED-ORBIT-2026-10-03.md).
+
+**Earlier checked original relative gain and completed support:** at `w=1/16`,
 width two, EVERY guarded finite cutoff and terminal depth has
 `S/E >= 2^-128` and `G >= S/4 > 0`, retaining the actual interacting OWN
 mean, full original action, filtered square `S` and SAME even partition `E`.
@@ -24,7 +35,9 @@ gates; no aggregate build is claimed. See the
 one fixed nome and width. It does not give the growing-loop macroscopic
 response ratio or the combined signed block-Rayleigh estimate on a justified
 changing family. Increasing terminal depth removes boundary error; it does
-not increase response lag. Continuum survival, physical calibration, full
+not increase response lag. The new orbit estimate covers every integer lag
+at these fixed parameters, but its very small constant `rho` gives no
+scale-uniform drop budget. Continuum survival, physical calibration, full
 QFT structure and every compact simple group remain open.
 
 **Earlier checked terminal estimate:**

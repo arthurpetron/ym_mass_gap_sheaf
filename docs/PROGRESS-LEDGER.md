@@ -4,7 +4,32 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: All-depth original relative gain reaches completed bent-loop support (2026-10-03 UTC)
+## Current increment: Actual completed signed gain and every integer-lag bent image (2026-10-03 UTC)
+
+PROGRESS after `5f32af8`: the constructed all-depth original G>=S/4
+reaches the EXISTING SAME completed C2-w^18*C1>=C2/4>=2^-130.
+The diagonal convergence modulus is computed from the existing independent
+cutoff/time thresholds, retaining the separate representative threshold.
+The actual ratio rho=(4/3)*w^18 propagates by positive powers of the original
+time map. Every integer-time image satisfies
+||T(n+1)v||^2>=rho^(2*n)*2^-128>0 at fixed w=1/16,width2,literal bent loop.
+This is an actual instance, not a supplied favorable-gain premise.
+The separate necessary bound gamma<=1-a and exact ceiling-deficit identity
+use the SAME positive response, eventual order and no real inverse.
+Three serialized focused checks passed 20 permitted gates (three axiom-free).
+
+NEXT: construct the original COMBINED energy/signed multiplication estimate
+or SAME macroscopic ratio on a JUSTIFIED changing family. The fixed rho
+does not yield a scale-uniform drop coefficient. A gain-based approach must
+control its deficit (1-a)*Cnext-G=a*(Cprevious-Cnext), not extrapolate
+a fixed quarter fraction to reference a approaching one. No such parameter
+limit is asserted for growing loops. All continuum/Clay endpoint fields stay
+OPEN. No old proof module was edited; root imports are registration-only.
+Aggregate root, broad audit/guard and progress metric NOT run; CI and exact
+chart unchanged. Evidence:
+`audits/AUDIT-COMPLETED-BENT-SIGNED-ORBIT-2026-10-03.md`.
+
+## Earlier increment: All-depth original relative gain reaches completed bent-loop support (2026-10-03 UTC)
 
 PROGRESS after `6fe176c`: shared-variable shape estimates retain BOTH
 linear terminal fluctuations and their cross term. The actual original

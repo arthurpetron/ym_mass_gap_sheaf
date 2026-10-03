@@ -27,7 +27,20 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
-NOW CHECKED ALL-DEPTH ORIGINAL RELATIVE GAIN AND COMPLETED SUPPORT:
+NOW CHECKED ACTUAL COMPLETED SIGNED GAIN AND EVERY INTEGER-LAG BENT IMAGE:
+`BF4WilsonSmallNomeBentSignedLimit` passes the actual G>=S/4 through the
+existing independently controlled gain approximation and OWN-centered limit:
+C2-w^18*C1>=C2/4>=2^-130 on the SAME completed bent-loop state.
+`BentSignedOrbit` constructs rho=(4/3)*w^18, propagates the adjacent ratio
+using existing positive powers, and proves ||T(n+1)v||^2>=rho^(2n)*2^-128>0
+for every n. Fixed w=1/16,width2,literal bent observable remain explicit.
+`GainStrengthConstraint` proves any relative gain on a positive response
+obeys gamma<=1-a; the exact ceiling deficit is a*(Cprevious-Cnext).
+Three focused checks passed 20 permitted gates. Root registration only;
+all changing-family/continuum endpoint fields remain OPEN. Evidence:
+`audits/AUDIT-COMPLETED-BENT-SIGNED-ORBIT-2026-10-03.md`.
+
+EARLIER CHECKED ALL-DEPTH ORIGINAL RELATIVE GAIN AND COMPLETED SUPPORT:
 `BF4ExactSlabFixedSpatialCubeTerminalGain` constructs S/E>=2^-128,
 G>=S/4>0 and G/E>=2^-130 for the EXISTING original bent-loop message,
 actual OWN odd mean and SAME even partition. Both guards K>=1 and
@@ -48,6 +61,14 @@ boundary; it does not create a larger response lag. BACKWARD NEXT remains
 s*D<=C*Z1*ell(b^2), or the direct SAME macroscopic-response-ratio alternative,
 on a JUSTIFIED changing family. Do not extend the fixed six-edge, small-nome,
 width-two estimate to growing dyadic squares or use it as that family.
+The fixed orbit now covers every integer lag, but its constant rho gives
+only a drop coefficient 1-rho, not O(1/side). On a proposed gain route,
+estimate the deficit to its ceiling relative to the SAME next response,
+not merely positivity or a parameter-independent quarter fraction. The
+identity a*(Cprevious-Cnext)=(1-a)*Cnext-G identifies that missing estimate.
+Quantitative use must retain the reference factor a; at a=0 the deficit is
+zero regardless of the response drop, so deficit control alone is insufficient.
+Do not assert that a growing-loop reference approaches one without proving it.
 Spatial/spacing control, continuum survival, calibration, full QFT structure,
 every group and the continuum/Clay endpoint fields remain OPEN.
 
