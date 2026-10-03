@@ -27,6 +27,26 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
 
+NOW CHECKED ORIGINAL JOINT-HEAT VARIANCE JOINS:
+FORWARD, literal slot-0/1 projection pins consume the one-link Poincare
+without a universal headMap identification. Actual joint-weight residual
+orthogonality/Pythagoras and coefficient-one Jensen preserve the existing
+output and shared spectators. Fixed-original-input residuals commute
+coefficientwise with the actual heat sweep, including repeated/empty lists.
+BACKWARD, exact conditional variance tower and derived joined mass-one pins
+retain the determinant needed by projectedReferenceVariance. Four focused
+checks passed 32 permitted gates; independent mathematical reviews passed.
+Evidence: `audits/AUDIT-ORIGINAL-JOINT-HEAT-VARIANCE-JOINS-2026-10-03.md`.
+REPOINT: compose weighted Pythagoras/contraction and residual commutation
+into width-free joint-law Efron--Stein; apply selected Poincare to ORIGINAL
+p with ALL remaining positive heat factors in its surviving weight. Prove
+arbitrary-pair transport; max only the fixed-original-source chart cutoffs.
+The downstream projected Q has actual inactive lower-fringe independence,
+but its Poincare energy Gamma(Q) is SECOND derivative, not its Q^2 budget.
+That genuine estimate, SAME surviving-norm signed cost, BOTH Taylor terms
+and justified changing-family control remain OPEN, together with physical/
+OS/continuum/QFT/every-group/Clay. Exact chart unchanged; no reprint.
+
 NOW CHECKED ORIGINAL ONE-LINK CONDITIONAL ANGULAR POINCARE:
 FORWARD, actual finiteNomeFlow nome-one reproduction and particular conditional
 endpoints give F(1)=C_w(p^2), F(w)=(C_w p)^2 and G(1)=C_w Gamma(p), retaining

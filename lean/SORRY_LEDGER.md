@@ -1,5 +1,33 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL joint-heat variance joins only (2026-10-03 UTC)
+
+`SU2QuaternionSelectedConditionalPoincare.selectedConditional_weighted_angular_variance`
+acts on actual project_0(heatAt(0,1)*p), with an arbitrary certified W
+independent only of input 0. Its all-insertion pins retain original output 1.
+`SU2QuaternionWeightedHeatProjection.heatResidual_weighted_orthogonal` and
+`heatUpdate_weighted_square_decomposition` derive actual joint-law
+orthogonality/Pythagoras from original Haar unit mass, with the heat factor
+once and signed input-independent R. `heatUpdate_weighted_square_le` adds
+constructed actual positivity and proves coefficient-one contraction.
+`SU2QuaternionProductHeatSweepResidual.residual_sweep_comm` proves exact
+coefficient commutation with the ORIGINAL-input residual, including repeated
+or empty schedules; no enlarged intermediate-source cutoff is supplied.
+`SU2QuaternionConditionalVarianceTower.variance_tower_pin` proves exact
+total variance for W*lift(R), and `tower_mass_pin` derives actual carrier
+normalization. `determinant_tower_pin` preserves the downstream determinant;
+`variance_certificate` and `weighted_jensen` use the actual replica square.
+Four focused checks passed 32 permitted gates; independent mathematical
+reviews passed. No sorry/axiom/field/CI/chart change; root registration only.
+Evidence: `audits/AUDIT-ORIGINAL-JOINT-HEAT-VARIANCE-JOINS-2026-10-03.md`.
+OPEN: arbitrary-pair selected Poincare transport and width-free joint-law
+Efron--Stein/product join. Actual projected Q is independent of inactive
+lower fringe by its constructed family projection; upper fringe remains
+shared. Poincare applied to this first-derivative Q requires Gamma(Q), a
+second-derivative estimate NOT its current Q^2 budget. SAME surviving-norm
+signed cost, BOTH Taylor terms and justified changing-family control,
+physical/OS/continuum/QFT/every-group/Clay remain OPEN.
+
 ## PROVED actual angular brackets and finite heat-flow endpoint only (2026-10-03 UTC)
 
 `SU2QuaternionAngularLieBracket.overlapping_planes_bracket` proves

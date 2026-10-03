@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL joint-heat variance joins (2026-10-03 UTC;
+chart unchanged): actual slot-0/1 conditional Poincare, joint-law weighted
+orthogonality/Pythagoras/Jensen, original-residual sweep commutation and
+the exact variance tower retain full kernels, output weights and shared
+spectators. Four focused checks passed 32 permitted gates; mathematical
+reviews passed. Arbitrary-pair Poincare/product Efron--Stein join remains
+OPEN. The downstream first-derivative source needs an actual Gamma(Q)
+second-derivative estimate; its existing Q^2 budget is not that estimate.
+Interacting/scaling/physical/OS/continuum/QFT/every-group/Clay remain OPEN.
+Evidence: `audits/AUDIT-ORIGINAL-JOINT-HEAT-VARIANCE-JOINS-2026-10-03.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting ORIGINAL one-link conditional angular variance
 (2026-10-03 UTC; chart unchanged): literal square derivatives, the derived
 energy order and actual particular same-output endpoints prove

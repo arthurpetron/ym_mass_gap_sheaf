@@ -10,6 +10,18 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Verified ORIGINAL joint-heat variance joins (2026-10-03 UTC):**
+The one-link estimate now acts on the literal in-place slot-0/1 projection.
+Exact joint-heat orthogonality gives weighted Pythagoras and coefficient-one
+Jensen, preserving the existing output and arbitrary shared spectators.
+Actual sweeps commute with the ORIGINAL-input residual coefficientwise;
+the conditional variance tower retains the full joined kernel and own mean.
+Four focused checks passed 32 constructive gates. Arbitrary-pair Poincare
+transport and the width-free active-product join remain open. The downstream
+projected source is already differentiated: its input-gradient energy needs
+a genuine second-derivative estimate, not the existing source-square budget.
+See the [proved joins and exact remaining consumer](audits/AUDIT-ORIGINAL-JOINT-HEAT-VARIANCE-JOINS-2026-10-03.md).
+
 **Verified ORIGINAL conditional angular variance bound (2026-10-03 UTC):**
 The one-link estimate is now derived:
 `H[W (C_w(p^2) - (C_w p)^2)] <= (1-w^2) H[W C_w(Gamma(p))]`.

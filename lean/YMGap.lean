@@ -7252,3 +7252,11 @@ import YMGap.Continuum.SU2QuaternionWeightedHeatInterpolation
 import YMGap.Continuum.RationalLaurentQuadraticIncrement
 import YMGap.Continuum.SU2QuaternionHeatInterpolationEndpoints
 import YMGap.Continuum.SU2QuaternionConditionalAngularPoincare
+
+-- Original joint-law algebra for the active-product join: exact tower,
+-- slot-0/1 Poincare and coefficient-one weighted Pythagoras/Jensen.
+-- Product Efron--Stein, interacting scaling and Clay remain OPEN.
+import YMGap.Continuum.SU2QuaternionConditionalVarianceTower
+import YMGap.Continuum.SU2QuaternionSelectedConditionalPoincare
+import YMGap.Continuum.SU2QuaternionWeightedHeatProjection
+import YMGap.Continuum.SU2QuaternionProductHeatSweepResidual

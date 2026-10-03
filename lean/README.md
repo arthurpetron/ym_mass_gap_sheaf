@@ -12,6 +12,18 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**CURRENT checked ORIGINAL joint-heat variance joins (2026-10-03 UTC):**
+Literal slot-0/1 selected conditional Poincare, joint-heat residual
+orthogonality/Pythagoras/Jensen, fixed-original-input sweep/residual
+commutation and the exact conditional variance tower preserve all shared
+outputs and weights. Four focused checks passed 32 permitted gates; no full
+build/audit. Arbitrary-pair Poincare and the width-free active-product join
+remain OPEN. Its complete projected source is already a first derivative,
+so the new input-gradient energy requires a second-derivative estimate;
+the Q^2 budget is not that estimate. Interacting/scaling/physical/OS/
+continuum/QFT/every-group/Clay remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-JOINT-HEAT-VARIANCE-JOINS-2026-10-03.md`.
+
 **CURRENT checked ORIGINAL conditional angular Poincare (2026-10-03 UTC):**
 Actual square numerator pderiv, the derived weighted energy order, a signed
 Laurent comparison polynomial and PARTICULAR same-output endpoints prove
