@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting fringe-first ORIGINAL derivative (2026-10-03 UTC;
+chart unchanged): integrating the complete incoming derivative over the
+unheated lower fringe BEFORE squaring preserves its arbitrary-insertion
+score. Exact SAME-weight Pythagoras removes a nonnegative residual square.
+The complete projected signed bulk is proved no larger, with kinetic mass,
+all original action weights and BOTH signed Taylor terms retained. The
+existing same-norm error onsets still apply, including zero surviving norm.
+Three focused targets passed 22 permitted gates; independent review passed.
+Active Jensen debt and useful JOINT normalized-window control on a justified
+changing family remain OPEN, as do physical/continuum/QFT/every-group/Clay.
+Evidence: `audits/AUDIT-ORIGINAL-FRINGE-FIRST-DERIVATIVE-2026-10-03.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting scalar survival obstruction (2026-10-03 UTC; chart
 unchanged): unit zero-time response, a compatible strictly subunit slow
 rate and positive overlap do not imply selected-response survival. Explicit

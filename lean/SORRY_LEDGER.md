@@ -1,5 +1,30 @@
 # Sorry Ledger
 
+## PROVED fringe-first ORIGINAL derivative and smaller signed cost only (2026-10-03 UTC)
+
+`SU2QuaternionHaarFamilyWeightedPythagoras.family_weighted_square_decomposition`
+constructs exact weighted Pythagoras for the actual family projection;
+`familyProject_weighted_square_le` gives coefficient-one contraction.
+`BF4ExactSlabFixedSpatialLastStepProjectedDerivative.lastStep_projectedDerivative_carrier`
+preserves the ORIGINAL score under every surviving insertion after lower-fringe
+integration. Its `lastStep_projectedDerivative_weighted_budget_decomposition`
+identifies the exact removed residual square; the weighted budget comparison
+includes arbitrary certified output W and retains kinetic mass.
+`BF4ExactSlabFixedSpatialLastStepProjectedDerivativeEnergy.projectedDerivativeSignedBulk_le_source`
+proves the COMPLETE signed bulk is no larger, with the literal Vbar^2,G^2
+and BOTH signed Taylor remainders. Its
+`original_block_projectedDerivative_cost_relative_tolerance` bounds the
+SAME D with existing correction/drift/reconstruction onsets and 1+sigma.
+No source, terminal mass or B inverse; zero B is included. Three serialized
+focused targets passed 22 permitted gates; independent review passed.
+No sorry/axiom/field/CI/chart change; root registration only.
+Evidence: `audits/AUDIT-ORIGINAL-FRINGE-FIRST-DERIVATIVE-2026-10-03.md`.
+OPEN: the remaining ACTIVE conditional Jensen/action debt of the projected
+source, useful JOINT normalized-window control on a JUSTIFIED changing family,
+physical calibration/survival, continuum QFT, every compact simple group and Clay.
+The unweighted heat-pairing defect theorem does not supply a weighted
+conditional Poincare estimate; finite-cutoff endpoint defects are not paid.
+
 ## PROVED scalar slow-mode survival shortcut obstruction only (2026-10-03 UTC)
 
 `RationalTwoModeSurvivalObstruction.response_zero`, `horizon_rate_loss`,

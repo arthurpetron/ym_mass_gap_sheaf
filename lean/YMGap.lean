@@ -7184,3 +7184,10 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepAsymmetricEnergy
 -- Explicit scalar positive-mode diagnostic: compatible rate and positive
 -- overlap do not guarantee selected-response survival. NOT a BF4/YM instance.
 import YMGap.Continuum.RationalTwoModeSurvivalObstruction
+
+-- Fringe-integrate the COMPLETE incoming derivative before squaring;
+-- exact weighted residual removal and a smaller ORIGINAL signed cost.
+-- Active conditional variance and useful changing-family control remain OPEN.
+import YMGap.Continuum.SU2QuaternionHaarFamilyWeightedPythagoras
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepProjectedDerivative
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepProjectedDerivativeEnergy

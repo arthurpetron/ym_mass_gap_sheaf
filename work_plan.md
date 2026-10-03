@@ -27,6 +27,27 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
 
+NOW CHECKED FRINGE-FIRST ORIGINAL SOURCE DERIVATIVE:
+For the COMPLETE incoming derivative Y, put Q=P_lowerFringe(Y). The actual
+score is I[K*Q] under EVERY surviving insertion, with the original action
+and kinetic mass retained. Weighted Pythagoras constructs
+oldBudget=projectedBudget+nonnegativeFringeResidualBudget under arbitrary
+certified upper W. In particular W=Vbar^2*G^2 gives a genuinely no-larger
+all-active/six-plane angular budget and COMPLETE signed bulk. The SAME cost
+obeys D<=ProjectedBulk+(zeta+delta+epsilon)*Z1*B at the EXISTING three onsets;
+both signed Taylor remainders and the near-unit 1+sigma coefficient survive.
+Three narrow targets passed 22 permitted gates; independent review passed.
+Evidence: `audits/AUDIT-ORIGINAL-FRINGE-FIRST-DERIVATIVE-2026-10-03.md`.
+REPOINT: study the remaining ACTIVE conditional variance of Q with actual
+upper W, jointly with the signed Taylor difference in the COMPLETE normalized
+window. The preimage-norm smoothing theorem is not a surviving-norm estimate;
+the unweighted heat-pairing bound is not this conditional-variance estimate.
+A truncated-kernel semigroup argument must account for endpoint projection
+defects and intermediate positivity, not assume the cutoff is the identity.
+No useful aggregate bound or JUSTIFIED changing family is supplied. Physical
+calibration/survival/continuum/QFT/every-group/Clay remain OPEN. The exact
+displayed chart claims are unchanged; do not reprint the chart.
+
 NOW CHECKED SELECTED-RESPONSE SURVIVAL OBSTRUCTION:
 An explicit normalized positive two-mode family has s=n+1, slow rate
 q=1-1/(2s)<1, positive raw slow weight 2^(-4s), and C(0)=1, yet

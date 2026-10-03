@@ -12,6 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**CURRENT checked fringe-first ORIGINAL derivative (2026-10-03 UTC):**
+The complete incoming derivative Y is averaged over the unheated lower
+fringe BEFORE squaring. Its arbitrary-insertion score pin is unchanged;
+weighted Pythagoras gives oldBudget=projectedBudget+fringeResidualBudget.
+The latter term is nonnegative under every certified output weight.
+The all-active/six-plane consumer proves the projected signed bulk is no
+larger than the old one, retaining kinetic mass, integrated original action,
+Vbar^2,G^2, both signed Taylor terms and the existing error onsets. Zero B
+is included without an inverse. Active conditional Jensen debt and the
+useful JOINT changing-family estimate remain OPEN. Three focused checks
+passed 22 permitted gates; root registration only, no full build/audit.
+Evidence: `audits/AUDIT-ORIGINAL-FRINGE-FIRST-DERIVATIVE-2026-10-03.md`.
+
 **CURRENT checked near-unit ORIGINAL source coefficient (2026-10-03 UTC):**
 Asymmetric SAME-weight Young replaces the permanent factor two by 1+sigma
 for every positive rational sigma. The explicit tighter correction tolerance

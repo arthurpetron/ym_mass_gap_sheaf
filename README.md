@@ -10,6 +10,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Checked fringe-first improvement:** averaging the complete incoming
+source derivative over the unheated fringe BEFORE squaring preserves the
+original score. Weighted Pythagoras removes an exactly identified
+nonnegative residual square. The smaller budget now bounds the complete
+original signed cost, with all action weights, both signed Taylor terms
+and the existing same-norm error payments retained. Active-link variance
+debt and the joint scaling-family estimate remain open. See the
+[proof and focused checks](audits/AUDIT-ORIGINAL-FRINGE-FIRST-DERIVATIVE-2026-10-03.md).
+
 **Checked route correction:** normalized positive two-mode data show that
 a correctly scaled slow rate and merely positive overlap do not guarantee
 survival of the selected excitation. The actual original-source overlap or
