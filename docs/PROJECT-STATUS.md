@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL three-column Gram alternative (2026-10-03 UTC;
+chart unchanged): the literal positive three-copy shared-tail wedge gives
+6*(M*Gram-J). The SAME original transfer constructs M^2*Gram-scoreBudget>=0,
+with no source/conditional-mass inverse. Its complete angular/signed-cost
+consumer retains all original weights, the reciprocal correction, both
+signed Taylor remainders and SAME-norm error payments. The alternative
+ceiling is LARGER than the still available paired budget. Three focused
+targets passed 17 permitted gates; independent review passed. The useful
+signed bulk comparison and justified changing family remain OPEN.
+Evidence: `audits/AUDIT-ORIGINAL-THREE-GRAM-2026-10-03.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting ORIGINAL surviving-norm drift and reconstruction
 payments (2026-10-03 UTC; chart unchanged): the actual reciprocal satisfies
 ell[A^2*phi_k^2]<=ell[b^2]. The original terminal drift is now bounded by

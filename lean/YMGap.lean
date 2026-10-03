@@ -7151,3 +7151,10 @@ import YMGap.Continuum.QuaternionHaarConditionalRegressionWitness
 import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalDrift
 import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalRelativeEnergy
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepDriftPaidCost
+
+-- Constructed ORIGINAL three-column Gram alternative: all action factors
+-- and signed Taylor terms survive. This is a LARGER upper budget, not a
+-- useful changing-family norm comparison or continuum closure.
+import YMGap.Continuum.SU2QuaternionMultiHeadThreeGram
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepThreeGramBound
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepThreeGramCost

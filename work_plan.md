@@ -57,17 +57,25 @@ NOT nome/width/spacing-uniform moduli. Keep the reciprocal correction,
 M=T1, G_k^2, Vbar^2 and vacuum cross-cancellation visible in the angular
 estimate. No canonical field or displayed chart claim closes; Clay is OPEN.
 
-NEXT BOUNDED MATHEMATICAL CANDIDATE (source review, NOT proved):
-M*Gram-J is the three-column conditional Gram determinant of (a,c,1).
-A literal three-copy signed wedge certificate could give J<=M*Gram,
-absorbing the mismatch with the correct factor without dividing by U.
-Existing shared-tail copy/lift and partial-factorization APIs suffice;
-do not build a general determinant or reindex framework. Its original
-weighted consumer would still need the useful M^2*Gram/B comparison and
-family dependence, with all action factors retained. This is not the
-invalid A^2/U omission refuted by the checked Haar witness, nor a new
-mandatory canonical frontier field. See the bounded candidate in the
-regression/drift audit above.
+NOW CHECKED THREE-COLUMN GRAM ALTERNATIVE AND COMPLETE ORIGINAL COST:
+The literal positive three-copy wedge of (a,c,1), with identical shared
+tail and all three original W factors, integrates to 6*(M*Gram-J).
+Its constructed Certificate gives J<=M*Gram without dividing by U or
+discarding the mean mismatch. The actual T1 certificate then gives
+M^2*Gram-scoreBudget>=0. Arbitrary certified output weights and square
+insertions preserve this inequality. The full original active-link/six-plane
+consumer retains Vbar^2*G_k^2*M^2, the reciprocal correction and BOTH signed
+Taylor remainders. The existing separate onsets pay drift/reconstruction in
+Z1*B. IMPORTANT: this is a LARGER alternative ceiling, not a tighter estimate;
+the original paired budget remains available. Three focused checks passed
+17 permitted gates; independent mathematical and source/log review passed.
+Evidence: `audits/AUDIT-ORIGINAL-THREE-GRAM-2026-10-03.md`.
+REPOINT: prove a useful combined signed bulk/norm estimate on the actual
+OWN-centered growing-square family, choosing the original paired or Gram
+budget according to the estimate. No useful M^2*Gram/B comparison, changing
+family control, canonical field or displayed chart claim is closed here.
+Do not require a general determinant compiler or an inverse-U floor. Fixed
+algebraic constants 6 and 1/6 do not supply a coupling-uniform positive gap.
 
 NOW CHECKED LAST-STEP PAIRED SCORE AND COMPLETE SIGNED-COST CONSUMER:
 Take the actual incoming a=g_(n+r), c=T^r(g_n*psi), outgoing A=T a,

@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**New checked original three-column Gram bound:** a positive three-copy
+wedge supplies a division-free alternative ceiling for the actual last-step
+angular cost, retaining its signed cross term and every original weight.
+The complete signed-cost consumer preserves both Taylor remainders and the
+same-norm error payments. This ceiling is larger than the existing paired
+budget; the useful changing-family estimate remains open. See the
+[mathematical identity, scope and focused checks](audits/AUDIT-ORIGINAL-THREE-GRAM-2026-10-03.md).
+
 **New checked same-norm approximation payments:** the original interacting
 source now pays both terminal drift and complete reconstruction error
 relative to its SAME surviving norm, with computed onsets independent of

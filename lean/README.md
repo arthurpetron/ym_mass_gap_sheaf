@@ -12,6 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**CURRENT checked ORIGINAL three-column Gram alternative (2026-10-03 UTC):**
+The positive three-copy shared-tail wedge integrates to 6*(M*Gram-J).
+Only W needs positivity; signed sources, zero heads/tail and all surviving
+weights are retained. The SAME T gives M^2*Gram-scoreBudget>=0 with no
+source or normalizer inverse. The full original angular/signed-cost
+consumer keeps Vbar^2*G_k^2*M^2, the correction, both signed Taylor
+remainders and separate SAME-norm error payments. This is a LARGER
+alternative ceiling, not an improvement in size. Three focused checks
+passed 17 permitted gates; useful family-relative control remains OPEN.
+Evidence: `audits/AUDIT-ORIGINAL-THREE-GRAM-2026-10-03.md`.
+
 **CURRENT checked ORIGINAL SAME-norm drift and reconstruction (2026-10-03 UTC):**
 The constructed finite ratio satisfies ell[A^2*phi_k^2]<=B=ell[b^2].
 Actual terminal comparison now bounds drift by kappa*rho^(n+t-1)*Z1*B
