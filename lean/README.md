@@ -12,7 +12,16 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT checked original channel/OWN-variance bound (2026-10-03 UTC):**
+**CURRENT checked least-norm ORIGINAL half-anchor preimage (2026-10-03 UTC):**
+Every exact half-time preimage of the existing normalized anchor differs
+from the constructed preimage by an orthogonal vector in the actual kernel.
+Exact Pythagoras proves the constructed preimage has least squared norm.
+No inverse, injectivity or analytic ratio is assumed. One focused target
+passed three permitted gates. Choosing another exact preimage cannot lower
+this cost; no uniform cap or changing-family survival is proved. Evidence:
+`audits/AUDIT-ORIGINAL-MINIMAL-PREIMAGE-2026-10-03.md`.
+
+**Earlier checked original channel/OWN-variance bound (2026-10-03 UTC):**
 The complete channel increment now has an actual comparison against the
 SAME interacting variance, retaining the original weighted centered-source
 mean square. No new analytic premise or proxy norm is used. One focused

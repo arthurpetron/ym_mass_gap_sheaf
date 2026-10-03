@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting least-norm ORIGINAL half-anchor preimage (2026-10-03
+UTC; chart unchanged): every other exact preimage differs by an actual
+half-time kernel vector orthogonal to the constructed preimage. Exact
+Pythagoras proves least squared norm on the SAME completion, without an
+inverse or injectivity. One focused target passed three permitted gates.
+Changing exact preimages cannot lower this cost. A uniform norm cap,
+changing-family response ratio and all displayed continuum boxes stay OPEN.
+Evidence: `audits/AUDIT-ORIGINAL-MINIMAL-PREIMAGE-2026-10-03.md`.
+
 Verified supporting ORIGINAL channel/OWN-variance comparison (2026-10-03
 UTC; chart unchanged): the complete increment and SAME interacting variance
 retain the exact original transfer quadratic; its constructed Gram floor

@@ -25,7 +25,32 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
+### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
+
+NOW CHECKED LEAST-NORM ORIGINAL HALF-ANCHOR PREIMAGE:
+`DyadicMinimalPreimage.halfAnchorPreimage_difference_orthogonal`,
+`halfAnchorPreimage_norm_decomposition` and `halfAnchorPreimage_norm_minimal`
+prove actual kernel orthogonality, exact Pythagoras and least squared norm
+among ALL exact half-time preimages of the existing normalized anchor.
+The original completion and its boundary kernel remain; no inverse,
+injectivity or analytic ratio is assumed. One focused target passed three
+permitted gates. Evidence:
+`audits/AUDIT-ORIGINAL-MINIMAL-PREIMAGE-2026-10-03.md`.
+This rules out lowering the preimage cost by choosing another exact
+preimage. It does NOT supply a family-uniform cap or continuum survival.
+
+BACKWARD INPUT, NOT AN EXTRA ONE-STEP REQUIREMENT:
+The sufficient existing consumer is
+`DyadicNormalizedMacroRatio.normalizedAnchorResponse_block_floor`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicNormalizedMacroRatio.lean:132`).
+Its missing input is kappa*R(side)<=R(2*side), with ONE positive kappa on a
+JUSTIFIED changing family. The SAME relative one-step signed-cost budget
+is a sufficient producer through `response_anchor_bridge`, not a necessary
+extra premise if the macroscopic ratio can be proved directly. Do not add
+another conditional survival wrapper. NEXT FORWARD remains quantitative
+control of the complete original recombined signed cost/response, retaining
+all action, terminal and chronological-centering factors. Independent
+physical time/action calibration and canonical OS/QFT joins stay OPEN.
 
 NOW CHECKED ACTUAL CHANNEL INCREMENT AGAINST OWN INTERACTING VARIANCE:
 `ChannelOwnVariance.paddedSquare_channel_ownVariance_identity` proves

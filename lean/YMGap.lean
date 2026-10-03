@@ -7096,3 +7096,6 @@ import YMGap.Continuum.BF4DyadicWilsonSquareTwoCopyRayleighDeterminant
 
 -- Original complete channel increment versus OWN variance; not a scaling rate.
 import YMGap.Continuum.BF4DyadicWilsonSquareChannelOwnVariance
+
+-- Least norm among exact original half-anchor preimages; not a uniform cap.
+import YMGap.Continuum.BF4WilsonAllNomeDyadicMinimalPreimage
