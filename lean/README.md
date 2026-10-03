@@ -13,6 +13,19 @@ discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
 **CURRENT original signed filtered source and SAME response target (2026-10-03 UTC):**
+`BF4ExactSlabFixedSpatialCubeBentParity` now supplies a computed physical
+odd-link witness and ORIGINAL Haar vanishing for 62 of the 64 literal
+source subsets. `BF4ExactSlabFixedSpatialCubeBentComplement` evaluates the
+surviving five-face term as 1/8 by three shared-link fusions and two
+Haar-only backtrack cancellations, retaining the complete spectator.
+`BF4ExactSlabFixedSpatialCubeBentActionMoment.tested_bent_action_channel`
+joins both survivors to the ACTUAL six-face cutoff-one cubeWeight:
+H[(P*F)*Vcube]=alpha/2+alpha^5/8, alpha=coeffW(w,1), at every rational w.
+All 27 printed gates in three focused checks stay within the allowed gate.
+The full weighted moments, OWN-centered gain, kinetic test join and
+changing-family estimate remain OPEN. Root imports are registered only;
+no aggregate check or full build ran.
+
 `BF4ExactSlabFixedSpatialCubeBentFusion` now proves the first actual numerical
 contraction: H[F^2]=1 and H[F*chi_p01*chi_p02]=1/2 on the ORIGINAL slice
 carrier. Its adjacent-face fusion retains every insertion independent of

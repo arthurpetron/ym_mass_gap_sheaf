@@ -87,11 +87,30 @@ the ORIGINAL slice. The shared-link fusion retains arbitrary independent
 insertions; its generic bilinear proof retains both tails. Four new public
 allowed gates and independent reviews passed. This supplies the first
 favorable channel coefficient, not the seven full weighted moments or a
-gain sign. NEXT use the actual six-face subset parity to retain only the
-singleton Q and its five-face complement in the tested P channel, then
-contract that complement through original shared-link fusion and Haar-unit
-backtrack cancellation. Do not substitute a cycle basis or free-polynomial
-unit relation. K=1 still FAILS headCutoff(1/2)>=17;
+gain sign. NEW CHECKED ACTION CHANNEL: literal subset parity now annihilates
+62 of 64 terms; the singleton Q and five-face complement have exact original
+moments 1/2 and 1/8. Three fusions and two Haar-unit backtracks retain every
+spectator. `BF4ExactSlabFixedSpatialCubeBentActionMoment` joins these to
+H[(P*F)*cubeWeight(w,1)]=alpha/2+alpha^5/8, alpha=coeffW(w,1), for ALL
+rational w. Three focused checks passed 27 allowed gates. No cycle basis or
+free-polynomial sphere relation was substituted.
+
+SOURCE-REVIEWED NEXT MATHEMATICAL ATTACK (NOT PROVED): avoid full seven-moment
+expansion where actual finite small-nome certificates suffice. With
+ell(p)=H[V*p], b=TF-c*T1 at its OWN odd mean, a=r^6 and
+Q=ell[(T1)^2*(F-c)^2], the literal positive square can give
+2*G>=C2-a^2*Q. An original tested P channel and Haar Cauchy--Schwarz can
+lower-bound C2; produce the separate vacuum channel H[P*V]=2*r+2*r^5 and
+its kinetic test, then build literal V-1 and T1-1 interval certificates.
+The SAME odd mean can be bounded from their product cap and H[F]=0;
+do not identify odd and even partitions. The existing partial-Haar
+certificate integration and normalized kinetic marginal provide the
+interfaces; DIRECT K=1 positivity still needs an actual producer, not a
+headCutoff assumption. This is an alternative concrete finite-gain route,
+not a new generic consumer or a changing-family estimate. The full
+seven-moment route below remains a backup rather than a mandatory field.
+
+K=1 still FAILS headCutoff(1/2)>=17;
 no completed, all-cutoff or growing-family estimate follows. NEXT FORWARD
 evaluate those seven ORIGINAL cube Haar moments and certify their signed
 polynomial, then control the later-cutoff/depth remainder. Direct two-/

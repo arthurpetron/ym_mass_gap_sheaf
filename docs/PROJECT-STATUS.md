@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL action channel (2026-10-03 UTC; chart
+unchanged): 62 of 64 literal source subsets vanish; the singleton and
+five-face complement moments are exactly 1/2 and 1/8. Their SAME cutoff-one
+cube action integral is alpha/2+alpha^5/8, alpha=coeffW(w,1). Three focused
+checks passed 27 allowed gates. Full weighted moments, OWN-centered gain,
+physical changing-family estimates and all displayed scaling/continuum
+claims remain OPEN. Evidence:
+`audits/AUDIT-CUBE-BENT-LOOP-SIGNED-GAIN-2026-10-03.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting ORIGINAL numerical fusion (2026-10-03 UTC; chart
 unchanged): the literal bent loop has H[F^2]=1; the original origin p01/p02
 face traces fuse to F/2 with every shared-link-independent insertion

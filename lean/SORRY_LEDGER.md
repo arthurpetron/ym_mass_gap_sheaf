@@ -1,5 +1,34 @@
 # Sorry Ledger
 
+## PROVED original subset parity, complementary moment and source-action channel only (2026-10-03 UTC)
+
+- `BF4ExactSlabFixedSpatialCubeBentParity.cubeSelections_parity_checked`
+  computes only six-face/twelve-link incidence. `badSelection_haar_zero`
+  transports its physical odd-edge witness through exact original block
+  degree and selected-block Fubini; 62 of 64 literal subsets vanish.
+- `BF4ExactSlabFixedSpatialCubeBentComplement.four_face_bent_moment`
+  proves the four-face bent contraction 1/8. `complement_selection_moment`
+  removes the repeated original P square with the ENTIRE spectator retained;
+  `singleton_selection_moment` pins the other survivor to 1/2. Backtracks
+  cancel only in the arbitrary-insertion Haar ideal, not coefficientwise.
+- `BF4ExactSlabFixedSpatialCubeBentActionMoment.tested_bent_action_channel`
+  gives H[(P*F)*cubeWeight(w,1)]=alpha/2+alpha^5/8 at every rational w,
+  alpha=coeffW(w,1). The literal subset order, heat coefficients, original
+  slice carrier and six original action factors remain unchanged.
+- Three serialized focused checks passed 27 printed gates within
+  {propext, Quot.sound}, without errors/warnings. Ten new public theorem
+  gates and independent mathematical/source reviews passed. No new sorry,
+  axiom, classical shortcut, surrogate measure or canonical field change.
+  Root imports registered, NOT aggregate-checked; CI/chart unchanged.
+- OPEN: kinetic test and exact vacuum channel, actual OWN-centered finite
+  gain and useful relative estimate, later-cutoff/depth control, changing
+  family and all continuum/Clay endpoints. The source-reviewed alternative
+  uses weighted Young plus a tested projection and actual finite small-nome
+  certificates; those estimates are NOT yet proved. Full seven-moment
+  certification remains open as an alternative route. K=1 still does not
+  satisfy the old head guard; its interfaces have NOT been weakened.
+  Evidence: `audits/AUDIT-CUBE-BENT-LOOP-SIGNED-GAIN-2026-10-03.md`.
+
 ## PROVED original bent-loop adjacent-face numerical contraction only (2026-10-03 UTC)
 
 - `SU2QuaternionIndependentTailMoments.fundamental_pair_moment` gives the

@@ -303,3 +303,123 @@ are `normalizedFiniteGain_approx` at
 The small K=1/n=0 bent channel does NOT meet their cutoff/depth/observable
 inputs. The actual growing-family ratio and three relative quadratic costs,
 physical scaling, full QFT and every-group endpoints remain unsupplied.
+
+## Subsequent checked literal parity, complement and source-action channel
+
+This increment completes the preceding two-survivor source contraction,
+not the seven weighted moments or their signed gain.
+
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCubeBentParity.lean:93`
+(`cubeSelections_parity_checked`) checks only the incidence of the six
+literal faces and twelve physical links. `badSelection_oddEdge:101`
+returns the computed physical witness; `selectedBentInsertion_degree:196`
+transports its exact degree through original member-index injectivity.
+`badSelection_haar_zero:261` applies selected-block Fubini to annihilate
+every original selected insertion except singleton Q and its five-face
+complement. Thus 62 of the 64 terms vanish. No ambient polynomial, carrier
+index enumeration or external arithmetic oracle is evaluated by that checker.
+
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCubeBentComplement.lean:297`
+(`first_fusion`), `second_fusion:321` and `third_fusion:331` integrate the
+original links 67, 26 and 37, respectively. Their spectators are exactly
+F*chi4*chi5, F*chi5 and F. `W_cancel:204` removes the intervening
+46 and 57 backtracks ONLY in the arbitrary-insertion Haar ideal.
+The final word is the cyclic inverse of the literal bent word.
+`four_face_bent_moment:388` proves H[F*chi1*chi3*chi4*chi5]=1/8.
+`first_square:431` integrates the repeated P with the complete remaining
+spectator retained. `complement_selection_moment:492` therefore proves
+the actual five-face subset moment 1/8; `singleton_selection_moment:502`
+connects the other actual subset to the previously checked moment 1/2.
+
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCubeBentActionMoment.lean:107`
+(`survivor_filter`) checks the literal order of the two surviving rows.
+`tested_bent_action_channel:113` consumes inclusive cutoff-one heat-prefix
+splitting, structural scalar extraction, witnessed zero rows and both
+surviving moments to prove, for EVERY rational w,
+
+```text
+H_N[(P*F)*cubeWeight(w,1)] = alpha*(1/2) + alpha^5*(1/8)
+alpha = coeffW(w,1),  N = length(baseLinks 2).
+```
+
+This is the original six-face source-action integral. It is NOT yet a
+tested TF identity, full original-fringe weighted join, OWN-mean value,
+32-state range theorem, gain sign or completed/scaling estimate. No
+positivity restriction on w is needed for this polynomial/Haar identity.
+The new file checks the alpha form, not a separately printed r-form theorem.
+
+Three final serialized focused checks passed: Parity b (11 gates),
+Complement f (14 gates), ActionMoment b (2 gates). All 27 reported axiom
+sets are subsets of {propext, Quot.sound}; ten new public theorem gates
+are included. No errors/warnings. Independent Sol mathematical review
+passed for the literal fusion words, spectators, repeated-face removal
+and weighted subset sum. Independent Luna source/log/hash/diagram review
+also passed; all cited declaration anchors and six hashes matched.
+The safe-build skill kept these checks narrow, with jobs=1, 12 GiB reserve
+and 20 GiB worker cap. Each launch had a fresh capacity/process check;
+system-free percentages were 84--86 percent, swap zero. The accepted
+complement check reported 4.8 GiB build RSS and 32.1 GiB available.
+Earlier errored attempts, including a concrete-product recursion failure,
+are NOT accepted evidence. Factoring the literal fold through a generic
+opaque theorem fixed it without enlarging any limit or weakening a claim.
+
+```text
+Parity source SHA256:
+54fb4bbdda971e81f91928770e12e27269e965f6bdd7242d43b46fc023ee4a94
+Accepted log: /tmp/ym-cube-bent-parity-20261003-b.log
+SHA256: 4cd22f6fa2de3f7f87bc0da48b56e8d84e351384ef62b29e70deb0a689f6c0a6
+Complement source SHA256:
+1f1c00d717239d2a152f0610268e1258b030d5ef5c0e6f017088d80f9f87b381
+Accepted log: /tmp/ym-cube-bent-complement-20261003-f.log
+SHA256: d9804e1c253aad0ab359c86d03569c88fae9653cc0aa934d3f0bc328a530b846
+ActionMoment source SHA256:
+32d3186dfa1d6bb1d55c52e12d3475188f78adcb70891b03f077d5a24c8f1276
+Accepted log: /tmp/ym-cube-bent-action-moment-20261003-b.log
+SHA256: fd75958690cff97dd98831b3bd91bf8c50406c5e76c90d46c6c90c19df8d1fe4
+```
+
+Root imports registered only; no aggregate/full build, axiom baseline
+regeneration, CI change, canonical field change or ASCII reprint. No new
+sorry/axiom, classical shortcut, native decision or external computation.
+Every exact displayed chart claim remains unchanged.
+
+### Next forward-backward join: source-reviewed Young route, NOT PROVED
+
+A reviewed alternative to full seven-moment expansion retains the literal
+finite action ell(p)=H[V*p], U=T1, b=TF-cU at its OWN odd mean and a=r^6.
+The certified square ell[(b-aU(F-c))^2]>=0 can give
+2*G>=C2-a^2*Q, Q=ell[U^2(F-c)^2]. An original P projection and unweighted
+Haar Cauchy--Schwarz can lower-bound C2 from H[P*b], with a supplied actual
+certificate V-m>=0. These inequalities and their useful bounds have NOT
+been instantiated on this finite pilot.
+
+Existing concrete interfaces (source review, not new checked producers):
+
+- `lean/YMGap/Continuum/QuaternionHaarSquareCertificate.lean:116`,
+  `square_insertion_nonnegative`, and its certificate square constructor.
+- `lean/YMGap/Continuum/QuaternionHaarWeightedCauchySchwarz.lean:87`,
+  `weighted_cauchySchwarz`, with supported original test/message inputs.
+- `lean/YMGap/Continuum/SU2QuaternionProductHeatPositiveOrder.lean:43`,
+  `haar_order`, for the actual V-minus-floor certificate.
+- `lean/YMGap/Continuum/QuaternionHaarSharpCharacterInterval.lean:50`,
+  `sharpCharacterInterval`, for the original Haar-unit trace caps.
+- `lean/YMGap/Continuum/SU2QuaternionHaarCertificateIntegration.lean:91`,
+  `partialHaarHeads_certificate`, for integrating the actual positive cone.
+- `lean/YMGap/Continuum/SU2QuaternionProductHeatConstant.lean:59`,
+  `productMap_one`, gives a supported-Haar unit pin; it is NOT coefficient
+  equality. `lean/YMGap/Continuum/SU2QuaternionHaarCertificateReindex.lean:38`,
+  `carrier_of_supported`, upgrades it with both actual support proofs.
+
+NEXT produce the separate original vacuum channel H[P*V]=2*r+2*r^5,
+both kinetic test joins, and DIRECT cutoff-one kinetic positivity and
+V-minus-one/U-minus-one interval certificates at an explicit small nome.
+Their product cap can control the SAME odd mean using H[F]=0 without
+computing the full two-slice mean polynomial. Do not invoke headCutoff
+interfaces that this K=1 pilot fails. The exact seven-moment route remains
+an alternative, not a mandatory new frontier field.
+
+Even a successful finite small-nome gain proof would not supply the
+justified changing family, later-cutoff/depth control, SAME macroscopic
+ratio, three normalized cross-scale costs, physical calibration or the
+continuum/Clay endpoints. The bent pilot is NOT substituted for the existing
+dyadic square. The proved fixed-small-nome macroscopic obstruction remains.
