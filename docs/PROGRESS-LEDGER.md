@@ -4,7 +4,30 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Actual completed signed gain and every integer-lag bent image (2026-10-03 UTC)
+## Current increment: Original Stein limit and retained macro-to-cost join (2026-10-03 UTC)
+
+PROGRESS after `39a928b`: the actual finite OWN-centered full-source pairing,
+divided by its SAME original even partition, converges to the EXISTING
+gainLimit with a computed diagonal modulus and separate representative
+threshold. Its moving-mean residue is paid using half epsilon. The literal
+padded-square Stein gradient reaches the SAME completed C2-a*C1, with
+the fundamental-label guard retained, not an assumed centered eigenpin.
+Separately, the positive-moment telescoping budget retains C(L+s).
+A supplied SAME-state ratio kappa*C(L)<=C(L+s) yields the cleared later
+bound kappa*s*(C(L+s)-C(L+s+1))<=(1-kappa)*C(L+s). The unit dyadic
+specialization uses 2t -> 4t and matches block parameter 2t, not t.
+Two serialized focused checks passed 12 gates within {propext, Quot.sound}.
+
+NEXT: produce the useful signed original estimate or retained macro ratio
+on a JUSTIFIED changing family. The source limit supplies no favorable
+sign, and the conditional join supplies no ratio. No finite estimate is
+inferred backwards from a completed limit. No old proof module was edited;
+root imports are registration-only. All continuum/Clay fields remain OPEN.
+Aggregate root, broad audit/guard and progress metric NOT run; CI and exact
+chart unchanged. Evidence:
+`audits/AUDIT-ORIGINAL-STEIN-AND-RETAINED-COST-JOINS-2026-10-03.md`.
+
+## Earlier increment: Actual completed signed gain and every integer-lag bent image (2026-10-03 UTC)
 
 PROGRESS after `5f32af8`: the constructed all-depth original G>=S/4
 reaches the EXISTING SAME completed C2-w^18*C1>=C2/4>=2^-130.

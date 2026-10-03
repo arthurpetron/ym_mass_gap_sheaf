@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL Stein limit and retained macro-to-cost join
+(2026-10-03 UTC; chart unchanged): the actual OWN-centered full-source
+pairing and literal padded-square gradient, divided by the SAME even
+partition, converge with explicit moduli to the EXISTING completed C2-a*C1.
+The finite mean residue is paid; no favorable sign is supplied. A separate
+SAME-state conditional ratio kappa*C(L)<=C(L+s) pays the later cleared
+drop bound kappa*s*drop<=(1-kappa)*C(L+s); dyadic lags 2t -> 4t match
+block parameter 2t. Two focused checks passed 12 permitted gates.
+No retained ratio, signed changing-family producer or continuum claim is
+constructed; every displayed scaling claim remains OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-STEIN-AND-RETAINED-COST-JOINS-2026-10-03.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting SAME completed signed gain and bent orbit
 (2026-10-03 UTC; chart unchanged): the actual C2-w^18*C1>=C2/4>=2^-130
 and rho=(4/3)*w^18 construct positive norm floors for EVERY integer-time

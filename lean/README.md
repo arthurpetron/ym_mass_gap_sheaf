@@ -12,7 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT completed signed gain and bent orbit (2026-10-03 UTC):**
+**CURRENT original Stein limit and retained-cost join (2026-10-03 UTC):**
+`BF4WilsonAllNomeDyadicSteinGainLimit` pays the actual moving-mean residue
+and constructs the original full-source/Stein sum's convergence to the
+EXISTING completed C2-a*C1, with explicit cutoff/depth and separate
+representative thresholds. `BF4WilsonAllNomeMacroRatioFilteredCost` proves
+the retained time budget and the conditional implication from a SAME-state
+macro ratio to the later relative drop bound. Its unit dyadic specialization
+uses literal lags 2t and 4t, matching block parameter 2t, NOT t.
+No favorable signed estimate, retained ratio or changing family is produced.
+Two focused checks passed 12 permitted gates; root imports registered only.
+Continuum/Clay fields stay OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-STEIN-AND-RETAINED-COST-JOINS-2026-10-03.md`.
+
+**Earlier completed signed gain and bent orbit (2026-10-03 UTC):**
 `BF4WilsonSmallNomeBentSignedLimit` constructs the actual SAME completed
 `C2-w^18*C1>=C2/4>=2^-130`, retaining the existing OWN-centered limit.
 `BF4WilsonSmallNomeBentSignedOrbit` extracts rho=(4/3)*w^18 and proves

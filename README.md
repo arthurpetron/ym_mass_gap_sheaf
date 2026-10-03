@@ -10,7 +10,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**New checked completed signed gain and bent orbit:** on the SAME original
+**New checked forward-backward joins:** the original OWN-centered full
+source pairing and literal padded-square Stein gradient, normalized by the
+SAME even partition, converge with explicit moduli to the EXISTING completed
+`C_2-a*C_1`. The finite moving-mean residue is paid; no favorable sign is
+assumed. Separately, a supplied retained ratio `kappa*C_L <= C_(L+s)` gives
+`kappa*s*(C_(L+s)-C_(L+s+1)) <= (1-kappa)*C_(L+s)` on the SAME state and
+time map. This joins the alternative analytic fronts but does not produce
+that ratio or a changing family. Two focused checks passed 12 permitted
+gates. See the [proof and remaining analytic input](audits/AUDIT-ORIGINAL-STEIN-AND-RETAINED-COST-JOINS-2026-10-03.md).
+
+**Earlier checked completed signed gain and bent orbit:** on the SAME original
 centered bent-loop state, fixed `w=1/16` and width two,
 `C_2 - w^18*C_1 >= C_2/4 >= 2^-130`. With the constructed
 `rho=(4/3)*w^18`, every integer-time image obeys
@@ -31,8 +41,9 @@ normalizer or limit is introduced. Six focused checks cover 47 permitted
 gates; no aggregate build is claimed. See the
 [proof, verification and next signed estimate](audits/AUDIT-ALL-DEPTH-ORIGINAL-BENT-GAIN-2026-10-03.md).
 
-**The scaling frontier remains open:** this is one fixed six-edge loop at
-one fixed nome and width. It does not give the growing-loop macroscopic
+**The scaling frontier remains open:** the favorable gain/orbit producer
+uses one fixed six-edge loop at one fixed nome and width. The new all-nome
+source-limit and conditional cost joins do not give the growing-loop macroscopic
 response ratio or the combined signed block-Rayleigh estimate on a justified
 changing family. Increasing terminal depth removes boundary error; it does
 not increase response lag. The new orbit estimate covers every integer lag

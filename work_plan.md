@@ -27,7 +27,23 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
-NOW CHECKED ACTUAL COMPLETED SIGNED GAIN AND EVERY INTEGER-LAG BENT IMAGE:
+NOW CHECKED ORIGINAL STEIN LIMIT AND RETAINED MACRO-TO-COST JOIN:
+`BF4WilsonAllNomeDyadicSteinGainLimit` pays the normalized finite OWN-mean
+residue by a constructed half-epsilon depth onset, then joins the literal
+full original source and padded-square Stein gradient to the EXISTING
+completed C2-a*C1. The gain representative threshold remains independent;
+the fundamental-label K>=1 guard is explicit and paid in the diagonal.
+`MacroRatioFilteredCost` retains the final response in the positive-moment
+telescoping budget: s*(C(L+s)-C(L+s+1))<=C(L)-C(L+s), s>=1.
+A SUPPLIED kappa*C(L)<=C(L+s), kappa>=0, consequently pays the cleared
+relative bound kappa*s*drop<=(1-kappa)*C(L+s) on the SAME state/time map.
+The useful ratio must have kappa>0; no such producer is supplied here.
+Dyadic lags 2t -> 4t match the existing block-cost limit at parameter 2t,
+not t. No completed limit is reversed into a finite estimate. Two focused
+checks passed 12 permitted gates; root registration only. Evidence:
+`audits/AUDIT-ORIGINAL-STEIN-AND-RETAINED-COST-JOINS-2026-10-03.md`.
+
+EARLIER CHECKED ACTUAL COMPLETED SIGNED GAIN AND EVERY INTEGER-LAG BENT IMAGE:
 `BF4WilsonSmallNomeBentSignedLimit` passes the actual G>=S/4 through the
 existing independently controlled gain approximation and OWN-centered limit:
 C2-w^18*C1>=C2/4>=2^-130 on the SAME completed bent-loop state.
@@ -69,6 +85,12 @@ identity a*(Cprevious-Cnext)=(1-a)*Cnext-G identifies that missing estimate.
 Quantitative use must retain the reference factor a; at a=0 the deficit is
 zero regardless of the response drop, so deficit control alone is insufficient.
 Do not assert that a growing-loop reference approaches one without proving it.
+The original source limit now pays the moving mean, leaving its useful signed
+alignment estimate unpaid. Work on that estimate and the retained macro ratio
+as alternative producers; the new exact join lets a useful ratio pay the later
+completed relative cost, rather than treating the two targets as unrelated.
+Do not replace the combined signed cost by separately bounded absolute terms
+or substitute an absolute Haar source bound for its interacting denominator.
 Spatial/spacing control, continuum survival, calibration, full QFT structure,
 every group and the continuum/Clay endpoint fields remain OPEN.
 
