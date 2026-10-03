@@ -1,5 +1,33 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL joint product-angular Poincare only (2026-10-03 UTC)
+
+`SU2QuaternionSelectedPairConditionalPoincare.selectedPair_weighted_angular_variance`
+transports the complete source and weight by actual distinct-pair swaps;
+projection commutation has coefficient strength, and angular/heat recoding
+uses supported original-carrier pins. `selectedPairCutoff` computes the
+charted ORIGINAL source onset, not a changing-family uniform bound.
+`SU2QuaternionProductHeatEfronStein.joint_sweep_efron_stein` bounds the SAME
+joint-law sweep loss by original-input residual squares with coefficient ONE.
+`joint_residual_variance_pin` retains all other heat factors and output W;
+`joint_residual_angular_le` applies Poincare to ORIGINAL p, not swept sources.
+`joint_sweep_angular_poincare_at_cutoff` gives (1-w^2) times the original
+angular-energy sum with no link-count factor, at the explicit folded-max
+`jointPoincareCutoff`. Inactive lower variables are not silently integrated.
+`SU2QuaternionHaarFamilyWeightedAngularContraction.familyProject_weighted_blockAngularSquare_le`
+contracts angular energy in the SAME positive independent weight.
+`BF4ExactSlabFixedSpatialProjectedInputAngularEnergy.projected_inputAngularEnergy_weighted_le`
+instantiates it on the complete original first source derivative, preserving
+original action/transfer K while only the positive reference kernel uses L.
+Four final focused checks passed 32 permitted gates; independent reviews
+passed. No sorry/axiom/field/CI/chart change; root registration only. Evidence:
+`audits/AUDIT-ORIGINAL-PRODUCT-ANGULAR-POINCARE-2026-10-03.md`.
+OPEN: exact weighted sweep-loss to own determinant variance endpoint, using
+actual inactive-input independence for the projected BF4 source; genuine
+second-derivative energy versus SAME surviving-norm signed cost, BOTH Taylor
+terms and justified changing-family control; physical/OS/continuum/QFT/
+every-group/Clay. Gamma(Q) is still NOT the current Q^2 budget.
+
 ## PROVED ORIGINAL joint-heat variance joins only (2026-10-03 UTC)
 
 `SU2QuaternionSelectedConditionalPoincare.selectedConditional_weighted_angular_variance`

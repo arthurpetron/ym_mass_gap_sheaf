@@ -10,14 +10,27 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Verified ORIGINAL joint-heat variance joins (2026-10-03 UTC):**
+**Verified ORIGINAL product-angular Poincare (2026-10-03 UTC):**
+In the actual joint heat law, selected sweep loss is at most `(1-w^2)`
+times the ORIGINAL-input angular-energy sum. There is no link-count factor.
+Arbitrary-pair transport, exact joint-law Efron--Stein and one computed
+fixed-source cutoff retain all existing outputs, action sources and weights.
+The backward BF4 consumer also contracts the genuine second-derivative
+energy under fringe projection, keeping source cutoff K and reference L
+distinct. Four focused checks passed 32 permitted gates; mathematical reviews
+passed. Next: the exact own-variance endpoint join and the genuine signed
+energy-to-SAME-surviving-norm estimate on a justified scaling family.
+No physical or continuum gap is proved. See the
+[product proof and backward energy consumer](audits/AUDIT-ORIGINAL-PRODUCT-ANGULAR-POINCARE-2026-10-03.md).
+
+**Earlier verified ORIGINAL joint-heat variance joins (2026-10-03 UTC):**
 The one-link estimate now acts on the literal in-place slot-0/1 projection.
 Exact joint-heat orthogonality gives weighted Pythagoras and coefficient-one
 Jensen, preserving the existing output and arbitrary shared spectators.
 Actual sweeps commute with the ORIGINAL-input residual coefficientwise;
 the conditional variance tower retains the full joined kernel and own mean.
-Four focused checks passed 32 constructive gates. Arbitrary-pair Poincare
-transport and the width-free active-product join remain open. The downstream
+Four focused checks passed 32 constructive gates. At that checkpoint arbitrary-pair Poincare
+transport and the width-free active-product join remained open. The downstream
 projected source is already differentiated: its input-gradient energy needs
 a genuine second-derivative estimate, not the existing source-square budget.
 See the [proved joins and exact remaining consumer](audits/AUDIT-ORIGINAL-JOINT-HEAT-VARIANCE-JOINS-2026-10-03.md).

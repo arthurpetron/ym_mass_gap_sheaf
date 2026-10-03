@@ -12,13 +12,25 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT checked ORIGINAL joint-heat variance joins (2026-10-03 UTC):**
+**CURRENT checked ORIGINAL product-angular Poincare (2026-10-03 UTC):**
+The SAME joint-heat sweep loss is bounded by (1-w^2) times the ORIGINAL-input
+angular-energy sum, with no count factor. Actual arbitrary-pair transport,
+joint-law Efron--Stein, retained residual variance and one computed fixed-source
+cutoff supply the proof. The BF4 backward leg contracts actual second-derivative
+energy under fringe projection, with original K/reference L distinct.
+Four focused checks passed 32 permitted gates; mathematical reviews passed.
+Root registration only; no full build/audit. Exact own-variance endpoint and
+genuine signed energy-to-SAME-surviving-norm/scaling joins remain OPEN, as do
+physical/OS/continuum/QFT/every-group/Clay. Evidence:
+`audits/AUDIT-ORIGINAL-PRODUCT-ANGULAR-POINCARE-2026-10-03.md`.
+
+**Earlier checked ORIGINAL joint-heat variance joins (2026-10-03 UTC):**
 Literal slot-0/1 selected conditional Poincare, joint-heat residual
 orthogonality/Pythagoras/Jensen, fixed-original-input sweep/residual
 commutation and the exact conditional variance tower preserve all shared
 outputs and weights. Four focused checks passed 32 permitted gates; no full
-build/audit. Arbitrary-pair Poincare and the width-free active-product join
-remain OPEN. Its complete projected source is already a first derivative,
+build/audit. At that checkpoint arbitrary-pair Poincare and the width-free active-product join
+remained OPEN. Its complete projected source is already a first derivative,
 so the new input-gradient energy requires a second-derivative estimate;
 the Q^2 budget is not that estimate. Interacting/scaling/physical/OS/
 continuum/QFT/every-group/Clay remain OPEN. Evidence:

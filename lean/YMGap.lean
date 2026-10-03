@@ -7260,3 +7260,11 @@ import YMGap.Continuum.SU2QuaternionConditionalVarianceTower
 import YMGap.Continuum.SU2QuaternionSelectedConditionalPoincare
 import YMGap.Continuum.SU2QuaternionWeightedHeatProjection
 import YMGap.Continuum.SU2QuaternionProductHeatSweepResidual
+
+-- Same joint-law product-angular Poincare with no link-count penalty,
+-- and actual second-derivative fringe contraction at ORIGINAL K/reference L.
+-- Own-variance endpoint, signed norm/scaling and Clay remain OPEN.
+import YMGap.Continuum.SU2QuaternionSelectedPairConditionalPoincare
+import YMGap.Continuum.SU2QuaternionProductHeatEfronStein
+import YMGap.Continuum.SU2QuaternionHaarFamilyWeightedAngularContraction
+import YMGap.Continuum.BF4ExactSlabFixedSpatialProjectedInputAngularEnergy

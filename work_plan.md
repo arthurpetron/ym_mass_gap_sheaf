@@ -27,7 +27,29 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
 
-NOW CHECKED ORIGINAL JOINT-HEAT VARIANCE JOINS:
+NOW CHECKED ORIGINAL PRODUCT-ANGULAR POINCARE:
+FORWARD, actual pairSteps reindexes the complete source/output weight,
+keeping every shared variable. Original joint-law Pythagoras/contraction
+and residual commutation prove Efron--Stein with coefficient one. Exact
+residual/variance pins apply selected Poincare to ORIGINAL p with ALL other
+heat factors retained. The resulting joint sweep loss is bounded by
+(1-w^2) times the original angular-energy sum, with NO link-count factor.
+One explicit fixed-source onset is max(headCutoff, folded chart-cutoff max).
+BACKWARD, actual Gamma-input energy of the first projected BF4 derivative
+contracts under fringe projection in SAME reference kinetic/output weight;
+original action/source/transfer K and auxiliary kernel L stay distinct.
+Four final focused checks passed 32 permitted gates; reviews passed. Evidence:
+`audits/AUDIT-ORIGINAL-PRODUCT-ANGULAR-POINCARE-2026-10-03.md`.
+REPOINT: exact weighted sweep-loss to own determinant variance endpoint,
+using the projected source's proved inactive LOWER independence, not
+silently discarding an inactive residual. Then instantiate the reference
+Poincare bound on Q_K at an explicit auxiliary L. Genuine SECOND-derivative
+energy versus SAME surviving-norm signed cost, BOTH Taylor terms and a
+JUSTIFIED changing-family window remain necessary. Do not substitute Q^2
+for Gamma(Q) or call a fixed-source cutoff scaling-uniform. Physical/OS/
+continuum/QFT/every-group/Clay remain OPEN; exact chart unchanged, no reprint.
+
+EARLIER CHECKED ORIGINAL JOINT-HEAT VARIANCE JOINS:
 FORWARD, literal slot-0/1 projection pins consume the one-link Poincare
 without a universal headMap identification. Actual joint-weight residual
 orthogonality/Pythagoras and coefficient-one Jensen preserve the existing
