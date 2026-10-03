@@ -53,3 +53,16 @@ full audit or broad guard. Exact canonical chart and CI are unchanged.
 The complete signed relative estimate on a justified family, canonical OS,
 nontrivial continuum survival, physical calibration, full QFT and every
 group remain OPEN.
+
+## Source-reviewed execution boundary
+
+The existing `mixFraction_le_width_power`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRateWidthObstruction.lean:74`,
+proves r(w,width)<=32^(-width) for every strict nome. That is a bound on
+this computed coefficient, not the actual spectral gap. It is historical
+checked source reused for planning, not a new check or new theorem here.
+No newly checked infinite-prefix ceiling is claimed. Further scalar/cap
+expansion is not the current physical/scaling producer. The existing
+`normalizedAnchorResponse_block_floor`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicNormalizedMacroRatio.lean:132`,
+still explicitly consumes the unpaid SAME kappa*R(side)<=R(2*side) estimate.

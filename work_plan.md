@@ -56,6 +56,22 @@ changing-family physical calibration. NEXT FORWARD remains the complete
 original signed cost versus its SAME filtered norm, without paying it by
 an endpoint-noise or scalar-log assumption. Canonical goal boxes stay OPEN.
 
+BACKWARD BRANCH PRIORITY AFTER SOURCE REVIEW (2026-10-03 UTC):
+Do not continue scalar-prefix/inverse-cap expansion without an actual new
+physical consumer. The EXISTING
+`BF4ExactSlabFixedSpatialRateWidthObstruction.mixFraction_le_width_power`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRateWidthObstruction.lean:74`)
+proves r(w,width)<=32^(-width) for EVERY strict nome. This is a ceiling on
+the computed floor, NOT an upper bound on the actual spectral gap. Keep
+the checked prefix inverse caps as fixed-carrier support; no physical
+volume-uniformity follows. The useful backward consumer remains
+`normalizedAnchorResponse_block_floor`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicNormalizedMacroRatio.lean:132`),
+whose SAME kappa*R(side)<=R(2*side) input is still unpaid. Work toward that
+input from the complete original signed determinant, while preserving the
+independent action/time/scaling calibration obligations. This changes only
+execution priority, not the goal, canonical fields or exact status chart.
+
 NOW CHECKED ORIGINAL FULL-WINDOW SIGNED SCORE REPLICA:
 `BlockScoreReplica.paddedSquare_own_block_scoreReplica` pins the two-copy
 signed integral to twice A*partial b-b*partial A, with A=g_(n+t) and
