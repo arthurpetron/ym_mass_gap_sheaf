@@ -1,5 +1,11 @@
 # Computed positive rows identify the ORIGINAL finite S and F
 
+FOLLOW-UP: coefficient invariance, the ACTUAL root monomial pin, ORIGINAL
+S/F form positivity, and coarse-defect/time-one moment pins are now checked
+in `audits/AUDIT-ORIGINAL-ROOT-POLYNOMIAL-FORM-2026-10-03.md`. The evidence
+below records this producer checkpoint; its complete comparison and physical
+scaling obligations remain OPEN.
+
 The whole-project goal remains nontrivial continuum Yang--Mills on R^4 for
 every compact simple group, with SAME-theory QFT axioms and a positive
 physical Hamiltonian mass gap. It is OPEN. This increment completes the

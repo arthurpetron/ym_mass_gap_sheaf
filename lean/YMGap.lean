@@ -6241,14 +6241,14 @@ import YMGap.Continuum.BF4WilsonAllNomePositiveRealSemigroup
 import YMGap.Continuum.BF4WilsonAllNomeDyadicDefectDecay
 -- Finite positive primitives and original root/log tail; the identification is open.
 import YMGap.Constructive.QPolyPositivePrimitive
--- Actual finite S/F derivative/initial identities; positivity/root transport are open.
+-- Actual finite S/F derivative/initial identities; full operator comparison is open.
 import YMGap.Constructive.QPolyFiniteGeometric
 import YMGap.Constructive.QPolyFiniteLogDerivative
 import YMGap.Constructive.QPolyRootLogDifference
 import YMGap.Constructive.QPolyRootLogInitial
 import YMGap.Constructive.QPolyRootLogRemainderDerivative
 import YMGap.Constructive.QPolyComplementCancellation
--- Computed nonnegative u/h rows pinned to original S/F; root transport remains open.
+-- Computed nonnegative u/h rows pinned to original S/F.
 import YMGap.Constructive.QPolyFinitePowerDifference
 import YMGap.Constructive.QPolyComplementaryTelescope
 import YMGap.Constructive.QPolyCoefficientEvaluation
@@ -6256,6 +6256,10 @@ import YMGap.Constructive.QPolyUHRow
 import YMGap.Constructive.QPolyUHRowPrimitive
 import YMGap.Constructive.QPolyUHRowFiniteSums
 import YMGap.Constructive.QPolyRootLogPositiveRows
+-- Coefficient-invariant actual root/coarse moments and ORIGINAL S/F positivity.
+import YMGap.Continuum.RCPolynomialFunctional
+import YMGap.Continuum.BF4WilsonAllNomeRootPolynomialForm
+import YMGap.Continuum.BF4WilsonAllNomeRootCoarseMoment
 import YMGap.Continuum.RootLogFiniteTail
 import YMGap.Continuum.BF4WilsonAllNomeRootLogTail
 import YMGap.Continuum.BF4WilsonAllNomeSymmetricFormNorm

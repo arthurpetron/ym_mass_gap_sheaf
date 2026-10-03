@@ -26,10 +26,13 @@ their zero initial values and coefficient-level complement cancellation:
 19 new gates, six axiom-free and thirteen within {propext, Quot.sound}.
 The explicit S/F positive u/h rows are NOW constructed and coefficient-pinned
 to the ORIGINAL polynomials; seven additional focused checks cover the row
-producer and its finite algebra. Actual-root transport remains OPEN; no
-operator identification, changing-family estimate or continuum/Clay closure
-is claimed. Root imports registered only. Evidence:
-`audits/AUDIT-ORIGINAL-ROOT-LOG-POSITIVE-ROWS-2026-10-03.md`.
+producer and its finite algebra. The coefficient-invariant ACTUAL root-moment
+functional, exact monomial pin, original S/F form positivity, and literal
+coarse-defect/time-one moment pins are NOW checked in three further focused
+targets, with 31 permitted gates. The complete form comparison remains OPEN;
+no limiting-operator identification, changing-family estimate or continuum/
+Clay closure is claimed. Root imports registered only. Evidence:
+`audits/AUDIT-ORIGINAL-ROOT-POLYNOMIAL-FORM-2026-10-03.md`.
 
 **Earlier checked original derivative-domain excitation (2026-10-03 UTC):**
 `BF4WilsonSmallNomeBentDerivativeExcitation` constructs a literal

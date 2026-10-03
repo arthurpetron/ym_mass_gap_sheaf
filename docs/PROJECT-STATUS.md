@@ -11,9 +11,13 @@ cancellation without an operator inverse. Six new focused checks add 19 gates
 (six axiom-free); ten-source coverage is 37 permitted gates, eleven axiom-free.
 The ORIGINAL S/F positive u/h rows are ALSO now constructed and coefficient-
 pinned, with nonnegative computed weights; seven additional focused checks
-cover that producer and its finite algebra. Actual-root transport remains OPEN; neither
-derivative/log equality nor a changing-family signed estimate is claimed.
-Evidence: `audits/AUDIT-ORIGINAL-ROOT-LOG-POSITIVE-ROWS-2026-10-03.md`.
+cover that producer and its finite algebra. Coefficient-invariant ACTUAL
+root-moment transport, its monomial pin, ORIGINAL S/F form positivity, and
+literal coarse-defect/time-one moment pins are NOW checked in three further
+focused targets (31 permitted gates). The complete form comparison remains
+OPEN; neither derivative/log equality nor a changing-family signed estimate
+is claimed. Evidence:
+`audits/AUDIT-ORIGINAL-ROOT-POLYNOMIAL-FORM-2026-10-03.md`.
 No exact displayed claim changed; no ASCII reprint.
 
 Verified supporting ORIGINAL derivative-domain excitation (2026-10-03 UTC;

@@ -4,7 +4,27 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Computed positive rows identify ORIGINAL S and F (2026-10-03 UTC)
+## Current increment: ORIGINAL S/F reach actual root and coarse moments (2026-10-03 UTC)
+
+PROGRESS after `570dfc5`: the depth-dependent diagonal functional now respects
+actual padded coefficient equivalence. Coordinate/defect and complement/
+root-time shifts prove Phi(u^a*h^b)=moment(k+a,l+b) on the EXISTING completed
+carrier; computed nonnegative u/h rows give ORIGINAL S/F form positivity.
+EVERY full root stride and polynomial coarse-defect power are also pinned
+to the EXISTING time/mixedMoments, including the time-one factor. No scalar-
+only substitution, functional-calculus premise, operator inverse or boundary-
+kernel exclusion. Three serialized focused checks passed 31 permitted gates;
+no full root/tree build, broad audit/guard or progress metric ran.
+
+NEXT BACKWARD: finite-tail telescope and ORIGINAL differenceQuotient/logPartial
+diagonal bounds. The complete form comparison and derivative/log equality
+remain OPEN. NEXT FORWARD: unchanged complete relative signed estimate or
+retained macro ratio on a JUSTIFIED changing family. No such producer or
+continuum/Clay claim is supplied. Root imports registration-only, canonical
+chart and CI unchanged. Evidence:
+`audits/AUDIT-ORIGINAL-ROOT-POLYNOMIAL-FORM-2026-10-03.md`.
+
+## Earlier increment: Computed positive rows identify ORIGINAL S and F (2026-10-03 UTC)
 
 PROGRESS after `8b4995e`: the original finite S/F polynomials now have ACTUAL
 computed nonnegative u/h rows, coefficientwise identified by their derivative

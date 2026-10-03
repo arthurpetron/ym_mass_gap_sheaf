@@ -27,7 +27,26 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
-NOW CHECKED ORIGINAL S/F POSITIVE-ROW PRODUCERS:
+NOW CHECKED ACTUAL ROOT-MOMENT TRANSPORT AND COARSE PINS:
+`RCPolynomialFunctional.formFrom_coeffEqv` respects arbitrary padded finite
+coefficient lists. `BF4WilsonAllNomeRootPolynomialForm.form` substitutes the
+EXISTING depth-dependent original root/defect moments. Its exact coordinate
+and complement shifts yield `form_monomial`: Phi(u^a*h^b)=moment(k+a,l+b).
+`original_s_nonnegative` and `original_f_nonnegative` prove ORIGINAL S/F
+positivity in every shifted actual moment form. `RootCoarseMoment` ALSO pins
+EVERY full root stride and the polynomial coarse-defect powers to the EXISTING
+mixedMoments, including the original time-one factor. No supplied sign,
+spectral representation, operator inverse or kernel exclusion is assumed.
+Three focused checks passed 31 gates within {propext, Quot.sound}. Evidence:
+`audits/AUDIT-ORIGINAL-ROOT-POLYNOMIAL-FORM-2026-10-03.md`.
+NEXT BACKWARD: the finite-tail telescope and ORIGINAL quotient/logPartial
+diagonal comparison; then the checked norm principle and existing limit
+moduli. Derivative/log equality is still OPEN. NEXT FORWARD: the complete
+relative signed estimate or retained macro ratio on a JUSTIFIED changing
+family. No producer for that input is supplied. Root imports registration-
+only; exact canonical chart and CI unchanged.
+
+EARLIER CHECKED ORIGINAL S/F POSITIVE-ROW PRODUCERS:
 `QPolyRootLogPositiveRows.sRow` and `fRow` return computed finite rational
 u/h rows. `original_sRow`, `original_fRow`, `nonnegative_sRow` and
 `nonnegative_fRow` pin them coefficientwise to the ORIGINAL S/F and prove

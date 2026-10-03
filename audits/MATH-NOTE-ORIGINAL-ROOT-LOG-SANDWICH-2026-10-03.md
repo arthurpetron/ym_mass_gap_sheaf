@@ -81,7 +81,9 @@ their EXACT original-polynomial pins are ALSO now kernel-checked in
 `lean/YMGap/Constructive/QPolyRootLogPositiveRows.lean:122`, `original_sRow`,
 and :139, `original_fRow`, with computed nonnegative u/h weights at :162,
 `nonnegative_sRow`, and :165, `nonnegative_fRow`. The complete sandwich
-and actual-operator transport remain OPEN. Evidence:
+and limiting-operator equality remain OPEN. The ACTUAL root-moment transport
+and coarse pins are now checked in
+`audits/AUDIT-ORIGINAL-ROOT-POLYNOMIAL-FORM-2026-10-03.md`. Producer evidence:
 `audits/AUDIT-ORIGINAL-ROOT-LOG-POSITIVE-ROWS-2026-10-03.md`.
 
 ### A binomial-free first factor (now checked)
@@ -99,7 +101,8 @@ binomial middle row. With P_N=sum_(k=0..N-2)(u^k+h^k), the shorter target is
 
 Replacing D by h*sum_(j=0..N-1)u^j exposes a finite nonnegative u/h row.
 The ORIGINAL S coefficient identity, F derivative identity and termwise
-positive primitive join are now checked; original-root transport is NOT.
+positive primitive join are now checked; so is the actual root-moment lift.
+The complete original-operator comparison remains OPEN.
 `lean/YMGap/Constructive/QPolyComplementCancellation.lean:45`,
 `complement_mul_injective`, permits cancellation of u=1-h at COEFFICIENTS,
 including endpoints. It must be applied BEFORE operator substitution: no
@@ -135,8 +138,14 @@ The minimal next operator join is a diagonal coefficient functional
 
 `BF4WilsonAllNomeDyadicDefectDecay.moment_split` supplies the second pin by
 recursion once coefficient invariance and finite sum algebra are proved.
-Explicit positive u/h rows can then use `moment_nonnegative`. These pins and
-the literal pins to the two EXISTING operators remain OPEN. The existing
+Explicit positive u/h rows now use `moment_nonnegative`: the functional's
+coefficient invariance, monomial pin and ORIGINAL S/F form positivity are
+checked in `lean/YMGap/Continuum/BF4WilsonAllNomeRootPolynomialForm.lean:41`,
+`form_coeffEqv`; :144, `form_monomial`; :189, `original_s_nonnegative`;
+and :195, `original_f_nonnegative`. Literal coarse-defect/time-one pins are
+also checked in `BF4WilsonAllNomeRootCoarseMoment.lean:97`,
+`form_coarseDefectPower`, and :125, `form_coarse_one_time` (same directory).
+The complete comparison of the two EXISTING operators remains OPEN. The existing
 `BF4WilsonAllNomeDefectPolynomial.action` is hardwired to I-T(1), not the
 depth-dependent root defect, so it is not directly the needed producer.
 No assumed functional calculus or scalar-only positivity shortcut is added.
@@ -151,7 +160,7 @@ most (8/N)*B(x,x), where 8/N=2*half^d is explicit rational data.
 `RootLogFiniteTail.lean:57`, `partial_retained_tail`, proves the scalar
 finite tail used above (same directory).
 
-With the NOW-CONSTRUCTED ORIGINAL S/F positive rows and STILL-MISSING root transport,
+With the NOW-CONSTRUCTED ORIGINAL S/F positive rows and CHECKED root-moment transport,
 the two-sided form error 8/N+invSucc(M) is sufficient.
 `BF4WilsonAllNomeSymmetricFormNorm.lean:127`, `symmetric_form_norm_bound`,
 now proves those diagonal bounds yield the squared norm error by rational

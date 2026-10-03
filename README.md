@@ -19,9 +19,11 @@ The ORIGINAL finite S/F derivative identities and zero initial values are
 now also kernel-checked, with coefficient-level cancellation of `1-h` that
 requires no inverse operator. The ORIGINAL S/F now also have computed
 nonnegative u/h rows, pinned by exact derivatives and zero initial values.
-Their SAME-root transport remains open; derivative/log equality and physical
-scaling are NOT claimed. See the
-[positive-row construction and focused verification](audits/AUDIT-ORIGINAL-ROOT-LOG-POSITIVE-ROWS-2026-10-03.md).
+Their coefficient-invariant SAME-root moment transport is NOW checked,
+including the exact monomial pin, original S/F form positivity, and literal
+coarse-defect/time-one moment pins. The complete comparison and derivative/log
+equality remain open; physical scaling is NOT claimed. See the
+[actual-root bridge and focused verification](audits/AUDIT-ORIGINAL-ROOT-POLYNOMIAL-FORM-2026-10-03.md).
 
 **Earlier checked original derivative excitation:** the literal bent-loop state
 now supplies a nonzero point of the EXISTING derivative-graph domain, with
