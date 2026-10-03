@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL domain logarithm (2026-10-03 UTC; chart unchanged):
+sum_(j=1..M) (I-T)^j input/j converges to the SAME existing derivative-domain
+action, with a computed output-range modulus. The positive finite-tail bound
+passes through both existing norm-limit joins, without an inverse transfer,
+preimage cap or kernel exclusion. Three focused checks passed 18 permitted
+gates. This is fixed-carrier, not the physical OS/scaling/Hamiltonian box.
+Evidence: `audits/AUDIT-ORIGINAL-DOMAIN-LOGARITHM-2026-10-03.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting finite ORIGINAL root/log components (2026-10-03 UTC;
 chart unchanged): actual positive primitives with coefficientwise derivative,
 endpoint positivity/zero and initial-value uniqueness; retained scalar tail;

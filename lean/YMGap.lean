@@ -7073,3 +7073,8 @@ import YMGap.Continuum.SummableRationalReciprocalSpacingNoGo
 import YMGap.CodynamicCore
 import YMGap.CodynamicCoreTest
 import YMGap.CodynamicCoreYMDemo
+
+-- Original finite and domain logarithms; focused checks, root registration only.
+import YMGap.Continuum.BF4WilsonAllNomeLogTailComparison
+import YMGap.Continuum.BF4WilsonAllNomeUnregularizedLogPartial
+import YMGap.Continuum.BF4WilsonAllNomeDomainLogarithm

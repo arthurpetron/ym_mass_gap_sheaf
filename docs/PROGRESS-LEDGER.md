@@ -4,7 +4,23 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: SAME original derivative/log maps identified (2026-10-03 UTC)
+## Current increment: ordinary log on the EXISTING original domain (2026-10-03 UTC)
+
+PROGRESS after `feac144`: sum_(j=1..M) (I-T)^j input/j now converges
+to the SAME existing domain action with its explicit output-range defect
+modulus. Positive mixed moments compare reciprocal coefficients BEFORE the
+norm; actual order closure transports the estimate through the existing log
+limit and derivative graph. No inverse, preimage cap or kernel exclusion.
+Three focused checks passed 18 permitted gates; no broad audit. Evidence:
+`audits/AUDIT-ORIGINAL-DOMAIN-LOGARITHM-2026-10-03.md`.
+
+FORWARD: exact retained channel cancellation avoids the Taylor replacement's
+source-degree debt; bare-heat Perron fixing is invalid. This is source-reviewed
+reasoning, not a paid useful signed estimate. The SAME filtered OWN cost on a
+JUSTIFIED family, canonical OS, physical calibration, continuum survival,
+QFT, every group and Clay stay OPEN. Root/chart/CI boundaries unchanged.
+
+## Earlier increment: SAME original derivative/log maps identified (2026-10-03 UTC)
 
 PROGRESS after `2bb2c31`: the EXISTING dyadic derivative and EXISTING
 regularized series now coincide on the ORIGINAL completed carrier.

@@ -10,7 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**New checked root/log proof components:** explicit positive finite primitives,
+**New checked domain-logarithm result:** the ordinary logarithm series of the
+original transfer converges to the SAME existing derivative-domain action,
+with an explicit modulus. The proof retains the ambient kernel and assumes
+no inverse transfer or uniform preimage bound. Eighteen constructive gates
+passed three focused checks. This is fixed-carrier mathematics, not yet a
+physical continuum Hamiltonian. See the [proof and verification boundary](audits/AUDIT-ORIGINAL-DOMAIN-LOGARITHM-2026-10-03.md).
+
+**Earlier checked root/log proof components:** explicit positive finite primitives,
 endpoint-safe retained tails, an actual original-carrier `8/N` mixed-moment
 budget, and constructive form-to-norm polarization are now kernel-checked.
 An exact positive complementary-power telescope eliminates the binomial

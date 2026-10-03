@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED ordinary log on the EXISTING original derivative domain only (2026-10-03 UTC)
+
+`BF4WilsonAllNomeDomainLogarithm.domainLogarithm_bound` and
+`domainLogarithmCertificate` identify literal ordinary partial sums
+sum_(j=1..M) (I-T)^j input/j with the SAME existing `DomainPoint` action,
+returning its output-range defect modulus as data. The actual positive-moment
+finite-tail comparison passes through the existing regularized-log limit and
+two-coordinate derivative graph. No inverse transfer, preimage norm cap,
+replacement carrier or exclusion of the ambient fringe kernel is used.
+Three serial focused targets passed 18 gates within {propext, Quot.sound}.
+No sorry added/discharged, no axiom or frontier weakening. Root imports
+registration-only; no full build/audit, broad guard or progress metric ran.
+Evidence: `audits/AUDIT-ORIGINAL-DOMAIN-LOGARITHM-2026-10-03.md`.
+
+OPEN: the original signed cost/filtered OWN comparison on a JUSTIFIED family;
+canonical reflected OS, physical calibration, continuum survival, full QFT,
+every compact simple group and Clay. The forward channel route is still
+action-specific: `audits/MATH-NOTE-CHANNEL-RELATIVE-FRONTIER-2026-10-03.md`
+records source reasoning, not a new checked estimate. CI/chart unchanged.
+
 ## PROVED SAME original root/log map identification only (2026-10-03 UTC)
 
 `BF4WilsonAllNomeRootLogIdentification.derivativeAction_eq_regularizedLog`

@@ -27,6 +27,22 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
+NOW CHECKED ORDINARY LOG ON THE EXISTING ORIGINAL DOMAIN:
+`BF4WilsonAllNomeDomainLogarithm.domainLogarithm_bound` identifies
+sum_(j=1..M) (I-T)^j input/j with the SAME domain action, with computed
+`domainLogModulus` from its existing output-range witness. The positive
+finite-tail comparison and two existing norm-limit joins assume neither
+a transfer inverse nor a preimage norm cap; the ambient fringe kernel stays.
+Three focused targets passed 18 permitted gates. This backward component is
+the fixed-carrier domain logarithm, not a physically calibrated Hamiltonian.
+Evidence: `audits/AUDIT-ORIGINAL-DOMAIN-LOGARITHM-2026-10-03.md`.
+FORWARD remains the unpaid action-specific same-family relative estimate.
+Prefer the exact retained channel increment where it avoids the Taylor
+cubic/omitted costs; do not infer a small rate from bare-heat Perron fixing.
+Source-reviewed reasoning: `audits/MATH-NOTE-CHANNEL-RELATIVE-FRONTIER-2026-10-03.md`.
+Canonical OS, physical scaling, continuum/QFT/every-group endpoints stay OPEN.
+Root imports registration-only; no exact displayed chart claim changes.
+
 NOW CHECKED THE SAME ORIGINAL ROOT/LOG IDENTIFICATION:
 `RootLogIdentification.derivativeAction_eq_regularizedLog` proves equality
 of BOTH EXISTING bounded positive-time maps on the ORIGINAL completion.

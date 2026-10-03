@@ -12,7 +12,15 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT checked finite original root/log components (2026-10-03 UTC):**
+**CURRENT checked original domain logarithm (2026-10-03 UTC):**
+The ordinary series sum_(j=1..M) (I-T)^j input/j now converges to the SAME
+existing derivative-domain action, with an explicit output-range modulus.
+No inverse transfer, uniform preimage cap or ambient-kernel exclusion.
+Three focused checks passed 18 permitted gates, not a full audit. This is
+fixed-carrier domain identification, not physical OS/scaling/Clay closure.
+Evidence: `audits/AUDIT-ORIGINAL-DOMAIN-LOGARITHM-2026-10-03.md`.
+
+**Earlier checked finite original root/log components (2026-10-03 UTC):**
 `QPolyPositivePrimitive` constructs an actual positive primitive, proves its
 formal derivative, endpoint positivity/zero and derivative-initial uniqueness.
 `RootLogFiniteTail` retains the finite geometric remainder.
