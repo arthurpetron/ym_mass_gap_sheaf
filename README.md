@@ -10,6 +10,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**New checked sharp one-step bound:** on EVERY original completed
+vacuum-orthogonal state, the existing `T^2` norm rate `q^2` now yields the
+exact form rate `q`, without a square root or spectral theorem. Its margin
+`e=1-q=kineticFloor/kineticCap` also reaches the existing regularized-log
+graph. A relative filtered budget `s*(R_s-R_(s+1))<=C*R_s` at even s,
+or the literal late-stage original finite budget, necessarily requires
+`s*e<=C`. This constrains proposed scaling families; it does NOT construct
+their signed estimate or survival. Three focused checks passed seven new
+constructive gates (16 including unchanged gates), without a full build.
+See the [sharp bound and rate constraint](audits/AUDIT-SHARP-ONE-STEP-FILTERED-RATE-2026-10-03.md).
+
 **New checked finite-to-completed join:** the original Rayleigh cost and its
 OWN half-smoothed interacting variance now converge to the EXISTING completed
 dyadic quantities `N*(R(2t)-R(2t+1))` and `N*R(2t)`. Both distinct original

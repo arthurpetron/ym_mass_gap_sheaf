@@ -27,6 +27,21 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
+NOW CHECKED SHARP ORIGINAL ONE-STEP RATE:
+`BF4WilsonAllNomeOneStepGap` derives the exact q form rate from the existing
+T^2 norm rate q*q on EVERY original completed vacuum-orthogonal state,
+including q=0. Its exact defect margin is mixFraction=kineticFloor/kineticCap.
+`DyadicFilteredRateConstraint` (all-nome prefix) joins this to the actual
+pending producer: any supplied m*(R_(2t)-R_(2t+1))<=C*R_(2t), or the literal
+late-stage original finite budget, NECESSARILY has m*mixFraction<=C.
+No uniform raw norm floor is assumed. `LogCoreGap.core_form_gap_sharp`
+also strengthens the SAME existing graph-core margin without changing fields.
+Three focused checks passed seven new gates (16 including unchanged gates).
+Use s*mixFraction<=C to test candidate samples, NOT as a sufficient family
+or survival certificate. The signed upper producer and all scaling joins
+remain OPEN. Evidence:
+`audits/AUDIT-SHARP-ONE-STEP-FILTERED-RATE-2026-10-03.md`.
+
 NOW CHECKED ORIGINAL-TO-COMPLETED PRODUCER JOIN:
 `BF4WilsonAllNomeDyadicOriginalRayleighLimit` identifies BOTH sides of the
 actual finite producer on the EXISTING completed dyadic carrier:

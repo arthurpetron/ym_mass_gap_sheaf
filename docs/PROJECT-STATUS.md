@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting sharp ORIGINAL one-step rate (2026-10-03 UTC; chart
+unchanged): the SAME completed vacuum complement now has exact one-step
+form rate q from its squared norm rate q*q, including q=0. The exact margin
+mixFraction=kineticFloor/kineticCap reaches the existing regularized-log graph.
+Any supplied relative filtered budget, including a literal late-stage finite
+budget, necessarily has m*mixFraction<=C. Only pointwise existing positive
+floors are cancelled. Three focused checks passed seven new permitted gates
+(16 including unchanged gates). The signed upper producer, justified family
+and all displayed scaling/continuum claims remain OPEN. Evidence:
+`audits/AUDIT-SHARP-ONE-STEP-FILTERED-RATE-2026-10-03.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting ORIGINAL-to-completed producer join (2026-10-03 UTC;
 chart unchanged): the literal D/(Z0*Z1) AND ell(b^2)/Z0 converge to the
 EXISTING completed dyadic N*(R(2t)-R(2t+1)) AND N*R(2t). Both distinct

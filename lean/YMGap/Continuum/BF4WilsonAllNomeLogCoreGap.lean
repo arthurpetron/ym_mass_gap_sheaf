@@ -12,10 +12,13 @@ time kernel on the vacuum complement; the actual boundary kernel is retained.
 
 This is a fixed-nome, fixed-width graph-core bound, not a scalar-log
 identification, continuous-time generator, or physical/scaling mass gap.
+The sharper `core_form_gap_sharp` below retains the SAME graph input and
+uses the exact kinetic floor/cap fraction in place of the older margin.
 -/
 
 import YMGap.Continuum.BF4WilsonAllNomeLogGraph
 import YMGap.Continuum.BF4WilsonAllNomeLocalResponseOrbit
+import YMGap.Continuum.BF4WilsonAllNomeOneStepGap
 
 namespace YMGap.Continuum.BF4WilsonAllNomeLogCoreGap
 
@@ -125,6 +128,17 @@ theorem core_form_gap (x : V) (hx : B U (T 1 x) = RCzero) :
   RCle_trans (completed_defect_form_gap hw0 hw1 (T 1 x) hx)
     (regularizedLog_time_firstTerm_le hw0 hw1 x)
 
+/-- The exact one-step kinetic margin reaches the SAME regularized series.
+No old graph field, kernel statement or physical calibration is changed. -/
+theorem core_form_gap_sharp (x : V) (hx : B U (T 1 x) = RCzero) :
+    RCle (RCscale
+      (BF4ExactSlabFixedSpatialTransferMixingRate.mixFraction hw0 hw1 width)
+      (B (T 1 x) (T 1 x))) (B (T 1 x) (F x)) := by
+  have h := BF4WilsonAllNomeOneStepGap.completed_oneStep_defect_margin
+    hw0 hw1 (T 1 x) ((completedInner_symm hw0 hw1 (T 1 x) U).trans hx)
+  rw [← completedInner_sub_right, ← defect] at h
+  exact RCle_trans h (regularizedLog_time_firstTerm_le hw0 hw1 x)
+
 /-- On the vacuum complement the regularized series kills precisely the
 states already killed by the original time. No boundary state is discarded. -/
 theorem regularizedLog_zero_iff_time_zero (x : V) (hx : B U x = RCzero) :
@@ -210,6 +224,7 @@ theorem plaquette_regularizedLog_ne_zero
 #print axioms coreMargin_positive
 #print axioms completed_defect_form_gap
 #print axioms core_form_gap
+#print axioms core_form_gap_sharp
 #print axioms regularizedLog_zero_iff_time_zero
 #print axioms graph_input_time_kernel_eq_zero
 #print axioms graph_zero_output_iff

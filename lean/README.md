@@ -12,6 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**CURRENT sharp original one-step gap (2026-10-03 UTC):**
+`BF4WilsonAllNomeOneStepGap` proves the exact rational q form rate from the
+existing squared norm rate q*q, including its zero branch. The defect margin
+is the actual kinetic floor/cap fraction. `DyadicFilteredRateConstraint`
+(all-nome prefix) proves any supplied SAME-response or late-stage original
+finite budget must satisfy m*mixFraction<=C, with only pointwise positive
+floors used for cancellation. `LogCoreGap.core_form_gap_sharp` strengthens
+the SAME existing regularized-log graph bound. Three focused checks passed
+seven new gates (16 including unchanged gates), without errors/warnings.
+No signed upper estimate or justified changing family is produced. Root
+imports registered only, NOT aggregate-checked. Evidence:
+`audits/AUDIT-SHARP-ONE-STEP-FILTERED-RATE-2026-10-03.md`.
+
 **CURRENT original-to-completed Rayleigh join (2026-10-03 UTC):**
 `BF4WilsonAllNomeDyadicChronologicalResponse` clears the EXISTING normalizer
 and exactly cancels the SAME mean square across lags.

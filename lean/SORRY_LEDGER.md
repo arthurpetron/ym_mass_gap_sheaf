@@ -1,5 +1,35 @@
 # Sorry Ledger
 
+## PROVED sharp original one-step gap and necessary filtered-budget rate condition only (2026-10-03 UTC)
+
+- `BF4WilsonAllNomeOneStepGap.completed_oneStep_form_gap` proves the EXACT
+  q rate from the existing squared norm rate q*q on EVERY original completed
+  vacuum-orthogonal state. Positivity of ||q*x-T*x||^2 handles q>0; SAME
+  positive definiteness handles q=0. No scalar square root or spectral theorem.
+- `completed_even_filtered_form_gap` translates this to R_(2t+1)<=q*R_(2t)
+  on the SAME state. `completed_oneStep_defect_margin` gives the exact original
+  mixFraction=kineticFloor/kineticCap lower margin, retaining nome/width.
+- `BF4WilsonAllNomeDyadicFilteredRateConstraint` proves the actual normalized
+  dyadic response's drop pays this margin. Any supplied m>=0 relative budget
+  necessarily has m*mixFraction<=C. The literal original finite budget has
+  the same consequence if it holds only for k>=a supplied start. BOTH original
+  partitions, moving OWN mean and norm remain; no early-stage bound is needed.
+  Existing norm/response floors are cancelled POINTWISE, not assumed uniform.
+- `BF4WilsonAllNomeLogCoreGap.core_form_gap_sharp` improves the SAME existing
+  graph-core coefficient from (1-q*q)/2 to mixFraction=1-q; no old graph field
+  or canonical frontier statement is changed.
+- Three accepted serialized focused checks passed 16 unique permitted gates,
+  seven new and nine unchanged. No errors/warnings, new sorry/axiom, analytic
+  bundle, classical shortcut, guard weakening, CI change or raised limits.
+  Independent semantic review passed. Root imports registered only; no full
+  build/audit or aggregate check ran.
+- OPEN/NEXT: actual signed relative UPPER estimate or SAME macroscopic ratio
+  on a justified changing family. Its samples must satisfy s*mixFraction<=C;
+  that necessary condition is NOT a sufficient survival input. Cross-scale
+  comparisons, spatial/spacing control, physical calibration, full QFT, every
+  group and the continuum/Clay target remain OPEN. Evidence:
+  `audits/AUDIT-SHARP-ONE-STEP-FILTERED-RATE-2026-10-03.md`.
+
 ## PROVED original cost AND variance converge to the SAME completed dyadic response only (2026-10-03 UTC)
 
 - `BF4WilsonAllNomeDyadicChronologicalResponse` proves the existing centered
