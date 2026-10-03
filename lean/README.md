@@ -12,7 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT checked least-norm ORIGINAL half-anchor preimage (2026-10-03 UTC):**
+**CURRENT checked ORIGINAL Wilson-loop mode reserve (2026-10-03 UTC):**
+Subtracting the constant and literal square-loop Haar projections gives a
+division-free kinetic floor. Applied to V*h, it retains both ell(h)^2 and
+w^(12*side)*ell(h*f)^2 in the ORIGINAL transfer quadratic. Its chronological
+OWN-block instance bounds the COMPLETE signed cost, keeping both partitions
+and the original n-center. Two focused targets passed three permitted gates.
+The reserve's useful changing-family magnitude remains OPEN; this is not
+an interacting eigenpin, uniform scaling rate or survival theorem. Evidence:
+`audits/AUDIT-ORIGINAL-LOOP-MODE-RESERVE-2026-10-03.md`.
+
+**Earlier checked least-norm ORIGINAL half-anchor preimage (2026-10-03 UTC):**
 Every exact half-time preimage of the existing normalized anchor differs
 from the constructed preimage by an orthogonal vector in the actual kernel.
 Exact Pythagoras proves the constructed preimage has least squared norm.

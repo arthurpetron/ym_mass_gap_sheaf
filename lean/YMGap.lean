@@ -7099,3 +7099,7 @@ import YMGap.Continuum.BF4DyadicWilsonSquareChannelOwnVariance
 
 -- Least norm among exact original half-anchor preimages; not a uniform cap.
 import YMGap.Continuum.BF4WilsonAllNomeDyadicMinimalPreimage
+
+-- Actual Wilson-loop mode in the complete original cost; not a uniform rate.
+import YMGap.Continuum.SU2QuaternionProductHeatTwoModeFloor
+import YMGap.Continuum.BF4DyadicWilsonSquareLoopModeReserve

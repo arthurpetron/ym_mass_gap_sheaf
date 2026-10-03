@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL Wilson-loop mode reserve (2026-10-03 UTC;
+chart unchanged): the positive kinetic residual retains BOTH original
+Haar projections. Applied to V*h, it gives ell(h)^2+w^(12*side)*ell(h*f)^2
+below the ORIGINAL transfer quadratic. The chronological OWN-block instance
+keeps the complete signed cost, both partitions and its n-center. Two
+focused targets passed three permitted gates. Useful changing-family
+magnitude, the macroscopic response ratio and all continuum boxes remain
+OPEN. Evidence: `audits/AUDIT-ORIGINAL-LOOP-MODE-RESERVE-2026-10-03.md`.
+
 Verified supporting least-norm ORIGINAL half-anchor preimage (2026-10-03
 UTC; chart unchanged): every other exact preimage differs by an actual
 half-time kernel vector orthogonal to the constructed preimage. Exact

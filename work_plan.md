@@ -27,6 +27,28 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
 
+NOW CHECKED ACTUAL WILSON-LOOP MODE IN THE COMPLETE ORIGINAL RESERVE:
+`SU2QuaternionProductHeatTwoModeFloor.kineticPair_two_mode_floor` subtracts the two
+literal Haar projections of an arbitrary supported signed source; positivity
+of the residual gives a division-free two-mode lower bound. The literal
+padded-square mode has mean zero, square mean one and actual ACTIVE product
+heat multiplier a=w^(12*side). Applying it to V*h, with all original spatial
+action retained, proves ell(h)^2+a*ell(h*f)^2<=ell(h*T h).
+`BF4DyadicWilsonSquareLoopModeReserve.paddedSquare_own_block_cost_loop_reserve`
+specializes to A=g_(n+t), b=T^t(g_n*(f-c_n)), Z0=ell(A*A), Z1=ell(A*T A):
+D+Z0*(ell(b)^2+a*ell(b*f)^2)<=Z1*ell(b*b).
+The original chronological n-center and distinct partitions stay literal;
+no interacting eigenpin or quantitative overlap assumption is introduced.
+Two focused targets passed three permitted gates; independent read-only
+review confirmed source, guard and axiom evidence. Evidence:
+`audits/AUDIT-ORIGINAL-LOOP-MODE-RESERVE-2026-10-03.md`.
+NEXT: quantify the actual retained reserve/complete signed cost relative to
+its SAME filtered norm on a JUSTIFIED changing family, or prove the existing
+macroscopic response ratio directly. The explicit a depends on w and side;
+its useful uniform strength is NOT established. Do not pay that analytic
+input with the bare product-heat mode pin or another conditional wrapper.
+No displayed continuum/physical/OS/every-group box changes state.
+
 NOW CHECKED LEAST-NORM ORIGINAL HALF-ANCHOR PREIMAGE:
 `DyadicMinimalPreimage.halfAnchorPreimage_difference_orthogonal`,
 `halfAnchorPreimage_norm_decomposition` and `halfAnchorPreimage_norm_minimal`
