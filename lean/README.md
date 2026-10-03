@@ -16,8 +16,10 @@ genuinely constructive.
 The ordinary series sum_(j=1..M) (I-T)^j input/j now converges to the SAME
 existing derivative-domain action, with an explicit output-range modulus.
 No inverse transfer, uniform preimage cap or ambient-kernel exclusion.
-Three focused checks passed 18 permitted gates, not a full audit. This is
-fixed-carrier domain identification, not physical OS/scaling/Clay closure.
+The converse now constructs the original domain point from supplied
+ordinary-log convergence on the SAME sector, preserving both states.
+Current focused logs cover 23 permitted gates, not a full audit. This is
+bidirectional fixed-carrier domain identification, not physical OS/scaling/Clay closure.
 Evidence: `audits/AUDIT-ORIGINAL-DOMAIN-LOGARITHM-2026-10-03.md`.
 
 **Earlier checked finite original root/log components (2026-10-03 UTC):**

@@ -9,7 +9,13 @@ returning its output-range defect modulus as data. The actual positive-moment
 finite-tail comparison passes through the existing regularized-log limit and
 two-coordinate derivative graph. No inverse transfer, preimage norm cap,
 replacement carrier or exclusion of the ambient fringe kernel is used.
-Three serial focused targets passed 18 gates within {propext, Quot.sound}.
+The converse `logLimit_equation` and `domainPointOfLogLimit` NOW construct
+the original domain equation/point from supplied ordinary-log convergence
+on the SAME sector. `logLimitPointOfDomain` computes the forward rate;
+`domain_of_log_of_domain` returns the identical original domain point.
+No equality of supplied and computed moduli is asserted. Current accepted
+focused logs cover 23 gates within {propext, Quot.sound}; the rechecked Domain
+target covers ten, including five new converse gates.
 No sorry added/discharged, no axiom or frontier weakening. Root imports
 registration-only; no full build/audit, broad guard or progress metric ran.
 Evidence: `audits/AUDIT-ORIGINAL-DOMAIN-LOGARITHM-2026-10-03.md`.

@@ -6,6 +6,9 @@ regularized-log limit and then through the existing derivative graph.
 Thus the literal unregularized partial sums converge to the SAME original
 domain action.  Their computed rate is the output's already supplied
 time-range defect modulus.  No inverse of T or preimage norm cap is used.
+Conversely, a supplied ordinary-log limit on the SAME time sector constructs
+the original domain equation. Both directions retain literal input/output
+states; only the forward direction computes a replacement modulus.
 
 This identifies the original fixed-carrier domain logarithm. It neither
 asserts convergence on the ambient fringe kernel nor identifies this sector
@@ -36,13 +39,20 @@ open YMGap.Continuum.BF4WilsonAllNomeTimeDefectMoments (defectPower)
 open YMGap.Continuum.BF4WilsonAllNomeDefectContraction (defectPower_distance_contraction)
 open YMGap.Continuum.BF4WilsonAllNomeLogPartial (logPartial logTail logPartial_add_tail)
 open YMGap.Continuum.BF4WilsonAllNomeLogSeries
-  (regularizedLog regularizedLog_approximation convergenceModulus)
+  (regularizedLog regularizedLog_approximation convergenceModulus
+    logRows logRows_point regularizedLog_mk)
 open YMGap.Continuum.BF4WilsonAllNomeLogTailComparison (logTail_norm_le_shifted_partial)
 open YMGap.Continuum.BF4WilsonAllNomeUnregularizedLogPartial
 open YMGap.Continuum.BF4WilsonAllNomeDyadicDerivative (derivativeAction)
 open YMGap.Continuum.BF4WilsonAllNomeRootLogIdentification (derivativeAction_eq_regularizedLog)
 open YMGap.Continuum.BF4WilsonAllNomeDerivativeGraph (GraphLimit)
 open YMGap.Continuum.BF4WilsonAllNomeSectorDerivative (DomainPoint graph)
+open YMGap.Continuum.BF4WilsonAllNomeTimeSector (State)
+open YMGap.Continuum.BF4WilsonAllNomeTimeRangeClosed (representative representative_pin)
+open YMGap.Continuum.BF4WilsonAllNomeCauchyRows (limit_unique completedDist_time)
+open YMGap.Continuum.BF4WilsonAllNomeBilinearTime
+  (completedTime_additive completedTime_smul completedTime_zero_element)
+open YMGap.Continuum.BF4WilsonAllNomeTimeDefectMoments (time_defectPower)
 open YMGap.Continuum.BF4WilsonAllNomeTimeRangeClosure
   (quarter quarter_positive four_quarters defectModulus defect_small)
 open YMGap.Continuum.BF4WilsonAllNomeNormLimitOrder (norm_limit_order)
@@ -186,10 +196,69 @@ def domainLogarithmCertificate (p : DomainPoint hw0 hw1 (width := width)) :
         RCle (dist (U m p.input.val) y) (rat e)) :=
   ⟨p.output.val, domainLogModulus hw0 hw1 p, rfl, domainLogarithm_bound hw0 hw1 p⟩
 
+/-- Each literal finite logarithm commutes with the ORIGINAL temporal map.
+No limiting operator or transfer inverse is invoked. -/
+theorem time_unregularizedLogPartial (time n : Nat) (x : V) :
+    T time (U n x) = U n (T time x) := by
+  induction n with
+  | zero => exact completedTime_zero_element hw0 hw1 time
+  | succ n ih =>
+      change T time (completedAdd hw0 hw1 (U n x)
+        (completedSmul hw0 hw1 (Q'.invSucc n) (DP (n+1) x))) =
+        completedAdd hw0 hw1 (U n (T time x))
+          (completedSmul hw0 hw1 (Q'.invSucc n) (DP (n+1) (T time x)))
+      rw [completedTime_additive, completedTime_smul, time_defectPower, ih]
+
+/-- The ordinary logarithm domain as witnessing data on the EXISTING sector.
+The modulus is supplied, not inferred from mere convergence in Prop. -/
+structure LogLimitPoint where
+  input : State hw0 hw1 (width := width)
+  output : State hw0 hw1 (width := width)
+  modulus : Q' → Nat
+  bound : ∀ e : Q', (0 : Q') < e → ∀ n, modulus e ≤ n →
+    RCle (dist (U n input.val) output.val) (rat e)
+
+/-- A supplied ordinary-log limit entails the ORIGINAL domain equation,
+because temporal contraction preserves its modulus and the regularized
+finite logarithm already has its actual, uniquely determined limit. -/
+theorem logLimit_equation (p : LogLimitPoint hw0 hw1 (width := width)) :
+    A p.input.val = T 1 p.output.val := by
+  let X := representative hw0 hw1 p.input.range
+  have hpin : Class X = p.input.val := representative_pin hw0 hw1 p.input.range
+  rw [derivativeAction_eq_regularizedLog, ← hpin, regularizedLog_mk]
+  apply limit_unique hw0 hw1 (logRows hw0 hw1 X) _ p.modulus
+  intro e he n hn
+  rw [logRows_point, hpin, ← unregularizedLogPartial_time,
+    ← time_unregularizedLogPartial]
+  exact RCle_trans (completedDist_time hw0 hw1 1 _ _) (p.bound e he n hn)
+
+/-- Backward construction from the literal ordinary-log domain to the
+original derivative domain, preserving both supplied sector states. -/
+def domainPointOfLogLimit (p : LogLimitPoint hw0 hw1 (width := width)) :
+    DomainPoint hw0 hw1 (width := width) :=
+  ⟨p.input, p.output, logLimit_equation hw0 hw1 p⟩
+
+/-- Forward construction computes an ordinary-log modulus from the actual
+output range witness. It does not impose a new convergence assumption. -/
+def logLimitPointOfDomain (p : DomainPoint hw0 hw1 (width := width)) :
+    LogLimitPoint hw0 hw1 (width := width) :=
+  ⟨p.input, p.output, domainLogModulus hw0 hw1 p, domainLogarithm_bound hw0 hw1 p⟩
+
+/-- The forward/backward domain join returns the SAME original domain point.
+The reverse join can change the modulus, so no equality of rate witnesses
+is asserted. -/
+theorem domain_of_log_of_domain (p : DomainPoint hw0 hw1 (width := width)) :
+    domainPointOfLogLimit hw0 hw1 (logLimitPointOfDomain hw0 hw1 p) = p := rfl
+
 #print axioms regularizedLog_tail_norm_bound
 #print axioms graph_logarithm_tail_bound
 #print axioms domainLogModulus
 #print axioms domainLogarithm_bound
 #print axioms domainLogarithmCertificate
+#print axioms time_unregularizedLogPartial
+#print axioms logLimit_equation
+#print axioms domainPointOfLogLimit
+#print axioms logLimitPointOfDomain
+#print axioms domain_of_log_of_domain
 
 end YMGap.Continuum.BF4WilsonAllNomeDomainLogarithm

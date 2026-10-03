@@ -4,8 +4,10 @@ Verified supporting ORIGINAL domain logarithm (2026-10-03 UTC; chart unchanged):
 sum_(j=1..M) (I-T)^j input/j converges to the SAME existing derivative-domain
 action, with a computed output-range modulus. The positive finite-tail bound
 passes through both existing norm-limit joins, without an inverse transfer,
-preimage cap or kernel exclusion. Three focused checks passed 18 permitted
-gates. This is fixed-carrier, not the physical OS/scaling/Hamiltonian box.
+preimage cap or kernel exclusion. The converse NOW constructs the original
+domain point from supplied ordinary-log convergence on the SAME sector,
+preserving its literal states. Current focused logs cover 23 permitted gates.
+This is fixed-carrier, not the physical OS/scaling/Hamiltonian box.
 Evidence: `audits/AUDIT-ORIGINAL-DOMAIN-LOGARITHM-2026-10-03.md`.
 No exact displayed claim changed; no ASCII reprint.
 

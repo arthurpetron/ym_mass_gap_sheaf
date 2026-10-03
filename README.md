@@ -12,9 +12,11 @@ Mathlib-free Lean with explicit witnesses and moduli.
 
 **New checked domain-logarithm result:** the ordinary logarithm series of the
 original transfer converges to the SAME existing derivative-domain action,
-with an explicit modulus. The proof retains the ambient kernel and assumes
-no inverse transfer or uniform preimage bound. Eighteen constructive gates
-passed three focused checks. This is fixed-carrier mathematics, not yet a
+with an explicit modulus. Conversely, a supplied ordinary-log limit on the
+same sector constructs the original domain point; the join preserves its
+literal states. The proof retains the ambient kernel and assumes no inverse
+transfer or uniform preimage bound. Current focused logs cover 23 constructive
+gates. This is fixed-carrier mathematics, not yet a
 physical continuum Hamiltonian. See the [proof and verification boundary](audits/AUDIT-ORIGINAL-DOMAIN-LOGARITHM-2026-10-03.md).
 
 **Earlier checked root/log proof components:** explicit positive finite primitives,

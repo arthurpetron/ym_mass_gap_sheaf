@@ -14,6 +14,14 @@ limit and derivative graph. No inverse, preimage cap or kernel exclusion.
 Three focused checks passed 18 permitted gates; no broad audit. Evidence:
 `audits/AUDIT-ORIGINAL-DOMAIN-LOGARITHM-2026-10-03.md`.
 
+FOLLOW-UP after `bd95348`: the converse is also checked. Supplied ordinary-log
+convergence on the SAME sector produces the ORIGINAL domain equation by
+transfer contraction and existing limit uniqueness. Both literal states are
+preserved, and the forward/backward join returns the identical domain point.
+One further focused check passed ten gates, five newly added; current accepted
+three-target logs cover 23 permitted gates. No ambient convergence or physical
+Hamiltonian claim, and no equality of supplied/computed moduli.
+
 FORWARD: exact retained channel cancellation avoids the Taylor replacement's
 source-degree debt; bare-heat Perron fixing is invalid. This is source-reviewed
 reasoning, not a paid useful signed estimate. The SAME filtered OWN cost on a

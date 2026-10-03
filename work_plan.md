@@ -33,8 +33,12 @@ sum_(j=1..M) (I-T)^j input/j with the SAME domain action, with computed
 `domainLogModulus` from its existing output-range witness. The positive
 finite-tail comparison and two existing norm-limit joins assume neither
 a transfer inverse nor a preimage norm cap; the ambient fringe kernel stays.
-Three focused targets passed 18 permitted gates. This backward component is
-the fixed-carrier domain logarithm, not a physically calibrated Hamiltonian.
+The converse `logLimit_equation` NOW constructs the ORIGINAL domain equation
+from supplied ordinary-log convergence on the SAME sector. The explicit
+forward/backward constructors preserve both literal states and return the
+identical original domain point. Current focused logs cover 23 permitted
+gates. This backward component is the bidirectional fixed-carrier domain
+logarithm, not a physically calibrated Hamiltonian.
 Evidence: `audits/AUDIT-ORIGINAL-DOMAIN-LOGARITHM-2026-10-03.md`.
 FORWARD remains the unpaid action-specific same-family relative estimate.
 Prefer the exact retained channel increment where it avoids the Taylor
