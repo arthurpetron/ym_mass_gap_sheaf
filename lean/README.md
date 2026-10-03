@@ -12,6 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**CURRENT original iterated conditional noise (2026-10-03 UTC):**
+`SU2QuaternionMultiHeadVarianceReplica` constructs the full shared-tail
+variance certificate. `BF4ExactSlabFixedSpatialBlockConditionalNoise` joins
+it to the existing original t-step action, proves the exact chronological
+variance-loss identity and positivity of `FilteredNoiseDrift.noise`.
+The negative drift and useful signed relative estimate remain unpaid.
+Two focused checks passed eleven new allowed gates, without errors/warnings.
+No survival reserve, justified family or continuum claim is produced.
+Root imports registered only, NOT aggregate-checked. Evidence:
+`audits/AUDIT-ORIGINAL-ITERATED-CONDITIONAL-NOISE-2026-10-03.md`.
+
 **CURRENT sharp original one-step gap (2026-10-03 UTC):**
 `BF4WilsonAllNomeOneStepGap` proves the exact rational q form rate from the
 existing squared norm rate q*q, including its zero branch. The defect margin

@@ -4929,6 +4929,8 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonOwnCenterLimit
 import YMGap.Continuum.BF4WilsonAllNomeDyadicOriginalRayleighLimit
 import YMGap.Continuum.BF4WilsonAllNomeOneStepGap
 import YMGap.Continuum.BF4WilsonAllNomeDyadicFilteredRateConstraint
+import YMGap.Continuum.SU2QuaternionMultiHeadVarianceReplica
+import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalNoise
 -- Exact full-energy fringe reduction; signed source correction remains, no scaling closure.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialProjectedSourceEnergy
 -- Original-energy Taylor bound with checked source cancellation; scaling remains open.

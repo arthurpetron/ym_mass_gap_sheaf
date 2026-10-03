@@ -4,7 +4,21 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Original quadratic commutator identity and SAME completed gain (2026-10-02 UTC)
+## Current increment: Original iterated conditional noise and exact variance loss (2026-10-03 UTC)
+
+PROGRESS after `fc23e5a`: the full multi-head two-copy difference square
+constructs an actual shared-tail variance certificate. The existing original
+half-open action, not a new kernel premise, supplies its t-step physical
+consumer. Original transfer symmetry proves exact chronological variance
+loss; the actual radius-two noise is now nonnegative. Two final focused
+checks passed eleven new permitted gates. The complete source still retains
+negative drift; no signed relative bound, justified family or survival
+reserve is produced. The plan now explicitly avoids treating total-noise
+control as an independent weaker survival input. Root aggregate, broad
+audit and progress metric NOT run; CI and exact chart unchanged. Evidence:
+`audits/AUDIT-ORIGINAL-ITERATED-CONDITIONAL-NOISE-2026-10-03.md`.
+
+## Earlier increment: Original quadratic commutator identity and SAME completed gain (2026-10-02 UTC)
 
 PROGRESS after `f2a9b20`: the COMPLETE source is exactly
 S=Delta+2(1-a)J1-2G2. Here b=T(g*(f-c)), c is the SAME finite OWN mean,

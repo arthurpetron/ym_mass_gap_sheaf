@@ -27,6 +27,21 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
+NOW CHECKED ORIGINAL ITERATED CONDITIONAL NOISE:
+`SU2QuaternionMultiHeadVarianceReplica` constructs the full shared-tail Gram
+certificate. `BF4ExactSlabFixedSpatialBlockConditionalNoise` applies it to the
+EXISTING half-open original action: A=T^t g, b=T^t(g*f), H=T^t(g*f^2) have
+Delta=A*H-b^2 certified positive, including t=0 and signed OWN-centered f.
+The exact variance-loss split is ell(Delta)=ell[g*T^(2t)(g*f^2)]-ell(b^2).
+At t=1,g=g_n this proves positivity of the existing noise component; the
+complete radius-two source still contains MINUS driftSquare. Two focused
+checks passed eleven allowed gates. STRATEGY: a total-noise comparison
+ell(Delta)<=C*ell(b^2) would itself require a fixed filtered-square survival
+fraction; it is not free from positivity/terminal regularity. Retain signed
+score/commutator cancellation as the analytic target, with the actual same
+norm. No relative bound, justified family or displayed frontier closed.
+Evidence: `audits/AUDIT-ORIGINAL-ITERATED-CONDITIONAL-NOISE-2026-10-03.md`.
+
 NOW CHECKED SHARP ORIGINAL ONE-STEP RATE:
 `BF4WilsonAllNomeOneStepGap` derives the exact q form rate from the existing
 T^2 norm rate q*q on EVERY original completed vacuum-orthogonal state,

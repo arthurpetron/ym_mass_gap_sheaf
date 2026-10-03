@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED actual iterated conditional-noise certificate and variance-loss identity only (2026-10-03 UTC)
+
+`SU2QuaternionMultiHeadVarianceReplica.determinant_certificate` constructs
+the full multi-head positive witness with all surviving variables shared.
+`BF4ExactSlabFixedSpatialBlockConditionalNoise.blockNoise_certificate`
+joins it to the EXISTING original finite t-step transfer and half-open action,
+for every supported signed test and certified positive input, including t=0.
+`blockNoise_variance_loss` retains the SAME longer-horizon endpoint square;
+`original_noise_nonnegative` pays the previously unproved positivity of the
+existing radius-two noise component. The negative drift remains in the
+complete signed source. Two final focused checks passed all eleven allowed
+gates, without errors/warnings. No new hole, axiom or frontier weakening.
+
+OPEN: signed energy/commutator versus SAME half-smoothed norm on a justified
+family; a total-noise-relative comparison is itself a substantive survival
+reserve, not a free consequence of this certificate. All continuum/Clay
+endpoints remain OPEN. Root imports registered only, NOT aggregate-checked;
+CI and exact chart unchanged. Evidence:
+`audits/AUDIT-ORIGINAL-ITERATED-CONDITIONAL-NOISE-2026-10-03.md`.
+
 ## PROVED sharp original one-step gap and necessary filtered-budget rate condition only (2026-10-03 UTC)
 
 - `BF4WilsonAllNomeOneStepGap.completed_oneStep_form_gap` proves the EXACT

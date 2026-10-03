@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL iterated conditional-noise certificate
+(2026-10-03 UTC; chart unchanged): the full multi-head replica retains every
+shared surviving insertion and constructs A*H-b^2>=0 for the EXISTING
+original finite t-step action. The exact same-source variance-loss identity
+pays positivity of the existing radius-two noise component, not the signed
+noise-MINUS-drift estimate. A useful total-noise comparison would itself
+demand filtered survival. Two focused checks passed eleven allowed gates.
+Relative cost, justified family and all displayed continuum claims remain
+OPEN. Evidence: `audits/AUDIT-ORIGINAL-ITERATED-CONDITIONAL-NOISE-2026-10-03.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting sharp ORIGINAL one-step rate (2026-10-03 UTC; chart
 unchanged): the SAME completed vacuum complement now has exact one-step
 form rate q from its squared norm rate q*q, including q=0. The exact margin

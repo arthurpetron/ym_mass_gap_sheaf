@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**New checked original conditional-noise theorem:** two full original finite
+windows give a constructive certificate for `A*H-b^2>=0` after any number
+of transfer steps, with the surviving variables shared. Its exact variance-loss
+identity retains the SAME longer-horizon endpoint square and filtered norm.
+This proves positivity of the existing noise component, not its signed
+noise-minus-drift budget or continuum survival. Eleven new gates passed two
+focused checks. See the [proof and remaining signed estimate](audits/AUDIT-ORIGINAL-ITERATED-CONDITIONAL-NOISE-2026-10-03.md).
+
 **New checked sharp one-step bound:** on EVERY original completed
 vacuum-orthogonal state, the existing `T^2` norm rate `q^2` now yields the
 exact form rate `q`, without a square root or spectral theorem. Its margin
