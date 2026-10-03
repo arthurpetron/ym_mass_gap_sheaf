@@ -7,8 +7,8 @@ output action V and SAME centered-message square. The literal residue
 has bound 8*(1-a)*mixRate^n*SAME evenPartition and a computed depth onset.
 All 18 constructive gates and independent reviews passed. Conditional
 source loss is still NOT interacting variance or lag-one reserve; the
-useful changing-family relative estimate and all displayed nodes remain
-OPEN. Evidence: `audits/AUDIT-WHOLE-WORD-COVARIANCE-GAIN-2026-10-03.md`.
+useful changing-family relative estimate and the displayed OPEN nodes
+remain OPEN. Evidence: `audits/AUDIT-WHOLE-WORD-COVARIANCE-GAIN-2026-10-03.md`.
 No displayed claim changed; no ASCII reprint.
 
 Verified supporting finite heat source bridge (2026-10-03 UTC; chart unchanged):

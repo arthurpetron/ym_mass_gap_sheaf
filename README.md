@@ -43,7 +43,7 @@ Wilson square, retaining the original terminal and OWN center. The useful
 signed comparison remains open. See the
 [finite-heat bridge and missing quantitative join](audits/AUDIT-FINITE-HEAT-SOURCE-GRADIENT-2026-10-02.md).
 
-**New checked quantitative join:** the ACTUAL Wilson-square gain now has
+**New checked whole-word estimate:** the ACTUAL Wilson-square gain now has
 a whole-word covariance cost, keeping the negative spin-two moment and
 the SAME original terminal, action and centered-message norm. Its finite
 moving-mean error has a computed geometric depth threshold. The cost is
