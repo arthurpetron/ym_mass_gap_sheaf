@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL weighted heat-energy bound (2026-10-03 UTC;
+chart unchanged): the literal SAME-output Laurent numerator has its E+2
+Euler pin. Actual Bochner rows and saturated conditional certificates
+construct the sign under arbitrary certified W; finite Taylor closure
+fills the nome-one boundary. The proved bound is
+`H[W G(r)] <= r^2 H[W G(1)]`, including w<=r<=1 and shared spectators.
+The fixed-source cutoff is not changing-source/scaling uniformity.
+Six focused checks passed 34 permitted gates; independent Sol review passed.
+Conditional variance, original signed-window scaling and physical/OS/
+continuum/QFT/every-group/Clay remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-WEIGHTED-HEAT-ENERGY-2026-10-03.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting ORIGINAL heat Laurent interpolation (2026-10-03 UTC;
 chart unchanged): actual finite coefficient pderiv gives
 `r F'=2 C[Gamma(V)]`, `r G'=2 C[Gamma2(V)]` under every surviving insertion.
@@ -7,7 +20,7 @@ The original retained output and shared spectators stay fixed. Actual
 conditional saturation and a computed larger positive prefix construct
 pointwise positivity at strict nomes; FIXED finite rows have a single
 nome-independent mode cutoff. Eight focused checks passed 51 permitted
-gates; independent mathematical reviews passed. Weighted derivative-sign
+gates; independent mathematical reviews passed. At that checkpoint weighted derivative-sign
 and endpoint joins, conditional variance, original signed-window scaling,
 physical/continuum/QFT/every-group/Clay remain OPEN. Evidence:
 `audits/AUDIT-ORIGINAL-HEAT-LAURENT-INTERPOLATION-2026-10-03.md`.

@@ -7236,3 +7236,12 @@ import YMGap.Continuum.SU2QuaternionConditionalLaurentRows
 import YMGap.Continuum.SU2QuaternionHeatLaurentInterpolation
 import YMGap.Continuum.SU2QuaternionConditionalHeatSaturation
 import YMGap.Continuum.SU2QuaternionConditionalHeatPositiveSaturation
+
+-- Constructed same-output weighted heat-energy bound, including nome-one
+-- by scalar Taylor closure. Conditional variance and scaling remain OPEN.
+import YMGap.Continuum.SU2QuaternionHeadHeatCurveSupport
+import YMGap.Continuum.QuaternionHaarNomeRows
+import YMGap.Continuum.RationalPolynomialStrictEndpoint
+import YMGap.Continuum.RationalLaurentQuadraticOrder
+import YMGap.Continuum.SU2QuaternionBochnerNomeRows
+import YMGap.Continuum.SU2QuaternionWeightedHeatInterpolation

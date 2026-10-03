@@ -4,7 +4,26 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL heat Laurent interpolation and positive saturation (2026-10-03 UTC)
+## Current increment: ORIGINAL weighted heat-energy estimate (2026-10-03 UTC)
+
+PROGRESS after `4967f14`: the ORIGINAL same-output angular interpolation now
+satisfies H[W G(r)]<=r^2 H[W G(1)], including both endpoints and arbitrary
+certified W with shared spectators. Its actual coefficient numerator has
+the E+2 Euler derivative pin. Computed fixed-source Bochner rows and
+saturated conditional certificates supply its sign; explicit polynomial
+Taylor/Archimedean closure supplies the missing endpoint. No derivative-sign
+or variance premise, no fixed-kernel positivity up to nome one.
+Six focused checks passed 34 gates within {propext, Quot.sound}; independent
+Sol mathematical review passed. NEXT: actual square increment and particular
+mean-square/source-gradient endpoints, conditional reference Poincare and
+its active-product join; then the SAME original signed-window estimate on
+a JUSTIFIED changing family. Physical/OS/continuum/QFT/every-group/Clay stay
+OPEN. Evidence: `audits/AUDIT-ORIGINAL-WEIGHTED-HEAT-ENERGY-2026-10-03.md`.
+
+No broad progress-metric/guard run or full build/audit is claimed. The exact
+canonical chart claims are unchanged; no chart reprint.
+
+## Earlier increment: ORIGINAL heat Laurent interpolation and positive saturation (2026-10-03 UTC)
 
 PROGRESS after `d09afaa`: literal original finite row product/chain calculus
 proves `r F'=2 C[Gamma(V)]` and `r G'=2 C[Gamma2(V)]` on the SAME original

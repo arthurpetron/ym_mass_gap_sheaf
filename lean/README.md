@@ -12,7 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT checked ORIGINAL heat Laurent interpolation (2026-10-03 UTC):**
+**CURRENT checked ORIGINAL weighted heat-energy order (2026-10-03 UTC):**
+The actual weighted coefficient numerator has its literal E+2 Euler pin.
+Original Bochner-margin rows, one computed fixed-source cutoff and saturated
+conditional positivity construct the derivative sign under EVERY certified
+original output W. Finite Taylor/Archimedean closure supplies the missing
+left endpoint without a generic diagonal carrier pullback. The derived
+bound is H[W G(r)] <= r^2 H[W G(1)] for w<=r<=1, with shared spectators.
+Six focused checks passed 34 gates within {propext, Quot.sound}; independent
+Sol semantic review passed. Root registration only, no full build/audit.
+Conditional reference variance, original signed-window changing-family
+control and physical/OS/continuum/QFT/every-group/Clay remain OPEN.
+Evidence: `audits/AUDIT-ORIGINAL-WEIGHTED-HEAT-ENERGY-2026-10-03.md`.
+
+**Earlier checked ORIGINAL heat Laurent interpolation (2026-10-03 UTC):**
 Explicit original coefficient rows and literal pderiv prove the square and
 energy Euler identities `r F'=2 C[Gamma(V)]`, `r G'=2 C[Gamma2(V)]`.
 All shared original outputs/spectators remain. Actual finite-mode saturation
@@ -21,7 +34,7 @@ at each strict nome. The input mode cutoff is exactly nome-independent
 for FIXED finite rows, not uniform for changing sources. Eight focused
 checks passed 51 gates within {propext, Quot.sound}; independent mathematical
 reviews passed. Root registration only, no full root/tree build or audit.
-Weighted derivative signs/endpoint joins, conditional reference variance,
+At that checkpoint weighted derivative signs/endpoint joins, conditional reference variance,
 original signed-window scaling and physical/continuum/QFT/every-group/Clay
 remain OPEN. Evidence:
 `audits/AUDIT-ORIGINAL-HEAT-LAURENT-INTERPOLATION-2026-10-03.md`.

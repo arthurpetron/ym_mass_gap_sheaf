@@ -27,7 +27,28 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
 
-NOW CHECKED ORIGINAL HEAT LAURENT PRODUCT/CHAIN INTERPOLATION:
+NOW CHECKED ORIGINAL WEIGHTED HEAT-ENERGY ORDER:
+FORWARD, the actual margin row skeleton has a coefficient-strength pin to
+Gamma2(V)-Gamma(V), explicit support and a constructed Bochner certificate.
+One computed fixed-source cutoff and a larger positive prefix construct
+positivity of its ORIGINAL conditional image at strict auxiliary nomes.
+BACKWARD, the literal Haar-weighted scalar numerator has the genuine E+2
+Euler pin for G/r^2. Taylor/Archimedean scalar closure fills the missing left
+endpoint, and original Laurent order proves H[W G(r)]<=r^2 H[W G(1)] for
+w<=r<=1 under arbitrary certified W with all shared spectators retained.
+No desired analytic derivative sign or variance estimate is a premise.
+Six focused checks passed 34 permitted gates; independent Sol review passed.
+Evidence: `audits/AUDIT-ORIGINAL-WEIGHTED-HEAT-ENERGY-2026-10-03.md`.
+REPOINT: use the TRUE square Euler identity and this derived energy bound
+to prove F(1)-F(w)<=(1-w^2)G(1). Join actual particular endpoints to
+C_w(p^2)-(C_w p)^2 and C_w Gamma(p), then the active-product reference
+Poincare estimate. Its INPUT-gradient energy is NOT the Q_K^2 budget called
+projectedDerivativeAngularBudget; that SAME source/action/output-weight/
+surviving-norm estimate and justified changing-family signed-window bound
+remain needed. Physical/OS/continuum/QFT/every-group/Clay remain OPEN.
+Exact canonical chart claims are unchanged; no reprint.
+
+EARLIER CHECKED ORIGINAL HEAT LAURENT PRODUCT/CHAIN INTERPOLATION:
 FORWARD, actual complete inverse-nome packet rows and literal coefficient
 pderiv give rF'=2C[Gamma(V)] and rG'=2C[Gamma2(V)] under EVERY original
 surviving insertion. The original output and shared spectators are retained.

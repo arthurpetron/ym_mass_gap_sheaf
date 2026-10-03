@@ -10,7 +10,21 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Verified ORIGINAL square/energy heat interpolation (2026-10-03 UTC):**
+**Verified ORIGINAL weighted heat-energy estimate (2026-10-03 UTC):**
+For the actual conditional interpolation `G(r)=C_(w/r)[Gamma(V(r))]`,
+the proved bound is `H[W G(r)] <= r^2 H[W G(1)]`, including both endpoints
+and arbitrary certified SAME-output weights with shared spectators.
+The actual scalar Laurent derivative sign follows from the constructed
+Bochner margin and saturated conditional positivity. Explicit Taylor bounds
+close the missing endpoint; no variance or derivative-sign premise is assumed.
+The cutoff is computed once for a FIXED source, not uniform over changing
+sources or scaling. Six focused checks passed 34 gates within
+{propext, Quot.sound}; independent mathematical review passed.
+Conditional variance, the original signed-window scaling estimate and
+physical/continuum/QFT/every-group/Clay remain OPEN. See the
+[proved energy bound and next join](audits/AUDIT-ORIGINAL-WEIGHTED-HEAT-ENERGY-2026-10-03.md).
+
+**Earlier verified ORIGINAL square/energy heat interpolation (2026-10-03 UTC):**
 literal coefficient derivatives now prove `r F'=2 C[Gamma(V)]` and
 `r G'=2 C[Gamma2(V)]` for the actual inverse-nome conditional functions,
 retaining the original output and all shared spectators. Exact cutoff
@@ -19,8 +33,8 @@ the saturated conditional image at each strict nome. One cutoff works
 for every nome evaluation of a FIXED finite row family; this is not
 changing-source or scaling uniformity. Eight focused checks passed 51 gates
 within {propext, Quot.sound}; independent mathematical reviews passed.
-The weighted derivative-sign/endpoint join, conditional variance, original
-signed-window scaling and Clay remain OPEN. See the
+At that checkpoint the weighted derivative-sign/endpoint join, conditional
+variance, original signed-window scaling and Clay were OPEN. See the
 [proofs and remaining analytic join](audits/AUDIT-ORIGINAL-HEAT-LAURENT-INTERPOLATION-2026-10-03.md).
 
 **Checked forward/backward conditional-heat prerequisites:** the original
