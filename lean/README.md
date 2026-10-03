@@ -13,6 +13,21 @@ discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
 **CURRENT original signed filtered source and SAME response target (2026-10-03 UTC):**
+`BF4ExactSlabFixedSpatialCubeFiniteOwnGain.originalOwnGain_smallNome_floor`
+now proves the EXISTING original commutator gain at its computed OWN odd
+mean is at least 2^-124-2^-138>0 for w=1/16, K=1, width=2, n=0.
+`CubeOwnMeanSmall` constructs Zodd>=959/1024 and |OWN mean|<=1/4 under
+0<=alpha<=1/512. `CubeOwnCenteredSquareFloor` gives the actual C2 floor;
+`CubeCenteredGainTransport` pays the original source identity and signed
+Young square, and `CubeCenteredYoungCostCap` bounds its actual cost.
+Nine focused checks passed 59 allowed gates. No new sorry/axiom, head-guard
+weakening, surrogate center or canonical field change. The wider coefficient
+candidate, later-cutoff/depth and changing-family estimates remain OPEN.
+NEXT: original relative signed control on the SAME scaling family and its
+actual macro-ratio/cross-scale costs, not more fixed-small-nome examples.
+Root imports registered only, NOT aggregate-checked.
+
+Previously checked original vacuum/kinetic supporting inputs:
 `BF4ExactSlabFixedSpatialCubeVacuumActionMoment` now proves the separate
 source channel H[P*Vcube]=alpha+alpha^5/16. `CubeTestedTransfer` (full
 prefix `BF4ExactSlabFixedSpatial`) proves the original TF/T1 projections
@@ -21,9 +36,9 @@ fundamental kernel certificates, `CubeFundamentalInterval` and
 `CubeVacuumInterval` construct actual Vcube-1 and ORIGINAL T1-1 intervals
 at delta=(1+2*alpha)^6-1. Their coefficient and cap guards are explicit;
 no headCutoff interface changed. `CubeBentFusion.bent_haar_zero` proves
-only bare H[F]=0, NOT interacting OWN mean zero. Eight focused checks
-passed 59 allowed gates. NEXT: actual OWN odd-mean cap and signed finite
-gain; changing-family survival and all continuum endpoints remain OPEN.
+only bare H[F]=0, NOT interacting OWN mean zero. Eight earlier focused checks
+passed 59 allowed gates. The newer finite mean/gain closure above does not
+close changing-family survival or any continuum endpoint.
 Root imports registered only, NOT aggregate-checked.
 
 `BF4ExactSlabFixedSpatialCubeBentParity` now supplies a computed physical

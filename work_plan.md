@@ -109,33 +109,40 @@ Eight final serialized focused checks passed 59 allowed gates; independent
 mathematical/source review passed. No headCutoff interface or chart node
 was weakened or closed by these finite supporting inputs.
 
-NEXT MATHEMATICAL ATTACK (GAIN STILL NOT PROVED): avoid full seven-moment
-expansion where actual finite small-nome certificates suffice. With
-ell(p)=H[V*p], b=TF-c*T1 at its OWN odd mean, a=r^6 and
-Q=ell[(T1)^2*(F-c)^2], the literal positive square can give
-2*G>=C2-a^2*Q. An original tested P channel and Haar Cauchy--Schwarz can
-lower-bound C2. The separate vacuum channel, both kinetic tests and
-literal Vcube-1/T1-1 interval certificates are now constructed; instantiate
-their explicit small-cap guards and prove the OWN odd-mean bound next.
-The SAME odd mean can be bounded from their product cap and H[F]=0;
-do not identify odd and even partitions. The existing partial-Haar
-certificate integration and normalized kinetic marginal provide the
-interfaces; DIRECT K=1 positivity now has an actual producer, not a
-headCutoff assumption. This is an alternative concrete finite-gain route,
-not a new generic consumer or a changing-family estimate. The full
-seven-moment route below remains a backup rather than a mandatory field.
+NOW CHECKED NONVACUOUS OWN-CENTERED FINITE PILOT:
+`BF4ExactSlabFixedSpatialCubeOwnMeanSmall` constructs the ORIGINAL odd
+partition Z>=959/1024 and |OWN mean|<=1/4 for 0<=alpha<=1/512.
+`CubeOwnCenteredSquareFloor` proves C2>=half*(w^12*alpha/4)^2>0 for
+positive w; the actual source pins and Young square prove 2G>=C2-a^2*Q,
+and `CubeCenteredYoungCostCap` bounds the SAME original Q by 128.
+`CubeFiniteOwnGain.originalOwnGain_smallNome_floor` now proves the
+EXISTING original commutator gain at w=1/16, K=1, width=2, n=0,
+a=w^18 is >=2^-124-2^-138>0. Nine focused checks passed 59 allowed gates;
+independent mathematical/source review passed. The mean is never set to
+bare zero, and odd/even partitions are never equated. This analytic
+projection/Young proof avoids the complete degree-68 expansion; it does
+NOT certify that candidate's entire coefficient range. No old head guard
+or canonical field was weakened.
 
-K=1 still FAILS headCutoff(1/2)>=17;
-no completed, all-cutoff or growing-family estimate follows. NEXT FORWARD
-use the checked tests and direct intervals to prove the actual OWN mean
-cap and signed finite gain, then control later-cutoff/depth remainders.
-Evaluating all seven ORIGINAL moments remains a backup. Direct two-/
-three-slice contractions can avoid a complete 32-state range theorem;
-their concrete tensor wiring and bounded certificate generation remain
-OPEN. Do not repeat fixed-small-nome tests or add generic consumers.
-BACKWARD retain
-the SAME macroscopic ratio and three relative costs on a justified physical
-family. Do not substitute this bent observable for the dyadic square.
+NEXT FORWARD mathematical producer: useful relative original signed
+channel/cost control when cutoff, terminal depth, coupling and spatial
+scale vary. Retain the actual scaling observable and its OWN means;
+pay every source/observable recoding, later-cutoff/depth remainder and
+normalizer before using the estimate. The finite pilot is a mechanism
+witness, NOT a producer for the all-scale ratio. Do not repeat
+fixed-small-nome examples, expand all seven moments by default, or add
+more generic normalization/polarization consumers.
+BACKWARD retain the unsupplied SAME macroscopic ratio and three relative
+costs on a justified physical family. The nearest completed signed bridge
+is `BF4WilsonAllNomeFilteredGainLimit.dyadicUnit_gain_pin`: it concerns
+the actual padded dyadic-square observable, not an interchangeable bent
+loop. `BF4WilsonAllNomeDyadicNormalizedMacroRatio` still takes the
+family-wide macro ratio as an input; `BF4WilsonAllNomeThreeNormComparison`
+still takes hN/hplus/hminus. The finite point does not supply any of them.
+K=1 still fails the old late guard; the checked fixed-small-nome
+macroscopic obstruction is unchanged. Later-cutoff/depth, justified
+changing family, spatial/spacing/physical mass, full SAME-theory QFT and
+every compact simple group remain OPEN.
 Evidence: `audits/AUDIT-CUBE-BENT-LOOP-SIGNED-GAIN-2026-10-03.md`.
 
 CHECKED LIMITS OF TWO CERTIFICATE ROUTES:

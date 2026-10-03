@@ -573,3 +573,160 @@ the checked fixed-small-nome macroscopic obstruction. Physical scaling,
 nontrivial continuum survival, full SAME-theory QFT and every compact
 simple group remain OPEN. Root imports are registered only; canonical
 fields, exact chart fence and CI are unchanged. No ASCII reprint.
+
+## Subsequent checked ORIGINAL OWN-centered positive finite gain
+
+This section supersedes the preceding pending finite mean/gain statements
+only at the explicit finite point below. The wider degree-68 coefficient
+candidate, late-cutoff/depth, scaling family and Clay endpoints remain OPEN.
+
+### Original source and quantitative bounds
+
+All paths in this section start with `lean/YMGap/Continuum/`.
+
+- `BF4ExactSlabFixedSpatialCubeOddBackgroundInterval.lean:90`,
+  `cubeOddBackgroundInterval`, constructs BOTH signs of the literal
+  Vcube*(ORIGINAL T1)-1 with cap 2*delta+delta^2. Its
+  `bentObservableInterval` (:128) certifies the actual six-link trace cap 2.
+- `BF4ExactSlabFixedSpatialCubeSmallFundamentalCap.lean:27`,
+  `cubeFundamentalDelta_le_cap`, proves 0<=alpha<=1/512 implies
+  delta<=1/32; `directKernelGuard_of_coeffW_cap` (:48) proves alpha*2<=1.
+  `smallNome` (:59) is 1/16, with its actual coefficient equivalent to
+  1/2048 (:63), positive and within the explicit cap. These are finite
+  guards, not uniformity in unrestricted coupling or volume.
+- `BF4ExactSlabFixedSpatialCubeOddMomentPin.lean:61`,
+  `oddPartition_background_pin`, and `oddNumerator_background_pin` (:73)
+  first use the seven ORIGINAL moment pins, then explicitly tested
+  vacuum-message transport. They identify ell(U) with H[Vcube*U] and
+  ell(F*U) with H[Vcube*U*F], retaining literal ORIGINAL U=T1.
+  Original U locality is NOT assumed. `mean_odd_ratio_pin` (:94) retains
+  the old edge-law mean's head guard when asserting compatibility.
+- `BF4ExactSlabFixedSpatialCubeOwnMeanSmall.lean:93`, `oddPartition_floor`,
+  proves Zodd>=959/1024; `oddPartition_positive` (:107) constructs its
+  positive denominator. `oddNumerator_abs_le` (:114) proves
+  |Nodd|<=130/1024. `originalOddMean` (:128) is Nodd divided by this
+  SAME original odd partition, and `originalOddMean_abs_le` (:153)
+  proves |c|<=1/4. Bare H[F]=0 is used only after the complete original
+  odd-background remainder is paid. No odd/even partition identification.
+- `BF4ExactSlabFixedSpatialCubeCenteredSquareProjection.lean:137`,
+  `centeredSquare_projection_lower`, retains b=ORIGINAL TF-c*T1 and
+  proves half*H[P*b]^2<=ell(b^2), with arbitrary c. The original spatial
+  weight is retained until the supported-message square and fringe action
+  transports are paid. The actual P square norm 1 and Haar
+  Cauchy--Schwarz supply the projection floor.
+- `BF4ExactSlabFixedSpatialCubeOwnCenteredSquareFloor.lean:96`,
+  `originalOwnCenteredSquare_lower`, uses the ACTUAL odd mean to prove
+  C2>=half*(w^12*alpha/4)^2. `originalOwnCenteredSquare_positive` (:119)
+  is strict for positive w in the coefficient-cap regime. The favorable
+  channel is alpha*(1/2-c)+alpha^5*(1/8-c/16), not a centered eigenpin.
+- `BF4ExactSlabFixedSpatialCubeCenteredGainTransport.lean:80`,
+  `original_commutator_gain_pin`, identifies the EXISTING
+  `BF4ExactSlabFixedSpatialFilteredCommutatorGain.commutatorGain` at n=0
+  with the literal original weighted b*(b-a*U*(F-c)). The square/cost/gain
+  source pins (:168, :177, :186) retain original U/B under Vcube after
+  composed supported tests, reduced fringe peeling and reverse tests.
+  `gain_young_lower` (:216) proves C2-a^2*Q<=2G for arbitrary c/a using
+  the actual cube certificate and weighted square. No gain sign assumed.
+- `BF4ExactSlabFixedSpatialCubeCenteredYoungCostCap.lean:114`,
+  `centeredYoungCost_sharp_upper`, proves the literal original
+  Q=ell[(U*(F-c))^2] is <=(1+delta)^3*(1+c^2). Shared V/U variables are
+  retained in their interval product. The paid cost pin precedes the bare
+  F norm-one/mean-zero calculation. `originalOwnYoungCost_le_128` (:169)
+  supplies every guard at the constructed original odd mean.
+- `BF4ExactSlabFixedSpatialCubeFiniteOwnGain.lean:45`,
+  `originalOwnGain_smallNome_floor`, joins these bounds to the EXISTING
+  original commutator at w=1/16, K=1, width=2, n=0, a=w^18, with its
+  OWN odd mean. `finiteGainFloor` (:36) is the explicit rational
+  half*(half*z^2-128*a^2), z=w^12*alpha/4. At this point z=2^-61,
+  a=2^-72, so the floor is 2^-124-2^-138>0.
+  `finiteGainFloor_positive` (:41) checks positivity of this rational;
+  `originalOwnGain_smallNome_positive` (:74) proves actual gain positivity.
+
+This is a kernel-checked nonvacuous finite signed-gain witness, not a
+certificate of the earlier candidate's whole r-range. It does not make
+the old K=1 head guard true, prove a physical mass, or overcome the checked
+fixed-small-nome macroscopic obstruction.
+
+### Focused verification evidence
+
+Nine FINAL serialized checks passed: 5+12+5+14+4+3+9+3+4 = 59 printed
+gates, each with axiom set contained in {propext, Quot.sound}, and no
+errors/warnings. Independent Sol/Luna mathematical/source review passed.
+Every check used `scripts/safe_lean_build.py`, jobs=1, reserve=12 GiB,
+check-worker-limit=20 GiB. Fresh process/memory/swap checks preceded launches;
+accepted long source-join checks reported about 11.8 GiB build RSS, with
+about 28--31 GiB available and zero swap. No overlapping Lean builds,
+resource/proof-limit increase, full build, aggregate audit, baseline rewrite
+or CI activation. An attempted launch was rejected on stale prior-process
+evidence; a fresh read-only process check resolved it before retry.
+
+Rejected development logs are NOT acceptance evidence. Corrections included
+explicit carrier/namespace arguments, rational equivalence rather than raw
+representation equality, coefficient recoding without rewriting dependent
+reciprocal proofs, and an explicit right-fold power identity. No statement
+guard was dropped to solve an elaboration problem. The existing broad audit
+parser import raises `NameError: dataclass`; it was left untouched. The 59
+focused output records were checked directly with the same permitted axiom
+set; no repository-wide audit pass is claimed.
+
+Source SHA256 (the preceding common module prefix applies):
+
+```text
+CubeOddBackgroundInterval: 13c7d580874e8116af2641a6a2787dee37f5a3942c65b01730d195ca9da324f3
+CubeSmallFundamentalCap: 3d8ce2a24fad8066286b9c3826a746c4c8a9906893bc2af89a7b6f75203e7c5f
+CubeOddMomentPin: 0db6bf9c674f1e2576b1fe0abcdb11667e98afc195adef2317269c5d327b0001
+CubeOwnMeanSmall: be49f0ee1015b5ee963c8c8bcd426fdca568bbfe01405d9f6e0d687c9b5b4fa0
+CubeCenteredSquareProjection: a4acf5802a1a279403311b1caa89fb26f830fb263c2fceba0383474e494707f2
+CubeOwnCenteredSquareFloor: c826340a6e147f9b4f946c32fe2a3cadda596b95f00a05220cd67fd9401e6dad
+CubeCenteredGainTransport: 39c2d08b661b200b69df30f150dcbf7be658c3471843ac0a26096fe87aae02a4
+CubeCenteredYoungCostCap: 328354ea596dce58acbdc1048c8b35e2181ba5d0ac5b8bca0e6bf1ff5dcd2504
+CubeFiniteOwnGain: 25eac9f8ac7ff47902e87c2405869899ea57319cce663f4a2d74bc5860eb99f9
+```
+
+Accepted log SHA256:
+
+```text
+/tmp/ym-cube-odd-background-20261003-a.log
+0ae674bfd08e09baa30e7b7afefbde3a3b81197d87962a3cce65f5761a4279ed
+/tmp/ym-cube-small-cap-20261003-c.log
+790bff4a21fe4b78d24193d6e2f32f3acfd247a620858f31e0eb89773f6b9e37
+/tmp/ym-cube-odd-moment-pin-20261003-c.log
+3cf3ee1baa8d5d4593011458ec10c1d4fa346060c5d235f6706e8be34e7449cb
+/tmp/ym-cube-own-mean-small-20261003-b.log
+5d3e3bd512346094dcb869e8c35521d58e8b8aa65a4766d0581b0702cc9b9cd1
+/tmp/ym-cube-centered-square-projection-20261003-b.log
+f65b5f3d7c64f06c3a2d8931d36451c507f1515ff101cb3537315aabb86af907
+/tmp/ym-cube-own-square-floor-20261003-b.log
+e35ede3805b02425fbca250d5c1cca5a4037c6353347f2789949c9bab667d1f4
+/tmp/ym-cube-centered-gain-transport-20261003-b.log
+97f06cda85442606b20a443fc232a350ba7fd64741751998cdf3af6bf4cd4d0b
+/tmp/ym-cube-centered-young-cost-20261003-b.log
+65300a9e37297066c9b4ee433f14dfd6f39f7748031bbd81929e0cf96b1a68c8
+/tmp/ym-cube-finite-own-gain-20261003-a.log
+ad2c3fbf9abc31c22ed2fa53fa8f4ae6c8c5e5e2601c3d806019a3126d1e186d
+```
+
+### Next causal forward-backward frontier
+
+FORWARD: useful original relative signed control with coupling, cutoff,
+terminal depth and spatial scale varying, for the SAME scaling observable.
+This finite local witness does not supply those estimates. No further
+fixed-small-nome examples or generic normalization wrappers are needed.
+
+BACKWARD: the nearest completed identity is
+`lean/YMGap/Continuum/BF4WilsonAllNomeFilteredGainLimit.lean:144`,
+`dyadicUnit_gain_pin`, for the actual PADDED DYADIC SQUARE and its existing
+normalizer; it identifies normalized completed gain with R(2)-a*R(1).
+It is not a source identity for the finite bent loop. The family-wide
+macro-ratio hypothesis is still explicit in
+`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicNormalizedMacroRatio.lean:300`,
+`normalizedBond_geometric_real_increment`. The actual hN/hplus/hminus
+relative costs remain inputs of
+`lean/YMGap/Continuum/BF4WilsonAllNomeThreeNormComparison.lean:313`,
+`dyadic_normalized_response_compare`. None is supplied by this finite point.
+Do not substitute observable shapes or normalizers without a checked join.
+
+Justified changing family, nontrivial continuum survival, physical mass,
+full SAME-theory QFT and every compact simple group remain OPEN. Root imports
+are registered, not aggregate-checked. No exact displayed canonical claim
+changed; chart fence and CI remain unchanged. No ASCII reprint.

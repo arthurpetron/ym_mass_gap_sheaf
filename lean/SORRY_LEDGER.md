@@ -1,5 +1,40 @@
 # Sorry Ledger
 
+## PROVED nonvacuous ORIGINAL OWN-centered finite signed gain only (2026-10-03 UTC)
+
+- `BF4ExactSlabFixedSpatialCubeOddBackgroundInterval` constructs both signs
+  of Vcube*(ORIGINAL T1)-1 and the actual bent trace cap two.
+  `CubeSmallFundamentalCap` proves alpha<=1/512 gives delta<=1/32 and
+  2*alpha<=1, with the explicit positive w=1/16 witness.
+- `CubeOddMomentPin` pays original partition/numerator transport before
+  replacing any action/message; `CubeOwnMeanSmall` constructs
+  Zodd>=959/1024, |Nodd|<=130/1024 and |OWN mean|<=1/4. Its compatibility
+  with the earlier edge-law mean RETAINS that earlier head guard. The
+  direct finite ratio needs only its own constructed positive partition.
+- `CubeCenteredSquareProjection` and `CubeOwnCenteredSquareFloor` prove
+  C2>=half*(w^12*alpha/4)^2>0 at the actual OWN center for positive w in
+  that explicit regime. `CubeCenteredGainTransport` identifies the
+  EXISTING original depth-zero commutator gain and proves C2-a^2*Q<=2G.
+  `CubeCenteredYoungCostCap` proves the original Q<=128 at this OWN mean.
+- `CubeFiniteOwnGain.originalOwnGain_smallNome_floor` and
+  `originalOwnGain_smallNome_positive` close the point w=1/16, K=1,
+  width=2, n=0, a=w^18: G>=2^-124-2^-138>0. No interacting centered
+  eigenpin or surrogate action/center/carrier is used.
+- Nine final serialized focused checks passed all 59 printed gates within
+  {propext, Quot.sound}, without errors/warnings; independent Sol/Luna
+  mathematical/source review passed. No new sorry/axiom/classical shortcut,
+  raised proof/resource limit or canonical field change. Root imports
+  registered only; no aggregate/full build or axiom-baseline regeneration.
+- OPEN/NEXT: wider coefficient range, later-cutoff/depth, SAME observable
+  and justified changing-family relative estimate, macroscopic ratio,
+  normalized cross-scale costs, physical mass/full QFT/every-group/Clay.
+  The old K=1 head guard remains false; its interface was not weakened.
+  Do not repeat fixed-small-nome examples or infer that normalization
+  defeats the checked macroscopic obstruction. Older entries below are
+  earlier checkpoints; the finite point above supersedes their pending
+  mean/gain assertions only within its explicitly stated scope. Evidence:
+  `audits/AUDIT-CUBE-BENT-LOOP-SIGNED-GAIN-2026-10-03.md`.
+
 ## PROVED original vacuum action, tested transfer and direct K=1 intervals only (2026-10-03 UTC)
 
 - `BF4ExactSlabFixedSpatialCubeBentComplement.first_face_square_haar`

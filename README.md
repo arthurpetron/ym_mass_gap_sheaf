@@ -10,18 +10,19 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**New checked original vacuum and transfer joins:** the separate source
-channel is now `H[P*Vcube]=alpha+alpha^5/16`. The original tested TF and T1
-channels have the exact kinetic multiplier `w^12`, and their literal
-`TF-c*T1` subtraction is checked for any center c. Direct cutoff-one
-positivity constructs intervals for `Vcube-1` and the ORIGINAL `T1-1` with
-the same explicit cap `delta=(1+2*alpha)^6-1`, under the stated coefficient
-guards. No late-cutoff interface was weakened. Eight focused checks passed
-59 printed gates within {propext, Quot.sound}; no full build ran. NEXT:
-bound the actual OWN odd mean and prove the signed finite gain using these
-constructed inputs. That gain and the changing-family survival estimate
-remain open. See the
-[source joins and remaining estimate](audits/AUDIT-CUBE-BENT-LOOP-SIGNED-GAIN-2026-10-03.md).
+**New checked original signed finite gain:** at `w=1/16`, cutoff one,
+width two and terminal depth zero, the existing bent-loop commutator gain
+at its actual interacting OWN odd mean is at least `2^-124 - 2^-138 > 0`.
+The proof constructs the positive odd partition and mean cap, then combines
+the original plaquette projection, Haar Cauchy--Schwarz and a signed Young
+square. It retains the complete original action and transfer; no interacting
+eigenpin, surrogate center or late-cutoff guard is assumed. Nine focused
+checks passed 59 printed gates within {propext, Quot.sound}; no full build ran.
+This closes a nonvacuous finite pilot, not the larger untrusted coefficient
+range or the changing-family estimate. NEXT: relative signed control on the
+SAME scaling observable/family, its macroscopic response ratio and actual
+cross-scale comparisons. See the
+[checked witness and remaining joins](audits/AUDIT-CUBE-BENT-LOOP-SIGNED-GAIN-2026-10-03.md).
 
 **Previously checked original action channel:** on the literal six-face cutoff-one
 cube, 62 of 64 source subsets vanish by witnessed odd-link parity. The two

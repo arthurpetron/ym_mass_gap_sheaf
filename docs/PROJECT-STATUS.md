@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL OWN-centered finite gain (2026-10-03 UTC;
+chart unchanged): the existing commutator gain is >=2^-124-2^-138>0 at
+w=1/16, K=1, width=2, n=0, retaining its actual interacting odd mean.
+Positive odd partition, explicit mean cap, original C2 projection floor,
+signed Young source join and actual cost cap are checked. Nine focused
+checks passed 59 allowed gates. This does not close the wider coefficient
+candidate, later-cutoff/depth, SAME changing-family macro ratio or cross-scale
+comparison, or any continuum claim. NEXT: relative original estimates on
+the actual scaling family. Evidence:
+`audits/AUDIT-CUBE-BENT-LOOP-SIGNED-GAIN-2026-10-03.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting ORIGINAL vacuum/kinetic/interval joins (2026-10-03 UTC;
 chart unchanged): H[P*Vcube]=alpha+alpha^5/16 and the original tested
 TF/T1 channels with multiplier w^12 are checked. Literal TF-c*T1 retains
@@ -7,8 +19,9 @@ any supplied center. Direct K=1 certificates bound Vcube-1 and ORIGINAL
 T1-1 by the same explicit delta=(1+2*alpha)^6-1, under stated coefficient
 guards; positivity/half floors retain their explicit cap guards. Bare
 H[F]=0 is not interacting OWN mean zero. Eight focused checks passed 59
-allowed gates. NEXT: actual OWN odd-mean cap and signed finite gain.
-These and the changing-family/scaling/continuum claims remain OPEN.
+allowed gates. At that earlier checkpoint, the actual OWN odd-mean cap and
+signed finite gain were still open; the finite pilot above now supplies both.
+The changing-family/scaling/continuum claims remain OPEN.
 Evidence: `audits/AUDIT-CUBE-BENT-LOOP-SIGNED-GAIN-2026-10-03.md`.
 No exact displayed claim changed; no ASCII reprint.
 
@@ -16,9 +29,11 @@ Verified supporting ORIGINAL action channel (2026-10-03 UTC; chart
 unchanged): 62 of 64 literal source subsets vanish; the singleton and
 five-face complement moments are exactly 1/2 and 1/8. Their SAME cutoff-one
 cube action integral is alpha/2+alpha^5/8, alpha=coeffW(w,1). Three focused
-checks passed 27 allowed gates. Full weighted moments, OWN-centered gain,
-physical changing-family estimates and all displayed scaling/continuum
-claims remain OPEN. Evidence:
+checks passed 27 allowed gates. This action-channel result alone did not
+establish full weighted moments or OWN-centered gain; the finite pilot above
+now establishes a positive gain at its stated parameters. Physical
+changing-family estimates and all displayed scaling/continuum claims remain
+OPEN. Evidence:
 `audits/AUDIT-CUBE-BENT-LOOP-SIGNED-GAIN-2026-10-03.md`.
 No exact displayed claim changed; no ASCII reprint.
 
@@ -26,8 +41,10 @@ Verified supporting ORIGINAL numerical fusion (2026-10-03 UTC; chart
 unchanged): the literal bent loop has H[F^2]=1; the original origin p01/p02
 face traces fuse to F/2 with every shared-link-independent insertion
 retained, giving H[F*chi_p01*chi_p02]=1/2. Four new public constructive gates
-and independent reviews passed. The seven full weighted moments, complete
-gain sign and every displayed scaling/continuum claim remain OPEN.
+and independent reviews passed. At that earlier checkpoint, the seven full
+weighted moments and complete gain sign were still open. The finite pilot
+above now establishes a positive gain without evaluating all seven moments;
+every displayed scaling/continuum claim remains OPEN.
 Evidence: `audits/AUDIT-CUBE-BENT-LOOP-SIGNED-GAIN-2026-10-03.md`.
 No exact displayed claim changed; no ASCII reprint.
 
@@ -35,8 +52,10 @@ Verified supporting cube source identification (2026-10-03 UTC; chart
 unchanged): original T1, TF and their seven weighted moments are now
 proved equal to literal twelve-link/six-face cube representatives, with
 all supported tests retained. Seventeen new public constructive gates
-passed. Numerical moment values, gain positivity, later-cutoff/depth
-passage and every displayed scaling/continuum claim remain OPEN.
+passed. At that earlier checkpoint, numerical moment values and gain
+positivity were still open. The finite pilot above now establishes a positive
+gain; later-cutoff/depth passage and every displayed scaling/continuum claim
+remain OPEN.
 Evidence: `audits/AUDIT-CUBE-BENT-LOOP-SIGNED-GAIN-2026-10-03.md`.
 No exact displayed claim changed; no ASCII reprint.
 
