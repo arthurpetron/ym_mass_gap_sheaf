@@ -7308,3 +7308,9 @@ import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyOrbitTangent
 -- Fixed-carrier numerical time only; physical/QFT/scaling joins stay open.
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyMatrixTangent
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyWilsonWordTangent
+
+-- Source-orthogonal dual projection sharpens the ORIGINAL signed Wilson
+-- overlap without norm inverses or discarding its OWN mean. The useful
+-- changing-family alignment/survival estimate remains open.
+import YMGap.Continuum.GNSOrthogonalDualProjection
+import YMGap.Continuum.BF4DyadicWilsonSquareConnectedDualOverlap

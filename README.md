@@ -10,6 +10,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Verified sharper original signed overlap (2026-10-03 UTC):**
+Projecting the retained dual test off the original source preserves its
+overlap with the OWN-centered Wilson excitation. The computed denominator
+becomes `D0=Z*D-a*m^2`, nonnegative and no larger than `Z*D`; the signed mean
+mismatch is retained, not assumed zero. The complete original energy obeys
+`E*D0+a*Z*U^2 <= S*D0`, without inverting any excitation or dual norm.
+Two focused checks passed 15 permitted gates. This improves the finite
+survival-route estimate; useful source/test alignment on a justified scaling
+family remains open. See the
+[proof and next analytic input](audits/AUDIT-ORIGINAL-CONNECTED-DUAL-OVERLAP-2026-10-03.md).
+
 **Verified observable dynamics (2026-10-03 UTC):**
 The original signed-time derivative now reaches actual matrix elements,
 including every finite buffered Wilson word. Both difference quotients use

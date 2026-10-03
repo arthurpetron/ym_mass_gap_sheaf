@@ -27,6 +27,26 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
 
+NOW CHECKED SHARPER ORIGINAL CONNECTED DUAL OVERLAP:
+FORWARD, OWN centering is exact orthogonality to q=V*g_(n+1) in the
+ORIGINAL kinetic form. Project t=R*(f-a*mu) off this SAME q using the cleared
+test t0=Z*t-a*m*q. Its computed denominator D0=Z*D-a*m^2 is nonnegative
+and <=Z*D; m is the actual signed mean mismatch, not a zero premise.
+BACKWARD, the existing COMPLETE energy identity joins the sharper CS bound
+to E*D0+a*Z*U^2<=S*D0, preserving the original partition and OWN variance.
+No test/excitation norm is inverted, no lower overlap assumed. Two focused
+checks passed 15 permitted gates. Evidence:
+`audits/AUDIT-ORIGINAL-CONNECTED-DUAL-OVERLAP-2026-10-03.md`.
+REPOINT: the next analytic input is useful SAME-source connected alignment
+a*Z*U^2 >= (1-epsilon)*S*D0 on a JUSTIFIED changing family, or the alternative
+original aggregate signed-window estimate. The displayed alignment is a
+MISSING input, not a newly proved bound or an added frontier field.
+Do not replace D0 by the old coarse dual cap, assume m=0, or build another
+generic strictness wrapper: the existing finite spectator band already
+provides strictness, not the near-saturation needed for survival.
+No canonical chart atom or survival/physical/OS/continuum/QFT/every-group/
+Clay obligation closes; no unchanged ASCII reprint.
+
 NOW CHECKED ACTUAL WILSON MATRIX TANGENTS, backward from the QFT dynamics
 requirements: original BOTH scalar quotients use the SAME reciprocal and
 actual signed orbit endpoints. Constant-one complex CS pays their squared

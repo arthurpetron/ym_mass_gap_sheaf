@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## PROVED original connected dual overlap only (2026-10-03 UTC)
+
+`GNSOrthogonalDualProjection.cleared_bound` constructs the source-norm-cleared
+dual projection and sharp CS bound, with only a positive source norm for
+cancellation. The original Wilson specialization's `original_kinetic_mass_pin`
+and `paddedSquare_centered_kinetic_source_zero` retain the SAME partition and
+OWN mean. Its computed D0=Z*D-a*m^2 is nonnegative and <=Z*D; the actual signed
+mean mismatch is not assumed zero. `paddedSquare_connected_overlap_cleared`
+retains the actual signed heat defect. The COMPLETE original energy consumer
+proves E*D0+a*Z*U^2<=S*D0 without inverting a test/excitation norm, including
+zero cases. Two focused checks passed 15 permitted gates; independent review
+passed; root registration only. No new sorry, axiom, frontier bundle, analytic
+assumption, weakened field, CI or chart change. Evidence:
+`audits/AUDIT-ORIGINAL-CONNECTED-DUAL-OVERLAP-2026-10-03.md`.
+OPEN: useful SAME-source connected alignment on a justified changing family
+OR original aggregate signed-window estimate; survival, physical calibration,
+canonical OS, continuum local fields, full QFT and every compact simple group.
+This finite improvement closes no canonical Clay frontier atom.
+
 ## PROVED original Wilson matrix tangents only (2026-10-03 UTC)
 
 `BF4WilsonAllNomeComplexBondOSScaledCayleyMatrixTangent.forward_quotient_matrix_pin`

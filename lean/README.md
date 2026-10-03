@@ -12,6 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Checked ORIGINAL connected dual overlap (2026-10-03 UTC):**
+`GNSOrthogonalDualProjection.cleared_bound` projects a dual test off the
+nonunit source, cancelling only its positive norm factor. The original
+Wilson specialization pins source norm to SAME odd partition and OWN
+centering to kinetic orthogonality. Its computed `squareConnectedDualMoment`
+is D0=Z*D-a*m^2>=0 and <=Z*D, retaining the actual signed mean mismatch.
+`paddedSquare_energy_connected_overlap_cleared` proves
+E*D0+a*Z*U^2<=S*D0 for the COMPLETE original energy and OWN variance.
+Zero excitation/dual cases remain; no norm inverse or assumed lower overlap.
+Two focused checks passed 15 permitted gates; root registration only,
+no full build/audit. Useful original source/test alignment on a justified
+changing family, survival/physical/OS/continuum/QFT/every-group/Clay remain
+OPEN. Evidence: `audits/AUDIT-ORIGINAL-CONNECTED-DUAL-OVERLAP-2026-10-03.md`.
+
 **Checked ORIGINAL Wilson matrix tangents (2026-10-03 UTC):**
 `BF4WilsonAllNomeComplexBondOSScaledCayleyMatrixTangent` pins BOTH actual
 scalar quotients and derives squared-error bounds by constant-one complex

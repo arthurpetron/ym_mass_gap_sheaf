@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL connected dual overlap (2026-10-03 UTC;
+chart unchanged): projection off the actual source preserves the mixed
+numerator by OWN centering. The computed dual denominator is
+D0=Z*D-a*m^2>=0 and <=Z*D, with actual signed mean mismatch m retained.
+COMPLETE original energy satisfies E*D0+a*Z*U^2<=S*D0, including zero cases
+and without norm inverses. Two focused checks passed 15 permitted gates.
+Useful source/test alignment on a justified changing family remains OPEN,
+as do survival/physical/OS/continuum/QFT/every-group/Clay. Evidence:
+`audits/AUDIT-ORIGINAL-CONNECTED-DUAL-OVERLAP-2026-10-03.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting ORIGINAL Wilson matrix tangents (2026-10-03 UTC;
 chart unchanged): BOTH actual scalar quotients retain the SAME reciprocal
 and signed orbit endpoints. Sharp complex CS supplies squared matrix-error
