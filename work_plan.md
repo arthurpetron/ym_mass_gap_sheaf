@@ -27,6 +27,31 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
 
+NOW CHECKED COUPLED ORIGINAL SCORE/NOISE AND FULL ENERGY CONSUMER:
+For the SAME A=g_(n+t), b=T^t(g_n*psi), t>=1, both signed full-window
+derivative certificates construct L(w)^2*A^2*Noise-(A*Db-b*DA)^2>=0,
+Noise=A*T^t(g_n*psi^2)-b^2. The local L=relativeCap(w,32) has no width,
+cutoff or horizon multiplier; its explicit nome dependence and late-cutoff
+guard remain. A two-signed-weight Gram identity and exact centering preserve
+the cross term without dividing by A or replacing the interacting action.
+The finite reciprocal gives (G_k*score)^2<=L(w)^2*Noise and the exact
+A*Dphi_k=G_k*score+b*(G_k-A*slope_k)*DA. The actual projected-action
+consumer sums every ACTIVE link and six planes; inactive output links are
+proved zero. It joins the ORIGINAL energy, retaining Vbar^2-weighted Noise,
+the explicit finite reciprocal correction and the literal h^2*pairBudget.
+Five focused checks passed 27 permitted public gates (21 added), with no
+warnings or forbidden dependencies. Evidence:
+`audits/AUDIT-ORIGINAL-COUPLED-SCORE-NOISE-2026-10-03.md`.
+REPOINT: estimate the retained projected-weighted Noise, mixed Taylor cost
+and boundary drift TOGETHER relative to the SAME surviving B=ell[b^2]
+on a justified changing family, using the existing fixed-window reciprocal
+reconstruction to control the correction. Keep the exact Rmixed-Rdiagonal
+Taylor difference and original energy/drift endpoint cancellation; the
+checked energy ceiling discards favorable Rdiagonal>=0. Do not replace this coupled route
+by separate extensive Db/DA ceilings. The full angular sum/correction is
+NOT width-, nome- or scaling-uniform. No canonical field or displayed chart
+claim changes state; the continuum and Clay obligations remain OPEN.
+
 NOW CHECKED DEGREE-UNIFORM ORIGINAL CONDITIONAL GRADIENT:
 The finite reciprocal's actual sensitivity F_k=A^2*slope_k has constructed
 0<=F_k<=1 and unit square cap, using only 0<=A<=u, u>0. The multiplier

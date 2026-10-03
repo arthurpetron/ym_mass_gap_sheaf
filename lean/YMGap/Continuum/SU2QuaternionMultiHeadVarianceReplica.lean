@@ -301,6 +301,20 @@ private def copy_certificate (tail heads : Nat) (W : RatPoly)
       (copy_reindex_prefix tail heads W)).symm
     (reindex_certificate (headSwap tail heads) hl PL)
 
+/-- Reuse the actual shared-tail copy support for mixed signed-score replicas. -/
+theorem copySupported (tail heads : Nat) {p : RatPoly}
+    (hp : SupportedQuaternionBlocks (tail+heads) p) :
+    SupportedQuaternionBlocks (tail+(heads+heads)) (copy heads p) :=
+  copy_supported tail heads hp
+
+/-- Reuse the actual positive copy witness without exposing its reindexing
+implementation. The surviving tail is shared, not independently copied. -/
+def copyCertificate (tail heads : Nat) (W : RatPoly)
+    (hW : SupportedQuaternionBlocks (tail+heads) W)
+    (P : Certificate (tail+heads) W) :
+    Certificate (tail+(heads+heads)) (copy heads W) :=
+  copy_certificate tail heads W hW P
+
 /-- The polynomial normalizer is retained without any reciprocal. -/
 def determinant (heads : Nat) (W f : RatPoly) : RatPoly :=
   polyAdd
@@ -443,6 +457,8 @@ theorem spectator_nonnegative (tail heads : Nat) (W f R : RatPoly)
   (PR.mul (determinant_certificate tail heads W f hW hf P)).haar_nonnegative
 
 #print axioms partial_copy
+#print axioms copySupported
+#print axioms copyCertificate
 #print axioms replica_product
 #print axioms replica_identity
 #print axioms replica_certificate

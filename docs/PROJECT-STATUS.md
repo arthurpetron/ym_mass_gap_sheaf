@@ -1,5 +1,19 @@
 # Canonical one-page project status
 
+Verified supporting COUPLED ORIGINAL score/noise and actual energy consumer
+(2026-10-03 UTC; chart unchanged): full-window signed derivative certificates
+produce L(w)^2*A^2*Noise-(A*Db-b*DA)^2>=0, with one local heat constant and
+no horizon multiplier. The finite reciprocal preserves the coupled score
+and retains its explicit correction. Every active link/six-plane term is
+consumed by the ORIGINAL energy; inactive output terms are proved zero.
+Vbar^2-weighted Noise, the mixed Taylor budget and boundary drift still need
+a useful estimate relative to the SAME surviving norm on a justified family.
+The full sum/correction is not scaling-uniform. Five focused targets passed
+27 permitted gates (21 added); independent source/log review records scope
+and proof evidence in
+`audits/AUDIT-ORIGINAL-COUPLED-SCORE-NOISE-2026-10-03.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting degree-uniform ORIGINAL conditional gradient
 (2026-10-03 UTC; chart unchanged): the literal reciprocal and sensitivity
 have unit multiplier square certificates using only 0<=A<=u, no strict

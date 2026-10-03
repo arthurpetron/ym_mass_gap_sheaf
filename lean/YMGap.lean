@@ -4960,6 +4960,7 @@ import YMGap.Continuum.BF4WilsonAllNomeDyadicOriginalRayleighLimit
 import YMGap.Continuum.BF4WilsonAllNomeOneStepGap
 import YMGap.Continuum.BF4WilsonAllNomeDyadicFilteredRateConstraint
 import YMGap.Continuum.SU2QuaternionMultiHeadVarianceReplica
+import YMGap.Continuum.SU2QuaternionMultiHeadSignedDualSquare
 import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalNoise
 -- Original single-factor sign, not an interacting/continuum refutation.
 import YMGap.Continuum.SU2HeatAntipodalPrefixBounds
@@ -7123,3 +7124,10 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalEnergy
 import YMGap.Continuum.QuaternionHaarReciprocalSensitivity
 import YMGap.Continuum.QuaternionHaarReciprocalRatioGradientBound
 import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalGradient
+
+-- Coupled ORIGINAL score/noise control and its actual energy consumer.
+-- Projected weight, reciprocal correction, mixed Taylor cost and drift remain;
+-- no surviving-variance or changing-family estimate is assumed.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockScoreVariance
+import YMGap.Continuum.QuaternionHaarConditionalScoreGradient
+import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalScoreGradient

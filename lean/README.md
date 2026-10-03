@@ -12,7 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT checked degree-uniform ORIGINAL conditional gradient (2026-10-03 UTC):**
+**CURRENT checked COUPLED ORIGINAL score/noise and energy consumer (2026-10-03 UTC):**
+The actual full window constructs L(w)^2*A^2*Noise-(A*Db-b*DA)^2>=0
+without division or a horizon multiplier. A two-signed-weight Gram identity
+retains vacuum cancellation. The finite reciprocal gives a SAME-weight
+noise ceiling for the coupled score plus its explicit correction; every
+active link/six-plane term meets the ORIGINAL energy, with inactive terms
+proved zero. Vbar^2, the mixed Taylor term and boundary drift remain literal.
+Their useful comparison with the SAME surviving norm on a justified family
+is OPEN; the full sum/correction is NOT scaling-uniform. Five focused checks
+passed 27 permitted gates (21 added). Evidence:
+`audits/AUDIT-ORIGINAL-COUPLED-SCORE-NOISE-2026-10-03.md`.
+
+**Earlier checked degree-uniform ORIGINAL conditional gradient (2026-10-03 UTC):**
 The actual finite reciprocal and its sensitivity have unit multiplier caps
 under only 0<=A<=u, without a strict terminal floor. The exact cleared
 derivative gives a SAME-weight bound independent of reciprocal degree.
