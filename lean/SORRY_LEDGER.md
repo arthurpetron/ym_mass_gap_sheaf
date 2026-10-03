@@ -1,5 +1,39 @@
 # Sorry Ledger
 
+## PROVED SAME original root/log map identification only (2026-10-03 UTC)
+
+`BF4WilsonAllNomeRootLogIdentification.derivativeAction_eq_regularizedLog`
+identifies BOTH EXISTING bounded positive-time maps on the ORIGINAL all-nome
+completed carrier, for every state, width and 0<w<1. Its computed
+`identificationRate` and `quotient_to_log_bound` retain ONE supplied original
+Cauchy representative and explicit independent root/log thresholds. No new
+carrier, limit, rows, operator inverse or boundary-kernel exclusion.
+
+The new causal producer chain is coefficient-invariant root moment form
+-> exact monomial/coarse/time pins -> ORIGINAL S/F form positivity
+-> retained-tail and signed S budgets -> literal quotient/logPartial form
+comparison -> actual squared-norm bound -> EXISTING limit uniqueness.
+Nine NEW targets passed serialized focused checks with 62 gates: one
+axiom-free, 61 within {propext, Quot.sound}. Accepted logs have no error,
+warning, sorryAx or PANIC. Root imports are registration-only; no full audit,
+broad guard, progress metric or concurrent build ran. No sorry was added or
+discharged, no axiom/hypothesis/frontier weakening, no CI or exact chart change.
+Evidence: `audits/AUDIT-ORIGINAL-ROOT-LOG-IDENTIFICATION-2026-10-03.md` and
+its linked finite-producer checkpoints.
+
+REPOINT/OPEN: the ORIGINAL combined signed cost versus SAME OWN variance,
+or a retained macroscopic response ratio, on a JUSTIFIED changing family.
+Retain varianceRemainder + normalized signed multiplication TOGETHER,
+including the actual OWN center, Ward and projection signs and BOTH
+partitions. The checked nonpositive multiplication limit at fixed parameters
+supplies no relative magnitude; a shifted 2t budget does not automatically
+give raw start-one reserve. Exact source-backed target:
+`audits/MATH-NOTE-SIGNED-FRONTIER-AFTER-ROOT-LOG-2026-10-03.md`.
+The identified map differentiates T(1)x, not a whole-carrier physical
+Hamiltonian. Canonical reflected OS realization, spatial/spacing and physical
+calibration, nontrivial continuum survival, full QFT, every group and Clay
+remain OPEN. The goal remains active.
+
 ## PROVED actual iterated conditional-noise certificate and variance-loss identity only (2026-10-03 UTC)
 
 `SU2QuaternionMultiHeadVarianceReplica.determinant_certificate` constructs
