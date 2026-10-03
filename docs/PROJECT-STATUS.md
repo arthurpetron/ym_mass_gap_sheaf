@@ -1,6 +1,17 @@
 # Canonical one-page project status
 
-Verified supporting ORIGINAL all-depth terminal shape (2026-10-03 UTC;
+Verified supporting ORIGINAL all-depth relative gain and completed support
+(2026-10-03 UTC; chart unchanged): at fixed w=1/16, width two, EVERY
+guarded cutoff and terminal depth has S/E>=2^-128 and G>=S/4>0 for the
+actual OWN-centered original source. Its literal bent loop reaches the
+EXISTING completed centered state, with ||T(1)v||^2>=2^-128 and T(1)v!=0.
+Six focused checks cover 47 permitted gates. No surrogate state, mean,
+partition or limit is used. The growing-loop/changing-family macroscopic
+ratio, combined signed block cost and continuum fields remain OPEN.
+Evidence: `audits/AUDIT-ALL-DEPTH-ORIGINAL-BENT-GAIN-2026-10-03.md`.
+No exact displayed claim changed; no ASCII reprint.
+
+Earlier verified supporting ORIGINAL all-depth terminal shape (2026-10-03 UTC;
 chart unchanged): H[(g_n-Hg_n)^2]<=(Hg_n/80000)^2 for the EXISTING original
 terminal message, with positive bare Haar amplitude, at EVERY depth and
 guarded finite cutoff, fixed w=1/16 and width two. The exact kinetic test
@@ -8,7 +19,8 @@ keeps the full original action for arbitrary supported sources. The actual
 OWN-centered endpoint cost now satisfies Q<=16E at every depth, with E the
 SAME even partition. Seven focused checks passed 27 permitted gates.
 Haar amplitude is NOT the interacting odd partition or OS norm. The later-depth
-weighted OWN mean, tested overlap and useful S/E floor remain unpaid;
+weighted OWN mean, tested overlap and useful S/E floor were unpaid then
+and are now constructed above;
 the signed scaling producer, justified family and displayed continuum claims
 remain OPEN. Evidence: `audits/AUDIT-ORIGINAL-TERMINAL-SHAPE-2026-10-03.md`.
 No exact displayed claim changed; no ASCII reprint.

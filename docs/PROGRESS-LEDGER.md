@@ -4,7 +4,32 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Original terminal shape at every depth and guarded cutoff (2026-10-03 UTC)
+## Current increment: All-depth original relative gain reaches completed bent-loop support (2026-10-03 UTC)
+
+PROGRESS after `6fe176c`: shared-variable shape estimates retain BOTH
+linear terminal fluctuations and their cross term. The actual original
+odd partition/numerator construct |OWNc_n|<=1/4, while the SAME even
+partition obeys E<=2*a_n^2. Preserving the sharper action signal pays the
+terminal error and gives H[P*b_n]>=2^-63*a_n. Full-action square transport,
+not presumed raw-message locality, gives S>=2^-127*a_n^2, hence
+S/E>=2^-128. The complete endpoint cost and actual Young square then
+construct G>=S/4>0 and G/E>=2^-130, for every guarded K and every n,
+fixed w=1/16,width2. The literal bent SourceLoop, actual OWN-center
+chronological pin and existing moving-center limit yield the SAME completed
+||T(1)v||^2>=2^-128, hence T(1)v!=0. Six focused checks cover 47 permitted
+gates; no `sorry`, axiom or classical shortcut is introduced.
+
+NEXT: construct the COMBINED original energy plus signed multiplication
+cost relative to the actual half-smoothed square on a JUSTIFIED changing
+family, or the existing direct SAME macroscopic ratio alternative. The
+bent lag-one gain cannot be substituted for the arbitrary-block cost;
+terminal depth is not response lag. Fixed-parameter completed support does
+not close continuum survival, calibration, QFT or every-group fields.
+Root imports registered only; aggregate root, broad audit/guard and progress
+metric NOT run. CI and exact chart unchanged. Evidence:
+`audits/AUDIT-ALL-DEPTH-ORIGINAL-BENT-GAIN-2026-10-03.md`.
+
+## Earlier increment: Original terminal shape at every depth and guarded cutoff (2026-10-03 UTC)
 
 PROGRESS after `d8d9451`: construct actual heat deviation eta=1/1000 and
 six-face action deviation delta=1/128. An actual factor-floor contraction,

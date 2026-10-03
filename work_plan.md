@@ -27,7 +27,31 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
-NOW CHECKED ORIGINAL ALL-DEPTH TERMINAL SHAPE:
+NOW CHECKED ALL-DEPTH ORIGINAL RELATIVE GAIN AND COMPLETED SUPPORT:
+`BF4ExactSlabFixedSpatialCubeTerminalGain` constructs S/E>=2^-128,
+G>=S/4>0 and G/E>=2^-130 for the EXISTING original bent-loop message,
+actual OWN odd mean and SAME even partition. Both guards K>=1 and
+headCutoff(w)<=K remain explicit; every terminal depth is covered at
+fixed w=1/16,width2. The weighted mean, sharper tested overlap, amplitude
+comparison and complete Young cost are now paid, not assumed. The literal
+bent SourceLoop and existing moving-center limit join the result to the
+SAME completed centered state: ||T(1)v||^2>=2^-128 and T(1)v!=0.
+Six focused checks cover 47 permitted gates; root imports registered only.
+Evidence: `audits/AUDIT-ALL-DEPTH-ORIGINAL-BENT-GAIN-2026-10-03.md`.
+
+FORWARD NEXT: estimate the COMBINED original energy and signed
+multiplication cost against the actual half-smoothed ell(b^2), retaining
+action terms, OWN center and both partitions. The new fixed-loop gain pays
+an actual negative term in the radius-two source, but is NOT the signed
+block cost at lags 2t/2t+1. Increasing terminal depth only forgets the
+boundary; it does not create a larger response lag. BACKWARD NEXT remains
+s*D<=C*Z1*ell(b^2), or the direct SAME macroscopic-response-ratio alternative,
+on a JUSTIFIED changing family. Do not extend the fixed six-edge, small-nome,
+width-two estimate to growing dyadic squares or use it as that family.
+Spatial/spacing control, continuum survival, calibration, full QFT structure,
+every group and the continuum/Clay endpoint fields remain OPEN.
+
+EARLIER CHECKED ORIGINAL ALL-DEPTH TERMINAL SHAPE:
 `BF4ExactSlabFixedSpatialOriginalTerminalShape.original_terminal_variance_bound`
 proves H[(g_n-a_n)^2]<=(a_n/80000)^2 with a_n=H(g_n)>0, for every
 depth and guarded finite cutoff at fixed w=1/16 and width two. Actual
@@ -54,11 +78,13 @@ This removes the finite pilot's cutoff-one restriction, not its fixed
 coupling/width/depth restrictions. Root imports are registration-only.
 Evidence: `audits/AUDIT-CUBE-ALL-CUTOFF-RELATIVE-GAIN-2026-10-03.md`.
 
-FORWARD NEXT: pay the actual OWN odd-law mean for V*g_n*g_(n+1), then
-the tested V*g_n overlap relative to a_n and the useful S/E floor. Preserve
+The then-FORWARD joins were: pay the actual OWN odd-law mean for
+V*g_n*g_(n+1), then the tested V*g_n overlap relative to a_n and the useful
+S/E floor. Preserve
 the sharper original action channel before subtracting the terminal error;
-do not substitute the already weakened n=0 floor. The Q/E cost leg is now
-paid, but the S/E lower leg is not. BACKWARD NEXT remains the SAME
+do not substitute the already weakened n=0 floor. The Q/E cost leg was paid
+at that checkpoint; the S/E lower leg is now constructed above. BACKWARD
+NEXT remains the SAME
 macroscopic ratio or sufficient signed block-Rayleigh bound on a JUSTIFIED
 changing family. Fixed-small-nome gain is a mechanism witness, not that
 trajectory. All continuum/Clay endpoint fields remain OPEN.

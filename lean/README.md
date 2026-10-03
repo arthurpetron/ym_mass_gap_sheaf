@@ -12,17 +12,29 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT all-depth original terminal shape (2026-10-03 UTC):**
+**CURRENT all-depth original relative gain and completed support (2026-10-03 UTC):**
+`BF4ExactSlabFixedSpatialCubeTerminalGain` constructs the actual
+OWN-centered `S/E>=2^-128` and `G>=S/4>0` at EVERY depth and guarded
+cutoff, fixed w=1/16 and width two. `BF4WilsonSmallNomeBentCompletedGain`
+joins the literal bent loop to its EXISTING completion and proves
+`||T(1)v||^2>=2^-128`, hence a nonzero one-step image. Actual odd mean,
+even partition, original action and state stay pinned. Six focused checks
+cover 47 permitted gates; root imports are registration-only.
+No growing-loop/changing-family survival or continuum claim is produced.
+Evidence: `audits/AUDIT-ALL-DEPTH-ORIGINAL-BENT-GAIN-2026-10-03.md`.
+
+**Earlier all-depth original terminal shape (2026-10-03 UTC):**
 `BF4ExactSlabFixedSpatialOriginalTerminalShape.original_terminal_variance_bound`
 proves the ORIGINAL cleared Haar centered square is at most `(1/80000)^2`
 times its OWN positive Haar mass squared, at every depth and guarded finite
 cutoff, with fixed w=1/16 and width two. The certified-floor kinetic
 contraction retains every other actual factor. `OwnGainYoungBudget` pays the
-actual OWN cost Q<=16E at every depth, but its relative-gain consumer still
-needs the useful original S/E lower bound. Seven focused checks passed
+actual OWN cost Q<=16E at every depth. Its formerly unpaid original S/E
+lower bound is now constructed above. Seven focused checks passed
 27 permitted gates without errors/warnings; root imports registered only.
-No weighted OWN-mean/overlap floor, scaling survival or continuum claim is
-produced. Evidence: `audits/AUDIT-ORIGINAL-TERMINAL-SHAPE-2026-10-03.md`.
+That checkpoint did not claim weighted OWN-mean/overlap floors; these are
+now paid above. No scaling survival or continuum claim follows. Evidence:
+`audits/AUDIT-ORIGINAL-TERMINAL-SHAPE-2026-10-03.md`.
 
 **Earlier original cutoff-uniform relative gain (2026-10-03 UTC):**
 `BF4ExactSlabFixedSpatialCubeAllCutoffOwnGain` proves the EXISTING

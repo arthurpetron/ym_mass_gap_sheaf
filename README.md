@@ -10,16 +10,28 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**New checked all-depth original terminal estimate:** at `w=1/16`, width two,
-every guarded finite cutoff and every depth has
-`H[(g_n-H(g_n))^2] <= (H(g_n)/80000)^2`, for the ORIGINAL terminal message.
-The proof constructs its positive Haar mass, keeps all kinetic factors,
-and uses a square-root-free invariant-radius induction. Separately, the
-actual OWN-centered Young cost is at most `16` times the SAME even partition
-at every depth. Seven focused checks passed 27 permitted gates. The weighted
-OWN mean, tested-overlap floor and useful filtered-square/partition lower
-bound remain open at later depths; no scaling survival follows yet. See the
-[checked induction and next joins](audits/AUDIT-ORIGINAL-TERMINAL-SHAPE-2026-10-03.md).
+**New checked original relative gain and completed support:** at `w=1/16`,
+width two, EVERY guarded finite cutoff and terminal depth has
+`S/E >= 2^-128` and `G >= S/4 > 0`, retaining the actual interacting OWN
+mean, full original action, filtered square `S` and SAME even partition `E`.
+The literal bent loop then reaches its EXISTING completed centered state:
+`||T(1)v||^2 >= 2^-128`, hence `T(1)v != 0`. No replacement state,
+normalizer or limit is introduced. Six focused checks cover 47 permitted
+gates; no aggregate build is claimed. See the
+[proof, verification and next signed estimate](audits/AUDIT-ALL-DEPTH-ORIGINAL-BENT-GAIN-2026-10-03.md).
+
+**The scaling frontier remains open:** this is one fixed six-edge loop at
+one fixed nome and width. It does not give the growing-loop macroscopic
+response ratio or the combined signed block-Rayleigh estimate on a justified
+changing family. Increasing terminal depth removes boundary error; it does
+not increase response lag. Continuum survival, physical calibration, full
+QFT structure and every compact simple group remain open.
+
+**Earlier checked terminal estimate:**
+`H[(g_n-H(g_n))^2] <= (H(g_n)/80000)^2` and the exact full-action kinetic
+test supply the all-depth shape used above. Its constructive radius induction
+and verification are recorded in the
+[preceding checkpoint](audits/AUDIT-ORIGINAL-TERMINAL-SHAPE-2026-10-03.md).
 
 **Checked cutoff-uniform relative signed gain:** at `w=1/16`, width two
 and terminal depth zero, EVERY cutoff satisfying both original guards has
@@ -28,7 +40,8 @@ at its actual interacting OWN mean and `S_K` its SAME filtered square.
 An exact kinetic test preserves its `w^12` factor before the action-tail
 estimate. Seven focused checks passed 49 permitted axiom gates. This removes
 the cutoff-one restriction, NOT terminal-depth, spatial or scaling-family
-control. See the [proof and next unpaid estimates](audits/AUDIT-CUBE-ALL-CUTOFF-RELATIVE-GAIN-2026-10-03.md).
+control at that checkpoint; the new result above removes the depth restriction.
+See the [preceding proof](audits/AUDIT-CUBE-ALL-CUTOFF-RELATIVE-GAIN-2026-10-03.md).
 
 **Checked route correction:** the original single heat factor has an explicit
 negative cleared curvature expression at the antipode, even beyond its cutoff
