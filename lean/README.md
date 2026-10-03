@@ -12,7 +12,22 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT checked ORIGINAL finite signed-energy join (2026-10-03 UTC):**
+**CURRENT checked degree-uniform ORIGINAL conditional gradient (2026-10-03 UTC):**
+The actual finite reciprocal and its sensitivity have unit multiplier caps
+under only 0<=A<=u, without a strict terminal floor. The exact cleared
+derivative gives a SAME-weight bound independent of reciprocal degree.
+The actual projected action qbar=Vbar*A and all-block/six-plane sum retain
+2*weightedAngularEnergy(Vbar,b)+2*C^2*weightedAngularEnergy(Vbar,A),
+with Vbar^2 literally on both derivative costs. This is not a
+changing-family variance bound. Actual transfer output proves the ratio's
+fringe independence for t>=1; the original energy consumes the bound with
+its literal squared-gap mixed Taylor budget, not asserted uniform in degree.
+The next analysis must retain the coupled
+gradient's vacuum cross-cancellation and pay the mixed Taylor remainder
+and boundary drift. Evidence:
+`audits/AUDIT-ORIGINAL-BLOCK-CONDITIONAL-GRADIENT-2026-10-03.md`.
+
+**Earlier checked ORIGINAL finite signed-energy join (2026-10-03 UTC):**
 The actual reciprocal ratio now meets the exact original Rayleigh/energy
 split. SAME V-weighted transfer continuity and its constructed multiplier
 certificate bound the COMPLETE signed remainder by

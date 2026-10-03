@@ -27,6 +27,29 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
 
+NOW CHECKED DEGREE-UNIFORM ORIGINAL CONDITIONAL GRADIENT:
+The finite reciprocal's actual sensitivity F_k=A^2*slope_k has constructed
+0<=F_k<=1 and unit square cap, using only 0<=A<=u, u>0. The multiplier
+A*G_k has the same lower-floor-free cap. Actual signed source certificates
+C*A plus/minus b and the exact coupled derivative
+A*Dphi_k=(A*G_k)*Db-(A*slope_k*b)*DA give, in the SAME weight W,
+H[W*(A*Dphi_k)^2]<=2*H[W*(Db)^2]+2*C^2*H[W*(DA)^2].
+The exact qbar=P_F(V*A)=Vbar*A pin and all-block/six-plane sum instantiate
+this on the ORIGINAL full projected action, retaining Vbar^2 on both costs.
+For t>=1 the actual product output proves phi_k fringe independent, with
+no locality premise on psi. The original energy now consumes this gradient
+bound, retaining its literal h^2*pairBudget(qbar,qbar*phi_k^2), h=1-w.
+Only reciprocal degree disappears; no nome/width/scaling uniformity or
+Vbar^2=V comparison is asserted for the angular bound. The retained mixed
+budget is NOT degree-uniform. Evidence:
+`audits/AUDIT-ORIGINAL-BLOCK-CONDITIONAL-GRADIENT-2026-10-03.md`.
+REPOINT: preserve the coupled square and its vacuum-derivative cross term
+in the action-specific variance-relative analysis. The triangle ceiling
+loses this cancellation; separate extensive terminal-gradient budgets are
+not a new required proof path. The mixed Taylor remainder, boundary drift,
+SAME surviving norm and justified-family response bound remain OPEN.
+No canonical field or displayed chart claim changes state.
+
 NOW CHECKED ACTUAL FINITE SIGNED-ENERGY JOIN:
 For the SAME A=g_(n+t), b=T^t(g_n*psi), the constructed reciprocal
 multiplier gives ell[(A*phi_k)^2]<=ell[b^2]. The original positive edge

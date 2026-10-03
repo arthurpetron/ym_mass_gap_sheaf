@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting degree-uniform ORIGINAL conditional gradient
+(2026-10-03 UTC; chart unchanged): the literal reciprocal and sensitivity
+have unit multiplier square certificates using only 0<=A<=u, no strict
+lower floor. The actual projected source is qbar=Vbar*A; all blocks and
+six planes give a k-independent ceiling by the actual Vbar^2-weighted
+b and A derivative costs. No Vbar^2->V or surviving-norm comparison is
+assumed. Proved actual output independence (t>=1) joins this to the original
+energy, retaining the literal mixed Taylor budget, not bounded uniformly
+in degree. The next action-specific estimate must preserve the coupled
+square's vacuum cross-cancellation; mixed remainder, boundary drift and
+changing-family response remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-BLOCK-CONDITIONAL-GRADIENT-2026-10-03.md`.
+
 Verified supporting ORIGINAL finite signed-energy join (2026-10-03 UTC;
 chart unchanged): the constructed ratio meets the exact original Rayleigh
 split, retaining energy and boundary drift. SAME V-weighted transfer

@@ -7117,3 +7117,9 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalScore
 -- reconstruction join; remaining changing-family relative estimate is open.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialTransferWeightedBound
 import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalEnergy
+
+-- Degree-uniform finite reciprocal sensitivity and the ORIGINAL projected-action
+-- angular cost; no lower-floor division or changing-family variance bound.
+import YMGap.Continuum.QuaternionHaarReciprocalSensitivity
+import YMGap.Continuum.QuaternionHaarReciprocalRatioGradientBound
+import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalGradient
