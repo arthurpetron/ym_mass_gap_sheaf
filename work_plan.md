@@ -27,6 +27,21 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
+NOW CHECKED A CONCRETE ORIGINAL DERIVATIVE-DOMAIN EXCITATION:
+`BF4WilsonSmallNomeBentDerivativeExcitation` uses the EXISTING literal
+centered bent state v, at fixed w=1/16,width2, to construct
+`DerivativeGraph.fromTime(v)`. Its original input=T1v and action=A(v) are
+both nonzero; ||T1v||^2>=2^-128 and the energy lies between the positive
+mixFraction*2^-128 and a computed centered-stream ceiling. Its Type-valued
+positive-real-time Taylor certificate returns a positive radius for every
+tolerance, without caller-supplied graph or representatives.
+`DerivativeGraphGap.graph_form_sharp_gap` and `action_form_sharp_gap`
+retain the exact original one-step kinetic fraction on the SAME graph/domain
+vacuum complement. Two focused checks passed 20 permitted gates (15 new,
+five unchanged); root import registration-only. This is NOT self-adjointness,
+log-series identification, physical calibration or changing-family survival.
+Evidence: `audits/AUDIT-ORIGINAL-BENT-DERIVATIVE-EXCITATION-2026-10-03.md`.
+
 NOW CHECKED THE COMPLETE SIGNED MULTIPLICATION COMPONENT:
 `BF4ExactSlabFixedSpatialSignedMultiplicationWindow` gives the exact
 two-partition pin and pays the unchanged finite c_n at BOTH boundary
@@ -140,6 +155,35 @@ comparison against the SAME filtered variance. Existing temporal-energy and
 retained-ratio consumers do not supply that analytic input or a changing family.
 Spatial/spacing control, continuum survival, calibration, full QFT structure,
 every group and the continuum/Clay endpoint fields remain OPEN.
+
+FORWARD TARGET REFINEMENT (mathematical review, not a new producer): for
+m>=1,C>=0, an actual initial SAME-response budget m*(C0-C1)<=C*C0 with rho=1-C/m>=0
+already propagates to EVERY later adjacent response by
+`BF4WilsonAllNomeResponseLower.response_step_lower`; its
+`response_geometric_lower` gives C_j>=rho^j*C0. Therefore an initial
+OWN-variance comparison is a sufficient alternative to comparing initial
+energy directly with the smaller filtered variance. The actual unit dyadic
+state already has norm one; no extra normalization assumption is needed.
+The original square Ward/Taylor identity is already
+`BF4DyadicWilsonSquareVarianceTaylor.paddedSquare_energy_variance`:
+E/Z=12*side*(1-w)*OWNVar+the COMPLETE signed remainder. Estimating that
+combination, not dropping the Ward/action corrections, remains unpaid.
+Fixed-polynomial near-identity estimates have source-dependent radii and do
+not give a uniform bound for the changing original V*g_n. No additional
+conditional wrapper is warranted by this review.
+
+BACKWARD STRUCTURAL TARGET (new finite argument to formalize, NOT checked):
+identify the EXISTING `derivativeAction` and `regularizedLog` on the SAME
+all-nome carrier. The exact finite target is
+Q_N(u)-1/(M+1)<=p_M(u^N)<=Q_N(u)+1/(N+1), N,M>=1, 0<=u<=1,
+where Q_N=N*u^N*(1-u), p_M(x)=x*sum_(k=1..M)(1-x)^k/k.
+Positive finite u/h-monomial primitives give a candidate short algebraic
+proof. Use N=2^depth and the ORIGINAL root/time pin, then prove the actual
+positive-polynomial operator lift; do not substitute the older thermodynamic
+carrier's calculus. Existing limit moduli can then contract the two maps.
+Both finite producer and lift remain unproved. The detailed argument and
+explicit non-kernel exploration boundary are in
+`audits/MATH-NOTE-ORIGINAL-ROOT-LOG-SANDWICH-2026-10-03.md`.
 
 EARLIER CHECKED ORIGINAL ALL-DEPTH TERMINAL SHAPE:
 `BF4ExactSlabFixedSpatialOriginalTerminalShape.original_terminal_variance_bound`

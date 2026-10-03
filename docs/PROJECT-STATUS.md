@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL derivative-domain excitation (2026-10-03 UTC;
+chart unchanged): the literal fixed bent-loop state supplies an ACTUAL domain
+point with nonzero input/action, positive energy floor, computed finite
+ceilings and a Type-valued positive-real-time Taylor radius. The SAME graph
+form bound now retains the exact one-step kinetic floor/cap fraction. Two
+focused checks passed 20 permitted gates (15 new, five unchanged). This is
+fixed w=1/16,width2, NOT a self-adjoint Hamiltonian, physical calibration or
+changing-family survival. All exact displayed scaling claims remain OPEN.
+Evidence: `audits/AUDIT-ORIGINAL-BENT-DERIVATIVE-EXCITATION-2026-10-03.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting COMPLETE signed multiplication component (2026-10-03 UTC;
 chart unchanged): the original two-partition source retains the OWN mean
 at both depths and reaches SAME completed limit

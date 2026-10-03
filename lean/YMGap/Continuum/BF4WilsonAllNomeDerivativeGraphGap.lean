@@ -6,6 +6,9 @@ passes through its witnessed graph closure. Only image norms enter the
 pairing modulus. On the same vacuum complement the margin is (1-q)/2,
 with the original nome/width dependence retained. No equality to the
 log-series graph, self-adjoint Hamiltonian or physical mass is assumed.
+
+The sharp graph and domain bounds below instead retain the exact original
+one-step kinetic floor/cap fraction. The older declarations are unchanged.
 -/
 
 import YMGap.Continuum.BF4WilsonAllNomeLogCoreGap
@@ -174,6 +177,18 @@ theorem graph_form_gap {x y : V} (G : GraphLimit hw0 hw1 x y)
   RCle_trans (completed_defect_form_gap hw0 hw1 x hx)
     (graph_defect_form_le hw0 hw1 G)
 
+/-- The sharp SAME one-step margin survives the actual witnessed derivative
+graph, without a new graph, preimage bound or scalar-log identification. -/
+theorem graph_form_sharp_gap {x y : V} (G : GraphLimit hw0 hw1 x y)
+    (hx : B U x = RCzero) :
+    RCle (RCscale
+      (BF4ExactSlabFixedSpatialTransferMixingRate.mixFraction hw0 hw1 width)
+      (B x x)) (B x y) := by
+  have h := BF4WilsonAllNomeOneStepGap.completed_oneStep_defect_margin
+    hw0 hw1 x ((completedInner_symm hw0 hw1 x U).trans hx)
+  rw [← completedInner_sub_right, ← defect] at h
+  exact RCle_trans h (graph_defect_form_le hw0 hw1 G)
+
 /-- Quantitative form bound on the already constructed graph domain;
 no newly postulated operator or graph is introduced. -/
 theorem action_form_gap (p : Domain hw0 hw1 (width := width))
@@ -186,10 +201,25 @@ theorem action_form_gap (p : Domain hw0 hw1 (width := width))
   intro P' hp
   exact graph_form_gap hw0 hw1 P'.2.2 hp
 
+/-- The exact kinetic fraction bounds the already constructed domain action
+on its original vacuum complement. Its nome/width dependence remains explicit. -/
+theorem action_form_sharp_gap (p : Domain hw0 hw1 (width := width))
+    (hp : B U (input hw0 hw1 p) = RCzero) :
+    RCle (RCscale
+      (BF4ExactSlabFixedSpatialTransferMixingRate.mixFraction hw0 hw1 width)
+      (B (input hw0 hw1 p) (input hw0 hw1 p)))
+      (B (input hw0 hw1 p) (action hw0 hw1 p)) := by
+  revert hp
+  refine Quotient.inductionOn p ?_
+  intro P' hp
+  exact graph_form_sharp_gap hw0 hw1 P'.2.2 hp
+
 #print axioms graphInputPairingModulus
 #print axioms graph_input_pairings_close
 #print axioms graph_defect_form_le
 #print axioms graph_form_gap
 #print axioms action_form_gap
+#print axioms graph_form_sharp_gap
+#print axioms action_form_sharp_gap
 
 end YMGap.Continuum.BF4WilsonAllNomeDerivativeGraphGap

@@ -6254,6 +6254,7 @@ import YMGap.Continuum.BF4WilsonAllNomeDerivativeGraph
 import YMGap.Continuum.BF4WilsonAllNomeDerivativeGraphLinear
 import YMGap.Continuum.BF4WilsonAllNomeDerivativeGraphForm
 import YMGap.Continuum.BF4WilsonAllNomeDerivativeGraphGap
+import YMGap.Continuum.BF4WilsonSmallNomeBentDerivativeExcitation
 -- Actual graph Taylor differentiation with supplied representatives; no physical calibration.
 import YMGap.Continuum.BF4WilsonAllNomeNormLimitOrder
 import YMGap.Continuum.BF4WilsonAllNomeDerivativeIncrement

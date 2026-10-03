@@ -4,7 +4,29 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Complete original signed component reaches a favorable SAME limit (2026-10-03 UTC)
+## Current increment: Literal original state supplies a nonzero derivative-domain excitation (2026-10-03 UTC)
+
+PROGRESS after `c0ddcf7`: the EXISTING literal bent-loop state at fixed
+w=1/16,width2 now constructs an actual derivative-graph domain point, not
+a requested witness. Its input/action are both nonzero; the SAME input has
+norm floor2^-128 and energy at least mixFraction*2^-128, with a computed
+finite ceiling. An explicit positive-real-time Taylor radius is returned in
+Type. The graph/domain form bound retains the exact original one-step
+kinetic fraction. Two focused checks passed 20 gates within
+{propext, Quot.sound} (15 new, five unchanged).
+
+NEXT FORWARD: the actual combined signed correction relative to OWN variance
+or retained macro ratio on a justified changing family. An initial adjacent
+ratio already propagates by existing positivity; no new wrapper is needed.
+NEXT BACKWARD: the finite root/log polynomial sandwich and actual SAME-carrier
+operator lift, then identify the two existing operator constructions. The
+new finite argument is recorded as UNFORMALIZED, not a checked theorem.
+No full root/tree build, broad audit/guard or progress metric was run. Root
+import registration-only; CI and canonical chart unchanged. Every continuum
+and Clay field remains OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-BENT-DERIVATIVE-EXCITATION-2026-10-03.md`.
+
+## Earlier increment: Complete original signed component reaches a favorable SAME limit (2026-10-03 UTC)
 
 PROGRESS after `99324f0`: the new original window source retains BOTH partitions and
 the actual c_n in BOTH windows, including depth n+t. Two geometric mean

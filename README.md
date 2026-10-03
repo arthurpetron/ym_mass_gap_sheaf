@@ -10,7 +10,16 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**New checked signed component:** the COMPLETE original
+**New checked original derivative excitation:** the literal bent-loop state
+now supplies a nonzero point of the EXISTING derivative-graph domain, with
+nonzero action, a positive energy floor, a computed finite energy ceiling and
+an explicit small-positive-real-time Taylor radius. The graph's form bound
+retains the exact original kinetic floor/cap fraction. This is fixed
+`w=1/16`, width two, NOT a self-adjoint physical Hamiltonian or continuum
+survival theorem. See the
+[object, bounds and verification boundary](audits/AUDIT-ORIGINAL-BENT-DERIVATIVE-EXCITATION-2026-10-03.md).
+
+**Earlier checked signed component:** the COMPLETE original
 multiplication cost, divided by BOTH original partitions, has the SAME limit
 `(C_(2t)-C_(2t+1))-(C_0-C_1) <= 0`. Explicit independent cutoff/depth
 thresholds control the actual moving OWN center and give a late finite upper

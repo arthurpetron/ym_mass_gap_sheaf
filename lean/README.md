@@ -12,7 +12,18 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT checked signed multiplication limit (2026-10-03 UTC):**
+**CURRENT checked original derivative-domain excitation (2026-10-03 UTC):**
+`BF4WilsonSmallNomeBentDerivativeExcitation` constructs a literal
+`DerivativeGraph.fromTime(v)` point with nonzero input/action, positive
+energy floor, computed norm/energy ceilings and a Type-valued positive-real
+Taylor radius. `DerivativeGraphGap` now retains the exact one-step kinetic
+floor/cap fraction on its SAME vacuum-complement graph/domain. Two focused
+checks passed 20 permitted gates (15 new, five unchanged). The concrete
+point is fixed w=1/16,width2; self-adjointness, physical calibration,
+changing-family survival and continuum/Clay fields remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-BENT-DERIVATIVE-EXCITATION-2026-10-03.md`.
+
+**Earlier checked signed multiplication limit (2026-10-03 UTC):**
 `BF4ExactSlabFixedSpatialSignedMultiplicationWindow` retains the actual
 OWN center c_n at BOTH depths n and n+t and BOTH original partitions.
 `BF4WilsonAllNomeSignedMultiplicationLimit` proves its exact SAME limit
