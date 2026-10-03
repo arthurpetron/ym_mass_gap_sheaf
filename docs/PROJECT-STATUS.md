@@ -1,5 +1,13 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL domain log-prefix coercivity (2026-10-03 UTC;
+chart unchanged): gamma_N=sum_(j=1..N) r^j/j bounds the existing domain form
+on its SAME vacuum complement. The two-term coefficient r+r^2/2>r strictly
+improves the fixed-parameter margin, using actual defect moments and the
+existing log modulus. Three focused targets passed twelve permitted gates.
+No physical/scaling/OS box or justified-family signed estimate is closed.
+Evidence: `audits/AUDIT-ORIGINAL-DOMAIN-LOG-PREFIX-GAP-2026-10-03.md`.
+
 Verified supporting exact ORIGINAL block/heat join (2026-10-03 UTC;
 chart unchanged): the actual half-smoothed determinant is now pinned to the
 original exact signed heat-defect energy, with the chronological n-center,

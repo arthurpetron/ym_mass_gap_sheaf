@@ -1,5 +1,19 @@
 # Sorry Ledger
 
+## PROVED computed log-prefix coercivity on the ORIGINAL domain only (2026-10-03 UTC)
+
+`BF4WilsonAllNomeDomainLogPrefixGap.domain_log_prefix_gap` joins the
+actual vacuum-complement defect-moment floor to every finite ordinary-log
+form and its EXISTING domain action: gamma_N*B(input,input)<=B(input,output),
+gamma_N=sum_(j=1..N) r^j/j, r=the named nome/width kinetic floor/cap fraction.
+`domain_log_two_term_gap` uses r+r^2/2>r. No inverse, spectral calculus,
+scalar CRealLog pin or comparison hypothesis. Three serialized focused
+targets passed twelve gates within {propext, Quot.sound}; no full audit.
+No sorry added/discharged, new axiom, frontier weakening, CI or chart change.
+Root imports are registration-only. The justified-family signed relative
+producer, physical/OS/scaling/continuum/QFT/every-group/Clay stay OPEN.
+Evidence: `audits/AUDIT-ORIGINAL-DOMAIN-LOG-PREFIX-GAP-2026-10-03.md`.
+
 ## PROVED exact heat defect in the ORIGINAL blocked determinant only (2026-10-03 UTC)
 
 `BF4DyadicWilsonSquareExactBlockHeatDefect.paddedSquare_exact_block_heatDefect`

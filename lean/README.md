@@ -12,6 +12,15 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**CURRENT checked original domain log-prefix coercivity (2026-10-03 UTC):**
+Every computed coefficient gamma_N=sum_(j=1..N) r^j/j bounds the SAME
+vacuum-complement domain form, using actual defect moments and its existing
+ordinary-log modulus. The explicit two-term coefficient r+r^2/2>r
+strengthens the fixed-nome/width margin. Three focused targets passed twelve
+permitted gates; no scalar CRealLog identification, physical scaling or
+continuum/Clay claim. Evidence:
+`audits/AUDIT-ORIGINAL-DOMAIN-LOG-PREFIX-GAP-2026-10-03.md`.
+
 **CURRENT checked original domain logarithm (2026-10-03 UTC):**
 The ordinary series sum_(j=1..M) (I-T)^j input/j now converges to the SAME
 existing derivative-domain action, with an explicit output-range modulus.

@@ -4,7 +4,19 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: exact ORIGINAL block/heat-defect join (2026-10-03 UTC)
+## Current increment: computed ORIGINAL domain log-prefix coercivity (2026-10-03 UTC)
+
+PROGRESS after `11aa866`: actual defect powers preserve the original vacuum
+complement and dominate r^k times its norm. Their finite log sum is monotone
+and bounded by the SAME existing domain action, yielding every computed
+gamma_N=sum_(j=1..N) r^j/j; gamma_2=r+r^2/2>r strictly improves the prior
+fixed-parameter coefficient. No spectral measure, scalar logarithm equality
+or supplied operator comparison. Three focused checks passed twelve
+permitted gates. NEXT: original signed relative estimate on a JUSTIFIED
+family; physical/OS/scaling/QFT/every-group/Clay and exact chart stay OPEN.
+Evidence: `audits/AUDIT-ORIGINAL-DOMAIN-LOG-PREFIX-GAP-2026-10-03.md`.
+
+## Earlier increment: exact ORIGINAL block/heat-defect join (2026-10-03 UTC)
 
 PROGRESS after `37d0bcd`: the exact heat-defect energy now reaches the ACTUAL
 half-smoothed determinant, retaining its literal chronological center, both

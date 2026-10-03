@@ -27,6 +27,20 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
+NOW CHECKED COMPUTED LOG-PREFIX COERCIVITY ON THE SAME ORIGINAL DOMAIN:
+`DomainLogPrefixGap.domain_log_prefix_gap` proves
+sum_(j=1..N) r^j/j * B(input,input) <= B(input,output), for every N,
+where r is the ACTUAL kinetic floor/cap fraction at the named nome/width.
+Actual defect-moment coercivity and the existing ordinary-log modulus
+supply both sides of the finite-form join, without spectral calculus or
+a new comparison premise. The explicit two-term coefficient r+r^2/2>r
+strictly improves the prior fixed-parameter domain coefficient. Three
+focused targets passed twelve permitted gates. This supplies no physical
+or changing-family uniformity and no scalar CRealLog equality.
+Evidence: `audits/AUDIT-ORIGINAL-DOMAIN-LOG-PREFIX-GAP-2026-10-03.md`.
+NEXT FORWARD remains the actual signed relative estimate below; canonical
+OS/scaling/physical/QFT/every-group/Clay fields and exact chart remain OPEN.
+
 NOW CHECKED EXACT FORWARD BLOCK/HEAT JOIN:
 `BF4DyadicWilsonSquareExactBlockHeatDefect.paddedSquare_exact_block_heatDefect`
 identifies the ACTUAL half-smoothed determinant with
