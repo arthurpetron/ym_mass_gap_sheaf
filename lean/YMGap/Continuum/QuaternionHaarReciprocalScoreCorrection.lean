@@ -112,7 +112,7 @@ private def residual_squareBound {blocks : Nat} {R : RatPoly} {rho : Q'}
         (.mul (.mul (.var 0) (.var 1)) (.mul (.var 0) (.var 1)))
         (by decide) (fun | 0 => rho | _ => rho^k))
 
-private theorem weighted_multiplier_square_le {blocks : Nat} {W p r : RatPoly} {c : Q'}
+theorem weighted_multiplier_square_le {blocks : Nat} {W p r : RatPoly} {c : Q'}
     (M : Certificate blocks W) (P : SquareBound blocks p c)
     (hr : SupportedQuaternionBlocks blocks r) :
     quaternionHaar blocks (polyMul W (polyMul (polyMul p r) (polyMul p r))) ≤
@@ -158,7 +158,7 @@ theorem reciprocalScoreCorrection_square_le {blocks i j : Nat} {W A b : RatPoly}
 def correctionSquareModulus (rho cost epsilon : Q') : Nat :=
   polynomialCutoff rho cost 2 epsilon
 
-private theorem correction_budget {rho cost epsilon : Q'}
+theorem correctionSquareModulus_bound {rho cost epsilon : Q'}
     (hr0 : (0 : Q') ≤ rho) (hr1 : rho < 1) (hcost : (0 : Q') ≤ cost)
     (he : (0 : Q') < epsilon) (k : Nat)
     (hk : correctionSquareModulus rho cost epsilon ≤ k) :
@@ -208,11 +208,13 @@ theorem reciprocalScoreCorrection_square_tolerance
     (remainderInterval hA hu hle L U)
   exact Q'.le_trans' _ _ _
     (reciprocalScoreCorrection_square_le hi hj M hA hb hu P k)
-    (correction_budget (radius_nonnegative hu hle) (radius_lt_one hell hu) hcost he k hk)
+    (correctionSquareModulus_bound (radius_nonnegative hu hle) (radius_lt_one hell hu) hcost he k hk)
 
 #print axioms reciprocalScoreCorrection_residual_derivative
 #print axioms reciprocalScoreCorrection_succ
 #print axioms reciprocalScoreCorrection_square_le
+#print axioms weighted_multiplier_square_le
+#print axioms correctionSquareModulus_bound
 #print axioms correctionSquareModulus
 #print axioms reciprocalScoreCorrection_square_tolerance
 

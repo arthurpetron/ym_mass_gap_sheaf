@@ -12,6 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**CURRENT checked ORIGINAL reciprocal-gradient payment (2026-10-03 UTC):**
+The actual terminal cone and upper window construct |DR|<=L(w). The
+projected spatial square is compared to the SAME surviving norm, never
+equated with the original spatial weight. The all-link/six-plane correction
+is now paid in zeta*Z1*B, and the complete cost obeys
+D<=PairedBulk+(zeta+delta+epsilon)*Z1*B with the original paired score and
+both signed Taylor remainders retained. Explicit correction, drift and
+reconstruction onsets depend only on fixed nome,width and tolerances;
+there is no source/terminal-norm inverse, and zero B is included.
+Six focused checks passed 38 permitted gates. This removes a genuine
+approximation obligation; the useful combined bulk/norm bound on a
+justified changing family remains OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-RELATIVE-CORRECTION-2026-10-03.md`.
+
 **CURRENT checked ORIGINAL three-column Gram alternative (2026-10-03 UTC):**
 The positive three-copy shared-tail wedge integrates to 6*(M*Gram-J).
 Only W needs positivity; signed sources, zero heads/tail and all surviving

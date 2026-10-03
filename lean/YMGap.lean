@@ -7158,3 +7158,10 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepDriftPaidCost
 import YMGap.Continuum.SU2QuaternionMultiHeadThreeGram
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepThreeGramBound
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepThreeGramCost
+
+-- Actual reciprocal-gradient correction paid in the SAME surviving norm.
+-- Fixed nome/width onsets only; the combined signed paired bulk is OPEN.
+import YMGap.Continuum.QuaternionHaarRelativeReciprocalCorrection
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepRelativeCorrection
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepCorrectionPaidBudget
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepCorrectionPaidCost

@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL reciprocal correction in SAME-norm currency only (2026-10-03 UTC)
+
+`QuaternionHaarRelativeReciprocalCorrection.remainderAngularInterval` constructs
+|DR|<=L(w) from the actual terminal relative cone and its upper window.
+`BF4ExactSlabFixedSpatialLastStepRelativeCorrection.original_block_lastStep_correction_relative_tolerance`
+pays the literal correction square against B=ell(b^2), using a genuine
+projected spatial-square comparison, not Vbar^2=V. The all-active/six-plane
+consumer and the actual fixed-floor partition payment compose in
+`BF4ExactSlabFixedSpatialLastStepCorrectionPaidCost.original_block_lastStep_correctionPaid_cost_relative_tolerance`:
+D<=PairedBulk+(zeta+delta+epsilon)*Z1*B. Original source, center, transfer,
+paired score, and BOTH signed Taylor remainders survive. Separate computed
+onsets depend only on fixed nome,width and tolerances, not source, K or
+incoming depths. Zero B is included without a norm inverse. Six focused
+source checks passed 38 permitted gates; independent reviews passed.
+No sorry is discharged/introduced and no canonical frontier field changes.
+OPEN: useful combined signed paired-bulk bound on a justified changing
+family; physical scaling, continuum survival, full QFT, every group and Clay.
+Root registration-only; exact chart and CI unchanged. Evidence:
+`audits/AUDIT-ORIGINAL-RELATIVE-CORRECTION-2026-10-03.md`.
+
 ## PROVED exact ORIGINAL signed two-output determinant only (2026-10-03 UTC)
 
 `TwoCopyRayleighDeterminant.first_pairing_determinant` and

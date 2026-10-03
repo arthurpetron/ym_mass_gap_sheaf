@@ -1,5 +1,20 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL reciprocal-gradient SAME-norm payment
+(2026-10-03 UTC; chart unchanged): the actual terminal relative derivative
+and upper window construct |DR|<=L(w). A genuine projected-weight comparison,
+H[Vbar^2*b^2]<=spatialCeiling*ell[b^2], and the original partition comparison
+pay the complete all-active/six-plane correction by zeta*Z1*ell[b^2].
+The full cost is now <=PairedBulk+(zeta+delta+epsilon)*Z1*ell[b^2], retaining
+the original paired score and BOTH signed Taylor remainders. All three
+computed onsets depend only on fixed nome,width and tolerances, not K,
+incoming depths or signed source; zero surviving norm is included.
+Six focused checks passed 38 permitted gates; independent reviews passed.
+The combined signed paired-bulk comparison on a justified changing family,
+physical scaling and the Clay target remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-RELATIVE-CORRECTION-2026-10-03.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting ORIGINAL three-column Gram alternative (2026-10-03 UTC;
 chart unchanged): the literal positive three-copy shared-tail wedge gives
 6*(M*Gram-J). The SAME original transfer constructs M^2*Gram-scoreBudget>=0,

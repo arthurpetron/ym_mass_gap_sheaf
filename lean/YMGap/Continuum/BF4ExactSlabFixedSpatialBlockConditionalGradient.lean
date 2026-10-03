@@ -252,7 +252,7 @@ private theorem transfer_product (w : Q') (K width : Nat) (p : RatPoly) :
   rw [kineticWeight_eq_indexedProduct]
   rfl
 
-private theorem block_source_fringe_independent (w : Q') (K width n t : Nat)
+theorem block_source_fringe_independent (w : Q') (K width n t : Nat)
     (ht : 1 ≤ t) {psi : RatPoly} (hp : SupportedQuaternionBlocks (N width) psi)
     (i : Nat) (hi : i ∈ fringeBlocks width) :
     QuaternionBlockIndependent i
@@ -325,6 +325,7 @@ theorem blockConditionalRatio_energy_le {w : Q'}
 #print axioms blockConditionalRatio_plane_gradient_bound
 #print axioms blockConditionalRatio_weightedAngularEnergy_le
 #print axioms blockConditionalRatio_fringe_independent
+#print axioms block_source_fringe_independent
 #print axioms blockConditionalRatio_energy_le
 
 end YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalGradient

@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**New checked reciprocal-gradient payment:** the original interacting
+source now pays its complete correction, drift and reconstruction errors
+relative to its SAME surviving norm, with explicit source-independent
+onsets at fixed coupling and width. The complete signed-cost consumer
+retains the paired score and both signed Taylor remainders. The combined
+bulk bound on a justified scaling family is still open. See the
+[new estimate, original-action join and focused checks](audits/AUDIT-ORIGINAL-RELATIVE-CORRECTION-2026-10-03.md).
+
 **New checked original three-column Gram bound:** a positive three-copy
 wedge supplies a division-free alternative ceiling for the actual last-step
 angular cost, retaining its signed cross term and every original weight.

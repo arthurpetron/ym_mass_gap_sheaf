@@ -27,6 +27,37 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
 
+NOW CHECKED ORIGINAL RECIPROCAL CORRECTION IN SAME-NORM CURRENCY:
+The actual relative terminal derivative cone and upper window construct
+|D(A/u-1)|<=L(w), without a terminal floor. For the signed surviving
+b=T^(r+1)(g_n*psi), the literal correction e_(k+1)=(k+1)*(-R)^k*b*DR
+therefore satisfies H[Vbar^2*e_(k+1)^2]<=
+(k+1)^2*rho^(2*k)*L(w)^2*spatialCeiling(w,width)*B, B=ell(b^2).
+The constructed comparison H[Vbar^2*b^2]<=spatialCeiling*B uses actual
+post-transfer fringe independence; it NEVER identifies Vbar^2 with V.
+Every active link and all six planes are paid, including factor two from
+sumBound. The actual partition bound Z0*C<=kappa*Z1 and the spatial mass
+floor also give Z0<=P*Z1, P=kappa/(kineticCap*spatialFloor). Only this
+explicit FIXED-parameter floor is inverted, not a terminal mass or B.
+The complete original cost now obeys
+D<=PairedBulk_(k+1)+(zeta+delta+epsilon)*Z1*B, where PairedBulk retains
+the literal G_(k+1)^2, Vbar^2, T1*I(W*X^2), and BOTH signed Taylor
+remainders Rmixed-Rdiagonal. Separate computed correction, drift and
+reconstruction onsets depend only on fixed w,width and tolerances, not
+heat cutoff K, incoming depths or signed source. Zero B is included.
+Six focused source checks passed 38 permitted gates; independent semantic
+and source/log reviews passed. Evidence:
+`audits/AUDIT-ORIGINAL-RELATIVE-CORRECTION-2026-10-03.md`.
+REPOINT: the approximation errors are no longer missing analytic producers.
+Prove the COMBINED signed PairedBulk/(Z1*B) estimate required on the literal
+OWN-centered growing-square source and a justified changing family. Do not
+replace it by independent absolute Taylor caps or require another derivative
+cost/norm hypothesis. These computed onsets may be reevaluated at each
+witnessed family parameter; do not impose a parameter-independent reciprocal
+degree without a downstream need. This does NOT supply the family-useful
+O(1/side) bulk bound, a uniform physical rate or any continuum construction.
+All canonical displayed claims remain unchanged; Clay is OPEN.
+
 NOW CHECKED SAME-NORM DRIFT AND COMPLETE RECONSTRUCTION PAYMENTS:
 For the actual A=g_(n+t), b=T^t(g_n*psi) and phi_k=G_k*b, the
 constructed multiplier gives ell[A^2*phi_k^2]<=B=ell[b^2]. The ORIGINAL
@@ -53,9 +84,11 @@ literal OWN-centered growing square, with the useful O(1/side) ratio and
 justified changing-family control required by the existing completed
 consumer. Do not re-assume a drift/norm comparison or a partition/cap
 comparison already proved here. The two onsets are fixed-parameter,
-NOT nome/width/spacing-uniform moduli. Keep the reciprocal correction,
-M=T1, G_k^2, Vbar^2 and vacuum cross-cancellation visible in the angular
-estimate. No canonical field or displayed chart claim closes; Clay is OPEN.
+NOT nome/width/spacing-uniform moduli. This earlier consumer retained the
+reciprocal correction explicitly; the new payment above removes that error
+only. Keep M=T1, G_k^2, Vbar^2 and vacuum cross-cancellation visible in the
+remaining paired estimate. No canonical field or displayed chart claim
+closes; Clay is OPEN.
 
 NOW CHECKED THREE-COLUMN GRAM ALTERNATIVE AND COMPLETE ORIGINAL COST:
 The literal positive three-copy wedge of (a,c,1), with identical shared
