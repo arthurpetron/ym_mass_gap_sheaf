@@ -27,7 +27,27 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
-NOW CHECKED FINITE PRODUCERS FOR THE ORIGINAL ROOT/LOG JOIN:
+NOW CHECKED ORIGINAL FINITE S/F IDENTITIES:
+With N=n+1, u=1-h and D=1-u^N, the ACTUAL coefficient polynomials have
+`u*S'=N*(D^M-h^(N*M))`, `F'=N*u^(N-1)*(S+h^(N*M))` and `S(0)=F(0)=0`.
+`QPolyFiniteGeometric` and `QPolyFiniteLogDerivative` compute the original
+finite sums and their coefficient derivatives. `QPolyRootLogDifference`,
+`QPolyRootLogInitial` and `QPolyRootLogRemainderDerivative` join the actual
+data, including N=1 and M=0. `QPolyComplementCancellation` proves coefficient
+injectivity of multiplication by `1-h`, WITHOUT assuming that the root
+operator is injective. Six focused checks passed 19 new gates: six axiom-free
+definitions and thirteen within {propext, Quot.sound}.
+NEXT BACKWARD: construct the coefficient-level complementary/difference-power
+factorizations and explicit positive u/h rows for ORIGINAL S/F; cancel the
+polynomial factor BEFORE operator substitution. Lift the actual coefficient
+rows by a diagonal functional on the existing mixed moments and prove its
+monomial and original-map pins. Scalar positivity alone does not give this
+operator lift; the older T1-defect polynomial action is not depth-parametric.
+No S/F positivity, root/log equality, changing-family producer or physical
+scaling is claimed. Root imports registration-only; chart unchanged. Evidence:
+`audits/AUDIT-ORIGINAL-ROOT-LOG-PRODUCERS-2026-10-03.md`.
+
+EARLIER CHECKED FINITE PRODUCERS FOR THE ORIGINAL ROOT/LOG JOIN:
 `QPolyPositivePrimitive` constructs the actual positive rational polynomial,
 proves its coefficientwise derivative, closed-interval positivity, zero
 initial value and derivative-initial uniqueness. `RootLogFiniteTail` pays

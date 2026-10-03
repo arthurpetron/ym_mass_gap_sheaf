@@ -21,7 +21,10 @@ formal derivative, endpoint positivity/zero and derivative-initial uniqueness.
 The binomial-free positive complementary-power factor is also checked.
 The four current target logs contain 18 permitted gates (five axiom-free
 definitions); the telescope follow-up adds three to the first checkpoint.
-The ORIGINAL S/F coefficient identities and root transport remain OPEN; no
+Six additional focused checks prove the ORIGINAL S/F derivative identities,
+their zero initial values and coefficient-level complement cancellation:
+19 new gates, six axiom-free and thirteen within {propext, Quot.sound}.
+The explicit S/F positive expansions and root transport remain OPEN; no
 operator identification, changing-family estimate or continuum/Clay closure
 is claimed. Root imports registered only. Evidence:
 `audits/AUDIT-ORIGINAL-ROOT-LOG-PRODUCERS-2026-10-03.md`.

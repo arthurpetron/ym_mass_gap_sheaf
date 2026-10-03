@@ -70,7 +70,14 @@ The generic primitive IS NOW kernel-checked in
 `primitive_derivative`, with actual coefficient data, endpoint positivity
 and zero initial value. Its :320, `derivative_initial_unique`, pins any
 matching derivative/initial-value polynomial to the computed one.
-The ORIGINAL S/F identities and the sandwich are NOT yet kernel-checked.
+The ORIGINAL S/F identities and zero initial values are NOW kernel-checked:
+`lean/YMGap/Constructive/QPolyRootLogDifference.lean:156`,
+`rootLogDifference_cleared_derivative`;
+`QPolyRootLogRemainderDerivative.lean:96`, `rootLogRemainder_derivative`;
+`QPolyRootLogInitial.lean:69`, `rootLogDifference_zero`, and :85,
+`rootLogRemainder_zero` (same directory). They use the computed ORIGINAL
+finite sums, for N=n+1 and every M>=0. The positive S/F expansions and
+complete sandwich are NOT yet kernel-checked.
 
 ### A binomial-free first factor (now checked)
 
@@ -86,8 +93,12 @@ binomial middle row. With P_N=sum_(k=0..N-2)(u^k+h^k), the shorter target is
     S'=N*h*P_N*sum_(i=0..M-1)D^(M-1-i)*h^(N*i).
 
 Replacing D by h*sum_(j=0..N-1)u^j exposes a finite nonnegative u/h row.
-The ORIGINAL S coefficient identity, termwise positive primitive join,
-F identity and original-root transport are still NOT checked here.
+The ORIGINAL S coefficient identity and F derivative identity are now checked;
+the termwise positive primitive join and original-root transport are NOT.
+`lean/YMGap/Constructive/QPolyComplementCancellation.lean:45`,
+`complement_mul_injective`, permits cancellation of u=1-h at COEFFICIENTS,
+including endpoints. It must be applied BEFORE operator substitution: no
+injectivity of the actual root operator is asserted.
 Independent Sol review confirmed this simplification; review is not proof.
 
 ## Consumer on the SAME existing completion
@@ -111,6 +122,19 @@ After the finite scalar proof, its actual positive-polynomial operator lift
 must also be proved, not assumed. The resulting norm comparison and existing
 moduli would identify `derivativeAction` with `regularizedLog` on this SAME
 carrier, preserving its boundary kernel. Neither equality is claimed here.
+
+The minimal next operator join is a diagonal coefficient functional
+
+    Phi_(d,x)(p)=sum_i coeff(p,i)*moment(d,x,0,i),
+    Phi_(d,x)(u^a*h^b)=moment(d,x,a,b).
+
+`BF4WilsonAllNomeDyadicDefectDecay.moment_split` supplies the second pin by
+recursion once coefficient invariance and finite sum algebra are proved.
+Explicit positive u/h rows can then use `moment_nonnegative`. These pins and
+the literal pins to the two EXISTING operators remain OPEN. The existing
+`BF4WilsonAllNomeDefectPolynomial.action` is hardwired to I-T(1), not the
+depth-dependent root defect, so it is not directly the needed producer.
+No assumed functional calculus or scalar-only positivity shortcut is added.
 
 ### Shorter sufficient original-operator route (checked components)
 

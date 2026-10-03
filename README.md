@@ -15,8 +15,11 @@ endpoint-safe retained tails, an actual original-carrier `8/N` mixed-moment
 budget, and constructive form-to-norm polarization are now kernel-checked.
 An exact positive complementary-power telescope eliminates the binomial
 expansion from the proposed S-derivative numerator.
-The original S/F coefficient comparison and its SAME-root transport remain
-open; derivative/log equality and physical scaling are NOT claimed. See the
+The ORIGINAL finite S/F derivative identities and zero initial values are
+now also kernel-checked, with coefficient-level cancellation of `1-h` that
+requires no inverse operator. Their explicit positive expansions and
+SAME-root transport remain open; derivative/log equality and physical scaling
+are NOT claimed. See the
 [exact statements and focused verification](audits/AUDIT-ORIGINAL-ROOT-LOG-PRODUCERS-2026-10-03.md).
 
 **Earlier checked original derivative excitation:** the literal bent-loop state

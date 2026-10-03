@@ -6,6 +6,46 @@ physical Hamiltonian mass gap. It is OPEN. These results pay finite algebraic
 parts of the proposed identification of two EXISTING original-carrier maps;
 they do not prove that identification or physical scaling.
 
+## Current increment: ORIGINAL finite S/F identities
+
+Set N=n+1, u=1-h and D=1-u^N. The ACTUAL computed coefficient data are
+
+    S=N*sum_(k<N*M) h^(k+1)/(k+1)-sum_(k<M) D^(k+1)/(k+1),
+    F=D^(M+1)/(M+1)-u^N*S.
+
+The following are now kernel-checked, for every n,m:Nat, including N=1,
+M=0 and both scalar endpoints. No interval premise or division by u is used.
+
+- `lean/YMGap/Constructive/QPolyFiniteGeometric.lean:23`,
+  `geometricPolynomial`, constructs the original finite geometric row;
+  :35, `geometric_telescope`, proves `(1-p)*sum_(k<n)p^k=1-p^n`
+  coefficientwise; :51, `polynomialPower_eval`, pins its constructive power.
+- `lean/YMGap/Constructive/QPolyFiniteLogDerivative.lean:23`, `finiteLog`,
+  computes the original truncated series; :34, `finiteLog_derivative`, proves
+  its FORMAL derivative equals p' times that geometric row; :56,
+  `finiteLog_eval`, pins the actual finite rational sum.
+- `lean/YMGap/Constructive/QPolyRootLogDifference.lean:31`,
+  `rootLogDifference`, computes ORIGINAL S; :121, `rootDefect_derivative`,
+  proves D'=N*u^(N-1); :134, `rootLogDifference_derivative`, computes S';
+  :156, `rootLogDifference_cleared_derivative`, proves
+  `u*S'=N*(D^M-h^(N*M))` at EVERY padded coefficient.
+- `lean/YMGap/Constructive/QPolyRootLogInitial.lean:23`, `rootLogRemainder`,
+  computes ORIGINAL F; :56, `rootPower_zero`, and :61, `rootDefect_zero`,
+  prove its literal endpoint data; :69, `rootLogDifference_zero`, and :85,
+  `rootLogRemainder_zero`, calculate S(0)=F(0)=0 from finite evaluation pins.
+- `lean/YMGap/Constructive/QPolyRootLogRemainderDerivative.lean:96`,
+  `rootLogRemainder_derivative`, proves `F'=N*u^(N-1)*(S+h^(N*M))` from
+  ORIGINAL S's cleared derivative, not from an assumed sign or replacement.
+- `lean/YMGap/Constructive/QPolyComplementCancellation.lean:45`,
+  `complement_mul_injective`, recovers all coefficients after multiplication
+  by the actual `[1,-1]`. Its adjacent-coefficient induction has no inverse,
+  support-degree guard, interval premise or classical choice.
+
+Cancellation is at the POLYNOMIAL level, BEFORE original-root substitution.
+No injectivity of the actual operator is asserted; its boundary kernel is
+retained. No positive S/F row, positive S/F form, log/derivative equality,
+changing-family signed estimate or physical gap is claimed in this increment.
+
 ## Forward constructions
 
 `lean/YMGap/Constructive/QPolyPositivePrimitive.lean:38`, `primitive`,
@@ -39,8 +79,9 @@ where h=1-u. Its :100, `complementary_power_defect`, proves
 The empty sum and both endpoints are included; :89,
 `complementaryPowerSum_nonnegative`, proves P_n>=0 on [0,1]. This finite
 telescope removes the binomial middle-row expansion from the proposed
-S-derivative numerator. It does NOT prove the original S derivative identity
-or coefficient/root-action transport.
+S-derivative numerator. By itself it proves neither the original S derivative
+identity nor coefficient/root-action transport. The first is now independently
+proved by the coefficient module above; the latter remains OPEN.
 
 `lean/YMGap/Continuum/BF4WilsonAllNomeRootLogTail.lean:76`,
 `root_quadratic_tail_bound`, uses the ACTUAL mixed moments on the original
@@ -87,12 +128,21 @@ in this module. The intended E is the literal logPartial-differenceQuotient.
 
 ## Exact remaining meeting point
 
-Still OPEN: the coefficient identities for the ORIGINAL S/F polynomials,
-their explicit positive expansions and their transport to the ACTUAL root
+The ORIGINAL S/F derivative identities and zero initial values are now proved.
+Still OPEN: their explicit positive expansions and transport to the ACTUAL root
 actions. Those supply the two-sided form comparison with error
 8/N+invSucc(M). The norm principle and existing approximation moduli would
 then identify derivativeAction and regularizedLog on the SAME carrier,
 including its boundary kernel. This equality is NOT claimed here.
+The next producer must turn CoeffEqv into a diagonal functional on the existing
+depth-dependent mixed moments, with the monomial pin
+Phi(u^a*h^b)=moment(d,x,a,b) and literal pins to the existing operators.
+`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicDefectDecay.lean:188`,
+`moment_split`, is the available recursive identity; :181,
+`moment_nonnegative`, is the positive consumer. These functional/map pins
+are still OPEN. The older `BF4WilsonAllNomeDefectPolynomial.lean:96`,
+`action`, is hardwired to I-T(1), not the depth-dependent root defect;
+it supplies proof patterns, not that missing producer (same directory).
 
 The independent forward input remains the complete action-dependent signed
 cost versus SAME OWN variance, or a retained macro ratio, on a JUSTIFIED
@@ -100,7 +150,7 @@ changing family. No new estimate for that input is supplied by these finite
 algebraic results. Continuum survival, physical calibration, full QFT,
 every-group construction and Clay closure remain OPEN.
 
-## Verification boundary
+## Previous four-source verification boundary
 
 The four targets' latest accepted serialized focused logs report 18 printed
 gates: five computed definitions are axiom-free; thirteen gates use only
@@ -141,3 +191,44 @@ The complementary-telescope a-log verifies the final extended tail source
 with all five gates, passing on its first check.
 Canonical first-chart SHA-256 remains
 `0d9295165945a8acea2c4037bd951f9060a1dfcc22448bde4462d0c795b12145`.
+
+## Current six-source verification boundary
+
+The six NEW sources passed six serialized focused checks. Their accepted
+logs report 19 new printed gates: six computed definitions are axiom-free;
+thirteen theorem gates use only {propext, Quot.sound}. With the preceding
+four sources, current ten-source coverage is 37 gates: eleven axiom-free,
+twenty-six within the permitted gate. All accepted checks exited zero and
+contain no error, warning, sorryAx or PANIC. Root reviewed the complete six
+sources; Sol supplied finite sums, endpoint pins and coefficient cancellation;
+independent Luna source/log/hash review passed. Reviews are not proofs.
+
+Each launch used the same monitored single worker, 20-GiB cap and 12-GiB
+reserve, after fresh memory/process/swap checks. Observed free-memory
+percentage was 83--84%, swap zero. No concurrent build, full root/tree build,
+broad audit/guard or progress metric ran. Root imports are registration-only;
+no sorry, axiom, frontier weakening, CI change or exact chart-claim closure.
+
+| New source | SHA-256 |
+| --- | --- |
+| QPolyFiniteGeometric | bd607d264214d05256e7211c712e8ac493f1e52f224546c45658939e1eb26913 |
+| QPolyFiniteLogDerivative | 9676596e7d1b0922755ea64d1cf05e7073db4a00ae4bebd35c772bcd066bdc4f |
+| QPolyRootLogDifference | d65918b8d8af8110900184591a8b7dc9d71714199292fa4694ed80930996f2d5 |
+| QPolyRootLogInitial | 4d89d095c04353c314fd95897b2b93f072687b5f40e6b885a242da6f65d4ccb5 |
+| QPolyRootLogRemainderDerivative | b7a633d0e4126024b66b6d0b5f758839ce1dad92b4f201988dc9074c6ce98e5f |
+| QPolyComplementCancellation | 62ca089f2b2ca4dbd3168a038d64cc5ef850d7e044fe40cbd48746ea0acfe651 |
+
+| New accepted focused log | SHA-256 |
+| --- | --- |
+| /tmp/ym-finite-geometric-20261003-a.log | 889629e7fd69e29bad41f10d3d1c5a22d085c478b5ca95f5b46be90ca3da96de |
+| /tmp/ym-finite-log-derivative-20261003-a.log | 58356880dad3b343d88f715c100d93705c40b94da7bcbb0d8fc9b6cc1aa05efc |
+| /tmp/ym-original-S-coefficients-20261003-b.log | e29c7f6892de541169107cdb532b7e502312a033bbd7481e32f04ec922af5884 |
+| /tmp/ym-original-root-log-initial-20261003-a.log | a693b009a2c323f0552022448ba7bb89222caf06a6a68267ed7726cb841fab9f |
+| /tmp/ym-original-F-coefficients-20261003-b.log | a250aeda5d814d594577bdf9d43dd0105c9c322e9bf75dd9b092329c295f585e |
+| /tmp/ym-complement-coefficient-cancellation-20261003-a.log | 573ad731bffa6d81115dede8a0aafde5ca84cfe13f059e1f63539e32763f8d1f |
+
+The S a-log had an incorrectly parenthesized theorem composition; the F a-log
+needed an explicit padded-zero annotation. Both were local elaboration fixes,
+with no statement, axiom or resource change. Only the accepted b-logs provide
+evidence for those sources. The other four sources passed their first checks.
+The canonical first-chart hash remains the value above; no ASCII reprint.

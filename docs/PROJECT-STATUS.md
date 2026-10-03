@@ -5,9 +5,11 @@ chart unchanged): actual positive primitives with coefficientwise derivative,
 endpoint positivity/zero and initial-value uniqueness; retained scalar tail;
 SAME-root mixed-moment `8/N` budget; algebraic form-to-norm polarization.
 The complementary-power telescope is also checked, eliminating the
-S-numerator's binomial layer. The four latest target logs contain 18 permitted
-gates, five axiom-free (three gates added after `a0d9897`). ORIGINAL
-S/F coefficient identities and actual-root transport remain OPEN; neither
+S-numerator's binomial layer. ORIGINAL finite S/F derivative identities and
+zero initial values are ALSO checked, as is coefficient-level complement
+cancellation without an operator inverse. Six new focused checks add 19 gates
+(six axiom-free); ten-source coverage is 37 permitted gates, eleven axiom-free.
+Explicit S/F positive expansions and actual-root transport remain OPEN; neither
 derivative/log equality nor a changing-family signed estimate is claimed.
 Evidence: `audits/AUDIT-ORIGINAL-ROOT-LOG-PRODUCERS-2026-10-03.md`.
 No exact displayed claim changed; no ASCII reprint.

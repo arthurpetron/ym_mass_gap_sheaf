@@ -4,7 +4,29 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Positive telescope eliminates the S-numerator binomial layer (2026-10-03 UTC)
+## Current increment: ORIGINAL finite S/F derivative and endpoint identities (2026-10-03 UTC)
+
+PROGRESS after `e04c748`: computed original finite coefficient data now prove
+`u*S'=N*(D^M-h^(N*M))`, `F'=N*u^(N-1)*(S+h^(N*M))` and `S(0)=F(0)=0`,
+for every N=n+1 and M>=0. The finite geometric/logarithmic sums are actual
+data with exact evaluation pins. Coefficient-level multiplication by `1-h`
+is injective without a rational or operator inverse; cancellation will take
+place BEFORE root substitution, preserving its boundary kernel.
+Six serialized focused checks passed 19 new gates, six axiom-free definitions
+and thirteen within {propext, Quot.sound}. With the preceding four targets,
+the current ten-source coverage is 37 gates, eleven axiom-free.
+
+NEXT BACKWARD: explicit positive coefficient expansions for ORIGINAL S/F,
+then the coefficient-to-original-moment functional and literal operator pins.
+Neither interval positivity alone nor the old T1-defect action supplies that
+depth-dependent lift. NEXT FORWARD remains the complete signed cost versus
+SAME OWN variance or retained macro ratio on a JUSTIFIED changing family.
+No such changing-family producer, derivative/log equality or continuum/Clay
+claim was introduced. Root imports registration-only; canonical chart and CI
+unchanged; no broad build/audit/guard or progress metric run. Evidence:
+`audits/AUDIT-ORIGINAL-ROOT-LOG-PRODUCERS-2026-10-03.md`.
+
+## Earlier increment: Positive telescope eliminates the S-numerator binomial layer (2026-10-03 UTC)
 
 PROGRESS after `a0d9897`: the exact finite identity
 `1-u^N-h^N=u*h*sum_(k=0..N-2)(u^k+h^k)`, h=1-u, now has a computed

@@ -6241,6 +6241,13 @@ import YMGap.Continuum.BF4WilsonAllNomePositiveRealSemigroup
 import YMGap.Continuum.BF4WilsonAllNomeDyadicDefectDecay
 -- Finite positive primitives and original root/log tail; the identification is open.
 import YMGap.Constructive.QPolyPositivePrimitive
+-- Actual finite S/F derivative/initial identities; positivity/root transport are open.
+import YMGap.Constructive.QPolyFiniteGeometric
+import YMGap.Constructive.QPolyFiniteLogDerivative
+import YMGap.Constructive.QPolyRootLogDifference
+import YMGap.Constructive.QPolyRootLogInitial
+import YMGap.Constructive.QPolyRootLogRemainderDerivative
+import YMGap.Constructive.QPolyComplementCancellation
 import YMGap.Continuum.RootLogFiniteTail
 import YMGap.Continuum.BF4WilsonAllNomeRootLogTail
 import YMGap.Continuum.BF4WilsonAllNomeSymmetricFormNorm
