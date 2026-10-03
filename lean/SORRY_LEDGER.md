@@ -1,5 +1,20 @@
 # Sorry Ledger
 
+## PROVED conditional original block response propagation only (2026-10-03 UTC)
+
+- `BF4WilsonAllNomeBlockResponseLower` proves the arbitrary-block second
+  difference from positivity of the SAME original completed time powers.
+  A supplied nonnegative ratio at any integer start propagates to every
+  later block and gives the explicit geometric floor rho^j*R(start).
+- This needs no adjacent-step budget, spectral theorem or new carrier.
+  It does NOT produce a family-uniform ratio, normalized cross-scale limit
+  or physical-time calibration. The actual normalized-anchor specialization
+  is a separate verification boundary.
+- First focused check passed three gates, each {propext, Quot.sound}.
+  No new sorry/axiom/classical shortcut or weakened field. Root import
+  registered, NOT aggregate-checked. CI and chart unchanged. Evidence:
+  `audits/AUDIT-MACROSCOPIC-RESPONSE-PROPAGATION-2026-10-03.md`.
+
 ## PROVED original local radial cost decomposition only (2026-10-03 UTC)
 
 - `BF4DyadicWilsonSquareFilteredGainRadialCost` constructs the literal

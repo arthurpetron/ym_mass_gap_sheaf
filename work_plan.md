@@ -27,6 +27,18 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
+CHECKED INPUT REDUCTION: `BF4WilsonAllNomeBlockResponseLower` propagates
+a supplied response ratio across arbitrary integer blocks on the SAME
+original carrier. Its second difference follows from the positive time
+form on T(s)x-rho*x, without a spectral theorem. A uniform macroscopic
+ratio kappa*R(s)<=R(2*s), kappa>0, is a sufficient candidate input for the
+existing normalized positive-time route; the actual anchor/continuity
+specialization is a separate proof boundary. Seek that ratio directly
+when simpler than an adjacent budget. The ratio producer, justified family,
+normalized cross-scale comparison and physical calibration remain OPEN.
+Three focused constructive gates passed. Evidence:
+`audits/AUDIT-MACROSCOPIC-RESPONSE-PROPAGATION-2026-10-03.md`.
+
 NEW CHECKED QUADRATIC ROUTE: with the ORIGINAL g, A=Tg, fixed finite
 OWN mean c and psi=f-c, let b=T(g*psi), J1=ell(A*psi*b),
 G2=ell[b*(b-a*A*psi)], Delta=ell[A*T(g*psi^2)]-ell[(A*psi)^2].

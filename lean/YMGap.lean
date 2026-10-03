@@ -5167,6 +5167,9 @@ import YMGap.Continuum.BF4WilsonAllNomeDyadicNormalizedBondAnchor
 -- SAME relative budget controls normalized real-time continuity;
 -- family/physical calibration OPEN, no uniform raw reserve imposed.
 import YMGap.Continuum.BF4WilsonAllNomeDyadicNormalizedAnchorContinuity
+-- SAME original time powers propagate a supplied macroscopic block ratio;
+-- the uniform analytic ratio and changing-family joins remain OPEN.
+import YMGap.Continuum.BF4WilsonAllNomeBlockResponseLower
 -- Scalar alignment cannot amplify to arbitrary quaternion-valued sources.
 -- Exact original low-degree obstruction; narrower scalar word stays OPEN.
 import YMGap.Continuum.SU2QuaternionHeatAlignmentAmplificationObstruction
