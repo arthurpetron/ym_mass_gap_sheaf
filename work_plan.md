@@ -27,6 +27,27 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
 
+NOW CHECKED TWO ACTUAL FORWARD/BACKWARD JOINS:
+FORWARD, the original one-link variance floor reaches the literal dyadic
+odd OWN law at ALL chronological depths (n+1,n), including zero, with
+independent regulator stage. BOTH moments, original partition and OWN mean
+are pinned; `starRatio w` is width/depth/cutoff independent, NOT nome-uniform.
+BACKWARD from the QFT dynamics requirements, the actual signed isometry
+transports BOTH real difference quotients and the original maximal-graph
+slope -2i*Out to every numerical base time. The supplied Point's constructed
+radius is copied EXACTLY, independent of the base, without representatives
+or assumed domain invariance. Two focused checks passed eight permitted
+gates. Evidence: `audits/AUDIT-ODD-VARIANCE-AND-ORBIT-TANGENT-2026-10-03.md`.
+REPOINT: the useful finite floor is NOT a survival producer. The EXISTING
+`StarVarianceLossObstruction.starRatio_sub_mul_nome_defect_nonpositive`
+already prevents subtracting the available nome-linear absolute jump budget
+from this certificate floor. Do not build another coarse relative-energy
+wrapper or duplicate this obstruction. Keep the action-specific COMPLETE
+signed remainder/overlap alternative below and the aggregate signed-window
+alternative, on a justified changing family. The orbit derivative supplies
+numerical original-carrier dynamics only, not physical calibration, local
+continuum fields or full QFT axioms. No canonical chart atom is closed.
+
 NOW CHECKED EXACT-GROUND SHORTCUT OBSTRUCTION (two-state, NOT BF4):
 Near-identity symmetric positive heat, a uniformly bounded positive action
 and a constructed positive interacting ground pin do NOT imply O(heat-loss)

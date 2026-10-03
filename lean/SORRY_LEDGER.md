@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## PROVED literal finite odd OWN variance and original orbit tangent only (2026-10-03 UTC)
+
+`BF4DyadicWilsonSquareOddVarianceFloor.originalWindowScalar_rectangular_variance_floor`
+extends the original placed-word variance floor to arbitrary left/right
+depths and independent regulator stage.
+`paddedSquare_oddVariance_floor` pins BOTH original moments and SAME partition/
+OWN mean to the actual odd (n+1,n) law for ALL n>=0, K>=headCutoff(w), and
+width>side. Its `starRatio w` is positive and nome-dependent; no
+changing-family norm-floor tail is established.
+`BF4WilsonAllNomeComplexBondOSScaledCayleyOrbitTangent.forwardQuotientAt_transport`
+and `backwardQuotientAt_transport` identify BOTH actual signed-real quotients.
+`ofPointOrbitTangent` constructs their arbitrary-base -2i*Out tangent with
+EXACTLY the original Point's computed radius, using the actual graph output
+and signed isometry. No chosen representatives, analytic budget, physical
+clock, gap or continuum premise. Two focused checks passed eight permitted
+gates; independent reviews passed; root registration only. No new sorry,
+axiom, field weakening, CI or exact chart change. Evidence:
+`audits/AUDIT-ODD-VARIANCE-AND-ORBIT-TANGENT-2026-10-03.md`.
+OPEN: action-specific initial-energy COMPLETE signed remainder/overlap OR
+aggregate signed-window bound on a JUSTIFIED changing family; survival,
+physical/OS/continuum/QFT/every-group/Clay. The old star-floor/absolute-loss
+certificate obstruction remains; no canonical frontier atom is closed.
+
 ## PROVED generic exact-ground near-identity obstruction only (2026-10-03 UTC)
 
 `PositiveHeatGroundEnergyObstruction.energy_relative_obstruction` proves

@@ -1,5 +1,20 @@
 # Canonical one-page project status
 
+Verified supporting literal odd OWN variance and original orbit derivative
+(2026-10-03 UTC; chart unchanged): the original selected-link floor reaches
+the actual dyadic odd law at EVERY depth including zero and late cutoff,
+retaining BOTH moments, partition and OWN center. `starRatio w` is
+width/depth/cutoff independent, NOT nome-uniform. The original generator's
+BOTH signed-real quotients transport to every numerical orbit base time
+with EXACTLY the Point's computed radius and actual -2i*Out graph slope.
+Two focused checks passed eight permitted gates. Finite nonconstancy and
+original numerical dynamics are strengthened, not survival or full QFT.
+The EXISTING star-floor obstruction excludes the coarse jump/floor join;
+action-specific signed analytic control and justified scaling remain OPEN,
+as do physical/OS/continuum/QFT/every-group/Clay. Evidence:
+`audits/AUDIT-ODD-VARIANCE-AND-ORBIT-TANGENT-2026-10-03.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting exact-ground GENERIC route obstruction (2026-10-03 UTC;
 chart unchanged): bounded positive action plus near-identity positive heat
 and an exact positive ground pin do NOT supply small OWN-relative energy.

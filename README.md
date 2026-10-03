@@ -10,6 +10,19 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Verified forward/backward joins (2026-10-03 UTC):**
+The actual dyadic Wilson square has positive OWN variance in the original
+odd-chain law at every depth, including zero, and every late cutoff. The
+floor is independent of depth/width/cutoff but remains coupling-dependent.
+Separately, the original generator's two-sided derivative now transports
+along its entire signed-time orbit with the same source-computed error
+radius, independent of numerical base time. Two focused checks passed eight
+permitted gates. These strengthen finite nonconstancy and the original
+dynamics; they do not establish scaling survival or full QFT axioms. The
+existing star-floor obstruction already rules out paying survival with the
+coarse jump budget. See the
+[proofs, rejected join and remaining input](audits/AUDIT-ODD-VARIANCE-AND-ORBIT-TANGENT-2026-10-03.md).
+
 **Checked route obstruction (2026-10-03 UTC):**
 Even an exact positive ground pin and bounded positive action do not make
 near-identity heat imply small energy relative to the SAME variance. A

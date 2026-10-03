@@ -7296,3 +7296,9 @@ import YMGap.Continuum.BF4WilsonAllNomeOriginalVarianceComparison
 -- These are two-state diagnostics, not BF4/Yang--Mills counterexamples.
 import YMGap.Continuum.PositiveHeatGroundEnergyObstruction
 import YMGap.Continuum.PositiveHeatGroundEnergyNoUniformRate
+
+-- Literal finite odd-law OWN variance at every depth, and the two-sided
+-- generator tangent along the SAME signed orbit with base-independent radius.
+-- Neither the changing-family survival bound nor continuum QFT is closed.
+import YMGap.Continuum.BF4DyadicWilsonSquareOddVarianceFloor
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyOrbitTangent

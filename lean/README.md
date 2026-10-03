@@ -12,6 +12,23 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Checked finite odd-law variance and original orbit derivative (2026-10-03 UTC):**
+`BF4DyadicWilsonSquareOddVarianceFloor.paddedSquare_oddVariance_floor`
+transports the one-link floor to the literal chronological rectangle
+(depth+1,depth), retaining BOTH original moments, partition and OWN center.
+Every depth including zero and K>=headCutoff(w) is covered; `starRatio w`
+depends on nome, not width/cutoff/depth. Separately,
+`BF4WilsonAllNomeComplexBondOSScaledCayleyOrbitTangent.ofPointOrbitTangent`
+constructs BOTH signed-real orbit derivatives at every numerical base time
+using exactly the supplied Point's original tangent radius. The slope is
+-2i times the actual orbit graph output. No quotient representative is
+chosen, no physical-clock or gap premise supplied. Two focused checks passed
+eight permitted gates; root registration only, no full build/audit.
+The existing `StarVarianceLossObstruction` already excludes the coarse
+absolute-jump/floor survival join. The action-specific signed analytic input,
+justified scaling, physical/OS/continuum/QFT/every-group/Clay remain OPEN.
+Evidence: `audits/AUDIT-ODD-VARIANCE-AND-ORBIT-TANGENT-2026-10-03.md`.
+
 **Checked exact-ground generic obstruction (2026-10-03 UTC):**
 `PositiveHeatGroundEnergyObstruction` and `PositiveHeatGroundEnergyNoUniformRate`
 construct a bounded-action two-state T=K V family with exact positive ground
