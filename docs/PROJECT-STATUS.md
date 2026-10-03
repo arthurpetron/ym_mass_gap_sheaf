@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting scalar survival obstruction (2026-10-03 UTC; chart
+unchanged): unit zero-time response, a compatible strictly subunit slow
+rate and positive overlap do not imply selected-response survival. Explicit
+two-mode rational data lose every fixed macro retention floor at a computed
+cutoff. This is NOT a BF4/YM counterexample. The actual selected-source
+overlap or COMPLETE normalized signed-window estimate remains OPEN.
+Evidence: `audits/AUDIT-TWO-MODE-SURVIVAL-OBSTRUCTION-2026-10-03.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting near-unit ORIGINAL source coefficient (2026-10-03 UTC;
 chart unchanged): asymmetric SAME-weight Young replaces factor two by
 1+sigma for every positive rational sigma. A constructed tighter correction

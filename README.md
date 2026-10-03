@@ -10,6 +10,12 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Checked route correction:** normalized positive two-mode data show that
+a correctly scaled slow rate and merely positive overlap do not guarantee
+survival of the selected excitation. The actual original-source overlap or
+complete signed-window estimate is still needed. This is not a Yang--Mills
+counterexample. See the [proof and corrected next step](audits/AUDIT-TWO-MODE-SURVIVAL-OBSTRUCTION-2026-10-03.md).
+
 **New checked improvement to the original signed cost:** the avoidable
 factor two on the leading source-derivative square is replaced by
 `1+sigma`, for every positive rational sigma, with a computed tighter

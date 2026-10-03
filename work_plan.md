@@ -27,6 +27,21 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
 
+NOW CHECKED SELECTED-RESPONSE SURVIVAL OBSTRUCTION:
+An explicit normalized positive two-mode family has s=n+1, slow rate
+q=1-1/(2s)<1, positive raw slow weight 2^(-4s), and C(0)=1, yet
+C(2s)<=2*2^(-s)*C(s). Every fixed rational kappa>0 fails at a computed
+eventual cutoff. This is scalar data, NOT a BF4/YM counterexample.
+REPOINT: do not infer survival from rate compatibility or existence of a
+slow mode alone. Continue with the ACTUAL selected-source overlap magnitude
+or the COMPLETE normalized signed-window estimate below. Existing defect
+smoothing is relative to the earlier norm, not the surviving norm; existing
+relative-floor consumers still require their supplied floor. No new
+assumed-input bundle. One final focused check passed 16 permitted gates;
+independent review passed. Evidence:
+`audits/AUDIT-TWO-MODE-SURVIVAL-OBSTRUCTION-2026-10-03.md`.
+Exact displayed chart claims are unchanged; continuum/Clay obligations remain OPEN.
+
 NOW CHECKED NEAR-UNIT ORIGINAL SOURCE COEFFICIENT:
 The permanent factor two from combining the source derivative with the
 vanishing reciprocal error is removed. For every positive rational sigma,

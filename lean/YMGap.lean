@@ -7180,3 +7180,7 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockRemainderPayment
 import YMGap.Continuum.BF4WilsonAllNomeWindowSignedCost
 import YMGap.Continuum.QuaternionHaarAsymmetricSquareTriangle
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepAsymmetricEnergy
+
+-- Explicit scalar positive-mode diagnostic: compatible rate and positive
+-- overlap do not guarantee selected-response survival. NOT a BF4/YM instance.
+import YMGap.Continuum.RationalTwoModeSurvivalObstruction

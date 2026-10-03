@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## PROVED scalar slow-mode survival shortcut obstruction only (2026-10-03 UTC)
+
+`RationalTwoModeSurvivalObstruction.response_zero`, `horizon_rate_loss`,
+`slowRate_lt_one` and `response_doubling_upper` construct normalized positive
+two-mode moments with s*(1-q)=1/2, both rates strictly below one, and
+C(2s)<=2*2^(-s)*C(s). `eventual_macro_floor_false` gives a computed cutoff
+refuting every fixed positive rational retention coefficient. Scalar data
+only, NOT an original BF4 family or YM counterexample. This prunes the
+implication from compatible rate/positive overlap alone to survival.
+The existing tested Wilson reserve still needs a quantitatively sufficient
+actual overlap; the complete ORIGINAL normalized signed-window budget is
+still unsupplied. One final focused check passed 16 permitted gates;
+independent review passed. No sorry/axiom/field/CI/chart change, root
+registration only. Evidence:
+`audits/AUDIT-TWO-MODE-SURVIVAL-OBSTRUCTION-2026-10-03.md`.
+OPEN: actual same-source relative budget on a JUSTIFIED changing family,
+Jensen/action debt, continuum survival, physical calibration, full QFT,
+every compact simple group and Clay closure.
+
 ## PROVED near-unit ORIGINAL source coefficient and full signed-cost join only (2026-10-03 UTC)
 
 `QuaternionHaarAsymmetricSquareTriangle.weighted_square_add_le` constructs
