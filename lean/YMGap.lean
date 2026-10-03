@@ -7165,3 +7165,10 @@ import YMGap.Continuum.QuaternionHaarRelativeReciprocalCorrection
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepRelativeCorrection
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepCorrectionPaidBudget
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepCorrectionPaidCost
+
+-- ORIGINAL angular IBP moves the heat derivative onto complete signed
+-- sources. The unsplit square feeds the SAME cost with paid errors;
+-- its useful changing-family signed-bulk comparison remains OPEN.
+import YMGap.Continuum.SU2QuaternionProductHeatAngularCommutation
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepSourceDerivative
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepSourceDerivativeEnergy

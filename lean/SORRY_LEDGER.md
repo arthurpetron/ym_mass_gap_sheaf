@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL source-derivative square and SAME signed-cost join only (2026-10-03 UTC)
+
+`SU2QuaternionProductHeatAngularCommutation.productMap_angular_carrier`
+moves the kernel derivative onto the complete source under every surviving
+Haar insertion. `BF4ExactSlabFixedSpatialLastStepSourceDerivative.lastStep_sourceDerivative_certificate`
+constructs (I K)*I[K*Y^2]-score^2>=0, retaining
+Y=lift(A)*D(V*c)-lift(b)*D(V*a) unsplit, including the actual action derivative.
+`BF4ExactSlabFixedSpatialLastStepSourceDerivativeEnergy.original_block_sourceDerivative_cost_relative_tolerance`
+joins every active link/six planes to D<=SourceBulk+(zeta+delta+epsilon)*Z1*B,
+retaining Vbar^2,G_k^2 and BOTH signed Taylor remainders. The leading square
+needs no heat-derivative cap or source inverse; no numerical ordering against
+the previous cap-based budget is proved. Existing fixed-parameter moduli
+pay only correction, drift and reconstruction. Five serialized focused
+checks passed 34 permitted printed gates (including unchanged helpers).
+No sorry added/discharged, axiom, weakened frontier field, CI or exact chart
+change. Root imports registration-only; no full audit/build. Evidence:
+`audits/AUDIT-ORIGINAL-SOURCE-DERIVATIVE-2026-10-03.md`.
+OPEN: useful joint SourceBulk/(Z1*B) estimate on a JUSTIFIED changing family;
+physical scaling, continuum survival, full QFT, every compact simple group
+and Clay. No uniform-in-spacing or uniform-in-nome estimate is claimed.
+
 ## PROVED ORIGINAL reciprocal correction in SAME-norm currency only (2026-10-03 UTC)
 
 `QuaternionHaarRelativeReciprocalCorrection.remainderAngularInterval` constructs

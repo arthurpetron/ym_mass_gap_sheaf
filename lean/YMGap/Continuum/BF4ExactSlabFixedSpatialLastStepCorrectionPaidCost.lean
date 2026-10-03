@@ -133,7 +133,8 @@ theorem correctionBulkTolerance_positive {w : Q'}
     (he : (0 : Q') < epsilon) : (0 : Q') < correctionBulkTolerance hw0 hw1 width epsilon :=
   Q'.mul_pos he (Q'.recipPos_pos _ _)
 
-private theorem correctionBulkTolerance_payment {w : Q'}
+/-- The explicit correction tolerance pays its original partition factor. -/
+theorem correctionBulkTolerance_payment {w : Q'}
     (hw0 : (0 : Q') < w) (hw1 : w < 1) (width : Nat) {epsilon : Q'}
     (he : (0 : Q') < epsilon) :
     ((1-w)*lastStepPartitionPaymentCap hw0 hw1 width)*
@@ -282,6 +283,7 @@ theorem original_block_lastStep_correctionPaid_cost_relative_tolerance {w : Q'}
 #print axioms original_block_partition_relative_le
 #print axioms correctionBulkTolerance
 #print axioms correctionBulkTolerance_positive
+#print axioms correctionBulkTolerance_payment
 #print axioms lastStepCorrectionPaidCostCutoff
 #print axioms originalBlockLastStepPairedBulkBudget
 #print axioms original_block_lastStep_bulk_correction_paid

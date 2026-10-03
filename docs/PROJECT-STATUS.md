@@ -1,5 +1,19 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL source-derivative square and complete signed
+cost (2026-10-03 UTC; chart unchanged): simultaneous kernel rotation and
+Haar IBP move the angular derivative onto COMPLETE incoming sources.
+The score is I[K*Y], Y=lift(A)*D(V*c)-lift(b)*D(V*a), under every output
+insertion. An actual determinant certificate gives score^2<=(I K)*I[K*Y^2],
+without the global heat-score cap; no source/action derivative is discarded.
+Every active link/six planes feeds the SAME cleared cost, retaining Vbar^2,
+G_k^2 and BOTH signed Taylor remainders, with the existing same-norm payments.
+Five focused checks and independent semantic/source reviews passed.
+No general ordering versus the old budget or useful changing-family ratio
+is proved; physical scaling and Clay remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-SOURCE-DERIVATIVE-2026-10-03.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting ORIGINAL reciprocal-gradient SAME-norm payment
 (2026-10-03 UTC; chart unchanged): the actual terminal relative derivative
 and upper window construct |DR|<=L(w). A genuine projected-weight comparison,

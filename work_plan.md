@@ -27,6 +27,33 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
 
+NOW CHECKED ORIGINAL SOURCE-DERIVATIVE ALTERNATIVE, WITHOUT A HEAT-SCORE CAP:
+Simultaneous kernel rotation and exact input Haar IBP construct D(Pp)=P(Dp)
+under EVERY surviving insertion, not as a free coefficient identity.
+For actual A=T a,b=T c, the score equals I[K*Y], where
+Y=lift(A)*D(V*c)-lift(b)*D(V*a). Its coefficient expansion retains
+V*(lift(A)*Dc-lift(b)*Da)+(DV)*X, X=lift(A)*c-lift(b)*a.
+The positive original kinetic law constructs score^2<=(I K)*I[K*Y^2].
+No source inverse or relativeCap(w,32)^2 enters the leading square; kinetic
+mass, action derivatives and all signed cross terms remain literal.
+Its full active-link/six-plane consumer keeps Vbar^2*G_k^2 and BOTH signed
+Taylor remainders in SourceBulk_k=Z0*((1-w)*SourceAngular_k+Rmixed-Rdiagonal).
+The SAME cleared cost now has the alternative bound
+D<=SourceBulk_(k+1)+(zeta+delta+epsilon)*Z1*B at the existing independent
+correction/depth/reconstruction onsets. No general ordering of new and old
+budgets is asserted. Five focused checks and independent reviews passed.
+Evidence: `audits/AUDIT-ORIGINAL-SOURCE-DERIVATIVE-2026-10-03.md`.
+REPOINT: study the COMPLETE incoming-source derivative square jointly with
+the signed Taylor difference on the literal OWN-centered growing square.
+The useful O(1/side) combined signed bulk/(Z1*B) estimate on a JUSTIFIED
+changing family remains OPEN. Do not assume its action/terminal-specific
+comparison, drop DV*X, split into unrelated derivative caps, or infer a
+favorable remainder sign from positivity alone. The fixed-parameter error
+moduli still depend on nome/width; removing a leading kernel-score factor
+does not make them scaling-uniform. Existing cap-based and Gram estimates
+remain available. No canonical field or exact displayed chart claim closes;
+physical scaling, continuum/QFT/every-group and Clay remain OPEN.
+
 NOW CHECKED ORIGINAL RECIPROCAL CORRECTION IN SAME-NORM CURRENCY:
 The actual relative terminal derivative cone and upper window construct
 |D(A/u-1)|<=L(w), without a terminal floor. For the signed surviving

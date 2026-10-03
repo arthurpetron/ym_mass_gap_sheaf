@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**New checked source-derivative estimate:** angular integration by parts
+replaces the global heat-score cap in the leading original cost by one
+unsplit square of the complete source/action derivatives. Its all-link,
+six-plane consumer retains both signed Taylor remainders and pays the
+existing approximation errors in the SAME surviving norm. No smaller
+changing-family rate is claimed; that combined analytic bound remains
+open. See the [argument, cost join and focused checks](audits/AUDIT-ORIGINAL-SOURCE-DERIVATIVE-2026-10-03.md).
+
 **New checked reciprocal-gradient payment:** the original interacting
 source now pays its complete correction, drift and reconstruction errors
 relative to its SAME surviving norm, with explicit source-independent

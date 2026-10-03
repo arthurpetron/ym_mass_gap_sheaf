@@ -73,7 +73,8 @@ theorem correctionPlaneTolerance_positive (width : Nat) {epsilon : Q'}
     (he : (0 : Q') < epsilon) : (0 : Q') < correctionPlaneTolerance width epsilon :=
   Q'.mul_pos he (Q'.invSucc_pos (12*N width))
 
-private theorem six_error (f g : Nat → Nat → Q') (e : Q')
+/-- Sum a common error through all six quaternion angular planes. -/
+theorem six_error (f g : Nat → Nat → Q') (e : Q')
     (h : ∀ i j, i < 4 → j < 4 → f i j ≤ g i j+e) :
     sixValue f ≤ sixValue g+6*e := by
   refine Q'.le_trans' _ _ _ (sixValue_mono _ _ h) (Q'.le_of_eqv ?_)
@@ -94,7 +95,8 @@ private theorem six_error (f g : Nat → Nat → Q') (e : Q')
       | 5 => g 2 3
       | _ => e)
 
-private theorem sum_error (f g : Nat → Q') (e : Q') : (m : Nat) →
+/-- Sum a common error over a finite carrier without a source hypothesis. -/
+theorem sum_error (f g : Nat → Q') (e : Q') : (m : Nat) →
     (∀ s, s < m → f s ≤ g s+e) → finSum f m ≤ finSum g m+Q'.ofNat m*e
   | 0, _ => Q'.le_of_eqv (Q'.eqv_symm (Q'.eqv_trans _ _ _
       (Q'.add_eqv_congr_left 0 _ _ (Q'.zero_mul_eqv e)) (by decide : (0 : Q')+0 ≈ 0)))
@@ -115,7 +117,8 @@ private theorem sum_error (f g : Nat → Q') (e : Q') : (m : Nat) →
       (Q'.add_eqv_congr_left _ _ _ (Q'.mul_eqv_congr_right _ _ e
         (Q'.eqv_symm (Q'.ofNat_add_eqv m 1))))
 
-private theorem plane_payment (width : Nat) {epsilon B : Q'}
+/-- The allocated six-plane/sumBound error stays within epsilon times B. -/
+theorem plane_payment (width : Nat) {epsilon B : Q'}
     (he : (0 : Q') ≤ epsilon) (hB : (0 : Q') ≤ B) :
     Q'.ofNat (N width)*(6*(2*(correctionPlaneTolerance width epsilon*B))) ≤ epsilon*B := by
   have hn := Q'.mul_le_mul_of_nonneg_right _ _ _
@@ -233,6 +236,9 @@ theorem original_block_lastStep_weightedAngularEnergy_correction_paid {w : Q'}
 #print axioms originalBlockLastStepPairedAngularBudget
 #print axioms correctionPlaneTolerance
 #print axioms correctionPlaneTolerance_positive
+#print axioms six_error
+#print axioms sum_error
+#print axioms plane_payment
 #print axioms lastStepCorrectionPaidCutoff
 #print axioms original_block_lastStep_angularBudget_correction_paid
 #print axioms original_block_lastStep_weightedAngularEnergy_correction_paid

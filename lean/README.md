@@ -12,6 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**CURRENT checked ORIGINAL source-derivative alternative (2026-10-03 UTC):**
+Simultaneous kernel rotation and exact Haar IBP prove D(Pp)=P(Dp) under
+every surviving insertion. For A=T a,b=T c the actual score is I[K*Y],
+Y=lift(A)*D(V*c)-lift(b)*D(V*a), with complete sources unsplit.
+The constructed determinant gives score^2<=(I K)*I[K*Y^2] without a
+heat-derivative cap or source inverse. The full active/six-plane consumer
+keeps Vbar^2*G_k^2 and BOTH signed Taylor remainders, with three existing
+onsets paying correction, drift and reconstruction in Z1*B. No ordering
+against the old cap-based budget is asserted. Useful combined family-relative
+control, physical scaling and Clay remain OPEN. Five focused checks passed;
+root imports are registration-only, not an aggregate build. Evidence:
+`audits/AUDIT-ORIGINAL-SOURCE-DERIVATIVE-2026-10-03.md`.
+
 **CURRENT checked ORIGINAL reciprocal-gradient payment (2026-10-03 UTC):**
 The actual terminal cone and upper window construct |DR|<=L(w). The
 projected spatial square is compared to the SAME surviving norm, never
