@@ -27,7 +27,28 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
-NOW CHECKED ORIGINAL FINITE S/F IDENTITIES:
+NOW CHECKED ORIGINAL S/F POSITIVE-ROW PRODUCERS:
+`QPolyRootLogPositiveRows.sRow` and `fRow` return computed finite rational
+u/h rows. `original_sRow`, `original_fRow`, `nonnegative_sRow` and
+`nonnegative_fRow` pin them coefficientwise to the ORIGINAL S/F and prove
+all computed weights nonnegative, for every N=n+1 and M>=0. The positive
+primitive is identified by its exact derivative and zero initial value;
+no positive surrogate or analytic input is assumed. Positivity means
+weights of u^a*h^b, NOT nonnegative coefficients after expansion in h.
+Seven focused checks passed; the exact verification boundary is in
+`audits/AUDIT-ORIGINAL-ROOT-LOG-POSITIVE-ROWS-2026-10-03.md`.
+NEXT BACKWARD: coefficient-to-ORIGINAL-moment functional, its monomial pin
+and literal pins to the two existing maps. Use `moment_split` to transport
+the actual coefficient rows and `moment_nonnegative` for positive terms.
+Cancel polynomial u BEFORE operator substitution; preserve the root kernel.
+The sufficient form error remains 8/N+invSucc(M), then the existing norm
+principle and limit moduli meet. Actual-root transport and derivative/log
+equality are OPEN; do not add a wrapper assuming them. NEXT FORWARD remains
+the complete relative signed estimate or retained macro ratio on a JUSTIFIED
+changing family. No such producer or physical scaling is supplied here.
+Root imports registration-only; chart and CI unchanged; Clay remains OPEN.
+
+EARLIER CHECKED ORIGINAL FINITE S/F IDENTITIES:
 With N=n+1, u=1-h and D=1-u^N, the ACTUAL coefficient polynomials have
 `u*S'=N*(D^M-h^(N*M))`, `F'=N*u^(N-1)*(S+h^(N*M))` and `S(0)=F(0)=0`.
 `QPolyFiniteGeometric` and `QPolyFiniteLogDerivative` compute the original

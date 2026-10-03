@@ -17,10 +17,11 @@ An exact positive complementary-power telescope eliminates the binomial
 expansion from the proposed S-derivative numerator.
 The ORIGINAL finite S/F derivative identities and zero initial values are
 now also kernel-checked, with coefficient-level cancellation of `1-h` that
-requires no inverse operator. Their explicit positive expansions and
-SAME-root transport remain open; derivative/log equality and physical scaling
-are NOT claimed. See the
-[exact statements and focused verification](audits/AUDIT-ORIGINAL-ROOT-LOG-PRODUCERS-2026-10-03.md).
+requires no inverse operator. The ORIGINAL S/F now also have computed
+nonnegative u/h rows, pinned by exact derivatives and zero initial values.
+Their SAME-root transport remains open; derivative/log equality and physical
+scaling are NOT claimed. See the
+[positive-row construction and focused verification](audits/AUDIT-ORIGINAL-ROOT-LOG-POSITIVE-ROWS-2026-10-03.md).
 
 **Earlier checked original derivative excitation:** the literal bent-loop state
 now supplies a nonzero point of the EXISTING derivative-graph domain, with

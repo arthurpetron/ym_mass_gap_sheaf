@@ -6248,6 +6248,14 @@ import YMGap.Constructive.QPolyRootLogDifference
 import YMGap.Constructive.QPolyRootLogInitial
 import YMGap.Constructive.QPolyRootLogRemainderDerivative
 import YMGap.Constructive.QPolyComplementCancellation
+-- Computed nonnegative u/h rows pinned to original S/F; root transport remains open.
+import YMGap.Constructive.QPolyFinitePowerDifference
+import YMGap.Constructive.QPolyComplementaryTelescope
+import YMGap.Constructive.QPolyCoefficientEvaluation
+import YMGap.Constructive.QPolyUHRow
+import YMGap.Constructive.QPolyUHRowPrimitive
+import YMGap.Constructive.QPolyUHRowFiniteSums
+import YMGap.Constructive.QPolyRootLogPositiveRows
 import YMGap.Continuum.RootLogFiniteTail
 import YMGap.Continuum.BF4WilsonAllNomeRootLogTail
 import YMGap.Continuum.BF4WilsonAllNomeSymmetricFormNorm

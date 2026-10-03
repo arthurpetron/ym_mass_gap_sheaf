@@ -4,7 +4,27 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL finite S/F derivative and endpoint identities (2026-10-03 UTC)
+## Current increment: Computed positive rows identify ORIGINAL S and F (2026-10-03 UTC)
+
+PROGRESS after `8b4995e`: the original finite S/F polynomials now have ACTUAL
+computed nonnegative u/h rows, coefficientwise identified by their derivative
+and zero initial value. Both coefficient telescopes, finite row multiplication,
+power sums and termwise primitive data are proved; no sign or operator floor
+is assumed. N=1, M=0 and both endpoints are retained. Nonnegative refers to
+u/h monomial WEIGHTS, not all coefficients after expansion in h.
+Seven focused checks passed 50 gates (sixteen axiom-free); no full root/tree
+build, broad audit/guard or progress metric ran.
+
+NEXT BACKWARD: lift the actual rows through a coefficient-invariant ORIGINAL
+mixed-moment functional and prove its monomial/original-map pins. Cancel u
+as a polynomial, never as an operator with a boundary kernel. Actual-root
+form comparison and derivative/log equality remain OPEN. NEXT FORWARD:
+the unchanged complete relative signed estimate or retained macro ratio on a
+JUSTIFIED changing family. No such analytic producer or continuum/Clay claim
+is supplied. Root imports registration-only, canonical chart and CI unchanged.
+Evidence: `audits/AUDIT-ORIGINAL-ROOT-LOG-POSITIVE-ROWS-2026-10-03.md`.
+
+## Earlier increment: ORIGINAL finite S/F derivative and endpoint identities (2026-10-03 UTC)
 
 PROGRESS after `e04c748`: computed original finite coefficient data now prove
 `u*S'=N*(D^M-h^(N*M))`, `F'=N*u^(N-1)*(S+h^(N*M))` and `S(0)=F(0)=0`,

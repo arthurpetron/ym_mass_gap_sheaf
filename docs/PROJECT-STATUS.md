@@ -9,9 +9,11 @@ S-numerator's binomial layer. ORIGINAL finite S/F derivative identities and
 zero initial values are ALSO checked, as is coefficient-level complement
 cancellation without an operator inverse. Six new focused checks add 19 gates
 (six axiom-free); ten-source coverage is 37 permitted gates, eleven axiom-free.
-Explicit S/F positive expansions and actual-root transport remain OPEN; neither
+The ORIGINAL S/F positive u/h rows are ALSO now constructed and coefficient-
+pinned, with nonnegative computed weights; seven additional focused checks
+cover that producer and its finite algebra. Actual-root transport remains OPEN; neither
 derivative/log equality nor a changing-family signed estimate is claimed.
-Evidence: `audits/AUDIT-ORIGINAL-ROOT-LOG-PRODUCERS-2026-10-03.md`.
+Evidence: `audits/AUDIT-ORIGINAL-ROOT-LOG-POSITIVE-ROWS-2026-10-03.md`.
 No exact displayed claim changed; no ASCII reprint.
 
 Verified supporting ORIGINAL derivative-domain excitation (2026-10-03 UTC;

@@ -24,10 +24,12 @@ definitions); the telescope follow-up adds three to the first checkpoint.
 Six additional focused checks prove the ORIGINAL S/F derivative identities,
 their zero initial values and coefficient-level complement cancellation:
 19 new gates, six axiom-free and thirteen within {propext, Quot.sound}.
-The explicit S/F positive expansions and root transport remain OPEN; no
+The explicit S/F positive u/h rows are NOW constructed and coefficient-pinned
+to the ORIGINAL polynomials; seven additional focused checks cover the row
+producer and its finite algebra. Actual-root transport remains OPEN; no
 operator identification, changing-family estimate or continuum/Clay closure
 is claimed. Root imports registered only. Evidence:
-`audits/AUDIT-ORIGINAL-ROOT-LOG-PRODUCERS-2026-10-03.md`.
+`audits/AUDIT-ORIGINAL-ROOT-LOG-POSITIVE-ROWS-2026-10-03.md`.
 
 **Earlier checked original derivative-domain excitation (2026-10-03 UTC):**
 `BF4WilsonSmallNomeBentDerivativeExcitation` constructs a literal

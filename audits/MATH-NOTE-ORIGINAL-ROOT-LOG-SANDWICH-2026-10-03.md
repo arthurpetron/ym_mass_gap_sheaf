@@ -77,7 +77,12 @@ The ORIGINAL S/F identities and zero initial values are NOW kernel-checked:
 `QPolyRootLogInitial.lean:69`, `rootLogDifference_zero`, and :85,
 `rootLogRemainder_zero` (same directory). They use the computed ORIGINAL
 finite sums, for N=n+1 and every M>=0. The positive S/F expansions and
-complete sandwich are NOT yet kernel-checked.
+their EXACT original-polynomial pins are ALSO now kernel-checked in
+`lean/YMGap/Constructive/QPolyRootLogPositiveRows.lean:122`, `original_sRow`,
+and :139, `original_fRow`, with computed nonnegative u/h weights at :162,
+`nonnegative_sRow`, and :165, `nonnegative_fRow`. The complete sandwich
+and actual-operator transport remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-ROOT-LOG-POSITIVE-ROWS-2026-10-03.md`.
 
 ### A binomial-free first factor (now checked)
 
@@ -93,8 +98,8 @@ binomial middle row. With P_N=sum_(k=0..N-2)(u^k+h^k), the shorter target is
     S'=N*h*P_N*sum_(i=0..M-1)D^(M-1-i)*h^(N*i).
 
 Replacing D by h*sum_(j=0..N-1)u^j exposes a finite nonnegative u/h row.
-The ORIGINAL S coefficient identity and F derivative identity are now checked;
-the termwise positive primitive join and original-root transport are NOT.
+The ORIGINAL S coefficient identity, F derivative identity and termwise
+positive primitive join are now checked; original-root transport is NOT.
 `lean/YMGap/Constructive/QPolyComplementCancellation.lean:45`,
 `complement_mul_injective`, permits cancellation of u=1-h at COEFFICIENTS,
 including endpoints. It must be applied BEFORE operator substitution: no
@@ -146,7 +151,7 @@ most (8/N)*B(x,x), where 8/N=2*half^d is explicit rational data.
 `RootLogFiniteTail.lean:57`, `partial_retained_tail`, proves the scalar
 finite tail used above (same directory).
 
-With the STILL-MISSING ORIGINAL S/F positive expansions and root transport,
+With the NOW-CONSTRUCTED ORIGINAL S/F positive rows and STILL-MISSING root transport,
 the two-sided form error 8/N+invSucc(M) is sufficient.
 `BF4WilsonAllNomeSymmetricFormNorm.lean:127`, `symmetric_form_norm_bound`,
 now proves those diagonal bounds yield the squared norm error by rational

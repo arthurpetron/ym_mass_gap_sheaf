@@ -6,6 +6,11 @@ physical Hamiltonian mass gap. It is OPEN. These results pay finite algebraic
 parts of the proposed identification of two EXISTING original-carrier maps;
 they do not prove that identification or physical scaling.
 
+FOLLOW-UP: the explicit positive S/F row obligation recorded below is now
+proved in `audits/AUDIT-ORIGINAL-ROOT-LOG-POSITIVE-ROWS-2026-10-03.md`.
+This checkpoint's source/log evidence is unchanged; original-root transport
+and operator identification remain OPEN.
+
 ## Current increment: ORIGINAL finite S/F identities
 
 Set N=n+1, u=1-h and D=1-u^N. The ACTUAL computed coefficient data are
