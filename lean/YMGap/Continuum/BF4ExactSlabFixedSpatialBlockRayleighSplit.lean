@@ -199,6 +199,16 @@ private theorem multiplication_expand (w : Q') (K width : Nat) {A b f : RatPoly}
         | 4 => pair w K width b (transferStep w K width b)
         | _ => pair w K width u (transferStep w K width u)))
 
+/-- The COMPLETE signed multiplication cost is the difference of two
+cleared costs with the SAME A and BOTH original partition factors. -/
+theorem signedMultiplicationCost_difference (w : Q') (K width : Nat) {A b f : RatPoly}
+    (hb : SupportedQuaternionBlocks (N width) b)
+    (hu : SupportedQuaternionBlocks (N width) (polyMul A f)) :
+    signedMultiplicationCost w K width A b f ≈
+      clearedRayleighCost w K width A b +
+        -(clearedRayleighCost w K width A (polyMul A f)) :=
+  multiplication_expand w K width hb hu
+
 /-- Exact signed split with the actual weighted transfer symmetry. Only
 carrier support is needed; neither positivity nor stationarity is assumed. -/
 theorem clearedRayleighCost_split (w : Q') (K width : Nat) {A b f : RatPoly}
@@ -292,6 +302,7 @@ end YMGap.Continuum.BF4ExactSlabFixedSpatialBlockRayleighSplit
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialBlockRayleighSplit.clearedRayleighCost
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialBlockRayleighSplit.boundaryDrift
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialBlockRayleighSplit.signedMultiplicationCost
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialBlockRayleighSplit.signedMultiplicationCost_difference
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialBlockRayleighSplit.clearedRayleighCost_split
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialBlockRayleighSplit.original_block_rayleigh_split
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialBlockRayleighSplit.original_block_defect_pin

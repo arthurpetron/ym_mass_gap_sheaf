@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting COMPLETE signed multiplication component (2026-10-03 UTC;
+chart unchanged): the original two-partition source retains the OWN mean
+at both depths and reaches SAME completed limit
+(C_(2t)-C_(2t+1))-(C0-C1)<=0 with explicit independent onsets and a late
+finite epsilon-upper bound. Three focused checks passed 24 permitted gates
+(16 new, eight unchanged). This does not close the relative combined cost or
+justified changing-family box. Evidence:
+`audits/AUDIT-SIGNED-MULTIPLICATION-LIMIT-2026-10-03.md`.
+No exact displayed scaling claim changed; no ASCII reprint.
+
 Verified supporting signed-channel obstruction (2026-10-03 UTC;
 chart unchanged): the ACTUAL cutoff-two heat-channel determinant sum
 at nome 1/2 satisfies 255/256 > 7/8. Omitting the nonnegative-functional

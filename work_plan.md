@@ -27,7 +27,18 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
-NOW CHECKED A SIGNED-CHANNEL INTERPOLATION OBSTRUCTION:
+NOW CHECKED THE COMPLETE SIGNED MULTIPLICATION COMPONENT:
+`BF4ExactSlabFixedSpatialSignedMultiplicationWindow` gives the exact
+two-partition pin and pays the unchanged finite c_n at BOTH boundary
+depths. `BF4WilsonAllNomeSignedMultiplicationLimit` proves the EXISTING
+joint-limit expression (C_(2t)-C_(2t+1))-(C0-C1)<=0 on the SAME centered
+vector and time map, with explicit independent cutoff/depth/representative
+onsets and a late finite epsilon-upper bound. Three focused checks passed
+24 permitted gates (16 new, eight unchanged). No sign is assumed.
+This is not all-depth finite nonpositivity or a relative changing-family
+bound. Evidence: `audits/AUDIT-SIGNED-MULTIPLICATION-LIMIT-2026-10-03.md`.
+
+EARLIER CHECKED A SIGNED-CHANNEL INTERPOLATION OBSTRUCTION:
 `SU2QuaternionJumpDeterminantChannelObstruction` uses an ACTUAL fundamental
 leaf with determinant -1/4, and the EXISTING cutoff-two product-channel
 sum at nome 1/2 with value 255/256 > 7/8. Thus deleting `hF` from the
@@ -122,6 +133,11 @@ as alternative producers; the new exact join lets a useful ratio pay the later
 completed relative cost, rather than treating the two targets as unrelated.
 Do not replace the combined signed cost by separately bounded absolute terms
 or substitute an absolute Haar source bound for its interacting denominator.
+The complete signed-component limit sign alone gives delta_(2t)<=delta_0,
+not delta_(2t)<=C*C_(2t)/(2t). Retain its quantitative negative cancellation
+when initial energy is large; alternatively produce the actual initial-energy
+comparison against the SAME filtered variance. Existing temporal-energy and
+retained-ratio consumers do not supply that analytic input or a changing family.
 Spatial/spacing control, continuum survival, calibration, full QFT structure,
 every group and the continuum/Clay endpoint fields remain OPEN.
 

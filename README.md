@@ -10,7 +10,16 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**New checked route correction:** the actual degree-two SU(2) heat-channel
+**New checked signed component:** the COMPLETE original
+multiplication cost, divided by BOTH original partitions, has the SAME limit
+`(C_(2t)-C_(2t+1))-(C_0-C_1) <= 0`. Explicit independent cutoff/depth
+thresholds control the actual moving OWN center and give a late finite upper
+bound by any positive tolerance. This is a fixed-parameter component, NOT
+the combined cost bound relative to the same smoothed variance on a justified
+scaling family. The latter and the continuum target remain open. See the
+[source, estimate and verification boundary](audits/AUDIT-SIGNED-MULTIPLICATION-LIMIT-2026-10-03.md).
+
+**Earlier checked route correction:** the actual degree-two SU(2) heat-channel
 sum gives `255/256 > 7/8`, refuting nome interpolation when its
 nonnegative-functional premise is omitted. An actual fundamental channel
 also gives a negative determinant value. The existing conditional theorem

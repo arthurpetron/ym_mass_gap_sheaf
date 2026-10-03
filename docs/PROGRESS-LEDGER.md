@@ -4,7 +4,27 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Signed determinant channels refute a positive-functional shortcut (2026-10-03 UTC)
+## Current increment: Complete original signed component reaches a favorable SAME limit (2026-10-03 UTC)
+
+PROGRESS after `99324f0`: the new original window source retains BOTH partitions and
+the actual c_n in BOTH windows, including depth n+t. Two geometric mean
+errors and four existing chronological joint approximations provide explicit
+independent cutoff/depth/representative onsets. The limit is the EXISTING
+completed drop difference (C_(2t)-C_(2t+1))-(C0-C1)<=0 on the SAME vector
+and time map, without a favorable-sign premise. EVERY sufficiently late original
+source is bounded above by epsilon>0. Three focused checks passed 24 gates
+within {propext, Quot.sound} (16 new, eight unchanged).
+
+NEXT: estimate the COMBINED original energy and signed multiplication cost
+relative to the SAME filtered variance, retaining quantitative cancellation,
+or produce the SAME retained macro ratio on a JUSTIFIED changing family.
+The component sign only implies delta_(2t)<=delta_0; no useful relative
+initial-energy comparison or scaling producer is supplied. All continuum/Clay
+fields remain OPEN. Root imports registration-only; aggregate root,
+audit/guard/progress metric NOT run. CI and exact chart unchanged. Evidence:
+`audits/AUDIT-SIGNED-MULTIPLICATION-LIMIT-2026-10-03.md`.
+
+## Earlier increment: Signed determinant channels refute a positive-functional shortcut (2026-10-03 UTC)
 
 PROGRESS after `e616453`: an actual fundamental representation-column
 leaf has determinant functional -1/4. The EXISTING cutoff-two product

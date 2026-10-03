@@ -12,7 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT signed-channel obstruction (2026-10-03 UTC):**
+**CURRENT checked signed multiplication limit (2026-10-03 UTC):**
+`BF4ExactSlabFixedSpatialSignedMultiplicationWindow` retains the actual
+OWN center c_n at BOTH depths n and n+t and BOTH original partitions.
+`BF4WilsonAllNomeSignedMultiplicationLimit` proves its exact SAME limit
+`(C_(2t)-C_(2t+1))-(C_0-C_1)<=0`, with Type-valued cutoff, depth and
+representative onsets and a late finite upper bound by epsilon>0.
+Three focused checks passed 24 permitted gates (16 new, eight unchanged).
+This pays only the complete signed component at fixed parameters, not
+the combined relative estimate or a justified changing family. Root
+imports are registration-only; continuum/Clay fields remain OPEN. Evidence:
+`audits/AUDIT-SIGNED-MULTIPLICATION-LIMIT-2026-10-03.md`.
+
+**Earlier signed-channel obstruction (2026-10-03 UTC):**
 `SU2QuaternionJumpDeterminantChannelObstruction` exhibits a negative
 determinant on an ACTUAL fundamental channel and computes the literal
 cutoff-two product-channel sum `255/256 > 7/8` at nome 1/2. This refutes
