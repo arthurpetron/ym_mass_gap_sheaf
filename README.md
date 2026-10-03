@@ -10,7 +10,16 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**New checked forward-backward joins:** the original OWN-centered full
+**New checked signed-current formulation:** the literal antisymmetric
+current retains both endpoint actions and converges, with explicit moduli,
+to `C_1-C_2` on the SAME completed state and time map. Auxiliary reference
+`a=1` cancels the explicit mean residue exactly; the actual OWN center
+remains inside the message. This is NOT nome `w=1` or a stationary-message
+assumption. Eleven gates passed two focused checks. The relative signed
+estimate on a justified changing family remains unpaid. See the
+[identity and proof boundary](audits/AUDIT-ORIGINAL-JUMP-CURRENT-2026-10-03.md).
+
+**Earlier checked forward-backward joins:** the original OWN-centered full
 source pairing and literal padded-square Stein gradient, normalized by the
 SAME even partition, converge with explicit moduli to the EXISTING completed
 `C_2-a*C_1`. The finite moving-mean residue is paid; no favorable sign is

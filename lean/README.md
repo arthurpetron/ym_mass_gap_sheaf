@@ -12,7 +12,18 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT original Stein limit and retained-cost join (2026-10-03 UTC):**
+**CURRENT original signed-current limit (2026-10-03 UTC):**
+`BF4ExactSlabFixedSpatialJumpCurrent` retains BOTH spatial weights in the
+literal antisymmetric mixed current. `BF4WilsonAllNomeJumpCurrentLimit`
+constructs its normalized convergence to C1-C2 on the EXISTING completed
+state/time map. Reference a=1 removes the separate mean-residue onset,
+not the actual OWN center or existing gain approximation's boundary onset.
+The heat nome still satisfies 0<w<1. Two focused checks passed eleven
+permitted gates; root imports registered only. No relative signed bound
+or changing family is supplied. Evidence:
+`audits/AUDIT-ORIGINAL-JUMP-CURRENT-2026-10-03.md`.
+
+**Earlier original Stein limit and retained-cost join (2026-10-03 UTC):**
 `BF4WilsonAllNomeDyadicSteinGainLimit` pays the actual moving-mean residue
 and constructs the original full-source/Stein sum's convergence to the
 EXISTING completed C2-a*C1, with explicit cutoff/depth and separate

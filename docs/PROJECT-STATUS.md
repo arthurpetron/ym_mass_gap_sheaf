@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL mixed-current limit (2026-10-03 UTC;
+chart unchanged): the literal signed current retains BOTH spatial actions
+and converges after SAME even-mass normalization to EXISTING C1-C2 on the
+SAME completed state/time map. Reference a=1 cancels the explicit mean
+residue; it does not change nome w or make the finite message stationary.
+Two focused checks passed eleven permitted gates. The useful relative
+signed estimate and justified changing family remain unpaid; no displayed
+scaling claim changed. Evidence:
+`audits/AUDIT-ORIGINAL-JUMP-CURRENT-2026-10-03.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting ORIGINAL Stein limit and retained macro-to-cost join
 (2026-10-03 UTC; chart unchanged): the actual OWN-centered full-source
 pairing and literal padded-square gradient, divided by the SAME even

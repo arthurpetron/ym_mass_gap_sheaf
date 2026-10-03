@@ -4,7 +4,27 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Original Stein limit and retained macro-to-cost join (2026-10-03 UTC)
+## Current increment: Original mixed current reaches the SAME response drop (2026-10-03 UTC)
+
+PROGRESS after `f00298c`: the literal antisymmetric mixed current retains
+the complete kernel, BOTH spatial actions, actual terminal and OWN-centered
+message. Its exact source pin is -2*fullSourceDefectPair at reference a=1;
+(half*current)/E converges with explicit moduli to EXISTING C1-C2 and its
+SAME completed pairing. The extra explicit mean residue vanishes exactly,
+but the existing gain approximation's boundary onset is still present.
+Heat nome remains 0<w<1. Two focused checks passed eleven allowed gates.
+
+NEXT: produce a favorable relative signed estimate on the justified changing
+family, or its retained macro-ratio alternative. Literal lags one/two do not
+replace the arbitrary-block cost. Parallel mathematical review found that
+direct Cauchy--Schwarz retains unpaid interacting energies, and local Ward
+cancellation requires source independence not implied by loop support.
+No extra conditional wrapper was introduced. Continuum/Clay fields stay OPEN;
+root imports registration-only, aggregate/audit/guard/progress metric NOT run.
+CI and exact chart unchanged. Evidence:
+`audits/AUDIT-ORIGINAL-JUMP-CURRENT-2026-10-03.md`.
+
+## Earlier increment: Original Stein limit and retained macro-to-cost join (2026-10-03 UTC)
 
 PROGRESS after `39a928b`: the actual finite OWN-centered full-source pairing,
 divided by its SAME original even partition, converges to the EXISTING

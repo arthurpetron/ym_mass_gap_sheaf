@@ -27,7 +27,20 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
-NOW CHECKED ORIGINAL STEIN LIMIT AND RETAINED MACRO-TO-COST JOIN:
+NOW CHECKED ORIGINAL SIGNED CURRENT REACHES THE SAME COMPLETED DROP:
+`BF4ExactSlabFixedSpatialJumpCurrent` constructs the literal mixed
+antisymmetric current with the COMPLETE kernel and BOTH spatial weights.
+`BF4WilsonAllNomeJumpCurrentLimit` proves (half*current)/E converges
+to the EXISTING C1-C2, retaining the finite OWN center and SAME even mass.
+Reference a=1 cancels only the explicit (a-1)*c mean residue. The computed
+diagonal modulus is max(gainCutoffThreshold,gainTimeThreshold), with the
+representative threshold separate; existing boundary-forgetting control
+remains. This is NOT nome w=1, a terminal eigenpin, finite stationarity,
+score cancellation, or an arbitrary-block estimate. Two focused checks
+passed eleven permitted gates; root registration only. Evidence:
+`audits/AUDIT-ORIGINAL-JUMP-CURRENT-2026-10-03.md`.
+
+EARLIER CHECKED ORIGINAL STEIN LIMIT AND RETAINED MACRO-TO-COST JOIN:
 `BF4WilsonAllNomeDyadicSteinGainLimit` pays the normalized finite OWN-mean
 residue by a constructed half-epsilon depth onset, then joins the literal
 full original source and padded-square Stein gradient to the EXISTING
@@ -78,15 +91,17 @@ s*D<=C*Z1*ell(b^2), or the direct SAME macroscopic-response-ratio alternative,
 on a JUSTIFIED changing family. Do not extend the fixed six-edge, small-nome,
 width-two estimate to growing dyadic squares or use it as that family.
 The fixed orbit now covers every integer lag, but its constant rho gives
-only a drop coefficient 1-rho, not O(1/side). On a proposed gain route,
-estimate the deficit to its ceiling relative to the SAME next response,
-not merely positivity or a parameter-independent quarter fraction. The
-identity a*(Cprevious-Cnext)=(1-a)*Cnext-G identifies that missing estimate.
-Quantitative use must retain the reference factor a; at a=0 the deficit is
-zero regardless of the response drop, so deficit control alone is insufficient.
+only a drop coefficient 1-rho, not O(1/side). If using the bare-reference
+next-response ceiling, retain its exact factor a in
+a*(Cprevious-Cnext)=(1-a)*Cnext-G; at a=0 this gives no drop control.
+Alternatively the NEW reference-one current targets C1-C2 directly,
+without dividing by a collapsing bare reference or paying a separate mean
+residue. The old word Stein identity at a=w^(12*side) does NOT become
+an identity at reference one. Neither source formulation produces the
+favorable relative signed estimate. Fixed source support alone does not
+make the terminal/message determinant local or remove action derivatives.
 Do not assert that a growing-loop reference approaches one without proving it.
-The original source limit now pays the moving mean, leaving its useful signed
-alignment estimate unpaid. Work on that estimate and the retained macro ratio
+Work on the original current estimate and the retained macro ratio
 as alternative producers; the new exact join lets a useful ratio pay the later
 completed relative cost, rather than treating the two targets as unrelated.
 Do not replace the combined signed cost by separately bounded absolute terms
