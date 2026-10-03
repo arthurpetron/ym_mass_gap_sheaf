@@ -4,7 +4,27 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL one-link conditional angular Poincare (2026-10-03 UTC)
+## Current increment: exact-ground generic shortcut refuted (2026-10-03 UTC)
+
+PRUNING after `db1b56d`: near-identity positive heat, bounded positive action
+and an EXACT constructed positive interacting ground pin do NOT yield
+small SAME-variance-relative energy. The actual two-state T=K V family has
+Det<2*Z*E and nonzero OWN variance; a computed witness refutes each proposed
+rational O(e) coefficient. This is NOT a BF4/YM counterexample.
+Two focused checks passed 22 permitted gates, with independent reviews.
+The duplicate coefficient-only route was not extended. The already checked
+ONE-reference-energy consumer is an alternative to the per-lag signed-window
+producer, not another scaffold to implement. NEXT: action-specific control
+of the COMPLETE signed initial-energy remainder/reserve OR aggregate
+exact-score window cost on a JUSTIFIED family. No generic positivity shortcut
+pays the original Ward/weight debt. Survival/physical/OS/continuum/QFT/
+every-group/Clay remain OPEN. Evidence:
+`audits/AUDIT-EXACT-GROUND-ENERGY-OBSTRUCTION-2026-10-03.md`.
+
+No broad progress-metric/guard run or full build/audit is claimed. Exact
+canonical chart claims unchanged; no chart reprint.
+
+## Earlier increment: ORIGINAL one-link conditional angular Poincare (2026-10-03 UTC)
 
 PROGRESS after `151fd81`: the genuine own-mean variance bound is now proved:
 H[W*(C_w(p^2)-(C_w p)^2)]<=(1-w^2)*H[W*C_w Gamma(p)].

@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting exact-ground GENERIC route obstruction (2026-10-03 UTC;
+chart unchanged): bounded positive action plus near-identity positive heat
+and an exact positive ground pin do NOT supply small OWN-relative energy.
+The two-state family is NOT BF4/YM. One action-specific initial-energy
+estimate OR the aggregate signed-window estimate remains the producer;
+survival/scaling/continuum/Clay stay OPEN. Two focused checks passed 22
+permitted gates. Evidence:
+`audits/AUDIT-EXACT-GROUND-ENERGY-OBSTRUCTION-2026-10-03.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting ORIGINAL finite filtered/OWN variance comparison
 (2026-10-03 UTC; chart unchanged): two-copy positivity and weighted symmetry
 give U^2 Schur control. Constructed reciprocal reconstruction extends it to

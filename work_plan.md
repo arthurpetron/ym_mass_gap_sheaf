@@ -27,6 +27,28 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
 
+NOW CHECKED EXACT-GROUND SHORTCUT OBSTRUCTION (two-state, NOT BF4):
+Near-identity symmetric positive heat, a uniformly bounded positive action
+and a constructed positive interacting ground pin do NOT imply O(heat-loss)
+energy versus SAME OWN variance. An explicit original T=K V family has
+energy/OWN-variance >1/2 for EVERY 0<e<1/2; a computed witness refutes every
+proposed nonnegative rational coefficient. Both focused checks passed all
+22 permitted gates. No physical producer is discharged. Evidence:
+`audits/AUDIT-EXACT-GROUND-ENERGY-OBSTRUCTION-2026-10-03.md`.
+REPOINT FROM BOTH ENDS: retain two ALTERNATIVES to the SAME macro response.
+The already checked `TerminalReferenceEnergyRatio.completed_reference_ratio`
+and `PlaquetteFamilyKineticUpper.time_loss_linear_bound` consume ONE original
+reference-energy bound, then propagate it to the whole window. They need
+4*u*c*(1+comparisonEta(w,width,s))^2 <= 1-kappa; the finite estimate
+finiteEnergy<=c*OWNfiniteVariance is STILL MISSING on a justified changing
+family. Seek action-specific control of the COMPLETE signed varianceRemainder
+in `VarianceTaylor.paddedSquare_energy_variance`, or the combined Ward/weight/
+channel debt, not another coefficient-only bound or assumed-budget consumer.
+The direct exact-score signed-window route below remains an alternative,
+not an additional mandatory prerequisite. Generic positivity cannot pay
+either route's interacting debt. Original BF4 survival/scaling and the
+whole Clay target remain OPEN; no exact chart claim changes.
+
 NOW CHECKED ORIGINAL FINITE FILTERED/OWN VARIANCE COMPARISON:
 FORWARD, the actual two-copy conditional square and weighted symmetry give
 a sharp U^2 Schur bound for multiplied signed tests. Original reciprocal
@@ -42,13 +64,13 @@ independent, NOT width/coupling/scaling uniform. Five focused checks passed
 eight permitted gates. Evidence:
 `audits/AUDIT-ORIGINAL-FILTERED-VARIANCE-COMPARISON-2026-10-03.md`.
 REPOINT: use this upper variance comparison to pay finite-window reciprocal,
-reconstruction and boundary errors in the error currency of v_u. The useful
-analytic input remains a SOURCE-SPECIFIC aggregate bound on dynamic-ratio
+reconstruction and boundary errors in the error currency of v_u. On this
+signed-window alternative the useful analytic input is a SOURCE-SPECIFIC aggregate bound on dynamic-ratio
 energy/exactScoreSignedBulk TOGETHER WITH BOTH signed Taylor terms versus
 that SAME v_u on a JUSTIFIED changing family. Bare Wilson increment bounds
 do not automatically control phi_t=b_t/A_t under the original interacting
 edge density. No unused cross-lag cancellation was found in the bounded
-source review. Work backward from original_window_budget_macro_ratio;
+source review. For this branch work backward from original_window_budget_macro_ratio;
 do not build another assumed-budget wrapper, recenter at later lags,
 insert Jensen as a prerequisite, assume a terminal eigenpin or divide by B.
 Physical/OS/continuum/QFT/every-group/Clay remain OPEN; exact chart unchanged.

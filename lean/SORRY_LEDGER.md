@@ -1,5 +1,21 @@
 # Sorry Ledger
 
+## PROVED generic exact-ground near-identity obstruction only (2026-10-03 UTC)
+
+`PositiveHeatGroundEnergyObstruction.energy_relative_obstruction` proves
+Det<2*Z*E for an explicit TWO-STATE original T=K V with symmetric row-Markov
+PSD heat, bounded positive V, constructed positive ground pin and SAME
+OWN law. `PositiveHeatGroundEnergyNoUniformRate.counterexample` constructs
+each rational C's heat step, nonzero original variance and failed O(e)
+relative energy. Only positive Z is inverted. Two focused checks passed
+22 permitted gates; independent reviews passed; root registration only.
+No new sorry/axiom/field/CI/chart change. Evidence:
+`audits/AUDIT-EXACT-GROUND-ENERGY-OBSTRUCTION-2026-10-03.md`.
+OPEN: the action-specific original Wilson initial-energy remainder/reserve
+OR aggregate signed-window estimate on a JUSTIFIED changing family;
+survival, physical/OS/continuum/QFT/every-group/Clay. This is NOT a BF4 or
+Yang--Mills counterexample. No canonical frontier atom is closed.
+
 ## PROVED ORIGINAL finite filtered/OWN variance comparison only (2026-10-03 UTC)
 
 `BF4ExactSlabFixedSpatialTerminalSchurTest.original_block_terminal_schur_square_le`

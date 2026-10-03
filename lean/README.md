@@ -12,6 +12,16 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Checked exact-ground generic obstruction (2026-10-03 UTC):**
+`PositiveHeatGroundEnergyObstruction` and `PositiveHeatGroundEnergyNoUniformRate`
+construct a bounded-action two-state T=K V family with exact positive ground
+pin and nonzero OWN variance, but relative energy >1/2 despite arbitrarily
+small bare heat. Computed witnesses refute every proposed O(e) coefficient.
+Two focused checks passed 22 permitted gates; no full build/audit. This is
+NOT BF4/YM. The original initial-energy OR signed-window analytic producer
+and continuum/Clay target remain OPEN. Evidence:
+`audits/AUDIT-EXACT-GROUND-ENERGY-OBSTRUCTION-2026-10-03.md`.
+
 **CURRENT checked ORIGINAL finite variance comparison (2026-10-03 UTC):**
 Actual two-copy positivity and weighted symmetry give the terminal Schur
 bound U^2. Constructed reciprocal reconstruction extends it to the actual

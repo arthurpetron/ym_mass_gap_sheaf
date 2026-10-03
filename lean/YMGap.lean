@@ -7290,3 +7290,9 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockWeightedContinuity
 import YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalSchurClosure
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFilteredVarianceComparison
 import YMGap.Continuum.BF4WilsonAllNomeOriginalVarianceComparison
+
+-- Generic near-identity heat does NOT give a small OWN-relative energy,
+-- even with an exact positive ground pin and uniformly bounded action.
+-- These are two-state diagnostics, not BF4/Yang--Mills counterexamples.
+import YMGap.Continuum.PositiveHeatGroundEnergyObstruction
+import YMGap.Continuum.PositiveHeatGroundEnergyNoUniformRate

@@ -10,6 +10,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Checked route obstruction (2026-10-03 UTC):**
+Even an exact positive ground pin and bounded positive action do not make
+near-identity heat imply small energy relative to the SAME variance. A
+two-state family refutes that generic shortcut; this is not a Yang--Mills
+counterexample. The survival work now explicitly retains two alternatives:
+one action-specific initial-energy estimate, or the aggregate signed-window
+estimate. Both analytic producers remain open. See the
+[proof and route decision](audits/AUDIT-EXACT-GROUND-ENERGY-OBSTRUCTION-2026-10-03.md).
+
 **Verified ORIGINAL finite variance comparison (2026-10-03 UTC):**
 The actual own-centered variance at u+d is at most
 `(1+comparisonEta(w,width,stage+u-1))^2` times its value at u.
@@ -19,7 +28,7 @@ constructed reciprocal; its coarse continuity factor disappears. The final
 factor is independent of future lag and cutoff, but depends on coupling,
 width and terminal depth. Five focused checks passed eight permitted gates.
 This controls finite-window approximation errors, not a survival lower floor
-or physical gap. Next: the original dynamic-ratio energy and BOTH signed
+or physical gap. On the signed-window alternative, next: the original dynamic-ratio energy and BOTH signed
 remainders versus the SAME starting variance on a justified changing family.
 See the [proof and remaining analytic input](audits/AUDIT-ORIGINAL-FILTERED-VARIANCE-COMPARISON-2026-10-03.md).
 
