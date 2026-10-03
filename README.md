@@ -10,17 +10,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**New checked same-source chronological join:** the original block Rayleigh
-cost is exactly the lag-`2t` minus lag-`2t+1` centered correlation, cleared
-by both distinct original partitions. Keeping the SAME finite OWN mean,
-its square cancels and the remaining mean error is bounded by
-`mixRate(w,width)^n * (2C)^2`, with a computed polynomial cap `C`.
-The centered difference now has an explicit joint cutoff/time approximation
-by two existing fixed-source Wilson limits; no moving test is passed through
-a fixed-test limit. Five focused checks passed 17 permitted axiom gates.
-The raw signed difference relative to the SAME interacting response,
-changing-family control and the continuum target remain open. See the
-[checked chronological and limit joins](audits/AUDIT-ORIGINAL-RAYLEIGH-WINDOW-JOIN-2026-10-03.md).
+**New checked finite-to-completed join:** the original Rayleigh cost and its
+OWN half-smoothed interacting variance now converge to the EXISTING completed
+dyadic quantities `N*(R(2t)-R(2t+1))` and `N*R(2t)`. Both distinct original
+partitions, the moving finite OWN mean and the existing normalizer are retained.
+The lag-difference stream has an explicit constructive Cauchy modulus.
+Four focused checks passed 14 permitted axiom gates, without a full build.
+This closes the same-object join at fixed coupling/width, NOT the useful
+signed relative estimate, justified scaling family or continuum target. See the
+[checked numerator and variance joins](audits/AUDIT-ORIGINAL-TO-COMPLETED-RAYLEIGH-2026-10-03.md).
 
 **New checked original block-source analysis:** the half-smoothed,
 vacuum-subtracted Rayleigh cost now splits exactly into original temporal

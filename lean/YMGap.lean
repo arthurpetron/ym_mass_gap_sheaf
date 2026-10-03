@@ -4923,6 +4923,10 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialWindowLagMeanControl
 import YMGap.Continuum.BF4ExactSlabFixedSpatialMovingCenterLagDifference
 import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockRayleighWindow
 import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonMovingCenterLagLimit
+import YMGap.Continuum.BF4WilsonAllNomeDyadicChronologicalResponse
+import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonMovingCenterLagCauchy
+import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonOwnCenterLimit
+import YMGap.Continuum.BF4WilsonAllNomeDyadicOriginalRayleighLimit
 -- Exact full-energy fringe reduction; signed source correction remains, no scaling closure.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialProjectedSourceEnergy
 -- Original-energy Taylor bound with checked source cancellation; scaling remains open.

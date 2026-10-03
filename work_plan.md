@@ -27,7 +27,41 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
-NOW CHECKED SAME-SOURCE CHRONOLOGICAL AND FIXED-SOURCE LIMIT JOINS:
+NOW CHECKED ORIGINAL-TO-COMPLETED PRODUCER JOIN:
+`BF4WilsonAllNomeDyadicOriginalRayleighLimit` identifies BOTH sides of the
+actual finite producer on the EXISTING completed dyadic carrier:
+
+    D/(Z0*Z1) --> N*(R(2t)-R(2t+1)),
+    ell(b^2)/Z0 --> N*R(2t).
+
+Here A=g_(n+t), b=T^t(g_n*(f-c_n)), c_n is the ACTUAL odd-window mean,
+Z0=ell(A^2), Z1=ell(A*T A), and D=Z1*ell(b^2)-Z0*ell(b*T b).
+The two positive partitions remain distinct. `DyadicChronologicalResponse`
+(all-nome prefix) clears the EXISTING normalizer and cancels the SAME mean
+square exactly. `BF4ExactSlabFixedSpatialWilsonMovingCenterLagCauchy`
+constructs the diagonal's Type-level modulus. `WilsonOwnCenterLimit`
+(same prefix) proves OWN mean and denominator-side centered-pair convergence;
+no moving test is passed through an assumed fixed-test limit. Parameters
+w,width,scale,t stay FIXED and K=headCutoff(w)+k,n=k. At even side s and
+t=s/2 the actual completed producer is s*N*(R_s-R_(s+1)) versus N*R_s.
+Four focused checks passed fourteen allowed gates; no full build ran.
+
+FORWARD NEXT: bound the COMBINED signed original energy/commutator against
+the actual half-smoothed ell(b^2), retaining action terms and OWN center.
+BACKWARD NEXT: the missing finite target remains s*D<=C*Z1*ell(b^2), or
+the existing direct SAME macroscopic-response-ratio alternative, on a
+JUSTIFIED changing family. No useful relative estimate is supplied by the
+new join; no additional normalizer or uniform raw norm floor is mandatory.
+The reviewed Ward/Stein identity and unsigned local covariance cost do not
+supply its sign/alignment. Canonical AF scalar schedules exist, but their
+family compiler still takes a local producer; actual Wilson family sampling
+still assumes nome/width and cross-sample comparisons. Do not substitute
+that generic schedule for a justified physical Wilson trajectory.
+Cross-scale relative costs, spatial/spacing control, physical calibration,
+full SAME-theory QFT, every group and the continuum/Clay target remain OPEN.
+Evidence: `audits/AUDIT-ORIGINAL-TO-COMPLETED-RAYLEIGH-2026-10-03.md`.
+
+PRECEDING CHECKED CHRONOLOGICAL AND FIXED-SOURCE APPROXIMATION:
 `BF4ExactSlabFixedSpatialBlockWindowPin` proves that the SAME original
 half-smoothed test b=T^t(g_n*psi) has chronological endpoint pairings at
 lag 2t+d, with its own actual partition for each d. `BlockRayleighWindow`
@@ -42,15 +76,9 @@ fixed-source Wilson joint limits after paying that moving-center correction.
 Cutoff, terminal-time and representative thresholds are explicit maxima;
 the bound is NOT uniform in changing nome/width/source/lag.
 Five focused checks passed seventeen allowed gates; no full build ran.
-FORWARD NEXT: use this literal chronological difference without discarding
-its signed action terms or reverting to separate absolute commutator caps.
-BACKWARD the missing producer is STILL a useful relative estimate against
-the SAME half-smoothed interacting response on a justified changing family;
-no raw norm floor, new normalizer or stationary finite vacuum is assumed.
-The explicit finite/joint approximation does not itself identify the old
-completed dyadic response with this limit or produce the relative estimate.
-Those actual joins, cross-scale relative costs, physical calibration, full
-QFT and every group remain OPEN. Evidence:
+This approximation alone did not identify the completed dyadic response;
+the newer numerator AND variance convergence above now supplies that
+fixed-parameter join. The relative analytic estimate remains OPEN. Evidence:
 `audits/AUDIT-ORIGINAL-RAYLEIGH-WINDOW-JOIN-2026-10-03.md`.
 
 NOW CHECKED ORIGINAL BLOCK-SOURCE ANALYSIS:
@@ -70,7 +98,8 @@ half-smoothed response, not another normalization wrapper. The boundary
 bound still uses ell(A^2*f^2), not ell(b^2); that comparison and the justified
 changing family remain unsupplied. The original moving center, distinct
 partitions and fixed-source finite/joint joins are now handled by the newer
-chronological checkpoint above; the completed dyadic response join stays open.
+chronological/completed checkpoints above. The relative analytic producer
+and justified changing-family joins remain open.
 Evidence: `audits/AUDIT-ORIGINAL-BLOCK-RAYLEIGH-SPLIT-2026-10-03.md`.
 
 CHECKED LIMIT OF THE ACTUAL GUARDED-COUPLING REGIME:

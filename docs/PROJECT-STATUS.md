@@ -1,6 +1,17 @@
 # Canonical one-page project status
 
-Verified supporting ORIGINAL chronological/limit join (2026-10-03 UTC;
+Verified supporting ORIGINAL-to-completed producer join (2026-10-03 UTC;
+chart unchanged): the literal D/(Z0*Z1) AND ell(b^2)/Z0 converge to the
+EXISTING completed dyadic N*(R(2t)-R(2t+1)) AND N*R(2t). Both distinct
+original partitions, moving OWN mean, normalizer and carrier are retained.
+The lag stream has a computed Type-level QCauchy modulus; the denominator
+mean and centered-pair convergence are proved separately. Four focused
+checks passed fourteen allowed gates. The relative signed estimate and
+justified changing family remain OPEN; no exact displayed claim closed.
+Evidence: `audits/AUDIT-ORIGINAL-TO-COMPLETED-RAYLEIGH-2026-10-03.md`.
+No exact displayed claim changed; no ASCII reprint.
+
+Earlier verified supporting ORIGINAL chronological/limit join (2026-10-03 UTC;
 chart unchanged): original block pairings and the existing cleared Rayleigh
 cost now match SAME-test endpoint correlations with distinct partitions.
 The actual moving OWN center is paid by mixRate(w,width)^n*(2C)^2,
@@ -8,7 +19,8 @@ uniform in both lags and guarded late K. Two existing fixed-source joint
 limits then control the centered lag difference with explicit thresholds.
 Five focused checks passed seventeen allowed gates. The relative signed
 estimate, completed dyadic response join and justified changing family
-remain OPEN; no exact displayed claim closed. Evidence:
+were OPEN at that checkpoint; the fixed-parameter completed join is now
+proved above, while the relative estimate and family remain OPEN. Evidence:
 `audits/AUDIT-ORIGINAL-RAYLEIGH-WINDOW-JOIN-2026-10-03.md`.
 No exact displayed claim changed; no ASCII reprint.
 

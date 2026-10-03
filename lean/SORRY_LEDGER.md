@@ -1,5 +1,36 @@
 # Sorry Ledger
 
+## PROVED original cost AND variance converge to the SAME completed dyadic response only (2026-10-03 UTC)
+
+- `BF4WilsonAllNomeDyadicChronologicalResponse` proves the existing centered
+  moment is the lower-first original joint limit minus its SAME mean square.
+  It retains the existing normalizer, clears it with dyadicOriginalNorm N,
+  and proves N*(R_L-R_J)=J_L-J_J exactly as CReal.Equiv.
+- `BF4ExactSlabFixedSpatialWilsonMovingCenterLagCauchy` constructs the literal
+  OWN-centered stream and its Type-level QCauchy data. Its M is the max of
+  both existing joint moduli at epsilon/4 and the mean-error geometric cutoff.
+  That actual diagonal converges to the two EXISTING raw limits' difference.
+- `BF4ExactSlabFixedSpatialWilsonOwnCenterLimit` proves every endpoint mean
+  and the ACTUAL odd-window OWN mean reach the SAME singleton. Expanding
+  the finite centered product first proves individual centeredPair convergence
+  to the SAME existing completed centeredTimeMoment, not an auxiliary norm.
+- `BF4WilsonAllNomeDyadicOriginalRayleighLimit` defines the literal original
+  ell(b^2)/Z0 and D/(Z0*Z1). Their limits are N*R_(2t) and
+  N*(R_(2t)-R_(2t+1)), with b=T^t(g_n*(f-c_n)), A=g_(n+t),
+  Z0=ell(A^2), Z1=ell(A*T A), D=Z1*ell(b^2)-Z0*ell(b*T b).
+  BOTH distinct positive original partitions and actual finite OWN mean stay.
+- Four accepted serialized focused checks passed 14 unique printed gates
+  within {propext, Quot.sound}, zero errors/warnings. Independent semantic
+  review passed. No new sorry/axiom, analytic hypothesis bundle, classical
+  shortcut, guard weakening, CI change, full audit/build or raised limits.
+  Root imports registered only, NOT aggregate-checked.
+- OPEN/NEXT: s*D<=usefulC*Z1*ell(b^2) on the actual growing square with
+  t=s/2 and a JUSTIFIED changing family, or a direct SAME macro-response
+  estimate. The fixed-parameter join is closed; its relative bound is NOT.
+  Cross-scale costs, spatial/spacing control, physical calibration, full QFT,
+  every compact simple group and the continuum/Clay target remain OPEN.
+  Evidence: `audits/AUDIT-ORIGINAL-TO-COMPLETED-RAYLEIGH-2026-10-03.md`.
+
 ## PROVED original Rayleigh chronology and paid moving-center joint approximation only (2026-10-03 UTC)
 
 - `BF4ExactSlabFixedSpatialBlockWindowPin.observedMessage_endpoints`
@@ -37,9 +68,10 @@
   Independent semantic/algebra review passed. No new sorry/axiom, classical
   shortcut, canonical guard change, CI change or full audit/build.
   Root imports are registered only, NOT aggregate-checked.
-- OPEN/NEXT: useful relative signed cost versus the SAME interacting
-  half-smoothed response on a justified changing family; the actual completed
-  dyadic response pin; three cross-scale relative costs; spatial/spacing and
+- OPEN/NEXT at that checkpoint: useful relative signed cost versus the SAME
+  interacting half-smoothed response on a justified changing family; the
+  completed dyadic response pin (now closed at fixed parameters above);
+  three cross-scale relative costs; spatial/spacing and
   physical mass calibration; full same-theory QFT; every compact simple group;
   the continuum/Clay target. The new bound is uniform in lags and late K
   only at FIXED nome/width/source cap. No finite pilot is substituted for a
