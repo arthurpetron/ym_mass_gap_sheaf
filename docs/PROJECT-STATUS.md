@@ -1,6 +1,20 @@
 # Canonical one-page project status
 
-Verified supporting ORIGINAL projected-variance Poincare (2026-10-03 UTC;
+Verified supporting ORIGINAL exact-score COMPLETE signed cost (2026-10-03 UTC;
+chart unchanged): literal S=A*Db-b*DA reaches the cleared Rayleigh cost
+without Jensen enlargement. The old leading budget equals the new one plus
+weighted ORIGINAL active conditional variance. Both signed Taylor terms,
+action/transfer, terminal messages and SAME surviving norm remain; existing
+computed onsets pay only reciprocal/reconstruction/boundary errors. The
+reference-Poincare detour is optional, not required on this direct route.
+Two focused checks passed 11 permitted gates; independent reviews passed.
+Useful exact-score-plus-BOTH-remainders control against SAME surviving norm
+on a justified changing family remains OPEN, as do physical/OS/continuum/
+QFT/every-group/Clay. Evidence:
+`audits/AUDIT-ORIGINAL-EXACT-SCORE-SIGNED-COST-2026-10-03.md`.
+No exact displayed claim changes; no ASCII reprint.
+
+Earlier verified supporting ORIGINAL projected-variance Poincare (2026-10-03 UTC;
 chart unchanged): actual independent-head lifting and inactive LOWER fringe
 projection identify SAME joint sweep loss with OWN determinant variance.
 The original active Jensen debt is bounded by (1+eta)*(1-w^2) times genuine

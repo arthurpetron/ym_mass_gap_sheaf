@@ -27,7 +27,33 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
 
-NOW CHECKED ORIGINAL PROJECTED-VARIANCE POINCARE:
+NOW CHECKED ORIGINAL EXACT-SCORE COMPLETE SIGNED COST:
+FORWARD, the exact reciprocal derivative identity gives G*S+e with literal
+S=A*Db-b*DA. Keeping S squared BEFORE Jensen removes the entire conditional
+variance enlargement, not the original score or any signed remainder.
+The old angular budget equals the new one plus the weighted ORIGINAL active
+variance. BACKWARD, the actual energy Taylor identity and existing
+reciprocal/reconstruction/boundary onsets carry this smaller budget into
+COMPLETE clearedRayleighCost against SAME Z1*B. Both signed Taylor terms,
+action/transfer K, terminal messages and original observable remain.
+Two focused checks passed 11 permitted gates; independent reviews passed.
+Evidence: `audits/AUDIT-ORIGINAL-EXACT-SCORE-SIGNED-COST-2026-10-03.md`.
+REPOINT: prioritize direct control of exactScoreSignedBulk versus SAME Z1*B,
+preserving cancellation with BOTH original Taylor terms and the time-window
+structure. Work backward from
+`BF4WilsonAllNomeWindowSignedCost.original_window_budget_macro_ratio`:
+target the normalized aggregate over t=u,...,2u-1, preserving each lag's
+distinct Z0,Z1 and the common chronological stage OWN center, rather than
+imposing separate absolute score/remainder caps. Its eventual signed-window
+bound remains an unsupplied hypothesis. The auxiliary-reference
+Poincare/Gamma(Q) detour is OPTIONAL,
+not a prerequisite for this smaller valid route. Do not replace the exact
+score by coarse Noise*cap bounds, assume a terminal eigenpin, or divide by
+a possibly zero surviving norm. A justified changing family and parameter-
+dependent rate remain necessary. Physical/OS/continuum/QFT/every-group/Clay
+remain OPEN; exact canonical chart claims unchanged, no reprint.
+
+EARLIER CHECKED ORIGINAL PROJECTED-VARIANCE POINCARE:
 FORWARD, actual zero head moments and iterated Fubini lift the independent
 sweep endpoint under EVERY insertion; selected updates plus the actual
 inactive LOWER fringe independence supply that premise. The SAME joint
@@ -40,8 +66,8 @@ prefactor. This is genuinely SECOND derivative, not the old Q^2 budget.
 The source-dependent auxiliary onset is explicit. Three focused checks
 passed 14 permitted gates; independent reviews passed. Evidence:
 `audits/AUDIT-ORIGINAL-PROJECTED-VARIANCE-POINCARE-2026-10-03.md`.
-REPOINT: retain the stronger Gamma(Q_K) projected bound when its cancellation
-helps; Gamma(Y_K) is only an optional upper bound. Prove useful control of
+OPTIONAL VARIANCE ROUTE: retain the stronger Gamma(Q_K) projected bound when
+its cancellation helps; Gamma(Y_K) is only an optional upper bound. Prove useful control of
 the ACTUAL weighted high-Casimir source
 content or its signed cancellation with the ORIGINAL drift/remainders,
 against the SAME surviving norm. Generic positivity does not bound

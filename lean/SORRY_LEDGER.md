@@ -1,6 +1,31 @@
 # Sorry Ledger
 
-## PROVED ORIGINAL own-variance endpoint and BF4 Poincare only (2026-10-03 UTC)
+## PROVED ORIGINAL exact-score COMPLETE signed-cost reduction only (2026-10-03 UTC)
+
+`BF4ExactSlabFixedSpatialLastStepExactScoreBudget.exact_score_reciprocal_plane_le`
+uses the actual reciprocal derivative identity and asymmetric square triangle
+to retain the literal score S=A*Db-b*DA, paying only the reciprocal correction.
+`exactScoreAngularBudget_gap_pin` identifies the old leading budget exactly
+as the new budget plus `exactScoreJensenGap`, the weighted ORIGINAL active
+conditional variance. `exactScoreAngularBudget_le_projected` proves the
+actual order for supported original psi and nonnegative sigma.
+`BF4ExactSlabFixedSpatialLastStepExactScoreCost.original_block_exact_score_angular_le`
+retains all active planes and constructs inactive zeros from fringe
+independence. `exactScoreSignedBulk` keeps BOTH original signed Taylor
+remainders; `exactScoreSignedBulk_le_projected` proves the smaller full bulk.
+`original_block_exact_score_energy_le` pays the reciprocal error against
+SAME Z1*B. `original_block_exact_score_cost_relative_tolerance` joins the
+actual reconstruction and boundary errors, with explicit onsets and no
+norm inverse. No conditional variance or auxiliary reference L is needed
+on this direct route. Two focused checks passed 11 permitted gates;
+independent reviews passed. No sorry/axiom/field/CI/chart change; root
+registration only. Evidence:
+`audits/AUDIT-ORIGINAL-EXACT-SCORE-SIGNED-COST-2026-10-03.md`.
+OPEN: a useful bound on literal exactScoreSignedBulk relative to SAME Z1*B,
+jointly over the needed time window on a JUSTIFIED changing family; physical/
+OS/continuum/QFT/every-group/Clay. No canonical frontier atom is closed.
+
+## EARLIER PROVED ORIGINAL own-variance endpoint and BF4 Poincare only (2026-10-03 UTC)
 
 `SU2QuaternionIndependentHeadsLift.independent_heads_lift` integrates and
 re-adjoins actually independent heads under EVERY original Haar insertion;

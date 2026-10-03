@@ -7275,3 +7275,9 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialProjectedInputAngularEnergy
 import YMGap.Continuum.SU2QuaternionIndependentHeadsLift
 import YMGap.Continuum.SU2QuaternionProductHeatConditionalVariance
 import YMGap.Continuum.BF4ExactSlabFixedSpatialProjectedVariancePoincare
+
+-- The direct literal-score route avoids conditional Jensen debt entirely,
+-- retaining BOTH Taylor remainders and the original complete signed cost.
+-- Useful SAME-norm signed control, justified scaling and Clay remain OPEN.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepExactScoreBudget
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepExactScoreCost

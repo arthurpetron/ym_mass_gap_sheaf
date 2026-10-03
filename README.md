@@ -10,7 +10,20 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Verified ORIGINAL projected-variance Poincare (2026-10-03 UTC):**
+**Verified ORIGINAL exact-score signed cost (2026-10-03 UTC):**
+The complete cleared Rayleigh cost now has a sharper bound that keeps the
+literal squared score `S=A*Db-b*DA` before Jensen. The old leading budget
+equals this new budget plus the weighted original conditional variance;
+that entire enlargement is unnecessary on this direct route. Both signed
+Taylor terms, original action/transfer, terminal messages and SAME surviving
+norm are retained. Existing computed onsets pay only reciprocal,
+reconstruction and boundary errors. Two focused checks passed 11 permitted
+gates; independent reviews passed. Next: control the exact score TOGETHER
+with both signed terms relative to the SAME surviving norm on a justified
+changing family. This does not prove a physical or continuum gap. See the
+[sharper cost proof and remaining producer](audits/AUDIT-ORIGINAL-EXACT-SCORE-SIGNED-COST-2026-10-03.md).
+
+**Earlier verified ORIGINAL projected-variance Poincare (2026-10-03 UTC):**
 The original conditional determinant variance now equals the SAME joint-law
 sweep loss: actual fringe independence pays the final inactive-input
 integration. Its angular bound retains the own mean, original source/action/
@@ -19,8 +32,8 @@ original active Jensen debt is bounded by `(1+eta)*(1-w^2)` times genuine
 second-derivative energy of the complete original source, with no link-count
 prefactor. The cutoff is computed for the FIXED source, not a scaling family.
 Three focused checks passed 14 permitted gates; independent reviews passed.
-Next: control this energy together with BOTH signed Taylor terms against
-the SAME surviving norm along a justified changing family. No physical or
+This remains an optional estimate for routes that insert Jensen; it is not
+a prerequisite for the sharper direct-score route above. No physical or
 continuum gap is proved. See the
 [exact variance endpoint and original BF4 application](audits/AUDIT-ORIGINAL-PROJECTED-VARIANCE-POINCARE-2026-10-03.md).
 

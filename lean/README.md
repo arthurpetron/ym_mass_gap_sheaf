@@ -12,7 +12,21 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT checked ORIGINAL projected-variance Poincare (2026-10-03 UTC):**
+**CURRENT checked ORIGINAL exact-score signed cost (2026-10-03 UTC):**
+The literal score S=A*Db-b*DA now reaches the COMPLETE cleared Rayleigh
+cost without Jensen enlargement. An exact identity identifies the old
+leading budget minus the new one with weighted original active conditional
+variance. Both signed Taylor remainders, original K/action/transfer,
+terminal messages and SAME Z1*B remain. Computed fixed-parameter onsets pay
+reciprocal, reconstruction and boundary errors. No reference L or source
+Poincare bound is required on this route. Two focused checks passed 11
+permitted gates; independent reviews passed. Root registration only, no
+full build/audit. Useful direct-score-plus-BOTH-remainders control versus
+SAME surviving norm on a justified changing family remains OPEN, as do
+physical/OS/continuum/QFT/every-group/Clay. Evidence:
+`audits/AUDIT-ORIGINAL-EXACT-SCORE-SIGNED-COST-2026-10-03.md`.
+
+**Earlier checked ORIGINAL projected-variance Poincare (2026-10-03 UTC):**
 Actual independent-head lifting proves that the SAME joint sweep loss is
 the original own determinant variance, with the inactive lower debt paid
 by actual fringe projection. The BF4 reference variance and original active
@@ -21,8 +35,9 @@ original source, with factors 1-w^2 and (1+eta)*(1-w^2), respectively.
 All original K data, auxiliary reference L, outputs and certified W remain;
 there is no count prefactor. One source-dependent onset is explicit.
 Three focused checks passed 14 permitted gates; independent reviews passed.
-Root registration only; no full build/audit. The signed energy-to-SAME-
-surviving-norm estimate, BOTH Taylor terms and justified changing-family
+Root registration only; no full build/audit. This energy estimate is now
+optional on the direct-score route above. The signed SAME-surviving-norm
+estimate, BOTH Taylor terms and justified changing-family
 control remain OPEN, as do physical/OS/continuum/QFT/every-group/Clay.
 Evidence: `audits/AUDIT-ORIGINAL-PROJECTED-VARIANCE-POINCARE-2026-10-03.md`.
 
