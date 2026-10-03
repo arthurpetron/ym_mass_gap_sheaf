@@ -12,7 +12,7 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT original signed filtered source and SAME response target (2026-10-02 UTC):**
+**CURRENT original signed filtered source and SAME response target (2026-10-03 UTC):**
 `BF4ExactSlabFixedSpatialFilteredCommutatorGain` retains the COMPLETE
 original quadratic identity S=Delta+2(1-a)J1-2G2, with b=T(g*(f-c)) and
 G2=ell[b*(b-a*A*(f-c))] at the actual OWN mean. The endpoint difference
@@ -58,6 +58,26 @@ Three final focused checks passed 18 allowed gates and independent reviews.
 The useful complete retained-cost/lag-one-reserve comparison remains OPEN;
 no source-loss/OWN-variance identification or scaling conclusion is supplied.
 Evidence: `audits/AUDIT-WHOLE-WORD-COVARIANCE-GAIN-2026-10-03.md`.
+
+`BF4WilsonAllNomeDyadicNormalizedBondAnchor` computes the inverse square
+root of the original positive-time norm N=R(2*side), with its OWN Cauchy
+data and existing parameter-dependent positive floor. The actual normalized
+sector retains range data, SAME completion and vacuum complement, has norm
+one, and satisfies N*Rz(j)=R(2*side+j). A supplied SAME relative budget at
+start<=2*side gives Rz(m-1)>=(1/4)^(2*C), C>=1,m>=4*C.
+All 20 constructive gates passed. A uniform raw R1/N reserve is NOT required
+by this route. The actual family-wide budget, normalized continuity,
+cross-scale/physical-time joins and continuum endpoints remain OPEN.
+
+`SU2QuaternionProductHeatWilsonLocalCovariance` proves conditional
+orthogonality under the FULL original joint action after sweeping only
+the word's lower slots. Exact Pythagoras gives fullLoss=localLoss+square
+and 0<=localLoss<=fullLoss. Its word bound keeps the negative character
+moment. `BF4DyadicWilsonSquareFilteredGainLocalCovariance` constructs the
+ACTUAL V*g_n/V/OWN-center consumer with that smaller cost. These two targets
+and normalized survival passed 31 allowed gates and independent review.
+Useful local-cost/SAME-response control remains OPEN. Evidence:
+`audits/AUDIT-WORD-LOCAL-COST-AND-NORMALIZED-SURVIVAL-2026-10-03.md`.
 
 `QuaternionHaarWordSignedCross`, `BF4ExactSlabFixedSpatialWilsonSignedChord`
 and `BF4ExactSlabFixedSpatialFilteredSignedChord` retain the actual ordered

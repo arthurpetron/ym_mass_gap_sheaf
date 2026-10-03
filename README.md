@@ -10,15 +10,20 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Current forward-backward target (2026-10-02):** the original signed
+**Current forward-backward target (2026-10-03):** the original signed
 radius-two observable is exactly twice `R(1)-R(2)` after the EXISTING unit
-state's normalizer squared. On that SAME completed state,
-the stronger sufficient bound now permits ANY finite relative budget:
-if `R(1)>=gamma0` and `m*(R(1)-R(2))<=C*R(1)`, then
-`R(m)>=gamma0*(1/4)^(2*C)` for integers `C>=1`, `m>=4*C`.
-Both useful quantitative inputs remain open on a justified changing family;
-the same fixed C and positive reserve would make the floor uniform. See the
-[checked implication and remaining producer](audits/AUDIT-FILTERED-BLOCK-SURVIVAL-2026-10-02.md).
+state's normalizer squared. The preferred backward route now constructs
+`z=R(2*side)^(-1/2)*T(side)*u` on the SAME existing completion, retaining
+its bond-range and vacuum-complement witnesses and proving norm exactly one.
+The SAME relative budget `m*(R(start)-R(start+1))<=C*R(start)`, for
+`start<=2*side`, `C>=1`, `m>=4*C`, gives
+`B(z,T(m-1)z)>=(1/4)^(2*C)`. No uniform lower bound on raw `R(1)` or
+`R(2*side)` is required. Producing the family-wide budget, cross-scale
+convergence and physical-time calibration remains open. The earlier
+[unanchored criterion](audits/AUDIT-FILTERED-BLOCK-SURVIVAL-2026-10-02.md)
+still requires its explicit positive raw reserve; that is no longer a
+mandatory input for the normalized positive-time route.
+See the [normalized survival theorem and exact remaining input](audits/AUDIT-WORD-LOCAL-COST-AND-NORMALIZED-SURVIVAL-2026-10-03.md).
 
 **New checked quadratic route:** the COMPLETE original filtered numerator
 is exactly `Delta+2*(1-a)*J1-2*G2`, at its actual finite OWN mean and SAME
@@ -29,7 +34,7 @@ gain is pinned to `C2-a*C1` on the EXISTING completed carrier, and to
 quadratic correction instead of replacing it by a quartic absolute cap.
 The actual finite gain now reaches that completed gain with computed
 cutoff/time/representative thresholds, for `0<=a<=1` at fixed nome/width.
-Neither a favorable gain nor a family-wide positive reserve is proved.
+Neither a favorable gain nor a family-wide relative budget is proved.
 See the [identity, limit pins and open estimate](audits/AUDIT-FILTERED-QUADRATIC-COMMUTATOR-GAIN-2026-10-02.md).
 
 **New checked finite-heat bridge:** a computed angular inverse represents
@@ -51,6 +56,14 @@ still conditional source loss, NOT interacting variance or the completed
 lag-one reserve. All 18 constructive gates passed; the useful changing-family
 relative bound remains open. See the
 [signed estimate and paid boundary error](audits/AUDIT-WHOLE-WORD-COVARIANCE-GAIN-2026-10-03.md).
+
+**New checked localization:** the original joint conditional square now
+costs only fluctuations in the square's word slots. Exact orthogonality
+removes a nonnegative spectator square; all action factors remain. The
+ACTUAL OWN-centered gain inherits this smaller cost and its negative
+character moment. Together with normalized-anchor survival, 31 constructive
+gates passed. Neither result produces the useful family-wide relative budget.
+See the [two proof fronts and their missing join](audits/AUDIT-WORD-LOCAL-COST-AND-NORMALIZED-SURVIVAL-2026-10-03.md).
 
 **New checked source cancellation:** the literal original radius-two loop
 source equals conditional noise MINUS a nonnegative drift square, over its

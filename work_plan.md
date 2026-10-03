@@ -25,7 +25,7 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Current mathematical target: SAME signed filtered slope and reserve (2026-10-02 UTC)
+### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
 NEW CHECKED QUADRATIC ROUTE: with the ORIGINAL g, A=Tg, fixed finite
 OWN mean c and psi=f-c, let b=T(g*psi), J1=ell(A*psi*b),
@@ -43,8 +43,10 @@ for 0<=a<=1 at fixed nome/width. Four final focused checks passed
 32 allowed gates and independent mathematical review.
 PRIORITY: estimate the SIGNED original quadratic gain relative to SAME
 lag-one response, rather than replace it by another absolute quartic cap.
-The backward consumer still needs m*(R1-R2)<=C*R1 and R1>=gamma0>0,
-with fixed family-wide C,gamma0 on a justified changing family. The gain
+The preferred normalized positive-time consumer needs the SAME relative
+budget m*(R(start)-R(start+1))<=C*R(start), with a fixed family-wide C
+on a justified changing family. It no longer requires a uniform raw R1
+reserve; the older unanchored criterion still does. The gain
 identity expresses the first budget as m*G >= [m*(1-a)-C]*R1; this
 algebraic restatement is NOT a new proved physical estimate. Do not
 replace an ORIGINAL-terminal-dependent quantitative bound by generic
@@ -69,9 +71,10 @@ set fixed. The actual padded-square consumer proves its geometry/source
 recoding and expresses G2 as the computed full-source gradient sum plus
 that exact correction, with a=w^(12*side); its actual OWN mean is included.
 FORWARD: use these exact finite identities and certificates with the actual
-terminal V*g. BACKWARD: retain the SAME completed-state requirements
-m*(R1-R2)<=C*R1 and R1>=gamma0. MEETING INPUT: a useful signed source
-estimate relative to that SAME lag-one reserve, with the original boundary
+terminal V*g. BACKWARD: retain the SAME completed-state relative requirement
+m*(R1-R2)<=C*R1; use the checked normalized positive-time consumer below
+instead of imposing an additional uniform raw reserve. MEETING INPUT: a useful signed source
+estimate relative to that SAME lag-one response, with the original boundary
 errors paid and family-wide constants on a justified trajectory.
 Conditional source loss and raw source derivative norms are not that reserve.
 No new conclusion-only interface is needed for this missing analytic estimate.
@@ -93,11 +96,44 @@ Three final focused checks passed 18 allowed gates and independent reviews.
 NEXT estimate this COMPLETE retained cost versus the SAME completed lag-one
 response, or prove the requisite signed gain directly. Do not identify
 conditional source loss with OWN variance or drop the negative moment.
-Source-loss localization and the retained spin-one/spin-two balance are
-candidate estimates, not proved reserve bounds or mandatory new compilers.
-The justified scaling family, fixed relative budget and positive reserve
-are still the forward-backward meeting inputs. Evidence:
+Source-loss localization is now proved below; the useful retained
+spin-one/spin-two balance versus the completed response remains OPEN.
+The justified scaling family and fixed relative budget remain the meeting
+inputs; the uniform raw reserve is specific to the older unanchored route. Evidence:
 `audits/AUDIT-WHOLE-WORD-COVARIANCE-GAIN-2026-10-03.md`.
+
+NEW CHECKED NORMALIZED POSITIVE-TIME ROUTE:
+`BF4WilsonAllNomeDyadicNormalizedBondAnchor` constructs the inverse square
+root of N=R(2*side) from its existing positive parameter-dependent floor,
+with explicit Cauchy data. It scales the EXISTING anchored sector into the
+SAME bond completion and vacuum complement, proving norm exactly one and
+N*Rz(j)=R(2*side+j). A supplied ORIGINAL relative adjacent-response budget
+at start<=2*side gives Rz(m-1)>=(1/4)^(2*C), for C>=1,m>=4*C.
+All 20 constructive gates passed. Neither N nor raw R1 needs a uniform floor.
+PREFER this route when it matches the actual continuum observable/physical
+time identification; do not substitute the normalized vector silently for u.
+NEXT FORWARD: produce the useful signed budget on an explicitly justified
+family. NEXT BACKWARD: prove normalized continuity by a relative half-anchor
+estimate, not by dividing an absolute modulus by possibly collapsing N.
+Normalized continuity, cross-scale convergence, local-field identification,
+physical mass, full QFT and every group remain OPEN. No displayed status
+claim is closed by this conditional survival theorem.
+
+NEW CHECKED WORD-LOCAL SOURCE COST:
+`SU2QuaternionProductHeatWilsonLocalCovariance` proves original-joint
+orthogonality after sweeping ONLY the word's lower slots, and exact
+fullLoss=localLoss+spectatorSquare. The SAME original full heat/action
+certificates give 0<=localLoss<=fullLoss. Whole-word covariance retains
+the negative character moment with localLoss in place of fullLoss.
+`BF4DyadicWilsonSquareFilteredGainLocalCovariance` supplies the actual
+growing square, V*g_n, upper V, geometry and finite OWN-center consumer.
+The gain MINUS its literal mean residue is squared; no favorable sign
+or OWN-variance comparison follows. Together with the normalized route,
+three focused targets passed 31 allowed gates and independent review.
+NEXT relate this local cost AND its retained signed test moment to the
+SAME completed response on a justified family. Do not cap away that moment
+or identify conditional loss with interacting variance. Evidence:
+`audits/AUDIT-WORD-LOCAL-COST-AND-NORMALIZED-SURVIVAL-2026-10-03.md`.
 
 NEW CHECKED ORDERED CROSS COST: the original whole-word chord is exactly
 its per-link diagonal plus TWICE its actual signed pair sum in all four

@@ -5156,6 +5156,11 @@ import YMGap.Continuum.BF4DyadicWilsonSquareFilteredGainStein
 import YMGap.Continuum.SU2QuaternionProductHeatWilsonCovariance
 import YMGap.Continuum.BF4DyadicWilsonSquareFilteredGainCovariance
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFilteredMeanResidueBound
+-- Word-local original-joint loss removes a nonnegative spectator square.
+-- The normalized SAME bond anchor needs only the unsupplied relative budget.
+import YMGap.Continuum.SU2QuaternionProductHeatWilsonLocalCovariance
+import YMGap.Continuum.BF4DyadicWilsonSquareFilteredGainLocalCovariance
+import YMGap.Continuum.BF4WilsonAllNomeDyadicNormalizedBondAnchor
 -- Scalar alignment cannot amplify to arbitrary quaternion-valued sources.
 -- Exact original low-degree obstruction; narrower scalar word stays OPEN.
 import YMGap.Continuum.SU2QuaternionHeatAlignmentAmplificationObstruction

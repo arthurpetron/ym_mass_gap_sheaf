@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting word-local cost and normalized survival (2026-10-03 UTC;
+chart unchanged): original-joint orthogonality and Pythagoras remove a
+nonnegative spectator square from the word covariance cost, with every
+action factor and the negative character moment retained. The ACTUAL
+OWN-centered square consumer is checked. Separately, the SAME positive-time
+bond excitation is constructively normalized; a supplied relative budget
+gives a fixed positive blocked floor without a uniform raw R1/N reserve.
+All 31 constructive gates and independent reviews passed. The useful
+changing-family budget and normalized continuity/cross-scale joins remain
+OPEN, as do the displayed scaling/continuum claims. Evidence:
+`audits/AUDIT-WORD-LOCAL-COST-AND-NORMALIZED-SURVIVAL-2026-10-03.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting whole-word covariance cost (2026-10-03 UTC; chart unchanged):
 the ACTUAL square gain minus its mean residue obeys a full scalar-word
 bound retaining the negative spin-two moment, original source V*g_n,

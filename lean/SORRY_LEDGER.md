@@ -1,5 +1,30 @@
 # Sorry Ledger
 
+## PROVED word local cost and conditional normalized survival only (2026-10-03 UTC)
+
+- `SU2QuaternionProductHeatWilsonLocalCovariance` proves exact conditional
+  orthogonality under the FULL original action, and fullLoss=localLoss+square,
+  so 0<=localLoss<=fullLoss. Its covariance bound retains the negative
+  character moment and every original kinetic/output/spectator factor.
+- `BF4DyadicWilsonSquareFilteredGainLocalCovariance` constructs the ACTUAL
+  square source V*g_n, output V, geometry and OWN-center gain-minus-residue
+  bound with this smaller cost. No favorable sign or OWN-variance pin.
+- `BF4WilsonAllNomeDyadicNormalizedBondAnchor` computes the original
+  positive-time inverse normalizer and SAME range/bond/vacuum-complement
+  witnesses. Norm is one and N*Rz(j)=R(2*side+j). A supplied relative budget
+  gives Rz(m-1)>=(1/4)^(2*C), C>=1,m>=4*C,start<=2*side, without a
+  uniform raw R1 or N reserve. No actual scaling-family budget is produced.
+- Three focused targets passed 31 allowed gates and independent review.
+  No new sorry/axiom/classical shortcut/field weakening; root imports
+  registered, not aggregate-checked. CI and canonical chart unchanged.
+  One private algebraic helper has scoped maxHeartbeats1000000; global
+  limits and the 20-GiB worker cap are unchanged.
+- OPEN: useful local-cost/signed-moment versus SAME response control on
+  a justified changing family, normalized continuity, cross-scale joins,
+  original local-field and physical-time identification, and every continuum
+  endpoint. Evidence:
+  `audits/AUDIT-WORD-LOCAL-COST-AND-NORMALIZED-SURVIVAL-2026-10-03.md`.
+
 ## PROVED whole-word covariance cost and finite mean residue only (2026-10-03 UTC)
 
 - `SU2QuaternionProductHeatWilsonCovariance.fundamental_word_covariance_pair_retained_bound`
