@@ -1,5 +1,20 @@
 # Sorry Ledger
 
+## PROVED conditional normalized real time continuity only (2026-10-03 UTC)
+
+- `BF4WilsonAllNomeDyadicNormalizedAnchorContinuity` constructs an actual
+  half-anchor preimage and proves kappa*B(y,y)<=1 from the SAME relative
+  budget, start<=side<=m,side>=2,C>=1,m>=4*C.
+- Its explicit radius depends only on C/tolerance, not raw norm, and controls
+  squared distances for ALL original represented-real bond increments and
+  forward orbits at assigned geometric spacing.
+- Final second focused check passed ten allowed gates and independent review;
+  no new sorry/axiom/classical shortcut/field weakening or resource increase.
+  Root import registered, not aggregate-checked; CI/chart unchanged.
+- OPEN: useful family-wide budget, actual cross-scale comparison/convergence,
+  local-field/physical-time identification and every continuum endpoint.
+  Evidence: `audits/AUDIT-NORMALIZED-ANCHOR-CONTINUITY-2026-10-03.md`.
+
 ## PROVED word local cost and conditional normalized survival only (2026-10-03 UTC)
 
 - `SU2QuaternionProductHeatWilsonLocalCovariance` proves exact conditional
@@ -20,7 +35,7 @@
   One private algebraic helper has scoped maxHeartbeats1000000; global
   limits and the 20-GiB worker cap are unchanged.
 - OPEN: useful local-cost/signed-moment versus SAME response control on
-  a justified changing family, normalized continuity, cross-scale joins,
+  a justified changing family, cross-scale joins,
   original local-field and physical-time identification, and every continuum
   endpoint. Evidence:
   `audits/AUDIT-WORD-LOCAL-COST-AND-NORMALIZED-SURVIVAL-2026-10-03.md`.

@@ -1,5 +1,9 @@
 # Word local cost and normalized survival
 
+Subsequent support result: conditional normalized continuity is checked in
+`audits/AUDIT-NORMALIZED-ANCHOR-CONTINUITY-2026-10-03.md`. The original
+31-gate checkpoint and remaining-input snapshot are preserved below.
+
 Two constructive results reduce the forward and backward requirements without
 producing the missing scaling-family estimate. The actual Wilson-square gain
 now costs only its word-local conditional source fluctuation. Independently,

@@ -66,8 +66,16 @@ sector retains range data, SAME completion and vacuum complement, has norm
 one, and satisfies N*Rz(j)=R(2*side+j). A supplied SAME relative budget at
 start<=2*side gives Rz(m-1)>=(1/4)^(2*C), C>=1,m>=4*C.
 All 20 constructive gates passed. A uniform raw R1/N reserve is NOT required
-by this route. The actual family-wide budget, normalized continuity,
+by this route. The actual family-wide budget,
 cross-scale/physical-time joins and continuum endpoints remain OPEN.
+
+`BF4WilsonAllNomeDyadicNormalizedAnchorContinuity` proves normalized
+continuity under that SAME budget (start<=side<=m,side>=2), with an actual
+half-anchor preimage and kappa=(3/4)*(1/4)^(2*C). Its geometric radius
+depends only on C/tolerance, not raw norm, and bounds ALL represented-real
+bond increments and forward orbits. Ten allowed gates passed; physical
+calibration and cross-scale joins remain OPEN. Evidence:
+`audits/AUDIT-NORMALIZED-ANCHOR-CONTINUITY-2026-10-03.md`.
 
 `SU2QuaternionProductHeatWilsonLocalCovariance` proves conditional
 orthogonality under the FULL original joint action after sweeping only

@@ -113,9 +113,17 @@ All 20 constructive gates passed. Neither N nor raw R1 needs a uniform floor.
 PREFER this route when it matches the actual continuum observable/physical
 time identification; do not substitute the normalized vector silently for u.
 NEXT FORWARD: produce the useful signed budget on an explicitly justified
-family. NEXT BACKWARD: prove normalized continuity by a relative half-anchor
-estimate, not by dividing an absolute modulus by possibly collapsing N.
-Normalized continuity, cross-scale convergence, local-field identification,
+family. CHECKED BACKWARD: the relative half-anchor estimate now proves
+normalized continuity, not by dividing an absolute modulus by collapsing N.
+With start<=side<=m,side>=2, kappa=(3/4)*(1/4)^(2*C) bounds the actual
+preimage squared norm by 1/kappa. The computed geometric radius depends
+only on C/tolerance and reaches ALL original represented real times and
+forward orbit points. Ten allowed gates passed. NEXT BACKWARD: actual
+cross-scale comparison/convergence of these SAME observable states, with
+explicit moduli and physical-time/local-field identification; do not add
+another raw reserve or absolute continuity wrapper. Evidence:
+`audits/AUDIT-NORMALIZED-ANCHOR-CONTINUITY-2026-10-03.md`.
+The family-wide budget, cross-scale convergence, local-field identification,
 physical mass, full QFT and every group remain OPEN. No displayed status
 claim is closed by this conditional survival theorem.
 

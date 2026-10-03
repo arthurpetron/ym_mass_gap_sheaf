@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting conditional normalized continuity (2026-10-03 UTC;
+chart unchanged): the SAME relative budget controls an actual half-anchor
+preimage. Its geometric radius depends only on budget constant/tolerance,
+not raw norm, and reaches ALL represented-real bond increments and forward
+orbits. Ten constructive gates passed. Actual family budget, cross-scale
+and physical calibration remain OPEN; no displayed claim changed. Evidence:
+`audits/AUDIT-NORMALIZED-ANCHOR-CONTINUITY-2026-10-03.md`.
+No ASCII reprint.
+
 Verified supporting word-local cost and normalized survival (2026-10-03 UTC;
 chart unchanged): original-joint orthogonality and Pythagoras remove a
 nonnegative spectator square from the word covariance cost, with every
@@ -8,7 +17,7 @@ OWN-centered square consumer is checked. Separately, the SAME positive-time
 bond excitation is constructively normalized; a supplied relative budget
 gives a fixed positive blocked floor without a uniform raw R1/N reserve.
 All 31 constructive gates and independent reviews passed. The useful
-changing-family budget and normalized continuity/cross-scale joins remain
+changing-family budget and cross-scale joins remain
 OPEN, as do the displayed scaling/continuum claims. Evidence:
 `audits/AUDIT-WORD-LOCAL-COST-AND-NORMALIZED-SURVIVAL-2026-10-03.md`.
 No exact displayed claim changed; no ASCII reprint.

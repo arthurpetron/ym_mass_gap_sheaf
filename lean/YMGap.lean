@@ -5161,6 +5161,9 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialFilteredMeanResidueBound
 import YMGap.Continuum.SU2QuaternionProductHeatWilsonLocalCovariance
 import YMGap.Continuum.BF4DyadicWilsonSquareFilteredGainLocalCovariance
 import YMGap.Continuum.BF4WilsonAllNomeDyadicNormalizedBondAnchor
+-- SAME relative budget controls normalized real-time continuity;
+-- family/physical calibration OPEN, no uniform raw reserve imposed.
+import YMGap.Continuum.BF4WilsonAllNomeDyadicNormalizedAnchorContinuity
 -- Scalar alignment cannot amplify to arbitrary quaternion-valued sources.
 -- Exact original low-degree obstruction; narrower scalar word stays OPEN.
 import YMGap.Continuum.SU2QuaternionHeatAlignmentAmplificationObstruction

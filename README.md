@@ -65,6 +65,13 @@ character moment. Together with normalized-anchor survival, 31 constructive
 gates passed. Neither result produces the useful family-wide relative budget.
 See the [two proof fronts and their missing join](audits/AUDIT-WORD-LOCAL-COST-AND-NORMALIZED-SURVIVAL-2026-10-03.md).
 
+**New checked normalized continuity:** under the SAME relative budget,
+an explicit half-anchor preimage gives a real-time squared-distance modulus
+depending only on the budget constant and tolerance, not the possibly
+vanishing raw norm. All ten constructive gates passed. The actual budget,
+cross-scale and physical-time joins remain open. See the
+[relative continuity proof and scope](audits/AUDIT-NORMALIZED-ANCHOR-CONTINUITY-2026-10-03.md).
+
 **New checked source cancellation:** the literal original radius-two loop
 source equals conditional noise MINUS a nonnegative drift square, over its
 SAME even-window partition. The original finiteValue pin and constant-shift
