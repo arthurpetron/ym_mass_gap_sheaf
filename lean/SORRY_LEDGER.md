@@ -1,5 +1,31 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL finite filtered/OWN variance comparison only (2026-10-03 UTC)
+
+`BF4ExactSlabFixedSpatialTerminalSchurTest.original_block_terminal_schur_square_le`
+uses actual two-copy positivity, upper-certificate insertions and weighted
+symmetry to derive U^2 for signed multiplied tests.
+`BF4ExactSlabFixedSpatialBlockWeightedContinuity.originalBlockTransfer_weighted_square_le`
+supplies bounded original continuity ONLY for reciprocal approximation.
+`BF4ExactSlabFixedSpatialTerminalSchurClosure.original_block_terminal_schur_source_le`
+extends the sharp coefficient to ACTUAL b_u using constructed reconstruction
+and explicit geometric cutoffs; the coarse factor disappears.
+`BF4ExactSlabFixedSpatialFilteredVarianceComparison.filtered_variance_cleared_le`
+retains original terminal certificates and distinct partitions to prove
+Z_u*B_(u+d)<=(1+comparisonEta(n+u-1))^2*Z_(u+d)*B_u.
+`BF4WilsonAllNomeOriginalVarianceComparison.originalOwnBlockVariance_comparison`
+applies this to the actual padded-square source with the SAME stage OWN
+mean, dividing ONLY by positive original partitions. No B inverse,
+stationary eigenpin or desired variance-bound premise; B=0 and d=0 included.
+The final factor depends on nome,width,terminal depth, not K or d. Five
+focused checks passed eight permitted gates. No sorry/axiom/field/CI/chart
+change; root registration only. Evidence:
+`audits/AUDIT-ORIGINAL-FILTERED-VARIANCE-COMPARISON-2026-10-03.md`.
+OPEN: useful source-specific aggregate dynamic-ratio energy/BOTH signed
+remainders against SAME starting variance on a JUSTIFIED changing family;
+nontrivial survival, physical/OS/continuum/QFT/every-group/Clay. This upper
+variance comparison closes no canonical frontier atom or survival floor.
+
 ## PROVED ORIGINAL exact-score COMPLETE signed-cost reduction only (2026-10-03 UTC)
 
 `BF4ExactSlabFixedSpatialLastStepExactScoreBudget.exact_score_reciprocal_plane_le`

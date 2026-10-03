@@ -27,7 +27,33 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
 
-NOW CHECKED ORIGINAL EXACT-SCORE COMPLETE SIGNED COST:
+NOW CHECKED ORIGINAL FINITE FILTERED/OWN VARIANCE COMPARISON:
+FORWARD, the actual two-copy conditional square and weighted symmetry give
+a sharp U^2 Schur bound for multiplied signed tests. Original reciprocal
+reconstruction, explicit geometric cutoffs and rational order reflection
+extend it to ACTUAL b_u; the coarse continuity cap pays approximation only
+and disappears. BACKWARD, the actual terminal comparison at s=n+u-1,r=d,t=0
+supplies the lower partition bound and U<=(1+eta)*l. Therefore
+Z_u*B_(u+d)<=(1+eta)^2*Z_(u+d)*B_u, with eta=comparisonEta(w,width,n+u-1).
+The actual `originalOwnBlockVariance_comparison` endpoint keeps the SAME
+stage OWN center and divides ONLY by positive original chronological
+partitions. Signed/zero sources and d=0 remain. The final factor is K/d
+independent, NOT width/coupling/scaling uniform. Five focused checks passed
+eight permitted gates. Evidence:
+`audits/AUDIT-ORIGINAL-FILTERED-VARIANCE-COMPARISON-2026-10-03.md`.
+REPOINT: use this upper variance comparison to pay finite-window reciprocal,
+reconstruction and boundary errors in the error currency of v_u. The useful
+analytic input remains a SOURCE-SPECIFIC aggregate bound on dynamic-ratio
+energy/exactScoreSignedBulk TOGETHER WITH BOTH signed Taylor terms versus
+that SAME v_u on a JUSTIFIED changing family. Bare Wilson increment bounds
+do not automatically control phi_t=b_t/A_t under the original interacting
+edge density. No unused cross-lag cancellation was found in the bounded
+source review. Work backward from original_window_budget_macro_ratio;
+do not build another assumed-budget wrapper, recenter at later lags,
+insert Jensen as a prerequisite, assume a terminal eigenpin or divide by B.
+Physical/OS/continuum/QFT/every-group/Clay remain OPEN; exact chart unchanged.
+
+EARLIER CHECKED ORIGINAL EXACT-SCORE COMPLETE SIGNED COST:
 FORWARD, the exact reciprocal derivative identity gives G*S+e with literal
 S=A*Db-b*DA. Keeping S squared BEFORE Jensen removes the entire conditional
 variance enlargement, not the original score or any signed remainder.

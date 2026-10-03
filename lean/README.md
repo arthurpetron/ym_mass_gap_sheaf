@@ -12,7 +12,22 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT checked ORIGINAL exact-score signed cost (2026-10-03 UTC):**
+**CURRENT checked ORIGINAL finite variance comparison (2026-10-03 UTC):**
+Actual two-copy positivity and weighted symmetry give the terminal Schur
+bound U^2. Constructed reciprocal reconstruction extends it to the actual
+filtered signed source without retaining the coarse continuity coefficient.
+The actual terminal bracket gives Z_u*B_(u+d)<=(1+eta)^2*Z_(u+d)*B_u.
+`BF4WilsonAllNomeOriginalVarianceComparison.originalOwnBlockVariance_comparison`
+normalizes by positive partitions ONLY and retains the SAME stage OWN mean.
+Zero B and d=0 are included. eta=comparisonEta(w,width,stage+u-1) is
+cutoff/future-lag independent, not width/coupling/scaling uniform.
+Five focused checks passed eight permitted gates; root registration only,
+no full build/audit. Useful aggregate dynamic-ratio energy plus BOTH signed
+remainders against SAME starting variance remains OPEN, as do physical/
+OS/continuum/QFT/every-group/Clay. Evidence:
+`audits/AUDIT-ORIGINAL-FILTERED-VARIANCE-COMPARISON-2026-10-03.md`.
+
+**Earlier checked ORIGINAL exact-score signed cost (2026-10-03 UTC):**
 The literal score S=A*Db-b*DA now reaches the COMPLETE cleared Rayleigh
 cost without Jensen enlargement. An exact identity identifies the old
 leading budget minus the new one with weighted original active conditional

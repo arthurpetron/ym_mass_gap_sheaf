@@ -10,7 +10,20 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Verified ORIGINAL exact-score signed cost (2026-10-03 UTC):**
+**Verified ORIGINAL finite variance comparison (2026-10-03 UTC):**
+The actual own-centered variance at u+d is at most
+`(1+comparisonEta(w,width,stage+u-1))^2` times its value at u.
+The proof retains the SAME source and stage mean, both original partitions,
+and signed/zero sources. A sharp terminal Schur bound extends through the
+constructed reciprocal; its coarse continuity factor disappears. The final
+factor is independent of future lag and cutoff, but depends on coupling,
+width and terminal depth. Five focused checks passed eight permitted gates.
+This controls finite-window approximation errors, not a survival lower floor
+or physical gap. Next: the original dynamic-ratio energy and BOTH signed
+remainders versus the SAME starting variance on a justified changing family.
+See the [proof and remaining analytic input](audits/AUDIT-ORIGINAL-FILTERED-VARIANCE-COMPARISON-2026-10-03.md).
+
+**Earlier verified ORIGINAL exact-score signed cost (2026-10-03 UTC):**
 The complete cleared Rayleigh cost now has a sharper bound that keeps the
 literal squared score `S=A*Db-b*DA` before Jensen. The old leading budget
 equals this new budget plus the weighted original conditional variance;

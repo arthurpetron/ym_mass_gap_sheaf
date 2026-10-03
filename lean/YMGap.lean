@@ -7281,3 +7281,12 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialProjectedVariancePoincare
 -- Useful SAME-norm signed control, justified scaling and Clay remain OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepExactScoreBudget
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepExactScoreCost
+
+-- Actual terminal Schur closure and SAME-stage OWN variance comparison.
+-- The coarse continuity cap disappears; the finite upper comparison is
+-- not a survival floor or a width/coupling/spacing-uniform physical gap.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalSchurTest
+import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockWeightedContinuity
+import YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalSchurClosure
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFilteredVarianceComparison
+import YMGap.Continuum.BF4WilsonAllNomeOriginalVarianceComparison

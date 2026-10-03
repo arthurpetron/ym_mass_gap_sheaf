@@ -1,6 +1,21 @@
 # Canonical one-page project status
 
-Verified supporting ORIGINAL exact-score COMPLETE signed cost (2026-10-03 UTC;
+Verified supporting ORIGINAL finite filtered/OWN variance comparison
+(2026-10-03 UTC; chart unchanged): two-copy positivity and weighted symmetry
+give U^2 Schur control. Constructed reciprocal reconstruction extends it to
+the ACTUAL filtered signed source; the coarse continuity cap disappears.
+Actual terminal certificates give Z_u*B_(u+d)<=(1+eta)^2*Z_(u+d)*B_u.
+The existing own-variance endpoint retains the SAME stage mean and divides
+ONLY by positive original partitions; zero B and d=0 remain. eta explicitly
+depends on nome,width,terminal depth, not cutoff/future lag. Five focused
+checks passed eight permitted gates. This pays finite-window approximation
+errors, not a survival lower floor. Useful aggregate dynamic-ratio energy
+and BOTH signed remainders on a justified changing family, physical/OS/
+continuum/QFT/every-group/Clay remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-FILTERED-VARIANCE-COMPARISON-2026-10-03.md`.
+No exact displayed claim changes; no ASCII reprint.
+
+Earlier verified supporting ORIGINAL exact-score COMPLETE signed cost (2026-10-03 UTC;
 chart unchanged): literal S=A*Db-b*DA reaches the cleared Rayleigh cost
 without Jensen enlargement. The old leading budget equals the new one plus
 weighted ORIGINAL active conditional variance. Both signed Taylor terms,
