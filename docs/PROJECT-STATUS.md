@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting three-norm comparison (2026-10-03 UTC; chart unchanged):
+three supplied relative quadratic costs now give BOTH cleared projective
+errors and, on the ACTUAL dyadic anchors with their existing computed
+normalizers, BOTH absolute normalized-response errors<=4*delta.
+Twenty constructive gates passed. The costs themselves and the justified
+changing family remain OPEN; no displayed continuum claim changed.
+Evidence: `audits/AUDIT-THREE-NORM-PROJECTIVE-COMPARISON-2026-10-03.md`.
+No ASCII reprint.
+
 Verified supporting fixed-coupling response obstruction (2026-10-03 UTC;
 chart unchanged): the ACTUAL original thermodynamic carrier has a relative
 even-response bound and a computed vector-independent onset beyond which

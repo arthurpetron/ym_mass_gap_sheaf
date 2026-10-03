@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## PROVED conditional three norm projective comparison only (2026-10-03 UTC)
+
+- `RCThreeNormProjectiveComparison.three_norm_projective_compare` proves
+  BOTH cleared errors<=4*delta*N_k*N_l from three explicit relative
+  quadratic costs, polarization and contraction, 0<=delta<=1/2.
+  Common scaling is an RC, not a chosen inverse; zero cases are retained.
+- `BF4WilsonAllNomeThreeNormComparison` proves actual Wilson polarization
+  and contraction, retaining separate original nomes/widths. Its constructed
+  dyadic anchors have their OWN mean, time, norm and response pins.
+  `dyadic_normalized_response_compare` uses the EXISTING computed normalizer
+  squares to give BOTH absolute normalized-response errors<=4*delta,
+  without a uniform raw norm floor or full physical width inclusion.
+- Final focused checks passed twenty gates exactly {propext, Quot.sound},
+  no warnings/errors, and independent review. No new sorry/axiom/classical
+  shortcut/canonical field change. Root imports registered, NOT
+  aggregate-checked; CI/chart unchanged.
+- OPEN INPUTS: all three actual relative costs on a physically matched
+  changing family, the family-wide macroscopic survival ratio, physical
+  calibration and every continuum endpoint. This is a sufficient consumer,
+  not an actual relative-comparison producer. Evidence:
+  `audits/AUDIT-THREE-NORM-PROJECTIVE-COMPARISON-2026-10-03.md`.
+
 ## PROVED actual fixed coupling macroscopic response obstruction only (2026-10-03 UTC)
 
 - `BF4WilsonSpatialUnionMacroscopicRatioObstruction` proves the SAME

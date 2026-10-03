@@ -5183,6 +5183,10 @@ import YMGap.Continuum.BF4DyadicWilsonSquareBareTransmissionNecessary
 -- Actual fixed-small-nome thermodynamic response: normalization cannot
 -- preserve a macroscopic ratio beyond the computed decay threshold.
 import YMGap.Continuum.BF4WilsonSpatialUnionMacroscopicRatioObstruction
+-- Three supplied relative original quadratic costs give BOTH normalized
+-- response errors; no producer, uniform raw floor or width inclusion.
+import YMGap.Continuum.RCThreeNormProjectiveComparison
+import YMGap.Continuum.BF4WilsonAllNomeThreeNormComparison
 -- Scalar alignment cannot amplify to arbitrary quaternion-valued sources.
 -- Exact original low-degree obstruction; narrower scalar word stays OPEN.
 import YMGap.Continuum.SU2QuaternionHeatAlignmentAmplificationObstruction

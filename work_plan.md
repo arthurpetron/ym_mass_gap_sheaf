@@ -51,12 +51,21 @@ nome/width. The absent producer is low relative energy of the SAME
 half-smoothed centered Wilson excitation, not another ground-state-normalizing
 wrapper. For normalized cross-scale control, compare the three actual
 centered squared norms of u, u+T(j)u and u-T(j)u, up to one common positive
-scale factor. Polarization gives the cleared normalized error from relative
-errors, without a uniform raw norm floor. This sufficient reduction is PAPER
-algebra, not yet a Lean theorem or an actual relative comparison producer.
+scale factor. This sufficient reduction is NOW CHECKED in
+`RCThreeNormProjectiveComparison` and its ACTUAL
+`BF4WilsonAllNomeThreeNormComparison` consumer: relative errors delta<=1/2
+give BOTH cleared errors<=4*delta*N_k*N_l; the EXISTING computed normalizer
+squares then give BOTH absolute normalized-response errors<=4*delta.
+No uniform raw norm floor, chosen inverse or carrier map is used. Twenty
+public gates passed. The three relative costs remain UNSUPPLIED analytic
+inputs, not proved comparisons or a logically smaller necessary frontier.
 Retain EACH theory's OWN mean and literal time pins; do not use a full
 physical width inclusion, which is already refuted. These are alternative
 analytic attacks on the existing inputs, not new mandatory frontier fields.
+NEXT produce these original relative costs and the SAME family-wide
+macroscopic response ratio; do not extend this checked consumer branch
+with more normalization/polarization wrappers. Evidence:
+`audits/AUDIT-THREE-NORM-PROJECTIVE-COMPARISON-2026-10-03.md`.
 
 CHECKED LIMITS OF TWO CERTIFICATE ROUTES:
 `BF4DyadicWilsonSquareSpectatorResponseObstruction` proves the existing

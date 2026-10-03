@@ -43,6 +43,13 @@ thermodynamic carrier: beyond an explicit horizon, a positive macroscopic
 ratio forces the smoothed state to vanish. This is an actual-response bound,
 not a certificate ceiling; it does not rule out the changing-coupling route.
 
+The [checked three-norm comparison](audits/AUDIT-THREE-NORM-PROJECTIVE-COMPARISON-2026-10-03.md)
+now turns supplied relative errors on the actual anchor, sum and difference
+norms into BOTH normalized-response errors<=4*delta. Each original carrier,
+time and OWN center is retained; no uniform raw norm floor or width map is
+needed. Twenty constructive gates passed. Producing those relative costs
+and a justified physical family remains open.
+
 **New checked quadratic route:** the COMPLETE original filtered numerator
 is exactly `Delta+2*(1-a)*J1-2*G2`, at its actual finite OWN mean and SAME
 even partition. The endpoint mismatch has bound `32*mixRate^n`; the actual

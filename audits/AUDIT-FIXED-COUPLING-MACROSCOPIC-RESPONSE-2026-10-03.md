@@ -77,6 +77,10 @@ gain and no continuum physical-time or local-field identification.
 
 ## Parallel source review of the next estimates
 
+Update: the paper comparison below is now a checked conditional consumer;
+see `AUDIT-THREE-NORM-PROJECTIVE-COMPARISON-2026-10-03.md` in this directory.
+The actual relative-error producers and justified family remain OPEN.
+
 Existing `terminalComparison_relative_width`,
 `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalComparison.lean:306`,
 controls the relative spread of terminal messages after a common prefix.
