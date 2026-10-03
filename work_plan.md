@@ -27,6 +27,25 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
+CHECKED LIMIT OF THE ACTUAL FIXED-COUPLING REGIME:
+`BF4WilsonSpatialUnionMacroscopicRatioObstruction` proves
+R_x(2*(start+n))<=theta^n*R_x(2*start) on the ORIGINAL fixed-small-nome
+thermodynamic completion. The computed vector-independent onset
+theta^n<=kappa/2 makes kappa*R_x(2*n)<=R_x(4*n), kappa>0,
+force T(n)x=0 and R_x(2*n)=0. x may depend arbitrarily on n;
+normalization alone cannot rescue nonzero macroscopic survival in this
+fixed regime. A separate computed cutoff controls ALL centered vectors
+of squared norm<=1, independently of support. Seven allowed gates passed.
+This is an actual-response bound, unlike the certificate limits below;
+it does not exclude the changing-coupling route. FORWARD continue on the
+original all-nome interacting transfer, preserving the different finite
+time-horizon partitions. BACKWARD demand the same positive family-wide
+macroscopic ratio and BOTH-order normalized cross-scale comparison;
+do not duplicate the already constructed fixed-small-nome spatial OS joins
+or the represented-completeness theorem. Physical scaling and full QFT
+inputs remain OPEN. Evidence:
+`audits/AUDIT-FIXED-COUPLING-MACROSCOPIC-RESPONSE-2026-10-03.md`.
+
 CHECKED LIMITS OF TWO CERTIFICATE ROUTES:
 `BF4DyadicWilsonSquareSpectatorResponseObstruction` proves the existing
 Gamma<=(1/2)^side for EVERY strict nome, with explicit epsilon.den cutoff.

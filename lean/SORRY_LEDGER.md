@@ -1,5 +1,22 @@
 # Sorry Ledger
 
+## PROVED actual fixed coupling macroscopic response obstruction only (2026-10-03 UTC)
+
+- `BF4WilsonSpatialUnionMacroscopicRatioObstruction` proves the SAME
+  original thermodynamic relative even-response bound, with its explicit
+  fixed-small-nome guards. Beyond a computed vector-independent onset,
+  a positive macroscopic lower ratio forces the actual smoothed vector
+  T(n)x and response R_x(2*n) to vanish, not necessarily x itself.
+- A computed geometric cutoff bounds ALL centered squared-norm<=1
+  vectors, independently of support or construction of the normalization.
+- The focused check passed seven gates exactly {propext, Quot.sound};
+  independent source/log review passed. One unused-variable warning remains.
+  No new sorry, axiom, classical shortcut or canonical field change.
+  Root import registered, NOT aggregate-checked; CI/chart unchanged.
+- OPEN: changing-family interacting ratio, normalized cross-scale comparison,
+  physical calibration and every continuum endpoint. Evidence:
+  `audits/AUDIT-FIXED-COUPLING-MACROSCOPIC-RESPONSE-2026-10-03.md`.
+
 ## PROVED limits of scaling certificates only (2026-10-03 UTC)
 
 - `BF4DyadicWilsonSquareSpectatorResponseObstruction` proves the original

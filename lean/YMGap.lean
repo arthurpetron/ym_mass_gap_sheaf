@@ -5180,6 +5180,9 @@ import YMGap.Continuum.BF4WilsonAllNomeDyadicNormalizedMacroRealSurvival
 -- bare-reference floors have necessary heat-loss bounds, not response ceilings.
 import YMGap.Continuum.BF4DyadicWilsonSquareSpectatorResponseObstruction
 import YMGap.Continuum.BF4DyadicWilsonSquareBareTransmissionNecessary
+-- Actual fixed-small-nome thermodynamic response: normalization cannot
+-- preserve a macroscopic ratio beyond the computed decay threshold.
+import YMGap.Continuum.BF4WilsonSpatialUnionMacroscopicRatioObstruction
 -- Scalar alignment cannot amplify to arbitrary quaternion-valued sources.
 -- Exact original low-degree obstruction; narrower scalar word stays OPEN.
 import YMGap.Continuum.SU2QuaternionHeatAlignmentAmplificationObstruction

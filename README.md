@@ -37,6 +37,12 @@ heat-parameter family, and quantify the heat loss required by repeated bare
 transmission. These limit those estimates, not the actual interacting
 response; the substantive ratio and cross-scale comparison remain open.
 
+The [checked actual fixed-coupling obstruction](audits/AUDIT-FIXED-COUPLING-MACROSCOPIC-RESPONSE-2026-10-03.md)
+also excludes normalization-only rescue on the ORIGINAL fixed-small-nome
+thermodynamic carrier: beyond an explicit horizon, a positive macroscopic
+ratio forces the smoothed state to vanish. This is an actual-response bound,
+not a certificate ceiling; it does not rule out the changing-coupling route.
+
 **New checked quadratic route:** the COMPLETE original filtered numerator
 is exactly `Delta+2*(1-a)*J1-2*G2`, at its actual finite OWN mean and SAME
 even partition. The endpoint mismatch has bound `32*mixRate^n`; the actual

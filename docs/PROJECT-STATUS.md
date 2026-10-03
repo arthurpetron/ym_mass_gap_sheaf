@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting fixed-coupling response obstruction (2026-10-03 UTC;
+chart unchanged): the ACTUAL original thermodynamic carrier has a relative
+even-response bound and a computed vector-independent onset beyond which
+a positive macroscopic ratio forces the smoothed vector to vanish. Arbitrary
+normalization does not rescue this fixed-small-nome regime. Seven constructive
+gates passed; changing-family survival and every displayed continuum claim
+remain OPEN. Evidence:
+`audits/AUDIT-FIXED-COUPLING-MACROSCOPIC-RESPONSE-2026-10-03.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting certificate limits (2026-10-03 UTC; chart unchanged):
 the old spectator fraction is <=(1/2)^side for ALL strict nomes, with an
 explicit epsilon.den cutoff; no retuning gives it a uniform positive reserve.
