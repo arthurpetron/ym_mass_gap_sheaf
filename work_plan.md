@@ -38,8 +38,12 @@ decomposition E=Tail-Phi(N,S); its upper/lower theorems construct
 No diagonal estimate, surrogate action or operator inverse is assumed.
 Four focused checks passed 21 gates within {propext, Quot.sound}. Evidence:
 `audits/AUDIT-ORIGINAL-ROOT-LOG-FORM-COMPARISON-2026-10-03.md`.
-NEXT BACKWARD: apply the checked form-to-norm principle to the actual symmetric
-finite difference with e=2*half^d+invSucc(M), then join EXISTING limit moduli.
+The ACTUAL form-to-norm application is ALSO checked:
+`RootLogNormComparison.root_log_norm_bound` constructs
+dist(logPartial_M x,differenceQuotient_(d+2)x)<=e^2*Bxx with
+e=2*half^d+invSucc(M)>0, proving required symmetry/add/sub rather than
+assuming them. One focused check passed five gates (one axiom-free).
+NEXT BACKWARD: join this computed norm bound to the EXISTING limit moduli.
 DerivativeAction=regularizedLog remains OPEN. NEXT FORWARD remains the complete
 relative signed estimate or retained macro ratio on a JUSTIFIED changing
 family. No such producer or physical scaling is supplied. Root imports

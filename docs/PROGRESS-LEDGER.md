@@ -15,12 +15,16 @@ No comparison premise, functional calculus or operator inverse is supplied.
 Four serialized focused checks passed 21 permitted gates; no full root/tree
 build, broad audit/guard or progress metric ran.
 
-NEXT BACKWARD: actual symmetric form-to-norm application and the EXISTING
-limit-modulus join. DerivativeAction=regularizedLog remains OPEN.
+FOLLOW-UP after `02d80bf`: the ACTUAL symmetric finite difference now has
+dist(logPartial_M x,differenceQuotient_(d+2)x)<=
+(2*half^d+invSucc(M))^2*Bxx. Required symmetry/add/sub are proved, not
+caller inputs. One further focused check passed five gates (one axiom-free).
+NEXT BACKWARD: the EXISTING limit-modulus join.
+DerivativeAction=regularizedLog remains OPEN.
 NEXT FORWARD: complete relative signed estimate or retained macro ratio on
 a JUSTIFIED changing family, unchanged and unpaid. No continuum/Clay claim.
 Root imports registration-only, canonical chart and CI unchanged. Evidence:
-`audits/AUDIT-ORIGINAL-ROOT-LOG-FORM-COMPARISON-2026-10-03.md`.
+`audits/AUDIT-ORIGINAL-ROOT-LOG-NORM-COMPARISON-2026-10-03.md`.
 
 ## Earlier increment: ORIGINAL S/F reach actual root and coarse moments (2026-10-03 UTC)
 

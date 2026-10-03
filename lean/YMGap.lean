@@ -6265,6 +6265,7 @@ import YMGap.Continuum.BF4WilsonAllNomeRootMomentTelescope
 import YMGap.Continuum.BF4WilsonAllNomeRootLogMapPins
 import YMGap.Continuum.BF4WilsonAllNomeRootLogSignedBudget
 import YMGap.Continuum.BF4WilsonAllNomeRootLogFormComparison
+import YMGap.Continuum.BF4WilsonAllNomeRootLogNormComparison
 import YMGap.Continuum.RootLogFiniteTail
 import YMGap.Continuum.BF4WilsonAllNomeRootLogTail
 import YMGap.Continuum.BF4WilsonAllNomeSymmetricFormNorm

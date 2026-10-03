@@ -6,7 +6,8 @@ physical Hamiltonian mass gap. It is OPEN.
 
 This note records a mathematical argument whose finite COMPONENTS are now
 checked; the original two-sided diagonal comparison is ALSO now proved.
-The norm/limit join and operator identification are NOT proved.
+The ACTUAL norm comparison is also checked; the limit join and operator
+identification are NOT proved.
 It compares two EXISTING original-carrier maps and supplies no changing-family
 signed estimate or physical calibration. Component evidence:
 `audits/AUDIT-ORIGINAL-ROOT-LOG-PRODUCERS-2026-10-03.md`.
@@ -103,7 +104,7 @@ binomial middle row. With P_N=sum_(k=0..N-2)(u^k+h^k), the shorter target is
 Replacing D by h*sum_(j=0..N-1)u^j exposes a finite nonnegative u/h row.
 The ORIGINAL S coefficient identity, F derivative identity and termwise
 positive primitive join are now checked; so is the actual root-moment lift.
-The finite original diagonal comparison is now checked; the norm/limit join
+The finite original diagonal and norm comparisons are now checked; the limit join
 remains OPEN.
 `lean/YMGap/Constructive/QPolyComplementCancellation.lean:45`,
 `complement_mul_injective`, permits cancellation of u=1-h at COEFFICIENTS,
@@ -129,7 +130,7 @@ The following existing declarations have prefix `lean/YMGap/Continuum/`:
   controls the other existing limit.
 
 The actual positive-polynomial moment lift is now proved, not assumed.
-The remaining norm comparison and existing
+The proved norm comparison and existing
 moduli would identify `derivativeAction` with `regularizedLog` on this SAME
 carrier, preserving its boundary kernel. Neither equality is claimed here.
 
@@ -150,7 +151,7 @@ also checked in `BF4WilsonAllNomeRootCoarseMoment.lean:97`,
 The literal diagonals of both EXISTING finite maps and their two-sided error
 are now checked in
 `audits/AUDIT-ORIGINAL-ROOT-LOG-FORM-COMPARISON-2026-10-03.md`.
-Their norm/limit join remains OPEN. The existing
+Their limit join remains OPEN. The existing
 `BF4WilsonAllNomeDefectPolynomial.action` is hardwired to I-T(1), not the
 depth-dependent root defect, so it is not directly the needed producer.
 No assumed functional calculus or scalar-only positivity shortcut is added.
@@ -171,8 +172,10 @@ the two-sided form error 8/N+invSucc(M) is sufficient.
 now proves those diagonal bounds yield the squared norm error by rational
 polarization on the SAME completion. The ACTUAL diagonal bounds are now
 constructed in `lean/YMGap/Continuum/BF4WilsonAllNomeRootLogFormComparison.lean:138`,
-`diagonalError_upper`, and :152, `diagonalError_lower`. Applying the norm
-principle and joining the existing limit moduli remain OPEN. No legacy functional calculus,
+`diagonalError_upper`, and :152, `diagonalError_lower`. The ACTUAL norm
+application is also checked in `BF4WilsonAllNomeRootLogNormComparison.lean:93`,
+`root_log_norm_bound` (same directory). Joining the existing limit moduli
+remains OPEN. No legacy functional calculus,
 arbitrary real inverse, spectral theorem or boundary injectivity is needed.
 
 ## Exploration boundary

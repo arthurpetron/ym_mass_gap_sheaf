@@ -24,9 +24,10 @@ including the exact monomial pin, original S/F form positivity, and literal
 coarse-defect/time-one moment pins. The ORIGINAL quotient/logPartial diagonal
 comparison is ALSO checked: its signed error is between
 `-||x||^2/(M+1)` and `(8/N)*||x||^2`, N=2^(d+2), M>0.
-The norm/limit join and derivative/log equality remain open; physical scaling
-is NOT claimed. See the
-[actual finite comparison and focused verification](audits/AUDIT-ORIGINAL-ROOT-LOG-FORM-COMPARISON-2026-10-03.md).
+The ACTUAL squared-distance bound with coefficient
+`(8/N+1/(M+1))^2` is ALSO checked. The limit join and derivative/log equality
+remain open; physical scaling is NOT claimed. See the
+[actual norm comparison and focused verification](audits/AUDIT-ORIGINAL-ROOT-LOG-NORM-COMPARISON-2026-10-03.md).
 
 **Earlier checked original derivative excitation:** the literal bent-loop state
 now supplies a nonzero point of the EXISTING derivative-graph domain, with

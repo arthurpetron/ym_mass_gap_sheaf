@@ -1,5 +1,10 @@
 # ORIGINAL quotient/logPartial: actual two-sided finite diagonal comparison
 
+FOLLOW-UP: the ACTUAL symmetric form-to-norm application is now checked in
+`audits/AUDIT-ORIGINAL-ROOT-LOG-NORM-COMPARISON-2026-10-03.md`.
+This checkpoint's evidence is retained below; the limit join and physical
+scaling remain OPEN.
+
 The whole-project goal remains nontrivial continuum Yang--Mills on R^4 for
 every compact simple group, with SAME-theory QFT axioms and a positive
 physical Hamiltonian mass gap. It is OPEN. This increment constructs the

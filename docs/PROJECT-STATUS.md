@@ -17,10 +17,12 @@ literal coarse-defect/time-one moment pins are NOW checked in three further
 focused targets (31 permitted gates). The actual quotient/logPartial diagonal
 comparison is ALSO checked in four focused targets (21 permitted gates):
 error=retained Tail-ORIGINAL S-form, bounded below by -invSucc(M)*Bxx and
-above by (2*half^d)*Bxx for depth=d+2 and M>0. The norm/limit join remains
+above by (2*half^d)*Bxx for depth=d+2 and M>0. The ACTUAL squared-distance
+bound (2*half^d+invSucc(M))^2*Bxx is ALSO checked in one further focused
+target (five permitted gates, one axiom-free). The limit join remains
 OPEN; neither derivative/log equality nor a changing-family signed estimate
 is claimed. Evidence:
-`audits/AUDIT-ORIGINAL-ROOT-LOG-FORM-COMPARISON-2026-10-03.md`.
+`audits/AUDIT-ORIGINAL-ROOT-LOG-NORM-COMPARISON-2026-10-03.md`.
 No exact displayed claim changed; no ASCII reprint.
 
 Verified supporting ORIGINAL derivative-domain excitation (2026-10-03 UTC;
