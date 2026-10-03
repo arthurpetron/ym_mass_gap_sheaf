@@ -7201,6 +7201,14 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialProjectedVarianceCutoff
 
 -- Concrete prerequisites for conditional finite heat flow: actual angular
 -- brackets and spectator-preserving saturation/endpoint reproduction.
--- Bochner/conditional Poincare and the original scaling budget remain OPEN.
+-- Conditional Poincare and the original scaling budget remain OPEN.
 import YMGap.Continuum.SU2QuaternionAngularLieBracket
 import YMGap.Continuum.SU2QuaternionHeadHeatFiniteFlow
+
+-- Actual Casimir centrality and Gamma2-Gamma symmetric-Hessian certificate;
+-- SAME-cutoff composition on the original shared-spectator head heat map.
+-- Local geometry only: conditional variance/scaling/Clay remain OPEN.
+import YMGap.Continuum.SU2QuaternionAngularCasimirCentrality
+import YMGap.Continuum.SU2QuaternionAngularHessianSquares
+import YMGap.Continuum.SU2QuaternionAngularBochner
+import YMGap.Continuum.SU2QuaternionHeadHeatSemigroup

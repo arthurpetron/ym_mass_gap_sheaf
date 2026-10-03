@@ -4,7 +4,28 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL signed two-output determinant (2026-10-03 UTC)
+## Current increment: actual SU(2) Bochner square and heat composition (2026-10-03 UTC)
+
+PROGRESS after `d9283e56`: the actual six-field Casimir now commutes with its
+fields. The ordered 36 commutator squares sum to 4*Gamma; the actual
+Gamma2=(1/2)*L(Gamma)-Gamma(p,Lp) equals the ordered Hessian square, so
+Gamma2-Gamma has a constructed quarter-scaled symmetric-Hessian certificate.
+Any certified original positive W retains it, including shared spectators.
+The literal finite headMap satisfies SAME-cutoff P_u P_v=P_(u*v), without
+saturation or positivity assumptions. No analytic bound is a premise.
+Four focused targets passed 12 gates in {propext, Quot.sound}; independent
+mathematical reviews passed. NEXT: actual conditional reference variance,
+then ORIGINAL Q_K/signed action and Taylor cost versus its SAME surviving
+norm on a JUSTIFIED family. Generator/endpoint order/particular output pin
+and the aggregate budget remain open. Physical/OS/scaling/continuum/QFT/
+every-group/Clay and exact canonical chart claims remain OPEN.
+Evidence: `audits/AUDIT-ACTUAL-ANGULAR-BOCHNER-HEAT-FLOW-2026-10-03.md`.
+
+The legacy progress-metric script was inspected, not executed: it invokes
+the broad YMGapGuard build, which is not authorized by these focused checks.
+This increment claims no discharged Clay-frontier bundle or guard change.
+
+## Earlier increment: ORIGINAL signed two-output determinant (2026-10-03 UTC)
 
 PROGRESS after `b0eb3e2`: the complete original determinant now has a
 ratio-free signed two-output form; actual weighted transfer symmetry

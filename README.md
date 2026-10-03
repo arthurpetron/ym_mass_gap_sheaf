@@ -10,11 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Checked heat-flow prerequisites:** the actual rotation-field brackets and
-finite harmonic heat-flow saturation/endpoint reproduction are proved,
-preserving shared spectators. The conditional Bochner/variance estimate is
-still open; no continuum claim closes. See the
-[proofs and remaining seams](audits/AUDIT-FINITE-HEAT-FLOW-ANGULAR-BRACKETS-2026-10-03.md).
+**Checked local SU(2) Bochner estimate and heat composition:** the actual
+six-rotation Laplacian commutes with its fields. Its iterated energy satisfies
+`Gamma2 - Gamma = (1/4) * symmetricHessianSquare`, with a constructed positive
+certificate retaining shared spectators and positive output weights. The
+actual finite head heat maps compose at the same cutoff. Conditional variance,
+the original signed-cost scaling budget and the continuum target remain open;
+this local curvature constant is not a physical mass gap. See the
+[proofs and remaining joins](audits/AUDIT-ACTUAL-ANGULAR-BOCHNER-HEAT-FLOW-2026-10-03.md).
 
 **Checked original-variance cutoff comparison:** the remaining projected
 conditional variance is bounded by a reference-cutoff variance with one

@@ -27,25 +27,30 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
 
-NOW CHECKED ACTUAL ANGULAR BRACKETS AND FINITE HEAT-FLOW ENDPOINT:
-The real six rotation fields have proved overlapping bracket [Dij,Djk]=Dik,
-plane antisymmetry and disjoint commutation; further HEAD angular transport
-uses the existing genuine derivative-carrier theorem. The actual headMap
-has an explicit input cutoff, saturated harmonic formula, later-cutoff
-stability and nome-one reproduction under every surviving insertion.
-Shared spectators remain; nome-one kernel positivity is NOT asserted.
-Two focused checks passed seven permitted gates; independent reviews passed.
-Evidence: `audits/AUDIT-FINITE-HEAT-FLOW-ANGULAR-BRACKETS-2026-10-03.md`.
-NEXT: actual Casimir centrality/Bochner square plus conditional finite heat-flow
-comparison. Prove semigroup/generator and constructive endpoint order as needed;
-do not assume a generic rational mean-value theorem exists. Keep intermediate
-coordinates distinct. Fresh-output identification with an existing spectator
-needs an explicit particular unit-block pullback, or avoid it by constructing
-the final boundary-pinned conditional certificate directly. HCE arbitrary
-insertions alone are not a diagonal delta insertion. Only AFTER this genuine
-reference estimate join the ORIGINAL Q_K, signed Taylor/action terms and
-SAME surviving norm to the normalized-window consumer. Aggregate scaling,
-physical/continuum/QFT/every-group/Clay remain OPEN; no chart reprint.
+NOW CHECKED ACTUAL BOCHNER CURVATURE AND SAME-CUTOFF HEAT COMPOSITION:
+The literal six-rotation Casimir commutes with its actual fields under every
+Haar insertion. Ordered commutator squares equal 4*Gamma, and the actual
+Gamma2=(1/2)*L(Gamma)-Gamma(p,Lp) equals the full ordered Hessian square.
+Gamma2-Gamma is one quarter of the symmetric-Hessian square, with a constructed
+certificate retaining arbitrary certified positive original output W and
+shared spectators. The literal headMap satisfies P_u P_v=P_(u*v) at the SAME
+inclusive cutoff, even below saturation; omitted modes remain zero.
+Four focused checks passed 12 permitted gates; independent mathematical
+reviews passed. Evidence:
+`audits/AUDIT-ACTUAL-ANGULAR-BOCHNER-HEAT-FLOW-2026-10-03.md`.
+NEXT: construct the conditional reference variance estimate from this actual
+curvature and heat flow, with ORIGINAL Q_K and retained output variables.
+Nome-generator differentiation and constructive endpoint order remain unpaid;
+do not assume a generic rational mean-value theorem exists. Account for
+intermediate positivity using computed larger prefixes plus saturation, not
+a fixed prefix positive all the way to nome one. Keep coordinates distinct:
+fresh-output identification needs a particular unit-block pullback, or a
+direct boundary-pinned certificate; arbitrary HCE insertions are not a delta.
+Only AFTER the reference variance estimate join signed Taylor/action terms
+and the SAME surviving norm to the existing normalized-window consumer.
+The local curvature ONE is not a physical gap or an interacting-generator
+curvature bound. Aggregate scaling, physical/continuum/QFT/every-group/Clay
+remain OPEN; exact displayed chart claims unchanged, no chart reprint.
 
 NOW CHECKED ORIGINAL ACTIVE-VARIANCE NEAR-UNIT CUTOFF LEG:
 Unit conditional kernels P,R and a common reference center give
@@ -63,7 +68,7 @@ the SAME Q_K with shared surviving variables, then preserve its original
 action/signed-Taylor join and surviving-norm currency. The existing
 HeadHeatDiagonal.headMap uses SpareHeadCopy.copy and preserves spectators;
 reuse it for finite harmonic heat-flow endpoint/composition/generator proofs.
-Actual angular brackets/Bochner positivity are not assumed. Intermediate
+Actual angular brackets/Bochner positivity are now constructed above. Intermediate
 positivity may use a larger computed kernel prefix and saturation transport;
 one fixed truncated kernel need not be positive as its auxiliary nome tends
 to one. No unweighted energy estimate substitutes for conditional variance.

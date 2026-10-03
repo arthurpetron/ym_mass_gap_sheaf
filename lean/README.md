@@ -12,15 +12,18 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT checked finite-flow/bracket prerequisites (2026-10-03 UTC):**
-Actual overlapping angular brackets, antisymmetry and disjoint commutation
-are proved; headMap saturation, later-cutoff stability and nome-one
-reproduction retain the literal shared spectators under every Haar insertion.
-The computed cutoff is source-specific, not scaling-uniform; reproduction
-does not assert kernel positivity at one. Two focused checks passed seven
-permitted gates. Casimir centrality, Bochner/conditional variance and the
-original signed-window scaling budget remain OPEN. Evidence:
-`audits/AUDIT-FINITE-HEAT-FLOW-ANGULAR-BRACKETS-2026-10-03.md`.
+**CURRENT checked actual angular Bochner and heat composition (2026-10-03 UTC):**
+The original six-field Laplacian commutes with every head rotation. All 36
+ordered commutator squares sum to 4*Gamma. Actual Gamma2, DEFINED as
+(1/2)*L(Gamma)-Gamma(p,Lp), equals the ordered Hessian square, and
+Gamma2-Gamma has a constructed quarter-scaled symmetric-Hessian certificate.
+Any certified positive original output W retains the same margin. The actual
+headMap composes at one fixed cutoff, including omitted modes and shared
+spectators; no nome or kernel positivity is assumed for this identity.
+Four focused checks passed 12 gates, each within {propext, Quot.sound};
+no full build/audit. Conditional reference variance, the ORIGINAL signed-window
+scaling budget and physical/continuum/QFT/every-group/Clay remain OPEN.
+Evidence: `audits/AUDIT-ACTUAL-ANGULAR-BOCHNER-HEAT-FLOW-2026-10-03.md`.
 
 **CURRENT checked ORIGINAL active-variance cutoff comparison (2026-10-03 UTC):**
 A common center retains the mean-mismatch square and constructs LINEAR
