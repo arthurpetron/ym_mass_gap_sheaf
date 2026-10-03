@@ -4931,6 +4931,10 @@ import YMGap.Continuum.BF4WilsonAllNomeOneStepGap
 import YMGap.Continuum.BF4WilsonAllNomeDyadicFilteredRateConstraint
 import YMGap.Continuum.SU2QuaternionMultiHeadVarianceReplica
 import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalNoise
+-- Original single-factor sign, not an interacting/continuum refutation.
+import YMGap.Continuum.SU2HeatAntipodalPrefixBounds
+import YMGap.Continuum.SU2QuaternionAntipodalHeatJets
+import YMGap.Continuum.SU2QuaternionAntipodalCurvatureObstruction
 -- Exact full-energy fringe reduction; signed source correction remains, no scaling closure.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialProjectedSourceEnergy
 -- Original-energy Taylor bound with checked source cancellation; scaling remains open.

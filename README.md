@@ -10,6 +10,13 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Checked route correction:** the original single heat factor has an explicit
+negative cleared curvature expression at the antipode, even beyond its cutoff
+guards. This excludes a pointwise bare-factor positive-curvature shortcut,
+not an interacting Yang--Mills estimate. The next target remains signed
+aggregate control on a justified changing family. See the
+[finite witness and precise scope](audits/AUDIT-ORIGINAL-ANTIPODAL-CURVATURE-2026-10-03.md).
+
 **New checked original conditional-noise theorem:** two full original finite
 windows give a constructive certificate for `A*H-b^2>=0` after any number
 of transfer steps, with the surviving variables shared. Its exact variance-loss

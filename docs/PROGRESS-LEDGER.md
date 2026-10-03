@@ -4,7 +4,20 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Original iterated conditional noise and exact variance loss (2026-10-03 UTC)
+## Current increment: An actual antipodal sign prunes a pointwise shortcut (2026-10-03 UTC)
+
+PROGRESS after `70cca27`: original quaternion jets and finite Casimir tails
+prove a negative single-heat Ricci-two cleared expression at w=5/8 and the
+explicit unit antipode, for every K>=4 including beyond both guards. This is
+an actual evaluated sign, not a sign inferred from a lower-bound coefficient.
+Only pointwise bare-factor positivity is pruned; interacting/averaged signed
+control stays open. Three focused checks passed 15 permitted gates with
+independent reviews. No new relative producer, justified family or continuum
+claim. Root aggregate, broad audit and progress metric NOT run; CI and exact
+chart unchanged. Evidence:
+`audits/AUDIT-ORIGINAL-ANTIPODAL-CURVATURE-2026-10-03.md`.
+
+## Earlier increment: Original iterated conditional noise and exact variance loss (2026-10-03 UTC)
 
 PROGRESS after `fc23e5a`: the full multi-head two-copy difference square
 constructs an actual shared-tail variance certificate. The existing original

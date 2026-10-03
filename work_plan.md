@@ -27,6 +27,16 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
+CHECKED BACKTRACK: the ORIGINAL heat at w=5/8, lower identity and upper
+antipode has h>0, Dh=0 and D^2h>2h at EVERY K>=4. Its actual Ricci-two
+cleared polynomial is negative beyond BOTH existing cutoff guards. This
+rejects pointwise positive curvature of every bare factor, NOT complete
+interacting/averaged estimates. The old blanket exclusion stays withdrawn.
+Keep signed aggregate cancellation against the actual filtered norm as the
+next producer. Three focused checks passed fifteen permitted gates;
+no displayed claim closed. Evidence:
+`audits/AUDIT-ORIGINAL-ANTIPODAL-CURVATURE-2026-10-03.md`.
+
 NOW CHECKED ORIGINAL ITERATED CONDITIONAL NOISE:
 `SU2QuaternionMultiHeadVarianceReplica` constructs the full shared-tail Gram
 certificate. `BF4ExactSlabFixedSpatialBlockConditionalNoise` applies it to the

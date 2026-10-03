@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL antipodal sign (2026-10-03 UTC; chart unchanged):
+the single heat factor at w=5/8 has a negative Ricci-two cleared polynomial
+at an explicit unit-quaternion configuration, uniformly in later finite cutoff
+and beyond both guards. Fifteen permitted gates passed three focused checks.
+This prunes pointwise bare-factor positive curvature, NOT complete interacting
+or averaged estimates. The signed producer, justified family and every
+displayed continuum claim remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-ANTIPODAL-CURVATURE-2026-10-03.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting ORIGINAL iterated conditional-noise certificate
 (2026-10-03 UTC; chart unchanged): the full multi-head replica retains every
 shared surviving insertion and constructs A*H-b^2>=0 for the EXISTING

@@ -12,6 +12,14 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**CURRENT original antipodal sign (2026-10-03 UTC):**
+The three antipodal heat modules check an explicit negative original
+single-factor Ricci-two cleared expression beyond both cutoff guards.
+Fifteen gates passed three focused checks. This prunes pointwise bare-factor
+positive curvature, not complete interacting/averaged estimates. Root imports
+registered only; no aggregate check. Evidence:
+`audits/AUDIT-ORIGINAL-ANTIPODAL-CURVATURE-2026-10-03.md`.
+
 **CURRENT original iterated conditional noise (2026-10-03 UTC):**
 `SU2QuaternionMultiHeadVarianceReplica` constructs the full shared-tail
 variance certificate. `BF4ExactSlabFixedSpatialBlockConditionalNoise` joins
