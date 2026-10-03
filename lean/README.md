@@ -13,6 +13,17 @@ discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
 **CURRENT original signed filtered source and SAME response target (2026-10-02 UTC):**
+`QuaternionHaarWordSignedCross`, `BF4ExactSlabFixedSpatialWilsonSignedChord`
+and `BF4ExactSlabFixedSpatialFilteredSignedChord` retain the actual ordered
+cross cost. The diagonal alone has linear length cost; the COMPLETE OWN
+filtered ceiling keeps the unestimated signed cross and all U,Y,D terms.
+`SU2QuaternionHeatAlignmentAmplificationObstruction` separately refutes
+the attempted quaternion-vector lift of scalar alignment with an exact
+original degree-one/two heat witness. The narrower scalar-source target
+and useful changing-family relative budget remain OPEN. Four final focused
+checks passed 30 allowed gates. Evidence:
+`audits/AUDIT-ORDERED-WORD-SIGNED-CROSS-AND-AMPLIFICATION-2026-10-02.md`.
+
 `QuaternionHaarChordalInterval` and
 `BF4ExactSlabFixedSpatialMixedDepthChordalInsertion` pay the remaining
 mixed chord moment against the SAME even partition, via an actual whole-word

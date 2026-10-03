@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL ordered cross cost (2026-10-02 UTC;
+chart unchanged): exact whole-word diagonal plus TWICE actual signed
+cross gives linear DIAGONAL length cost under the original matched law.
+Cap4/common-tail comparison reaches the COMPLETE OWN filtered ceiling,
+retaining U,Y,D and SAME partitions. No cross sign or useful relative
+budget is proved. An exact original low-degree heat witness refutes only
+the quaternion-vector amplification shortcut, not the narrower actual
+positive scalar-source word estimate. Four final focused explicit20-GiB
+checks passed 30 allowed gates. Evidence:
+`audits/AUDIT-ORDERED-WORD-SIGNED-CROSS-AND-AMPLIFICATION-2026-10-02.md`.
+All displayed changing-family/continuum claims remain OPEN; no ASCII reprint.
+
 Verified supporting BOTH positive chord costs paid (2026-10-02 UTC;
 chart unchanged): the actual whole-word cap4 and original common-tail
 comparison bound the mixed chord by [6(1-w)*length^2+epsilon]*SAME even

@@ -36,6 +36,15 @@ and boundary comparison; the radial, Young and drift corrections stay.
 The useful changing-family relative bound remains open. See the
 [fully paid ceiling and remaining input](audits/AUDIT-FULLY-PAID-FILTERED-OWN-CEILING-2026-10-02.md).
 
+**New checked signed cross estimate:** the actual ordered word cost now
+has an alternative bound: a linear per-link diagonal cost plus TWICE its
+computed signed cross cost. The sum reaches the complete OWN filtered
+ceiling with all radial, Young and drift corrections. This is not a
+linear total-cost or uniform scaling theorem; the cross cost remains
+unestimated. An exact one-link counterexample excludes the proposed
+quaternion-vector amplification shortcut, not the narrower scalar-source
+Wilson bound. See the [exact estimate and excluded shortcut](audits/AUDIT-ORDERED-WORD-SIGNED-CROSS-AND-AMPLIFICATION-2026-10-02.md).
+
 **Checked signed-source estimate:** that SAME source is exactly an
 original mixed-depth jump square minus TWICE the drift square. Its upper
 radial term shares the drift's middle marginal, and its COMPLETE word

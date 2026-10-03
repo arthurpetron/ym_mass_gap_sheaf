@@ -27,6 +27,24 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME signed filtered slope and reserve (2026-10-02 UTC)
 
+NEW CHECKED ORDERED CROSS COST: the original whole-word chord is exactly
+its per-link diagonal plus TWICE its actual signed pair sum in all four
+coordinates. Unit prefixes/suffixes cancel only on the diagonal, giving
+6(1-w)*length+2X under the SAME matched edge law/oddMass. Original cap4
+common-tail comparison reaches the mixed window with the SAME even
+partition and computed tolerance onset. The COMPLETE OWN Young ceiling
+now also admits a=6(1-w)*length+2X+epsilon, retaining U,Y,D and the actual
+OWN mean. This is linear DIAGONAL cost, NOT linear total cost: X is
+computed but unestimated, and the quartic length^4 cost remains. A separate
+exact low-degree ORIGINAL heat counterexample refutes quaternion-vector
+amplification of scalar alignment for every 0<w<1,K>=2; it does not refute
+the narrower positive scalar-source word target. Four final focused
+checks passed 30 allowed gates. NEXT estimate the COMPLETE signed source
+versus SAME connected lag-one response, or its retained cross/correction
+expression, on a justified changing family. Do not assume X's sign or
+iterate the false vector lift. Evidence:
+`audits/AUDIT-ORDERED-WORD-SIGNED-CROSS-AND-AMPLIFICATION-2026-10-02.md`.
+
 NEW CHECKED BOTH CHORD COSTS PAID: an actual Type-valued whole-word
 Interval cap4 follows from 4-|p-q|^2=|p+q|^2 under the original Haar-unit
 pins. Common-tail comparison gives L<=[6(1-w)*length^2+8*mixRate^n]*E;

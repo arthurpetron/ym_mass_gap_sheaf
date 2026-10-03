@@ -5132,6 +5132,14 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialFilteredOwnYoung
 -- cost too; all OWN-centered corrections and explicit kinetic guards remain.
 import YMGap.Continuum.QuaternionHaarChordalInterval
 import YMGap.Continuum.BF4ExactSlabFixedSpatialMixedDepthChordalInsertion
+-- Linear DIAGONAL cost plus actual signed ordered cross, not a linear
+-- total-cost theorem; complete OWN ceiling retains U,Y,D and SAME partitions.
+import YMGap.Continuum.QuaternionHaarWordSignedCross
+import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonSignedChord
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFilteredSignedChord
+-- Scalar alignment cannot amplify to arbitrary quaternion-valued sources.
+-- Exact original low-degree obstruction; narrower scalar word stays OPEN.
+import YMGap.Continuum.SU2QuaternionHeatAlignmentAmplificationObstruction
 -- Actual OWN-centered Wilson quartic insertion, SAME original positive
 -- terminal/spectator source and odd partition; not the full filtered slope.
 import YMGap.Continuum.BF4DyadicWilsonSquareSignedQuarticInsertion

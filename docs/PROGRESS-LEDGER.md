@@ -4,7 +4,27 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Both original chord costs paid with corrections retained (2026-10-02 UTC)
+## Current increment: Original ordered cross cost retained and false amplification pruned (2026-10-02 UTC)
+
+PROGRESS after `6db3d0d`: the actual ordered word chord is its complete
+diagonal plus twice its signed cross insertion. Only diagonal unit
+prefixes/suffixes cancel, yielding linear length cost under the SAME
+original matched density. Cap4/common-tail comparison carries the sum to
+the COMPLETE OWN filtered ceiling with original U,Y,D and partitions.
+The signed cross is unestimated; this is NOT a linear total-cost bound.
+An exact original one-link degree-one/two source refutes the attempted
+quaternion-vector amplification, without refuting scalar-source alignment
+or the actual positive terminal source. Four final focused checks passed
+30 allowed gates. Evidence:
+`audits/AUDIT-ORDERED-WORD-SIGNED-CROSS-AND-AMPLIFICATION-2026-10-02.md`.
+
+NEXT: useful complete signed-source/lag-one relative budget and positive
+reserve on a justified changing family. The actual cross cost and quartic
+length^4 term remain, as do all continuum/Clay endpoints. Four root
+imports registered; root/tree, broad audit/guard and progress metric NOT
+run. CI and exact chart unchanged; no ASCII reprint.
+
+## Earlier increment: Both original chord costs paid with corrections retained (2026-10-02 UTC)
 
 PROGRESS after `fb3a0bf`: construct the literal whole-word chord Interval
 cap4 using the original Haar-unit parallelogram identity. The matched
