@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting whole-word covariance cost (2026-10-03 UTC; chart unchanged):
+the ACTUAL square gain minus its mean residue obeys a full scalar-word
+bound retaining the negative spin-two moment, original source V*g_n,
+output action V and SAME centered-message square. The literal residue
+has bound 8*(1-a)*mixRate^n*SAME evenPartition and a computed depth onset.
+All 18 constructive gates and independent reviews passed. Conditional
+source loss is still NOT interacting variance or lag-one reserve; the
+useful changing-family relative estimate and all displayed nodes remain
+OPEN. Evidence: `audits/AUDIT-WHOLE-WORD-COVARIANCE-GAIN-2026-10-03.md`.
+No displayed claim changed; no ASCII reprint.
+
 Verified supporting finite heat source bridge (2026-10-03 UTC; chart unchanged):
 the computed angular inverse subtracts only the CONDITIONAL mean, retaining
 all spectators. Literal selected heat defects pair exactly with ENTIRE source

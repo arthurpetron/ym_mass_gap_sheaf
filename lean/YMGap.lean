@@ -5151,6 +5151,11 @@ import YMGap.Continuum.SU2QuaternionRelativeHeatCoordinateCovariance
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFilteredGainSourcePair
 import YMGap.Continuum.SU2QuaternionProductHeatWilsonStein
 import YMGap.Continuum.BF4DyadicWilsonSquareFilteredGainStein
+-- Whole-word signed covariance retains the spin-two correction; actual
+-- finite mean residue has an explicit depth modulus. Relative cost OPEN.
+import YMGap.Continuum.SU2QuaternionProductHeatWilsonCovariance
+import YMGap.Continuum.BF4DyadicWilsonSquareFilteredGainCovariance
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFilteredMeanResidueBound
 -- Scalar alignment cannot amplify to arbitrary quaternion-valued sources.
 -- Exact original low-degree obstruction; narrower scalar word stays OPEN.
 import YMGap.Continuum.SU2QuaternionHeatAlignmentAmplificationObstruction

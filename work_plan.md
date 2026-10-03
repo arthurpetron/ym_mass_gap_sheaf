@@ -80,6 +80,25 @@ polynomials during carrier transport; the next input is quantitative, not
 another generic identity or a presumed sign.
 Evidence: `audits/AUDIT-FINITE-HEAT-SOURCE-GRADIENT-2026-10-02.md`.
 
+NEW CHECKED QUANTITATIVE WORD COST: under the ORIGINAL product kernel,
+the entire scalar word gives defectPair^2 <= sourceLoss*
+[(1-d)*ell(b^2)-(a^2-d)*ell(b^2*f^2)], with a=w^(12*side),
+d=w^(32*side) on the ACTUAL growing square. Source V*g_n, output action V,
+test b=T(g_n*(f-c)) and OWN center are all retained. The coarser corollary
+has coefficient 1-w^(32*side), without a perimeter-square telescope penalty.
+The literal mean residue has bound 8*(1-a)*mixRate^n*SAME evenPartition,
+and a computed depth onset pays it to (1-a)*epsilon*SAME evenPartition.
+That onset is cutoff/loop independent but NOT nome/width independent.
+Three final focused checks passed 18 allowed gates and independent reviews.
+NEXT estimate this COMPLETE retained cost versus the SAME completed lag-one
+response, or prove the requisite signed gain directly. Do not identify
+conditional source loss with OWN variance or drop the negative moment.
+Source-loss localization and the retained spin-one/spin-two balance are
+candidate estimates, not proved reserve bounds or mandatory new compilers.
+The justified scaling family, fixed relative budget and positive reserve
+are still the forward-backward meeting inputs. Evidence:
+`audits/AUDIT-WHOLE-WORD-COVARIANCE-GAIN-2026-10-03.md`.
+
 NEW CHECKED ORDERED CROSS COST: the original whole-word chord is exactly
 its per-link diagonal plus TWICE its actual signed pair sum in all four
 coordinates. Unit prefixes/suffixes cancel only on the diagonal, giving

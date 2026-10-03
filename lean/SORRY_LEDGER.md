@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## PROVED whole-word covariance cost and finite mean residue only (2026-10-03 UTC)
+
+- `SU2QuaternionProductHeatWilsonCovariance.fundamental_word_covariance_pair_retained_bound`
+  bounds the original scalar word defect by the SAME weighted test square
+  and conditional source loss, retaining the negative spin-two moment.
+  The coarser rate is 1-w^(8*perimeter); source/output/spectators stay literal.
+- `BF4DyadicWilsonSquareFilteredGainCovariance` constructs the actual square
+  specialization, geometry and OWN center. The retained gain bound squares
+  G2 MINUS its finite mean residue; no favorable sign is inferred.
+- `BF4ExactSlabFixedSpatialFilteredMeanResidueBound` pays that residue with
+  8*(1-a)*mixRate^n*SAME evenPartition and a computed all-later depth onset.
+  The onset depends on nome/width, not heat cutoff or loop size.
+- Three final focused checks passed all 18 allowed gates and independent
+  mathematical/source-log reviews. Root imports registered, not aggregate-checked.
+  No new sorry, axiom, classical shortcut, CI or displayed chart change.
+  Useful retained-cost/SAME-reserve control, a justified changing family,
+  positive reserve and all continuum endpoints remain OPEN. Evidence:
+  `audits/AUDIT-WHOLE-WORD-COVARIANCE-GAIN-2026-10-03.md`.
+
 ## PROVED finite heat source bridge and conditional coordinate covariance only (2026-10-03 UTC)
 
 - `SU2QuaternionHeadCasimirInverse.potential_poisson` computes the inverse

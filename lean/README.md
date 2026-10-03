@@ -46,6 +46,19 @@ including its OWN-center instance; no geometric recoding hypothesis remains.
 The changing-family signed budget and positive reserve remain OPEN.
 Evidence: `audits/AUDIT-FINITE-HEAT-SOURCE-GRADIENT-2026-10-02.md`.
 
+`SU2QuaternionProductHeatWilsonCovariance` now estimates the ENTIRE signed
+scalar word under the original joint kernel. It retains the negative
+spin-two moment and costs the SAME weighted test square and conditional
+source loss, not a raw Haar norm. `BF4DyadicWilsonSquareFilteredGainCovariance`
+constructs the actual square consumer with source V*g_n, action V and OWN
+center. `BF4ExactSlabFixedSpatialFilteredMeanResidueBound` pays its literal
+mean residue by 8*(1-a)*mixRate^n*SAME evenPartition, with a computed depth
+threshold independent of cutoff/loop but dependent on nome/width.
+Three final focused checks passed 18 allowed gates and independent reviews.
+The useful complete retained-cost/lag-one-reserve comparison remains OPEN;
+no source-loss/OWN-variance identification or scaling conclusion is supplied.
+Evidence: `audits/AUDIT-WHOLE-WORD-COVARIANCE-GAIN-2026-10-03.md`.
+
 `QuaternionHaarWordSignedCross`, `BF4ExactSlabFixedSpatialWilsonSignedChord`
 and `BF4ExactSlabFixedSpatialFilteredSignedChord` retain the actual ordered
 cross cost. The diagonal alone has linear length cost; the COMPLETE OWN

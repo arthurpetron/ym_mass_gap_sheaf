@@ -43,6 +43,15 @@ Wilson square, retaining the original terminal and OWN center. The useful
 signed comparison remains open. See the
 [finite-heat bridge and missing quantitative join](audits/AUDIT-FINITE-HEAT-SOURCE-GRADIENT-2026-10-02.md).
 
+**New checked quantitative join:** the ACTUAL Wilson-square gain now has
+a whole-word covariance cost, keeping the negative spin-two moment and
+the SAME original terminal, action and centered-message norm. Its finite
+moving-mean error has a computed geometric depth threshold. The cost is
+still conditional source loss, NOT interacting variance or the completed
+lag-one reserve. All 18 constructive gates passed; the useful changing-family
+relative bound remains open. See the
+[signed estimate and paid boundary error](audits/AUDIT-WHOLE-WORD-COVARIANCE-GAIN-2026-10-03.md).
+
 **New checked source cancellation:** the literal original radius-two loop
 source equals conditional noise MINUS a nonnegative drift square, over its
 SAME even-window partition. The original finiteValue pin and constant-shift
