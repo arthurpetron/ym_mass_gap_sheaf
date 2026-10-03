@@ -1,5 +1,19 @@
 # Sorry Ledger
 
+## PROVED original local radial cost decomposition only (2026-10-03 UTC)
+
+- `BF4DyadicWilsonSquareFilteredGainRadialCost` constructs the literal
+  Gap=ell[b^2*(4-f^2)]>=0 from original cap4, V and b-square certificates.
+- Exact retained cost=nu*Q2+h*Gap, x=w^(8*side), with
+  0<=nu<=6*(1-x)^2 and 0<=h<=1-x. SAME OWN gain-minus-residue consumer.
+  No total second-order cost, trace concentration or gain sign claim.
+- Final second focused check passed ten allowed gates and independent
+  review. No new sorry/axiom/classical shortcut/field weakening/resource
+  increase; root import registered, not aggregate-checked. CI/chart unchanged.
+- OPEN: COMPLETE local-loss/radial-cost product versus SAME response,
+  actual family-wide relative budget and all scaling/continuum joins.
+  Evidence: `audits/AUDIT-LOCAL-RADIAL-COST-2026-10-03.md`.
+
 ## PROVED conditional normalized real time continuity only (2026-10-03 UTC)
 
 - `BF4WilsonAllNomeDyadicNormalizedAnchorContinuity` constructs an actual

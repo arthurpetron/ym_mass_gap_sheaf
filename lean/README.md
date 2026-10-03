@@ -87,6 +87,14 @@ and normalized survival passed 31 allowed gates and independent review.
 Useful local-cost/SAME-response control remains OPEN. Evidence:
 `audits/AUDIT-WORD-LOCAL-COST-AND-NORMALIZED-SURVIVAL-2026-10-03.md`.
 
+`BF4DyadicWilsonSquareFilteredGainRadialCost` constructs the actual
+nonnegative weighted trace defect and splits the retained cost exactly
+into nu*Q2+h*Gap, with explicit quadratic/linear coefficients at
+x=w^(8*side). The SAME OWN local gain consumer keeps its literal residue.
+Ten allowed gates passed; total second-order cost, trace concentration and
+the useful relative product bound are NOT proved. Evidence:
+`audits/AUDIT-LOCAL-RADIAL-COST-2026-10-03.md`.
+
 `QuaternionHaarWordSignedCross`, `BF4ExactSlabFixedSpatialWilsonSignedChord`
 and `BF4ExactSlabFixedSpatialFilteredSignedChord` retain the actual ordered
 cross cost. The diagonal alone has linear length cost; the COMPLETE OWN

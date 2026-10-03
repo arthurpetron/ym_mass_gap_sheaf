@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting original radial cancellation (2026-10-03 UTC;
+chart unchanged): the actual retained test cost is exactly a quadratic
+heat-loss coefficient times Q2 plus a linear coefficient times the literal
+nonnegative weighted trace defect. SAME OWN local gain/residue remain.
+Ten constructive gates passed. Total second-order cost and useful relative
+product control are not proved; displayed scaling/continuum claims remain
+OPEN. Evidence: `audits/AUDIT-LOCAL-RADIAL-COST-2026-10-03.md`.
+No ASCII reprint.
+
 Verified supporting conditional normalized continuity (2026-10-03 UTC;
 chart unchanged): the SAME relative budget controls an actual half-anchor
 preimage. Its geometric radius depends only on budget constant/tolerance,

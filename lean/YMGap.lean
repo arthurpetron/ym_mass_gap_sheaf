@@ -5160,6 +5160,9 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialFilteredMeanResidueBound
 -- The normalized SAME bond anchor needs only the unsupplied relative budget.
 import YMGap.Continuum.SU2QuaternionProductHeatWilsonLocalCovariance
 import YMGap.Continuum.BF4DyadicWilsonSquareFilteredGainLocalCovariance
+-- Exact quadratic scalar cancellation plus literal weighted trace gap;
+-- the COMPLETE original product/SAME-response estimate remains OPEN.
+import YMGap.Continuum.BF4DyadicWilsonSquareFilteredGainRadialCost
 import YMGap.Continuum.BF4WilsonAllNomeDyadicNormalizedBondAnchor
 -- SAME relative budget controls normalized real-time continuity;
 -- family/physical calibration OPEN, no uniform raw reserve imposed.

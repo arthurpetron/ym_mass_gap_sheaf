@@ -123,6 +123,17 @@ cross-scale comparison/convergence of these SAME observable states, with
 explicit moduli and physical-time/local-field identification; do not add
 another raw reserve or absolute continuity wrapper. Evidence:
 `audits/AUDIT-NORMALIZED-ANCHOR-CONTINUITY-2026-10-03.md`.
+BACKWARD SOURCE REVIEW (not a new theorem): existing raw sample comparison
+`BF4WilsonAllNomeDyadicResponseSampling.sample_table_tail_compare:196`
+does not compare the normalized ratios. For N_k=R_k(2*side_k), matched
+samples t_k=2*side_k+j_k require effective BOTH-order cleared comparisons
+R_k(t_k)*N_l <= R_l(t_l)*N_k+epsilon*N_k*N_l. This is a missing producer,
+not an assumed new certificate. The existing CReal effective-Cauchy engine
+can consume the resulting scalar data without a full width map; the known
+`BF4WilsonAllNomeWidthInclusionObstruction.no_completed_literal_inclusion:232`
+still forbids the literal full-carrier route. Joint correlation/observable
+compatibility must ALSO meet `CanonicalOSRoot.CanonicalSchwingerLimit:121`;
+a cyclic scalar limit alone would not inhabit it.
 The family-wide budget, cross-scale convergence, local-field identification,
 physical mass, full QFT and every group remain OPEN. No displayed status
 claim is closed by this conditional survival theorem.
@@ -142,6 +153,35 @@ NEXT relate this local cost AND its retained signed test moment to the
 SAME completed response on a justified family. Do not cap away that moment
 or identify conditional loss with interacting variance. Evidence:
 `audits/AUDIT-WORD-LOCAL-COST-AND-NORMALIZED-SURVIVAL-2026-10-03.md`.
+
+NEW CHECKED RADIAL CANCELLATION:
+`BF4DyadicWilsonSquareFilteredGainRadialCost` constructs the literal
+Gap=ell[b^2*(4-f^2)]>=0 under ORIGINAL V and b=T(g_n*(f-c)). For
+x=w^(8*side), the retained test cost is EXACTLY nu*Q2+h*Gap,
+nu=(1-x)^2*(1+2x+3x^2)<=6*(1-x)^2, h=x^3*(1-x)<=1-x.
+The ACTUAL OWN-centered gain-minus-residue inherits the localLoss times
+this cost. Ten allowed gates passed. This proves second-order SCALAR cost,
+not total cost or trace concentration. The a=0 existing gain pin already
+joins normalized Q2 to SAME C2, with C2<=C1; do not add another norm wrapper.
+NEXT FORWARD: estimate the COMPLETE localLoss*(nu*Q2+h*Gap) relative to
+SAME lag-one response squared, or prove its signed gain directly, on a
+justified family. Do not require separate factor convergence/smallness or
+cap Gap by4Q2 and lose the cancellation. No relative producer is supplied.
+STRATEGY CHECK: before pursuing a magnitude-only covariance route, compare
+m*(1-a) with the target budget C on the ACTUAL justified family. A bound
+G>=-delta*C1 can only supply m*(1-a+delta)<=C. If m*(1-a)>C,
+the same exact gain/budget identity instead requires a favorable signed
+G>=[(1-a)-C/m]*C1. Do not choose a coupling schedule solely to make the
+word-scale heat loss small, or interpret quadratic behavior in 1-x as
+quadratic uniform control in the per-link loss on growing words. This is
+route-selection algebra, not a new proved physical estimate.
+FORWARD SOURCE REVIEW (not a new theorem): a conditional Doob kernel with
+q=V*g_n has odd density q*(Pq), whereas the actual gain uses V*(Pq)^2.
+Its CLEARED changed word mean is P(q*f)-a*(Pq)*f, not a free eigenpin.
+Do not replace the SAME completed T by this stationary conditional kernel
+without a proved density AND time-action bridge; selected-link derivatives
+of the original V and b remain in the actual Ward pairing.
+Evidence: `audits/AUDIT-LOCAL-RADIAL-COST-2026-10-03.md`.
 
 NEW CHECKED ORDERED CROSS COST: the original whole-word chord is exactly
 its per-link diagonal plus TWICE its actual signed pair sum in all four

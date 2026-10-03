@@ -72,6 +72,13 @@ vanishing raw norm. All ten constructive gates passed. The actual budget,
 cross-scale and physical-time joins remain open. See the
 [relative continuity proof and scope](audits/AUDIT-NORMALIZED-ANCHOR-CONTINUITY-2026-10-03.md).
 
+**New checked radial cancellation:** the actual local covariance cost
+splits exactly into a second-order heat-loss coefficient times the message
+norm, plus a first-order coefficient times the weighted trace defect.
+The total cost is not proved second-order. Ten constructive gates passed;
+its useful same-response relative bound remains open. See the
+[exact cancellation and next estimate](audits/AUDIT-LOCAL-RADIAL-COST-2026-10-03.md).
+
 **New checked source cancellation:** the literal original radius-two loop
 source equals conditional noise MINUS a nonnegative drift square, over its
 SAME even-window partition. The original finiteValue pin and constant-shift
