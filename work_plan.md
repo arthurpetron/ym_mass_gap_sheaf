@@ -73,13 +73,21 @@ an exact degree-68 certificate candidate P=Zodd^2*G with
 P(r)>=(3/2)*r^10 for 0<r<=1/8. All signed remainder coefficients and the
 odd mean were retained; twelve focused Python tests and independent stored
 arithmetic review passed. This identifies a favorable lower-Casimir fusion
-mechanism, not the missing physical ratio. The original 32-state basis/
-transfer pin remains OPEN, and K=1 FAILS headCutoff(1/2)>=17; no completed,
-all-cutoff or growing-family estimate follows. NEXT FORWARD pin only the
-original messages T1, TF and seven scalar moments needed by the gain,
-not an unnecessary complete 32-state operator model; then control the
-later-cutoff/depth signed remainder. Do not repeat fixed-small-nome tests
-or add generic consumers. BACKWARD retain
+mechanism, not the missing physical ratio. NEW CHECKED SOURCE RESTRICTION:
+`BF4ExactSlabFixedSpatialCubeTransfer` pins the original width-two action
+to its six fully active faces, proves exact removal of the other active
+kinetic factors on cube inputs, and identifies original T1, TF and ALL
+seven weighted moments with literal twelve-link cube representatives.
+Seventeen new public theorem gates passed within {propext, Quot.sound}.
+These are supported-Haar equalities, NOT numerical moment values or a
+matrix/basis completeness theorem. K=1 still FAILS headCutoff(1/2)>=17;
+no completed, all-cutoff or growing-family estimate follows. NEXT FORWARD
+evaluate those seven ORIGINAL cube Haar moments and certify their signed
+polynomial, then control the later-cutoff/depth remainder. Direct two-/
+three-slice contractions can avoid a complete 32-state range theorem;
+their concrete tensor wiring and bounded certificate generation remain
+OPEN. Do not repeat fixed-small-nome tests or add generic consumers.
+BACKWARD retain
 the SAME macroscopic ratio and three relative costs on a justified physical
 family. Do not substitute this bent observable for the dyadic square.
 Evidence: `audits/AUDIT-CUBE-BENT-LOOP-SIGNED-GAIN-2026-10-03.md`.

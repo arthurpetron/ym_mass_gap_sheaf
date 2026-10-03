@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting cube source identification (2026-10-03 UTC; chart
+unchanged): original T1, TF and their seven weighted moments are now
+proved equal to literal twelve-link/six-face cube representatives, with
+all supported tests retained. Seventeen new public constructive gates
+passed. Numerical moment values, gain positivity, later-cutoff/depth
+passage and every displayed scaling/continuum claim remain OPEN.
+Evidence: `audits/AUDIT-CUBE-BENT-LOOP-SIGNED-GAIN-2026-10-03.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Finite producer diagnostic (2026-10-03 UTC; NOT a kernel closure; chart
 unchanged): the full OWN-centered bent-cube gain has an exact polynomial
 candidate Zodd^2*G>=(3/2)*r^10 for 0<r<=1/8, K=1, n=0. Twelve focused

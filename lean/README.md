@@ -13,6 +13,18 @@ discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
 **CURRENT original signed filtered source and SAME response target (2026-10-03 UTC):**
+`BF4ExactSlabFixedSpatialCubeTransfer` now proves the ORIGINAL width-two
+action has exactly six fully active cube faces, and removes the outgoing
+active kinetic factors on cube-supported inputs with every supported test
+retained. Original T1, the literal bent-loop TF, and their seven weighted
+moments equal twelve-link cube representatives in the original Haar quotient.
+Seventeen new public theorem gates passed within {propext, Quot.sound};
+independent mathematical/source review passed. Numerical contraction values,
+signed gain positivity, later-cutoff/depth control and physical scaling remain
+OPEN. The earlier cutoff-one polynomial is still an untrusted candidate;
+its failed head guard is unchanged. No full build or aggregate audit ran.
+Evidence: `audits/AUDIT-CUBE-BENT-LOOP-SIGNED-GAIN-2026-10-03.md`.
+
 Two checked certificate limits now exclude promoting the old absolute
 spectator fraction or bare-reference power to uniform interacting survival.
 The former is <=(1/2)^side for EVERY strict nome with an explicit cutoff;

@@ -1,5 +1,32 @@
 # Sorry Ledger
 
+## PROVED original cube restriction and seven moment transport only (2026-10-03 UTC)
+
+- `BF4ExactSlabFixedSpatialCubeTransfer.activeSpatialFaces_two_mem_iff`
+  and `activeSpatialWeight_cube` identify the actual width-two retained
+  action with six original face factors. `cubeIndices_length` proves
+  twelve distinct original links; `outgoing_core_perm` and
+  `original_transfer_cube` remove the other active heat factors exactly
+  on cube-local inputs, while retaining arbitrary supported output tests.
+- `original_vacuum_message_cube`, `original_bent_message_cube` and
+  `original_seven_bent_moments_cube` pin T1, the precise bent six-link TF,
+  and all seven weighted moments to literal cube representatives. These
+  are supported-Haar equalities on the original carrier, not raw
+  coefficient identities or numerical contraction values. Odd and even
+  partitions remain distinct; no gain sign is asserted.
+- Final focused check passed seventeen new public theorem gates plus
+  seven helper/dependency diagnostics within {propext, Quot.sound}.
+  No errors/warnings, new sorry/axiom, classical shortcut or frontier
+  field change. Earlier rejected logs are not accepted evidence.
+  Root import registered, NOT aggregate-checked; CI/chart unchanged.
+- OPEN: numerical original-Haar contractions and signed polynomial/tail
+  certificate, positive partition and OWN-mean joins, later-cutoff/depth
+  passage, physical changing-family estimates and all continuum endpoints.
+  K=1 still fails the existing head-cutoff guard. The older full
+  original-matrix/basis pin stays OPEN and is not necessary if the
+  seven-moment direct contraction route succeeds. Evidence:
+  `audits/AUDIT-CUBE-BENT-LOOP-SIGNED-GAIN-2026-10-03.md`.
+
 ## OPEN original cube transfer pin with favorable finite diagnostic (2026-10-03 UTC)
 
 - The existing original cube-to-transfer source pin below remains OPEN.
