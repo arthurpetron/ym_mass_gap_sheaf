@@ -7302,3 +7302,9 @@ import YMGap.Continuum.PositiveHeatGroundEnergyNoUniformRate
 -- Neither the changing-family survival bound nor continuum QFT is closed.
 import YMGap.Continuum.BF4DyadicWilsonSquareOddVarianceFloor
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyOrbitTangent
+
+-- Actual matrix quotients of the SAME original signed dynamics, and
+-- computed squared-error radii for its bounded buffered Wilson words.
+-- Fixed-carrier numerical time only; physical/QFT/scaling joins stay open.
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyMatrixTangent
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyWilsonWordTangent

@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## PROVED original Wilson matrix tangents only (2026-10-03 UTC)
+
+`BF4WilsonAllNomeComplexBondOSScaledCayleyMatrixTangent.forward_quotient_matrix_pin`
+and `backward_quotient_matrix_pin` identify BOTH actual scalar quotients,
+with the original reciprocal and signed-action endpoints. Constant-one
+complex CS on SAME completed pairings gives arbitrary-test-vector and
+unit-ball squared-error bounds with the original Point radius.
+`BF4WilsonAllNomeComplexBondOSScaledCayleyWilsonWordTangent.word_norm_bound`
+constructs the cap of the actual complete ordered word, including empty.
+`wordMatrixRadius` evaluates the original radius at epsilon/(wordCap+1);
+`word_matrix_tangent_bound` returns BOTH bounds as Type-level data, uniformly
+over unit inputs and numerical base. No norm inversion, new frontier bundle,
+analytic assumption, sorry, axiom or weakened field. Two focused checks
+passed 20 permitted gates; independent reviews passed; root registration
+only. No CI or exact chart change. Evidence:
+`audits/AUDIT-ORIGINAL-WILSON-MATRIX-TANGENTS-2026-10-03.md`.
+OPEN: action-specific initial-energy COMPLETE signed remainder/overlap OR
+aggregate signed-window bound on a justified changing family; nontrivial
+survival, physical calibration, continuum local fields, full QFT and every
+compact simple group. This numerical-time result closes no Clay frontier atom.
+
 ## PROVED literal finite odd OWN variance and original orbit tangent only (2026-10-03 UTC)
 
 `BF4DyadicWilsonSquareOddVarianceFloor.originalWindowScalar_rectangular_variance_floor`

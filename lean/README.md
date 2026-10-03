@@ -12,6 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Checked ORIGINAL Wilson matrix tangents (2026-10-03 UTC):**
+`BF4WilsonAllNomeComplexBondOSScaledCayleyMatrixTangent` pins BOTH actual
+scalar quotients and derives squared-error bounds by constant-one complex
+Cauchy--Schwarz on the SAME carrier. `ScaledCayleyWilsonWordTangent`
+constructs the actual whole-word norm cap and positive radius using
+epsilon/(wordCap+1); `word_matrix_tangent_bound` returns BOTH checked bounds
+as Type-level data, uniformly over unit inputs and numerical base time.
+Two focused checks passed 20 permitted gates. Fixed nome/width numerical
+time only; survival, physical scaling and continuum/QFT/Clay remain OPEN.
+Evidence: `audits/AUDIT-ORIGINAL-WILSON-MATRIX-TANGENTS-2026-10-03.md`.
+
 **Checked finite odd-law variance and original orbit derivative (2026-10-03 UTC):**
 `BF4DyadicWilsonSquareOddVarianceFloor.paddedSquare_oddVariance_floor`
 transports the one-link floor to the literal chronological rectangle

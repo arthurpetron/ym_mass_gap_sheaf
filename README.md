@@ -10,6 +10,16 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Verified observable dynamics (2026-10-03 UTC):**
+The original signed-time derivative now reaches actual matrix elements,
+including every finite buffered Wilson word. Both difference quotients use
+the same constructed reciprocal. The word supplies a computed norm cap and
+positive error radius, independent of unit test state and numerical base
+time; the error bound is on squared modulus. This strengthens fixed-carrier
+numerical dynamics, not physical calibration or continuum QFT. The missing
+action-specific survival estimate remains open. See the
+[proof and analytic meet](audits/AUDIT-ORIGINAL-WILSON-MATRIX-TANGENTS-2026-10-03.md).
+
 **Verified forward/backward joins (2026-10-03 UTC):**
 The actual dyadic Wilson square has positive OWN variance in the original
 odd-chain law at every depth, including zero, and every late cutoff. The

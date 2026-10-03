@@ -27,6 +27,27 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
 
+NOW CHECKED ACTUAL WILSON MATRIX TANGENTS, backward from the QFT dynamics
+requirements: original BOTH scalar quotients use the SAME reciprocal and
+actual signed orbit endpoints. Constant-one complex CS pays their squared
+matrix error; actual bounded words supply a computed spin-only norm cap.
+epsilon/(wordCap+1) gives a positive original Point radius independent of
+unit test state and numerical base. No norm inverse or analytic premise.
+Two focused checks passed 20 permitted gates. This is fixed-carrier
+numerical dynamics, not physical calibration or full QFT. Evidence:
+`audits/AUDIT-ORIGINAL-WILSON-MATRIX-TANGENTS-2026-10-03.md`.
+FORWARD source review isolates the unpaid cancellation: with h=1-w,
+L=4*side, v=1+m2-m1^2 and d=3-m2, the existing COMPLETE remainder is
+R-h*L*(3*v-d). A useful bound must retain the negative angular deficit,
+not replace R by an absolute ceiling. Conditional Poincare bounds variance
+ABOVE by energy; it does not supply the required energy upper bound against
+OWN variance. This is a source/planning review, not a new analytic proof.
+REPOINT: return to the original action-specific signed remainder/overlap
+producer OR aggregate signed-window estimate on a justified changing family.
+Do not extend numerical derivative wrappers in place of that missing input.
+Survival/physical/OS/continuum/QFT/every-group/Clay and exact chart atoms
+remain OPEN; no unchanged ASCII reprint.
+
 NOW CHECKED TWO ACTUAL FORWARD/BACKWARD JOINS:
 FORWARD, the original one-link variance floor reaches the literal dyadic
 odd OWN law at ALL chronological depths (n+1,n), including zero, with

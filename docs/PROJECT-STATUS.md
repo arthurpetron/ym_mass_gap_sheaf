@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL Wilson matrix tangents (2026-10-03 UTC;
+chart unchanged): BOTH actual scalar quotients retain the SAME reciprocal
+and signed orbit endpoints. Sharp complex CS supplies squared matrix-error
+bounds. Actual complete Wilson words supply their own norm caps and a
+computed positive radius via epsilon/(wordCap+1), independent of unit test
+state and numerical base. Two focused checks passed 20 permitted gates.
+Fixed nome/width numerical time only; the signed survival producer,
+physical/OS/continuum/QFT/every-group/Clay remain OPEN. Source review
+isolates the COMPLETE signed angular cancellation, not a new analytic bound.
+Evidence: `audits/AUDIT-ORIGINAL-WILSON-MATRIX-TANGENTS-2026-10-03.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting literal odd OWN variance and original orbit derivative
 (2026-10-03 UTC; chart unchanged): the original selected-link floor reaches
 the actual dyadic odd law at EVERY depth including zero and late cutoff,
