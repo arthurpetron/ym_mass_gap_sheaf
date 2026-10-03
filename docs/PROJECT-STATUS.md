@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting real geometric time survival (2026-10-03 UTC;
+chart unchanged): original mesh order and the existing witnessed pairing
+limit extend the supplied macroscopic ratio to response>=kappa^(j+1)
+throughout EVERY represented positive geometric time interval <=j, on the
+SAME normalized bond state. One-block slack is explicit. Three constructive
+gates passed. Actual family ratio, normalized cross-scale convergence,
+physical calibration and displayed continuum claims remain OPEN. Evidence:
+`audits/AUDIT-NORMALIZED-REAL-SURVIVAL-2026-10-03.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting macroscopic input reduction (2026-10-03 UTC;
 chart unchanged): one supplied SAME response ratio kappa*R(side)<=R(2*side)
 now gives all-block normalized survival and explicit ALL represented-real

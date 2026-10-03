@@ -22,6 +22,10 @@ alternative, with its statement unchanged. Producing the actual ratio on
 a justified family, normalized cross-scale convergence and physical-time
 calibration remains open. See the
 [checked macroscopic criterion and missing joins](audits/AUDIT-NORMALIZED-MACROSCOPIC-CRITERION-2026-10-03.md).
+The [checked discrete-to-real join](audits/AUDIT-NORMALIZED-REAL-SURVIVAL-2026-10-03.md)
+also gives response at least `kappa^(j+1)` at EVERY represented positive
+geometric time up to horizon j, with one explicit block of slack. This is
+still conditional on the same unsupplied ratio, not continuum survival.
 The earlier
 [unanchored criterion](audits/AUDIT-FILTERED-BLOCK-SURVIVAL-2026-10-02.md)
 still requires its explicit positive raw reserve; that is no longer a

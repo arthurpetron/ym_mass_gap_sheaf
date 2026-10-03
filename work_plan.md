@@ -42,6 +42,23 @@ Normalized cross-scale comparison and physical-time/local-field calibration
 remain OPEN. Canonical fields and older consumer statements are unchanged.
 Evidence: `audits/AUDIT-NORMALIZED-MACROSCOPIC-CRITERION-2026-10-03.md`.
 
+CHECKED DISCRETE-TO-REAL SURVIVAL JOIN:
+`BF4WilsonAllNomeDyadicNormalizedMacroRealSurvival` uses mesh square norms,
+contraction and the EXISTING witnessed pairing limit to prove response
+>=kappa^(j+1) at EVERY represented positive geometric time<=j. One block of
+slack avoids an unnecessary sharp endpoint proof. Three allowed gates passed.
+Do not extend this branch with more normalization/propagation wrappers:
+the next substantive inputs are the actual family-wide ratio and effective
+BOTH-order normalized cross-scale comparisons. The existing
+`CRealCompleteCauchy.completeLimitCauchy` already consumes their eventual
+Cauchy data; a one-probe limit is not the full canonical OS/QFT algebra.
+Geometric/physical calibration and every continuum endpoint remain OPEN.
+Source review also confirms that scalar hierarchical blocking laws cannot
+replace an original 4D action/transfer join; the existing
+`BF4PhysicalTrajectoryFence.delta_zero_does_not_imply_form_preservation:118`
+already rejects the legacy residual shortcut. No new frontier structure is
+needed. Evidence: `audits/AUDIT-NORMALIZED-REAL-SURVIVAL-2026-10-03.md`.
+
 NEW CHECKED QUADRATIC ROUTE: with the ORIGINAL g, A=Tg, fixed finite
 OWN mean c and psi=f-c, let b=T(g*psi), J1=ell(A*psi*b),
 G2=ell[b*(b-a*A*psi)], Delta=ell[A*T(g*psi^2)]-ell[(A*psi)^2].

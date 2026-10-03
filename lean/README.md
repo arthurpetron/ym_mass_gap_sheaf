@@ -24,6 +24,14 @@ ratio, normalized cross-scale comparison and physical calibration remain
 OPEN. The older adjacent-budget consumers and canonical fields are unchanged.
 Evidence: `audits/AUDIT-NORMALIZED-MACROSCOPIC-CRITERION-2026-10-03.md`.
 
+`BF4WilsonAllNomeDyadicNormalizedMacroRealSurvival` now proves original
+dyadic response order from square roots/contraction and transports it through
+the existing witnessed time-row limit with positive integer slack. The SAME
+ratio gives actual normalized bond response >=kappa^(j+1) at ALL represented
+positive geometric times <=j. Three allowed gates passed; no physical
+calibration or actual family ratio/limit is supplied. Evidence:
+`audits/AUDIT-NORMALIZED-REAL-SURVIVAL-2026-10-03.md`.
+
 `BF4ExactSlabFixedSpatialFilteredCommutatorGain` retains the COMPLETE
 original quadratic identity S=Delta+2(1-a)J1-2G2, with b=T(g*(f-c)) and
 G2=ell[b*(b-a*A*(f-c))] at the actual OWN mean. The endpoint difference

@@ -1,5 +1,20 @@
 # Sorry Ledger
 
+## PROVED conditional all real geometric time survival only (2026-10-03 UTC)
+
+- `BF4WilsonAllNomeDyadicNormalizedMacroRealSurvival` proves actual mesh
+  response order by square roots and contraction. The existing timeRows/
+  pairing limit passes order to a later integer endpoint with explicit slack.
+- On the SAME normalized bond state, the supplied macroscopic ratio gives
+  response>=kappa^(j+1) for EVERY represented positive real geometric time<=j.
+  No adjacent budget, uniform raw norm floor or exact endpoint law is assumed.
+- Final third focused check passed three gates exactly {propext, Quot.sound}
+  and independent review. No new sorry/axiom/classical shortcut/field weakening.
+  Root import registered, NOT aggregate-checked; CI/chart unchanged.
+- OPEN: actual family-uniform ratio, effective normalized cross-scale
+  comparisons, physical calibration and every continuum endpoint. Evidence:
+  `audits/AUDIT-NORMALIZED-REAL-SURVIVAL-2026-10-03.md`.
+
 ## PROVED conditional normalized macroscopic criterion only (2026-10-03 UTC)
 
 - `BF4WilsonAllNomeDyadicNormalizedMacroRatio` consumes only the SAME

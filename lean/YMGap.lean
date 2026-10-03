@@ -5173,6 +5173,9 @@ import YMGap.Continuum.BF4WilsonAllNomeBlockResponseLower
 -- One supplied macroscopic ratio controls the EXISTING normalized anchor's
 -- survival and real continuity; actual family/physical joins remain OPEN.
 import YMGap.Continuum.BF4WilsonAllNomeDyadicNormalizedMacroRatio
+-- Same ratio gives a positive floor at ALL represented real geometric
+-- times on bounded intervals; one-block slack, physical calibration OPEN.
+import YMGap.Continuum.BF4WilsonAllNomeDyadicNormalizedMacroRealSurvival
 -- Scalar alignment cannot amplify to arbitrary quaternion-valued sources.
 -- Exact original low-degree obstruction; narrower scalar word stays OPEN.
 import YMGap.Continuum.SU2QuaternionHeatAlignmentAmplificationObstruction
