@@ -75,6 +75,48 @@ partitions: `window_pairing` and `window_partition_pairing`,
 `:124`. The new result supplies no lower estimate on the signed interacting
 gain and no continuum physical-time or local-field identification.
 
+## Parallel source review of the next estimates
+
+Existing `terminalComparison_relative_width`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalComparison.lean:306`,
+controls the relative spread of terminal messages after a common prefix.
+`comparisonOnset` and `comparisonEta_small`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalEnergyComparison.lean:371`
+and `:377`, compute and pay its error independently of the heat cutoff and
+later remainder depths, while retaining nome/width dependence. Reuse these
+for finite block-horizon alignment; they do not prove low relative energy
+for the actual half-smoothed centered Wilson excitation.
+
+An independent backward review derived the following PAPER algebra, not a
+new Lean theorem or a supplied interacting estimate. For corresponding
+original centered states u_i and z_i=T_i(j_i)u_i, let
+N_i=B_i(u_i,u_i), C_i=B_i(u_i,z_i). Relative comparison of the THREE
+squared norms of u_i, u_i+z_i and u_i-z_i, with 0<=delta<=1/2
+and one common positive factor lambda, means
+abs(Q_k-lambda*Q_l)<=delta*lambda*Q_l for each of these three Q.
+This suffices for
+abs(C_k*N_l-C_l*N_k)<=4*delta*N_k*N_l by polarization and contraction.
+Indeed abs(C_k-lambda*C_l)<=delta*lambda*N_l,
+abs(N_k-lambda*N_l)<=delta*lambda*N_l, abs(C_l)<=N_l and
+N_k>=lambda*N_l/2 give the claimed cleared bound.
+The original contraction is `completedInner_time_contraction`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeCompletedTime.lean:191`;
+the original form's Cauchy--Schwarz bound is `completedInner_cauchySchwarz`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeCompletedInner.lean:82`.
+This avoids a uniform raw N floor. It is a sufficient producer condition,
+not a logically smaller necessary frontier than direct normalized convergence.
+No current comparison producer supplies these relative errors.
+
+The existing SAME centering identities retain each theory's OWN mean:
+`centeredPart_pairing_both` and `centeredPart_time`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeUnitProjection.lean:208` and `:217`.
+Do not turn a restricted matched-source estimate into full literal physical
+width transport: `no_completed_literal_inclusion`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeWidthInclusionObstruction.lean:232`,
+refutes that map on the original BOND completions. This does not refute
+every ambient density comparison. The physical family and actual estimates
+remain OPEN; no new frontier bundle or analytic assumption was introduced.
+
 ## Verification boundary
 
 Root ran only this new source with `scripts/safe_lean_build.py`, jobs=1,

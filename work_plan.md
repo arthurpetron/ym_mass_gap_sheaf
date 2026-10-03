@@ -45,6 +45,18 @@ do not duplicate the already constructed fixed-small-nome spatial OS joins
 or the represented-completeness theorem. Physical scaling and full QFT
 inputs remain OPEN. Evidence:
 `audits/AUDIT-FIXED-COUPLING-MACROSCOPIC-RESPONSE-2026-10-03.md`.
+Parallel SOURCE REVIEW refines the next attempts: the existing relative
+terminal comparison already pays finite block-horizon alignment at fixed
+nome/width. The absent producer is low relative energy of the SAME
+half-smoothed centered Wilson excitation, not another ground-state-normalizing
+wrapper. For normalized cross-scale control, compare the three actual
+centered squared norms of u, u+T(j)u and u-T(j)u, up to one common positive
+scale factor. Polarization gives the cleared normalized error from relative
+errors, without a uniform raw norm floor. This sufficient reduction is PAPER
+algebra, not yet a Lean theorem or an actual relative comparison producer.
+Retain EACH theory's OWN mean and literal time pins; do not use a full
+physical width inclusion, which is already refuted. These are alternative
+analytic attacks on the existing inputs, not new mandatory frontier fields.
 
 CHECKED LIMITS OF TWO CERTIFICATE ROUTES:
 `BF4DyadicWilsonSquareSpectatorResponseObstruction` proves the existing
