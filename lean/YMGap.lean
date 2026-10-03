@@ -7238,10 +7238,17 @@ import YMGap.Continuum.SU2QuaternionConditionalHeatSaturation
 import YMGap.Continuum.SU2QuaternionConditionalHeatPositiveSaturation
 
 -- Constructed same-output weighted heat-energy bound, including nome-one
--- by scalar Taylor closure. Conditional variance and scaling remain OPEN.
+-- by scalar Taylor closure. One-link variance joins below; scaling stays OPEN.
 import YMGap.Continuum.SU2QuaternionHeadHeatCurveSupport
 import YMGap.Continuum.QuaternionHaarNomeRows
 import YMGap.Continuum.RationalPolynomialStrictEndpoint
 import YMGap.Continuum.RationalLaurentQuadraticOrder
 import YMGap.Continuum.SU2QuaternionBochnerNomeRows
 import YMGap.Continuum.SU2QuaternionWeightedHeatInterpolation
+
+-- Actual original one-link own-mean angular variance bound, derived from
+-- literal square derivatives and particular same-output endpoints.
+-- Active-product/interacting scaling and Clay remain OPEN.
+import YMGap.Continuum.RationalLaurentQuadraticIncrement
+import YMGap.Continuum.SU2QuaternionHeatInterpolationEndpoints
+import YMGap.Continuum.SU2QuaternionConditionalAngularPoincare

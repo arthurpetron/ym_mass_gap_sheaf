@@ -10,7 +10,20 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Verified ORIGINAL weighted heat-energy estimate (2026-10-03 UTC):**
+**Verified ORIGINAL conditional angular variance bound (2026-10-03 UTC):**
+The one-link estimate is now derived:
+`H[W (C_w(p^2) - (C_w p)^2)] <= (1-w^2) H[W C_w(Gamma(p))]`.
+It keeps the original source, existing output and all shared spectators,
+with arbitrary certified W, including zero. Actual square derivatives,
+the proved energy bound and particular endpoint reproduction supply the
+proof; no variance estimate is assumed. The cutoff is explicitly computed
+for this FIXED source. Three focused checks passed 13 constructive gates;
+independent mathematical review passed. Next: the active-product join and
+the interacting signed cost versus SAME surviving norm on a justified
+scaling family. Physical/continuum/QFT/every-group/Clay remain OPEN. See the
+[proved variance bound and remaining joins](audits/AUDIT-ORIGINAL-CONDITIONAL-ANGULAR-POINCARE-2026-10-03.md).
+
+**Earlier verified ORIGINAL weighted heat-energy estimate (2026-10-03 UTC):**
 For the actual conditional interpolation `G(r)=C_(w/r)[Gamma(V(r))]`,
 the proved bound is `H[W G(r)] <= r^2 H[W G(1)]`, including both endpoints
 and arbitrary certified SAME-output weights with shared spectators.
@@ -20,8 +33,8 @@ close the missing endpoint; no variance or derivative-sign premise is assumed.
 The cutoff is computed once for a FIXED source, not uniform over changing
 sources or scaling. Six focused checks passed 34 gates within
 {propext, Quot.sound}; independent mathematical review passed.
-Conditional variance, the original signed-window scaling estimate and
-physical/continuum/QFT/every-group/Clay remain OPEN. See the
+At that checkpoint conditional variance, the original signed-window scaling
+estimate and physical/continuum/QFT/every-group/Clay were OPEN. See the
 [proved energy bound and next join](audits/AUDIT-ORIGINAL-WEIGHTED-HEAT-ENERGY-2026-10-03.md).
 
 **Earlier verified ORIGINAL square/energy heat interpolation (2026-10-03 UTC):**

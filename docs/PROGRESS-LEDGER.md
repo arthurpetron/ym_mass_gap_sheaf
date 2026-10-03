@@ -4,7 +4,27 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL weighted heat-energy estimate (2026-10-03 UTC)
+## Current increment: ORIGINAL one-link conditional angular Poincare (2026-10-03 UTC)
+
+PROGRESS after `151fd81`: the genuine own-mean variance bound is now proved:
+H[W*(C_w(p^2)-(C_w p)^2)]<=(1-w^2)*H[W*C_w Gamma(p)].
+The actual scalar square numerator has its literal Euler energy identity.
+The derived G/r^2 order supplies a quadratic Euler ceiling; the signed
+comparison polynomial pays the square increment constructively. Particular
+same-output endpoints identify the true conditional mean and original
+source-gradient energy. All shared spectators and arbitrary certified W
+survive, including zero, with an explicit fixed-source cutoff.
+Three focused checks passed 13 gates within {propext, Quot.sound}, without
+warnings; independent Sol mathematical review passed. NEXT: active-product
+reference variance, then INPUT-gradient energy of the complete original
+Q_K versus the SAME surviving norm and signed cost on a JUSTIFIED family.
+Physical/OS/scaling/continuum/QFT/every-group/Clay remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-CONDITIONAL-ANGULAR-POINCARE-2026-10-03.md`.
+
+No broad progress-metric/guard run or full build/audit is claimed. The exact
+canonical chart claims are unchanged; no chart reprint.
+
+## Earlier increment: ORIGINAL weighted heat-energy estimate (2026-10-03 UTC)
 
 PROGRESS after `4967f14`: the ORIGINAL same-output angular interpolation now
 satisfies H[W G(r)]<=r^2 H[W G(1)], including both endpoints and arbitrary

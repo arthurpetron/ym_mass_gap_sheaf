@@ -27,7 +27,32 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
 
-NOW CHECKED ORIGINAL WEIGHTED HEAT-ENERGY ORDER:
+NOW CHECKED ORIGINAL ONE-LINK CONDITIONAL ANGULAR POINCARE:
+FORWARD, actual finiteNomeFlow nome-one reproduction and particular conditional
+endpoints give F(1)=C_w(p^2), F(w)=(C_w p)^2 and G(1)=C_w Gamma(p), retaining
+the existing output and all spectators. The explicit endpoint cutoff retains
+the incoming modes and fixed flow/square row skeletons; no arbitrary carrier
+equality is pulled through coordinate identification.
+BACKWARD, the literal comparison c*r^(E+2)-N and constructive Laurent order
+turn the actual normalized Euler ceiling into F(1)-F(w)<=(1-w^2)c.
+The true square Euler identity and derived G(r)<=r^2 G(1) supply that ceiling.
+The JOIN proves H[W*(C_w(p^2)-(C_w p)^2)]<=(1-w^2)*H[W*C_w Gamma(p)]
+under arbitrary certified original output W, including zero. One computed
+fixed-source onset is max(marginCutoff, interpolationEndpointCutoff).
+Three focused checks passed 13 permitted gates; independent Sol review passed.
+Evidence: `audits/AUDIT-ORIGINAL-CONDITIONAL-ANGULAR-POINCARE-2026-10-03.md`.
+REPOINT: prove the active-product conditional reference Poincare estimate,
+with literal selected-link reindexing, own-mean variance telescoping and
+positive remaining conditional kernels under the SAME output W. Then apply
+it to projectedReferenceVariance with Q=lastStepProjectedDerivative at
+ORIGINAL K and auxiliary reference cutoff L. The INPUT-gradient energy of
+this Q is NOT its Q^2 budget called projectedDerivativeAngularBudget.
+The genuine SAME source/action/output-weight/surviving-norm estimate, both
+signed Taylor terms and a justified changing-family signed-window bound
+remain necessary. Physical/OS/continuum/QFT/every-group/Clay remain OPEN.
+Exact canonical chart claims are unchanged; no reprint.
+
+EARLIER CHECKED ORIGINAL WEIGHTED HEAT-ENERGY ORDER:
 FORWARD, the actual margin row skeleton has a coefficient-strength pin to
 Gamma2(V)-Gamma(V), explicit support and a constructed Bochner certificate.
 One computed fixed-source cutoff and a larger positive prefix construct

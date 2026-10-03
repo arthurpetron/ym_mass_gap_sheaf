@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL one-link conditional angular variance
+(2026-10-03 UTC; chart unchanged): literal square derivatives, the derived
+energy order and actual particular same-output endpoints prove
+`H[W*(C_w(p^2)-(C_w p)^2)] <= (1-w^2)*H[W*C_w Gamma(p)]`.
+Original source/output/spectators and arbitrary certified W, including zero,
+are retained. The explicit cutoff belongs to this fixed source, not a
+changing family. Three focused checks passed 13 permitted gates without
+warnings; independent Sol review passed. Active-product reference variance,
+the SAME interacting signed-window scaling estimate and physical/OS/
+continuum/QFT/every-group/Clay remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-CONDITIONAL-ANGULAR-POINCARE-2026-10-03.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting ORIGINAL weighted heat-energy bound (2026-10-03 UTC;
 chart unchanged): the literal SAME-output Laurent numerator has its E+2
 Euler pin. Actual Bochner rows and saturated conditional certificates
@@ -8,7 +21,7 @@ fills the nome-one boundary. The proved bound is
 `H[W G(r)] <= r^2 H[W G(1)]`, including w<=r<=1 and shared spectators.
 The fixed-source cutoff is not changing-source/scaling uniformity.
 Six focused checks passed 34 permitted gates; independent Sol review passed.
-Conditional variance, original signed-window scaling and physical/OS/
+At that checkpoint conditional variance, original signed-window scaling and physical/OS/
 continuum/QFT/every-group/Clay remain OPEN. Evidence:
 `audits/AUDIT-ORIGINAL-WEIGHTED-HEAT-ENERGY-2026-10-03.md`.
 No exact displayed claim changes; no ASCII reprint.

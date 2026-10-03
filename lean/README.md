@@ -12,7 +12,21 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT checked ORIGINAL weighted heat-energy order (2026-10-03 UTC):**
+**CURRENT checked ORIGINAL conditional angular Poincare (2026-10-03 UTC):**
+Actual square numerator pderiv, the derived weighted energy order, a signed
+Laurent comparison polynomial and PARTICULAR same-output endpoints prove
+H[W*(C_w(p^2)-(C_w p)^2)] <= (1-w^2)*H[W*C_w(Gamma(p))].
+Arbitrary original source/output/spectator dependence and certified W survive;
+the fixed-source onset is computed as max(marginCutoff, endpointCutoff).
+There is no desired variance/derivative-bound premise or diagonal HCE pullback.
+Three focused checks passed 13 gates within {propext, Quot.sound}, without
+warnings; independent Sol mathematical review passed. Root registration only,
+no full build/audit. Active-product reference Poincare and the SAME interacting
+signed-window/scaling estimate remain OPEN, as do physical/OS/continuum/QFT/
+every-group/Clay. Evidence:
+`audits/AUDIT-ORIGINAL-CONDITIONAL-ANGULAR-POINCARE-2026-10-03.md`.
+
+**Earlier checked ORIGINAL weighted heat-energy order (2026-10-03 UTC):**
 The actual weighted coefficient numerator has its literal E+2 Euler pin.
 Original Bochner-margin rows, one computed fixed-source cutoff and saturated
 conditional positivity construct the derivative sign under EVERY certified
@@ -21,7 +35,7 @@ left endpoint without a generic diagonal carrier pullback. The derived
 bound is H[W G(r)] <= r^2 H[W G(1)] for w<=r<=1, with shared spectators.
 Six focused checks passed 34 gates within {propext, Quot.sound}; independent
 Sol semantic review passed. Root registration only, no full build/audit.
-Conditional reference variance, original signed-window changing-family
+At that checkpoint conditional reference variance, original signed-window changing-family
 control and physical/OS/continuum/QFT/every-group/Clay remain OPEN.
 Evidence: `audits/AUDIT-ORIGINAL-WEIGHTED-HEAT-ENERGY-2026-10-03.md`.
 
