@@ -10,7 +10,20 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**New checked original action channel:** on the literal six-face cutoff-one
+**New checked original vacuum and transfer joins:** the separate source
+channel is now `H[P*Vcube]=alpha+alpha^5/16`. The original tested TF and T1
+channels have the exact kinetic multiplier `w^12`, and their literal
+`TF-c*T1` subtraction is checked for any center c. Direct cutoff-one
+positivity constructs intervals for `Vcube-1` and the ORIGINAL `T1-1` with
+the same explicit cap `delta=(1+2*alpha)^6-1`, under the stated coefficient
+guards. No late-cutoff interface was weakened. Eight focused checks passed
+59 printed gates within {propext, Quot.sound}; no full build ran. NEXT:
+bound the actual OWN odd mean and prove the signed finite gain using these
+constructed inputs. That gain and the changing-family survival estimate
+remain open. See the
+[source joins and remaining estimate](audits/AUDIT-CUBE-BENT-LOOP-SIGNED-GAIN-2026-10-03.md).
+
+**Previously checked original action channel:** on the literal six-face cutoff-one
 cube, 62 of 64 source subsets vanish by witnessed odd-link parity. The two
 surviving original moments are exactly 1/2 and 1/8, with every spectator
 retained. Their sum proves `H[(P*F)*Vcube]=alpha/2+alpha^5/8`, where

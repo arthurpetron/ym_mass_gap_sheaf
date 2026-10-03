@@ -13,6 +13,19 @@ discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
 **CURRENT original signed filtered source and SAME response target (2026-10-03 UTC):**
+`BF4ExactSlabFixedSpatialCubeVacuumActionMoment` now proves the separate
+source channel H[P*Vcube]=alpha+alpha^5/16. `CubeTestedTransfer` (full
+prefix `BF4ExactSlabFixedSpatial`) proves the original TF/T1 projections
+with multiplier w^12 and literal arbitrary-center subtraction. Direct
+fundamental kernel certificates, `CubeFundamentalInterval` and
+`CubeVacuumInterval` construct actual Vcube-1 and ORIGINAL T1-1 intervals
+at delta=(1+2*alpha)^6-1. Their coefficient and cap guards are explicit;
+no headCutoff interface changed. `CubeBentFusion.bent_haar_zero` proves
+only bare H[F]=0, NOT interacting OWN mean zero. Eight focused checks
+passed 59 allowed gates. NEXT: actual OWN odd-mean cap and signed finite
+gain; changing-family survival and all continuum endpoints remain OPEN.
+Root imports registered only, NOT aggregate-checked.
+
 `BF4ExactSlabFixedSpatialCubeBentParity` now supplies a computed physical
 odd-link witness and ORIGINAL Haar vanishing for 62 of the 64 literal
 source subsets. `BF4ExactSlabFixedSpatialCubeBentComplement` evaluates the
@@ -22,7 +35,7 @@ Haar-only backtrack cancellations, retaining the complete spectator.
 joins both survivors to the ACTUAL six-face cutoff-one cubeWeight:
 H[(P*F)*Vcube]=alpha/2+alpha^5/8, alpha=coeffW(w,1), at every rational w.
 All 27 printed gates in three focused checks stay within the allowed gate.
-The full weighted moments, OWN-centered gain, kinetic test join and
+The full weighted moments, OWN-centered gain and
 changing-family estimate remain OPEN. Root imports are registered only;
 no aggregate check or full build ran.
 

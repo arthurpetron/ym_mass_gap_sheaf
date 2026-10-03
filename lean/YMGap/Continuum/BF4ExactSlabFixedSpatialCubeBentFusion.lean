@@ -274,8 +274,22 @@ theorem original_bent_two_face_moment :
   Q'.eqv_trans _ _ _ (adjacent_faces_bent_fusion bentObservable bent_shared_independent)
     (Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_left half _ _ bent_square_haar) (Q'.mul_one_eqv half))
 
+/-- The literal bent loop has zero bare Haar mean on its original carrier.
+This is not a statement about its interacting OWN odd mean. -/
+theorem bent_haar_zero : quaternionHaar N bentObservable ≈ 0 := by
+  have hpfirst : coordinateAt first = PolyQuaternion.coordinateVariable ((baseLinks 2).idxOf first) := by
+    unfold coordinateAt
+    rfl
+  have hf := fundamental_first_moment N ((baseLinks 2).idxOf first)
+    (List.idxOf_lt_length_of_mem (cubeLinks_in_carrier first (by decide))) fTail polyOne
+    fTail_independent (quaternionBlockIndependent_polyOne _)
+  rw [← hpfirst] at hf
+  exact Q'.eqv_trans _ _ _ (haar_of_coeff (RatPolyCoeffEqv.mul_one bentObservable).symm)
+    (Q'.eqv_trans _ _ _ (haar_of_coeff (bent_pin.mul_right polyOne)) hf)
+
 #print axioms bent_square_haar
 #print axioms adjacent_faces_bent_fusion
 #print axioms original_bent_two_face_moment
+#print axioms bent_haar_zero
 
 end YMGap.Continuum.BF4ExactSlabFixedSpatialCubeBentFusion

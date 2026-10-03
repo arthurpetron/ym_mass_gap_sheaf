@@ -515,6 +515,35 @@ theorem singleton_selection_moment :
     (((RatPolyCoeffEqv.refl (polyMul firstFaceTrace bentObservable)).mul hp).trans hr))
     original_bent_two_face_moment
 
+/-- Haar norm of the original first face, using its actual three-link tail. -/
+theorem first_face_square_haar :
+    quaternionHaar N (polyMul firstFaceTrace firstFaceTrace) ≈ 1 :=
+  Q'.eqv_trans _ _ _
+    (haar_of_coeff (RatPolyCoeffEqv.mul_one
+      (polyMul firstFaceTrace firstFaceTrace)).symm)
+    (Q'.eqv_trans _ _ _ (first_square polyOne (quaternionBlockIndependent_polyOne _))
+      (QPolyHaarPositiveSubstitution.haar_one N))
+
+/-- All six original cube faces close into a numerical Haar surface moment.
+The adjacent origin faces are integrated with all four other faces retained. -/
+theorem closed_cube_surface_moment :
+    quaternionHaar N
+      (polyMul (polyMul firstFaceTrace thirdFaceTrace) remainingFourFaceProduct) ≈
+      Q'.mkPos 1 16 (by decide) := by
+  have hr : QuaternionBlockIndependent ((baseLinks 2).idxOf ((0,0,0,0),.x0))
+      remainingFourFaceProduct := by
+    unfold remainingFourFaceProduct
+    exact quaternionBlockIndependent_polyMul
+      (checked_face_independent _ f1 (by decide) (by decide))
+      (quaternionBlockIndependent_polyMul
+        (checked_face_independent _ f3 (by decide) (by decide))
+        (quaternionBlockIndependent_polyMul
+          (checked_face_independent _ f4 (by decide) (by decide))
+          (checked_face_independent _ f5 (by decide) (by decide))))
+  exact Q'.eqv_trans _ _ _ (adjacent_faces_bent_fusion remainingFourFaceProduct hr)
+    (Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_left half _ _ four_face_bent_moment)
+      (by decide))
+
 #print axioms W_inverse
 #print axioms fusion
 #print axioms W_cancel
@@ -529,5 +558,7 @@ theorem singleton_selection_moment :
 #print axioms first_square
 #print axioms complement_selection_moment
 #print axioms singleton_selection_moment
+#print axioms first_face_square_haar
+#print axioms closed_cube_surface_moment
 
 end YMGap.Continuum.BF4ExactSlabFixedSpatialCubeBentComplement

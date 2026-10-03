@@ -95,25 +95,41 @@ H[(P*F)*cubeWeight(w,1)]=alpha/2+alpha^5/8, alpha=coeffW(w,1), for ALL
 rational w. Three focused checks passed 27 allowed gates. No cycle basis or
 free-polynomial sphere relation was substituted.
 
-SOURCE-REVIEWED NEXT MATHEMATICAL ATTACK (NOT PROVED): avoid full seven-moment
+NEW CHECKED VACUUM AND ORIGINAL KINETIC JOINS: H[P*Vcube] is now
+alpha+alpha^5/16, with H[P^2]=1 and the closed six-face moment 1/16.
+`CubeTestedTransfer` (full prefix `BF4ExactSlabFixedSpatial`) proves both
+ORIGINAL TF/T1 tested projections with multiplier w^12 and literal
+TF-c*T1 subtraction, for every rational w and any c. Direct K=1 kernel
+positivity at alpha>=0, 2*alpha<=1 now constructs the actual positive
+cone; `CubeFundamentalInterval` and `CubeVacuumInterval` construct
+Vcube-1 and ORIGINAL T1-1 at the SAME cap delta=(1+2*alpha)^6-1.
+Delta<=1 or <=half gives explicit positivity/half-floor certificates.
+`CubeBentFusion.bent_haar_zero` proves bare H[F]=0, not OWN mean zero.
+Eight final serialized focused checks passed 59 allowed gates; independent
+mathematical/source review passed. No headCutoff interface or chart node
+was weakened or closed by these finite supporting inputs.
+
+NEXT MATHEMATICAL ATTACK (GAIN STILL NOT PROVED): avoid full seven-moment
 expansion where actual finite small-nome certificates suffice. With
 ell(p)=H[V*p], b=TF-c*T1 at its OWN odd mean, a=r^6 and
 Q=ell[(T1)^2*(F-c)^2], the literal positive square can give
 2*G>=C2-a^2*Q. An original tested P channel and Haar Cauchy--Schwarz can
-lower-bound C2; produce the separate vacuum channel H[P*V]=2*r+2*r^5 and
-its kinetic test, then build literal V-1 and T1-1 interval certificates.
+lower-bound C2. The separate vacuum channel, both kinetic tests and
+literal Vcube-1/T1-1 interval certificates are now constructed; instantiate
+their explicit small-cap guards and prove the OWN odd-mean bound next.
 The SAME odd mean can be bounded from their product cap and H[F]=0;
 do not identify odd and even partitions. The existing partial-Haar
 certificate integration and normalized kinetic marginal provide the
-interfaces; DIRECT K=1 positivity still needs an actual producer, not a
+interfaces; DIRECT K=1 positivity now has an actual producer, not a
 headCutoff assumption. This is an alternative concrete finite-gain route,
 not a new generic consumer or a changing-family estimate. The full
 seven-moment route below remains a backup rather than a mandatory field.
 
 K=1 still FAILS headCutoff(1/2)>=17;
 no completed, all-cutoff or growing-family estimate follows. NEXT FORWARD
-evaluate those seven ORIGINAL cube Haar moments and certify their signed
-polynomial, then control the later-cutoff/depth remainder. Direct two-/
+use the checked tests and direct intervals to prove the actual OWN mean
+cap and signed finite gain, then control later-cutoff/depth remainders.
+Evaluating all seven ORIGINAL moments remains a backup. Direct two-/
 three-slice contractions can avoid a complete 32-state range theorem;
 their concrete tensor wiring and bounded certificate generation remain
 OPEN. Do not repeat fixed-small-nome tests or add generic consumers.

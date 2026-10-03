@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL vacuum/kinetic/interval joins (2026-10-03 UTC;
+chart unchanged): H[P*Vcube]=alpha+alpha^5/16 and the original tested
+TF/T1 channels with multiplier w^12 are checked. Literal TF-c*T1 retains
+any supplied center. Direct K=1 certificates bound Vcube-1 and ORIGINAL
+T1-1 by the same explicit delta=(1+2*alpha)^6-1, under stated coefficient
+guards; positivity/half floors retain their explicit cap guards. Bare
+H[F]=0 is not interacting OWN mean zero. Eight focused checks passed 59
+allowed gates. NEXT: actual OWN odd-mean cap and signed finite gain.
+These and the changing-family/scaling/continuum claims remain OPEN.
+Evidence: `audits/AUDIT-CUBE-BENT-LOOP-SIGNED-GAIN-2026-10-03.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting ORIGINAL action channel (2026-10-03 UTC; chart
 unchanged): 62 of 64 literal source subsets vanish; the singleton and
 five-face complement moments are exactly 1/2 and 1/8. Their SAME cutoff-one

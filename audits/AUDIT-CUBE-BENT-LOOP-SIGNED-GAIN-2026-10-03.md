@@ -423,3 +423,153 @@ justified changing family, later-cutoff/depth control, SAME macroscopic
 ratio, three normalized cross-scale costs, physical calibration or the
 continuum/Clay endpoints. The bent pilot is NOT substituted for the existing
 dyadic square. The proved fixed-small-nome macroscopic obstruction remains.
+
+## Subsequent checked vacuum channel, ORIGINAL kinetic tests and direct intervals
+
+The preceding next-input list is now partly discharged by original-source
+proofs. The actual OWN odd-mean bound and gain sign are NOT discharged.
+
+### Exact source contractions and tested transfer
+
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCubeBentComplement.lean:519`
+(`first_face_square_haar`) proves H[P^2]=1 using the actual three-link tail.
+`closed_cube_surface_moment:529` proves H[(P*Q)*remainingFourFaceProduct]=1/16
+by applying the original adjacent-face fusion with all four other faces
+retained, then the checked 1/8 bent/four-face moment.
+
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCubeVacuumParity.lean:77`
+(`cubeVacuumSelections_parity_checked`) checks only literal finite incidence.
+`badSelection_haar_zero:202` transports the computed physical odd edge
+through the original block degree and selected-block Fubini. The only
+survivors are singleton P and its five-face complement [f1,Q,f3,f4,f5].
+Unlike the earlier Q-tested expansion, their literal filter order is
+complement FIRST, then singleton. That order is preserved in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCubeVacuumActionMoment.lean:150`
+(`survivor_filter`); `tested_vacuum_action_channel:156` proves
+
+```text
+H_N[P*cubeWeight(w,1)] = alpha + alpha^5/16,
+alpha=coeffW(w,1), N=length(baseLinks 2), for EVERY rational w.
+```
+
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCubeTestedTransfer.lean:92`
+(`tested_bent_transfer_pin`) and `tested_vacuum_transfer_pin:101` use the
+ORIGINAL transferStep w 1 2. The test P is moved through the literal kinetic
+map by symmetry; its exact four-link eigenvalue is w^12. Full original
+spatial action/fringe transport precedes the exact six-face recoding.
+`tested_TF_channel:110` and `tested_T1_channel:118` then consume both
+checked numerical source channels. `tested_centered_channel:125` gives,
+for EVERY rational w and center c,
+
+```text
+H_N[P*(TF-c*T1)] = w^12*((alpha/2+alpha^5/8)
+                                  - c*(alpha+alpha^5/16)).
+```
+
+No positivity or late-cutoff guard is needed for these identities. This
+does not assert that a centered observable is a kinetic eigenmode or
+that c is zero. The new `bent_haar_zero` at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCubeBentFusion.lean:279`
+proves only bare H_N[F]=0 by an actual original-link first moment. It is
+NOT interacting OWN odd-mean zero.
+
+### Constructed direct cutoff-one positivity and intervals
+
+`lean/YMGap/Continuum/SU2QuaternionFundamentalProductHeatCertificate.lean:75`
+(`heatAt_certificate`) constructs the actual relative factor using its
+Haar-unit quaternion word and the sharp fundamental trace cap two. Its
+explicit guards are 0<=alpha and alpha*2<=1. `productHeat_certificate:105`
+multiplies every literal selected factor on the shared ambient carrier;
+`productMap_certificate:118` integrates that actual certificate using
+ordered head-Haar integration. This is direct K=1 positivity, not use or
+weakening of the all-nome headCutoff interface. Positivity permits repeated
+indices; normalization below separately requires the actual Nodup guard.
+
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCubeFundamentalInterval.lean:52`
+(`cubeFundamentalDelta`) defines delta=(1+2*alpha)^6-1.
+`cubeFundamentalInterval:141` constructs BOTH endpoints of the literal
+Vcube-1 at that cap, from the actual shared-variable face remainders and
+their structural telescope. Its only coefficient guard is 0<=alpha.
+`cubeFundamentalCertificate:165` requires delta<=1;
+`cubeFundamentalHalfCertificate:172` requires delta<=1/2 and certifies
+Vcube-cap(1/2). Neither theorem claims a parameter-uniform delta.
+
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCubeVacuumInterval.lean:104`
+(`cubeVacuumInterval`) constructs BOTH endpoints of ORIGINAL T1-1 with
+the SAME delta. Kernel coefficient guards remain explicit. Literal
+productMap_one/productMap_cap use cubeIndices_nodup and the original
+index-range proof. Normalization is SupportedHaarEqv, NOT coefficient
+equality; carrier_of_supported has explicit support for BOTH mapped and
+target endpoints before transporting their positive certificates back
+to the literal original vacuum message. `cubeVacuumCertificate:144` and
+`cubeVacuumHalfCertificate:151` retain their delta<=1 and <=1/2 guards.
+
+### Verification boundary
+
+Eight final focused serialized checks passed 59 printed gates: Fusion 11,
+Complement 16, VacuumParity 10, VacuumAction 4, TestedTransfer 5,
+FundamentalHeat 3, CubeInterval 6, VacuumInterval 4. Every reported axiom
+set is a subset of {propext, Quot.sound}; no final error/warning is present.
+Earlier errored import/environment attempts are NOT accepted evidence.
+Independent Sol reviews passed the literal survivor order, contractions,
+kinetic multiplier/fringe transport, explicit positivity guards and BOTH
+supported-Haar normalization endpoints. Luna checks cover hashes, anchors,
+allowed logs, unchanged chart fence and unchanged CI.
+
+The safe-build skill enforced jobs=1, reserve=12 GiB and worker cap=20 GiB.
+Each launch had a fresh live process/memory check, 85--86 percent system
+free and zero swap. The accepted longer source checks reported about
+4.7--4.9 GiB build RSS with over 30 GiB available. No full build, broad
+audit, resource increase or axiom-baseline regeneration was run.
+
+Source SHA256, in module order above:
+
+```text
+CubeBentFusion: 085cf07ed8cbf25cd6f73eb66b6bea9eb9e5890ccf7e3abc774f9eb381f61be8
+CubeBentComplement: 80243613de03a4ce6cd02c21ce295460dda491c46a49ddb8dea35a6ac4a6cf24
+CubeVacuumParity: 1d8637dfe045e1a078ac9efb27db17882bf3996c0bee7c36c01f82a301c8fcab
+CubeVacuumActionMoment: 392bbedda814b78d08b88e97c0e96b6c4b214bac1e54bd65067190814a1e2529
+CubeTestedTransfer: 7f804da8a385fd90dba58643c886e5d9329400d5d1ae570ae59e41600fafde07
+CubeFundamentalInterval: e2efe278950659679d29f899378f5ef522c7fa13e07155e092457f07137c632a
+SU2QuaternionFundamentalProductHeatCertificate: 4976984023b429ad11e729f237facba896dad4a261abe794e946b9be30b7db0d
+CubeVacuumInterval: 53a0b4ce4183f069a28f5dc1c02ab14e3e98d398f1b80a1d5cbbe19ff3946a0f
+```
+
+Accepted logs and SHA256:
+
+```text
+/tmp/ym-cube-bent-zero-20261003-a.log
+5416fcfa4625290c1f74b0f592fbe5eb55dc8138455be8e1ff19fdcb2cc8fbe7
+/tmp/ym-cube-vacuum-moments-20261003-a.log
+e508029ab83479fab70085d7c545c7ecebd33bf48ca36561b51e561cc73d8bb8
+/tmp/ym-cube-vacuum-parity-20261003-a.log
+98f53fc2478c5406d81157df949fa2619f15439c12f8e9697c06fb602334ceeb
+/tmp/ym-cube-vacuum-action-20261003-a.log
+9f273fe6f673129c5ee1e6c928a983933730f74ff259c18d19d58a9d71db72bd
+/tmp/ym-cube-tested-transfer-20261003-b.log
+e4b9190574945a7beda93ff2c2bfd04ee09976d05bcd940e4b3de2af5cbcf122
+/tmp/ym-fundamental-product-heat-20261003-b.log
+849d394105cdeb31b5f5cb07ef99fff1abe53071f7f0b017cd430346dd95cf9d
+/tmp/ym-cube-fundamental-interval-20261003-b.log
+e3b3dea31fd178b3b2986be71bae61b9b1c58c3397d7a6cb8dec0de06681c9cf
+/tmp/ym-cube-vacuum-interval-20261003-b.log
+3cd8da896baa42e9ca6fd1660b03bcbc0d9c6365b519b488a6595e46be3c9ce6
+```
+
+### Next forward-backward mathematical join
+
+FORWARD instantiate the explicit small-cap guards; combine the actual
+Vcube-1 and T1-1 intervals to control their product and the SAME OWN odd
+mean. Use the original tested projection with Haar Cauchy--Schwarz and
+the weighted Young square to prove the actual finite signed gain.
+These mean/gain bounds remain OPEN; no zero interacting center is used.
+All seven exact weighted values remain an alternative route, not a new
+mandatory intermediate theorem.
+
+BACKWARD retain the unsupplied justified changing-family macroscopic ratio
+and normalized cross-scale comparison. The finite K=1/n=0 bent loop does
+not meet their later-cutoff/depth/observable inputs and does not overcome
+the checked fixed-small-nome macroscopic obstruction. Physical scaling,
+nontrivial continuum survival, full SAME-theory QFT and every compact
+simple group remain OPEN. Root imports are registered only; canonical
+fields, exact chart fence and CI are unchanged. No ASCII reprint.

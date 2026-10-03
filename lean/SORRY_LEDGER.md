@@ -1,5 +1,41 @@
 # Sorry Ledger
 
+## PROVED original vacuum action, tested transfer and direct K=1 intervals only (2026-10-03 UTC)
+
+- `BF4ExactSlabFixedSpatialCubeBentComplement.first_face_square_haar`
+  proves H[P^2]=1; `closed_cube_surface_moment` integrates all six original
+  faces with the complete spectator retained, giving 1/16.
+  `CubeVacuumParity.badSelection_haar_zero` (full fixed-spatial prefix)
+  annihilates the other 62 literal P-tested source subsets.
+  `CubeVacuumActionMoment.tested_vacuum_action_channel` therefore proves
+  H[P*Vcube]=alpha+alpha^5/16 for every rational w, alpha=coeffW(w,1).
+- `CubeTestedTransfer.tested_TF_channel`, `tested_T1_channel` and
+  `tested_centered_channel` retain the ORIGINAL width-two transfer,
+  kinetic factor w^12, source action and literal TF-c*T1. No headCutoff
+  or positivity premise is used in these exact identities.
+- `SU2QuaternionFundamentalProductHeatCertificate` constructs actual
+  cutoff-one relative/product heat positivity and certificate-preserving
+  head integration with alpha>=0 and 2*alpha<=1. `CubeFundamentalInterval`
+  constructs Vcube-1 at delta=(1+2*alpha)^6-1; `CubeVacuumInterval`
+  constructs the ORIGINAL T1-1 at that same cap using supported marginal
+  normalization and explicit carrier supports. Delta<=1/half supplies
+  actual positivity/half floors, respectively. No late guard is weakened.
+  `CubeBentFusion.bent_haar_zero` proves only bare H[F]=0.
+- Eight final serialized focused checks passed 59 printed allowed gates,
+  without errors/warnings; independent mathematical review passed.
+  No new sorry/axiom/classical shortcut/native decision or canonical field
+  change. Root imports registered only; full build, axiom baseline, CI
+  and exact chart fence unchanged.
+- OPEN/NEXT: instantiate small-cap bounds, bound the SAME interacting OWN
+  odd mean and prove actual signed finite gain with the tested projection,
+  Haar Cauchy--Schwarz and weighted Young. Full seven weighted values remain
+  an alternative, not a mandatory detour. Later-cutoff/depth control,
+  justified changing family, macroscopic ratio, cross-scale comparison,
+  physical mass/QFT/every-group and Clay endpoints remain OPEN. K=1 still
+  fails the old late guard; these direct finite certificates do not make
+  that guard true. Evidence:
+  `audits/AUDIT-CUBE-BENT-LOOP-SIGNED-GAIN-2026-10-03.md`.
+
 ## PROVED original subset parity, complementary moment and source-action channel only (2026-10-03 UTC)
 
 - `BF4ExactSlabFixedSpatialCubeBentParity.cubeSelections_parity_checked`
