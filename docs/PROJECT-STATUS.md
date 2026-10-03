@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Finite producer diagnostic (2026-10-03 UTC; NOT a kernel closure; chart
+unchanged): the full OWN-centered bent-cube gain has an exact polynomial
+candidate Zodd^2*G>=(3/2)*r^10 for 0<r<=1/8, K=1, n=0. Twelve focused
+Python tests and independent coefficient review passed. Original transfer
+matrix identification, later-cutoff/depth passage and every displayed
+scaling/continuum claim remain OPEN; the existing head-cutoff guard fails.
+Evidence: `audits/AUDIT-CUBE-BENT-LOOP-SIGNED-GAIN-2026-10-03.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting three-norm comparison (2026-10-03 UTC; chart unchanged):
 three supplied relative quadratic costs now give BOTH cleared projective
 errors and, on the ACTUAL dyadic anchors with their existing computed

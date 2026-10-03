@@ -67,6 +67,23 @@ macroscopic response ratio; do not extend this checked consumer branch
 with more normalization/polarization wrappers. Evidence:
 `audits/AUDIT-THREE-NORM-PROJECTIVE-COMPARISON-2026-10-03.md`.
 
+NEW PRODUCER DIAGNOSTIC (NOT A LEAN CLOSURE): the COMPLETE OWN-centered
+gain for a bent six-link loop on the finite six-face cutoff-one cube has
+an exact degree-68 certificate candidate P=Zodd^2*G with
+P(r)>=(3/2)*r^10 for 0<r<=1/8. All signed remainder coefficients and the
+odd mean were retained; twelve focused Python tests and independent stored
+arithmetic review passed. This identifies a favorable lower-Casimir fusion
+mechanism, not the missing physical ratio. The original 32-state basis/
+transfer pin remains OPEN, and K=1 FAILS headCutoff(1/2)>=17; no completed,
+all-cutoff or growing-family estimate follows. NEXT FORWARD pin only the
+original messages T1, TF and seven scalar moments needed by the gain,
+not an unnecessary complete 32-state operator model; then control the
+later-cutoff/depth signed remainder. Do not repeat fixed-small-nome tests
+or add generic consumers. BACKWARD retain
+the SAME macroscopic ratio and three relative costs on a justified physical
+family. Do not substitute this bent observable for the dyadic square.
+Evidence: `audits/AUDIT-CUBE-BENT-LOOP-SIGNED-GAIN-2026-10-03.md`.
+
 CHECKED LIMITS OF TWO CERTIFICATE ROUTES:
 `BF4DyadicWilsonSquareSpectatorResponseObstruction` proves the existing
 Gamma<=(1/2)^side for EVERY strict nome, with explicit epsilon.den cutoff.

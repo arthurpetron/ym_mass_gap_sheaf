@@ -1,5 +1,20 @@
 # Sorry Ledger
 
+## OPEN original cube transfer pin with favorable finite diagnostic (2026-10-03 UTC)
+
+- The existing original cube-to-transfer source pin below remains OPEN.
+  `computations/cube_cutoff_one_signed_gain.py` now retains the full spatial
+  action and OWN odd mean and computes a degree-68 polynomial candidate
+  P=Zodd^2*G>=(3/2)*r^10 for 0<r<=1/8, K=1, terminal depth zero.
+- Twelve Python tests and independent stored rational arithmetic review
+  passed. This is NOT a Lean closure: original basis/transfer identification,
+  later-cutoff/depth passage and growing-family bounds are unsupplied.
+  K=1 fails the existing headCutoff(1/2)>=17 guard. No new sorry or axiom
+  was introduced, and no canonical field or chart status changed.
+- Evidence: `audits/AUDIT-CUBE-BENT-LOOP-SIGNED-GAIN-2026-10-03.md` and its
+  exact JSON checkpoint. The bent diagnostic observable is not substituted
+  for the existing dyadic square or a continuum local field.
+
 ## PROVED conditional three norm projective comparison only (2026-10-03 UTC)
 
 - `RCThreeNormProjectiveComparison.three_norm_projective_compare` proves
