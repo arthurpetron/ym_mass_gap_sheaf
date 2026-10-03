@@ -1,5 +1,31 @@
 # Sorry Ledger
 
+## PROVED guarded-ceiling macroscopic obstruction without ANY initial norm cap (2026-10-03 UTC)
+
+- `BF4WilsonSpatialUnionMacroscopicRatioObstruction.ceilingRatioCutoff`
+  computes geometricCutoff(twoStepRate(W),1,kappa/2), retaining the explicit
+  heat/entropy guards on W. `relative_even_response_ceiling` proves
+  R_w(2*(start+n))<=twoStepRate(W)^n*R_w(2*start) for every valid w<=W,
+  using the actual coupling-rate monotonicity and SAME smoothed norm.
+- `macroscopic_ratio_image_zero_of_nome_le` proves kappa*R_w(2n)<=R_w(4n)
+  beyond that COMMON onset forces the actual T_w(n)x=0, for every centered
+  completed x. No source norm, support, polynomial-growth or normalization
+  restriction is a premise; carrier and vector may vary at each scale.
+- `nome_gt_of_nonzero_macroscopic_ratio` gives w>W when the actual smoothed
+  image is nonzero and the ratio holds. The premise is T_w(n)x!=0, NOT just
+  x!=0 or an unrelated positive response. No cross-carrier map is assumed.
+- One final focused monitored check passed eleven permitted axiom gates,
+  including four new declarations, and zero errors. The original cosmetic
+  unused-section-variable warning remains. No new sorry/axiom, classical
+  shortcut, resource increase or canonical field change; no full build.
+- OPEN: families escaping every fixed guarded W, the guard boundary itself,
+  actual weak-coupling signed relative estimates and their all-nome/spatial/
+  scaling joins. Arbitrary SINGLE-response floors are not ruled out, and no
+  claim w->1 or physical critical-point identification is made. The existing
+  bounded/polynomial SINGLE-response results retain their narrower premises.
+  Whole continuum/Clay target remains OPEN. Evidence:
+  `audits/AUDIT-GUARDED-MACRO-RATIO-ESCAPE-2026-10-03.md`.
+
 ## PROVED nonvacuous ORIGINAL OWN-centered finite signed gain only (2026-10-03 UTC)
 
 - `BF4ExactSlabFixedSpatialCubeOddBackgroundInterval` constructs both signs

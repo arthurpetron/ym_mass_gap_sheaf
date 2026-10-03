@@ -61,11 +61,16 @@ heat-parameter family, and quantify the heat loss required by repeated bare
 transmission. These limit those estimates, not the actual interacting
 response; the substantive ratio and cross-scale comparison remain open.
 
-The [checked actual fixed-coupling obstruction](audits/AUDIT-FIXED-COUPLING-MACROSCOPIC-RESPONSE-2026-10-03.md)
-also excludes normalization-only rescue on the ORIGINAL fixed-small-nome
-thermodynamic carrier: beyond an explicit horizon, a positive macroscopic
-ratio forces the smoothed state to vanish. This is an actual-response bound,
-not a certificate ceiling; it does not rule out the changing-coupling route.
+The [checked guarded-coupling obstruction](audits/AUDIT-GUARDED-MACRO-RATIO-ESCAPE-2026-10-03.md)
+now also covers changing nomes and arbitrary initial norm growth below any
+fixed guarded ceiling W. At one common computed horizon, a positive
+macroscopic ratio forces the ORIGINAL smoothed state to vanish. Thus a
+nonzero-image ratio family must leave every such ceiling; neither scalar
+normalization nor a diverging norm evades this restriction. This does not
+exclude arbitrary single-response floors, identify a physical critical
+point, prove w tends to one, or rule out families escaping those ceilings.
+One focused check passed eleven permitted axiom gates, including four new
+declarations; no full build ran.
 
 The [checked three-norm comparison](audits/AUDIT-THREE-NORM-PROJECTIVE-COMPARISON-2026-10-03.md)
 now turns supplied relative errors on the actual anchor, sum and difference

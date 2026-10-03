@@ -12,10 +12,18 @@ The positive rational margin is cancelled constructively. No one-step
 positivity, spectral theorem, inverse of an arbitrary real, or choice of
 completion representatives is used. This is fixed-small-nome, fixed-spacing
 original Wilson structure, NOT an all-nome or continuum counterexample.
+
+The guarded-ceiling refinement also lets the nome, completed carrier and
+vector vary arbitrarily: the onset depends only on one guarded ceiling W
+and kappa. It needs NO initial norm bound, including for diverging scalar
+renormalizations. It excludes a nonzero macroscopic response ratio below
+W, not all responses or all weak-coupling families. No statement identifies
+the entropy boundary with a physical critical point or proves w tends to one.
 -/
 
 import YMGap.Continuum.BF4WilsonSpatialUnionRelaxation
 import YMGap.Continuum.BF4WilsonSpatialUnionPosdef
+import YMGap.Continuum.BF4ExactSlabCouplingRateMonotonicity
 
 namespace YMGap.Continuum.BF4WilsonSpatialUnionMacroscopicRatioObstruction
 
@@ -152,6 +160,73 @@ theorem macroscopic_ratio_response_zero (x : V) (hx : B x U = RCzero)
     macroscopic_ratio_image_zero hw0 hw1 hsmall hd hs x hx kappa hk n hn hratio,
     completedInner_zero_left]
 
+/-- A single guarded coupling ceiling computes a vector- and nome-independent
+onset for the relative obstruction. There is no initial norm cap. -/
+def ceilingRatioCutoff (W : Q') (hdW : heatRemainderBound W < 1)
+    (kappa : Q') : Nat :=
+  geometricCutoff (twoStepRate W hdW) 1 (HalfPow.half*kappa)
+
+/-- The original relative even-response bound is uniform below the named
+guarded ceiling. The response and its own smoothed norm are unchanged. -/
+theorem relative_even_response_ceiling (x : V) (hx : B x U = RCzero)
+    (W : Q') (hdW : heatRemainderBound W < 1) (hwW : w ≤ W)
+    (start n : Nat) :
+    RCle (response hw0 hw1 hsmall hd hs x (2*(start+n)))
+      (RCscale ((twoStepRate W hdW)^n)
+        (response hw0 hw1 hsmall hd hs x (2*start))) := by
+  have hpow := CRealLog.pow_le_pow_base _ _
+    (Q'.le_of_lt (twoStepRate_positive hw0 hd))
+    (BF4ExactSlabCouplingRateMonotonicity.twoStepRate_mono
+      (Q'.le_of_lt hw0) hwW hd hdW) n
+  have hnorm : RCnonneg (response hw0 hw1 hsmall hd hs x (2*start)) := by
+    unfold response
+    rw [completedInner_even_diagonal]
+    exact completedInner_nonnegative hw0 hw1 hsmall hd hs (T start x)
+  exact RCle_trans (relative_even_response_bound hw0 hw1 hsmall hd hs x hx start n)
+    (RCscale_scalar_mono hpow hnorm)
+
+/-- Arbitrary normalization cannot preserve a positive macroscopic ratio
+with nonzero smoothed source below any fixed guarded ceiling, even if the
+nome and vector are chosen separately at every scale. -/
+theorem macroscopic_ratio_image_zero_of_nome_le (x : V) (hx : B x U = RCzero)
+    (W : Q') (hW0 : (0 : Q') < W) (hdW : heatRemainderBound W < 1)
+    (hsW : entropyRate 625 (adjustedCoreRate W hdW) < 1) (hwW : w ≤ W)
+    (kappa : Q') (hk : (0 : Q') < kappa) (n : Nat)
+    (hn : ceilingRatioCutoff W hdW kappa ≤ n)
+    (hratio : RCle (RCscale kappa (response hw0 hw1 hsmall hd hs x (2*n)))
+      (response hw0 hw1 hsmall hd hs x (4*n))) : T n x = Z := by
+  have hgeo := geometric_bound (Q'.le_of_lt (twoStepRate_positive hW0 hdW))
+    (twoStepRate_lt_one hW0 hdW hsW) Q'.zero_le_one
+    (ExpNeg.half_mul_pos kappa hk) n hn
+  have hdecay : (twoStepRate W hdW)^n ≤ HalfPow.half*kappa :=
+    Q'.le_trans' _ _ _ (Q'.ge_of_eqv (Q'.mul_one_eqv _)) hgeo
+  have hupper := relative_even_response_ceiling hw0 hw1 hsmall hd hs x hx W hdW hwW n n
+  rw [show 2*(n+n)=4*n by omega] at hupper
+  have hnon : RCnonneg (response hw0 hw1 hsmall hd hs x (2*n)) := by
+    unfold response
+    rw [completedInner_even_diagonal]
+    exact completedInner_nonnegative hw0 hw1 hsmall hd hs (T n x)
+  have hzero := scalar_ratio_zero kappa ((twoStepRate W hdW)^n)
+    (positive_margin kappa _ hk hdecay)
+    (response hw0 hw1 hsmall hd hs x (2*n)) hnon (RCle_trans hratio hupper)
+  apply (completedInner_posdef hw0 hw1 hsmall hd hs (T n x)).mp
+  simpa only [response, completedInner_even_diagonal] using hzero
+
+/-- A nonzero actual smoothed source with the macroscopic ratio must leave
+W at the computed onset. No source norm, support or renormalization bound
+is a hypothesis. This is NOT a proof of escape from the whole guard region. -/
+theorem nome_gt_of_nonzero_macroscopic_ratio (x : V) (hx : B x U = RCzero)
+    (W : Q') (hW0 : (0 : Q') < W) (hdW : heatRemainderBound W < 1)
+    (hsW : entropyRate 625 (adjustedCoreRate W hdW) < 1)
+    (kappa : Q') (hk : (0 : Q') < kappa) (n : Nat)
+    (hn : ceilingRatioCutoff W hdW kappa ≤ n) (himage : T n x ≠ Z)
+    (hratio : RCle (RCscale kappa (response hw0 hw1 hsmall hd hs x (2*n)))
+      (response hw0 hw1 hsmall hd hs x (4*n))) : W < w := by
+  apply Int.lt_of_not_ge
+  intro hwW
+  exact himage (macroscopic_ratio_image_zero_of_nome_le hw0 hw1 hsmall hd hs x hx
+    W hW0 hdW hsW hwW kappa hk n hn hratio)
+
 /-- A single computed cutoff controls ALL centered vectors of squared norm
 at most one on the existing thermodynamic carrier. In particular the bound
 is independent of support and of how a normalized vector was constructed. -/
@@ -179,4 +254,8 @@ end YMGap.Continuum.BF4WilsonSpatialUnionMacroscopicRatioObstruction
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionMacroscopicRatioObstruction.rate_at_ratioCutoff
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionMacroscopicRatioObstruction.macroscopic_ratio_image_zero
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionMacroscopicRatioObstruction.macroscopic_ratio_response_zero
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionMacroscopicRatioObstruction.ceilingRatioCutoff
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionMacroscopicRatioObstruction.relative_even_response_ceiling
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionMacroscopicRatioObstruction.macroscopic_ratio_image_zero_of_nome_le
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionMacroscopicRatioObstruction.nome_gt_of_nonzero_macroscopic_ratio
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionMacroscopicRatioObstruction.unit_bounded_response_small

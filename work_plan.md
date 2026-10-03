@@ -27,15 +27,26 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
-CHECKED LIMIT OF THE ACTUAL FIXED-COUPLING REGIME:
+CHECKED LIMIT OF THE ACTUAL GUARDED-COUPLING REGIME:
 `BF4WilsonSpatialUnionMacroscopicRatioObstruction` proves
 R_x(2*(start+n))<=theta^n*R_x(2*start) on the ORIGINAL fixed-small-nome
 thermodynamic completion. The computed vector-independent onset
 theta^n<=kappa/2 makes kappa*R_x(2*n)<=R_x(4*n), kappa>0,
 force T(n)x=0 and R_x(2*n)=0. x may depend arbitrarily on n;
 normalization alone cannot rescue nonzero macroscopic survival in this
-fixed regime. A separate computed cutoff controls ALL centered vectors
-of squared norm<=1, independently of support. Seven allowed gates passed.
+fixed regime. NOW CHECKED: `ceilingRatioCutoff W hdW kappa` gives a COMMON
+onset for EVERY valid original spatial-union carrier with w<=W, where W
+has its explicit heat/entropy guards. `relative_even_response_ceiling`
+and `macroscopic_ratio_image_zero_of_nome_le` retain each theory's own
+response and force its actual T(n)x=0. No initial norm cap, support bound,
+polynomial renormalization budget or cross-carrier map is required.
+`nome_gt_of_nonzero_macroscopic_ratio` therefore forces w>W at that onset
+when the actual smoothed image is nonzero; x!=0 alone does not suffice.
+This excludes changing-nome macro-ratio families trapped below any fixed
+guarded W, not arbitrary single-response floors or families escaping each W.
+A separate computed cutoff controls ALL centered vectors
+of squared norm<=1, independently of support; this was the earlier
+seven-gate checkpoint.
 This is an actual-response bound, unlike the certificate limits below;
 it does not exclude the changing-coupling route. FORWARD continue on the
 original all-nome interacting transfer, preserving the different finite
@@ -45,6 +56,9 @@ do not duplicate the already constructed fixed-small-nome spatial OS joins
 or the represented-completeness theorem. Physical scaling and full QFT
 inputs remain OPEN. Evidence:
 `audits/AUDIT-FIXED-COUPLING-MACROSCOPIC-RESPONSE-2026-10-03.md`.
+Latest guarded-ceiling refinement: one focused check passed eleven allowed
+gates (four new); the existing unused-section-variable warning is unchanged.
+See `audits/AUDIT-GUARDED-MACRO-RATIO-ESCAPE-2026-10-03.md`.
 Parallel SOURCE REVIEW refines the next attempts: the existing relative
 terminal comparison already pays finite block-horizon alignment at fixed
 nome/width. The absent producer is low relative energy of the SAME
@@ -133,14 +147,28 @@ witness, NOT a producer for the all-scale ratio. Do not repeat
 fixed-small-nome examples, expand all seven moments by default, or add
 more generic normalization/polarization consumers.
 BACKWARD retain the unsupplied SAME macroscopic ratio and three relative
-costs on a justified physical family. The nearest completed signed bridge
+costs on a justified physical family. The next specific analytic attack is
+the VACUUM-SUBTRACTED original half-smoothed Rayleigh cost, not another
+absolute angular cap. With actual s=side(scale)>=2, t=s/2, g=g_n,
+h=g*(f-c_n), A=T^t g and b=T^t h, retain the SAME finite c_n and seek
+  s*(ell(b*b)*ell(A*T A)-ell(b*T b)*ell(A*A))
+       <= C*ell(b*b)*ell(A*T A).
+Here ell includes ORIGINAL V, f is the actual padded square, and
+ell(A*A) and ell(A*T A) are DISTINCT original even/odd-horizon partitions.
+This estimate is UNSUPPLIED. Its original finite-source/limit join, any
+uniform C on a justified changing family and the cross-scale relative
+costs remain to be proved. Existing weighted symmetry and chronological
+partition folds are available; do not assume finite stationarity or infer
+this bound from a small magnitude bound on the signed gain. This is an
+alternative producer attack, NOT an added mandatory canonical field.
+The nearest completed signed bridge
 is `BF4WilsonAllNomeFilteredGainLimit.dyadicUnit_gain_pin`: it concerns
 the actual padded dyadic-square observable, not an interchangeable bent
 loop. `BF4WilsonAllNomeDyadicNormalizedMacroRatio` still takes the
 family-wide macro ratio as an input; `BF4WilsonAllNomeThreeNormComparison`
 still takes hN/hplus/hminus. The finite point does not supply any of them.
-K=1 still fails the old late guard; the checked fixed-small-nome
-macroscopic obstruction is unchanged. Later-cutoff/depth, justified
+K=1 still fails the old late guard; the fixed-nome conclusion of the
+checked macroscopic obstruction is unchanged. Later-cutoff/depth, justified
 changing family, spatial/spacing/physical mass, full SAME-theory QFT and
 every compact simple group remain OPEN.
 Evidence: `audits/AUDIT-CUBE-BENT-LOOP-SIGNED-GAIN-2026-10-03.md`.

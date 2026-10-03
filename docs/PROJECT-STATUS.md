@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting guarded-coupling refinement (2026-10-03 UTC;
+chart unchanged): EVERY valid original spatial-union carrier with w<=one
+fixed guarded W has a common macroscopic-ratio cutoff depending only on
+W and kappa. The ratio kappa*R(2n)<=R(4n) then forces T(n)x=0, without
+ANY initial norm or renormalization bound. Nonzero-image ratio families
+must leave W; arbitrary single-response floors and families escaping
+every such ceiling are not excluded. One focused check passed eleven
+allowed gates (four new). No continuum/displayed frontier claim closed.
+Evidence: `audits/AUDIT-GUARDED-MACRO-RATIO-ESCAPE-2026-10-03.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting ORIGINAL OWN-centered finite gain (2026-10-03 UTC;
 chart unchanged): the existing commutator gain is >=2^-124-2^-138>0 at
 w=1/16, K=1, width=2, n=0, retaining its actual interacting odd mean.

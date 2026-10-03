@@ -1,5 +1,16 @@
 # Fixed coupling macroscopic response obstruction
 
+Subsequent CHECKED refinement: the original fixed-nome result below now
+has a common cutoff for EVERY valid carrier with nome w<=one fixed guarded
+W, without any initial norm or renormalization restriction. Its positive
+macroscopic ratio forces the actual smoothed image to vanish. The escape
+conclusion requires that image to be nonzero, not just the initial vector.
+See `AUDIT-GUARDED-MACRO-RATIO-ESCAPE-2026-10-03.md` for the four new
+declarations, current source/log hashes and exact scope. This does not
+exclude arbitrary single-response floors or families escaping every W.
+
+Original checkpoint (the narrower statements and verification below):
+
 The ORIGINAL Wilson thermodynamic completion now has a checked relative
 response bound. At fixed small nome, no choice of centered state or its
 scalar normalization can preserve a nonzero positive macroscopic response
@@ -14,41 +25,42 @@ All paths below are relative to the repository root. The new module uses
 `completedTime` and `completedUnit`. Its premises explicitly include
 0<w<1, heatRatio(w)<=1/2, heatRemainderBound(w)<1 and
 entropyRate(625,adjustedCoreRate(w))<1
-(`lean/YMGap/Continuum/BF4WilsonSpatialUnionMacroscopicRatioObstruction.lean:89`).
+(`lean/YMGap/Continuum/BF4WilsonSpatialUnionMacroscopicRatioObstruction.lean:97`).
 The rate theta is the nome-dependent squared time rate, not a calibrated
 physical mass (`twoStepRate`,
 `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSpatialDenseGap.lean:65`).
 
 For centered x, define R_x(lag)=B(x,T(lag)x), exactly as
-`response`, `lean/YMGap/Continuum/BF4WilsonSpatialUnionMacroscopicRatioObstruction.lean:101`.
+`response`, `lean/YMGap/Continuum/BF4WilsonSpatialUnionMacroscopicRatioObstruction.lean:109`.
 
-- `relative_even_response_bound`, same path:105, proves
+- `relative_even_response_bound`, same path:113, proves
   R_x(2*(start+n))<=theta^n*R_x(2*start).
   It applies existing `norm_decay` to the actual vector T(start)x
   (`lean/YMGap/Continuum/BF4WilsonSpatialUnionRelaxation.lean:64`),
   using time composition, preserved orthogonality and the even-time
   squared-norm identity. No initial positive norm floor is assumed.
-- `ratioCutoff`, new module:115, computes
+- `ratioCutoff`, new module:123, computes
   geometricCutoff(theta,1,kappa/2).
-  `rate_at_ratioCutoff`, new module:118, proves theta^n<=kappa/2
+  `rate_at_ratioCutoff`, new module:126, proves theta^n<=kappa/2
   at every later n when kappa>0. The threshold depends on theta and kappa,
   not the state, support or normalization.
-- `macroscopic_ratio_image_zero`, new module:127, proves that
+- `macroscopic_ratio_image_zero`, new module:135, proves that
   kappa*R_x(2*n)<=R_x(4*n) beyond that onset forces T(n)x=0.
-  `scalar_ratio_zero`, new module:56, cancels only the strictly positive
+  `scalar_ratio_zero`, new module:64, cancels only the strictly positive
   rational margin kappa-theta^n, not the possibly zero response.
   Actual positive definiteness gives vector equality
   (`completedInner_posdef`,
   `lean/YMGap/Continuum/BF4WilsonSpatialUnionPosdef.lean:93`).
-- `macroscopic_ratio_response_zero`, new module:144, then proves
+- `macroscopic_ratio_response_zero`, new module:152, then proves
   R_x(2*n)=0. Neither theorem asserts that the original x is zero.
-- `unit_bounded_response_small`, new module:158, proves
+- `unit_bounded_response_small`, new module:233, proves
   R_x(2*n)<=epsilon for EVERY centered x with B(x,x)<=1,
   at n>=geometricCutoff(theta,1,epsilon). A single cutoff controls all
   such vectors on this carrier, including arbitrarily normalized ones.
 
-These statements quantify over all x at each n; x need not remain fixed
-as n grows. The carrier and its nome nevertheless remain fixed.
+These original single-rate statements quantify over all x at each n; x
+need not remain fixed as n grows. The original cutoff was nome-dependent;
+the subsequent ceiling refinement supplies a common cutoff across w<=W.
 No identification with the all-nome finite-width carrier is asserted.
 
 ## Forward backward consequence
@@ -66,8 +78,10 @@ kappa*R(side)<=R(2*side) on the SAME original all-nome family
 (`normalizedAnchorResponse_block_floor`,
 `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicNormalizedMacroRatio.lean:132`).
 Producing it on a justified changing family remains OPEN, as does effective
-BOTH-order normalized cross-scale comparison. The new theorem does not
-assert a uniform rate over varying nomes and does not refute either input.
+BOTH-order normalized cross-scale comparison. The original theorem alone
+did not assert a uniform rate over varying nomes; the subsequent ceiling
+refinement excludes nonzero-image ratio families trapped below a fixed
+guarded W, but does not supply or refute either input on escaping families.
 
 The forward route must retain the separate actual finite time-horizon
 partitions: `window_pairing` and `window_partition_pairing`,
@@ -121,7 +135,11 @@ refutes that map on the original BOND completions. This does not refute
 every ambient density comparison. The physical family and actual estimates
 remain OPEN; no new frontier bundle or analytic assumption was introduced.
 
-## Verification boundary
+## Original checkpoint verification boundary
+
+The following source/log hashes record the earlier seven-gate source, not
+the later refinement. Current line references above have been refreshed;
+the latest eleven-gate verification is in the guarded-ceiling audit.
 
 Root ran only this new source with `scripts/safe_lean_build.py`, jobs=1,
 reserve=12 GiB and worker cap=20 GiB. Preflight reported 85 percent

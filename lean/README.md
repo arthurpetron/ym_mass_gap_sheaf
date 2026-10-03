@@ -12,7 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT original signed filtered source and SAME response target (2026-10-03 UTC):**
+**CURRENT guarded-coupling family restriction (2026-10-03 UTC):**
+`BF4WilsonSpatialUnionMacroscopicRatioObstruction` now has a common
+computed macroscopic-ratio onset below any fixed guarded coupling ceiling W.
+At every valid w<=W, the ratio kappa*R(2n)<=R(4n), kappa>0, forces the
+SAME original T(n)x=0 beyond that onset. No initial norm, support or
+renormalization bound is needed; nonzero-image ratio families must leave W.
+This is not a single-response-floor obstruction, all-nome uniformity,
+physical critical-point identification or continuum construction.
+One focused check passed eleven allowed gates (four new), with the unchanged
+legacy unused-section-variable warning. Evidence:
+`audits/AUDIT-GUARDED-MACRO-RATIO-ESCAPE-2026-10-03.md`.
+
+**Checked original signed filtered source and SAME response target (2026-10-03 UTC):**
 `BF4ExactSlabFixedSpatialCubeFiniteOwnGain.originalOwnGain_smallNome_floor`
 now proves the EXISTING original commutator gain at its computed OWN odd
 mean is at least 2^-124-2^-138>0 for w=1/16, K=1, width=2, n=0.
