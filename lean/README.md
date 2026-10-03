@@ -13,6 +13,22 @@ discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
 **CURRENT original signed filtered source and SAME response target (2026-10-02 UTC):**
+`BF4ExactSlabFixedSpatialFilteredCommutatorGain` retains the COMPLETE
+original quadratic identity S=Delta+2(1-a)J1-2G2, with b=T(g*(f-c)) and
+G2=ell[b*(b-a*A*(f-c))] at the actual OWN mean. The endpoint difference
+and J1 use constructed cap16 certificates and error 32*mixRate^n against
+the SAME EVEN partition. `BF4WilsonAllNomeFilteredGainLimit` constructs
+the CReal gain and QCauchy modulus and pins it to C2-a*C1 and the actual
+unit response R2-a*R1 on the EXISTING completion. No centered eigenpin,
+gain sign, reserve or useful changing-family budget is assumed or proved.
+`BF4WilsonAllNomeFilteredFiniteGainApproximation` bounds BOTH finite
+comparison directions by 48*mixRate^n, for 0<=a<=1.
+`BF4WilsonAllNomeFilteredFiniteGainLimit` constructs independent cutoff,
+time and representative thresholds reaching that SAME completed gain,
+while retaining the moving finite OWN center. Nome/width stay fixed.
+Four final focused checks passed 32 allowed gates. Evidence:
+`audits/AUDIT-FILTERED-QUADRATIC-COMMUTATOR-GAIN-2026-10-02.md`.
+
 `QuaternionHaarWordSignedCross`, `BF4ExactSlabFixedSpatialWilsonSignedChord`
 and `BF4ExactSlabFixedSpatialFilteredSignedChord` retain the actual ordered
 cross cost. The diagonal alone has linear length cost; the COMPLETE OWN

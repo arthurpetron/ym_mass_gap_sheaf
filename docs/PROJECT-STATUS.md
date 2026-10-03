@@ -1,5 +1,19 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL quadratic commutator route (2026-10-02 UTC;
+chart unchanged): S=Delta+2(1-a)J1-2G2 retains the actual finite OWN center
+and EVEN partition. Constructed endpoint/product cap16 certificates give
+32*mixRate^n errors. The computed completed gain is exactly C2-a*C1 on
+the existing carrier, and R2-a*R1 after its SAME unit normalizer squared.
+The actual normalized finite gain has both-order 48*mixRate^n comparison
+and computed cutoff/time/representative thresholds to that SAME gain,
+for 0<=a<=1 at fixed nome/width. Four final focused explicit20-GiB checks
+passed 32 allowed gates and independent mathematical review. Gain sign,
+a useful changing-family
+relative budget and positive reserve remain OPEN. Evidence:
+`audits/AUDIT-FILTERED-QUADRATIC-COMMUTATOR-GAIN-2026-10-02.md`.
+No displayed claim changed; no ASCII reprint.
+
 Verified supporting ORIGINAL ordered cross cost (2026-10-02 UTC;
 chart unchanged): exact whole-word diagonal plus TWICE actual signed
 cross gives linear DIAGONAL length cost under the original matched law.

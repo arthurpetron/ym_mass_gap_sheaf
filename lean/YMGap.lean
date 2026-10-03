@@ -5137,6 +5137,10 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialMixedDepthChordalInsertion
 import YMGap.Continuum.QuaternionHaarWordSignedCross
 import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonSignedChord
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFilteredSignedChord
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFilteredCommutatorGain
+import YMGap.Continuum.BF4WilsonAllNomeFilteredGainLimit
+import YMGap.Continuum.BF4WilsonAllNomeFilteredFiniteGainApproximation
+import YMGap.Continuum.BF4WilsonAllNomeFilteredFiniteGainLimit
 -- Scalar alignment cannot amplify to arbitrary quaternion-valued sources.
 -- Exact original low-degree obstruction; narrower scalar word stays OPEN.
 import YMGap.Continuum.SU2QuaternionHeatAlignmentAmplificationObstruction

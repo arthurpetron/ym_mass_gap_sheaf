@@ -4,7 +4,34 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Original ordered cross cost retained and false amplification pruned (2026-10-02 UTC)
+## Current increment: Original quadratic commutator identity and SAME completed gain (2026-10-02 UTC)
+
+PROGRESS after `f2a9b20`: the COMPLETE source is exactly
+S=Delta+2(1-a)J1-2G2. Here b=T(g*(f-c)), c is the SAME finite OWN mean,
+G2=ell[b*(b-a*A*(f-c))], and no centered-mode eigenvalue is asserted.
+Constructed cap16 on the endpoint square DIFFERENCE gives
+abs(Delta)<=32*mixRate^n*SAME evenPartition. Cap16 on the centered
+PRODUCT compares J1/evenPartition to the existing matched transfer
+quadratic with the same explicit error. The constructed CReal gain and
+QCauchy modulus use the existing lag-one and COMPLETE filtered limits;
+the gain is pinned to C2-a*C1 on the EXISTING completed state/time and
+to R2-a*R1 under its SAME normalizer squared. The actual finite gain now
+has both-order 48*mixRate^n comparison and an exposed independent
+cutoff/time/representative modulus to that SAME constructed limit, for
+0<=a<=1 at fixed nome/width. No finite moving source is passed through
+a fixed-source limit. Four final focused checks passed 32 allowed gates;
+independent mathematical review passed.
+Evidence: `audits/AUDIT-FILTERED-QUADRATIC-COMMUTATOR-GAIN-2026-10-02.md`.
+
+NEXT: prove useful original commutator gain versus SAME lag-one response,
+and a positive reserve, on a justified changing family. These identities
+do NOT supply either estimate or a new sign premise. Length-dependent
+absolute ceilings remain separate valid bounds. All continuum/Clay
+endpoints remain OPEN. Root imports registered, NOT aggregate-checked;
+root/tree, broad audit/guard and progress metric NOT run. CI and exact
+chart unchanged; no paper-list or ASCII reprint.
+
+## Earlier increment: Original ordered cross cost retained and false amplification pruned (2026-10-02 UTC)
 
 PROGRESS after `6db3d0d`: the actual ordered word chord is its complete
 diagonal plus twice its signed cross insertion. Only diagonal unit

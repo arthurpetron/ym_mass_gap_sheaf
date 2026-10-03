@@ -27,6 +27,35 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME signed filtered slope and reserve (2026-10-02 UTC)
 
+NEW CHECKED QUADRATIC ROUTE: with the ORIGINAL g, A=Tg, fixed finite
+OWN mean c and psi=f-c, let b=T(g*psi), J1=ell(A*psi*b),
+G2=ell[b*(b-a*A*psi)], Delta=ell[A*T(g*psi^2)]-ell[(A*psi)^2].
+The COMPLETE literal source satisfies S=Delta+2(1-a)J1-2G2 for ANY
+rational reference a, without an eigenpin. Actual endpoint symmetry
+and constructed cap16 give abs(Delta)<=32*mixRate^n*SAME evenPartition;
+the centered PRODUCT has cap16 and J1 has the same error to the matched
+normalized transfer quadratic. A constructed CReal gain with computed
+QCauchy modulus is exactly C2-a*C1 on the EXISTING completed carrier,
+or R2-a*R1 after its SAME unit normalizer squared. The ACTUAL finite
+gain has both-order 48*mixRate^n comparison and computed independent
+cutoff/time/representative thresholds to that SAME completed gain,
+for 0<=a<=1 at fixed nome/width. Four final focused checks passed
+32 allowed gates and independent mathematical review.
+PRIORITY: estimate the SIGNED original quadratic gain relative to SAME
+lag-one response, rather than replace it by another absolute quartic cap.
+The backward consumer still needs m*(R1-R2)<=C*R1 and R1>=gamma0>0,
+with fixed family-wide C,gamma0 on a justified changing family. The gain
+identity expresses the first budget as m*G >= [m*(1-a)-C]*R1; this
+algebraic restatement is NOT a new proved physical estimate. Do not
+replace an ORIGINAL-terminal-dependent quantitative bound by generic
+positive-source or positive-character-cone gain reasoning; the audit's
+scalar test is analytical review only, not a new Lean-checked BF4 witness.
+Do not assume that G is positive, that f-c is a free eigenmode, that the finite
+odd/even measures agree, or that fixed-nome/width moduli are uniform on
+a physical scaling trajectory. Existing signed-cross and OWN Young
+ceilings below remain valid alternative tools, not mandatory steps.
+Evidence: `audits/AUDIT-FILTERED-QUADRATIC-COMMUTATOR-GAIN-2026-10-02.md`.
+
 NEW CHECKED ORDERED CROSS COST: the original whole-word chord is exactly
 its per-link diagonal plus TWICE its actual signed pair sum in all four
 coordinates. Unit prefixes/suffixes cancel only on the diagonal, giving

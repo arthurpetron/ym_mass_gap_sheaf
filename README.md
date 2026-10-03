@@ -20,6 +20,18 @@ Both useful quantitative inputs remain open on a justified changing family;
 the same fixed C and positive reserve would make the floor uniform. See the
 [checked implication and remaining producer](audits/AUDIT-FILTERED-BLOCK-SURVIVAL-2026-10-02.md).
 
+**New checked quadratic route:** the COMPLETE original filtered numerator
+is exactly `Delta+2*(1-a)*J1-2*G2`, at its actual finite OWN mean and SAME
+even partition. The endpoint mismatch has bound `32*mixRate^n`; the actual
+lag-one term has the same explicit comparison error. A constructed real
+gain is pinned to `C2-a*C1` on the EXISTING completed carrier, and to
+`R2-a*R1` after its SAME unit normalizer squared. This preserves a signed
+quadratic correction instead of replacing it by a quartic absolute cap.
+The actual finite gain now reaches that completed gain with computed
+cutoff/time/representative thresholds, for `0<=a<=1` at fixed nome/width.
+Neither a favorable gain nor a family-wide positive reserve is proved.
+See the [identity, limit pins and open estimate](audits/AUDIT-FILTERED-QUADRATIC-COMMUTATOR-GAIN-2026-10-02.md).
+
 **New checked source cancellation:** the literal original radius-two loop
 source equals conditional noise MINUS a nonnegative drift square, over its
 SAME even-window partition. The original finiteValue pin and constant-shift
