@@ -36,11 +36,15 @@ mixed moments in `BF4WilsonAllNomeRootLogTail` give the sufficient `8/N`
 tail budget without the unnecessary sharp binomial ceiling.
 `BF4WilsonAllNomeSymmetricFormNorm` proves two-sided symmetric diagonal
 estimates imply the squared norm estimate by rational polarization.
-Four focused checks passed 15 new gates, four axiom-free and eleven within
-{propext, Quot.sound}; root imports registration-only.
+The positive telescope `1-u^N-h^N=u*h*sum_(k=0..N-2)(u^k+h^k)` is ALSO
+checked, eliminating the S-numerator's binomial middle row. The four latest
+focused target logs contain 18 gates, five axiom-free and thirteen within
+{propext, Quot.sound}; root imports registration-only. The first checkpoint
+`a0d9897` supplied 15; the telescope follow-up adds three.
 NEXT BACKWARD: identify the ORIGINAL S/F polynomials with their explicit
 positive primitives at the coefficient level and transport them to the
-ACTUAL root. The sufficient form error is `8/N+invSucc(M)`; the proved norm
+ACTUAL root. Use the shorter factored S' expression in the math note, not
+the eliminated binomial row. The sufficient form error is `8/N+invSucc(M)`; the proved norm
 principle and existing limit moduli then meet. Those form bounds and
 derivativeAction=regularizedLog are still OPEN. Do not add a wrapper that
 assumes this equality. NEXT FORWARD remains the complete signed relative

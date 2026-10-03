@@ -18,7 +18,9 @@ formal derivative, endpoint positivity/zero and derivative-initial uniqueness.
 `RootLogFiniteTail` retains the finite geometric remainder.
 `BF4WilsonAllNomeRootLogTail` supplies an actual SAME-root `8/N` moment budget;
 `BF4WilsonAllNomeSymmetricFormNorm` proves the algebraic form-to-norm implication.
-Four focused checks passed 15 new permitted gates (four axiom-free definitions).
+The binomial-free positive complementary-power factor is also checked.
+The four current target logs contain 18 permitted gates (five axiom-free
+definitions); the telescope follow-up adds three to the first checkpoint.
 The ORIGINAL S/F coefficient identities and root transport remain OPEN; no
 operator identification, changing-family estimate or continuum/Clay closure
 is claimed. Root imports registered only. Evidence:

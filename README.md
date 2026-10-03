@@ -13,6 +13,8 @@ Mathlib-free Lean with explicit witnesses and moduli.
 **New checked root/log proof components:** explicit positive finite primitives,
 endpoint-safe retained tails, an actual original-carrier `8/N` mixed-moment
 budget, and constructive form-to-norm polarization are now kernel-checked.
+An exact positive complementary-power telescope eliminates the binomial
+expansion from the proposed S-derivative numerator.
 The original S/F coefficient comparison and its SAME-root transport remain
 open; derivative/log equality and physical scaling are NOT claimed. See the
 [exact statements and focused verification](audits/AUDIT-ORIGINAL-ROOT-LOG-PRODUCERS-2026-10-03.md).

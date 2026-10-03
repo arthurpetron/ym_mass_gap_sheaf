@@ -22,7 +22,7 @@ value is zero, and its evaluation is nonnegative on the CLOSED interval
 determine the ACTUAL finite polynomial. Thus later S/F identifications must
 pin to the original polynomial, not substitute an arbitrary positive one.
 
-`lean/YMGap/Continuum/RootLogFiniteTail.lean:55`, `partial_retained_tail`,
+`lean/YMGap/Continuum/RootLogFiniteTail.lean:57`, `partial_retained_tail`,
 uses the EXISTING scalar partial sums p_m and proves
 
     p_(m+1)(u)+(1-u)^(m+2)/2 <= u*(1-u)+(1-u)^2/2.
@@ -30,6 +30,17 @@ uses the EXISTING scalar partial sums p_m and proves
 Both endpoints are included. Its quadratic tail follows by removing only
 the nonnegative retained remainder. This finite statement does not import
 an operator from the older thermodynamic carrier.
+
+Its :86, `complementaryPowerSum`, also computes P_n=sum_(k<n)(u^k+h^k),
+where h=1-u. Its :100, `complementary_power_defect`, proves
+
+    1-u^(n+1)-h^(n+1)=u*h*P_n.
+
+The empty sum and both endpoints are included; :89,
+`complementaryPowerSum_nonnegative`, proves P_n>=0 on [0,1]. This finite
+telescope removes the binomial middle-row expansion from the proposed
+S-derivative numerator. It does NOT prove the original S derivative identity
+or coefficient/root-action transport.
 
 `lean/YMGap/Continuum/BF4WilsonAllNomeRootLogTail.lean:76`,
 `root_quadratic_tail_bound`, uses the ACTUAL mixed moments on the original
@@ -65,7 +76,7 @@ in this module. The intended E is the literal logPartial-differenceQuotient.
   :63, `power_derivative_succ`; :158, `primitive_derivative`;
   :237, `primitive_nonnegative`; :283, `primitive_zero`;
   :320, `derivative_initial_unique`.
-- `lean/YMGap/Continuum/RootLogFiniteTail.lean:73`, `partial_quadratic_tail`.
+- `lean/YMGap/Continuum/RootLogFiniteTail.lean:75`, `partial_quadratic_tail`.
 - `lean/YMGap/Continuum/BF4WilsonAllNomeRootLogTail.lean:38`,
   `moment_time_antitone`.
 - `lean/YMGap/Continuum/BF4WilsonAllNomeSymmetricFormNorm.lean:96`,
@@ -91,9 +102,11 @@ every-group construction and Clay closure remain OPEN.
 
 ## Verification boundary
 
-Four accepted serialized focused checks exited zero, with 15 new printed
-gates: four computed definitions are axiom-free; eleven gates use only
-{propext, Quot.sound}. Accepted logs contain no error, warning, sorryAx or
+The four targets' latest accepted serialized focused logs report 18 printed
+gates: five computed definitions are axiom-free; thirteen gates use only
+{propext, Quot.sound}. All accepted checks exited zero. The initial four
+checks supplied 15 gates in `a0d9897`; the follow-up telescope adds three.
+Accepted logs contain no error, warning, sorryAx or
 PANIC. Root reviewed all four full sources. Sol agents built the primitive
 and polarization proof; independent Sol mathematics and Luna static review
 confirmed the endpoint and original-carrier scope. Reviews are not proofs.
@@ -108,14 +121,14 @@ change or chart-claim closure was introduced.
 | Source | SHA-256 |
 | --- | --- |
 | QPolyPositivePrimitive | 98010e2a92222575b222362f0c74c7e80f851cc750a8189cf6a26e129d3058e1 |
-| RootLogFiniteTail | 98594dcbd70accb7605573649f0d17d96d7e15fd212a2f09bb0705d4acdb90b7 |
+| RootLogFiniteTail | cbc4419dc9aedb44177af39a9efe7b83bfdabf4a61c35a647d204fe88ac5bb56 |
 | BF4WilsonAllNomeRootLogTail | 172ce83c95c4410e6b728d598b7c4253e4450ee9b8910f7c48b37eb9d5cbb72f |
 | BF4WilsonAllNomeSymmetricFormNorm | 462739e843a8eabebb1fbc200617eb8796508aea58a7371f836161a604fcba3b |
 
 | Accepted focused log | SHA-256 |
 | --- | --- |
 | /tmp/ym-positive-poly-primitive-20261003-b.log | 1902f01d5eb0ea71cd201e5d3f86252b1ca590685093774962fdc25fc8f08c5f |
-| /tmp/ym-root-log-finite-tail-20261003-b.log | d67b7048e5b153759a7a5fdc79a52d30c38320fcb9414bf9386a65c65fc1a93f |
+| /tmp/ym-root-log-complementary-telescope-20261003-a.log | bd22e2a39a23312a11670eadcd322a44c162c0eec570f395f9f4cc9e962d62d4 |
 | /tmp/ym-original-root-log-tail-20261003-b.log | 692dc800c53f27869fd3229421fab6ad038847afbfcf67a84d79fcf33ce17e6a |
 | /tmp/ym-original-symmetric-form-norm-20261003-a.log | 483b4308bbcc171d49ff399a427112f1267dbdf73067367ca2d425343660845b |
 
@@ -123,6 +136,8 @@ The primitive a-log had local multiline case-layout errors; the root-tail
 a-log retained an induction-side inequality hypothesis. Both were corrected
 without changing mathematical statements, axioms or resources, and only the
 passing b-logs are evidence for those sources. The finite-tail a-log passed
-before an unused import was removed; the b-log verifies the frozen source.
+before an unused import was removed; the b-log verifies the initial tail.
+The complementary-telescope a-log verifies the final extended tail source
+with all five gates, passing on its first check.
 Canonical first-chart SHA-256 remains
 `0d9295165945a8acea2c4037bd951f9060a1dfcc22448bde4462d0c795b12145`.

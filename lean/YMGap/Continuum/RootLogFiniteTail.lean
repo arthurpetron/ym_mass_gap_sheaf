@@ -6,6 +6,8 @@ polynomials.  Retaining a positive geometric remainder gives
 
   p_(m+1)(u) + (1-u)^(m+2)/2 <= u*(1-u) + (1-u)^2/2.
 
+The complementary power telescope also factors the numerator of the
+S-polynomial derivative into positive monomials, without a binomial row.
 Multiplication by N*u^(N-1) pays the root-series side of the proposed
 original derivative/log sandwich.  This is finite algebra on [0,1],
 including u=0; no inverse, spectral theorem or different carrier is used.
@@ -79,7 +81,56 @@ theorem partial_quadratic_tail (u : Q') (hu : (0 : Q') ≤ u)
         (Q'.pow_nonneg _ (Q'.sub_nonneg_of_le h1) _)))
     (partial_retained_tail u hu h1 m)
 
+/-- The computed finite positive row after cancelling the polynomial
+coordinate factor in the S-derivative numerator. -/
+def complementaryPowerSum (u : Q') (n : Nat) : Q' :=
+  finSum (fun k => u^k+(1-u)^k) n
+
+theorem complementaryPowerSum_nonnegative (u : Q') (hu : (0 : Q') ≤ u)
+    (h1 : u ≤ 1) (n : Nat) : (0 : Q') ≤ complementaryPowerSum u n := by
+  induction n with
+  | zero => exact Q'.le_refl' 0
+  | succ n ih =>
+      exact Q'.zero_le_add _ _ ih
+        (Q'.zero_le_add _ _ (Q'.pow_nonneg _ hu n)
+          (Q'.pow_nonneg _ (Q'.sub_nonneg_of_le h1) n))
+
+/-- Exact finite factorization, including the EMPTY sum at n=0 and both
+endpoints. No division by u or binomial expansion is used. -/
+theorem complementary_power_defect (u : Q') (n : Nat) :
+    Q'.eqv (1-u^(n+1)-(1-u)^(n+1))
+      (u*(1-u)*complementaryPowerSum u n) := by
+  induction n with
+  | zero =>
+      change Q'.eqv (1-u*1-(1-u)*1) (u*(1-u)*0)
+      exact poly_identity_of_normal_eq
+        (.add (.add (.const 1) (.neg (.mul (.var 0) (.const 1))))
+          (.neg (.mul (.add (.const 1) (.neg (.var 0))) (.const 1))))
+        (.mul (.mul (.var 0) (.add (.const 1) (.neg (.var 0)))) (.const 0))
+        (by decide) (fun _ => u)
+  | succ n ih =>
+      have hs : Q'.eqv (1-u^(n+1+1)-(1-u)^(n+1+1))
+          ((1-u^(n+1)-(1-u)^(n+1))+u*(1-u)*(u^n+(1-u)^n)) := by
+        change Q'.eqv (1-u*(u*u^n)-(1-u)*((1-u)*(1-u)^n))
+          ((1-u*u^n-(1-u)*(1-u)^n)+u*(1-u)*(u^n+(1-u)^n))
+        exact poly_identity_of_normal_eq
+          (.add (.add (.const 1) (.neg (.mul (.var 0) (.mul (.var 0) (.var 1)))))
+            (.neg (.mul (.add (.const 1) (.neg (.var 0)))
+              (.mul (.add (.const 1) (.neg (.var 0))) (.var 2)))))
+          (.add
+            (.add (.add (.const 1) (.neg (.mul (.var 0) (.var 1))))
+              (.neg (.mul (.add (.const 1) (.neg (.var 0))) (.var 2))))
+            (.mul (.mul (.var 0) (.add (.const 1) (.neg (.var 0))))
+              (.add (.var 1) (.var 2))))
+          (by decide) (fun | 0 => u | 1 => u^n | _ => (1-u)^n)
+      exact Q'.eqv_trans _ _ _ hs (Q'.eqv_trans _ _ _
+        (Q'.add_eqv_congr_right _ _ _ ih)
+        (Q'.eqv_symm (Q'.mul_add_eqv _ _ _)))
+
 end YMGap.Continuum.RootLogFiniteTail
 
 #print axioms YMGap.Continuum.RootLogFiniteTail.partial_retained_tail
 #print axioms YMGap.Continuum.RootLogFiniteTail.partial_quadratic_tail
+#print axioms YMGap.Continuum.RootLogFiniteTail.complementaryPowerSum
+#print axioms YMGap.Continuum.RootLogFiniteTail.complementaryPowerSum_nonnegative
+#print axioms YMGap.Continuum.RootLogFiniteTail.complementary_power_defect

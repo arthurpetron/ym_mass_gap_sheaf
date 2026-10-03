@@ -72,6 +72,24 @@ and zero initial value. Its :320, `derivative_initial_unique`, pins any
 matching derivative/initial-value polynomial to the computed one.
 The ORIGINAL S/F identities and the sandwich are NOT yet kernel-checked.
 
+### A binomial-free first factor (now checked)
+
+The shorter finite telescope
+
+    1-u^N-h^N=u*h*sum_(k=0..N-2)(u^k+h^k)
+
+is now proved at `lean/YMGap/Continuum/RootLogFiniteTail.lean:100`,
+`complementary_power_defect`, with its computed nonnegative row and empty
+N=1 case. Thus the FIRST factor of the proposed S' expansion needs no
+binomial middle row. With P_N=sum_(k=0..N-2)(u^k+h^k), the shorter target is
+
+    S'=N*h*P_N*sum_(i=0..M-1)D^(M-1-i)*h^(N*i).
+
+Replacing D by h*sum_(j=0..N-1)u^j exposes a finite nonnegative u/h row.
+The ORIGINAL S coefficient identity, termwise positive primitive join,
+F identity and original-root transport are still NOT checked here.
+Independent Sol review confirmed this simplification; review is not proof.
+
 ## Consumer on the SAME existing completion
 
 Use N=2^depth and u the literal original positive root R_depth.
@@ -101,7 +119,7 @@ For depth=d+2 and N=2^(d+2),
 `lean/YMGap/Continuum/BF4WilsonAllNomeRootLogTail.lean:76`,
 `root_quadratic_tail_bound`, proves the ACTUAL positive-moment tail is at
 most (8/N)*B(x,x), where 8/N=2*half^d is explicit rational data.
-`RootLogFiniteTail.lean:55`, `partial_retained_tail`, proves the scalar
+`RootLogFiniteTail.lean:57`, `partial_retained_tail`, proves the scalar
 finite tail used above (same directory).
 
 With the STILL-MISSING ORIGINAL S/F positive expansions and root transport,

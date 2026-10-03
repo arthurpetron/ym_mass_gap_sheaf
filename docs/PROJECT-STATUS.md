@@ -4,7 +4,9 @@ Verified supporting finite ORIGINAL root/log components (2026-10-03 UTC;
 chart unchanged): actual positive primitives with coefficientwise derivative,
 endpoint positivity/zero and initial-value uniqueness; retained scalar tail;
 SAME-root mixed-moment `8/N` budget; algebraic form-to-norm polarization.
-Four focused checks passed 15 permitted gates, four axiom-free. ORIGINAL
+The complementary-power telescope is also checked, eliminating the
+S-numerator's binomial layer. The four latest target logs contain 18 permitted
+gates, five axiom-free (three gates added after `a0d9897`). ORIGINAL
 S/F coefficient identities and actual-root transport remain OPEN; neither
 derivative/log equality nor a changing-family signed estimate is claimed.
 Evidence: `audits/AUDIT-ORIGINAL-ROOT-LOG-PRODUCERS-2026-10-03.md`.

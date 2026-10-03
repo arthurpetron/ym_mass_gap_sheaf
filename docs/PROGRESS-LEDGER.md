@@ -4,7 +4,19 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Finite positive primitives and SAME-root tail pay parts of the operator join (2026-10-03 UTC)
+## Current increment: Positive telescope eliminates the S-numerator binomial layer (2026-10-03 UTC)
+
+PROGRESS after `a0d9897`: the exact finite identity
+`1-u^N-h^N=u*h*sum_(k=0..N-2)(u^k+h^k)`, h=1-u, now has a computed
+nonnegative row, including N=1 and both endpoints. Its focused check passes
+five permitted gates (three new, one axiom-free). This removes the binomial
+middle row from the ORIGINAL S'-numerator factor. The S coefficient identity,
+positive primitive join and actual-root transport remain OPEN. The four
+current target logs cover 18 gates; no physical scaling claim closes.
+Canonical chart and CI unchanged; no broad build/audit/guard or metric run.
+Evidence: `audits/AUDIT-ORIGINAL-ROOT-LOG-PRODUCERS-2026-10-03.md`.
+
+## Earlier increment: Finite positive primitives and SAME-root tail pay parts of the operator join (2026-10-03 UTC)
 
 PROGRESS after `dd06256`: explicit finite rational primitives now have a
 checked coefficientwise derivative, endpoint positivity/zero and uniqueness
