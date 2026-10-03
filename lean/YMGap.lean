@@ -7112,3 +7112,8 @@ import YMGap.Continuum.QuaternionHaarReciprocalAngularScoreBound
 import YMGap.Continuum.QuaternionHaarReciprocalAngularScoreModulus
 import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalRatio
 import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalScore
+
+-- SAME-weight original transfer continuity and the actual finite signed-energy
+-- reconstruction join; remaining changing-family relative estimate is open.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialTransferWeightedBound
+import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalEnergy

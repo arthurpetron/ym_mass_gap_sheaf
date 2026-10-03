@@ -100,12 +100,16 @@ No equality of means at different depths is asserted.
 | `blockConditionalRatio_angular_reconstruction` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockConditionalScore.lean:75` | Actual original block and action instantiate the modulus. |
 | `ownPaddedSquareRatio_angular_reconstruction` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockConditionalScore.lean:115` | Literal chronological OWN-square consumer. |
 
-The existing split `clearedRayleighCost_split`
+CORRECTION (2026-10-03): the prior version of this audit incorrectly said
+`clearedRayleighCost_split`
 (`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockRayleighSplit.lean:214`)
-requires an exact multiplication identity. The finite ratios above approximate
-that identity; this checkpoint does NOT insert them into an exact split or
-prove the necessary energy-limit/error join. In particular, the angular
-estimate is cleared by A^2, not an unweighted inverse-derivative estimate.
+requires an exact multiplication identity. It requires only support of b
+and A*f, so the finite ratio can be inserted directly, with its signed
+multiplication cost retained. This ratio checkpoint did not bound that cost;
+the subsequent checked finite energy/error join is recorded in
+`audits/AUDIT-ORIGINAL-BLOCK-CONDITIONAL-ENERGY-2026-10-03.md`.
+The angular estimate remains cleared by A^2, not an unweighted
+inverse-derivative estimate.
 
 The existing `paddedSquare_exact_block_heatDefect`
 (`lean/YMGap/Continuum/BF4DyadicWilsonSquareExactBlockHeatDefect.lean:65`)

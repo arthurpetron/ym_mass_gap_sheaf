@@ -12,15 +12,27 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT checked ORIGINAL conditional ratio and angular reconstruction (2026-10-03 UTC):**
+**CURRENT checked ORIGINAL finite signed-energy join (2026-10-03 UTC):**
+The actual reciprocal ratio now meets the exact original Rayleigh/energy
+split. SAME V-weighted transfer continuity and its constructed multiplier
+certificate bound the COMPLETE signed remainder by
+2*rho^k*(Z1+Z0*C)*ell[b^2], C=kineticCap*ell(1), with a computed absolute
+tolerance onset. No spatial floor, changed source/action, stationary message
+or favorable remainder sign is assumed. Two focused targets passed twelve
+permitted gates. The remaining energy plus boundary drift needs a useful
+relative upper estimate on the justified changing family; no continuum or
+physical-gap claim closes. Evidence:
+`audits/AUDIT-ORIGINAL-BLOCK-CONDITIONAL-ENERGY-2026-10-03.md`.
+
+**Earlier checked ORIGINAL conditional ratio and angular reconstruction (2026-10-03 UTC):**
 The actual original block constructs bounded polynomial ratios, with SAME
 V-weighted relative reconstruction rate mixRate(w,width) and an explicit
 onset. Differentiated cancellation retains both signed residuals; a computed
 geometric/polynomial modulus reconstructs the actual OWN-centered square's
 cleared angular score. Its two square costs are computed original integrals,
 not supplied caps. Six focused targets passed 31 permitted gates, one
-axiom-free. The energy/error join and useful changing-family relative signed
-cost remain OPEN; this is not continuum survival. Evidence:
+axiom-free. The finite energy/error join is now checked above; the useful
+changing-family relative signed cost remains OPEN. This is not continuum survival. Evidence:
 `audits/AUDIT-ORIGINAL-BLOCK-CONDITIONAL-RATIO-2026-10-03.md`.
 
 **Earlier checked ORIGINAL Wilson-loop mode reserve (2026-10-03 UTC):**

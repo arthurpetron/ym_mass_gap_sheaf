@@ -27,6 +27,25 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
 
+NOW CHECKED ACTUAL FINITE SIGNED-ENERGY JOIN:
+For the SAME A=g_(n+t), b=T^t(g_n*psi), the constructed reciprocal
+multiplier gives ell[(A*phi_k)^2]<=ell[b^2]. The original positive edge
+energy at g=1 and rank-one cap give a SAME V-weighted transfer continuity
+bound with C=kineticCap*ell(1); no spatial floor or raw-Haar proxy is used.
+Both signed mixed terms are paid together:
+abs(M_k)<=2*mixRate(w,width)^k*(Z1+Z0*C)*ell[b^2].
+`BlockConditionalEnergy.blockConditionalRatio_energy_error_tolerance` now
+inserts the actual finite ratio into the original exact Rayleigh split,
+with a computed absolute tolerance cutoff depending on its actual partitions
+and norm. Two focused targets passed twelve permitted public gates;
+independent source/log review confirmed same-object and zero-case evidence.
+Evidence: `audits/AUDIT-ORIGINAL-BLOCK-CONDITIONAL-ENERGY-2026-10-03.md`.
+REPOINT: estimate Z0*energy(A,phi_k)+boundaryDrift(A,phi_k) relative to
+Z1*ell[b^2] on the justified changing family, paying this explicit residual;
+or establish the SAME macroscopic response ratio directly. This finite join
+does NOT supply the useful changing-family upper bound, derivative-cost
+control, continuum survival or any physical gap. No displayed box changes.
+
 NOW CHECKED ACTUAL CONDITIONAL RATIO AND CLEARED ANGULAR RECONSTRUCTION:
 For A=g_(n+t), b=T^t(g_n*psi), n+t>=1, the ORIGINAL last step constructs
 positive terminal floor/cap certificates. Both signs C*A plus/minus b are
@@ -45,10 +64,10 @@ that modulus to the literal original OWN source and action, not a proxy.
 Six focused targets passed 31 permitted public gates, one axiom-free;
 independent read-only review confirmed all source/log evidence. Evidence:
 `audits/AUDIT-ORIGINAL-BLOCK-CONDITIONAL-RATIO-2026-10-03.md`.
-REPOINT: use this actual cleared-score reconstruction in the quantitative
-original signed-cost analysis; do not add further approximation wrappers.
-The existing exact multiplication/energy split still needs its own error
-or limit join. Actual derivative costs relative to the SAME filtered norm,
+Use this actual cleared-score reconstruction in the quantitative original
+energy analysis; do not add further approximation wrappers. The subsequent
+finite energy/error join is now checked above. Actual derivative costs relative
+to the SAME filtered norm,
 combined heat remainder/drift control and the justified changing-family
 macroscopic response ratio remain OPEN. Fixed-window reconstruction is
 NOT a family-uniform cost bound or nontrivial continuum survival.

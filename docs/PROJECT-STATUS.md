@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL finite signed-energy join (2026-10-03 UTC;
+chart unchanged): the constructed ratio meets the exact original Rayleigh
+split, retaining energy and boundary drift. SAME V-weighted transfer
+continuity pays the COMPLETE signed remainder by
+2*rho^k*(Z1+Z0*C)*ell[b^2], C=kineticCap*ell(1), with a computed absolute
+tolerance cutoff. Two focused targets passed twelve permitted gates;
+independent review confirmed all same-object and zero-case pins. The
+remaining energy/drift needs the useful changing-family relative upper
+estimate; no displayed scaling/continuum claim closes. Evidence:
+`audits/AUDIT-ORIGINAL-BLOCK-CONDITIONAL-ENERGY-2026-10-03.md`.
+
 Verified supporting ORIGINAL conditional ratio and cleared angular
 reconstruction (2026-10-03 UTC; chart unchanged): the actual block ratio
 has a constructed cap without terminal-floor loss, SAME V-weighted relative
@@ -7,8 +18,8 @@ error and computed onset. Both signed derivative residuals remain explicit;
 their actual same-weight square costs give a computed fixed-window modulus,
 now instantiated on the literal chronological OWN-centered padded square.
 Six focused targets passed 31 permitted gates, one axiom-free. The exact
-energy/error join, changing-family relative cost/response and all displayed
-continuum claims remain OPEN. Evidence:
+finite energy/error join is now checked above. Changing-family relative
+cost/response and all displayed continuum claims remain OPEN. Evidence:
 `audits/AUDIT-ORIGINAL-BLOCK-CONDITIONAL-RATIO-2026-10-03.md`.
 
 Verified supporting ORIGINAL Wilson-loop mode reserve (2026-10-03 UTC;
