@@ -35,10 +35,13 @@ ORIGINAL S budget and complete two-sided diagonal comparison: 21 permitted
 gates. The ACTUAL symmetric form-to-norm application is ALSO checked in a
 further focused target (five permitted gates, one axiom-free), producing
 the squared-distance budget (2*half^d+invSucc(M))^2*Bxx.
-The limit join remains OPEN; no limiting-operator identification,
-changing-family estimate or continuum/Clay closure is claimed.
+The limit join is NOW checked in one further focused target (five permitted
+gates): `derivativeAction_eq_regularizedLog` identifies the two EXISTING
+bounded positive-time maps with explicit original-representative moduli.
+No full-carrier physical Hamiltonian, changing-family estimate or continuum/
+Clay closure is claimed.
 Root imports registered only. Evidence:
-`audits/AUDIT-ORIGINAL-ROOT-LOG-NORM-COMPARISON-2026-10-03.md`.
+`audits/AUDIT-ORIGINAL-ROOT-LOG-IDENTIFICATION-2026-10-03.md`.
 
 **Earlier checked original derivative-domain excitation (2026-10-03 UTC):**
 `BF4WilsonSmallNomeBentDerivativeExcitation` constructs a literal

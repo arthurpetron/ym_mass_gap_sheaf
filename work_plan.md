@@ -27,7 +27,36 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
-NOW CHECKED THE ORIGINAL FINITE DIAGONAL COMPARISON:
+NOW CHECKED THE SAME ORIGINAL ROOT/LOG IDENTIFICATION:
+`RootLogIdentification.derivativeAction_eq_regularizedLog` proves equality
+of BOTH EXISTING bounded positive-time maps on the ORIGINAL completion.
+Its computed `identificationRate` and `quotient_to_log_bound` retain the
+supplied original representative and all explicit convergence thresholds.
+The finite positive rows, literal map pins, signed form bounds, norm estimate
+and existing limit uniqueness now meet with no comparison premise, operator
+inverse, replacement Cauchy rows or boundary-kernel exclusion.
+One focused check passed five gates within {propext, Quot.sound}. Evidence:
+`audits/AUDIT-ORIGINAL-ROOT-LOG-IDENTIFICATION-2026-10-03.md`.
+REPOINT: the next substantive frontier is the ORIGINAL combined signed cost
+relative to SAME OWN variance, or retained macroscopic response ratio, on a
+JUSTIFIED changing family. In particular the hypothesis `hbudget` in
+`BF4WilsonAllNomeDyadicFilteredGeometricSurvival.dyadicUnitResponse_filtered_block_floor`
+is not produced by this identification. Keep the actual growing observable,
+OWN mean, original action and both partitions; do not replace this input by
+fixed-loop/fixed-nome estimates or new conditional wrappers.
+Backward consumers already exist; pursue a mathematical producer for their
+unpaid same-family input. Retain varianceRemainder + normalized signed
+multiplication cost TOGETHER, including Ward/centering and projection signs.
+The existing fixed-parameter nonpositive multiplication limit supplies no
+relative size; do not mistake a shifted 2t budget for raw start-one reserve.
+The exact producer target and source pins are recorded in
+`audits/MATH-NOTE-SIGNED-FRONTIER-AFTER-ROOT-LOG-2026-10-03.md`.
+Canonical reflected OS realization, nontrivial
+continuum survival, physical time/Hamiltonian/mass, QFT and every group remain
+OPEN. The proved map differentiates T(1)x; it is not an everywhere-defined
+physical Hamiltonian. Root imports registration-only; chart/CI unchanged.
+
+EARLIER CHECKED THE ORIGINAL FINITE DIAGONAL COMPARISON:
 `RootLogMapPins` pins the actual differenceQuotient and logPartial diagonals.
 `RootMomentTelescope` retains the positive endpoint and bounds the finite
 weighted tail by (N/2)*moment(N-1,2). `RootLogSignedBudget` gives

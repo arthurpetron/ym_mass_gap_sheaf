@@ -25,9 +25,12 @@ coarse-defect/time-one moment pins. The ORIGINAL quotient/logPartial diagonal
 comparison is ALSO checked: its signed error is between
 `-||x||^2/(M+1)` and `(8/N)*||x||^2`, N=2^(d+2), M>0.
 The ACTUAL squared-distance bound with coefficient
-`(8/N+1/(M+1))^2` is ALSO checked. The limit join and derivative/log equality
-remain open; physical scaling is NOT claimed. See the
-[actual norm comparison and focused verification](audits/AUDIT-ORIGINAL-ROOT-LOG-NORM-COMPARISON-2026-10-03.md).
+`(8/N+1/(M+1))^2` and its constructive limit join are ALSO checked:
+`derivativeAction = regularizedLog` on the SAME original completion.
+Both existing limit constructions and the boundary kernel are preserved;
+an explicit convergence rate is computed from the supplied representative.
+This is NOT a full-carrier physical Hamiltonian or physical scaling. See the
+[same-carrier identification and focused verification](audits/AUDIT-ORIGINAL-ROOT-LOG-IDENTIFICATION-2026-10-03.md).
 
 **Earlier checked original derivative excitation:** the literal bent-loop state
 now supplies a nonzero point of the EXISTING derivative-graph domain, with

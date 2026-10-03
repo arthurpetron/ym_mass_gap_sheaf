@@ -6,8 +6,9 @@ physical Hamiltonian mass gap. It is OPEN.
 
 This note records a mathematical argument whose finite COMPONENTS are now
 checked; the original two-sided diagonal comparison is ALSO now proved.
-The ACTUAL norm comparison is also checked; the limit join and operator
-identification are NOT proved.
+The ACTUAL norm comparison and constructive limit join are also checked:
+derivativeAction=regularizedLog on the SAME original completion. This does
+not identify a whole-carrier physical Hamiltonian or produce physical scaling.
 It compares two EXISTING original-carrier maps and supplies no changing-family
 signed estimate or physical calibration. Component evidence:
 `audits/AUDIT-ORIGINAL-ROOT-LOG-PRODUCERS-2026-10-03.md`.
@@ -83,7 +84,10 @@ their EXACT original-polynomial pins are ALSO now kernel-checked in
 `lean/YMGap/Constructive/QPolyRootLogPositiveRows.lean:122`, `original_sRow`,
 and :139, `original_fRow`, with computed nonnegative u/h weights at :162,
 `nonnegative_sRow`, and :165, `nonnegative_fRow`. The complete sandwich
-and limiting-operator equality remain OPEN. The ACTUAL root-moment transport
+with its sharp scalar binomial ceiling remains OPEN. The sufficient ACTUAL
+root/log comparison and limiting-map equality are now checked; see
+`audits/AUDIT-ORIGINAL-ROOT-LOG-IDENTIFICATION-2026-10-03.md`.
+The ACTUAL root-moment transport
 and coarse pins are now checked in
 `audits/AUDIT-ORIGINAL-ROOT-POLYNOMIAL-FORM-2026-10-03.md`. Producer evidence:
 `audits/AUDIT-ORIGINAL-ROOT-LOG-POSITIVE-ROWS-2026-10-03.md`.
@@ -104,8 +108,8 @@ binomial middle row. With P_N=sum_(k=0..N-2)(u^k+h^k), the shorter target is
 Replacing D by h*sum_(j=0..N-1)u^j exposes a finite nonnegative u/h row.
 The ORIGINAL S coefficient identity, F derivative identity and termwise
 positive primitive join are now checked; so is the actual root-moment lift.
-The finite original diagonal and norm comparisons are now checked; the limit join
-remains OPEN.
+The finite original diagonal/norm comparisons and constructive limit join
+are now checked; physical scaling remains OPEN.
 `lean/YMGap/Constructive/QPolyComplementCancellation.lean:45`,
 `complement_mul_injective`, permits cancellation of u=1-h at COEFFICIENTS,
 including endpoints. It must be applied BEFORE operator substitution: no
@@ -130,9 +134,8 @@ The following existing declarations have prefix `lean/YMGap/Continuum/`:
   controls the other existing limit.
 
 The actual positive-polynomial moment lift is now proved, not assumed.
-The proved norm comparison and existing
-moduli would identify `derivativeAction` with `regularizedLog` on this SAME
-carrier, preserving its boundary kernel. Neither equality is claimed here.
+The proved norm comparison and existing moduli now identify `derivativeAction`
+with `regularizedLog` on this SAME carrier, preserving its boundary kernel.
 
 The completed intermediate join is a diagonal coefficient functional
 
@@ -151,7 +154,7 @@ also checked in `BF4WilsonAllNomeRootCoarseMoment.lean:97`,
 The literal diagonals of both EXISTING finite maps and their two-sided error
 are now checked in
 `audits/AUDIT-ORIGINAL-ROOT-LOG-FORM-COMPARISON-2026-10-03.md`.
-Their limit join remains OPEN. The existing
+Their constructive limit join is now checked. The existing
 `BF4WilsonAllNomeDefectPolynomial.action` is hardwired to I-T(1), not the
 depth-dependent root defect, so it is not directly the needed producer.
 No assumed functional calculus or scalar-only positivity shortcut is added.
@@ -174,8 +177,10 @@ polarization on the SAME completion. The ACTUAL diagonal bounds are now
 constructed in `lean/YMGap/Continuum/BF4WilsonAllNomeRootLogFormComparison.lean:138`,
 `diagonalError_upper`, and :152, `diagonalError_lower`. The ACTUAL norm
 application is also checked in `BF4WilsonAllNomeRootLogNormComparison.lean:93`,
-`root_log_norm_bound` (same directory). Joining the existing limit moduli
-remains OPEN. No legacy functional calculus,
+`root_log_norm_bound` (same directory). The EXISTING limit moduli now meet in
+`BF4WilsonAllNomeRootLogIdentification.lean:215`,
+`derivativeAction_eq_regularizedLog`, with explicit `identificationRate` at
+:178 and `quotient_to_log_bound` at :183. No legacy functional calculus,
 arbitrary real inverse, spectral theorem or boundary injectivity is needed.
 
 ## Exploration boundary

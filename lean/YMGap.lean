@@ -6266,6 +6266,8 @@ import YMGap.Continuum.BF4WilsonAllNomeRootLogMapPins
 import YMGap.Continuum.BF4WilsonAllNomeRootLogSignedBudget
 import YMGap.Continuum.BF4WilsonAllNomeRootLogFormComparison
 import YMGap.Continuum.BF4WilsonAllNomeRootLogNormComparison
+-- The two EXISTING bounded original positive-time maps coincide; no physical scaling.
+import YMGap.Continuum.BF4WilsonAllNomeRootLogIdentification
 import YMGap.Continuum.RootLogFiniteTail
 import YMGap.Continuum.BF4WilsonAllNomeRootLogTail
 import YMGap.Continuum.BF4WilsonAllNomeSymmetricFormNorm

@@ -19,10 +19,13 @@ comparison is ALSO checked in four focused targets (21 permitted gates):
 error=retained Tail-ORIGINAL S-form, bounded below by -invSucc(M)*Bxx and
 above by (2*half^d)*Bxx for depth=d+2 and M>0. The ACTUAL squared-distance
 bound (2*half^d+invSucc(M))^2*Bxx is ALSO checked in one further focused
-target (five permitted gates, one axiom-free). The limit join remains
-OPEN; neither derivative/log equality nor a changing-family signed estimate
-is claimed. Evidence:
-`audits/AUDIT-ORIGINAL-ROOT-LOG-NORM-COMPARISON-2026-10-03.md`.
+target (five permitted gates, one axiom-free). The EXISTING limit-modulus join
+is ALSO checked in one further focused target (five permitted gates):
+derivativeAction=regularizedLog on the SAME original completed carrier,
+with explicit convergence rate and its boundary kernel retained. The original
+changing-family signed estimate, canonical reflected OS realization and
+physical Hamiltonian/scaling remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-ROOT-LOG-IDENTIFICATION-2026-10-03.md`.
 No exact displayed claim changed; no ASCII reprint.
 
 Verified supporting ORIGINAL derivative-domain excitation (2026-10-03 UTC;

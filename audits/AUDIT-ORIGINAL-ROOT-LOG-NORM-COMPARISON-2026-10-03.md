@@ -1,5 +1,10 @@
 # Actual original root/log squared-distance comparison
 
+FOLLOW-UP: the EXISTING limit-modulus join and derivativeAction=regularizedLog
+are now checked in `audits/AUDIT-ORIGINAL-ROOT-LOG-IDENTIFICATION-2026-10-03.md`.
+This checkpoint's finite evidence is retained below; physical Hamiltonian
+calibration and changing-family control remain OPEN.
+
 The whole-project goal remains nontrivial continuum Yang--Mills on R^4 for
 every compact simple group, with SAME-theory QFT axioms and a positive
 physical Hamiltonian mass gap. It is OPEN. This increment applies the

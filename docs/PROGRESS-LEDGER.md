@@ -4,7 +4,26 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL quotient/logPartial diagonal comparison (2026-10-03 UTC)
+## Current increment: SAME original derivative/log maps identified (2026-10-03 UTC)
+
+PROGRESS after `2bb2c31`: the EXISTING dyadic derivative and EXISTING
+regularized series now coincide on the ORIGINAL completed carrier.
+`RootLogIdentification.identificationRate` computes an explicit convergence
+threshold from ONE supplied original Cauchy representative. Its harmonic and
+geometric norm budgets consume the proved finite comparison, then the EXISTING
+quotient-row limit uniqueness closes `derivativeAction_eq_regularizedLog`.
+No new rows, operator inverse, discarded boundary kernel or supplied norm
+comparison. One focused check passed five permitted gates; no full audit.
+
+REPOINT: the actual combined relative signed estimate or retained macro ratio
+on a JUSTIFIED changing family is still unpaid. The conditional filtered
+survival consumer's original `hbudget` remains a mathematical producer target,
+not a consequence of fixed-carrier map identification. Canonical OS realization,
+continuum survival, physical calibration, full QFT, every group and Clay remain
+OPEN. Root import registration-only, canonical chart and CI unchanged. Evidence:
+`audits/AUDIT-ORIGINAL-ROOT-LOG-IDENTIFICATION-2026-10-03.md`.
+
+## Earlier increment: ORIGINAL quotient/logPartial diagonal comparison (2026-10-03 UTC)
 
 PROGRESS after `89abf54`: literal diagonal pins reach BOTH EXISTING finite
 maps. The retained positive-moment telescope pays the weighted finite root
