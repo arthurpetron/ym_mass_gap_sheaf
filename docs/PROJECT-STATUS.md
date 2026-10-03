@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL Laurent endpoint order and conditional INPUT
+generator (2026-10-03 UTC; chart unchanged): explicit signed Taylor estimates
+and literal derivative sign order actual `p/r^E` using computed floor `w^E`,
+not a multiplied surrogate. The actual input-head generator is
+`u * partial_u C_u[p] = -C_u[L_x p]`, retaining shared output/spectator
+dependence for positive tail count. Five focused checks passed 55 permitted
+gates; independent mathematical review passed. Exact interpolation
+rows/signs and F/G product/chain joins, conditional variance, original
+signed-window scaling, physical/continuum/QFT/every-group/Clay remain OPEN.
+Evidence:
+`audits/AUDIT-ORIGINAL-LAURENT-ENDPOINT-ORDER-2026-10-03.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting ORIGINAL conditional heat and rational interval order
 (2026-10-03 UTC; chart unchanged): literal nome coefficient differentiation
 generates the actual saturated headMap. Direct mixed composition keeps the

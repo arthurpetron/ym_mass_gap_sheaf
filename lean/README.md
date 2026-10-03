@@ -12,7 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT checked original conditional heat and rational interval order (2026-10-03 UTC):**
+**CURRENT checked ORIGINAL Laurent endpoint order and conditional INPUT generator (2026-10-03 UTC):**
+Three constructive modules plus the exposed rational mesh prove order of
+literal `p/r^E` from its formal-derivative sign, explicit signed Taylor budget
+and computed positive floor `w^E`; no multiplied-function surrogate is used.
+The actual conditional INPUT generator is also proved:
+`u * partial_u C_u[p] = -C_u[L_x p]`, retaining arbitrary output/spectator
+dependence for positive tail count. Five focused checks passed 55 gates within
+{propext, Quot.sound}; independent mathematical review passed. Exact
+interpolation rows/signs and F/G product/chain joins, conditional variance,
+original signed-window scaling and physical/continuum/QFT/every-group/Clay
+remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-LAURENT-ENDPOINT-ORDER-2026-10-03.md`.
+
+**Earlier checked original conditional heat and polynomial interval order (2026-10-03 UTC):**
 Actual nome coefficient polynomials and literal pderiv give the saturated
 original head heat generator. Direct harmonic reproduction proves mixed
 composition at the existing output, with full shared spectators; coefficient

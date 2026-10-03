@@ -27,7 +27,35 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
 
-NOW CHECKED ORIGINAL CONDITIONAL HEAT GENERATOR, OUTPUT JOINS AND FINITE ORDER:
+NOW CHECKED ORIGINAL CONDITIONAL INPUT GENERATOR AND LAURENT ENDPOINT ORDER:
+FORWARD, literal original finite packet coefficient derivatives and two
+angular integration-by-parts steps prove u*d_u C_u[p]=-C_u[L_x p]. It acts
+on the INPUT link, retaining arbitrary y/z coefficients and every surviving
+insertion; tail>0 only, arbitrary nome/cutoff, no saturation or positivity
+premise. This is a formal finite identity, not a physical Hamiltonian.
+BACKWARD from the analytic estimate:
+Signed polynomial Taylor remainders have computed coefficient budgets.
+The exact quotient cell identity retains BOTH signed remainders and pays
+their error using the explicit positive denominator floor. Finite mesh
+telescoping and rational Archimedean closure order the ORIGINAL p/q.
+The actual coordinate-power denominator then gives genuine p(r)/r^E order
+from its literal Euler derivative sign, with COMPUTED floor w^E. Signed/zero
+numerators, E=0 and equal endpoints are included. No multiplying-the-function
+surrogate or endpoint-order premise. Five focused checks passed 55 permitted
+gates (including rechecked existing mesh machinery); independent math review
+passed. Evidence: `audits/AUDIT-ORIGINAL-LAURENT-ENDPOINT-ORDER-2026-10-03.md`.
+REPOINT: construct actual shared-output finite Laurent interpolation rows,
+their literal derivative pins and positive-prefix/saturation transports;
+then conditional reference angular Poincare and its active-product join.
+The input-gradient energy that Poincare produces is NOT the Q_K^2 budget
+currently called projectedDerivativeAngularBudget. A genuine estimate in
+the SAME original source/action/output-weight/surviving-norm currency is
+still needed. Pure reference L-to-original K comparison of fixed certified
+derivative squares follows from the already constructed reverse kernel
+order, not from identifying those distinct budgets. Original signed-window
+scaling, physical/OS/continuum/QFT/every-group/Clay remain OPEN; no chart reprint.
+
+EARLIER CHECKED ORIGINAL CONDITIONAL HEAT GENERATOR, OUTPUT JOINS AND FINITE ORDER:
 The actual saturated headMap has an explicit polynomial-in-nome representation
 whose literal formal derivative generates its angular Laplacian. Direct
 boundary-pinned composition C_u(P_v p)=C_(u*v)p keeps the already-existing

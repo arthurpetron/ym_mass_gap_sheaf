@@ -7219,4 +7219,8 @@ import YMGap.Continuum.SU2QuaternionHeadHeatSemigroup
 import YMGap.Continuum.SU2QuaternionHeadHeatGenerator
 import YMGap.Continuum.SU2QuaternionConditionalHeatComposition
 import YMGap.Continuum.SU2QuaternionConditionalHeatEndpoint
+import YMGap.Continuum.SU2QuaternionConditionalHeatGenerator
 import YMGap.Continuum.RationalPolynomialIntervalOrder
+import YMGap.Continuum.RationalPolynomialTaylorCell
+import YMGap.Continuum.RationalFunctionIntervalOrder
+import YMGap.Continuum.RationalLaurentIntervalOrder

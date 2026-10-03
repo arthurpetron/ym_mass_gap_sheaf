@@ -206,12 +206,12 @@ def intervalMesh (a b : Q') (N : Nat) : Q' := (b + -a) * Q'.invSucc N
 def intervalNode (a b : Q') (N j : Nat) : Q' :=
   a + intervalMesh a b N * Q'.ofNat j
 
-private theorem node_zero (a b : Q') (N : Nat) : intervalNode a b N 0 ≈ a := by
+theorem node_zero (a b : Q') (N : Nat) : intervalNode a b N 0 ≈ a := by
   unfold intervalNode
   exact Q'.eqv_trans _ _ _
     (Q'.add_eqv_congr_left a _ 0 (Q'.mul_zero_eqv _)) (Q'.eqv_of_eq (Q'.add_zero' a))
 
-private theorem node_endpoint (a b : Q') (N : Nat) : intervalNode a b N (N+1) ≈ b := by
+theorem node_endpoint (a b : Q') (N : Nat) : intervalNode a b N (N+1) ≈ b := by
   unfold intervalNode intervalMesh
   have hc : Q'.invSucc N * Q'.ofNat (N+1) ≈ 1 :=
     Q'.eqv_trans _ _ _ (Q'.mul_comm_eqv _ _) (Q'.ofNat_succ_mul_invSucc N)
@@ -223,7 +223,7 @@ private theorem node_endpoint (a b : Q') (N : Nat) : intervalNode a b N (N+1) �
       (.add (.var 0) (.mul (.add (.var 1) (.neg (.var 0))) (.const 1)))
       (.var 1) (by decide) (fun | 0 => a | _ => b)
 
-private theorem node_step (a b : Q') (N j : Nat) :
+theorem node_step (a b : Q') (N j : Nat) :
     intervalNode a b N (j+1) + -intervalNode a b N j ≈ intervalMesh a b N := by
   unfold intervalNode
   refine Q'.eqv_trans _
@@ -235,23 +235,23 @@ private theorem node_step (a b : Q') (N j : Nat) :
         (.neg (.add (.var 0) (.mul (.var 1) (.var 2)))))
       (.var 1) (by decide) (fun | 0 => a | 1 => intervalMesh a b N | _ => Q'.ofNat j)
 
-private theorem mesh_nonnegative {a b : Q'} (hab : a ≤ b) (N : Nat) :
+theorem mesh_nonnegative {a b : Q'} (hab : a ≤ b) (N : Nat) :
     (0 : Q') ≤ intervalMesh a b N :=
   Q'.mul_nonneg _ _ (Q'.sub_nonneg_of_le hab) (invSucc_nonnegative N)
 
-private theorem node_mono {a b : Q'} (hab : a ≤ b) (N : Nat) {j k : Nat} (hjk : j ≤ k) :
+theorem node_mono {a b : Q'} (hab : a ≤ b) (N : Nat) {j k : Nat} (hjk : j ≤ k) :
     intervalNode a b N j ≤ intervalNode a b N k :=
   Q'.add_le_add_left _ _ _ (Q'.mul_le_mul_of_nonneg_left _ _ _
     (CReal.ofNat_le_ofNat hjk) (mesh_nonnegative hab N))
 
-private theorem node_in_interval {a b : Q'} (hab : a ≤ b) (N j : Nat) (hj : j ≤ N+1) :
+theorem node_in_interval {a b : Q'} (hab : a ≤ b) (N j : Nat) (hj : j ≤ N+1) :
     a ≤ intervalNode a b N j ∧ intervalNode a b N j ≤ b := by
   constructor
   · exact Q'.add_le_self_of_nonneg _ _
       (Q'.mul_nonneg _ _ (mesh_nonnegative hab N) (zero_le_ofNat j))
   · exact Q'.le_trans' _ _ _ (node_mono hab N hj) (Q'.le_of_eqv (node_endpoint a b N))
 
-private theorem mesh_le_inverse {a b : Q'}
+theorem mesh_le_inverse {a b : Q'}
     (ha : (0 : Q') ≤ a) (hb : b ≤ (1 : Q')) (N : Nat) :
     intervalMesh a b N ≤ Q'.invSucc N := by
   have hwidth : b + -a ≤ (1 : Q') := by
@@ -411,3 +411,10 @@ end YMGap.Continuum.RationalPolynomialIntervalOrder
 #print axioms YMGap.Continuum.RationalPolynomialIntervalOrder.primitiveIncrement_nonnegative
 #print axioms YMGap.Continuum.RationalPolynomialIntervalOrder.formal_derivative_increment
 #print axioms YMGap.Continuum.RationalPolynomialIntervalOrder.monotone_of_formal_derivative_nonnegative
+#print axioms YMGap.Continuum.RationalPolynomialIntervalOrder.node_zero
+#print axioms YMGap.Continuum.RationalPolynomialIntervalOrder.node_endpoint
+#print axioms YMGap.Continuum.RationalPolynomialIntervalOrder.node_step
+#print axioms YMGap.Continuum.RationalPolynomialIntervalOrder.mesh_nonnegative
+#print axioms YMGap.Continuum.RationalPolynomialIntervalOrder.node_mono
+#print axioms YMGap.Continuum.RationalPolynomialIntervalOrder.node_in_interval
+#print axioms YMGap.Continuum.RationalPolynomialIntervalOrder.mesh_le_inverse

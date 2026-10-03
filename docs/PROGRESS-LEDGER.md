@@ -4,7 +4,24 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original conditional heat and rational interval order (2026-10-03 UTC)
+## Current increment: ORIGINAL Laurent order and conditional input generator (2026-10-03 UTC)
+
+PROGRESS after `255a3fb6`: constructive endpoint order applies to literal
+`p/r^E` using the actual formal-derivative sign, explicit signed Taylor-cell
+budget and computed positive floor `w^E`, not a multiplied surrogate. The
+actual conditional INPUT generator is also proved:
+`u * partial_u C_u[p] = -C_u[L_x p]`, retaining arbitrary shared outputs and
+spectators for positive tail count. Five focused checks passed 55 gates within
+{propext, Quot.sound}; independent Sol review passed. NEXT: construct exact
+heat-interpolation rows/signs and F/G product/chain joins, then join conditional
+variance to the SAME original signed-window norm. Aggregate scaling,
+physical/OS/continuum/QFT/every-group/Clay remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-LAURENT-ENDPOINT-ORDER-2026-10-03.md`.
+
+No broad progress-metric/guard run or full build/audit is claimed. This finite
+endpoint-order producer does not close any canonical chart claim.
+
+## Earlier increment: original conditional heat and rational interval order (2026-10-03 UTC)
 
 PROGRESS after `8653af8b`: FORWARD, the actual saturated head heat has its
 literal formal nome generator, mixed composition at the ORIGINAL retained
