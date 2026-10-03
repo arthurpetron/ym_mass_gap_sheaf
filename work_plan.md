@@ -27,6 +27,32 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
+NOW CHECKED SAME-SOURCE CHRONOLOGICAL AND FIXED-SOURCE LIMIT JOINS:
+`BF4ExactSlabFixedSpatialBlockWindowPin` proves that the SAME original
+half-smoothed test b=T^t(g_n*psi) has chronological endpoint pairings at
+lag 2t+d, with its own actual partition for each d. `BlockRayleighWindow`
+(same prefix) pins the EXISTING cleared Rayleigh cost D to Z0*Z1 times
+the centered lag-2t/lag-(2t+1) difference. `WindowLagMeanControl` and
+`MovingCenterLagDifference` retain the ACTUAL odd-window OWN mean c_n:
+c_n^2 cancels exactly, and the remaining error is at most
+mixRate(w,width)^n*(2C)^2, for all lags and guarded late K. Every supported
+polynomial receives its computed C; no mean estimate is assumed.
+`WilsonMovingCenterLagLimit.centered_lag_joint_approx` uses TWO existing
+fixed-source Wilson joint limits after paying that moving-center correction.
+Cutoff, terminal-time and representative thresholds are explicit maxima;
+the bound is NOT uniform in changing nome/width/source/lag.
+Five focused checks passed seventeen allowed gates; no full build ran.
+FORWARD NEXT: use this literal chronological difference without discarding
+its signed action terms or reverting to separate absolute commutator caps.
+BACKWARD the missing producer is STILL a useful relative estimate against
+the SAME half-smoothed interacting response on a justified changing family;
+no raw norm floor, new normalizer or stationary finite vacuum is assumed.
+The explicit finite/joint approximation does not itself identify the old
+completed dyadic response with this limit or produce the relative estimate.
+Those actual joins, cross-scale relative costs, physical calibration, full
+QFT and every group remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-RAYLEIGH-WINDOW-JOIN-2026-10-03.md`.
+
 NOW CHECKED ORIGINAL BLOCK-SOURCE ANALYSIS:
 `BF4ExactSlabFixedSpatialBlockMultiplicationDefect` proves the actual
 multi-step multiplication defect is independent of a rational constant
@@ -43,7 +69,8 @@ NEXT is the actual signed energy/commutator comparison relative to the
 half-smoothed response, not another normalization wrapper. The boundary
 bound still uses ell(A^2*f^2), not ell(b^2); that comparison and the justified
 changing family remain unsupplied. The original moving center, distinct
-partitions, finite chronology and joint-limit joins stay explicit.
+partitions and fixed-source finite/joint joins are now handled by the newer
+chronological checkpoint above; the completed dyadic response join stays open.
 Evidence: `audits/AUDIT-ORIGINAL-BLOCK-RAYLEIGH-SPLIT-2026-10-03.md`.
 
 CHECKED LIMIT OF THE ACTUAL GUARDED-COUPLING REGIME:

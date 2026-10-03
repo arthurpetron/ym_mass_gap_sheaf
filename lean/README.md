@@ -12,6 +12,21 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**CURRENT same-source chronological/limit join (2026-10-03 UTC):**
+`BF4ExactSlabFixedSpatialBlockWindowPin` identifies original block pairings
+with endpoint windows, retaining their SAME test and distinct partitions.
+`BlockRayleighWindow` (same prefix) pins the existing cleared cost to their
+lag-2t/lag-(2t+1) difference. `WindowLagMeanControl` and
+`MovingCenterLagDifference` pay the actual moving OWN center by
+mixRate(w,width)^n*(2C)^2; C is computable for every supported polynomial.
+`WilsonMovingCenterLagLimit` uses TWO existing fixed-source joint limits
+only after that correction is paid, with explicit independent thresholds.
+Five focused checks passed 17 allowed gates, without errors/warnings.
+Relative signed cost versus the SAME response and the justified changing
+family remain OPEN; no displayed frontier or continuum claim closed.
+Root imports registered only, NOT aggregate-checked. Evidence:
+`audits/AUDIT-ORIGINAL-RAYLEIGH-WINDOW-JOIN-2026-10-03.md`.
+
 **CURRENT original block-source analysis (2026-10-03 UTC):**
 `BF4ExactSlabFixedSpatialBlockMultiplicationDefect` proves the original
 multi-step commutator recurrence and invariance under rational mean shifts.

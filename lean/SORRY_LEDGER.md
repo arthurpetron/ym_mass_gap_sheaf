@@ -1,5 +1,51 @@
 # Sorry Ledger
 
+## PROVED original Rayleigh chronology and paid moving-center joint approximation only (2026-10-03 UTC)
+
+- `BF4ExactSlabFixedSpatialBlockWindowPin.observedMessage_endpoints`
+  folds BOTH endpoint insertions with the complete original K/V action.
+  `block_window_numerator`, `block_window_partition` and
+  `normalized_block_window_pin` identify the SAME supported block test
+  at lag 2t+d, including zero t/d. Each d retains its actual positive
+  chronological partition; no finite eigenpin or recentering is assumed.
+- `BF4ExactSlabFixedSpatialWindowLagMeanControl` proves both original
+  endpoint means equal middleRatio(n,n+L,f). Its zero-window RIGHT-tail
+  comparison gives both lag orders with error mixRate(w,width)^n*(C+C),
+  including zero lag. `middleRatio_interval_bounds` constructs the actual
+  finite mean's cap from the certified polynomial interval.
+- `BF4ExactSlabFixedSpatialMovingCenterLagDifference` proves the SAME
+  c squared cancels in a lag difference. The ACTUAL odd-window OWN center
+  c=middleRatio(n+1,n,f) is paid by mixRate(w,width)^n*(C+C)^2.
+  `polynomial_own_centered_lag_difference_bounds` computes C from every
+  supported f; no interval or mean estimate remains to supply in that gate.
+- `BF4ExactSlabFixedSpatialBlockRayleighWindow.clearedRayleighCost_window_pin`
+  proves the EXISTING D=Z1*ell(b^2)-Z0*ell(b*T b) is exactly Z0*Z1
+  times the original centered lag-2t/lag-(2t+1) difference, for
+  A=g_(n+t), b=T^t(g_n*psi). `own_clearedRayleighCost_raw_bounds`
+  pays the mean correction in BOTH cleared orders; the raw signed
+  two-point difference remains literal and unbounded relative to response.
+- `BF4ExactSlabFixedSpatialWilsonMovingCenterLagLimit.raw_original_pin`
+  identifies each raw pair with its literal original two-loop finite scalar.
+  `centered_lag_joint_approx` then uses TWO existing fixed-source joint
+  CReal limits with explicit independent cutoff/time/representative
+  thresholds. The moving polynomial is NOT passed through a fixed-test
+  limit. Its error is mixRate^n*(2C)^2+epsilon+epsilon, with computed C.
+- Five accepted serialized focused checks passed 17 unique printed gates
+  within {propext, Quot.sound}, zero errors/warnings. One earlier dependent
+  rewrite timed out; explicit scalar transport replaced it, without raising
+  any compiler or memory ceiling. Preliminary logs are not proof evidence.
+  Independent semantic/algebra review passed. No new sorry/axiom, classical
+  shortcut, canonical guard change, CI change or full audit/build.
+  Root imports are registered only, NOT aggregate-checked.
+- OPEN/NEXT: useful relative signed cost versus the SAME interacting
+  half-smoothed response on a justified changing family; the actual completed
+  dyadic response pin; three cross-scale relative costs; spatial/spacing and
+  physical mass calibration; full same-theory QFT; every compact simple group;
+  the continuum/Clay target. The new bound is uniform in lags and late K
+  only at FIXED nome/width/source cap. No finite pilot is substituted for a
+  growing square. Evidence:
+  `audits/AUDIT-ORIGINAL-RAYLEIGH-WINDOW-JOIN-2026-10-03.md`.
+
 ## PROVED original block-source signed Rayleigh split and paid boundary drift only (2026-10-03 UTC)
 
 - `BF4ExactSlabFixedSpatialBlockMultiplicationDefect` defines the literal
@@ -31,8 +77,9 @@
 - OPEN/NEXT: control the COMBINED signed energy/commutator contribution
   relative to the actual half-smoothed response on a justified changing
   family; compare ell(A^2*f^2) with that response before promoting the
-  boundary estimate to a relative response budget. The finite chronology/
-  joint-limit join, SAME macroscopic ratio, three cross-scale relative costs,
+  boundary estimate to a relative response budget. The newer entry above now
+  supplies the finite chronology and fixed-source joint approximation;
+  the completed dyadic response join, SAME macroscopic ratio, three cross-scale relative costs,
   physical mass, full QFT, every compact simple group and Clay remain OPEN.
   No padded square is replaced by the bent-cube pilot, and no moving mean is
   passed through a fixed-test limit. Evidence:

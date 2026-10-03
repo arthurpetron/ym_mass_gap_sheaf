@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL chronological/limit join (2026-10-03 UTC;
+chart unchanged): original block pairings and the existing cleared Rayleigh
+cost now match SAME-test endpoint correlations with distinct partitions.
+The actual moving OWN center is paid by mixRate(w,width)^n*(2C)^2,
+uniform in both lags and guarded late K. Two existing fixed-source joint
+limits then control the centered lag difference with explicit thresholds.
+Five focused checks passed seventeen allowed gates. The relative signed
+estimate, completed dyadic response join and justified changing family
+remain OPEN; no exact displayed claim closed. Evidence:
+`audits/AUDIT-ORIGINAL-RAYLEIGH-WINDOW-JOIN-2026-10-03.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting ORIGINAL block-source analysis (2026-10-03 UTC;
 chart unchanged): the exact vacuum-subtracted Rayleigh split retains
 original energy and one combined signed commutator pairing. Its source
