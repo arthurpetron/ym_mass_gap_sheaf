@@ -29,6 +29,19 @@ while retaining the moving finite OWN center. Nome/width stay fixed.
 Four final focused checks passed 32 allowed gates. Evidence:
 `audits/AUDIT-FILTERED-QUADRATIC-COMMUTATOR-GAIN-2026-10-02.md`.
 
+`SU2QuaternionHeadCasimirInverse` computes a finite positive-Casimir inverse
+after subtracting the CONDITIONAL head mean. `RelativeHeatStein` and
+`SelectedHeatStein` represent the literal finite coordinate heat defect
+through gradients of the ENTIRE source, retaining all independent spectators.
+`ConditionalCovarianceCertificate` and `RelativeHeatCoordinateCovariance`
+construct the original shared-spectator bound C_i^2<=((1-w^8)/4)*sourceLoss,
+with explicit nome/cutoff guards. `FilteredGainSourcePair` folds the original
+BF4 G2 into the complete source defect plus (a-1)*c*ell(A*b), keeping the
+finite OWN mean residue. Neither conditional source loss nor raw source
+norm is identified with SAME interacting variance or lag-one reserve.
+The changing-family signed budget and positive reserve remain OPEN.
+Evidence: `audits/AUDIT-FINITE-HEAT-SOURCE-GRADIENT-2026-10-02.md`.
+
 `QuaternionHaarWordSignedCross`, `BF4ExactSlabFixedSpatialWilsonSignedChord`
 and `BF4ExactSlabFixedSpatialFilteredSignedChord` retain the actual ordered
 cross cost. The diagonal alone has linear length cost; the COMPLETE OWN

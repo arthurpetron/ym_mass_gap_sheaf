@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting finite heat source bridge (2026-10-02 UTC; chart unchanged):
+the computed angular inverse subtracts only the CONDITIONAL mean, retaining
+all spectators. Literal selected heat defects pair exactly with ENTIRE source
+gradients; the two-copy certificate gives sharp coordinate covariance with
+rate (1-w^8)/4 and explicit cutoff guards. The original quadratic gain folds
+to its full-source defect plus the retained finite mean correction.
+Conditional source loss is NOT SAME interacting variance or lag-one reserve.
+That useful signed quantitative join and all displayed scaling/continuum
+nodes remain OPEN. Evidence:
+`audits/AUDIT-FINITE-HEAT-SOURCE-GRADIENT-2026-10-02.md`.
+No displayed claim changed; no ASCII reprint.
+
 Verified supporting ORIGINAL quadratic commutator route (2026-10-02 UTC;
 chart unchanged): S=Delta+2(1-a)J1-2G2 retains the actual finite OWN center
 and EVEN partition. Constructed endpoint/product cap16 certificates give

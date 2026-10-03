@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## PROVED finite heat source bridge and conditional coordinate covariance only (2026-10-02 UTC)
+
+- `SU2QuaternionHeadCasimirInverse.potential_poisson` computes the inverse
+  modulo the CONDITIONAL mean. `source_gradient_identity`, the relative
+  heat defect identity and its selected-pair transport differentiate the
+  literal entire source and retain only proved independent factors.
+- `SU2QuaternionConditionalCovarianceCertificate.conditionalGram_certificate`
+  integrates the actual two-copy wedge square with all spectators shared.
+  `RelativeHeatCoordinateCovariance.coordinateCovariance_certificate`
+  constructs rate*sourceLoss-C_i^2, rate=(1-w^8)/4 and explicit cutoff guards.
+  Output independence is required only by the optional raw source-loss pin.
+- `BF4ExactSlabFixedSpatialFilteredGainSourcePair.commutatorGain_source_pair`
+  preserves full original K,V,g_n,b and exact (a-1)*c*ell(A*b). No finite
+  stationarity, free centered eigenpin or gain sign is assumed.
+- All six focused checks and constructive gates passed, with independent
+  mathematical review. Root imports registered, not aggregate-checked.
+  No new sorry, axiom, classical shortcut, CI or displayed chart change.
+  Useful signed source-loss/OWN-reserve comparison on a justified scaling
+  family, positive reserve and all continuum endpoints remain OPEN.
+  Evidence: `audits/AUDIT-FINITE-HEAT-SOURCE-GRADIENT-2026-10-02.md`.
+
 ## PROVED literal original filtered noise-minus-drift fold only (2026-10-02 UTC)
 
 - `BF4ExactSlabFixedSpatialFilteredNoiseDrift.filtered_loop_numerator`,

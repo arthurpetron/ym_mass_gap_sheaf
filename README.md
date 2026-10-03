@@ -32,6 +32,15 @@ cutoff/time/representative thresholds, for `0<=a<=1` at fixed nome/width.
 Neither a favorable gain nor a family-wide positive reserve is proved.
 See the [identity, limit pins and open estimate](audits/AUDIT-FILTERED-QUADRATIC-COMMUTATOR-GAIN-2026-10-02.md).
 
+**New checked finite-heat bridge:** a computed angular inverse represents
+the actual finite heat defect by derivatives of the ENTIRE source, with
+all spectator variables retained. A two-copy certificate also proves the
+sharp conditional coordinate covariance bound with rate `(1-w^8)/4`.
+The original quadratic gain has a full-source consumer retaining its exact
+finite mean correction. The conditional source loss is NOT the interacting
+variance; the useful signed comparison remains open. See the
+[finite-heat bridge and missing quantitative join](audits/AUDIT-FINITE-HEAT-SOURCE-GRADIENT-2026-10-02.md).
+
 **New checked source cancellation:** the literal original radius-two loop
 source equals conditional noise MINUS a nonnegative drift square, over its
 SAME even-window partition. The original finiteValue pin and constant-shift

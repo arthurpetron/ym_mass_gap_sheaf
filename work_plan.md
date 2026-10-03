@@ -56,6 +56,23 @@ a physical scaling trajectory. Existing signed-cross and OWN Young
 ceilings below remain valid alternative tools, not mandatory steps.
 Evidence: `audits/AUDIT-FILTERED-QUADRATIC-COMMUTATOR-GAIN-2026-10-02.md`.
 
+NEW CHECKED FINITE-HEAT SOURCE BRIDGE: compute the positive head-Casimir
+inverse of p minus its CONDITIONAL projection, with every spectator retained.
+The literal cutoff heat coordinate defect has proved conditional mean zero
+and exact source-gradient pairing, transported to any selected pair. Independently,
+the original two-copy wedge gives C_i^2<=((1-w^8)/4)*conditionalSourceLoss
+under any certified retained action, for K>=max(headCutoff(w),2).
+The original G2 is the complete uncentered defect pairing plus
+(a-1)*c*ell(A*b); do not discard its finite moving-mean correction.
+FORWARD: use these exact finite identities and certificates with the actual
+terminal V*g. BACKWARD: retain the SAME completed-state requirements
+m*(R1-R2)<=C*R1 and R1>=gamma0. MEETING INPUT: a useful signed source
+estimate relative to that SAME lag-one reserve, with the original boundary
+errors paid and family-wide constants on a justified trajectory.
+Conditional source loss and raw source derivative norms are not that reserve.
+No new conclusion-only interface is needed for this missing analytic estimate.
+Evidence: `audits/AUDIT-FINITE-HEAT-SOURCE-GRADIENT-2026-10-02.md`.
+
 NEW CHECKED ORDERED CROSS COST: the original whole-word chord is exactly
 its per-link diagonal plus TWICE its actual signed pair sum in all four
 coordinates. Unit prefixes/suffixes cancel only on the diagonal, giving

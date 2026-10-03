@@ -5141,6 +5141,14 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialFilteredCommutatorGain
 import YMGap.Continuum.BF4WilsonAllNomeFilteredGainLimit
 import YMGap.Continuum.BF4WilsonAllNomeFilteredFiniteGainApproximation
 import YMGap.Continuum.BF4WilsonAllNomeFilteredFiniteGainLimit
+-- Computed finite-heat inverse and actual shared-spectator covariance;
+-- original gain keeps its finite mean residue. No uniform gain bound yet.
+import YMGap.Continuum.SU2QuaternionHeadCasimirInverse
+import YMGap.Continuum.SU2QuaternionRelativeHeatStein
+import YMGap.Continuum.SU2QuaternionSelectedHeatStein
+import YMGap.Continuum.SU2QuaternionConditionalCovarianceCertificate
+import YMGap.Continuum.SU2QuaternionRelativeHeatCoordinateCovariance
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFilteredGainSourcePair
 -- Scalar alignment cannot amplify to arbitrary quaternion-valued sources.
 -- Exact original low-degree obstruction; narrower scalar word stays OPEN.
 import YMGap.Continuum.SU2QuaternionHeatAlignmentAmplificationObstruction
