@@ -12,7 +12,15 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT checked original signed score replica (2026-10-03 UTC):**
+**CURRENT checked caps for the EXISTING original inverses (2026-10-03 UTC):**
+For every nonempty computed log prefix gamma_N, the SAME positive resolvent
+has squared-norm cap (lambda+gamma_N)^-2, and the SAME zero-shift inverse
+has cap gamma_N^-2 on the original vacuum complement. Prefix positivity is
+proved; no new inverse, scalar infinite log or physical uniformity is assumed.
+One focused target passed four permitted gates. Evidence:
+`audits/AUDIT-ORIGINAL-PREFIX-RESOLVENT-CAPS-2026-10-03.md`.
+
+**Earlier checked original signed score replica (2026-10-03 UTC):**
 Two complete original windows share one output tail, and their signed
 head integral is exactly twice A*partial b-b*partial A. The literal
 chronological OWN center cancels after integration, with original action

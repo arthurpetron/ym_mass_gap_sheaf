@@ -1,5 +1,13 @@
 # Canonical one-page project status
 
+Verified supporting caps for EXISTING original inverses (2026-10-03 UTC;
+chart unchanged): computed gamma_N gives squared-norm caps
+(lambda+gamma_N)^-2 and gamma_N^-2 for the same positive resolvent and
+zero-shift inverse. Prefix positivity is proved; original domain, range,
+vacuum and nome/width are retained. One focused target passed four gates.
+No physical/scaling/OS box or justified-family signed estimate is closed.
+Evidence: `audits/AUDIT-ORIGINAL-PREFIX-RESOLVENT-CAPS-2026-10-03.md`.
+
 Verified supporting ORIGINAL full-window signed score replica (2026-10-03
 UTC; chart unchanged): two full input histories share the output tail;
 their signed integral equals twice A*partial b-b*partial A. The original

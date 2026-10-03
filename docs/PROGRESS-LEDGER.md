@@ -4,7 +4,18 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: exact ORIGINAL signed score replica (2026-10-03 UTC)
+## Current increment: computed caps for EXISTING original inverses (2026-10-03 UTC)
+
+PROGRESS after `907bd43`: every nonempty computed log-prefix coercivity now
+controls the SAME already constructed positive resolvent and zero-shift
+inverse, with squared-norm caps (lambda+gamma_N)^-2 and gamma_N^-2.
+No new inverse or comparison hypothesis; actual original domain equations
+and vacuum orthogonality are reused. One focused check passed four gates.
+NEXT: complete original signed relative control on a JUSTIFIED family;
+physical calibration/OS/scaling/continuum/QFT/every-group/Clay remain OPEN.
+Evidence: `audits/AUDIT-ORIGINAL-PREFIX-RESOLVENT-CAPS-2026-10-03.md`.
+
+## Earlier increment: exact ORIGINAL signed score replica (2026-10-03 UTC)
 
 PROGRESS after `2cf8d15`: the signed two-copy full-window source now
 integrates to twice A*partial b-b*partial A, with A=g_(n+t), the original

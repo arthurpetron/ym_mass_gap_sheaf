@@ -27,6 +27,18 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
+NOW CHECKED QUANTITATIVE CONSUMER ON THE EXISTING ORIGINAL INVERSES:
+`DomainLogPrefixResolventGap` feeds the computed domain coercivity to the
+actual positive resolvent and zero-shift inverse. Their squared-norm caps
+are (lambda+gamma_N)^-2 and gamma_N^-2 for every N>=1. The original states,
+domain equations, range witnesses and vacuum complement are unchanged.
+One focused target passed four permitted gates; root registration only.
+Evidence: `audits/AUDIT-ORIGINAL-PREFIX-RESOLVENT-CAPS-2026-10-03.md`.
+This strengthens the backward fixed-carrier estimate, not the missing
+changing-family physical calibration. NEXT FORWARD remains the complete
+original signed cost versus its SAME filtered norm, without paying it by
+an endpoint-noise or scalar-log assumption. Canonical goal boxes stay OPEN.
+
 NOW CHECKED ORIGINAL FULL-WINDOW SIGNED SCORE REPLICA:
 `BlockScoreReplica.paddedSquare_own_block_scoreReplica` pins the two-copy
 signed integral to twice A*partial b-b*partial A, with A=g_(n+t) and

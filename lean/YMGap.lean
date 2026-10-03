@@ -7081,6 +7081,7 @@ import YMGap.Continuum.BF4WilsonAllNomeDomainLogarithm
 import YMGap.Continuum.BF4WilsonAllNomeDomainLogForm
 import YMGap.Continuum.BF4WilsonAllNomeDefectMomentGap
 import YMGap.Continuum.BF4WilsonAllNomeDomainLogPrefixGap
+import YMGap.Continuum.BF4WilsonAllNomeDomainLogPrefixResolventGap
 
 -- Original half-smoothed determinant: exact signed channel/heat join, not a rate.
 import YMGap.Continuum.BF4DyadicWilsonSquareExactBlockHeatDefect

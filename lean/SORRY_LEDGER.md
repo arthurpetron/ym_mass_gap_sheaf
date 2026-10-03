@@ -1,5 +1,19 @@
 # Sorry Ledger
 
+## PROVED computed caps for EXISTING original inverses only (2026-10-03 UTC)
+
+`DomainLogPrefixResolventGap.positive_resolvent_prefix_norm_bound` and
+`zeroShift_prefix_norm_bound` use each positive gamma_N=sum_(j=1..N) r^j/j
+to bound the already constructed SAME positive resolvent and zero-shift
+inverse, respectively by (lambda+gamma_N)^-2 and gamma_N^-2 in squared norm.
+Actual domain equations and vacuum orthogonality are reused, not assumed
+anew. Prefix positivity is proved; nome/width dependence stays explicit.
+One focused check passed four gates within {propext, Quot.sound}; no full
+audit, new inverse, scalar log equality, sorry, axiom or weakened frontier.
+OPEN: justified-family signed relative estimate and all physical/OS/scaling/
+continuum/QFT/every-group/Clay endpoints. Exact chart and CI unchanged.
+Evidence: `audits/AUDIT-ORIGINAL-PREFIX-RESOLVENT-CAPS-2026-10-03.md`.
+
 ## PROVED exact ORIGINAL full-window signed score replica only (2026-10-03 UTC)
 
 `BF4ExactSlabFixedSpatialBlockScoreReplica.paddedSquare_own_block_scoreReplica`
