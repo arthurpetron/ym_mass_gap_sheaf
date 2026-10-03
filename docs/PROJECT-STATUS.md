@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL block-source analysis (2026-10-03 UTC;
+chart unchanged): the exact vacuum-subtracted Rayleigh split retains
+original energy and one combined signed commutator pairing. Its source
+commutator is invariant under rational mean shifts. The finite-boundary
+drift is paid by explicit eta*Z1*ell(A^2*f^2), cutoff-uniform at FIXED
+coupling/width. Three focused checks passed seventeen allowed gates.
+The relative combined cost, half-smoothed response comparison, changing
+family and finite-source/limit join remain OPEN; no displayed claim closed.
+Evidence: `audits/AUDIT-ORIGINAL-BLOCK-RAYLEIGH-SPLIT-2026-10-03.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting guarded-coupling refinement (2026-10-03 UTC;
 chart unchanged): EVERY valid original spatial-union carrier with w<=one
 fixed guarded W has a common macroscopic-ratio cutoff depending only on

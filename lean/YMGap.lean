@@ -4915,6 +4915,9 @@ import YMGap.Continuum.QuaternionHaarAngularCasimir
 import YMGap.Continuum.QuaternionHaarExposedHeatCasimir
 import YMGap.Continuum.QuaternionHaarWeightedAngularCancellation
 import YMGap.Continuum.BF4ExactSlabFixedSpatialGroundStateEnergy
+import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockMultiplicationDefect
+import YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalRayleighDrift
+import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockRayleighSplit
 -- Exact full-energy fringe reduction; signed source correction remains, no scaling closure.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialProjectedSourceEnergy
 -- Original-energy Taylor bound with checked source cancellation; scaling remains open.

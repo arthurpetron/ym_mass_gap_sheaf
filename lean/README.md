@@ -12,7 +12,21 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT guarded-coupling family restriction (2026-10-03 UTC):**
+**CURRENT original block-source analysis (2026-10-03 UTC):**
+`BF4ExactSlabFixedSpatialBlockMultiplicationDefect` proves the original
+multi-step commutator recurrence and invariance under rational mean shifts.
+`BF4ExactSlabFixedSpatialBlockRayleighSplit` splits the cleared SAME-source
+Rayleigh cost into original temporal energy, finite-boundary drift and one
+combined SIGNED commutator pairing. `TerminalRayleighDrift` (same prefix)
+pays the boundary term by explicit comparisonEta*Z1*ell(A^2*f^2), uniformly
+in guarded cutoff at FIXED nome/width. No finite stationarity, polynomial
+inverse or favorable remaining sign is assumed. Three focused checks passed
+17 permitted gates. Relative combined cost, its actual half-smoothed norm
+comparison and justified changing family remain OPEN. Root imports registered
+only, NOT aggregate-checked. Evidence:
+`audits/AUDIT-ORIGINAL-BLOCK-RAYLEIGH-SPLIT-2026-10-03.md`.
+
+**Checked guarded-coupling family restriction (2026-10-03 UTC):**
 `BF4WilsonSpatialUnionMacroscopicRatioObstruction` now has a common
 computed macroscopic-ratio onset below any fixed guarded coupling ceiling W.
 At every valid w<=W, the ratio kappa*R(2n)<=R(4n), kappa>0, forces the

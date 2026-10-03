@@ -27,6 +27,25 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
+NOW CHECKED ORIGINAL BLOCK-SOURCE ANALYSIS:
+`BF4ExactSlabFixedSpatialBlockMultiplicationDefect` proves the actual
+multi-step multiplication defect is independent of a rational constant
+center and gives its exact original-transfer recurrence. For A=T^t g,
+b=T^t(g*f), the actual cleared cost D=Z1*ell(b^2)-Z0*ell(b*T b),
+Z0=ell(A^2), Z1=ell(A*T A), now has a checked signed decomposition in
+`BF4ExactSlabFixedSpatialBlockRayleighSplit`: Z0*energy(A,f), a finite
+boundary drift, and ONE combined commutator pairing. The actual terminal
+comparison bounds the boundary drift by eta*Z1*ell(A^2*f^2), with explicit
+eta=comparisonEta(w,width,s) at A=T^(s+1)1 and every guarded late K.
+`terminal_clearedRayleighCost_le` pays that term in the SAME split.
+Three focused checks passed seventeen allowed gates; no full build ran.
+NEXT is the actual signed energy/commutator comparison relative to the
+half-smoothed response, not another normalization wrapper. The boundary
+bound still uses ell(A^2*f^2), not ell(b^2); that comparison and the justified
+changing family remain unsupplied. The original moving center, distinct
+partitions, finite chronology and joint-limit joins stay explicit.
+Evidence: `audits/AUDIT-ORIGINAL-BLOCK-RAYLEIGH-SPLIT-2026-10-03.md`.
+
 CHECKED LIMIT OF THE ACTUAL GUARDED-COUPLING REGIME:
 `BF4WilsonSpatialUnionMacroscopicRatioObstruction` proves
 R_x(2*(start+n))<=theta^n*R_x(2*start) on the ORIGINAL fixed-small-nome
@@ -155,9 +174,12 @@ h=g*(f-c_n), A=T^t g and b=T^t h, retain the SAME finite c_n and seek
        <= C*ell(b*b)*ell(A*T A).
 Here ell includes ORIGINAL V, f is the actual padded square, and
 ell(A*A) and ell(A*T A) are DISTINCT original even/odd-horizon partitions.
-This estimate is UNSUPPLIED. Its original finite-source/limit join, any
-uniform C on a justified changing family and the cross-scale relative
-costs remain to be proved. Existing weighted symmetry and chronological
+This estimate is UNSUPPLIED. Its exact signed decomposition and explicit
+finite-boundary drift bound are now checked in `BlockRayleighSplit` (full
+fixed-spatial prefix), but neither the energy/commutator relative estimate
+nor ell(A^2*(f-c_n)^2) versus ell(b^2) has been supplied. Its original
+finite-source/limit join, any uniform C on a justified changing family and
+the cross-scale relative costs remain to be proved. Existing weighted symmetry and chronological
 partition folds are available; do not assume finite stationarity or infer
 this bound from a small magnitude bound on the signed gain. This is an
 alternative producer attack, NOT an added mandatory canonical field.

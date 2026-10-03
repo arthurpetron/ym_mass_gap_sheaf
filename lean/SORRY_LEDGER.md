@@ -1,5 +1,43 @@
 # Sorry Ledger
 
+## PROVED original block-source signed Rayleigh split and paid boundary drift only (2026-10-03 UTC)
+
+- `BF4ExactSlabFixedSpatialBlockMultiplicationDefect` defines the literal
+  original T^t and its multiplication defect T^t(g*f)-f*T^t(g). The
+  zero-step identity, exact recurrence through the ORIGINAL transfer and
+  invariance under arbitrary rational constant shifts are proved. Every
+  step retains its spatial action V; no bare-heat eigenpin is substituted.
+- `BF4ExactSlabFixedSpatialBlockRayleighSplit.original_block_rayleigh_split`
+  proves, for A=T^t g, b=T^t(g*f), Z0=ell(A^2), Z1=ell(A*T A),
+  D=Z1*ell(b^2)-Z0*ell(b*T b) equals Z0*energy(A,f) plus the explicit
+  finite-boundary drift and ONE combined signed commutator pairing.
+  `original_block_defect_pin` identifies that pairing's source defect
+  with the block commutator. Support is the only hypothesis for this split;
+  there is no stationary finite vacuum, favorable sign or polynomial inverse.
+- `BF4ExactSlabFixedSpatialTerminalRayleighDrift.clearedDrift_abs_le`
+  proves the boundary term has absolute value at most
+  comparisonEta(w,width,s)*Z1*ell(A^2*f^2) for A=T^(s+1)1 and every
+  supported test, with 0<w<1 and the unchanged late-cutoff guard.
+  `BlockRayleighSplit.boundaryDrift_terminal_abs_le` joins it to the SAME
+  split; `terminal_clearedRayleighCost_le` pays that boundary term in an
+  actual upper bound. The coefficient is explicit and cutoff-independent
+  at fixed w/width, NOT uniform in coupling or spatial width.
+- Three accepted serialized focused checks passed all 17 printed gates
+  within {propext, Quot.sound}, without errors/warnings. Rejected preliminary
+  logs are not proof evidence. Independent source/math review passed.
+  No new sorry/axiom, classical shortcut, resource-limit increase, canonical
+  field weakening or CI change. Root imports are registered only; no full
+  build, aggregate check or axiom-baseline regeneration ran.
+- OPEN/NEXT: control the COMBINED signed energy/commutator contribution
+  relative to the actual half-smoothed response on a justified changing
+  family; compare ell(A^2*f^2) with that response before promoting the
+  boundary estimate to a relative response budget. The finite chronology/
+  joint-limit join, SAME macroscopic ratio, three cross-scale relative costs,
+  physical mass, full QFT, every compact simple group and Clay remain OPEN.
+  No padded square is replaced by the bent-cube pilot, and no moving mean is
+  passed through a fixed-test limit. Evidence:
+  `audits/AUDIT-ORIGINAL-BLOCK-RAYLEIGH-SPLIT-2026-10-03.md`.
+
 ## PROVED guarded-ceiling macroscopic obstruction without ANY initial norm cap (2026-10-03 UTC)
 
 - `BF4WilsonSpatialUnionMacroscopicRatioObstruction.ceilingRatioCutoff`

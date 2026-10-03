@@ -10,6 +10,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**New checked original block-source analysis:** the half-smoothed,
+vacuum-subtracted Rayleigh cost now splits exactly into original temporal
+energy, finite-boundary drift and one combined signed commutator pairing.
+The commutator is unchanged by subtraction of the finite mean. The boundary
+drift has an explicit geometric bound at fixed coupling/width, uniform in
+guarded late cutoff. The two horizon partitions stay distinct; no finite
+stationary vacuum is assumed. Three focused checks passed 17 allowed gates.
+The combined signed estimate relative to the SAME response and a justified
+changing family remain open. See the
+[checked split and remaining analytic cost](audits/AUDIT-ORIGINAL-BLOCK-RAYLEIGH-SPLIT-2026-10-03.md).
+
 **New checked original signed finite gain:** at `w=1/16`, cutoff one,
 width two and terminal depth zero, the existing bent-loop commutator gain
 at its actual interacting OWN odd mean is at least `2^-124 - 2^-138 > 0`.
