@@ -12,7 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT original signed-current limit (2026-10-03 UTC):**
+**CURRENT signed-channel obstruction (2026-10-03 UTC):**
+`SU2QuaternionJumpDeterminantChannelObstruction` exhibits a negative
+determinant on an ACTUAL fundamental channel and computes the literal
+cutoff-two product-channel sum `255/256 > 7/8` at nome 1/2. This refutes
+omitting the `hF` premise from the existing, correct conditional
+`productChannels_nome_interpolation`; positive weights do not imply a
+positive tested determinant. One focused check passed nine permitted gates.
+Root import registered only. This is NOT an actual BF4-terminal or
+Yang--Mills counterexample, and supplies no relative signed bound or
+changing family. Evidence:
+`audits/AUDIT-JUMP-DETERMINANT-CHANNEL-OBSTRUCTION-2026-10-03.md`.
+
+**Earlier original signed-current limit (2026-10-03 UTC):**
 `BF4ExactSlabFixedSpatialJumpCurrent` retains BOTH spatial weights in the
 literal antisymmetric mixed current. `BF4WilsonAllNomeJumpCurrentLimit`
 constructs its normalized convergence to C1-C2 on the EXISTING completed

@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting signed-channel obstruction (2026-10-03 UTC;
+chart unchanged): the ACTUAL cutoff-two heat-channel determinant sum
+at nome 1/2 satisfies 255/256 > 7/8. Omitting the nonnegative-functional
+premise from the existing conditional interpolation would give a false
+theorem. A literal fundamental leaf separately has determinant -1/4.
+One focused check passed nine permitted gates. This prunes an invalid
+positive-channel shortcut, NOT the signed interacting estimate or a
+Yang--Mills theory. Every displayed scaling claim remains OPEN. Evidence:
+`audits/AUDIT-JUMP-DETERMINANT-CHANNEL-OBSTRUCTION-2026-10-03.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting ORIGINAL mixed-current limit (2026-10-03 UTC;
 chart unchanged): the literal signed current retains BOTH spatial actions
 and converges after SAME even-mass normalization to EXISTING C1-C2 on the

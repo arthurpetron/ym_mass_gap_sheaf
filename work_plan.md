@@ -27,7 +27,18 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
-NOW CHECKED ORIGINAL SIGNED CURRENT REACHES THE SAME COMPLETED DROP:
+NOW CHECKED A SIGNED-CHANNEL INTERPOLATION OBSTRUCTION:
+`SU2QuaternionJumpDeterminantChannelObstruction` uses an ACTUAL fundamental
+leaf with determinant -1/4, and the EXISTING cutoff-two product-channel
+sum at nome 1/2 with value 255/256 > 7/8. Thus deleting `hF` from the
+correct conditional `productChannels_nome_interpolation` gives a false
+conclusion. Its centered identity F_b(b)=-H[b^2]^2 explains the sign.
+One focused check passed nine permitted gates; root registration only.
+This is a one-link Haar diagnostic, NOT a counterexample for the particular
+BF4 terminal source or Yang--Mills. No signed relative estimate is produced.
+Evidence: `audits/AUDIT-JUMP-DETERMINANT-CHANNEL-OBSTRUCTION-2026-10-03.md`.
+
+EARLIER CHECKED ORIGINAL SIGNED CURRENT REACHES THE SAME COMPLETED DROP:
 `BF4ExactSlabFixedSpatialJumpCurrent` constructs the literal mixed
 antisymmetric current with the COMPLETE kernel and BOTH spatial weights.
 `BF4WilsonAllNomeJumpCurrentLimit` proves (half*current)/E converges
@@ -100,6 +111,11 @@ residue. The old word Stein identity at a=w^(12*side) does NOT become
 an identity at reference one. Neither source formulation produces the
 favorable relative signed estimate. Fixed source support alone does not
 make the terminal/message determinant local or remove action derivatives.
+The determinant channel functional is NOT automatically nonnegative:
+do not apply positive-functional nome interpolation to it merely because
+the heat-channel weights are positive. Retain its signed Casimir-weighted
+sum and compare with the SAME filtered variance; the checked one-link
+obstruction forbids that universal shortcut, not action-dependent estimates.
 Do not assert that a growing-loop reference approaches one without proving it.
 Work on the original current estimate and the retained macro ratio
 as alternative producers; the new exact join lets a useful ratio pay the later

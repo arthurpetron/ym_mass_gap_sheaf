@@ -4,7 +4,27 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Original mixed current reaches the SAME response drop (2026-10-03 UTC)
+## Current increment: Signed determinant channels refute a positive-functional shortcut (2026-10-03 UTC)
+
+PROGRESS after `e616453`: an actual fundamental representation-column
+leaf has determinant functional -1/4. The EXISTING cutoff-two product
+channel list at nome 1/2 gives 255/256, strictly exceeding the proposed
+7/8 interpolation after its nonnegative-functional premise is omitted.
+The original conditional interpolation theorem remains correct. The new
+ratio-free identity F_b(b)=-H[b^2]^2 for centered b exposes the sign issue.
+One serialized focused check passed nine gates within {propext, Quot.sound}.
+
+NEXT: retain the signed Casimir-weighted contributions and prove their
+relative comparison with the SAME filtered interacting variance, or produce
+the SAME retained macro ratio, on a JUSTIFIED changing family. Positive
+channel weights do not establish the determinant's tested signs. No actual
+BF4-terminal or Yang--Mills counterexample, favorable relative bound,
+scaling family or continuum closure is claimed. Root import registration-only;
+aggregate root, audit/guard/progress metric NOT run. CI and exact chart
+unchanged. Evidence:
+`audits/AUDIT-JUMP-DETERMINANT-CHANNEL-OBSTRUCTION-2026-10-03.md`.
+
+## Earlier increment: Original mixed current reaches the SAME response drop (2026-10-03 UTC)
 
 PROGRESS after `f00298c`: the literal antisymmetric mixed current retains
 the complete kernel, BOTH spatial actions, actual terminal and OWN-centered

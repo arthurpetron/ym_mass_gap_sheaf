@@ -10,7 +10,16 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**New checked signed-current formulation:** the literal antisymmetric
+**New checked route correction:** the actual degree-two SU(2) heat-channel
+sum gives `255/256 > 7/8`, refuting nome interpolation when its
+nonnegative-functional premise is omitted. An actual fundamental channel
+also gives a negative determinant value. The existing conditional theorem
+is correct; its premise cannot be inferred from positive channel weights.
+This is a one-link diagnostic, NOT a Yang--Mills counterexample. The
+signed changing-family estimate remains open. See the
+[checked obstruction and corrected proof target](audits/AUDIT-JUMP-DETERMINANT-CHANNEL-OBSTRUCTION-2026-10-03.md).
+
+**Earlier checked signed-current formulation:** the literal antisymmetric
 current retains both endpoint actions and converges, with explicit moduli,
 to `C_1-C_2` on the SAME completed state and time map. Auxiliary reference
 `a=1` cancels the explicit mean residue exactly; the actual OWN center
