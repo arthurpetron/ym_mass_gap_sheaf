@@ -7139,3 +7139,15 @@ import YMGap.Continuum.QuaternionHaarReciprocalScoreCorrection
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepScoreVariance
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepConditionalEnergy
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepSignedCost
+
+-- Division-free last-step regression: positive Gram AND mean mismatch;
+-- original-Haar witness rules out silently omitting the latter.
+import YMGap.Continuum.SU2QuaternionMultiHeadConditionalGram
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepRegression
+import YMGap.Continuum.QuaternionHaarConditionalRegressionWitness
+
+-- Actual terminal-depth drift payment versus the SAME surviving norm.
+-- Fixed nome/width moduli only; signed bulk/changing-family estimate is open.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalDrift
+import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalRelativeEnergy
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepDriftPaidCost

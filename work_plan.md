@@ -27,6 +27,48 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
 
+NOW CHECKED SAME-NORM DRIFT AND COMPLETE RECONSTRUCTION PAYMENTS:
+For the actual A=g_(n+t), b=T^t(g_n*psi) and phi_k=G_k*b, the
+constructed multiplier gives ell[A^2*phi_k^2]<=B=ell[b^2]. The ORIGINAL
+terminal comparison now pays abs(boundaryDrift)<=kappa*rho^(n+t-1)*Z1*B,
+Z1=ell(A*T A), rho=mixRate(w,width), kappa=(kineticCap/kineticFloor)^2.
+Its computed depth onset depends only on fixed w,width and tolerance,
+not K, k or the signed source. Zero B is included, with no norm inverse.
+The actual terminal floor/cap ALSO proves Z0*C<=kappa*Z1 for Z0=ell(A^2),
+C=kineticCap*ell(1); only the fixed positive kinetic floor is canceled.
+Thus the COMPLETE reconstruction coefficient is <=2*(1+kappa)*Z1*B,
+and its relative degree onset likewise has no cutoff, depth, partition,
+source or source-degree parameter. The actual full signed cost now has
+the stronger consumer D<=Bulk_k+delta*Z1*B+epsilon*Z1*B at those two onsets,
+where Bulk_k=Z0*((1-w)*LastStepAngularBudget+Rmixed-Rdiagonal).
+The previous fully signed ceiling remains available with favorable drift;
+this alternative pays only drift and reconstruction, keeping BOTH Taylor
+remainders signed. The original last-step regression is also checked:
+U*J=A^2*Gram+(U*b-A*C)^2, with a constructed full-slice Gram certificate.
+A positive-source original-Haar witness rules out silently dropping the
+mean mismatch. No extra inverse of U or global-U floor is imposed.
+Evidence: `audits/AUDIT-ORIGINAL-REGRESSION-AND-DRIFT-2026-10-03.md`.
+REPOINT: estimate the retained ORIGINAL signed bulk against Z1*B on the
+literal OWN-centered growing square, with the useful O(1/side) ratio and
+justified changing-family control required by the existing completed
+consumer. Do not re-assume a drift/norm comparison or a partition/cap
+comparison already proved here. The two onsets are fixed-parameter,
+NOT nome/width/spacing-uniform moduli. Keep the reciprocal correction,
+M=T1, G_k^2, Vbar^2 and vacuum cross-cancellation visible in the angular
+estimate. No canonical field or displayed chart claim closes; Clay is OPEN.
+
+NEXT BOUNDED MATHEMATICAL CANDIDATE (source review, NOT proved):
+M*Gram-J is the three-column conditional Gram determinant of (a,c,1).
+A literal three-copy signed wedge certificate could give J<=M*Gram,
+absorbing the mismatch with the correct factor without dividing by U.
+Existing shared-tail copy/lift and partial-factorization APIs suffice;
+do not build a general determinant or reindex framework. Its original
+weighted consumer would still need the useful M^2*Gram/B comparison and
+family dependence, with all action factors retained. This is not the
+invalid A^2/U omission refuted by the checked Haar witness, nor a new
+mandatory canonical frontier field. See the bounded candidate in the
+regression/drift audit above.
+
 NOW CHECKED LAST-STEP PAIRED SCORE AND COMPLETE SIGNED-COST CONSUMER:
 Take the actual incoming a=g_(n+r), c=T^r(g_n*psi), outgoing A=T a,
 b=T c and complete one-step ORIGINAL action W. The paired residual

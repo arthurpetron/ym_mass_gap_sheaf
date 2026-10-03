@@ -12,7 +12,22 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT checked LAST-STEP paired score and complete signed-cost consumer (2026-10-03 UTC):**
+**CURRENT checked ORIGINAL SAME-norm drift and reconstruction (2026-10-03 UTC):**
+The constructed finite ratio satisfies ell[A^2*phi_k^2]<=B=ell[b^2].
+Actual terminal comparison now bounds drift by kappa*rho^(n+t-1)*Z1*B
+for every degree k. The terminal floor/cap also proves Z0*C<=kappa*Z1,
+so the COMPLETE reconstruction coefficient is <=2*(1+kappa)*Z1*B.
+The two computed tolerance onsets depend only on FIXED nome,width and
+tolerance, with no cutoff, source, degree or surviving-norm-floor input.
+The complete cost consumer pays both errors in the SAME-norm currency,
+retaining the literal angular budget and signed Rmixed-Rdiagonal.
+Division-free last-step regression retains its conditional-mean mismatch;
+an original-Haar finite witness checks why it cannot just be dropped.
+The useful signed bulk comparison and changing-family control remain OPEN;
+the moduli are not scaling-uniform. Evidence:
+`audits/AUDIT-ORIGINAL-REGRESSION-AND-DRIFT-2026-10-03.md`.
+
+**Earlier checked LAST-STEP paired score and complete signed-cost consumer (2026-10-03 UTC):**
 The actual incoming pair a=g_(n+r), c=T^r(g_n*psi) and outgoing A=T a,
 b=T c give score^2<=L(w)^2*(T1)*I[W*(lift(A)*c-lift(b)*a)^2]. Both negative
 cross terms and T1 remain; this uses surviving incoming c, not accumulated

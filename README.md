@@ -10,6 +10,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**New checked same-norm approximation payments:** the original interacting
+source now pays both terminal drift and complete reconstruction error
+relative to its SAME surviving norm, with computed onsets independent of
+source and heat cutoff at fixed coupling and width. The actual signed-cost
+consumer retains the angular budget and negative diagonal Taylor remainder.
+The useful signed bulk estimate on a justified changing family remains
+open; fixed-parameter moduli are not scaling-uniform. See the
+[proof, regression diagnostic and verification boundary](audits/AUDIT-ORIGINAL-REGRESSION-AND-DRIFT-2026-10-03.md).
+
 **New checked domain-logarithm result:** the ordinary logarithm series of the
 original transfer converges to the SAME existing derivative-domain action,
 with an explicit modulus. Conversely, a supplied ordinary-log limit on the

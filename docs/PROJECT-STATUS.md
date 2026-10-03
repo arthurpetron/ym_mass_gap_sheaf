@@ -1,5 +1,20 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL surviving-norm drift and reconstruction
+payments (2026-10-03 UTC; chart unchanged): the actual reciprocal satisfies
+ell[A^2*phi_k^2]<=ell[b^2]. The original terminal drift is now bounded by
+kappa*rho^(n+t-1)*Z1*ell[b^2] for all k. The actual partition/cap comparison
+Z0*C<=kappa*Z1 also pays the COMPLETE reconstruction error in the same
+currency. Separate computed depth/degree onsets depend only on fixed
+nome,width and tolerance, not cutoff or signed source; zero norms remain
+included. The complete cost consumer keeps the signed bulk Taylor
+difference and both original partitions. Exact regression and an
+original-Haar witness retain the conditional-mean mismatch rather than
+silently deleting it. The useful SAME-norm signed bulk estimate and
+justified changing-family control remain OPEN; no continuum claim closes.
+Evidence: `audits/AUDIT-ORIGINAL-REGRESSION-AND-DRIFT-2026-10-03.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting ORIGINAL last-step paired score and complete signed
 cost (2026-10-03 UTC; chart unchanged): the actual incoming pair gives
 score^2<=L(w)^2*(T1)*I[W*(lift(A)*c-lift(b)*a)^2], with both negative
