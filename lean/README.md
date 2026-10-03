@@ -12,18 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT checked ORIGINAL Laurent endpoint order and conditional INPUT generator (2026-10-03 UTC):**
-Three constructive modules plus the exposed rational mesh prove order of
-literal `p/r^E` from its formal-derivative sign, explicit signed Taylor budget
-and computed positive floor `w^E`; no multiplied-function surrogate is used.
-The actual conditional INPUT generator is also proved:
-`u * partial_u C_u[p] = -C_u[L_x p]`, retaining arbitrary output/spectator
-dependence for positive tail count. Five focused checks passed 55 gates within
-{propext, Quot.sound}; independent mathematical review passed. Exact
-interpolation rows/signs and F/G product/chain joins, conditional variance,
+**CURRENT checked ORIGINAL heat Laurent interpolation (2026-10-03 UTC):**
+Explicit original coefficient rows and literal pderiv prove the square and
+energy Euler identities `r F'=2 C[Gamma(V)]`, `r G'=2 C[Gamma2(V)]`.
+All shared original outputs/spectators remain. Actual finite-mode saturation
+transports a computed larger positive kernel to the fixed conditional image
+at each strict nome. The input mode cutoff is exactly nome-independent
+for FIXED finite rows, not uniform for changing sources. Eight focused
+checks passed 51 gates within {propext, Quot.sound}; independent mathematical
+reviews passed. Root registration only, no full root/tree build or audit.
+Weighted derivative signs/endpoint joins, conditional reference variance,
 original signed-window scaling and physical/continuum/QFT/every-group/Clay
 remain OPEN. Evidence:
-`audits/AUDIT-ORIGINAL-LAURENT-ENDPOINT-ORDER-2026-10-03.md`.
+`audits/AUDIT-ORIGINAL-HEAT-LAURENT-INTERPOLATION-2026-10-03.md`.
 
 **Earlier checked original conditional heat and polynomial interval order (2026-10-03 UTC):**
 Actual nome coefficient polynomials and literal pderiv give the saturated

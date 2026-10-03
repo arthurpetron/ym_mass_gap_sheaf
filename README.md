@@ -10,25 +10,28 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Verified supporting ORIGINAL Laurent endpoint order and input-head generator (2026-10-03 UTC):**
-the literal formal-derivative sign and explicit signed Taylor budget order
-actual `p/r^E` using computed positive floor `w^E`, not a multiplied
-surrogate. The actual conditional INPUT generator is also proved:
-`u * partial_u C_u[p] = -C_u[L_x p]`, retaining arbitrary shared outputs and
-spectators for positive tail count. Five focused checks passed 55 gates within
-{propext, Quot.sound}; independent mathematical review passed. Exact heat
-interpolation rows/signs and F/G product/chain joins, conditional variance,
-original signed-window scaling and Clay remain OPEN. Evidence:
-`audits/AUDIT-ORIGINAL-LAURENT-ENDPOINT-ORDER-2026-10-03.md`.
+**Verified ORIGINAL square/energy heat interpolation (2026-10-03 UTC):**
+literal coefficient derivatives now prove `r F'=2 C[Gamma(V)]` and
+`r G'=2 C[Gamma2(V)]` for the actual inverse-nome conditional functions,
+retaining the original output and all shared spectators. Exact cutoff
+stability and a computed larger positive prefix construct positivity of
+the saturated conditional image at each strict nome. One cutoff works
+for every nome evaluation of a FIXED finite row family; this is not
+changing-source or scaling uniformity. Eight focused checks passed 51 gates
+within {propext, Quot.sound}; independent mathematical reviews passed.
+The weighted derivative-sign/endpoint join, conditional variance, original
+signed-window scaling and Clay remain OPEN. See the
+[proofs and remaining analytic join](audits/AUDIT-ORIGINAL-HEAT-LAURENT-INTERPOLATION-2026-10-03.md).
 
 **Checked forward/backward conditional-heat prerequisites:** the original
 heat map now has its literal formal nome generator, direct composition at
 the already-existing output, and exact saturated nome-one reproduction.
 From the analytic endpoint, finite rational meshes prove interval order
 from the actual formal derivative's sign, retaining signed coefficients.
-The heat interpolation is genuinely Laurent; its exact rows/signs and the
-F/G product/chain joins to the conditional variance bound remain open. No
-polynomial shortcut is assumed. See the [proofs and exact next join](audits/AUDIT-ORIGINAL-CONDITIONAL-HEAT-ORDER-2026-10-03.md).
+The heat interpolation is genuinely Laurent; its product/chain joins are
+now checked above, while their weighted sign/endpoint passage to conditional
+variance remains open. No polynomial shortcut is assumed. See the
+[earlier prerequisites](audits/AUDIT-ORIGINAL-CONDITIONAL-HEAT-ORDER-2026-10-03.md).
 
 **Checked local SU(2) Bochner estimate and heat composition:** the actual
 six-rotation Laplacian commutes with its fields. Its iterated energy satisfies

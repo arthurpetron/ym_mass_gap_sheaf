@@ -7224,3 +7224,15 @@ import YMGap.Continuum.RationalPolynomialIntervalOrder
 import YMGap.Continuum.RationalPolynomialTaylorCell
 import YMGap.Continuum.RationalFunctionIntervalOrder
 import YMGap.Continuum.RationalLaurentIntervalOrder
+
+-- Literal original square/energy Laurent product-chain joins and actual
+-- saturated conditional positivity at strict nomes, with shared outputs.
+-- Weighted endpoint/variance and changing-family/Clay joins remain OPEN.
+import YMGap.Continuum.RatPolyNomeRows
+import YMGap.Continuum.RatPolyNomeRowCutoff
+import YMGap.Continuum.SU2QuaternionInverseNomeKernel
+import YMGap.Continuum.SU2QuaternionHeadHeatCurves
+import YMGap.Continuum.SU2QuaternionConditionalLaurentRows
+import YMGap.Continuum.SU2QuaternionHeatLaurentInterpolation
+import YMGap.Continuum.SU2QuaternionConditionalHeatSaturation
+import YMGap.Continuum.SU2QuaternionConditionalHeatPositiveSaturation

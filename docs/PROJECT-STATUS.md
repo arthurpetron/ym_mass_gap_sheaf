@@ -1,12 +1,25 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL heat Laurent interpolation (2026-10-03 UTC;
+chart unchanged): actual finite coefficient pderiv gives
+`r F'=2 C[Gamma(V)]`, `r G'=2 C[Gamma2(V)]` under every surviving insertion.
+The original retained output and shared spectators stay fixed. Actual
+conditional saturation and a computed larger positive prefix construct
+pointwise positivity at strict nomes; FIXED finite rows have a single
+nome-independent mode cutoff. Eight focused checks passed 51 permitted
+gates; independent mathematical reviews passed. Weighted derivative-sign
+and endpoint joins, conditional variance, original signed-window scaling,
+physical/continuum/QFT/every-group/Clay remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-HEAT-LAURENT-INTERPOLATION-2026-10-03.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting ORIGINAL Laurent endpoint order and conditional INPUT
 generator (2026-10-03 UTC; chart unchanged): explicit signed Taylor estimates
 and literal derivative sign order actual `p/r^E` using computed floor `w^E`,
 not a multiplied surrogate. The actual input-head generator is
 `u * partial_u C_u[p] = -C_u[L_x p]`, retaining shared output/spectator
 dependence for positive tail count. Five focused checks passed 55 permitted
-gates; independent mathematical review passed. Exact interpolation
+gates; independent mathematical review passed. At that checkpoint exact interpolation
 rows/signs and F/G product/chain joins, conditional variance, original
 signed-window scaling, physical/continuum/QFT/every-group/Clay remain OPEN.
 Evidence:

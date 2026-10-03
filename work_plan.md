@@ -27,7 +27,29 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
 
-NOW CHECKED ORIGINAL CONDITIONAL INPUT GENERATOR AND LAURENT ENDPOINT ORDER:
+NOW CHECKED ORIGINAL HEAT LAURENT PRODUCT/CHAIN INTERPOLATION:
+FORWARD, actual complete inverse-nome packet rows and literal coefficient
+pderiv give rF'=2C[Gamma(V)] and rG'=2C[Gamma2(V)] under EVERY original
+surviving insertion. The original output and shared spectators are retained.
+No derivative is defined by its desired generator expression. Direct
+harmonic saturation proves conditional cutoff stability, and a computed
+larger positive prefix constructs a certificate of the fixed saturated
+conditional image at any strict nome. Literal FIXED finite row families have
+a computed mode cutoff exactly independent of nome; no changing-source or
+scaling uniformity. Eight focused checks passed 51 permitted gates;
+independent mathematical reviews passed. Evidence:
+`audits/AUDIT-ORIGINAL-HEAT-LAURENT-INTERPOLATION-2026-10-03.md`.
+REPOINT: project the actual common-denominator rows under certified output
+weights, join Bochner positivity to their literal Euler signs, and use the
+already-proved ORIGINAL Laurent endpoint order. Handle nome one by particular
+reproduction; prove the conditional reference angular Poincare inequality,
+then its active-product join. Its INPUT-gradient energy is NOT the Q_K^2
+budget currently called projectedDerivativeAngularBudget. A genuine SAME
+source/action/output-weight/surviving-norm estimate and justified changing
+family remain needed. Physical/OS/continuum/QFT/every-group/Clay remain OPEN;
+exact chart claims unchanged, no reprint.
+
+EARLIER CHECKED ORIGINAL CONDITIONAL INPUT GENERATOR AND LAURENT ENDPOINT ORDER:
 FORWARD, literal original finite packet coefficient derivatives and two
 angular integration-by-parts steps prove u*d_u C_u[p]=-C_u[L_x p]. It acts
 on the INPUT link, retaining arbitrary y/z coefficients and every surviving

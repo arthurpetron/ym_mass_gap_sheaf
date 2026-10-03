@@ -4,7 +4,25 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL Laurent order and conditional input generator (2026-10-03 UTC)
+## Current increment: ORIGINAL heat Laurent interpolation and positive saturation (2026-10-03 UTC)
+
+PROGRESS after `d09afaa`: literal original finite row product/chain calculus
+proves `r F'=2 C[Gamma(V)]` and `r G'=2 C[Gamma2(V)]` on the SAME original
+shared-output carrier. Direct harmonic cutoff stability transports a computed
+larger positive prefix to a certificate of the fixed saturated conditional
+image at strict nomes. FIXED row families have an exactly nome-independent
+computed mode cutoff, with zero coefficients retained. Eight focused checks
+passed 51 gates within {propext, Quot.sound}; independent Sol reviews passed.
+NEXT: weighted Euler signs and actual endpoint joins, conditional reference
+Poincare and its active-product join; then the genuine SAME source/action/
+surviving-norm signed-window estimate on a JUSTIFIED changing family.
+Physical/OS/scaling/continuum/QFT/every-group/Clay remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-HEAT-LAURENT-INTERPOLATION-2026-10-03.md`.
+
+No broad progress-metric/guard run or full build/audit is claimed. The exact
+canonical chart claims are unchanged; no chart reprint.
+
+## Earlier increment: ORIGINAL Laurent order and conditional input generator (2026-10-03 UTC)
 
 PROGRESS after `255a3fb6`: constructive endpoint order applies to literal
 `p/r^E` using the actual formal-derivative sign, explicit signed Taylor-cell
