@@ -7212,3 +7212,11 @@ import YMGap.Continuum.SU2QuaternionAngularCasimirCentrality
 import YMGap.Continuum.SU2QuaternionAngularHessianSquares
 import YMGap.Continuum.SU2QuaternionAngularBochner
 import YMGap.Continuum.SU2QuaternionHeadHeatSemigroup
+
+-- Literal nome generator and direct ORIGINAL-output composition/endpoint;
+-- constructive signed-polynomial interval order. The actual interpolation
+-- is Laurent: its endpoint order and conditional variance remain OPEN.
+import YMGap.Continuum.SU2QuaternionHeadHeatGenerator
+import YMGap.Continuum.SU2QuaternionConditionalHeatComposition
+import YMGap.Continuum.SU2QuaternionConditionalHeatEndpoint
+import YMGap.Continuum.RationalPolynomialIntervalOrder

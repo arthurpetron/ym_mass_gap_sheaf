@@ -12,7 +12,23 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT checked actual angular Bochner and heat composition (2026-10-03 UTC):**
+**CURRENT checked original conditional heat and rational interval order (2026-10-03 UTC):**
+Actual nome coefficient polynomials and literal pderiv give the saturated
+original head heat generator. Direct harmonic reproduction proves mixed
+composition at the existing output, with full shared spectators; coefficient
+reassembly and explicit retained-radius reduction prove its true saturated
+nome-one endpoint, without generic diagonal carrier substitution. Backward
+from the analytic requirement, explicit rational meshes, a signed coefficient
+budget and rational Archimedean closure produce endpoint order from the literal
+formal derivative's sign. Four focused checks passed 28 gates within
+{propext, Quot.sound}; root registration only, no full build/audit. The remaining
+interpolation is Laurent: multiplying its function by a denominator is NOT
+an endpoint-order proof for the original function. Conditional variance,
+ORIGINAL signed-window scaling and physical/continuum/QFT/every-group/Clay
+remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-CONDITIONAL-HEAT-ORDER-2026-10-03.md`.
+
+**Earlier checked actual angular Bochner and heat composition (2026-10-03 UTC):**
 The original six-field Laplacian commutes with every head rotation. All 36
 ordered commutator squares sum to 4*Gamma. Actual Gamma2, DEFINED as
 (1/2)*L(Gamma)-Gamma(p,Lp), equals the ordered Hessian square, and

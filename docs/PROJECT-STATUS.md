@@ -1,5 +1,20 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL conditional heat and rational interval order
+(2026-10-03 UTC; chart unchanged): literal nome coefficient differentiation
+generates the actual saturated headMap. Direct mixed composition keeps the
+already-existing output and all spectators; coefficient reassembly and
+explicit retained-radius unit reduction prove its saturated nome-one endpoint.
+Explicit rational meshes retain signed coefficients and prove interval order
+from the actual formal derivative's pointwise sign, with no analytic-integral
+axiom. Four focused checks passed 28 permitted gates; mathematical review
+passed. The remaining interpolation is genuinely Laurent, and its original
+endpoint order is NOT supplied by multiplying the function by a denominator.
+Conditional reference variance and useful ORIGINAL signed-window scaling
+remain OPEN, as do physical/continuum/QFT/every-group/Clay. Evidence:
+`audits/AUDIT-ORIGINAL-CONDITIONAL-HEAT-ORDER-2026-10-03.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting ACTUAL angular Bochner/heat composition (2026-10-03 UTC;
 chart unchanged): the original six-field Casimir commutes with its fields;
 ordered commutator squares equal 4*Gamma. Actual Gamma2 equals the full

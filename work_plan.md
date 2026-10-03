@@ -27,6 +27,32 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
 
+NOW CHECKED ORIGINAL CONDITIONAL HEAT GENERATOR, OUTPUT JOINS AND FINITE ORDER:
+The actual saturated headMap has an explicit polynomial-in-nome representation
+whose literal formal derivative generates its angular Laplacian. Direct
+boundary-pinned composition C_u(P_v p)=C_(u*v)p keeps the already-existing
+output y and all p(x,y,z) spectators. Its true saturated nome-one endpoint
+is proved by coefficient reassembly and explicit retained-radius reduction,
+not by a generic non-injective HCE substitution. BACKWARD from the variance
+inequality, finite rational meshes and signed-coefficient budgets now prove
+endpoint monotonicity from the literal QPoly formal derivative's sign.
+Four focused checks passed 28 permitted gates; independent mathematical review
+passed. Evidence:
+`audits/AUDIT-ORIGINAL-CONDITIONAL-HEAT-ORDER-2026-10-03.md`.
+REPOINT: the actual interpolation C_(w/r)((P_r Q)^2), and its Gamma companion,
+are LAURENT functions on [w,1]. Construct their exact finite rows and formal
+derivative pins, and a genuine constructive Laurent endpoint-order producer.
+Multiplying the FUNCTION by r^E changes the order question; a cleared
+DERIVATIVE sign alone does not discharge this seam. Preserve ORIGINAL Q_K,
+shared surviving variables, certified output weights and both signed Taylor
+terms. At strict intermediate nomes use computed larger positive prefixes
+plus saturation; at nome one use particular reproduction, not finite-kernel
+positivity. Certificate-level diagonal transport, if required, needs a real
+producer distinct from these checked carrier pins. Then prove conditional
+reference variance and reach the existing SAME normalized-window consumer.
+No new assumed-bound bundle or preimage-norm replacement. Aggregate scaling,
+physical/OS/continuum/QFT/every-group/Clay remain OPEN; no chart reprint.
+
 NOW CHECKED ACTUAL BOCHNER CURVATURE AND SAME-CUTOFF HEAT COMPOSITION:
 The literal six-rotation Casimir commutes with its actual fields under every
 Haar insertion. Ordered commutator squares equal 4*Gamma, and the actual
@@ -40,12 +66,13 @@ reviews passed. Evidence:
 `audits/AUDIT-ACTUAL-ANGULAR-BOCHNER-HEAT-FLOW-2026-10-03.md`.
 NEXT: construct the conditional reference variance estimate from this actual
 curvature and heat flow, with ORIGINAL Q_K and retained output variables.
-Nome-generator differentiation and constructive endpoint order remain unpaid;
-do not assume a generic rational mean-value theorem exists. Account for
+Nome-generator differentiation and polynomial interval order are now checked
+above; actual LAURENT interpolation/endpoint order remain unpaid. Account for
 intermediate positivity using computed larger prefixes plus saturation, not
 a fixed prefix positive all the way to nome one. Keep coordinates distinct:
-fresh-output identification needs a particular unit-block pullback, or a
-direct boundary-pinned certificate; arbitrary HCE insertions are not a delta.
+fresh-output identification needs a particular unit-block certificate pullback,
+or the direct boundary-pinned route now checked above; arbitrary HCE insertions
+are not a delta.
 Only AFTER the reference variance estimate join signed Taylor/action terms
 and the SAME surviving norm to the existing normalized-window consumer.
 The local curvature ONE is not a physical gap or an interacting-generator

@@ -4,7 +4,29 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: actual SU(2) Bochner square and heat composition (2026-10-03 UTC)
+## Current increment: original conditional heat and rational interval order (2026-10-03 UTC)
+
+PROGRESS after `8653af8b`: FORWARD, the actual saturated head heat has its
+literal formal nome generator, mixed composition at the ORIGINAL retained
+output and exact saturated nome-one reproduction. Full shared spectators
+remain; no arbitrary non-injective carrier pullback is used. BACKWARD,
+explicit rational meshes and a computed signed-coefficient budget prove
+primitive positivity and endpoint monotonicity from literal pderiv sign.
+Four focused checks passed 28 gates within {propext, Quot.sound}; independent
+mathematical review passed. NEXT: actual finite LAURENT interpolation and
+endpoint order on the original function, then conditional variance on Q_K
+and the SAME original signed-cost/window norm join on a JUSTIFIED family.
+Clearing a derivative denominator is not a proof that multiplying the
+FUNCTION preserves its endpoint order. Intermediate positivity still needs
+larger computed prefixes and saturation; nome one uses particular reproduction.
+Physical/OS/scaling/continuum/QFT/every-group/Clay and exact canonical chart
+claims remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-CONDITIONAL-HEAT-ORDER-2026-10-03.md`.
+
+No broad progress-metric/guard run was authorized or performed. This is genuine
+finite analytic progress, not a discharged canonical frontier bundle.
+
+## Earlier increment: actual SU(2) Bochner square and heat composition (2026-10-03 UTC)
 
 PROGRESS after `d9283e56`: the actual six-field Casimir now commutes with its
 fields. The ordered 36 commutator squares sum to 4*Gamma; the actual

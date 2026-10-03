@@ -10,6 +10,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Checked forward/backward conditional-heat prerequisites:** the original
+heat map now has its literal formal nome generator, direct composition at
+the already-existing output, and exact saturated nome-one reproduction.
+From the analytic endpoint, finite rational meshes prove interval order
+from the actual formal derivative's sign, retaining signed coefficients.
+The heat interpolation is genuinely Laurent, so its endpoint-order join
+and conditional variance bound remain open; no polynomial shortcut is
+assumed. See the [proofs and exact next join](audits/AUDIT-ORIGINAL-CONDITIONAL-HEAT-ORDER-2026-10-03.md).
+
 **Checked local SU(2) Bochner estimate and heat composition:** the actual
 six-rotation Laplacian commutes with its fields. Its iterated energy satisfies
 `Gamma2 - Gamma = (1/4) * symmetricHessianSquare`, with a constructed positive
