@@ -14,10 +14,13 @@ pinned, with nonnegative computed weights; seven additional focused checks
 cover that producer and its finite algebra. Coefficient-invariant ACTUAL
 root-moment transport, its monomial pin, ORIGINAL S/F form positivity, and
 literal coarse-defect/time-one moment pins are NOW checked in three further
-focused targets (31 permitted gates). The complete form comparison remains
+focused targets (31 permitted gates). The actual quotient/logPartial diagonal
+comparison is ALSO checked in four focused targets (21 permitted gates):
+error=retained Tail-ORIGINAL S-form, bounded below by -invSucc(M)*Bxx and
+above by (2*half^d)*Bxx for depth=d+2 and M>0. The norm/limit join remains
 OPEN; neither derivative/log equality nor a changing-family signed estimate
 is claimed. Evidence:
-`audits/AUDIT-ORIGINAL-ROOT-POLYNOMIAL-FORM-2026-10-03.md`.
+`audits/AUDIT-ORIGINAL-ROOT-LOG-FORM-COMPARISON-2026-10-03.md`.
 No exact displayed claim changed; no ASCII reprint.
 
 Verified supporting ORIGINAL derivative-domain excitation (2026-10-03 UTC;

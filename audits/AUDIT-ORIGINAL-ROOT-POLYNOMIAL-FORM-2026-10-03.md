@@ -1,5 +1,11 @@
 # ORIGINAL S/F positivity reaches the actual root and coarse moments
 
+FOLLOW-UP: the retained-tail telescope, literal quotient/logPartial diagonal
+pins and complete two-sided diagonal comparison are now checked in
+`audits/AUDIT-ORIGINAL-ROOT-LOG-FORM-COMPARISON-2026-10-03.md`. The evidence
+below records this bridge checkpoint; norm/limit equality and physical
+scaling remain OPEN.
+
 The whole-project goal remains nontrivial continuum Yang--Mills on R^4 for
 every compact simple group, with SAME-theory QFT axioms and a positive
 physical Hamiltonian mass gap. It is OPEN. This increment proves an actual

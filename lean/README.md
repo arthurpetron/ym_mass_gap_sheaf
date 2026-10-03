@@ -29,10 +29,13 @@ to the ORIGINAL polynomials; seven additional focused checks cover the row
 producer and its finite algebra. The coefficient-invariant ACTUAL root-moment
 functional, exact monomial pin, original S/F form positivity, and literal
 coarse-defect/time-one moment pins are NOW checked in three further focused
-targets, with 31 permitted gates. The complete form comparison remains OPEN;
-no limiting-operator identification, changing-family estimate or continuum/
-Clay closure is claimed. Root imports registered only. Evidence:
-`audits/AUDIT-ORIGINAL-ROOT-POLYNOMIAL-FORM-2026-10-03.md`.
+targets, with 31 permitted gates. Four further focused checks now construct
+the literal quotient/logPartial diagonal pins, retained-tail telescope,
+ORIGINAL S budget and complete two-sided diagonal comparison: 21 permitted
+gates. The norm/limit join remains OPEN; no limiting-operator identification,
+changing-family estimate or continuum/Clay closure is claimed.
+Root imports registered only. Evidence:
+`audits/AUDIT-ORIGINAL-ROOT-LOG-FORM-COMPARISON-2026-10-03.md`.
 
 **Earlier checked original derivative-domain excitation (2026-10-03 UTC):**
 `BF4WilsonSmallNomeBentDerivativeExcitation` constructs a literal

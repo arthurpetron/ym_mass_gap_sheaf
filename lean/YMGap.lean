@@ -6260,6 +6260,11 @@ import YMGap.Constructive.QPolyRootLogPositiveRows
 import YMGap.Continuum.RCPolynomialFunctional
 import YMGap.Continuum.BF4WilsonAllNomeRootPolynomialForm
 import YMGap.Continuum.BF4WilsonAllNomeRootCoarseMoment
+-- Actual retained tail, original S budget and literal finite diagonal comparison.
+import YMGap.Continuum.BF4WilsonAllNomeRootMomentTelescope
+import YMGap.Continuum.BF4WilsonAllNomeRootLogMapPins
+import YMGap.Continuum.BF4WilsonAllNomeRootLogSignedBudget
+import YMGap.Continuum.BF4WilsonAllNomeRootLogFormComparison
 import YMGap.Continuum.RootLogFiniteTail
 import YMGap.Continuum.BF4WilsonAllNomeRootLogTail
 import YMGap.Continuum.BF4WilsonAllNomeSymmetricFormNorm

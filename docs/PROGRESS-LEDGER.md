@@ -4,7 +4,25 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL S/F reach actual root and coarse moments (2026-10-03 UTC)
+## Current increment: ORIGINAL quotient/logPartial diagonal comparison (2026-10-03 UTC)
+
+PROGRESS after `89abf54`: literal diagonal pins reach BOTH EXISTING finite
+maps. The retained positive-moment telescope pays the weighted finite root
+tail; ORIGINAL F positivity supplies 0<=Phi(N,S)<=invSucc(M)*Bxx.
+The actual signed decomposition E=Tail-Phi(N,S) now gives
+-invSucc(M)*Bxx<=E<=(2*half^d)*Bxx, at depth=d+2, N=2^(d+2) and every M>0.
+No comparison premise, functional calculus or operator inverse is supplied.
+Four serialized focused checks passed 21 permitted gates; no full root/tree
+build, broad audit/guard or progress metric ran.
+
+NEXT BACKWARD: actual symmetric form-to-norm application and the EXISTING
+limit-modulus join. DerivativeAction=regularizedLog remains OPEN.
+NEXT FORWARD: complete relative signed estimate or retained macro ratio on
+a JUSTIFIED changing family, unchanged and unpaid. No continuum/Clay claim.
+Root imports registration-only, canonical chart and CI unchanged. Evidence:
+`audits/AUDIT-ORIGINAL-ROOT-LOG-FORM-COMPARISON-2026-10-03.md`.
+
+## Earlier increment: ORIGINAL S/F reach actual root and coarse moments (2026-10-03 UTC)
 
 PROGRESS after `570dfc5`: the depth-dependent diagonal functional now respects
 actual padded coefficient equivalence. Coordinate/defect and complement/

@@ -27,7 +27,25 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
-NOW CHECKED ACTUAL ROOT-MOMENT TRANSPORT AND COARSE PINS:
+NOW CHECKED THE ORIGINAL FINITE DIAGONAL COMPARISON:
+`RootLogMapPins` pins the actual differenceQuotient and logPartial diagonals.
+`RootMomentTelescope` retains the positive endpoint and bounds the finite
+weighted tail by (N/2)*moment(N-1,2). `RootLogSignedBudget` gives
+0<=Phi(N,S)<=invSucc(M)*Bxx from ORIGINAL F positivity/coarse moments.
+`RootLogFormComparison.diagonalError_pin` then proves the literal signed
+decomposition E=Tail-Phi(N,S); its upper/lower theorems construct
+-invSucc(M)*Bxx<=E<=(2*half^d)*Bxx, at depth=d+2 and every M>0.
+No diagonal estimate, surrogate action or operator inverse is assumed.
+Four focused checks passed 21 gates within {propext, Quot.sound}. Evidence:
+`audits/AUDIT-ORIGINAL-ROOT-LOG-FORM-COMPARISON-2026-10-03.md`.
+NEXT BACKWARD: apply the checked form-to-norm principle to the actual symmetric
+finite difference with e=2*half^d+invSucc(M), then join EXISTING limit moduli.
+DerivativeAction=regularizedLog remains OPEN. NEXT FORWARD remains the complete
+relative signed estimate or retained macro ratio on a JUSTIFIED changing
+family. No such producer or physical scaling is supplied. Root imports
+registration-only; exact canonical chart and CI unchanged.
+
+EARLIER CHECKED ACTUAL ROOT-MOMENT TRANSPORT AND COARSE PINS:
 `RCPolynomialFunctional.formFrom_coeffEqv` respects arbitrary padded finite
 coefficient lists. `BF4WilsonAllNomeRootPolynomialForm.form` substitutes the
 EXISTING depth-dependent original root/defect moments. Its exact coordinate
