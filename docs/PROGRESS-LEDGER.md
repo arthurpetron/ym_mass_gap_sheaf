@@ -4,7 +4,19 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: computed ORIGINAL domain log-prefix coercivity (2026-10-03 UTC)
+## Current increment: exact ORIGINAL signed score replica (2026-10-03 UTC)
+
+PROGRESS after `2cf8d15`: the signed two-copy full-window source now
+integrates to twice A*partial b-b*partial A, with A=g_(n+t), the original
+OWN-centered b, all action factors and one shared tail. Integrated center
+cancellation is checked without a stationary mean or polynomial inverse.
+Three focused targets passed twelve permitted gates (six unchanged).
+NEXT: useful complete signed relative control on a JUSTIFIED family;
+the discrete-cost/angle comparison and relative bound remain unpaid.
+Physical/OS/scaling/continuum/QFT/every-group/Clay and chart stay OPEN.
+Evidence: `audits/AUDIT-ORIGINAL-BLOCK-SCORE-REPLICA-2026-10-03.md`.
+
+## Earlier increment: computed ORIGINAL domain log-prefix coercivity (2026-10-03 UTC)
 
 PROGRESS after `11aa866`: actual defect powers preserve the original vacuum
 complement and dominate r^k times its norm. Their finite log sum is monotone

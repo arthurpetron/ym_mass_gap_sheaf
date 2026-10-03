@@ -1,5 +1,13 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL full-window signed score replica (2026-10-03
+UTC; chart unchanged): two full input histories share the output tail;
+their signed integral equals twice A*partial b-b*partial A. The original
+OWN center cancels after integration, with actual message/action pins.
+Three focused targets passed twelve permitted gates (six unchanged).
+No useful signed relative estimate or physical/scaling/OS box is closed.
+Evidence: `audits/AUDIT-ORIGINAL-BLOCK-SCORE-REPLICA-2026-10-03.md`.
+
 Verified supporting ORIGINAL domain log-prefix coercivity (2026-10-03 UTC;
 chart unchanged): gamma_N=sum_(j=1..N) r^j/j bounds the existing domain form
 on its SAME vacuum complement. The two-term coefficient r+r^2/2>r strictly

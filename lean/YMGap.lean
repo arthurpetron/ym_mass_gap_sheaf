@@ -7084,3 +7084,7 @@ import YMGap.Continuum.BF4WilsonAllNomeDomainLogPrefixGap
 
 -- Original half-smoothed determinant: exact signed channel/heat join, not a rate.
 import YMGap.Continuum.BF4DyadicWilsonSquareExactBlockHeatDefect
+
+-- Original signed conditional score: exact center cancellation, not a bound.
+import YMGap.Continuum.SU2QuaternionMultiHeadScoreReplica
+import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockScoreReplica

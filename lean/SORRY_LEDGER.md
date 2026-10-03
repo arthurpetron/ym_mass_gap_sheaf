@@ -1,5 +1,19 @@
 # Sorry Ledger
 
+## PROVED exact ORIGINAL full-window signed score replica only (2026-10-03 UTC)
+
+`BF4ExactSlabFixedSpatialBlockScoreReplica.paddedSquare_own_block_scoreReplica`
+retains W=g_n*halfOpenAction, A=g_(n+t), b=T^t(g_n*(f-c_n)), every original
+action factor and one common output tail. The signed two-copy integral is
+twice A*partial b-b*partial A. Integrated centering invariance is proved;
+no pre-integration coefficient invariance, division, sign or relative
+estimate is asserted. Three focused checks passed twelve permitted gates,
+six unchanged prerequisite. No sorry, axiom, frontier weakening, CI or
+exact chart change. Root registration-only, no full audit.
+OPEN: discrete-cost/angle comparison and useful complete signed relative
+control on a justified family, all physical/OS/continuum/QFT/every-group/Clay
+endpoints. Evidence: `audits/AUDIT-ORIGINAL-BLOCK-SCORE-REPLICA-2026-10-03.md`.
+
 ## PROVED computed log-prefix coercivity on the ORIGINAL domain only (2026-10-03 UTC)
 
 `BF4WilsonAllNomeDomainLogPrefixGap.domain_log_prefix_gap` joins the

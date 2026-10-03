@@ -27,6 +27,20 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
+NOW CHECKED ORIGINAL FULL-WINDOW SIGNED SCORE REPLICA:
+`BlockScoreReplica.paddedSquare_own_block_scoreReplica` pins the two-copy
+signed integral to twice A*partial b-b*partial A, with A=g_(n+t) and
+b=T^t(g_n*(f-c_n)). The SAME output tail, all original action factors and
+the chronological OWN mean remain. Integrated centering cancels exactly
+before estimates; no division, stationary center or noise bound is used.
+Three focused targets passed twelve gates (six unchanged prerequisite).
+Evidence: `audits/AUDIT-ORIGINAL-BLOCK-SCORE-REPLICA-2026-10-03.md`.
+NEXT: produce useful complete signed cost/filtered-norm control on a
+JUSTIFIED changing family. The score identity supplies neither the discrete
+cost/angle comparison nor the needed relative size; total-noise positivity
+would only compare filtered norm from ABOVE. Do not add a wrapper assuming
+the relative noise bound. Canonical OS/scaling/physical/QFT/Clay stay OPEN.
+
 NOW CHECKED COMPUTED LOG-PREFIX COERCIVITY ON THE SAME ORIGINAL DOMAIN:
 `DomainLogPrefixGap.domain_log_prefix_gap` proves
 sum_(j=1..N) r^j/j * B(input,input) <= B(input,output), for every N,

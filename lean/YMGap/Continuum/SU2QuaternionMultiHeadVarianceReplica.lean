@@ -108,7 +108,7 @@ private theorem insert_mul : ∀ (heads extra : Nat) (a b : List Nat),
         (exponentAt a 3+exponentAt b 3)::m)
           (insert_mul heads extra (a.drop 4) (b.drop 4))
 
-private theorem copy_mul (heads : Nat) (p q : RatPoly) :
+theorem copy_mul (heads : Nat) (p q : RatPoly) :
     copy heads (polyMul p q) = polyMul (copy heads p) (copy heads q) := by
   simp only [copy, insertPolynomial, polyMul, List.map_flatMap,
     List.flatMap_map, List.map_map]

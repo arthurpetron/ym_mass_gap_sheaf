@@ -12,6 +12,14 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**CURRENT checked original signed score replica (2026-10-03 UTC):**
+Two complete original windows share one output tail, and their signed
+head integral is exactly twice A*partial b-b*partial A. The literal
+chronological OWN center cancels after integration, with original action
+and message pins retained. Three focused targets passed twelve permitted
+gates (six unchanged prerequisite); no relative estimate or physical/
+scaling claim. Evidence: `audits/AUDIT-ORIGINAL-BLOCK-SCORE-REPLICA-2026-10-03.md`.
+
 **CURRENT checked original domain log-prefix coercivity (2026-10-03 UTC):**
 Every computed coefficient gamma_N=sum_(j=1..N) r^j/j bounds the SAME
 vacuum-complement domain form, using actual defect moments and its existing
