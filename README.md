@@ -10,7 +10,21 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Verified ORIGINAL product-angular Poincare (2026-10-03 UTC):**
+**Verified ORIGINAL projected-variance Poincare (2026-10-03 UTC):**
+The original conditional determinant variance now equals the SAME joint-law
+sweep loss: actual fringe independence pays the final inactive-input
+integration. Its angular bound retains the own mean, original source/action/
+transfer K, auxiliary reference L and arbitrary certified output W. The
+original active Jensen debt is bounded by `(1+eta)*(1-w^2)` times genuine
+second-derivative energy of the complete original source, with no link-count
+prefactor. The cutoff is computed for the FIXED source, not a scaling family.
+Three focused checks passed 14 permitted gates; independent reviews passed.
+Next: control this energy together with BOTH signed Taylor terms against
+the SAME surviving norm along a justified changing family. No physical or
+continuum gap is proved. See the
+[exact variance endpoint and original BF4 application](audits/AUDIT-ORIGINAL-PROJECTED-VARIANCE-POINCARE-2026-10-03.md).
+
+**Earlier verified ORIGINAL product-angular Poincare (2026-10-03 UTC):**
 In the actual joint heat law, selected sweep loss is at most `(1-w^2)`
 times the ORIGINAL-input angular-energy sum. There is no link-count factor.
 Arbitrary-pair transport, exact joint-law Efron--Stein and one computed
@@ -18,8 +32,8 @@ fixed-source cutoff retain all existing outputs, action sources and weights.
 The backward BF4 consumer also contracts the genuine second-derivative
 energy under fringe projection, keeping source cutoff K and reference L
 distinct. Four focused checks passed 32 permitted gates; mathematical reviews
-passed. Next: the exact own-variance endpoint join and the genuine signed
-energy-to-SAME-surviving-norm estimate on a justified scaling family.
+passed. At that checkpoint the exact own-variance endpoint join and the genuine signed
+energy-to-SAME-surviving-norm estimate on a justified scaling family remained open.
 No physical or continuum gap is proved. See the
 [product proof and backward energy consumer](audits/AUDIT-ORIGINAL-PRODUCT-ANGULAR-POINCARE-2026-10-03.md).
 

@@ -1,18 +1,31 @@
 # Canonical one-page project status
 
-Verified supporting ORIGINAL joint product-angular Poincare (2026-10-03 UTC;
+Verified supporting ORIGINAL projected-variance Poincare (2026-10-03 UTC;
+chart unchanged): actual independent-head lifting and inactive LOWER fringe
+projection identify SAME joint sweep loss with OWN determinant variance.
+The original active Jensen debt is bounded by (1+eta)*(1-w^2) times genuine
+second-derivative input energy of the COMPLETE original source. Original K,
+reference L, all shared output factors and certified W remain; no count
+prefactor. Three focused checks passed 14 permitted gates; independent
+reviews passed. Energy plus BOTH signed Taylor terms versus SAME surviving
+norm on a justified changing family remains OPEN, together with physical/
+OS/continuum/QFT/every-group/Clay. Evidence:
+`audits/AUDIT-ORIGINAL-PROJECTED-VARIANCE-POINCARE-2026-10-03.md`.
+No exact displayed claim changes; no ASCII reprint.
+
+Earlier verified supporting ORIGINAL joint product-angular Poincare (2026-10-03 UTC;
 chart unchanged): actual arbitrary-pair transport and joint-law Efron--Stein
 bound sweep loss by (1-w^2) times the ORIGINAL-input angular-energy sum.
 Full heat/output weight remains; no link-count factor; one computed
 fixed-source cutoff. The backward BF4 leg contracts actual second-derivative
 input energy in SAME reference weight, with original K and auxiliary L
 distinct. Four focused checks passed 32 permitted gates; reviews passed.
-Exact own-variance endpoint and energy-to-SAME-surviving-norm/scaling joins,
+At that checkpoint exact own-variance endpoint and energy-to-SAME-surviving-norm/scaling joins,
 physical/OS/continuum/QFT/every-group/Clay remain OPEN. Evidence:
 `audits/AUDIT-ORIGINAL-PRODUCT-ANGULAR-POINCARE-2026-10-03.md`.
 No exact displayed claim changes; no ASCII reprint.
 
-Verified supporting ORIGINAL joint-heat variance joins (2026-10-03 UTC;
+Earlier verified supporting ORIGINAL joint-heat variance joins (2026-10-03 UTC;
 chart unchanged): actual slot-0/1 conditional Poincare, joint-law weighted
 orthogonality/Pythagoras/Jensen, original-residual sweep commutation and
 the exact variance tower retain full kernels, output weights and shared

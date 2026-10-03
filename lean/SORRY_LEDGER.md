@@ -1,6 +1,34 @@
 # Sorry Ledger
 
-## PROVED ORIGINAL joint product-angular Poincare only (2026-10-03 UTC)
+## PROVED ORIGINAL own-variance endpoint and BF4 Poincare only (2026-10-03 UTC)
+
+`SU2QuaternionIndependentHeadsLift.independent_heads_lift` integrates and
+re-adjoins actually independent heads under EVERY original Haar insertion;
+no padded free-coefficient identity is asserted.
+`SU2QuaternionProductHeatConditionalVariance.product_conditional_unit`
+constructs the actual unit mass. `sweep_all_lower_independent` uses actual
+selected updates plus the explicit inactive-input independence premise.
+`joint_sweep_square_mean_pin` retains the OWN conditional mean and full law;
+`determinant_sweep_loss_pin` identifies determinant variance with SAME sweep
+loss. `conditional_variance_angular_poincare` consumes the checked angular
+bound at one computed FIXED-source onset.
+`BF4ExactSlabFixedSpatialProjectedVariancePoincare.projected_source_inactive`
+constructs the inactive premise from actual lower-fringe projection.
+`projected_reference_variance_source_energy_le` pays reference variance by
+genuine SECOND-derivative energy of the COMPLETE original source at K.
+`projected_active_variance_source_energy_le` adds the checked near-unit K/L
+comparison: factor (1+eta)*(1-w^2), with original source/action/transfer K
+unchanged, reference kernel L and arbitrary shared certified W. No count
+prefactor, variance/norm inverse or changing-source uniformity is assumed.
+Three focused checks passed 14 permitted gates; independent reviews passed.
+No sorry/axiom/field/CI/chart change; root registration only. Evidence:
+`audits/AUDIT-ORIGINAL-PROJECTED-VARIANCE-POINCARE-2026-10-03.md`.
+OPEN: useful actual weighted second-derivative/high-Casimir control or
+cancellation with original signed drift/remainders against the SAME surviving
+norm; BOTH Taylor terms and justified changing-family window; physical/
+OS/continuum/QFT/every-group/Clay. Gamma(Q) remains NOT the old Q^2 budget.
+
+## EARLIER PROVED ORIGINAL joint product-angular Poincare only (2026-10-03 UTC)
 
 `SU2QuaternionSelectedPairConditionalPoincare.selectedPair_weighted_angular_variance`
 transports the complete source and weight by actual distinct-pair swaps;
@@ -22,7 +50,7 @@ original action/transfer K while only the positive reference kernel uses L.
 Four final focused checks passed 32 permitted gates; independent reviews
 passed. No sorry/axiom/field/CI/chart change; root registration only. Evidence:
 `audits/AUDIT-ORIGINAL-PRODUCT-ANGULAR-POINCARE-2026-10-03.md`.
-OPEN: exact weighted sweep-loss to own determinant variance endpoint, using
+THEN-OPEN: exact weighted sweep-loss to own determinant variance endpoint, using
 actual inactive-input independence for the projected BF4 source; genuine
 second-derivative energy versus SAME surviving-norm signed cost, BOTH Taylor
 terms and justified changing-family control; physical/OS/continuum/QFT/

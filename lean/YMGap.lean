@@ -7263,8 +7263,15 @@ import YMGap.Continuum.SU2QuaternionProductHeatSweepResidual
 
 -- Same joint-law product-angular Poincare with no link-count penalty,
 -- and actual second-derivative fringe contraction at ORIGINAL K/reference L.
--- Own-variance endpoint, signed norm/scaling and Clay remain OPEN.
+-- Own-variance endpoint is joined below; signed norm/scaling and Clay stay OPEN.
 import YMGap.Continuum.SU2QuaternionSelectedPairConditionalPoincare
 import YMGap.Continuum.SU2QuaternionProductHeatEfronStein
 import YMGap.Continuum.SU2QuaternionHaarFamilyWeightedAngularContraction
 import YMGap.Continuum.BF4ExactSlabFixedSpatialProjectedInputAngularEnergy
+
+-- Actual inactive lower independence identifies the SAME joint sweep loss
+-- with OWN determinant variance, and pays the BF4 reference/active Jensen
+-- debt by genuine second-derivative energy. Signed norm/scaling stays OPEN.
+import YMGap.Continuum.SU2QuaternionIndependentHeadsLift
+import YMGap.Continuum.SU2QuaternionProductHeatConditionalVariance
+import YMGap.Continuum.BF4ExactSlabFixedSpatialProjectedVariancePoincare

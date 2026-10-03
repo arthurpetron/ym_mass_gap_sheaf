@@ -12,14 +12,28 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT checked ORIGINAL product-angular Poincare (2026-10-03 UTC):**
+**CURRENT checked ORIGINAL projected-variance Poincare (2026-10-03 UTC):**
+Actual independent-head lifting proves that the SAME joint sweep loss is
+the original own determinant variance, with the inactive lower debt paid
+by actual fringe projection. The BF4 reference variance and original active
+Jensen debt are bounded by genuine second-derivative energy of the COMPLETE
+original source, with factors 1-w^2 and (1+eta)*(1-w^2), respectively.
+All original K data, auxiliary reference L, outputs and certified W remain;
+there is no count prefactor. One source-dependent onset is explicit.
+Three focused checks passed 14 permitted gates; independent reviews passed.
+Root registration only; no full build/audit. The signed energy-to-SAME-
+surviving-norm estimate, BOTH Taylor terms and justified changing-family
+control remain OPEN, as do physical/OS/continuum/QFT/every-group/Clay.
+Evidence: `audits/AUDIT-ORIGINAL-PROJECTED-VARIANCE-POINCARE-2026-10-03.md`.
+
+**Earlier checked ORIGINAL product-angular Poincare (2026-10-03 UTC):**
 The SAME joint-heat sweep loss is bounded by (1-w^2) times the ORIGINAL-input
 angular-energy sum, with no count factor. Actual arbitrary-pair transport,
 joint-law Efron--Stein, retained residual variance and one computed fixed-source
 cutoff supply the proof. The BF4 backward leg contracts actual second-derivative
 energy under fringe projection, with original K/reference L distinct.
 Four focused checks passed 32 permitted gates; mathematical reviews passed.
-Root registration only; no full build/audit. Exact own-variance endpoint and
+Root registration only; no full build/audit. At that checkpoint exact own-variance endpoint and
 genuine signed energy-to-SAME-surviving-norm/scaling joins remain OPEN, as do
 physical/OS/continuum/QFT/every-group/Clay. Evidence:
 `audits/AUDIT-ORIGINAL-PRODUCT-ANGULAR-POINCARE-2026-10-03.md`.

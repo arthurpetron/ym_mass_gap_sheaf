@@ -27,7 +27,30 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
 
-NOW CHECKED ORIGINAL PRODUCT-ANGULAR POINCARE:
+NOW CHECKED ORIGINAL PROJECTED-VARIANCE POINCARE:
+FORWARD, actual zero head moments and iterated Fubini lift the independent
+sweep endpoint under EVERY insertion; selected updates plus the actual
+inactive LOWER fringe independence supply that premise. The SAME joint
+sweep loss equals the OWN determinant variance, including actual mass/mean.
+BACKWARD, the reference variance consumer uses complete Q_K, full kernel_L
+and arbitrary certified output W. Actual fringe angular contraction and
+the near-unit K/L variance comparison give the original active debt bound
+(1+eta)*(1-w^2) times Gamma-input energy of complete Y_K, without a count
+prefactor. This is genuinely SECOND derivative, not the old Q^2 budget.
+The source-dependent auxiliary onset is explicit. Three focused checks
+passed 14 permitted gates; independent reviews passed. Evidence:
+`audits/AUDIT-ORIGINAL-PROJECTED-VARIANCE-POINCARE-2026-10-03.md`.
+REPOINT: retain the stronger Gamma(Q_K) projected bound when its cancellation
+helps; Gamma(Y_K) is only an optional upper bound. Prove useful control of
+the ACTUAL weighted high-Casimir source
+content or its signed cancellation with the ORIGINAL drift/remainders,
+against the SAME surviving norm. Generic positivity does not bound
+Gamma(Q) by Q^2 independently of source degree. BOTH Taylor terms and a
+JUSTIFIED changing-family window remain necessary. No fixed-source cutoff
+is scaling-uniform. Physical/OS/continuum/QFT/every-group/Clay remain OPEN;
+the exact canonical chart is unchanged and is not reprinted.
+
+EARLIER CHECKED ORIGINAL PRODUCT-ANGULAR POINCARE:
 FORWARD, actual pairSteps reindexes the complete source/output weight,
 keeping every shared variable. Original joint-law Pythagoras/contraction
 and residual commutation prove Efron--Stein with coefficient one. Exact
@@ -40,7 +63,7 @@ contracts under fringe projection in SAME reference kinetic/output weight;
 original action/source/transfer K and auxiliary kernel L stay distinct.
 Four final focused checks passed 32 permitted gates; reviews passed. Evidence:
 `audits/AUDIT-ORIGINAL-PRODUCT-ANGULAR-POINCARE-2026-10-03.md`.
-REPOINT: exact weighted sweep-loss to own determinant variance endpoint,
+THEN-OPEN: exact weighted sweep-loss to own determinant variance endpoint,
 using the projected source's proved inactive LOWER independence, not
 silently discarding an inactive residual. Then instantiate the reference
 Poincare bound on Q_K at an explicit auxiliary L. Genuine SECOND-derivative
