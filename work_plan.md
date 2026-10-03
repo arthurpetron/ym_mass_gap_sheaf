@@ -27,6 +27,22 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
+NOW CHECKED ACTUAL CHANNEL INCREMENT AGAINST OWN INTERACTING VARIANCE:
+`ChannelOwnVariance.paddedSquare_channel_ownVariance_identity` proves
+I+4*Z*OWNVar=2*B+4*ell((g*psi)*T(g*psi)), keeping the original OWN
+center and complete channel cost/increment. The actual active heat Gram
+floor strengthens the right side by retaining 4*ell(g*psi)^2. No raw
+channel norm is substituted for variance, and this mean is NOT assumed
+zero. One focused target passed three permitted gates. Evidence:
+`audits/AUDIT-ORIGINAL-CHANNEL-OWN-VARIANCE-2026-10-03.md`.
+This pays the previously source-derived constant-one finite comparison;
+it does NOT pay the O(1/side) filtered rate or changing-family survival.
+The exact transfer response must remain available for stronger estimates;
+do not assume its constant mode alone is quantitatively sufficient.
+NEXT remains the combined signed determinant relative to its SAME filtered
+norm on a JUSTIFIED changing family, using the existing budget-to-macro
+consumer rather than adding another conditional survival wrapper.
+
 NOW CHECKED RATIO-FREE TWO-OUTPUT FORM OF THE COMPLETE ORIGINAL COST:
 `TwoCopyRayleighDeterminant.antisymmetric_pairing_determinant` proves
 pair_(ell tensor ell)(Pi, firstDifference-secondDifference)=D+D,

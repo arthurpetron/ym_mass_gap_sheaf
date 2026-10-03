@@ -76,14 +76,19 @@ their useful relative changing-family estimate is NOT supplied here.
 `originalOwnBlockVariance_converges`, and :157,
 `originalOwnBlockCost_converges`, pin the finite denominator/cost to SAME
 norm times response C_(2t) and SAME norm times delta_(2t).
-The output is a SHIFTED filtered budget. It is not automatically the raw
-start-one hypothesis `hbudget` or reserve `hreserve` in
-`BF4WilsonAllNomeDyadicFilteredGeometricSurvival.lean:154`,
-`dyadicUnitResponse_filtered_block_floor`.
+The output is a SHIFTED filtered budget. Do not replace it with a raw
+start-one budget. A later source review finds the sufficient existing
+`response_anchor_bridge` in
+`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicNormalizedAnchorContinuity.lean:175`:
+at start=m=side>=4C it gives kappa_C*R(side)<=R(2*side), with no separate
+floor on the shrinking response. The finite normalization and cancellation
+already occur inside `originalOwnBlock_budget_rate_constraint` in
+`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicFilteredRateConstraint.lean:131`.
+These are existing source-reviewed proofs, not new checks in this note.
 
-The next work must preserve this lag and show the SAME family/normalization
-meets the existing backward consumer. No fresh conditional recoding closes
-that gap. Canonical OS realization, nontrivial continuum survival, physical
+The next work is the missing actual relative producer with 2t=side,
+preserving the SAME family and normalization; no new lag/reserve wrapper
+is needed. Canonical OS realization, nontrivial continuum survival, physical
 calibration, full QFT and every-group construction remain OPEN.
 
 Independent Sol review identified this residual; root inspected the cited

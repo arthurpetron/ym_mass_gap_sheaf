@@ -1,6 +1,7 @@
 # Original channel relative frontier — mathematical review, 2026-10-03
 
-Scope: source-reviewed reasoning, not a new Lean theorem or compiler check.
+Scope: source-reviewed reasoning; the finite comparison below was subsequently
+kernel-checked in the explicitly cited OWN-variance increment module.
 The unchanged goal is the SAME continuum Yang–Mills theory and physical mass
 gap for every compact simple group. Changing-family survival, physical
 calibration, the canonical OS/QFT realization and the Clay target remain OPEN.
@@ -32,11 +33,24 @@ square and L=M-Z>=0, not a paid relative bound on L:
 `paddedSquare_channel_square_linear_bound`,
 `lean/YMGap/Continuum/BF4DyadicWilsonSquareChannelVarianceLoss.lean:591`.
 
-## Constant-one finite comparison — derived reasoning only
+## Constant-one finite comparison — now kernel-checked, with retained mean square
 
 With the actual OWN center c_n and psi=f-c_n, the first centered energy term
 is Z*OWNVar; the subtracted term ell[(g_n psi) T(g_n psi)] is nonnegative.
-Thus E/Z<=OWNVar, and the channel identity gives I>=2B-4Z*OWNVar.
+The actual selected-product Gram floor is stronger than nonnegativity:
+ell(h*T h)>=ell(h)^2. Thus, with L=ell(g_n*psi), the checked identities give
+
+    I+4Z*OWNVar = 2B+4*ell((g_n*psi)*T(g_n*psi)),
+    2B+4L^2 <= I+4Z*OWNVar.
+
+The original OWN center does NOT imply L=0. All three statements are checked
+in `lean/YMGap/Continuum/BF4DyadicWilsonSquareChannelOwnVariance.lean`:
+`transferStep_quadratic_ge_mean_square`:65,
+`paddedSquare_channel_ownVariance_identity`:103, and
+`paddedSquare_channel_ownVariance_lower`:128. Verification:
+`audits/AUDIT-ORIGINAL-CHANNEL-OWN-VARIANCE-2026-10-03.md`.
+The previously derived E/Z<=OWNVar is now backed by this stronger actual
+estimate, but it remains a unit-coefficient ceiling, not the needed rate.
 Ingredients: `centered_source_square` at
 `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSourceVarianceGram.lean:89`,
 `transferStep_quadratic_nonnegative` at
@@ -63,5 +77,11 @@ b=T^t(g_n*(f-c_n)), Z0=ell(A²), Z1=ell(A*TA), and
 D=Z1*ell(b²)-Z0*ell(b*Tb), on a JUSTIFIED changing family.
 `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicOriginalRayleighLimit.lean:136,157`
 pins ell(b²)/Z0 and D/(Z0Z1) to the SAME norm-cleared response and drop.
-Neither the channel formula nor the derived constant-one comparison supplies
-the action-specific retained cancellation/OWN comparison or response reserve.
+Neither the channel formula nor the checked constant-one comparison supplies
+the action-specific combined signed cost bound against the filtered norm.
+Once that relative bound exists, the existing macro consumer does not
+require an additional absolute lower floor on the shrinking response:
+`response_anchor_bridge` in
+`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicNormalizedAnchorContinuity.lean:175`
+handles start=m=side>=4C directly. This is a source-reviewed existing
+implication, not a new physical instance or kernel check in this note.

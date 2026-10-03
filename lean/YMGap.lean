@@ -7093,3 +7093,6 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockScoreReplica
 -- Original signed two-output determinant; exact cancellation, not a bound.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialTwoCopyRayleighDeterminant
 import YMGap.Continuum.BF4DyadicWilsonSquareTwoCopyRayleighDeterminant
+
+-- Original complete channel increment versus OWN variance; not a scaling rate.
+import YMGap.Continuum.BF4DyadicWilsonSquareChannelOwnVariance

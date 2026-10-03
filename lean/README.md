@@ -12,7 +12,15 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT checked original two-output determinant (2026-10-03 UTC):**
+**CURRENT checked original channel/OWN-variance bound (2026-10-03 UTC):**
+The complete channel increment now has an actual comparison against the
+SAME interacting variance, retaining the original weighted centered-source
+mean square. No new analytic premise or proxy norm is used. One focused
+target passed three permitted gates. This is a constant-one finite ceiling,
+NOT the needed filtered O(1/side) rate or continuum survival. Evidence:
+`audits/AUDIT-ORIGINAL-CHANNEL-OWN-VARIANCE-2026-10-03.md`.
+
+**Earlier checked original two-output determinant (2026-10-03 UTC):**
 The complete original cleared cost is a signed two-copy pairing. Its mixed
 terms cancel through actual weighted transfer symmetry; V occurs once per
 output slot, with the unchanged input V inside T. The padded-square instance

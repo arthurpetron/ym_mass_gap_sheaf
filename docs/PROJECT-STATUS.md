@@ -1,5 +1,13 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL channel/OWN-variance comparison (2026-10-03
+UTC; chart unchanged): the complete increment and SAME interacting variance
+retain the exact original transfer quadratic; its constructed Gram floor
+keeps the favorable weighted centered-source mean square. One focused
+target passed three permitted gates. This pays a constant-one finite
+comparison, not the filtered changing-family rate or any continuum box.
+Evidence: `audits/AUDIT-ORIGINAL-CHANNEL-OWN-VARIANCE-2026-10-03.md`.
+
 Verified supporting ORIGINAL signed two-output determinant (2026-10-03
 UTC; chart unchanged): the complete D is exactly a two-copy pairing, with
 mixed terms canceled through original weighted transfer symmetry. Both
