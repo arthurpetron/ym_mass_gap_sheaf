@@ -13,14 +13,23 @@ discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
 **CURRENT original signed filtered source and SAME response target (2026-10-03 UTC):**
+`BF4ExactSlabFixedSpatialCubeBentFusion` now proves the first actual numerical
+contraction: H[F^2]=1 and H[F*chi_p01*chi_p02]=1/2 on the ORIGINAL slice
+carrier. Its adjacent-face fusion retains every insertion independent of
+the shared link. `SU2QuaternionIndependentTailMoments.fundamental_pair_moment`
+supplies the bilinear rule with both tails retained, without a mutual
+independence or tail-unit hypothesis. Four new public constructive gates
+and independent reviews passed. The full weighted moments and gain sign
+remain OPEN; this is not the cutoff-one matrix pin or scaling closure.
+
 `BF4ExactSlabFixedSpatialCubeTransfer` now proves the ORIGINAL width-two
 action has exactly six fully active cube faces, and removes the outgoing
 active kinetic factors on cube-supported inputs with every supported test
 retained. Original T1, the literal bent-loop TF, and their seven weighted
 moments equal twelve-link cube representatives in the original Haar quotient.
 Seventeen new public theorem gates passed within {propext, Quot.sound};
-independent mathematical/source review passed. Numerical contraction values,
-signed gain positivity, later-cutoff/depth control and physical scaling remain
+independent mathematical/source review passed. The remaining weighted contraction
+values, signed gain positivity, later-cutoff/depth control and physical scaling remain
 OPEN. The earlier cutoff-one polynomial is still an untrusted candidate;
 its failed head guard is unchanged. No full build or aggregate audit ran.
 Evidence: `audits/AUDIT-CUBE-BENT-LOOP-SIGNED-GAIN-2026-10-03.md`.

@@ -80,7 +80,18 @@ kinetic factors on cube inputs, and identifies original T1, TF and ALL
 seven weighted moments with literal twelve-link cube representatives.
 Seventeen new public theorem gates passed within {propext, Quot.sound}.
 These are supported-Haar equalities, NOT numerical moment values or a
-matrix/basis completeness theorem. K=1 still FAILS headCutoff(1/2)>=17;
+matrix/basis completeness theorem. A separate numerical source contraction
+is NOW CHECKED: `BF4ExactSlabFixedSpatialCubeBentFusion` proves the literal
+F's square norm one and the actual adjacent-face moment H[F*P*Q]=1/2 on
+the ORIGINAL slice. The shared-link fusion retains arbitrary independent
+insertions; its generic bilinear proof retains both tails. Four new public
+allowed gates and independent reviews passed. This supplies the first
+favorable channel coefficient, not the seven full weighted moments or a
+gain sign. NEXT use the actual six-face subset parity to retain only the
+singleton Q and its five-face complement in the tested P channel, then
+contract that complement through original shared-link fusion and Haar-unit
+backtrack cancellation. Do not substitute a cycle basis or free-polynomial
+unit relation. K=1 still FAILS headCutoff(1/2)>=17;
 no completed, all-cutoff or growing-family estimate follows. NEXT FORWARD
 evaluate those seven ORIGINAL cube Haar moments and certify their signed
 polynomial, then control the later-cutoff/depth remainder. Direct two-/

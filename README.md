@@ -10,6 +10,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**New checked original numerical contraction:** the literal width-two bent
+loop F has Haar square norm one, and the two original adjacent face traces
+fuse to F/2 with every shared-link-independent insertion retained. Thus
+`H[F*chi_p01*chi_p02]=1/2` on the ORIGINAL slice carrier. This certifies the
+first favorable fusion coefficient, not the seven full weighted moments,
+interacting gain positivity or a scaling estimate. Four new public gates
+passed within {propext, Quot.sound}; independent reviews passed. See the
+[source pins, numerical contraction and remaining joins](audits/AUDIT-CUBE-BENT-LOOP-SIGNED-GAIN-2026-10-03.md).
+
 **Current forward-backward target (2026-10-03):** produce a positive
 family-wide macroscopic ratio `kappa*R(side)<=R(2*side)` for the SAME
 original interacting transfer. This single supplied estimate now proves

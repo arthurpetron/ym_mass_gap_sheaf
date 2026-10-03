@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL numerical fusion (2026-10-03 UTC; chart
+unchanged): the literal bent loop has H[F^2]=1; the original origin p01/p02
+face traces fuse to F/2 with every shared-link-independent insertion
+retained, giving H[F*chi_p01*chi_p02]=1/2. Four new public constructive gates
+and independent reviews passed. The seven full weighted moments, complete
+gain sign and every displayed scaling/continuum claim remain OPEN.
+Evidence: `audits/AUDIT-CUBE-BENT-LOOP-SIGNED-GAIN-2026-10-03.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting cube source identification (2026-10-03 UTC; chart
 unchanged): original T1, TF and their seven weighted moments are now
 proved equal to literal twelve-link/six-face cube representatives, with

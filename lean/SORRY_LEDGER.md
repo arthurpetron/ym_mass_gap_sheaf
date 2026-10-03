@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## PROVED original bent-loop adjacent-face numerical contraction only (2026-10-03 UTC)
+
+- `SU2QuaternionIndependentTailMoments.fundamental_pair_moment` gives the
+  exact original-carrier shared-link trace contraction, retaining BOTH
+  independent tails and arbitrary signed independent insertion. No mutual
+  tail independence, unit norm, support or positivity premise is used.
+- `BF4ExactSlabFixedSpatialCubeBentFusion.bent_square_haar` proves
+  H[F^2]=1 for the literal bent loop on the ORIGINAL width-two slice.
+  `adjacent_faces_bent_fusion` gives H[(P*Q)*r]=(1/2)*H[F*r] whenever
+  r is independent of the shared origin-x link. `original_bent_two_face_moment`
+  supplies H[(P*Q)*F]=1/2 for the actual original origin p01/p02 faces.
+- Final focused checks passed four new public gates, seven helper gates
+  and two existing moment diagnostics within {propext, Quot.sound}, with
+  no errors/warnings. Independent mathematical and source reviews passed.
+  No new sorry/axiom/classical shortcut, surrogate carrier or frontier
+  field change. Root import registered, NOT aggregate-checked; CI and
+  canonical chart unchanged.
+- OPEN: full seven weighted contractions, complement-channel contraction,
+  exact action-subset parity join, positive partition/OWN-mean certificate,
+  full signed gain, later-cutoff/depth and changing-family relative estimates.
+  The K=1 head guard still fails; no completed or continuum node closes.
+  Evidence: `audits/AUDIT-CUBE-BENT-LOOP-SIGNED-GAIN-2026-10-03.md`.
+
 ## PROVED original cube restriction and seven moment transport only (2026-10-03 UTC)
 
 - `BF4ExactSlabFixedSpatialCubeTransfer.activeSpatialFaces_two_mem_iff`

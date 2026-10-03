@@ -5,6 +5,8 @@ Only the exposed quaternion block is integrated. Its four coordinate
 covariances remove cross terms exactly; all tail coefficients and the
 arbitrary independent spectator remain in the original Haar functional.
 The tail's Haar-unit norm then gives the fundamental second moment one.
+The bilinear rule instead retains both arbitrary tails and fuses their
+traces into the scalar conjugate product, without a tail-unit premise.
 No positivity of the spectator, trace factorization, or scaling claim.
 -/
 
@@ -240,7 +242,131 @@ theorem fundamental_second_moment (blocks block : Nat) (hb : block < blocks)
     (Q'.eqv_trans _ _ _ (Q'.eqv_symm (Q'.mul_assoc_eqv (2*2) quarter _))
       (Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ _ _ hnum) (Q'.one_mul_eqv _)))
 
+private theorem cross_term_pair (blocks block : Nat) (hb : block < blocks)
+    (c d : Fin 4 → RatPoly) (r : RatPoly)
+    (hc : ∀ i, QuaternionBlockIndependent block (c i))
+    (hd : ∀ i, QuaternionBlockIndependent block (d i))
+    (hr : QuaternionBlockIndependent block r) (i j : Fin 4) :
+    weightedPair blocks r (term block c i) (term block d j) ≈
+      (if i.val = j.val then quarter else 0) * weightedPair blocks r (c i) (d j) := by
+  have he : RatPolyCoeffEqv
+      (polyMul (polyMul (term block c i) (term block d j)) r)
+      (polyMul (polyMul (polyVar (4*block+i.val)) (polyVar (4*block+j.val)))
+        (polyMul (polyMul (c i) (d j)) r)) :=
+    coeffEvalExpr_eqv_of_normalize_eq
+      (.mul (.mul (.mul (.var 0) (.var 1)) (.mul (.var 2) (.var 3))) (.var 4))
+      (.mul (.mul (.var 0) (.var 2)) (.mul (.mul (.var 1) (.var 3)) (.var 4)))
+      (by decide) (fun
+        | 0 => polyVar (4*block+i.val) | 1 => c i
+        | 2 => polyVar (4*block+j.val) | 3 => d j | _ => r)
+  exact Q'.eqv_trans _ _ _ (haar_of_coeff he)
+    (variable_pair_mul blocks block hb i j _
+      (quaternionBlockIndependent_polyMul (quaternionBlockIndependent_polyMul (hc i) (hd j)) hr))
+
+private theorem pair_four_right (blocks : Nat) (r a : RatPoly) (f : Fin 4 → RatPoly) :
+    weightedPair blocks r a (four f) ≈ fourQ (fun i => weightedPair blocks r a (f i)) :=
+  Q'.eqv_trans _ _ _ (pair_add_right _ _ _ _ _)
+    (Q'.add_eqv_congr' (Q'.eqv_refl _) (Q'.eqv_trans _ _ _ (pair_add_right _ _ _ _ _)
+      (Q'.add_eqv_congr' (Q'.eqv_refl _) (pair_add_right _ _ _ _ _))))
+
+private theorem fourQ_single (i : Fin 4) (x : Q') :
+    fourQ (fun j => if i = j then x else 0) ≈ x := by
+  rcases i with ⟨i,hi⟩
+  match i with
+  | 0 =>
+      exact poly_identity_of_normal_eq
+        (.add (.var 0) (.add (.const 0) (.add (.const 0) (.const 0)))) (.var 0)
+        (by decide) (fun _ => x)
+  | 1 =>
+      exact poly_identity_of_normal_eq
+        (.add (.const 0) (.add (.var 0) (.add (.const 0) (.const 0)))) (.var 0)
+        (by decide) (fun _ => x)
+  | 2 =>
+      exact poly_identity_of_normal_eq
+        (.add (.const 0) (.add (.const 0) (.add (.var 0) (.const 0)))) (.var 0)
+        (by decide) (fun _ => x)
+  | 3 =>
+      exact poly_identity_of_normal_eq
+        (.add (.const 0) (.add (.const 0) (.add (.const 0) (.var 0)))) (.var 0)
+        (by decide) (fun _ => x)
+  | n+4 => exact False.elim (by omega)
+
+private theorem linear_cross_pair (blocks block : Nat) (hb : block < blocks)
+    (c d : Fin 4 → RatPoly) (r : RatPoly)
+    (hc : ∀ i, QuaternionBlockIndependent block (c i))
+    (hd : ∀ i, QuaternionBlockIndependent block (d i))
+    (hr : QuaternionBlockIndependent block r) :
+    weightedPair blocks r (four (term block c)) (four (term block d)) ≈
+      quarter * quaternionHaar blocks (polyMul (four (fun i => polyMul (c i) (d i))) r) := by
+  have row (i : Fin 4) : weightedPair blocks r (term block c i) (four (term block d)) ≈
+      quarter * weightedPair blocks r (c i) (d i) := by
+    refine Q'.eqv_trans _ _ _ (pair_four_right _ _ _ _) ?_
+    refine Q'.eqv_trans _ _ _ (fourQ_congr (fun j => ?_)) (fourQ_single i _)
+    refine Q'.eqv_trans _ _ _ (cross_term_pair blocks block hb c d r hc hd hr i j) ?_
+    by_cases hij : i = j
+    · subst j
+      rw [if_pos rfl, if_pos rfl]
+      exact Q'.eqv_refl _
+    · have hv : i.val ≠ j.val := fun h => hij (Fin.ext h)
+      rw [if_neg hv, if_neg hij]
+      exact Q'.zero_mul_eqv _
+  have left : weightedPair blocks r (four (term block c)) (four (term block d)) ≈
+      fourQ (fun i => weightedPair blocks r (term block c i) (four (term block d))) := by
+    exact Q'.eqv_trans _ _ _ (weighted_symm _ _ _ _)
+      (Q'.eqv_trans _ _ _ (pair_four_right _ _ _ _)
+        (fourQ_congr (fun i => weighted_symm _ _ _ _)))
+  exact Q'.eqv_trans _ _ _ left (Q'.eqv_trans _ _ _ (fourQ_congr row)
+    (Q'.eqv_trans _ _ _ (fourQ_scale quarter _)
+      (Q'.mul_eqv_congr_left _ _ _ (Q'.eqv_symm (haar_four blocks r _)))))
+
+private theorem coefficient_dot (p q : PolyQuaternion) :
+    RatPolyCoeffEqv (four (fun i => polyMul (coefficients p i) (coefficients q i)))
+      (PolyQuaternion.mul (PolyQuaternion.conj p) q).scalar :=
+  coeffEvalExpr_eqv_of_normalize_eq
+    (.add (.mul (.var 0) (.var 4)) (.add (.mul (.neg (.var 1)) (.neg (.var 5)))
+      (.add (.mul (.neg (.var 2)) (.neg (.var 6))) (.mul (.neg (.var 3)) (.neg (.var 7))))))
+    (PolyQuaternionExpr.mul (PolyQuaternionExpr.conj (PolyQuaternionExpr.coordinate 0))
+      (PolyQuaternionExpr.coordinate 4)).scalar
+    (by decide) (fun
+      | 0 => p.scalar | 1 => p.iPart | 2 => p.jPart | 3 => p.kPart
+      | 4 => q.scalar | 5 => q.iPart | 6 => q.jPart | _ => q.kPart)
+
+/-- Exact shared-link trace fusion on the original carrier, with BOTH tails
+and the unchanged spectator independent only of the integrated link.
+No tail unit norm or independence between the two tails is assumed. -/
+theorem fundamental_pair_moment (blocks block : Nat) (hb : block < blocks)
+    (p q : PolyQuaternion) (r : RatPoly)
+    (hp : HasPolyQuaternionBlockDegree block 0 p)
+    (hq : HasPolyQuaternionBlockDegree block 0 q)
+    (hr : QuaternionBlockIndependent block r) :
+    quaternionHaar blocks (polyMul
+      (polyMul (characterPolynomial (PolyQuaternion.mul (PolyQuaternion.coordinateVariable block) p).scalar 1)
+        (characterPolynomial (PolyQuaternion.mul (PolyQuaternion.coordinateVariable block) q).scalar 1)) r) ≈
+      quaternionHaar blocks (polyMul (PolyQuaternion.mul (PolyQuaternion.conj p) q).scalar r) := by
+  let s := (PolyQuaternion.mul (PolyQuaternion.coordinateVariable block) p).scalar
+  let t := (PolyQuaternion.mul (PolyQuaternion.coordinateVariable block) q).scalar
+  have hs : weightedPair blocks r s t ≈
+      quarter * quaternionHaar blocks (polyMul (PolyQuaternion.mul (PolyQuaternion.conj p) q).scalar r) :=
+    Q'.eqv_trans _ _ _
+      (haar_of_coeff (((scalar_eq_linear block p).mul (scalar_eq_linear block q)).mul_right r))
+      (Q'.eqv_trans _ _ _
+        (linear_cross_pair blocks block hb (coefficients p) (coefficients q) r
+          (coefficients_independent hp) (coefficients_independent hq) hr)
+        (Q'.mul_eqv_congr_left _ _ _ (haar_of_coeff ((coefficient_dot p q).mul_right r))))
+  have hright : weightedPair blocks r s (polySmul 2 t) ≈ 2 * weightedPair blocks r s t :=
+    Q'.eqv_trans _ _ _ (weighted_symm _ _ _ _)
+      (Q'.eqv_trans _ _ _ (weighted_smul_left blocks r 2 t s)
+        (Q'.mul_eqv_congr_left _ _ _ (weighted_symm _ _ _ _)))
+  refine Q'.eqv_trans _ _ _ (weighted_smul_left blocks r 2 s (polySmul 2 t)) ?_
+  refine Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_left 2 _ _ hright) ?_
+  refine Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_left 2 _ _ (Q'.mul_eqv_congr_left 2 _ _ hs)) ?_
+  have hnum : (((2 : Q')*2)*quarter) ≈ 1 := by decide
+  exact Q'.eqv_trans _ _ _ (Q'.eqv_symm (Q'.mul_assoc_eqv 2 2 _))
+    (Q'.eqv_trans _ _ _ (Q'.eqv_symm (Q'.mul_assoc_eqv (2*2) quarter _))
+      (Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ _ _ hnum) (Q'.one_mul_eqv _)))
+
 #print axioms fundamental_first_moment
 #print axioms fundamental_second_moment
+#print axioms fundamental_pair_moment
 
 end YMGap.Continuum.SU2QuaternionIndependentTailMoments

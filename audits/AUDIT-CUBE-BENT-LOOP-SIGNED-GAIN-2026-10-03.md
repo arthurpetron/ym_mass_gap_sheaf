@@ -227,3 +227,79 @@ costs on a justified growing physical family remain unsupplied. No new
 normalization consumer is needed. Numerical positivity on this small cube,
 if certified, would still not close either input or bypass the failed K=1
 head-cutoff guard, later cutoffs, depth, volume or physical scaling.
+
+## Subsequent checked original numerical fusion coefficient
+
+`lean/YMGap/Continuum/SU2QuaternionIndependentTailMoments.lean:337`,
+`fundamental_pair_moment`, proves
+H[chi(U*p)*chi(U*q)*r]=H[scalar(conj(p)*q)*r] on the ORIGINAL arbitrary
+quaternion carrier. Both tails have degree zero at the integrated block;
+r is independent there. No mutual tail independence, unit norm, positivity
+or support premise is assumed. Sixteen coordinate covariances contract the
+two arbitrary tails; no concrete monomial expansion is required.
+
+The concrete file is
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCubeBentFusion.lean`.
+`firstFace_pin:78` and `thirdFace_pin:90` recode the actual original origin
+p01/p02 faces as U*A and U*B with the SAME forward origin-x link.
+`bent_pin:112` and `tails_join:136` identify conj(A)*B with the precise
+six-link bent word, coefficientwise, keeping its original inverse orientations.
+`fTail_independent:180`, `bent_shared_independent:188` and `fTail_unit:216`
+provide the actual selected-link independence and five-link Haar-unit norm.
+Index separation uses original member-index injectivity, not enumeration of
+the ambient carrier; face membership uses its proved geometric characterization.
+
+`bent_square_haar:229` proves H[F^2]=1 on N=length(baseLinks 2).
+`adjacent_faces_bent_fusion:252` proves
+H[(firstFaceTrace*thirdFaceTrace)*r]=(1/2)*H[F*r] for EVERY insertion r
+independent of the common origin-x link. It may contain all six bent links.
+`original_bent_two_face_moment:272` instantiates r=F and yields exactly 1/2.
+These are numerical ORIGINAL Haar contractions, not values of the full
+seven weighted moments, a 32-state range theorem or an interacting gain bound.
+
+Two final serialized focused checks used jobs=1, 12 GiB reserve and 20 GiB
+worker cap. Fresh preflights showed 85--86 percent system-free memory,
+zero swap and no competing build. All thirteen printed gates passed within
+{propext, Quot.sound}: four new public theorems, seven concrete helpers and
+two existing first/second-moment diagnostics. No errors/warnings. Independent
+Sol mathematical review and Luna source/geometry review passed. The final
+cube check reported about 5.0 GiB build RSS with 31.4 GiB available and no
+swap. Earlier interrupted or errored attempts are NOT accepted evidence.
+
+```text
+Generic moment source SHA256:
+727a31dd18da462d374bd2ce44dff2213fb665f5d1355e57cdc1de213f940a07
+Concrete fusion source SHA256:
+af3302bb15c363411c57de3664a0f31fd8e07948413668ac42e89261e776f99f
+Generic final log: /tmp/ym-shared-link-tail-pair-20261003-final.log
+SHA256: 8262bf0b70c41b3f743d175e8fadac66aa9c83b6eb252c183fcb3dcbb3de5c63
+Concrete final log: /tmp/ym-original-cube-bent-fusion-20261003-final.log
+SHA256: d22c8dd6e311267adccb208d07836984d048944cc830d3d00980e4a6167f4c6f
+```
+
+No full build, aggregate/root check, axiom baseline regeneration, canonical
+field change, CI change or ASCII reprint. Root import is registered only.
+
+NEXT FORWARD: join the actual six-face subset expansion to original selected
+block sign-odd vanishing, leaving the singleton Q and its five-face complement
+in H[P*V*F]. The remaining complement must be evaluated with arbitrary-insertion
+Haar-unit cancellation, not by setting coordinate radii to one coefficientwise.
+The three further half-fusions/two backtracks are a reviewed contraction plan,
+NOT a checked complement value or tested-transfer polynomial. Full seven-moment
+and complete signed-gain certification remain OPEN, including positive partitions
+and OWN-mean joins; the cutoff-one head guard is unchanged.
+
+NEXT BACKWARD: the source-reviewed useful numerical target is gain relative
+to the SAME centered lag-one cross, not its sign alone. The complete identity
+is `BF4ExactSlabFixedSpatialFilteredCommutatorGain.filtered_loop_commutator_identity`
+at `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFilteredCommutatorGain.lean:200`;
+its guarded endpoint cost is `endpointMismatch_bound:443`. Passage consumers
+are `normalizedFiniteGain_approx` at
+`lean/YMGap/Continuum/BF4WilsonAllNomeFilteredFiniteGainLimit.lean:111`,
+`gainLimit_completed_pin` at
+`lean/YMGap/Continuum/BF4WilsonAllNomeFilteredGainLimit.lean:131`, and
+`dyadicUnitResponse_filtered_block_floor` at
+`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicFilteredGeometricSurvival.lean:154`.
+The small K=1/n=0 bent channel does NOT meet their cutoff/depth/observable
+inputs. The actual growing-family ratio and three relative quadratic costs,
+physical scaling, full QFT and every-group endpoints remain unsupplied.
