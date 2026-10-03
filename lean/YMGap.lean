@@ -7103,3 +7103,12 @@ import YMGap.Continuum.BF4WilsonAllNomeDyadicMinimalPreimage
 -- Actual Wilson-loop mode in the complete original cost; not a uniform rate.
 import YMGap.Continuum.SU2QuaternionProductHeatTwoModeFloor
 import YMGap.Continuum.BF4DyadicWilsonSquareLoopModeReserve
+
+-- Actual finite conditional ratio and cleared angular reconstruction;
+-- original action/weight and explicit moduli, not a uniform signed-cost bound.
+import YMGap.Continuum.QuaternionHaarReciprocalAngularScore
+import YMGap.Continuum.QuaternionHaarGeometricResidualAngularDerivative
+import YMGap.Continuum.QuaternionHaarReciprocalAngularScoreBound
+import YMGap.Continuum.QuaternionHaarReciprocalAngularScoreModulus
+import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalRatio
+import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalScore

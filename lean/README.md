@@ -12,7 +12,18 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT checked ORIGINAL Wilson-loop mode reserve (2026-10-03 UTC):**
+**CURRENT checked ORIGINAL conditional ratio and angular reconstruction (2026-10-03 UTC):**
+The actual original block constructs bounded polynomial ratios, with SAME
+V-weighted relative reconstruction rate mixRate(w,width) and an explicit
+onset. Differentiated cancellation retains both signed residuals; a computed
+geometric/polynomial modulus reconstructs the actual OWN-centered square's
+cleared angular score. Its two square costs are computed original integrals,
+not supplied caps. Six focused targets passed 31 permitted gates, one
+axiom-free. The energy/error join and useful changing-family relative signed
+cost remain OPEN; this is not continuum survival. Evidence:
+`audits/AUDIT-ORIGINAL-BLOCK-CONDITIONAL-RATIO-2026-10-03.md`.
+
+**Earlier checked ORIGINAL Wilson-loop mode reserve (2026-10-03 UTC):**
 Subtracting the constant and literal square-loop Haar projections gives a
 division-free kinetic floor. Applied to V*h, it retains both ell(h)^2 and
 w^(12*side)*ell(h*f)^2 in the ORIGINAL transfer quadratic. Its chronological

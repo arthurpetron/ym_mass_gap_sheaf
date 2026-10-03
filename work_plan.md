@@ -27,6 +27,37 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
 
+NOW CHECKED ACTUAL CONDITIONAL RATIO AND CLEARED ANGULAR RECONSTRUCTION:
+For A=g_(n+t), b=T^t(g_n*psi), n+t>=1, the ORIGINAL last step constructs
+positive terminal floor/cap certificates. Both signs C*A plus/minus b are
+propagated by the FULL interacting T. The actual polynomial ratio phi_k=G_k*b
+has square cap C^2 without a terminal-floor penalty and reconstructs b in
+the SAME V-weighted norm, with rate mixRate(w,width)^(2*k) and computed
+relative onset. The previous terminal mass cancels from the radius; nome
+and width dependence remain explicit. The literal chronological OWN square
+source supplies its interval/cap without a new analytic premise.
+Differentiated cancellation retains BOTH signed errors:
+A^2*D(b*G_k)-(A*Db-b*DA)=-E_k*(A*Db-b*DA)-A*b*DE_k.
+The exact DE_(k+1)=-(k+1)*E_k*DR gives a SAME-weight square estimate with
+actual score/product costs, and a computed geometric/polynomial onset.
+`BlockConditionalScore.ownPaddedSquareRatio_angular_reconstruction` applies
+that modulus to the literal original OWN source and action, not a proxy.
+Six focused targets passed 31 permitted public gates, one axiom-free;
+independent read-only review confirmed all source/log evidence. Evidence:
+`audits/AUDIT-ORIGINAL-BLOCK-CONDITIONAL-RATIO-2026-10-03.md`.
+REPOINT: use this actual cleared-score reconstruction in the quantitative
+original signed-cost analysis; do not add further approximation wrappers.
+The existing exact multiplication/energy split still needs its own error
+or limit join. Actual derivative costs relative to the SAME filtered norm,
+combined heat remainder/drift control and the justified changing-family
+macroscopic response ratio remain OPEN. Fixed-window reconstruction is
+NOT a family-uniform cost bound or nontrivial continuum survival.
+The bare retained overlap has a zero right terminal distance; existing
+completed correlations keep BOTH terminal messages. Do not identify them.
+The fixed-carrier signed unitary/continuity/domain-log branch is already
+constructed; no duplicate wrapper is a next analytic frontier. No canonical
+field, displayed claim or ASCII chart changes state.
+
 NOW CHECKED ACTUAL WILSON-LOOP MODE IN THE COMPLETE ORIGINAL RESERVE:
 `SU2QuaternionProductHeatTwoModeFloor.kineticPair_two_mode_floor` subtracts the two
 literal Haar projections of an arbitrary supported signed source; positivity
