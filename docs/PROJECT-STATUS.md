@@ -1,5 +1,13 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL signed two-output determinant (2026-10-03
+UTC; chart unchanged): the complete D is exactly a two-copy pairing, with
+mixed terms canceled through original weighted transfer symmetry. Both
+output weights, the original transfer and the padded-square chronological
+mean/filtered source are retained. Two focused targets passed five gates.
+No useful relative estimate or physical/scaling/OS box is closed. Evidence:
+`audits/AUDIT-ORIGINAL-TWO-COPY-DETERMINANT-2026-10-03.md`.
+
 Verified supporting caps for EXISTING original inverses (2026-10-03 UTC;
 chart unchanged): computed gamma_N gives squared-norm caps
 (lambda+gamma_N)^-2 and gamma_N^-2 for the same positive resolvent and

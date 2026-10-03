@@ -1,5 +1,20 @@
 # Sorry Ledger
 
+## PROVED exact ORIGINAL signed two-output determinant only (2026-10-03 UTC)
+
+`TwoCopyRayleighDeterminant.first_pairing_determinant` and
+`second_pairing_determinant` give the SAME cleared cost D and -D;
+`antisymmetric_pairing_determinant` gives D+D. Actual weighted transfer
+symmetry cancels the mixed terms. The original V occurs once per output
+slot, and the transfer keeps its original input V. The actual padded-square
+consumer retains c_n and b=T^t(g_n*(f-c_n)). No inverse, sign, noise reserve
+or relative comparison is assumed. Two focused checks passed five gates
+within {propext, Quot.sound}; no full audit, sorry, axiom or weakened field.
+OPEN: useful signed pairing control versus the SAME filtered norm on a
+JUSTIFIED family; physical/OS/scaling/continuum/QFT/every-group/Clay.
+Root registration-only; chart and CI unchanged. Evidence:
+`audits/AUDIT-ORIGINAL-TWO-COPY-DETERMINANT-2026-10-03.md`.
+
 ## PROVED computed caps for EXISTING original inverses only (2026-10-03 UTC)
 
 `DomainLogPrefixResolventGap.positive_resolvent_prefix_norm_bound` and

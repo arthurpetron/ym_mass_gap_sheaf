@@ -4,7 +4,20 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: computed caps for EXISTING original inverses (2026-10-03 UTC)
+## Current increment: ORIGINAL signed two-output determinant (2026-10-03 UTC)
+
+PROGRESS after `b0eb3e2`: the complete original determinant now has a
+ratio-free signed two-output form; actual weighted transfer symmetry
+cancels the mixed terms, giving D and -D from the two transfer placements.
+The difference pairing is D+D. The SAME padded-square source, chronological
+OWN center and original weights survive the literal specialization.
+Two focused targets passed five permitted gates. No relative estimate is
+assumed or proved. NEXT: control this pairing versus its SAME filtered norm
+on a JUSTIFIED family. Physical/OS/scaling/continuum/QFT/every-group/Clay
+and the exact canonical chart remain OPEN.
+Evidence: `audits/AUDIT-ORIGINAL-TWO-COPY-DETERMINANT-2026-10-03.md`.
+
+## Earlier increment: computed caps for EXISTING original inverses (2026-10-03 UTC)
 
 PROGRESS after `907bd43`: every nonempty computed log-prefix coercivity now
 controls the SAME already constructed positive resolvent and zero-shift

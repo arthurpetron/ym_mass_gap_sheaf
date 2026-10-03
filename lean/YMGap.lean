@@ -7089,3 +7089,7 @@ import YMGap.Continuum.BF4DyadicWilsonSquareExactBlockHeatDefect
 -- Original signed conditional score: exact center cancellation, not a bound.
 import YMGap.Continuum.SU2QuaternionMultiHeadScoreReplica
 import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockScoreReplica
+
+-- Original signed two-output determinant; exact cancellation, not a bound.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialTwoCopyRayleighDeterminant
+import YMGap.Continuum.BF4DyadicWilsonSquareTwoCopyRayleighDeterminant

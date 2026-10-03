@@ -27,6 +27,23 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
+NOW CHECKED RATIO-FREE TWO-OUTPUT FORM OF THE COMPLETE ORIGINAL COST:
+`TwoCopyRayleighDeterminant.antisymmetric_pairing_determinant` proves
+pair_(ell tensor ell)(Pi, firstDifference-secondDifference)=D+D,
+Pi=A(x)b(y)+b(x)A(y), D=Z1*ell(b*b)-Z0*ell(b*T b). Both differences
+are computed factorwise with the ORIGINAL transfer; V occurs once per
+output slot and stays inside the original transition. Mixed terms cancel
+by actual weighted symmetry. The literal padded-square specialization
+keeps A=g_(n+t), b=T^t(g_n*(f-c_n)), and the OWN mean at n.
+Two focused targets passed five permitted gates; no relative estimate.
+Evidence: `audits/AUDIT-ORIGINAL-TWO-COPY-DETERMINANT-2026-10-03.md`.
+NEXT: control THIS signed two-copy pairing relative to Z1*ell(b*b) on a
+JUSTIFIED changing family, retaining all action and boundary factors.
+The earlier angular score identity is not a proved discrete-cost/angle
+comparison. No endpoint-noise reserve, finite eigenpin, absolute termwise
+ceiling or new inverse is to be assumed to pay the missing estimate.
+This is an alternative exact producer, not closure of any canonical box.
+
 NOW CHECKED QUANTITATIVE CONSUMER ON THE EXISTING ORIGINAL INVERSES:
 `DomainLogPrefixResolventGap` feeds the computed domain coercivity to the
 actual positive resolvent and zero-shift inverse. Their squared-norm caps

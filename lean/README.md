@@ -12,7 +12,15 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT checked caps for the EXISTING original inverses (2026-10-03 UTC):**
+**CURRENT checked original two-output determinant (2026-10-03 UTC):**
+The complete original cleared cost is a signed two-copy pairing. Its mixed
+terms cancel through actual weighted transfer symmetry; V occurs once per
+output slot, with the unchanged input V inside T. The padded-square instance
+retains its depth-n OWN mean and literal filtered block source. No inverse,
+noise substitution or relative bound. Two focused targets passed five
+permitted gates. Evidence: `audits/AUDIT-ORIGINAL-TWO-COPY-DETERMINANT-2026-10-03.md`.
+
+**Earlier checked caps for the EXISTING original inverses (2026-10-03 UTC):**
 For every nonempty computed log prefix gamma_N, the SAME positive resolvent
 has squared-norm cap (lambda+gamma_N)^-2, and the SAME zero-shift inverse
 has cap gamma_N^-2 on the original vacuum complement. Prefix positivity is
