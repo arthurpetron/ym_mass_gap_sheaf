@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Checked original-variance cutoff comparison:** the remaining projected
+conditional variance is bounded by a reference-cutoff variance with one
+factor `1+eta`, retaining arbitrary output weights and the ORIGINAL source,
+action and transfer. The computed cutoff depends explicitly on coupling,
+link count and tolerance. The reference angular variance estimate and joint
+scaling-family budget remain open. See the
+[proof and focused checks](audits/AUDIT-ORIGINAL-ACTIVE-VARIANCE-CUTOFF-2026-10-03.md).
+
 **Checked fringe-first improvement:** averaging the complete incoming
 source derivative over the unheated fringe BEFORE squaring preserves the
 original score. Weighted Pythagoras removes an exactly identified

@@ -12,6 +12,18 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**CURRENT checked ORIGINAL active-variance cutoff comparison (2026-10-03 UTC):**
+A common center retains the mean-mismatch square and constructs LINEAR
+conditional variance order from unit marginal pins and a kernel order
+certificate. Explicit product tails construct ONE factor 1+eta for arbitrary
+late K,L; the onset depends on nome, active-factor count and tolerance.
+The ORIGINAL K-source/action/transfer/score remain unchanged; only the
+auxiliary reference kernel uses L. Arbitrary certified output W survives,
+including zero. Three focused checks passed 14 permitted gates; no full audit.
+Reference conditional Poincare and JOINT changing-family signed-window control
+remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-ACTIVE-VARIANCE-CUTOFF-2026-10-03.md`.
+
 **CURRENT checked fringe-first ORIGINAL derivative (2026-10-03 UTC):**
 The complete incoming derivative Y is averaged over the unheated lower
 fringe BEFORE squaring. Its arbitrary-insertion score pin is unchanged;

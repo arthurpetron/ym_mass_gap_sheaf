@@ -1,5 +1,31 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL conditional variance near-unit cutoff leg only (2026-10-03 UTC)
+
+`SU2QuaternionConditionalVarianceOrder.centered_square_minimization_pin`
+retains the actual own-mean mismatch square under EVERY surviving insertion.
+Its `conditional_variance_order_certificate` and weighted consumer construct
+LINEAR c*Var_R-Var_P positivity from actual cR-P and BOTH unit mass pins,
+with supported kernels/source and arbitrary certified W. No mass/norm inverse.
+`SU2QuaternionProductHeatRelativeCutoff.productRelativeCutoff` constructs
+delta=eta/(2count+2) and an explicit nome/count/tolerance onset.
+`productHeat_relative_upperCertificate` proves ONE factor 1+eta for ANY
+late K,L, including either cutoff order and repeated/empty factor lists.
+`BF4ExactSlabFixedSpatialProjectedVarianceCutoff.kinetic_conditional_unit`
+uses the actual distinct active list to prove the real arbitrary-insertion
+mass pin. `projected_variance_cutoff_certificate` and
+`projected_variance_cutoff_weighted_le` keep ORIGINAL Q_K, action, transfer
+and score, changing ONLY the auxiliary weighting kernel to L. Three focused
+checks passed 14 permitted gates; independent reviews passed. No sorry,
+axiom, weakened field, CI/chart change; root registration only. Evidence:
+`audits/AUDIT-ORIGINAL-ACTIVE-VARIANCE-CUTOFF-2026-10-03.md`.
+OPEN: reference conditional angular Poincare, SAME surviving-norm payment
+with complete signed action/Taylor terms, useful JOINT window bound and a
+JUSTIFIED changing family, physical survival/calibration, full same-theory
+continuum QFT, every compact simple group and Clay closure. The cutoff onset
+is NOT nome-, spatial- or spacing-uniform. Finite harmonic endpoint/flow and
+Bochner positivity remain separate actual proof obligations.
+
 ## PROVED fringe-first ORIGINAL derivative and smaller signed cost only (2026-10-03 UTC)
 
 `SU2QuaternionHaarFamilyWeightedPythagoras.family_weighted_square_decomposition`

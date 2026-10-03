@@ -27,6 +27,30 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
 
+NOW CHECKED ORIGINAL ACTIVE-VARIANCE NEAR-UNIT CUTOFF LEG:
+Unit conditional kernels P,R and a common reference center give
+c*Var_R-Var_P=I[(cR-P)*(Q-lift(I(RQ)))^2]+(I(PQ)-I(RQ))^2.
+The constructed comparison is LINEAR in c, with the mean mismatch retained.
+Explicit heat tails and delta=eta/(2*activeCount+2) construct c=1+eta for
+ANY K,L beyond a computed nome/count/tolerance onset. The actual ORIGINAL
+Q_K, action, output transfer and score remain at K; only the auxiliary
+conditional kernel uses L. The final arbitrary-W certificate bounds
+H[W*originalActiveVariance_K] by (1+eta)*H[W*referenceVariance_(K,L)].
+Three narrow checks passed 14 permitted gates; independent reviews passed.
+Evidence: `audits/AUDIT-ORIGINAL-ACTIVE-VARIANCE-CUTOFF-2026-10-03.md`.
+REPOINT: construct the auxiliary conditional angular Poincare estimate on
+the SAME Q_K with shared surviving variables, then preserve its original
+action/signed-Taylor join and surviving-norm currency. The existing
+HeadHeatDiagonal.headMap uses SpareHeadCopy.copy and preserves spectators;
+reuse it for finite harmonic heat-flow endpoint/composition/generator proofs.
+Actual angular brackets/Bochner positivity are not assumed. Intermediate
+positivity may use a larger computed kernel prefix and saturation transport;
+one fixed truncated kernel need not be positive as its auxiliary nome tends
+to one. No unweighted energy estimate substitutes for conditional variance.
+This cutoff leg alone supplies neither the analytic signed-window budget
+nor a JUSTIFIED changing family; physical/continuum/QFT/every-group/Clay
+remain OPEN. Exact displayed chart claims are unchanged; no chart reprint.
+
 NOW CHECKED FRINGE-FIRST ORIGINAL SOURCE DERIVATIVE:
 For the COMPLETE incoming derivative Y, put Q=P_lowerFringe(Y). The actual
 score is I[K*Q] under EVERY surviving insertion, with the original action

@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL active-variance cutoff leg (2026-10-03 UTC;
+chart unchanged): linear own-mean variance order and explicit product tails
+construct a ONE-factor 1+eta comparison under arbitrary certified W.
+ORIGINAL K-source/action/transfer/score remain; only the auxiliary variance
+kernel uses L. Cutoff onset depends explicitly on nome, link count and
+tolerance; no norm/mass inverse or scaling uniformity. Three focused checks
+passed 14 permitted gates; independent reviews passed. Reference conditional
+angular Poincare, useful signed-window control and justified scaling remain
+OPEN, as do physical/continuum/QFT/every-group/Clay obligations. Evidence:
+`audits/AUDIT-ORIGINAL-ACTIVE-VARIANCE-CUTOFF-2026-10-03.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting fringe-first ORIGINAL derivative (2026-10-03 UTC;
 chart unchanged): integrating the complete incoming derivative over the
 unheated lower fringe BEFORE squaring preserves its arbitrary-insertion

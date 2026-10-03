@@ -7191,3 +7191,10 @@ import YMGap.Continuum.RationalTwoModeSurvivalObstruction
 import YMGap.Continuum.SU2QuaternionHaarFamilyWeightedPythagoras
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepProjectedDerivative
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepProjectedDerivativeEnergy
+
+-- Linear own-mean conditional variance order plus ONE near-unit product
+-- cutoff factor. The ORIGINAL K-source/transfer stay fixed against L;
+-- reference conditional Poincare and useful changing-family cost remain OPEN.
+import YMGap.Continuum.SU2QuaternionConditionalVarianceOrder
+import YMGap.Continuum.SU2QuaternionProductHeatRelativeCutoff
+import YMGap.Continuum.BF4ExactSlabFixedSpatialProjectedVarianceCutoff
