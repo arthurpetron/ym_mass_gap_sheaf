@@ -27,6 +27,27 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
+NOW CHECKED FINITE PRODUCERS FOR THE ORIGINAL ROOT/LOG JOIN:
+`QPolyPositivePrimitive` constructs the actual positive rational polynomial,
+proves its coefficientwise derivative, closed-interval positivity, zero
+initial value and derivative-initial uniqueness. `RootLogFiniteTail` pays
+the scalar root-series tail with a retained remainder. The ACTUAL original
+mixed moments in `BF4WilsonAllNomeRootLogTail` give the sufficient `8/N`
+tail budget without the unnecessary sharp binomial ceiling.
+`BF4WilsonAllNomeSymmetricFormNorm` proves two-sided symmetric diagonal
+estimates imply the squared norm estimate by rational polarization.
+Four focused checks passed 15 new gates, four axiom-free and eleven within
+{propext, Quot.sound}; root imports registration-only.
+NEXT BACKWARD: identify the ORIGINAL S/F polynomials with their explicit
+positive primitives at the coefficient level and transport them to the
+ACTUAL root. The sufficient form error is `8/N+invSucc(M)`; the proved norm
+principle and existing limit moduli then meet. Those form bounds and
+derivativeAction=regularizedLog are still OPEN. Do not add a wrapper that
+assumes this equality. NEXT FORWARD remains the complete signed relative
+estimate or retained macro ratio on a JUSTIFIED changing family. No new
+producer for it or physical scaling was supplied. Evidence:
+`audits/AUDIT-ORIGINAL-ROOT-LOG-PRODUCERS-2026-10-03.md`.
+
 NOW CHECKED A CONCRETE ORIGINAL DERIVATIVE-DOMAIN EXCITATION:
 `BF4WilsonSmallNomeBentDerivativeExcitation` uses the EXISTING literal
 centered bent state v, at fixed w=1/16,width2, to construct

@@ -4,7 +4,28 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Literal original state supplies a nonzero derivative-domain excitation (2026-10-03 UTC)
+## Current increment: Finite positive primitives and SAME-root tail pay parts of the operator join (2026-10-03 UTC)
+
+PROGRESS after `dd06256`: explicit finite rational primitives now have a
+checked coefficientwise derivative, endpoint positivity/zero and uniqueness
+from derivative plus initial value. The existing scalar log partial sums
+have a retained quadratic tail; ACTUAL original root mixed moments pay
+the sufficient `8/N` tail. Rational polarization turns two-sided symmetric
+form estimates into the squared norm estimate on the SAME completion.
+Four focused checks passed 15 new permitted gates, four axiom-free.
+
+NEXT BACKWARD: prove the ORIGINAL S/F coefficient identities and explicit
+positive primitive expansions, then their actual-root transport. Error
+`8/N+invSucc(M)` suffices; a sharp scalar binomial ceiling is unnecessary.
+Derivative/log equality remains OPEN. NEXT FORWARD: the complete original
+signed cost relative to OWN variance, or retained macro ratio, on a JUSTIFIED
+changing family. No extra assumed-equality wrapper was added.
+Root imports registration-only; full root/tree build, broad audit/guard and
+progress metric NOT run. CI and exact canonical chart unchanged; continuum,
+physical calibration, full QFT, every group and Clay remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-ROOT-LOG-PRODUCERS-2026-10-03.md`.
+
+## Earlier increment: Literal original state supplies a nonzero derivative-domain excitation (2026-10-03 UTC)
 
 PROGRESS after `c0ddcf7`: the EXISTING literal bent-loop state at fixed
 w=1/16,width2 now constructs an actual derivative-graph domain point, not

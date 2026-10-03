@@ -10,7 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**New checked original derivative excitation:** the literal bent-loop state
+**New checked root/log proof components:** explicit positive finite primitives,
+endpoint-safe retained tails, an actual original-carrier `8/N` mixed-moment
+budget, and constructive form-to-norm polarization are now kernel-checked.
+The original S/F coefficient comparison and its SAME-root transport remain
+open; derivative/log equality and physical scaling are NOT claimed. See the
+[exact statements and focused verification](audits/AUDIT-ORIGINAL-ROOT-LOG-PRODUCERS-2026-10-03.md).
+
+**Earlier checked original derivative excitation:** the literal bent-loop state
 now supplies a nonzero point of the EXISTING derivative-graph domain, with
 nonzero action, a positive energy floor, a computed finite energy ceiling and
 an explicit small-positive-real-time Taylor radius. The graph's form bound

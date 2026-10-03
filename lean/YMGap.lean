@@ -6239,6 +6239,11 @@ import YMGap.Continuum.BF4WilsonAllNomePositiveTimeComposition
 import YMGap.Continuum.BF4WilsonAllNomePositiveRealSemigroup
 -- Actual root-sequence derivative and original range-core form margin.
 import YMGap.Continuum.BF4WilsonAllNomeDyadicDefectDecay
+-- Finite positive primitives and original root/log tail; the identification is open.
+import YMGap.Constructive.QPolyPositivePrimitive
+import YMGap.Continuum.RootLogFiniteTail
+import YMGap.Continuum.BF4WilsonAllNomeRootLogTail
+import YMGap.Continuum.BF4WilsonAllNomeSymmetricFormNorm
 import YMGap.Continuum.BF4WilsonAllNomeDyadicDerivative
 import YMGap.Continuum.BF4WilsonAllNomeDyadicDerivativeGap
 import YMGap.Continuum.BF4WilsonAllNomeDyadicDerivativeContinuity

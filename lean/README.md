@@ -12,7 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT checked original derivative-domain excitation (2026-10-03 UTC):**
+**CURRENT checked finite original root/log components (2026-10-03 UTC):**
+`QPolyPositivePrimitive` constructs an actual positive primitive, proves its
+formal derivative, endpoint positivity/zero and derivative-initial uniqueness.
+`RootLogFiniteTail` retains the finite geometric remainder.
+`BF4WilsonAllNomeRootLogTail` supplies an actual SAME-root `8/N` moment budget;
+`BF4WilsonAllNomeSymmetricFormNorm` proves the algebraic form-to-norm implication.
+Four focused checks passed 15 new permitted gates (four axiom-free definitions).
+The ORIGINAL S/F coefficient identities and root transport remain OPEN; no
+operator identification, changing-family estimate or continuum/Clay closure
+is claimed. Root imports registered only. Evidence:
+`audits/AUDIT-ORIGINAL-ROOT-LOG-PRODUCERS-2026-10-03.md`.
+
+**Earlier checked original derivative-domain excitation (2026-10-03 UTC):**
 `BF4WilsonSmallNomeBentDerivativeExcitation` constructs a literal
 `DerivativeGraph.fromTime(v)` point with nonzero input/action, positive
 energy floor, computed norm/energy ceilings and a Type-valued positive-real
