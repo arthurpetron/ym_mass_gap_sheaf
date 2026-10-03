@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**New checked improvement to the original signed cost:** the avoidable
+factor two on the leading source-derivative square is replaced by
+`1+sigma`, for every positive rational sigma, with a computed tighter
+reciprocal-correction cutoff. The SAME surviving norm and both signed
+Taylor remainders are retained. Genuine conditional-variance/action debt
+and the useful joint scaling-family bound remain open. See the
+[proof and verification boundary](audits/AUDIT-ORIGINAL-NEAR-UNIT-SOURCE-COST-2026-10-03.md).
+
 **Current forward/backward proof work:** the reconstructed source square
 is now bounded by the SAME surviving norm, while the negative commutator
 square and all other signed remainder terms remain explicit. From the

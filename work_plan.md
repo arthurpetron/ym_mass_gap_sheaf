@@ -27,6 +27,31 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
 
+NOW CHECKED NEAR-UNIT ORIGINAL SOURCE COEFFICIENT:
+The permanent factor two from combining the source derivative with the
+vanishing reciprocal error is removed. For every positive rational sigma,
+the full all-active/six-plane angular consumer has coefficient 1+sigma.
+The computed tolerance tau=2*epsilon/(1+1/sigma) pays the enlarged correction
+coefficient through the EXISTING 12N allocation in SAME surviving-norm
+currency. The complete original cost obeys
+D<=Z0*((1-w)*(1+sigma)*L0+Rmixed-Rdiagonal)+(zeta+delta+epsilon)*Z1*B,
+with the literal unsplit source/action square L0, Vbar^2,G^2 and both signed
+remainders retained. Only the correction onset is tightened; no source,
+terminal mass or B is inverted, and zero B is included. Sigma zero is NOT
+an approximation theorem. Two narrow targets passed 13 permitted gates;
+independent review passed. Evidence:
+`audits/AUDIT-ORIGINAL-NEAR-UNIT-SOURCE-COST-2026-10-03.md`.
+REPOINT: exploit the near-unit coefficient in the COMPLETE normalized signed
+window, not separately bounded raw terms. The source conditional Jensen debt
+is genuine and remains unpaid; the bare Casimir-12 spatial-family Ward lemma
+does not apply to reconstructed phi_t. Its output commutator square does not
+automatically cancel the incoming conditional variance. Finite score/correction
+cross terms remain when comparing to exact angular energy. Seek a useful JOINT
+estimate on the literal OWN-centered square and a JUSTIFIED changing family.
+The existing window consumer below remains the backward endpoint; no new
+assumed-input bundle is needed. Physical/continuum/QFT/every-group/Clay and
+all exact displayed chart claims remain OPEN.
+
 NOW CHECKED FORWARD SQUARE PAYMENT AND BACKWARD SIGNED-WINDOW ROUTE:
 For actual A=g_(n+r+1), b=T^(r+1)(g_n*psi), phi=G_k*b and q=P_fringe(V*A),
 the constructed comparison is H[(q*phi)^2]<=spatialCeiling*B, B=ell(b^2).

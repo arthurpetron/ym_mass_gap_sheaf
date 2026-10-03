@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting near-unit ORIGINAL source coefficient (2026-10-03 UTC;
+chart unchanged): asymmetric SAME-weight Young replaces factor two by
+1+sigma for every positive rational sigma. A constructed tighter correction
+onset pays its enlarged error coefficient in the SAME surviving norm.
+The full cleared cost keeps COMPLETE source/action derivatives and both
+signed Taylor remainders. No source/norm inverse or sigma-zero estimate.
+Two focused checks passed 13 permitted gates; independent review passed.
+Genuine Jensen/action debt, useful aggregate signed-window control and the
+justified changing family remain OPEN, as do physical/continuum/QFT/every-
+group/Clay obligations. Evidence:
+`audits/AUDIT-ORIGINAL-NEAR-UNIT-SOURCE-COST-2026-10-03.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting ORIGINAL square payment and signed-window join
 (2026-10-03 UTC; chart unchanged): the reconstructed source square is
 bounded by spatialCeiling times the SAME surviving norm. Its h^2/8 term

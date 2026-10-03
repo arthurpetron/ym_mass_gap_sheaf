@@ -12,6 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**CURRENT checked near-unit ORIGINAL source coefficient (2026-10-03 UTC):**
+Asymmetric SAME-weight Young replaces the permanent factor two by 1+sigma
+for every positive rational sigma. The explicit tighter correction tolerance
+2*epsilon/(1+1/sigma) pays every link/six planes in SAME surviving-norm
+currency. The full cleared cost retains COMPLETE source/action derivatives,
+Vbar^2,G_k^2 and BOTH signed Taylor remainders. No source or norm is inverted;
+zero B is included. The genuine Jensen debt and useful JOINT signed-window
+estimate on a JUSTIFIED changing family remain OPEN. Two focused checks
+passed 13 permitted gates; root registration only, no full build/audit.
+Evidence: `audits/AUDIT-ORIGINAL-NEAR-UNIT-SOURCE-COST-2026-10-03.md`.
+
 **CURRENT checked ORIGINAL square payment and signed-window join (2026-10-03 UTC):**
 For the actual reconstructed phi, q=P_fringe(V*A) gives
 H[(q*phi)^2]<=spatialCeiling*B. The existing partition comparison pays

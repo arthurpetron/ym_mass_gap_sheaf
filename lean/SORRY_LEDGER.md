@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## PROVED near-unit ORIGINAL source coefficient and full signed-cost join only (2026-10-03 UTC)
+
+`QuaternionHaarAsymmetricSquareTriangle.weighted_square_add_le` constructs
+the SAME-weight coefficients 1+sigma and 1+1/sigma, with sigma>0.
+`BF4ExactSlabFixedSpatialLastStepAsymmetricEnergy.asymmetricCorrectionTolerance_payment`
+pays the enlarged correction coefficient using tau=2*epsilon/(1+1/sigma).
+`original_block_sourceDerivative_angular_le` includes every active link/six
+planes with the literal UNSPLIT incoming source square. Its leading
+coefficient is exactly 1+sigma, not the old permanent two.
+`original_block_sourceDerivative_cost_relative_tolerance` joins it to the
+SAME D<=AsymBulk+(zeta+delta+epsilon)*Z1*B, with BOTH signed Taylor remainders
+and Vbar^2,G^2 retained. Only the correction onset is tightened; existing
+drift/reconstruction onsets and k+1 convention stay unchanged. No source,
+terminal mass or B inverse; zero B is included. No sigma-zero approximation
+bound. Two focused targets passed 13 permitted gates; independent semantic
+review passed. No sorry/axiom/field/CI/chart change; root registration only.
+Evidence: `audits/AUDIT-ORIGINAL-NEAR-UNIT-SOURCE-COST-2026-10-03.md`.
+OPEN: actual conditional Jensen/action debt, signed Taylor terms and useful
+JOINT normalized-window comparison on a JUSTIFIED changing family. No
+uniform spacing/nome bound, continuum survival, physical calibration, full
+QFT, every-group result or Clay closure is supplied.
+
 ## PROVED ORIGINAL reconstructed-square payment and signed-window join only (2026-10-03 UTC)
 
 `BF4ExactSlabFixedSpatialBlockRemainderPayment.blockConditionalRatio_sourceSquare_le`
