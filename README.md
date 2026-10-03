@@ -10,20 +10,22 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Current forward-backward target (2026-10-03):** the original signed
-radius-two observable is exactly twice `R(1)-R(2)` after the EXISTING unit
-state's normalizer squared. The preferred backward route now constructs
-`z=R(2*side)^(-1/2)*T(side)*u` on the SAME existing completion, retaining
-its bond-range and vacuum-complement witnesses and proving norm exactly one.
-The SAME relative budget `m*(R(start)-R(start+1))<=C*R(start)`, for
-`start<=2*side`, `C>=1`, `m>=4*C`, gives
-`B(z,T(m-1)z)>=(1/4)^(2*C)`. No uniform lower bound on raw `R(1)` or
-`R(2*side)` is required. Producing the family-wide budget, cross-scale
-convergence and physical-time calibration remains open. The earlier
+**Current forward-backward target (2026-10-03):** produce a positive
+family-wide macroscopic ratio `kappa*R(side)<=R(2*side)` for the SAME
+original interacting transfer. This single supplied estimate now proves
+both `B(z,T(j*side)z)>=kappa^j` and an explicit real-time continuity modulus
+for the EXISTING normalized positive-time state
+`z=R(2*side)^(-1/2)*T(side)*u`. Its bond-range, vacuum complement and unit
+norm are retained. No adjacent-response budget or uniform raw norm floor
+is mandatory. The earlier relative-budget criterion remains a sufficient
+alternative, with its statement unchanged. Producing the actual ratio on
+a justified family, normalized cross-scale convergence and physical-time
+calibration remains open. See the
+[checked macroscopic criterion and missing joins](audits/AUDIT-NORMALIZED-MACROSCOPIC-CRITERION-2026-10-03.md).
+The earlier
 [unanchored criterion](audits/AUDIT-FILTERED-BLOCK-SURVIVAL-2026-10-02.md)
 still requires its explicit positive raw reserve; that is no longer a
 mandatory input for the normalized positive-time route.
-See the [normalized survival theorem and exact remaining input](audits/AUDIT-WORD-LOCAL-COST-AND-NORMALIZED-SURVIVAL-2026-10-03.md).
 
 **New checked quadratic route:** the COMPLETE original filtered numerator
 is exactly `Delta+2*(1-a)*J1-2*G2`, at its actual finite OWN mean and SAME

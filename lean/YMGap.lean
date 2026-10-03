@@ -5170,6 +5170,9 @@ import YMGap.Continuum.BF4WilsonAllNomeDyadicNormalizedAnchorContinuity
 -- SAME original time powers propagate a supplied macroscopic block ratio;
 -- the uniform analytic ratio and changing-family joins remain OPEN.
 import YMGap.Continuum.BF4WilsonAllNomeBlockResponseLower
+-- One supplied macroscopic ratio controls the EXISTING normalized anchor's
+-- survival and real continuity; actual family/physical joins remain OPEN.
+import YMGap.Continuum.BF4WilsonAllNomeDyadicNormalizedMacroRatio
 -- Scalar alignment cannot amplify to arbitrary quaternion-valued sources.
 -- Exact original low-degree obstruction; narrower scalar word stays OPEN.
 import YMGap.Continuum.SU2QuaternionHeatAlignmentAmplificationObstruction

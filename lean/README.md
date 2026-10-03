@@ -13,6 +13,17 @@ discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
 **CURRENT original signed filtered source and SAME response target (2026-10-03 UTC):**
+The preferred backward consumer now needs only the macroscopic ratio
+kappa*R(side)<=R(2*side), kappa>0, on the SAME actual unit response.
+`BF4WilsonAllNomeBlockResponseLower` proves original block propagation;
+`BF4WilsonAllNomeDyadicNormalizedMacroRatio` gives the EXISTING normalized
+anchor floor Rz(j*side)>=kappa^j and explicit ALL represented-real continuity
+at assigned geometric spacing, with no adjacent budget or uniform raw norm
+floor. Ten total gates passed across the two targets. The actual family
+ratio, normalized cross-scale comparison and physical calibration remain
+OPEN. The older adjacent-budget consumers and canonical fields are unchanged.
+Evidence: `audits/AUDIT-NORMALIZED-MACROSCOPIC-CRITERION-2026-10-03.md`.
+
 `BF4ExactSlabFixedSpatialFilteredCommutatorGain` retains the COMPLETE
 original quadratic identity S=Delta+2(1-a)J1-2G2, with b=T(g*(f-c)) and
 G2=ell[b*(b-a*A*(f-c))] at the actual OWN mean. The endpoint difference

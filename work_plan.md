@@ -27,17 +27,20 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
-CHECKED INPUT REDUCTION: `BF4WilsonAllNomeBlockResponseLower` propagates
-a supplied response ratio across arbitrary integer blocks on the SAME
-original carrier. Its second difference follows from the positive time
-form on T(s)x-rho*x, without a spectral theorem. A uniform macroscopic
-ratio kappa*R(s)<=R(2*s), kappa>0, is a sufficient candidate input for the
-existing normalized positive-time route; the actual anchor/continuity
-specialization is a separate proof boundary. Seek that ratio directly
-when simpler than an adjacent budget. The ratio producer, justified family,
-normalized cross-scale comparison and physical calibration remain OPEN.
-Three focused constructive gates passed. Evidence:
-`audits/AUDIT-MACROSCOPIC-RESPONSE-PROPAGATION-2026-10-03.md`.
+CHECKED INPUT REDUCTION AND PREFERRED BACKWARD CRITERION:
+`BF4WilsonAllNomeBlockResponseLower` propagates a supplied response ratio
+across arbitrary integer blocks on the SAME original carrier. Its positive
+time form proof needs no spectral theorem. The ACTUAL consumer
+`BF4WilsonAllNomeDyadicNormalizedMacroRatio` now proves all-block survival
+Rz(j*s)>=kappa^j and explicit ALL represented-real continuity from only
+kappa*R(s)<=R(2*s), kappa>0, s=side. Its radius depends only on kappa and
+tolerance; no adjacent budget or uniform raw norm floor is mandatory.
+Ten focused constructive gates passed. NEXT produce this macroscopic ratio
+on a justified changing family; pursue adjacent signed estimates only as
+useful alternative producers, not obligatory fine-grained intermediates.
+Normalized cross-scale comparison and physical-time/local-field calibration
+remain OPEN. Canonical fields and older consumer statements are unchanged.
+Evidence: `audits/AUDIT-NORMALIZED-MACROSCOPIC-CRITERION-2026-10-03.md`.
 
 NEW CHECKED QUADRATIC ROUTE: with the ORIGINAL g, A=Tg, fixed finite
 OWN mean c and psi=f-c, let b=T(g*psi), J1=ell(A*psi*b),
@@ -55,10 +58,11 @@ for 0<=a<=1 at fixed nome/width. Four final focused checks passed
 32 allowed gates and independent mathematical review.
 PRIORITY: estimate the SIGNED original quadratic gain relative to SAME
 lag-one response, rather than replace it by another absolute quartic cap.
-The preferred normalized positive-time consumer needs the SAME relative
-budget m*(R(start)-R(start+1))<=C*R(start), with a fixed family-wide C
-on a justified changing family. It no longer requires a uniform raw R1
-reserve; the older unanchored criterion still does. The gain
+The older normalized budget consumer uses the SAME relative budget
+m*(R(start)-R(start+1))<=C*R(start), with a fixed family-wide C
+on a justified changing family; the macroscopic criterion above does not
+require this intermediate input. Neither normalized route requires a
+uniform raw R1 reserve; the older unanchored criterion still does. The gain
 identity expresses the first budget as m*G >= [m*(1-a)-C]*R1; this
 algebraic restatement is NOT a new proved physical estimate. Do not
 replace an ORIGINAL-terminal-dependent quantitative bound by generic
@@ -83,10 +87,11 @@ set fixed. The actual padded-square consumer proves its geometry/source
 recoding and expresses G2 as the computed full-source gradient sum plus
 that exact correction, with a=w^(12*side); its actual OWN mean is included.
 FORWARD: use these exact finite identities and certificates with the actual
-terminal V*g. BACKWARD: retain the SAME completed-state relative requirement
-m*(R1-R2)<=C*R1; use the checked normalized positive-time consumer below
-instead of imposing an additional uniform raw reserve. MEETING INPUT: a useful signed source
-estimate relative to that SAME lag-one response, with the original boundary
+terminal V*g. BACKWARD: demand only the SAME macroscopic ratio above;
+the adjacent relative requirement m*(R1-R2)<=C*R1 remains an alternative
+producer. Do not impose an additional uniform raw reserve. MEETING INPUT:
+a useful original interacting ratio, or a signed source estimate relative
+to the SAME lag-one response sufficient to produce it, with original boundary
 errors paid and family-wide constants on a justified trajectory.
 Conditional source loss and raw source derivative norms are not that reserve.
 No new conclusion-only interface is needed for this missing analytic estimate.
@@ -110,8 +115,9 @@ response, or prove the requisite signed gain directly. Do not identify
 conditional source loss with OWN variance or drop the negative moment.
 Source-loss localization is now proved below; the useful retained
 spin-one/spin-two balance versus the completed response remains OPEN.
-The justified scaling family and fixed relative budget remain the meeting
-inputs; the uniform raw reserve is specific to the older unanchored route. Evidence:
+The justified scaling family and macroscopic ratio (or sufficient relative
+budget) remain meeting inputs; the uniform raw reserve is specific to the
+older unanchored route. Evidence:
 `audits/AUDIT-WHOLE-WORD-COVARIANCE-GAIN-2026-10-03.md`.
 
 NEW CHECKED NORMALIZED POSITIVE-TIME ROUTE:
@@ -124,8 +130,9 @@ at start<=2*side gives Rz(m-1)>=(1/4)^(2*C), for C>=1,m>=4*C.
 All 20 constructive gates passed. Neither N nor raw R1 needs a uniform floor.
 PREFER this route when it matches the actual continuum observable/physical
 time identification; do not substitute the normalized vector silently for u.
-NEXT FORWARD: produce the useful signed budget on an explicitly justified
-family. CHECKED BACKWARD: the relative half-anchor estimate now proves
+NEXT FORWARD: produce the macroscopic ratio above on an explicitly justified
+family; the signed budget remains a sufficient alternative. CHECKED BACKWARD:
+the earlier relative half-anchor estimate proves
 normalized continuity, not by dividing an absolute modulus by collapsing N.
 With start<=side<=m,side>=2, kappa=(3/4)*(1/4)^(2*C) bounds the actual
 preimage squared norm by 1/kappa. The computed geometric radius depends

@@ -1,5 +1,21 @@
 # Sorry Ledger
 
+## PROVED conditional normalized macroscopic criterion only (2026-10-03 UTC)
+
+- `BF4WilsonAllNomeDyadicNormalizedMacroRatio` consumes only the SAME
+  ratio kappa*R(side)<=R(2*side), kappa>0. It proves the EXISTING normalized
+  anchor response at j*side is at least kappa^j for every natural j.
+- The SAME half-anchor preimage has kappa*B(y,y)<=1 for side>=2.
+  An explicit kappa/tolerance radius controls ALL represented-real bond
+  increments and forward orbits at assigned geometric spacing. No
+  adjacent budget or uniform raw norm floor is required.
+- Final second focused check passed seven allowed gates and independent
+  source/log review. No new sorry/axiom/classical shortcut or field weakening.
+  Root import registered, NOT aggregate-checked; CI/chart unchanged.
+- OPEN: actual family-uniform ratio, normalized cross-scale comparison,
+  physical-time/local-field identification and every continuum endpoint.
+  Evidence: `audits/AUDIT-NORMALIZED-MACROSCOPIC-CRITERION-2026-10-03.md`.
+
 ## PROVED conditional original block response propagation only (2026-10-03 UTC)
 
 - `BF4WilsonAllNomeBlockResponseLower` proves the arbitrary-block second

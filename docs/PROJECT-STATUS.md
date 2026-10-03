@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting macroscopic input reduction (2026-10-03 UTC;
+chart unchanged): one supplied SAME response ratio kappa*R(side)<=R(2*side)
+now gives all-block normalized survival and explicit ALL represented-real
+continuity. The EXISTING normalized state/range/vacuum witnesses remain;
+no adjacent budget or uniform raw norm floor is mandatory. Ten constructive
+gates passed across the two targets. The actual family ratio, normalized
+cross-scale comparison, physical calibration and displayed continuum claims
+remain OPEN. Evidence:
+`audits/AUDIT-NORMALIZED-MACROSCOPIC-CRITERION-2026-10-03.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting original radial cancellation (2026-10-03 UTC;
 chart unchanged): the actual retained test cost is exactly a quadratic
 heat-loss coefficient times Q2 plus a linear coefficient times the literal
