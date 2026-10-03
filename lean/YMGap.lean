@@ -7078,3 +7078,6 @@ import YMGap.CodynamicCoreYMDemo
 import YMGap.Continuum.BF4WilsonAllNomeLogTailComparison
 import YMGap.Continuum.BF4WilsonAllNomeUnregularizedLogPartial
 import YMGap.Continuum.BF4WilsonAllNomeDomainLogarithm
+
+-- Original half-smoothed determinant: exact signed channel/heat join, not a rate.
+import YMGap.Continuum.BF4DyadicWilsonSquareExactBlockHeatDefect

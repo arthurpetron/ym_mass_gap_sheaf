@@ -22,6 +22,13 @@ Current focused logs cover 23 permitted gates, not a full audit. This is
 bidirectional fixed-carrier domain identification, not physical OS/scaling/Clay closure.
 Evidence: `audits/AUDIT-ORIGINAL-DOMAIN-LOGARITHM-2026-10-03.md`.
 
+**CURRENT checked forward exact block join (2026-10-03 UTC):**
+`BF4DyadicWilsonSquareExactBlockHeatDefect.paddedSquare_exact_block_heatDefect`
+reaches the actual half-smoothed determinant, with its original chronological
+center, both partitions, boundary drift and complete signed multiplication
+cost. One focused gate passed {propext, Quot.sound}; no relative rate is paid.
+Evidence: `audits/AUDIT-EXACT-BLOCK-HEAT-DEFECT-2026-10-03.md`.
+
 **Earlier checked finite original root/log components (2026-10-03 UTC):**
 `QPolyPositivePrimitive` constructs an actual positive primitive, proves its
 formal derivative, endpoint positivity/zero and derivative-initial uniqueness.

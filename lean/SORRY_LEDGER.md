@@ -1,5 +1,19 @@
 # Sorry Ledger
 
+## PROVED exact heat defect in the ORIGINAL blocked determinant only (2026-10-03 UTC)
+
+`BF4DyadicWilsonSquareExactBlockHeatDefect.paddedSquare_exact_block_heatDefect`
+joins the actual half-smoothed cost to the exact original signed heat defect,
+with the literal depth-n chronological center, both partitions, boundary
+drift and complete signed multiplication cost preserved. The energy uses the
+OWN variance at n+t; it is not identified with the filtered norm at depth n.
+One focused gate passed {propext, Quot.sound}. No sorry added/discharged,
+axiom, new reserve premise or frontier weakening. Root registration-only;
+no broad audit/build/guard, CI or exact chart change.
+OPEN: the combined expression's useful relative bound on a justified family,
+canonical OS, physical calibration, continuum/QFT/every-group/Clay closure.
+Evidence: `audits/AUDIT-EXACT-BLOCK-HEAT-DEFECT-2026-10-03.md`.
+
 ## PROVED ordinary log on the EXISTING original derivative domain only (2026-10-03 UTC)
 
 `BF4WilsonAllNomeDomainLogarithm.domainLogarithm_bound` and

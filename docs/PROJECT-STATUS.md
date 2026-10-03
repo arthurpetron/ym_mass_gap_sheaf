@@ -1,5 +1,13 @@
 # Canonical one-page project status
 
+Verified supporting exact ORIGINAL block/heat join (2026-10-03 UTC;
+chart unchanged): the actual half-smoothed determinant is now pinned to the
+original exact signed heat-defect energy, with the chronological n-center,
+both partitions, drift and complete signed multiplication cost retained.
+One focused gate passed {propext, Quot.sound}; the useful relative bound
+on a justified family remains OPEN. No physical/scaling/OS box is closed.
+Evidence: `audits/AUDIT-EXACT-BLOCK-HEAT-DEFECT-2026-10-03.md`.
+
 Verified supporting ORIGINAL domain logarithm (2026-10-03 UTC; chart unchanged):
 sum_(j=1..M) (I-T)^j input/j converges to the SAME existing derivative-domain
 action, with a computed output-range modulus. The positive finite-tail bound

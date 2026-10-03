@@ -19,6 +19,11 @@ transfer or uniform preimage bound. Current focused logs cover 23 constructive
 gates. This is fixed-carrier mathematics, not yet a
 physical continuum Hamiltonian. See the [proof and verification boundary](audits/AUDIT-ORIGINAL-DOMAIN-LOGARITHM-2026-10-03.md).
 
+**Forward proof join:** an exact heat-defect identity now reaches the actual
+half-smoothed determinant, retaining its old center, both vacuum partitions
+and complete signed correction. The useful changing-family relative bound
+is still open. See the [checked identity and remaining input](audits/AUDIT-EXACT-BLOCK-HEAT-DEFECT-2026-10-03.md).
+
 **Earlier checked root/log proof components:** explicit positive finite primitives,
 endpoint-safe retained tails, an actual original-carrier `8/N` mixed-moment
 budget, and constructive form-to-norm polarization are now kernel-checked.

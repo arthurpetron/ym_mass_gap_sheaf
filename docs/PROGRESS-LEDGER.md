@@ -4,7 +4,20 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ordinary log on the EXISTING original domain (2026-10-03 UTC)
+## Current increment: exact ORIGINAL block/heat-defect join (2026-10-03 UTC)
+
+PROGRESS after `37d0bcd`: the exact heat-defect energy now reaches the ACTUAL
+half-smoothed determinant, retaining its literal chronological center, both
+vacuum partitions, drift and complete signed multiplication correction.
+No Taylor/cubic/omitted ceiling is taken. One focused target passed one
+permitted gate. This is an identity, not a paid relative estimate.
+NEXT: compare its COMPLETE signed expression with Z1*ell(b*b), on a JUSTIFIED
+family. Variance alignment, favorable signs and useful uniform constants
+are not supplied. The completed-domain backward result remains checked;
+physical/OS/scaling/QFT/every-group/Clay endpoints and chart remain OPEN.
+Evidence: `audits/AUDIT-EXACT-BLOCK-HEAT-DEFECT-2026-10-03.md`.
+
+## Earlier increment: ordinary log on the EXISTING original domain (2026-10-03 UTC)
 
 PROGRESS after `feac144`: sum_(j=1..M) (I-T)^j input/j now converges
 to the SAME existing domain action with its explicit output-range defect

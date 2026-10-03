@@ -27,6 +27,18 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
+NOW CHECKED EXACT FORWARD BLOCK/HEAT JOIN:
+`BF4DyadicWilsonSquareExactBlockHeatDefect.paddedSquare_exact_block_heatDefect`
+identifies the ACTUAL half-smoothed determinant with
+Z0*((1-w^(12*side))*Z1*OWNVar_(n+t)-signedHeatDefect_(n+t))
+plus boundaryDrift(A,psi_n) and complete signedMultiplicationCost(A,b,psi_n).
+The literal chronological center stays at n in b; only shift-invariant
+energy uses the n+t OWN variance. No Taylor/cubic/omitted ceiling or new
+partition is substituted. One focused gate passed {propext, Quot.sound}.
+NEXT FORWARD: bound this COMPLETE expression relative to Z1*ell(b*b)
+on a JUSTIFIED family, retaining the original vacuum scalar. That producer
+is still unpaid. Evidence: `audits/AUDIT-EXACT-BLOCK-HEAT-DEFECT-2026-10-03.md`.
+
 NOW CHECKED ORDINARY LOG ON THE EXISTING ORIGINAL DOMAIN:
 `BF4WilsonAllNomeDomainLogarithm.domainLogarithm_bound` identifies
 sum_(j=1..M) (I-T)^j input/j with the SAME domain action, with computed
