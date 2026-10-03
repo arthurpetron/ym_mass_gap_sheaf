@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL last-step paired score and complete signed
+cost (2026-10-03 UTC; chart unchanged): the actual incoming pair gives
+score^2<=L(w)^2*(T1)*I[W*(lift(A)*c-lift(b)*a)^2], with both negative
+cross terms retained. Full projected angular consumption keeps Vbar^2
+and G_k^2 and has a computed fixed-window reciprocal-correction onset.
+The actual complete signed-cost ceiling now retains Rmixed-Rdiagonal
+and boundaryDrift, plus the complete reconstruction error and its cutoff.
+Four focused targets passed twenty permitted gates, one axiom-free.
+The useful SAME surviving-norm estimate on a justified changing family
+remains OPEN; no scaling/continuum claim closes. Evidence:
+`audits/AUDIT-ORIGINAL-LAST-STEP-SIGNED-COST-2026-10-03.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting COUPLED ORIGINAL score/noise and actual energy consumer
 (2026-10-03 UTC; chart unchanged): full-window signed derivative certificates
 produce L(w)^2*A^2*Noise-(A*Db-b*DA)^2>=0, with one local heat constant and

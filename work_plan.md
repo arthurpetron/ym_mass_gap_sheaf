@@ -27,6 +27,36 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
 
+NOW CHECKED LAST-STEP PAIRED SCORE AND COMPLETE SIGNED-COST CONSUMER:
+Take the actual incoming a=g_(n+r), c=T^r(g_n*psi), outgoing A=T a,
+b=T c and complete one-step ORIGINAL action W. The paired residual
+X=lift(A)*c-lift(b)*a has I(WX)=0 and I(DW*X)=A*Db-b*DA. The constructed
+bound is score^2<=L(w)^2*(T1)*I(WX^2), retaining both negative cross terms
+in I(WX^2)=A^2*T(c^2)-2*A*b*T(a*c)+b^2*T(a^2). No incoming inverse,
+positivity of signed c, full-history noise or canceled T1 is required.
+The actual qbar^2 angular consumer keeps Vbar^2 and G_k^2 on this budget,
+sums every active link/six planes and proves inactive output terms zero.
+For e_k=b*(G_k-A*slope_k)*DA, the exact e_(k+1)=(k+1)*residual_k*b*DR
+provides a computed SAME-weight fixed-window correction onset, including
+zero radius/cost. Only the angular first-order term is bounded in the exact
+Taylor identity. The COMPLETE original cleared cost D now satisfies
+D<=originalBlockLastStepSignedBudget+rho^k*blockEnergyErrorCoefficient,
+with a computed absolute error cutoff. The literal signed budget retains
+Z0*(h*LastStepAngularBudget+Rmixed-Rdiagonal)+boundaryDrift; the negative
+diagonal and drift are not replaced by separate absolute caps. Four focused
+checks passed twenty permitted gates, one axiom-free. Evidence:
+`audits/AUDIT-ORIGINAL-LAST-STEP-SIGNED-COST-2026-10-03.md`.
+REPOINT: estimate this COMBINED signed expression against Z1*ell[b^2]
+on the literal OWN-centered growing-square source and a justified changing
+family, with the useful O(1/side) ratio demanded by the completed consumer.
+This alternative budget does not pay fluctuations lost before the last
+step; no pointwise ordering against the old full-history budget is proved.
+That valid older bound remains available, but its Noise/B comparison is
+NOT a mandatory analytic obligation. Fixed-window correction/error moduli
+are NOT family-uniform control, and the paired budget/Taylor remainder is
+NOT asserted uniform in reciprocal degree, width, nome or scaling.
+No canonical field or displayed chart claim closes; Clay remains OPEN.
+
 NOW CHECKED COUPLED ORIGINAL SCORE/NOISE AND FULL ENERGY CONSUMER:
 For the SAME A=g_(n+t), b=T^t(g_n*psi), t>=1, both signed full-window
 derivative certificates construct L(w)^2*A^2*Noise-(A*Db-b*DA)^2>=0,

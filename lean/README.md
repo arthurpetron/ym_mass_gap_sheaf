@@ -12,7 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT checked COUPLED ORIGINAL score/noise and energy consumer (2026-10-03 UTC):**
+**CURRENT checked LAST-STEP paired score and complete signed-cost consumer (2026-10-03 UTC):**
+The actual incoming pair a=g_(n+r), c=T^r(g_n*psi) and outgoing A=T a,
+b=T c give score^2<=L(w)^2*(T1)*I[W*(lift(A)*c-lift(b)*a)^2]. Both negative
+cross terms and T1 remain; this uses surviving incoming c, not accumulated
+history noise. The full original projected angular consumer retains Vbar^2
+and G_k^2, with a computed SAME-weight reciprocal-correction onset. Its
+actual signed-cost ceiling keeps Rmixed-Rdiagonal and boundaryDrift signed,
+plus the complete reconstruction error with a computed cutoff. Four focused
+checks passed twenty permitted gates, one axiom-free. The useful comparison
+against the SAME surviving norm on a justified changing family stays OPEN;
+fixed-window moduli are not scaling-uniform. Evidence:
+`audits/AUDIT-ORIGINAL-LAST-STEP-SIGNED-COST-2026-10-03.md`.
+
+**Earlier checked COUPLED ORIGINAL score/noise and energy consumer (2026-10-03 UTC):**
 The actual full window constructs L(w)^2*A^2*Noise-(A*Db-b*DA)^2>=0
 without division or a horizon multiplier. A two-signed-weight Gram identity
 retains vacuum cancellation. The finite reciprocal gives a SAME-weight

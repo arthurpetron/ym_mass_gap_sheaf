@@ -7131,3 +7131,11 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalGradient
 import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockScoreVariance
 import YMGap.Continuum.QuaternionHaarConditionalScoreGradient
 import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalScoreGradient
+
+-- Last-step paired score, computed reciprocal-correction onset, and the
+-- COMPLETE original signed-cost ceiling. Cross terms, projected weights,
+-- negative diagonal Taylor remainder and drift remain; family bound is open.
+import YMGap.Continuum.QuaternionHaarReciprocalScoreCorrection
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepScoreVariance
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepConditionalEnergy
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepSignedCost
