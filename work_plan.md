@@ -27,7 +27,33 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
 
-NOW CHECKED ORIGINAL SOURCE-DERIVATIVE ALTERNATIVE, WITHOUT A HEAT-SCORE CAP:
+NOW CHECKED FORWARD SQUARE PAYMENT AND BACKWARD SIGNED-WINDOW ROUTE:
+For actual A=g_(n+r+1), b=T^(r+1)(g_n*psi), phi=G_k*b and q=P_fringe(V*A),
+the constructed comparison is H[(q*phi)^2]<=spatialCeiling*B, B=ell(b^2).
+The actual Z0<=P*Z1 comparison pays the h^2/8 raw-square term with
+p=(h^2/8)*P*spatialCeiling, retaining the NEGATIVE completed commutator
+square, signed cubic/omitted/angular-pair terms and angular-weight change.
+The complete cost now obeys D<=ReducedSignedBulk+(p+zeta+delta+epsilon)*Z1*B.
+p depends on fixed nome/width and is NOT a vanishing approximation tolerance
+or a proved scaling-small coefficient. No action/source square is deleted.
+Backward from the SAME completed survival ratio, the proved window estimate
+C(2u)-C(4u)<=2*sum_(t=u..2u-1)(C(2t)-C(2t+1)) permits the weaker target
+2*sum_(t=u..2u-1) originalOwnBlockCost(stage,t)
+  <=(1-kappa)*originalOwnBlockVariance(stage,u), eventually in stage.
+Its checked fixed-member limit yields kappa*R(2u)<=R(4u). For side=2u this
+feeds the EXISTING normalized-anchor/block/real-response consumers.
+Every lag retains its own partitions and the common original stage center;
+no raw source/Taylor term or terminal message is asserted to telescope.
+Two narrow checks passed 17 permitted gates; independent reviews passed.
+Evidence: `audits/AUDIT-SIGNED-WINDOW-REMAINDER-PAYMENT-2026-10-03.md`.
+REPOINT: seek JOINT cancellation in the COMPLETE normalized signed window
+on the literal OWN-centered growing square and a JUSTIFIED changing family.
+A per-lag O(1/side) relative estimate remains sufficient, not necessary.
+Keep the new explicit payment cap in the aggregate budget. Neither a useful
+aggregate estimate nor justified scaling/physical calibration is supplied;
+continuum/QFT/every-group/Clay and all displayed chart claims remain OPEN.
+
+EARLIER CHECKED ORIGINAL SOURCE-DERIVATIVE ALTERNATIVE, WITHOUT A HEAT-SCORE CAP:
 Simultaneous kernel rotation and exact input Haar IBP construct D(Pp)=P(Dp)
 under EVERY surviving insertion, not as a free coefficient identity.
 For actual A=T a,b=T c, the score equals I[K*Y], where
@@ -43,7 +69,7 @@ D<=SourceBulk_(k+1)+(zeta+delta+epsilon)*Z1*B at the existing independent
 correction/depth/reconstruction onsets. No general ordering of new and old
 budgets is asserted. Five focused checks and independent reviews passed.
 Evidence: `audits/AUDIT-ORIGINAL-SOURCE-DERIVATIVE-2026-10-03.md`.
-REPOINT: study the COMPLETE incoming-source derivative square jointly with
+Alternative per-lag route: study the COMPLETE incoming-source derivative square jointly with
 the signed Taylor difference on the literal OWN-centered growing square.
 The useful O(1/side) combined signed bulk/(Z1*B) estimate on a JUSTIFIED
 changing family remains OPEN. Do not assume its action/terminal-specific

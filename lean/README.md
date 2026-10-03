@@ -12,7 +12,21 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**CURRENT checked ORIGINAL source-derivative alternative (2026-10-03 UTC):**
+**CURRENT checked ORIGINAL square payment and signed-window join (2026-10-03 UTC):**
+For the actual reconstructed phi, q=P_fringe(V*A) gives
+H[(q*phi)^2]<=spatialCeiling*B. The existing partition comparison pays
+its h^2/8 coefficient in SAME Z1*B currency; the negative completed square,
+signed cubic/cutoff/angular-pair terms and angular-weight change survive.
+The cap depends on nome/width and is NOT claimed scaling-small.
+Backward from survival, C(2u)-C(4u)<=2*sum_(t=u..2u-1)(C(2t)-C(2t+1))
+on EVERY same completed state. The actual finite original normalized cost
+sum has a checked fixed-member limit and feeds the existing macro ratio.
+Each lag keeps its own partitions and the common stage OWN center.
+The aggregate analytic budget and justified scaling family remain OPEN.
+Two focused targets passed 17 permitted gates; root registration only.
+Evidence: `audits/AUDIT-SIGNED-WINDOW-REMAINDER-PAYMENT-2026-10-03.md`.
+
+**Earlier checked ORIGINAL source-derivative alternative (2026-10-03 UTC):**
 Simultaneous kernel rotation and exact Haar IBP prove D(Pp)=P(Dp) under
 every surviving insertion. For A=T a,b=T c the actual score is I[K*Y],
 Y=lift(A)*D(V*c)-lift(b)*D(V*a), with complete sources unsplit.

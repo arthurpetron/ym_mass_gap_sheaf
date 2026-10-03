@@ -1,5 +1,20 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL square payment and signed-window join
+(2026-10-03 UTC; chart unchanged): the reconstructed source square is
+bounded by spatialCeiling times the SAME surviving norm. Its h^2/8 term
+is paid with the actual partition comparison; the negative completed
+square, signed cubic/cutoff/angular-pair residue and angular-weight change
+remain. The new cap is fixed-parameter, not scaling-small. A proved
+all-state window inequality joins an eventual ORIGINAL normalized cost
+sum to the existing SAME dyadic macro ratio, retaining each lag's two
+partitions and their common stage OWN center. It requires no per-lag
+relative ceiling, but the aggregate analytic estimate is still unsupplied.
+Two focused checks passed 17 permitted gates; independent reviews passed.
+Justified scaling, continuum/QFT/every-group and Clay remain OPEN. Evidence:
+`audits/AUDIT-SIGNED-WINDOW-REMAINDER-PAYMENT-2026-10-03.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting ORIGINAL source-derivative square and complete signed
 cost (2026-10-03 UTC; chart unchanged): simultaneous kernel rotation and
 Haar IBP move the angular derivative onto COMPLETE incoming sources.

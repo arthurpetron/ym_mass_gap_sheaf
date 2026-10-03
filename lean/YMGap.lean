@@ -7172,3 +7172,9 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepCorrectionPaidCost
 import YMGap.Continuum.SU2QuaternionProductHeatAngularCommutation
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepSourceDerivative
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepSourceDerivativeEnergy
+
+-- Pay the reconstructed square while retaining the complete signed residue.
+-- A joint normalized window budget suffices for the SAME macro response;
+-- neither that analytic budget nor a justified changing family is supplied.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockRemainderPayment
+import YMGap.Continuum.BF4WilsonAllNomeWindowSignedCost

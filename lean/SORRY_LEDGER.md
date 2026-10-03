@@ -1,5 +1,30 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL reconstructed-square payment and signed-window join only (2026-10-03 UTC)
+
+`BF4ExactSlabFixedSpatialBlockRemainderPayment.blockConditionalRatio_sourceSquare_le`
+constructs H[(q*phi)^2]<=spatialCeiling*B for the ACTUAL q=P_fringe(V*A)
+and reconstructed phi. `original_block_rawSquare_payment` pays its h^2/8
+coefficient against SAME Z1*B via the original partition comparison.
+`original_block_remainderPaid_cost_relative_tolerance` retains the negative
+completed square, signed cubic/omitted/angular-pair terms and angular-weight
+change. Its explicit fixed-nome/width cap is not claimed scaling-small.
+`BF4WilsonAllNomeWindowSignedCost.response_doubling_window_cost_bound`
+proves C(2u)-C(4u)<=2*sum even-lag drops on EVERY original completed state.
+`originalWindowCost_converges` and `original_window_budget_macro_ratio`
+join an eventual ORIGINAL finite normalized cost sum to the existing SAME
+unit macro ratio. Each lag keeps its distinct Z0,Z1 and common stage OWN
+center; the norm is canceled only after the fixed-member limit.
+The supplied aggregate budget is not constructed by these consumers.
+Two serialized focused targets passed 17 permitted gates; independent
+semantic reviews passed. No sorry, axiom, weakened field, CI or exact chart
+change; root registration only, no full audit/build. Evidence:
+`audits/AUDIT-SIGNED-WINDOW-REMAINDER-PAYMENT-2026-10-03.md`.
+OPEN: useful JOINT signed-window budget (or sufficient per-lag estimate)
+on a JUSTIFIED changing family; physical calibration, continuum survival,
+full QFT, every compact simple group and Clay. Individual unnormalized
+source/Taylor budgets do not inherit the normalized response telescope.
+
 ## PROVED ORIGINAL source-derivative square and SAME signed-cost join only (2026-10-03 UTC)
 
 `SU2QuaternionProductHeatAngularCommutation.productMap_angular_carrier`

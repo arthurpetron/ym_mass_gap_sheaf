@@ -10,7 +10,16 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**New checked source-derivative estimate:** angular integration by parts
+**Current forward/backward proof work:** the reconstructed source square
+is now bounded by the SAME surviving norm, while the negative commutator
+square and all other signed remainder terms remain explicit. From the
+survival endpoint, a checked time-window inequality shows that a joint
+signed cost budget suffices; separate bounds at every lag are unnecessary.
+The joint budget on a justified scaling family is still unproved, and the
+new payment constant is not claimed scaling-small. See the
+[proofs, remaining input and focused checks](audits/AUDIT-SIGNED-WINDOW-REMAINDER-PAYMENT-2026-10-03.md).
+
+**Earlier checked source-derivative estimate:** angular integration by parts
 replaces the global heat-score cap in the leading original cost by one
 unsplit square of the complete source/action derivatives. Its all-link,
 six-plane consumer retains both signed Taylor remainders and pays the
