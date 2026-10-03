@@ -5176,6 +5176,10 @@ import YMGap.Continuum.BF4WilsonAllNomeDyadicNormalizedMacroRatio
 -- Same ratio gives a positive floor at ALL represented real geometric
 -- times on bounded intervals; one-block slack, physical calibration OPEN.
 import YMGap.Continuum.BF4WilsonAllNomeDyadicNormalizedMacroRealSurvival
+-- The old absolute spectator certificate collapses for EVERY nome family;
+-- bare-reference floors have necessary heat-loss bounds, not response ceilings.
+import YMGap.Continuum.BF4DyadicWilsonSquareSpectatorResponseObstruction
+import YMGap.Continuum.BF4DyadicWilsonSquareBareTransmissionNecessary
 -- Scalar alignment cannot amplify to arbitrary quaternion-valued sources.
 -- Exact original low-degree obstruction; narrower scalar word stays OPEN.
 import YMGap.Continuum.SU2QuaternionHeatAlignmentAmplificationObstruction

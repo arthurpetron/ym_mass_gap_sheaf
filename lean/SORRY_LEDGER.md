@@ -1,5 +1,21 @@
 # Sorry Ledger
 
+## PROVED limits of scaling certificates only (2026-10-03 UTC)
+
+- `BF4DyadicWilsonSquareSpectatorResponseObstruction` proves the original
+  Gamma<=(1/2)^side uniformly over ALL strict nomes, with explicit
+  epsilon.den cutoff. No changing-nome family gives that certificate a
+  fixed positive lower bound. Its pointwise normalization use stays valid.
+- `BF4DyadicWilsonSquareBareTransmissionNecessary` proves the single and
+  repeated bare-reference heat-loss necessities, the latter
+  kappa*(1+12*side^2*(1-w))<=1. These are not actual-response upper bounds.
+- Final focused checks passed six gates exactly {propext, Quot.sound} and
+  independent review. No new sorry/axiom/classical shortcut/field weakening.
+  Root imports registered, NOT aggregate-checked; CI/chart unchanged.
+- OPEN: actual family-wide interacting ratio, normalized cross-scale
+  comparison, physical calibration and every continuum endpoint. Evidence:
+  `audits/AUDIT-SCALING-CERTIFICATE-OBSTRUCTIONS-2026-10-03.md`.
+
 ## PROVED conditional all real geometric time survival only (2026-10-03 UTC)
 
 - `BF4WilsonAllNomeDyadicNormalizedMacroRealSurvival` proves actual mesh

@@ -31,6 +31,12 @@ The earlier
 still requires its explicit positive raw reserve; that is no longer a
 mandatory input for the normalized positive-time route.
 
+The [checked certificate limits](audits/AUDIT-SCALING-CERTIFICATE-OBSTRUCTIONS-2026-10-03.md)
+exclude a uniform reserve from the old spectator fraction for ANY changing
+heat-parameter family, and quantify the heat loss required by repeated bare
+transmission. These limit those estimates, not the actual interacting
+response; the substantive ratio and cross-scale comparison remain open.
+
 **New checked quadratic route:** the COMPLETE original filtered numerator
 is exactly `Delta+2*(1-a)*J1-2*G2`, at its actual finite OWN mean and SAME
 even partition. The endpoint mismatch has bound `32*mixRate^n`; the actual

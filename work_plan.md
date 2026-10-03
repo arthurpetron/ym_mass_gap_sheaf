@@ -27,6 +27,21 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME relative signed slope and normalized survival (2026-10-03 UTC)
 
+CHECKED LIMITS OF TWO CERTIFICATE ROUTES:
+`BF4DyadicWilsonSquareSpectatorResponseObstruction` proves the existing
+Gamma<=(1/2)^side for EVERY strict nome, with explicit epsilon.den cutoff.
+No choice of changing nome can make this certificate a uniform positive
+reserve. Pointwise anchor normalization remains valid; the actual interacting
+response is NOT upper-bounded. `BF4DyadicWilsonSquareBareTransmissionNecessary`
+separately proves that a positive floor on rho^side, 0<=rho<=w^(12*side),
+requires kappa*(1+12*side^2*(1-w))<=1. Six allowed gates passed. Do not
+promote either reference certificate to an interacting survival estimate.
+NEXT: the actual macroscopic ratio and normalized cross-scale comparisons,
+using the retained original interaction rather than further absolute-band
+retuning. Reuse the existing fixed-geometry nome comparison; do not duplicate
+it or treat raw additive control as normalized cross-scale control. Evidence:
+`audits/AUDIT-SCALING-CERTIFICATE-OBSTRUCTIONS-2026-10-03.md`.
+
 CHECKED INPUT REDUCTION AND PREFERRED BACKWARD CRITERION:
 `BF4WilsonAllNomeBlockResponseLower` propagates a supplied response ratio
 across arbitrary integer blocks on the SAME original carrier. Its positive

@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting certificate limits (2026-10-03 UTC; chart unchanged):
+the old spectator fraction is <=(1/2)^side for ALL strict nomes, with an
+explicit epsilon.den cutoff; no retuning gives it a uniform positive reserve.
+Repeated bare transmission has a separate necessary total heat-loss bound.
+Six constructive gates passed. Neither result upper-bounds the actual
+interacting response or changes a displayed continuum claim. The actual
+ratio and normalized cross-scale comparison remain OPEN. Evidence:
+`audits/AUDIT-SCALING-CERTIFICATE-OBSTRUCTIONS-2026-10-03.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting real geometric time survival (2026-10-03 UTC;
 chart unchanged): original mesh order and the existing witnessed pairing
 limit extend the supplied macroscopic ratio to response>=kappa^(j+1)

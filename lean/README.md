@@ -13,6 +13,14 @@ discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
 **CURRENT original signed filtered source and SAME response target (2026-10-03 UTC):**
+Two checked certificate limits now exclude promoting the old absolute
+spectator fraction or bare-reference power to uniform interacting survival.
+The former is <=(1/2)^side for EVERY strict nome with an explicit cutoff;
+a positive repeated bare floor requires total side-squared heat-loss control.
+Six allowed gates passed. Neither result upper-bounds the actual response,
+and pointwise constructive normalization remains valid. Evidence:
+`audits/AUDIT-SCALING-CERTIFICATE-OBSTRUCTIONS-2026-10-03.md`.
+
 The preferred backward consumer now needs only the macroscopic ratio
 kappa*R(side)<=R(2*side), kappa>0, on the SAME actual unit response.
 `BF4WilsonAllNomeBlockResponseLower` proves original block propagation;
