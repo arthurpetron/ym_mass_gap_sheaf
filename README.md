@@ -1,6 +1,6 @@
 # Constructive Yang--Mills mass-gap formalization
 
-## Current proof boundary (2026-10-03 UTC)
+## Current proof boundary (2026-10-04 UTC)
 
 The [canonical one-page status chart](docs/PROJECT-STATUS.md) keeps fixed
 wording, layout, proof-status meanings and permanent node IDs across updates.
@@ -10,7 +10,18 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Verified sharper original signed overlap (2026-10-03 UTC):**
+**Verified original variance-relative square payment (2026-10-04 UTC):**
+The actual local source band now bounds the retained negative channel square
+below by a computed positive fraction of the ORIGINAL interacting variance,
+with its own mean and partition. The complete original energy gains this
+payment without discarding signed curvature or the computed Taylor error.
+Signed/repeated families and zero variance are covered. Two focused checks
+passed nine permitted axiom gates; independent review passed. The coefficient
+depends on coupling and family size: useful scaling control and the Clay
+target remain open. See the
+[proof and remaining signed estimate](audits/AUDIT-ORIGINAL-CHANNEL-SQUARE-VARIANCE-CREDIT-2026-10-04.md).
+
+**Earlier verified sharper original signed overlap (2026-10-03 UTC):**
 Projecting the retained dual test off the original source preserves its
 overlap with the OWN-centered Wilson excitation. The computed denominator
 becomes `D0=Z*D-a*m^2`, nonnegative and no larger than `Z*D`; the signed mean

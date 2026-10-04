@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED original channel square variance payment only (2026-10-04 UTC)
+
+`BF4ExactSlabFixedSpatialFamilyChannelSquareCredit.family_channel_observableSquare_variance_credit`
+constructs rho*Z*OWNVar<=Sq_ch from the ACTUAL local source bands and a common
+projected spectator. The raw second moment bounds OWN variance; no bare-Haar
+variance replacement or individual signed-channel ordering is used.
+`FamilyChannelPaidSquare.padded_family_energy_paid_channel_square` pays
+48*t*rho*Z*Var in the COMPLETE original energy while keeping signed curvature
+and the full computed error. Signed/repeated/empty families and zero variance
+remain valid. Two final focused checks passed nine permitted gates;
+independent review passed. Evidence:
+`audits/AUDIT-ORIGINAL-CHANNEL-SQUARE-VARIANCE-CREDIT-2026-10-04.md`.
+OPEN: useful JOINT signed curvature/error/leading-term estimate versus SAME
+surviving variance, its actual chronological window and justified changing
+family; continuum survival, physical mass, OS/full QFT, every compact simple
+group and Clay. rho depends on nome/family size; no scaling-uniform credit
+is proved. No new sorry/axiom/analytic field, weakened frontier, CI/resource
+change or chart closure. Root registration only; no full/root build/audit/
+guard/broad metrics.
+
 ## PROVED coherent original signed-family energy only (2026-10-04 UTC)
 
 `BF4ExactSlabFixedSpatialFamilyCoherentTail.family_coherent_row` constructs

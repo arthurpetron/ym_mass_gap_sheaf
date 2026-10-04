@@ -5353,6 +5353,10 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyChannelTaylorVariance
 -- Actual signed channel quadratic gain and SAME-variance energy consumer.
 -- The band-only leading coefficient cannot be scaling-small; cancellation OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyChannelRetainedSquare
+-- Constructed SAME-variance credit for the actual negative channel square.
+-- Signed curvature/error and changing-family usefulness remain OPEN.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyChannelSquareCredit
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyChannelPaidSquare
 import YMGap.Continuum.BF4ExactSlabFixedSpatialChannelCoefficientFence
 -- Complete original-source local regularity and explicit one-link RAW Haar
 -- spectral tails, then conditional SAME-channel tails with shared active links.

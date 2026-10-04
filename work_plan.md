@@ -27,6 +27,23 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-04 UTC)
 
+NOW CHECKED ORIGINAL CHANNEL SQUARE VERSUS SAME VARIANCE:
+FORWARD, the ACTUAL lower/upper local source bands share one projected
+spectator mass. The original uncentered second moment bounds OWN variance,
+so l^2*Z*Var<=u^2*Sq_ch for arbitrary signed/repeated families. The computed
+positive credit rho=l^2/u^2 gives the COMPLETE original energy payment
+E+48*t*rho*Z*Var<=(h+t)*C*Z*Var-t*Curv_ch+Err_ch, t=h^2/2.
+BACKWARD, this supplies the retained negative-square comparison without a
+new analytic hypothesis or changed action/source/center/partition. Two final
+focused checks passed nine permitted gates; independent review passed.
+NEXT: the ACTUAL signed curvature and full error TOGETHER with the leading
+term versus SAME surviving variance, on the justified chronological scaling
+family. rho depends on nome and family size; no useful uniform lower bound
+or macro-window reserve is supplied. Evidence:
+`audits/AUDIT-ORIGINAL-CHANNEL-SQUARE-VARIANCE-CREDIT-2026-10-04.md`.
+Survival/physical/OS/QFT/continuum/every-group/Clay remain OPEN. Exact chart
+claims unchanged; no ASCII or paper-list reprint.
+
 ANALYTIC SCREENING, NO NEW PROOF: the existing original positive-kernel
 `RadialMarginalEnergyFence.radial_marginal_bound_three_false` already rejects
 the universal endpoint-gradient shortcut. A duplicate witness/check was

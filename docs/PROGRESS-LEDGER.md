@@ -4,7 +4,24 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current review: signed-source analytic screening (2026-10-04 UTC)
+## Latest proved increment: ORIGINAL channel square variance payment (2026-10-04 UTC)
+
+PROGRESS after `49ead33`: ACTUAL local source bands now pay the retained
+negative channel square by rho*Z*OWNVar<=Sq_ch, with computed rho>0 at fixed
+nome/family size. The SAME original complete energy gains 48*t*rho*Z*Var
+on the LEFT while retaining signed curvature and the ENTIRE computed error
+on the RIGHT. Whole-channel monotonicity, one common spectator mass and the
+original uncentered second moment supply the proof; no changed mean or law.
+Two final focused checks passed nine permitted gates; independent review
+passed. NEXT: useful JOINT signed curvature/error control versus SAME
+surviving variance on a justified changing family and its chronological
+window. The fixed-member credit does NOT give that estimate or scaling
+survival. Physical/OS/QFT/continuum/every-group/Clay remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-CHANNEL-SQUARE-VARIANCE-CREDIT-2026-10-04.md`.
+Root registration only; no full/root build/audit/guard/broad metrics.
+Exact chart claims unchanged; no ASCII or paper-list reprint.
+
+## Earlier review: signed-source analytic screening (2026-10-04 UTC)
 
 NO NEW MATHEMATICAL PROGRESS this pass: the proposed universal heat-gradient
 shortcut is already refuted by the original positive-kernel radial-marginal
@@ -14,10 +31,10 @@ missing complete signed-energy/variance estimate. Retain the joint Ward and
 BOTH Taylor terms and the SAME chronological partitions/OWN center. No new
 analytic wrapper, Lean check, gate or chart closure. Source-only parallel
 review: `audits/AUDIT-SIGNED-SOURCE-ANALYTIC-SCREENING-2026-10-04.md`.
-The last verified mathematical increment remains the coherent energy below;
+At that checkpoint the last verified increment was the coherent energy below;
 continuum/physical/OS/QFT/every-group/Clay remain OPEN.
 
-## Latest proved increment: COHERENT original signed-family energy (2026-10-04 UTC)
+## Earlier proved increment: COHERENT original signed-family energy (2026-10-04 UTC)
 
 PROGRESS after `a453566`: arbitrary literal signed/repeated face families
 now have a constructed coherent tail at EACH original physical link, with

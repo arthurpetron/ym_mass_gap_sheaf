@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL channel square variance payment (2026-10-04 UTC;
+chart unchanged): ACTUAL local source bands construct rho*Z*OWNVar<=Sq_ch,
+rho>0 at fixed nome/family size, and pay 48*t*rho*Z*Var in the COMPLETE
+original energy. Signed curvature and the full computed error remain unpaid;
+source, action, own mean and partition stay unchanged. Two final focused
+checks passed nine permitted gates; independent review passed. Useful
+changing-family/window control, survival/physical/OS/QFT/continuum/every-group/
+Clay remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-CHANNEL-SQUARE-VARIANCE-CREDIT-2026-10-04.md`.
+Partial A03 only; no exact displayed claim changes, no ASCII reprint.
+
 Verified supporting COHERENT original signed-family energy (2026-10-04 UTC;
 chart unchanged): actual independent face tails sum BEFORE norm; signed
 repetitions, cross-plane and unmatched terms remain. The exact all-original-
