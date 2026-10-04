@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting RHO-FREE original channel payment (2026-10-04 UTC;
+chart unchanged): (Q-U)^2<=4*L*Q and Z*OWNVar<=U<=2Q+L for actual
+uncentered Q, original raw U and computed L=M-Z. Exact heat pays k/4
+OWN variance with additive k*L/(4Z), keeping ENTIRE I. Chronological
+cost retains stage center/BOTH partitions and has budget
+d/2+(d/2+k/4)*L/Z+paidDrift+COMPLETE Signed. Three focused checks passed
+seven NEW permitted gates; frozen review passed. Useful JOINT estimate
+versus SAME filtered-start variance and justified scaling remain OPEN,
+as do survival/physical/OS/full QFT/continuum/every-group/Clay. Evidence:
+`audits/AUDIT-RHO-FREE-ORIGINAL-CHANNEL-LOSS-PAYMENT-2026-10-04.md`.
+Partial A03 only; no exact displayed claim changes, no ASCII reprint.
+
 Verified supporting COARSE linear-credit obstruction (2026-10-04 UTC;
 chart unchanged): actual rho<=4^(-size) at EVERY strict nome. An explicit
 nome-independent modulus rejects an eventual positive floor after any

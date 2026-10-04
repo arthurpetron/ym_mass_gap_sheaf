@@ -27,6 +27,22 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-04 UTC)
 
+NOW CHECKED RHO-FREE ORIGINAL CHANNEL LOSS PAYMENT:
+Actual uncentered Q and original raw moment U satisfy (Q-U)^2<=4*L*Q,
+Z*OWNVar<=U<=2Q+L, with computed L=M-Z. No band rho or small-loss premise.
+Exact heat now pays E+I/(4Z)+(k/4)*OWNVar<=d*M/(2Z)+k*L/(4Z), retaining
+ENTIRE I. In actual chronological cost, M=Z+L gives RHS
+d/2+(d/2+k/4)*L/Z+paidDrift+COMPLETE Signed; stage OWN center and BOTH
+partitions remain. Endpoint OWN variance, raw reference and filtered-start
+norm remain distinct. Three focused checks passed seven NEW permitted gates;
+independent frozen review passed. NEXT: useful JOINT loss/increment/signed
+aggregate versus SAME filtered-start variance, not another assumed budget
+or a circular substitution of Signed=Cost-(energy+drift). A separate
+I>=(2*d+k)*L payment would SUFFICE but is not proved or necessary.
+Justified scaling/survival/physical/OS/full QFT/continuum/every-group/Clay stay
+OPEN. Evidence: `audits/AUDIT-RHO-FREE-ORIGINAL-CHANNEL-LOSS-PAYMENT-2026-10-04.md`.
+Partial A03 only; exact chart claims unchanged, no ASCII/paper-list reprint.
+
 NOW CHECKED OBSTRUCTION TO RESCUING THE COARSE LINEAR CREDIT:
 The ACTUAL computed rho=l/u is <=4^(-size) for EVERY strict nome. A
 nome-independent explicit modulus proves any fixed polynomial rescaling
@@ -38,10 +54,10 @@ REPOINT: stop optimizing this absolute-band rho for growing-footprint floors.
 Seek SOURCE-SPECIFIC retained cancellation or loss-corrected comparisons,
 without assuming useful relative-loss powers. A composition-only join of
 Signed=Cost-(energy+drift) with exact payment is circular and is pruned.
-NEXT PROPOSITION (not yet proved): for actual uncentered channel Q and
+NEXT PROPOSITION (NOW PROVED in the rho-free payment above): for actual uncentered channel Q and
 original raw second moment U, prove (Q-U)^2<=4*(M-Z)*Q, then
-Z*OWNVar<=2Q+(M-Z). Existing moment-defect CS and literal cap-four
-certificates support this additive-loss route, avoiding rho; the needed
+Z*OWNVar<=2Q+(M-Z). Moment-defect CS and literal cap-four
+certificates prove this additive-loss route, avoiding rho; the needed
 useful source-loss/window control is still unpaid.
 The useful actual aggregate versus SAME filtered-start variance and justified
 scaling/survival/physical/OS/full QFT/continuum/every-group/Clay stay OPEN.

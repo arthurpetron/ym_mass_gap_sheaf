@@ -58,7 +58,8 @@ open YMGap.Continuum.BF4DyadicWilsonSquareChannelGeometry (squareChannelMass)
 open YMGap.Continuum.BF4DyadicWilsonSquareChannelExactResponse
   (responseQuarter squareChannelIncrement)
 open YMGap.Continuum.BF4DyadicWilsonSquareExactVariancePayment
-  (paddedSquare_energy_exact_variance_payment)
+  (paddedSquare_energy_exact_variance_payment paddedSquare_energy_exact_loss_variance_payment)
+open YMGap.Continuum.BF4DyadicWilsonSquareChannelVarianceLoss (channelHeatLoss)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyChannelSquareCredit
   (channelObservableSquareLinearVarianceCredit)
 open YMGap.Continuum.SU2HeatExactSquareCreditWindow (exactSquareCredit)
@@ -290,6 +291,92 @@ theorem originalOwnBlockCost_exact_channel_boundary_paid
     (Q'.add_le_add_right _ _ _ (Q'.add_le_add_left _ _ _
       (originalBoundaryDrift_upper hw0 hw1 scale width hwidth stage t hdepth)))
 
+/-- Rho-free chronological payment. The original channel mass is written as
+Z plus its ACTUAL loss, keeping the full increment and BOTH original
+partitions. Stage OWN centering, endpoint OWN variance and filtered-start
+norm remain distinct. The positive loss penalty is not cancelled or assumed
+small, and the complete signed multiplication correction is retained. -/
+theorem originalOwnBlockCost_exact_loss_payment (h2 : 2 ≤ K)
+    (hcoefficient : (0 : Q') ≤ exactSquareCredit w (side scale)) :
+    let d := (1 : Q')-qpow w (32*side scale)
+    let credit := responseQuarter*exactSquareCredit w (side scale)
+    let L := channelHeatLoss w K width (stage+t) scale hwidth
+    Cost + responseQuarter*(squareChannelIncrement w K scale width hwidth (stage+t)*r) +
+        credit*oddVariance hw0 hw1 K width hK (stage+t) f ≤
+      HalfPow.half*d+(HalfPow.half*d+credit)*(L*r) +
+        originalBoundaryDrift hw0 hw1 scale width hwidth stage t + Signed := by
+  dsimp only
+  let E := normalizedEnergy hw0 hw1 K width hK (stage+t) f
+  let D := originalBoundaryDrift hw0 hw1 scale width hwidth stage t
+  let S := Signed
+  let I := responseQuarter*(squareChannelIncrement w K scale width hwidth (stage+t)*r)
+  let credit := responseQuarter*exactSquareCredit w (side scale)
+  let V := credit*oddVariance hw0 hw1 K width hK (stage+t) f
+  let M := squareChannelMass w K scale width hwidth A
+  let L := channelHeatLoss w K width (stage+t) scale hwidth
+  let d := (1 : Q')-qpow w (32*side scale)
+  let P := HalfPow.half*(d*M*r)+credit*(L*r)
+  let B := HalfPow.half*d+(HalfPow.half*d+credit)*(L*r)
+  let Z := oddMass w K width (stage+t)
+  have hp : E+I+V ≤ P := paddedSquare_energy_exact_loss_variance_payment
+    hw0 hw1 K width hK h2 (stage+t) scale hwidth hcoefficient
+  have hm : M ≈ Z+L :=
+    poly_identity_of_normal_eq (.var 0)
+      (.add (.var 1) (.add (.var 0) (.neg (.var 1))))
+      (by decide) (fun | 0 => M | _ => Z)
+  have hbudget : P ≈ B := by
+    have hsubst : P ≈ HalfPow.half*(d*(Z+L)*r)+credit*(L*r) :=
+      Q'.add_eqv_congr_right _ _ _ (Q'.mul_eqv_congr_left HalfPow.half _ _
+        (Q'.mul_eqv_congr_right _ _ r (Q'.mul_eqv_congr_left d _ _ hm)))
+    have hshape : HalfPow.half*(d*(Z+L)*r)+credit*(L*r) ≈
+        (HalfPow.half*d)*(Z*r)+(HalfPow.half*d+credit)*(L*r) :=
+      poly_identity_of_normal_eq
+        (.add (.mul (.var 0) (.mul (.mul (.var 1) (.add (.var 2) (.var 3))) (.var 4)))
+          (.mul (.var 5) (.mul (.var 3) (.var 4))))
+        (.add (.mul (.mul (.var 0) (.var 1)) (.mul (.var 2) (.var 4)))
+          (.mul (.add (.mul (.var 0) (.var 1)) (.var 5)) (.mul (.var 3) (.var 4))))
+        (by decide) (fun | 0 => HalfPow.half | 1 => d | 2 => Z | 3 => L | 4 => r | _ => credit)
+    have hcancel : (HalfPow.half*d)*(Z*r) ≈ HalfPow.half*d :=
+      Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_left _ _ _
+        (Q'.mul_recipPos_eqv Z (oddMass_positive hw0 hw1 K width hK (stage+t))))
+        (Q'.mul_one_eqv _)
+    exact Q'.eqv_trans _ _ _ hsubst
+      (Q'.eqv_trans _ _ _ hshape (Q'.add_eqv_congr_right _ _ _ hcancel))
+  have hcost : Cost ≈ E+D+S := originalOwnBlockCost_energy_split hw0 hw1 scale width hwidth stage t
+  have hshape : Cost+I+V ≈ (E+I+V)+(D+S) :=
+    Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_right _ _ V (Q'.add_eqv_congr_right _ _ I hcost))
+      (poly_identity_of_normal_eq
+        (.add (.add (.add (.add (.var 0) (.var 1)) (.var 2)) (.var 3)) (.var 4))
+        (.add (.add (.add (.var 0) (.var 3)) (.var 4)) (.add (.var 1) (.var 2)))
+        (by decide) (fun | 0 => E | 1 => D | 2 => S | 3 => I | _ => V))
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hshape)
+    (Q'.le_trans' _ _ _ (Q'.add_le_add_right _ _ (D+S) hp)
+      (Q'.le_of_eqv (Q'.eqv_trans _ _ _ (Q'.add_eqv_congr_right _ _ _ hbudget)
+        (Q'.add_assoc_eqv B D S).symm)))
+
+/-- Only the boundary drift is paid by its existing computed terminal
+tolerance. The rho-free loss payment still needs a useful JOINT comparison
+with the SAME filtered-start norm on a justified changing family. -/
+theorem originalOwnBlockCost_exact_loss_boundary_paid
+    (hdepth : 1 ≤ stage+t) (h2 : 2 ≤ K)
+    (hcoefficient : (0 : Q') ≤ exactSquareCredit w (side scale)) :
+    let d := (1 : Q')-qpow w (32*side scale)
+    let credit := responseQuarter*exactSquareCredit w (side scale)
+    let L := channelHeatLoss w K width (stage+t) scale hwidth
+    Cost + responseQuarter*(squareChannelIncrement w K scale width hwidth (stage+t)*r) +
+        credit*oddVariance hw0 hw1 K width hK (stage+t) f ≤
+      HalfPow.half*d+(HalfPow.half*d+credit)*(L*r) +
+        comparisonEta hw0 hw1 width (stage+t-1)*
+          originalReferenceSquare hw0 hw1 scale width hwidth stage t + Signed := by
+  dsimp only
+  exact Q'.le_trans' _ _ _
+    (originalOwnBlockCost_exact_loss_payment hw0 hw1 scale width hwidth stage t h2 hcoefficient)
+    (Q'.add_le_add_right _ _ _ (Q'.add_le_add_left _ _ _
+      (originalBoundaryDrift_upper hw0 hw1 scale width hwidth stage t hdepth)))
+
+#print axioms originalOwnBlockCost_exact_loss_payment
+#print axioms originalOwnBlockCost_exact_loss_boundary_paid
 #print axioms originalBoundaryDrift
 #print axioms originalReferenceSquare
 #print axioms originalOwnBlockCost_energy_split

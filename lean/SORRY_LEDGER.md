@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED rho-free original channel loss payment only (2026-10-04 UTC)
+
+`BF4DyadicWilsonSquareChannelVarianceLoss.paddedSquare_channel_rawSecond_loss_bound`
+proves (Q-U)^2<=4*L*Q for actual uncentered channel Q, original raw second
+moment U and computed L=M-Z. `paddedSquare_oddVariance_le_twice_channelMoment_add_loss`
+gives Z*OWNVar<=2Q+L with no small-loss premise or band rho.
+`BF4DyadicWilsonSquareExactVariancePayment.paddedSquare_energy_exact_loss_variance_payment`
+pays E+I/(4Z)+(k/4)*OWNVar<=d*M/(2Z)+k*L/(4Z), retaining ENTIRE increment.
+`BF4WilsonAllNomeChronologicalExactChannelCost.originalOwnBlockCost_exact_loss_boundary_paid`
+gives d/2+(d/2+k/4)*L/Z+paidDrift+COMPLETE Signed in the original cost,
+preserving stage OWN center/BOTH partitions and distinct endpoint/raw/filtered
+norms. Three focused checks passed seven NEW permitted gates; independent
+frozen review passed. Evidence:
+`audits/AUDIT-RHO-FREE-ORIGINAL-CHANNEL-LOSS-PAYMENT-2026-10-04.md`.
+OPEN: useful JOINT actual loss/increment/signed aggregate versus SAME
+filtered-start variance, justified scaling/survival/physical/OS/full QFT/
+continuum/every-group/Clay. No new sorry/axiom/analytic budget or weakened
+frontier. Partial A03 only, no chart closure; root registration only, no
+full/root build/audit/guard/metrics. CI/resource settings unchanged.
+
 ## PROVED collapse of THIS coarse linear credit only (2026-10-04 UTC)
 
 `BF4OriginalChannelLinearCreditCollapse.linearCredit_geometric_ceiling`

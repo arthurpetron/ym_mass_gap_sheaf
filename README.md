@@ -10,7 +10,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Verified limitation of the current coarse credit (2026-10-04 UTC):**
+**Verified source-specific replacement for the coarse credit (2026-10-04 UTC):**
+The actual original channels now satisfy `Z*Var <= 2*Q + (M-Z)`, without
+the exponentially small band coefficient or a small-loss assumption.
+It reaches the exact energy and original chronological-cost estimates,
+retaining the entire source increment, stage mean and both partitions.
+Three focused checks and independent review passed. The useful joint
+heat-loss/signed-term bound against the surviving filtered norm and justified
+physical scaling remain open. See the
+[checked estimates and remaining input](audits/AUDIT-RHO-FREE-ORIGINAL-CHANNEL-LOSS-PAYMENT-2026-10-04.md).
+
+**Earlier verified limitation of the coarse credit (2026-10-04 UTC):**
 Its improved finite variance credit still decays exponentially with footprint
 size. Lean proves that no changing-nome schedule or fixed polynomial rescaling
 can give THIS coefficient a positive eventual floor. This does not refute an

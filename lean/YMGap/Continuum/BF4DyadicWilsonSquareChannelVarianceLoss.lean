@@ -15,6 +15,8 @@ import YMGap.Continuum.BF4DyadicWilsonSquareCenteredFourthMoment
 import YMGap.Continuum.BF4DyadicWilsonSquarePassiveChannels
 import YMGap.Continuum.SU2QuaternionPassiveChannelSobolevError
 import YMGap.Continuum.CayleyParentInj
+import YMGap.Continuum.RationalSquareLossYoung
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyChannelSquareCredit
 
 namespace YMGap.Continuum.BF4DyadicWilsonSquareChannelVarianceLoss
 
@@ -376,6 +378,196 @@ theorem paddedSquare_channel_variance_loss_bound {w : Q'}
       (Q'.le_of_eqv (Q'.mul_eqv_congr_right _ _ _ hL.symm))
       (Q'.le_trans' _ _ _ (Q'.mul_le_mul_of_nonneg_left _ _ L hcap hln)
         (Q'.le_of_eqv hright))))
+
+/-- Uncentered second moment of the literal loop in the SAME original odd
+marginal, not a raw-source or recentered substitute. -/
+def squareOriginalRawSecondMoment (w : Q') (K width depth scale : Nat)
+    (hwidth : side scale < width) : Q' :=
+  let f := sourceCharacter width (paddedSquare scale width hwidth).edges 1
+  H (N width) (polyMul (marginalWeight w K width depth) (polyMul f f))
+
+private theorem square_fourth_le_four_second (scale width : Nat)
+    (hwidth : side scale < width) (q : RatPoly)
+    (hq : SupportedQuaternionBlocks (N width) q) :
+    let f := sourceCharacter width (paddedSquare scale width hwidth).edges 1
+    H (N width) (polyMul (polyMul q (polyMul f f))
+      (polyMul q (polyMul f f))) ≤
+      4*H (N width) (polyMul (polyMul q f) (polyMul q f)) := by
+  dsimp only
+  let f := sourceCharacter width (paddedSquare scale width hwidth).edges 1
+  let a := polyMul q f
+  let b := polyMul q (polyMul f f)
+  let P := paddedSquareSquareBound scale width hwidth
+  let I : YMGap.Continuum.QuaternionHaarPolynomialInterval.Interval
+      (N width) (polyMul f f) 4 :=
+    ⟨supported_polyMul P.support P.support, P.nonnegative, P.certificate,
+      (Certificate.constant (N width) 4 P.nonnegative).add
+        (Certificate.square f P.support)⟩
+  have hbound := I.weighted_haar_bound
+    (Certificate.square a (supported_polyMul hq P.support))
+  have hrecode : RatPolyCoeffEqv (polyMul b b)
+      (polyMul (polyMul a a) (polyMul f f)) :=
+    coeffEvalExpr_eqv_of_normalize_eq
+      (.mul (.mul (.var 0) (.mul (.var 1) (.var 1)))
+        (.mul (.var 0) (.mul (.var 1) (.var 1))))
+      (.mul (.mul (.mul (.var 0) (.var 1)) (.mul (.var 0) (.var 1)))
+        (.mul (.var 1) (.var 1)))
+      (by decide) (fun | 0 => q | _ => f)
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (haar_of_coeff hrecode))
+    (Q'.le_trans' _ _ _ (Q'.le_abs_self _) hbound)
+
+/-- The actual UNcentered channel moment differs from the original raw
+second moment only through the computed active heat loss. The factor four
+comes from the literal Wilson square certificate, not absolute source bands. -/
+theorem paddedSquare_channel_rawSecond_loss_bound {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K width : Nat) (hK : headCutoff w ≤ K) (depth scale : Nat)
+    (hwidth : side scale < width) :
+    let Q := squareChannelMoment w K scale width hwidth (terminalMessage w K width depth)
+    let U := squareOriginalRawSecondMoment w K width depth scale hwidth
+    (Q-U)*(Q-U) ≤ 4*channelHeatLoss w K width depth scale hwidth*Q := by
+  dsimp only
+  let f := sourceCharacter width (paddedSquare scale width hwidth).edges 1
+  let cs := productChannels (N width) w K (spectatorBlocks scale width hwidth)
+  let b := squareChannelSource w K scale width hwidth (terminalMessage w K width depth)
+  let Q := squareChannelMoment w K scale width hwidth (terminalMessage w K width depth)
+  let U := squareOriginalRawSecondMoment w K width depth scale hwidth
+  let L := channelHeatLoss w K width depth scale hwidth
+  have hf := (paddedSquareSquareBound scale width hwidth).support
+  have hb (c : GramChannel) (hc : c ∈ cs) := squareChannelSource_supported w K scale width
+    hwidth _ (terminalMessage_supported w K width depth) c hc
+  have hs : channelSum cs (fun z => sourceMoment (N width) w K (List.range (N width))
+      (b z) (polyMul f f)) ≈ U :=
+    (oddMoment_eq_square_channels scale width hwidth w K depth (polyMul f f)
+      (supported_polyMul hf hf)
+      (fun i hi => quaternionBlockIndependent_polyMul
+        (paddedSquare_fringe_independent scale width hwidth i hi)
+        (paddedSquare_fringe_independent scale width hwidth i hi))
+      (fun i hi => quaternionBlockIndependent_polyMul
+        (sourceCharacter_spectator_independent_allSpin scale width hwidth i hi 1)
+        (sourceCharacter_spectator_independent_allSpin scale width hwidth i hi 1))).symm
+  have hw := productChannels_nonnegative (N width) (Q'.le_of_lt hw0) K
+    (spectatorBlocks scale width hwidth)
+  have hc := summed_raw_mismatch (N width) hw0 hw1 K hK cs hw b hb
+    (polyMul f f) (supported_polyMul hf hf)
+  have hfour : channelSum cs (fun z => H (N width)
+      (polyMul (polyMul (b z) (polyMul f f)) (polyMul (b z) (polyMul f f)))) ≤
+      channelSum cs (fun z => 4*H (N width)
+        (polyMul (polyMul (b z) f) (polyMul (b z) f))) :=
+    channelSum_le _ _ cs hw (fun c hc =>
+      square_fourth_le_four_second scale width hwidth (b c.2) (hb c hc))
+  have hsecond : channelSum cs (fun z => H (N width)
+      (polyMul (polyMul (b z) f) (polyMul (b z) f))) ≈ Q :=
+    channelSum_congr _ _ cs (fun c _ => haar_of_coeff
+      (coeffEvalExpr_eqv_of_normalize_eq
+        (.mul (.mul (.var 0) (.var 1)) (.mul (.var 0) (.var 1)))
+        (.mul (.mul (.var 0) (.var 0)) (.mul (.var 1) (.var 1)))
+        (by decide) (fun | 0 => b c.2 | _ => f)))
+  have hcap : channelSum cs (fun z => H (N width)
+      (polyMul (polyMul (b z) (polyMul f f)) (polyMul (b z) (polyMul f f)))) ≤ 4*Q :=
+    Q'.le_trans' _ _ _ hfour (Q'.le_of_eqv (Q'.eqv_trans _ _ _
+      (channelSum_smul _ 4 cs) (Q'.mul_eqv_congr_left 4 _ _ hsecond)))
+  have hL := mass_loss_pin w K width depth scale hwidth
+  have hln := paddedSquare_channel_heatLoss_nonnegative hw0 hw1 K width hK depth scale hwidth
+  have hleft := qmul (Q'.add_eqv_congr' (Q'.eqv_refl Q) (Q'.neg_eqv_congr _ _ hs.symm))
+    (Q'.add_eqv_congr' (Q'.eqv_refl Q) (Q'.neg_eqv_congr _ _ hs.symm))
+  have hright : L*(4*Q) ≈ 4*L*Q :=
+    poly_identity_of_normal_eq (.mul (.var 0) (.mul (.const 4) (.var 1)))
+      (.mul (.mul (.const 4) (.var 0)) (.var 1)) (by decide)
+      (fun | 0 => L | _ => Q)
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hleft)
+    (Q'.le_trans' _ _ _ hc (Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (Q'.mul_eqv_congr_right _ _ _ hL.symm))
+      (Q'.le_trans' _ _ _ (Q'.mul_le_mul_of_nonneg_left _ _ L hcap hln)
+        (Q'.le_of_eqv hright))))
+
+attribute [local irreducible] sourceCharacter marginalWeight oddMass oddVariance
+  squareChannelMoment squareOriginalRawSecondMoment channelHeatLoss
+
+/-- Rho-free original raw-second-moment credit, paying the ACTUAL additive
+channel heat loss. No useful relative-loss estimate is assumed. -/
+theorem paddedSquare_rawSecond_le_twice_channelMoment_add_loss {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K width : Nat) (hK : headCutoff w ≤ K) (depth scale : Nat)
+    (hwidth : side scale < width) :
+    squareOriginalRawSecondMoment w K width depth scale hwidth ≤
+      2*squareChannelMoment w K scale width hwidth (terminalMessage w K width depth)+
+        channelHeatLoss w K width depth scale hwidth := by
+  let f := sourceCharacter width (paddedSquare scale width hwidth).edges 1
+  let cs := productChannels (N width) w K (spectatorBlocks scale width hwidth)
+  let b := squareChannelSource w K scale width hwidth (terminalMessage w K width depth)
+  let Q := squareChannelMoment w K scale width hwidth (terminalMessage w K width depth)
+  let U := squareOriginalRawSecondMoment w K width depth scale hwidth
+  let L := channelHeatLoss w K width depth scale hwidth
+  have hf := (paddedSquareSquareBound scale width hwidth).support
+  have hQ : (0 : Q') ≤ Q := by
+    dsimp only [Q]
+    unfold squareChannelMoment
+    apply sum_nonnegative _ cs
+      (productChannels_nonnegative (N width) (Q'.le_of_lt hw0) K _)
+    intro c hc
+    have hb := squareChannelSource_supported w K scale width hwidth _
+      (terminalMessage_supported w K width depth) c hc
+    have hn := (Certificate.square (polyMul (b c.2) f) (supported_polyMul hb hf)).haar_nonnegative
+    exact Q'.le_trans' _ _ _ hn (Q'.le_of_eqv (haar_of_coeff (blocks := N width)
+      (coeffEvalExpr_eqv_of_normalize_eq
+        (.mul (.mul (.var 0) (.var 1)) (.mul (.var 0) (.var 1)))
+        (.mul (.mul (.var 0) (.var 0)) (.mul (.var 1) (.var 1)))
+        (by decide) (fun | 0 => b c.2 | _ => f))))
+  have hL := paddedSquare_channel_heatLoss_nonnegative hw0 hw1 K width hK depth scale hwidth
+  have hsq : (U-Q)*(U-Q) ≤ 4*(Q*L) :=
+    Q'.le_trans' _ _ _ (Q'.le_of_eqv (poly_identity_of_normal_eq
+      (.mul (.add (.var 0) (.neg (.var 1))) (.add (.var 0) (.neg (.var 1))))
+      (.mul (.add (.var 1) (.neg (.var 0))) (.add (.var 1) (.neg (.var 0))))
+      (by decide) (fun | 0 => U | _ => Q)))
+      (Q'.le_trans' _ _ _
+        (paddedSquare_channel_rawSecond_loss_bound hw0 hw1 K width hK depth scale hwidth)
+        (Q'.le_of_eqv (poly_identity_of_normal_eq
+          (.mul (.mul (.const 4) (.var 0)) (.var 1))
+          (.mul (.const 4) (.mul (.var 1) (.var 0)))
+          (by decide) (fun | 0 => L | _ => Q))))
+  have h := Q'.add_le_add_right _ _ Q
+    (YMGap.Continuum.RationalSquareLossYoung.le_add_of_square_le_four_mul (U-Q) Q L hQ hL hsq)
+  exact Q'.le_trans' _ _ _ (Q'.ge_of_eqv (poly_identity_of_normal_eq
+    (.add (.add (.var 0) (.neg (.var 1))) (.var 1)) (.var 0)
+    (by decide) (fun | 0 => U | _ => Q)))
+    (Q'.le_trans' _ _ _ h (Q'.le_of_eqv (poly_identity_of_normal_eq
+      (.add (.add (.var 0) (.var 1)) (.var 0))
+      (.add (.mul (.const 2) (.var 0)) (.var 1))
+      (by decide) (fun | 0 => Q | _ => L))))
+
+/-- SAME endpoint OWN variance is paid with coefficient one half and the
+computed additive heat loss, without the exponentially small absolute-band
+credit. Endpoint OWN variance is not the chronological filtered-start norm. -/
+theorem paddedSquare_oddVariance_le_twice_channelMoment_add_loss {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K width : Nat) (hK : headCutoff w ≤ K) (depth scale : Nat)
+    (hwidth : side scale < width) :
+    let f := sourceCharacter width (paddedSquare scale width hwidth).edges 1
+    oddMass w K width depth*oddVariance hw0 hw1 K width hK depth f ≤
+      2*squareChannelMoment w K scale width hwidth (terminalMessage w K width depth)+
+        channelHeatLoss w K width depth scale hwidth := by
+  dsimp only
+  let f := sourceCharacter width (paddedSquare scale width hwidth).edges 1
+  have hf := (paddedSquareSquareBound scale width hwidth).support
+  have hpin := oddMoment_projected_source w K width depth (polyMul f f)
+    (supported_polyMul hf hf)
+    (fun i hi => quaternionBlockIndependent_polyMul
+      (paddedSquare_fringe_independent scale width hwidth i hi)
+      (paddedSquare_fringe_independent scale width hwidth i hi))
+  have hupper := paddedSquare_rawSecond_le_twice_channelMoment_add_loss
+    hw0 hw1 K width hK depth scale hwidth
+  unfold squareOriginalRawSecondMoment at hupper
+  exact Q'.le_trans' _ _ _
+    (YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyChannelSquareCredit.original_variance_le_projected_square
+      hw0 hw1 K width hK depth f hf (paddedSquare_fringe_independent scale width hwidth))
+    (Q'.le_trans' _ _ _ (Q'.ge_of_eqv hpin)
+      hupper)
+
+#print axioms squareOriginalRawSecondMoment
+#print axioms paddedSquare_channel_rawSecond_loss_bound
+#print axioms paddedSquare_rawSecond_le_twice_channelMoment_add_loss
+#print axioms paddedSquare_oddVariance_le_twice_channelMoment_add_loss
 
 #print axioms centeredChannelSquare
 #print axioms channelHeatLoss
