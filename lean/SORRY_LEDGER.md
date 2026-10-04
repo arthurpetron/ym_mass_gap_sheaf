@@ -1,5 +1,21 @@
 # Sorry Ledger
 
+## PROVED original local angular cancellation only (2026-10-04 UTC)
+
+`BF4ExactSlabFixedSpatialAdjacentAngularCancellation.original_adjacent_angular_difference`
+proves Gamma_shared(f+g)+(f-g)^2=4*(2-chi(H+*H-^-1)) for actual neighboring
+spatial faces at every width>=2. The SAME original odd marginal supplies
+the positive-weight bound; no shared-link/action independence is assumed.
+Two final focused checks passed 18 permitted gates; independent review
+passed. Evidence: `audits/AUDIT-ORIGINAL-ADJACENT-ANGULAR-CANCELLATION-2026-10-04.md`.
+OPEN: whole-family cross-group control, full-action holonomy-difference
+moments plus BOTH signed Taylor/Ward/weight terms versus SAME surviving
+variance on a justified scaling family, nonzero continuum survival,
+physical calibration, canonical OS/full QFT, every group and Clay. This
+is one shared-link contribution, not a global angular or physical gap.
+No new sorry, axiom, analytic field, weakened frontier, CI/resource change
+or chart closure. Root registration only; no full/root build/audit/guard.
+
 ## PROVED finite antipodal kinetic data only (2026-10-04 UTC)
 
 `SU2QuaternionAntipodalHeat.antipodalHeat` constructs the actual sign average

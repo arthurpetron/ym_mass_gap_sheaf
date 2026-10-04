@@ -27,6 +27,23 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-04 UTC)
 
+NOW CHECKED ORIGINAL SHARED-LINK CANCELLATION:
+FORWARD, actual neighboring p01 faces at every width>=2, their ORIGINAL
+link indices and independent unit tails prove
+Gamma_shared(f+g)+(f-g)^2=4*(2-chi(H+*H-^-1)). EVERY full Haar weight is
+retained; the actual odd marginal supplies its positivity certificate.
+The holonomy-difference word contains the shared link twice, not the
+eliminated outer rectangle. BACKWARD, this gives a concrete local signed
+interference input for the family angular/Ward cost. It does NOT bound
+the whole family or the complete signed correction versus SAME variance.
+Two final focused checks passed 18 permitted gates; independent review
+passed. Evidence: `audits/AUDIT-ORIGINAL-ADJACENT-ANGULAR-CANCELLATION-2026-10-04.md`.
+NEXT: retain cross-group terms in actual smeared-family grouping and seek
+the full-action holonomy-difference plus BOTH Taylor/Ward corrections
+against SAME surviving variance on a JUSTIFIED changing family. No new
+assumed-budget wrapper. Physical/OS/QFT/continuum/every-group/Clay remain
+OPEN; exact chart claims unchanged, no chart or paper-list reprint.
+
 PARALLEL GLOBAL-FORM STEP, CHECKED FINITE ANTIPODAL HEAT:
 BACKWARD, the global-form branch needs actual Haar/action-compatible kinetic
 data, not group codes alone. FORWARD, center-average the literal relative

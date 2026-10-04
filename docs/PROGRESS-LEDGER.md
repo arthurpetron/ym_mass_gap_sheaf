@@ -4,7 +4,22 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: nontrivial finite antipodal heat (2026-10-04 UTC)
+## Current increment: ORIGINAL local interference bound (2026-10-04 UTC)
+
+PROGRESS after `118da46`: actual neighboring spatial plaquettes at all
+width>=2 construct the SAME shared-link cancellation identity and original
+odd-marginal upper bound. The retained holonomy difference pays coherent
+interference instead of separate face deficits; the discarded remainder
+is an actual supported square. Two final focused checks passed 18 permitted
+gates; independent review passed. NEXT: actual family grouping with its
+cross-group terms, and full-action difference moments plus BOTH signed
+Taylor/Ward/weight corrections against SAME surviving variance on a
+justified changing family. No family/global/physical gap or continuum
+closure. Evidence: `audits/AUDIT-ORIGINAL-ADJACENT-ANGULAR-CANCELLATION-2026-10-04.md`.
+Root registration only; no full/root build/audit/guard/broad metrics.
+Canonical chart atoms unchanged; no ASCII/paper-list reprint.
+
+## Earlier increment: nontrivial finite antipodal heat (2026-10-04 UTC)
 
 PROGRESS after `aaf628e`: construct an actual sign-quotient-compatible finite
 kinetic packet, its BOTH normalized original Haar marginals and guarded

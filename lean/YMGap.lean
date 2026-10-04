@@ -4389,6 +4389,7 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicGeometricRangeContinuity
 import YMGap.Continuum.BF4ExactSlabThermodynamicInteriorTimePreimage
 import YMGap.Continuum.SU2QuaternionHeadLinearHaar
 import YMGap.Continuum.SU2QuaternionAdjacentPlaquetteGluing
+import YMGap.Continuum.SU2QuaternionAdjacentAngularCancellation
 import YMGap.Continuum.SU2PlaquetteCharacterNonseparation
 import YMGap.Continuum.SU2QuaternionQuadraticHeatTransmission
 import YMGap.Continuum.SU2QuaternionQuadraticHeatProduct
@@ -5061,6 +5062,8 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonMeanQuartic
 import YMGap.Continuum.QuaternionHaarLocalAngularFamily
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyIncidence
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyLocalAngular
+-- Local original shared-link interference; not a full-family/scaling estimate.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialAdjacentAngularCancellation
 -- Actual whole-family angular/SAME-variance bound from local score certificates.
 -- The original temporal-energy consumer still retains the COMPLETE signed remainder.
 import YMGap.Continuum.QuaternionHaarLocalRelativeWard

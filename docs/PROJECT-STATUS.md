@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL adjacent angular cancellation (2026-10-04 UTC;
+chart unchanged): actual neighboring faces at width>=2 prove
+Gamma_shared(f+g)+(f-g)^2=4*(2-chi(H+*H-^-1)) under EVERY full Haar weight,
+including the unchanged original odd marginal. No shared action factor is
+removed. Two focused checks passed 18 permitted gates; independent review
+passed. Whole-family control, full signed correction versus SAME surviving
+variance and physical/continuum/Clay remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-ADJACENT-ANGULAR-CANCELLATION-2026-10-04.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting finite antipodal kinetic data (2026-10-04 UTC; chart
 unchanged): original-Haar sign averaging constructs independent endpoint
 invariance, BOTH normalized marginals and a computed positive floor,
