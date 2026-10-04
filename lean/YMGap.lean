@@ -7153,6 +7153,14 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepRatioNoise
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepErrorBudget
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepRatioRefinement
 
+-- Actual last innovation retained beside the SAME source's variance loss.
+-- Linear terminal comparison and computed reconstruction; original projected
+-- weight paid explicitly. No small loss rate or changing-family closure.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepNoiseDissipation
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepReconstructionNorm
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepProjectedNoise
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepOriginalDissipation
+
 -- Actual terminal-depth drift payment versus the SAME surviving norm.
 -- Fixed nome/width moduli only; signed bulk/changing-family estimate is open.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalDrift

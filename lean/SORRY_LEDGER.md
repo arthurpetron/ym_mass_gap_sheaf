@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## PROVED original last-step variance dissipation only (2026-10-04 UTC)
+
+`BF4ExactSlabFixedSpatialLastStepNoiseDissipation.lastStepNoise_dissipation_cleared`
+retains the actual last innovation and outgoing approximate-source square
+with LINEAR terminal factor 1+comparisonEta. The actual incoming reciprocal
+bounds its input square by the SAME original ell(c^2), without an excitation
+inverse. `LastStepReconstructionNorm.incomingRatioError_transferred_square_le`
+pays the original T reconstruction error by rho^(2k)*stepCap^2*ell(c^2),
+with coefficient independent of cutoff/depth/source at fixed nome/width.
+`LastStepOriginalDissipation.original_lastStep_noise_variance_loss_le`
+joins ACTUAL b=T c and retains positive last innovation on the left.
+`LastStepProjectedNoise.lastStepRatioNoise_projected_weight_le` constructs
+the actual Vbar^2-to-V insertion comparison; its projected consumer preserves
+the distinct original partitions. Four focused checks passed fifteen permitted
+gates without accepted warnings; independent mathematical review passed.
+Evidence: `audits/AUDIT-ORIGINAL-LAST-STEP-VARIANCE-DISSIPATION-2026-10-04.md`.
+No new sorry, axiom, assumed analytic input, weakened frontier, CI or chart
+change. Root registration only; no root/aggregate audit. OPEN: small SAME-
+surviving-norm signed noise-plus-Taylor cost on a JUSTIFIED family, or the
+alternative original initial-energy estimate. Large loss can pay large noise;
+Zo=ell((Ta)^2) is not outgoing Rayleigh Z1. Survival/physical/OS/continuum/
+QFT/every compact simple group/Clay remain OPEN; no chart atom is closed.
+
 ## PROVED original incoming-ratio noise and geometric score reconstruction only (2026-10-03 UTC)
 
 `BF4ExactSlabFixedSpatialLastStepRatioNoise.lastStepRatioNoise_score_certificate`

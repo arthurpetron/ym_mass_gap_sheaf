@@ -4,7 +4,28 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: exact-ground generic shortcut refuted (2026-10-03 UTC)
+## Current increment: ORIGINAL retained last-innovation dissipation (2026-10-04 UTC)
+
+PROGRESS after `8513911`: the actual last-step conditional innovation is
+retained on the LEFT of a same-source variance-loss inequality, with a
+LINEAR near-unit terminal factor. This strengthens the older norm-only
+upper comparison. The original incoming reciprocal and a constructed
+weighted Schur cap pay T(e_k) in the SAME original input norm, without
+source-norm inversion or an assumed error estimate. The projected-noise
+leg constructs its actual fringe/certificate comparison; it does not
+identify Vbar^2 with V. Both chronological partitions remain distinct.
+Four focused checks passed fifteen permitted gates; independent review
+passed. NEXT: exploit actual norm-loss currency together with BOTH signed
+Taylor terms on a JUSTIFIED changing family, or the original initial-energy
+alternative. A large loss can still pay large innovation. No useful small
+loss rate or physical survival is claimed. Physical/OS/continuum/QFT/
+every-group/Clay remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-LAST-STEP-VARIANCE-DISSIPATION-2026-10-04.md`.
+
+No broad progress-metric/guard run or full build/audit is claimed. Exact
+canonical chart atoms unchanged; no chart reprint.
+
+## Earlier increment: exact-ground generic shortcut refuted (2026-10-03 UTC)
 
 PRUNING after `db1b56d`: near-identity positive heat, bounded positive action
 and an EXACT constructed positive interacting ground pin do NOT yield

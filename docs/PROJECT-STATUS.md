@@ -1,5 +1,19 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL last-step variance dissipation (2026-10-04
+UTC; chart unchanged): actual terminal brackets give a LINEAR near-unit
+bound on noise PLUS the transmitted square. The incoming reciprocal and
+constructed original weighted Schur estimate join the ACTUAL b=T c with a
+source/cutoff/depth-independent reconstruction coefficient at fixed nome/
+width. The literal projected noise is compared through spatialCeiling,
+not Vbar^2=V. Four focused checks passed fifteen permitted gates, with
+independent review. This supplies actual norm-loss currency, not a small
+loss rate: useful signed noise-plus-BOTH-remainders control on a JUSTIFIED
+changing family remains OPEN. Chronological Zo is not outgoing Rayleigh Z1.
+Survival/physical/OS/continuum/QFT/every-group/Clay remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-LAST-STEP-VARIANCE-DISSIPATION-2026-10-04.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting ORIGINAL incoming-ratio conditional noise (2026-10-03
 UTC; chart unchanged): the actual incoming finite reciprocal reconstructs
 the original transmitted source with a geometric polynomial error certificate.

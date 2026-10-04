@@ -5,7 +5,7 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
-## Whole-project goal and live completion map (updated 2026-10-03 UTC)
+## Whole-project goal and live completion map (updated 2026-10-04 UTC)
 
 The unchanged mathematical target is: for each compact simple gauge group G,
 construct a nontrivial quantum Yang--Mills theory on R^4 satisfying the QFT
@@ -25,7 +25,33 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
+### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-04 UTC)
+
+NOW CHECKED ORIGINAL LAST-INNOVATION VARIANCE DISSIPATION:
+FORWARD, actual gap-two terminal brackets and weighted symmetry give
+Zi*[ell(N_phi)+ell(T(a*phi)^2)] <= (1+eta)*Zo*ell((a*phi)^2),
+with LINEAR eta=comparisonEta(w,width,d-1), Zi=ell(a^2), Zo=ell((Ta)^2).
+The ACTUAL incoming reciprocal's multiplier certificate bounds the last
+input square by ell(c^2), keeping the SAME c=T^r(g_n*psi) and center.
+BACKWARD, the complete original step constructs the weighted Schur cap;
+the actual incoming residual satisfies ell((T e_k)^2)<=rho^(2k)*stepCap^2*
+ell(c^2), with coefficient independent of cutoff/depth/source. Asymmetric
+Young joins the ACTUAL outgoing b=T c to the retained positive innovation.
+The literal projected weight is paid by a constructed certificate/fringe
+comparison H[Vbar^2*N]<=spatialCeiling*ell(N), NOT Vbar^2=V.
+Four focused checks passed fifteen permitted gates; independent review
+passed. Evidence:
+`audits/AUDIT-ORIGINAL-LAST-STEP-VARIANCE-DISSIPATION-2026-10-04.md`.
+REPOINT: the incoming-noise leg now has actual norm-loss currency, stronger
+than the older upper-norm-only comparison. Seek a useful ORIGINAL signed
+noise-plus-BOTH-Taylor-terms bound against the SAME surviving norm/partition
+on a JUSTIFIED changing family, OR the primary initial-energy alternative.
+A large norm decrement can still pay large innovation. Zo is NOT outgoing
+Rayleigh Z1=ell((Ta)*T(Ta)); retain partition and spatial-ceiling costs.
+Do not substitute a noise envelope into an exact cancellation without
+paying its extra slack, or extend another assumed-budget/modulus wrapper.
+No small loss rate or scaling-uniform constant is proved. Survival/physical/
+OS/continuum/QFT/every-group/Clay remain OPEN; chart atoms unchanged.
 
 NOW CHECKED ORIGINAL INCOMING-RATIO CONDITIONAL NOISE:
 FORWARD, a=g_(n+r), c=T^r(g_n*psi), and the ACTUAL incoming finite ratio
