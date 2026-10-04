@@ -7208,6 +7208,10 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepAsymmetricEnergy
 -- overlap do not guarantee selected-response survival. NOT a BF4/YM instance.
 import YMGap.Continuum.RationalTwoModeSurvivalObstruction
 
+-- A constructed macro ratio need not satisfy the initial-energy budget.
+-- Equal-weight positive scalar modes only; NOT an original BF4 instance.
+import YMGap.Continuum.RationalMacroRetentionWithoutInitialEnergy
+
 -- Fringe-integrate the COMPLETE incoming derivative before squaring;
 -- exact weighted residual removal and a smaller ORIGINAL signed cost.
 -- Active conditional variance and useful changing-family control remain OPEN.

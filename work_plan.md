@@ -27,6 +27,29 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-04 UTC)
 
+PRIORITY UPDATE, CHECKED STRICT ROUTE SEPARATION (2026-10-04 UTC):
+equal-weight positive rational modes construct a fixed macro retention 1/8
+at horizon s=n+1, while their initial loss is >=1/4. For s>=5 NO covering
+initial coefficient c meets s*c<=1. One focused check passed ten permitted
+gates; independent mathematical/source review passed. This is NOT BF4 or a
+physical counterexample. Evidence:
+`audits/AUDIT-MACRO-RETENTION-VERSUS-INITIAL-ENERGY-2026-10-04.md`.
+NEXT ANALYTIC PRIORITY: work FORWARD from the ORIGINAL prediction-energy
+bridge and exact score, BACKWARD from `WindowSignedCost.original_window_budget_macro_ratio`.
+Produce the complete aggregate signed-window bound against SAME surviving
+variance on a JUSTIFIED changing family, keeping BOTH signed Taylor terms,
+each lag's DISTINCT Z0,Z1 and the COMMON stage OWN center. Initial-energy
+control is a sufficient ALTERNATIVE, not a necessary survival demand; this
+priority supersedes earlier wording calling it primary. Keep it available
+if an actual source-specific favorable estimate is found. Do not add more
+generic retention/counterexample wrappers, reopen the already-proved local
+fusion/product-Poincare branches, or mistake second-derivative source energy
+for OWN variance. The original OWN Ward correction is separate from the
+q^2-to-q*P(q) Taylor weight defect. No BF4 aggregate bound or physical
+nome/side schedule has been supplied, no frontier statement has changed,
+and no exact canonical chart status changes. The continuum/Clay target
+remains OPEN; no unchanged chart or paper-list reprint.
+
 NOW CHECKED ORIGINAL PREDICTION-ENERGY BRIDGE:
 FORWARD, the COMPLETE K*V*a conditional square constructs R>=0 with
 A*R=N+(T(a*phi)-A*phi)^2 and ell(a*R)=2*ORIGINAL energy(a,phi).

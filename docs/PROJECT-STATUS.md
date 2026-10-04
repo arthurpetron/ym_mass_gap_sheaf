@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting route separation (2026-10-04 UTC; chart unchanged):
+equal-weight positive rational modes have fixed macro retention 1/8 but
+initial loss >=1/4; horizons >=5 exclude the unit initial-energy budget.
+One focused check passed ten permitted gates; independent review passed.
+This is NOT BF4. Prioritize the ORIGINAL aggregate signed-window producer
+from the actual prediction-energy/score bridge, keeping initial-energy
+control as a sufficient alternative, not a necessary requirement. Both
+signed Taylor terms, distinct lag partitions and common OWN center remain.
+No original aggregate estimate, justified scaling, survival/physical/OS/
+continuum/QFT/every-group/Clay closure is supplied. Evidence:
+`audits/AUDIT-MACRO-RETENTION-VERSUS-INITIAL-ENERGY-2026-10-04.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting ORIGINAL prediction-energy bridge (2026-10-04 UTC;
 chart unchanged): the complete original conditional square proves
 A*R=N+predictionError^2 and ell(a*R)=2*original energy. The actual terminal

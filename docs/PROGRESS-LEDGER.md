@@ -4,7 +4,24 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL prediction-energy bridge (2026-10-04 UTC)
+## Current increment: macro retention does not require small initial energy (2026-10-04 UTC)
+
+PRUNING after `64f129a`: a constructed equal-weight positive two-mode family
+has fixed macro retention 1/8, but initial loss >=1/4; horizons >=5 exclude
+every coefficient satisfying the unit initial-energy budget. This is NOT
+BF4/YM and does not supply the original aggregate bound. One focused check
+passed ten permitted gates; independent review passed. The necessary macro
+response demand must not be replaced by an unnecessarily strong INITIAL
+energy requirement. NEXT priority: ORIGINAL aggregate signed-window control,
+forward from the actual energy-paid conditional innovation/exact score and
+backward from the existing window consumer; keep the initial-energy route
+as an alternative. No further assumed-budget/counterexample wrappers.
+Both Taylor terms, chronological partitions and SAME stage OWN center remain.
+Survival/physical/OS/continuum/QFT/every-group/Clay remain OPEN. Evidence:
+`audits/AUDIT-MACRO-RETENTION-VERSUS-INITIAL-ENERGY-2026-10-04.md`.
+No broad metrics/guard or full build/audit. Exact chart atoms unchanged.
+
+## Earlier increment: ORIGINAL prediction-energy bridge (2026-10-04 UTC)
 
 PROGRESS after `ba16d57`: the actual positive conditional prediction square
 pays last-step noise by SAME incoming Dirichlet energy without an extra

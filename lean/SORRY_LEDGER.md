@@ -1,5 +1,23 @@
 # Sorry Ledger
 
+## PROVED rational route separation only (2026-10-04 UTC)
+
+`RationalMacroRetentionWithoutInitialEnergy.response_macro_retention`
+constructs C(2s)>=(1/8)*C(s) for equal-weight positive scalar modes, s=n+1.
+`initial_loss_lower` gives loss>=1/4, and `initial_budget_incompatible`
+excludes s*c<=1 for EVERY coefficient covering the initial loss when s>=5.
+No desired retention premise. One focused check passed ten permitted gates;
+independent mathematical/source review passed. Root registration only,
+no full/root audit. This is NOT an original BF4 state/action or a physical
+counterexample. Execution now prioritizes the ORIGINAL aggregate signed-window
+producer; the single-reference initial-energy sufficient route remains an
+alternative, not a necessary requirement. No frontier statement or field
+is changed. OPEN: useful actual aggregate signed cost against SAME surviving
+variance on a JUSTIFIED changing family, BOTH Taylor terms, chronological
+partitions, survival/physical/OS/continuum/QFT/every-group/Clay. No new sorry,
+axiom, assumed analytic input, CI/resource change or canonical chart closure.
+Evidence: `audits/AUDIT-MACRO-RETENTION-VERSUS-INITIAL-ENERGY-2026-10-04.md`.
+
 ## PROVED original prediction-energy/noise bridge only (2026-10-04 UTC)
 
 `BF4ExactSlabFixedSpatialLastStepPredictionEnergy.lastStepPredictionResidual_certificate`
