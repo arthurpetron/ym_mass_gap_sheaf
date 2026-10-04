@@ -1,5 +1,34 @@
 # Sorry Ledger
 
+## PROVED exact companion / observed-loss split only; no coercivity (2026-10-04 UTC)
+
+`SU2QuaternionProductHeatSourceCompanion.increment_add_companion_pin`,
+`eight_sourceMoment_add_increment_companion_pin`,
+`companion_add_capDeficit_heatLoss_pin` and
+`capDeficit_eq_increment_observedLoss_pin` retain SAME signed-source heat
+and prove I+J=4C, 8U+I+J=4(Q+R), J+D=32L and D=I+4O. Positivity
+uses actual certified heat/cap-four inputs, not a variance hypothesis.
+`BF4DyadicWilsonSquareCompanionDeficit` constructs the literal original
+channel J/D/O and specializes all pins, including
+`paddedSquare_energy_companion_capDeficit_pin`. The actual normalized and
+chronological/OWN Ward consumers in `BF4DyadicWilsonSquareCompanionPayment`
+retain BOTH partitions, stage OWN center and COMPLETE Signed. Its
+`originalOwnBlockCost_observedLoss_quadratic_ward_boundary_paid` cancels the
+matching half-increment instead of counting it twice. Remaining quantities
+include 2*per*k*O/Z, signed Ward, endpoint OWN variance and 144*per*h^2*(M/Z).
+No sign of k is needed for the new algebraic bounds; favorable-credit
+interpretations still require k>=0. Three final focused targets passed 22
+permitted gates; independent reviews passed. Expanding O/Ward returns the
+original energy identity, NOT independent cost-versus-variance control.
+Evidence: `audits/AUDIT-ORIGINAL-COMPANION-OBSERVED-LOSS-2026-10-04.md`.
+OPEN: independent original-action channel-cap-deficit / interacting-variance
+comparison or signed chronological cancellation against SAME surviving
+filtered norm on justified changing family; scaling/survival/physical/OS/
+full QFT/continuum/every-group/Clay. Stop identity-only consumers. No new
+sorry/axiom/analytic budget, weakened frontier, raised resources or CI change.
+Supporting A03 only, no chart closure. Root registration ONLY; no full/root
+build, broad audit, guard or metrics run.
+
 ## PROVED quadratic scalar cancellation / SAME original Ward join only (2026-10-04 UTC)
 
 `SU2HeatExactSquareCreditWindow.exactSquareCredit_massResidual_nonnegative`

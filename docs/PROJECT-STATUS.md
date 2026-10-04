@@ -1,5 +1,20 @@
 # Canonical one-page project status
 
+Verified supporting EXACT companion / observed-loss split (2026-10-04 UTC;
+chart unchanged): SAME source heat gives 8U+I+J=4(Q+R), J+D=32L and
+D=I+4O. Actual original channels and chronological/OWN Ward consumers
+retain COMPLETE Signed, BOTH partitions and stage OWN center. Matching
+half-increment cancels, leaving 2per*k*O/Z and the quadratic scalar ceiling
+144per*h^2*(M/Z). Three final focused targets passed 22 permitted gates;
+independent reviews passed. Expanding O/Ward returns the original cost
+identity: NO new coercive cost-versus-variance estimate is supplied.
+NEXT independent original-action channel/variance comparison or signed
+chronological cancellation against SAME surviving filtered norm on justified
+changing family; stop identity-only consumers. Scaling/survival/physical/
+OS/full QFT/continuum/every-group/Clay remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-COMPANION-OBSERVED-LOSS-2026-10-04.md`.
+Supporting A03 only; no exact displayed claim changes, no ASCII reprint.
+
 Verified supporting QUADRATIC original heat/Ward join (2026-10-04 UTC;
 chart unchanged): exact factorizations give 0<=ad-4k<=36h^2, and SAME
 original raw deficit pins to per*(4-U/Z)=Angular. Joint energy retains

@@ -5136,6 +5136,9 @@ import YMGap.Continuum.BF4WilsonAllNomeChronologicalExactChannelCost
 -- Exact original heat/Ward join: scalar residue quadratic, actual signed debts unpaid.
 -- SAME filtered-start/scaling/physical/continuum comparison remains OPEN.
 import YMGap.Continuum.BF4DyadicWilsonSquareJointQuadraticDebt
+-- Retained source companion and literal observed loss; independent SAME
+-- filtered-variance control is still OPEN. Registration is not root verification.
+import YMGap.Continuum.BF4DyadicWilsonSquareCompanionPayment
 
 -- THIS coarse credit collapses under every fixed polynomial footprint
 -- rescaling, regardless of nome choice; actual YM ratios/gaps are not refuted.

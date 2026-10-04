@@ -10,7 +10,19 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Verified original heat/Ward cancellation (2026-10-04 UTC):**
+**Verified exact companion / observed-loss split (2026-10-04 UTC):**
+The original channel heat retains its discarded positive companion square.
+Its computed cap deficit is exactly the full increment plus an
+observable-weighted source loss. This reaches the actual chronological/OWN
+Ward consumer without double-counting increment credit. Three focused
+checks passed; independent reviews confirm this is exact cancellation,
+**not a new coercive variance estimate**: expanding the remainder recovers
+the original energy identity. The plan now prioritizes independent
+original-action cost-versus-variance control, not more identity-only
+wrappers. Scaling and the Clay target remain open. See the
+[checked identities and repointed frontier](audits/AUDIT-ORIGINAL-COMPANION-OBSERVED-LOSS-2026-10-04.md).
+
+**Earlier verified original heat/Ward cancellation (2026-10-04 UTC):**
 The joint heat estimate's source-independent scalar residue now vanishes
 quadratically. The actual Wilson-square deficit is pinned to the SAME
 original angular energy, connecting the heat and Ward branches. The

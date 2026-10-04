@@ -27,7 +27,26 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-04 UTC)
 
-NOW CHECKED QUADRATIC SCALAR CANCELLATION / SAME ORIGINAL WARD JOIN:
+NOW CHECKED EXACT COMPANION / OBSERVED LOSS; NO NEW COERCIVITY:
+The SAME source heat retains J and proves 8U+I+J=4(Q+R), J+D=32L,
+D=I+4O. ACTUAL original channels yield exact raw energy cancellation;
+the chronological/OWN Ward consumers preserve stage OWN center, BOTH
+partitions and COMPLETE Signed. Matching half-increment cancels explicitly:
+remaining costs include 2*per*k*O/Z and 144*per*h^2*(M/Z), not a free extra
+increment credit or scalar ceiling independent of source mass. Three final
+focused targets passed 22 permitted gates; frozen independent reviews passed.
+The backward review expands O/Ward and recovers the original energy identity;
+the scalar ceiling adds slack, not a relative variance bound. NEXT: prove
+INDEPENDENT original-action channel-cap-deficit versus interacting-variance
+control, or complete signed chronological cancellation reaching SAME
+surviving filtered-start norm on a justified changing family. Do NOT extend
+identity-only consumers or count this algebra as coercivity. No such bound
+has been proved from the inspected Ward or terminal recurrence APIs.
+Scaling/survival/physical/OS/full QFT/continuum/every-group/Clay remain OPEN.
+Evidence: `audits/AUDIT-ORIGINAL-COMPANION-OBSERVED-LOSS-2026-10-04.md`.
+Supporting A03 only; exact chart claims unchanged, no ASCII/paper-list reprint.
+
+EARLIER CHECKED QUADRATIC SCALAR CANCELLATION / SAME ORIGINAL WARD JOIN:
 For every strict nome/side, 0<=ad-4k<=36*(1-w^(4*side))^2 by exact
 polynomial factorizations, no Taylor debt. The actual original raw deficit
 obeys per*(4-U/Z)=normalizedAngular, per=4*side. The preceding joint heat
