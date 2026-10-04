@@ -10,7 +10,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Verified joint raw-moment and full-increment payment (2026-10-04 UTC):**
+**Verified original heat/Ward cancellation (2026-10-04 UTC):**
+The joint heat estimate's source-independent scalar residue now vanishes
+quadratically. The actual Wilson-square deficit is pinned to the SAME
+original angular energy, connecting the heat and Ward branches. The
+chronological bound preserves the full increment and signed loss-minus-Ward
+combination; only boundary drift is paid. Two final focused checks and
+independent reviews passed. Joint control against the surviving filtered
+norm and justified physical scaling remain open. See the
+[proof and revised analytic frontier](audits/AUDIT-JOINT-QUADRATIC-ORIGINAL-WARD-PAYMENT-2026-10-04.md).
+
+**Earlier verified joint raw-moment and full-increment payment (2026-10-04 UTC):**
 The original positive heat now bounds the raw second moment and entire
 source increment together. Exact Wilson heat identities cancel the channel
 moment, retaining an extra nonnegative increment credit. This reaches the

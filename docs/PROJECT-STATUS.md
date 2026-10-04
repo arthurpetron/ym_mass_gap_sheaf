@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting QUADRATIC original heat/Ward join (2026-10-04 UTC;
+chart unchanged): exact factorizations give 0<=ad-4k<=36h^2, and SAME
+original raw deficit pins to per*(4-U/Z)=Angular. Joint energy retains
+whole increment/extra credit with RHS144per*h^2+4per*ad*L/Z+4k*Angular.
+Actual chronological and full OWN Ward consumers preserve stage center,
+BOTH partitions and COMPLETE Signed, exposing signed per*ad*L/Z-k*Ward.
+Two final focused targets passed six NEW permitted gates; frozen reviews
+passed. Actual joint signed/window versus SAME surviving filtered norm,
+justified scaling/survival/physical/OS/full QFT/continuum/every-group/Clay
+remain OPEN. Evidence:
+`audits/AUDIT-JOINT-QUADRATIC-ORIGINAL-WARD-PAYMENT-2026-10-04.md`.
+Supporting A03 only; no exact displayed claim changes, no ASCII reprint.
+
 Verified supporting JOINT raw-moment / whole-increment payment
 (2026-10-04 UTC; chart unchanged): SAME positive heat gives 8U+I<=4(Q+R).
 Exact literal square images and original cost cancel Q, retaining

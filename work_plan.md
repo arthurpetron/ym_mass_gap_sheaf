@@ -27,7 +27,26 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-04 UTC)
 
-NOW CHECKED JOINT ORIGINAL RAW-MOMENT / WHOLE-INCREMENT PAYMENT:
+NOW CHECKED QUADRATIC SCALAR CANCELLATION / SAME ORIGINAL WARD JOIN:
+For every strict nome/side, 0<=ad-4k<=36*(1-w^(4*side))^2 by exact
+polynomial factorizations, no Taylor debt. The actual original raw deficit
+obeys per*(4-U/Z)=normalizedAngular, per=4*side. The preceding joint heat
+payment now gives per*[Aheat(4E+I/Z)+(k/2)I/Z]<=144per*h^2+4per*ad*L/Z+
+4k*Angular. BOTH actual heat loss and original angular cost remain unpaid.
+The actual chronological consumer pays ONLY drift, preserving stage OWN
+center/BOTH partitions/COMPLETE Signed. Full normalized OWN Ward substitution
+gives the SIGNED residue per*ad*L/Z-k*Ward_norm and endpoint OWN variance,
+not filtered-start variance. Two final focused targets passed six NEW gates;
+independent frozen reviews passed. NEXT: actual joint loss-minus-Ward and
+chronological signed control versus SAME surviving filtered-start norm on a
+justified changing family, retaining favorable whole increment. Do not use
+a coarse absolute Ward/angle ceiling or assume a macro budget. Scalar h
+depends on nome/side; no useful scaling or physical rate is supplied.
+Survival/physical/OS/full QFT/continuum/every-group/Clay stay OPEN. Evidence:
+`audits/AUDIT-JOINT-QUADRATIC-ORIGINAL-WARD-PAYMENT-2026-10-04.md`.
+Supporting A03 only; exact chart claims unchanged, no ASCII/paper-list reprint.
+
+EARLIER CHECKED JOINT ORIGINAL RAW-MOMENT / WHOLE-INCREMENT PAYMENT:
 Positive SAME two-copy heat and symmetry prove 8U+I<=4(Q+R) for signed
 source/observable. Exact literal F^2 heat and original channels give
 8U+I<=4[(1+beta)Q+dM]. Together with 4E+I=2(dM-kQ), this cancels Q:

@@ -5133,6 +5133,9 @@ import YMGap.Continuum.BF4DyadicWilsonSquareExactVariancePayment
 -- Exact payment in the ORIGINAL chronological cost, preserving its stage
 -- center and BOTH partitions. Joint filtered-norm/scaling control stays open.
 import YMGap.Continuum.BF4WilsonAllNomeChronologicalExactChannelCost
+-- Exact original heat/Ward join: scalar residue quadratic, actual signed debts unpaid.
+-- SAME filtered-start/scaling/physical/continuum comparison remains OPEN.
+import YMGap.Continuum.BF4DyadicWilsonSquareJointQuadraticDebt
 
 -- THIS coarse credit collapses under every fixed polynomial footprint
 -- rescaling, regardless of nome choice; actual YM ratios/gaps are not refuted.

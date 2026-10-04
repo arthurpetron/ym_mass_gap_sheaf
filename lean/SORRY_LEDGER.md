@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## PROVED quadratic scalar cancellation / SAME original Ward join only (2026-10-04 UTC)
+
+`SU2HeatExactSquareCreditWindow.exactSquareCredit_massResidual_nonnegative`
+and `exactSquareCredit_massResidual_quadratic_upper` prove 0<=ad-4k<=36h^2
+at every strict nome/side. `BF4DyadicWilsonSquareJointQuadraticDebt.paddedSquare_rawSecond_deficit_angular_pin`
+pins per*(4-U/Z) to SAME original angular energy. The module's
+`paddedSquare_energy_joint_quadratic_angular_payment` retains ENTIRE increment
+and extra credit, with explicit144per*h^2+4per*ad*L/Z+4k*Angular RHS.
+`originalOwnBlockCost_joint_quadratic_angular_boundary_paid` and
+`originalOwnBlockCost_joint_quadratic_ward_boundary_paid` preserve actual
+stage OWN center/BOTH partitions/COMPLETE Signed; only drift is paid, and
+full OWN Ward exposes signed loss-minus-Ward, not an assumed favorable sign.
+Endpoint OWN variance remains distinct from filtered-start norm. Two final
+focused targets passed six NEW permitted gates; independent reviews passed.
+Evidence: `audits/AUDIT-JOINT-QUADRATIC-ORIGINAL-WARD-PAYMENT-2026-10-04.md`.
+OPEN: actual joint per*ad*L/Z-k*Ward and chronological signed control versus
+SAME surviving filtered norm on justified changing family; survival/physical/
+OS/full QFT/continuum/every-group/Clay. No new sorry/axiom/analytic budget,
+weakened frontier, resource/CI change or chart closure. New root registration
+ONLY; no full/root build/audit/guard/metrics.
+
 ## PROVED joint original raw-moment / full-increment payment only (2026-10-04 UTC)
 
 `SU2QuaternionProductHeatSourceYoungMoments.eight_sourceMoment_add_increment_le_raw_heat_square`
