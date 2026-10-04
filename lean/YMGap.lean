@@ -5129,6 +5129,10 @@ import YMGap.Continuum.BF4DyadicWilsonSquareChannelExactResponse
 -- Useful joint mass/increment versus chronological norm remains OPEN.
 import YMGap.Continuum.SU2HeatExactSquareCreditWindow
 import YMGap.Continuum.BF4DyadicWilsonSquareExactVariancePayment
+
+-- Exact payment in the ORIGINAL chronological cost, preserving its stage
+-- center and BOTH partitions. Joint filtered-norm/scaling control stays open.
+import YMGap.Continuum.BF4WilsonAllNomeChronologicalExactChannelCost
 import YMGap.Continuum.BF4DyadicWilsonSquareChannelVarianceLoss
 -- COMPLETE original centered energy: signed T-D retained, optional explicit loss ceiling.
 -- Useful changing-family variance-relative control remains OPEN.

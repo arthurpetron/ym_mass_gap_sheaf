@@ -27,6 +27,20 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-04 UTC)
 
+NOW CHECKED ORIGINAL CHRONOLOGICAL EXACT-COST CONNECTION:
+The exact long-Wilson payment reaches originalOwnBlockCost, preserving the
+stage OWN center and BOTH chronological partitions. Boundary drift is bounded
+by computed eta times its RAW endpoint reference square; ENTIRE channel
+increment, endpoint variance credit and COMPLETE signed multiplication remain.
+One focused check passed six permitted gates; independent source review passed.
+NEXT: JOINT control of the actual sum of mass + paid drift + signed correction
+minus full increment and variance credit versus SAME filtered-start variance.
+Raw endpoint square, endpoint OWN variance and filtered-start norm stay distinct.
+No analytic budget is assumed; justified scaling/survival/physical/OS/full QFT/
+continuum/every-group/Clay remain OPEN. Evidence:
+`audits/AUDIT-CHRONOLOGICAL-EXACT-CHANNEL-COST-2026-10-04.md`.
+Partial A03 only; exact chart claims unchanged, no ASCII/paper-list reprint.
+
 NOW CHECKED ERROR-FREE EXACT ORIGINAL VARIANCE PAYMENT:
 FORWARD, the ACTUAL long Wilson square's exact two heat images and channel
 credit give E+I/(4Z)+(k*rho/2)*OWNVar<=((1-b)/2)*M/Z, retaining the ENTIRE

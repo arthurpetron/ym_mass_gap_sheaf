@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL chronological exact-cost connection
+(2026-10-04 UTC; chart unchanged): exact Wilson payment enters the actual
+lag cost with stage OWN center and BOTH partitions. Computed eta times
+the RAW endpoint square bounds boundary drift; ENTIRE increment, endpoint
+variance credit and COMPLETE signed multiplication remain. One focused
+check passed six permitted gates; independent source review passed.
+Joint signed aggregate versus SAME filtered-start variance and justified
+scaling remain OPEN, as do survival/physical/OS/full QFT/continuum/every-group/
+Clay. Evidence: `audits/AUDIT-CHRONOLOGICAL-EXACT-CHANNEL-COST-2026-10-04.md`.
+Partial A03 only; no exact displayed claim changes, no ASCII reprint.
+
 Verified supporting EXACT original variance payment (2026-10-04 UTC;
 chart unchanged): the SAME long Wilson credit joins the original exact
 heat identity, giving E+I/(4Z)+(k*rho/2)*OWNVar<=((1-b)/2)*M/Z with the

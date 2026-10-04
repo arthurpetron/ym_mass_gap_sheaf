@@ -4,7 +4,22 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: EXACT original long-Wilson variance payment (2026-10-04 UTC)
+## Latest proved increment: ORIGINAL chronological exact-cost connection (2026-10-04 UTC)
+
+PROGRESS after `22d4444`: exact long-Wilson payment enters the literal
+original lag cost with stage OWN center and BOTH chronological partitions.
+Computed terminal tolerance bounds boundary drift using its RAW endpoint
+square; full increment, endpoint variance credit and COMPLETE signed
+multiplication remain. One focused check passed six permitted gates;
+independent source review passed. NEXT: joint aggregate signed comparison
+with SAME filtered-start variance on a justified changing family. No raw/
+endpoint/filtered norm identification or analytic budget is assumed. Scaling,
+survival/physical/OS/full QFT/continuum/every-group/Clay remain OPEN.
+Evidence: `audits/AUDIT-CHRONOLOGICAL-EXACT-CHANNEL-COST-2026-10-04.md`.
+Root registration only; no full/root build/audit/guard/broad metrics.
+Exact chart claims unchanged; no ASCII or paper-list reprint.
+
+## Earlier proved increment: EXACT original long-Wilson variance payment (2026-10-04 UTC)
 
 PROGRESS after `44ccbd6`: the actual Q>=rho*Z*OWNVar credit now enters the
 existing EXACT two-heat-image identity, retaining the ENTIRE source increment:

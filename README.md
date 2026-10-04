@@ -10,7 +10,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Verified exact long-Wilson variance payment (2026-10-04 UTC):**
+**Verified chronological exact-cost connection (2026-10-04 UTC):**
+The exact Wilson payment now reaches the actual lag cost, retaining its stage
+mean and both partitions. Boundary drift has a computed bound; the full
+increment and signed multiplication correction remain. One focused check
+passed all six constructive axiom gates. Joint control against the surviving
+filtered norm and justified physical scaling remain open. See the
+[proof and remaining analytic input](audits/AUDIT-CHRONOLOGICAL-EXACT-CHANNEL-COST-2026-10-04.md).
+
+**Earlier verified exact long-Wilson variance payment (2026-10-04 UTC):**
 The SAME variance credit now enters the original exact heat identity,
 retaining the entire source-increment gain without Taylor or omitted-mode
 error. Lean proves explicit coefficient-sign windows and the payment

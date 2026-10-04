@@ -1,5 +1,21 @@
 # Sorry Ledger
 
+## PROVED original chronological exact-cost connection only (2026-10-04 UTC)
+
+`BF4WilsonAllNomeChronologicalExactChannelCost.originalOwnBlockCost_energy_split`
+normalizes the actual original split by BOTH chronological partitions,
+preserving stage OWN center. `originalOwnBlockCost_exact_channel_boundary_paid`
+inserts the exact long-Wilson payment and bounds ONLY boundary drift by
+computed eta times RAW endpoint square. ENTIRE increment, endpoint OWN
+variance credit and COMPLETE signed multiplication remain; no endpoint/raw/
+filtered norm identification or excitation inverse. One focused check passed
+six permitted gates; independent source review passed. Evidence:
+`audits/AUDIT-CHRONOLOGICAL-EXACT-CHANNEL-COST-2026-10-04.md`.
+OPEN: useful JOINT aggregate estimate versus SAME filtered-start variance,
+justified scaling, survival/physical/OS/full QFT/continuum/every-group/Clay.
+No new sorry/axiom/analytic budget, weakened frontier, CI/resource change
+or chart closure. Root registration only; no full/root build/audit/guard/metrics.
+
 ## PROVED exact original long-Wilson variance payment only (2026-10-04 UTC)
 
 `SU2HeatExactSquareCreditWindow.exactSquareCredit_nonnegative_window` proves
