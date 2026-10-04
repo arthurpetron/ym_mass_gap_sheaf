@@ -4,7 +4,25 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: ORIGINAL linear channel variance payment (2026-10-04 UTC)
+## Latest proved increment: ACTUAL long-Wilson joint signed payment (2026-10-04 UTC)
+
+PROGRESS after `2d75375`: the macro-window's actual long Wilson square,
+not an elementary face-family surrogate, now has Q>=rho*Z*OWNVar. The
+COMPLETE first-order/curvature/Casimir combination is beta*M-alpha*Q.
+Only after combining those opposite signs is the square credit used:
+E+alpha*rho*Var<=(beta*M+FULL Err)/Z when explicit alpha>=0. Lean proves
+alpha>=t*P>0 if (1-w)*P<=2/5; two focused checks passed eight permitted
+gates. NEXT: useful ACTUAL mass/error control against SAME surviving
+variance and the chronological window with its starting center, filtered
+norm and BOTH partitions. The scalar window is not physical scaling, rho
+remains nome/perimeter-dependent, and endpoint OWN variance is not the
+filtered start norm. Survival/physical/OS/QFT/continuum/every-group/Clay
+remain OPEN. Evidence:
+`audits/AUDIT-WILSON-SIGNED-CHANNEL-PAYMENT-2026-10-04.md`.
+Root registration only; no full/root build/audit/guard/broad metrics.
+Exact chart claims unchanged; no ASCII or paper-list reprint.
+
+## Earlier proved increment: ORIGINAL linear channel variance payment (2026-10-04 UTC)
 
 PROGRESS after `7d28c58`: keeping the original q*F^2 leg unchanged halves
 the local-band exponent in the credit, from (l/u)^2 to l/u. A mixed pair

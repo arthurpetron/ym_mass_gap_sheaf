@@ -27,7 +27,24 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-04 UTC)
 
-NOW CHECKED SHARPER ORIGINAL LINEAR CHANNEL CREDIT:
+NOW CHECKED ACTUAL LONG-WILSON JOINT SIGNED PAYMENT:
+BACKWARD, the macro-window uses the long padded Wilson square, not the
+elementary plaquette-family sum. FORWARD, the literal square's projected
+endpoint source now gives Q>=rho*Z*OWNVar with the computed linear credit.
+Combine ALL first-order/curvature/Casimir terms as beta*M-alpha*Q BEFORE
+using that lower bound. This proves E+alpha*rho*OWNVar<=(beta*M+FULL Err)/Z
+when alpha>=0; scalar arithmetic proves alpha>=t*P>0 if (1-w)*P<=2/5.
+Two focused checks passed eight permitted gates. NEXT: useful control of
+the ACTUAL remaining mass+FULL error versus SAME surviving variance, and
+the actual chronological signed-window sum with its starting OWN center
+and BOTH partitions. Endpoint OWN variance is NOT the filtered starting
+norm. The numeric heat/perimeter window is NOT a justified physical scaling
+trajectory; rho still depends on nome/perimeter. Survival/physical/OS/QFT/
+continuum/every-group/Clay remain OPEN. Evidence:
+`audits/AUDIT-WILSON-SIGNED-CHANNEL-PAYMENT-2026-10-04.md`.
+Partial A03 only; exact chart claims unchanged, no ASCII/paper-list reprint.
+
+EARLIER CHECKED SHARPER ORIGINAL LINEAR CHANNEL CREDIT:
 FORWARD, keep the ACTUAL q*F^2 first leg and compare ONLY the second source
 leg through the mixed spectator moment. Genuine active independence of R
 joins conditional channels to full heat for this mixed pair, not for q/q.

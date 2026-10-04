@@ -5117,6 +5117,10 @@ import YMGap.Continuum.BF4DyadicWilsonSquareSobolevProjection
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyChannelSobolev
 import YMGap.Continuum.BF4DyadicWilsonSquareActiveChannelSobolev
 import YMGap.Continuum.BF4DyadicWilsonSquareChannelMomentBalance
+-- Actual long Wilson square: SAME endpoint variance credit, used only after
+-- the complete signed curvature/Casimir combination. Mass/error control OPEN.
+import YMGap.Continuum.BF4DyadicWilsonSquareChannelVarianceCredit
+import YMGap.Continuum.BF4DyadicWilsonSquareSignedChannelPayment
 -- Exact heat response and SAME original channel/OWN-variance loss;
 -- useful changing-family control remains OPEN.
 import YMGap.Continuum.BF4DyadicWilsonSquareChannelExactResponse

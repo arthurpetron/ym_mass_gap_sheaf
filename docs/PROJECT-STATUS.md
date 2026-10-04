@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting ACTUAL long-Wilson signed payment (2026-10-04 UTC;
+chart unchanged): SAME endpoint OWN variance has Q>=rho*Z*Var. Combining
+first-order, signed curvature and Casimir terms FIRST gives
+E+alpha*rho*Var<=(beta*M+FULL Err)/Z for explicit alpha>=0. Lean proves
+alpha>=t*P>0 in the numeric window (1-w)*P<=2/5. Two focused checks passed
+eight permitted gates. Actual mass/error control, chronological filtered-
+norm/window join and justified physical scaling remain OPEN, as do survival/
+physical/OS/QFT/continuum/every-group/Clay. Evidence:
+`audits/AUDIT-WILSON-SIGNED-CHANNEL-PAYMENT-2026-10-04.md`.
+Partial A03 only; no exact displayed claim changes, no ASCII reprint.
+
 Verified supporting ORIGINAL linear channel credit (2026-10-04 UTC;
 chart unchanged): keeping q*F^2 and banding ONLY the second source gives
 l*S<=u*Sq_ch for SAME original OWN variance/partition. Lean proves the

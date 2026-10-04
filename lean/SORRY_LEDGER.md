@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## PROVED actual long-Wilson joint signed payment only (2026-10-04 UTC)
+
+`BF4DyadicWilsonSquareChannelVarianceCredit.paddedSquare_channelMoment_oddVariance_credit`
+constructs Q>=rho*Z*OWNVar for the actual padded Wilson square and original
+terminal source at depth n+1, retaining its OWN mean and partition.
+`BF4DyadicWilsonSquareSignedChannelPayment.paddedSquare_energy_full_signed_variance_payment`
+combines first-order, signed curvature and Casimir terms before applying
+that credit: E+alpha*rho*Var<=(beta*M+FULL Err)/Z for explicit alpha>=0.
+`signedSquareCoefficient_positive_window` proves alpha>0 from the numeric
+condition (1-w)*P<=2/5. Two focused checks passed eight permitted gates.
+Evidence: `audits/AUDIT-WILSON-SIGNED-CHANNEL-PAYMENT-2026-10-04.md`.
+OPEN: useful actual mass/error control versus SAME surviving variance,
+chronological filtered-start-norm/window join, justified scaling, continuum
+survival, physical mass, SAME OS/full QFT, every compact simple group and
+Clay. The heat/perimeter window is not an inhabited physical trajectory;
+rho depends on nome/perimeter. No new sorry/axiom/analytic field, weakened
+frontier, CI/resource change or chart closure. Root registration only; no
+full/root build/audit/guard/broad metrics.
+
 ## PROVED sharper original linear channel payment only (2026-10-04 UTC)
 
 `SU2QuaternionPassiveChannelLinearBand.familyChannelPair_spectator_full`

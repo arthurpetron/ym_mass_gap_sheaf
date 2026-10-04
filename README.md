@@ -10,7 +10,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Verified sharper original variance payment (2026-10-04 UTC):**
+**Verified long-Wilson signed variance payment (2026-10-04 UTC):**
+The actual growing Wilson square now has a channel credit against its SAME
+original variance. Combining the first-order, curvature and Casimir terms
+before estimating gives `E + alpha*rho*Var <= (beta*M + Error)/Z` when the
+explicit square coefficient is nonnegative. Lean proves it positive in the
+numeric window `(1-w)*perimeter <= 2/5`. Two focused checks passed; the
+remaining mass/error comparison and chronological filtered-norm join are
+still open. This numeric window is not a justified physical scaling family.
+See the [proof and exact remaining input](audits/AUDIT-WILSON-SIGNED-CHANNEL-PAYMENT-2026-10-04.md).
+
+**Earlier verified sharper original variance payment (2026-10-04 UTC):**
 Keeping one actual source factor unchanged improves the retained channel
 square's credit from `(l/u)^2` to `l/u` against the SAME interacting variance.
 Lean also proves the new credit is at least the old one. It reaches the
