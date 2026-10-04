@@ -27,6 +27,20 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-04 UTC)
 
+NOW CHECKED QUANTITATIVE ORIGINAL SIGNED BASELINE DAMPING:
+FORWARD, the existing gap at T^t x gives M_x(2t,l)<=q^t*M_x(0,l) for EVERY
+defect degree. BACKWARD, the SAME actual source/OWN center and BOTH original
+partitions give S+(1-q^t)*d1<=epsilon on the EXISTING computed cutoff/depth
+onsets. d1 remains a signed finite baseline; no positivity is assumed.
+Two focused checks passed 17 permitted gates (seven new); independent frozen
+review passed. This quantifies the already-proved fixed-member sign without
+improving nome/width rate dependence or supplying a macro survival reserve.
+NEXT: useful actual signed-cost versus SAME surviving variance on a justified
+changing family, retaining the complete curvature/error/leading-term combination.
+Survival/physical/OS/QFT/continuum/every-group/Clay remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-SIGNED-BASELINE-DAMPING-2026-10-04.md`.
+Exact chart claims unchanged; no ASCII or paper-list reprint.
+
 NOW CHECKED ORIGINAL CHANNEL SQUARE VERSUS SAME VARIANCE:
 FORWARD, the ACTUAL lower/upper local source bands share one projected
 spectator mass. The original uncentered second moment bounds OWN variance,

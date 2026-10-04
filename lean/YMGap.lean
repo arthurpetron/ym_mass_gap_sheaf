@@ -6130,6 +6130,9 @@ import YMGap.Continuum.BF4WilsonAllNomePositiveTimeTail
 -- Actual physical-time decay of a supplied nonzero plaquette defect.
 -- Polynomial, not an all-state gap; the active source vanishes as nome -> 1.
 import YMGap.Continuum.BF4WilsonAllNomeTimeDefectTail
+-- Fixed nome/width geometric decay of every original defect column.
+-- Quantitative signed baseline damping is not a changing-family survival budget.
+import YMGap.Continuum.BF4WilsonAllNomeTimeDefectGeometric
 import YMGap.Continuum.BF4WilsonAllNomePlaquetteEnergyFloor
 import YMGap.Continuum.BF4WilsonAllNomePlaquetteDefectOrbit
 -- Original signed Ward control from constructed relative derivatives;

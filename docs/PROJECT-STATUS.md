@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL signed baseline damping (2026-10-04 UTC;
+chart unchanged): original moments obey M_x(2t,l)<=mixRate^t*M_x(0,l) for
+every defect degree. SAME finite source/OWN center and BOTH partitions give
+S+(1-q^t)*d1<=epsilon with existing explicit onsets; finite d1 stays signed.
+Two focused checks passed 17 permitted gates (seven new); frozen review
+passed. Fixed nome/width only, not an improved uniform rate or macro survival
+reserve. Changing-family signed-cost/variance control, justified scaling,
+survival/physical/OS/QFT/continuum/every-group/Clay remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-SIGNED-BASELINE-DAMPING-2026-10-04.md`.
+Partial A03 only; no exact displayed claim changes, no ASCII reprint.
+
 Verified supporting ORIGINAL channel square variance payment (2026-10-04 UTC;
 chart unchanged): ACTUAL local source bands construct rho*Z*OWNVar<=Sq_ch,
 rho>0 at fixed nome/family size, and pay 48*t*rho*Z*Var in the COMPLETE

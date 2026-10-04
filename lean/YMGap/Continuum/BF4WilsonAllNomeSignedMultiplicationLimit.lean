@@ -6,6 +6,10 @@ partitions remain in the normalization. The limit is the difference between
 the completed Dirichlet drops at lags 2*t and zero, hence nonpositive.
 Explicit original joint and geometric onsets control the finite source.
 
+Quantitatively, the later completed drop is at most mixRate^t times the
+initial drop. The SAME finite source therefore obeys signed baseline damping,
+using the very same explicit onsets. Its finite baseline need not be positive.
+
 This is not finite all-depth nonpositivity, a relative filtered-variance
 estimate, a uniform changing-family bound, or continuum/Clay closure.
 -/
@@ -15,6 +19,7 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonMovingCenterLagLimit
 import YMGap.Continuum.BF4WilsonAllNomeDyadicChronologicalResponse
 import YMGap.Continuum.BF4WilsonAllNomeCenteredVector
 import YMGap.Continuum.BF4WilsonAllNomeTimeDefectTail
+import YMGap.Continuum.BF4WilsonAllNomeTimeDefectGeometric
 
 namespace YMGap.Continuum.BF4WilsonAllNomeSignedMultiplicationLimit
 
@@ -27,7 +32,10 @@ open YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonProbe
 open YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonWindow
 open YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonWindowJointCauchy
 open YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonMovingCenterLagLimit (raw_original_pin)
-open YMGap.Continuum.BF4ExactSlabFixedSpatialMovingCenterLagDifference (rawPair)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialMovingCenterLagDifference (rawPair centeredPair)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialMiddlePairing (middleRatio)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialWindowLagMeanControl
+  (middleRatio_interval_bounds)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialSignedMultiplicationWindow
 open YMGap.Continuum.BF4ExactSlabFixedSpatialTransferMixingRate
 open YMGap.Continuum.BF4ExactSlabRetainedHeatHeadComparison (headCutoff)
@@ -42,6 +50,7 @@ open YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonIntrinsicForm (unit)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialSliceCarrier (baseLinks)
 open YMGap.Continuum.BF4WilsonAllNomeTimeDefectMoments (mixedMoment mixedMoment_split)
 open YMGap.Continuum.BF4WilsonAllNomeTimeDefectTail (mixedMoment_time_decreasing)
+open YMGap.Continuum.BF4WilsonAllNomeTimeDefectGeometric (mixedMoment_evenTime_geometric)
 open YMGap.Continuum.BF4WilsonJointFunctionalLaws (equiv_sub)
 open YMGap.Continuum.QuaternionHaarSupportedPolynomialInterval
   (polynomialCap polynomialCap_nonnegative polynomialInterval)
@@ -365,6 +374,178 @@ theorem original_signed_diagonal_converges (t : Nat) :
   exact ⟨Q'.le_trans' _ _ _ h.1 (Q'.add_le_add_left _ _ _ h6),
     Q'.le_trans' _ _ _ h.2 (Q'.add_le_add_left _ _ _ h6)⟩
 
+/-! ## Quantitative damping of the SAME baseline drop -/
+
+/-- The existing late original drop minus mixRate^t times its initial drop.
+This is an expression in existing joint limits, not an assumed estimate. -/
+def dampedDropLimit (t : Nat) : CReal :=
+  sub (sub (Joint (2*t)) (Joint (2*t+1)))
+    (mul (ofQ' (mixRate hw0 hw1 width ^ t)) (sub (Joint 0) (Joint 1)))
+
+/-- The original completed gap supplies the quantitative drop comparison;
+no additional curvature, cancellation or relative-budget hypothesis. -/
+theorem dampedDropLimit_nonpositive (t : Nat) :
+    leEv (dampedDropLimit hw0 hw1 loop t) czero := by
+  have h := mixedMoment_evenTime_geometric hw0 hw1
+    (centeredVector hw0 hw1 (loopState loop))
+    (centeredVector_orthogonal hw0 hw1 (loopState loop)) t 1
+  rw [← joint_drop_completed_pin hw0 hw1 loop (2*t),
+    ← joint_drop_completed_pin hw0 hw1 loop 0] at h
+  have hs := RCadd_le_add h (RCle_refl (RCneg
+    (RCscale (mixRate hw0 hw1 width ^ t)
+      (Quotient.mk crealSetoid (sub (Joint 0) (Joint 1))))))
+  have hz (a : RC) : RCsub a a = RCzero := by
+    refine Quotient.inductionOn a ?_
+    intro A
+    exact Quotient.sound (sub_self_eqv_zero A)
+  change RCle (Quotient.mk crealSetoid (dampedDropLimit hw0 hw1 loop t))
+    (RCsub _ _) at hs
+  rw [hz] at hs
+  exact hs
+
+private theorem timeRatePower_bounds (t : Nat) :
+    (0 : Q') ≤ mixRate hw0 hw1 width ^ t ∧
+      mixRate hw0 hw1 width ^ t ≤ (1 : Q') :=
+  ⟨Q'.pow_nonneg _ (mixRate_nonnegative hw0 hw1 width) t,
+    YMGap.Continuum.HKPos.pow_le_one (mixRate_nonnegative hw0 hw1 width)
+      (Q'.le_of_lt (mixRate_lt_one hw0 hw1 width)) t⟩
+
+private theorem weighted_difference_upper (x y X Y a d : Q')
+    (ha0 : (0 : Q') ≤ a) (ha1 : a ≤ (1 : Q')) (hd : (0 : Q') ≤ d)
+    (hx : x ≤ X+d) (hy : Y ≤ y+d) :
+    x + -(a*y) ≤ X + -(a*Y) + (d+d) := by
+  have hy' : a*Y ≤ a*y+d := by
+    have h := Q'.mul_le_mul_of_nonneg_left Y (y+d) a hy ha0
+    have hd' : a*d ≤ d := Q'.le_trans' _ _ _
+      (Q'.mul_le_mul_of_nonneg_right a 1 d ha1 hd)
+      (Q'.le_of_eqv (Q'.one_mul_eqv d))
+    exact Q'.le_trans' _ _ _ h (Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (poly_identity_of_normal_eq
+        (.mul (.var 0) (.add (.var 1) (.var 2)))
+        (.add (.mul (.var 0) (.var 1)) (.mul (.var 0) (.var 2)))
+        (by decide) (fun | 0 => a | 1 => y | _ => d)))
+      (Q'.add_le_add_left _ _ _ hd'))
+  exact difference_upper x (a*y) X (a*Y) d hx hy'
+
+private theorem weighted_four_difference_upper (a b c d A B C D r e : Q')
+    (hr0 : (0 : Q') ≤ r) (hr1 : r ≤ (1 : Q')) (he : (0 : Q') ≤ e)
+    (ha : a ≤ A+e) (hb : B ≤ b+e) (hc : C ≤ c+e) (hd : d ≤ D+e) :
+    (a + -b) + -(r*(c + -d)) ≤ (A + -B) + -(r*(C + -D)) + 4*e := by
+  have h := weighted_difference_upper _ _ _ _ r (e+e) hr0 hr1
+    (Q'.zero_le_add e e he he)
+    (difference_upper _ _ _ _ e ha hb) (difference_upper _ _ _ _ e hc hd)
+  exact Q'.le_trans' _ _ _ h (Q'.le_of_eqv
+    (poly_identity_of_normal_eq
+      (.add (.var 0) (.add (.add (.var 1) (.var 1)) (.add (.var 1) (.var 1))))
+      (.add (.var 0) (.mul (.const 4) (.var 1))) (by decide)
+      (fun | 0 => (A + -B) + -(r*(C + -D)) | _ => e)))
+
+/-- Computed representative onset, still delta.den; bounded geometric weight
+does not enlarge the four-joint error budget. -/
+theorem dampedDropLimit_representative_bound (t : Nat) (delta : Q')
+    (hd : (0 : Q') < delta) (p : Nat) (hp : delta.den ≤ p) :
+    (dampedDropLimit hw0 hw1 loop t).approx p ≤ 5*delta := by
+  obtain ⟨N, hN⟩ := dampedDropLimit_nonpositive hw0 hw1 loop t delta hd
+  let q := max N p
+  have hpq : p ≤ q := Nat.le_max_right _ _
+  have h0 := joint_representative_regular hw0 hw1 loop (2*t) delta hd p q hpq hp
+  have h1 := joint_representative_regular hw0 hw1 loop (2*t+1) delta hd p q hpq hp
+  have h2 := joint_representative_regular hw0 hw1 loop 0 delta hd p q hpq hp
+  have h3 := joint_representative_regular hw0 hw1 loop 1 delta hd p q hpq hp
+  have hr := timeRatePower_bounds hw0 hw1 (width := width) t
+  have h := weighted_four_difference_upper _ _ _ _ _ _ _ _ _ delta
+    hr.1 hr.2 (Q'.le_of_lt hd) h0.1 h1.2 h2.2 h3.1
+  have hq : (dampedDropLimit hw0 hw1 loop t).approx q ≤ delta := by
+    simpa only [czero, ofQ', Q'.zero_add'] using hN q (Nat.le_max_left _ _)
+  change (dampedDropLimit hw0 hw1 loop t).approx p ≤
+    (dampedDropLimit hw0 hw1 loop t).approx q+4*delta at h
+  exact Q'.le_trans' _ _ _ h (Q'.le_trans' _ _ _ (Q'.add_le_add_right _ _ _ hq)
+    (Q'.le_of_eqv (poly_identity_of_normal_eq
+      (.add (.var 0) (.mul (.const 4) (.var 0))) (.mul (.const 5) (.var 0))
+      (by decide) (fun _ => delta))))
+
+/-- SAME OWN center at depth n, BOTH original partitions, and the actual
+depth-(n+t) baseline. Its sign is not assumed. The quantitative damping is
+fixed-parameter and does not supply a changing-family variance budget. -/
+theorem original_signed_baseline_damping (t : Nat) (epsilon : Q')
+    (he : (0 : Q') < epsilon) (stage n : Nat)
+    (hk : signedCostCutoffOnset hw0 hw1 loop t epsilon ≤ stage)
+    (hn : signedCostDepthOnset hw0 hw1 loop t epsilon ≤ n) :
+    let K := headCutoff w+stage
+    let hK : headCutoff w ≤ K := Nat.le_add_right _ _
+    let f := sourceCharacter width loop.edges 1
+    let c := middleRatio hw0 hw1 K width hK (n+1) n f
+    let d1 := centeredPair hw0 hw1 K width hK (n+t) 0 f c +
+      -(centeredPair hw0 hw1 K width hK (n+t) 1 f c)
+    normalizedSignedMultiplicationCost hw0 hw1 K width hK n t f +
+      (1 + -(mixRate hw0 hw1 width ^ t))*d1 ≤ epsilon := by
+  let K := headCutoff w+stage
+  let hK : headCutoff w ≤ K := Nat.le_add_right _ _
+  let f := sourceCharacter width loop.edges 1
+  let C := polynomialCap f
+  let cap := (C+C)*(C+C)
+  let c := middleRatio hw0 hw1 K width hK (n+1) n f
+  let r := mixRate hw0 hw1 width ^ t
+  let delta := part epsilon
+  let p := signedCostRepresentativeOnset hw0 hw1 loop t epsilon
+  let d0 := centeredPair hw0 hw1 K width hK n (2*t) f c +
+    -(centeredPair hw0 hw1 K width hK n (2*t+1) f c)
+  let d1 := centeredPair hw0 hw1 K width hK (n+t) 0 f c +
+    -(centeredPair hw0 hw1 K width hK (n+t) 1 f c)
+  have hd : (0 : Q') < delta := part_positive he
+  have hr := timeRatePower_bounds hw0 hw1 (width := width) t
+  have hk4 := fourMax_bounds _ _ _ _ stage hk
+  have ht4 := fourMax_bounds _ _ _ _ n (Nat.le_trans (Nat.le_max_left _ _) hn)
+  have hp : signedCostRepresentativeOnset hw0 hw1 loop t epsilon ≤ p := Nat.le_refl _
+  have hp4 := fourMax_bounds _ _ _ _ p (Nat.le_trans (Nat.le_max_right _ _) hp)
+  have h0 := raw_joint_approx hw0 hw1 loop (2*t) stage n p delta hd
+    hk4.1 ht4.1 hp4.1
+  have h1 := raw_joint_approx hw0 hw1 loop (2*t+1) stage n p delta hd
+    hk4.2.1 ht4.2.1 hp4.2.1
+  have h2 := raw_joint_approx hw0 hw1 loop 0 stage (n+t) p delta hd
+    hk4.2.2.1 (Nat.le_trans ht4.2.2.1 (Nat.le_add_right _ _)) hp4.2.2.1
+  have h3 := raw_joint_approx hw0 hw1 loop 1 stage (n+t) p delta hd
+    hk4.2.2.2 (Nat.le_trans ht4.2.2.2 (Nat.le_add_right _ _)) hp4.2.2.2
+  have hraw := weighted_four_difference_upper _ _ _ _ _ _ _ _ r delta
+    hr.1 hr.2 (Q'.le_of_lt hd) h0.1 h1.2 h2.2 h3.1
+  have hg : geometricCutoff (mixRate hw0 hw1 width) cap delta ≤ n :=
+    Nat.le_trans (Nat.le_max_right _ _) hn
+  have he0 := geometric_bound (mixRate_nonnegative hw0 hw1 width)
+    (mixRate_lt_one hw0 hw1 width) (SumOfSquares.q_mul_self_nonneg _) hd n hg
+  have he1 := geometric_bound (mixRate_nonnegative hw0 hw1 width)
+    (mixRate_lt_one hw0 hw1 width) (SumOfSquares.q_mul_self_nonneg _) hd (n+t)
+    (Nat.le_trans hg (Nat.le_add_right _ _))
+  have I := polynomialInterval (List.length (baseLinks width)) f
+    (sourceCharacter_supported width loop.edges 1)
+  have hc := middleRatio_interval_bounds hw0 hw1 K width hK (n+1) n I
+  have hb0 := centered_lag_raw_bounds hw0 hw1 K width hK n (2*t) (2*t+1) I c hc
+  have hb1 := centered_lag_raw_bounds hw0 hw1 K width hK (n+t) 0 1 I c hc
+  have hs := weighted_difference_upper d0 d1 _ _ r delta hr.1 hr.2
+    (Q'.le_of_lt hd)
+    (Q'.le_trans' _ _ _ hb0.1 (Q'.add_le_add_left _ _ _ he0))
+    (Q'.le_trans' _ _ _ hb1.2 (Q'.add_le_add_left _ _ _ he1))
+  have happ := six_error_chain _ _ _ _ delta hs hraw (Q'.le_refl' _)
+  have hlimit := dampedDropLimit_representative_bound hw0 hw1 loop t
+    delta hd p (Nat.le_max_left _ _)
+  change d0 + -(r*d1) ≤ (dampedDropLimit hw0 hw1 loop t).approx p+6*delta at happ
+  have hdamp : d0 + -(r*d1) ≤ epsilon := by
+    have h := Q'.le_trans' _ _ _ happ (Q'.add_le_add_right _ _ (6*delta) hlimit)
+    exact Q'.le_trans' _ _ _ h (Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (poly_identity_of_normal_eq
+        (.add (.mul (.const 5) (.var 0)) (.mul (.const 6) (.var 0)))
+        (.mul (.const 11) (.var 0)) (by decide) (fun _ => delta)))
+      (part_budget epsilon he))
+  have hpin := original_signed_window_pin hw0 hw1 K width hK n t I.support
+  have hpay : normalizedSignedMultiplicationCost hw0 hw1 K width hK n t f +
+      (1 + -r)*d1 ≈ d0 + -(r*d1) := Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr_right _ _ ((1 + -r)*d1) hpin)
+    (poly_identity_of_normal_eq
+      (.add (.add (.var 0) (.neg (.var 1)))
+        (.mul (.add (.const 1) (.neg (.var 2))) (.var 1)))
+      (.add (.var 0) (.neg (.mul (.var 2) (.var 1))))
+      (by decide) (fun | 0 => d0 | 1 => d1 | _ => r))
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hpay) hdamp
+
 end YMGap.Continuum.BF4WilsonAllNomeSignedMultiplicationLimit
 
 #print axioms YMGap.Continuum.BF4WilsonAllNomeSignedMultiplicationLimit.signedCostLimit
@@ -377,3 +558,7 @@ end YMGap.Continuum.BF4WilsonAllNomeSignedMultiplicationLimit
 #print axioms YMGap.Continuum.BF4WilsonAllNomeSignedMultiplicationLimit.original_signed_joint_approx
 #print axioms YMGap.Continuum.BF4WilsonAllNomeSignedMultiplicationLimit.original_signed_eventual_upper
 #print axioms YMGap.Continuum.BF4WilsonAllNomeSignedMultiplicationLimit.original_signed_diagonal_converges
+#print axioms YMGap.Continuum.BF4WilsonAllNomeSignedMultiplicationLimit.dampedDropLimit
+#print axioms YMGap.Continuum.BF4WilsonAllNomeSignedMultiplicationLimit.dampedDropLimit_nonpositive
+#print axioms YMGap.Continuum.BF4WilsonAllNomeSignedMultiplicationLimit.dampedDropLimit_representative_bound
+#print axioms YMGap.Continuum.BF4WilsonAllNomeSignedMultiplicationLimit.original_signed_baseline_damping

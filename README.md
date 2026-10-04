@@ -10,7 +10,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Verified original variance-relative square payment (2026-10-04 UTC):**
+**Verified original signed baseline damping (2026-10-04 UTC):**
+The original completed gap now bounds every later mixed time/defect moment
+by `mixRate^t` times its initial value. On the SAME finite source this gives
+quantitative damping of the complete signed multiplication cost, retaining
+its own mean and both partitions with computed onsets. Two focused checks
+and independent review passed. The finite baseline remains signed, and the
+rate remains coupling/width-dependent: useful scaling control, survival and
+the Clay target are still open. See the
+[proof and remaining comparison](audits/AUDIT-ORIGINAL-SIGNED-BASELINE-DAMPING-2026-10-04.md).
+
+**Earlier verified original variance-relative square payment (2026-10-04 UTC):**
 The actual local source band now bounds the retained negative channel square
 below by a computed positive fraction of the ORIGINAL interacting variance,
 with its own mean and partition. The complete original energy gains this

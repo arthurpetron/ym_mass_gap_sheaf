@@ -4,7 +4,24 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: ORIGINAL channel square variance payment (2026-10-04 UTC)
+## Latest proved increment: ORIGINAL signed baseline damping (2026-10-04 UTC)
+
+PROGRESS after `fc270fd`: actual original mixed moments obey
+M_x(2t,l)<=mixRate^t*M_x(0,l) at EVERY defect degree. The existing completed
+gap and SAME centered-vector/joint pins pay S+(1-q^t)*d1<=epsilon for the
+COMPLETE original finite signed multiplication cost, retaining c_n at depth
+n+t and BOTH original partitions. Existing computed onsets and 11*(eps/16)
+error suffice. d1 stays signed; no new positivity or useful variance budget
+is assumed. Two focused checks passed 17 permitted gates, seven new;
+independent frozen review passed. NEXT: actual useful changing-family signed
+cost versus SAME surviving variance and justified scaling. Fixed-member
+damping does NOT prove survival or improve the rate's nome/width dependence.
+Physical/OS/QFT/continuum/every-group/Clay remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-SIGNED-BASELINE-DAMPING-2026-10-04.md`.
+Root registration only; no full/root build/audit/guard/broad metrics.
+Exact chart claims unchanged; no ASCII or paper-list reprint.
+
+## Earlier proved increment: ORIGINAL channel square variance payment (2026-10-04 UTC)
 
 PROGRESS after `49ead33`: ACTUAL local source bands now pay the retained
 negative channel square by rho*Z*OWNVar<=Sq_ch, with computed rho>0 at fixed

@@ -1,5 +1,23 @@
 # Sorry Ledger
 
+## PROVED original fixed-parameter signed baseline damping only (2026-10-04 UTC)
+
+`BF4WilsonAllNomeTimeDefectGeometric.mixedMoment_evenTime_geometric` proves
+M_x(2t,l)<=mixRate^t*M_x(0,l) on the ORIGINAL completion for every vacuum-
+orthogonal x and every defect degree. `SignedMultiplicationLimit.original_signed_baseline_damping`
+supplies S+(1-q^t)*d1<=epsilon for the literal original source with SAME c_n
+and BOTH partitions, reusing existing computed onsets. Finite d1 is signed;
+strict positive-baseline payment is not claimed. Two focused checks passed
+17 permitted gates (seven new); independent frozen review passed. Evidence:
+`audits/AUDIT-ORIGINAL-SIGNED-BASELINE-DAMPING-2026-10-04.md`.
+OPEN: useful changing-family signed-cost/variance comparison, justified
+scaling, nontrivial continuum survival, physical calibration, SAME OS/full
+QFT, every compact simple group and Clay. This gap-derived estimate does
+not improve the rate's nome/width dependence or supply a macro reserve.
+No new sorry/axiom/analytic field, frontier weakening, resource/CI change
+or chart closure. Root registration only; no full/root build/audit/guard/
+broad metrics.
+
 ## PROVED original channel square variance payment only (2026-10-04 UTC)
 
 `BF4ExactSlabFixedSpatialFamilyChannelSquareCredit.family_channel_observableSquare_variance_credit`
