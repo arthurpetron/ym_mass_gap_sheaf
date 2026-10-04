@@ -46,6 +46,22 @@ Scaling/survival/physical/OS/full QFT/continuum/every-group/Clay remain OPEN.
 Evidence: `audits/AUDIT-ORIGINAL-COMPANION-OBSERVED-LOSS-2026-10-04.md`.
 Supporting A03 only; exact chart claims unchanged, no ASCII/paper-list reprint.
 
+SOURCE-SPECIFIC EXECUTION ADJUSTMENT (2026-10-04 UTC):
+Parallel source/mathematical reviews found no independent relative bound in
+the inspected Ward, terminal, averaging or spatial-translation APIs. The
+reviewed one-link positive-source perturbation has a linear negative OWN
+Ward residue but quadratic source cap deficit, ruling out generic absorption;
+this is PAPER-LEVEL mathematics, not a new kernel theorem or BF4 counterexample.
+Keep the actual signed chronological candidate and the EXISTING coherent
+spatial-family candidate. The latter already has opposite-incidence angular
+cancellation and an original completed-state pin: do not rebuild either.
+Its unpaid estimate is the SAME interacting holonomy-mismatch moment versus
+the SAME surviving norm, with full temporal debts and justified changing-family
+dependence retained. Prefer whichever produces independent action-specific
+control; the growing-square probe is optional, not a Clay requirement.
+No new assumption/interface or chart closure. Evidence:
+`audits/MATH-NOTE-SOURCE-SPECIFIC-COERCIVITY-2026-10-04.md`.
+
 EARLIER CHECKED QUADRATIC SCALAR CANCELLATION / SAME ORIGINAL WARD JOIN:
 For every strict nome/side, 0<=ad-4k<=36*(1-w^(4*side))^2 by exact
 polynomial factorizations, no Taylor debt. The actual original raw deficit
