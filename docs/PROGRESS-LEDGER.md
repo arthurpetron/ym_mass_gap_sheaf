@@ -4,7 +4,20 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: COHERENT original signed-family energy (2026-10-04 UTC)
+## Current review: signed-source analytic screening (2026-10-04 UTC)
+
+NO NEW MATHEMATICAL PROGRESS this pass: the proposed universal heat-gradient
+shortcut is already refuted by the original positive-kernel radial-marginal
+fence. Cancelled a duplicate proof/check before any Lean edits. Actual score
+caps, channel independence and terminal depth transport do not supply the
+missing complete signed-energy/variance estimate. Retain the joint Ward and
+BOTH Taylor terms and the SAME chronological partitions/OWN center. No new
+analytic wrapper, Lean check, gate or chart closure. Source-only parallel
+review: `audits/AUDIT-SIGNED-SOURCE-ANALYTIC-SCREENING-2026-10-04.md`.
+The last verified mathematical increment remains the coherent energy below;
+continuum/physical/OS/QFT/every-group/Clay remain OPEN.
+
+## Latest proved increment: COHERENT original signed-family energy (2026-10-04 UTC)
 
 PROGRESS after `a453566`: arbitrary literal signed/repeated face families
 now have a constructed coherent tail at EACH original physical link, with

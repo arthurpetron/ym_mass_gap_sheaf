@@ -27,6 +27,18 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-04 UTC)
 
+ANALYTIC SCREENING, NO NEW PROOF: the existing original positive-kernel
+`RadialMarginalEnergyFence.radial_marginal_bound_three_false` already rejects
+the universal endpoint-gradient shortcut. A duplicate witness/check was
+cancelled. Actual terminal score bounds pay nome/footprint-dependent caps;
+passive channel independence is not active isotropy, and depth transport
+still consumes a reference analytic ratio. Seek the ACTUAL joint signed
+Ward/weight/Taylor comparison, not another generic positivity consequence
+or assumed budget. Forward coherent energy and backward signed-window
+consumer remain separated by this analytic estimate. Evidence:
+`audits/AUDIT-SIGNED-SOURCE-ANALYTIC-SCREENING-2026-10-04.md`.
+No Lean edit/build, new gate, proof-status change or chart reprint.
+
 NOW CHECKED COHERENT ORIGINAL SIGNED-FAMILY ENERGY:
 FORWARD, each actual incident face has a computed independent three-link
 tail; sum signed tails BEFORE norm, preserving repeats and cross-plane terms.
