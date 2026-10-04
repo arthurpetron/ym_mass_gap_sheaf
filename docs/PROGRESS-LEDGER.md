@@ -4,7 +4,24 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: ORIGINAL signed baseline damping (2026-10-04 UTC)
+## Latest proved increment: ORIGINAL linear channel variance payment (2026-10-04 UTC)
+
+PROGRESS after `7d28c58`: keeping the original q*F^2 leg unchanged halves
+the local-band exponent in the credit, from (l/u)^2 to l/u. A mixed pair
+joins conditional/full heat ONLY for the active-independent spectator.
+The original OWN variance and partition satisfy l*S<=u*Sq_ch, and Lean
+proves old credit<=new credit. The COMPLETE energy gains the stronger
+48*t*(l/u)*S payment while keeping leading C, signed curvature and FULL
+error unchanged. Three focused checks passed 19 permitted gates, ten new;
+independent frozen review passed. NEXT: useful joint control of that COMPLETE
+residual versus SAME surviving variance on a justified changing family.
+The new scalar still depends on nome/family size; survival/physical/OS/QFT/
+continuum/every-group/Clay remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-CHANNEL-LINEAR-VARIANCE-CREDIT-2026-10-04.md`.
+Root registration only; no full/root build/audit/guard/broad metrics.
+Exact chart claims unchanged; no ASCII or paper-list reprint.
+
+## Earlier proved increment: ORIGINAL signed baseline damping (2026-10-04 UTC)
 
 PROGRESS after `fc270fd`: actual original mixed moments obey
 M_x(2t,l)<=mixRate^t*M_x(0,l) at EVERY defect degree. The existing completed

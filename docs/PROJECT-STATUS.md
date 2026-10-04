@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL linear channel credit (2026-10-04 UTC;
+chart unchanged): keeping q*F^2 and banding ONLY the second source gives
+l*S<=u*Sq_ch for SAME original OWN variance/partition. Lean proves the
+new l/u credit >=the old (l/u)^2 credit and supplies the COMPLETE energy
+payment, retaining leading C, signed curvature and full error. Three focused
+checks passed 19 permitted gates, ten new; independent frozen review passed.
+Nome/family-size dependence, useful joint residual control and justified
+scaling remain OPEN, as do survival/physical/OS/QFT/continuum/every-group/Clay.
+Evidence: `audits/AUDIT-ORIGINAL-CHANNEL-LINEAR-VARIANCE-CREDIT-2026-10-04.md`.
+Partial A03 only; no exact displayed claim changes, no ASCII reprint.
+
 Verified supporting ORIGINAL signed baseline damping (2026-10-04 UTC;
 chart unchanged): original moments obey M_x(2t,l)<=mixRate^t*M_x(0,l) for
 every defect degree. SAME finite source/OWN center and BOTH partitions give

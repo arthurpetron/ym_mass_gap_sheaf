@@ -27,6 +27,22 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-04 UTC)
 
+NOW CHECKED SHARPER ORIGINAL LINEAR CHANNEL CREDIT:
+FORWARD, keep the ACTUAL q*F^2 first leg and compare ONLY the second source
+leg through the mixed spectator moment. Genuine active independence of R
+joins conditional channels to full heat for this mixed pair, not for q/q.
+The SAME original variance obeys l*S<=u*Sq_ch, with computed rho_new=l/u;
+the old squared credit is proved <=rho_new. BACKWARD, the COMPLETE energy
+gains 48*t*rho_new*S while retaining leading C, signed curvature and FULL
+error unchanged. Three focused checks passed 19 permitted gates, ten new;
+independent frozen review passed. NEXT: useful control of the COMPLETE
+signed remainder versus SAME surviving variance on a JUSTIFIED changing
+family, not another scalar-band wrapper. rho_new still depends on nome and
+family size; C remains the old coarse coefficient. Survival/physical/OS/QFT/
+continuum/every-group/Clay remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-CHANNEL-LINEAR-VARIANCE-CREDIT-2026-10-04.md`.
+Exact chart claims unchanged; no ASCII or paper-list reprint.
+
 NOW CHECKED QUANTITATIVE ORIGINAL SIGNED BASELINE DAMPING:
 FORWARD, the existing gap at T^t x gives M_x(2t,l)<=q^t*M_x(0,l) for EVERY
 defect degree. BACKWARD, the SAME actual source/OWN center and BOTH original

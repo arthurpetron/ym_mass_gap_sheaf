@@ -5348,6 +5348,9 @@ import YMGap.Continuum.SU2QuaternionSpectatorHeatRetentionFence
 -- Actual passive-channel first order against SAME original variance, with
 -- footprint-only bands and exact spectator heat retained. Signed debt OPEN.
 import YMGap.Continuum.SU2QuaternionPassiveChannelMomentFactorization
+-- One unchanged source leg improves original variance credit to l/u.
+-- Only the active-independent spectator is joined to full heat.
+import YMGap.Continuum.SU2QuaternionPassiveChannelLinearBand
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyChannelVarianceBound
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyChannelTaylorVariance
 -- Actual signed channel quadratic gain and SAME-variance energy consumer.

@@ -10,7 +10,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Verified original signed baseline damping (2026-10-04 UTC):**
+**Verified sharper original variance payment (2026-10-04 UTC):**
+Keeping one actual source factor unchanged improves the retained channel
+square's credit from `(l/u)^2` to `l/u` against the SAME interacting variance.
+Lean also proves the new credit is at least the old one. It reaches the
+complete original energy estimate without changing its leading coefficient,
+signed curvature or full error. Three focused checks and independent review
+passed. Coupling/family-size dependence and the useful joint scaling estimate
+remain open, as does the Clay target. See the
+[proof and remaining analytic input](audits/AUDIT-ORIGINAL-CHANNEL-LINEAR-VARIANCE-CREDIT-2026-10-04.md).
+
+**Earlier verified original signed baseline damping (2026-10-04 UTC):**
 The original completed gap now bounds every later mixed time/defect moment
 by `mixRate^t` times its initial value. On the SAME finite source this gives
 quantitative damping of the complete signed multiplication cost, retaining

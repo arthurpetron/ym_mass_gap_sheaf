@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## PROVED sharper original linear channel payment only (2026-10-04 UTC)
+
+`SU2QuaternionPassiveChannelLinearBand.familyChannelPair_spectator_full`
+joins the conditional mixed pair to full heat using actual active
+independence of R, while retaining the arbitrary original first leg.
+`channelSquare_sourceMoment_linear_band` keeps q*F^2 and compares ONLY the
+second source leg. `FamilyChannelSquareCredit.family_channel_observableSquare_linear_variance_credit`
+gives (l/u)*Z*OWNVar<=Sq_ch and `channelObservableSquareVarianceCredit_le_linear`
+proves improvement over the old squared credit. The COMPLETE energy
+consumer `FamilyChannelPaidSquare.padded_family_energy_paid_channel_square_linear`
+retains signed curvature, FULL error and leading C unchanged. Three focused
+checks passed 19 permitted gates, ten new; independent frozen review passed.
+Evidence: `audits/AUDIT-ORIGINAL-CHANNEL-LINEAR-VARIANCE-CREDIT-2026-10-04.md`.
+OPEN: useful joint signed-residual/SAME-surviving-variance control on a
+justified changing family, actual chronological window, continuum survival,
+physical mass, SAME OS/full QFT, every compact simple group and Clay.
+Nome/family-size dependence remains; no useful uniform credit is supplied.
+No new sorry/axiom/analytic premise, weakened frontier, CI/resource change
+or chart closure. Root registration only; no full/root build/audit/guard/
+broad metrics.
+
 ## PROVED original fixed-parameter signed baseline damping only (2026-10-04 UTC)
 
 `BF4WilsonAllNomeTimeDefectGeometric.mixedMoment_evenTime_geometric` proves

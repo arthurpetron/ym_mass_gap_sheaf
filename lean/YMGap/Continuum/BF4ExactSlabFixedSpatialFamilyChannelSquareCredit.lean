@@ -11,6 +11,7 @@ the nome and complete family footprint; no scaling-uniform claim is made.
 
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyChannelRetainedSquare
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyChannelVarianceBound
+import YMGap.Continuum.SU2QuaternionPassiveChannelLinearBand
 
 namespace YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyChannelSquareCredit
 
@@ -65,6 +66,7 @@ open YMGap.Continuum.SU2QuaternionProductHeatPassiveChannels
 open YMGap.Continuum.SU2QuaternionProductHeatProjectedSourceEnergy (sourceMoment)
 open YMGap.Continuum.SU2QuaternionFamilyHeatGramPositiveWeight
 open YMGap.Continuum.SU2QuaternionPassiveChannelMomentFactorization
+open YMGap.Continuum.SU2QuaternionPassiveChannelLinearBand
 open YMGap.Continuum.QuaternionHaarSquareCertificate
 open YMGap.Continuum.QuaternionHaarDensityVariance
 open YMGap.Continuum.QuaternionHaarPolynomialSquareBound (cap)
@@ -316,11 +318,165 @@ theorem family_channel_observableSquare_variance_credit {w : Q'}
   exact Q'.le_trans' _ _ _ (Q'.ge_of_eqv hleft)
     (Q'.le_trans' _ _ _ h (Q'.le_of_eqv hright))
 
+/-- Keeping one actual source leg unchanged improves the squared band to a
+linear band. The mixed spectator pairing is full-heat only because the
+spectator is independent of every active block. -/
+theorem family_channel_square_linear_variance_credit_cleared {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) (K : Nat)
+    (hK : headCutoff w ≤ K) {base width : Nat} (hwidth : base < width)
+    (n : Nat) (coeff : Z4Plaq → Q') (qs : List Z4Plaq)
+    (hqs : ∀ p, p ∈ qs → p ∈ spatialFaces base) :
+    let f := spatialSpan width coeff qs
+    let l := localLower w (4*qs.length)
+    let u := localUpper w (4*qs.length)
+    l*(oddMass w K width (n+1) *
+      oddVariance hw0 hw1 K width hK (n+1) f) ≤
+      u*familyChannelObservableSquare w K width (n+1) coeff qs := by
+  dsimp only
+  let f := spatialSpan width coeff qs
+  let q := projectedEndpointSource w K width (terminalMessage w K width (n+1))
+  let R := projectedFamilySpectator w K width n qs
+  let ids := familySpectatorBlocks width qs
+  let active := familyObservableBlocks width qs
+  let l := localLower w (4*qs.length)
+  let u := localUpper w (4*qs.length)
+  have hf := spatialSpan_supported width coeff qs
+  have hq : SupportedQuaternionBlocks (N width) q :=
+    familyProject_supported (fringeBlocks width)
+      (supported_polyMul (spatialWeight_supported w K width)
+        (terminalMessage_supported w K width (n+1)))
+  have hR : SupportedQuaternionBlocks (N width) R :=
+    familyProject_supported _ (familySpectator_supported w K width n qs)
+  have hl : (0 : Q') ≤ l := Q'.le_of_lt (localLower_positive hw0 hw1 _)
+  have hu : (0 : Q') ≤ u := Q'.le_of_lt (localUpper_positive hw0 hw1 _)
+  have hband := channelSquare_sourceMoment_linear_band hw0 hw1 K hK active ids
+    (familySpectatorBlocks_nodup width qs) (familySpectatorBlocks_lt width qs)
+    (familySpectator_observable_cover width qs) q R f hq hR hf
+    (projectedSource_certificate hw0 hw1 K width hK n) l u hl hu
+    (projectedFamily_lowerCertificate hw0 hw1 K width hK n qs)
+    (projectedFamily_upperCertificate hw0 hw1 K width hK n qs)
+    (projectedFamilySpectator_outside_passive hwidth qs hqs w K n)
+    (fun i hi => spatialSpan_familySpectator_independent width coeff qs i hi)
+  have hvar := Q'.mul_le_mul_of_nonneg_left _ _ l
+    (original_variance_le_projected_square hw0 hw1 K width hK (n+1) f hf
+      (spatialSpan_fringe_independent_after_padding hwidth coeff qs hqs)) hl
+  exact Q'.le_trans' _ _ _ hvar
+    (Q'.le_trans' _ _ _ hband
+      (Q'.ge_of_eqv (Q'.mul_eqv_congr_left u _ _
+        (familyChannelObservableSquare_eq_channelSquare w K width (n+1) coeff qs))))
+
+/-- Linear credit computed from the SAME nome and complete family size.
+Only the positive scalar upper band is inverted, not an interacting moment. -/
+def channelObservableSquareLinearVarianceCredit {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) (size : Nat) : Q' :=
+  localLower w (4*size) * Q'.recipPos (localUpper w (4*size))
+    (localUpper_positive hw0 hw1 _)
+
+theorem channelObservableSquareLinearVarianceCredit_positive {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) (size : Nat) :
+    (0 : Q') < channelObservableSquareLinearVarianceCredit hw0 hw1 size :=
+  Q'.mul_pos (localLower_positive hw0 hw1 _) (Q'.recipPos_pos _ _)
+
+/-- The sharper linear band pays the actual retained square against OWN
+variance, including signed/repeated families and zero variance. -/
+theorem family_channel_observableSquare_linear_variance_credit {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) (K : Nat)
+    (hK : headCutoff w ≤ K) {base width : Nat} (hwidth : base < width)
+    (n : Nat) (coeff : Z4Plaq → Q') (qs : List Z4Plaq)
+    (hqs : ∀ p, p ∈ qs → p ∈ spatialFaces base) :
+    channelObservableSquareLinearVarianceCredit hw0 hw1 qs.length *
+      (oddMass w K width (n+1) *
+        oddVariance hw0 hw1 K width hK (n+1) (spatialSpan width coeff qs)) ≤
+      familyChannelObservableSquare w K width (n+1) coeff qs := by
+  let l := localLower w (4*qs.length)
+  let u := localUpper w (4*qs.length)
+  have hu : (0 : Q') < u := localUpper_positive hw0 hw1 _
+  let a := Q'.recipPos u hu
+  let V := oddMass w K width (n+1) *
+    oddVariance hw0 hw1 K width hK (n+1) (spatialSpan width coeff qs)
+  let S := familyChannelObservableSquare w K width (n+1) coeff qs
+  have h := Q'.mul_le_mul_of_nonneg_right _ _ a
+    (family_channel_square_linear_variance_credit_cleared
+      hw0 hw1 K hK hwidth n coeff qs hqs)
+    (Q'.le_of_lt (Q'.recipPos_pos u hu))
+  have hleft : (l*V)*a ≈ channelObservableSquareLinearVarianceCredit hw0 hw1 qs.length*V :=
+    poly_identity_of_normal_eq
+      (.mul (.mul (.var 0) (.var 1)) (.var 2))
+      (.mul (.mul (.var 0) (.var 2)) (.var 1))
+      (by decide) (fun | 0 => l | 1 => V | _ => a)
+  have hright : (u*S)*a ≈ S := Q'.eqv_trans _ _ _
+    (poly_identity_of_normal_eq
+      (.mul (.mul (.var 0) (.var 1)) (.var 2))
+      (.mul (.mul (.var 0) (.var 2)) (.var 1))
+      (by decide) (fun | 0 => u | 1 => S | _ => a))
+    (Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_right _ _ S (Q'.mul_recipPos_eqv u hu))
+      (Q'.one_mul_eqv S))
+  exact Q'.le_trans' _ _ _ (Q'.ge_of_eqv hleft)
+    (Q'.le_trans' _ _ _ h (Q'.le_of_eqv hright))
+
+private theorem one_le_pow (r : Q') (hr : (1 : Q') ≤ r) :
+    ∀ k : Nat, (1 : Q') ≤ r^k
+  | 0 => Q'.le_refl' _
+  | k+1 => by
+      rw [Q'.pow_succ]
+      have hr0 : (0 : Q') ≤ r := Q'.le_trans' _ _ _ Q'.zero_le_one hr
+      have hm := Q'.mul_le_mul_of_nonneg_right _ _ _ hr (Q'.pow_nonneg r hr0 k)
+      exact Q'.le_trans' _ _ _ (one_le_pow r hr k)
+        (Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.one_mul_eqv _).symm) hm)
+
+/-- The computed linear credit is at least the previously constructed
+squared credit. The nome and family-size dependence remain explicit. -/
+theorem channelObservableSquareVarianceCredit_le_linear {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) (size : Nat) :
+    channelObservableSquareVarianceCredit hw0 hw1 size ≤
+      channelObservableSquareLinearVarianceCredit hw0 hw1 size := by
+  let l := localLower w (4*size)
+  let u := localUpper w (4*size)
+  let U := u*u
+  have hl0 : (0 : Q') ≤ l := Q'.le_of_lt (localLower_positive hw0 hw1 _)
+  have hu : (0 : Q') < u := localUpper_positive hw0 hw1 _
+  have hU : (0 : Q') < U := Q'.mul_pos hu hu
+  have hl1 : l ≤ (1 : Q') := HKPos.pow_le_one
+    (Q'.le_of_lt (BF4ExactSlabRetainedHeatHeadComparison.headFloor_positive hw0 hw1))
+    (Q'.le_trans' _ _ _
+      (BF4ExactSlabSharedWindowFloorBound.headFloor_le_oneThirtySecond hw0 hw1) (by decide)) _
+  have hu1 : (1 : Q') ≤ u := one_le_pow _
+    (BF4ExactSlabStarRateObstruction.prefixCap_ge_one hw0 hw1) _
+  have hlu : l ≤ u := Q'.le_trans' _ _ _ hl1 hu1
+  let old := channelObservableSquareVarianceCredit hw0 hw1 size
+  let new := channelObservableSquareLinearVarianceCredit hw0 hw1 size
+  have hold : old*U ≈ l*l :=
+    Q'.eqv_trans _ _ _ (Q'.mul_assoc_eqv _ _ _)
+      (Q'.eqv_trans _ _ _
+        (Q'.mul_eqv_congr_left (l*l) _ _
+          (Q'.eqv_trans _ _ _ (Q'.mul_comm_eqv _ _) (Q'.mul_recipPos_eqv U hU)))
+        (Q'.mul_one_eqv _))
+  have hnew : new*U ≈ l*u := Q'.eqv_trans _ _ _
+    (poly_identity_of_normal_eq
+      (.mul (.mul (.var 0) (.var 1)) (.mul (.var 2) (.var 2)))
+      (.mul (.mul (.var 0) (.var 2)) (.mul (.var 2) (.var 1)))
+      (by decide) (fun | 0 => l | 1 => Q'.recipPos u hu | _ => u))
+    (Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_left (l*u) _ _ (Q'.mul_recipPos_eqv u hu))
+      (Q'.mul_one_eqv _))
+  apply Q'.le_of_mul_le_mul_left (c := U) _ hU
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.mul_comm_eqv U old))
+    (Q'.le_trans' _ _ _ (Q'.le_of_eqv hold)
+      (Q'.le_trans' _ _ _ (Q'.mul_le_mul_of_nonneg_left _ _ l hlu hl0)
+        (Q'.le_trans' _ _ _ (Q'.ge_of_eqv hnew)
+          (Q'.le_of_eqv (Q'.mul_comm_eqv new U)))))
+
 #print axioms original_variance_le_projected_square
 #print axioms familyChannelObservableSquare_eq_channelSquare
 #print axioms family_channel_square_variance_credit_cleared
 #print axioms channelObservableSquareVarianceCredit
 #print axioms channelObservableSquareVarianceCredit_positive
 #print axioms family_channel_observableSquare_variance_credit
+#print axioms family_channel_square_linear_variance_credit_cleared
+#print axioms channelObservableSquareLinearVarianceCredit
+#print axioms channelObservableSquareLinearVarianceCredit_positive
+#print axioms family_channel_observableSquare_linear_variance_credit
+#print axioms channelObservableSquareVarianceCredit_le_linear
 
 end YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyChannelSquareCredit
