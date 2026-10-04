@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## PROVED original prediction-energy/noise bridge only (2026-10-04 UTC)
+
+`BF4ExactSlabFixedSpatialLastStepPredictionEnergy.lastStepPredictionResidual_certificate`
+constructs the literal K*V*a prediction square. Its exact pins give
+A*R=N+q^2 and ell(a*R)=2*ORIGINAL energy; the actual upper bracket pays
+ell(N)+ell(q^2)<=2*U*energy without additive norm debt or excitation inverse.
+`LastStepPredictionEnergyNormalized.lastStepNoise_prediction_energy_cleared`
+cancels the absolute terminal scale against DISTINCT original partitions:
+ell(a*A)*[ell(N)+ell(q^2)]<=2*(1+eta)*ell(A^2)*energy.
+Its actual projected consumers retain spatialCeiling and Vbar^2 versus V.
+`LastStepPredictionGradient.original_lastStep_prediction_energy_gradient_le`
+joins the ACTUAL outgoing original gradient and retains BOTH reciprocal
+corrections with independent incoming/outgoing degrees. Three focused checks
+passed eleven permitted gates; independent mathematical reviews passed.
+Evidence: `audits/AUDIT-ORIGINAL-LAST-STEP-PREDICTION-ENERGY-2026-10-04.md`.
+No new sorry, axiom, analytic premise, weakened field, CI or chart change.
+Root registration only; no root/aggregate audit. OPEN: small initial energy
+or favorable COMPLETE signed energy/window recursion on a JUSTIFIED changing
+family, including BOTH signed Taylor terms and chronological costs. No
+scaling-uniform coefficient, survival, physical/OS/continuum/QFT/every-group
+or Clay closure; no canonical frontier atom is closed.
+
 ## PROVED original last-step variance dissipation only (2026-10-04 UTC)
 
 `BF4ExactSlabFixedSpatialLastStepNoiseDissipation.lastStepNoise_dissipation_cleared`

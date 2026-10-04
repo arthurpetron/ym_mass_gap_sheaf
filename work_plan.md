@@ -27,6 +27,27 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-04 UTC)
 
+NOW CHECKED ORIGINAL PREDICTION-ENERGY BRIDGE:
+FORWARD, the COMPLETE K*V*a conditional square constructs R>=0 with
+A*R=N+(T(a*phi)-A*phi)^2 and ell(a*R)=2*ORIGINAL energy(a,phi).
+The actual one-step terminal bracket gives ell(N)+ell(predictionError^2)
+<=2*U*energy, with NO additive norm debt or excitation inverse.
+BACKWARD, l*ell(a*A)<=ell(A^2) and U<=(1+eta)*l cancel the absolute
+terminal scale: ell(a*A)*[ell(N)+ell(predictionError^2)]
+<=2*(1+eta)*ell(A^2)*energy. The projected-noise comparison retains
+spatialCeiling and Vbar^2 versus V. Its ACTUAL original outgoing gradient
+consumer keeps BOTH finite reciprocal corrections and independent degrees.
+Three focused checks passed eleven permitted gates; independent reviews
+passed. Evidence:
+`audits/AUDIT-ORIGINAL-LAST-STEP-PREDICTION-ENERGY-2026-10-04.md`.
+REPOINT: the noise front now meets the ORIGINAL incoming-energy demand.
+Seek a favorable action-specific signed energy recursion/window estimate
+on a JUSTIFIED changing family, or the primary initial-energy signed-defect
+alternative. No further assumed-noise-budget wrapper is needed. Incoming
+energy is NOT proved small; BOTH signed Taylor terms and chronological
+partition costs remain. Nome/width/rate control, survival/physical/OS/
+continuum/QFT/every-group/Clay remain OPEN; chart atoms unchanged.
+
 NOW CHECKED ORIGINAL LAST-INNOVATION VARIANCE DISSIPATION:
 FORWARD, actual gap-two terminal brackets and weighted symmetry give
 Zi*[ell(N_phi)+ell(T(a*phi)^2)] <= (1+eta)*Zo*ell((a*phi)^2),

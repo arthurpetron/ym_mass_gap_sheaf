@@ -7161,6 +7161,14 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepReconstructionNorm
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepProjectedNoise
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepOriginalDissipation
 
+-- Actual conditional prediction square pays last innovation by ORIGINAL
+-- incoming Dirichlet energy. Distinct partition scales cancel explicitly;
+-- literal projected-noise/gradient joins retain both finite corrections.
+-- No small initial energy, favorable signed recursion or scaling closure.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepPredictionEnergy
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepPredictionEnergyNormalized
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepPredictionGradient
+
 -- Actual terminal-depth drift payment versus the SAME surviving norm.
 -- Fixed nome/width moduli only; signed bulk/changing-family estimate is open.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalDrift

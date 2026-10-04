@@ -4,7 +4,26 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL retained last-innovation dissipation (2026-10-04 UTC)
+## Current increment: ORIGINAL prediction-energy bridge (2026-10-04 UTC)
+
+PROGRESS after `ba16d57`: the actual positive conditional prediction square
+pays last-step noise by SAME incoming Dirichlet energy without an extra
+norm debt. Distinct original partition factors cancel the absolute terminal
+scale; no source/excitation inverse is used. The literal projected insertion
+joins the ACTUAL outgoing gradient with BOTH reciprocal corrections and
+independent degrees. This meets a real backward energy demand; it is not
+another assumed-noise-budget interface. Three focused checks passed eleven
+permitted gates; independent mathematical reviews passed. NEXT: favorable
+action-specific COMPLETE signed energy/window recursion on a JUSTIFIED
+changing family, or the primary initial-energy signed-defect alternative.
+Incoming energy is not proved small. Both Taylor terms, chronological costs,
+survival/physical/OS/continuum/QFT/every-group/Clay remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-LAST-STEP-PREDICTION-ENERGY-2026-10-04.md`.
+
+No broad progress-metric/guard run or full build/audit is claimed. Exact
+canonical chart atoms unchanged; no chart reprint.
+
+## Earlier increment: ORIGINAL retained last-innovation dissipation (2026-10-04 UTC)
 
 PROGRESS after `8513911`: the actual last-step conditional innovation is
 retained on the LEFT of a same-source variance-loss inequality, with a

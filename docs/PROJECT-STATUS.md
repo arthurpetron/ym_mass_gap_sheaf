@@ -1,5 +1,20 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL prediction-energy bridge (2026-10-04 UTC;
+chart unchanged): the complete original conditional square proves
+A*R=N+predictionError^2 and ell(a*R)=2*original energy. The actual terminal
+bracket pays noise without additive norm debt; distinct original partitions
+cancel its absolute scale, giving LINEAR 2*(1+comparisonEta). Literal
+projected noise retains spatialCeiling, not Vbar^2=V. The actual outgoing
+angular-gradient join retains BOTH reciprocal corrections and independent
+degrees. Three focused checks passed eleven permitted gates, with independent
+reviews. This fills the noise-to-incoming-energy bridge, not small incoming
+energy or favorable signed recursion on a justified scaling family. BOTH
+signed Taylor terms, chronological costs, survival/physical/OS/continuum/
+QFT/every-group/Clay remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-LAST-STEP-PREDICTION-ENERGY-2026-10-04.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting ORIGINAL last-step variance dissipation (2026-10-04
 UTC; chart unchanged): actual terminal brackets give a LINEAR near-unit
 bound on noise PLUS the transmitted square. The incoming reciprocal and

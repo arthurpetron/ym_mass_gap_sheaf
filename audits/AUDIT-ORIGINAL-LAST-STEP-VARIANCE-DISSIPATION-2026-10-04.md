@@ -87,9 +87,9 @@ positive-window reciprocal is retained.
 
 `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLastStepProjectedNoise.lean:73`
 `spatialFringeMass_weighted_insert_le` extends the existing square comparison
-to a certified fringe-independent insertion. `:116`
+to a certified fringe-independent insertion. `:117`
 `lastStepRatioNoise_fringe_independent` constructs this independence for
-the literal noise using actual one-step outputs. `:156`
+the literal noise using actual one-step outputs. `:157`
 `lastStepRatioNoise_projected_weight_le` proves
 
     H[Vbar^2*N_k] <= spatialCeiling(w,width)*ell(N_k).
