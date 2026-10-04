@@ -27,7 +27,24 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-04 UTC)
 
-NOW CHECKED RHO-FREE ORIGINAL CHANNEL LOSS PAYMENT:
+NOW CHECKED JOINT ORIGINAL RAW-MOMENT / WHOLE-INCREMENT PAYMENT:
+Positive SAME two-copy heat and symmetry prove 8U+I<=4(Q+R) for signed
+source/observable. Exact literal F^2 heat and original channels give
+8U+I<=4[(1+beta)Q+dM]. Together with 4E+I=2(dM-kQ), this cancels Q:
+(1+beta)(4E+I)+(k/2)I+4kU<=4adM. BOTH raw U and ENTIRE I remain,
+with extra nonnegative kI/2. The ACTUAL chronological consumer divides by
+SAME endpoint Z and pays ONLY boundary drift, preserving stage OWN center,
+BOTH partitions and COMPLETE Signed. No absolute band, small-loss premise
+or Taylor/omitted-mode error. No universal numerical dominance over earlier
+payment is claimed. Three focused checks passed five NEW permitted gates;
+independent frozen math/evidence reviews passed. NEXT: JOINT mass/raw moment/
+increment/signed control versus SAME filtered-start variance on a justified
+changing family, not an assumed/circular macro budget or endpoint-norm swap.
+Justified scaling/survival/physical/OS/full QFT/continuum/every-group/Clay stay
+OPEN. Evidence: `audits/AUDIT-JOINT-RAW-INCREMENT-CHRONOLOGICAL-PAYMENT-2026-10-04.md`.
+Supporting A03 only; exact chart claims unchanged, no ASCII/paper-list reprint.
+
+EARLIER CHECKED RHO-FREE ORIGINAL CHANNEL LOSS PAYMENT:
 Actual uncentered Q and original raw moment U satisfy (Q-U)^2<=4*L*Q,
 Z*OWNVar<=U<=2Q+L, with computed L=M-Z. No band rho or small-loss premise.
 Exact heat now pays E+I/(4Z)+(k/4)*OWNVar<=d*M/(2Z)+k*L/(4Z), retaining

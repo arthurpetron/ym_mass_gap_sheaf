@@ -10,7 +10,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Verified source-specific replacement for the coarse credit (2026-10-04 UTC):**
+**Verified joint raw-moment and full-increment payment (2026-10-04 UTC):**
+The original positive heat now bounds the raw second moment and entire
+source increment together. Exact Wilson heat identities cancel the channel
+moment, retaining an extra nonnegative increment credit. This reaches the
+actual chronological cost with its stage mean, both partitions and complete
+signed correction unchanged; only boundary drift is paid. Three focused
+checks and independent reviews passed. Useful joint control against the SAME
+filtered-state norm and justified physical scaling remain open. See the
+[proof and remaining input](audits/AUDIT-JOINT-RAW-INCREMENT-CHRONOLOGICAL-PAYMENT-2026-10-04.md).
+
+**Earlier verified source-specific replacement for the coarse credit (2026-10-04 UTC):**
 The actual original channels now satisfy `Z*Var <= 2*Q + (M-Z)`, without
 the exponentially small band coefficient or a small-loss assumption.
 It reaches the exact energy and original chronological-cost estimates,

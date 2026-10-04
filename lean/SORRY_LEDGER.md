@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## PROVED joint original raw-moment / full-increment payment only (2026-10-04 UTC)
+
+`SU2QuaternionProductHeatSourceYoungMoments.eight_sourceMoment_add_increment_le_raw_heat_square`
+proves 8U+I<=4(Q+R) for signed supported sources/observables using SAME
+positive heat and symmetry. `BF4DyadicWilsonSquareChannelVarianceLoss.paddedSquare_rawSecond_increment_le_channelMoment_mass`
+specializes to actual original channels and exact F^2 heat, and
+`paddedSquare_energy_rawSecond_joint_increment_payment` cancels Q to give
+(1+beta)(4E+I)+(k/2)I+4kU<=4adM under the existing explicit k>=0 guard.
+`BF4WilsonAllNomeChronologicalExactChannelCost.originalOwnBlockCost_rawSecond_joint_increment_boundary_paid`
+reaches the ACTUAL chronological cost with SAME endpoint normalization,
+stage OWN center/BOTH partitions, extra full-increment credit and COMPLETE
+Signed. Only drift is paid. No raw/OWN/filtered norm identification or
+universal numerical dominance. Three focused checks passed five NEW
+permitted gates; independent frozen reviews passed. Evidence:
+`audits/AUDIT-JOINT-RAW-INCREMENT-CHRONOLOGICAL-PAYMENT-2026-10-04.md`.
+OPEN: useful JOINT original mass/raw/increment/signed aggregate versus SAME
+filtered-start variance, justified scaling/survival/physical/OS/full QFT/
+continuum/every-group/Clay. No new sorry/axiom/analytic budget, weakened
+frontier, CI/resource change or chart closure. Existing root registration
+only; no full/root build/audit/guard/metrics.
+
 ## PROVED rho-free original channel loss payment only (2026-10-04 UTC)
 
 `BF4DyadicWilsonSquareChannelVarianceLoss.paddedSquare_channel_rawSecond_loss_bound`

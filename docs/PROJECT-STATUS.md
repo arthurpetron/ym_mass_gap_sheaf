@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting JOINT raw-moment / whole-increment payment
+(2026-10-04 UTC; chart unchanged): SAME positive heat gives 8U+I<=4(Q+R).
+Exact literal square images and original cost cancel Q, retaining
+(1+beta)(4E+I)+(k/2)I+4kU<=4adM. The actual chronological consumer
+normalizes by SAME Z, pays ONLY drift and retains stage OWN center/BOTH
+partitions/COMPLETE Signed. Raw endpoint U is not endpoint OWN variance or
+filtered-start norm. Three focused checks passed five NEW permitted gates;
+independent frozen reviews passed. Useful JOINT aggregate versus SAME
+filtered-start variance and justified scaling remain OPEN, as do survival/
+physical/OS/full QFT/continuum/every-group/Clay. Evidence:
+`audits/AUDIT-JOINT-RAW-INCREMENT-CHRONOLOGICAL-PAYMENT-2026-10-04.md`.
+Supporting A03 only; no exact displayed claim changes, no ASCII reprint.
+
 Verified supporting RHO-FREE original channel payment (2026-10-04 UTC;
 chart unchanged): (Q-U)^2<=4*L*Q and Z*OWNVar<=U<=2Q+L for actual
 uncentered Q, original raw U and computed L=M-Z. Exact heat pays k/4

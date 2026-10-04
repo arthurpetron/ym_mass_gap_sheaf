@@ -59,7 +59,9 @@ open YMGap.Continuum.BF4DyadicWilsonSquareChannelExactResponse
   (responseQuarter squareChannelIncrement)
 open YMGap.Continuum.BF4DyadicWilsonSquareExactVariancePayment
   (paddedSquare_energy_exact_variance_payment paddedSquare_energy_exact_loss_variance_payment)
-open YMGap.Continuum.BF4DyadicWilsonSquareChannelVarianceLoss (channelHeatLoss)
+open YMGap.Continuum.BF4DyadicWilsonSquareChannelVarianceLoss
+  (channelHeatLoss squareOriginalRawSecondMoment
+    paddedSquare_energy_rawSecond_joint_increment_payment)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyChannelSquareCredit
   (channelObservableSquareLinearVarianceCredit)
 open YMGap.Continuum.SU2HeatExactSquareCreditWindow (exactSquareCredit)
@@ -77,6 +79,11 @@ private theorem cancel_product_left (x y r : Q') (hy : (0 : Q') < y)
       (.mul (.mul (.var 0) (.var 1)) (.var 2))
       (by decide) (fun | 0 => x | 1 => y | _ => r))
     (Q'.eqv_trans _ _ _ hprod (Q'.mul_recipPos_eqv y hy).symm)
+
+private theorem qpow_rg (w : Q') : ∀ n,
+    qpow w n = YMGap.Continuum.RGTransport.qpow w n
+  | 0 => rfl
+  | n+1 => congrArg (fun z : Q' => z*w) (qpow_rg w n)
 
 variable {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
   (scale width : Nat) (hwidth : side scale < width) (stage t : Nat)
@@ -374,6 +381,98 @@ theorem originalOwnBlockCost_exact_loss_boundary_paid
     (originalOwnBlockCost_exact_loss_payment hw0 hw1 scale width hwidth stage t h2 hcoefficient)
     (Q'.add_le_add_right _ _ _ (Q'.add_le_add_left _ _ _
       (originalBoundaryDrift_upper hw0 hw1 scale width hwidth stage t hdepth)))
+
+/-- Joint raw-moment and whole-increment credit in the ACTUAL chronological
+cost. Both original partitions and the stage OWN center are preserved.
+Only boundary drift is paid. The raw second moment is not replaced by an
+endpoint variance or by the SAME filtered-start norm; that comparison and
+the complete signed multiplication correction remain open. -/
+theorem originalOwnBlockCost_rawSecond_joint_increment_boundary_paid
+    (hdepth : 1 ≤ stage+t) (h2 : 2 ≤ K)
+    (hk : (0 : Q') ≤ exactSquareCredit w (side scale)) :
+    let a := qpow w (12*side scale)
+    let beta := qpow w (32*side scale)
+    let k := exactSquareCredit w (side scale)
+    let I := squareChannelIncrement w K scale width hwidth (stage+t)*r
+    let U := squareOriginalRawSecondMoment w K width (stage+t) scale hwidth*r
+    (1+beta)*(4*Cost+I)+(HalfPow.half*k)*I+4*k*U ≤
+      4*a*(1-beta)*(squareChannelMass w K scale width hwidth A*r)+
+        4*(1+beta)*(comparisonEta hw0 hw1 width (stage+t-1)*
+          originalReferenceSquare hw0 hw1 scale width hwidth stage t+Signed) := by
+  dsimp only
+  let a := qpow w (12*side scale)
+  let beta := qpow w (32*side scale)
+  let k := exactSquareCredit w (side scale)
+  let heat := 1+beta
+  let e := energy w K width A f
+  let E := normalizedEnergy hw0 hw1 K width hK (stage+t) f
+  let iraw := squareChannelIncrement w K scale width hwidth (stage+t)
+  let uraw := squareOriginalRawSecondMoment w K width (stage+t) scale hwidth
+  let M := squareChannelMass w K scale width hwidth A
+  let I := iraw*r
+  let U := uraw*r
+  let D := originalBoundaryDrift hw0 hw1 scale width hwidth stage t
+  let S := Signed
+  let B := comparisonEta hw0 hw1 width (stage+t-1)*
+    originalReferenceSquare hw0 hw1 scale width hwidth stage t
+  let P := heat*(4*E+I)+(HalfPow.half*k)*I+4*k*U
+  let R := 4*a*(1-beta)*(M*r)
+  have he : e*r ≈ E := by
+    unfold E normalizedEnergy
+    exact Q'.eqv_refl _
+  have hp := Q'.mul_le_mul_of_nonneg_right _ _ r
+    (paddedSquare_energy_rawSecond_joint_increment_payment
+      hw0 hw1 K width hK h2 (stage+t) scale hwidth hk)
+    (Q'.le_of_lt (Q'.recipPos_pos _ _))
+  have hl : (heat*(4*e+iraw)+(HalfPow.half*k)*iraw+4*k*uraw)*r ≈ P :=
+    Q'.eqv_trans _ _ _ (poly_identity_of_normal_eq
+      (.mul (.add (.add (.mul (.var 0) (.add (.mul (.const 4) (.var 1)) (.var 2)))
+        (.mul (.var 3) (.var 2))) (.mul (.var 4) (.var 5))) (.var 6))
+      (.add (.add (.mul (.var 0) (.add (.mul (.const 4) (.mul (.var 1) (.var 6)))
+        (.mul (.var 2) (.var 6)))) (.mul (.var 3) (.mul (.var 2) (.var 6))))
+        (.mul (.var 4) (.mul (.var 5) (.var 6))))
+      (by decide) (fun
+        | 0 => heat | 1 => e | 2 => iraw | 3 => HalfPow.half*k
+        | 4 => 4*k | 5 => uraw | _ => r))
+      (Q'.add_eqv_congr_right _ _ (4*k*U)
+        (Q'.add_eqv_congr_right _ _ ((HalfPow.half*k)*I)
+          (Q'.mul_eqv_congr_left heat _ _
+            (Q'.add_eqv_congr_right _ _ I (Q'.mul_eqv_congr_left 4 _ _ he)))))
+  have hr : (4*a*(1-beta)*M)*r ≈ R := Q'.mul_assoc_eqv _ M r
+  have hpayment : P ≤ R := Q'.le_trans' _ _ _ (Q'.ge_of_eqv hl)
+    (Q'.le_trans' _ _ _ hp (Q'.le_of_eqv hr))
+  have hbeta : (0 : Q') ≤ beta := by
+    dsimp only [beta]
+    rw [qpow_rg]
+    exact YMGap.Continuum.RGTransport.qpow_nonneg w (Q'.le_of_lt hw0) _
+  have hheat : (0 : Q') ≤ heat := Q'.zero_le_add 1 beta (by decide) hbeta
+  have hcorrection : 4*heat*(D+S) ≤ 4*heat*(B+S) :=
+    Q'.mul_le_mul_of_nonneg_left _ _ (4*heat)
+    (Q'.add_le_add_right _ _ S
+      (originalBoundaryDrift_upper hw0 hw1 scale width hwidth stage t hdepth))
+    (Q'.mul_nonneg 4 heat (by decide) hheat)
+  have hcost : Cost ≈ E+D+S :=
+    originalOwnBlockCost_energy_split hw0 hw1 scale width hwidth stage t
+  have hshape : heat*(4*Cost+I)+(HalfPow.half*k)*I+4*k*U ≈ P+4*heat*(D+S) :=
+    Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_right _ _ (4*k*U)
+        (Q'.add_eqv_congr_right _ _ ((HalfPow.half*k)*I)
+          (Q'.mul_eqv_congr_left heat _ _
+            (Q'.add_eqv_congr_right _ _ I (Q'.mul_eqv_congr_left 4 _ _ hcost)))))
+      (poly_identity_of_normal_eq
+        (.add (.add (.mul (.var 0) (.add (.mul (.const 4)
+          (.add (.add (.var 1) (.var 2)) (.var 3))) (.var 4)))
+          (.mul (.var 5) (.var 4))) (.mul (.var 6) (.var 7)))
+        (.add (.add (.add (.mul (.var 0) (.add (.mul (.const 4) (.var 1)) (.var 4)))
+          (.mul (.var 5) (.var 4))) (.mul (.var 6) (.var 7)))
+          (.mul (.mul (.const 4) (.var 0)) (.add (.var 2) (.var 3))))
+        (by decide) (fun
+          | 0 => heat | 1 => E | 2 => D | 3 => S | 4 => I
+          | 5 => HalfPow.half*k | 6 => 4*k | _ => U))
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hshape)
+    (Q'.add_le_add hpayment hcorrection)
+
+#print axioms originalOwnBlockCost_rawSecond_joint_increment_boundary_paid
 
 #print axioms originalOwnBlockCost_exact_loss_payment
 #print axioms originalOwnBlockCost_exact_loss_boundary_paid

@@ -17,6 +17,9 @@ import YMGap.Continuum.SU2QuaternionPassiveChannelSobolevError
 import YMGap.Continuum.CayleyParentInj
 import YMGap.Continuum.RationalSquareLossYoung
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyChannelSquareCredit
+import YMGap.Continuum.SU2QuaternionProductHeatSourceYoungMoments
+import YMGap.Continuum.BF4DyadicWilsonSquareChannelExactResponse
+import YMGap.Continuum.SU2HeatExactSquareCreditWindow
 
 namespace YMGap.Continuum.BF4DyadicWilsonSquareChannelVarianceLoss
 
@@ -66,6 +69,13 @@ open YMGap.Continuum.BF4DyadicWilsonSquareHeatImage (paddedSquare_fringe_indepen
 open YMGap.Continuum.BF4DyadicWilsonSquarePassiveChannels
 open YMGap.Continuum.BF4DyadicWilsonSquareChannelGeometry
 open YMGap.Continuum.BF4DyadicWilsonSquareCenteredFourthMoment
+open YMGap.Continuum.SU2QuaternionProductHeatSourceYoung (sourceIncrementCost)
+open YMGap.Continuum.SU2QuaternionProductHeatSourceYoungMoments
+  (eight_sourceMoment_add_increment_le_raw_heat_square)
+open YMGap.Continuum.BF4DyadicWilsonSquareQuadraticHeat (paddedSquare_square_moment)
+open YMGap.Continuum.BF4DyadicWilsonSquareChannelExactResponse
+  (squareChannelIncrement exactChannelHeatCost paddedSquare_channel_exact_cost)
+open YMGap.Continuum.SU2HeatExactSquareCreditWindow (exactSquareCredit)
 
 local infix:50 " ≈ " => Q'.eqv
 local notation:max "N" width:arg => List.length (baseLinks width)
@@ -563,6 +573,158 @@ theorem paddedSquare_oddVariance_le_twice_channelMoment_add_loss {w : Q'}
       hw0 hw1 K width hK depth f hf (paddedSquare_fringe_independent scale width hwidth))
     (Q'.le_trans' _ _ _ (Q'.ge_of_eqv hpin)
       hupper)
+
+/-- Joint raw/ORIGINAL moment comparison retaining the ENTIRE source
+increment. The exact second heat image and positive role-swapped square
+replace the separate additive-loss payment; no useful loss bound is assumed. -/
+theorem paddedSquare_rawSecond_increment_le_channelMoment_mass {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K width : Nat) (hK : headCutoff w ≤ K) (h2 : 2 ≤ K) (depth scale : Nat)
+    (hwidth : side scale < width) :
+    8*squareOriginalRawSecondMoment w K width depth scale hwidth+
+        squareChannelIncrement w K scale width hwidth depth ≤
+      4*((1+qpow w (32*side scale))*
+        squareChannelMoment w K scale width hwidth (terminalMessage w K width depth)+
+        (1-qpow w (32*side scale))*
+          squareChannelMass w K scale width hwidth (terminalMessage w K width depth)) := by
+  let f := sourceCharacter width (paddedSquare scale width hwidth).edges 1
+  let cs := productChannels (N width) w K (spectatorBlocks scale width hwidth)
+  let bsrc := squareChannelSource w K scale width hwidth (terminalMessage w K width depth)
+  let u := fun z => sourceMoment (N width) w K (List.range (N width)) (bsrc z) (polyMul f f)
+  let i := fun z => sourceIncrementCost (N width) w K (List.range (N width)) (bsrc z) f
+  let v := fun z => H (N width) (polyMul (polyMul (bsrc z) (bsrc z)) (polyMul f f))
+  let m := fun z => H (N width) (polyMul (bsrc z) (bsrc z))
+  let U := squareOriginalRawSecondMoment w K width depth scale hwidth
+  let I := squareChannelIncrement w K scale width hwidth depth
+  let Q := squareChannelMoment w K scale width hwidth (terminalMessage w K width depth)
+  let M := squareChannelMass w K scale width hwidth (terminalMessage w K width depth)
+  let beta := qpow w (32*side scale)
+  have hf := (paddedSquareSquareBound scale width hwidth).support
+  have hu : channelSum cs u ≈ U := by
+    unfold U squareOriginalRawSecondMoment
+    exact (oddMoment_eq_square_channels scale width hwidth w K depth (polyMul f f)
+      (supported_polyMul hf hf)
+      (fun j hj => quaternionBlockIndependent_polyMul
+        (paddedSquare_fringe_independent scale width hwidth j hj)
+        (paddedSquare_fringe_independent scale width hwidth j hj))
+      (fun j hj => quaternionBlockIndependent_polyMul
+        (sourceCharacter_spectator_independent_allSpin scale width hwidth j hj 1)
+        (sourceCharacter_spectator_independent_allSpin scale width hwidth j hj 1))).symm
+  have hv : channelSum cs v ≈ Q := by
+    unfold Q squareChannelMoment
+    exact Q'.eqv_refl _
+  have hm : channelSum cs m ≈ M := Q'.eqv_refl _
+  have hi : channelSum cs i ≈ I := Q'.eqv_refl _
+  have hpoint (c : GramChannel) (hc : c ∈ cs) :
+      8*u c.2+i c.2 ≤ 4*((1+beta)*v c.2+(1-beta)*m c.2) := by
+    have hb := squareChannelSource_supported w K scale width hwidth _
+      (terminalMessage_supported w K width depth) c hc
+    have h := eight_sourceMoment_add_increment_le_raw_heat_square (N width)
+      hw0 hw1 K hK (List.range (N width)) (CayleyParentInj.range_nodup _)
+      (fun j hj => List.mem_range.mp hj) hb hf
+    have hr := paddedSquare_square_moment scale width hwidth w K h2 (bsrc c.2) hb
+    exact Q'.le_trans' _ _ _ h (Q'.le_of_eqv (Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_left 4 _ _ (Q'.add_eqv_congr_left _ _ _ hr))
+      (poly_identity_of_normal_eq
+        (.mul (.const 4) (.add (.var 0)
+          (.add (.mul (.var 2) (.var 0)) (.mul (.add (.const 1) (.neg (.var 2))) (.var 1)))))
+        (.mul (.const 4) (.add (.mul (.add (.const 1) (.var 2)) (.var 0))
+          (.mul (.add (.const 1) (.neg (.var 2))) (.var 1))))
+        (by decide) (fun | 0 => v c.2 | 1 => m c.2 | _ => beta))))
+  have hsum := channelSum_le (fun z => 8*u z+i z)
+    (fun z => 4*((1+beta)*v z+(1-beta)*m z)) cs
+    (productChannels_nonnegative (N width) (Q'.le_of_lt hw0) K _) hpoint
+  have hl : channelSum cs (fun z => 8*u z+i z) ≈ 8*U+I :=
+    Q'.eqv_trans _ _ _ (channelSum_add _ _ cs) (Q'.add_eqv_congr'
+      (Q'.eqv_trans _ _ _ (channelSum_smul u 8 cs) (Q'.mul_eqv_congr_left 8 _ _ hu)) hi)
+  have hr : channelSum cs (fun z => 4*((1+beta)*v z+(1-beta)*m z)) ≈
+      4*((1+beta)*Q+(1-beta)*M) :=
+    Q'.eqv_trans _ _ _ (channelSum_smul _ 4 cs) (Q'.mul_eqv_congr_left 4 _ _
+      (Q'.eqv_trans _ _ _ (channelSum_add _ _ cs) (Q'.add_eqv_congr'
+        (Q'.eqv_trans _ _ _ (channelSum_smul v (1+beta) cs)
+          (Q'.mul_eqv_congr_left (1+beta) _ _ hv))
+        (Q'.eqv_trans _ _ _ (channelSum_smul m (1-beta) cs)
+          (Q'.mul_eqv_congr_left (1-beta) _ _ hm)))))
+  exact Q'.le_trans' _ _ _ (Q'.ge_of_eqv hl)
+    (Q'.le_trans' _ _ _ hsum (Q'.le_of_eqv hr))
+
+/-- Cleared exact energy payment retaining BOTH raw second moment and whole
+increment. Its extra k*I/2 credit is nonnegative under the scalar k guard;
+the comparison does not assert universal dominance over the loss payment. -/
+theorem paddedSquare_energy_rawSecond_joint_increment_payment {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K width : Nat) (hK : headCutoff w ≤ K) (h2 : 2 ≤ K) (depth scale : Nat)
+    (hwidth : side scale < width)
+    (hk : (0 : Q') ≤ exactSquareCredit w (side scale)) :
+    let f := sourceCharacter width (paddedSquare scale width hwidth).edges 1
+    let a := qpow w (12*side scale)
+    let beta := qpow w (32*side scale)
+    let I := squareChannelIncrement w K scale width hwidth depth
+    let k := exactSquareCredit w (side scale)
+    (1+beta)*(4*YMGap.Continuum.BF4ExactSlabFixedSpatialDirichletForm.energy
+        w K width (terminalMessage w K width depth) f+I)+
+        (HalfPow.half*k)*I+4*k*squareOriginalRawSecondMoment w K width depth scale hwidth ≤
+      4*a*(1-beta)*squareChannelMass w K scale width hwidth (terminalMessage w K width depth) := by
+  dsimp only
+  let f := sourceCharacter width (paddedSquare scale width hwidth).edges 1
+  let E := YMGap.Continuum.BF4ExactSlabFixedSpatialDirichletForm.energy
+    w K width (terminalMessage w K width depth) f
+  let I := squareChannelIncrement w K scale width hwidth depth
+  let U := squareOriginalRawSecondMoment w K width depth scale hwidth
+  let M := squareChannelMass w K scale width hwidth (terminalMessage w K width depth)
+  let Q := squareChannelMoment w K scale width hwidth (terminalMessage w K width depth)
+  let a := qpow w (12*side scale)
+  let beta := qpow w (32*side scale)
+  let k := exactSquareCredit w (side scale)
+  have hc := Q'.mul_nonneg HalfPow.half k (by decide) hk
+  have hpaid := Q'.mul_le_mul_of_nonneg_left _ _ (HalfPow.half*k)
+    (paddedSquare_rawSecond_increment_le_channelMoment_mass hw0 hw1 K width hK h2 depth scale hwidth) hc
+  have he : (1+beta)*(4*E+I) ≈
+      (1+beta)*(2*exactChannelHeatCost w K scale width hwidth depth) :=
+    Q'.mul_eqv_congr_left (1+beta) _ _
+      (paddedSquare_channel_exact_cost K width h2 depth scale hwidth)
+  have hsum := Q'.add_le_add_left ((1+beta)*(4*E+I)) _ _ hpaid
+  have hl : (1+beta)*(4*E+I)+(HalfPow.half*k)*(8*U+I) ≈
+      (1+beta)*(4*E+I)+(HalfPow.half*k)*I+4*k*U :=
+    Q'.eqv_trans _ _ _ (poly_identity_of_normal_eq
+      (.add (.var 0) (.mul (.mul (.var 1) (.var 2))
+        (.add (.mul (.const 8) (.var 3)) (.var 4))))
+      (.add (.add (.var 0) (.mul (.mul (.var 1) (.var 2)) (.var 4)))
+        (.mul (.mul (.mul (.const 8) (.var 1)) (.var 2)) (.var 3)))
+      (by decide) (fun | 0 => (1+beta)*(4*E+I) | 1 => HalfPow.half | 2 => k | 3 => U | _ => I))
+      (Q'.add_eqv_congr_left _ _ _ (Q'.mul_eqv_congr_right _ _ U
+        (Q'.mul_eqv_congr_right _ _ k (by decide : 8*HalfPow.half ≈ 4))))
+  have hr : (1+beta)*(4*E+I)+(HalfPow.half*k)*(4*((1+beta)*Q+(1-beta)*M)) ≈
+      4*a*(1-beta)*M := by
+    refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr_right _ _ _ he) ?_
+    unfold exactChannelHeatCost
+    dsimp only [k, exactSquareCredit]
+    -- Replace 4*half by 2 before collecting; no rational constant is encoded as an integer.
+    have hcoef : (HalfPow.half*k)*4 ≈ 2*k :=
+      Q'.eqv_trans _ _ _ (poly_identity_of_normal_eq
+        (.mul (.mul (.var 0) (.var 1)) (.const 4))
+        (.mul (.mul (.const 4) (.var 0)) (.var 1))
+        (by decide) (fun | 0 => HalfPow.half | _ => k))
+        (Q'.mul_eqv_congr_right _ _ k (by decide : 4*HalfPow.half ≈ 2))
+    have hdist : (HalfPow.half*k)*(4*((1+beta)*Q+(1-beta)*M)) ≈
+        (2*k)*((1+beta)*Q+(1-beta)*M) :=
+      Q'.eqv_trans _ _ _ (Q'.mul_assoc_eqv (HalfPow.half*k) 4 _).symm
+        (Q'.mul_eqv_congr_right _ _ _ hcoef)
+    refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr_left _ _ _ hdist) ?_
+    exact poly_identity_of_normal_eq
+      (.add (.mul (.add (.const 1) (.var 1))
+        (.mul (.const 2) (.add (.mul (.add (.const 1) (.neg (.var 1))) (.var 2))
+          (.mul (.add (.add (.const 1) (.var 1)) (.neg (.mul (.const 2) (.var 0)))) (.var 3)))))
+        (.mul (.mul (.const 2) (.add (.add (.mul (.const 2) (.var 0)) (.neg (.const 1))) (.neg (.var 1))))
+          (.add (.mul (.add (.const 1) (.var 1)) (.var 3))
+            (.mul (.add (.const 1) (.neg (.var 1))) (.var 2)))))
+      (.mul (.mul (.mul (.const 4) (.var 0)) (.add (.const 1) (.neg (.var 1)))) (.var 2))
+      (by decide) (fun | 0 => a | 1 => beta | 2 => M | _ => Q)
+  exact Q'.le_trans' _ _ _ (Q'.ge_of_eqv hl)
+    (Q'.le_trans' _ _ _ hsum (Q'.le_of_eqv hr))
+
+#print axioms paddedSquare_rawSecond_increment_le_channelMoment_mass
+#print axioms paddedSquare_energy_rawSecond_joint_increment_payment
 
 #print axioms squareOriginalRawSecondMoment
 #print axioms paddedSquare_channel_rawSecond_loss_bound
