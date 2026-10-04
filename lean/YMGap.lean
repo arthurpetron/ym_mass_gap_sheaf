@@ -6451,6 +6451,9 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteWardMoments
 -- Whole signed interior-family response on the SAME physical bond carrier,
 -- and every integer-lag lower orbit. Fixed nome; no continuum survival claim.
 import YMGap.Continuum.BF4WilsonAllNomePlaquetteFamilyBondFloor
+-- Actual unfiltered finite-family Rayleigh floor and a necessary coefficient
+-- screen for the EXISTING finite-reference checker; no scaling closure.
+import YMGap.Continuum.BF4WilsonAllNomeFamilyReferenceScreen
 import YMGap.Continuum.BF4WilsonAllNomePlaquetteFamilyBondOrbit
 -- The existing response-band coefficient stays near one for nonempty families;
 -- depth transport cannot turn that bound into a small scaling coefficient.

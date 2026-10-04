@@ -27,6 +27,23 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-04 UTC)
 
+NOW CHECKED ACTUAL FINITE-FAMILY RAYLEIGH / REFERENCE SCREEN:
+The SAME odd law gives V<=4*N*sum(c_p^2). The existing physical Nodup
+family energy floor yields lower(w)*V<=2400*upper(w)*N*E. An accepted
+EXISTING finite-reference certificate therefore requires
+lower(w)<=2400*upper(w)*N*c, before any moment expansion. Two focused
+targets passed three permitted gates; frozen independent review passed.
+If this unfiltered route seeks c->0, fixed nome/bounded family length cannot
+pay it by changing width or coefficients alone. Mere reference acceptance
+does NOT require c->0; nor does this floor rule out filtered macro retention.
+NEXT retain the actual signed-window versus SAME filtered-start norm route,
+or justify changing-nome/support data before seeking shrinking unfiltered
+reference coefficients. Do not infer a physical-scale family survival pin
+from the generic fixed-carrier reference theorem. Scaling/survival/physical/
+OS/full QFT/continuum/every-group/Clay remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-FAMILY-RAYLEIGH-SCREEN-2026-10-04.md`.
+Supporting A03 only; exact chart unchanged, no ASCII/paper-list reprint.
+
 NOW CHECKED EXACT COMPANION / OBSERVED LOSS; NO NEW COERCIVITY:
 The SAME source heat retains J and proves 8U+I+J=4(Q+R), J+D=32L,
 D=I+4O. ACTUAL original channels yield exact raw energy cancellation;

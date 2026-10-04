@@ -12,6 +12,15 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Checked ORIGINAL finite-family Rayleigh screen (2026-10-04 UTC):**
+The SAME odd-law variance cap V<=4*N*sum(c_p^2) joins the existing physical
+family energy floor. An accepted existing reference certificate must satisfy
+lower(w)<=2400*upper(w)*N*c; impossible coefficients can be rejected without
+moment expansion. Two narrow checks passed three permitted gates, with
+independent frozen review. Fixed-nome finite-support result only; filtered
+survival, physical scaling and continuum/Clay remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-FAMILY-RAYLEIGH-SCREEN-2026-10-04.md`.
+
 **Checked ORIGINAL connected dual overlap (2026-10-03 UTC):**
 `GNSOrthogonalDualProjection.cleared_bound` projects a dual test off the
 nonunit source, cancelling only its positive norm factor. The original

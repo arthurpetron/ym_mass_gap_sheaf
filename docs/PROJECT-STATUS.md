@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL family Rayleigh screen (2026-10-04 UTC):
+SAME odd law gives V<=4*N*S and, for distinct physical faces,
+lower(w)*V<=2400*upper(w)*N*E. Existing finite-reference acceptance requires
+lower(w)<=2400*upper(w)*N*c, before moment expansion. Fixed nome/bounded
+family length cannot produce c->0 by width/coefficients alone. Two focused
+checks passed three permitted gates; independent frozen review passed.
+Filtered-window, changing-family and continuum obligations remain OPEN.
+Evidence: `audits/AUDIT-ORIGINAL-FAMILY-RAYLEIGH-SCREEN-2026-10-04.md`.
+Supporting A03 only; exact chart unchanged, no ASCII reprint.
+
 Verified supporting EXACT companion / observed-loss split (2026-10-04 UTC;
 chart unchanged): SAME source heat gives 8U+I+J=4(Q+R), J+D=32L and
 D=I+4O. Actual original channels and chronological/OWN Ward consumers

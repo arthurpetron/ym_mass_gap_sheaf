@@ -1,5 +1,21 @@
 # Sorry Ledger
 
+## PROVED original finite-family Rayleigh floor / reference screen (2026-10-04 UTC)
+
+`BF4ExactSlabFixedSpatialFamilyRayleighFloor.family_oddVariance_coefficient_cap`
+proves V<=4*N*S under the SAME original odd law. Its
+`family_energy_variance_floor` composes with the existing physical Nodup
+family floor: lower(w)*V<=2400*upper(w)*N*E. The EXISTING positive-margin
+reference checker is screened by
+`BF4WilsonAllNomeFamilyReferenceScreen.certificate_coefficient_necessary`:
+acceptance requires lower(w)<=2400*upper(w)*N*c. Fixed nome/bounded-size
+unfiltered families cannot achieve c->0 by width or coefficient changes alone.
+Two focused checks passed three permitted gates; frozen independent review
+passed. Evidence: `audits/AUDIT-ORIGINAL-FAMILY-RAYLEIGH-SCREEN-2026-10-04.md`.
+OPEN: useful changing-family or filtered-window estimate, survival/physical/
+OS/full QFT/continuum/every-group/Clay. No sorry/axiom/new analytic bundle,
+resource/CI change or chart closure. Root registration only; no broad checks.
+
 ## PROVED exact companion / observed-loss split only; no coercivity (2026-10-04 UTC)
 
 `SU2QuaternionProductHeatSourceCompanion.increment_add_companion_pin`,
