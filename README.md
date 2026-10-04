@@ -10,7 +10,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Verified chronological exact-cost connection (2026-10-04 UTC):**
+**Verified limitation of the current coarse credit (2026-10-04 UTC):**
+Its improved finite variance credit still decays exponentially with footprint
+size. Lean proves that no changing-nome schedule or fixed polynomial rescaling
+can give THIS coefficient a positive eventual floor. This does not refute an
+actual channel-ratio bound or Yang--Mills gap. Work is repointed toward
+source-specific signed cancellation. See the
+[obstruction and revised next step](audits/AUDIT-ORIGINAL-LINEAR-CREDIT-COLLAPSE-2026-10-04.md).
+
+**Earlier verified chronological exact-cost connection (2026-10-04 UTC):**
 The exact Wilson payment now reaches the actual lag cost, retaining its stage
 mean and both partitions. Boundary drift has a computed bound; the full
 increment and signed multiplication correction remain. One focused check

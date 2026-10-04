@@ -5133,6 +5133,10 @@ import YMGap.Continuum.BF4DyadicWilsonSquareExactVariancePayment
 -- Exact payment in the ORIGINAL chronological cost, preserving its stage
 -- center and BOTH partitions. Joint filtered-norm/scaling control stays open.
 import YMGap.Continuum.BF4WilsonAllNomeChronologicalExactChannelCost
+
+-- THIS coarse credit collapses under every fixed polynomial footprint
+-- rescaling, regardless of nome choice; actual YM ratios/gaps are not refuted.
+import YMGap.Continuum.BF4OriginalChannelLinearCreditCollapse
 import YMGap.Continuum.BF4DyadicWilsonSquareChannelVarianceLoss
 -- COMPLETE original centered energy: signed T-D retained, optional explicit loss ceiling.
 -- Useful changing-family variance-relative control remains OPEN.

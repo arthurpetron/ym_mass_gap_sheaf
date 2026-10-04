@@ -27,6 +27,27 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-04 UTC)
 
+NOW CHECKED OBSTRUCTION TO RESCUING THE COARSE LINEAR CREDIT:
+The ACTUAL computed rho=l/u is <=4^(-size) for EVERY strict nome. A
+nome-independent explicit modulus proves any fixed polynomial rescaling
+still tends to zero, including arbitrary changing-nome schedules. No
+eventual positive floor for THIS coefficient exists; actual channel ratios,
+response, survival and physical mass are NOT upper-bounded or refuted.
+One focused check passed four permitted gates; independent review passed.
+REPOINT: stop optimizing this absolute-band rho for growing-footprint floors.
+Seek SOURCE-SPECIFIC retained cancellation or loss-corrected comparisons,
+without assuming useful relative-loss powers. A composition-only join of
+Signed=Cost-(energy+drift) with exact payment is circular and is pruned.
+NEXT PROPOSITION (not yet proved): for actual uncentered channel Q and
+original raw second moment U, prove (Q-U)^2<=4*(M-Z)*Q, then
+Z*OWNVar<=2Q+(M-Z). Existing moment-defect CS and literal cap-four
+certificates support this additive-loss route, avoiding rho; the needed
+useful source-loss/window control is still unpaid.
+The useful actual aggregate versus SAME filtered-start variance and justified
+scaling/survival/physical/OS/full QFT/continuum/every-group/Clay stay OPEN.
+Evidence: `audits/AUDIT-ORIGINAL-LINEAR-CREDIT-COLLAPSE-2026-10-04.md`.
+Exact chart claims unchanged; no ASCII/paper-list reprint.
+
 NOW CHECKED ORIGINAL CHRONOLOGICAL EXACT-COST CONNECTION:
 The exact long-Wilson payment reaches originalOwnBlockCost, preserving the
 stage OWN center and BOTH chronological partitions. Boundary drift is bounded

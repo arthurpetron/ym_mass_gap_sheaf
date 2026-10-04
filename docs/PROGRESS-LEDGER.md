@@ -4,7 +4,22 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: ORIGINAL chronological exact-cost connection (2026-10-04 UTC)
+## Latest proved increment: COARSE linear-credit scaling obstruction (2026-10-04 UTC)
+
+PROGRESS after `8c32500`: the actual computed rho<=4^(-size) at EVERY
+strict nome. Explicit uniform onset rejects any eventual positive floor
+after fixed polynomial rescaling, even on changing-nome schedules. One
+focused check passed four permitted gates; independent review passed.
+This prunes optimization of THIS absolute-band coefficient, not actual
+channel-ratio bounds, survival or YM. Next: source-specific cancellation or
+loss-corrected moment comparison versus SAME filtered-start variance; no
+relative-loss power is supplied. Scaling/physical/OS/full QFT/continuum/
+every-group/Clay remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-LINEAR-CREDIT-COLLAPSE-2026-10-04.md`.
+Root registration only; no full/root build/audit/guard/metrics.
+Exact chart claims unchanged; no ASCII/paper-list reprint.
+
+## Earlier proved increment: ORIGINAL chronological exact-cost connection (2026-10-04 UTC)
 
 PROGRESS after `22d4444`: exact long-Wilson payment enters the literal
 original lag cost with stage OWN center and BOTH chronological partitions.

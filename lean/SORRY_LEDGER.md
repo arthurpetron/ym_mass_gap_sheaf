@@ -1,5 +1,22 @@
 # Sorry Ledger
 
+## PROVED collapse of THIS coarse linear credit only (2026-10-04 UTC)
+
+`BF4OriginalChannelLinearCreditCollapse.linearCredit_geometric_ceiling`
+proves rho<=4^(-size) uniformly over strict nomes. `creditCutoff` computes
+a nome-independent polynomial-rescaling modulus; `polynomialCredit_small`
+and `no_eventual_polynomial_credit_floor` reject a positive eventual floor
+for THIS fixed-amplitude/degree coefficient, even on arbitrary changing
+nomes. Actual channel ratios, response and physical gaps are NOT bounded
+above or refuted. Earlier finite credits remain valid. One focused check
+passed four permitted gates; independent review passed. Evidence:
+`audits/AUDIT-ORIGINAL-LINEAR-CREDIT-COLLAPSE-2026-10-04.md`.
+REPOINT: source-specific retained cancellation, not rescue of absolute-band
+rho. Useful SAME filtered-variance estimate, justified scaling/survival/
+physical/OS/full QFT/continuum/every-group/Clay remain OPEN. No new sorry/
+axiom/analytic budget, weakened frontier, CI/resource change or chart closure.
+Root registration only; no full/root build/audit/guard/metrics.
+
 ## PROVED original chronological exact-cost connection only (2026-10-04 UTC)
 
 `BF4WilsonAllNomeChronologicalExactChannelCost.originalOwnBlockCost_energy_split`

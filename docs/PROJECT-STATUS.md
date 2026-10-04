@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting COARSE linear-credit obstruction (2026-10-04 UTC;
+chart unchanged): actual rho<=4^(-size) at EVERY strict nome. An explicit
+nome-independent modulus rejects an eventual positive floor after any
+fixed polynomial rescaling, including arbitrary changing-nome schedules.
+One focused check passed four permitted gates; independent review passed.
+Prunes rescue of THIS coefficient, not actual channel ratio/survival/YM.
+Source-specific signed cancellation and useful SAME filtered-norm comparison,
+justified scaling/physical/OS/full QFT/continuum/every-group/Clay remain OPEN.
+Evidence: `audits/AUDIT-ORIGINAL-LINEAR-CREDIT-COLLAPSE-2026-10-04.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting ORIGINAL chronological exact-cost connection
 (2026-10-04 UTC; chart unchanged): exact Wilson payment enters the actual
 lag cost with stage OWN center and BOTH partitions. Computed eta times
