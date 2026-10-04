@@ -5067,6 +5067,10 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialAdjacentAngularCancellation
 -- Complete original two-face/all-channel cancellation, not family/scaling control.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialAdjacentFullAngular
 import YMGap.Continuum.BF4ExactSlabFixedSpatialAdjacentChannelEnergy
+-- Actual signed/repeated families retain coherent tails and incident-row squares.
+-- Complete original energy join; useful SAME-variance/scaling control remains open.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyCoherentTail
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyCoherentEnergy
 -- Actual whole-family angular/SAME-variance bound from local score certificates.
 -- The original temporal-energy consumer still retains the COMPLETE signed remainder.
 import YMGap.Continuum.QuaternionHaarLocalRelativeWard

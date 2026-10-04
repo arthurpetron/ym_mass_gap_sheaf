@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting COHERENT original signed-family energy (2026-10-04 UTC;
+chart unchanged): actual independent face tails sum BEFORE norm; signed
+repetitions, cross-plane and unmatched terms remain. The exact all-original-
+block energy retains incident-row squares and BOTH signed Taylor debts under
+EVERY actual projected terminal-source channel square. Two final focused
+checks passed 19 permitted gates; independent review passed. Coherent family
+GEOMETRY is constructed, not useful uniform CONTROL versus SAME surviving
+variance. Chronological window/scaling, physical/continuum/Clay remain OPEN.
+Evidence: `audits/AUDIT-ORIGINAL-FAMILY-COHERENT-ENERGY-2026-10-04.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting COMPLETE original two-face energy cancellation
 (2026-10-04 UTC; chart unchanged): the all-link angular identity enters
 EVERY actual projected terminal-source channel square, retaining a computed

@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## PROVED coherent original signed-family energy only (2026-10-04 UTC)
+
+`BF4ExactSlabFixedSpatialFamilyCoherentTail.family_coherent_row` constructs
+Gamma_b(F)=4*norm(aggregateTail_b)-incidentSpan_b^2 from actual face rotations
+and proved tail independence. Signed repetitions, unmatched and cross-plane
+terms remain. `FamilyCoherentEnergy.family_coherent_energy_retained_square`
+totals ALL original blocks and inserts under EVERY actual projected terminal
+channel-source square with BOTH signed Taylor debts. Row squares are retained
+and their nonnegative sign is constructed, not supplied. Two final focused
+checks passed 19 permitted gates; independent review passed. Evidence:
+`audits/AUDIT-ORIGINAL-FAMILY-COHERENT-ENERGY-2026-10-04.md`.
+OPEN: useful estimate on this COMPLETE signed combination versus SAME
+surviving variance, its actual chronological window/partitions and justified
+changing family; survival/physical calibration, OS/full QFT, every compact
+simple group and Clay. This closes coherent family GEOMETRY, not uniform
+analytic CONTROL. No new sorry/axiom/analytic field, frontier weakening,
+CI/resource change or chart closure. Root registration only; no full/root
+build/audit/guard/broad metrics. No raw norm-only scaling claim.
+
 ## PROVED complete original two-face energy cancellation only (2026-10-04 UTC)
 
 `BF4ExactSlabFixedSpatialAdjacentFullAngular.adjacent_full_angular_paid`

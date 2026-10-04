@@ -4,7 +4,25 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: COMPLETE original two-face energy cancellation (2026-10-04 UTC)
+## Current increment: COHERENT original signed-family energy (2026-10-04 UTC)
+
+PROGRESS after `a453566`: arbitrary literal signed/repeated face families
+now have a constructed coherent tail at EACH original physical link, with
+exact row norm minus incident span square. Summing ALL blocks and inserting
+under EVERY actual projected terminal channel square yields COMPLETE original
+energy with BOTH signed Taylor debts. No cross-plane terms discarded or
+analytic budget assumed. Two final focused checks passed 19 permitted gates;
+independent review passed. NEXT: useful control of the COMPLETE signed
+combination versus SAME surviving variance and the actual chronological
+window on a justified changing family. Keep incident squares; no raw norm-only
+ceiling or source-mass derivative cap replaces the target. Coherent family
+GEOMETRY is proved, uniform analytic CONTROL is not. Survival/physical/OS/
+QFT/continuum/every-group/Clay remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-FAMILY-COHERENT-ENERGY-2026-10-04.md`.
+Root registration only; no full/root build/audit/guard/broad metrics.
+Exact canonical chart claims unchanged; no ASCII/paper-list reprint.
+
+## Earlier increment: COMPLETE original two-face energy cancellation (2026-10-04 UTC)
 
 PROGRESS after `66ef70e`: the local shared-link identity now includes ALL
 original angular blocks and enters EVERY actual passive channel under its

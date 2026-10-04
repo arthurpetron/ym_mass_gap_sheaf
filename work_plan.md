@@ -27,6 +27,22 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-04 UTC)
 
+NOW CHECKED COHERENT ORIGINAL SIGNED-FAMILY ENERGY:
+FORWARD, each actual incident face has a computed independent three-link
+tail; sum signed tails BEFORE norm, preserving repeats and cross-plane terms.
+Gamma_b(F)=4*norm(R_b)-incidentSpan_b^2. ALL original blocks and EVERY actual
+projected V*g_depth channel square give E+(1-w)*Q=(1-w)*P+BOTH signed debts.
+BACKWARD, this constructs arbitrary-family coherent geometry and its direct
+complete-energy realization, not useful control versus SAME surviving variance.
+Two final focused checks passed 19 permitted gates; independent review passed.
+Evidence: `audits/AUDIT-ORIGINAL-FAMILY-COHERENT-ENERGY-2026-10-04.md`.
+NEXT: estimate the COMPLETE signed combination (1-w)*(P-Q)+TaylorDebt on
+a justified changing family and its actual chronological source/partitions.
+Retain incident-row squares; raw norm-only caps lose essential cancellation.
+Angular IBP reintroduces already-cancelled source derivatives without an extra
+small factor; no new absolute derivative/assumed-budget wrapper is added.
+Window/scaling, survival/physical/OS/QFT/every-group/Clay and chart claims OPEN.
+
 NOW CHECKED COMPLETE ORIGINAL TWO-FACE ENERGY CANCELLATION:
 FORWARD, include ALL original links: Gamma_all(f+g)+(f-g)^2
 =3*(4-f^2)+3*(4-g^2)+4*(2-d), with the actual shared-link-containing d.
