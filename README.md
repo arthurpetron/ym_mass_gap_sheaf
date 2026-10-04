@@ -10,7 +10,18 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Verified long-Wilson signed variance payment (2026-10-04 UTC):**
+**Verified exact long-Wilson variance payment (2026-10-04 UTC):**
+The SAME variance credit now enters the original exact heat identity,
+retaining the entire source-increment gain without Taylor or omitted-mode
+error. Lean proves explicit coefficient-sign windows and the payment
+`E + I/(4Z) + (k*rho/2)*Var <= ((1-b)/2)*M/Z`.
+Two focused checks and independent reviews passed. The useful joint
+mass/increment comparison with the surviving chronological norm and a
+justified physical scaling family remain open. This is an exact alternative,
+not a proved universal numerical improvement over the earlier bound.
+See the [proof and remaining analytic input](audits/AUDIT-WILSON-EXACT-VARIANCE-PAYMENT-2026-10-04.md).
+
+**Earlier verified long-Wilson signed variance payment (2026-10-04 UTC):**
 The actual growing Wilson square now has a channel credit against its SAME
 original variance. Combining the first-order, curvature and Casimir terms
 before estimating gives `E + alpha*rho*Var <= (beta*M + Error)/Z` when the

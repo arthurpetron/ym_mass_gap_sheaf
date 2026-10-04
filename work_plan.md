@@ -27,7 +27,25 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-04 UTC)
 
-NOW CHECKED ACTUAL LONG-WILSON JOINT SIGNED PAYMENT:
+NOW CHECKED ERROR-FREE EXACT ORIGINAL VARIANCE PAYMENT:
+FORWARD, the ACTUAL long Wilson square's exact two heat images and channel
+credit give E+I/(4Z)+(k*rho/2)*OWNVar<=((1-b)/2)*M/Z, retaining the ENTIRE
+source increment I. No Taylor/cubic/omitted-mode error enters this alternative.
+k=2*w^(12*L)-1-w^(32*L) is nonnegative if (1-w)*(128*L)<=1; the narrower
+256*L window pays k>=1-w^(4*L)>0 for L>0. These are proved scalar windows,
+not justified physical trajectories. Two final focused checks passed five
+permitted gates; independent review passed. BACKWARD/NEXT: estimate the
+actual signed mass/increment combination JOINTLY against the SAME surviving
+chronological filtered-start norm, retaining stage OWN center and distinct
+lag partitions. Do not separately majorize away the retained increment or
+identify endpoint OWN variance with that filtered norm. The exact alternative
+has no universal numerical ordering versus the earlier Taylor bound proved.
+rho remains nome/side-dependent. Justified scaling, survival/physical/OS/full
+QFT/continuum/every-group/Clay remain OPEN. Evidence:
+`audits/AUDIT-WILSON-EXACT-VARIANCE-PAYMENT-2026-10-04.md`.
+Partial A03 only; exact chart claims unchanged, no ASCII/paper-list reprint.
+
+EARLIER CHECKED ACTUAL LONG-WILSON JOINT SIGNED PAYMENT:
 BACKWARD, the macro-window uses the long padded Wilson square, not the
 elementary plaquette-family sum. FORWARD, the literal square's projected
 endpoint source now gives Q>=rho*Z*OWNVar with the computed linear credit.

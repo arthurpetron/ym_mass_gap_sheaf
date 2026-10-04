@@ -4,7 +4,25 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: ACTUAL long-Wilson joint signed payment (2026-10-04 UTC)
+## Latest proved increment: EXACT original long-Wilson variance payment (2026-10-04 UTC)
+
+PROGRESS after `44ccbd6`: the actual Q>=rho*Z*OWNVar credit now enters the
+existing EXACT two-heat-image identity, retaining the ENTIRE source increment:
+E+I/(4Z)+(k*rho/2)*OWNVar<=((1-b)/2)*M/Z. Scalar power estimates construct
+k>=0 in the 128*L window and k>=1-w^(4*L)>0 for L>0 in the 256*L window.
+This exact alternative has no Taylor/cubic/omitted-mode error; no universal
+numerical ordering versus the prior Taylor ceiling is claimed. Two final
+focused checks passed five permitted gates; independent review passed.
+NEXT: estimate the ACTUAL signed mass/increment JOINTLY versus SAME surviving
+chronological filtered-start variance, with original stage center and distinct
+lag partitions. Endpoint OWN variance is not that norm, numeric windows are
+not physical calibration, and rho remains nome/side-dependent. Justified
+scaling, survival/physical/OS/full QFT/continuum/every-group/Clay remain OPEN.
+Evidence: `audits/AUDIT-WILSON-EXACT-VARIANCE-PAYMENT-2026-10-04.md`.
+Root registration only; no full/root build/audit/guard/broad metrics.
+Exact chart claims unchanged; no ASCII or paper-list reprint.
+
+## Earlier proved increment: ACTUAL long-Wilson joint signed payment (2026-10-04 UTC)
 
 PROGRESS after `2d75375`: the macro-window's actual long Wilson square,
 not an elementary face-family surrogate, now has Q>=rho*Z*OWNVar. The

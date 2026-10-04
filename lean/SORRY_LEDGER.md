@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## PROVED exact original long-Wilson variance payment only (2026-10-04 UTC)
+
+`SU2HeatExactSquareCreditWindow.exactSquareCredit_nonnegative_window` proves
+k=2*w^(12*L)-1-w^(32*L)>=0 when (1-w)*(128*L)<=1.
+`exactSquareCredit_ge_deficit_window` and `exactSquareCredit_positive_window`
+pay k>=1-w^(4*L)>0 for L>0 in the narrower 256*L window.
+`BF4DyadicWilsonSquareExactVariancePayment.paddedSquare_energy_exact_variance_payment`
+uses the ACTUAL original Q credit in the existing EXACT heat identity:
+E+I/(4Z)+(k*rho/2)*OWNVar<=((1-b)/2)*M/Z. ENTIRE I stays; no Taylor/cubic/
+omitted-mode budget enters this alternative. SAME terminal depth n+1,
+source, own mean and original partition remain, with K>=2 and head guard.
+Two final focused checks passed five permitted gates; independent review
+passed. Evidence: `audits/AUDIT-WILSON-EXACT-VARIANCE-PAYMENT-2026-10-04.md`.
+OPEN: useful JOINT mass/increment comparison against SAME chronological
+filtered-start norm and original aggregate window, justified physical scaling,
+continuum survival, physical mass, SAME OS/full QFT, every group and Clay.
+Numeric windows are not physical trajectories; rho stays nome/side-dependent.
+No universal ordering versus the prior Taylor ceiling is proved. No new sorry/
+axiom/analytic budget, weakened frontier, CI/resource change or chart closure.
+Root registration only; no full/root build/audit/guard/broad metrics.
+
 ## PROVED actual long-Wilson joint signed payment only (2026-10-04 UTC)
 
 `BF4DyadicWilsonSquareChannelVarianceCredit.paddedSquare_channelMoment_oddVariance_credit`

@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting EXACT original variance payment (2026-10-04 UTC;
+chart unchanged): the SAME long Wilson credit joins the original exact
+heat identity, giving E+I/(4Z)+(k*rho/2)*OWNVar<=((1-b)/2)*M/Z with the
+ENTIRE increment I retained and no Taylor/omitted-mode error. Explicit
+128*L and 256*L numeric windows prove k>=0 and k>=1-w^(4*L)>0 for L>0.
+Two final focused checks passed five permitted gates; independent review
+passed. Useful JOINT mass/increment versus chronological filtered norm and
+justified physical scaling remain OPEN, as do survival/physical/OS/full QFT/
+continuum/every-group/Clay. Evidence:
+`audits/AUDIT-WILSON-EXACT-VARIANCE-PAYMENT-2026-10-04.md`.
+Partial A03 only; no exact displayed claim changes, no ASCII reprint.
+
 Verified supporting ACTUAL long-Wilson signed payment (2026-10-04 UTC;
 chart unchanged): SAME endpoint OWN variance has Q>=rho*Z*Var. Combining
 first-order, signed curvature and Casimir terms FIRST gives

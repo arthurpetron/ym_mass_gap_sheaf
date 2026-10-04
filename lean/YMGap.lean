@@ -5124,6 +5124,11 @@ import YMGap.Continuum.BF4DyadicWilsonSquareSignedChannelPayment
 -- Exact heat response and SAME original channel/OWN-variance loss;
 -- useful changing-family control remains OPEN.
 import YMGap.Continuum.BF4DyadicWilsonSquareChannelExactResponse
+-- Exact two-image coefficient window and SAME-variance payment, retaining
+-- the ENTIRE source increment without Taylor/omitted-mode error.
+-- Useful joint mass/increment versus chronological norm remains OPEN.
+import YMGap.Continuum.SU2HeatExactSquareCreditWindow
+import YMGap.Continuum.BF4DyadicWilsonSquareExactVariancePayment
 import YMGap.Continuum.BF4DyadicWilsonSquareChannelVarianceLoss
 -- COMPLETE original centered energy: signed T-D retained, optional explicit loss ceiling.
 -- Useful changing-family variance-relative control remains OPEN.
