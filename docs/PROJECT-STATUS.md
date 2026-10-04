@@ -1,5 +1,21 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL incoming-ratio conditional noise (2026-10-03
+UTC; chart unchanged): the actual incoming finite reciprocal reconstructs
+the original transmitted source with a geometric polynomial error certificate.
+Original K*V*a conditional noise controls the last-step score; a computed
+paired-error multiplier pays reconstruction, and the ACTUAL outgoing
+reciprocal removes its leading G²*A² without division. The exact-gradient
+join retains the outgoing correction and independent approximation degrees.
+Computed onsets are additive FIXED-window/weight tolerances, not a useful
+relative norm or scaling estimate. Three focused checks passed fifteen
+permitted gates; independent reviews passed. Useful original conditional
+noise plus BOTH signed Taylor terms against the SAME surviving norm on a
+JUSTIFIED changing family remains OPEN, as do survival/physical/OS/continuum/
+QFT/every-group/Clay. Evidence:
+`audits/AUDIT-ORIGINAL-LAST-STEP-RATIO-NOISE-2026-10-03.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Source/planning review (2026-10-03 UTC; NOT a new analytic proof): the
 connected-alignment deficit equals true energy loss PLUS nonnegative
 kinetic CS test slack. No actual-source estimate bounds that extra slack

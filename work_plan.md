@@ -27,6 +27,32 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-03 UTC)
 
+NOW CHECKED ORIGINAL INCOMING-RATIO CONDITIONAL NOISE:
+FORWARD, a=g_(n+r), c=T^r(g_n*psi), and the ACTUAL incoming finite ratio
+phi_k reconstruct c=a*phi_k+e_k with e_k²<=rho^(2k)*c² as a polynomial
+certificate. The full original K*V*a law gives N(phi_k)>=0 and
+Score(Ta,T(a*phi_k))²<=L²*(Ta)²*N(phi_k), without accumulated-history
+noise or an incoming source/variance inverse. The computed positive error
+multiplier constructs J(a,e_k)<=rho^(2k)*P(a)*T(c²).
+BACKWARD, the asymmetric square triangle keeps leading factor 1+eta;
+the ACTUAL outgoing reciprocal certificate removes G²*(Ta)², and the
+existing exact-gradient consumer retains both finite corrections. A computed
+geometric onset pays incoming correction in ANY FIXED certified output
+weight; incoming/outgoing degrees are independent, not silently diagonal.
+Three focused checks passed fifteen permitted gates; independent reviews
+passed. Evidence: `audits/AUDIT-ORIGINAL-LAST-STEP-RATIO-NOISE-2026-10-03.md`.
+REPOINT: use this local representation as an analytic handle on the
+aggregate signed-window ALTERNATIVE. The next missing producer is useful
+control of actual H[Vbar²*N(phi_k)] TOGETHER WITH BOTH signed Taylor terms
+against the SAME surviving norm/partition on a JUSTIFIED changing family.
+Do not replace K*V*a by the bare product reference law, identify Vbar²=V,
+turn an additive fixed-window tolerance into epsilon*B by cancellation,
+or add more assumed-budget/modulus wrappers in place of this estimate.
+No numerical ordering against the old paired bound is asserted. The primary
+initial-energy signed-defect route below remains an alternative, not an
+extra prerequisite. Survival/physical/OS/continuum/QFT/every-group/Clay remain
+OPEN; all exact chart statuses are unchanged, so no ASCII reprint.
+
 NOW CHECKED SHARPER ORIGINAL CONNECTED DUAL OVERLAP:
 FORWARD, OWN centering is exact orthogonality to q=V*g_(n+1) in the
 ORIGINAL kinetic form. Project t=R*(f-a*mu) off this SAME q using the cleared

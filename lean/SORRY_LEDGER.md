@@ -1,5 +1,34 @@
 # Sorry Ledger
 
+## PROVED original incoming-ratio noise and geometric score reconstruction only (2026-10-03 UTC)
+
+`BF4ExactSlabFixedSpatialLastStepRatioNoise.lastStepRatioNoise_score_certificate`
+constructs Score(Ta,T(a*phi))²<=L²*(Ta)²*N(phi), with the full original
+conditional weight K*V*a and nonnegative actual one-step noise. The new
+`BF4ExactSlabFixedSpatialLastStepErrorBudget.lastStepScoreBudget_error_certificate`
+controls the paired reconstruction budget by the computed positive
+P(a)*T(e²), without a signed-source norm inverse. The original incoming
+finite reciprocal constructs e_k²<=rho^(2k)*c² as a polynomial certificate.
+`BF4ExactSlabFixedSpatialLastStepRatioRefinement.original_lastStep_incomingRatio_score_square_le`
+keeps leading coefficient 1+eta and explicit geometric correction amplitude.
+Its `incomingScoreErrorCutoff` and `original_lastStep_incomingRatio_score_tolerance`
+give an additive tolerance for a FIXED window/source/output weight.
+`original_lastStep_incomingRatio_reciprocal_score_le` removes outgoing
+G²*A² through the ACTUAL positive-window multiplier certificate, not division.
+`original_lastStep_incomingRatio_gradient_le` joins the exact-gradient consumer
+and retains the outgoing correction, with independent incoming/outgoing
+degrees. No numerical ordering against the old paired bound is claimed.
+Three focused checks passed fifteen permitted gates; independent mathematical
+reviews passed. Root registration only, no root/aggregate audit. No new sorry,
+axiom, analytic hypothesis, weakened field, CI or canonical chart change.
+Evidence: `audits/AUDIT-ORIGINAL-LAST-STEP-RATIO-NOISE-2026-10-03.md`.
+OPEN: useful original conditional-noise plus BOTH signed Taylor terms versus
+the SAME surviving norm/partition on a JUSTIFIED changing family, or the
+alternative original initial-energy estimate; fixed-weight onsets do not
+establish degree-diagonal/scaling-uniform onsets. Nontrivial survival, physical
+calibration, canonical OS/continuum, full QFT, every compact simple group and
+Clay remain OPEN. This finite result closes no canonical frontier atom.
+
 ## ROUTE REVIEW: true energy versus optional dual-test slack (2026-10-03 UTC)
 
 Source/planning review only; no new Lean theorem or analytic estimate.

@@ -7146,6 +7146,13 @@ import YMGap.Continuum.SU2QuaternionMultiHeadConditionalGram
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepRegression
 import YMGap.Continuum.QuaternionHaarConditionalRegressionWitness
 
+-- Actual incoming-ratio conditional noise, geometric reconstruction error,
+-- and ORIGINAL exact-gradient join. Fixed-window moduli only; useful
+-- SAME-surviving-norm/signed-remainder control on a scaling family is open.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepRatioNoise
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepErrorBudget
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepRatioRefinement
+
 -- Actual terminal-depth drift payment versus the SAME surviving norm.
 -- Fixed nome/width moduli only; signed bulk/changing-family estimate is open.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalDrift
