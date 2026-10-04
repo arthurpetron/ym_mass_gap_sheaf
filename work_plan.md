@@ -27,6 +27,30 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-04 UTC)
 
+PARALLEL GLOBAL-FORM STEP, CHECKED FINITE ANTIPODAL HEAT:
+BACKWARD, the global-form branch needs actual Haar/action-compatible kinetic
+data, not group codes alone. FORWARD, center-average the literal relative
+heat packet on the ORIGINAL quaternion Haar carrier. BOTH independent
+endpoint sign pins, BOTH unit marginals and an actual headFloor certificate
+construct the ordinary-Haar contraction consumer. The SAME computed output
+of an explicit centered even mode has exact positive norm squared w^16/24
+for w>0, K>=2. One FINAL focused check passed 24 permitted gates and
+independent review passed. This is a MODIFIED kinetic packet, NOT descent
+of the unchanged interacting SU(2) action, compact SO(3), an OS/interacting
+gap, or every-group continuum closure. Evidence:
+`audits/AUDIT-BIDIRECTIONAL-ANTIPODAL-HEAT-2026-10-04.md`.
+NEXT original analytic producer remains SAME aggregate signed cost versus
+surviving variance on a JUSTIFIED changing family: normalizing the checked
+quadratic damping retains C/B; even-sector identities retain q^2 versus
+q*Pq. No new smoothing/assumed-budget wrapper. BACKWARD probe review also
+confirms a growing bare square is a chosen sufficient probe, NOT required
+by the unchanged Clay target. Original localized plaquette families and
+finite time smearing already exist; seek their missing physical scaling
+and nonzero reflected limit if that route is more productive, without
+rebuilding wrappers or replacing SAME-object pins. No frontier statement
+changes. Physical/OS/QFT/continuum/every-group/Clay remain OPEN; exact chart
+atoms unchanged, no ASCII or paper-list reprint.
+
 NOW CHECKED SECOND-ORDER ORIGINAL VACUUM ERROR:
 FORWARD, multiply the ACTUAL terminal bracket's two residual certificates,
 then its lower residual by the TRANSFERRED upper residual. Weighted symmetry

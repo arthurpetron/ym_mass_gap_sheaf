@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED finite antipodal kinetic data only (2026-10-04 UTC)
+
+`SU2QuaternionAntipodalHeat.antipodalHeat` constructs the actual sign average
+of the relative packet on the ORIGINAL Haar carrier. Independent endpoint
+invariance, BOTH normalized marginals and constructed late floor/certificate
+discharge the actual ordinary-Haar contraction inputs. The explicit even
+mode and its output are centered; the ACTUAL output norm is w^16/24>0 for
+w>0, K>=2. One FINAL focused check passed 24 permitted gates; independent
+source review passed. Evidence:
+`audits/AUDIT-BIDIRECTIONAL-ANTIPODAL-HEAT-2026-10-04.md`.
+OPEN: compact SO(3)/Haar/action identification and interacting transfer,
+every-group continuum construction, original aggregate signed-window bound,
+justified family, physical survival/calibration, canonical OS/full QFT and
+Clay. This MODIFIED finite kinetic packet is NOT descent of the unchanged
+SU(2) interacting action. No new sorry, axiom, analytic field, weakened
+frontier, CI/resource change or chart closure. Root import registration
+only; no full/root build/audit, guard or broad metrics. Growing-square
+survival remains a chosen route, not a universal Clay requirement; existing
+localized/smeared probes still need SAME physical scaling/limit pins.
+
 ## PROVED second-order original vacuum error only (2026-10-04 UTC)
 
 `BF4ExactSlabFixedSpatialRayleighCostTransport.terminal_vacuum_mismatch_quadratic_upper`

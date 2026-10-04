@@ -4,7 +4,26 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: SECOND-order original vacuum mismatch (2026-10-04 UTC)
+## Current increment: nontrivial finite antipodal heat (2026-10-04 UTC)
+
+PROGRESS after `aaf628e`: construct an actual sign-quotient-compatible finite
+kinetic packet, its BOTH normalized original Haar marginals and guarded
+floor/certificate, and consume them in ordinary-Haar contraction. The
+explicit even mode and its computed output have zero mean; exact positive
+output norm is w^16/24 at w>0, K>=2. One FINAL focused check passed 24
+permitted gates; independent review passed. MODIFIED packet, not original
+SU(2) action descent, compact SO(3), interacting OS gap or continuum closure.
+NEXT: actual original aggregate signed-window reserve and justified scaling;
+the remaining C/B and q^2-to-q*Pq seams do not yield to generic damping or
+even-sector identities. Backward review confirms localized/smeared probes
+can be considered without making bare-square survival mandatory; their
+finite wrappers already exist, physical scaling/reflected limit do not.
+Survival/physical/OS/QFT/continuum/every-group/Clay remain OPEN. Evidence:
+`audits/AUDIT-BIDIRECTIONAL-ANTIPODAL-HEAT-2026-10-04.md`.
+Root registration only; no full/root build/audit, guard or broad metrics.
+Exact canonical chart atoms unchanged; no ASCII/paper-list reprint.
+
+## Earlier increment: SECOND-order original vacuum mismatch (2026-10-04 UTC)
 
 PROGRESS after `4b6ac0b`: two ACTUAL terminal cone products and weighted
 symmetry construct 4*(zq-vp)<=(2+eta)*eta^2*p*v. The DIRECT original cost

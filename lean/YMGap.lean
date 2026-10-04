@@ -4653,6 +4653,8 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialRateWidthObstruction
 import YMGap.Continuum.SU2QuaternionHaarMarkovContraction
 import YMGap.Continuum.SU2QuaternionRelativeHeatMarkovData
 import YMGap.Continuum.SU2QuaternionRelativeHeatContraction
+-- Sign-averaged finite kinetic data; not descent of the original SU(2) action.
+import YMGap.Continuum.SU2QuaternionAntipodalHeat
 import YMGap.Continuum.SU2QuaternionHaarBlockProjection
 import YMGap.Continuum.SU2QuaternionHaarBlockConditionalAlgebra
 import YMGap.Continuum.SU2QuaternionRelativeHeatConditionalContraction

@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting finite antipodal kinetic data (2026-10-04 UTC; chart
+unchanged): original-Haar sign averaging constructs independent endpoint
+invariance, BOTH normalized marginals and a computed positive floor,
+discharging ordinary-Haar contraction inputs. An explicit centered even
+mode has ACTUAL output norm w^16/24>0 at w>0, K>=2. One final focused check
+passed 24 permitted gates; independent review passed. MODIFIED packet, not
+descent of the original interacting action or compact SO(3)/OS/Clay closure.
+Original aggregate signed-cost/scaling, physical/OS/QFT/continuum and every
+group remain OPEN. Backward review keeps growing-square survival optional;
+already-built localized/smeared probes still need physical scaling/limit
+pins. Evidence: `audits/AUDIT-BIDIRECTIONAL-ANTIPODAL-HEAT-2026-10-04.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting SECOND-order original vacuum error (2026-10-04 UTC;
 chart unchanged): two ACTUAL terminal cone products and weighted symmetry
 pay vacuum mismatch by (2+eta)*eta^2/4, rather than the older linear eta.
