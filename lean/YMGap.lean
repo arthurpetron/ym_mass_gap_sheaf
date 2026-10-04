@@ -7204,6 +7204,9 @@ import YMGap.Continuum.BF4WilsonAllNomeWindowSignedCost
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport
+-- SAME-source CS pays a quadratic part of the retained original residual;
+-- no excitation inverse or finite signed-cost positivity is assumed.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostCoercivity
 import YMGap.Continuum.QuaternionHaarAsymmetricSquareTriangle
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepAsymmetricEnergy
 

@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL quadratic cost damping (2026-10-04 UTC;
+chart unchanged): SAME V-weighted CS and original T positivity pay the
+retained residual by p*Di^2<=C*R. Consecutive ACTUAL block costs retain this
+quadratic damping, the SAME source/OWN center, incoming filtered norm and
+distinct ground masses. No Di sign, source inverse or assumed residual
+estimate. One final focused check passed five permitted gates; independent
+review passed. This does NOT prove a macro survival ratio: persistent
+relative attenuation, source-specific window reserve and justified scaling
+remain unpaid. Survival/physical/OS/continuum/QFT/every-group/Clay remain
+OPEN. Evidence: `audits/AUDIT-ORIGINAL-COST-QUADRATIC-DAMPING-2026-10-04.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting ORIGINAL signed cost recursion (2026-10-04 UTC;
 chart unchanged): exact finite transport retains a favorable nonnegative
 residual on the LEFT and pays ONLY original vacuum-partition mismatch by

@@ -27,6 +27,25 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-04 UTC)
 
+NOW CHECKED ORIGINAL QUADRATIC COST DAMPING:
+FORWARD, ell(c*(p*c-z*T c)) is EXACTLY the complete incoming signed cost Di.
+Original V-weighted CS and ORIGINAL T PSD give p*Di^2<=C*R, C=ell(c^2),
+with arbitrary signed sources and NO C inverse or Di>=0 assumption.
+BACKWARD, retain this computed payment in consecutive actual costs:
+C*z^3*Do+p*v*Di^2<=v*p^2*C*Di+eta*z^2*p*v*C*B.
+The ACTUAL block specialization keeps T^t(g_n*psi), SAME stage OWN center,
+incoming C, outgoing B and all distinct original ground partitions.
+One final focused check passed five permitted gates; independent review
+passed. Evidence: `audits/AUDIT-ORIGINAL-COST-QUADRATIC-DAMPING-2026-10-04.md`.
+NEXT: this quantitative residual payment is available to the ORIGINAL
+aggregate producer. Persistent relative attenuation is still compatible;
+do not claim a useful macro ratio from generic damping/smoothing alone,
+replace C by initial/odd-law variance, or cancel a vanishing C. Seek actual
+source-specific window reserve and justified changing-family control, not
+another conditional budget, generic CS or fixed-carrier domain wrapper.
+BOTH Taylor terms and signed incoming cost remain. Survival/physical/OS/
+continuum/QFT/every-group/Clay and exact canonical chart atoms remain OPEN.
+
 NOW CHECKED ORIGINAL SIGNED COST RECURSION:
 FORWARD, for a=g_(s+1), A=T a, b=T c and the FOUR distinct original ground
 masses z,p,v,q, the literal y=p*c-z*b has nonnegative residual

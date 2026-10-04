@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED original quadratic cost damping only (2026-10-04 UTC)
+
+`BF4ExactSlabFixedSpatialRayleighCostCoercivity.costTransportResidual_pair_pin`
+pins the literal residual pairing to the COMPLETE signed cost.
+`costTransportRemainder_cost_square_le` proves p*Di^2<=C*R by original
+V-weighted CS and T PSD, without Di>=0, C>0 or a source-norm inverse.
+`terminal_clearedRayleighCost_quadratic_damping` retains this quantitative
+payment in the original moving-ground recurrence; the actual
+`original_block_clearedRayleighCost_quadratic_damping` keeps SAME source/OWN
+center and incoming C versus outgoing B, with all distinct partitions.
+One final focused check passed five permitted gates; independent review
+passed. Evidence: `audits/AUDIT-ORIGINAL-COST-QUADRATIC-DAMPING-2026-10-04.md`.
+OPEN: useful source-specific aggregate reserve versus SAME surviving norm
+on a JUSTIFIED changing family. Generic damping permits persistent relative
+attenuation; original fixed-nome eta is not scaling uniform. Both signed
+Taylor terms, physical survival/calibration, canonical OS/full QFT, every
+compact simple group and Clay remain OPEN. No new sorry, axiom, analytic
+premise, weakened frontier, CI/resource change or chart closure. Root import
+registration only; no full/root build/audit, guard or broad metrics.
+
 ## PROVED original signed cost transport only (2026-10-04 UTC)
 
 `BF4ExactSlabFixedSpatialRayleighCostTransport.clearedRayleighCost_transport_identity`

@@ -4,7 +4,23 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL signed cost recursion with retained residual (2026-10-04 UTC)
+## Current increment: ORIGINAL quantitative quadratic cost damping (2026-10-04 UTC)
+
+PROGRESS after `2d7812e`: the retained residual now has an actual coercive
+payment p*Di^2<=C*R from SAME V-weighted CS and ORIGINAL T PSD. It yields
+quadratic damping for consecutive ORIGINAL filtered sources without a
+source inverse or finite Di sign. All distinct partitions, actual incoming
+C and fixed stage OWN center remain. This is an UNCONDITIONAL estimate,
+not a new assumed-window-budget wrapper. One final focused check passed
+five permitted gates; independent review passed. NEXT: use this payment
+with source-specific aggregate reserve on a JUSTIFIED changing family.
+Generic damping still permits persistent relative attenuation; it does not
+prove the macro ratio. No more generic smoothing/CS/domain wrapper is
+needed. Survival/physical/OS/continuum/QFT/every-group/Clay remain OPEN.
+Evidence: `audits/AUDIT-ORIGINAL-COST-QUADRATIC-DAMPING-2026-10-04.md`.
+No full/root build/audit, guard or broad metrics. Chart atoms unchanged.
+
+## Earlier increment: ORIGINAL signed cost recursion with retained residual (2026-10-04 UTC)
 
 PROGRESS after `2538a94`: the complete finite cost satisfies an exact
 consecutive-step identity with a favorable positive residual. The actual
