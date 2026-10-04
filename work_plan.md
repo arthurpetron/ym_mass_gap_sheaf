@@ -27,6 +27,25 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-04 UTC)
 
+NOW CHECKED ORIGINAL SIGNED COST RECURSION:
+FORWARD, for a=g_(s+1), A=T a, b=T c and the FOUR distinct original ground
+masses z,p,v,q, the literal y=p*c-z*b has nonnegative residual
+R=p*ell(y^2)+z*ell(y*T y). Exact transport retains its favorable subtraction:
+z^3*Do+v*R=v*p^2*Di+z^2*(z*q-v*p)*ell(b^2).
+BACKWARD, the actual terminal bracket pays ONLY vacuum mismatch by
+eta*p*v. The ACTUAL consecutive block specialization keeps the SAME
+c=T^t(g_n*psi), psi/OWN center and all original partitions; no Di>=0,
+eigenpin or source inverse. One final focused check passed seven permitted
+gates; independent mathematical/source review passed. Evidence:
+`audits/AUDIT-ORIGINAL-SIGNED-COST-TRANSPORT-2026-10-04.md`.
+NEXT: exploit incoming complete signed cost MINUS retained residual in
+the ORIGINAL aggregate window producer; do not discard the residual or
+replace the signed incoming coefficient by one without a sign proof.
+The complete Taylor terms stay inside the cost. Eta is fixed-nome/width
+terminal-depth control, NOT scaling uniform. The useful source-specific
+aggregate estimate and justified changing family remain OPEN, as do
+survival/physical/OS/continuum/QFT/every-group/Clay; chart atoms unchanged.
+
 PRIORITY UPDATE, CHECKED STRICT ROUTE SEPARATION (2026-10-04 UTC):
 equal-weight positive rational modes construct a fixed macro retention 1/8
 at horizon s=n+1, while their initial loss is >=1/4. For s>=5 NO covering

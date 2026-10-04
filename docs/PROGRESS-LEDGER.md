@@ -4,7 +4,23 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: macro retention does not require small initial energy (2026-10-04 UTC)
+## Current increment: ORIGINAL signed cost recursion with retained residual (2026-10-04 UTC)
+
+PROGRESS after `2538a94`: the complete finite cost satisfies an exact
+consecutive-step identity with a favorable positive residual. The actual
+terminal bracket pays ONLY vacuum mismatch; the SAME chronological source
+and OWN center specialize it to consecutive original block costs. No
+incoming-cost sign, eigenpin or source inverse. One final focused check
+passed seven permitted gates; independent review passed. This is actual
+finite producer data, not another assumed-window-budget interface. NEXT:
+use incoming signed cost MINUS retained residual in the original aggregate
+estimate on a JUSTIFIED changing family. Neither useful aggregate control
+nor scaling survival is proved. BOTH Taylor terms and each lag's DISTINCT
+partitions remain. Survival/physical/OS/continuum/QFT/every-group/Clay remain
+OPEN. Evidence: `audits/AUDIT-ORIGINAL-SIGNED-COST-TRANSPORT-2026-10-04.md`.
+No full/root build/audit, guard or broad metrics. Chart atoms unchanged.
+
+## Earlier increment: macro retention does not require small initial energy (2026-10-04 UTC)
 
 PRUNING after `64f129a`: a constructed equal-weight positive two-mode family
 has fixed macro retention 1/8, but initial loss >=1/4; horizons >=5 exclude

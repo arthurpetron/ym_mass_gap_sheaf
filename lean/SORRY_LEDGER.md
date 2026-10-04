@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED original signed cost transport only (2026-10-04 UTC)
+
+`BF4ExactSlabFixedSpatialRayleighCostTransport.clearedRayleighCost_transport_identity`
+retains the exact favorable residual in consecutive ORIGINAL finite costs.
+`costTransportRemainder_terminal_nonnegative` derives its sign from ORIGINAL
+weighted square positivity/T PSD. `terminal_vacuum_mismatch_upper` pays ONLY
+ground mismatch by comparisonEta*p*v; `terminal_clearedRayleighCost_transport_le`
+retains the positive residual on the LEFT. The actual
+`original_block_clearedRayleighCost_transport_le` keeps SAME psi/OWN center,
+consecutive chronological blocks and all FOUR distinct ground masses,
+without Di>=0, an eigenpin or a source inverse. One final focused check
+passed seven permitted gates; independent review passed. Evidence:
+`audits/AUDIT-ORIGINAL-SIGNED-COST-TRANSPORT-2026-10-04.md`.
+OPEN: useful complete incoming cost MINUS retained residual/aggregate signed
+estimate on a JUSTIFIED changing family; eta is NOT scaling uniform. Both
+Taylor terms, chronological partition costs, survival/physical/OS/continuum/
+QFT/every-group/Clay remain. No new sorry, axiom, assumed analytic field,
+frontier weakening, CI/resource change or chart atom closure. Root import
+registration only; no full/root build/audit, guard or broad metric run.
+
 ## PROVED rational route separation only (2026-10-04 UTC)
 
 `RationalMacroRetentionWithoutInitialEnergy.response_macro_retention`

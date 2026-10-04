@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL signed cost recursion (2026-10-04 UTC;
+chart unchanged): exact finite transport retains a favorable nonnegative
+residual on the LEFT and pays ONLY original vacuum-partition mismatch by
+comparisonEta*p*v. The ACTUAL consecutive block specialization retains
+the SAME source/OWN center and all four distinct ground masses. No sign
+premise on incoming cost, eigenpin or source inverse. One final focused
+check passed seven permitted gates; independent review passed. Useful
+source-specific aggregate cancellation and justified changing-family
+control remain OPEN, as do survival/physical/OS/continuum/QFT/every-group/
+Clay. Evidence: `audits/AUDIT-ORIGINAL-SIGNED-COST-TRANSPORT-2026-10-04.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting route separation (2026-10-04 UTC; chart unchanged):
 equal-weight positive rational modes have fixed macro retention 1/8 but
 initial loss >=1/4; horizons >=5 exclude the unit initial-energy budget.

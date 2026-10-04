@@ -7201,6 +7201,9 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepSourceDerivativeEnergy
 -- neither that analytic budget nor a justified changing family is supplied.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockRemainderPayment
 import YMGap.Continuum.BF4WilsonAllNomeWindowSignedCost
+-- Retain the favorable ORIGINAL residual across consecutive signed costs;
+-- useful aggregate cancellation on a justified changing family remains OPEN.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport
 import YMGap.Continuum.QuaternionHaarAsymmetricSquareTriangle
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepAsymmetricEnergy
 
