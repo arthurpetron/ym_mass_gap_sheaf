@@ -17,8 +17,9 @@ becomes `D0=Z*D-a*m^2`, nonnegative and no larger than `Z*D`; the signed mean
 mismatch is retained, not assumed zero. The complete original energy obeys
 `E*D0+a*Z*U^2 <= S*D0`, without inverting any excitation or dual norm.
 Two focused checks passed 15 permitted gates. This improves the finite
-survival-route estimate; useful source/test alignment on a justified scaling
-family remains open. See the
+survival-route estimate. The weaker signed-defect bound remains the primary
+scaling input; connected-test alignment is only an optional stronger route.
+Neither is supplied yet. See the
 [proof and next analytic input](audits/AUDIT-ORIGINAL-CONNECTED-DUAL-OVERLAP-2026-10-03.md).
 
 **Verified observable dynamics (2026-10-03 UTC):**

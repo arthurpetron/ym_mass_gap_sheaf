@@ -1,5 +1,18 @@
 # Sorry Ledger
 
+## ROUTE REVIEW: true energy versus optional dual-test slack (2026-10-03 UTC)
+
+Source/planning review only; no new Lean theorem or analytic estimate.
+The checked connected-overlap bound makes H=(G+a*S)*D0-a*Z*U^2 nonnegative.
+The original energy identity gives S*D0-a*Z*U^2=E*D0+H. Thus the optional
+connected-alignment target controls energy PLUS additional test slack;
+no source theorem makes it a necessary survival input. The weaker original
+target G>=(1-a-epsilon)*S remains the primary missing initial-energy estimate,
+with the aggregate signed-window route an alternative. Both require justified
+changing-family control; no new assumption or canonical field is added.
+Evidence: `audits/AUDIT-SURVIVAL-ENERGY-VERSUS-DUAL-SLACK-2026-10-03.md`.
+No compiler run, new gate, sorry, axiom, CI/chart change or Clay closure.
+
 ## PROVED original connected dual overlap only (2026-10-03 UTC)
 
 `GNSOrthogonalDualProjection.cleared_bound` constructs the source-norm-cleared
@@ -14,7 +27,8 @@ zero cases. Two focused checks passed 15 permitted gates; independent review
 passed; root registration only. No new sorry, axiom, frontier bundle, analytic
 assumption, weakened field, CI or chart change. Evidence:
 `audits/AUDIT-ORIGINAL-CONNECTED-DUAL-OVERLAP-2026-10-03.md`.
-OPEN: useful SAME-source connected alignment on a justified changing family
+OPEN: useful SAME-source signed-defect control on a justified changing family
+(connected alignment is an optional stronger route)
 OR original aggregate signed-window estimate; survival, physical calibration,
 canonical OS, continuum local fields, full QFT and every compact simple group.
 This finite improvement closes no canonical Clay frontier atom.

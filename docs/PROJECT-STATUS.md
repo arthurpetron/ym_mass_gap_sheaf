@@ -1,13 +1,24 @@
 # Canonical one-page project status
 
+Source/planning review (2026-10-03 UTC; NOT a new analytic proof): the
+connected-alignment deficit equals true energy loss PLUS nonnegative
+kinetic CS test slack. No actual-source estimate bounds that extra slack
+by energy loss. Keep the weaker SAME signed-defect target as the primary
+initial-energy producer; connected alignment is optional, not a necessary
+survival requirement. Two-test optimization also retains unpaid distinct-law
+moments. No new Lean theorem, gate, hole, field or canonical claim changes.
+Evidence: `audits/AUDIT-SURVIVAL-ENERGY-VERSUS-DUAL-SLACK-2026-10-03.md`.
+No ASCII reprint; the continuum/Clay target remains OPEN.
+
 Verified supporting ORIGINAL connected dual overlap (2026-10-03 UTC;
 chart unchanged): projection off the actual source preserves the mixed
 numerator by OWN centering. The computed dual denominator is
 D0=Z*D-a*m^2>=0 and <=Z*D, with actual signed mean mismatch m retained.
 COMPLETE original energy satisfies E*D0+a*Z*U^2<=S*D0, including zero cases
 and without norm inverses. Two focused checks passed 15 permitted gates.
-Useful source/test alignment on a justified changing family remains OPEN,
-as do survival/physical/OS/continuum/QFT/every-group/Clay. Evidence:
+Useful signed-defect control on a justified changing family remains OPEN;
+source/test alignment is only an optional stronger route. Survival,
+physical/OS/continuum/QFT/every-group/Clay also remain OPEN. Evidence:
 `audits/AUDIT-ORIGINAL-CONNECTED-DUAL-OVERLAP-2026-10-03.md`.
 No exact displayed claim changes; no ASCII reprint.
 

@@ -37,12 +37,19 @@ to E*D0+a*Z*U^2<=S*D0, preserving the original partition and OWN variance.
 No test/excitation norm is inverted, no lower overlap assumed. Two focused
 checks passed 15 permitted gates. Evidence:
 `audits/AUDIT-ORIGINAL-CONNECTED-DUAL-OVERLAP-2026-10-03.md`.
-REPOINT: the next analytic input is useful SAME-source connected alignment
-a*Z*U^2 >= (1-epsilon)*S*D0 on a JUSTIFIED changing family, or the alternative
-original aggregate signed-window estimate. The displayed alignment is a
-MISSING input, not a newly proved bound or an added frontier field.
-Do not replace D0 by the old coarse dual cap, assume m=0, or build another
-generic strictness wrapper: the existing finite spectator band already
+REVIEWED REPOINT (2026-10-03 UTC): keep the WEAKER original signed-defect
+target G >= (1-a-epsilon)*S as the primary initial-energy producer, or use
+the alternative original aggregate signed-window estimate. The exact
+original identity E=(1-a)*S-G makes this target equivalent to E<=epsilon*S,
+without a dual norm inverse. Connected alignment
+a*Z*U^2 >= (1-epsilon)*S*D0 is OPTIONAL and stronger: its deficit equals
+E*D0 PLUS H=(G+a*S)*D0-a*Z*U^2>=0, the kinetic CS test slack. No actual-source
+theorem makes H small when E is small. Do not require this extra alignment
+to prove survival. Both analytic producers remain MISSING on a JUSTIFIED
+changing family; this is a source/planning review, not a new bound or field.
+Evidence: `audits/AUDIT-SURVIVAL-ENERGY-VERSUS-DUAL-SLACK-2026-10-03.md`.
+On the optional dual route, do not replace D0 by the old coarse cap, assume
+m=0, or build another generic strictness wrapper: the existing finite spectator band already
 provides strictness, not the near-saturation needed for survival.
 No canonical chart atom or survival/physical/OS/continuum/QFT/every-group/
 Clay obligation closes; no unchanged ASCII reprint.

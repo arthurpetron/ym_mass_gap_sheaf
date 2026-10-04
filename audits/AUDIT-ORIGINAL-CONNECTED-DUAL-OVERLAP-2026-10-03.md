@@ -99,6 +99,11 @@ inequality is
 
 on a JUSTIFIED changing family, with positivity paid if D0 is cancelled.
 This is a MISSING input, not a new Lean theorem, assumed field or certificate.
+It is only an optional stronger producer, not a necessary survival condition:
+the later source review in
+`audits/AUDIT-SURVIVAL-ENERGY-VERSUS-DUAL-SLACK-2026-10-03.md` separates its
+additional test-projection slack from actual energy loss and restores the
+weaker original signed-defect target as the primary initial-energy route.
 No near-saturation or small OWN-relative energy is claimed. The existing
 `lean/YMGap/Continuum/BF4DyadicWilsonSquareSpectatorResponse.lean:293`
 `paddedSquare_energy_band_raw` and `:226` `squareResponseFraction_positive`

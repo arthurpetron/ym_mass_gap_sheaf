@@ -22,8 +22,9 @@ is D0=Z*D-a*m^2>=0 and <=Z*D, retaining the actual signed mean mismatch.
 E*D0+a*Z*U^2<=S*D0 for the COMPLETE original energy and OWN variance.
 Zero excitation/dual cases remain; no norm inverse or assumed lower overlap.
 Two focused checks passed 15 permitted gates; root registration only,
-no full build/audit. Useful original source/test alignment on a justified
-changing family, survival/physical/OS/continuum/QFT/every-group/Clay remain
+no full build/audit. Useful original signed-defect control on a justified
+changing family remains OPEN; connected alignment is an optional stronger
+route, not a necessary input. Survival/physical/OS/continuum/QFT/every-group/Clay remain
 OPEN. Evidence: `audits/AUDIT-ORIGINAL-CONNECTED-DUAL-OVERLAP-2026-10-03.md`.
 
 **Checked ORIGINAL Wilson matrix tangents (2026-10-03 UTC):**
