@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting COMPLETE original two-face energy cancellation
+(2026-10-04 UTC; chart unchanged): the all-link angular identity enters
+EVERY actual projected terminal-source channel square, retaining a computed
+nonnegative difference square and BOTH signed Taylor debts in the COMPLETE
+temporal energy. Two final focused checks passed nine permitted gates;
+independent review passed. Arbitrary-family grouping, interacting higher-word
+control versus SAME surviving variance, chronological window/scaling and
+physical/continuum/Clay remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-ADJACENT-COMPLETE-ENERGY-2026-10-04.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting ORIGINAL adjacent angular cancellation (2026-10-04 UTC;
 chart unchanged): actual neighboring faces at width>=2 prove
 Gamma_shared(f+g)+(f-g)^2=4*(2-chi(H+*H-^-1)) under EVERY full Haar weight,

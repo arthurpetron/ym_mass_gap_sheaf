@@ -27,6 +27,23 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-04 UTC)
 
+NOW CHECKED COMPLETE ORIGINAL TWO-FACE ENERGY CANCELLATION:
+FORWARD, include ALL original links: Gamma_all(f+g)+(f-g)^2
+=3*(4-f^2)+3*(4-g^2)+4*(2-d), with the actual shared-link-containing d.
+Insert this under EVERY actual projected V*g_depth channel-source square.
+The COMPLETE temporal energy retains a computed nonnegative square and BOTH
+signed Taylor remainders; no odd-marginal substitution. BACKWARD, this meets
+the existing complete-energy expansion, not its unpaid comparison with
+SAME surviving variance. Two final focused checks passed nine permitted
+gates; independent review passed. Evidence:
+`audits/AUDIT-ORIGINAL-ADJACENT-COMPLETE-ENERGY-2026-10-04.md`.
+NEXT: coherent weighted-tail sums for arbitrary literal signed families,
+and source-level control of the higher-word moment under ACTUAL squared
+channel sources, retaining both signed debts. Bare-Haar isotropy cannot
+replace full interacting weights. The useful chronological window estimate
+and justified changing family remain OPEN. No new assumed-budget wrapper;
+physical/OS/QFT/continuum/every-group/Clay and exact chart claims unchanged.
+
 NOW CHECKED ORIGINAL SHARED-LINK CANCELLATION:
 FORWARD, actual neighboring p01 faces at every width>=2, their ORIGINAL
 link indices and independent unit tails prove

@@ -1,5 +1,23 @@
 # Sorry Ledger
 
+## PROVED complete original two-face energy cancellation only (2026-10-04 UTC)
+
+`BF4ExactSlabFixedSpatialAdjacentFullAngular.adjacent_full_angular_paid`
+retains the actual difference square in ALL original angular blocks.
+`BF4ExactSlabFixedSpatialAdjacentChannelEnergy.adjacent_energy_retained_square`
+inserts it into the COMPLETE original temporal energy with EVERY actual
+channel-source square and BOTH signed Taylor debts. The retained square's
+sign is constructed for nonnegative nome; no original-action independence,
+odd-law substitution or source inverse. Two final focused checks passed
+nine permitted gates; independent review passed. Evidence:
+`audits/AUDIT-ORIGINAL-ADJACENT-COMPLETE-ENERGY-2026-10-04.md`.
+OPEN: arbitrary-family coherent cross-plane control, interacting higher-word
+moments/squared-source anisotropy plus both signed debts versus SAME surviving
+variance, useful chronological window estimate and justified scaling family;
+survival, physical calibration, OS/full QFT, every group and Clay. No new
+sorry/axiom/analytic field, frontier weakening, CI/resource change or chart
+closure. Root registration only; no full/root build/audit/guard/broad metrics.
+
 ## PROVED original local angular cancellation only (2026-10-04 UTC)
 
 `BF4ExactSlabFixedSpatialAdjacentAngularCancellation.original_adjacent_angular_difference`

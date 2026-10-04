@@ -4,7 +4,22 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL local interference bound (2026-10-04 UTC)
+## Current increment: COMPLETE original two-face energy cancellation (2026-10-04 UTC)
+
+PROGRESS after `66ef70e`: the local shared-link identity now includes ALL
+original angular blocks and enters EVERY actual passive channel under its
+complete projected V*g_depth source square. The COMPLETE temporal energy
+retains a constructed nonnegative difference square and BOTH signed Taylor
+debts. Two final focused checks passed nine permitted gates; independent
+review passed. NEXT: coherent signed-family tail sums and the interacting
+higher-word moment against SAME surviving variance; useful chronological
+window control and justified scaling remain OPEN. No odd-marginal or
+bare-Haar substitution, assumed budget or physical/continuum/Clay closure.
+Evidence: `audits/AUDIT-ORIGINAL-ADJACENT-COMPLETE-ENERGY-2026-10-04.md`.
+Root registration only; no full/root build/audit/guard/broad metrics.
+Exact canonical chart claims unchanged; no ASCII/paper-list reprint.
+
+## Earlier increment: ORIGINAL local interference bound (2026-10-04 UTC)
 
 PROGRESS after `118da46`: actual neighboring spatial plaquettes at all
 width>=2 construct the SAME shared-link cancellation identity and original

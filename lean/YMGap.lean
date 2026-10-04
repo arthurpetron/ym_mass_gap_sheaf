@@ -5064,6 +5064,9 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyIncidence
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyLocalAngular
 -- Local original shared-link interference; not a full-family/scaling estimate.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialAdjacentAngularCancellation
+-- Complete original two-face/all-channel cancellation, not family/scaling control.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialAdjacentFullAngular
+import YMGap.Continuum.BF4ExactSlabFixedSpatialAdjacentChannelEnergy
 -- Actual whole-family angular/SAME-variance bound from local score certificates.
 -- The original temporal-energy consumer still retains the COMPLETE signed remainder.
 import YMGap.Continuum.QuaternionHaarLocalRelativeWard
