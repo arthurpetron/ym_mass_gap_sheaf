@@ -27,6 +27,27 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-04 UTC)
 
+NOW CHECKED SECOND-ORDER ORIGINAL VACUUM ERROR:
+FORWARD, multiply the ACTUAL terminal bracket's two residual certificates,
+then its lower residual by the TRANSFERRED upper residual. Weighted symmetry
+gives v<=(l+U)p-lUz and q<=(l+U)v-lUp. Complete scalar cancellation pays
+4*(zq-vp)<=(2+eta)*eta^2*p*v, without an eigenpin or excitation inverse.
+BACKWARD, the existing original cost identity and p*Di^2<=C*R retain BOTH
+payments in the ACTUAL block recurrence:
+4*(C*z^3*Do+p*v*Di^2)<=4*v*p^2*C*Di+z^2*(2+eta)*eta^2*p*v*C*B.
+SAME source/OWN center, incoming C and distinct original ground masses stay.
+Two final focused checks passed 17 permitted gates; independent review
+passed. Evidence: `audits/AUDIT-ORIGINAL-VACUUM-MISMATCH-SECOND-ORDER-2026-10-04.md`.
+NEXT: use the quadratic, rather than linear, vacuum-error payment in the
+ORIGINAL aggregate producer; retain the old bound outside small eta.
+The literal square's width-independent fixed-nome variance floor is ALREADY
+proved, not another missing scaffold. Source-specific cumulative signed
+flux control versus SAME surviving variance on a JUSTIFIED changing family
+remains missing. Generic damping and fixed-parameter eta still do not prove
+macro retention. No more generic CS/smoothing/domain wrappers. BOTH Taylor
+terms, survival/physical/OS/continuum/QFT/every-group/Clay remain OPEN;
+exact canonical chart atoms unchanged, so no chart/paper-list reprint.
+
 NOW CHECKED ORIGINAL QUADRATIC COST DAMPING:
 FORWARD, ell(c*(p*c-z*T c)) is EXACTLY the complete incoming signed cost Di.
 Original V-weighted CS and ORIGINAL T PSD give p*Di^2<=C*R, C=ell(c^2),

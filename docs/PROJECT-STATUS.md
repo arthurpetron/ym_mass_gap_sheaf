@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting SECOND-order original vacuum error (2026-10-04 UTC;
+chart unchanged): two ACTUAL terminal cone products and weighted symmetry
+pay vacuum mismatch by (2+eta)*eta^2/4, rather than the older linear eta.
+The ACTUAL block cost recurrence retains this payment TOGETHER WITH the
+quadratic signed-cost damping, SAME source/OWN center and distinct ground
+masses, without an eigenpin or source inverse. Two final focused checks
+passed 17 permitted gates; independent review passed. Old linear option
+remains; new bound is sharper only for small eta. Useful source-specific
+aggregate reserve and justified scaling remain OPEN, as do survival/
+physical/OS/continuum/QFT/every-group/Clay. Evidence:
+`audits/AUDIT-ORIGINAL-VACUUM-MISMATCH-SECOND-ORDER-2026-10-04.md`.
+No exact displayed claim changes; no ASCII reprint.
+
 Verified supporting ORIGINAL quadratic cost damping (2026-10-04 UTC;
 chart unchanged): SAME V-weighted CS and original T positivity pay the
 retained residual by p*Di^2<=C*R. Consecutive ACTUAL block costs retain this

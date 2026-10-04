@@ -4,7 +4,25 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL quantitative quadratic cost damping (2026-10-04 UTC)
+## Current increment: SECOND-order original vacuum mismatch (2026-10-04 UTC)
+
+PROGRESS after `4b6ac0b`: two ACTUAL terminal cone products and weighted
+symmetry construct 4*(zq-vp)<=(2+eta)*eta^2*p*v. The DIRECT original cost
+consumers retain this second-order error TOGETHER WITH p*v*Di^2 damping,
+SAME source/OWN center, incoming C and all distinct ground partitions.
+No eigenpin, source inverse or assumed analytic budget. Two final focused
+checks passed 17 permitted gates; independent reviews passed. Old linear
+option remains; sharper coefficient is a small-eta result, not a global
+ordering. NEXT: exploit the smaller vacuum payment in the ORIGINAL
+aggregate signed-window producer; source-specific cumulative signed flux
+control versus SAME surviving variance and justified changing family are
+still missing. The literal square's fixed-nome width-independent variance
+floor already exists. No new generic CS/smoothing/domain scaffold.
+Survival/physical/OS/continuum/QFT/every-group/Clay remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-VACUUM-MISMATCH-SECOND-ORDER-2026-10-04.md`.
+No full/root build/audit, guard or broad metrics. Chart atoms unchanged.
+
+## Earlier increment: ORIGINAL quantitative quadratic cost damping (2026-10-04 UTC)
 
 PROGRESS after `2d7812e`: the retained residual now has an actual coercive
 payment p*Di^2<=C*R from SAME V-weighted CS and ORIGINAL T PSD. It yields

@@ -329,6 +329,297 @@ theorem terminal_vacuum_mismatch_upper {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < 
       (Q'.mul_le_mul_of_nonneg_left _ _ _
         (Q'.mul_le_mul_of_nonneg_right _ _ v hzp.1 hv) he)))
 
+private theorem cross_pair (w : Q') (K width : Nat) (l U : Q')
+    (f g u v : RatPoly) :
+    pair w K width (polyAdd f (polySmul (-l) g))
+      (polyAdd (polySmul U u) (polySmul (-1) v)) ≈
+      U*pair w K width f u-pair w K width f v-
+        l*(U*pair w K width g u-pair w K width g v) := by
+  have right (r : RatPoly) :
+      pair w K width r (polyAdd (polySmul U u) (polySmul (-1) v)) ≈
+        U*pair w K width r u-pair w K width r v :=
+    Q'.eqv_trans _ _ _ (pair_add_right w K width _ _ _)
+      (Q'.add_eqv_congr' (pair_smul_right w K width U _ _)
+        (Q'.eqv_trans _ _ _ (pair_smul_right w K width (-1) _ _)
+          (Q'.eqv_trans _ _ _ (Q'.neg_mul_eqv 1 _)
+            (Q'.neg_eqv_congr _ _ (Q'.one_mul_eqv _)))))
+  exact Q'.eqv_trans _ _ _ (pair_add_left w K width _ _ _)
+    (Q'.add_eqv_congr' (right f)
+      (Q'.eqv_trans _ _ _ (pair_smul_left w K width (-l) _ _)
+        (Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_left (-l) _ _ (right g))
+          (Q'.neg_mul_eqv l _))))
+
+-- All scalar comparisons below are division-free. In particular the
+-- incoming source norm is absent, and no spectral existence is used.
+private theorem mismatch_second_order (l U z p v q e : Q')
+    (hl : (0 : Q') ≤ l) (hU : (0 : Q') ≤ U) (hz : (0 : Q') ≤ z)
+    (he : (0 : Q') ≤ e) (hlp : l*z ≤ p) (hpu : p ≤ U*z)
+    (hlv : (l*l)*z ≤ v)
+    (h1 : (0 : Q') ≤ (l+U)*p-l*U*z-v)
+    (h2 : (0 : Q') ≤ (l+U)*v-l*U*p-q)
+    (hwidth : U-l ≤ e*l) :
+    4*(z*q-v*p) ≤ ((2+e)*(e*e))*(p*v) := by
+  let x := p-l*z
+  let y := U*z-p
+  let k := (l+U)*z-p
+  let W := l+U
+  have hx : (0 : Q') ≤ x := Q'.sub_nonneg_of_le hlp
+  have hy : (0 : Q') ≤ y := Q'.sub_nonneg_of_le hpu
+  have hk : (0 : Q') ≤ k := Q'.le_trans' _ _ _
+    (Q'.zero_le_add _ _ (Q'.mul_nonneg _ _ hl hz) hy)
+    (Q'.le_of_eqv (poly_identity_of_normal_eq
+      (.add (.mul (.var 0) (.var 1))
+        (.add (.mul (.var 2) (.var 1)) (.neg (.var 3))))
+      (.add (.mul (.add (.var 0) (.var 2)) (.var 1)) (.neg (.var 3)))
+      (by decide) (fun | 0 => l | 1 => z | 2 => U | _ => p)))
+  have hW : (0 : Q') ≤ W := Q'.zero_le_add _ _ hl hU
+  have hsum := Q'.zero_le_add _ _ (Q'.mul_nonneg _ _ hz h2)
+    (Q'.mul_nonneg _ _ hk h1)
+  have hpin : z*((l+U)*v-l*U*p-q)+k*((l+U)*p-l*U*z-v) ≈
+      W*(x*y)-(z*q-v*p) := by
+    let L : PolyExpr := .var 0
+    let A : PolyExpr := .var 1
+    let Z : PolyExpr := .var 2
+    let P : PolyExpr := .var 3
+    let V : PolyExpr := .var 4
+    let Q : PolyExpr := .var 5
+    let S : PolyExpr := .add L A
+    let X : PolyExpr := .add P (.neg (.mul L Z))
+    let Y : PolyExpr := .add (.mul A Z) (.neg P)
+    let C : PolyExpr := .add (.mul S Z) (.neg P)
+    let H1 : PolyExpr := .add (.add (.mul S P) (.neg (.mul (.mul L A) Z))) (.neg V)
+    let H2 : PolyExpr := .add (.add (.mul S V) (.neg (.mul (.mul L A) P))) (.neg Q)
+    exact poly_identity_of_normal_eq (.add (.mul Z H2) (.mul C H1))
+      (.add (.mul S (.mul X Y)) (.neg (.add (.mul Z Q) (.neg (.mul V P)))))
+      (by decide) (fun | 0 => l | 1 => U | 2 => z | 3 => p | 4 => v | _ => q)
+  have hM : z*q-v*p ≤ W*(x*y) :=
+    Q'.le_of_sub_nonneg (Q'.le_trans' _ _ _ hsum (Q'.le_of_eqv hpin))
+  have hxy : 4*(x*y) ≤ (x+y)*(x+y) := by
+    apply Q'.le_of_sub_nonneg
+    exact Q'.le_trans' _ _ _ (SumOfSquares.q_mul_self_nonneg (x-y))
+      (Q'.le_of_eqv (poly_identity_of_normal_eq
+        (.mul (.add (.var 0) (.neg (.var 1))) (.add (.var 0) (.neg (.var 1))))
+        (.add (.mul (.add (.var 0) (.var 1)) (.add (.var 0) (.var 1)))
+          (.neg (.mul (.const 4) (.mul (.var 0) (.var 1)))))
+        (by decide) (fun | 0 => x | _ => y)))
+  have htotal : x+y ≤ e*l*z := Q'.le_trans' _ _ _
+    (Q'.le_of_eqv (poly_identity_of_normal_eq
+      (.add (.add (.var 0) (.neg (.mul (.var 1) (.var 2))))
+        (.add (.mul (.var 3) (.var 2)) (.neg (.var 0))))
+      (.mul (.add (.var 3) (.neg (.var 1))) (.var 2))
+      (by decide) (fun | 0 => p | 1 => l | 2 => z | _ => U)))
+    (Q'.mul_le_mul_of_nonneg_right _ _ z hwidth hz)
+  have htotal0 : (0 : Q') ≤ x+y := Q'.zero_le_add _ _ hx hy
+  have heLZ : (0 : Q') ≤ e*l*z := Q'.mul_nonneg _ _ (Q'.mul_nonneg _ _ he hl) hz
+  have hsq := Q'.mul_le_mul_of_nonneg htotal htotal heLZ htotal0
+  have hWupper : W ≤ (2+e)*l := by
+    apply Q'.le_of_sub_nonneg
+    exact Q'.le_trans' _ _ _ (Q'.sub_nonneg_of_le hwidth)
+      (Q'.le_of_eqv (poly_identity_of_normal_eq
+        (.add (.mul (.var 0) (.var 1)) (.neg (.add (.var 2) (.neg (.var 1)))))
+        (.add (.mul (.add (.const 2) (.var 0)) (.var 1))
+          (.neg (.add (.var 1) (.var 2))))
+        (by decide) (fun | 0 => e | 1 => l | _ => U)))
+  have hfirst : 4*(z*q-v*p) ≤ W*((e*l*z)*(e*l*z)) :=
+    Q'.le_trans' _ _ _
+      (Q'.mul_le_mul_of_nonneg_left _ _ 4 hM (by decide))
+      (Q'.le_trans' _ _ _ (Q'.le_of_eqv (poly_identity_of_normal_eq
+        (.mul (.const 4) (.mul (.var 0) (.var 1)))
+        (.mul (.var 0) (.mul (.const 4) (.var 1))) (by decide)
+        (fun | 0 => W | _ => x*y)))
+        (Q'.mul_le_mul_of_nonneg_left _ _ W (Q'.le_trans' _ _ _ hxy hsq) hW))
+  have hpay := Q'.mul_le_mul_of_nonneg_right _ _ ((e*l*z)*(e*l*z))
+    hWupper (SumOfSquares.q_mul_self_nonneg _)
+  have hp : (0 : Q') ≤ p := Q'.le_trans' _ _ _ (Q'.mul_nonneg _ _ hl hz) hlp
+  have hpv := Q'.mul_le_mul_of_nonneg hlp hlv hp
+    (Q'.mul_nonneg _ _ (SumOfSquares.q_mul_self_nonneg l) hz)
+  have hK : (0 : Q') ≤ (2+e)*(e*e) :=
+    Q'.mul_nonneg _ _ (Q'.zero_le_add _ _ (by decide) he) (SumOfSquares.q_mul_self_nonneg e)
+  have hlast := Q'.mul_le_mul_of_nonneg_left _ _ ((2+e)*(e*e)) hpv hK
+  have hcollect : ((2+e)*l)*((e*l*z)*(e*l*z)) ≈
+      ((2+e)*(e*e))*((l*z)*((l*l)*z)) :=
+    poly_identity_of_normal_eq
+      (.mul (.mul (.add (.const 2) (.var 0)) (.var 1))
+        (.mul (.mul (.mul (.var 0) (.var 1)) (.var 2))
+          (.mul (.mul (.var 0) (.var 1)) (.var 2))))
+      (.mul (.mul (.add (.const 2) (.var 0)) (.mul (.var 0) (.var 0)))
+        (.mul (.mul (.var 1) (.var 2)) (.mul (.mul (.var 1) (.var 1)) (.var 2))))
+      (by decide) (fun | 0 => e | 1 => l | _ => z)
+  exact Q'.le_trans' _ _ _ hfirst (Q'.le_trans' _ _ _ hpay
+    (Q'.le_trans' _ _ _ (Q'.le_of_eqv hcollect) hlast))
+
+/-- SECOND-order actual vacuum mismatch, with no new analytic hypothesis.
+The factor four clears the exact quarter. The old linear estimate remains
+available: this new coefficient is sharper only in the small-eta regime. -/
+theorem terminal_vacuum_mismatch_quadratic_upper {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < 1) (K width : Nat)
+    (hK : headCutoff w ≤ K) (s : Nat) :
+    let a := terminalMessage w K width (s+1)
+    let A := transferStep w K width a
+    let z := weightedMass w K width (polyMul a a)
+    let p := weightedMass w K width (polyMul a A)
+    let v := weightedMass w K width (polyMul A A)
+    let q := weightedMass w K width (polyMul A (transferStep w K width A))
+    let e := comparisonEta hw0 hw1 width s
+    4*(z*q-v*p) ≤ ((2+e)*(e*e))*(p*v) := by
+  dsimp only
+  let a := terminalMessage w K width (s+1)
+  let A := transferStep w K width a
+  let z := pair w K width a a
+  let p := pair w K width a A
+  let v := pair w K width A A
+  let q := pair w K width A (transferStep w K width A)
+  let B0 := terminalComparison hw0 hw1 K width hK s 1 0
+  let J : Bracket width A a := {
+    lower := B0.lower
+    upper := B0.upper
+    lowerCertificate := by
+      simpa only [A, a, terminalMessage_next, Nat.add_zero] using B0.lowerCertificate
+    upperCertificate := by
+      simpa only [A, a, terminalMessage_next, Nat.add_zero] using B0.upperCertificate }
+  let l := J.lower
+  let U := J.upper
+  have ha := terminalMessage_supported w K width (s+1)
+  have hA := transferStep_supported w K width ha
+  have ca := terminalMessage_certificate hw0 hw1 K width hK (s+1)
+  have cA := transferStep_certificate hw0 hw1 K width hK ha ca
+  have hzpos : (0 : Q') < z := terminalPair_positive hw0 hw1 K width hK (s+1) (s+1)
+  have hz := Q'.le_of_lt hzpos
+  have hl : (0 : Q') ≤ l := Q'.le_of_lt
+    (terminalComparison_lower_positive hw0 hw1 K width hK s 1 0)
+  have hm := bracket_mass hw0 hw1 K width hK (multiplyBracket J ca)
+  have hratio := terminalMassRatio_bounds hw0 hw1 K width hK J ca hzpos
+  have hU : (0 : Q') ≤ U := Q'.le_trans' _ _ _ hl (Q'.le_trans' _ _ _ hratio.1 hratio.2)
+  have hcomm : pair w K width A a ≈ p :=
+    weightedMass_congr w K width (RatPolyCoeffEqv.mul_comm A a)
+  have hmA := bracket_mass hw0 hw1 K width hK (multiplyBracket J cA)
+  have hlp : l*z ≤ p := hm.1
+  have hpu : p ≤ U*z := hm.2
+  have hlv : (l*l)*z ≤ v := Q'.le_trans' _ _ _
+    (Q'.le_of_eqv (poly_identity_of_normal_eq
+      (.mul (.mul (.var 0) (.var 0)) (.var 1))
+      (.mul (.var 0) (.mul (.var 0) (.var 1))) (by decide)
+      (fun | 0 => l | _ => z)))
+    (Q'.le_trans' _ _ _ (Q'.mul_le_mul_of_nonneg_left _ _ l hlp hl)
+      (Q'.le_trans' _ _ _ (Q'.ge_of_eqv (Q'.mul_eqv_congr_left l _ _ hcomm)) hmA.1))
+  have h1raw := weightedMass_nonnegative hw0 hw1 K width hK
+    (J.lowerCertificate.mul J.upperCertificate)
+  have h1 : (0 : Q') ≤ (l+U)*p-l*U*z-v := by
+    have hp := cross_pair w K width l U A a a A
+    have he := Q'.eqv_trans _ _ _ hp
+      (Q'.add_eqv_congr'
+        (Q'.add_eqv_congr' (Q'.mul_eqv_congr_left U _ _ hcomm) (Q'.eqv_refl _))
+        (Q'.eqv_refl _))
+    exact Q'.le_trans' _ _ _ h1raw (Q'.le_of_eqv (Q'.eqv_trans _ _ _ he
+      (poly_identity_of_normal_eq
+        (.add (.add (.mul (.var 0) (.var 1)) (.neg (.var 2)))
+          (.neg (.mul (.var 3) (.add (.mul (.var 0) (.var 4)) (.neg (.var 1))))))
+        (.add (.add (.mul (.add (.var 3) (.var 0)) (.var 1))
+          (.neg (.mul (.mul (.var 3) (.var 0)) (.var 4)))) (.neg (.var 2)))
+        (by decide) (fun | 0 => U | 1 => p | 2 => v | 3 => l | _ => z))))
+  let J1 := transfer_bracket hw0 hw1 K width hK hA ha J
+  have h2raw := weightedMass_nonnegative hw0 hw1 K width hK
+    (J.lowerCertificate.mul J1.upperCertificate)
+  have hsym : pair w K width a (transferStep w K width A) ≈ v :=
+    transferStep_weighted_symmetric w K width hA ha
+  have h2 : (0 : Q') ≤ (l+U)*v-l*U*p-q := by
+    have hp := cross_pair w K width l U A a A (transferStep w K width A)
+    have he := Q'.eqv_trans _ _ _ hp
+      (Q'.add_eqv_congr' (Q'.eqv_refl _)
+        (Q'.neg_eqv_congr _ _ (Q'.mul_eqv_congr_left l _ _
+          (Q'.add_eqv_congr' (Q'.eqv_refl _) (Q'.neg_eqv_congr _ _ hsym)))))
+    exact Q'.le_trans' _ _ _ h2raw (Q'.le_of_eqv (Q'.eqv_trans _ _ _ he
+      (poly_identity_of_normal_eq
+        (.add (.add (.mul (.var 0) (.var 1)) (.neg (.var 2)))
+          (.neg (.mul (.var 3) (.add (.mul (.var 0) (.var 4)) (.neg (.var 1))))))
+        (.add (.add (.mul (.add (.var 3) (.var 0)) (.var 1))
+          (.neg (.mul (.mul (.var 3) (.var 0)) (.var 4)))) (.neg (.var 2)))
+        (by decide) (fun | 0 => U | 1 => v | 2 => q | 3 => l | _ => p))))
+  exact mismatch_second_order l U z p v q (comparisonEta hw0 hw1 width s)
+    hl hU hz (comparisonEta_nonnegative hw0 hw1 width s) hlp hpu hlv h1 h2
+    (terminalComparison_relative_width hw0 hw1 K width hK s 1 0)
+
+/-- The ORIGINAL cost identity now pays vacuum mismatch at SECOND order.
+Both signed costs and the full nonnegative residual are retained; the
+incoming cost is not assumed favorable. This is fixed-nome/width control. -/
+theorem terminal_clearedRayleighCost_quadratic_vacuum_transport {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < 1) (K width : Nat) (hK : headCutoff w ≤ K)
+    (s : Nat) {c : RatPoly} (hc : SupportedQuaternionBlocks (N width) c) :
+    let a := terminalMessage w K width (s+1)
+    let A := transferStep w K width a
+    let b := transferStep w K width c
+    let z := weightedMass w K width (polyMul a a)
+    let p := weightedMass w K width (polyMul a A)
+    let v := weightedMass w K width (polyMul A A)
+    let e := comparisonEta hw0 hw1 width s
+    4*((z*z*z)*clearedRayleighCost w K width A b +
+        v*costTransportRemainder w K width a c) ≤
+      4*((v*(p*p))*clearedRayleighCost w K width a c) +
+        ((z*z)*(((2+e)*(e*e))*(p*v)))*weightedMass w K width (polyMul b b) := by
+  dsimp only
+  let a := terminalMessage w K width (s+1)
+  let A := transferStep w K width a
+  let b := transferStep w K width c
+  let z := weightedMass w K width (polyMul a a)
+  let p := weightedMass w K width (polyMul a A)
+  let v := weightedMass w K width (polyMul A A)
+  let q := weightedMass w K width (polyMul A (transferStep w K width A))
+  let B := weightedMass w K width (polyMul b b)
+  let e := comparisonEta hw0 hw1 width s
+  let cost := (v*(p*p))*clearedRayleighCost w K width a c
+  have hB : (0 : Q') ≤ B := weightedMass_nonnegative hw0 hw1 K width hK
+    (Certificate.square b (transferStep_supported w K width hc))
+  have hpaid := Q'.mul_le_mul_of_nonneg_right _ _ B
+    (Q'.mul_le_mul_of_nonneg_left _ _ (z*z)
+      (terminal_vacuum_mismatch_quadratic_upper hw0 hw1 K width hK s)
+      (SumOfSquares.q_mul_self_nonneg z)) hB
+  have hbase := Q'.mul_eqv_congr_left 4 _ _
+    (clearedRayleighCost_transport_identity w K width a hc)
+  have hcollect : 4*(cost+((z*z)*(z*q-v*p))*B) ≈
+      4*cost+((z*z)*(4*(z*q-v*p)))*B :=
+    poly_identity_of_normal_eq
+      (.mul (.const 4) (.add (.var 0) (.mul (.mul (.var 1) (.var 2)) (.var 3))))
+      (.add (.mul (.const 4) (.var 0))
+        (.mul (.mul (.var 1) (.mul (.const 4) (.var 2))) (.var 3)))
+      (by decide) (fun | 0 => cost | 1 => z*z | 2 => z*q-v*p | _ => B)
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.eqv_trans _ _ _ hbase hcollect))
+    (Q'.add_le_add_left (4*cost) _ _ hpaid)
+
+/-- Chronological ORIGINAL block specialization of the second-order
+vacuum payment. The same input/OWN center and distinct ground masses stay
+unchanged; the positive-depth guard is exactly the existing bracket guard. -/
+theorem original_block_clearedRayleighCost_quadratic_vacuum_transport {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < 1) (K width : Nat) (hK : headCutoff w ≤ K)
+    (n t : Nat) (hdepth : 1 ≤ n+t) {psi : RatPoly}
+    (hpsi : SupportedQuaternionBlocks (N width) psi) :
+    let input := polyMul (terminalMessage w K width n) psi
+    let a := terminalMessage w K width (n+t)
+    let c := originalBlockTransfer w K width t input
+    let A := terminalMessage w K width (n+(t+1))
+    let b := originalBlockTransfer w K width (t+1) input
+    let z := weightedMass w K width (polyMul a a)
+    let p := weightedMass w K width (polyMul a A)
+    let v := weightedMass w K width (polyMul A A)
+    let e := comparisonEta hw0 hw1 width (n+t-1)
+    4*((z*z*z)*clearedRayleighCost w K width A b +
+        v*costTransportRemainder w K width a c) ≤
+      4*((v*(p*p))*clearedRayleighCost w K width a c) +
+        ((z*z)*(((2+e)*(e*e))*(p*v)))*weightedMass w K width (polyMul b b) := by
+  dsimp only
+  let input := polyMul (terminalMessage w K width n) psi
+  have hc := iterateStep_supported (kineticWeight_supported w K width)
+    (spatialWeight_supported w K width) t
+    (supported_polyMul (terminalMessage_supported w K width n) hpsi)
+  have h := terminal_clearedRayleighCost_quadratic_vacuum_transport
+    hw0 hw1 K width hK (n+t-1) hc
+  have hg : n+t-1+1 = n+t := Nat.sub_add_cancel hdepth
+  have hnext : originalBlockTransfer w K width (t+1) input =
+      transferStep w K width (originalBlockTransfer w K width t input) := by
+    simpa only [originalBlockTransfer, iterateStep, transferStep] using
+      iterateStep_add (N width) (kineticWeight w K width) (spatialWeight w K width) t 1 input
+  rw [hg] at h
+  simpa only [input, hnext, terminalMessage_next, Nat.add_assoc] using h
+
 /-- A genuine finite upper bound retaining the favorable residual, without
 assuming the incoming cost is nonnegative or discarding either original partition. -/
 theorem terminal_clearedRayleighCost_transport_le {w : Q'}
@@ -393,5 +684,8 @@ end YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport.clearedRayleighCost_transport_identity
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport.costTransportRemainder_terminal_nonnegative
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport.terminal_vacuum_mismatch_upper
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport.terminal_vacuum_mismatch_quadratic_upper
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport.terminal_clearedRayleighCost_quadratic_vacuum_transport
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport.original_block_clearedRayleighCost_quadratic_vacuum_transport
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport.terminal_clearedRayleighCost_transport_le
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport.original_block_clearedRayleighCost_transport_le

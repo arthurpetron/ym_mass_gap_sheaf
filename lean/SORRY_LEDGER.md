@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## PROVED second-order original vacuum error only (2026-10-04 UTC)
+
+`BF4ExactSlabFixedSpatialRayleighCostTransport.terminal_vacuum_mismatch_quadratic_upper`
+constructs 4*(zq-vp)<=(2+eta)*eta^2*p*v from ACTUAL terminal cone products
+and original weighted symmetry. No eigenpin or source-norm inverse.
+The original transport and ACTUAL block consumer retain the complete
+residual; `RayleighCostCoercivity.original_block_clearedRayleighCost_quadratic_vacuum_damping`
+simultaneously retains p*v*Di^2. SAME source/OWN center and all distinct
+partitions remain. Two final focused checks passed 17 permitted gates;
+independent reviews passed. The old linear payment remains available;
+second-order coefficient is not asserted sharper for all eta. Evidence:
+`audits/AUDIT-ORIGINAL-VACUUM-MISMATCH-SECOND-ORDER-2026-10-04.md`.
+OPEN: useful source-specific aggregate signed-window reserve versus SAME
+surviving variance on a JUSTIFIED changing family, BOTH Taylor terms,
+survival/physical calibration, canonical OS/full QFT, continuum, every
+compact simple group and Clay. No new sorry, axiom, analytic field,
+frontier weakening, CI/resource change or chart closure. No new root import;
+no full/root build/audit, guard or broad metrics.
+
 ## PROVED original quadratic cost damping only (2026-10-04 UTC)
 
 `BF4ExactSlabFixedSpatialRayleighCostCoercivity.costTransportResidual_pair_pin`
