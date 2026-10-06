@@ -324,7 +324,7 @@ fn main() {
     let mut interval = 2usize; let mut nor = 4usize; let mut sides = vec![2usize]; let mut tflow: Vec<f64> = vec![0.0];
     let mut eps: f64 = 0.05; let mut seed = 1u64; let mut nth = 4usize; let mut out = String::from("out"); let mut ckpt = 25usize; let mut resume = false;
     let mut plaq_only = false; let mut eps2: f64 = 0.1; let mut tswitch: f64 = 0.5; let mut eps3: f64 = 0.1; let mut tswitch2: f64 = 1e9;
-    let mut lin_alpha: f64 = 0.5; let mut lin_steps: Vec<usize> = vec![]; let mut thfile: Option<String> = None; let mut lin_ns_k = 0usize; let mut lin_rs: Option<f64> = None; let mut lin_variants_arg = String::new();
+    let mut lin_alpha: f64 = 0.5; let mut lin_steps: Vec<usize> = vec![]; let mut thfile: Option<String> = None; let mut lin_ns_k = 0usize; let mut lin_rs: Option<f64> = None; let mut lin_variants_arg = String::new(); let mut measure_list = String::new();
     let mut save_every = 0usize; let mut save_dir = String::new(); let mut therm_ckpt = 100usize;
     let a: Vec<String> = std::env::args().collect(); let mut i = 1;
     while i < a.len() { let k = a[i].as_str(); if k == "--resume" { resume = true; i += 1; continue; } if k == "--plaq-only" { plaq_only = true; i += 1; continue; }
@@ -337,7 +337,7 @@ fn main() {
             "--seed" => seed = v.parse().unwrap(), "--threads" => nth = v.parse().unwrap(), "--out" => out = v,
             "--ckpt" => ckpt = v.parse().unwrap(), "--eps2" => eps2 = v.parse().unwrap(), "--tswitch" => tswitch = v.parse().unwrap(), "--eps3" => eps3 = v.parse().unwrap(), "--tswitch2" => tswitch2 = v.parse().unwrap(),
             "--linear-alpha" => lin_alpha = v.parse().unwrap(), "--linear-steps" => lin_steps = v.split(',').map(|s| s.parse().unwrap()).collect(),
-            "--threads-file" => thfile = Some(v), "--linear-ns-k" => lin_ns_k = v.parse().unwrap(), "--linear-global-rescale" => lin_rs = Some(if v == "avg" { 0.0 } else { v.parse().unwrap() }), "--linear-variants" => lin_variants_arg = v, "--save-every" => save_every = v.parse().unwrap(), "--save-dir" => save_dir = v, "--therm-ckpt" => therm_ckpt = v.parse().unwrap(),
+            "--threads-file" => thfile = Some(v), "--linear-ns-k" => lin_ns_k = v.parse().unwrap(), "--linear-global-rescale" => lin_rs = Some(if v == "avg" { 0.0 } else { v.parse().unwrap() }), "--linear-variants" => lin_variants_arg = v, "--measure-cfgs" => measure_list = v, "--save-every" => save_every = v.parse().unwrap(), "--save-dir" => save_dir = v, "--therm-ckpt" => therm_ckpt = v.parse().unwrap(),
             o => panic!("unknown arg {o}") } }
     assert!(ls % 2 == 0 && lt % 2 == 0);
     tflow.sort_by(|x, y| x.partial_cmp(y).unwrap()); lin_steps.sort();
@@ -356,6 +356,42 @@ fn main() {
     let ckpath = format!("{out}.ckpt"); let datpath = format!("{out}.bin");
     let nlev = tflow.len() + lin_steps.len();
     let hdr = format!("{{\"Ls\":{ls},\"Lt\":{lt},\"beta\":{beta},\"sides\":{:?},\"tflow\":{:?},\"eps\":{eps},\"eps2\":{eps2},\"tswitch\":{tswitch},\"eps3\":{eps3},\"tswitch2\":{tswitch2},\"interval\":{interval},\"overrelax\":{nor},\"seed\":{seed},\"therm\":{therm},\"linear_alpha\":{lin_alpha},\"linear_steps\":{:?},\"poly\":6,\"linnorm\":4,\"linear_variants\":[{lv_json}],\"save_every\":{save_every}}}\n", sides, tflow, lin_steps);
+    // ---- P8: measure saved f32 configurations (no Markov chain). One record per cfg, appended; resumable.
+    if !measure_list.is_empty() {
+        let cfgs: Vec<String> = std::fs::read_to_string(&measure_list).unwrap().lines().map(|l| l.trim().to_string()).filter(|l| !l.is_empty()).collect();
+        let reclen = 1 + nlev*(1 + sides.len()*3*lt) + nlev*6 + lin_steps.len()*4;
+        let hdr2 = format!("{},\"from_cfgs\":true}}\n", hdr.trim_end().trim_end_matches('}'));
+        if !std::path::Path::new(&datpath).exists() { std::fs::write(&datpath, hdr2.as_bytes()).unwrap(); }
+        let mut f = std::fs::OpenOptions::new().read(true).write(true).open(&datpath).unwrap();
+        let (hlen, blen) = { let mut b = Vec::new(); f.read_to_end(&mut b).unwrap(); let h = b.iter().position(|&c| c == b'\n').unwrap() + 1; (h, b.len() - h) };
+        let ndone = blen / (reclen*8); f.set_len((hlen + ndone*reclen*8) as u64).unwrap(); f.seek(SeekFrom::End(0)).unwrap();
+        let listpath = format!("{out}.cfglist"); let mut done_names: Vec<String> = std::fs::read_to_string(&listpath).unwrap_or_default().lines().map(|x| x.to_string()).collect(); done_names.truncate(ndone);
+        std::fs::write(&listpath, done_names.iter().map(|x| format!("{x}\n")).collect::<String>()).unwrap();
+        let t0 = Instant::now(); let mut fa = vec![ID; g.vol*4]; let mut fb = vec![ID; g.vol*4]; let mut links = vec![ID; g.vol*4];
+        for (ci, path) in cfgs.iter().enumerate() {
+            if ci < ndone { continue; }
+            let n2 = read_threads(&thfile, nth, nmax); if n2 != nth { eprintln!("threads {nth} -> {n2} at cfg {ci}"); nth = n2; }
+            let b = std::fs::read(path).unwrap(); assert_eq!(b.len(), 16 + g.vol*4*16, "cfg size mismatch {path}");
+            let mut maxdev = 0f64;
+            for i in 0..g.vol*4 { let o = 16 + i*16; let q = [0,1,2,3].map(|c| f32::from_le_bytes(b[o+4*c..o+4*c+4].try_into().unwrap()) as f64);
+                maxdev = maxdev.max((dot(q, q).sqrt() - 1.0).abs()); links[i] = renorm(q); }
+            drop(b);
+            let mut rec = vec![plaq4(&links, &g, nth)]; let mut polys: Vec<[f64; 6]> = vec![]; let mut nstats: Vec<[f64; 4]> = vec![];
+            fa.copy_from_slice(&links); let mut tcur = 0.0;
+            for &tf in &tflow {
+                while tcur < tf - 1e-9 { let h = (if tcur < tswitch - 1e-9 { eps.min(tswitch - tcur) } else if tcur < tswitch2 - 1e-9 { eps2.min(tswitch2 - tcur) } else { eps3 }).min(tf - tcur); flow_step(&fa, &mut fb, &g, h, nth); std::mem::swap(&mut fa, &mut fb); tcur += h; }
+                let (r, es) = loops(&fa, &g, &sides, nth); rec.push(es); for v in r { rec.extend(v); } polys.push(spatial_poly(&fa, &g, nth)); }
+            for lv in &lvars { fa.copy_from_slice(&links); let mut ncur = 0usize;
+                for &nl in &lv.steps { while ncur < nl { lin_variant_step(&fa, &mut fb, &g, lv, nth); std::mem::swap(&mut fa, &mut fb); ncur += 1; }
+                    let (r, es) = loops(&fa, &g, &sides, nth); rec.push(es); for v in r { rec.extend(v); } polys.push(spatial_poly(&fa, &g, nth)); nstats.push(norm_stats(&fa, &g)); } }
+            for p in &polys { rec.extend_from_slice(p); } for p in &nstats { rec.extend_from_slice(p); }
+            assert_eq!(rec.len(), reclen);
+            let bytes: Vec<u8> = rec.iter().flat_map(|x| x.to_le_bytes()).collect(); f.write_all(&bytes).unwrap(); f.sync_all().unwrap();
+            let mut lf = std::fs::OpenOptions::new().append(true).open(&listpath).unwrap(); writeln!(lf, "{path}").unwrap();
+            eprintln!("cfg {}/{} {path} {:.1}s plaq={:.6} max||q|-1|(f32)={maxdev:.2e} th={nth}", ci+1, cfgs.len(), t0.elapsed().as_secs_f64(), rec[0]);
+        }
+        eprintln!("measure-cfgs done {:.1}s", t0.elapsed().as_secs_f64()); return;
+    }
     let t0 = Instant::now();
     let (mut links, mut sw, mut done) = if resume { match load_ckpt(&ckpath, g.vol*4) { Some(x) => { eprintln!("resumed sw={} nmeas={}", x.1, x.2); x } None => panic!("no ckpt") } }
         else { let mut r = Rng(splitmix(seed ^ 0x5151)); ((0..g.vol*4).map(|_| random_su2(&mut r)).collect(), 0u64, 0u64) };
