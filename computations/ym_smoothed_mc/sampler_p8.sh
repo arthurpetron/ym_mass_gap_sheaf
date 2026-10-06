@@ -13,8 +13,8 @@ while kill -0 "$pid" 2>/dev/null; do
   if [ "$cur" -eq "$full" ] && [ $hi -ge 2 ]; then echo $low > "$tf"; cur=$low; ok=0; echo "# $(date +%T) THROTTLE: threads -> $low (load1 $l1)" >> "$log"; fi
   if [ "$cur" -eq "$low" ] && [ "$low" -ne "$full" ]; then if awk -v l=$l1 'BEGIN{exit !(l<5.5)}'; then ok=$((ok+1)); else ok=0; fi
     if [ $ok -ge 20 ]; then echo $full > "$tf"; cur=$full; ok=0; echo "# $(date +%T) RESTORE: threads -> $full" >> "$log"; fi; fi
-  if [ $paused -eq 0 ] && [ $av -lt 3000 ]; then kill -STOP "$pid"; paused=1; echo "# $(date +%T) PAUSE (memavail ${av} MB)" >> "$log"; fi
-  if [ $paused -eq 1 ] && [ $av -gt 4000 ]; then kill -CONT "$pid"; paused=0; echo "# $(date +%T) RESUME (memavail ${av} MB)" >> "$log"; fi
+  if [ $paused -eq 0 ] && [ $av -lt ${PAUSE_MB:-3000} ]; then kill -STOP "$pid"; paused=1; echo "# $(date +%T) PAUSE (memavail ${av} MB)" >> "$log"; fi
+  if [ $paused -eq 1 ] && [ $av -gt ${RESUME_MB:-4000} ]; then kill -CONT "$pid"; paused=0; echo "# $(date +%T) RESUME (memavail ${av} MB)" >> "$log"; fi
   echo "$(date +%T) $(date +%s) $av $fr $l1 $l5 $l15 ${cpu:-0} $rss $cur $paused" >> "$log"
   sleep 30
 done

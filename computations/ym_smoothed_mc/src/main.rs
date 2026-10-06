@@ -324,7 +324,7 @@ fn main() {
     let mut interval = 2usize; let mut nor = 4usize; let mut sides = vec![2usize]; let mut tflow: Vec<f64> = vec![0.0];
     let mut eps: f64 = 0.05; let mut seed = 1u64; let mut nth = 4usize; let mut out = String::from("out"); let mut ckpt = 25usize; let mut resume = false;
     let mut plaq_only = false; let mut eps2: f64 = 0.1; let mut tswitch: f64 = 0.5; let mut eps3: f64 = 0.1; let mut tswitch2: f64 = 1e9;
-    let mut lin_alpha: f64 = 0.5; let mut lin_steps: Vec<usize> = vec![]; let mut thfile: Option<String> = None; let mut lin_ns_k = 0usize; let mut lin_rs: Option<f64> = None; let mut lin_variants_arg = String::new(); let mut measure_list = String::new();
+    let mut lin_alpha: f64 = 0.5; let mut lin_steps: Vec<usize> = vec![]; let mut thfile: Option<String> = None; let mut lin_ns_k = 0usize; let mut lin_rs: Option<f64> = None; let mut lin_variants_arg = String::new(); let mut measure_list = String::new(); let mut ml_d: usize = 0; let mut ml_nsub: Vec<usize> = vec![];
     let mut save_every = 0usize; let mut save_dir = String::new(); let mut therm_ckpt = 100usize;
     let a: Vec<String> = std::env::args().collect(); let mut i = 1;
     while i < a.len() { let k = a[i].as_str(); if k == "--resume" { resume = true; i += 1; continue; } if k == "--plaq-only" { plaq_only = true; i += 1; continue; }
@@ -337,7 +337,7 @@ fn main() {
             "--seed" => seed = v.parse().unwrap(), "--threads" => nth = v.parse().unwrap(), "--out" => out = v,
             "--ckpt" => ckpt = v.parse().unwrap(), "--eps2" => eps2 = v.parse().unwrap(), "--tswitch" => tswitch = v.parse().unwrap(), "--eps3" => eps3 = v.parse().unwrap(), "--tswitch2" => tswitch2 = v.parse().unwrap(),
             "--linear-alpha" => lin_alpha = v.parse().unwrap(), "--linear-steps" => lin_steps = v.split(',').map(|s| s.parse().unwrap()).collect(),
-            "--threads-file" => thfile = Some(v), "--linear-ns-k" => lin_ns_k = v.parse().unwrap(), "--linear-global-rescale" => lin_rs = Some(if v == "avg" { 0.0 } else { v.parse().unwrap() }), "--linear-variants" => lin_variants_arg = v, "--measure-cfgs" => measure_list = v, "--save-every" => save_every = v.parse().unwrap(), "--save-dir" => save_dir = v, "--therm-ckpt" => therm_ckpt = v.parse().unwrap(),
+            "--threads-file" => thfile = Some(v), "--linear-ns-k" => lin_ns_k = v.parse().unwrap(), "--linear-global-rescale" => lin_rs = Some(if v == "avg" { 0.0 } else { v.parse().unwrap() }), "--linear-variants" => lin_variants_arg = v, "--measure-cfgs" => measure_list = v, "--ml-d" => ml_d = v.parse().unwrap(), "--ml-nsub" => ml_nsub = v.split(',').map(|x| x.parse().unwrap()).collect(), "--save-every" => save_every = v.parse().unwrap(), "--save-dir" => save_dir = v, "--therm-ckpt" => therm_ckpt = v.parse().unwrap(),
             o => panic!("unknown arg {o}") } }
     assert!(ls % 2 == 0 && lt % 2 == 0);
     tflow.sort_by(|x, y| x.partial_cmp(y).unwrap()); lin_steps.sort();
@@ -356,6 +356,10 @@ fn main() {
     let ckpath = format!("{out}.ckpt"); let datpath = format!("{out}.bin");
     let nlev = tflow.len() + lin_steps.len();
     let hdr = format!("{{\"Ls\":{ls},\"Lt\":{lt},\"beta\":{beta},\"sides\":{:?},\"tflow\":{:?},\"eps\":{eps},\"eps2\":{eps2},\"tswitch\":{tswitch},\"eps3\":{eps3},\"tswitch2\":{tswitch2},\"interval\":{interval},\"overrelax\":{nor},\"seed\":{seed},\"therm\":{therm},\"linear_alpha\":{lin_alpha},\"linear_steps\":{:?},\"poly\":6,\"linnorm\":4,\"linear_variants\":[{lv_json}],\"save_every\":{save_every}}}\n", sides, tflow, lin_steps);
+    let hdr = if ml_d > 0 { ml_nsub.sort(); format!("{},\"ml_d\":{ml_d},\"ml_nsub\":{:?}}}\n", hdr.trim_end().trim_end_matches('}'), ml_nsub) } else { hdr };
+    // P9 multilevel: sub-update classes = all links except spatial links on boundary timeslices t % ml_d == 0
+    let sub_classes: Vec<Vec<usize>> = if ml_d > 0 { classes.iter().map(|c| c.iter().cloned().filter(|&li| { let mu = li % 4; let t = (li/4) / g.vs; !(mu >= 1 && t % ml_d == 0) }).collect()).collect() } else { vec![] };
+    let mut subsw: u64 = 0;
     // ---- P8: measure saved f32 configurations (no Markov chain). One record per cfg, appended; resumable.
     if !measure_list.is_empty() {
         let cfgs: Vec<String> = std::fs::read_to_string(&measure_list).unwrap().lines().map(|l| l.trim().to_string()).filter(|l| !l.is_empty()).collect();
@@ -406,7 +410,7 @@ fn main() {
         let mut f = std::fs::File::create(&datpath).unwrap(); f.write_all(hdr.as_bytes()).unwrap();
         save_ckpt(&ckpath, &links, sw, 0); done = 0;
     }
-    let reclen = if plaq_only { 1 } else { 1 + nlev*(1 + sides.len()*3*lt) + nlev*6 + lin_steps.len()*4 };
+    let reclen = if ml_d > 0 { lt + ml_nsub.len()*(lt + lt*lt) + 2 } else if plaq_only { 1 } else { 1 + nlev*(1 + sides.len()*3*lt) + nlev*6 + lin_steps.len()*4 };
     let mut f = std::fs::OpenOptions::new().read(true).write(true).open(&datpath).unwrap();
     let hlen = { let mut b = Vec::new(); f.read_to_end(&mut b).unwrap(); b.iter().position(|&c| c == b'\n').unwrap() + 1 };
     f.set_len((hlen + done as usize * reclen * 8) as u64).unwrap(); f.seek(SeekFrom::End(0)).unwrap();
@@ -415,8 +419,27 @@ fn main() {
     let tm = Instant::now(); let mut since = 0usize; let done0 = done;
     let smain = sides[sides.len()/2]; let simain = sides.len()/2;
     while (done as usize) < meas {
+        let tl0 = Instant::now();
         for _ in 0..interval { let n2 = read_threads(&thfile, nth, nmax); if n2 != nth { eprintln!("threads {nth} -> {n2} at meas {done}"); nth = n2; }
             sweep(&mut links, &g, &classes, beta, nor, sw, seed, nth); sw += 1; }
+        if ml_d > 0 {
+            let dt0 = tl0.elapsed().as_secs_f64(); let tsub = Instant::now();
+            let pslice = |l: &[Su2], nth: usize| -> Vec<f64> { let (r, _) = loops(l, &g, &[1], nth); (0..lt).map(|t| (r[0][t] + r[0][lt+t] + r[0][2*lt+t])/3.0).collect() };
+            let p0 = pslice(&links, nth); let mut rec = p0.clone();
+            let mut s1 = vec![0.0; lt]; let mut s2 = vec![0.0; lt*lt]; let nmaxs = *ml_nsub.last().unwrap();
+            for isub in 1..=nmaxs {
+                sweep(&mut links, &g, &sub_classes, beta, nor, subsw, seed ^ 0x9E3779B97F4A7C15, nth); subsw += 1;
+                let p = pslice(&links, nth);
+                for t in 0..lt { s1[t] += p[t]; for u in 0..lt { s2[t*lt+u] += p[t]*p[u]; } }
+                if ml_nsub.contains(&isub) { let n = isub as f64; rec.extend(s1.iter().map(|x| x/n)); rec.extend(s2.iter().map(|x| x/n)); }
+            }
+            rec.push(dt0); rec.push(tsub.elapsed().as_secs_f64()); assert_eq!(rec.len(), reclen);
+            let bytes: Vec<u8> = rec.iter().flat_map(|x| x.to_le_bytes()).collect(); f.write_all(&bytes).unwrap();
+            done += 1; since += 1;
+            if since >= ckpt || done as usize == meas { f.sync_all().unwrap(); save_ckpt(&ckpath, &links, sw, done); since = 0; }
+            eprintln!("ml meas {done}/{meas} {:.1}s level0 {:.2}s sub {:.2}s plaq0={:.6} th={nth}", t0.elapsed().as_secs_f64(), dt0, rec[reclen-1], p0.iter().sum::<f64>()/lt as f64);
+            continue;
+        }
         let mut rec = vec![plaq4(&links, &g, nth)];
         let mut obar: Vec<f64> = vec![]; let mut polys: Vec<[f64; 6]> = vec![];
         if !plaq_only {
