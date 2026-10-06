@@ -165,3 +165,21 @@ linearly in C, roughly `a ≈ 2C + 3 + log₂(1/δ)`. For the measured `ε·side
   the final build has no warnings.
 - `#print axioms`: every declaration is within `{propext, Quot.sound}`.
 - `lean_forbidden_token_scan.py` reports `executable_forbidden_hits 0`.
+
+## 12. Roles separated: the realistic frontier (follow-up)
+
+- **Vacuity caveat.** The `k = 0` H-ray survival corollaries (`expr_windowSurvival_of_hray`,
+  `expr_windowSurvivalFrom_of_hray_anyC`, `expr_normalized_anchor_of_hvar_hray_anyC`) are
+  likely vacuous on raw slab vectors. UV contamination keeps the one-step ratio of a raw slab
+  vector far from 1, so `side_j(1−ρ_j)` is not bounded there.
+- **Realistic frontier.** The intermediate-lag step-ratio version on the smoothed state is
+  the realistic frontier. That is what YM Numerics is measuring: `side·(1 − R(k+1)/R(k))` at
+  `k = 0, 1, 2, side/4`.
+- **New theorem `expr_normalized_anchor_of_hvar_hray_stepRatio_anyC`.** It separates the two
+  jobs of `ρ`:
+  - H-var + H-ray (any `ρ_j > 0`) are used only for nondegeneracy.
+  - `ExprStepRatio tr ρ' k` gives survival, at lag `k_j ≤ side_j/2` on the smoothed window
+    response `R_j`, with its own rate `side_j(1−ρ'_j) ≤ c ≤ C` for `j ≥ j0`.
+  - The constants are the same as in §9.
+- The two earlier theorems got docstring caveats only; their statements are unchanged.
+- Build: rebuilt the anyC module only, ~10 s wall. Axioms are within `{propext, Quot.sound}`; no warnings.

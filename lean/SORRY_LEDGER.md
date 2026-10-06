@@ -1,5 +1,18 @@
 # Sorry Ledger
 
+## PROVED A03 package with nondegeneracy and survival roles separated (2026-10-06 PT)
+
+In `BF4WilsonAllNomeExprStepRatioAnyC`: `expr_normalized_anchor_of_hvar_hray_stepRatio_anyC`.
+
+- H-var + H-ray (any ρ_j > 0) are used ONLY for nondegeneracy.
+- Survival comes from `ExprStepRatio tr ρ' k` at lag k_j ≤ side_j/2 on the SMOOTHED window
+  response, with side_j(1−ρ'_j) ≤ c ≤ C for j ≥ j0.
+- Same constants: θ = (1/2)^(2C+2), c0 = 2^(2C+3), side_a ≥ c0/δ.
+- Caveat added to the docstrings of the k=0 H-ray versions (statements unchanged): they are
+  likely vacuous on raw slab vectors.
+- SUFFICIENT only; the bounded intermediate-lag rate is OPEN, and it is what YM Numerics measures.
+- Axioms ⊆ {propext, Quot.sound}. Audit §12.
+
 ## PROVED window survival from ANY bounded step-ratio rate (block Bernoulli), SUFFICIENT only (2026-10-06 PT)
 
 New leaf `BF4WilsonAllNomeExprStepRatioAnyC`.

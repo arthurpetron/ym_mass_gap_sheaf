@@ -293,7 +293,10 @@ theorem expr_windowSurvival_of_stepRatio_anyC_small (tr : ExprAnchorTrajectory)
         H j h hj)
 
 /-- H-ray form: `ExprHRay` on the centered `x_j` with `side_j(1-ρ_j) ≤ c ≤ C` for
-`j ≥ j0`. -/
+`j ≥ j0`. CAVEAT: this lag-0 H-ray survival hypothesis on the RAW slab vector is likely
+vacuous, because UV contamination keeps its one-step ratio far from 1. The realistic route is
+an intermediate-lag step ratio on the smoothed state; see
+`expr_normalized_anchor_of_hvar_hray_stepRatio_anyC`. -/
 theorem expr_windowSurvivalFrom_of_hray_anyC (tr : ExprAnchorTrajectory) (rho : Nat → Q')
     (c : Q') (C j0 : Nat) (hC : 1 ≤ C) (hcC : c ≤ Q'.ofNat C) (hj0 : 2*C ≤ side j0)
     (Hr : ExprHRay tr rho) (hrho1 : ∀ j, j0 ≤ j → rho j ≤ 1)
@@ -397,7 +400,9 @@ theorem expr_normalized_anchor_of_windowSurvivalFrom (tr : ExprAnchorTrajectory)
 /-- **Combined A03 one-liner, any bounded rate.** H-var + H-ray with
 `side_j(1-ρ_j) ≤ c ≤ C`, `ρ_j ≤ 1` for `j ≥ j0`, where `2C ≤ side_{j0}`, `j0 ≤ 2C+4`,
 and the anchor scale `a` satisfies `2^(2C+3) ≤ side_a · δ`. Constants: `θ = (1/2)^(2C+2)`,
-`c0 = 2^(2C+3)`. -/
+`c0 = 2^(2C+3)`. CAVEAT: the same `ρ_j` serves both nondegeneracy and survival, and the
+lag-0 H-ray survival hypothesis on the raw slab vector is likely vacuous. Prefer
+`expr_normalized_anchor_of_hvar_hray_stepRatio_anyC`, which separates the two. -/
 theorem expr_normalized_anchor_of_hvar_hray_anyC (tr : ExprAnchorTrajectory)
     (c delta : Q') (C j0 a : Nat) (ha : 1 ≤ a) (hC : 1 ≤ C) (hcC : c ≤ Q'.ofNat C)
     (hj0 : 2*C ≤ side j0) (hj0' : j0 ≤ 2*C+4)
@@ -412,6 +417,36 @@ theorem expr_normalized_anchor_of_hvar_hray_anyC (tr : ExprAnchorTrajectory)
     (fun j hj => ac_ofNat_le (Nat.pow_le_pow_right (by decide) (by omega)))
     hdelta0 hdelta hcd (exprNondegFloor tr v rho) (exprNondegFloor_pos tr v rho Hv Hr)
     (expr_windowSurvivalFrom_of_hray_anyC tr rho c C j0 hC hcC hj0 Hr hrho1 hc)
+    (exprShiftedNondegenerate_of_hvar_hray tr v rho Hv Hr)
+
+/-- **Combined A03, roles separated (realistic frontier).**
+* H-var + H-ray (any `ρ_j > 0`) are used ONLY for nondegeneracy, with floor
+  `ρ_j^(2M_j+side_j) v_j`.
+* Survival comes from `ExprStepRatio tr ρ' k`, a lag-`k_j` (`k_j ≤ side_j/2`) step ratio with
+  its OWN rate `ρ'_j`, where `side_j(1-ρ'_j) ≤ c ≤ C` and `ρ'_j ≤ 1` for `j ≥ j0`.
+  It is stated on the window response `R_j(n) = B(Y_j, T^n Y_j)` of the SMOOTHED state
+  `Y_j`, which is where a bounded rate is plausible.
+* Same constants as before: `θ = (1/2)^(2C+2)`, `c0 = 2^(2C+3)`, `2C ≤ side_{j0}`, `j0 ≤ 2C+4`,
+  `2^(2C+3) ≤ side_a · δ`.
+SUFFICIENT only; the bounded intermediate-lag rate is OPEN. -/
+theorem expr_normalized_anchor_of_hvar_hray_stepRatio_anyC (tr : ExprAnchorTrajectory)
+    (c delta : Q') (C j0 a : Nat) (ha : 1 ≤ a) (hC : 1 ≤ C) (hcC : c ≤ Q'.ofNat C)
+    (hj0 : 2*C ≤ side j0) (hj0' : j0 ≤ 2*C+4)
+    (hdelta0 : (0 : Q') ≤ delta) (hdelta : delta < (1 : Q'))
+    (hcd : Q'.ofNat (2^(2*C+3)) ≤ Q'.ofNat (side a) * delta) (v rho : Nat → Q')
+    (Hv : ExprHVar tr v) (Hr : ExprHRay tr rho)
+    (rho' : Nat → Q') (k : Nat → Nat)
+    (hrho'0 : ∀ j, 1 ≤ j → (0 : Q') ≤ rho' j) (hrho'1 : ∀ j, j0 ≤ j → rho' j ≤ 1)
+    (hk : ∀ j, 1 ≤ j → k j ≤ side j / 2)
+    (hc : ∀ j, j0 ≤ j → Q'.ofNat (side j) * ((1 : Q') - rho' j) ≤ c)
+    (H : ExprStepRatio tr rho' k) :
+    ExprShiftedAnchorPackage tr delta hdelta a (exprNondegFloor tr v rho)
+      (exprNondegFloor_pos tr v rho Hv Hr) :=
+  expr_normalized_anchor_of_windowSurvivalFrom tr (Q'.ofNat (2^(2*C+3))) (thetaC C) delta a j0
+    ha (thetaC_pos C) (thetaC_le_one C) (thetaC_c0 C) (one_le_c0 C)
+    (fun j hj => ac_ofNat_le (Nat.pow_le_pow_right (by decide) (by omega)))
+    hdelta0 hdelta hcd (exprNondegFloor tr v rho) (exprNondegFloor_pos tr v rho Hv Hr)
+    (expr_windowSurvivalFrom_of_stepRatio_anyC tr rho' k c C j0 hC hcC hj0 hrho'0 hrho'1 hk hc H)
     (exprShiftedNondegenerate_of_hvar_hray tr v rho Hv Hr)
 
 /-! ## 4. Gap side with θ_C -/
@@ -473,6 +508,7 @@ theorem expr_stepRatio_forces_rate_anyC (tr : ExprAnchorTrajectory) (rho : Nat �
 #print axioms exprShiftedEpsBound_of_windowSurvivalFrom
 #print axioms expr_normalized_anchor_of_windowSurvivalFrom
 #print axioms expr_normalized_anchor_of_hvar_hray_anyC
+#print axioms expr_normalized_anchor_of_hvar_hray_stepRatio_anyC
 #print axioms expr_windowSurvivalFrom_forces_rate_c0
 #print axioms expr_stepRatio_forces_rate_anyC
 
