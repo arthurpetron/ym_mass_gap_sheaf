@@ -1,5 +1,24 @@
 # Canonical one-page project status
 
+Strong-coupling width-uniform rate (interface test; PLUMBING, 2026-10-06 PT):
+the Descent carrier already has a WIDTH-INDEPENDENT vacuum-square rate
+`twoStepRate ≈ 1/16` under the three strong-coupling guards
+(`heatRatio w ≤ 1/2`, `heatRemainderBound w < 1`, entropy-rate). Packaged as
+`StrongCouplingVacuumSqContraction` / `strongCoupling_vacuumSq`
+(`BF4WilsonStrongCouplingUniformRate`); the dyadic lower margin holds with
+`m = 1 − twoStepRate` for every j; the package is non-vacuous under the Descent
+guards (`strongCoupling_package_nonvacuous`). `smallNome = 1/16` discharges the
+first two guards by `decide`.
+Honest limits:
+- This is NOT `WilsonVacuumSqContraction` on the all-nome literal-width carrier
+  (Descent uses `UnionCompletion`; the bridge is OPEN).
+- It does NOT witness `WilsonAFPaddedGapInput` on AF: every `NomeSchedule` has
+  `w_j → 1` and leaves the window; also a constant rate fails the B04 upper half
+  on unbounded side_j (`constant_rate_not_all_scale_upper`, proved).
+- No progress on Clay / AF weak-coupling producer. Doeblin dead end unchanged.
+Evidence: `audits/SCOPE-WILSON-STRONG-COUPLING-UNIFORM-RATE-2026-10-06.md`.
+Exact chart unchanged, no ASCII reprint.
+
 Current open inputs on the Wilson carrier (frontier; CORRECTED 2026-10-06 PT, supersedes the
 937f9e38 wording):
 on the all-nome literal-width Wilson carrier along the AF-padded Y_j trajectory

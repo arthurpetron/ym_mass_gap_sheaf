@@ -7333,6 +7333,9 @@ import YMGap.Continuum.BF4WilsonAllNomeWilsonGapBranchAFPadded
 -- DEAD END (proved): X2 at the Doeblin mixRate fails on trAF for every m; restated gap
 -- frontier WilsonAFPaddedGapInput (some rate family) + generic afPadded capstone.
 import YMGap.Continuum.BF4WilsonAllNomeWilsonMixRateDeadEnd
+-- INTERFACE TEST: strong-coupling width-uniform Descent rate ≈ 1/16 (Spatial Union
+-- carrier); NOT all-nome, NOT AF; lower margin + non-vacuity + upper-half obstruction.
+import YMGap.Continuum.BF4WilsonStrongCouplingUniformRate
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport

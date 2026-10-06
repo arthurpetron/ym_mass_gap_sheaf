@@ -211,3 +211,13 @@ Restated gap frontier (OPEN):
   ratio and a witness of this Prop; H-var and H-ray are discharged.
 
 Producer scope: `audits/SCOPE-WILSON-SPECTRAL-RATE-PRODUCER-2026-10-06.md`.
+
+## Interface test: strong-coupling width-uniform rate (2026-10-06 PT)
+
+See `audits/SCOPE-WILSON-STRONG-COUPLING-UNIFORM-RATE-2026-10-06.md` and
+`BF4WilsonStrongCouplingUniformRate.lean`.
+
+Descent already supplies a width-independent rate ≈ 1/16 on the Spatial Union carrier.
+Packaged here with a dyadic lower margin and a non-vacuity statement under the Descent
+guards. It does NOT feed `wilsonGapBranch_afPadded_generic` on AF (window exit + upper-half
+obstruction). The all-nome / AF weak-coupling producer remains OPEN.

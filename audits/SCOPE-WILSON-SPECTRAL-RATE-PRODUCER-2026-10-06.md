@@ -49,3 +49,12 @@ needs the step ratio as well.
 - The realistic near-term Lean targets are volume-uniform statements in a STRONG-coupling
   window. Those are useful as tests of the interface, but they do not satisfy the
   `2^-j`-scaled margin along the AF schedule.
+
+## Update (2026-10-06 PT): first interface test landed
+
+`BF4WilsonStrongCouplingUniformRate` packages the existing Descent width-independent rate
+≈ 1/16 as `StrongCouplingVacuumSqContraction` on the Spatial Union carrier, with a dyadic
+lower margin and a proved upper-half obstruction for constant rates. This exercises the
+"rate survives width" interface but is NOT an all-nome `WilsonVacuumSqContraction` and does
+NOT witness `WilsonAFPaddedGapInput` on AF. See
+`audits/SCOPE-WILSON-STRONG-COUPLING-UNIFORM-RATE-2026-10-06.md`.

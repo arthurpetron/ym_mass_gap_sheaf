@@ -1,5 +1,21 @@
 # Sorry Ledger
 
+## PROVED interface test: strong-coupling width-uniform Descent rate (2026-10-06 PT)
+
+New leaf `BF4WilsonStrongCouplingUniformRate`.
+
+- `strongCoupling_vacuumSq`: packages Descent `oneStep_norm_gap` as
+  `StrongCouplingVacuumSqContraction` at rate `twoStepRate ≈ 1/16`, width-independent,
+  under the three strong-coupling guards.
+- `strongCoupling_lowerMargin_dyadic` / `strongCoupling_package_nonvacuous`: dyadic lower
+  margin at this constant rate; package non-vacuous under the guards.
+- `smallNome_two_guards`: heatRatio and heatRemainderBound at `smallNome = 1/16` by decide;
+  entropy-rate guard remains a hypothesis.
+- `constant_rate_not_all_scale_upper`: constant rate ⇏ B04 upper half for all j.
+- NOT all-nome `WilsonVacuumSqContraction` (carrier bridge OPEN). NOT a witness of
+  `WilsonAFPaddedGapInput` on AF.
+- Axioms {propext, Quot.sound}.
+
 ## PROVED dead end: X2 at the Doeblin mixRate is false on the AF-padded trajectory (2026-10-06 PT)
 
 New leaf `BF4WilsonAllNomeWilsonMixRateDeadEnd`.
