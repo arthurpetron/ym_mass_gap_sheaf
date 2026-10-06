@@ -1,5 +1,21 @@
 # Sorry Ledger
 
+## PROVED Hankel/Hausdorff positivity of the response (2026-10-06 PT)
+
+New leaf `BF4WilsonAllNomeResponseHankelPositivity`, with `R(n) = B(ψ, T^n ψ)` for any `ψ` and rational coefficients.
+
+- Main results:
+  - `hankelSum_nonneg`: Σ_i Σ_k c_i c_k R(i+k+m) ≥ 0 for every m (m=0,1 named).
+  - `hausdorffSum_nonneg`: Σ_i Σ_k c_i c_k (∇^l R)(i+k+m) ≥ 0, where ∇R(n)=R(n)−R(n+1).
+  - The l=1 plain form is `hausdorffSum_first_nonneg`.
+- Regressions:
+  - `mixedMoment` = ∇^l R; `mixedMoment_nonnegative` is the 1×1 case.
+  - The explicit 2×2 form is a²R(m)+2abR(m+1)+b²R(m+2) ≥ 0.
+  - Log-convexity is re-exported from the existing Cauchy–Schwarz proof; the discriminant derivation was skipped.
+- NECESSARY conditions only. Hausdorff sufficiency/measure is NOT formalized; RC coefficients are not covered.
+- Built on the box: 1 module. Axioms {propext, Quot.sound}; no sorry.
+- Audit: `audits/AUDIT-RESPONSE-HANKEL-POSITIVITY-2026-10-06.md`.
+
 ## PROVED expression-layer window/gap compatibility and AF-shape link (2026-10-06 PT)
 
 New leaves `BF4WilsonAllNomeExprWindowGapCompatibility` and `BF4WilsonAllNomeExprAFCalibrated`.

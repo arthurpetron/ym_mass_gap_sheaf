@@ -7303,6 +7303,9 @@ import YMGap.Continuum.BF4WilsonAllNomeExprWindowGapCompatibility
 -- Expression trajectories tied to the two-loop AF SHAPE (no a(w), physical box OPEN):
 -- AF padded Y_j positive instance; dyadic padded Y_j proved NOT calibrated.
 import YMGap.Continuum.BF4WilsonAllNomeExprAFCalibrated
+-- Hankel/Hausdorff positivity of R(n)=B(psi,T^n psi), plain double-sum form;
+-- NECESSARY conditions only (any vector), testable on data; no measure/sufficiency.
+import YMGap.Continuum.BF4WilsonAllNomeResponseHankelPositivity
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport
