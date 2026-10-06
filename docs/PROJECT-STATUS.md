@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting A03 repoint to SHIFTED H1 (2026-10-06 UTC):
+`path_normalized_anchor_shifted` compiles the full normalized-anchor package
+from the shifted H1 `PathShiftedEpsBound` (side_j*E <= c0*B for the anchor
+T^(side_j/2) Y_j; exact shifted telescope (M+1)E <= R_x(2h) proved) plus a
+qualitative nondegeneracy fl_j <= R_j(side_j). Shifted H1 is now the single
+quantitative analytic input: heuristically plausible under an AF-calibrated
+schedule (free-field eps ~ 1.9/side), still OPEN. Unshifted box-kernel H1 and
+H2 are heuristically FALSE (free-field spectral input + numerics, eps ~ 0.95),
+not proved false. AF schedule Props stated, OPEN; repo g^2 = -4 log w;
+dyadicNomeSchedule is not AF-calibrated (paper). Evidence:
+`audits/AUDIT-SHIFTED-H1-ANCHOR-2026-10-05.md`.
+Supporting A03 only; exact chart unchanged, no ASCII reprint.
+
 Verified supporting route repoint to DIRECT RESPONSE (2026-10-05 UTC):
 Completed CS gives even log-convexity R(m+n)^2<=R(2m)R(2n); ONE survival
 floor kappa*R(0)<=R(2u) (side=2u) compiles exactly the normalized macro

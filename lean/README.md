@@ -12,6 +12,16 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Checked shifted-H1 anchor (2026-10-06 UTC):**
+`BF4WilsonAllNomeShiftedH1Anchor` proves the lag shift
+B(T^h Y,T^n T^h Y)=R_Y(n+2h), the exact shifted Fejer telescope, and
+`path_normalized_anchor_shifted`: OPEN shifted H1 `PathShiftedEpsBound` plus
+OPEN qualitative `PathShiftedNondegenerate` give the A03 normalized-anchor
+package. OPEN schedule Props `NomeScheduleAFCalibrated`,
+`NomeSchedulePhysicalBox`. Unshifted box-kernel H1/H2 are heuristically false
+(not proved false). Monitored checks, axioms {propext, Quot.sound}; see
+`audits/AUDIT-SHIFTED-H1-ANCHOR-2026-10-05.md`.
+
 **Checked completed log-convexity / survival compiler (2026-10-05 UTC):**
 `BF4WilsonAllNomeCompletedLogConvexity` proves completed Cauchy-Schwarz,
 R(m+n)^2<=R(2m)R(2n) and that one survival floor kappa*R(0)<=R(2u) yields the

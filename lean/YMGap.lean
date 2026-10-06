@@ -7276,6 +7276,9 @@ import YMGap.Continuum.BF4WilsonAllNomeGenericNormalizedAnchor
 -- H1 at a fixed scale: exact Fejer telescope (M+1)E_M <= B(x0,x0), H2 => H1,
 -- and the gap screen side_j*(1-r_j) <= c0; OPEN WilsonVacuumRayleighRate (r<1).
 import YMGap.Continuum.BF4WilsonAllNomeH1FixedScale
+-- Shifted H1 for T^(side/2) Y_j (lag shift R(n+2h)): exact shifted telescope;
+-- shifted H1 + nondegeneracy => A03 package; OPEN AF-calibrated schedule Props.
+import YMGap.Continuum.BF4WilsonAllNomeShiftedH1Anchor
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport

@@ -27,6 +27,18 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-04 UTC)
 
+NOW REPOINTED TO SHIFTED H1 AS THE SINGLE ANALYTIC INPUT (2026-10-06 UTC):
+Checked: shifted telescope (M+1)E(T^h Y_M)<=R_x(2h) and
+`path_normalized_anchor_shifted` (shifted H1 + qualitative nondegeneracy
+fl_j<=R_j(side_j) => A03 package for alpha_j T^(side_j) Y_j). Unshifted
+box-kernel H1 (`PathEpsBound`) and H2 (`PathFamilyRadiusSurvival`) are
+heuristically FALSE (free-field UV weight rho~E^4, numerics eps~0.95), not
+proved false; deprioritized. NEXT: prove `PathShiftedEpsBound` on an
+AF-calibrated schedule (`NomeScheduleAFCalibrated`, A=1/(8 b0 ln2)~3.88 with
+the repo's g^2=-4 log w), where it is heuristically plausible (eps~1.9/side)
+but OPEN; the screen side_j(1-r_j)<=c0 persists. Evidence:
+`audits/AUDIT-SHIFTED-H1-ANCHOR-2026-10-05.md`.
+
 NOW REPOINTED TO THE A03 DIRECT-RESPONSE ALTERNATIVE (2026-10-05 UTC):
 Checked compilers: completed log-convexity plus ONE survival floor
 kappa*R(0)<=R(2u), side=2u, gives the normalized macro hratio exactly; a

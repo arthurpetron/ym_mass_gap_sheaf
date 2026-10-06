@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## PROVED shifted telescope and shifted-H1 => A03 package; OPEN shifted H1, AF schedule (2026-10-06 UTC)
+
+`BF4WilsonAllNomeShiftedH1Anchor` restates H1 for the time-shifted anchor
+x_j = T^(side_j/2) Y_j (`PathShiftedEpsBound`). Since T^s is self-adjoint and
+PSD, B(T^h Y,T^n T^h Y) = R_Y(n+2h). Proved: the exact shifted Fejer telescope
+and `(M+1) E(T^h Y_M) <= R_x(2h)`; shifted H2 => shifted H1; and
+`path_normalized_anchor_shifted`: OPEN `PathShiftedEpsBound tr c0` plus OPEN
+qualitative `PathShiftedNondegenerate tr fl` (fl_j <= R_j(side_j), any positive
+j-dependent fl; needed because x_j = 0 satisfies shifted H1 vacuously) give the
+A03 normalized-anchor package via the existing `smoothedAnchorData`. The screen
+side_j*(1-r_j) <= c0 persists. NEW OPEN schedule Props `NomeScheduleAFCalibrated`
+(|A/(1-w_j) - j - kappa lg2 j| <= C, multiplied out) and
+`NomeSchedulePhysicalBox` (side_j*a(w_j) in [Llo,Lhi]); nothing consumes them.
+Repo convention g^2 = t = -4 log w (w = e^{-t/4}), so 1-w = g^2/4 + O(g^4) and
+two-loop SU(2) gives A = 1/(8 b0 ln2) ~ 3.883, kappa = 51/121 (paper).
+`dyadicNomeSchedule` has (1-w_j) side_j = 1/2 (proved) and is NOT AF-calibrated
+(paper). Unshifted box-kernel H1/H2 are heuristically FALSE (free-field
+spectral input + numerics), not proved false; shifted H1 is heuristically
+plausible under an AF-calibrated schedule and OPEN.
+Evidence: `audits/AUDIT-SHIFTED-H1-ANCHOR-2026-10-05.md`. No sorry or axiom.
+Root registration only.
+
 ## PROVED H1 fixed-scale structure, H2 => H1, gap screen; OPEN Wilson Rayleigh rate (2026-10-06 UTC)
 
 `BF4WilsonAllNomeH1FixedScale` proves on the SAME all-nome completed Wilson
