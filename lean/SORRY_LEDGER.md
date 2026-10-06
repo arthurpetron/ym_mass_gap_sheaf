@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## OPEN path hypotheses: dyadic smoothed trajectory, two-hypothesis A03 compiler (2026-10-06 UTC)
+
+`BF4WilsonAllNomeDyadicSmoothedTrajectory` defines the trajectory data
+side_j=2^j, M_j=m*side_j, width_j=side_j^2+1, an ABSTRACT `NomeSchedule`
+(positive, <1, nondecreasing, explicit modulus for w_j->1) and a family
+schedule. `path_macro_conclusion` proves: from the OPEN `PathEpsBound tr c0`
+(SmoothedCoherentEpsBound(M_j,side_j,c0) for all j) and the OPEN
+`PathFamilyRadiusSurvival tr theta` (FamilyRadiusSurvival(M_j,theta) for all
+j), with 0<=delta<1 and c0<=2^a*delta, every j>=a has the SAME macro ratio
+(1-delta)^(2^a) for Y_j (H1 only) and the floor
+kappa^i*theta*B(x_j,x_j)<=R_j(side_j*i). Further OPEN named Props, all only
+consumed: `NomeScheduleAFJustified`, the AF justification, which no theorem
+uses; `PathNonDegradingFloor` and the scalar link `PathVarianceMassFloor`;
+`PathUnitRatioBridge`, needed by the dyadic-unit line-132 consumer and
+carrying all of its content; `PathCubeContraction`, B04l's cube contraction
+for w_j>1/2, where `nomeSchedule_eventually_not_le_half` shows the existing
+producer stops. `macro_ratio_of_twoStep_block_general` frees the even
+compiler's delta. NOTHING proves any OPEN Prop. Evidence:
+`audits/AUDIT-DYADIC-SMOOTHED-TRAJECTORY-2026-10-05.md`. No sorry, axiom,
+frontier, chart or resource change. Root registration only.
+
 ## PROVED twisted CS / odd Jensen; OPEN family radius survival and non-degrading floor (2026-10-06 UTC)
 
 `BF4WilsonAllNomeOddResponseJensen.oneStep_cauchySchwarz` proves
