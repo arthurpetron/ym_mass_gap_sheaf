@@ -15,7 +15,7 @@ genuinely constructive.
 **Checked AF-calibrated padded trajectory (2026-10-06 UTC):**
 `BF4WilsonAllNomeAFPaddedTrajectory` proves `dyadicNomeSchedule` is NOT
 AF-calibrated (for any constants), builds a rational AF-calibrated schedule
-(1-w_j = 3.883/(j + (51/121) lg2 j + 4), `afNomeSchedule_AFCalibrated`), and the
+(1-w_j = 3.883/(j + (51/121) lg2 j + 4), `afNomeSchedule_AFCalibrated`; carrier convention g^2 = t = -4 log w; in the standard coupling normalization (Wilson-matched, g^2 = -8 log w) the calibrated constant is A ~ 1.94, under which 3.883 is NOT physically calibrated; no Lean conclusion depends on A), and the
 padded trajectory on it with nondegeneracy and the A03 package conditional
 only on OPEN `PathShiftedWindowSurvival`. Monitored check, axioms {propext,
 Quot.sound}; see `audits/AUDIT-AF-PADDED-TRAJECTORY-2026-10-06.md` and the paper

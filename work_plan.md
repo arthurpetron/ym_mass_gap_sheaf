@@ -29,7 +29,7 @@ formal statement would not solve the mathematical problem.
 
 AF-CALIBRATED PADDED TRAJECTORY (2026-10-06 UTC):
 Checked: dyadicNomeSchedule is NOT AF-calibrated; `afNomeSchedule` (rational,
-two-loop shape, kappa = 51/121, A = 3.883) is; the A03 package on
+two-loop shape, kappa = 51/121, A = 3.883; carrier convention g^2 = t = -4 log w; in the standard coupling normalization (Wilson-matched, g^2 = -8 log w) the calibrated constant is A ~ 1.94, under which 3.883 is NOT physically calibrated; no Lean conclusion depends on A) is; the A03 package on
 `afPaddedZeroMomentumTrajectory` needs only `PathShiftedWindowSurvival`.
 Paper note: window survival is a quantitative continuum-scaling statement
 (correlation length in lattice units >~ side, in growing physical volume),

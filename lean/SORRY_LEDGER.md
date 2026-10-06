@@ -17,7 +17,8 @@ ONLY on OPEN `PathShiftedWindowSurvival afPaddedZeroMomentumTrajectory theta`
 calibration (cosmetic for the conclusions; it matters only for the
 plausibility of window survival). `NomeSchedulePhysicalBox` not addressed: no
 concrete a(w) in the repo. Wilson-action matching caveat on A (~1.94 vs 3.88)
-stands. Paper note `audits/MATH-NOTE-WINDOW-SURVIVAL-ROUTES-2026-10-06.md`:
+stands: 3.883 is the carrier convention g^2 = -4 log w; standard normalization
+(g^2 = -8 log w) gives A ~ 1.942; no Lean conclusion depends on A. Paper note `audits/MATH-NOTE-WINDOW-SURVIVAL-ROUTES-2026-10-06.md`:
 window survival = a fixed fraction of the shifted spectral weight at
 1-lambda <~ C/side (lattice correlation length >~ side), FALSE at any fixed
 coupling (strong coupling check), out of reach of known methods. Evidence:

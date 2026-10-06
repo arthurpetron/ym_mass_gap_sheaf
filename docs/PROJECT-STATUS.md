@@ -1,12 +1,13 @@
 # Canonical one-page project status
 
-Verified supporting A03 on an AF-CALIBRATED schedule (2026-10-06 UTC):
+Verified supporting A03 on an AF-CALIBRATED (two-loop shape, carrier-convention) schedule (2026-10-06 UTC):
 the dyadic interface schedule is proved NOT AF-calibrated; a concrete rational
-schedule 1-w_j = 3.883/(j + (51/121) lg2 j + 4) is proved AF-calibrated, and on
+schedule 1-w_j = 3.883/(j + (51/121) lg2 j + 4) is proved AF-calibrated (carrier convention g^2 = t = -4 log w; in the standard coupling normalization (Wilson-matched, g^2 = -8 log w) the calibrated constant is A ~ 1.94, under which 3.883 is NOT physically calibrated; no Lean conclusion depends on A), and on
 its padded trajectory the A03 package needs only `PathShiftedWindowSurvival`
 (`af_path_normalized_anchor_of_windowSurvival`). The calibration is not used
 by any Lean conclusion; it only places the open input on the physically
-relevant schedule. Window survival stays OPEN: spectrally it is a lower bound
+relevant schedule (once A is corrected to ~1.94; see the caveat box in
+`audits/AUDIT-AF-PADDED-TRAJECTORY-2026-10-06.md`). Window survival stays OPEN: spectrally it is a lower bound
 on correlations at lag ~side (lattice correlation length >~ side), false at
 fixed coupling and beyond known rigorous methods (paper note
 `audits/MATH-NOTE-WINDOW-SURVIVAL-ROUTES-2026-10-06.md`). Evidence:
