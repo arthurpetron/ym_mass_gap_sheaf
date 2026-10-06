@@ -7258,6 +7258,9 @@ import YMGap.Continuum.BF4WilsonAllNomeWindowBudgetRateScreen
 -- Circularity guard: after the exact cap-deficit split, observed loss enters
 -- the endpoint energy identity linearly; Ward payments add no estimate.
 import YMGap.Continuum.BF4DyadicWilsonSquareObservedLossCircularity
+-- Even-lag Jensen and two-step/block macro compilers from log-convexity;
+-- odd-lag and twisted one-step CS are not supplied.
+import YMGap.Continuum.BF4WilsonAllNomeEvenResponseJensen
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport
