@@ -1,5 +1,30 @@
 # Sorry Ledger
 
+## PROVED expression-anchor layer, additive (2026-10-06 UTC)
+
+New leaves `BF4WilsonAllNomeExprAnchorTrajectory`,
+`BF4WilsonAllNomeExprShiftedAnchorPackage` and `BF4WilsonAllNomeExprAnchorRegression`.
+`Y_j` and all existing theorems are untouched.
+
+- `ExprAnchorTrajectory`: per scale, a nome schedule, a generic `width j`, a radius
+  `M_j` and an `IntrinsicExpression` ψ_j. The block is the dyadic `side j`.
+- OPEN Props: `ExprHVar` (0 < v_j ≤ B(x_j,x_j)), `ExprHRay`
+  (ρ_j B(x_j,x_j) ≤ B(x_j,T x_j)) and `ExprShiftedWindowSurvival`.
+- Proved:
+  - nondegeneracy with floor ρ_j^(2M_j+side_j)·v_j;
+  - window ⇒ shifted H1;
+  - the A03 `ExprShiftedAnchorPackage`, conditional on window + H-var + H-ray.
+- No-regression: `toExprTrajectory` embeds every plaquette trajectory definitionally
+  (state, response, Props, anchor, package iff, floor = `paddedNondegFloor`).
+  - H-var/H-ray are discharged by `familyExcitation_norm_floor` and
+    `family_rayleigh_floor` (padding).
+  - The padded package is reproved through the general layer.
+- Built on the box (Mac at pressure level 2): the 3 new modules only, with upstream
+  oleans validated by Lake's trace check.
+  - Exits 0; axioms {propext, Quot.sound}; no sorry.
+- NOT started: the NS smearing word (F1/F2), and H-var/H-ray for any smeared loop.
+- Audit: `audits/AUDIT-EXPR-ANCHOR-TRAJECTORY-2026-10-06.md`.
+
 ## PROVED window/gap NECESSARY compatibility condition (2026-10-06 UTC)
 
 `BF4WilsonAllNomeWindowGapCompatibility` (new leaf):

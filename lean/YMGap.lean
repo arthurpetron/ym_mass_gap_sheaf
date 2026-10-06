@@ -7291,6 +7291,13 @@ import YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory
 -- NECESSARY compatibility: window survival + orbit contraction r_j force
 -- theta <= r_j^(side_j/2), side_j(1-r_j) <= 2(1-theta)/theta; proves neither branch.
 import YMGap.Continuum.BF4WilsonAllNomeWindowGapCompatibility
+-- Expression anchors: anchor/path/window/A03 package for ANY slab IntrinsicExpression
+-- family (H-var, H-ray, window survival OPEN); floor rho_j^(2M_j+side_j) v_j.
+import YMGap.Continuum.BF4WilsonAllNomeExprAnchorTrajectory
+import YMGap.Continuum.BF4WilsonAllNomeExprShiftedAnchorPackage
+-- No-regression: padded Y_j (and AF) is an expression anchor definitionally;
+-- H-var/H-ray discharged by the plaquette floors.
+import YMGap.Continuum.BF4WilsonAllNomeExprAnchorRegression
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport
