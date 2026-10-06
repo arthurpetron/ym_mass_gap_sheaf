@@ -4,6 +4,12 @@ Status: this is a PLANNING NOTE ONLY. It makes no Lean edits and no Lean runs.
 Nothing here is proved. Implementation waits for darthur's approval of the
 switch (see section 7).
 
+> **Update 2026-10-06 05:30 PT.** The side-10 point above is stream A only. Stream B gives
+> W = 0.26(17) and eps*side = 1.898(87), versus 2.28(13) for A (about 2.4 sigma apart), and the two
+> streams' operator means differ by about 4 sigma. So the side-10 errors are underestimated, and the
+> large-lag W is sensitive to slow modes and vacuum subtraction. "No drift" at side 10 is not yet
+> established. See `computations/ym_smoothed_mc/runs/WINDOW_SURVIVAL_s10_streamB.md`.
+
 Motivation: the new Monte Carlo (`computations/ym_smoothed_mc/runs/WINDOW_SURVIVAL_partial.md`,
 commit 805d4f84) measures `W = R(side+1)/R(side/2)` for a spatially smoothed,
 zero-momentum `side×side` loop. At ρ = 1 it gives 0.203(27), 0.128(21), 0.223(40),
