@@ -7249,6 +7249,15 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepSourceDerivativeEnergy
 -- neither that analytic budget nor a justified changing family is supplied.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockRemainderPayment
 import YMGap.Continuum.BF4WilsonAllNomeWindowSignedCost
+-- Completed-response CS/log-convexity; a survival floor compiles the macro
+-- ratio. The floor itself on a justified family remains OPEN (A03).
+import YMGap.Continuum.BF4WilsonAllNomeCompletedLogConvexity
+-- Necessary screen: any window budget caps kappa by the SAME carrier's
+-- fixed-nome rate mixRate^u, which is volume-close to one (vacuous screen).
+import YMGap.Continuum.BF4WilsonAllNomeWindowBudgetRateScreen
+-- Circularity guard: after the exact cap-deficit split, observed loss enters
+-- the endpoint energy identity linearly; Ward payments add no estimate.
+import YMGap.Continuum.BF4DyadicWilsonSquareObservedLossCircularity
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport
