@@ -1,0 +1,11 @@
+P6 analysis start 2026-10-06 05:34:08 PDT
+1
+               total        used        free      shared  buff/cache   available
+Mem:              15          10           0           0           5           5
+Swap:              0           0           0
+3.11 2.06 1.05 4/1411 738358
+P6 analysis end-of-compute 2026-10-06 05:51:42 PDT
+               total        used        free      shared  buff/cache   available
+Mem:           16013       10757         772         113        4926        5255
+3.13 3.73 2.96 4/1412 768751
+mid-run readings (MemAvailable MB / load1): 5609/3.30 (estimators), 5161/- (APE start), 5260/4.13 (after APE Polyakov, 10.4 min single-core), 5185/- ; python RSS not measured (estimated <~1.5 GB for APE float32 on 32^3x48). Note: nproc printed 1 because OMP_NUM_THREADS=1 was exported; box has 8 cores. All P6 analysis single-threaded (1 core), stream C on 3 threads.
