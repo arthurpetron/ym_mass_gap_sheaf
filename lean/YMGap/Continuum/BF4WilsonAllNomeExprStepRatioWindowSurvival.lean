@@ -39,8 +39,10 @@ Compatibility with the gap side:
 
 HONEST SCOPE. This is a SUFFICIENT condition only. It moves the open input from a
 lag-`side_j` correlator lower bound (window survival) to a one-step, or lag-`k_j`, ratio
-bound `side_j(1-ρ_j) ≤ c < 1`. That ratio bound is still the nontriviality core and is
-NOT proved for any YM trajectory here.
+bound with `side_j(1-ρ_j)` BOUNDED. The restriction `c < 1` is an artifact of the single
+Bernoulli step used in this file. `BF4WilsonAllNomeExprStepRatioAnyC` handles any bounded `c`
+with `θ_C = (1/2)^(2C+2)`. The bounded-rate ratio bound is still the nontriviality core and
+is NOT proved for any YM trajectory here.
 
 Constructive, no external library; axioms `propext`, `Quot.sound` only.
 -/

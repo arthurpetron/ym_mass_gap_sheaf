@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## PROVED window survival from ANY bounded step-ratio rate (block Bernoulli), SUFFICIENT only (2026-10-06 PT)
+
+New leaf `BF4WilsonAllNomeExprStepRatioAnyC`.
+
+- `block_pow_floor`: if 1 ≤ C, c ≤ C, 2C ≤ s, 0 ≤ ρ ≤ 1 and s(1−ρ) ≤ c, then (1/2)^(2C+2) ≤ ρ^(s/2+1).
+- Window survival from scale j0 on, with θ_C = (1/2)^(2C+2):
+  - Prop `ExprShiftedWindowSurvivalFrom tr j0 θ`;
+  - `expr_windowSurvivalFrom_of_stepRatio_anyC` and `_of_hray_anyC` need 2C ≤ side_{j0};
+  - a small-θ_s variant gives the full Prop.
+- Small scales: the shifted H1 is trivial when side_j ≤ c0 (`oneStepEpsBound_le`). So the A03 package
+  needs survival only for j ≥ j0: `exprShiftedEpsBound_of_windowSurvivalFrom`,
+  `expr_normalized_anchor_of_windowSurvivalFrom`.
+- One-liner `expr_normalized_anchor_of_hvar_hray_anyC`:
+  - H-var + H-ray with side_j(1−ρ_j) ≤ c ≤ C (j ≥ j0) give the A03 package;
+  - c0 = 2^(2C+3), with j0 ≤ 2C+4 and 2^(2C+3) ≤ side_a·δ;
+  - so the anchor scale a grows linearly in C.
+- Gap side `expr_stepRatio_forces_rate_anyC`: side_j(1−r_j) ≤ 2^(2C+3) for j ≥ max(2, j0).
+- θ_C is crude, versus the true e^(−c/2) (exp/log not used).
+- SUFFICIENT only. The OPEN input is side_j(1−ρ_j) BOUNDED.
+- The 7d72af26 docstring was reworded (no '< 1' as the open input). Built on the box: 2 modules.
+  Axioms ⊆ {propext, Quot.sound}; no sorry.
+- Audit: `audits/AUDIT-STEP-RATIO-WINDOW-SURVIVAL-2026-10-06.md` §7–§11.
+
 ## PROVED window survival from a step-ratio bound, SUFFICIENT only (2026-10-06 PT)
 
 New leaf `BF4WilsonAllNomeExprStepRatioWindowSurvival`.
@@ -12,7 +35,8 @@ New leaf `BF4WilsonAllNomeExprStepRatioWindowSurvival`.
   `response_shifted_step_lower` (division-free). There was no prior ray ⇒ window theorem.
 - Gap-side compatibility: `expr_stepRatio_forces_rate_c0` (composition) and
   `expr_stepRatio_zero_contraction` (ρ²R(0) ≤ r²R(0)); the cancellation is not formalized.
-- SUFFICIENT only. The step-ratio rate is the OPEN nontriviality core.
+- SUFFICIENT only. The OPEN nontriviality core is a BOUNDED step-ratio rate side_j(1−ρ_j) (any constant).
+  `c < 1` is a single-Bernoulli artifact; see the any-c entry above.
 - Built on the box: 1 module. Axioms ⊆ {propext, Quot.sound}; no sorry.
 - Audit: `audits/AUDIT-STEP-RATIO-WINDOW-SURVIVAL-2026-10-06.md`.
 

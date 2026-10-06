@@ -78,7 +78,8 @@ transfer, because the window is stated through lags `side/2` and `side+1` of `R_
 
 - This is a SUFFICIENT condition only.
 - It moves the open input from a lag-`side_j` correlator lower bound (window survival) to a
-  one-step, or lag-`k_j`, ratio bound `side_j (1 − ρ_j) ≤ c < 1`.
+  one-step, or lag-`k_j`, ratio bound with `side_j (1 − ρ_j)` BOUNDED (any constant; see §7).
+  The `c < 1` of §2 is an artifact of a single Bernoulli step.
 - That ratio bound is still the nontriviality core. It is not proved for any YM trajectory,
   and `ExprHRay` with this rate is OPEN.
 
@@ -89,3 +90,78 @@ transfer, because the window is stated through lags `side/2` and `side+1` of `R_
 - One module was rebuilt; the imports were already up to date. Wall time ~10 s.
 - `#print axioms`: every theorem is within `{propext, Quot.sound}`. `theta_pos` and `boxKernel_nonneg` use `[propext]` only.
 - No warnings. `lean_forbidden_token_scan.py` reports `executable_forbidden_hits 0`.
+
+## 7. Any bounded rate: block Bernoulli (follow-up, same day)
+
+Module: `lean/YMGap/Continuum/BF4WilsonAllNomeExprStepRatioAnyC.lean` (new leaf). The `c < 1`
+theorems above are kept, and they are still true.
+
+- `thetaC C := (1/2)^(2C+2)`, with `thetaC_pos` and `thetaC_le_one`.
+- **`block_pow_floor ρ c C s`**: hypotheses `1 ≤ C`, `2C ≤ s`, `0 ≤ ρ ≤ 1`, `c ≤ ofNat C` and
+  `ofNat s · (1 − ρ) ≤ c`. Conclusion: `(1/2)^(2C+2) ≤ ρ^(s/2+1)`.
+  - Blocks: `q = ⌊s/(2C)⌋ ≥ 1`, with `s = 2Cq + r` and `r < 2C`.
+  - Per block: `2Cq(1−ρ) ≤ s(1−ρ) ≤ C`, so `q(1−ρ) ≤ 1/2`. Bernoulli then gives `ρ^q ≥ 1 − q(1−ρ) ≥ 1/2`.
+  - Count: `s/2 + 1 ≤ Cq + C ≤ (2C+2)q`, using `Cq ≥ C`. So `ρ^(s/2+1) ≥ ρ^((2C+2)q) = (ρ^q)^(2C+2) ≥ (1/2)^(2C+2)`.
+  - `C = 0` is excluded (`1 ≤ C`). For `0 ≤ c ≤ 1`, take `C = 1`, giving θ = 1/16.
+- `thetaC_c0`: `c0 = 2^(2C+3)` satisfies `2(1−θ_C) ≤ θ_C c0`, since `θ_C · 2^(2C+3) = 2`.
+- **`expr_windowSurvivalFrom_of_stepRatio_anyC tr ρ k c C j0`**:
+  - Hypotheses: `1 ≤ C`, `c ≤ C` and `2C ≤ side_{j0}`; for `j ≥ 1`, `0 ≤ ρ_j` and `k_j ≤ side_j/2`;
+    for `j ≥ j0`, `ρ_j ≤ 1` and `side_j(1−ρ_j) ≤ c`; and `ExprStepRatio tr ρ k`.
+  - Conclusion: `ExprShiftedWindowSurvivalFrom tr j0 θ_C`, i.e. `θ_C R_j(side_j/2) ≤ R_j(side_j+1)` for `j ≥ max(1, j0)`.
+- `expr_windowSurvivalFrom_of_hray_anyC`: the same from `ExprHRay` on `x_j`, with `k = 0`.
+
+## 8. Small scales (`j < j0`): choice and reason
+
+With only `0 ≤ ρ_j ≤ 1`, a scale with `side_j < 2C` can have `ρ_j` near 0, so
+`s(1−ρ) ≤ c` alone gives no uniform θ there. I did not weaken anything silently:
+
+- **(a), used for the package.** `ExprShiftedWindowSurvivalFrom tr j0 θ` (`∀ j ≥ j0, j ≥ 1`).
+  - The A03 package only reads scales `j ≥ a`. Its input `ExprShiftedEpsBound tr c0` is over ALL `j`.
+  - But at any scale with `side_j ≤ c0` that bound holds TRIVIALLY, for any vector:
+    `oneStepEpsBound_le` gives `side_j (R(0) − R(1)) ≤ side_j R(0) ≤ c0 R(0)`.
+  - So `exprShiftedEpsBound_of_windowSurvivalFrom` needs survival only for `j ≥ j0`, plus
+    `side_j ≤ c0` for `j < j0`. These small scales are proved, not assumed.
+  - `expr_normalized_anchor_of_windowSurvivalFrom` is the package from the From-version.
+  - `windowSurvivalFrom_zero_iff` shows the From-version is the original Prop at `j0 = 0`.
+- **(b), also provided.** `expr_windowSurvival_of_stepRatio_anyC_small`: an explicit small-scale
+  constant `θ_s` for `1 ≤ j < j0`, and any `θ ≤ θ_C`, `θ ≤ θ_s`, give the FULL `ExprShiftedWindowSurvival tr θ`.
+- (c) `side_j = 2^j`, so `2C ≤ side_{j0}` holds as soon as `j0 ≥ log₂(2C)`.
+
+## 9. Combined A03 one-liner and how the constants scale with C
+
+**`expr_normalized_anchor_of_hvar_hray_anyC tr c δ C j0 a`** has these hypotheses:
+- `1 ≤ a`, `1 ≤ C`, `c ≤ C`;
+- `2C ≤ side_{j0}` and `j0 ≤ 2C+4`;
+- `0 ≤ δ < 1` and `2^(2C+3) ≤ side_a · δ`;
+- `ExprHVar tr v` and `ExprHRay tr ρ`;
+- for `j ≥ j0`, `ρ_j ≤ 1` and `side_j(1−ρ_j) ≤ c`.
+
+Conclusion: `ExprShiftedAnchorPackage tr δ _ a (exprNondegFloor tr v ρ) _`.
+
+Constants: θ = θ_C = 2^−(2C+2) and c0 = 2^(2C+3). The small scales `j < j0 ≤ 2C+4` have
+`side_j ≤ 2^(2C+3) = c0`, so they are trivial.
+
+HONEST FLAG: `side_a ≥ 2^(2C+3)/δ`, which is exponential in C. So the anchor scale `a` grows
+linearly in C, roughly `a ≈ 2C + 3 + log₂(1/δ)`. For the measured `ε·side ≈ 2.4` (C = 3):
+θ = 1/256, c0 = 512, `side_a ≥ 512/δ`.
+
+## 10. Gap side with θ_C, and the sharpness remark
+
+- `expr_windowSurvivalFrom_forces_rate_c0`: the pointwise From-version of the gap-side result.
+- **`expr_stepRatio_forces_rate_anyC`**: the hypotheses of §7, plus `ExprShiftedNondegenerate` and
+  `ExprPathOrbitContraction r` with `0 ≤ r ≤ 1`, give `side_j (1 − r_j) ≤ 2^(2C+3)` for `j ≥ max(2, j0)`.
+  - This is `side_j(1−r_j) ≤ 2/θ_C`, which is at least `2(1−θ_C)/θ_C`.
+  - It is consistent with the numerics `ε·side ≈ 2.4`: there is no contradiction, and a bounded `side_j(1−r_j)` is allowed.
+- Sharpness: the true bound is `ρ^(s/2+1) ≥ (1−c/s)^(s/2+1) ≈ e^(−c/2)`, about 0.3 at `c ≈ 2.4`.
+  That would need constructive exp/log lower bounds, which are not used here. The block
+  constant `2^−(2C+2)` is far from sharp.
+  - Finer blocks (`q(1−ρ) ≤ 1/m`) would approach `e^(−c/2)` as `m → ∞`. This is not done.
+
+## 11. Build record (follow-up)
+
+- Both `ExprStepRatioWindowSurvival` (docstring wording only) and `ExprStepRatioAnyC` were rebuilt
+  on the box under the same caps, about 20 s wall.
+- The first anyC build compiled but had one unused-variable warning. I removed that parameter;
+  the final build has no warnings.
+- `#print axioms`: every declaration is within `{propext, Quot.sound}`.
+- `lean_forbidden_token_scan.py` reports `executable_forbidden_hits 0`.

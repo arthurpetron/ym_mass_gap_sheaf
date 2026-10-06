@@ -7309,6 +7309,9 @@ import YMGap.Continuum.BF4WilsonAllNomeResponseHankelPositivity
 -- SUFFICIENT: step ratio rho_j R(k_j) <= R(k_j+1), side_j(1-rho_j) <= c => window survival
 -- with theta = 1-c; the ratio bound itself stays OPEN (nontriviality core).
 import YMGap.Continuum.BF4WilsonAllNomeExprStepRatioWindowSurvival
+-- Any bounded rate: block Bernoulli theta_C=(1/2)^(2C+2); window from j0; A03 package with
+-- c0=2^(2C+3), side_a >= c0/delta (a grows with C). SUFFICIENT only; bounded rate OPEN.
+import YMGap.Continuum.BF4WilsonAllNomeExprStepRatioAnyC
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport
