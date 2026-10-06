@@ -152,3 +152,31 @@ Honest status:
 - At `mixRate`, X2 means `m·2^-j ≤ mixFraction_j`, which is not expected to hold. A sharper
   Wilson rate producer may be needed; the generic capstone accepts any family.
 - **X3 TODO (J02-level).** A Wilson `ObservablePin`, OS/GNS re-pointing, and AF calibration.
+
+## Instance on the AF-padded `Y_j` trajectory (`BF4WilsonAllNomeWilsonGapBranchAFPadded.lean`)
+
+This section records an instantiation; it is plumbing only.
+
+`wilsonGapBranch_afPadded` instantiates `wilsonGapBranch_mixRate` on the following data:
+- **Trajectory.** `afPaddedZeroMomentumAFExpr.toExprAnchorTrajectory`, which is
+  `afPaddedZeroMomentumExpr` by `rfl`.
+- **Rate family.** `exprMixRateFamily` of that same trajectory.
+- **H-var.** Discharged by `afPaddedZeroMomentumExpr_hvar`, i.e. `toExpr_hvar`, with
+  `v = paddedVar`.
+- **H-ray.** Discharged by `afPaddedZeroMomentumExpr_hray`, i.e. `toExpr_hray` with
+  `afPaddedZeroMomentum_padded`, with `ρ = paddedRho`.
+
+Open analytic hypotheses (exactly two):
+1. `ExprStepRatio`, with `side_j(1−ρ'_j) ≤ c` for `j ≥ j0` and ranges for `ρ'`;
+2. `WilsonLowerMargin (exprMixRateFamily _) m` (X2).
+
+Everything else is arithmetic: `ha hC hcC hj0 hj0' hdelta0 hdelta hcd hk`.
+
+Conclusions:
+- `ExprAFCalibrated _ afA afKappa afC` (two-loop shape only);
+- A03;
+- `WilsonPhysicalRateBand`;
+- `WilsonFamilyDecay`;
+- `m ≤ 2^(2C+3)`.
+
+All axioms are `{propext, Quot.sound}`.

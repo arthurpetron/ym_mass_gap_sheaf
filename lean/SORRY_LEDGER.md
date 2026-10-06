@@ -1,5 +1,20 @@
 # Sorry Ledger
 
+## PROVED instantiation: Wilson gap branch on the AF-padded Y_j trajectory (2026-10-06 PT)
+
+New leaf `BF4WilsonAllNomeWilsonGapBranchAFPadded`.
+
+- `wilsonGapBranch_afPadded` lives on `afPaddedZeroMomentumAFExpr`, with the
+  `exprMixRateFamily` of that same trajectory.
+- H-var and H-ray are discharged (`toExpr_hvar`, and `toExpr_hray` with padding), using
+  concrete floors `paddedVar` and `paddedRho`.
+- Exactly two open analytic hypotheses:
+  - `ExprStepRatio`, with bounded side(1−ρ') and ranges for ρ';
+  - `WilsonLowerMargin` (X2).
+- Conclusions: the AF calibration (shape), A03, the band, the decay, and m ≤ 2^(2C+3).
+- NO progress on either input. X3 is a TODO.
+- Axioms {propext, Quot.sound}.
+
 ## PROVED plumbing: X1, Wilson dynamic vacuum-sector family, decay, and B04-shaped band (2026-10-06 PT)
 
 New leaf `BF4WilsonAllNomeWilsonDynamicFamily`. No cube-side edits.

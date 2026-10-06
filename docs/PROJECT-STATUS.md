@@ -1,5 +1,31 @@
 # Canonical one-page project status
 
+Current open inputs on the Wilson carrier (frontier; PLUMBING, 2026-10-06 PT):
+on the all-nome literal-width Wilson carrier along the AF-padded Y_j trajectory
+(`afPaddedZeroMomentumAFExpr`), `wilsonGapBranch_afPadded`
+(`BF4WilsonAllNomeWilsonGapBranchAFPadded`) concludes A03, the Wilson B04-shaped band
+`WilsonPhysicalRateBand (exprMixRateFamily _)`, squared autocorrelation decay for every
+vacuum-complement vector, and the consistency bound `m <= 2^(2C+3)`. It assumes exactly two
+open Props, which are THE open inputs on this carrier:
+(1) the step ratio `ExprStepRatio`, with bounded side_j(1 - rho'_j) <= c for j >= j0
+(nontriviality);
+(2) X2, `WilsonLowerMargin (exprMixRateFamily _) m`, i.e. m*2^-j <= 1 - r_j (gap).
+H-var and H-ray are discharged by the plaquette floors under padding, the contraction is
+the existing all-vector Wilson strict contraction at mixRate(w_j, width_j), and the upper
+half of the band follows from (1). The remaining hypotheses are arithmetic parameters.
+Caveats:
+- Monte Carlo supports the step ratio for smoothed loops; for the exact Y_j it is
+  unresolved beyond side 2.
+- X2 is not expected at the mixRate Doeblin rate (1 - mixRate = kineticFloor/kineticCap)
+  and needs a new rate producer.
+- X3 (a Wilson ObservablePin and OS/GNS re-pointing) and J01-J04 are untouched.
+- The cube-side B04 path remains, but the cube<->Wilson bridge is not needed for this
+  route.
+- AF calibration is two-loop shape only (no concrete a(w); PhysicalBox open).
+No progress on (1) or (2); this is plumbing and instantiation. Evidence:
+`audits/SCOPE-WILSON-CARRIER-GAP-RETARGET-2026-10-06.md`.
+Exact chart unchanged, no ASCII reprint.
+
 Verified supporting A03 on a schedule that satisfies the Lean predicate NomeScheduleAFCalibrated (two-loop shape only; no concrete a(w), PhysicalBox open) (2026-10-06 UTC):
 the dyadic interface schedule is proved NOT to satisfy NomeScheduleAFCalibrated (any constants); a concrete rational
 schedule 1-w_j = 1.942/(j + (51/121) lg2 j + 4) satisfies the Lean predicate NomeScheduleAFCalibrated (two-loop shape only; no concrete a(w), PhysicalBox open) (A = 1942/1000 ~ 1/(16 b0 ln2) in the STANDARD coupling g^2 = -8 log w; the carrier heat-kernel time is t = -4 log w, which the repo only labels g^2; b0, b1 refer to the standard g^2; floor-log2 surrogate, C = 4 a choice; no Lean conclusion depends on A), and on

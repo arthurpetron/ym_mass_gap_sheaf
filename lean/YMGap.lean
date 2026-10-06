@@ -7327,6 +7327,9 @@ import YMGap.Continuum.BF4WilsonAllNomeExprMixRateContraction
 -- X1 PLUMBING: Wilson dynamic vacuum-sector family + decay + B04-shaped band (Prop);
 -- capstone open inputs: X2 lower margin + nontriviality bundle (H-var, H-ray, step ratio).
 import YMGap.Continuum.BF4WilsonAllNomeWilsonDynamicFamily
+-- INSTANTIATION: Wilson gap branch on the AF-padded Y_j trajectory; open inputs exactly
+-- ExprStepRatio (bounded side(1-rho')) + WilsonLowerMargin (X2).
+import YMGap.Continuum.BF4WilsonAllNomeWilsonGapBranchAFPadded
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport
