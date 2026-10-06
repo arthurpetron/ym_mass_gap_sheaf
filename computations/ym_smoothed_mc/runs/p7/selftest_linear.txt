@@ -1,0 +1,14 @@
+link-level n=1: terms/link=5 min weight=9.250e-2 (all >0) max|V - sum w*path| = 2.220e-16
+link-level n=2: terms/link=505 min weight=7.321e-5 (all >0) max|V - sum w*path| = 1.554e-15
+side 1 plane 0 t=0: loops()=8.138483795958536e-2 brute-force=8.138483795958537e-2 diff=1.39e-17
+side 1 plane 1 t=0: loops()=7.315923992695551e-2 brute-force=7.315923992695553e-2 diff=1.39e-17
+side 1 plane 2 t=0: loops()=6.526265272875348e-2 brute-force=6.526265272875348e-2 diff=0.00e0
+side 2 plane 0 t=0: loops()=-2.835260241610309e-4 brute-force=-2.835260241610295e-4 diff=1.36e-18
+side 2 plane 1 t=0: loops()=5.362115653220574e-4 brute-force=5.362115653221174e-4 diff=6.01e-17
+side 2 plane 2 t=0: loops()=-1.841735540480488e-3 brute-force=-1.841735540480575e-3 diff=8.76e-17
+loops() vs brute-force closed-loop expansion: max |diff| = 8.760e-17 over 75480000 explicit unsmoothed-loop terms; non-positive weights: 0
+SELFTEST PASS
+
+real	0m2.827s
+user	0m2.825s
+sys	0m0.000s

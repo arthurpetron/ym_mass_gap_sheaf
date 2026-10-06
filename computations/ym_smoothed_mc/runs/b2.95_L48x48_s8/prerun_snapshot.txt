@@ -1,0 +1,8 @@
+pre-run snapshot 2026-10-06 06:09:00 PDT
+nproc --all: 8
+               total        used        free      shared  buff/cache   available
+Mem:           16013        4582        6723         113        5150       11430
+Swap:              0           0           0
+overlay         126G   15G  105G  13% /
+loadavg: 2.29 5.03 4.72 1/1404 794640
+args: --Ls 48 --Lt 48 --beta 2.95 --therm 1000 --therm-ckpt 100 --meas 240 --interval 4 --overrelax 4 --sides 7,8,9 --tflow 0,2.66667,6,10.66667,16.66667,24 --eps 0.05 --eps2 0.1 --tswitch2 2 --eps3 0.15 --seed 2953 --ckpt 5 --save-every 3 --save-dir runs/b2.95_L48x48_s8/cfg --threads 4 --threads-file runs/b2.95_L48x48_s8/threads --out runs/b2.95_L48x48_s8/data 

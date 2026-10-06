@@ -152,6 +152,44 @@ fn loops(links: &[Su2], g: &Geo, sides: &[usize], nth: usize) -> (Vec<Vec<f64>>,
     for t in 0..lt { for si in 0..sides.len() { for p in 0..3 { r[si][p*lt+t] = per_t[t][si*3+p]; } } es += per_t[t][sides.len()*3]; }
     (r, es / lt as f64) }
 
+/// One step of LINEAR, UNPROJECTED spatial staple smearing (PLAN option A):
+/// V_mu(x) = (1-alpha) U_mu(x) + (alpha/4) * sum of the 4 spatial staples (same orientation as U_mu(x)).
+/// No exp, no renormalisation: links become general real quaternions (R_+ x SU(2) or 0). Time links copied.
+fn linear_smear_step(src: &[Su2], dst: &mut [Su2], g: &Geo, alpha: f64, nth: usize) {
+    let ch = (g.vol+nth-1)/nth;
+    std::thread::scope(|sc| { for (ci, out) in dst.chunks_mut(ch*4).enumerate() { sc.spawn(move || {
+        let s0 = ci*ch; let base = src.as_ptr();
+        for j in 0..out.len()/4 { let s = s0+j; out[j*4] = src[s*4];
+            for mu in 1..4 { let a = unsafe { staple(base, g, s, mu, &SPA) };
+                out[j*4+mu] = add(scale(src[s*4+mu], 1.0-alpha), scale(a, alpha/4.0)); } } }); } }); }
+
+/// Spatial Polyakov loops (product of Ls links along spatial direction d) on the given (smoothed) links.
+/// Returns [mean_lines P_x, P_y, P_z, mean_lines P_x^2, P_y^2, P_z^2] with P = (1/2)Tr = scalar part.
+fn spatial_poly(links: &[Su2], g: &Geo, nth: usize) -> [f64; 6] {
+    let strides = [g.vs, g.ls*g.ls, g.ls, 1]; let ls = g.ls;
+    let mut out = [0f64; 6];
+    for d in 1..4 {
+        let starts: Vec<usize> = (0..g.vol).filter(|&s| (s / strides[d]) % ls == 0).collect();
+        let ch = (starts.len()+nth-1)/nth;
+        let (s1, s2): (f64, f64) = std::thread::scope(|sc| { let hs: Vec<_> = starts.chunks(ch).map(|c| sc.spawn(move || {
+            let (mut a, mut b) = (0.0, 0.0);
+            for &s0 in c { let mut p = ID; let mut y = s0; for _ in 0..ls { p = mul(p, links[y*4+d]); y = g.f(y, d); } a += p[0]; b += p[0]*p[0]; }
+            (a, b) })).collect();
+            hs.into_iter().map(|h| h.join().unwrap()).fold((0.0, 0.0), |x, y| (x.0+y.0, x.1+y.1)) });
+        out[d-1] = s1 / starts.len() as f64; out[d+2] = s2 / starts.len() as f64; }
+    out }
+
+/// Save configuration as f32 (16-byte header: sweep, nmeas as u64 LE), atomic rename.
+fn save_cfg_f32(path: &str, links: &[Su2], sw: u64, nmeas: u64) {
+    let tmp = format!("{path}.tmp"); let mut f = std::io::BufWriter::new(std::fs::File::create(&tmp).unwrap());
+    f.write_all(&sw.to_le_bytes()).unwrap(); f.write_all(&nmeas.to_le_bytes()).unwrap();
+    let mut buf = Vec::with_capacity(links.len()*16); for l in links { for c in l { buf.extend_from_slice(&(*c as f32).to_le_bytes()); } }
+    f.write_all(&buf).unwrap(); let f = f.into_inner().unwrap(); f.sync_all().unwrap(); std::fs::rename(&tmp, path).unwrap(); }
+
+/// Threads override: if a threads file is given, re-read it (clamped to 1..=max) before every sweep / measurement step.
+fn read_threads(path: &Option<String>, cur: usize, max: usize) -> usize {
+    match path { None => cur, Some(p) => match std::fs::read_to_string(p) { Ok(s) => match s.trim().parse::<usize>() { Ok(n) if n >= 1 => n.min(max), _ => cur }, Err(_) => cur } } }
+
 fn save_ckpt(path: &str, links: &[Su2], sw: u64, nmeas: u64) {
     let tmp = format!("{path}.tmp"); let mut f = std::fs::File::create(&tmp).unwrap();
     f.write_all(&sw.to_le_bytes()).unwrap(); f.write_all(&nmeas.to_le_bytes()).unwrap();
@@ -164,57 +202,156 @@ fn load_ckpt(path: &str, n: usize) -> Option<(Vec<Su2>, u64, u64)> {
     let links = (0..n).map(|i| { let o = 16 + i*32; [0,1,2,3].map(|c| f64::from_le_bytes(b[o+8*c..o+8*c+8].try_into().unwrap())) }).collect();
     Some((links, sw, nm)) }
 
+
+// ---------------------------------------------------------------------------------------------
+// Self-test (P7 f-i): loops() on linearly smeared links == explicit positive combination of
+// unsmoothed closed Wilson loops, by brute-force enumeration of the multilinear expansion.
+type Path = Vec<(usize, usize, bool)>; // (site, dir, daggered)
+fn path_eval(links: &[Su2], p: &Path) -> Su2 { let mut r = ID; for &(s, d, dg) in p { let u = links[s*4+d]; r = mul(r, if dg { dag(u) } else { u }); } r }
+fn path_dag(p: &Path) -> Path { p.iter().rev().map(|&(s, d, dg)| (s, d, !dg)).collect() }
+/// One linear step of link (y,d) expanded into 5 weighted paths of the input links.
+fn expand1(g: &Geo, y: usize, d: usize, alpha: f64) -> Vec<(f64, Path)> {
+    let mut v = vec![(1.0-alpha, vec![(y, d, false)])];
+    for &nu in &SPA { if nu == d { continue; }
+        v.push((alpha/4.0, vec![(y, nu, false), (g.f(y, nu), d, false), (g.f(y, d), nu, true)]));
+        let ym = g.b(y, nu); v.push((alpha/4.0, vec![(ym, nu, true), (ym, d, false), (g.f(ym, d), nu, false)])); }
+    v }
+/// n linear steps of link (y,d) expanded recursively into weighted unsmoothed paths.
+fn expand_n(g: &Geo, y: usize, d: usize, alpha: f64, n: usize) -> Vec<(f64, Path)> {
+    if n == 0 { return vec![(1.0, vec![(y, d, false)])]; }
+    let mut out = Vec::new();
+    for (w, p) in expand1(g, y, d, alpha) {
+        // each factor of p is a level-(n-1) smeared link (possibly daggered): expand and take the cartesian product
+        let mut acc: Vec<(f64, Path)> = vec![(w, vec![])];
+        for &(s, dd, dg) in &p { let sub = expand_n(g, s, dd, alpha, n-1);
+            let sub: Vec<(f64, Path)> = if dg { sub.iter().map(|(w, q)| (*w, path_dag(q))).collect() } else { sub };
+            let mut nacc = Vec::with_capacity(acc.len()*sub.len());
+            for (wa, pa) in &acc { for (wb, pb) in &sub { let mut q = pa.clone(); q.extend_from_slice(pb); nacc.push((wa*wb, q)); } }
+            acc = nacc; }
+        out.extend(acc); }
+    out }
+fn selftest_linear() {
+    let (ls, lt) = (4usize, 4usize); let g = Geo::new(ls, lt); let mut r = Rng(0xC0FFEE);
+    let links: Vec<Su2> = (0..g.vol*4).map(|_| random_su2(&mut r)).collect(); // hot (random) config: strongest test
+    let alpha = 0.37;
+    let mut v1 = links.clone(); linear_smear_step(&links, &mut v1, &g, alpha, 2);
+    let mut v2 = v1.clone(); linear_smear_step(&v1, &mut v2, &g, alpha, 2);
+    // (A) link level, n = 1, 2, 3 steps: V_n(y,d) vs sum of weighted unsmoothed paths
+    // (n=3 would be 5+4*505^3 ~ 5e8 terms/link: infeasible; n=1,2 by full enumeration)
+    let mut maxres = [0f64; 2]; let mut nterms = [0usize; 2]; let mut minw = [f64::INFINITY; 2];
+    for (k, vn) in [&v1, &v2].iter().enumerate() {
+        let sites: Vec<usize> = (0..g.vol).collect();
+        for &y in &sites { for d in 1..4 {
+            let ex = expand_n(&g, y, d, alpha, k+1); nterms[k] = ex.len();
+            let mut sum = [0.0; 4]; for (w, p) in &ex { sum = add(sum, scale(path_eval(&links, p), *w)); minw[k] = minw[k].min(*w); }
+            let v = vn[y*4+d]; for c in 0..4 { maxres[k] = maxres[k].max((sum[c]-v[c]).abs()); } } }
+        // time links unchanged
+        for y in 0..g.vol { for c in 0..4 { maxres[k] = maxres[k].max((vn[y*4][c]-links[y*4][c]).abs()); } } }
+    for k in 0..2 { println!("link-level n={}: terms/link={} min weight={:.3e} (all >0) max|V - sum w*path| = {:.3e}", k+1, nterms[k], minw[k], maxres[k]); }
+    // (B) loops() on V1 vs brute-force enumeration of all products of expanded links (each term = (1/2)Tr of an unsmoothed closed loop)
+    let sides = [1usize, 2]; let (rl, _) = loops(&v1, &g, &sides, 2);
+    let mut maxd = 0f64; let mut nloopterms = 0usize; let mut neg = 0usize;
+    for (si, &k) in sides.iter().enumerate() {
+        let tmax = if k == 1 { lt } else { 1 };
+        let mut p = 0; for a in 0..3 { for b in (a+1)..3 { let (da, db) = (a+1, b+1);
+            for t in 0..tmax { let mut acc = 0.0;
+                for s3 in 0..g.vs { let s = t*g.vs + s3;
+                    // pa: k links along da from s, then k along db; pb: k along db from s, then k along da.  value = dot(prod pa, prod pb)
+                    let mut la: Vec<(usize, usize)> = vec![]; let mut y = s; for _ in 0..k { la.push((y, da)); y = g.f(y, da); } for _ in 0..k { la.push((y, db)); y = g.f(y, db); }
+                    let mut lb: Vec<(usize, usize)> = vec![]; let mut y = s; for _ in 0..k { lb.push((y, db)); y = g.f(y, db); } for _ in 0..k { lb.push((y, da)); y = g.f(y, da); }
+                    let ea: Vec<Vec<(f64, Su2)>> = la.iter().map(|&(y, d)| expand1(&g, y, d, alpha).into_iter().map(|(w, q)| (w, path_eval(&links, &q))).collect()).collect();
+                    let eb: Vec<Vec<(f64, Su2)>> = lb.iter().map(|&(y, d)| expand1(&g, y, d, alpha).into_iter().map(|(w, q)| (w, path_eval(&links, &q))).collect()).collect();
+                    let all: Vec<&Vec<(f64, Su2)>> = ea.iter().chain(eb.iter()).collect(); let nl = all.len(); let ntot = 5usize.pow(nl as u32);
+                    let mut val = 0.0;
+                    for code in 0..ntot { let mut c = code; let mut w = 1.0; let mut pa = ID; let mut pb = ID;
+                        for (i, e) in all.iter().enumerate() { let (wi, qi) = e[c % 5]; c /= 5; w *= wi; if i < nl/2 { pa = mul(pa, qi); } else { pb = mul(pb, qi); } }
+                        if w <= 0.0 { neg += 1; } val += w * dot(pa, pb); nloopterms += 1; }
+                    acc += val; }
+                let bf = acc / g.vs as f64; let code = rl[si][p*lt + t]; maxd = maxd.max((bf-code).abs());
+                if t == 0 { println!("side {k} plane {p} t=0: loops()={code:.15e} brute-force={bf:.15e} diff={:.2e}", (bf-code).abs()); } }
+            p += 1; } } }
+    println!("loops() vs brute-force closed-loop expansion: max |diff| = {maxd:.3e} over {nloopterms} explicit unsmoothed-loop terms; non-positive weights: {neg}");
+    let ok = maxd < 1e-12 && maxres.iter().all(|&x| x < 1e-12) && neg == 0;
+    println!("SELFTEST {}", if ok { "PASS" } else { "FAIL" });
+}
+
 fn main() {
     let mut ls = 8usize; let mut lt = 8usize; let mut beta: f64 = 2.5; let mut therm = 200usize; let mut meas = 100usize;
     let mut interval = 2usize; let mut nor = 4usize; let mut sides = vec![2usize]; let mut tflow: Vec<f64> = vec![0.0];
     let mut eps: f64 = 0.05; let mut seed = 1u64; let mut nth = 4usize; let mut out = String::from("out"); let mut ckpt = 25usize; let mut resume = false;
     let mut plaq_only = false; let mut eps2: f64 = 0.1; let mut tswitch: f64 = 0.5; let mut eps3: f64 = 0.1; let mut tswitch2: f64 = 1e9;
+    let mut lin_alpha: f64 = 0.5; let mut lin_steps: Vec<usize> = vec![]; let mut thfile: Option<String> = None;
+    let mut save_every = 0usize; let mut save_dir = String::new(); let mut therm_ckpt = 100usize;
     let a: Vec<String> = std::env::args().collect(); let mut i = 1;
     while i < a.len() { let k = a[i].as_str(); if k == "--resume" { resume = true; i += 1; continue; } if k == "--plaq-only" { plaq_only = true; i += 1; continue; }
+        if k == "--selftest-linear" { selftest_linear(); return; }
         let v = a[i+1].clone(); i += 2;
         match k { "--Ls" => ls = v.parse().unwrap(), "--Lt" => lt = v.parse().unwrap(), "--beta" => beta = v.parse().unwrap(),
             "--therm" => therm = v.parse().unwrap(), "--meas" => meas = v.parse().unwrap(), "--interval" => interval = v.parse().unwrap(),
             "--overrelax" => nor = v.parse().unwrap(), "--sides" => sides = v.split(',').map(|s| s.parse().unwrap()).collect(),
             "--tflow" => tflow = v.split(',').map(|s| s.parse().unwrap()).collect(), "--eps" => eps = v.parse().unwrap(),
             "--seed" => seed = v.parse().unwrap(), "--threads" => nth = v.parse().unwrap(), "--out" => out = v,
-            "--ckpt" => ckpt = v.parse().unwrap(), "--eps2" => eps2 = v.parse().unwrap(), "--tswitch" => tswitch = v.parse().unwrap(), "--eps3" => eps3 = v.parse().unwrap(), "--tswitch2" => tswitch2 = v.parse().unwrap(), o => panic!("unknown arg {o}") } }
+            "--ckpt" => ckpt = v.parse().unwrap(), "--eps2" => eps2 = v.parse().unwrap(), "--tswitch" => tswitch = v.parse().unwrap(), "--eps3" => eps3 = v.parse().unwrap(), "--tswitch2" => tswitch2 = v.parse().unwrap(),
+            "--linear-alpha" => lin_alpha = v.parse().unwrap(), "--linear-steps" => lin_steps = v.split(',').map(|s| s.parse().unwrap()).collect(),
+            "--threads-file" => thfile = Some(v), "--save-every" => save_every = v.parse().unwrap(), "--save-dir" => save_dir = v, "--therm-ckpt" => therm_ckpt = v.parse().unwrap(),
+            o => panic!("unknown arg {o}") } }
     assert!(ls % 2 == 0 && lt % 2 == 0);
-    tflow.sort_by(|x, y| x.partial_cmp(y).unwrap());
+    tflow.sort_by(|x, y| x.partial_cmp(y).unwrap()); lin_steps.sort();
+    let nmax = nth; // threads file may lower (or restore up to) the launch thread count
     let g = Geo::new(ls, lt);
     let mut classes = vec![Vec::new(); 8]; for s in 0..g.vol { let p = g.parity(s); for mu in 0..4 { classes[mu*2+p].push(s*4+mu); } }
     let ckpath = format!("{out}.ckpt"); let datpath = format!("{out}.bin");
-    let hdr = format!("{{\"Ls\":{ls},\"Lt\":{lt},\"beta\":{beta},\"sides\":{:?},\"tflow\":{:?},\"eps\":{eps},\"eps2\":{eps2},\"tswitch\":{tswitch},\"eps3\":{eps3},\"tswitch2\":{tswitch2},\"interval\":{interval},\"overrelax\":{nor},\"seed\":{seed},\"therm\":{therm}}}\n", sides, tflow);
+    let nlev = tflow.len() + lin_steps.len();
+    let hdr = format!("{{\"Ls\":{ls},\"Lt\":{lt},\"beta\":{beta},\"sides\":{:?},\"tflow\":{:?},\"eps\":{eps},\"eps2\":{eps2},\"tswitch\":{tswitch},\"eps3\":{eps3},\"tswitch2\":{tswitch2},\"interval\":{interval},\"overrelax\":{nor},\"seed\":{seed},\"therm\":{therm},\"linear_alpha\":{lin_alpha},\"linear_steps\":{:?},\"poly\":6,\"save_every\":{save_every}}}\n", sides, tflow, lin_steps);
     let t0 = Instant::now();
     let (mut links, mut sw, mut done) = if resume { match load_ckpt(&ckpath, g.vol*4) { Some(x) => { eprintln!("resumed sw={} nmeas={}", x.1, x.2); x } None => panic!("no ckpt") } }
         else { let mut r = Rng(splitmix(seed ^ 0x5151)); ((0..g.vol*4).map(|_| random_su2(&mut r)).collect(), 0u64, 0u64) };
-    if !resume {
-        for k in 0..therm { sweep(&mut links, &g, &classes, beta, nor, sw, seed, nth); sw += 1;
-            if k % 50 == 0 { eprintln!("therm {k} {:.1}s plaq={:.6}", t0.elapsed().as_secs_f64(), plaq4(&links, &g, nth)); } }
+    let therm_from = if !resume { Some(0usize) } else if done == 0 && (sw as usize) < therm { Some(sw as usize) } else { None };
+    if let Some(k0) = therm_from {
+        for k in k0..therm {
+            let n2 = read_threads(&thfile, nth, nmax); if n2 != nth { eprintln!("threads {nth} -> {n2} at therm sweep {k}"); nth = n2; }
+            sweep(&mut links, &g, &classes, beta, nor, sw, seed, nth); sw += 1;
+            if k % 50 == 0 { eprintln!("therm {k} {:.1}s plaq={:.6} th={nth}", t0.elapsed().as_secs_f64(), plaq4(&links, &g, nth)); }
+            if therm_ckpt > 0 && (k+1) % therm_ckpt == 0 && k+1 < therm { save_ckpt(&ckpath, &links, sw, 0); } }
         eprintln!("therm done {:.1}s plaq={:.6}", t0.elapsed().as_secs_f64(), plaq4(&links, &g, nth));
         let mut f = std::fs::File::create(&datpath).unwrap(); f.write_all(hdr.as_bytes()).unwrap();
-        save_ckpt(&ckpath, &links, sw, 0);
+        save_ckpt(&ckpath, &links, sw, 0); done = 0;
     }
-    let reclen = if plaq_only { 1 } else { 1 + tflow.len()*(1 + sides.len()*3*lt) };
+    let reclen = if plaq_only { 1 } else { 1 + nlev*(1 + sides.len()*3*lt) + nlev*6 };
     let mut f = std::fs::OpenOptions::new().read(true).write(true).open(&datpath).unwrap();
-    // truncate to header + done records (drop records after last checkpoint)
     let hlen = { let mut b = Vec::new(); f.read_to_end(&mut b).unwrap(); b.iter().position(|&c| c == b'\n').unwrap() + 1 };
     f.set_len((hlen + done as usize * reclen * 8) as u64).unwrap(); f.seek(SeekFrom::End(0)).unwrap();
+    if save_every > 0 { std::fs::create_dir_all(&save_dir).unwrap(); }
     let mut fa = links.clone(); let mut fb = links.clone();
-    let tm = Instant::now(); let mut since = 0usize;
+    let tm = Instant::now(); let mut since = 0usize; let done0 = done;
+    let smain = sides[sides.len()/2]; let simain = sides.len()/2;
     while (done as usize) < meas {
-        for _ in 0..interval { sweep(&mut links, &g, &classes, beta, nor, sw, seed, nth); sw += 1; }
+        for _ in 0..interval { let n2 = read_threads(&thfile, nth, nmax); if n2 != nth { eprintln!("threads {nth} -> {n2} at meas {done}"); nth = n2; }
+            sweep(&mut links, &g, &classes, beta, nor, sw, seed, nth); sw += 1; }
         let mut rec = vec![plaq4(&links, &g, nth)];
+        let mut obar: Vec<f64> = vec![]; let mut polys: Vec<[f64; 6]> = vec![];
         if !plaq_only {
             fa.copy_from_slice(&links); let mut tcur = 0.0;
             for &tf in &tflow {
                 while tcur < tf - 1e-9 { let h = (if tcur < tswitch - 1e-9 { eps.min(tswitch - tcur) } else if tcur < tswitch2 - 1e-9 { eps2.min(tswitch2 - tcur) } else { eps3 }).min(tf - tcur); flow_step(&fa, &mut fb, &g, h, nth); std::mem::swap(&mut fa, &mut fb); tcur += h; }
-                let (r, es) = loops(&fa, &g, &sides, nth); rec.push(es); for v in r { rec.extend(v); }
+                let (r, es) = loops(&fa, &g, &sides, nth); obar.push(r[simain].iter().sum::<f64>() / (3*lt) as f64); rec.push(es); for v in r { rec.extend(v); }
+                polys.push(spatial_poly(&fa, &g, nth));
             }
+            fa.copy_from_slice(&links); let mut ncur = 0usize;
+            for &nl in &lin_steps {
+                while ncur < nl { linear_smear_step(&fa, &mut fb, &g, lin_alpha, nth); std::mem::swap(&mut fa, &mut fb); ncur += 1; }
+                let (r, es) = loops(&fa, &g, &sides, nth); obar.push(r[simain].iter().sum::<f64>() / (3*lt) as f64); rec.push(es); for v in r { rec.extend(v); }
+                polys.push(spatial_poly(&fa, &g, nth));
+            }
+            for p in &polys { rec.extend_from_slice(p); }
         }
         let bytes: Vec<u8> = rec.iter().flat_map(|x| x.to_le_bytes()).collect(); f.write_all(&bytes).unwrap();
         done += 1; since += 1;
+        if save_every > 0 && done as usize % save_every == 0 { save_cfg_f32(&format!("{save_dir}/cfg_{done:05}.f32"), &links, sw, done); }
         if since >= ckpt || done as usize == meas { f.sync_all().unwrap(); save_ckpt(&ckpath, &links, sw, done); since = 0; }
-        if done % 10 == 0 || done < 3 { eprintln!("meas {done}/{meas} {:.1}s ({:.2}s/meas) plaq={:.6} Es_last={:.5}", t0.elapsed().as_secs_f64(), tm.elapsed().as_secs_f64()/ (done as f64).max(1.0), rec[0], if rec.len()>1 { rec[rec.len()-1-sides.len()*3*lt] } else { 0.0 }); }
+        let pl = polys.last().map(|p| format!("[{:+.4},{:+.4},{:+.4}]", p[0], p[1], p[2])).unwrap_or_default();
+        eprintln!("meas {done}/{meas} {:.1}s ({:.2}s/meas) plaq={:.6} th={nth} O_s{smain}={} P_last={pl}", t0.elapsed().as_secs_f64(), tm.elapsed().as_secs_f64()/((done-done0) as f64).max(1.0), rec[0],
+            obar.iter().map(|x| format!("{x:.5}")).collect::<Vec<_>>().join(","));
     }
     eprintln!("done {:.1}s", t0.elapsed().as_secs_f64());
 }

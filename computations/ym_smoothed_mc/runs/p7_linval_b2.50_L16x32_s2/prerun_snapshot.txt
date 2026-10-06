@@ -1,0 +1,8 @@
+pre-run snapshot 2026-10-06 06:11:06 PDT
+nproc: 8
+               total        used        free      shared  buff/cache   available
+Mem:              15           5           5           0           5          10
+Swap:              0           0           0
+loadavg: 3.93 4.73 4.64 2/1415 798463
+ 06:11:06 up 11:37,  0 users,  load average: 3.93, 4.73, 4.64
+args: --threads 2 --out runs/p7_linval_b2.50_L16x32_s2/data --Ls 16 --Lt 32 --beta 2.5 --therm 200 --meas 800 --interval 2 --sides 1,2,3 --tflow 0,0.375,0.66667 --linear-alpha 0.5 --linear-steps 3,4,5,6,8 --seed 2501 --ckpt 50

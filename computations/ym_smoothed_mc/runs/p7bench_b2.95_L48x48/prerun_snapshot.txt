@@ -1,0 +1,8 @@
+pre-run snapshot 2026-10-06 06:02:56 PDT
+nproc: 1
+               total        used        free      shared  buff/cache   available
+Mem:              15           4           9           0           1          10
+Swap:              0           0           0
+loadavg: 9.60 9.06 5.37 1/1411 788872
+ 06:02:56 up 11:29,  0 users,  load average: 9.60, 9.06, 5.37
+args: --threads 4 --out runs/p7bench_b2.95_L48x48/data --Ls 48 --Lt 48 --beta 2.95 --therm 3 --meas 3 --interval 4 --sides 7,8,9 --tflow 0,2.66667,6,10.66667,16.66667,24 --eps 0.05 --eps2 0.1 --tswitch2 2 --eps3 0.15 --seed 2952
