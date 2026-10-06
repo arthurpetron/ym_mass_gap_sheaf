@@ -1,5 +1,18 @@
 # Sorry Ledger
 
+## PROVED reformulation: convexity sandwich, early window ⇔ late step ratio (2026-10-06 PT)
+
+New leaf `BF4WilsonAllNomeExprConvexitySandwich`. REFORMULATION ONLY; no progress on the input.
+
+- `diff_sandwich`: (k−m+1)(R(k)−R(k+1)) ≤ R(m)−R(k+1) ≤ R(m). D is nonincreasing because ∇²R ≥ 0.
+- `side_le_four_window`: s ≤ 4(s/2−s/4+1).
+- `stepRatio_of_earlyWindow`: θR(s/4) ≤ R(s/2) ⇒ ExprStepRatio at s/2 with side(1−ρ) = c,
+  for any c ≥ 4/θ.
+- `expr_earlyWindow_of_stepRatio_anyC`: converse from a lag ≤ s/4, with θ_C = 2^−(2C+2).
+- Package `expr_normalized_anchor_of_hvar_hray_earlyWindow_anyC`. Constants are lost
+  (θ ≠ θ_C). No clamp.
+- The bounded rate stays OPEN. Axioms {propext, Quot.sound}. Audit §14.
+
 ## PROVED reformulation: even-lag step ratio ⇔ propagated lag-0 energy (2026-10-06 PT)
 
 New leaf `BF4WilsonAllNomeExprPropagatedEnergy`. REFORMULATION ONLY; no progress on the input.

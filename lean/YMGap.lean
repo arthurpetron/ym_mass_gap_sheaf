@@ -7315,6 +7315,9 @@ import YMGap.Continuum.BF4WilsonAllNomeExprStepRatioAnyC
 -- REFORMULATION ONLY: even-lag step ratio on Y_j == lag-0 energy bound on T^(m_j) Y_j;
 -- package corollary. No progress on the open bounded-rate input.
 import YMGap.Continuum.BF4WilsonAllNomeExprPropagatedEnergy
+-- REFORMULATION ONLY: convexity sandwich, early window <=> late step ratio (factor-2 lag
+-- shift, constants lost); package corollary. No progress on the open bounded-rate input.
+import YMGap.Continuum.BF4WilsonAllNomeExprConvexitySandwich
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport

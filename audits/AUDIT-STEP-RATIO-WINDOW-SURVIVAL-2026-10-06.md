@@ -221,3 +221,53 @@ Index and sign details:
 
 Build: 1 module, ~10 s wall, on the box under the usual caps. All 12 declarations are
 `[propext, Quot.sound]`. No warnings. `executable_forbidden_hits 0`.
+
+## 14. Convexity sandwich: early window ⇔ late step ratio (REFORMULATION ONLY)
+
+Module: `lean/YMGap/Continuum/BF4WilsonAllNomeExprConvexitySandwich.lean` (new leaf).
+
+This is a reformulation only. It makes NO progress on the open input, which is a bounded
+intermediate-lag step-ratio rate, or equivalently a window bound. It shows the window and
+step-ratio forms are equivalent up to a factor-2 lag shift AND A LOSS OF CONSTANTS.
+The equivalence is not exact.
+
+Generic carrier results, with `R(n) = B(x, T^n x)` and `D(n) = R(n) − R(n+1)`:
+- `response_diff_antitone`: `D(n+1) ≤ D(n)`. It comes from `∇²R(n) = mixedMoment x n 2 ≥ 0`,
+  via `mixedMoment_eq_hausdorffDiff` and `mixedMoment_nonnegative_via_hankel`.
+- `diff_sandwich` (`m ≤ k`): `(k−m+1) D(k) ≤ R(m) − R(k+1)`, by telescoping.
+- `diff_sandwich_le`: `… ≤ R(m)`, since `R ≥ 0`.
+- `side_le_four_window`: `s ≤ 4(s/2 − s/4 + 1)` for every Nat `s` (omega).
+  So `s/((s/2 − s/4 + 1)θ) ≤ 4/θ`, with no Nat-division adjustment.
+- `lagEnergy_of_window`: `θ R(s/4) ≤ R(s/2)`, `0 ≤ c` and `4 ≤ cθ` give
+  `s (R(s/2) − R(s/2+1)) ≤ c R(s/2)`. No sign condition on `θ` is needed.
+  `four_div_spec` shows `c = 4/θ` is admissible when `θ > 0`.
+- `lagRatio_of_lagEnergy`: the energy form gives the ratio `1 − c/L` (pure algebra).
+
+Expr layer results:
+- `ExprEarlyWindow tr θ j0`: `θ R_j(side_j/4) ≤ R_j(side_j/2)` for `j ≥ j0`, `j ≥ 1`.
+- `stepRatio_of_earlyWindow` gives `ExprStepRatio tr (propagatedRate c j0) (side/2)`.
+  The rate is `1 − c/side_j` for `j ≥ j0`, so `side_j(1−ρ_j) = c`, and `0` below `j0`.
+- Converse: `expr_earlyWindow_of_stepRatio_anyC`. A step ratio at `k_j ≤ side_j/4` with
+  `side_j(1−ρ_j) ≤ c ≤ C` gives `ExprEarlyWindow tr θ_C j0`, with `θ_C = (1/2)^(2C+2)`,
+  by block Bernoulli.
+- Package: `expr_normalized_anchor_of_hvar_hray_earlyWindow_anyC`. It applies
+  `expr_normalized_anchor_of_hvar_hray_stepRatio_anyC` at `k_j = side_j/2`.
+
+Clamping: NOT used, and no extra hypothesis is added.
+- The rate is `1 − c/side_j`, not the sharp `1 − 1/((s/2−s/4+1)θ)`, which can be negative.
+- `ρ_j ≥ 0` follows from the package's existing `c ≤ C ≤ side_j` for `j ≥ j0`.
+- Below `j0` the rate is `0`, which is trivial since `R ≥ 0`.
+
+Requirements:
+- Lag `side_j/2` meets the package's `k_j ≤ side_j/2` with equality.
+- The window hypothesis is used for `j ≥ j0`, `j ≥ 1`, matching the package.
+
+Constants (honest):
+- The input window `θ` and the package's output `θ_C = (1/2)^(2C+2)` are DIFFERENT numbers.
+- The survival constant is `c ≥ 4/θ`, and it must satisfy `c ≤ C`. So `C ≳ 4/θ`, and then
+  `θ_C ≪ θ`.
+- The chain is: step ratio at lag ≤ s/4 ⇒ window [s/4,s/2] ⇒ step ratio at s/2 ⇒
+  window [s/2,s+1]. Each arrow loses constants.
+
+Build: 1 module, ~10 s wall, on the box under the usual caps. All 11 declarations are
+`[propext, Quot.sound]`. No warnings. `executable_forbidden_hits 0`.
