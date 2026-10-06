@@ -183,3 +183,41 @@ linearly in C, roughly `a ≈ 2C + 3 + log₂(1/δ)`. For the measured `ε·side
   - The constants are the same as in §9.
 - The two earlier theorems got docstring caveats only; their statements are unchanged.
 - Build: rebuilt the anyC module only, ~10 s wall. Axioms are within `{propext, Quot.sound}`; no warnings.
+
+## 13. Even-lag step ratio = propagated lag-0 energy (REFORMULATION ONLY)
+
+Module: `lean/YMGap/Continuum/BF4WilsonAllNomeExprPropagatedEnergy.lean` (new leaf).
+
+This is a reformulation only. It makes NO progress on the open input, which is a bounded
+intermediate-lag step-ratio rate. It restates that input equivalently.
+
+Generic carrier results:
+- `propagated_response x m n : B(T^m x, T^n T^m x) = B(x, T^(2m+n) x)`. This comes from
+  self-adjointness via the existing `shift_response_pin`.
+- `propagated_norm`: `B(φ,φ) = R(2m)`.
+- `stepRatio_of_energy x L (0 < L) c`: `OneStepEpsBound x L c` gives
+  `(1 − c·L⁻¹) B(x,x) ≤ B(x,Tx)`. `OneStepEpsBound` is the multiplied-out
+  `L(B(x,x) − B(x,Tx)) ≤ c B(x,x)`. `energy_rate_side` gives `L(1 − ρ') ≤ c`, and in fact `= c`.
+- `energy_of_stepRatio`: `ρ B(x,x) ≤ B(x,Tx)` with `L(1−ρ) ≤ c` gives `OneStepEpsBound x L c`.
+  So the two forms are equivalent.
+
+Expr layer results:
+- `ExprPropagatedEnergy tr m c j0`: for `j ≥ j0`, `j ≥ 1`,
+  `OneStepEpsBound (T^(m_j) Y_j) side_j c`, on the smoothed state.
+- `stepRatio_of_propagatedEnergy`: it gives
+  `ExprStepRatio tr (propagatedRate c j0) (fun j => 2 m_j)`.
+  - The rate is `1 − c/side_j` for `j ≥ j0`.
+  - It is `0` for `j < j0`, which is trivial since `R ≥ 0`.
+- `propagatedEnergy_of_stepRatio`: the converse, given `side_j(1−ρ'_j) ≤ c`.
+- `expr_normalized_anchor_of_hvar_hray_propagatedEnergy_anyC`: the A03 package from
+  H-var + H-ray (nondegeneracy only), plus `ExprPropagatedEnergy tr m c j0`.
+  - It requires `m_j ≤ side_j/4` and `0 ≤ c ≤ C`.
+  - The constants and side conditions are those of §9/§12.
+
+Index and sign details:
+- `m_j ≤ side_j/4` gives `2m_j ≤ side_j/2` with Nat division, so no adjustment is needed.
+- `0 ≤ c` is needed for `ρ' ≤ 1`.
+- `ρ' ≥ 0` uses `c ≤ C ≤ side_j`, which holds for `j ≥ j0`.
+
+Build: 1 module, ~10 s wall, on the box under the usual caps. All 12 declarations are
+`[propext, Quot.sound]`. No warnings. `executable_forbidden_hits 0`.

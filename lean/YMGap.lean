@@ -7312,6 +7312,9 @@ import YMGap.Continuum.BF4WilsonAllNomeExprStepRatioWindowSurvival
 -- Any bounded rate: block Bernoulli theta_C=(1/2)^(2C+2); window from j0; A03 package with
 -- c0=2^(2C+3), side_a >= c0/delta (a grows with C). SUFFICIENT only; bounded rate OPEN.
 import YMGap.Continuum.BF4WilsonAllNomeExprStepRatioAnyC
+-- REFORMULATION ONLY: even-lag step ratio on Y_j == lag-0 energy bound on T^(m_j) Y_j;
+-- package corollary. No progress on the open bounded-rate input.
+import YMGap.Continuum.BF4WilsonAllNomeExprPropagatedEnergy
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport

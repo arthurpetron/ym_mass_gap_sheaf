@@ -1,5 +1,17 @@
 # Sorry Ledger
 
+## PROVED reformulation: even-lag step ratio ⇔ propagated lag-0 energy (2026-10-06 PT)
+
+New leaf `BF4WilsonAllNomeExprPropagatedEnergy`. REFORMULATION ONLY; no progress on the input.
+
+- `propagated_response`: B(T^m ψ, T^n T^m ψ) = R_ψ(2m+n).
+- `stepRatio_of_energy` / `energy_of_stepRatio`:
+  side(B(φ,φ) − B(φ,Tφ)) ≤ c·B(φ,φ) ⇔ a ratio ρ' with side(1−ρ') ≤ c (ρ' = 1 − c/side).
+- `ExprPropagatedEnergy tr m c j0` ⇔ `ExprStepRatio` at k_j = 2m_j
+  (`stepRatio_of_propagatedEnergy`, `propagatedEnergy_of_stepRatio`).
+- Package `expr_normalized_anchor_of_hvar_hray_propagatedEnergy_anyC` needs m_j ≤ side_j/4 and 0 ≤ c ≤ C.
+- The bounded rate stays OPEN. Axioms {propext, Quot.sound}. Audit §13.
+
 ## PROVED A03 package with nondegeneracy and survival roles separated (2026-10-06 PT)
 
 In `BF4WilsonAllNomeExprStepRatioAnyC`: `expr_normalized_anchor_of_hvar_hray_stepRatio_anyC`.
