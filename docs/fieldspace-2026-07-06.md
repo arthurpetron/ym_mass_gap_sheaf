@@ -43,7 +43,9 @@ Lean carrier the weight is per Casimir unit, `w = e^{−t/4}` (`RGTransport.lean
 >   matching of the heat kernel `~exp(−θ²/t)` with `exp(β cos θ) ≈ exp(−βθ²/2)`.
 > - **The two-loop `b0`, `b1` refer to the STANDARD `g²`.** So the AF constant for
 >   the carrier is `A = 1/(16 b0 ln 2) ≈ 1.942`, not 3.883 (see
->   `audits/AUDIT-AF-PADDED-TRAJECTORY-2026-10-06.md`).
+>   `audits/AUDIT-AF-PADDED-TRAJECTORY-2026-10-06.md`). The full convention table and the
+>   list of Lean docstrings still in the older normalization are in
+>   `docs/CONVENTIONS-COUPLING.md`.
 > - Below, `g²` means the label `t` unless stated otherwise. Every statement
 >   "`g² ∼ (1 − w)`" here is order-of-magnitude and unaffected by these O(1)
 >   factors.

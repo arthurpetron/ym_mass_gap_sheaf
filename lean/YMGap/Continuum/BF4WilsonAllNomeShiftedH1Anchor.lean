@@ -650,11 +650,13 @@ theorem path_shiftedEps_forces_rate (tr : DyadicSmoothedTrajectory) (c0 : Q') (r
 def lg2 (j : Nat) : Q' := Q'.ofNat (Nat.log2 (j+1))
 
 /-- **AF calibration of the nome schedule (OPEN, NOT proved, NOT consumed).**
-Two-loop AF with the repo's coupling convention `g² = t = -4 log w` predicts
-that `side_j` lattice steps have bounded physical length iff
+Two-loop AF predicts that `side_j` lattice steps have bounded physical length iff
 `|A/(1-w_j) - j - κ·log₂ j| ≤ C` for all `j`, with the PINNED constants
-`A = 1/(8 b0 ln 2)` and `κ = b1/(2 b0²)` (SU(2): `A ≈ 3.883`, `κ = 51/121`); see
-the audit. Here it is stated multiplied out, for arbitrary `A, κ, C`. -/
+`A = 1/(16 b0 ln 2)` and `κ = b1/(2 b0²)` (SU(2): `A ≈ 1.942`, `κ = 51/121`), where
+`b0, b1` refer to the STANDARD coupling `g² = 2t = -8 log w`; the carrier
+heat-kernel time is `t = -4 log w` (repo label `g² = t`, under which one would get
+3.883). See `docs/CONVENTIONS-COUPLING.md` and the audit. Here it is stated
+multiplied out, for arbitrary `A, κ, C`. -/
 def NomeScheduleAFCalibrated (ns : NomeSchedule) (A kappa C : Q') : Prop :=
   (0 : Q') < A ∧ ∀ j : Nat,
     (Q'.ofNat j + kappa * lg2 j + -C) * ((1 : Q') - ns.nome j) ≤ A ∧

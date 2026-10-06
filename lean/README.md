@@ -12,6 +12,10 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Coupling conventions (reconciled 2026-10-06):** carrier heat-kernel time
+t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
+refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
+
 **Checked AF-calibrated padded trajectory (2026-10-06 UTC):**
 `BF4WilsonAllNomeAFPaddedTrajectory` proves `dyadicNomeSchedule` is NOT
 AF-calibrated (for any constants), builds a rational AF-calibrated schedule

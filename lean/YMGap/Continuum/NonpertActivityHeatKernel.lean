@@ -25,6 +25,13 @@ rep is `wilsonCharExp t 1 = 2·e^{−(3/4)t}`, and the **average plaquette**
 `⟨½χ_{1/2}⟩_t = e^{−(3/4)t}` is `avgPlaq` below — the actual, entire, non-perturbative
 heat-kernel building block.  `t = g²`.  `w = e^{−t}`, `fieldActivity = 1 − w`.
 
+**Coupling convention (reconciled 2026-10-06; `docs/CONVENTIONS-COUPLING.md`).**  This
+file uses the OLDER single-weight normalization `w = e^{−t}`, and `g² = t` is the repo
+LABEL for the heat-kernel time.  On the Lean carrier the weight is per Casimir unit,
+`t = −4 log w`.  The STANDARD (Wilson-normalized) coupling is `g² = 2t`, and the
+two-loop `b0`, `b1` refer to it.  The bounds below are statements about `t` and are
+unaffected by this relabelling.
+
 # The DECISIVE dichotomy (this is the finding — verified `nonpert_activity.md`, mpmath dps 50)
 
 The entire heat kernel supplies TWO distinct scalars, on OPPOSITE sides of the bound:
@@ -64,6 +71,7 @@ entire heat-kernel (a strong-coupling object) does NOT deliver the weak-coupling
   * `avgPlaq_geRat_zero`, `charMomentActivity_geRat_zero` — entire, well-defined,
     nonnegative (finite `CReal`; no Borel at fixed spacing).
   * `charMoment_le_g2` — the character MOMENT activity `1 − e^{−(3/4)t} ≤ g² = t`
+    (`g² = t` is the repo label; the standard coupling is `2t`)
     (Casimir margin `3/4`), via the transcendental `oneSub_le_expNeg`.
   * `avgPlaq_geRat_oneSub` — the alternating lower bound `e^{−(3/4)t} ≥ 1 − (3/4)t`.
   * `strongPolymer_not_le_g2` — **the refutation**: the strong-coupling polymer activity

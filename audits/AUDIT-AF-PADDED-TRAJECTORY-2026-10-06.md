@@ -38,10 +38,10 @@ The existing `paddedZeroMomentumTrajectory` (dyadic schedule) is kept unchanged.
 >     `path_normalized_anchor_of_windowSurvival_padded` holds for any schedule.
 >     `A` matters only for how plausible window survival is.
 > - **Docstring still to update.** The docstring of `NomeScheduleAFCalibrated`
->   (`BF4WilsonAllNomeShiftedH1Anchor.lean:652-657`) still says "`g² = t = -4 log w`
->   … `A ≈ 3.883`". Editing it would force a rebuild of ShiftedH1Anchor and its
->   downstream modules, so it is held pending approval. The AF file's header
->   records that it supersedes that remark.
+>   (`BF4WilsonAllNomeShiftedH1Anchor.lean:652-657`) said "`g² = t = -4 log w`
+>   … `A ≈ 3.883`". It now states `A = 1/(16 b0 ln 2) ≈ 1.942` with the
+>   standard `g² = 2t = −8 log w`. This was done after approval, with a monitored
+>   4-module rebuild; see "Convention pass" below.
 
 ## 1. The dyadic schedule is not AF-calibrated (PROVED)
 
@@ -170,3 +170,47 @@ for the import: exit 0, ~13.4 min (`lake` rebuilt stale dependencies; one worker
 single-file check of the new file: exit 0, ~11 s, no warnings, ≥ 21.2 GiB available.
 The arithmetic was developed against stub definitions in a throwaway box-local
 Lean project, not on the Mac. Forbidden-token scan: 0 hits.
+
+## Recalibration and convention pass (2026-10-06)
+
+- **Recalibration (`eb7cab00`).** `afA` changed from 3883/1000 to 1942/1000. The numerals
+  in the `afGap*` and `afDen_gap` proofs were updated; no names changed. The monitored
+  single-file check passed: exit 0, about 10 s, no warnings, at least 20.4 GiB
+  available, pressure level 1. Axioms: {propext, Quot.sound} or none.
+- **Convention pass, Lean docstrings.** Edited, docstrings only:
+  - the `NomeScheduleAFCalibrated` docstring (`BF4WilsonAllNomeShiftedH1Anchor`);
+  - the `NonpertActivityHeatKernel` module header and the `charMoment_le_g2` line;
+  - the `ExactSinglePolymerActivity` module header.
+- **Rebuild-chain review (import graph).** Transitive reverse dependents per module:
+  - `ShiftedH1Anchor`: 4 (`ShiftedWindowSurvival`, `ShiftedPaddedNondegenerate`, this
+    AF file, root `YMGap`);
+  - `NonpertActivityHeatKernel`: 1 (root);
+  - `ExactSinglePolymerActivity`: 1 (root);
+  - `FieldSpaceCluster`: 30;
+  - `SinglePolymerGaussian`: 19;
+  - `FieldSpaceRenormalonZ1`: 8994.
+
+  The last three were NOT edited. Their docstrings are listed in
+  `docs/CONVENTIONS-COUPLING.md`.
+- **Pre-build check.** `lake build --no-build`, run through the launcher, confirmed that
+  every other upstream olean was up to date and only the AF olean was stale.
+- **Rebuild.** One monitored session under `nice -n 10`, `LEAN_NUM_THREADS=2`, one job
+  per build and an 8 GiB worker cap, one Lean process at a time. The session had a
+  process-group timeout and a 10 s sampler. Abort rules: pressure warning or critical,
+  available RAM < 8 GiB, or load1 > 14 for 6 consecutive samples.
+- **Rebuild order and wall times** (from olean timestamps):
+  1. `ShiftedH1Anchor` about 14 s;
+  2. `ShiftedWindowSurvival` about 7 s;
+  3. `ShiftedPaddedNondegenerate` about 5 s;
+  4. this AF file about 4 s (refreshing its stale olean);
+  5. `NonpertActivityHeatKernel` about 1 s;
+  6. `ExactSinglePolymerActivity` about 1 s.
+
+  The root `YMGap` olean was not rebuilt.
+- **Outcome.** All exits 0, no abort, no wait. Peak load1 11.48, which is darthur's own
+  Mac apps; the box Monte Carlo runs do not run on the Mac. Peak pressure level 1, at
+  least 19.3 GiB available, swap unchanged at 929 MB.
+- **Follow-up checks.** Single-file checks of the three edited files printed axioms
+  {propext, Quot.sound} or {propext} or none, with no warnings. The forbidden-token scan
+  found 0 hits.
+

@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## Convention pass: Lean docstrings reconciled, 4-module chain rebuilt (2026-10-06 UTC)
+
+Docstring-only edits:
+- `NomeScheduleAFCalibrated` (`BF4WilsonAllNomeShiftedH1Anchor`) now states A =
+  1/(16 b0 ln2) ~ 1.942 with b0, b1 referring to the standard g^2 = 2t = -8 log w;
+  the carrier t = -4 log w is the repo label g^2 = t.
+- The `NonpertActivityHeatKernel` and `ExactSinglePolymerActivity` headers flag the
+  older w = e^{-t} normalization.
+
+Rebuild:
+- Rebuilt with oleans written, niced and monitored: ShiftedH1Anchor ->
+  ShiftedWindowSurvival -> ShiftedPaddedNondegenerate -> AFPaddedTrajectory,
+  then the two leaves.
+- All exits 0; axioms {propext, Quot.sound} or {propext} or none; no sorry.
+
+Not edited (rebuild chains of 30, 19 and 8994 modules):
+- FieldSpaceCluster, SinglePolymerGaussian, FieldSpaceRenormalonZ1.
+- They are listed in the new `docs/CONVENTIONS-COUPLING.md`, which is linked from
+  lean/README.md and docs/fieldspace-2026-07-06.md.
+
 ## PROVED recalibrated AF schedule A = 1942/1000 (standard coupling); g^2 convention reconciled (2026-10-06 UTC)
 
 `BF4WilsonAllNomeAFPaddedTrajectory`: `afA` changed from 3883/1000 to 1942/1000

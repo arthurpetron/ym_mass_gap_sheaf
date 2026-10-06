@@ -12,7 +12,16 @@ transcendental object
 
     z_1(w)  =  1 − e^{−g²/4}(1 − g²/2) ,     g² = −log w ,
 
-(the closed-form single-mode radial-Gaussian integral).  Writing `t := g²/4 ≥ 0`
+(the closed-form single-mode radial-Gaussian integral).
+
+**Coupling convention (reconciled 2026-10-06; `docs/CONVENTIONS-COUPLING.md`).**  Here
+`g² = −log w` uses the OLDER single-weight normalization `w = e^{−g²}`, with `g²` the
+repo LABEL for the heat-kernel time.  On the Lean carrier the weight is per Casimir
+unit, so the heat-kernel time is `−4 log w`; the STANDARD (Wilson-normalized) coupling
+is twice the heat-kernel time, and the two-loop `b0`, `b1` refer to it.  The bounds
+below are statements about this file's `g²` and are unaffected.
+
+Writing `t := g²/4 ≥ 0`
 (so `g² = 4t`), this is
 
     z_1  =  1 − e^{−t}(1 − 2t) ,
