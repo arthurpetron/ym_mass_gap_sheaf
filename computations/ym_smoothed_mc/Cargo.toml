@@ -1,0 +1,14 @@
+[package]
+name = "p4_smoothed"
+version = "0.1.0"
+edition = "2021"
+description = "P4: SU(2) Wilson-action MC on asymmetric Ls^3 x Lt lattices; spatial (3D) Wilson-flow-smoothed zero-momentum Wilson-loop timeslice sums for transfer-matrix response R(n)."
+
+[[bin]]
+name = "p4run"
+path = "src/main.rs"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1

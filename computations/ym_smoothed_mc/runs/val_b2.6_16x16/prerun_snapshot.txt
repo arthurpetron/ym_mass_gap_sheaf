@@ -1,0 +1,8 @@
+pre-run snapshot 2026-10-05 19:48:26 PDT
+nproc: 8
+               total        used        free      shared  buff/cache   available
+Mem:              15          12           0           0           3           3
+Swap:              0           0           0
+loadavg: 0.65 0.34 1.87 1/968 2939257
+ 19:48:26 up  1:15,  0 users,  load average: 0.65, 0.34, 1.87
+args: --threads 6 --out runs/val_b2.6_16x16/data --Ls 16 --Lt 16 --beta 2.6 --therm 200 --meas 300 --interval 1 --plaq-only

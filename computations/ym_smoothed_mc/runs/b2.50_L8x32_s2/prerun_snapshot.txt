@@ -1,0 +1,8 @@
+pre-run snapshot 2026-10-05 20:27:50 PDT
+nproc: 8
+               total        used        free      shared  buff/cache   available
+Mem:              15           8           4           0           3           6
+Swap:              0           0           0
+loadavg: 5.99 5.79 5.40 4/978 3165794
+ 20:27:50 up  1:55,  0 users,  load average: 5.99, 5.79, 5.40
+args: --threads 3 --out runs/b2.50_L8x32_s2/data --Ls 8 --Lt 32 --beta 2.5 --therm 400 --meas 2000 --interval 3 --sides 1,2,3 --tflow 0,0.04167,0.08167,0.16667,0.32667,0.66667 --seed 2502

@@ -1,0 +1,6 @@
+P5 launch 2026-10-05 22:36:15 PDT
+8
+               total        used        free      shared  buff/cache   available
+Mem:              15           8           2           0           4           6
+Swap:              0           0           0
+1.07 1.09 1.70 1/1078 3849490
