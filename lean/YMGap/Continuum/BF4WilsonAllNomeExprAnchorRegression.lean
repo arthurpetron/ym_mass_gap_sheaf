@@ -23,7 +23,9 @@ H-var and H-ray are DISCHARGED for every plaquette trajectory:
 
 So the general package reproves `path_normalized_anchor_of_windowSurvival_padded`
 (`padded_package_via_expr`). Concrete instances: `paddedZeroMomentumTrajectory` and
-`afPaddedZeroMomentumTrajectory`. Window survival stays the single OPEN input.
+`afPaddedZeroMomentumTrajectory`. For the A03 package on the padded `Y_j` trajectory,
+window survival stays the single OPEN input (the gap branch and the AND-join are
+untouched).
 
 Constructive, no external library; axioms `propext`, `Quot.sound` only.
 -/

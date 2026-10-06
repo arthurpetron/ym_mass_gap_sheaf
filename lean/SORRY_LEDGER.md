@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED expression-layer window/gap compatibility and AF-shape link (2026-10-06 PT)
+
+New leaves `BF4WilsonAllNomeExprWindowGapCompatibility` and `BF4WilsonAllNomeExprAFCalibrated`.
+
+- Window/gap compatibility (port of 63ffd6e9, generic over `ExprAnchorTrajectory`):
+  - for j ≥ 2, `ExprShiftedWindowSurvival` + `ExprShiftedNondegenerate` +
+    `ExprPathOrbitContraction` give θ ≤ r_j^(side_j/2) and side_j(1-r_j) ≤ c0
+    (2(1-θ) ≤ θc0);
+  - H-var/H-ray form; specializes to `path_windowSurvival_forces_rate_c0`; the padded
+    form needs no nondegeneracy hypothesis;
+  - NECESSARY condition only.
+- AF shape: `ExprAFCalibrated` / `AFCalibratedExprAnchorTrajectory`.
+  - POSITIVE instance: AF padded Y_j (afA, afKappa, afC).
+  - NEGATIVE instance, proved: dyadic padded Y_j is calibrated for no constants.
+  - Two-loop shape only; no a(w); physical box OPEN.
+- Comment-only qualifier in `BF4WilsonAllNomeExprAnchorRegression`.
+- Built on the box: 4 modules (incl. the never-built WindowGapCompatibility), ~20 s.
+  - Axioms {propext, Quot.sound}; no sorry.
+- Audit: `audits/AUDIT-EXPR-ANCHOR-TRAJECTORY-2026-10-06.md` §4–§5.
+
 ## PROVED expression-anchor layer, additive (2026-10-06 UTC)
 
 New leaves `BF4WilsonAllNomeExprAnchorTrajectory`,

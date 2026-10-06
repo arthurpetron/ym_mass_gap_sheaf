@@ -100,7 +100,18 @@ Here `κ = (1-δ)^(2^a)`.
   `path_normalized_anchor_of_windowSurvival_padded` through the general layer.
 * Concrete instances: `paddedZeroMomentumExpr` and `afPaddedZeroMomentumExpr`, each
   with H-var and H-ray.
-* NOT ported: `BF4WilsonAllNomeWindowGapCompatibility`. Optional; deferred.
+* Window-gap compatibility: ported in §4 (`BF4WilsonAllNomeExprWindowGapCompatibility`).
+
+## Scope caveat (from the review of bba09666)
+
+`ExprAnchorTrajectory` by itself does NOT tie the schedule, width or radius to AF or
+to a fixed physical box. So "window survival for SOME expression trajectory" is
+WEAKER than what is needed.
+* §5 partially addresses the AF part, for the shape only: `ExprAFCalibrated` /
+  `AFCalibratedExprAnchorTrajectory`.
+* The physical-box part stays OPEN: `NomeSchedulePhysicalBox`, no concrete `a(w)`, and
+  width/radius not tied to a physical box.
+* §4 adds the NECESSARY window/gap compatibility condition on the expression layer.
 
 ## Build record (box, 2026-10-06 PT)
 
@@ -126,3 +137,73 @@ Results:
 * Axioms: every theorem and def is `[propext, Quot.sound]`; the structure
   `ExprAnchorTrajectory` uses none.
 * `scripts/lean_forbidden_token_scan.py`: 0 hits.
+
+## §4 `BF4WilsonAllNomeExprWindowGapCompatibility` (port of 63ffd6e9, generic)
+
+This reuses the moment-only core of `BF4WilsonAllNomeWindowGapCompatibility` by import
+(`window_gap_compat`, `side_rate_of_contraction_power`, `side_rate_le_c0`,
+`OrbitContraction`).
+
+* `ExprPathOrbitContraction tr r := ∀ j, OrbitContraction … (tr.width j) (tr.state j) (r j)`.
+  This is a hypothesis, i.e. the gap branch.
+* For j ≥ 2, `ExprShiftedWindowSurvival tr θ`, `ExprShiftedNondegenerate tr fl` (with
+  `0 < fl_j`) and `ExprPathOrbitContraction tr r` give:
+  * `expr_windowSurvival_contraction_exponent`: `θ ≤ (r_j r_j)^(side_j/4)`;
+  * `expr_windowSurvival_forces_rate` (needs `0 ≤ r_j ≤ 1`):
+    `θ·(side_j (1-r_j)) ≤ (1-θ)·2`;
+  * `expr_windowSurvival_forces_rate_c0` (needs `0 < θ` and `(1-θ)·2 ≤ θ c0`):
+    `side_j (1-r_j) ≤ c0`.
+* `expr_windowSurvival_forces_rate_c0_hvar_hray`: the same, with H-var + H-ray in place
+  of the nondegeneracy hypothesis (floor `ρ_j^(2M_j+side_j) v_j`).
+* Specialization:
+  * `toExpr_orbitContraction_iff` is `Iff.rfl`;
+  * `path_windowSurvival_forces_rate_c0_via_expr` reproves the existing
+    `path_windowSurvival_forces_rate_c0`;
+  * `padded_windowSurvival_forces_rate_c0`: on padded plaquette trajectories, window
+    survival + orbit contraction alone (nondegeneracy discharged) force
+    `side_j(1-r_j) ≤ c0`.
+* NECESSARY compatibility condition only. It proves neither window survival nor any
+  contraction or gap.
+
+## §5 `BF4WilsonAllNomeExprAFCalibrated` (AF shape link; positive and negative instances)
+
+* `ExprAFCalibrated tr A κ C := NomeScheduleAFCalibrated tr.schedule A κ C`.
+* `structure AFCalibratedExprAnchorTrajectory extends ExprAnchorTrajectory` with fields
+  `afConstA`, `afConstKappa`, `afConstC` and
+  `calibrated : NomeScheduleAFCalibrated schedule afConstA afConstKappa afConstC`.
+* `toExpr_AFCalibrated_iff` is `Iff.rfl`.
+* POSITIVE instance for the AF padded `Y_j`:
+  * `afPaddedZeroMomentumExpr_AFCalibrated : ExprAFCalibrated afPaddedZeroMomentumExpr
+    afA afKappa afC`, with A = 1942/1000, κ = 51/121, C = 4;
+  * the bundle `afPaddedZeroMomentumAFExpr`;
+  * `afPaddedZeroMomentumExpr_package`: the A03 package conditional on window survival
+    only.
+* NEGATIVE instance for the dyadic padded `Y_j`, PROVED:
+  * `paddedZeroMomentumExpr_not_AFCalibrated : ∀ A κ C, ¬ ExprAFCalibrated
+    paddedZeroMomentumExpr A κ C` (from `dyadic_not_AFCalibrated`);
+  * `no_AFCalibrated_bundle_over_padded`.
+  * No positive instance is claimed for it.
+* Two-loop SHAPE predicate only. There is no concrete `a(w)`, `NomeSchedulePhysicalBox`
+  stays OPEN, width/radius are untied, and no analytic content consumes the calibration.
+
+Also: a comment-only edit in `BF4WilsonAllNomeExprAnchorRegression` (header). "Window
+survival stays the single OPEN input" now reads "for the A03 package on the padded `Y_j`
+trajectory".
+
+### Build record for §4–§5 (box, 2026-10-06 ~10:32 PT)
+
+The Mac was at pressure level 2, so no Lean ran on the Mac.
+
+* Box clone at c2713e44. The pull had no Lean changes.
+* Lake `--no-build` reported only `WindowGapCompatibility` (olean never built) and
+  `ExprAnchorRegression` (comment edit) as stale. All other upstream modules were up to
+  date.
+* Built 4 modules in one `safe_lean_build.py` invocation: `--jobs 1 --reserve-gib 1.5
+  --lake-worker-limit-gib 3`, `LEAN_NUM_THREADS=1`, `nice -n 10`, process-group
+  timeout of 1800 s, 10 s sampler, abort at MemAvailable < 1.5 GiB.
+* Times: WindowGapCompatibility ~6 s, ExprAnchorRegression ~6 s,
+  ExprWindowGapCompatibility ~3 s, ExprAFCalibrated ~2 s; ~20 s wall time.
+* All exits 0, no warnings, no aborts.
+* Axioms: `[propext, Quot.sound]` everywhere. `ExprAFCalibrated`, the structure, and
+  its projection lemma use none.
+* Banned-token scan: 0 hits.

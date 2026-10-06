@@ -7298,6 +7298,11 @@ import YMGap.Continuum.BF4WilsonAllNomeExprShiftedAnchorPackage
 -- No-regression: padded Y_j (and AF) is an expression anchor definitionally;
 -- H-var/H-ray discharged by the plaquette floors.
 import YMGap.Continuum.BF4WilsonAllNomeExprAnchorRegression
+-- Window/gap NECESSARY compatibility on the expression layer (generic); proves neither branch.
+import YMGap.Continuum.BF4WilsonAllNomeExprWindowGapCompatibility
+-- Expression trajectories tied to the two-loop AF SHAPE (no a(w), physical box OPEN):
+-- AF padded Y_j positive instance; dyadic padded Y_j proved NOT calibrated.
+import YMGap.Continuum.BF4WilsonAllNomeExprAFCalibrated
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport
