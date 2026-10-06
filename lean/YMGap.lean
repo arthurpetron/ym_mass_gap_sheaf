@@ -7261,6 +7261,9 @@ import YMGap.Continuum.BF4DyadicWilsonSquareObservedLossCircularity
 -- Even-lag Jensen and two-step/block macro compilers from log-convexity;
 -- odd-lag and twisted one-step CS are not supplied.
 import YMGap.Continuum.BF4WilsonAllNomeEvenResponseJensen
+-- Time-smoothed coherent family state (explicit radius M) on the SAME all-nome
+-- carrier; eps <= c0/side for it (SmoothedCoherentEpsBound) remains OPEN.
+import YMGap.Continuum.BF4WilsonAllNomeSmoothedCoherentState
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport

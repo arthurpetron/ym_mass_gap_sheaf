@@ -1,5 +1,23 @@
 # Sorry Ledger
 
+## OPEN named hypothesis: smoothed coherent eps <= c0/side (2026-10-06 UTC)
+
+`BF4WilsonAllNomeSmoothedCoherentState` builds the time-smoothed coherent state
+Y_M = orbitSum(familyExcitation, timeKernel M) on the SAME all-nome
+completion. M is an explicit radius, so a later schedule may grow it with
+side. Proved there: vacuum-complement membership, the radius-zero pin, the
+response pin to the original family moments, kernel positivity and unit mass,
+response nonnegativity and monotonicity, an unconditional (M+1)^-2
+norm floor, and an all-nome mirror of the joint-carrier
+`response_floor_of_relative_energy`. The macro-ratio adapters include the
+landed P1 `macro_ratio_of_survival_floor`. The named `Prop`
+`SmoothedCoherentEpsBound M scale c0`, i.e. side*(R_M(0)-R_M(1)) <=
+c0*R_M(0), is consumed as a hypothesis only. NOTHING proves it. Evidence:
+`audits/AUDIT-SMOOTHED-COHERENT-STATE-2026-10-05.md`. OPEN: that bound on a
+justified schedule (P5), a non-degrading floor, survival/physical/continuum/
+Clay. No sorry, axiom, frontier, chart or resource change. Root registration
+only; no broad checks.
+
 ## PROVED completed log-convexity, survival / Jensen compilers and route screens (2026-10-05 UTC)
 
 `BF4WilsonAllNomeCompletedLogConvexity.response_log_convex` proves
