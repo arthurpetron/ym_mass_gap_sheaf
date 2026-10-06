@@ -1,54 +1,47 @@
 # Audit: AF-calibrated padded trajectory (2026-10-06)
 
-Lean: `lean/YMGap/Continuum/BF4WilsonAllNomeAFPaddedTrajectory.lean` (355 lines).
+Lean: `lean/YMGap/Continuum/BF4WilsonAllNomeAFPaddedTrajectory.lean` (373 lines).
 Axioms {propext, Quot.sound} (some definitions use none); no sorry.
 The existing `paddedZeroMomentumTrajectory` (dyadic schedule) is kept unchanged.
 
-> **CAVEAT: the constant `A = 3.883` is convention-dependent.**
+> **COUPLING CONVENTION AND CALIBRATION (recalibrated 2026-10-06).**
 >
-> - `A = 1/(8 b0 ln 2) ≈ 3.883` assumes the CARRIER convention
->   `g² = t = −4 log w`. Here `w = e^{−t/4}` is the weight per Casimir unit
->   `C4 = 4 C2`, the heat kernel is `e^{−t C2}`, and so `1 − w ≈ g²/4`.
-> - A **Wilson-action-matched** schedule would use **`A ≈ 1.942`**, half of
->   3.883. The check: the carrier heat kernel `e^{−t C2}` behaves at small `t` like
->   `exp(−θ²/t)` for `U = exp(iθ n·σ)`. That is the heat kernel on the unit 3-sphere
->   at time `t/4`, since unit-`S³` Laplacian eigenvalues `ℓ(ℓ+2) = 4 j(j+1) = 4 C2`.
->   The SU(2) Wilson weight is `exp((β/2) tr U) = exp(β cos θ) ≈ exp(−β θ²/2)`
->   with `β = 4/g²`. Matching the Gaussians gives `t = 2/β = g_W²/2`, i.e.
->   `g_W² = −8 log w` and `1 − w ≈ g_W²/8`. This halves `A` to `1/(16 b0 ln 2)`.
->   It agrees with the earlier note in `AUDIT-SHIFTED-H1-ANCHOR-2026-10-05.md`
->   (heat-kernel vs Wilson paragraph). This is leading-order weak-coupling matching
->   and is not in the repo. Higher-order matching and the ratio of lattice
->   Λ-parameters shift only the O(1) offset `C`. The two-loop `κ = 51/121` is unchanged.
-> - **Which `A` is physically right (paper, leading order).** The universal
->   coefficients `b0`, `b1` belong to the STANDARD coupling normalization, with
->   continuum action `(1/4g²)∫F^aF^a` (SU(2) Wilson: `β = 4/g²`). The repo's
->   `g² = t` is only a label (`NonpertActivityHeatKernel.lean:66`). In standard
->   normalization the heat-kernel carrier has `g² ≈ 2t = −8 log w`. So the constant
->   that keeps `side_j·a(w_j)` bounded for THIS carrier is `A ≈ 1.942`, not 3.883.
-> - Heuristic consequence: on `afNomeSchedule` (`A = 3.883`) the coupling is about
->   twice the calibrated one, so `a(w_j) ~ 2^{−j/2}` up to powers of `j`. The
->   physical box `side_j·a(w_j)` then GROWS like `~2^{j/2}` instead of staying
->   bounded.
-> - In other words, `afNomeSchedule` has the two-loop SHAPE and satisfies the Lean
->   predicate `NomeScheduleAFCalibrated` with `A = 3.883`. It is physically
->   calibrated only if the repo's `t` were the standard `g²`, which leading-order
->   matching says it is not. A physically calibrated rational schedule would
->   replace `3883/1000` by about `1942/1000`. That is a one-constant change, plus
->   re-checking the numeric proofs in that file. It is not made here: no Lean edits
->   in this task.
-> - **None of the Lean conclusions depend on `A`.** `NomeScheduleAFCalibrated`
->   appears only in its definition (ShiftedH1Anchor) and in this file. No downstream
->   theorem consumes it. `path_normalized_anchor_of_windowSurvival_padded` holds for
->   any schedule, so a Wilson-matched schedule (`A ≈ 1.942`) would get the same
->   A03 package conditional on window survival, with the same proof.
-> - Whether window survival is TRUE does depend on `A`. Halving or doubling `A`
->   doubles or halves `g²` at each `j`, which changes the physical box
->   exponentially in `j` (previous bullet). So `A` matters for how plausible the
->   open input is, but for no Lean proof.
-> - Below, "AF-calibrated" always means "two-loop shape, carrier convention
->   `A = 3.883`". It does NOT mean physically calibrated in the standard coupling
->   normalization (`A ≈ 1.942`).
+> - **Conventions, stated once.**
+>   - Carrier: weight per Casimir unit `w = e^{−t/4}`, heat kernel `e^{−t C2}`,
+>     heat-kernel time **`t = −4 log w`**.
+>   - The repo LABELS `t` as `g²` ("`g² = t`", `NonpertActivityHeatKernel.lean:66`).
+>     That is a label, not the standard coupling.
+>   - **Standard (Wilson-normalized) coupling: `g² = 2t = −8 log w`.** Continuum action
+>     `(1/4g²)∫F^aF^a`; SU(2) Wilson `β = 4/g²`.
+>   - Derivation: the carrier heat kernel is the unit-`S³` heat kernel at time `t/4`
+>     (`ℓ(ℓ+2) = 4 j(j+1) = 4 C2`), so near the identity it is `~exp(−θ²/t)`. The
+>     Wilson weight is `exp(β cos θ) ≈ exp(−βθ²/2)`. Matching gives `t = 2/β = g²/2`.
+>     This is leading-order weak-coupling matching; it is not in the repo.
+>   - **`b0 = 11/(24π²)` and `b1 = 17/(96π⁴)` refer to the STANDARD `g²`.**
+> - **`afNomeSchedule` now uses the standard-normalization constant**
+>   `A = 1942/1000`, against `1/(16 b0 ln 2) = 24π²/(176 ln 2) = 1.9416585…`
+>   (error `3.4·10⁻⁴`, relative `1.8·10⁻⁴`). Also `κ = b1/(2b0²) = 51/121`, which
+>   is convention-independent, and `C = 4`.
+> - **History.** Through `c0ffb7f6` the file used `A = 3883/1000 = 1/(8 b0 ln 2)`.
+>   That value treats the label `t` as the standard `g²`. With it, the physical box
+>   `side_j·a(w_j)` would grow like `~2^{j/2}`.
+> - **Remaining honest caveats.**
+>   - Two-loop SHAPE only. Also, a rational `A` with relative error `δ` makes
+>     `L_j` drift like `2^{δ j}`. Here `δ ≈ 1.8·10⁻⁴`, so `L_j` doubles only around
+>     `j ≈ 5700`: slow, but not bounded.
+>   - `⌊log2(j+1)⌋` is an integer surrogate.
+>   - `C = 4` is a choice. It absorbs the lattice Λ-parameter ratio and higher
+>     orders, and it sets the box size in units of `Λ⁻¹` (`LΛ ∝ 2^{−C}`).
+>   - There is no concrete `a(w)`, so `NomeSchedulePhysicalBox` is not addressed.
+>   - **The calibration is cosmetic for the Lean conclusions.**
+>     `NomeScheduleAFCalibrated` is consumed by no downstream theorem, and
+>     `path_normalized_anchor_of_windowSurvival_padded` holds for any schedule.
+>     `A` matters only for how plausible window survival is.
+> - **Docstring still to update.** The docstring of `NomeScheduleAFCalibrated`
+>   (`BF4WilsonAllNomeShiftedH1Anchor.lean:652-657`) still says "`g² = t = -4 log w`
+>   … `A ≈ 3.883`". Editing it would force a rebuild of ShiftedH1Anchor and its
+>   downstream modules, so it is held pending approval. The AF file's header
+>   records that it supersedes that remark.
 
 ## 1. The dyadic schedule is not AF-calibrated (PROVED)
 
@@ -78,11 +71,11 @@ than the AF margin `≍ A/j`.
 
 ```lean
 def afE (j : Nat) : Nat := 121 * j + 51 * Nat.log2 (j+1) + 484
-def afA : Q' := Q'.mkPos 3883 1000 _        -- A = 3.883
+def afA : Q' := Q'.mkPos 1942 1000 _        -- A = 1.942 ≈ 1/(16 b0 ln 2)
 def afKappa : Q' := Q'.mkPos 51 121 _       -- κ = 51/121
 def afC : Q' := 4
-def afGap (j : Nat) : Q' := Q'.mkPos 469843 (1000 * afE j) _
-  -- 1 - w_j = A / (j + κ⌊log2(j+1)⌋ + 4) = (3883·121)/(1000·121·D_j)
+def afGap (j : Nat) : Q' := Q'.mkPos 234982 (1000 * afE j) _
+  -- 1 - w_j = A / (j + κ⌊log2(j+1)⌋ + 4) = (1942·121)/(1000·121·D_j)
 def afNomeSchedule : NomeSchedule where
   nome := fun j => 1 - afGap j
   limitModulus := fun eps => 4 * eps.den      -- explicit
@@ -94,7 +87,7 @@ theorem afNomeSchedule_AFCalibrated :
 
 The `NomeSchedule` fields are proved with exact Int cross-multiplication:
 
-- `nome_pos`: `afGap j < 1`, since `1000·121·D_j ≥ 484000 > 469843`.
+- `nome_pos`: `afGap j < 1`, since `1000·121·D_j ≥ 484000 > 234982`.
 - `nome_lt_one`: `afGap j > 0`.
 - `nome_mono`: `afGap` is antitone because `D_j` increases. This uses monotonicity of
   `Nat.log2` (`Nat.le_log2`, `Nat.log2_self_le`).
@@ -105,14 +98,16 @@ is an equality up to `≈`. The lower side uses `-4 ≤ 4` and `1 - w_j ≥ 0`.
 
 What "AF-calibrated" means here, honestly:
 
-- The SHAPE `1 - w_j = A/(j + κ log2 j + C0)` with `κ = b1/(2 b0²) = 51/121`
-  and `A = 1/(8 b0 ln 2) ≈ 3.883` is what two-loop running predicts. It assumes the
-  repo's coupling convention `g² = t = -4 log w` (so `1 - w = g²/4 + O(g⁴)`)
-  and requires `side_j = 2^j` lattice steps to have bounded physical length
-  (see `AUDIT-SHIFTED-H1-ANCHOR-2026-10-05.md`).
-- The Wilson-action matching caveat applies (see the caveat box at the top):
-  Wilson matching gives `A ≈ 1.942`, not 3.883. `log2` is the integer surrogate `⌊log2(j+1)⌋`.
-  `A` is a rational approximation, and `C0 = 4` is just chosen so that `w_0 ∈ (0,1)`.
+- Two-loop running predicts the SHAPE `1 - w_j = A/(j + κ log2 j + C)`, with
+  `κ = b1/(2 b0²) = 51/121` and `A = 1/(16 b0 ln 2) ≈ 1.9417`, in the STANDARD
+  coupling `g² = −8 log w` (so `1 - w = g²/8 + O(g⁴)`).
+  - This requires `side_j = 2^j` lattice steps to have bounded physical length.
+  - See the box at the top, and `AUDIT-SHIFTED-H1-ANCHOR-2026-10-05.md`, which
+    states the carrier `t = −4 log w` convention.
+- `log2` is the integer surrogate `⌊log2(j+1)⌋`. `A = 1942/1000` is a rational
+  approximation.
+- `C = 4` is a choice: `w_0 = 1 − A/4 = 0.5145 ∈ (0,1)`, and the exact identity
+  `afDen_gap` holds because `afE` contains `121·C = 484`.
 - `NomeSchedulePhysicalBox` is NOT addressed. The repo has no concrete
   lattice-spacing function `a(w)`. `PhysicalSpacingEnvelope.a` in the AF
   bridge files is an abstract interface field, and the two-loop `a(g)` involves

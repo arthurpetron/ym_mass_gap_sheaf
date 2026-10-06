@@ -143,7 +143,9 @@ forward ratio `R(2s)/R(s)` = 0.13 to 0.34 is irrelevant by §2.
 * `docs/fieldspace-2026-07-06.md:29-30`: the note's own convention `w = e^{-t}`
   (and its bracket and table) is kept, and the line now states the carrier
   convention: per-Casimir weight `w = e^{-t/4}` (`RGTransport.lean:45`), so on
-  the carrier `g² = t = −4 log w` and `4(1−w) ≤ g² ≤ 4(1−w)/w`. This was flagged
+  the carrier `g² = t = −4 log w` and `4(1−w) ≤ g² ≤ 4(1−w)/w` (2026-10-06: `t` is
+  only the repo's label for `g²`; the standard coupling is `g² = 2t = −8 log w`,
+  see the convention box in `AUDIT-AF-PADDED-TRAJECTORY-2026-10-06.md`). This was flagged
   in `AUDIT-SHIFTED-H1-ANCHOR-2026-10-05.md` §5.
 * Frontier paragraphs prepended in `docs/PROJECT-STATUS.md`, `lean/README.md`
   and `work_plan.md`: shifted H1 is now reduced to backward-window survival

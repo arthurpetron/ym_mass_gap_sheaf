@@ -6,9 +6,9 @@ Companion to `audits/AUDIT-AF-PADDED-TRAJECTORY-2026-10-06.md`.
 1. `dyadicNomeSchedule` (`1 - w_j = 2^-(j+1)`) is NOT AF-calibrated:
    `dyadic_not_AFCalibrated : ¬ NomeScheduleAFCalibrated dyadicNomeSchedule A κ C`
    for EVERY `A κ C` (explicit witness scale, rational Archimedean bounds).
-2. `afNomeSchedule`: `1 - w_j = A/(j + κ·⌊log2(j+1)⌋ + 4)` with `A = 3883/1000`,
-   `κ = 51/121`, all rational; nome_pos/lt_one/mono and an explicit limit
-   modulus `4·den ε` are proved, and
+2. `afNomeSchedule`: `1 - w_j = A/(j + κ·⌊log2(j+1)⌋ + 4)` with `A = 1942/1000`
+   (standard coupling normalization, see below), `κ = 51/121`, all rational;
+   nome_pos/lt_one/mono and an explicit limit modulus `4·den ε` are proved, and
    `afNomeSchedule_AFCalibrated : NomeScheduleAFCalibrated afNomeSchedule A κ 4`.
 3. `afPaddedZeroMomentumTrajectory`: the padded zero-momentum faces of
    `paddedZeroMomentumTrajectory` on this schedule; padding, nondegeneracy, and
@@ -18,6 +18,22 @@ The schedule enters the Lean conclusions only through the carrier nome `w_j`;
 no theorem consumes the calibration. It matters for the plausibility of window
 survival, not for any proof here. `NomeSchedulePhysicalBox` is NOT addressed:
 the repo has no concrete lattice-spacing function `a(w)`.
+
+**Coupling conventions (reconciled 2026-10-06).** On this carrier the weight
+is per Casimir unit, `w = e^{-t/4}` with heat-kernel time `t = -4 log w`.
+The repo LABELS `t` as `g²` (`g² = t`, `NonpertActivityHeatKernel.lean`); that
+is NOT the standard coupling. The STANDARD (Wilson-normalized, continuum action
+`(1/4g²)∫F^aF^a`, SU(2) `β = 4/g²`) coupling is `g² = 2t = -8 log w`, from matching
+the heat kernel `~exp(-θ²/t)` to `exp(β cos θ) ~ exp(-βθ²/2)`. The two-loop
+coefficients `b0 = 11/(24π²)`, `b1 = 17/(96π⁴)` refer to the STANDARD `g²`, so the
+calibrated constant is `A = 1/(16 b0 ln 2) = 24π²/(176 ln 2) = 1.94166…`
+(not `1/(8 b0 ln 2) = 3.883`, which treats the label `t` as the standard `g²`;
+the `A ≈ 3.883` remark in the docstring of `NomeScheduleAFCalibrated` is
+superseded by this). `κ = b1/(2 b0²) = 51/121` is convention-independent.
+Honest caveats: two-loop SHAPE only; `⌊log2⌋` surrogate; the offset `C = 4` is a
+choice (it absorbs the Λ-parameter ratio and higher orders and fixes the box
+size in units of Λ⁻¹); no concrete `a(w)`; the calibration is cosmetic for the
+Lean conclusions.
 
 No `sorry`, no axioms.
 -/
@@ -173,24 +189,26 @@ theorem dyadic_not_AFCalibrated (A kappa C : Q') :
 /-- `121·D_j` for `D_j = j + (51/121) log2(j+1) + 4`. -/
 def afE (j : Nat) : Nat := 121 * j + 51 * Nat.log2 (j+1) + 484
 theorem afE_pos (j : Nat) : 0 < 1000 * afE j := by unfold afE; omega
-/-- `A = 3883/1000 ≈ 1/(8 b0 ln 2)` (two-loop SU(2), repo convention `g² = -4 log w`). -/
-def afA : Q' := Q'.mkPos 3883 1000 (by decide)
+/-- `A = 1942/1000 ≈ 1/(16 b0 ln 2) = 24π²/(176 ln 2) = 1.941659…` (two-loop SU(2),
+STANDARD coupling `g² = -8 log w = 2t`; carrier heat-kernel time `t = -4 log w`).
+Precision: `1.942 - 1.9416585 = 3.4·10⁻⁴` (relative `1.8·10⁻⁴`). -/
+def afA : Q' := Q'.mkPos 1942 1000 (by decide)
 /-- `κ = b1/(2 b0²) = 51/121` (SU(2), exact). -/
 def afKappa : Q' := Q'.mkPos 51 121 (by decide)
-/-- Offset `C0 = 4 > A`, so `w_0 ∈ (0,1)`. -/
+/-- Offset `C = 4 > A`, so `w_0 = 1 - A/4 = 0.5145 ∈ (0,1)` (a choice; see header). -/
 def afC : Q' := 4
-/-- `1 - w_j = A/D_j = 469843/(1000·121·D_j)` (`469843 = 3883·121`). -/
-def afGap (j : Nat) : Q' := Q'.mkPos 469843 (1000 * afE j) (afE_pos j)
+/-- `1 - w_j = A/D_j = 234982/(1000·121·D_j)` (`234982 = 1942·121`). -/
+def afGap (j : Nat) : Q' := Q'.mkPos 234982 (1000 * afE j) (afE_pos j)
 
 theorem afGap_den (j : Nat) : (afGap j).den = 1000 * afE j := by
   unfold afGap; rw [Q'.mkPos_den]
 
 theorem afGap_pos (j : Nat) : (0 : Q') < afGap j := by
-  show (0 : Int) * ((afGap j).den : Int) < 469843 * 1
+  show (0 : Int) * ((afGap j).den : Int) < 234982 * 1
   rw [Int.zero_mul]; decide
 
 theorem afGap_lt_one (j : Nat) : afGap j < (1 : Q') := by
-  show (469843 : Int) * 1 < 1 * ((afGap j).den : Int)
+  show (234982 : Int) * 1 < 1 * ((afGap j).den : Int)
   rw [afGap_den]; unfold afE; omega
 
 private theorem log2_succ_mono (j : Nat) : Nat.log2 (j+1) ≤ Nat.log2 (j+1+1) := by
@@ -198,7 +216,7 @@ private theorem log2_succ_mono (j : Nat) : Nat.log2 (j+1) ≤ Nat.log2 (j+1+1) :
   exact Nat.le_trans (Nat.log2_self_le (by omega)) (by omega)
 
 theorem afGap_anti (j : Nat) : afGap (j+1) ≤ afGap j := by
-  show (469843 : Int) * ((afGap j).den : Int) ≤ 469843 * ((afGap (j+1)).den : Int)
+  show (234982 : Int) * ((afGap j).den : Int) ≤ 234982 * ((afGap (j+1)).den : Int)
   rw [afGap_den, afGap_den]; unfold afE
   have := log2_succ_mono j
   omega
@@ -220,8 +238,8 @@ theorem afDen_gap (j : Nat) :
   have n2 : (lg2 j).num = (Nat.log2 (j+1) : Int) := rfl
   have n3 : afKappa.num = 51 := rfl
   have n4 : afC.num = 4 := rfl
-  have n5 : (afGap j).num = 469843 := rfl
-  have n6 : afA.num = 3883 := rfl
+  have n5 : (afGap j).num = 234982 := rfl
+  have n6 : afA.num = 1942 := rfl
   rw [e1, e2, e3, e4, e5, n1, n2, n3, n4, n5, n6]
   unfold afE
   omega
@@ -229,13 +247,13 @@ theorem afDen_gap (j : Nat) :
 theorem afGap_le_of_modulus (eps : Q') (he : (0 : Q') < eps) (j : Nat) (hj : 4 * eps.den ≤ j) :
     afGap j ≤ eps := by
   have hn := Q'.num_pos_of_pos he
-  show (469843 : Int) * (eps.den : Int) ≤ eps.num * ((afGap j).den : Int)
+  show (234982 : Int) * (eps.den : Int) ≤ eps.num * ((afGap j).den : Int)
   rw [afGap_den]
   have h1 : ((1000 * afE j : Nat) : Int) ≤ eps.num * ((1000 * afE j : Nat) : Int) :=
     by have := Int.mul_le_mul_of_nonneg_right (show (1 : Int) ≤ eps.num by omega)
          (show (0 : Int) ≤ ((1000 * afE j : Nat) : Int) by omega)
        rwa [Int.one_mul] at this
-  have h2 : (469843 : Int) * (eps.den : Int) ≤ 1000 * (afE j : Int) := by
+  have h2 : (234982 : Int) * (eps.den : Int) ≤ 1000 * (afE j : Int) := by
     unfold afE; omega
   omega
 
@@ -264,7 +282,7 @@ private theorem af_one_sub_one_sub (g : Q') : (1 : Q') - ((1 : Q') - g) ≈ g :=
     (.add (.const 1) (.neg (.add (.const 1) (.neg (.var 0))))) (.var 0) (by decide)
     (fun _ => g)
 
-/-- **AF calibration holds** with `A = 3883/1000`, `κ = 51/121`, `C = 4`. -/
+/-- **AF calibration holds** with `A = 1942/1000` (standard `g² = -8 log w`), `κ = 51/121`, `C = 4`. -/
 theorem afNomeSchedule_AFCalibrated : NomeScheduleAFCalibrated afNomeSchedule afA afKappa afC := by
   refine ⟨by decide, fun j => ⟨?_, ?_⟩⟩
   · have hg : (0 : Q') ≤ afGap j := Q'.le_of_lt (afGap_pos j)

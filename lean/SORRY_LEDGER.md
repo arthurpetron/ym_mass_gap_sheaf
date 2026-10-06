@@ -1,12 +1,29 @@
 # Sorry Ledger
 
+## PROVED recalibrated AF schedule A = 1942/1000 (standard coupling); g^2 convention reconciled (2026-10-06 UTC)
+
+`BF4WilsonAllNomeAFPaddedTrajectory`: `afA` changed from 3883/1000 to 1942/1000
+(1/(16 b0 ln2) = 24 pi^2/(176 ln2) = 1.9416585..., error 3.4e-4, relative
+1.8e-4); `afGap j = 234982/(1000 afE j)` (234982 = 1942*121); kappa = 51/121
+and C = 4 kept (w_0 = 1 - A/4 = 0.5145; `afDen_gap` stays exact because afE
+contains 121*C = 484). Same names; proofs re-checked (monitored single-file
+check), axioms {propext, Quot.sound} or none; no sorry. Conventions: carrier
+heat-kernel time t = -4 log w (repo LABEL g^2 = t); STANDARD (Wilson-normalized)
+coupling g^2 = 2t = -8 log w, to which b0, b1 refer. Stated in the AF file
+header, fieldspace note, AF and H1-anchor audits, PROJECT-STATUS/README/
+work_plan. HELD (needs rebuild of ShiftedH1Anchor + downstream): the
+`NomeScheduleAFCalibrated` docstring still says "g^2 = t = -4 log w ... A ~ 3.883";
+the AF file header supersedes it. Calibration remains cosmetic for the Lean
+conclusions; window survival OPEN.
+
 ## PROVED dyadic schedule not AF-calibrated; AF-calibrated padded trajectory; OPEN window survival (2026-10-06 UTC)
 
 `BF4WilsonAllNomeAFPaddedTrajectory` proves `dyadic_not_AFCalibrated`:
 NOT `NomeScheduleAFCalibrated dyadicNomeSchedule A kappa C` for ALL A, kappa, C
 (explicit witness scale j = 2 den(A)(2+2|kappa.num|+|C.num|), rational
 Archimedean bounds). It constructs `afNomeSchedule`
-(1-w_j = A/(j + (51/121) floor(log2(j+1)) + 4), A = 3883/1000, rational;
+(1-w_j = A/(j + (51/121) floor(log2(j+1)) + 4), A = 3883/1000 here, recalibrated
+to 1942/1000 on 2026-10-06 (see the top entry), rational;
 nome_pos/lt_one/mono, explicit limit modulus 4 den(eps)) with
 `afNomeSchedule_AFCalibrated` (C = 4, upper side exact) and
 `afPaddedZeroMomentumTrajectory` (padded zero-momentum faces on this
@@ -17,8 +34,8 @@ ONLY on OPEN `PathShiftedWindowSurvival afPaddedZeroMomentumTrajectory theta`
 calibration (cosmetic for the conclusions; it matters only for the
 plausibility of window survival). `NomeSchedulePhysicalBox` not addressed: no
 concrete a(w) in the repo. Wilson-action matching caveat on A (~1.94 vs 3.88)
-stands: 3.883 is the carrier convention g^2 = -4 log w; standard normalization
-(g^2 = -8 log w) gives A ~ 1.942; no Lean conclusion depends on A. Paper note `audits/MATH-NOTE-WINDOW-SURVIVAL-ROUTES-2026-10-06.md`:
+RESOLVED 2026-10-06: recalibrated to A = 1942/1000 in the standard coupling
+g^2 = -8 log w (see the top entry); no Lean conclusion depends on A. Paper note `audits/MATH-NOTE-WINDOW-SURVIVAL-ROUTES-2026-10-06.md`:
 window survival = a fixed fraction of the shifted spectral weight at
 1-lambda <~ C/side (lattice correlation length >~ side), FALSE at any fixed
 coupling (strong coupling check), out of reach of known methods. Evidence:
@@ -70,7 +87,8 @@ implies window survival but is heuristically false for box-smoothed states.
 Window survival is heuristically plausible under an AF-calibrated schedule
 (free field: flat in side at fixed L) and OPEN; MC measured p = 0 survival
 ~0.10 for a DIFFERENT (APE zero-momentum) state. Also fixes the g^2
-convention line in `docs/fieldspace-2026-07-06.md` (carrier: g^2 = -4 log w).
+convention line in `docs/fieldspace-2026-07-06.md` (carrier: t = -4 log w, repo
+label g^2 = t; standard g^2 = -8 log w, reconciled 2026-10-06).
 Evidence: `audits/AUDIT-SHIFTED-WINDOW-SURVIVAL-2026-10-06.md`. No sorry or
 axiom. Root registration only.
 
@@ -89,6 +107,8 @@ side_j*(1-r_j) <= c0 persists. NEW OPEN schedule Props `NomeScheduleAFCalibrated
 `NomeSchedulePhysicalBox` (side_j*a(w_j) in [Llo,Lhi]); nothing consumes them.
 Repo convention g^2 = t = -4 log w (w = e^{-t/4}), so 1-w = g^2/4 + O(g^4) and
 two-loop SU(2) gives A = 1/(8 b0 ln2) ~ 3.883, kappa = 51/121 (paper).
+[2026-10-06: t is only a LABEL for g^2; the standard coupling is g^2 = 2t =
+-8 log w, to which b0, b1 refer, so A = 1/(16 b0 ln2) ~ 1.942.]
 `dyadicNomeSchedule` has (1-w_j) side_j = 1/2 (proved) and is NOT AF-calibrated
 (paper). Unshifted box-kernel H1/H2 are heuristically FALSE (free-field
 spectral input + numerics), not proved false; shifted H1 is heuristically

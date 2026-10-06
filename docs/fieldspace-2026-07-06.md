@@ -29,11 +29,29 @@ where the character DIVERGES.
 SU(2) link `U = exp(i g A)`, fluctuation field `A ∈ su(2)`. Heat-kernel weight `w = e^{−t}`
 in this note, `t = −log w`; the field-space coupling is the heat-kernel time `g² = t`. On the
 Lean carrier the weight is per Casimir unit, `w = e^{−t/4}` (`RGTransport.lean:45`), so there
-`g² = t = −4 log w` and `4(1 − w) ≤ g² ≤ 4(1 − w)/w` (corrected 2026-10-06). The
-elementary bracket (validated `fieldspace.py`, mpmath dps 50)
+`g² = t = −4 log w` and `4(1 − w) ≤ g² ≤ 4(1 − w)/w` (corrected 2026-10-06).
+
+> **Coupling conventions (reconciled 2026-10-06), stated once.**
+> - In THIS note, `w = e^{−t}`, so `t = −log w`. This is a single-weight
+>   normalization.
+> - On the Lean carrier the weight is per Casimir unit, `w = e^{−t/4}`, so the
+>   heat-kernel time is **`t = −4 log w`**.
+> - The repo LABELS `t` as `g²` ("`g² = t`"). That is a label.
+> - The **standard (Wilson-normalized) coupling** is **`g² = 2t`**: continuum action
+>   `(1/4g²)∫F^aF^a`, SU(2) `β = 4/g²`. That is `−2 log w` in this note's
+>   normalization and **`−8 log w` on the carrier**. It follows from leading-order
+>   matching of the heat kernel `~exp(−θ²/t)` with `exp(β cos θ) ≈ exp(−βθ²/2)`.
+> - **The two-loop `b0`, `b1` refer to the STANDARD `g²`.** So the AF constant for
+>   the carrier is `A = 1/(16 b0 ln 2) ≈ 1.942`, not 3.883 (see
+>   `audits/AUDIT-AF-PADDED-TRAJECTORY-2026-10-06.md`).
+> - Below, `g²` means the label `t` unless stated otherwise. Every statement
+>   "`g² ∼ (1 − w)`" here is order-of-magnitude and unaffected by these O(1)
+>   factors.
+
+The elementary bracket (validated `fieldspace.py`, mpmath dps 50)
 
 ```
-        1 − w  ≤  −log w = g²  ≤  (1 − w)/w        (all w ∈ (0,1))
+        1 − w  ≤  −log w = t  ≤  (1 − w)/w        (all w ∈ (0,1); t = label g²)
 ```
 
 gives `g² ∼ (1 − w)` as `w → 1`. So the RATIONAL constructive proxy for the field-space
@@ -70,7 +88,7 @@ fixed-spacing gap.
 
 **(2a) `g²` bracket** `(1−w) ≤ −log w ≤ (1−w)/w`, and `g² → 0` as `w → 1`:
 
-| `w` | `1−w` | `g² = −log w` | `(1−w)/w` |
+| `w` | `1−w` | `t = −log w` (label `g²`) | `(1−w)/w` |
 |---|---|---|---|
 | 0.9 | 0.1 | 0.10536 | 0.11111 |
 | 0.99 | 0.01 | 0.010050 | 0.010101 |

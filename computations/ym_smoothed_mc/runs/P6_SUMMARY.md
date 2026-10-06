@@ -78,7 +78,7 @@ Code change in src/main.rs (about 40 lines):
    Optional `--save-configs every k` (201 MB per 32^3x48 config) would make future smearing variants analysis-only.
 
 ## Heat-kernel action feasibility (plan only, YM Bot item b)
-- **Target:** the plaquette weight K_w(U) = Σ_j (2j+1) w^{c·j(j+1)} χ_j(U), with the repo's nome w and g^2 = -4 log w. The constant c and the j(j+1) vs (n^2-1)/4 convention must be read from the repo's carrier definition (not available on the box; the repo is not here).
+- **Target:** the plaquette weight K_w(U) = Σ_j (2j+1) w^{c·j(j+1)} χ_j(U), with the repo's nome w and g^2 = -4 log w (2026-10-06: that is the heat-kernel time t, a repo label; the standard Wilson-normalized coupling is g^2 = 2t = -8 log w, i.e. beta = 4/g^2 = -1/(2 log w) at leading order). The constant c and the j(j+1) vs (n^2-1)/4 convention must be read from the repo's carrier definition (not available on the box; the repo is not here).
 - **Heatbath:** single-link update with staple sum A = Σ_p (other 3 links). The local density is Π_p K_w(U X_p) over 6 plaquettes and is no longer exp(β Re tr UA)-factorizable. Two options:
   1. Metropolis on top of KP heatbath with an effective beta_eff(w) matched by the 1st character coefficient, accepting with the ratio Π K_w / exp(beta_eff Re tr).
   2. Precompute K_w on a grid of the class angle θ (truncate Σ_j at j_max where w^{j(j+1)} < 1e-16; j_max ≤ 30 for g^2 ≥ 0.5) and do a Metropolis/heatbath in θ with tabulated log K.

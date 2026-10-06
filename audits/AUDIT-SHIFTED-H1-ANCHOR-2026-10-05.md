@@ -150,29 +150,46 @@ statement, not a uniform estimate.
   (`lean/YMGap/Continuum/WilsonConsistency.lean:129`, `:137`).
   Heat-kernel character `wilsonCharExp t s = dim e^{-t C2}` (`WilsonFunctional.lean:68`), C4 = 4 C2.
 * Coupling: "`1 − e^{−(3/4)t} ≤ g² = t`" (`lean/YMGap/Continuum/NonpertActivityHeatKernel.lean:66`).
-* Hence **`g² = t = −4 log w`**, so **`1 − w = g²/4 + O(g⁴)`**, with the exact bracket
-  `1 − w ≤ −log w ≤ (1 − w)/w`, i.e. `4(1−w) ≤ g² ≤ 4(1−w)/w`.
+* Hence the carrier heat-kernel time is **`t = −4 log w`**, which the repo LABELS
+  `g² = t`. So `1 − w = t/4 + O(t²)`, with the exact bracket
+  `1 − w ≤ −log w ≤ (1 − w)/w`, i.e. `4(1−w) ≤ t ≤ 4(1−w)/w`. This is NOT the
+  standard coupling; see the reconciliation bullet below.
 * `AFRateCalibration.lean:15` and `:48` state only `1 − w_k ≍ g_k² ≍ 1/k` with no
   constant; `AFRateModulus` (`AFRateCalibration.lean:767`) carries free constants
   `A'/(k+B) <= 1 - w_k <= A/(k+B)`.
-* **Inconsistency flagged (not edited):** `docs/fieldspace-2026-07-06.md:30` says
-  "`t = −log w`; ... `g² = t = −log w`", i.e. a weight `w = e^{-t}`. That is a
-  factor 4 off from the carrier's `w = e^{-t/4}` (per Casimir unit C4). The Lean
-  carrier convention is the one used here.
-* Heat-kernel vs Wilson action: the repo identifies `g² = t` (heat-kernel
-  action). Matching to the Wilson action via Bessel asymptotics (NOT in the repo)
-  gives `t ≈ g²/2` at weak coupling, i.e. `g² = −8 log w`; under that convention
-  `A` below halves (≈ 1.942). The Prop takes `A` as a parameter either way.
+* **Inconsistency flagged (RESOLVED 2026-10-06):** `docs/fieldspace-2026-07-06.md:30`
+  said "`t = −log w`; ... `g² = t = −log w`", i.e. a weight `w = e^{-t}`. That is a
+  factor 4 off from the carrier's `w = e^{-t/4}` (per Casimir unit C4). The note
+  now states the carrier `t = −4 log w` and the standard `g² = −8 log w`
+  explicitly.
+* **Convention reconciliation (2026-10-06).**
+  - Carrier heat-kernel time: **`t = −4 log w`**.
+  - The repo label "`g² = t`" is only a label.
+  - The **standard (Wilson-normalized) coupling** is **`g² = 2t = −8 log w`**:
+    continuum action `(1/4g²)∫F^aF^a`, SU(2) `β = 4/g²`.
+  - Derivation, leading order (NOT in the repo): the heat kernel is
+    `~exp(−θ²/t)`; `exp(β cos θ) ≈ exp(−βθ²/2)`; so `t = 2/β = g²/2`.
+  - **`b0`, `b1` refer to the standard `g²`.** So the physically calibrated
+    constant is `A = 1/(16 b0 ln 2) ≈ 1.9417`. `afNomeSchedule` uses
+    `A = 1942/1000` since the 2026-10-06 recalibration.
+  - The value `3.883` below is what one gets by treating the label `t` as the
+    standard `g²`. It is kept for the record. The Prop takes `A` as a parameter
+    either way.
 
 ### Two-loop calibration (paper, SU(2))
 
 `b0 = 11/(24 π²)`, `b1 = 17/(96 π⁴)`, `a Λ = (b0 g²)^(-b1/(2b0²)) e^(-1/(2 b0 g²))`.
-With `1/g² = u/4 + O(1)`, `u = 1/(1-w)`, bounded `L_j = 2^j a(w_j)` iff
-`A u_j = j + κ log₂ j + O(1)`, with
-`A = 1/(8 b0 ln 2) = 3.883317…` and `κ = b1/(2 b0²) = 51/121 = 0.421487…`
-(python check on the box). Equivalently `1 − w_j ≈ 3.883/j`. The `O(g⁴)` in
-`g² = 4(1-w) + O((1-w)²)` shifts `u` by `O(1)`, absorbed in `C`; `lg2 j` is
-within 1 of `log₂ j`, also absorbed.
+*(Updated 2026-10-06 for the standard coupling.)*
+- In the standard coupling, `1/g² = u/8 + O(1)` with `u = 1/(1-w)`.
+- Bounded `L_j = 2^j a(w_j)` holds iff `A u_j = j + κ log₂ j + O(1)`, with
+  `A = 1/(16 b0 ln 2) = 24π²/(176 ln 2) = 1.941659…` and
+  `κ = b1/(2 b0²) = 51/121 = 0.421487…`. Equivalently `1 − w_j ≈ 1.942/j`.
+- Under the label convention `1/t = u/4 + O(1)`, the same algebra gives
+  `1/(8 b0 ln 2) = 3.883317…`. That was the value stated here originally (python
+  check on the box). It is not physical, since `b0` refers to the standard `g²`.
+- `κ` is convention-independent.
+- The `O(g⁴)` corrections shift `u` by `O(1)`, absorbed in `C`. `lg2 j` is within
+  1 of `log₂ j`, also absorbed.
 
 Honest caveat: `A = 1/(8 b0 ln 2)` is irrational, while the Prop's `A : Q'`. A
 rational `A ≠ A_phys` with error `ε` makes `L_j` drift like `exp(O(ε j))`; so

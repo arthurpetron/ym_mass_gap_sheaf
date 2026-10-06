@@ -29,7 +29,7 @@ formal statement would not solve the mathematical problem.
 
 AF-CALIBRATED PADDED TRAJECTORY (2026-10-06 UTC):
 Checked: dyadicNomeSchedule is NOT AF-calibrated; `afNomeSchedule` (rational,
-two-loop shape, kappa = 51/121, A = 3.883; carrier convention g^2 = t = -4 log w; in the standard coupling normalization (Wilson-matched, g^2 = -8 log w) the calibrated constant is A ~ 1.94, under which 3.883 is NOT physically calibrated; no Lean conclusion depends on A) is; the A03 package on
+two-loop shape, kappa = 51/121; A = 1942/1000 ~ 1/(16 b0 ln2) in the STANDARD coupling g^2 = -8 log w; the carrier heat-kernel time is t = -4 log w, which the repo only labels g^2; b0, b1 refer to the standard g^2; two-loop shape only, floor-log2 surrogate, C = 4 a choice, no concrete a(w); no Lean conclusion depends on A) is; the A03 package on
 `afPaddedZeroMomentumTrajectory` needs only `PathShiftedWindowSurvival`.
 Paper note: window survival is a quantitative continuum-scaling statement
 (correlation length in lattice units >~ side, in growing physical volume),
@@ -66,8 +66,8 @@ fl_j<=R_j(side_j) => A03 package for alpha_j T^(side_j) Y_j). Unshifted
 box-kernel H1 (`PathEpsBound`) and H2 (`PathFamilyRadiusSurvival`) are
 heuristically FALSE (free-field UV weight rho~E^4, numerics eps~0.95), not
 proved false; deprioritized. NEXT: prove `PathShiftedEpsBound` on an
-AF-calibrated schedule (`NomeScheduleAFCalibrated`, A=1/(8 b0 ln2)~3.88 with
-the repo's g^2=-4 log w), where it is heuristically plausible (eps~1.9/side)
+AF-calibrated schedule (`NomeScheduleAFCalibrated`, A=1/(16 b0 ln2)~1.94 in the
+standard g^2=-8 log w; 3.88 was the value under the repo LABEL g^2=t=-4 log w), where it is heuristically plausible (eps~1.9/side)
 but OPEN; the screen side_j(1-r_j)<=c0 persists. Evidence:
 `audits/AUDIT-SHIFTED-H1-ANCHOR-2026-10-05.md`.
 

@@ -57,11 +57,12 @@ The repo measures physical length in units of `L`, with
 - On paper, two-loop running gives `1 − w_j ≈ A/(j + κ log₂ j + C)` with
   `κ = 51/121`. In the standard coupling normalization the heat-kernel carrier needs
   **`A ≈ 1.942`** (caveat box in `audits/AUDIT-AF-PADDED-TRAJECTORY-2026-10-06.md`).
-  With the checked `afNomeSchedule` (`A = 3.883`) the box would grow like about
-  `2^{j/2}`, so it is NOT a fixed-volume schedule.
+  Through `c0ffb7f6` the checked `afNomeSchedule` used `A = 3.883`, with which the box
+  would grow like about `2^{j/2}`. It was recalibrated to `A = 1942/1000` on
+  2026-10-06.
 - The offset `C` sets `L` in units of `Λ⁻¹`. A small physical box (`g²(L)` small)
   means `C` large.
-- Any fixed-volume instance should use a recalibrated `A ≈ 1942/1000`. It stays
+- A fixed-volume instance can reuse the recalibrated `afNomeSchedule`. It stays
   calibrated only on paper: no Lean statement can say "physical" without a concrete
   `a(w)`.
 
@@ -299,7 +300,7 @@ does not reach it.
 | FV1 | `WidthedSmoothedTrajectory` structure (width, base, `side_lt_width`, `base_lt_width`), `familyVector`/`state`/`response`/`familyNorm`; instances `c·side+1` and (check) `trajWidth` | 120–180 | low |
 | FV2 | ports of the `…ShiftedH1Anchor` path layer: `PathShiftedEpsBound'`, `PathShiftedNondegenerate'`, `shiftedPathAnchor'`, `ShiftedAnchorPackage'`, `path_shifted_macroRatio'`, `path_shifted_anchor_floor'`, `path_normalized_anchor_shifted'` | 250–350 | low math; medium elaboration (large four-clause package term, heartbeats) |
 | FV3 | ports of the `…ShiftedWindowSurvival` path part and the `…ShiftedPaddedNondegenerate` path part: `PathShiftedWindowSurvival'`, `pathShiftedEpsBound_of_windowSurvival'`, `PathFacesPadded'`, `paddedNondegFloor'`, `pathShiftedNondegenerate_of_padded'`, `path_normalized_anchor_of_windowSurvival_padded'` | 120–180 | low |
-| FV4 | concrete instance: zero-momentum faces on `spatialFaces (c*side j)`, schedule with `A ≈ 1942/1000` (re-proving `NomeScheduleAFCalibrated` with the new constant) or reusing `afNomeSchedule`; headline `fv_path_normalized_anchor_of_windowSurvival` | 60–200 | low (numerics fiddly) |
+| FV4 | concrete instance: zero-momentum faces on `spatialFaces (c*side j)`, schedule: reuse the recalibrated `afNomeSchedule` (`A = 1942/1000`); headline `fv_path_normalized_anchor_of_windowSurvival` | 60–200 | low (numerics fiddly) |
 | total | | **≈ 550–900** | 5–7 monitored single-file checks |
 
 ### 5.2 Not Lean-scoped (paper / research)
@@ -346,10 +347,9 @@ does not reach it.
      with the anchor.
    - Possible ways around it: truncated smearing, `n_j ∝ side_j` with a different
      smearing kernel, or a periodic box. Each is a separate design decision.
-3. The `A` recalibration (`≈1.942`, §1.4) should be folded into the same step rather
-   than done as a separate edit.
+3. The `A` recalibration (`≈1.942`, §1.4) has since been done (2026-10-06) in
+   `BF4WilsonAllNomeAFPaddedTrajectory.lean`.
 
 ### 6.4 Nothing urgent now
-If darthur wants a tiny Lean step before the F decision, the only candidate is the
-recalibrated schedule (`A ≈ 1942/1000`). That is a new file and needs its own
-approval. It does not change any conclusion.
+The only small Lean step identified here, the recalibrated schedule
+(`A = 1942/1000`), has since been done. It does not change any conclusion.
