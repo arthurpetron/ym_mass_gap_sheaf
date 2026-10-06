@@ -1,5 +1,19 @@
 # Sorry Ledger
 
+## PROVED plumbing: Wilson-carrier gap retarget, mixRate contraction in gap-branch shapes (2026-10-06 PT)
+
+New leaf `BF4WilsonAllNomeExprMixRateContraction`. No progress on the gap input.
+
+- `wilsonVacuumSqContraction_mixRate`: the all-vector Wilson squared-norm contraction at
+  mixRate < 1, for every w and width. This is a restatement of `completed_oneStep_norm_gap`.
+- `orbitContraction_of_vacuumSq`: all-vector ⇒ orbit.
+- `expr_orbitContraction_mixRate`: unconditional `ExprPathOrbitContraction`.
+- `exprCenteredContractionLower_mixRate`: the only open field is m·2^-j ≤ 1 − mixRate_j
+  (the mass gap).
+- Scope note SCOPE-WILSON-CARRIER-GAP-RETARGET-2026-10-06.md: retarget feasible, needs
+  X1 (plumbing), X2 (open lower rate) and X3 (B05 observable pin and GNS re-pointing).
+- Axioms {propext, Quot.sound}.
+
 ## PROVED packaging: two-sided band (step ratio + lower contraction) => A03 + B04-shaped band (2026-10-06 PT)
 
 New leaf `BF4WilsonAllNomeExprTwoSidedBand`. PACKAGING ONLY; no progress on either input.

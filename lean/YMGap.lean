@@ -7321,6 +7321,9 @@ import YMGap.Continuum.BF4WilsonAllNomeExprConvexitySandwich
 -- PACKAGING ONLY: step ratio + lower orbit contraction => A03 + B04-shaped two-sided band;
 -- B04 handoff is rational bookkeeping (cube<->Wilson bridge OPEN). No progress on inputs.
 import YMGap.Continuum.BF4WilsonAllNomeExprTwoSidedBand
+-- RETARGET PLUMBING: Wilson all-nome strict contraction (mixRate) in the gap-branch shapes;
+-- unconditional Expr orbit contraction; lower margin (mass gap) still OPEN.
+import YMGap.Continuum.BF4WilsonAllNomeExprMixRateContraction
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport
