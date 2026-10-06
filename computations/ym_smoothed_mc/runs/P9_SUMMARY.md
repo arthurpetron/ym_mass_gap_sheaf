@@ -50,3 +50,9 @@ Scripts: `ana/p9_sector.py`, `ana/p9_p8hi_bins.py`, `ana/p9_full.py`, `ana/p9_ra
 ## 5. Raw vs smoothed on P7 Ls=48
 - Cheap, done: the raw side-8 loop drowns at lag 2 (m_eff(0) = 3.16(27)).
 - Smoothed m_eff at rho=1: 0.404(15) → 0.268(31) over n=0..4, falling slowly with no clean plateau, as at Ls=32.
+
+## 6. Multilevel pilot (see `P9_MULTILEVEL_PILOT.md`)
+- d=4, nsub=40, interior-pairs estimator. Equal-cost VRF vs direct is about 1–2 at n ≤ 2 and 7–30 at n ≥ 3. For W(Y_j) it is **11 (s=2) and 8 (s=3)**.
+- The 37-min pilot gives W(Y_j, s=2) = **0.112(25)**.
+- Hours to ±0.02: about **1 h (s=2)** and **4 h (s=3)** on 2 threads; side 4 about 100 h (denominator ≈ 0).
+- Not launched. Plan: one run, d=4, nsub 40/100, 4 threads, about 3–4 h.

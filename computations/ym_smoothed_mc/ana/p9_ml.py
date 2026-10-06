@@ -40,7 +40,7 @@ res = {k: analyze(Am, Bm, Q) for k, (Am, Bm, Q, n) in est.items()}
 interval = h['interval']; ts = np.median(tl0)/interval; tsu = np.median(tsub)/max(ns); f_sub = 1 - 3/(4*d); tmeas = max(tsu - f_sub*ts, 0.0)
 cost = {k: (np.median(tl0) + (n or 0)*tsu) for k, (Am, Bm, Q, n) in est.items()}
 L = [f"# P9 multilevel pilot — {time.strftime('%Y-%m-%d %H:%M %Z')}\n", f"run `{A.rundir}`: {h['Ls']}^3x{Lt}, beta {h['beta']}, slab thickness d={d} (frozen spatial links on t % {d} == 0), nsub checkpoints {ns}, interval {interval}, N={N} configs (skip {A.skip}), bins of {B}.",
-     f"Timing (2 threads): full sweep {ts:.3f} s, sub-update+plaquette measurement {tsu:.3f} s (sub-sweep fraction {f_sub:.2f} of links; measurement ≈ {tmeas:.3f} s).\n"]
+     f"Timing (this run's thread count; d4: 2, d3: 1): full sweep {ts:.3f} s, sub-update+plaquette measurement {tsu:.3f} s (sub-sweep fraction {f_sub:.2f} of links; measurement ≈ {tmeas:.3f} s).\n"]
 # direct reference from an independent pure direct chain (e.g. p8_hi): per-meas cost = interval sweeps + one measurement
 if A.direct:
     hd, pl, Es, O = load(A.direct); Pd = O[200:, 0, hd['sides'].index(1)].mean(1); Md = np.repeat(Pd.mean(1)[:, None], nq+1, 1); Qd = np.stack([(Pd*np.roll(Pd, -n, axis=1)).mean(1) for n in range(nq+1)], 1)
