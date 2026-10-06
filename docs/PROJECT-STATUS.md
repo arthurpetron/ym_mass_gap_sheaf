@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting A03 on an AF-CALIBRATED schedule (2026-10-06 UTC):
+the dyadic interface schedule is proved NOT AF-calibrated; a concrete rational
+schedule 1-w_j = 3.883/(j + (51/121) lg2 j + 4) is proved AF-calibrated, and on
+its padded trajectory the A03 package needs only `PathShiftedWindowSurvival`
+(`af_path_normalized_anchor_of_windowSurvival`). The calibration is not used
+by any Lean conclusion; it only places the open input on the physically
+relevant schedule. Window survival stays OPEN: spectrally it is a lower bound
+on correlations at lag ~side (lattice correlation length >~ side), false at
+fixed coupling and beyond known rigorous methods (paper note
+`audits/MATH-NOTE-WINDOW-SURVIVAL-ROUTES-2026-10-06.md`). Evidence:
+`audits/AUDIT-AF-PADDED-TRAJECTORY-2026-10-06.md`.
+Supporting A03 only; exact chart unchanged, no ASCII reprint.
+
 Verified supporting A03 NONDEGENERACY under padding (2026-10-06 UTC):
 `PathShiftedNondegenerate` is closed for the current Y_j under the padding
 hypothesis faces j ⊆ spatialFaces(side_j^2)

@@ -12,6 +12,15 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Checked AF-calibrated padded trajectory (2026-10-06 UTC):**
+`BF4WilsonAllNomeAFPaddedTrajectory` proves `dyadicNomeSchedule` is NOT
+AF-calibrated (for any constants), builds a rational AF-calibrated schedule
+(1-w_j = 3.883/(j + (51/121) lg2 j + 4), `afNomeSchedule_AFCalibrated`), and the
+padded trajectory on it with nondegeneracy and the A03 package conditional
+only on OPEN `PathShiftedWindowSurvival`. Monitored check, axioms {propext,
+Quot.sound}; see `audits/AUDIT-AF-PADDED-TRAJECTORY-2026-10-06.md` and the paper
+note `audits/MATH-NOTE-WINDOW-SURVIVAL-ROUTES-2026-10-06.md`.
+
 **Checked padded nondegeneracy (2026-10-06 UTC):**
 `BF4WilsonAllNomeShiftedPaddedNondegenerate` discharges
 `PathShiftedNondegenerate` for the current Y_j under `PathFacesPadded`

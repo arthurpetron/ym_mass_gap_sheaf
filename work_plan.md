@@ -27,6 +27,18 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-04 UTC)
 
+AF-CALIBRATED PADDED TRAJECTORY (2026-10-06 UTC):
+Checked: dyadicNomeSchedule is NOT AF-calibrated; `afNomeSchedule` (rational,
+two-loop shape, kappa = 51/121, A = 3.883) is; the A03 package on
+`afPaddedZeroMomentumTrajectory` needs only `PathShiftedWindowSurvival`.
+Paper note: window survival is a quantitative continuum-scaling statement
+(correlation length in lattice units >~ side, in growing physical volume),
+false at fixed coupling, out of reach of known methods; a fixed-physical-volume
+carrier width (~side instead of side^2) is the one direction that might bring
+it near Balaban-type control. Evidence:
+`audits/AUDIT-AF-PADDED-TRAJECTORY-2026-10-06.md`,
+`audits/MATH-NOTE-WINDOW-SURVIVAL-ROUTES-2026-10-06.md`.
+
 NONDEGENERACY CLOSED UNDER PADDING (2026-10-06 UTC):
 Checked: `pathShiftedNondegenerate_of_padded` (faces j ⊆ spatialFaces(side_j^2))
 with a per-j floor rho^(2M+side)*varianceFloor*sum c^2; concrete padded

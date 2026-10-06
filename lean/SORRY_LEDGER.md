@@ -1,5 +1,29 @@
 # Sorry Ledger
 
+## PROVED dyadic schedule not AF-calibrated; AF-calibrated padded trajectory; OPEN window survival (2026-10-06 UTC)
+
+`BF4WilsonAllNomeAFPaddedTrajectory` proves `dyadic_not_AFCalibrated`:
+NOT `NomeScheduleAFCalibrated dyadicNomeSchedule A kappa C` for ALL A, kappa, C
+(explicit witness scale j = 2 den(A)(2+2|kappa.num|+|C.num|), rational
+Archimedean bounds). It constructs `afNomeSchedule`
+(1-w_j = A/(j + (51/121) floor(log2(j+1)) + 4), A = 3883/1000, rational;
+nome_pos/lt_one/mono, explicit limit modulus 4 den(eps)) with
+`afNomeSchedule_AFCalibrated` (C = 4, upper side exact) and
+`afPaddedZeroMomentumTrajectory` (padded zero-momentum faces on this
+schedule) with padding, nondegeneracy, and
+`af_path_normalized_anchor_of_windowSurvival`: the A03 package conditional
+ONLY on OPEN `PathShiftedWindowSurvival afPaddedZeroMomentumTrajectory theta`
+(plus scalars; concrete theta = 1/2 corollary). No Lean theorem consumes the
+calibration (cosmetic for the conclusions; it matters only for the
+plausibility of window survival). `NomeSchedulePhysicalBox` not addressed: no
+concrete a(w) in the repo. Wilson-action matching caveat on A (~1.94 vs 3.88)
+stands. Paper note `audits/MATH-NOTE-WINDOW-SURVIVAL-ROUTES-2026-10-06.md`:
+window survival = a fixed fraction of the shifted spectral weight at
+1-lambda <~ C/side (lattice correlation length >~ side), FALSE at any fixed
+coupling (strong coupling check), out of reach of known methods. Evidence:
+`audits/AUDIT-AF-PADDED-TRAJECTORY-2026-10-06.md`. No sorry or axiom. Root
+registration only.
+
 ## DISCHARGED `PathShiftedNondegenerate` for the current Y_j under padding (2026-10-06 UTC)
 
 `BF4WilsonAllNomeShiftedPaddedNondegenerate` proves

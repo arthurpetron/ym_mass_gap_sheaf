@@ -7285,6 +7285,9 @@ import YMGap.Continuum.BF4WilsonAllNomeShiftedWindowSurvival
 -- PathShiftedNondegenerate for the current Y_j under padding (faces in
 -- spatialFaces(side^2)): floor rho^(2M+side)*varianceFloor*sum c^2; concrete instance.
 import YMGap.Continuum.BF4WilsonAllNomeShiftedPaddedNondegenerate
+-- dyadicNomeSchedule is NOT AF-calibrated (proved); concrete rational AF schedule
+-- 1-w_j = A/(j+(51/121)lg2 j+4); AF padded trajectory, A03 package from window survival.
+import YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport
