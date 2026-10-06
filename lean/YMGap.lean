@@ -7282,6 +7282,9 @@ import YMGap.Continuum.BF4WilsonAllNomeShiftedH1Anchor
 -- Shifted H1 from backward-window survival theta R(side/2) <= R(side+1):
 -- convexity telescope (m(k,2) >= 0), c0 = 2(1-theta)/theta; OPEN window survival.
 import YMGap.Continuum.BF4WilsonAllNomeShiftedWindowSurvival
+-- PathShiftedNondegenerate for the current Y_j under padding (faces in
+-- spatialFaces(side^2)): floor rho^(2M+side)*varianceFloor*sum c^2; concrete instance.
+import YMGap.Continuum.BF4WilsonAllNomeShiftedPaddedNondegenerate
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport

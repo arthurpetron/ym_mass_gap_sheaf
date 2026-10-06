@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting A03 NONDEGENERACY under padding (2026-10-06 UTC):
+`PathShiftedNondegenerate` is closed for the current Y_j under the padding
+hypothesis faces j ⊆ spatialFaces(side_j^2)
+(`pathShiftedNondegenerate_of_padded`; floor
+rho_j^(2M_j+side_j)*varianceFloor(w_j)*sum c^2, qualitative, per j), and a
+concrete padded trajectory exists. The A03 package now needs only
+`PathShiftedWindowSurvival`, which remains OPEN and is the frontier; the floor
+gives no survival information. Evidence:
+`audits/AUDIT-SHIFTED-PADDED-NONDEGENERATE-2026-10-06.md`.
+Supporting A03 only; exact chart unchanged, no ASCII reprint.
+
 Verified supporting A03 reduction of SHIFTED H1 to WINDOW SURVIVAL (2026-10-06 UTC):
 a moment-only compiler (convexity of R: m(k,2) >= 0) shows backward-window
 survival theta*R_j(side_j/2) <= R_j(side_j+1) gives the shifted H1 with

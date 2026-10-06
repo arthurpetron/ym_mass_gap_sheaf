@@ -12,6 +12,16 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Checked padded nondegeneracy (2026-10-06 UTC):**
+`BF4WilsonAllNomeShiftedPaddedNondegenerate` discharges
+`PathShiftedNondegenerate` for the current Y_j under `PathFacesPadded`
+(faces j ⊆ spatialFaces(side_j^2)), with floor
+rho_j^(2M_j+side_j)*varianceFloor(w_j)*sum c^2 (per-j, exponentially small;
+consumers need only positivity per j). Concrete padded instance
+`paddedZeroMomentumTrajectory`. Window survival stays OPEN. Monitored check,
+axioms {propext, Quot.sound}; see
+`audits/AUDIT-SHIFTED-PADDED-NONDEGENERATE-2026-10-06.md`.
+
 **Checked shifted-H1 window-survival compiler (2026-10-06 UTC):**
 `BF4WilsonAllNomeShiftedWindowSurvival` proves the convexity telescope
 R(p+n+1) + (n+1)(R(p+n)-R(p+n+1)) <= R(p) from the existing mixed moments and

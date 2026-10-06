@@ -1,5 +1,31 @@
 # Sorry Ledger
 
+## DISCHARGED `PathShiftedNondegenerate` for the current Y_j under padding (2026-10-06 UTC)
+
+`BF4WilsonAllNomeShiftedPaddedNondegenerate` proves
+`pathShiftedNondegenerate_of_padded : PathFacesPadded tr ->
+PathShiftedNondegenerate tr (paddedNondegFloor tr)`, where
+`PathFacesPadded tr` is faces j ⊆ spatialFaces(side_j^2) (one layer inside
+trajWidth j = side_j^2 + 1) and
+`paddedNondegFloor tr j = rho_j^(2 M_j + side_j) * varianceFloor(w_j) * sum_p c_j(p)^2`,
+rho_j = familyResponseFraction(w_j, |faces j|). Chain: variance floor on the
+unsmoothed family, `family_time_geometric_floor` (needs the padding), and the
+new lag-n box bound `smoothedResponse_ge_family_response`
+R_x(2M+n) <= R_Y(n) (the kernel is one-sided, lags 0..M, so the maximal orbit
+lag is exactly 2M+n; `response_le_of_le` is antitone). All consumers
+(`path_shifted_macroRatio`, `path_shifted_anchor_floor`,
+`path_normalized_anchor_shifted`, `path_normalized_anchor_of_windowSurvival`,
+`path_shiftedEps_forces_rate`) use fl per j only, so the exponentially small
+floor suffices. Padding is satisfiable: concrete
+`paddedZeroMomentumTrajectory` (dyadicNomeSchedule, radiusFactor 1, all faces
+of spatialFaces(side_j^2), coeff 1) with `paddedZeroMomentum_nondegenerate`.
+The full-width zero-momentum family spatialFaces(trajWidth j) is NOT padded.
+`path_normalized_anchor_of_windowSurvival_padded`: the A03 package now needs
+only OPEN `PathShiftedWindowSurvival` (plus hpad). Window survival remains the
+frontier; this floor gives no survival information. Evidence:
+`audits/AUDIT-SHIFTED-PADDED-NONDEGENERATE-2026-10-06.md`. No sorry or axiom.
+Root registration only.
+
 ## PROVED window-survival => shifted H1 compiler; OPEN backward-window survival (2026-10-06 UTC)
 
 `BF4WilsonAllNomeShiftedWindowSurvival` proves, moment-only on the SAME

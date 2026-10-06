@@ -27,6 +27,15 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-04 UTC)
 
+NONDEGENERACY CLOSED UNDER PADDING (2026-10-06 UTC):
+Checked: `pathShiftedNondegenerate_of_padded` (faces j ⊆ spatialFaces(side_j^2))
+with a per-j floor rho^(2M+side)*varianceFloor*sum c^2; concrete padded
+trajectory exists. With padding, the A03 package needs only
+`PathShiftedWindowSurvival` (`path_normalized_anchor_of_windowSurvival_padded`).
+NEXT is unchanged: window survival (OPEN). Generic floors G1-G8 for a smeared
+anchor are ON HOLD pending the anchor-switch decision. Evidence:
+`audits/AUDIT-SHIFTED-PADDED-NONDEGENERATE-2026-10-06.md`.
+
 NOW REDUCED: SHIFTED H1 <= BACKWARD-WINDOW SURVIVAL (2026-10-06 UTC):
 Checked: theta*R_j(side_j/2) <= R_j(side_j+1) gives `PathShiftedEpsBound` with
 c0 = 2(1-theta)/theta (moment-only convexity compiler), hence the A03 package
