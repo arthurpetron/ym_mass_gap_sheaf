@@ -7318,6 +7318,9 @@ import YMGap.Continuum.BF4WilsonAllNomeExprPropagatedEnergy
 -- REFORMULATION ONLY: convexity sandwich, early window <=> late step ratio (factor-2 lag
 -- shift, constants lost); package corollary. No progress on the open bounded-rate input.
 import YMGap.Continuum.BF4WilsonAllNomeExprConvexitySandwich
+-- PACKAGING ONLY: step ratio + lower orbit contraction => A03 + B04-shaped two-sided band;
+-- B04 handoff is rational bookkeeping (cube<->Wilson bridge OPEN). No progress on inputs.
+import YMGap.Continuum.BF4WilsonAllNomeExprTwoSidedBand
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport

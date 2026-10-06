@@ -271,3 +271,49 @@ Constants (honest):
 
 Build: 1 module, ~10 s wall, on the box under the usual caps. All 11 declarations are
 `[propext, Quot.sound]`. No warnings. `executable_forbidden_hits 0`.
+
+## 15. Two-sided band: step ratio + lower contraction ⇒ A03 + B04-shaped band (PACKAGING ONLY)
+
+Module: `lean/YMGap/Continuum/BF4WilsonAllNomeExprTwoSidedBand.lean` (new leaf).
+
+This is reformulation/packaging only. It makes NO progress on the nontriviality input (the
+bounded step ratio) or on the gap input (the centered contraction with a lower margin).
+Both stay OPEN.
+
+**B04 shape found.** B04l consumes
+`DynamicVacuumSectorPhysicalRateBand (trajectoryDynamicFamily ns gap)`. Its fields are
+`floor, ceiling > 0` and `floor·2^-j ≤ 1 − (gap j).rate ≤ ceiling·2^-j`, where:
+- `gap j : CentralPhysicalVacuumSectorCylinderCompletedStrictContractionData` is an
+  ALL-VECTOR contraction on the SU(2) extent-one CUBE carrier;
+- the open Prop `PathPhysicalContractionBand` is equivalent to this band.
+
+**Expr-layer statements:**
+- `ExprCenteredContractionLower tr r m` (OPEN):
+  - `ExprPathOrbitContraction tr r`, an orbit contraction of the centered anchor;
+  - `0 ≤ r_j ≤ 1`;
+  - `0 < m` and `m·spacing_j ≤ 1 − r_j`.
+- `lower_side_form` / `upper_spacing_form` convert between the spacing and side forms;
+  `small_scale_upper` covers small scales.
+- `ExprPhysicalRateBand r` is field-for-field B04l's band, with rate `r_j` and spacing `2^-j`.
+- `expr_twoSidedBand_package`. Hypotheses: those of
+  `expr_normalized_anchor_of_hvar_hray_stepRatio_anyC` (a step ratio with
+  `side_j(1−ρ'_j) ≤ c ≤ C` at `k_j ≤ side_j/2`, including `k_j = side_j/2`) plus
+  `ExprCenteredContractionLower tr r m`. Conclusions:
+  - A03;
+  - the two-sided bound `m ≤ side_j(1−r_j) ≤ 2^(2C+3)` for `j ≥ max(2,j0)`. The upper half
+    comes from the compatibility theorem `expr_stepRatio_forces_rate_anyC`;
+  - the NECESSARY consistency condition `m ≤ 2^(2C+3)`;
+  - the band `exprTwoSidedBand`, with floor `m` and ceiling `2^(2C+3) + 2^(j0+2)`, at ALL
+    scales.
+- `b04Band_of_exprBand`: B04l's exact input, given ANY cube gap family with
+  `(gap j).rate = r_j`. This is rational bookkeeping, NOT a bridge.
+
+**Gap to B04, precisely:**
+- (i) a cube contraction at every `w_j` (`PathCubeContraction`; the producer covers only
+  `w ≤ 1/2`);
+- (ii) the cube↔Wilson bridge identifying the transfers (see
+  `audits/SCOPE-CUBE-WILSON-CARRIER-BRIDGE-2026-10-06.md`; verdict: needs analytic input);
+- (iii) the Expr input is an orbit contraction, which is weaker than B04's all-vector one.
+
+Build: ~12 s wall, under a 4.5 GiB MemAvailable reserve. All 9 declarations are
+`[propext, Quot.sound]` (`ExprPhysicalRateBand` uses no axioms). No warnings.

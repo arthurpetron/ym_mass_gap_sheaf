@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED packaging: two-sided band (step ratio + lower contraction) => A03 + B04-shaped band (2026-10-06 PT)
+
+New leaf `BF4WilsonAllNomeExprTwoSidedBand`. PACKAGING ONLY; no progress on either input.
+
+- `expr_twoSidedBand_package`: the step ratio (c ≤ C, lag ≤ side/2) together with
+  `ExprCenteredContractionLower tr r m` (orbit contraction, m·2^-j ≤ 1−r_j) give:
+  - A03;
+  - m ≤ side_j(1−r_j) ≤ 2^(2C+3) for j ≥ max(2, j0);
+  - the necessary condition m ≤ 2^(2C+3);
+  - an all-scale `ExprPhysicalRateBand` (field-for-field B04l's band).
+- `b04Band_of_exprBand` yields B04l's `DynamicVacuumSectorPhysicalRateBand
+  (trajectoryDynamicFamily ..)` from a cube gap family with matching rates. This is rational
+  bookkeeping only.
+- OPEN:
+  - `PathCubeContraction` for w > 1/2;
+  - the cube<->Wilson bridge (scope note SCOPE-CUBE-WILSON-CARRIER-BRIDGE-2026-10-06.md:
+    needs analytic input);
+  - the all-vector vs orbit contraction gap.
+- Axioms {propext, Quot.sound}. Audit §15.
+
 ## PROVED reformulation: convexity sandwich, early window ⇔ late step ratio (2026-10-06 PT)
 
 New leaf `BF4WilsonAllNomeExprConvexitySandwich`. REFORMULATION ONLY; no progress on the input.
