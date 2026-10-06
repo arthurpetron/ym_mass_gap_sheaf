@@ -16,6 +16,7 @@ Honest limits:
   `w_j → 1` and leaves the window; also a constant rate fails the B04 upper half
   on unbounded side_j (`constant_rate_not_all_scale_upper`, proved).
 - No progress on Clay / AF weak-coupling producer. Doeblin dead end unchanged.
+Unconditional non-vacuity at pilot nome w=1/1024 (`existingNome_package_nonvacuous`). Union↔all-nome bridge scoped as not finite algebra (`SCOPE-UNION-ALLNOME-CARRIER-BRIDGE-2026-10-06.md`); no transport of the 1/16 rate to `WilsonVacuumSqContraction`.
 Evidence: `audits/SCOPE-WILSON-STRONG-COUPLING-UNIFORM-RATE-2026-10-06.md`.
 Exact chart unchanged, no ASCII reprint.
 

@@ -1,5 +1,16 @@
 # Sorry Ledger
 
+## PROVED: unconditional strong-coupling non-vacuity at w=1/1024; Union↔all-nome bridge scoped (2026-10-06 PT)
+
+- `existingNome_package_nonvacuous` (`BF4WilsonStrongCouplingUniformRate`): at pilot nome
+  `invSucc 1023 = 1/1024`, all three Descent guards discharged via `existingNome_guards` and
+  `existingNome_entropyRate`; contraction + dyadic lower margin with NO free hypotheses.
+- Scope note `SCOPE-UNION-ALLNOME-CARRIER-BRIDGE-2026-10-06.md`: UnionCompletion and
+  all-nome Completion are NOT the same object; bridge is not finite algebra (different
+  dense cores, nome regimes, forms, transfers). No WilsonVacuumSqContraction transport.
+- Still cannot feed AF theorem (constant-rate upper-half obstruction + window exit).
+- Axioms {propext, Quot.sound}.
+
 ## PROVED interface test: strong-coupling width-uniform Descent rate (2026-10-06 PT)
 
 New leaf `BF4WilsonStrongCouplingUniformRate`.

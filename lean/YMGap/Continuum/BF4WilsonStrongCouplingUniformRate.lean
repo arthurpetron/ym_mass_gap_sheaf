@@ -23,15 +23,25 @@ What is proved here:
 
 What is NOT proved:
 * `WilsonVacuumSqContraction` on the all-nome literal-width `Completion`. Descent lives on
-  `UnionCompletion`. The carrier bridge is OPEN.
+  `UnionCompletion`. The carrier bridge is NOT finite algebra (different dense cores, nome
+  regimes, forms, and transfers); see
+  `audits/SCOPE-UNION-ALLNOME-CARRIER-BRIDGE-2026-10-06.md`. No transport is claimed.
 * Any witness of `WilsonAFPaddedGapInput` on AF: every `NomeSchedule` has `w_j → 1` and leaves
-  the strong-coupling window.
+  the strong-coupling window; the constant-rate upper-half obstruction also applies.
+
+Unconditional non-vacuity (this pass): at the pilot nome `w = invSucc 1023 = 1/1024`, all
+three Descent guards are discharged by `existingNome_guards` and `existingNome_entropyRate`,
+so the contraction + lower-margin package holds with NO free hypotheses
+(`existingNome_package_nonvacuous`).
 
 Constructive, no external library; axioms `propext`, `Quot.sound` only.
 -/
 
 import YMGap.Continuum.BF4WilsonDescentCompletedGap
 import YMGap.Continuum.BF4ExactSlabFixedSpatialCubeSmallFundamentalCap
+import YMGap.Continuum.BF4ExactSlabPlaquetteSmallNomeCertificate
+import YMGap.Continuum.BF4ExactSlabSmallNomeHaarComparison
+import YMGap.Continuum.BF4ExactSlabSummableCoreRate
 import YMGap.Continuum.BF4DyadicWilsonSquare
 import YMGap.Continuum.ClusteringImpliesGap
 import YMGap.Continuum.LocatedSpectralGap
@@ -57,6 +67,10 @@ open YMGap.Continuum.BF4WilsonDescentCompletedGap (oneStep_norm_gap)
 open YMGap.Continuum.BF4DyadicWilsonSquare (side spacing)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialCubeSmallFundamentalCap
   (smallNome smallNome_pos)
+open YMGap.Continuum.BF4ExactSlabPlaquetteSmallNomeCertificate
+  (nome nome_pos nome_lt_one)
+open YMGap.Continuum.BF4ExactSlabSmallNomeHaarComparison (existingNome_guards)
+open YMGap.Continuum.BF4ExactSlabSummableCoreRate (existingNome_entropyRate)
 open YMGap.Continuum.ClusteringImpliesGap (exists_succ_mul_gt)
 open YMGap.Continuum (one_sub_pos_of_lt_one)
 
@@ -156,8 +170,9 @@ theorem smallNome_two_guards :
       heatRatio smallNome ≤ HalfPow.half ∧ heatRemainderBound smallNome < (1 : Q') :=
   ⟨smallNome_pos, smallNome_lt_one, smallNome_heatRatio, smallNome_heatRemainder⟩
 
-/-- Conditional non-vacuity at `smallNome`: given the entropy-rate guard, the full package
-inhabits. -/
+/-- Conditional non-vacuity at `smallNome = 1/16`: given the entropy-rate guard, the full
+package inhabits. Prefer `existingNome_package_nonvacuous` (no free hypotheses) at the
+pilot nome `1/1024`. -/
 theorem smallNome_package_of_entropy
     (hs : entropyRate 625 (adjustedCoreRate smallNome smallNome_heatRemainder) < (1 : Q')) :
     StrongCouplingVacuumSqContraction smallNome_pos smallNome_lt_one
@@ -165,6 +180,31 @@ theorem smallNome_package_of_entropy
       ((0 : Q') < strongCouplingMargin ∧
         ∀ j, strongCouplingMargin * spacing j ≤ strongCouplingMargin) :=
   strongCoupling_package_nonvacuous _ _ _ _ hs
+
+/-- Pilot nome `w = invSucc 1023 = 1/1024` (same as
+`BF4ExactSlabPlaquetteSmallNomeCertificate.nome`). -/
+def existingPilotNome : Q' := nome
+
+theorem existingPilotNome_eq : existingPilotNome = nome := rfl
+
+/-- **Unconditional non-vacuity** at `w = 1/1024`. All three Descent guards are discharged
+by `existingNome_guards` and `existingNome_entropyRate`; the contraction + dyadic lower
+margin package holds with NO free hypotheses. Template:
+`/workspace/reviews/scratch/SCNonVacuity.lean`. -/
+theorem existingNome_package_nonvacuous :
+    let w := existingPilotNome
+    ∃ (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+      (hsmall : heatRatio w ≤ HalfPow.half)
+      (hd : heatRemainderBound w < (1 : Q'))
+      (hs : entropyRate 625 (adjustedCoreRate w hd) < (1 : Q')),
+      StrongCouplingVacuumSqContraction hw0 hw1 hsmall hd hs strongCouplingTwoStepRate ∧
+        ((0 : Q') < strongCouplingMargin ∧
+          ∀ j, strongCouplingMargin * spacing j ≤ strongCouplingMargin) := by
+  intro w
+  exact ⟨nome_pos, nome_lt_one, existingNome_guards.1, existingNome_guards.2,
+    existingNome_entropyRate.2,
+    strongCoupling_package_nonvacuous nome_pos nome_lt_one
+      existingNome_guards.1 existingNome_guards.2 existingNome_entropyRate.2⟩
 
 /-! ## 4. Obstruction: constant rate ⇏ B04 upper half for all scales -/
 
@@ -202,6 +242,7 @@ theorem strongCoupling_rate_not_all_scale_upper (M : Q') :
 #print axioms strongCoupling_package_nonvacuous
 #print axioms smallNome_two_guards
 #print axioms smallNome_package_of_entropy
+#print axioms existingNome_package_nonvacuous
 #print axioms constant_rate_not_all_scale_upper
 #print axioms strongCoupling_rate_not_all_scale_upper
 
