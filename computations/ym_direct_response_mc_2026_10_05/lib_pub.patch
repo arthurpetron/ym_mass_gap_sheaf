@@ -1,0 +1,20 @@
+--- a/simulations/src/lib.rs
++++ b/simulations/src/lib.rs
+@@ -639,7 +639,7 @@
+ // ---------------------------------------------------------------------------
+ 
+ #[inline]
+-fn lget(links: &[Su2], site: usize, mu: usize) -> Su2 {
++pub fn lget(links: &[Su2], site: usize, mu: usize) -> Su2 {
+     links[site * DIM + mu]
+ }
+ 
+@@ -700,7 +700,7 @@
+ /// Reusable-buffer variant of `ape_smear_spatial`: writes one APE step from
+ /// `src` into `dst` (must be pre-sized to `src.len()`), avoiding the per-call
+ /// `Vec` allocation in the measurement hot loop.
+-fn ape_smear_spatial_into(src: &[Su2], dst: &mut [Su2], nb: &Neighbors, alpha: f64, threads: usize) {
++pub fn ape_smear_spatial_into(src: &[Su2], dst: &mut [Su2], nb: &Neighbors, alpha: f64, threads: usize) {
+     dst.copy_from_slice(src); // temporal links pass through unchanged
+     let vol = nb.vol;
+     let nthreads = threads.max(1).min(vol);

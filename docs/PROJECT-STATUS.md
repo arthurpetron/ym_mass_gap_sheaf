@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting route repoint to DIRECT RESPONSE (2026-10-05 UTC):
+Completed CS gives even log-convexity R(m+n)^2<=R(2m)R(2n); ONE survival
+floor kappa*R(0)<=R(2u) (side=2u) compiles exactly the normalized macro
+hratio; even Jensen/block compilers give kappa~4^(-c) from eps<=c/side.
+Screens: any budget is capped by twoStepRate^u (vacuous); observed loss is
+identity-only. Literal-square window budget fails numerically (MC kappa_b<0);
+smoothed zero-momentum survival ~0.10 along a fixed-size trajectory. Floor,
+family and continuum remain OPEN. Evidence: `audits/AUDIT-ROUTE-REPOINT-DIRECT-RESPONSE-2026-10-05.md`.
+Supporting A03 only; exact chart unchanged, no ASCII reprint.
+
 Verified supporting ORIGINAL family Rayleigh screen (2026-10-04 UTC):
 SAME odd law gives V<=4*N*S and, for distinct physical faces,
 lower(w)*V<=2400*upper(w)*N*E. Existing finite-reference acceptance requires

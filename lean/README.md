@@ -12,6 +12,15 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Checked completed log-convexity / survival compiler (2026-10-05 UTC):**
+`BF4WilsonAllNomeCompletedLogConvexity` proves completed Cauchy-Schwarz,
+R(m+n)^2<=R(2m)R(2n) and that one survival floor kappa*R(0)<=R(2u) yields the
+dyadic normalized macro `hratio`. `BF4WilsonAllNomeEvenResponseJensen` adds
+even Jensen and block compilers. `BF4WilsonAllNomeWindowBudgetRateScreen` and
+`BF4DyadicWilsonSquareObservedLossCircularity` are screens. Four sequential
+checks, axioms {propext, Quot.sound}. No floor or family supplied; see
+`audits/AUDIT-ROUTE-REPOINT-DIRECT-RESPONSE-2026-10-05.md`.
+
 **Checked ORIGINAL finite-family Rayleigh screen (2026-10-04 UTC):**
 The SAME odd-law variance cap V<=4*N*sum(c_p^2) joins the existing physical
 family energy floor. An accepted existing reference certificate must satisfy

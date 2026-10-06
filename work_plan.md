@@ -27,6 +27,17 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-04 UTC)
 
+NOW REPOINTED TO THE A03 DIRECT-RESPONSE ALTERNATIVE (2026-10-05 UTC):
+Checked compilers: completed log-convexity plus ONE survival floor
+kappa*R(0)<=R(2u), side=2u, gives the normalized macro hratio exactly; a
+relative two-step floor eps<=c/side gives kappa~4^(-c) via the block compiler.
+Endpoint-energy/Ward payments (identity-only), fixed-nome sign windows
+(need beta ~ 15.8*side), linear credit (rho<=4^(-size)), the literal-square
+window budget (MC kappa_b<0) and mixRate screens are deprioritized. NEXT: a
+survival or eps<=c/side floor for an explicit smoothed coherent state on an
+explicit fixed-physical-size trajectory (P3/P4); one-step CS and odd-lag
+Jensen. Evidence: `audits/AUDIT-ROUTE-REPOINT-DIRECT-RESPONSE-2026-10-05.md`.
+
 NOW CHECKED ACTUAL FINITE-FAMILY RAYLEIGH / REFERENCE SCREEN:
 The SAME odd law gives V<=4*N*sum(c_p^2). The existing physical Nodup
 family energy floor yields lower(w)*V<=2400*upper(w)*N*E. An accepted

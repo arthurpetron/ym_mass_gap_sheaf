@@ -1,5 +1,19 @@
 # Sorry Ledger
 
+## PROVED completed log-convexity, survival / Jensen compilers and route screens (2026-10-05 UTC)
+
+`BF4WilsonAllNomeCompletedLogConvexity.response_log_convex` proves
+R(m+n)^2<=R(2m)R(2n) on the completion; `dyadic_macro_ratio_of_survival_floor`
+turns kappa*R(0)<=R(2u) (side=2u) into the `hratio` of
+`normalizedAnchorResponse_block_floor`.
+`BF4WilsonAllNomeEvenResponseJensen.response_even_jensen` and
+`macro_ratio_of_block_energy` compile rho or (1-t) two-step floors.
+`BF4WilsonAllNomeWindowBudgetRateScreen.window_budget_rate_screen` caps any
+budget by twoStepRate^u; `BF4DyadicWilsonSquareObservedLossCircularity.
+observedLoss_energy_identity` shows observed-loss payments are identity-only.
+OPEN: the survival/relative-energy floor on a justified family, one-step
+(twisted) Cauchy-Schwarz and odd-lag Jensen. Evidence: `audits/AUDIT-ROUTE-REPOINT-DIRECT-RESPONSE-2026-10-05.md`.
+
 ## PROVED original finite-family Rayleigh floor / reference screen (2026-10-04 UTC)
 
 `BF4ExactSlabFixedSpatialFamilyRayleighFloor.family_oddVariance_coefficient_cap`
