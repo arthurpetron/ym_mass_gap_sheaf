@@ -7264,6 +7264,9 @@ import YMGap.Continuum.BF4WilsonAllNomeEvenResponseJensen
 -- Time-smoothed coherent family state (explicit radius M) on the SAME all-nome
 -- carrier; eps <= c0/side for it (SmoothedCoherentEpsBound) remains OPEN.
 import YMGap.Continuum.BF4WilsonAllNomeSmoothedCoherentState
+-- Twisted one-step CS, full log-convexity, odd Jensen and (1-delta)^k compiler;
+-- family radius survival / non-degrading smoothed floor remain OPEN Props.
+import YMGap.Continuum.BF4WilsonAllNomeOddResponseJensen
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport

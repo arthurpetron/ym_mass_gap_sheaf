@@ -1,5 +1,23 @@
 # Sorry Ledger
 
+## PROVED twisted CS / odd Jensen; OPEN family radius survival and non-degrading floor (2026-10-06 UTC)
+
+`BF4WilsonAllNomeOddResponseJensen.oneStep_cauchySchwarz` proves
+B(y,T1 z)^2<=B(y,T1 y)B(z,T1 z) via the completed square root;
+`response_odd_log_convex` and `response_log_convex_step` give
+R(k+1)^2<=R(k)R(k+2) for all k; `response_odd_jensen` gives rho^n R(0)<=R(n)
+from rho R(0)<=R(1); `macro_ratio_of_oneStep_block_energy` compiles
+L*E_1<=delta*R(0), s=L*k, into (1-delta)^k R(s)<=R(2s), and
+`smoothed_macroRatio_of_epsBound_odd` applies it to P3's open
+`SmoothedCoherentEpsBound` (delta=1/2 gives 4^-c0). Unconditional:
+`smoothedCoherent_norm_ge_family_response`, R_x(2M)<=B(Y_M,Y_M). OPEN named
+`Prop`s, consumed only: `FamilyRadiusSurvival M theta`, i.e.
+theta*B(x,x)<=B(x,T(2M)x), and `SmoothedCoherentNonDegradingFloor M v`;
+`smoothedFloor_of_familyRadiusSurvival` reduces the second to the first.
+NOTHING proves either for side-uniform theta/v (from a one-step floor only
+theta=rho^(2M)). Evidence: `audits/AUDIT-ODD-RESPONSE-JENSEN-2026-10-05.md`.
+No sorry, axiom, frontier, chart or resource change. Root registration only.
+
 ## OPEN named hypothesis: smoothed coherent eps <= c0/side (2026-10-06 UTC)
 
 `BF4WilsonAllNomeSmoothedCoherentState` builds the time-smoothed coherent state
