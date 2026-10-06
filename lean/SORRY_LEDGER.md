@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED window/gap NECESSARY compatibility condition (2026-10-06 UTC)
+
+`BF4WilsonAllNomeWindowGapCompatibility` (new leaf):
+- Generic and moment-only. If the orbit contraction
+  `B(T y, T y) <= r^2 B(y, y)` holds for y = T^k x, then
+  `theta R(p) <= R(s+1)` together with a positive floor under R(p) gives
+  `theta <= (r^2)^(floor((s+1)/2) - ceil(p/2))`.
+  - This is floor((s+1-p)/2) except when p is odd and s+1-p is even, where it is
+    one less: the parity step goes through antitonicity only.
+  - The sharp exponent in that case is TRUE on paper via log-convexity, but is not
+    formalized here.
+- Path form, j >= 2: `PathShiftedWindowSurvival` plus `PathShiftedNondegenerate`
+  plus `PathOrbitContraction` give
+  - `theta <= r_j^(side_j/2)`;
+  - `side_j (1 - r_j) <= C(theta) = 2(1-theta)/theta`, via cleared Bernoulli.
+- This is a NECESSARY compatibility condition only (side_j <~ correlation length).
+  It proves neither window survival nor a gap.
+- Monitored single-file check: exit 0; axioms {propext, Quot.sound}; no sorry.
+- Audit: `audits/AUDIT-WINDOW-GAP-COMPATIBILITY-2026-10-06.md`.
+
 ## Convention pass: Lean docstrings reconciled, 4-module chain rebuilt (2026-10-06 UTC)
 
 Docstring-only edits:

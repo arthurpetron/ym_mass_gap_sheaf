@@ -7288,6 +7288,9 @@ import YMGap.Continuum.BF4WilsonAllNomeShiftedPaddedNondegenerate
 -- dyadicNomeSchedule is NOT AF-calibrated (proved); concrete rational AF schedule
 -- 1-w_j = A/(j+(51/121)lg2 j+4); AF padded trajectory, A03 package from window survival.
 import YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory
+-- NECESSARY compatibility: window survival + orbit contraction r_j force
+-- theta <= r_j^(side_j/2), side_j(1-r_j) <= 2(1-theta)/theta; proves neither branch.
+import YMGap.Continuum.BF4WilsonAllNomeWindowGapCompatibility
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport
