@@ -112,3 +112,43 @@ and the `w ≤ 1/2` Gaussian tail).
 - `exprCenteredContractionLower_mixRate`.
 
 All are `[propext, Quot.sound]`.
+
+## X1 done: `BF4WilsonAllNomeWilsonDynamicFamily.lean` (PLUMBING; 2026-10-06 PT)
+
+This is additive; no cube-side file was touched. It makes NO progress on X2 or on the
+step-ratio input.
+
+What the module provides:
+- **`WilsonDynamicFamily`.** A mirror of the cube `DynamicVacuumSectorCompletedFamily`. The
+  cube `…StrictContractionData` slot is replaced by `rate`, `rate_nonnegative`,
+  `rate_lt_one`, and `contraction : WilsonVacuumSqContraction` (all-vector, Wilson carrier of
+  width `width j`).
+- **Margin and gap.** `latticeMargin`, `physicalGap`, `latticeMargin_pos`.
+- **Decay, re-proved on Wilson.** `completedAutocorrelation_sq_decay`, in the cube's exact
+  shape: `B(y,Tⁿy)² ≤ ((r·r)ⁿ B(y,y))·B(y,y)` on `VacuumComplement`. The proof uses
+  `iterated_of_vacuumSq` (the generic-rate analogue of `completed_iterated_norm_gap`), then
+  Cauchy–Schwarz.
+- **Family on the trajectory.** `exprWilsonFamily tr r …` lives on the SAME schedule and
+  widths as the Expr trajectory, with spacing `2^-j`. `exprMixRateFamily tr` is
+  unconditional, at `mixRate(w_j, width_j)`.
+- **Band as a Prop.** `WilsonPhysicalRateBand F := ∃ m M, WilsonLowerMargin F m ∧
+  WilsonUpperMargin F M`. Here `WilsonLowerMargin F m` is X2.
+- **Upper half without X2.** `wilsonUpper_of_stepRatio` derives the upper half from the
+  step ratio alone, via the cf08f0df compatibility.
+- **Capstone.** `wilsonGapBranch_of_stepRatio_lowerMargin` (any family on `tr`) and
+  `wilsonGapBranch_mixRate`.
+  - Open hypotheses:
+    - H-var, H-ray, and the step ratio (`ExprStepRatio`, `hc`, ranges of `ρ'`). These are
+      the 9d58a5df nontriviality bundle.
+    - X2.
+  - Everything else is an arithmetic parameter choice.
+  - Conclusions: A03, `WilsonPhysicalRateBand`, decay at every scale and every
+    vacuum-complement vector, and `m ≤ 2^(2C+3)`.
+
+Honest status:
+- On the gap side, X2 is the single open input.
+- The goal of "exactly one open analytic input" overall is NOT met. The nontriviality bundle
+  (H-var + H-ray + step ratio) is also open; it sits on the same carrier and trajectory.
+- At `mixRate`, X2 means `m·2^-j ≤ mixFraction_j`, which is not expected to hold. A sharper
+  Wilson rate producer may be needed; the generic capstone accepts any family.
+- **X3 TODO (J02-level).** A Wilson `ObservablePin`, OS/GNS re-pointing, and AF calibration.

@@ -7324,6 +7324,9 @@ import YMGap.Continuum.BF4WilsonAllNomeExprTwoSidedBand
 -- RETARGET PLUMBING: Wilson all-nome strict contraction (mixRate) in the gap-branch shapes;
 -- unconditional Expr orbit contraction; lower margin (mass gap) still OPEN.
 import YMGap.Continuum.BF4WilsonAllNomeExprMixRateContraction
+-- X1 PLUMBING: Wilson dynamic vacuum-sector family + decay + B04-shaped band (Prop);
+-- capstone open inputs: X2 lower margin + nontriviality bundle (H-var, H-ray, step ratio).
+import YMGap.Continuum.BF4WilsonAllNomeWilsonDynamicFamily
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport

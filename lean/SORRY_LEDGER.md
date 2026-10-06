@@ -1,5 +1,22 @@
 # Sorry Ledger
 
+## PROVED plumbing: X1, Wilson dynamic vacuum-sector family, decay, and B04-shaped band (2026-10-06 PT)
+
+New leaf `BF4WilsonAllNomeWilsonDynamicFamily`. No cube-side edits.
+
+- `WilsonDynamicFamily`: an all-vector Wilson squared-norm contraction in the rate slot.
+- `completedAutocorrelation_sq_decay`: the cube's shape, re-proved on Wilson.
+- `exprMixRateFamily`: unconditional, at mixRate.
+- `WilsonPhysicalRateBand` (Prop), split into `WilsonLowerMargin` (X2, OPEN) and
+  `WilsonUpperMargin`.
+- `wilsonUpper_of_stepRatio`: the upper half, without X2.
+- Capstones `wilsonGapBranch_of_stepRatio_lowerMargin` and `wilsonGapBranch_mixRate`.
+  - Open hypotheses: X2, plus the nontriviality bundle (H-var, H-ray, step ratio).
+  - Conclusions: A03, the band, the decay, and `m ≤ 2^(2C+3)`.
+- NO progress on X2 or on the nontriviality bundle.
+- X3 (ObservablePin, GNS) is a TODO.
+- Axioms {propext, Quot.sound}.
+
 ## PROVED plumbing: Wilson-carrier gap retarget, mixRate contraction in gap-branch shapes (2026-10-06 PT)
 
 New leaf `BF4WilsonAllNomeExprMixRateContraction`. No progress on the gap input.
