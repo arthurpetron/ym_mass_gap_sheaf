@@ -7330,6 +7330,9 @@ import YMGap.Continuum.BF4WilsonAllNomeWilsonDynamicFamily
 -- INSTANTIATION: Wilson gap branch on the AF-padded Y_j trajectory; open inputs exactly
 -- ExprStepRatio (bounded side(1-rho')) + WilsonLowerMargin (X2).
 import YMGap.Continuum.BF4WilsonAllNomeWilsonGapBranchAFPadded
+-- DEAD END (proved): X2 at the Doeblin mixRate fails on trAF for every m; restated gap
+-- frontier WilsonAFPaddedGapInput (some rate family) + generic afPadded capstone.
+import YMGap.Continuum.BF4WilsonAllNomeWilsonMixRateDeadEnd
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport

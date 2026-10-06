@@ -1,5 +1,21 @@
 # Sorry Ledger
 
+## PROVED dead end: X2 at the Doeblin mixRate is false on the AF-padded trajectory (2026-10-06 PT)
+
+New leaf `BF4WilsonAllNomeWilsonMixRateDeadEnd`.
+
+- `not_wilsonLowerMargin_mixRate_afPadded`: ¬ WilsonLowerMargin (exprMixRateFamily trAF) m,
+  for every m.
+  - It uses mixFraction ≤ (1/32)^width, uniformly in w, with width_j = 4^j + 1.
+  - The generic form is `not_wilsonLowerMargin_mixRate_of_width`.
+- Hence `wilsonGapBranch_afPadded` (937f9e38) is VACUOUS. Its docstring is marked; the
+  statement is unchanged.
+- Restated gap frontier: `WilsonAFPaddedGapInput` (some rate family with an all-vector
+  contraction and m·2^-j ≤ 1 − r_j), consumed by `wilsonGapBranch_afPadded_generic`.
+  It stays OPEN.
+- This concerns the computed Doeblin bound only, not the true gap.
+- Axioms {propext, Quot.sound}.
+
 ## PROVED instantiation: Wilson gap branch on the AF-padded Y_j trajectory (2026-10-06 PT)
 
 New leaf `BF4WilsonAllNomeWilsonGapBranchAFPadded`.

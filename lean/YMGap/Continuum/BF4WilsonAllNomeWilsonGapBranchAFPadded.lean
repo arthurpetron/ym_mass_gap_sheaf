@@ -1,6 +1,16 @@
 /-
 # Wilson gap branch on the AF-padded `Y_j` trajectory (INSTANTIATION; PLUMBING ONLY)
 
+**VACUOUS — DEAD END (2026-10-06 PT).** The X2 hypothesis `WilsonLowerMargin
+(exprMixRateFamily trAF) m` is UNSATISFIABLE for every `m`. This is proved as
+`not_wilsonLowerMargin_mixRate_afPadded` (`BF4WilsonAllNomeWilsonMixRateDeadEnd`), from
+`mixFraction ≤ (1/32)^width` uniformly in `w`, with `width_j = 4^j + 1`. So
+`wilsonGapBranch_afPadded` is true but vacuous.
+* The live gap-side frontier is `WilsonAFPaddedGapInput`: SOME rate family with an
+  all-vector contraction and `m·2^-j ≤ 1 − r_j`.
+* That frontier is consumed by `wilsonGapBranch_afPadded_generic`.
+The statement below is unchanged.
+
 Companion to `audits/SCOPE-WILSON-CARRIER-GAP-RETARGET-2026-10-06.md` (§X1 instance). ADDITIVE.
 
 This instantiates `wilsonGapBranch_mixRate` (`BF4WilsonAllNomeWilsonDynamicFamily`) on the
@@ -76,7 +86,8 @@ def WilsonFamilyDecay (F : WilsonDynamicFamily) : Prop :=
 theorem wilsonFamilyDecay (F : WilsonDynamicFamily) : WilsonFamilyDecay F :=
   fun j n y => F.completedAutocorrelation_sq_decay j n y
 
-/-- **Wilson gap branch on the AF-padded `Y_j` trajectory.**
+/-- **Wilson gap branch on the AF-padded `Y_j` trajectory.** VACUOUS: `hX2` is unsatisfiable
+(`not_wilsonLowerMargin_mixRate_afPadded`); see `wilsonGapBranch_afPadded_generic`.
 Open analytic hypotheses: the step ratio (`H`, `hc`, `hrho'0`, `hrho'1`) and X2 (`hX2`).
 H-var and H-ray are discharged, and the contraction is `mixRate` (unconditional). -/
 theorem wilsonGapBranch_afPadded

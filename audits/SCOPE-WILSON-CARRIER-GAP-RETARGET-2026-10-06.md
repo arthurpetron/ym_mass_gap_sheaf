@@ -180,3 +180,34 @@ Conclusions:
 - `m ≤ 2^(2C+3)`.
 
 All axioms are `{propext, Quot.sound}`.
+
+## DEAD END: X2 at the Doeblin mixRate (`BF4WilsonAllNomeWilsonMixRateDeadEnd.lean`)
+
+This corrects 937f9e38. The note's earlier verdict ("retarget feasible, needs X2") still
+holds, but X2 must be read as "SOME rate", not "the mixRate".
+
+The theorem is `not_wilsonLowerMargin_mixRate_afPadded (m) :
+¬ WilsonLowerMargin (exprMixRateFamily trAF) m`, for every `m`. The generic form is
+`not_wilsonLowerMargin_mixRate_of_width` (any trajectory with `j + j ≤ width_j`).
+
+Proof outline:
+- Existing w-uniform facts give `mixFraction(w, width) ≤ (1/32)^width`:
+  `headFloor ≤ 1/32`, `prefixCap ≥ 1`, and `#temporalFaces ≥ width`
+  (`mixFraction_le_width_power`).
+- So the obstruction is the volume factor, not `w_j → 1`.
+- With `width_j = 4^j + 1 ≥ 2j`, take `K = powBaseCutoff(1/32, m/2)` and `j = K`. Then
+  `m·2^-K ≤ (1/32)^(2K) ≤ (m/2)·2^-K`, a contradiction.
+
+Consequences:
+- `wilsonGapBranch_afPadded` is VACUOUS; its docstring is now marked, and its statement is
+  unchanged.
+- `wilsonGapBranch_mixRate` is vacuous on any such trajectory.
+- This concerns the computed Doeblin bound only, not the true spectral gap.
+
+Restated gap frontier (OPEN):
+- `WilsonAFPaddedGapInput := ∃ r hr0 hr1 (Hc : ∀ j, WilsonVacuumSqContraction (w_j)
+  (width_j) (r j)) m, WilsonLowerMargin (exprWilsonFamily trAF r hr0 hr1 Hc) m`.
+- It is consumed by `wilsonGapBranch_afPadded_generic`. Its open hypotheses are the step
+  ratio and a witness of this Prop; H-var and H-ray are discharged.
+
+Producer scope: `audits/SCOPE-WILSON-SPECTRAL-RATE-PRODUCER-2026-10-06.md`.

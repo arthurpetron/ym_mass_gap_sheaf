@@ -42,6 +42,10 @@ Contents:
     and every vacuum-complement vector, and the necessary consistency `m ≤ 2^(2C+3)`.
 
 HONEST SCOPE.
+* DEAD END (2026-10-06 PT): at `mixRate` on any trajectory with `j + j ≤ width_j`, e.g.
+  `trAF`, X2 is FALSE for every `m`. See `not_wilsonLowerMargin_mixRate_of_width` in
+  `BF4WilsonAllNomeWilsonMixRateDeadEnd`. So `wilsonGapBranch_mixRate` is vacuous there. The
+  generic capstone with some other rate family is the live route.
 * On the GAP side, X2 is the single open analytic input. The upper half and the
   contraction are discharged.
 * The capstone still carries the nontriviality bundle (H-var, H-ray, step ratio). That bundle

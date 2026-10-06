@@ -1,29 +1,36 @@
 # Canonical one-page project status
 
-Current open inputs on the Wilson carrier (frontier; PLUMBING, 2026-10-06 PT):
+Current open inputs on the Wilson carrier (frontier; CORRECTED 2026-10-06 PT, supersedes the
+937f9e38 wording):
 on the all-nome literal-width Wilson carrier along the AF-padded Y_j trajectory
-(`afPaddedZeroMomentumAFExpr`), `wilsonGapBranch_afPadded`
-(`BF4WilsonAllNomeWilsonGapBranchAFPadded`) concludes A03, the Wilson B04-shaped band
-`WilsonPhysicalRateBand (exprMixRateFamily _)`, squared autocorrelation decay for every
-vacuum-complement vector, and the consistency bound `m <= 2^(2C+3)`. It assumes exactly two
-open Props, which are THE open inputs on this carrier:
+(`afPaddedZeroMomentumAFExpr`), `wilsonGapBranch_afPadded_generic`
+(`BF4WilsonAllNomeWilsonMixRateDeadEnd`) concludes A03, the Wilson B04-shaped band
+`WilsonPhysicalRateBand`, squared autocorrelation decay for every vacuum-complement vector,
+and `m <= 2^(2C+3)`. The open inputs on this carrier are:
 (1) the step ratio `ExprStepRatio`, with bounded side_j(1 - rho'_j) <= c for j >= j0
 (nontriviality);
-(2) X2, `WilsonLowerMargin (exprMixRateFamily _) m`, i.e. m*2^-j <= 1 - r_j (gap).
-H-var and H-ray are discharged by the plaquette floors under padding, the contraction is
-the existing all-vector Wilson strict contraction at mixRate(w_j, width_j), and the upper
-half of the band follows from (1). The remaining hypotheses are arithmetic parameters.
+(2) the gap input `WilsonAFPaddedGapInput`: there EXISTS a rate family r_j with an
+all-vector Wilson vacuum-square contraction `WilsonVacuumSqContraction` at (w_j, width_j)
+and a lower margin m*2^-j <= 1 - r_j. No producer is known.
+H-var and H-ray are discharged by the plaquette floors under padding, and the upper half
+of the band follows from (1).
+DEAD END (proved): the Doeblin rate does NOT witness (2).
+`not_wilsonLowerMargin_mixRate_afPadded` proves that
+`WilsonLowerMargin (exprMixRateFamily _) m` fails for every m, because
+mixFraction <= (1/32)^width uniformly in w and width_j = 4^j + 1. So the earlier
+`wilsonGapBranch_afPadded` (937f9e38) is true but VACUOUS, and calling mixRate-X2 "THE open
+input" overstated it. This is a statement about the computed Doeblin bound only, not about
+the true transfer gap.
 Caveats:
 - Monte Carlo supports the step ratio for smoothed loops; for the exact Y_j it is
   unresolved beyond side 2.
-- X2 is not expected at the mixRate Doeblin rate (1 - mixRate = kineticFloor/kineticCap)
-  and needs a new rate producer.
+- (2) needs a new spectral producer that is uniform in the spatial volume (scope:
+  `audits/SCOPE-WILSON-SPECTRAL-RATE-PRODUCER-2026-10-06.md`).
 - X3 (a Wilson ObservablePin and OS/GNS re-pointing) and J01-J04 are untouched.
 - The cube-side B04 path remains, but the cube<->Wilson bridge is not needed for this
   route.
 - AF calibration is two-loop shape only (no concrete a(w); PhysicalBox open).
-No progress on (1) or (2); this is plumbing and instantiation. Evidence:
-`audits/SCOPE-WILSON-CARRIER-GAP-RETARGET-2026-10-06.md`.
+No progress on (1) or (2). Evidence: `audits/SCOPE-WILSON-CARRIER-GAP-RETARGET-2026-10-06.md`.
 Exact chart unchanged, no ASCII reprint.
 
 Verified supporting A03 on a schedule that satisfies the Lean predicate NomeScheduleAFCalibrated (two-loop shape only; no concrete a(w), PhysicalBox open) (2026-10-06 UTC):
