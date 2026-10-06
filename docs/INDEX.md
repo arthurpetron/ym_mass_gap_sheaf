@@ -39,6 +39,7 @@ Machine-checked mirror of the frontier: `lean/YMGap/Rubric/LoopScorecard.lean` (
 - [uniform-cd-inhabitation-scope-2026-06-22.md](uniform-cd-inhabitation-scope-2026-06-22.md) — scope for inhabiting `uniform_CD` via SZZ/BBD.
 - [z2-reflection-margin-scope-2026-06-22.md](z2-reflection-margin-scope-2026-06-22.md) — scope for the ℤ₂ reflection margin.
 - [szz-char-surrogate-build-plan-2026-06-22.md](szz-char-surrogate-build-plan-2026-06-22.md) — build plan for the SZZ character-surrogate (aborted; see the correction above).
+- [archive/work_plan-sections-jul17-28-2026-07.md](archive/work_plan-sections-jul17-28-2026-07.md) — archived `work_plan.md` text 2026-07-17 → §16e (completion-first proof graph, §15 DP program, §16 MD milestones), dropped in merge `c6488697`; superseded by the live `work_plan.md`.
 - [archive/work_plan-sections-16f-17i-2026-08.md](archive/work_plan-sections-16f-17i-2026-08.md) — archived `work_plan.md` §16f–§17i (c_SU2 assembly, OS/CS windows, §17 route audit, P1–P3 envelope/sector-SOS), dropped in merge `c6488697`; superseded by the live `work_plan.md`.
 
 ## Research & reconnaissance notes
