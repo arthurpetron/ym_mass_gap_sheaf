@@ -1,8 +1,8 @@
 # Canonical one-page project status
 
-Verified supporting A03 on an AF-CALIBRATED (two-loop shape, standard coupling normalization) schedule (2026-10-06 UTC):
-the dyadic interface schedule is proved NOT AF-calibrated; a concrete rational
-schedule 1-w_j = 1.942/(j + (51/121) lg2 j + 4) is proved AF-calibrated (A = 1942/1000 ~ 1/(16 b0 ln2) in the STANDARD coupling g^2 = -8 log w; the carrier heat-kernel time is t = -4 log w, which the repo only labels g^2; b0, b1 refer to the standard g^2; two-loop shape only, floor-log2 surrogate, C = 4 a choice, no concrete a(w); no Lean conclusion depends on A), and on
+Verified supporting A03 on a schedule that satisfies the Lean predicate NomeScheduleAFCalibrated (two-loop shape only; no concrete a(w), PhysicalBox open) (2026-10-06 UTC):
+the dyadic interface schedule is proved NOT to satisfy NomeScheduleAFCalibrated (any constants); a concrete rational
+schedule 1-w_j = 1.942/(j + (51/121) lg2 j + 4) satisfies the Lean predicate NomeScheduleAFCalibrated (two-loop shape only; no concrete a(w), PhysicalBox open) (A = 1942/1000 ~ 1/(16 b0 ln2) in the STANDARD coupling g^2 = -8 log w; the carrier heat-kernel time is t = -4 log w, which the repo only labels g^2; b0, b1 refer to the standard g^2; floor-log2 surrogate, C = 4 a choice; no Lean conclusion depends on A), and on
 its padded trajectory the A03 package needs only `PathShiftedWindowSurvival`
 (`af_path_normalized_anchor_of_windowSurvival`). The calibration is not used
 by any Lean conclusion; it only places the open input on the physically

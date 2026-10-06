@@ -27,9 +27,10 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-04 UTC)
 
-AF-CALIBRATED PADDED TRAJECTORY (2026-10-06 UTC):
-Checked: dyadicNomeSchedule is NOT AF-calibrated; `afNomeSchedule` (rational,
-two-loop shape, kappa = 51/121; A = 1942/1000 ~ 1/(16 b0 ln2) in the STANDARD coupling g^2 = -8 log w; the carrier heat-kernel time is t = -4 log w, which the repo only labels g^2; b0, b1 refer to the standard g^2; two-loop shape only, floor-log2 surrogate, C = 4 a choice, no concrete a(w); no Lean conclusion depends on A) is; the A03 package on
+PADDED TRAJECTORY ON A NomeScheduleAFCalibrated SCHEDULE (2026-10-06 UTC):
+Checked: dyadicNomeSchedule does NOT satisfy NomeScheduleAFCalibrated (any constants); `afNomeSchedule` (rational,
+kappa = 51/121; A = 1942/1000 ~ 1/(16 b0 ln2) in the STANDARD coupling g^2 = -8 log w; the carrier heat-kernel time is t = -4 log w, which the repo only labels g^2; b0, b1 refer to the standard g^2; floor-log2 surrogate, C = 4 a choice; no Lean conclusion depends on A)
+satisfies the Lean predicate NomeScheduleAFCalibrated (two-loop shape only; no concrete a(w), PhysicalBox open); the A03 package on
 `afPaddedZeroMomentumTrajectory` needs only `PathShiftedWindowSurvival`.
 Paper note: window survival is a quantitative continuum-scaling statement
 (correlation length in lattice units >~ side, in growing physical volume),

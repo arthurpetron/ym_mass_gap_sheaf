@@ -16,10 +16,11 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
-**Checked AF-calibrated padded trajectory (2026-10-06 UTC):**
+**Checked padded trajectory on a NomeScheduleAFCalibrated schedule (2026-10-06 UTC):**
 `BF4WilsonAllNomeAFPaddedTrajectory` proves `dyadicNomeSchedule` is NOT
-AF-calibrated (for any constants), builds a rational AF-calibrated schedule
-(1-w_j = 1.942/(j + (51/121) lg2 j + 4), `afNomeSchedule_AFCalibrated`; A = 1942/1000 ~ 1/(16 b0 ln2) in the STANDARD coupling g^2 = -8 log w; the carrier heat-kernel time is t = -4 log w, which the repo only labels g^2; b0, b1 refer to the standard g^2; two-loop shape only, floor-log2 surrogate, C = 4 a choice, no concrete a(w); no Lean conclusion depends on A), and the
+AF-calibrated (does not satisfy NomeScheduleAFCalibrated for any constants), builds a rational schedule that
+satisfies the Lean predicate NomeScheduleAFCalibrated (two-loop shape only; no concrete a(w), PhysicalBox open)
+(1-w_j = 1.942/(j + (51/121) lg2 j + 4), `afNomeSchedule_AFCalibrated`; A = 1942/1000 ~ 1/(16 b0 ln2) in the STANDARD coupling g^2 = -8 log w; the carrier heat-kernel time is t = -4 log w, which the repo only labels g^2; b0, b1 refer to the standard g^2; floor-log2 surrogate, C = 4 a choice; no Lean conclusion depends on A), and the
 padded trajectory on it with nondegeneracy and the A03 package conditional
 only on OPEN `PathShiftedWindowSurvival`. Monitored check, axioms {propext,
 Quot.sound}; see `audits/AUDIT-AF-PADDED-TRAJECTORY-2026-10-06.md` and the paper
