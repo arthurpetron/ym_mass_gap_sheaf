@@ -6,7 +6,8 @@ Only new files were added, plus import lines in `lean/YMGap.lean`.
 Scope (YM Bot decision, 2026-10-06):
 * P8 cannot resolve window survival on the exact `Y_j` by MC. The plaquette overlap is
   about 1.5-3.5%, and every measured W is consistent with 0.
-* The NS-k2 smoothed loop gives a clean W of about 0.15-0.35.
+* The NS-k2 smoothed loop gives a positive W of about 0.13-0.36 at sides 2-8 (MC only;
+  side 10 unsettled, and the 48^3 side-8 run has a slow Polyakov sector mode).
 * So the anchor/path/window/package layer is generalized to an ARBITRARY slab
   `IntrinsicExpression` family.
 * NOT started: the NS smearing word (F1/F2), and the H-var/H-ray proofs for any
