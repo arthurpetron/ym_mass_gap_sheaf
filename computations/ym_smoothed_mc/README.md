@@ -8,8 +8,9 @@ used to test the survival hypotheses on the A03 nontriviality route.
 - `ana/window_analyze.py`, `ana/window_table.py`: adds the window-survival ratio
   W = R(side+1)/R(side/2) (the hypothesis of the c944edfa theorem: backward-window survival
   => shifted H1 with c0 = 2(1-W)/W), plus -2 log W.
-- `runs/*.md`: tables; `runs/<run>/run.log, resources.log, prerun_snapshot.txt`: logs incl.
-  free CPU/RAM samples. Raw configurations/correlator binaries are NOT committed.
+- `runs/*.md`: tables; `runs/<run>/prerun_snapshot.txt`: pre-run free CPU/RAM. The `*.log` files
+  (run logs, periodic CPU/RAM samples) are gitignored and stay on the box under
+  /workspace/ymmc/p4_smoothed/runs/. Raw configurations/correlator binaries are NOT committed.
 
 Caveats (read before citing):
 - This is the WILSON action and a SPATIALLY smoothed loop. The Lean state Y_j is a
