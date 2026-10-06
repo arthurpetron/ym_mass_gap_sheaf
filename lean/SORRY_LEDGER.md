@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## PROVED H1 fixed-scale structure, H2 => H1, gap screen; OPEN Wilson Rayleigh rate (2026-10-06 UTC)
+
+`BF4WilsonAllNomeH1FixedScale` proves on the SAME all-nome completed Wilson
+carrier, for the box-smoothed coherent state Y_M: the exact Fejer telescope
+`E_M = (M+1)^-1 (B(x0,Y_M) - B(T^(M+1)x0,Y_M))` and the unconditional bound
+`(M+1) E_M <= B(x0,x0)`; fixed-scale H1 with c0 = side (non-vacuity only);
+H2 => H1 (`pathEpsBound_of_familyRadiusSurvival`, scalar side condition
+1 <= c0*theta*m), hence the A03 normalized-anchor package from
+`PathFamilyRadiusSurvival` alone. NEW OPEN `WilsonVacuumRayleighRate r`
+(B(y,Ty) <= r B(y,y) on the vacuum complement; holds at r = 1, OPEN for
+r < 1). Proved screen: such a rate gives E >= (1-r)B and, with H1,
+side_j*(1-r_j) <= c0 at every scale (`path_epsBound_forces_rate`): H1 forces
+the certified lattice gap to close like c0/side_j and is incompatible with
+any fixed rate r < 1. H1 and H2 remain OPEN; the math note argues H1 is
+heuristically FALSE for the unshifted box kernel (UV weight, eps = O(1)).
+Evidence: `audits/AUDIT-H1-FIXED-SCALE-2026-10-05.md`,
+`audits/MATH-NOTE-H1-FIXED-SCALE-2026-10-05.md`. No sorry, axiom, frontier,
+chart or resource change. Root registration only.
+
 ## PROVED generic normalized-anchor A03 consumer; OPEN w->1 contraction band (2026-10-06 UTC)
 
 `BF4WilsonAllNomeGenericNormalizedAnchor` ports the A03 normalized-anchor

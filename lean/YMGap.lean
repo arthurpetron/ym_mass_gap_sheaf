@@ -7273,6 +7273,9 @@ import YMGap.Continuum.BF4WilsonAllNomeDyadicSmoothedTrajectory
 -- Generic normalized-anchor A03 consumer for ANY normalized state; Y_j instance
 -- from PathEpsBound only (no unit bridge); OPEN w->1 contraction band Prop.
 import YMGap.Continuum.BF4WilsonAllNomeGenericNormalizedAnchor
+-- H1 at a fixed scale: exact Fejer telescope (M+1)E_M <= B(x0,x0), H2 => H1,
+-- and the gap screen side_j*(1-r_j) <= c0; OPEN WilsonVacuumRayleighRate (r<1).
+import YMGap.Continuum.BF4WilsonAllNomeH1FixedScale
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport
