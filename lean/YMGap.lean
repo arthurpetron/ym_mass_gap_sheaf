@@ -7306,6 +7306,9 @@ import YMGap.Continuum.BF4WilsonAllNomeExprAFCalibrated
 -- Hankel/Hausdorff positivity of R(n)=B(psi,T^n psi), plain double-sum form;
 -- NECESSARY conditions only (any vector), testable on data; no measure/sufficiency.
 import YMGap.Continuum.BF4WilsonAllNomeResponseHankelPositivity
+-- SUFFICIENT: step ratio rho_j R(k_j) <= R(k_j+1), side_j(1-rho_j) <= c => window survival
+-- with theta = 1-c; the ratio bound itself stays OPEN (nontriviality core).
+import YMGap.Continuum.BF4WilsonAllNomeExprStepRatioWindowSurvival
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport

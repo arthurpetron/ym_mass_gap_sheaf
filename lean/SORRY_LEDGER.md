@@ -1,5 +1,21 @@
 # Sorry Ledger
 
+## PROVED window survival from a step-ratio bound, SUFFICIENT only (2026-10-06 PT)
+
+New leaf `BF4WilsonAllNomeExprStepRatioWindowSurvival`.
+
+- `expr_windowSurvival_of_stepRatio`: for j ≥ 1, if 0 ≤ ρ_j ≤ 1, k_j ≤ side_j/2,
+  side_j(1−ρ_j) ≤ c and ρ_j R_j(k_j) ≤ R_j(k_j+1), then ExprShiftedWindowSurvival holds with θ = 1 − c.
+- The hypothesis is on the smoothed window response R_j. `ExprHRay` on x_j transfers to it
+  (k = 0): `expr_windowSurvival_of_hray`.
+- Bernoulli `bernoulli_pow` reuses `BondMovingRetuneFix.bernoulli_oneSub`. Propagation reuses
+  `response_shifted_step_lower` (division-free). There was no prior ray ⇒ window theorem.
+- Gap-side compatibility: `expr_stepRatio_forces_rate_c0` (composition) and
+  `expr_stepRatio_zero_contraction` (ρ²R(0) ≤ r²R(0)); the cancellation is not formalized.
+- SUFFICIENT only. The step-ratio rate is the OPEN nontriviality core.
+- Built on the box: 1 module. Axioms ⊆ {propext, Quot.sound}; no sorry.
+- Audit: `audits/AUDIT-STEP-RATIO-WINDOW-SURVIVAL-2026-10-06.md`.
+
 ## PROVED Hankel/Hausdorff positivity of the response (2026-10-06 PT)
 
 New leaf `BF4WilsonAllNomeResponseHankelPositivity`, with `R(n) = B(ψ, T^n ψ)` for any `ψ` and rational coefficients.
