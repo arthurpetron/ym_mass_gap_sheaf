@@ -163,6 +163,50 @@ fn linear_smear_step(src: &[Su2], dst: &mut [Su2], g: &Geo, alpha: f64, nth: usi
             for mu in 1..4 { let a = unsafe { staple(base, g, s, mu, &SPA) };
                 out[j*4+mu] = add(scale(src[s*4+mu], 1.0-alpha), scale(a, alpha/4.0)); } } }); } }); }
 
+/// Global scalar rescale (spatial links): divide by `c` (c > 0) or, if c <= 0, by the lattice-average spatial |V|.
+/// A global scalar does not change any normalized correlator; it only moves |V| near 1 before Newton-Schulz.
+fn global_rescale(v: &mut [Su2], g: &Geo, c: f64) {
+    let c = if c > 0.0 { c } else { let mut sum = 0.0; for s in 0..g.vol { for mu in 1..4 { sum += dot(v[s*4+mu], v[s*4+mu]).sqrt(); } } sum / (3.0*g.vol as f64) };
+    for s in 0..g.vol { for mu in 1..4 { v[s*4+mu] = scale(v[s*4+mu], 1.0/c); } } }
+/// k Newton-Schulz polar steps V <- V (3 - V^dag V)/2 on spatial links. For quaternions V^dag V = |V|^2 (a scalar polynomial),
+/// so this is a polynomial, gauge-covariant map; |V| -> 1 for 0 < |V| < sqrt(3) (diverges / flips sign outside).
+fn ns_steps(v: &mut [Su2], g: &Geo, k: usize) {
+    for s in 0..g.vol { for mu in 1..4 { let mut x = v[s*4+mu]; for _ in 0..k { x = scale(x, 0.5*(3.0 - dot(x, x))); } v[s*4+mu] = x; } } }
+/// Spatial link-norm stats [mean, std, min, max] of |V|.
+fn norm_stats(v: &[Su2], g: &Geo) -> [f64; 4] {
+    let (mut s1, mut s2, mut mn, mut mx) = (0.0, 0.0, f64::INFINITY, 0.0f64);
+    for s in 0..g.vol { for mu in 1..4 { let n = dot(v[s*4+mu], v[s*4+mu]).sqrt(); s1 += n; s2 += n*n; mn = mn.min(n); mx = mx.max(n); } }
+    let m = s1 / (3.0*g.vol as f64); [m, (s2/(3.0*g.vol as f64) - m*m).max(0.0).sqrt(), mn, mx] }
+#[derive(Clone, Debug)] struct LinVar { alpha: f64, k: usize, rescale: f64, rs_on: bool, steps: Vec<usize> }
+fn lin_variant_step(src: &[Su2], dst: &mut [Su2], g: &Geo, lv: &LinVar, nth: usize) {
+    linear_smear_step(src, dst, g, lv.alpha, nth); if lv.rs_on { global_rescale(dst, g, lv.rescale); } if lv.k > 0 { ns_steps(dst, g, lv.k); } }
+
+fn selftest_ns() {
+    println!("scalar NS map r -> r(3-r^2)/2:");
+    for r0 in [0.05f64, 0.3, 0.6, 0.9, 1.2, 1.5, 1.7, 1.75, 2.0, 2.5] { let mut r = r0; let mut line = format!("  r0={r0:<5}:");
+        for _ in 0..5 { r = r*(3.0-r*r)/2.0; line += &format!(" {r:+.10}"); } println!("{line}"); }
+    let (ls, lt) = (4usize, 4usize); let g = Geo::new(ls, lt); let mut rg = Rng(0xBEEF);
+    let u: Vec<Su2> = (0..g.vol*4).map(|_| random_su2(&mut rg)).collect();
+    let gt: Vec<Su2> = (0..g.vol).map(|_| random_su2(&mut rg)).collect();
+    let ug: Vec<Su2> = (0..g.vol*4).map(|i| { let (s, mu) = (i/4, i%4); mul(mul(gt[s], u[i]), dag(gt[g.f(s, mu)])) }).collect();
+    let mut worst_cov = 0f64; let mut worst_loop = 0f64;
+    for (k, rs) in [(1usize, false), (2, false), (3, false), (2, true), (3, true)] {
+        let lv = LinVar { alpha: 0.37, k, rescale: 0.0, rs_on: rs, steps: vec![3] };
+        let (mut a, mut b) = (u.clone(), u.clone()); let (mut c, mut d) = (ug.clone(), ug.clone());
+        for _ in 0..3 { lin_variant_step(&a, &mut b, &g, &lv, 2); std::mem::swap(&mut a, &mut b); lin_variant_step(&c, &mut d, &g, &lv, 2); std::mem::swap(&mut c, &mut d); }
+        for i in 0..g.vol*4 { let (s, mu) = (i/4, i%4); let t = mul(mul(gt[s], a[i]), dag(gt[g.f(s, mu)])); for q in 0..4 { worst_cov = worst_cov.max((t[q]-c[i][q]).abs()); } }
+        let (la, _) = loops(&a, &g, &[1, 2], 2); let (lc, _) = loops(&c, &g, &[1, 2], 2);
+        for si in 0..2 { for x in 0..la[si].len() { worst_loop = worst_loop.max((la[si][x]-lc[si][x]).abs()); } }
+        let ns = norm_stats(&a, &g); println!("hot 4^3x4, alpha=0.37, 3 steps, k={k}, global rescale={rs}: |V| mean {:.6} std {:.2e} min {:.6} max {:.6}", ns[0], ns[1], ns[2], ns[3]);
+    }
+    // convergence from near 1 on a single linear step with global rescale
+    let lv0 = LinVar { alpha: 0.37, k: 0, rescale: 0.0, rs_on: true, steps: vec![1] }; let mut b = u.clone(); lin_variant_step(&u, &mut b, &g, &lv0, 2);
+    let n0 = norm_stats(&b, &g); print!("one step + rescale (hot, worst case): |V| in [{:.3}, {:.3}]; max||V|-1| after NS k=1..4:", n0[2], n0[3]);
+    for k in 1..5 { let mut c = b.clone(); ns_steps(&mut c, &g, k); let n = norm_stats(&c, &g); print!(" {:.2e}", (n[3]-1.0).abs().max((1.0-n[2]).abs())); } println!();
+    println!("gauge covariance: max |g V g^dag - V[U^g]| = {worst_cov:.2e}; max |loops(U) - loops(U^g)| = {worst_loop:.2e}");
+    println!("SELFTEST-NS {}", if worst_cov < 1e-12 && worst_loop < 1e-12 { "PASS" } else { "FAIL" });
+}
+
 /// Spatial Polyakov loops (product of Ls links along spatial direction d) on the given (smoothed) links.
 /// Returns [mean_lines P_x, P_y, P_z, mean_lines P_x^2, P_y^2, P_z^2] with P = (1/2)Tr = scalar part.
 fn spatial_poly(links: &[Su2], g: &Geo, nth: usize) -> [f64; 6] {
@@ -280,11 +324,11 @@ fn main() {
     let mut interval = 2usize; let mut nor = 4usize; let mut sides = vec![2usize]; let mut tflow: Vec<f64> = vec![0.0];
     let mut eps: f64 = 0.05; let mut seed = 1u64; let mut nth = 4usize; let mut out = String::from("out"); let mut ckpt = 25usize; let mut resume = false;
     let mut plaq_only = false; let mut eps2: f64 = 0.1; let mut tswitch: f64 = 0.5; let mut eps3: f64 = 0.1; let mut tswitch2: f64 = 1e9;
-    let mut lin_alpha: f64 = 0.5; let mut lin_steps: Vec<usize> = vec![]; let mut thfile: Option<String> = None;
+    let mut lin_alpha: f64 = 0.5; let mut lin_steps: Vec<usize> = vec![]; let mut thfile: Option<String> = None; let mut lin_ns_k = 0usize; let mut lin_rs: Option<f64> = None; let mut lin_variants_arg = String::new();
     let mut save_every = 0usize; let mut save_dir = String::new(); let mut therm_ckpt = 100usize;
     let a: Vec<String> = std::env::args().collect(); let mut i = 1;
     while i < a.len() { let k = a[i].as_str(); if k == "--resume" { resume = true; i += 1; continue; } if k == "--plaq-only" { plaq_only = true; i += 1; continue; }
-        if k == "--selftest-linear" { selftest_linear(); return; }
+        if k == "--selftest-linear" { selftest_linear(); return; } if k == "--selftest-ns" { selftest_ns(); return; }
         let v = a[i+1].clone(); i += 2;
         match k { "--Ls" => ls = v.parse().unwrap(), "--Lt" => lt = v.parse().unwrap(), "--beta" => beta = v.parse().unwrap(),
             "--therm" => therm = v.parse().unwrap(), "--meas" => meas = v.parse().unwrap(), "--interval" => interval = v.parse().unwrap(),
@@ -293,16 +337,25 @@ fn main() {
             "--seed" => seed = v.parse().unwrap(), "--threads" => nth = v.parse().unwrap(), "--out" => out = v,
             "--ckpt" => ckpt = v.parse().unwrap(), "--eps2" => eps2 = v.parse().unwrap(), "--tswitch" => tswitch = v.parse().unwrap(), "--eps3" => eps3 = v.parse().unwrap(), "--tswitch2" => tswitch2 = v.parse().unwrap(),
             "--linear-alpha" => lin_alpha = v.parse().unwrap(), "--linear-steps" => lin_steps = v.split(',').map(|s| s.parse().unwrap()).collect(),
-            "--threads-file" => thfile = Some(v), "--save-every" => save_every = v.parse().unwrap(), "--save-dir" => save_dir = v, "--therm-ckpt" => therm_ckpt = v.parse().unwrap(),
+            "--threads-file" => thfile = Some(v), "--linear-ns-k" => lin_ns_k = v.parse().unwrap(), "--linear-global-rescale" => lin_rs = Some(if v == "avg" { 0.0 } else { v.parse().unwrap() }), "--linear-variants" => lin_variants_arg = v, "--save-every" => save_every = v.parse().unwrap(), "--save-dir" => save_dir = v, "--therm-ckpt" => therm_ckpt = v.parse().unwrap(),
             o => panic!("unknown arg {o}") } }
     assert!(ls % 2 == 0 && lt % 2 == 0);
     tflow.sort_by(|x, y| x.partial_cmp(y).unwrap()); lin_steps.sort();
+    // linear variants: --linear-variants "alpha:k:rescale:n1/n2,..." (rescale = none | avg | <c>); else the single variant from --linear-alpha/--linear-steps/--linear-ns-k/--linear-global-rescale
+    let mut lvars: Vec<LinVar> = vec![];
+    if !lin_variants_arg.is_empty() { for spec in lin_variants_arg.split(',') { let f: Vec<&str> = spec.split(':').collect();
+        let (rs_on, rescale) = match f[2] { "none" => (false, 0.0), "avg" => (true, 0.0), x => (true, x.parse().unwrap()) };
+        let mut st: Vec<usize> = f[3].split('/').map(|x| x.parse().unwrap()).collect(); st.sort();
+        lvars.push(LinVar { alpha: f[0].parse().unwrap(), k: f[1].parse().unwrap(), rescale, rs_on, steps: st }); } }
+    else if !lin_steps.is_empty() { lvars.push(LinVar { alpha: lin_alpha, k: lin_ns_k, rescale: lin_rs.unwrap_or(0.0), rs_on: lin_rs.is_some(), steps: lin_steps.clone() }); }
+    let lin_steps: Vec<usize> = lvars.iter().flat_map(|v| v.steps.clone()).collect();
+    let lv_json = lvars.iter().map(|v| format!("{{\"alpha\":{},\"k\":{},\"rescale\":\"{}\",\"steps\":{:?}}}", v.alpha, v.k, if !v.rs_on { "none".to_string() } else if v.rescale > 0.0 { format!("{}", v.rescale) } else { "avg".to_string() }, v.steps)).collect::<Vec<_>>().join(",");
     let nmax = nth; // threads file may lower (or restore up to) the launch thread count
     let g = Geo::new(ls, lt);
     let mut classes = vec![Vec::new(); 8]; for s in 0..g.vol { let p = g.parity(s); for mu in 0..4 { classes[mu*2+p].push(s*4+mu); } }
     let ckpath = format!("{out}.ckpt"); let datpath = format!("{out}.bin");
     let nlev = tflow.len() + lin_steps.len();
-    let hdr = format!("{{\"Ls\":{ls},\"Lt\":{lt},\"beta\":{beta},\"sides\":{:?},\"tflow\":{:?},\"eps\":{eps},\"eps2\":{eps2},\"tswitch\":{tswitch},\"eps3\":{eps3},\"tswitch2\":{tswitch2},\"interval\":{interval},\"overrelax\":{nor},\"seed\":{seed},\"therm\":{therm},\"linear_alpha\":{lin_alpha},\"linear_steps\":{:?},\"poly\":6,\"save_every\":{save_every}}}\n", sides, tflow, lin_steps);
+    let hdr = format!("{{\"Ls\":{ls},\"Lt\":{lt},\"beta\":{beta},\"sides\":{:?},\"tflow\":{:?},\"eps\":{eps},\"eps2\":{eps2},\"tswitch\":{tswitch},\"eps3\":{eps3},\"tswitch2\":{tswitch2},\"interval\":{interval},\"overrelax\":{nor},\"seed\":{seed},\"therm\":{therm},\"linear_alpha\":{lin_alpha},\"linear_steps\":{:?},\"poly\":6,\"linnorm\":4,\"linear_variants\":[{lv_json}],\"save_every\":{save_every}}}\n", sides, tflow, lin_steps);
     let t0 = Instant::now();
     let (mut links, mut sw, mut done) = if resume { match load_ckpt(&ckpath, g.vol*4) { Some(x) => { eprintln!("resumed sw={} nmeas={}", x.1, x.2); x } None => panic!("no ckpt") } }
         else { let mut r = Rng(splitmix(seed ^ 0x5151)); ((0..g.vol*4).map(|_| random_su2(&mut r)).collect(), 0u64, 0u64) };
@@ -317,7 +370,7 @@ fn main() {
         let mut f = std::fs::File::create(&datpath).unwrap(); f.write_all(hdr.as_bytes()).unwrap();
         save_ckpt(&ckpath, &links, sw, 0); done = 0;
     }
-    let reclen = if plaq_only { 1 } else { 1 + nlev*(1 + sides.len()*3*lt) + nlev*6 };
+    let reclen = if plaq_only { 1 } else { 1 + nlev*(1 + sides.len()*3*lt) + nlev*6 + lin_steps.len()*4 };
     let mut f = std::fs::OpenOptions::new().read(true).write(true).open(&datpath).unwrap();
     let hlen = { let mut b = Vec::new(); f.read_to_end(&mut b).unwrap(); b.iter().position(|&c| c == b'\n').unwrap() + 1 };
     f.set_len((hlen + done as usize * reclen * 8) as u64).unwrap(); f.seek(SeekFrom::End(0)).unwrap();
@@ -337,13 +390,15 @@ fn main() {
                 let (r, es) = loops(&fa, &g, &sides, nth); obar.push(r[simain].iter().sum::<f64>() / (3*lt) as f64); rec.push(es); for v in r { rec.extend(v); }
                 polys.push(spatial_poly(&fa, &g, nth));
             }
-            fa.copy_from_slice(&links); let mut ncur = 0usize;
-            for &nl in &lin_steps {
-                while ncur < nl { linear_smear_step(&fa, &mut fb, &g, lin_alpha, nth); std::mem::swap(&mut fa, &mut fb); ncur += 1; }
+            let mut nstats: Vec<[f64; 4]> = vec![];
+            for lv in &lvars { fa.copy_from_slice(&links); let mut ncur = 0usize;
+              for &nl in &lv.steps {
+                while ncur < nl { lin_variant_step(&fa, &mut fb, &g, lv, nth); std::mem::swap(&mut fa, &mut fb); ncur += 1; }
                 let (r, es) = loops(&fa, &g, &sides, nth); obar.push(r[simain].iter().sum::<f64>() / (3*lt) as f64); rec.push(es); for v in r { rec.extend(v); }
-                polys.push(spatial_poly(&fa, &g, nth));
-            }
+                polys.push(spatial_poly(&fa, &g, nth)); nstats.push(norm_stats(&fa, &g));
+              } }
             for p in &polys { rec.extend_from_slice(p); }
+            for p in &nstats { rec.extend_from_slice(p); }
         }
         let bytes: Vec<u8> = rec.iter().flat_map(|x| x.to_le_bytes()).collect(); f.write_all(&bytes).unwrap();
         done += 1; since += 1;
