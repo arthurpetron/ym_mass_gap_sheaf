@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## PROVED generic normalized-anchor A03 consumer; OPEN w->1 contraction band (2026-10-06 UTC)
+
+`BF4WilsonAllNomeGenericNormalizedAnchor` ports the A03 normalized-anchor
+consumer (`normalizedAnchorResponse_block_floor`, NormalizedMacroRatio:132, its
+half-anchor, mesh and real-time increments, and
+`normalizedBond_geometric_real_floor`, RealSurvival:148) to ANY
+`NormalizedAnchorData`: a vacuum-complement state, block s, a concrete CReal
+norm of B(x,T(2s)x) with QCauchy data, a positive rational, and a range
+witness for T(s)x. The predicate `NormalizedAnchorData.MacroRatio` is a
+hypothesis shape, not an open input. The original six theorems are reproved
+verbatim as `unit_*` corollaries; originals untouched. For Y_M the norm data
+(kernel sums of centered moments) and range witness (`repOrbit`) are
+constructed; `path_normalized_anchor` reaches unit norm, block floors
+kappa^i, real-time survival kappa^(i+1) and increments for Y_j from
+`PathEpsBound` ALONE. `PathUnitRatioBridge` is not used. NEW OPEN
+`PathPhysicalContractionBand ns`: strict cube contraction at every w_j with
+m*2^-j <= 1-rate_j <= M*2^-j (a lattice mass gap); proved equivalent to a
+B04l rate band on `trajectoryDynamicFamily` and to imply
+`PathCubeContraction`. NOTHING proves it. Evidence:
+`audits/AUDIT-GENERIC-NORMALIZED-ANCHOR-2026-10-05.md`. No sorry, axiom,
+frontier, chart or resource change. Root registration only.
+
 ## OPEN path hypotheses: dyadic smoothed trajectory, two-hypothesis A03 compiler (2026-10-06 UTC)
 
 `BF4WilsonAllNomeDyadicSmoothedTrajectory` defines the trajectory data
