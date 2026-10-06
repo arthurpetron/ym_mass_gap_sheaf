@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting A03 reduction of SHIFTED H1 to WINDOW SURVIVAL (2026-10-06 UTC):
+a moment-only compiler (convexity of R: m(k,2) >= 0) shows backward-window
+survival theta*R_j(side_j/2) <= R_j(side_j+1) gives the shifted H1 with
+c0 = 2(1-theta)/theta, hence the normalized-anchor package
+(`path_normalized_anchor_of_windowSurvival`, with qualitative nondegeneracy).
+The forward ratio R(2s) >= theta*R(s) does NOT suffice (counterexample).
+`PathShiftedWindowSurvival` is now the single quantitative input: heuristic
+support only (free field flat in side at bounded L; MC p=0 survival ~0.10 was
+measured on a different, APE zero-momentum state), still OPEN. Evidence:
+`audits/AUDIT-SHIFTED-WINDOW-SURVIVAL-2026-10-06.md`.
+Supporting A03 only; exact chart unchanged, no ASCII reprint.
+
 Verified supporting A03 repoint to SHIFTED H1 (2026-10-06 UTC):
 `path_normalized_anchor_shifted` compiles the full normalized-anchor package
 from the shifted H1 `PathShiftedEpsBound` (side_j*E <= c0*B for the anchor

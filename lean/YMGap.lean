@@ -7279,6 +7279,9 @@ import YMGap.Continuum.BF4WilsonAllNomeH1FixedScale
 -- Shifted H1 for T^(side/2) Y_j (lag shift R(n+2h)): exact shifted telescope;
 -- shifted H1 + nondegeneracy => A03 package; OPEN AF-calibrated schedule Props.
 import YMGap.Continuum.BF4WilsonAllNomeShiftedH1Anchor
+-- Shifted H1 from backward-window survival theta R(side/2) <= R(side+1):
+-- convexity telescope (m(k,2) >= 0), c0 = 2(1-theta)/theta; OPEN window survival.
+import YMGap.Continuum.BF4WilsonAllNomeShiftedWindowSurvival
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport

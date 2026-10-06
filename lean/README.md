@@ -12,6 +12,14 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Checked shifted-H1 window-survival compiler (2026-10-06 UTC):**
+`BF4WilsonAllNomeShiftedWindowSurvival` proves the convexity telescope
+R(p+n+1) + (n+1)(R(p+n)-R(p+n+1)) <= R(p) from the existing mixed moments and
+`pathShiftedEpsBound_of_windowSurvival`: OPEN `PathShiftedWindowSurvival tr
+theta` (theta R_j(side_j/2) <= R_j(side_j+1)) gives `PathShiftedEpsBound tr c0`
+for 2(1-theta) <= theta*c0, 1 <= c0. Monitored checks, axioms {propext,
+Quot.sound}; see `audits/AUDIT-SHIFTED-WINDOW-SURVIVAL-2026-10-06.md`.
+
 **Checked shifted-H1 anchor (2026-10-06 UTC):**
 `BF4WilsonAllNomeShiftedH1Anchor` proves the lag shift
 B(T^h Y,T^n T^h Y)=R_Y(n+2h), the exact shifted Fejer telescope, and

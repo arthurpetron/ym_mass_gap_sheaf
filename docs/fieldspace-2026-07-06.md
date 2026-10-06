@@ -26,8 +26,10 @@ where the character DIVERGES.
 
 ## 1. The field-space picture, made precise (rigorous)
 
-SU(2) link `U = exp(i g A)`, fluctuation field `A ∈ su(2)`. Heat-kernel weight `w = e^{−t}`,
-`t = −log w`; the field-space coupling is the heat-kernel time `g² = t = −log w`. The
+SU(2) link `U = exp(i g A)`, fluctuation field `A ∈ su(2)`. Heat-kernel weight `w = e^{−t}`
+in this note, `t = −log w`; the field-space coupling is the heat-kernel time `g² = t`. On the
+Lean carrier the weight is per Casimir unit, `w = e^{−t/4}` (`RGTransport.lean:45`), so there
+`g² = t = −4 log w` and `4(1 − w) ≤ g² ≤ 4(1 − w)/w` (corrected 2026-10-06). The
 elementary bracket (validated `fieldspace.py`, mpmath dps 50)
 
 ```

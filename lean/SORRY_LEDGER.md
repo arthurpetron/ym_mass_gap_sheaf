@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## PROVED window-survival => shifted H1 compiler; OPEN backward-window survival (2026-10-06 UTC)
+
+`BF4WilsonAllNomeShiftedWindowSurvival` proves, moment-only on the SAME
+carrier (no spectral measure, no exp/log): the one-step energy
+e(k) = m(k,1) is nonincreasing (convexity, m(k,2) >= 0 plus the exact split),
+the backward telescope R(p+n+1) + (n+1)e(p+n) <= R(p), and
+`window_epsBound`: theta R(p) <= R(p+n+1) with 0 < theta <= 1 gives
+L(R(s)-R(s+1)) <= c0 R(s) whenever L(1-theta) <= theta(n+1)c0, s = p+n. Path
+form: NEW OPEN `PathShiftedWindowSurvival tr theta`
+(theta R_j(side_j/2) <= R_j(side_j+1), j >= 1) with 2(1-theta) <= theta c0 and
+1 <= c0 gives `PathShiftedEpsBound tr c0`, and with
+`PathShiftedNondegenerate` the A03 package
+(`path_normalized_anchor_of_windowSurvival`). The forward ratio
+R(2s) >= theta R(s) gives only 1-q_s <= 1-theta (counterexample
+R(n) = 1 + 2^(s-n) in the audit). The stronger unshifted `PathLagSurvival`
+implies window survival but is heuristically false for box-smoothed states.
+Window survival is heuristically plausible under an AF-calibrated schedule
+(free field: flat in side at fixed L) and OPEN; MC measured p = 0 survival
+~0.10 for a DIFFERENT (APE zero-momentum) state. Also fixes the g^2
+convention line in `docs/fieldspace-2026-07-06.md` (carrier: g^2 = -4 log w).
+Evidence: `audits/AUDIT-SHIFTED-WINDOW-SURVIVAL-2026-10-06.md`. No sorry or
+axiom. Root registration only.
+
 ## PROVED shifted telescope and shifted-H1 => A03 package; OPEN shifted H1, AF schedule (2026-10-06 UTC)
 
 `BF4WilsonAllNomeShiftedH1Anchor` restates H1 for the time-shifted anchor

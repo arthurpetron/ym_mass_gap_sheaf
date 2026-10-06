@@ -27,6 +27,17 @@ formal statement would not solve the mathematical problem.
 
 ### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-04 UTC)
 
+NOW REDUCED: SHIFTED H1 <= BACKWARD-WINDOW SURVIVAL (2026-10-06 UTC):
+Checked: theta*R_j(side_j/2) <= R_j(side_j+1) gives `PathShiftedEpsBound` with
+c0 = 2(1-theta)/theta (moment-only convexity compiler), hence the A03 package
+with qualitative nondegeneracy. Forward lag doubling R(2s) >= theta*R(s) is
+NOT sufficient (counterexample in audit). NEXT: prove
+`PathShiftedWindowSurvival` for the box-smoothed Y_j on an AF-calibrated
+schedule (OPEN; free-field heuristic flat in side at bounded L), and measure
+R_Y(side+1)/R_Y(side/2) for the actual Y_j (MC so far measured p=0 survival
+of an APE zero-momentum state). Evidence:
+`audits/AUDIT-SHIFTED-WINDOW-SURVIVAL-2026-10-06.md`.
+
 NOW REPOINTED TO SHIFTED H1 AS THE SINGLE ANALYTIC INPUT (2026-10-06 UTC):
 Checked: shifted telescope (M+1)E(T^h Y_M)<=R_x(2h) and
 `path_normalized_anchor_shifted` (shifted H1 + qualitative nondegeneracy
