@@ -30,6 +30,15 @@ by the Jacobi theta transform.  The module verifies the identity to
 40 digits across a (tau, phi) grid rather than trusting the constant
 bookkeeping.
 
+Literature: this is Proposition 8.6.6 of Jacques Faraut, *Analysis
+on Lie Groups: An Introduction*, Cambridge University Press, 2008,
+p. 181:  H_0(t, theta) = (sqrt(pi)/4) (e^t / t^{3/2})
+sum_{k in Z} ((theta - 2 k pi)/sin theta) e^{-(theta-2kpi)^2/(4t)} —
+identical constants (sqrt(pi)/4, e^t/t^{3/2}, period 2 pi, weight
+(theta - 2kpi)/sin theta).  Provenance upgraded 2026-07-29 from
+"classical, verified numerically" to "Faraut 2008 Prop. 8.6.6,
+verified in-substrate to 87 digits" (user-supplied citation).
+
 **What it is for.**  Each slab face activity K(U_f; s) becomes, near
 s -> 1, a flat Gaussian in the plaquette class angle times explicit
 Jacobian factors (phi/sin phi and the e^{tau} normalization) plus
