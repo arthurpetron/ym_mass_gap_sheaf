@@ -66,12 +66,14 @@ simple groups) remains OPEN; this is SU(2) only.**
 
 **Torus-RP side owns (this track; all OPEN unless marked):**
 1. `τ_t : RatPoly → RatPoly`, the block reindex `idxOf ℓ ↦ idxOf (shv (2M) t ℓ)` on `torusLinks (2M)`.
+   DEFINED as `SU2TorusTau.tau`. OPEN: its action on `linkVar`.
 2. **PROVED** (`SU2TorusShiftPerm.tp_shift_perm`, `tl_shift_perm`, any `t`, [propext, Quot.sound]): full-torus permutation `(torusPlaquettes N).map (shv N t) ~ torusPlaquettes N`, and likewise for links.
 3. `Π T_K` invariance: `τ_t (Π_p TK p) ≡PE Π_p TK p`, via `tk_shift` and item 2.
 4. Haar invariance under `τ_t`. The existing reindex machinery (`SU2TorusRPReindex`) covers block *involutions*
    only. Plan: write `τ_t = ρ_t ∘ ρ_0`, where `ρ_c` is the pure time-coordinate index involution `a ↦ c − a (mod N)`
    (no conjugation). Then `quaternionHaar_reindex` applies to each factor. PROVED (`SU2TorusTimeRefl`): `rt_inv`,
-   `rt_comp` (`ρ_t ∘ ρ_0 = vs t` on the time coordinate). OPEN: the block-level involution and the Haar statement.
+   `rt_comp` (`ρ_t ∘ ρ_0 = vs t` on the time coordinate). Also PROVED: the block involution `SU2TorusTimeRefl.sigma`, the map
+   `SU2TorusTau.tau N t hN := σ_t ∘ σ_0`, and `haar_tau` (`∫ τ_t X ≈ ∫ X` for supported `X`).
 5. `Θ∘τ_x ≡ τ_{−x}∘Θ` on `PtSup`/`Sup` polynomials. Then `rpB (τ_x F) (τ_y F) ≈ G(x+y)` with `G n := rpB F (τ_n F)`.
    Combined with `torus_cs_poly`, this gives `G(x+y)² ≤ G(2x)·G(2y)`. `τ_x F` must remain `PtSup`, which needs
    `x + (support time) ≤ M`. This is a real restriction and must appear in the statement.
