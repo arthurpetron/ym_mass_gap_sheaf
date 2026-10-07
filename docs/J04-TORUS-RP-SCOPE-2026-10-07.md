@@ -215,3 +215,9 @@ polynomials). Crossing links are Θ-fixed, so they do NOT fit this form; they mu
 PE) and `theta_shift` (`sign(sign(reindex σ X)) ≈PE shiftPoly a X` for half-shift σ and `Sup a X`). Undoing the
 temporal conj, which is Haar-invariant (`conj_haar`), turns Θpoly into `rp_full`'s `shiftPoly`. Open: the crossing
 split into fresh A/B blocks, the pos/neg/cross factorisation of `Π TK`, and `hW`. **RP FOR THE ACTUAL TORUS MEASURE IS OPEN.**
+
+**(d3d) item 3 step 2, factorisation** (`SU2TorusRPFactor.lean`): `prod_append`, `prod_perm`, `torus_factor`:
+`ps ~ pos ++ pos.map mir ++ cross` gives `Π_ps TK ≈PE (Wp · thetaPoly Wp) · Wc`. Open: (i) the crossing split, so
+the layout becomes `L₁ ++ Θ(L₁)`; (ii) a conj on the second half only, so that `thetaPoly Wp` becomes `shiftPoly Wp`
+(`theta_shift`); (iii) RPK of the split crossing words (`rpk_cut1`/`cross_word_cut2`); (iv) assembly into
+`wilson_rp_qfull`. **RP FOR THE ACTUAL TORUS MEASURE IS OPEN.**
