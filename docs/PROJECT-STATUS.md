@@ -1,13 +1,25 @@
 # Canonical one-page project status
 
+Supporting original blocked-action join checked (2026-10-07):
+`BF4ExactSlabFixedSpatialGluedEndpointMarginal` identifies the actual middle
+integral and compressed boundary kernel's lower endpoint tests with original
+T1, retaining the middle spatial weight once and the actual boundary ordering.
+`BF4ExactSlabFixedSpatialCubeGluedHeatOnlyObstruction` excludes every free
+heat vacuum marginal at width 2,K=1,w>0, with no claim of whole-action positivity.
+Actual interacting comparison and useful signed bulk estimate remain OPEN.
+Existing approximation errors are already paid relative to the surviving
+source norm; that one-step cost is not itself a two-step RG comparison.
+Evidence: `audits/AUDIT-GLUED-ENDPOINT-AND-SIGNED-PRODUCER-2026-10-07.md`.
+Broad chart unchanged; no reprint.
+
 Supporting producer tests checked (2026-10-07):
 `BF4WilsonAllNomeRGSlowStateRetention` joins supplied shifted H1/window survival
 and relative comparison into necessary O(1/side) norm retention on the actual
 shifted state; no full lower norm comparison or norm division.
 `BF4ExactSlabFixedSpatialCubeHeatOnlyObstruction` gives a positive exact face
 test of the original width-two cutoff-one T1, forbidding its replacement by
-any constant/free kinetic vacuum marginal. This is not the ambient gluedMiddle
-pin or a no-go for every interacting coarse action. Actual survival, map and
+any constant/free kinetic vacuum marginal. Its ambient gluedMiddle pin is now
+checked above; no no-go for every interacting coarse action follows. Actual survival, map and
 relative estimate remain OPEN. Evidence:
 `audits/AUDIT-RG-PRODUCER-RETENTION-AND-HEAT-ONLY-2026-10-07.md`.
 Broad chart unchanged; no reprint.

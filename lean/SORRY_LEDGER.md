@@ -1,5 +1,39 @@
 # Sorry Ledger
 
+## PROVED: actual glued endpoint marginal and heat-only obstruction (2026-10-07)
+
+- `BF4ExactSlabFixedSpatialGluedEndpointMarginal.placed_image_local` and
+  `endpoint_test_gluing` prove the actual endpoint test can be pulled through
+  middle Haar integration without adding/canceling endpoint spatial weights.
+  `chronological_middle_pairing` and `chronological_middle_pin` retain the
+  complete original K01*V1*K12 action, with V1 ONCE, on three actual slices.
+- `glued_lower_endpoint_pairing` identifies that unnormalized tested marginal
+  with original T1 at EVERY nome and cutoff, under geometric containment and
+  source support only. `compressed_lower_endpoint_pairing` uses the actual
+  compressed test and kernel, retaining the preexisting boundary ordering.
+- `BF4ExactSlabFixedSpatialCubeGluedHeatOnlyObstruction.glued_firstFace_exact`
+  and `_positive` give the exact original width-two K1 face witness on the
+  ambient blocked action. `glued_endpoint_not_free` and
+  `compressed_endpoint_not_free` exclude every free heat vacuum marginal,
+  even at another nome/cutoff. No whole K1-action positivity, normalized
+  blocking comparison or obstruction to every interacting coarse action.
+- Two final focused checks passed 6+4 new permitted gates; the existing finite
+  witness dependency was separately checked/cached. Independent read-only Sol
+  review passed. One monitored 20-GiB worker/12-GiB reserve, swap zero. No
+  holes, axioms, classical input, canonical field changes or raised heartbeats.
+  No full-root/tree build/audit or hashed-baseline regeneration; CI stays off.
+- Parallel source review: original correction/drift/reconstruction payment
+  already uses Z1*m(b²), not an absolute source cap. The leading paired score
+  plus SIGNED remainder difference remains unpaid. Its one-step Rayleigh
+  pairing cost is not silently identified with two-step norm RG dissipation;
+  the fixed-action signed-limit damping already uses the existing fixed gap.
+- OPEN: actual coarse action/map and relative comparison, useful ordinary
+  delta budget, independent AF survival, uniform physical/volume control,
+  SAME limiting OS/QFT theory, every group and Clay. Ambient endpoint
+  identification is now CLOSED in precisely the finite tested scope above.
+
+Evidence: `audits/AUDIT-GLUED-ENDPOINT-AND-SIGNED-PRODUCER-2026-10-07.md`.
+
 ## PROVED: selective RG slow-state retention and original heat-only screen (2026-10-07)
 
 - `BF4WilsonAllNomeRGSlowStateRetention.shiftedState` constructs the actual
@@ -27,8 +61,8 @@
   notation/namespace elaboration failures are not evidence. No new holes,
   axioms, classical input, frontier-field changes or raised heartbeats.
   No full-root/tree build/audit, hashed-baseline regeneration or CI enablement.
-- OPEN: actual AF survival, original fine/coarse map and relative estimate with
-  useful budget; ambient gluedMiddle endpoint identification; normalized
+- OPEN at that checkpoint: actual AF survival, original fine/coarse map and
+  relative estimate with useful budget; ambient gluedMiddle endpoint identification (now proved above); normalized
   interacting coarse-action comparison; physical/OS/QFT/every-group/Clay.
 
 Evidence: `audits/AUDIT-RG-PRODUCER-RETENTION-AND-HEAT-ONLY-2026-10-07.md`.

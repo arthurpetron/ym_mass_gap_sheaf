@@ -94,11 +94,39 @@ at width 2, K=1, w>0, the actual first-message face moment is
 `w^12*(alpha+alpha^5/16)>0`, alpha=2*w^3; every constant/free kinetic vacuum
 marginal has zero face moment, for EVERY free nome and cutoff. No raw expansion
 or cutoff-one action-positivity claim is needed. This does not rule out an
-interacting coarse action. The next bounded exact join is the ambient
-`gluedMiddle` endpoint marginal to this original slice first-message test,
-keeping endpoint spatial factors separate. It will expose, not estimate away,
-the remaining action discrepancy. Evidence:
+interacting coarse action. The previous bounded exact frontier was the ambient
+`gluedMiddle` endpoint marginal to this original slice first-message test;
+that join is NOW CHECKED as described below, keeping endpoint spatial factors
+separate. It exposes, rather than estimates away, the action discrepancy. Evidence:
 `audits/AUDIT-RG-PRODUCER-RETENTION-AND-HEAT-ONLY-2026-10-07.md`.
+
+The exact ambient join is complete: `BF4ExactSlabFixedSpatialGluedEndpointMarginal`
+identifies lower endpoint tests of the actual K01*V1*K12 middle integral with
+original T1, for every nome and cutoff under geometry/support guards. V1 is
+retained once; V0,V2 are neither introduced nor canceled. The same pairing on
+the existing compressed boundary kernel uses an explicitly recoded test and
+does not assume consecutive endpoint ordering.
+`BF4ExactSlabFixedSpatialCubeGluedHeatOnlyObstruction` lifts the exact positive
+face witness to that actual blocked action and compressed kernel. No free
+nome/cutoff can match its endpoint marginal at width 2,K=1,w>0. This is an
+unnormalized finite obstruction, not whole-action positivity or a prohibition
+on interacting coarse actions. Ten new constructive gates passed.
+
+The parallel producer review narrows the next ANALYTIC estimate. Existing
+`LastStepCorrectionPaidCost.original_block_lastStep_correctionPaid_cost_relative_tolerance`
+pays reciprocal correction, terminal drift and reconstruction in Z1*m(b²).
+After positive partition normalization its error is relative to m(b²)/Z0,
+not an absolute input cap. Reuse this payment. The still-unpaid term is the
+COMBINED original paired score plus signed Taylor remainder difference, with
+both partitions and complete spatial action retained. The cost is one-step
+Rayleigh pairing, not already fine two-step norm dissipation; the actual
+coarse action/map and that comparison join are still missing. Existing
+`SignedMultiplicationLimit.dampedDropLimit_nonpositive` uses the fixed-parameter
+completed gap, so it is not an independent changing-family budget producer.
+Constructed numerical margins permit per-scale positive approximation targets;
+separate parameter-dependent onsets do not supply a uniform diagonal modulus.
+Do not add tolerance-specialization wrappers instead of estimating the bulk.
+Evidence: `audits/AUDIT-GLUED-ENDPOINT-AND-SIGNED-PRODUCER-2026-10-07.md`.
 
 In parallel, the actual finite torus covariance/RP join is being completed
 algebraically. Spatial-character reflection and genuine insertion extraction

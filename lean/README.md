@@ -16,6 +16,20 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked actual blocked endpoint marginal (2026-10-07):**
+`BF4ExactSlabFixedSpatialGluedEndpointMarginal` identifies the actual
+`K01*V1*K12` middle integral's lower endpoint test with original `transferStep 1`.
+Chronological placement retains V1 once; outside V0,V2 are neither added nor
+canceled. The same identity holds on the existing compressed boundary kernel
+with its actual test recoding/order. `BF4ExactSlabFixedSpatialCubeGluedHeatOnlyObstruction`
+then excludes every free heat vacuum marginal at width 2,K=1,w>0, whatever
+the free nome/cutoff. This concerns unnormalized tests, not full action
+positivity or a no-go for interacting coarse actions. Two focused checks
+passed 6+4 permitted gates; no full-root/tree build or audit. Existing actual
+source-relative correction/drift/reconstruction payments do not pay the
+remaining signed paired bulk or construct the changing-action comparison.
+Evidence: `audits/AUDIT-GLUED-ENDPOINT-AND-SIGNED-PRODUCER-2026-10-07.md`.
+
 **Checked selective RG retention and exact heat-only screen (2026-10-07):**
 `BF4WilsonAllNomeRGSlowStateRetention` derives four-lag loss from existing
 shifted H1, then necessary norm retention on the actual shifted original
@@ -25,8 +39,8 @@ without assuming retention or dividing by the excitation norm.
 `BF4ExactSlabFixedSpatialCubeHeatOnlyObstruction` proves actual width-two
 cutoff-one T1 is not supported-Haar equivalent to any constant or free kinetic
 vacuum marginal, whatever its nome/cutoff. Its face test is strictly positive
-for w>0, not a claim of full cutoff-action positivity. Ambient gluedMiddle
-identification and interacting coarse comparison remain OPEN. Two focused
+for w>0, not a claim of full cutoff-action positivity. Its ambient gluedMiddle
+join is now checked above; interacting coarse comparison remains OPEN. Two focused
 checks passed 11 permitted gates; no full-root/tree build or audit. Evidence:
 `audits/AUDIT-RG-PRODUCER-RETENTION-AND-HEAT-ONLY-2026-10-07.md`.
 

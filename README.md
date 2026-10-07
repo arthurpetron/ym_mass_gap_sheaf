@@ -18,13 +18,23 @@ prefix sums of relative errors; neither that action comparison nor its useful
 budget is constructed. No coercive lower norm comparison is needed. Physical
 scaling, the SAME limiting OS/QFT theory and every compact simple group remain open.
 
+**Latest exact blocked-action join (2026-10-07):** the actual two-layer middle
+integral and its compressed boundary kernel now have a proved endpoint marginal
+equal to the original `T1`, retaining the middle spatial interaction once.
+Its positive width-two face test excludes every free heat vacuum marginal,
+even at another nome/cutoff. Ten new constructive gates passed. This closes
+an exact action-identification seam, not the interacting scale comparison.
+The next estimate must pay the combined signed bulk; existing correction,
+drift and reconstruction payments already use the surviving source norm.
+See the [checked join and remaining producer](audits/AUDIT-GLUED-ENDPOINT-AND-SIGNED-PRODUCER-2026-10-07.md).
+
 **Latest producer tests (2026-10-07):** the survival and relative-comparison
 branches now imply selective norm retention on the actual slow state. An exact
 original-action face test also forbids replacing its interacting vacuum
 marginal by a bare heat marginal, even with a changed heat nome or cutoff.
 Two focused checks passed 11 constructive gates. Neither test constructs the
 missing interacting comparison or AF survival. See the
-[proved constraints and next exact join](audits/AUDIT-RG-PRODUCER-RETENTION-AND-HEAT-ONLY-2026-10-07.md).
+[proved constraints before the blocked-action join](audits/AUDIT-RG-PRODUCER-RETENTION-AND-HEAT-ONLY-2026-10-07.md).
 
 **Latest mathematical reduction (2026-10-07):** relative error
 `epsilon_n = delta_n*(1-r_n^2)` gives the explicit dyadic margin floor

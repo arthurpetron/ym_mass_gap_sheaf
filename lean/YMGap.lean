@@ -7712,3 +7712,8 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialConditionalNoiseVacuumObstruction
 -- substitution; neither result constructs the interacting coarse comparison.
 import YMGap.Continuum.BF4WilsonAllNomeRGSlowStateRetention
 import YMGap.Continuum.BF4ExactSlabFixedSpatialCubeHeatOnlyObstruction
+-- Actual blocked endpoint tests retain the middle spatial action and its
+-- compressed boundary order. Heat-only substitution fails; the interacting
+-- changing-action relative estimate and scaling remain open.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialGluedEndpointMarginal
+import YMGap.Continuum.BF4ExactSlabFixedSpatialCubeGluedHeatOnlyObstruction
