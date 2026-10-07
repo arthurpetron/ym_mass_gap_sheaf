@@ -6490,3 +6490,5 @@ arbitrary disjoint link-block supports.
 `SU2TruncGeneric` (2026-10-07): R1 commit 21.  The correlator decay, abstracted once over the activity and KP package.
 
 `SU2WilsonObsActivity` (2026-10-07): R1 commit 22.  Observable Wilson activity bound.
+
+`SU2WilsonTrunc` (2026-10-07): R1 commit 23.  Wilson truncated correlator decay, ratio form, uniform in K.

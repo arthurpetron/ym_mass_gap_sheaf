@@ -163,3 +163,7 @@ No fail statement is given: the ℓ¹ envelope is an upper bound, not the true a
 ## PROVED: commit 22, `SU2WilsonObsActivity.lean`
 
 - The observable Wilson activity bound, uniform in K.
+
+## PROVED: commit 23, `SU2WilsonTrunc.lean`
+
+- The Wilson truncated-correlator ratio bound at β_S.

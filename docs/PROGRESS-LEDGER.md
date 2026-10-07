@@ -4,7 +4,17 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 22, observable Wilson activities bounded uniformly in K (2026-10-07 PT)
+## Latest proved increment: R1 commit 23, Wilson truncated χ₁ correlator decay at β_S, uniform in K (2026-10-07 PT)
+
+- `SU2WilsonTrunc.wilson_trunc_ratio` (PROVED, axioms [propext, Quot.sound]).
+  - Statement: `|Z_pq/Z − (Z_p/Z)(Z_q/Z)| ≤ Cw·λ^{ld(q,p)}`, with λ = 6/7.
+  - `Z_S = ∫ Π_{r∈P} [(1+χ_r)]_{r∈S} T_K(r)` is the genuine observable-weighted Wilson integral at β_S = 1/(2·10¹²).
+  - It holds uniformly in K, N and P. `Cw = Cg(D1, D2, (5/3)^24)` ≈ 3.6·10³⁵, with Dw = 2·10¹²+3.
+  - The left side is Cov(χ_p, χ_q).
+- Proof: an instance of `trunc_gen`, using `ZW_eq` (`Z_S ≈ c₀^{|P|} Ξ(zW S)`) and Realizer's sharp link-KP package. The c₀ factors cancel.
+- Labels: strong coupling; Wilson; also true for U(1), not gap evidence.
+
+## Earlier proved increment: R1 commit 22, observable Wilson activities bounded uniformly in K (2026-10-07 PT)
 
 - `SU2WilsonObsActivity.zW_bound` (PROVED, axioms [propext, Quot.sound]).
   - Statement: `|zW S γ| ≤ Dw^{|S|} ε^{|γ|}` for nodup γ, when `2β ≤ ε`, `1 ≤ Dw` and `ε+(2+2ε) ≤ Dw·ε`.
