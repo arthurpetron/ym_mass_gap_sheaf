@@ -7380,6 +7380,7 @@ import YMGap.Continuum.SU2PlaqRadius
 import YMGap.Continuum.SU2CharacterCauchySchwarz
 import YMGap.Continuum.SU2PlaqWeightedCharacterBound
 import YMGap.Continuum.SU2PolymerActivityBound
+import YMGap.Continuum.SU2PolymerActivityHeat
 import YMGap.Continuum.SpecMaxRateFamily
 import YMGap.Continuum.W1StrongCouplingPerturbation
 import YMGap.Continuum.W1VacuumTailRowSum

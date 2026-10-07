@@ -168,12 +168,12 @@ theorem plaqWord_radius_carrier (links N p) (hc : LinksCover links N p) :
 ```
 
 ### Mapping onto the heat-kernel activity
-**Mismatch:** `HeatKernelPolymerActivityR1.lean` currently defines **no** `fPoly`. It has
-`envTerm`/`charEnv`/`zHeat` only. The polynomial side lives in `SU2TorusMultiLinkPolyGibbs`:
-`plaqWeight w links N p M = Σ_{s=0}^{M} coeffW w s · χ_s(U_p)` (this includes s = 0) and
-`torusIntegrand = Π_p plaqWeight`. The intended centred per-plaquette factor is
-`fPoly p := plaqWeight w links N p M − coeffW w 0 · χ_0 = Σ_{s=1}^{M} coeffW w s · χ_s(U_p)`.
-Here `coeffW w 0 ≈ 1` (`coeffW_zero_eqv`) and `χ_0 = 1`.
+**Correction (2026-10-07):** `fPoly` DOES exist. It is
+`YMGap.Continuum.SU2HaarL1Activity.fPoly w links N p M = Σ_{s=1}^{M} coeffW w s · χ_s(U_p)` (`| 0 => []`,
+appended at the end). `SU2PlaqSupport.plaqWeight_split` (dd850bbe) gives
+`plaqWeight = [([], coeffW w 0 · 1)] ++ fPoly`, and `SU2PolymerIdentity.polyPartition_eq_Xi` uses
+`z γ = quaternionHaar links.length (prodPoly (fun p => fPoly w links N p M) γ)`. The earlier claim that
+`fPoly` was missing was wrong. The bridge is now proved in `SU2PolymerActivityHeat.lean` (see below).
 
 * Pass `q = (p, cs w M)` with `cs w M := [(coeffW w 1, 1), …, (coeffW w M, M)]`.
   Then `charSum links N p (cs w M) ≅ fPoly p`. That needs one `RatPolyCoeffEqv` lemma against
@@ -190,3 +190,17 @@ Here `coeffW w 0 ≈ 1` (`coeffW_zero_eqv`) and `χ_0 = 1`.
 * Sharper option: for plaquettes on disjoint links, `haar_disj` (14c3f5a8) factorises
   `h(Π f_p) = Π h(f_p)`. For centred `f_p`, `h(f_p) = 0`. So a polymer containing a plaquette
   that shares no link with the others has zero activity. The present bound does not exploit this.
+
+### Heat-kernel bridge (`YMGap.Continuum.SU2PolymerActivityHeat`)
+```lean
+def heatList (w : Q') : Nat → List (Q' × Nat)   -- 0 => []; M+1 => (coeffW w (M+1), M+1) :: heatList w M
+theorem fPoly_eq_charSum (w links N p) : ∀ M, RatPolyCoeffEqv (fPoly w links N p M) (charSum links N p (heatList w M))
+theorem bSum_heatList {w} (hw : 0 ≤ w) : ∀ M, (bSum (heatList w M)).eqv (charEnv w M)
+theorem heatList_pos {w} (hw : 0 < w) : ∀ M, ∀ t ∈ heatList w M, 0 < Q'.abs t.1
+theorem z_abs_le {w : Q'} (hw : 0 < w) (M : Nat) (links : List Z4Link) (N : Nat) (γ : List Z4Plaq)
+    (hc : ∀ p ∈ γ, SU2PlaqWordHolonomy.LinksCover links N p) :
+    let z := quaternionHaar links.length (prodPoly (fun p => fPoly w links N p M) γ)
+    (-(charEnv w M ^ γ.length)) ≤ z ∧ z ≤ charEnv w M ^ γ.length
+```
+Here `(multiLinkHaar n).h` is `quaternionHaar n` by definition. `LinksCover` is the four explicit link memberships. The gas uses `Lk`
+(`∀ ℓ ∈ plaqLinks N p, ℓ ∈ links`), and the `Lk → LinksCover` bridge is left to the Prover.
