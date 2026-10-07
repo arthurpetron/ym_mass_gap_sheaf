@@ -254,6 +254,34 @@ all-vector RG comparison follows. Eight gates pass four focused targets;
 broad chart unchanged. Evidence:
 `audits/AUDIT-ADAPTIVE-SIGNED-SCORE-PAYMENT-2026-10-07.md`.
 
+An optional finite simplification is NOW CHECKED. An INITIAL actual bound
+`E(a,psi)<=d*ell[a*Ta*psi^2]`, a=g_(s+1), 0<=d<=1, supplies the source floor
+rho=(1-d)*l. Positivity on y=T*c-rho*c gives the short exact identity
+`ell[Tc*T(Tc)]-rho*ell[(Tc)^2] = ell[y*Ty]+rho*ell[y^2]
++rho^2*(ell[c*Tc]-rho*ell[c^2])`, so the floor persists through EVERY t.
+`SourceRayleighPersistence` checks this argument; `LocalEnergyTransport`
+preserves BOTH initial terminal endpoints and obtains
+`clearedCost<=(d+eta_s)*Z1*B`, with no accumulated filtering-time penalty.
+Its direct original-energy consumer joins actual reconstruction and signed
+drift: `Z0*E(A,phi_k)<=(d+eta_s+epsilon+eta_(s+t))*Z1*B` at the explicit onset.
+Six gates pass two focused targets; no source inverse or changed action/center.
+
+This is a sufficient bypass, NOT an equivalence or a producer of small d.
+For the initial OWN-centered family, reuse `marginal_centered_square` and
+`energy_shifted` to reach its SAME finite variance; do not rebuild that join.
+The AF schedule has 1-w_j of order 1/j while side_j=2^j, so the bare leading
+12*(1-w_j) term alone is insufficient. Retained signed cancellation could
+still supply a useful initial bound; this screen is not an energy lower bound.
+The completed filtered-state norm is a different denominator requiring its
+existing SAME-object joins. NEXT/main remains the original selected
+filtered/window energy estimate in surviving-form units on the justified
+family; pursue the initial route only if useful d and terminal-error moduli
+can actually be produced. Independent AF survival and all-vector changing-
+action comparison/useful delta budget remain separate analytic fronts.
+Physical/volume control, limiting QFT, every group and Clay remain OPEN.
+Evidence: `audits/AUDIT-LOCAL-ENERGY-TRANSPORT-2026-10-07.md`.
+Broad chart unchanged; no reprint.
+
 In parallel, the actual finite torus covariance/RP join is being completed
 algebraically. Spatial-character reflection and genuine insertion extraction
 are checked; `SU2WilsonCenteredCovariance.centered_covariance` now proves the

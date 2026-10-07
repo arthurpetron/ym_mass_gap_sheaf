@@ -1,5 +1,20 @@
 # Canonical one-page project status
 
+Supporting original-energy transport checked (2026-10-07): positivity preserves
+an initial source Rayleigh floor through EVERY actual filtering step. BOTH
+original terminal-envelope endpoints are retained, giving cleared cost
+`<= (d+eta_s)*Z1*B` from a supplied initial original energy fraction d.
+The genuine reconstructed energy obeys
+`Z0*energy <= (d+eta_s+epsilon+eta_(s+t))*Z1*B`, without a source inverse or
+accumulated time penalty. Six permitted gates pass two focused targets.
+Useful initial smallness is NOT supplied; its existing leading AF coefficient
+alone has the wrong scaling order. Keep the selected filtered/window estimate
+as the main producer and this stronger initial premise as an optional route.
+Independent AF survival, all-vector changing-action comparison, physical/volume
+control and Clay remain OPEN. Evidence:
+`audits/AUDIT-LOCAL-ENERGY-TRANSPORT-2026-10-07.md`.
+Broad chart unchanged; no reprint.
+
 Supporting finite approximation payment checked (2026-10-07): a computed
 degree-independent score cap chooses sigma BEFORE the explicit degree onset,
 paying signed reciprocal debt to arbitrary relative tolerance. The total

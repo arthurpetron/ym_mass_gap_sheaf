@@ -1,5 +1,36 @@
 # Sorry Ledger
 
+## PROVED: transport an initial original energy fraction through filtering (2026-10-07)
+
+- `BF4ExactSlabFixedSpatialSourceRayleighPersistence.sourceRayleigh_floor_step`
+  uses positive ordinary and actual-transfer squares of T*c-rho*c to retain
+  the source floor. `sourceRayleigh_floor_persists` iterates it for every t,
+  with actual V-weighted symmetry, no spectral theorem or source inverse.
+- `BF4ExactSlabFixedSpatialLocalEnergyTransport.terminalFixedEnvelope`
+  constructs both INITIAL terminal endpoints at every later time.
+  `original_block_cost_le_initial_energy` gives complete cleared cost
+  `<= (d+eta_s)*Z1*B` from INITIAL E(a,psi)<=d*ell[a*Ta*psi^2], 0<=d<=1.
+  `original_block_ratio_energy_le_initial_energy` joins the actual finite
+  reconstruction and signed drift, giving
+  `Z0*E(A,phi_k)<=(d+eta_s+epsilon+eta_(s+t))*Z1*B` at the explicit onset.
+  Original action, source/center and BOTH partition factors are unchanged.
+- Final two focused checks pass six printed gates in {propext, Quot.sound}.
+  One monitored 20-GiB worker, 12-GiB reserve, fresh dynamic preflights and
+  zero swap. Repaired record-transport/timeouts are not evidence. No raised
+  heartbeat, new source hole/axiom/classical input, canonical field change,
+  full-root/tree build/audit or hashed baseline refresh.
+- OPEN: produce useful initial d/terminal moduli or the preferred selected
+  filtered/window bound in SAME surviving-form units on the justified family.
+  The existing bare 12*(1-w) coefficient has the wrong AF scaling order;
+  the signed remainder may cancel and is not discarded. Existing initial
+  OWN-center/partition identities are reused, not confused with completed
+  filtered-state norms. Independent AF/scaling survival, all-vector RG
+  comparison/useful delta budget, physical/volume control, limiting QFT,
+  every group and Clay remain OPEN. A selected-source LOWER Rayleigh floor
+  is not an every-state TRANSFER UPPER contraction bound or a physical gap.
+
+Evidence: `audits/AUDIT-LOCAL-ENERGY-TRANSPORT-2026-10-07.md`.
+
 ## PROVED: construct finite signed-overhead payment, including null targets (2026-10-07)
 
 - `QuaternionHaarFiniteReciprocalScoreCap.reciprocal_score_finite_cap_le`

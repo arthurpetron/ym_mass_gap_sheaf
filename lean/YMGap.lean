@@ -7751,3 +7751,7 @@ import YMGap.Continuum.QuaternionHaarFiniteReciprocalScoreCap
 import YMGap.Continuum.BF4ExactSlabFixedSpatialAdaptiveSignedScorePayment
 import YMGap.Continuum.QuaternionHaarPositiveWeightNullReflection
 import YMGap.Continuum.BF4ExactSlabFixedSpatialTotalSignedScorePayment
+-- A supplied INITIAL original local energy fraction reaches every filtered
+-- source and its reconstructed energy; scaling-smallness remains OPEN.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceRayleighPersistence
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLocalEnergyTransport
