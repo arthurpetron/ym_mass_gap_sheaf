@@ -4,7 +4,18 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 14, generic removal chain bound T(y,g) without KP at the roots (2026-10-07 PT)
+## Latest proved increment: R1 commit 15, removal-chain decay instances for the old and sharp K (2026-10-07 PT)
+
+- `SU2RemovalDecay` (PROVED, axioms [propext, Quot.sound]).
+  - Statement: for y, g ∈ gas, `sepL y g (R+2)` and `Good gas l`, `|Ξ(l)Ξ(l_{g,y}) − Ξ(l_y)Ξ(l_g)| ≤ λ^{R+1}·M_y M_g²·Ξ(l)²`, with λ = 6/7 and M_x = K^{24|x|}.
+  - `T_link_decay` uses K = 5/3 (with the scalar hypotheses of `SU2LinkDecay.link_decay`).
+  - `T_link_decay_sharp` uses K = 3/2 (with those of Realizer's `SU2LinkDecaySharp`).
+  - `T_su2_w0`: the SU(2) heat instance at w₀ = 10⁻⁸, uniform in M.
+- The activity is a hypothesis; there is no KP condition at y or g.
+- OPEN: the two-root formula and the rooted sum for the truncated χ₁ correlator.
+- Labels: strong coupling, heat-kernel (spin-truncated), not Wilson; also true for U(1), not gap evidence.  The Wilson counterpart is Realizer's `SU2WilsonLinkDecay`.
+
+## Earlier proved increment: R1 commit 14, generic removal chain bound T(y,g) without KP at the roots (2026-10-07 PT)
 
 - `PolymerRemovalChain` (PROVED, axioms ⊆ {propext, Quot.sound}).
   - Statement: `T_bound : farW y f r g → Good Γ l → |Ξ(l)Ξ(l_{g,y}) − Ξ(l_y)Ξ(l_g)| ≤ M_y·BW f r g·Ξ(l)²`.

@@ -129,3 +129,8 @@ No fail statement is given: the ℓ¹ envelope is an upper bound, not the true a
 
 - T(y,g) bound by D-telescoping started from the y and g neighbourhoods; no KP at the roots.
 - Strong coupling, heat-kernel, U(1)-true.
+
+## PROVED: commit 15, `SU2RemovalDecay.lean`
+
+- Instances with K = (5/3)^24 and K = (3/2)^24, plus the SU(2) w₀ instance.
+- OPEN: the two-root formula and the rooted sum.

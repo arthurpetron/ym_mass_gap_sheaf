@@ -6474,3 +6474,5 @@ arbitrary disjoint link-block supports.
 `SU2ObsRoot` (2026-10-07): R1 commit 13.  The Gibbs expectation for χ₁ insertions is exact, plus the one-point root formula.  NEXT BIG ITEM: reflection positivity plus a transfer matrix for the torus polyPartition (see SCOPE-R1-CLUSTER-TO-GAP-2026-10-07.md); not started.  Heat-kernel, not Wilson; U(1)-true, not gap evidence.
 
 `PolymerRemovalChain` (2026-10-07): R1 commit 14.  The generic removal-chain bound for T(y,g) (key lemma for the truncated χ₁ correlator).
+
+`SU2RemovalDecay` (2026-10-07): R1 commit 15.  The T(y,g) ≤ λ^{R+1}M_yM_g²Ξ² bound for the old and sharp K, plus the SU(2) w₀ instance.  Open: the two-root formula and the rooted sum.
