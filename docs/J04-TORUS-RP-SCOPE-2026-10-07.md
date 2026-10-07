@@ -136,7 +136,12 @@ obligations:
     words, `plaqWord` shape (`TK_word_sub`) and plaquette products (`prodPoly_sub`).
   - `SU2TorusRPReindex`: block involutions are `RingSub`s with `σ: coordinateVariable b ↦ coordinateVariable (σ b)`.
   - `SU2TorusRPHeadSub`: the head shear `translatedHeadPolynomial T` is a `RingSub`; head coordinate ↦ T, tail fixed.
-- (b) OPEN:
+- (b) PROVED since: the conj flip is a `RingSub` with no support hypothesis (`SU2TorusRPConj.conj_ringSub`, via
+  `parity_monoMul`), and `ringSub_comp` holds GIVEN `PECongr n S` (S respects `PE n`).
+- (b) OPEN: `PECongr` for reindex / head shear / conj flip. Haar-context equivalence is not obviously preserved by
+  monomial-changing maps. Likely route: support-restricted `PE`, using the invariance lemmas (`quaternionHaar_reindex`,
+  `quaternionHaar_signSelected`, `translatedHeadPolynomial_haar`) in shifted contexts.
+- (b) earlier note, superseded:
   - The conj flip `signSelectedPolynomial` as a `RingSub`. Its product law exists only as
     `QuaternionPrefixPolynomialEqv` under block support. This needs either a support-restricted `RingSub` or an
     unconditional parity lemma for `selectedExponentParity (monoMul ..)`.
