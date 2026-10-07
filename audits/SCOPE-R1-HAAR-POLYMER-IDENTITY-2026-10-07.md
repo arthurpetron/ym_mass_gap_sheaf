@@ -184,3 +184,10 @@ No fail statement is given: the ℓ¹ envelope is an upper bound, not the true a
 ## PROVED: commit 27, `SU2SliceOrder.lean`
 
 - Slice-order factorisation. Choice-lemma watch: `List.filter_eq_nil_iff` and `beq_self_eq_true` (on Nat) pull `Classical.choice`.
+
+## PROVED: commit 28, `SU2TailHaar.lean`
+
+- Partial Haar (Fubini). Still OPEN for Z = Tr T^{N_t}:
+  - multiplicativity of `tailInt` over disjoint tail groups;
+  - slice link ordering and translation of the slice weight via `pe_reindex`;
+  - assembly.

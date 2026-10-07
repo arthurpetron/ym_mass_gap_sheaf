@@ -7496,6 +7496,7 @@ import YMGap.Continuum.SU2WilsonTrunc
 import YMGap.Continuum.SU2TorusSlice
 import YMGap.Continuum.SU2ReindexPECongr
 import YMGap.Continuum.SU2SliceOrder
+import YMGap.Continuum.SU2TailHaar
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport

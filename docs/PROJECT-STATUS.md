@@ -6500,3 +6500,5 @@ Transfer-matrix scope note (2026-10-07): R1 commit 24.  Scope only.
 `SU2ReindexPECongr` (2026-10-07): R1 commit 26.  Supported PECongr for reindex; the unsupported form is refuted.
 
 `SU2SliceOrder` (2026-10-07): R1 commit 27.  Slice-order factorisation of the torus integrand.
+
+`SU2TailHaar` (2026-10-07): R1 commit 28.  Partial Haar integration (Fubini) for the transfer kernel.

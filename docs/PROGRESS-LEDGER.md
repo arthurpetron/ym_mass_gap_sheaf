@@ -4,7 +4,14 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 27, torus integrand in slice order (transfer step 2b) (2026-10-07 PT)
+## Latest proved increment: R1 commit 28, partial Haar integral over trailing blocks (transfer step 2c) (2026-10-07 PT)
+
+- `SU2TailHaar.fubini` (PROVED, [propext, Quot.sound]): `∫_{a+b} P ≈ ∫_a (tailInt a b P)`.
+  - `tailInt` integrates out the last b blocks, which is the `∫dV` of the slice kernel; the result is supported on a blocks (`tailInt_sup`).
+  - `mono_split`: `∫_{a+b} m ≈ ∫_a take · ∫_b drop`.
+- Labels: algebra, every coupling; also true for U(1), not gap evidence.
+
+## Earlier proved increment: R1 commit 27, torus integrand in slice order (transfer step 2b) (2026-10-07 PT)
 
 - `SU2SliceOrder.torus_prod_slice` (PROVED, [propext, Quot.sound]): `Π_{p∈torus} F p ≅ Π_{t<N} (Π_{PS_t} F · Π_{PT_t} F)` for every plaquette weight F, including the Wilson `T_K`.
   - Proof: `prod_perm` (List.Perm induction) and `torus_slice_perm`.
