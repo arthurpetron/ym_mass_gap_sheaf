@@ -1,7 +1,8 @@
 # RG-step composition reduction for the Wilson gap frontier (2026-10-06 PT)
 
 Status: **REDUCTION ONLY.** No approximate intertwiner `Φ_j` is constructed.
-Operator-level `ApproxRgIntertwiner` fields + proved rate transfer; SC cannot seed `trAF`.
+Two-step intertwining (`T_f²` vs `T_c`) + proved transfer `r_F⁴ ≤ κ(r_C²+ε)`;
+κ≥1 on pinned vacuum diagonals; one-step shape no-go; SC cannot seed `trAF`.
 Companion Lean: `lean/YMGap/Continuum/BF4WilsonAllNomeRGStepComposition.lean`.
 
 ## Question
@@ -40,24 +41,34 @@ At each `j`, an **approximate RG intertwiner**
 together with errors `ε_j ≥ 0` and coercivity constants `κ_j > 0`, such that:
 
 1. **Coercive lower bound** (prevents `Φ = 0`): `B_{j+1}(x,x) ≤ κ_j · B_j(Φx, Φx)`.
-   (The older "nonexpansive" upper bound `B_j(Φx,Φx) ≤ B_{j+1}(x,x)` alone
-   allowed the zero map and is **not** sufficient.)
+   Together with the upper bound ⇒ `κ_j ≥ 1` on any fine vacuum vector whose
+   diagonal is pinned to a positive rational `δ` (`kappa_ge_one`).
 2. **Norm upper bound**: `B_j(Φx, Φx) ≤ B_{j+1}(x,x)`.
-3. **Approx intertwining (quadratic-form defect):** a one-step VacSq B-form
-   `B_{j+1}(T_{j+1} x, T_{j+1} x) ≤ κ_j·B_j(T_j Φx, T_j Φx) + (κ_j·ε_j)·B_{j+1}(x,x)`
-   (constructive packaging of `Φ∘T² ≈ T∘Φ` without vector subtraction on the
-   subtype; see Lean).
-4. **Rate transfer (PROVED from 1–3):** coarse VacSq at `r_j` implies fine
-   square-factor `κ_j(r_j²+ε_j)`, hence VacSq at any `r_{j+1}` with
-   `κ_j(r_j²+ε_j) ≤ r_{j+1}²`. Choosing equality identifies
-   `r_{j+1}² = κ_j(r_j²+ε_j)`.
+3. **Approx intertwining (two fine steps vs one coarse; B-form):**
+   `B_{j+1}(T_{j+1}² x) ≤ κ_j·B_j(T_j Φx) + (κ_j·ε_j)·B_{j+1}(x)`
+   (`intertwine_twoStep`; constructive packaging of `Φ∘T² ≈ T∘Φ` without
+   subtype subtraction). Matches the dyadic spacing ratio `a_{j+1}=a_j/2`.
+4. **Rate transfer (PROVED from 1–3):** coarse VacSq at `r_j` ⇒ fine **two-step**
+   factor `α = κ_j(r_j²+ε_j)`. Dictionary: VacSq at `r_F` ⇒ two-step factor
+   `r_F⁴` (`vacuumSq_implies_twoStepFactor`), so choosing `r_F⁴ = α` gives
+   `r_F⁴ ≤ κ(r_C²+ε)`. Writing `u_j = r_j²` recovers the 8a341453 shape
+   `u_{j+1} ≤ u_j + ε'_j` after absorbing `(κ−1)·r_C²` into the effective
+   defect `ε' = (κ−1)·r_C² + κ·ε` (`effectiveRgDefect`).
+
+**No-go on the old one-step shape.** If a fine vector attains Rayleigh
+`B(Tx)/B(x) ≥ r_C` (pinned diagonal), any one-step defect of the form
+`B(Tx) ≤ κ·B(T Φx) + (κ·ε)·B(x)` plus coarse VacSq + upper forces
+`r_C ≤ κ(r_C²+ε)`. When `r_C/κ > r_C²`, this lower-bounds `ε`; persistent
+attainders along AF prevent `Σ 2^j ε_j` from staying small
+(`oneStep_defect_forces_rate_le_kappa_factor`, `OneStepAfSumObstruction`).
+This motivates the two-step retype.
 
 Exact intertwiners (`ε_j = 0` with literal `Φ T² = T Φ`) almost certainly do
 **not** exist for the Wilson action: different widths, different nomes `w_j`, no
 exact blocking identity for continuum YM, and the AF width schedule is not a
 pure 2-blocking. Any honest `ε_j` must come from quantitative RG / polymer /
 continuum-limit estimates (Balaban-style or modern constructive QFT). **That
-input is not supplied here.**
+input is not supplied here.** Inhabitability of `Φ_j` remains **OPEN**.
 
 ## Rate algebra (proved, pure Q')
 
@@ -115,3 +126,11 @@ On `trAF`, `wilsonGapBranch_afPadded_generic` still needs:
 No new analytic estimate is claimed. Exact missing input: quantitative
 construction of `Φ_j` (or direct verification of the rate-transfer Prop) with
 summable `ε_j` for the Wilson action along the chosen schedule.
+
+## Changelog
+
+* 2026-10-06 ~8:40 PM PT — Retype to `intertwine_twoStep` (`T_f²` vs `T_c`);
+  prove `approxRg_transfers_twoStep_factor` (`r_F⁴ ≤ κ(r_C²+ε)` dictionary);
+  `kappa_ge_one`; `effectiveRgDefect = (κ−1)r_C² + κ·ε` in margin budget;
+  one-step no-go `oneStep_defect_forces_rate_le_kappa_factor`. Still REDUCTION;
+  `Φ` inhabitability OPEN. Axioms ⊆ {propext, Quot.sound}.

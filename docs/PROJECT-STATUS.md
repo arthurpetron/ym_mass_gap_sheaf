@@ -1,12 +1,13 @@
 # Canonical one-page project status
 
-REDUCTION — RG-step composition (2026-10-06 PT): the gap frontier may be restated
-as (1) step ratio + (2') inhabitability of approx RG intertwiners `Φ_j` with
-operator fields (coercive `κ`-lower bound preventing `Φ=0`, upper bound, quadratic
-defect) and summable weighted `Σ 2^j ε_j`. Rate transfer is PROVED:
-`κ(r_C²+ε) ≤ r_F² ⇒ VacSq fine`. SC cannot seed `trAF` (`w_j ≥ w_0 > 1/2` fails
-`heatRatio ≤ 1/2`); seed is an open intermediate-coupling producer. No `Φ_j`
-constructed. Not AF. See `audits/SCOPE-RG-STEP-COMPOSITION-REDUCTION-2026-10-06.md`.
+REDUCTION — RG-step composition (2026-10-06 PT): gap frontier restated as
+(1) step ratio + (2') inhabitability of approx RG intertwiners `Φ_j`. Two-step
+shape `intertwine_twoStep` (`T_f²` vs `T_c`); transfer PROVED
+`r_F⁴ ≤ κ(r_C²+ε)` (VacSq⇒two-step-factor dictionary; effective defect
+`(κ−1)r_C²+κ·ε`). `kappa_ge_one` on pinned vacuum diagonals. One-step shape
+no-go: attaining Rayleigh `≥ r_C` forces `ε` lower bound. SC cannot seed
+`trAF`. No `Φ_j` constructed. Not AF. See
+`audits/SCOPE-RG-STEP-COMPOSITION-REDUCTION-2026-10-06.md`.
 
 Route (b), strong coupling (2026-10-06 PT): the literal fixed-width all-nome
 carrier now has a WIDTH-INDEPENDENT `WilsonVacuumSqContraction` at rate
