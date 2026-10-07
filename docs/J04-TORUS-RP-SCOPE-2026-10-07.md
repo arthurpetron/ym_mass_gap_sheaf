@@ -189,3 +189,9 @@ n=1, σ=id, monomial x₄). Only the supported forms are used from here on: `rei
 `theta_ringSub` (RingSub), `theta_spatial_link`, `theta_TK_spatial`: `thetaPoly (TK (v,P)) ≈PE TK (rv v, P)` for
 spatial `P`. Open: time-plaquettes (reflected word via `refl_word`, conjugated temporal links), the `haar_step`
 chain over the full product, and the `plaq_*` factorisation. **RP FOR THE ACTUAL TORUS MEASURE IS OPEN.**
+
+**(d2b) Θpoly on time-plaquettes** (`SU2TorusRPThetaTime.lean`): `theta_time_word` (from `refl_word` + cyclicity of
+`Re`), `rt_shift`/`rv_shift`, `theta_temporal_link` (temporal links are conjugated), `theta_TK_time`:
+`thetaPoly (TK (v,P)) ≈PE TK (rv(v+e0), P)` for every time-plaquette. Together with `theta_TK_spatial`, Θpoly sends
+every plaquette weight to its mirror's. Open: the `haar_step` product chain, the `plaq_*` factorisation and the
+crossing split into `wilson_rp_qfull`. **RP FOR THE ACTUAL TORUS MEASURE IS OPEN.**
