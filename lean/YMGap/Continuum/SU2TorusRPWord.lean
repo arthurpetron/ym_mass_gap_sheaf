@@ -141,7 +141,22 @@ theorem cross_word_cut2 (V U A A' B B' : PolyQuaternion) :
     qmul (qsymm (qassoc (conj B) U B')) (qsymm hX)
   exact hY.scalar.trans (scalar_mul_conj _ _)
 
+/-- **(3) Reflected plaquette.** -/
+theorem refl_word (a b c d : PolyQuaternion) :
+    (mul (mul c (conj b)) (mul (conj a) (conj (conj d)))).scalar ≅ (mul (mul a b) (mul (conj c) (conj d))).scalar := by
+  -- LHS ≅ Re(((c b*) a*) d)
+  have hL : mul (mul c (conj b)) (mul (conj a) (conj (conj d))) ≅q mul (mul (mul c (conj b)) (conj a)) d :=
+    qtrans (qmul (qrefl _) (qmul (qrefl _) (conj_conj d))) (qsymm (qassoc _ _ _))
+  -- conj RHS ≅ d·((c b*) a*)
+  have hR : conj (mul (mul a b) (mul (conj c) (conj d))) ≅q mul d (mul (mul c (conj b)) (conj a)) := by
+    refine qtrans (conj_mul _ _) ?_
+    refine qtrans (qmul (qtrans (conj_mul _ _) (qmul (conj_conj d) (conj_conj c))) (conj_mul a b)) ?_
+    refine qtrans (qassoc d c _) (qmul (qrefl d) (qsymm (qassoc c (conj b) (conj a))))
+  refine hL.scalar.trans ((scalar_comm _ _).trans ?_)
+  exact hR.symm.scalar
+
 end YMGap.Continuum.SU2TorusRPWord
 
 #print axioms YMGap.Continuum.SU2TorusRPWord.cross_word_cut1
+#print axioms YMGap.Continuum.SU2TorusRPWord.refl_word
 #print axioms YMGap.Continuum.SU2TorusRPWord.cross_word_cut2
