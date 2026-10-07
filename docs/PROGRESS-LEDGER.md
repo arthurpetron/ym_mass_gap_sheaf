@@ -4,7 +4,17 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 10, lattice decay for the actual SU(2) polyPartition (strong coupling) (2026-10-07 PT)
+## Latest proved increment: R1 commit 11, decay via the character envelope at w = 1/100000 (2026-10-07 PT)
+
+- `SU2LinkDecayHeat.su2_link_decay_heat` (PROVED, axioms ⊆ {propext, Quot.sound}).
+  - Statement: for w ∈ {0, 1/100000} and any M, `polyPartition ≈ Ξ(gas)` and |U| ≤ (6/7)^R (λ²η)^{|g|} Ξ(l)Ξ(g::l).
+  - The activity bound is Realizer's `z_abs_le` with `charEnv_wH`: charEnv(1/100000, M) ≤ ε_H = 5·10⁻¹⁵, uniform in M.
+  - Helpers: `lk_cover` (Lk → LinksCover), `S_len`; w = 0 via the ℓ¹ route (`z_abs_zero`).
+  - `heat_pass` by decide.
+- The ceiling on w with K = (5/3)^24 is about 1.2·10⁻⁵.
+- Labels: strong coupling, heat-kernel (spin-truncated), not Wilson; also true for U(1), not gap evidence.  The observable is U, not Wilson loops.
+
+## Earlier proved increment: R1 commit 10, lattice decay for the actual SU(2) polyPartition (strong coupling) (2026-10-07 PT)
 
 - `SU2LinkDecay.su2_link_decay` (PROVED, axioms ⊆ {propext, Quot.sound}).
   - Statement: for w₀ = 10⁻⁸ and any spin truncation M, `polyPartition w₀ M links N P ≈ Ξ(z; gas N P)`.

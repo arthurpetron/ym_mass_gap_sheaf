@@ -106,3 +106,9 @@ No fail statement is given: the ℓ¹ envelope is an upper bound, not the true a
 - Constants: w₀=1e-8, ε_L=1e-15, η=1/2500, K=(5/3)^24 per plaquette, rate λ=6/7 per unit of distance, with weight 2|h|.
 - Observable: insertion/removal correlation U only, not Wilson loops.
 - Strong coupling, so it also holds for U(1): not gap evidence.
+
+## PROVED: commit 11, `SU2LinkDecayHeat.lean`
+
+- charEnv swap: w₀ = 1/100000, ε_H = 5e-15, K = (5/3)^24, η = 1/2500, λ = 6/7.  Uniform in M.
+- Lever: sharpening K.  A rooted tree count on the 20-neighbour link graph (K ≈ e·20 ≈ 54) with a single factor of K in the decay could reach w ≈ 1/40.
+- Strong coupling, heat-kernel (spin-truncated), not Wilson; also true for U(1), not gap evidence.

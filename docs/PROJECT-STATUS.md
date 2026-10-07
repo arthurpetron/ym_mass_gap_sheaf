@@ -6466,3 +6466,5 @@ arbitrary disjoint link-block supports.
 `SU2LinkKP` (2026-10-07): R1 commit 9.  KP for the Haar-faithful link gas; ε_L = 1e-15 passes.
 
 `SU2LinkDecay` (2026-10-07): R1 commit 10.  Lattice decay (6/7)^R for the actual SU(2) polyPartition at w₀=1e-8, uniform in M.  Strong coupling, heat-kernel (spin-truncated), not Wilson.  Not gap evidence (the U(1) rule).
+
+`SU2LinkDecayHeat` (2026-10-07): R1 commit 11.  w₀ raised from 1e-8 to 1e-5 via charEnv.  Strong coupling, heat-kernel (spin-truncated), not Wilson; also true for U(1), not gap evidence.
