@@ -5,7 +5,10 @@ REDUCTION — RG-step composition (2026-10-06 PT): gap frontier restated as
 shape `intertwine_twoStep` (`T_f²` vs `T_c`); transfer PROVED
 `r_F⁴ ≤ κ(r_C²+ε)` (VacSq⇒two-step-factor dictionary; effective defect
 `(κ−1)r_C²+κ·ε`). `kappa_ge_one` on pinned vacuum diagonals. One-step shape
-no-go: attaining Rayleigh `≥ r_C` forces `ε` lower bound. SC cannot seed
+no-go: attaining Rayleigh `≥ r_C` forces `ε` lower bound. Dyadic envelope now
+PROVED (not assumed) from `RgRateChainκ` + `Σ2^k eff_k ≤ S` + B04 upper half:
+`2^n m_{j0+n} ≥ m_{j0} − U² − S/2` (`U = M·2^{-j0}`; non-vacuous only for
+`j0 > log₂ M`). Spacing `half^j` matches `trAF` by `rfl`. SC cannot seed
 `trAF`. No `Φ_j` constructed. Not AF. See
 `audits/SCOPE-RG-STEP-COMPOSITION-REDUCTION-2026-10-06.md`.
 

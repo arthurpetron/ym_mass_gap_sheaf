@@ -22,6 +22,15 @@ No-go (old one-step shape): an attaining fine Rayleigh `≥ r_C` forces
 `r_C ≤ κ(r_C²+ε)`, hence `ε` cannot be tiny when `r_C/κ > r_C²`; weighted
 `Σ 2^j ε_j` cannot stay small along AF under persistent attainders.
 
+**Envelope PROVED (no longer assumed).** From `RgRateChainκ`, `Σ 2^k eff_k ≤ S`
+(`eff = (κ−1)r² + κε`) and the B04 upper half `m_{j0+n} ≤ U·2^{-n}`:
+`2^n·m_{j0+n} ≥ m_{j0} − U² − S/2` (`rgKappa_dyadic_envelope`; absolute
+`U = M·2^{-j0}`, c = 1 form `≥ m_{j0} − (M²+S)` in `rgKappa_dyadic_envelope_abs`).
+`rg_envelope_zero_lower_margin` / `rg_envelope_zero_wilsonLowerMargin` now go
+through the κ chain with seed `m_0 − M² − S/2`. Non-vacuous only when
+`m_{j0} > U² + S/2`; since `m_{j0} ≤ U`, this needs `U < 1`, i.e. `j0 > log₂ M`.
+Spacing: `exprWilsonFamily` (hence `trAF`) has `spacing j = half^j` by `rfl`.
+
 Also: SC cannot seed `trAF` (`not_heatRatio_le_half_afNome`). Seed = open
 intermediate-coupling producer.
 
@@ -64,7 +73,8 @@ open YMGap.Continuum.BF4WilsonAllNomeCompletedTime
 open YMGap.Continuum.BF4WilsonAllNomeExprMixRateContraction
   (WilsonVacuumSqContraction)
 open YMGap.Continuum.BF4WilsonAllNomeWilsonDynamicFamily
-  (WilsonDynamicFamily WilsonLowerMargin)
+  (WilsonDynamicFamily WilsonLowerMargin WilsonUpperMargin exprWilsonFamily)
+open YMGap.Continuum.BF4WilsonAllNomeExprAnchorTrajectory (ExprAnchorTrajectory)
 open YMGap.Continuum.BF4WilsonDescentUniformConnectedDecay (timeRate)
 open YMGap.Continuum.BF4ExactSlabDescentDistanceDecay (comparison_entropy)
 open YMGap.Continuum.BF4WilsonAllNomeStrongCouplingUniformRate
@@ -658,8 +668,400 @@ def effectiveDefectSeq (κ ε r : Nat → Q') (j : Nat) : Q' :=
 
 def latticeMarginOf (r : Nat → Q') (j : Nat) : Q' := (1 : Q') - r j
 
-/-! ## 4. Margin envelope ⇒ dyadic lower margin at seed scale 0 -/
+/-! ## 3b. PROVED dyadic envelope from the κ chain (REDUCTION)
 
+Step (from `margin_after_rg_step_κ`, with `m_j = 1 − r_j`,
+`eff_j = effectiveRgDefect κ_j ε_j r_j = (κ_j−1)r_j² + κ_jε_j`):
+`m_{j+1} ≥ m_j/2 − (m_j² + eff_j)/4`
+(since `1 − κ(r²+ε) = 1 − r² − eff = 2m − m² − eff`).
+
+Scaled `a_n = 2^n·m_{j0+n}`: `a_{n+1} ≥ a_n − 2^{n−1}m² − 2^{n−1}eff`.
+With the relative upper margin `m_{j0+n} ≤ U·2^{-n}` (B04 upper half;
+absolute form `U = M·2^{-j0}`): `2^{n−1}m² ≤ U²·2^{-(n+1)}`, so telescoping gives
+`a_n ≥ m_{j0} − U²·Σ_{k<n}2^{-(k+1)} − ½·Σ_{k<n}2^k eff_{j0+k}
+     ≥ m_{j0} − U² − S/2`.
+The quadratic `m²` term genuinely needs the upper margin. -/
+
+theorem two_mul_half_eqv : (2 : Q') * half ≈ (1 : Q') := by decide
+
+theorem ofNat_nonneg_rg (k : Nat) : (0 : Q') ≤ Q'.ofNat k := by
+  show (0 : Int) * 1 ≤ (k : Int) * 1
+  rw [Int.mul_one, Int.mul_one]
+  exact Int.natCast_nonneg k
+
+theorem ofNat_two_pow_succ_eqv (n : Nat) :
+    Q'.ofNat (2 ^ (n + 1)) ≈ (2 : Q') * Q'.ofNat (2 ^ n) := by
+  show ((2 ^ (n + 1) : Nat) : Int) * 1 = ((2 : Int) * ((2 ^ n : Nat) : Int)) * 1
+  rw [Nat.pow_succ, Int.natCast_mul, Int.mul_comm (((2 ^ n : Nat)) : Int)]
+  rfl
+
+theorem ofNat_two_pow_mul_half_pow (n : Nat) :
+    Q'.ofNat (2 ^ n) * half ^ n ≈ (1 : Q') := by
+  induction n with
+  | zero => decide
+  | succ n ih =>
+    have e1 : Q'.ofNat (2 ^ (n + 1)) * half ^ (n + 1) ≈
+        ((2 : Q') * Q'.ofNat (2 ^ n)) * (half * half ^ n) :=
+      Q'.mul_eqv_congr_right _ _ _ (ofNat_two_pow_succ_eqv n)
+    have e2 : ((2 : Q') * Q'.ofNat (2 ^ n)) * (half * half ^ n) ≈
+        ((2 : Q') * half) * (Q'.ofNat (2 ^ n) * half ^ n) :=
+      poly_identity_of_normal_eq
+        (.mul (.mul (.var 0) (.var 1)) (.mul (.var 2) (.var 3)))
+        (.mul (.mul (.var 0) (.var 2)) (.mul (.var 1) (.var 3)))
+        (by decide)
+        (fun | 0 => (2 : Q') | 1 => Q'.ofNat (2 ^ n) | 2 => half | _ => half ^ n)
+    have e3 : ((2 : Q') * half) * (Q'.ofNat (2 ^ n) * half ^ n) ≈
+        (1 : Q') * (1 : Q') :=
+      Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ _ _ two_mul_half_eqv)
+        (Q'.mul_eqv_congr_left _ _ _ ih)
+    exact Q'.eqv_trans _ _ _ e1 (Q'.eqv_trans _ _ _ e2
+      (Q'.eqv_trans _ _ _ e3 (by decide)))
+
+/-- `G n = Σ_{k<n} half^{k+1}`. -/
+def halfGeomSum : Nat → Q'
+  | 0 => 0
+  | n + 1 => halfGeomSum n + half ^ (n + 1)
+
+theorem halfGeomSum_add_pow (n : Nat) : halfGeomSum n + half ^ n ≈ (1 : Q') := by
+  induction n with
+  | zero => decide
+  | succ n ih =>
+    have e1 : (halfGeomSum n + half ^ (n + 1)) + half ^ (n + 1) ≈
+        halfGeomSum n + ((2 : Q') * half) * half ^ n :=
+      poly_identity_of_normal_eq
+        (.add (.add (.var 0) (.mul (.var 1) (.var 2))) (.mul (.var 1) (.var 2)))
+        (.add (.var 0) (.mul (.mul (.const 2) (.var 1)) (.var 2)))
+        (by decide)
+        (fun | 0 => halfGeomSum n | 1 => half | _ => half ^ n)
+    have e2 : halfGeomSum n + ((2 : Q') * half) * half ^ n ≈
+        halfGeomSum n + (1 : Q') * half ^ n :=
+      Q'.add_eqv_congr_left _ _ _ (Q'.mul_eqv_congr_right _ _ _ two_mul_half_eqv)
+    have e3 : halfGeomSum n + (1 : Q') * half ^ n ≈ halfGeomSum n + half ^ n :=
+      poly_identity_of_normal_eq
+        (.add (.var 0) (.mul (.const 1) (.var 1)))
+        (.add (.var 0) (.var 1))
+        (by decide)
+        (fun | 0 => halfGeomSum n | _ => half ^ n)
+    exact Q'.eqv_trans _ _ _ e1 (Q'.eqv_trans _ _ _ e2 (Q'.eqv_trans _ _ _ e3 ih))
+
+theorem halfGeomSum_le_one (n : Nat) : halfGeomSum n ≤ (1 : Q') := by
+  have hp : (0 : Q') ≤ half ^ n := Q'.pow_nonneg half half_nonneg n
+  have h1 : halfGeomSum n + (0 : Q') ≤ halfGeomSum n + half ^ n :=
+    Q'.add_le_add_left _ _ _ hp
+  rw [Q'.add_zero'] at h1
+  exact Q'.le_trans' _ _ _ h1 (Q'.le_of_eqv (halfGeomSum_add_pow n))
+
+theorem half_pow_add_eqv (a n : Nat) : half ^ (a + n) ≈ half ^ a * half ^ n := by
+  induction n with
+  | zero =>
+    exact Q'.eqv_symm (Q'.mul_one_eqv (half ^ a))
+  | succ n ih =>
+    have e1 : half ^ (a + (n + 1)) ≈ half * (half ^ a * half ^ n) :=
+      Q'.mul_eqv_congr_left half _ _ ih
+    have e2 : half * (half ^ a * half ^ n) ≈ half ^ a * (half * half ^ n) :=
+      poly_identity_of_normal_eq
+        (.mul (.var 0) (.mul (.var 1) (.var 2)))
+        (.mul (.var 1) (.mul (.var 0) (.var 2)))
+        (by decide)
+        (fun | 0 => half | 1 => half ^ a | _ => half ^ n)
+    exact Q'.eqv_trans _ _ _ e1 e2
+
+theorem half_pow_le_one (n : Nat) : half ^ n ≤ (1 : Q') := by
+  induction n with
+  | zero => exact Q'.le_refl' _
+  | succ n ih =>
+    have h1 : half * half ^ n ≤ half * (1 : Q') :=
+      Q'.mul_le_mul_of_nonneg_left _ _ half ih half_nonneg
+    exact Q'.le_trans' _ _ _ h1 (by decide)
+
+/-- If `c ≈ 1` then `c·c·X − c·Y − c·Z ≈ X − Y − Z`. -/
+theorem c_one_collapse {c : Q'} (hc : c ≈ (1 : Q')) (X Y Z : Q') :
+    c * c * X + -(c * Y) + -(c * Z) ≈ X + -Y + -Z := by
+  have e1 : c * c * X + -(c * Y) + -(c * Z) ≈
+      (1 : Q') * (1 : Q') * X + -((1 : Q') * Y) + -((1 : Q') * Z) :=
+    Q'.add_eqv_congr' (Q'.add_eqv_congr'
+      (Q'.mul_eqv_congr_right _ _ _ (Q'.eqv_trans _ _ _
+        (Q'.mul_eqv_congr_right _ _ _ hc) (Q'.mul_eqv_congr_left _ _ _ hc)))
+      (Q'.neg_eqv_congr _ _ (Q'.mul_eqv_congr_right _ _ _ hc)))
+      (Q'.neg_eqv_congr _ _ (Q'.mul_eqv_congr_right _ _ _ hc))
+  have e2 : (1 : Q') * (1 : Q') * X + -((1 : Q') * Y) + -((1 : Q') * Z) ≈
+      X + -Y + -Z :=
+    poly_identity_of_normal_eq
+      (.add (.add (.mul (.mul (.const 1) (.const 1)) (.var 0))
+        (.neg (.mul (.const 1) (.var 1)))) (.neg (.mul (.const 1) (.var 2))))
+      (.add (.add (.var 0) (.neg (.var 1))) (.neg (.var 2)))
+      (by decide)
+      (fun | 0 => X | 1 => Y | _ => Z)
+  exact Q'.eqv_trans _ _ _ e1 e2
+
+theorem half_le_one_rg : half ≤ (1 : Q') := by decide
+
+/-- Pure algebra of one scaled κ-step. -/
+theorem scaled_step_core (t m m' E U hn : Q')
+    (hstep : half * (half * (m + m + -(m * m) + -E)) ≤ m')
+    (ht0 : (0 : Q') ≤ t) (hm0 : (0 : Q') ≤ m) (hU0 : (0 : Q') ≤ U)
+    (hmU : m ≤ U * hn) (hthn : t * hn ≈ (1 : Q')) :
+    t * m + -(U * U * (half * hn)) + -(half * (t * E)) ≤ ((2 : Q') * t) * m' := by
+  have h2t : (0 : Q') ≤ (2 : Q') * t := Q'.mul_nonneg _ _ (by decide) ht0
+  have A1 : ((2 : Q') * t) * (half * (half * (m + m + -(m * m) + -E))) ≤
+      ((2 : Q') * t) * m' :=
+    Q'.mul_le_mul_of_nonneg_left _ _ _ hstep h2t
+  have e2 : ((2 : Q') * t) * (half * (half * (m + m + -(m * m) + -E))) ≈
+      ((2 : Q') * half) * ((2 : Q') * half) * (t * m) +
+        -(((2 : Q') * half) * (half * (t * (m * m)))) +
+        -(((2 : Q') * half) * (half * (t * E))) :=
+    poly_identity_of_normal_eq
+      (.mul (.mul (.const 2) (.var 0))
+        (.mul (.var 1) (.mul (.var 1)
+          (.add (.add (.add (.var 2) (.var 2)) (.neg (.mul (.var 2) (.var 2))))
+            (.neg (.var 3))))))
+      (.add (.add
+        (.mul (.mul (.mul (.const 2) (.var 1)) (.mul (.const 2) (.var 1)))
+          (.mul (.var 0) (.var 2)))
+        (.neg (.mul (.mul (.const 2) (.var 1))
+          (.mul (.var 1) (.mul (.var 0) (.mul (.var 2) (.var 2)))))))
+        (.neg (.mul (.mul (.const 2) (.var 1))
+          (.mul (.var 1) (.mul (.var 0) (.var 3))))))
+      (by decide)
+      (fun | 0 => t | 1 => half | 2 => m | _ => E)
+  have e3 := c_one_collapse two_mul_half_eqv (t * m)
+    (half * (t * (m * m))) (half * (t * E))
+  -- bound on the quadratic term
+  have b1 : m * m ≤ m * (U * hn) := Q'.mul_le_mul_of_nonneg_left _ _ m hmU hm0
+  have b2 : t * (m * m) ≤ t * (m * (U * hn)) :=
+    Q'.mul_le_mul_of_nonneg_left _ _ t b1 ht0
+  have b3 : t * (m * (U * hn)) ≈ (U * m) * (t * hn) :=
+    poly_identity_of_normal_eq
+      (.mul (.var 0) (.mul (.var 1) (.mul (.var 2) (.var 3))))
+      (.mul (.mul (.var 2) (.var 1)) (.mul (.var 0) (.var 3)))
+      (by decide)
+      (fun | 0 => t | 1 => m | 2 => U | _ => hn)
+  have b4 : (U * m) * (t * hn) ≈ U * m :=
+    Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_left _ _ _ hthn) (Q'.mul_one_eqv _)
+  have b5 : U * m ≤ U * (U * hn) := Q'.mul_le_mul_of_nonneg_left _ _ U hmU hU0
+  have b25 : t * (m * m) ≤ U * (U * hn) :=
+    Q'.le_trans' _ _ _ b2 (Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (Q'.eqv_trans _ _ _ b3 b4)) b5)
+  have b6 : half * (t * (m * m)) ≤ half * (U * (U * hn)) :=
+    Q'.mul_le_mul_of_nonneg_left _ _ half b25 half_nonneg
+  have b7 : half * (U * (U * hn)) ≈ U * U * (half * hn) :=
+    poly_identity_of_normal_eq
+      (.mul (.var 0) (.mul (.var 1) (.mul (.var 1) (.var 2))))
+      (.mul (.mul (.var 1) (.var 1)) (.mul (.var 0) (.var 2)))
+      (by decide)
+      (fun | 0 => half | 1 => U | _ => hn)
+  have B : half * (t * (m * m)) ≤ U * U * (half * hn) :=
+    Q'.le_trans' _ _ _ b6 (Q'.le_of_eqv b7)
+  have C : t * m + -(U * U * (half * hn)) + -(half * (t * E)) ≤
+      t * m + -(half * (t * (m * m))) + -(half * (t * E)) :=
+    Q'.add_le_add_right _ _ _ (Q'.add_le_add_left _ _ _ (Q'.neg_le_neg B))
+  exact Q'.le_trans' _ _ _ C (Q'.le_trans' _ _ _
+    (Q'.le_of_eqv (Q'.eqv_symm (Q'.eqv_trans _ _ _ e2 e3))) A1)
+
+/-- One κ-chain step in scaled form `a_n = 2^n·m_{j0+n}`:
+`a_{n+1} ≥ a_n − U²·half^{n+1} − half·2^n·eff_{j0+n}`. **PROVED.** -/
+theorem rgKappa_scaled_step
+    (r ε κ : Nat → Q') (j0 n : Nat) (U : Q')
+    (H : RgRateChainκ r ε κ j0) (hU0 : (0 : Q') ≤ U)
+    (hup : latticeMarginOf r (j0 + n) ≤ U * half ^ n) :
+    Q'.ofNat (2 ^ n) * latticeMarginOf r (j0 + n) +
+        -(U * U * half ^ (n + 1)) +
+        -(half * (Q'.ofNat (2 ^ n) * effectiveDefectSeq κ ε r (j0 + n))) ≤
+      Q'.ofNat (2 ^ (n + 1)) * latticeMarginOf r (j0 + (n + 1)) := by
+  have hj : j0 ≤ j0 + n := Nat.le_add_right j0 n
+  have hstep := rg_margin_step_κ r ε κ j0 (j0 + n) H hj
+  have hT := transfer_factor_as_coarse_sq_plus_defect
+    (κ (j0 + n)) (ε (j0 + n)) (r (j0 + n))
+  have hq1 : (1 : Q') - κ (j0 + n) * (r (j0 + n) * r (j0 + n) + ε (j0 + n)) ≈
+      (1 : Q') + -(r (j0 + n) * r (j0 + n) + effectiveDefectSeq κ ε r (j0 + n)) :=
+    Q'.add_eqv_congr_left _ _ _ (Q'.neg_eqv_congr _ _ hT)
+  have hq2 : (1 : Q') + -(r (j0 + n) * r (j0 + n) + effectiveDefectSeq κ ε r (j0 + n)) ≈
+      latticeMarginOf r (j0 + n) + latticeMarginOf r (j0 + n) +
+        -(latticeMarginOf r (j0 + n) * latticeMarginOf r (j0 + n)) +
+        -(effectiveDefectSeq κ ε r (j0 + n)) :=
+    poly_identity_of_normal_eq
+      (.add (.const 1) (.neg (.add (.mul (.var 0) (.var 0)) (.var 1))))
+      (.add (.add (.add (.add (.const 1) (.neg (.var 0))) (.add (.const 1) (.neg (.var 0))))
+        (.neg (.mul (.add (.const 1) (.neg (.var 0))) (.add (.const 1) (.neg (.var 0))))))
+        (.neg (.var 1)))
+      (by decide)
+      (fun | 0 => r (j0 + n) | _ => effectiveDefectSeq κ ε r (j0 + n))
+  have hstep' : half * (half * (latticeMarginOf r (j0 + n) + latticeMarginOf r (j0 + n) +
+        -(latticeMarginOf r (j0 + n) * latticeMarginOf r (j0 + n)) +
+        -(effectiveDefectSeq κ ε r (j0 + n)))) ≤ latticeMarginOf r (j0 + (n + 1)) :=
+    Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (Q'.mul_eqv_congr_left _ _ _ (Q'.mul_eqv_congr_left _ _ _
+        (Q'.eqv_symm (Q'.eqv_trans _ _ _ hq1 hq2)))))
+      hstep
+  have hm0 : (0 : Q') ≤ latticeMarginOf r (j0 + n) :=
+    Q'.sub_nonneg_of_le (H.2.1 (j0 + n) hj)
+  have core := scaled_step_core (Q'.ofNat (2 ^ n)) (latticeMarginOf r (j0 + n))
+    (latticeMarginOf r (j0 + (n + 1))) (effectiveDefectSeq κ ε r (j0 + n)) U (half ^ n)
+    hstep' (ofNat_nonneg_rg _) hm0 hU0 hup (ofNat_two_pow_mul_half_pow n)
+  exact Q'.le_trans' _ _ _ core (Q'.le_of_eqv (Q'.eqv_symm
+    (Q'.mul_eqv_congr_right _ _ _ (ofNat_two_pow_succ_eqv n))))
+
+/-- Telescoped invariant. **PROVED.** -/
+theorem rgKappa_envelope_invariant
+    (r ε κ : Nat → Q') (j0 : Nat) (U : Q')
+    (H : RgRateChainκ r ε κ j0) (hU0 : (0 : Q') ≤ U)
+    (hup : ∀ n : Nat, latticeMarginOf r (j0 + n) ≤ U * half ^ n) :
+    ∀ n : Nat,
+      latticeMarginOf r j0 + -(U * U * halfGeomSum n) +
+          -(half * weightedErrorSum (effectiveDefectSeq κ ε r) j0 n) ≤
+        Q'.ofNat (2 ^ n) * latticeMarginOf r (j0 + n) := by
+  intro n
+  induction n with
+  | zero =>
+    exact Q'.le_of_eqv (poly_identity_of_normal_eq
+      (.add (.add (.var 0) (.neg (.mul (.mul (.var 1) (.var 1)) (.const 0))))
+        (.neg (.mul (.var 2) (.const 0))))
+      (.mul (.const 1) (.var 0))
+      (by decide)
+      (fun | 0 => latticeMarginOf r j0 | 1 => U | _ => half))
+  | succ n ih =>
+    have hs := rgKappa_scaled_step r ε κ j0 n U H hU0 (hup n)
+    have hmono :
+        latticeMarginOf r j0 + -(U * U * halfGeomSum n) +
+            -(half * weightedErrorSum (effectiveDefectSeq κ ε r) j0 n) +
+            -(U * U * half ^ (n + 1)) +
+            -(half * (Q'.ofNat (2 ^ n) * effectiveDefectSeq κ ε r (j0 + n))) ≤
+          Q'.ofNat (2 ^ n) * latticeMarginOf r (j0 + n) +
+            -(U * U * half ^ (n + 1)) +
+            -(half * (Q'.ofNat (2 ^ n) * effectiveDefectSeq κ ε r (j0 + n))) :=
+      Q'.add_le_add_right _ _ _ (Q'.add_le_add_right _ _ _ ih)
+    have hre :
+        latticeMarginOf r j0 + -(U * U * halfGeomSum (n + 1)) +
+            -(half * weightedErrorSum (effectiveDefectSeq κ ε r) j0 (n + 1)) ≈
+        latticeMarginOf r j0 + -(U * U * halfGeomSum n) +
+            -(half * weightedErrorSum (effectiveDefectSeq κ ε r) j0 n) +
+            -(U * U * half ^ (n + 1)) +
+            -(half * (Q'.ofNat (2 ^ n) * effectiveDefectSeq κ ε r (j0 + n))) :=
+      poly_identity_of_normal_eq
+        (.add (.add (.var 0) (.neg (.mul (.mul (.var 1) (.var 1)) (.add (.var 2) (.var 3)))))
+          (.neg (.mul (.var 4) (.add (.var 5) (.var 6)))))
+        (.add (.add (.add (.add (.var 0) (.neg (.mul (.mul (.var 1) (.var 1)) (.var 2))))
+          (.neg (.mul (.var 4) (.var 5)))) (.neg (.mul (.mul (.var 1) (.var 1)) (.var 3))))
+          (.neg (.mul (.var 4) (.var 6))))
+        (by decide)
+        (fun | 0 => latticeMarginOf r j0 | 1 => U | 2 => halfGeomSum n
+             | 3 => half ^ (n + 1) | 4 => half
+             | 5 => weightedErrorSum (effectiveDefectSeq κ ε r) j0 n
+             | _ => Q'.ofNat (2 ^ n) * effectiveDefectSeq κ ε r (j0 + n))
+    exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hre) (Q'.le_trans' _ _ _ hmono hs)
+
+/-- **PROVED dyadic envelope (REDUCTION).** Scaled form, explicit constants:
+`2^n·m_{j0+n} ≥ m_{j0} − U² − S/2`, where `U` is the relative upper margin
+`m_{j0+n} ≤ U·2^{-n}` (absolute form: `U = M·2^{-j0}`). -/
+theorem rgKappa_dyadic_envelope
+    (r ε κ : Nat → Q') (j0 : Nat) (S U : Q')
+    (H : RgRateChainκ r ε κ j0)
+    (hS : RgErrorSummable (effectiveDefectSeq κ ε r) j0 S)
+    (hU0 : (0 : Q') ≤ U)
+    (hup : ∀ n : Nat, latticeMarginOf r (j0 + n) ≤ U * half ^ n) (n : Nat) :
+    latticeMarginOf r j0 + -(U * U) + -(half * S) ≤
+      Q'.ofNat (2 ^ n) * latticeMarginOf r (j0 + n) := by
+  have hinv := rgKappa_envelope_invariant r ε κ j0 U H hU0 hup n
+  have hUU : (0 : Q') ≤ U * U := Q'.mul_nonneg _ _ hU0 hU0
+  have hG : U * U * halfGeomSum n ≤ U * U :=
+    Q'.le_trans' _ _ _
+      (Q'.mul_le_mul_of_nonneg_left _ _ _ (halfGeomSum_le_one n) hUU)
+      (Q'.le_of_eqv (Q'.mul_one_eqv _))
+  have hW : half * weightedErrorSum (effectiveDefectSeq κ ε r) j0 n ≤ half * S :=
+    Q'.mul_le_mul_of_nonneg_left _ _ half (hS.2 n) half_nonneg
+  have hle : latticeMarginOf r j0 + -(U * U) + -(half * S) ≤
+      latticeMarginOf r j0 + -(U * U * halfGeomSum n) +
+        -(half * weightedErrorSum (effectiveDefectSeq κ ε r) j0 n) :=
+    Q'.add_le_add (Q'.add_le_add_left _ _ _ (Q'.neg_le_neg hG)) (Q'.neg_le_neg hW)
+  exact Q'.le_trans' _ _ _ hle hinv
+
+/-- Half-power form: `2^{-n}·(m_{j0} − U² − S/2) ≤ m_{j0+n}`. **PROVED.** -/
+theorem rgKappa_dyadic_envelope_halfPow
+    (r ε κ : Nat → Q') (j0 : Nat) (S U : Q')
+    (H : RgRateChainκ r ε κ j0)
+    (hS : RgErrorSummable (effectiveDefectSeq κ ε r) j0 S)
+    (hU0 : (0 : Q') ≤ U)
+    (hup : ∀ n : Nat, latticeMarginOf r (j0 + n) ≤ U * half ^ n) (n : Nat) :
+    half ^ n * (latticeMarginOf r j0 + -(U * U) + -(half * S)) ≤
+      latticeMarginOf r (j0 + n) := by
+  have h := rgKappa_dyadic_envelope r ε κ j0 S U H hS hU0 hup n
+  have hp : (0 : Q') ≤ half ^ n := Q'.pow_nonneg half half_nonneg n
+  have h1 := Q'.mul_le_mul_of_nonneg_left _ _ _ h hp
+  have e : half ^ n * (Q'.ofNat (2 ^ n) * latticeMarginOf r (j0 + n)) ≈
+      latticeMarginOf r (j0 + n) := by
+    have e1 : half ^ n * (Q'.ofNat (2 ^ n) * latticeMarginOf r (j0 + n)) ≈
+        (Q'.ofNat (2 ^ n) * half ^ n) * latticeMarginOf r (j0 + n) :=
+      poly_identity_of_normal_eq
+        (.mul (.var 0) (.mul (.var 1) (.var 2)))
+        (.mul (.mul (.var 1) (.var 0)) (.var 2))
+        (by decide)
+        (fun | 0 => half ^ n | 1 => Q'.ofNat (2 ^ n) | _ => latticeMarginOf r (j0 + n))
+    have e2 : (Q'.ofNat (2 ^ n) * half ^ n) * latticeMarginOf r (j0 + n) ≈
+        (1 : Q') * latticeMarginOf r (j0 + n) :=
+      Q'.mul_eqv_congr_right _ _ _ (ofNat_two_pow_mul_half_pow n)
+    have e3 : (1 : Q') * latticeMarginOf r (j0 + n) ≈ latticeMarginOf r (j0 + n) :=
+      Q'.eqv_trans _ _ _ (Q'.mul_comm_eqv _ _) (Q'.mul_one_eqv _)
+    exact Q'.eqv_trans _ _ _ e1 (Q'.eqv_trans _ _ _ e2 e3)
+  exact Q'.le_trans' _ _ _ h1 (Q'.le_of_eqv e)
+
+/-- Absolute-upper-margin form (YM Bot normalisation), constant `c = 1`:
+from `m_j ≤ M·2^{-j}` for `j ≥ j0`, `2^n·m_{j0+n} ≥ m_{j0} − (M² + S)`.
+Sharp form: `≥ m_{j0} − M²·4^{-j0} − S/2`. **PROVED.** -/
+theorem rgKappa_dyadic_envelope_abs
+    (r ε κ : Nat → Q') (j0 : Nat) (S M : Q')
+    (H : RgRateChainκ r ε κ j0)
+    (hS : RgErrorSummable (effectiveDefectSeq κ ε r) j0 S)
+    (hM0 : (0 : Q') ≤ M)
+    (hup : ∀ n : Nat, latticeMarginOf r (j0 + n) ≤ M * half ^ (j0 + n)) (n : Nat) :
+    latticeMarginOf r j0 + -(M * half ^ j0 * (M * half ^ j0)) + -(half * S) ≤
+        Q'.ofNat (2 ^ n) * latticeMarginOf r (j0 + n) ∧
+      latticeMarginOf r j0 + -(M * M + S) ≤
+        Q'.ofNat (2 ^ n) * latticeMarginOf r (j0 + n) := by
+  have hp0 : (0 : Q') ≤ half ^ j0 := Q'.pow_nonneg half half_nonneg j0
+  have hU0 : (0 : Q') ≤ M * half ^ j0 := Q'.mul_nonneg _ _ hM0 hp0
+  have hupU : ∀ n : Nat, latticeMarginOf r (j0 + n) ≤ M * half ^ j0 * half ^ n := by
+    intro k
+    have e : M * half ^ (j0 + k) ≈ M * half ^ j0 * half ^ k :=
+      Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_left _ _ _ (half_pow_add_eqv j0 k))
+        (poly_identity_of_normal_eq
+          (.mul (.var 0) (.mul (.var 1) (.var 2)))
+          (.mul (.mul (.var 0) (.var 1)) (.var 2))
+          (by decide) (fun | 0 => M | 1 => half ^ j0 | _ => half ^ k))
+    exact Q'.le_trans' _ _ _ (hup k) (Q'.le_of_eqv e)
+  have hsharp := rgKappa_dyadic_envelope r ε κ j0 S (M * half ^ j0) H hS hU0 hupU n
+  refine ⟨hsharp, ?_⟩
+  -- (M h^j0)^2 ≤ M^2 and half*S ≤ S
+  have hS0 : (0 : Q') ≤ S := hS.1
+  have hp1 : half ^ j0 ≤ (1 : Q') := half_pow_le_one j0
+  have hMh : M * half ^ j0 ≤ M :=
+    Q'.le_trans' _ _ _ (Q'.mul_le_mul_of_nonneg_left _ _ M hp1 hM0)
+      (Q'.le_of_eqv (Q'.mul_one_eqv M))
+  have hsq1 : M * half ^ j0 * (M * half ^ j0) ≤ M * half ^ j0 * M :=
+    Q'.mul_le_mul_of_nonneg_left _ _ _ hMh hU0
+  have hsq2 : M * half ^ j0 * M ≤ M * M :=
+    Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.mul_comm_eqv _ _))
+      (Q'.mul_le_mul_of_nonneg_left _ _ M hMh hM0)
+  have hsq : M * half ^ j0 * (M * half ^ j0) ≤ M * M := Q'.le_trans' _ _ _ hsq1 hsq2
+  have hhS : half * S ≤ S :=
+    Q'.le_trans' _ _ _ (Q'.mul_le_mul_of_nonneg_right _ _ S (half_le_one_rg) hS0)
+      (Q'.le_of_eqv (Q'.eqv_trans _ _ _ (Q'.mul_comm_eqv _ _) (Q'.mul_one_eqv S)))
+  have hcmp : latticeMarginOf r j0 + -(M * M + S) ≤
+      latticeMarginOf r j0 + -(M * half ^ j0 * (M * half ^ j0)) + -(half * S) := by
+    have e : latticeMarginOf r j0 + -(M * M + S) ≈
+        latticeMarginOf r j0 + -(M * M) + -S :=
+      poly_identity_of_normal_eq
+        (.add (.var 0) (.neg (.add (.var 1) (.var 2))))
+        (.add (.add (.var 0) (.neg (.var 1))) (.neg (.var 2)))
+        (by decide) (fun | 0 => latticeMarginOf r j0 | 1 => M * M | _ => S)
+    exact Q'.le_trans' _ _ _ (Q'.le_of_eqv e)
+      (Q'.add_le_add (Q'.add_le_add_left _ _ _ (Q'.neg_le_neg hsq)) (Q'.neg_le_neg hhS))
+  exact Q'.le_trans' _ _ _ hcmp hsharp
+
+/-! ## 4. Margin envelope ⇒ dyadic lower margin at seed scale 0 (κ chain) -/
+
+/-- **Legacy (ASSUMED envelope).** The `∀ n` conjunct is an assumption here.
+Superseded by `RgMarginEnvelopeκ` + `rgMarginEnvelopeκ_dyadic`, which PROVE the
+dyadic bound from `RgRateChainκ` + summable effective defect + upper margin. -/
 def RgMarginEnvelope (r ε : Nat → Q') (j0 : Nat) (S : Q') : Prop :=
   RgRateChain r ε j0 ∧ RgErrorSummable ε j0 S ∧
     S < (1 : Q') - r j0 ∧
@@ -671,7 +1073,96 @@ def WilsonLowerMarginFrom (F : WilsonDynamicFamily) (j0 : Nat) (m : Q') : Prop :
   (0 : Q') < m ∧
     ∀ j, j0 ≤ j → m * F.transferSpacing.spacing j ≤ (1 : Q') - F.rate j
 
+/-- κ-chain envelope hypotheses: NO assumed `∀ n` lower conjunct.
+(1) `RgRateChainκ`; (2) `Σ_{k<n} 2^k eff_{j0+k} ≤ S` for all `n`;
+(3) relative upper margin `m_{j0+n} ≤ U·2^{-n}` (B04 upper half). **REDUCTION.** -/
+def RgMarginEnvelopeκ (r ε κ : Nat → Q') (j0 : Nat) (S U : Q') : Prop :=
+  RgRateChainκ r ε κ j0 ∧ RgErrorSummable (effectiveDefectSeq κ ε r) j0 S ∧
+    (0 : Q') ≤ U ∧ ∀ n : Nat, latticeMarginOf r (j0 + n) ≤ U * half ^ n
+
+/-- **PROVED.** The dyadic lower margin follows from the κ-chain hypotheses:
+`2^{-n}·(m_{j0} − U² − S/2) ≤ m_{j0+n}`. -/
+theorem rgMarginEnvelopeκ_dyadic (r ε κ : Nat → Q') (j0 : Nat) (S U : Q')
+    (H : RgMarginEnvelopeκ r ε κ j0 S U) (n : Nat) :
+    half ^ n * (latticeMarginOf r j0 + -(U * U) + -(half * S)) ≤
+      latticeMarginOf r (j0 + n) :=
+  rgKappa_dyadic_envelope_halfPow r ε κ j0 S U H.1 H.2.1 H.2.2.1 H.2.2.2 n
+
+/-- Seed margin of the κ envelope at scale 0: `m_0 − M² − S/2`. -/
+def rgSeedMarginκ (r : Nat → Q') (S M : Q') : Q' :=
+  latticeMarginOf r 0 + -(M * M) + -(half * S)
+
+/-- B04 upper half on a family with `spacing j = 2^{-j}` gives the relative
+upper margin at `j0 = 0` with `U = M`. -/
+theorem upperMargin_relative_zero (F : WilsonDynamicFamily) (M : Q')
+    (hsp : ∀ j, F.transferSpacing.spacing j = half ^ j)
+    (hU : WilsonUpperMargin F M) :
+    ∀ n : Nat, latticeMarginOf F.rate (0 + n) ≤ M * half ^ n := by
+  intro n
+  rw [Nat.zero_add]
+  have h := hU.2 n
+  rw [hsp n] at h
+  exact h
+
+/-- **PROVED (REDUCTION), rewired through the κ chain.** `RgRateChainκ` at
+`j0 = 0`, summable effective defect `≤ S`, and the B04 upper half
+`WilsonUpperMargin F M` give the dyadic lower margin with seed
+`m_0 − M² − S/2`, whenever that seed is positive. -/
 theorem rg_envelope_zero_lower_margin
+    (F : WilsonDynamicFamily) (ε κ : Nat → Q') (S M : Q')
+    (hsp : ∀ j, F.transferSpacing.spacing j = half ^ j)
+    (H : RgRateChainκ F.rate ε κ 0)
+    (hS : RgErrorSummable (effectiveDefectSeq κ ε F.rate) 0 S)
+    (hU : WilsonUpperMargin F M)
+    (hm0 : (0 : Q') < rgSeedMarginκ F.rate S M) :
+    WilsonLowerMarginFrom F 0 (rgSeedMarginκ F.rate S M) := by
+  refine ⟨hm0, ?_⟩
+  intro j _
+  have henv := rgKappa_dyadic_envelope_halfPow F.rate ε κ 0 S M H hS
+    (Q'.le_of_lt hU.1) (upperMargin_relative_zero F M hsp hU) j
+  rw [Nat.zero_add] at henv
+  rw [hsp j]
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.mul_comm_eqv _ _)) henv
+
+/-- **PROVED (REDUCTION).** `WilsonLowerMargin` via the κ chain. -/
+theorem rg_envelope_zero_wilsonLowerMargin
+    (F : WilsonDynamicFamily) (ε κ : Nat → Q') (S M : Q')
+    (hsp : ∀ j, F.transferSpacing.spacing j = half ^ j)
+    (H : RgRateChainκ F.rate ε κ 0)
+    (hS : RgErrorSummable (effectiveDefectSeq κ ε F.rate) 0 S)
+    (hU : WilsonUpperMargin F M)
+    (hm0 : (0 : Q') < rgSeedMarginκ F.rate S M) :
+    WilsonLowerMargin F (rgSeedMarginκ F.rate S M) := by
+  have h := rg_envelope_zero_lower_margin F ε κ S M hsp H hS hU hm0
+  exact ⟨h.1, fun j => by
+    have := h.2 j (Nat.zero_le j)
+    simpa only [WilsonDynamicFamily.latticeMargin] using this⟩
+
+/-- Spacing consistency: every `exprWilsonFamily` (hence the `trAF` family)
+uses `dyadicPhysicalSpacing`, whose spacing is `half ^ j` by definition. -/
+theorem exprWilsonFamily_spacing_half_pow (tr : ExprAnchorTrajectory) (r : Nat → Q')
+    (hr0 : ∀ j, (0 : Q') ≤ r j) (hr1 : ∀ j, r j < (1 : Q'))
+    (Hc : ∀ j, WilsonVacuumSqContraction (tr.schedule.nome_pos j)
+      (tr.schedule.nome_lt_one j) (tr.width j) (r j)) (j : Nat) :
+    (exprWilsonFamily tr r hr0 hr1 Hc).transferSpacing.spacing j = half ^ j := rfl
+
+/-- κ-chain lower margin on `exprWilsonFamily`, spacing discharged by `rfl`. -/
+theorem exprWilsonFamily_lowerMargin_of_kappaChain
+    (tr : ExprAnchorTrajectory) (r : Nat → Q')
+    (hr0 : ∀ j, (0 : Q') ≤ r j) (hr1 : ∀ j, r j < (1 : Q'))
+    (Hc : ∀ j, WilsonVacuumSqContraction (tr.schedule.nome_pos j)
+      (tr.schedule.nome_lt_one j) (tr.width j) (r j))
+    (ε κ : Nat → Q') (S M : Q')
+    (H : RgRateChainκ r ε κ 0)
+    (hS : RgErrorSummable (effectiveDefectSeq κ ε r) 0 S)
+    (hU : WilsonUpperMargin (exprWilsonFamily tr r hr0 hr1 Hc) M)
+    (hm0 : (0 : Q') < rgSeedMarginκ r S M) :
+    WilsonLowerMargin (exprWilsonFamily tr r hr0 hr1 Hc) (rgSeedMarginκ r S M) :=
+  rg_envelope_zero_wilsonLowerMargin (exprWilsonFamily tr r hr0 hr1 Hc) ε κ S M
+    (exprWilsonFamily_spacing_half_pow tr r hr0 hr1 Hc) H hS hU hm0
+
+/-- Legacy: from the ASSUMED envelope. Kept for reference. -/
+theorem rg_envelope_zero_lower_margin_assumed
     (F : WilsonDynamicFamily) (ε : Nat → Q') (S : Q')
     (hsp : ∀ j, F.transferSpacing.spacing j = half ^ j)
     (H : RgMarginEnvelope F.rate ε 0 S)
@@ -683,17 +1174,6 @@ theorem rg_envelope_zero_lower_margin
     simpa [rgSeedMargin, latticeMarginOf] using H.2.2.2 j
   rw [hsp j]
   exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.mul_comm_eqv _ _)) henv
-
-theorem rg_envelope_zero_wilsonLowerMargin
-    (F : WilsonDynamicFamily) (ε : Nat → Q') (S : Q')
-    (hsp : ∀ j, F.transferSpacing.spacing j = half ^ j)
-    (H : RgMarginEnvelope F.rate ε 0 S)
-    (hm0 : (0 : Q') < rgSeedMargin F.rate S) :
-    WilsonLowerMargin F (rgSeedMargin F.rate S) := by
-  have h := rg_envelope_zero_lower_margin F ε S hsp H hm0
-  exact ⟨h.1, fun j => by
-    have := h.2 j (Nat.zero_le j)
-    simpa only [WilsonDynamicFamily.latticeMargin] using this⟩
 
 /-! ## 5. Strong-coupling seed (pilot only; does NOT apply to trAF) -/
 
@@ -815,3 +1295,13 @@ end YMGap.Continuum.BF4WilsonAllNomeRGStepComposition
 #print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.afGap_zero_lt_half
 #print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.afNome_zero_gt_half
 #print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.not_heatRatio_le_half_afNome
+#print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.halfGeomSum_add_pow
+#print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.ofNat_two_pow_mul_half_pow
+#print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.rgKappa_scaled_step
+#print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.rgKappa_envelope_invariant
+#print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.rgKappa_dyadic_envelope
+#print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.rgKappa_dyadic_envelope_halfPow
+#print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.rgKappa_dyadic_envelope_abs
+#print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.rgMarginEnvelopeκ_dyadic
+#print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.rg_envelope_zero_lower_margin_assumed
+#print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.exprWilsonFamily_lowerMargin_of_kappaChain
