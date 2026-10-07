@@ -176,3 +176,7 @@ No fail statement is given: the ℓ¹ envelope is an upper bound, not the true a
 
 - Slice geometry. Coordination with Realizer: it uses `rt` and `reflLink` from `SU2TorusRPGeom`. Only the slice view is added, with no new reflection.
 - Wording: the β_S = 1/(2·10¹²) clustering is a uniform-in-K strong-coupling result, also true for U(1), and not gap evidence.
+
+## PROVED: commit 26, `SU2ReindexPECongr.lean`
+
+- Supported PECongr for reindex. Note for Realizer: the unsupported `PECongr` for reindex is false (`pecongr_fails`), so use `pe_reindex` with `Sup` hypotheses.

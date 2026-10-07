@@ -4,7 +4,15 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 25, torus time-slice geometry (transfer step 1) (2026-10-07 PT)
+## Latest proved increment: R1 commit 26, supported PECongr for block reindexing (transfer step 2a) (2026-10-07 PT)
+
+- `SU2ReindexPECongr.pe_reindex` (PROVED, [propext, Quot.sound]): `Sup n X → Sup n Y → PE n X Y → PE n (σX) (σY)`.
+  - Key lemma `phi_reindex`: `phi n (σX) m ≈ phi n X (σm)` for supported X and m.
+- `pecongr_fails` (PROVED): without support, `PECongr n (reindex σ)` is FALSE, because reindexing truncates at 4n.
+  - So the OPEN item in `SU2TorusRPConj` should be read as the supported form; `sup_reindex` makes that form compose.
+- Labels: algebra, every coupling; also true for U(1), not gap evidence.
+
+## Earlier proved increment: R1 commit 25, torus time-slice geometry (transfer step 1) (2026-10-07 PT)
 
 - `SU2TorusSlice` (PROVED, axioms ⊆ [propext, Quot.sound]).
   - Slice variables: `U_t` (spatial links) and `V_t` (temporal links).
