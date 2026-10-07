@@ -7725,3 +7725,8 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepCenteredMixedCost
 -- Useful summed/scaling control is not supplied by this finite ceiling.
 import YMGap.Continuum.SU2QuaternionConditionalGrussSquare
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepCenteredScoreNoise
+-- Original windows have nonunit mass. Keep historical variance and signed
+-- reconstruction covariance separate; geometric error is not an AF margin.
+import YMGap.Continuum.SU2QuaternionUnnormalizedVarianceTower
+import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockInnovationTower
+import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockInnovationCovariance

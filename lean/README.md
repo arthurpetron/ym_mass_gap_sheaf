@@ -16,6 +16,17 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked original nonunit innovation and covariance (2026-10-07):**
+`SU2QuaternionUnnormalizedVarianceTower` and `BlockInnovationTower` construct
+the original noise comparison with signed covariance and historical residual
+retained, without unit-mass premises. `BlockInnovationCovariance` constructs
+the exact geometric relative reconstruction endpoints, a positive dyadic cap,
+the corrected covariance-square certificate and literal Vbar^2*Gout^2 consumer.
+The actual vacuum identity is Cov=-lastNoise; finite reconstruction is not
+identified with an exactly vacuum-preserving map. Eleven new gates pass;
+centered absorption/scaling, AF survival and changing-action comparison remain
+open. Evidence: `audits/AUDIT-ORIGINAL-INNOVATION-COVARIANCE-2026-10-07.md`.
+
 **Checked original conditional covariance sharpening (2026-10-07):**
 `SU2QuaternionConditionalGrussSquare` constructs the corrected coefficient
 `L^2*A^2-D^2` from the two positive conditional laws `L*W +/- d`.

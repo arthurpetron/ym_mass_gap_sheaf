@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Supporting nonunit innovation estimate checked (2026-10-07):
+`BlockInnovationTower` retains signed covariance and historical variance on
+the original K*V window, without a unit-mass assumption. `BlockInnovationCovariance`
+constructs geometric relative reconstruction endpoints and
+`Cov^2 <= (L^2*A^2-(T e)^2)*noise_last`, including the literal Vbar^2*Gout^2
+consumer. The actual vacuum identity gives Cov=-noise_last, so finite
+reconstruction is not silently treated as exactly vacuum-preserving.
+Useful centered absorption, surviving-form scaling control and the actual
+changing-action comparison remain OPEN. Eleven new gates passed. Evidence:
+`audits/AUDIT-ORIGINAL-INNOVATION-COVARIANCE-2026-10-07.md`.
+Broad chart unchanged; no reprint.
+
 Supporting original covariance sharpening checked (2026-10-07):
 `SU2QuaternionConditionalGrussSquare` and
 `BlockScoreVariance.original_block_centered_scoreVariance_certificate`

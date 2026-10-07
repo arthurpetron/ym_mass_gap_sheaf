@@ -35,6 +35,14 @@ and two downstream regressions passed; no full-tree audit was run. This is
 a sharper finite ceiling, not the missing scaling estimate. See the
 [certificate and scope](audits/AUDIT-CONDITIONAL-GRUSS-AND-ORIGINAL-SCORE-2026-10-07.md).
 
+**Latest reconstruction estimate (2026-10-07):** the original non-unit-mass
+window now has a checked signed-covariance decomposition and a constructed
+geometric covariance bound, with the exact spatial/reciprocal weight retained.
+Historical variance stays separate from approximation error. The actual
+vacuum identity prevents treating finite reconstruction as an exactly
+vacuum-preserving comparison. Eleven new gates passed; scaling remains open.
+See the [proof and next analytic boundary](audits/AUDIT-ORIGINAL-INNOVATION-COVARIANCE-2026-10-07.md).
+
 **Latest exact blocked-action join (2026-10-07):** the actual two-layer middle
 integral and its compressed boundary kernel now have a proved endpoint marginal
 equal to the original `T1`, retaining the middle spatial interaction once.

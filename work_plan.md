@@ -152,6 +152,23 @@ Do not repeat its global cap over all active links and call that a useful
 scaling budget. Next: estimate the combined actual score and signed remainder
 in SAME surviving-form units, preserving this correction where it is useful.
 Evidence: `audits/AUDIT-CONDITIONAL-GRUSS-AND-ORIGINAL-SCORE-2026-10-07.md`.
+The actual NONUNIT innovation tower is NOW CHECKED. Its direction is
+`noise_last + 2*Cov <= noise_full`, with positive residual HISTORY retained,
+not classified as vanishing reconstruction error. Source and reciprocal
+intervals now CONSTRUCT `c*mixRate^k*a plus/minus e` and the sharper
+`Cov^2 <= (L^2*A^2-(T e)^2)*noise_last`, `L=2^(-k)+c*mixRate^k`.
+The checked scalar join retains literal Vbar^2*Gout^2, with output degree
+independent of incoming approximation degree. Do not import normalized
+unit-mass premises into the original windows. The actual vacuum identity
+proves `Cov=-noise_last` for psi=1 and arbitrary phi: finite reconstruction
+is not identified with a constant. Small error amplitude alone does NOT
+justify multiplicative absorption or a zero-preserving relative comparison.
+Keep the primary exact-score route, which retains exact source cancellation,
+while seeking useful centered covariance in last-noise units with correct
+vacuum treatment. mixRate retains nome/width dependence and supplies no
+AF-uniform diagonal onset, survival or changing-action all-vector comparison.
+Eleven new gates passed. Evidence:
+`audits/AUDIT-ORIGINAL-INNOVATION-COVARIANCE-2026-10-07.md`.
 Evidence: `audits/AUDIT-RECENT-COMMITS-AND-CENTERED-SIGNED-PRODUCER-2026-10-07.md`
 and `audits/AUDIT-GLUED-ENDPOINT-AND-SIGNED-PRODUCER-2026-10-07.md`.
 

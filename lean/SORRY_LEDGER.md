@@ -1,5 +1,47 @@
 # Sorry Ledger
 
+## PROVED: original nonunit innovation and geometric covariance (2026-10-07)
+
+- `SU2QuaternionUnnormalizedVarianceTower.innovation_certificate` constructs
+  Nfull-(Nlast+2*Cov) from the original residual determinant; historical
+  variance is not asserted to vanish with reconstruction error. No unit mass.
+- `BF4ExactSlabFixedSpatialBlockInnovationTower` pins that certificate to
+  the actual terminal-weighted K*V block, for every finite time and supported
+  psi/phi, including the existing finite ratio. Its
+  `originalInnovationCovariance_one` proves Cov=-Nlast on the vacuum input.
+- `BlockInnovationCovariance.original_reconstruction_relativeInterval`
+  constructs c*mixRate^k*a plus/minus e from original source/window inputs.
+  `original_innovationCovariance_gruss_certificate` retains -(T e)^2;
+  `original_innovationCovariance_weighted_bound` uses literal Vbar^2*Gout^2
+  and independent incoming/output reciprocal degrees. Positive cap
+  L=2^(-k)+c*mixRate^k also covers zero c/rate. No terminal/source/norm inverse.
+- Three final focused checks pass eleven new {propext, Quot.sound} gates;
+  independent read-only review passes. One capped worker/12-GiB reserve,
+  fresh capacity preflights, zero swap. No new holes/axioms/classical input,
+  field changes or raised heartbeats. No full build/audit or baseline refresh.
+- OPEN: vacuum-compatible centered covariance absorption, useful combined
+  actual direct-score/signed-remainder bound in SAME surviving-form units,
+  independent AF survival, actual coarse map/all-vector comparison, useful
+  delta budget, physical calibration, SAME continuum OS/QFT, all groups, Clay.
+  Nome/width-dependent mixRate is not an AF-uniform rate or diagonal modulus.
+
+Evidence: `audits/AUDIT-ORIGINAL-INNOVATION-COVARIANCE-2026-10-07.md`.
+
+## PROVED: conditional Gruss correction and original weighted score (2026-10-07)
+
+- `SU2QuaternionConditionalGrussSquare.conditionalGrussSquare_certificate`
+  constructs (L^2*A^2-D^2)*det(W,f)-S^2 from actual positive L*W plus/minus d.
+- `BlockScoreVariance.original_block_centered_scoreVariance_certificate`
+  retains this mean-derivative correction on the original full window.
+  The legacy public square bound follows by adding D^2*noise and keeps its
+  signature. `LastStepCenteredScoreNoise.exactScoreAngularBudget_le_centeredNoise`
+  uses the identical Vbar^2*G^2 multiplier of the direct-score consumer.
+- Five focused checks, including two downstream regressions, passed eighteen
+  permitted printed gates (five new declarations); no full build/audit.
+  OPEN: useful noise/surviving-form scaling control; this is not a mass gap.
+
+Evidence: `audits/AUDIT-CONDITIONAL-GRUSS-AND-ORIGINAL-SCORE-2026-10-07.md`.
+
 ## PROVED: signed shift cancellation and actual direct-score cost join (2026-10-07)
 
 - `SU2QuaternionCenteredSignedRemainder.sourceEnergy_shifted` preserves
