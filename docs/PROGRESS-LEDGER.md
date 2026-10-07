@@ -4,7 +4,15 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 6, the Haar polymer identity, CLOSED (2026-10-07 PT)
+## Latest proved increment: R1 commit 7, link-gas geometry on the torus box (2026-10-07 PT)
+
+- `SU2LinkGasGeometry` (PROVED).
+  - `adj_symm`, `incL_symm`.
+  - `nb` (24 link-neighbours) and `mem_nb`: a box plaquette sharing a link with p lies in nb p.
+  - `adjT`: adj gives the torusLattice Adjacent relation.
+  - `grow_conn`: a grown cluster is connectedIn in torusChain N.
+
+## Earlier proved increment: R1 commit 6, the Haar polymer identity, CLOSED (2026-10-07 PT)
 
 - `SU2PolymerIdentity` (PROVED).
 - `polyPartition_eq_Xi`: `polyPartition w M links N P ≈ Ξ(incL, z_true)(gas N P)`. This holds for every finite plaquette list P whose links lie in `links` (a Dirichlet box is the case P = interior plaquettes).

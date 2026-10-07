@@ -85,3 +85,7 @@ No fail statement is given: the ℓ¹ envelope is an upper bound, not the true a
 
 - `polyPartition_eq_Xi` (finite box; hypothesis `Lk`: plaquette links are box coordinates).
 - Remaining for R1: KP convergence for this gas at the link-incompatibility constants (grouping bound over `incL`).
+
+## PROVED: commit 7, `SU2LinkGasGeometry.lean`
+
+- Adjacency symmetry, the 24-neighbour cover `nb`, Adjacent from adj, and grown ⇒ connected.
