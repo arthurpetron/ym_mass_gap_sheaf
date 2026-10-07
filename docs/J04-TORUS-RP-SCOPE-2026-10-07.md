@@ -365,4 +365,11 @@ RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
   `|Pt|` blocks, no remaining hypotheses besides `1 ≤ M`, `β ≥ 0`.
 Open: identify the layout integral with the actual torus integrand (torusLinks order, observable algebra on positive
 links) by a block reindexing, and state hW in the target's form.
+
+## d9u: single-involution link relabelling (`SU2TorusRPRelabel`)
+
+`relabel_prod`/`relabel_haar`: if a block involution `σ` satisfies `(plaqIdx L p).map σ.map = plaqIdx L' p` on every
+plaquette, then `reindex σ (Π T_K[L]) ≡ Π T_K[L']` and `∫ Π T_K[L] = ∫ Π T_K[L']`. Axioms [propext, Quot.sound].
+Open: chaining involutions for the general `torusLinks → layout` permutation, carrying the observables and Θ across,
+and then `hW`.
 RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
