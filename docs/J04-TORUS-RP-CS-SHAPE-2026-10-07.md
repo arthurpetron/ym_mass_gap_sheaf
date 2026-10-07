@@ -58,3 +58,39 @@ Axioms [propext, Quot.sound].
 **STATUS: SU(2) torus RP and RP Cauchy–Schwarz for `PtSup` polynomials (truncated T_K, fixed K) are PROVED. Still OPEN:
 time translation `τ` and its interface (Prover), the odd-`j` convention, `K → ∞`, and LogConvex. J04 (all compact
 simple groups) remains OPEN; this is SU(2) only.**
+
+## Correlator identity: who owns what (agreed split, 2026-10-07)
+
+**Prover owns (PROVED, `SU2TimeShift`, read-only to us):** `vs`, `shv`, `tAdd_vs`, `perm_shift` (slice families),
+`TKi`, and `tk_shift : TK links (shv t p) = TKi (idxOf ∘ shv t) p` (plain equality).
+
+**Torus-RP side owns (this track; all OPEN unless marked):**
+1. `τ_t : RatPoly → RatPoly`, the block reindex `idxOf ℓ ↦ idxOf (shv (2M) t ℓ)` on `torusLinks (2M)`.
+2. Full-torus permutation `(torusPlaquettes (2M)).map (shv (2M) t) ~ torusPlaquettes (2M)`, from `perm_shift` per slice
+   (or directly, because `shv` is a bijection of `InBox`).
+3. `Π T_K` invariance: `τ_t (Π_p TK p) ≡PE Π_p TK p`, via `tk_shift` and item 2.
+4. Haar invariance under `τ_t`. The existing reindex machinery (`SU2TorusRPReindex`) covers block *involutions*
+   only. Plan: write `τ_t = R_a ∘ R_b` as a composition of two time reflections `t ↦ c − t (mod 2M)`. These are
+   involutions, so `reindex_ringSub` and Haar invariance apply to each.
+5. `Θ∘τ_x ≡ τ_{−x}∘Θ` on `PtSup`/`Sup` polynomials. Then `rpB (τ_x F) (τ_y F) ≈ G(x+y)` with `G n := rpB F (τ_n F)`.
+   Combined with `torus_cs_poly`, this gives `G(x+y)² ≤ G(2x)·G(2y)`. `τ_x F` must remain `PtSup`, which needs
+   `x + (support time) ≤ M`. This is a real restriction and must appear in the statement.
+6. **Odd `j`.** A reflection `t ↦ c − t` with odd `c` fixes no site plane (the plane is at link midpoints). Proposed
+   convention: prove item 5 for *both* parities of `c` by using the general reflection `R_c`. That way odd `j` comes
+   from the pair `(τ_a F, τ_{a+1} F)` under the midpoint reflection, with no half-step translation. The midpoint
+   RP itself (`torus_rp` for odd `c`) is OPEN: the existing layout proof is for the site plane.
+
+**Prover consumes:** item 5 plus `torus_cs_poly` to produce `LogConvex`. The Prover does not reprove items 1–4.
+
+## K → ∞ (status, precise)
+
+`SU2TorusRPKLimit` (PROVED, [propext, Quot.sound]):
+* `closed_le`;
+* `rp_closed`: any rational `x` with `|x − rpB_K F F| ≤ r K` for all K satisfies `0 ≤ x + 2 r K`;
+* `cs_closed`: the analogue for `TorusCS`.
+
+`RPKCauchy F G r` (`∀ K j, |rpB_{K+j} F G − rpB_K F G| ≤ r K`) is a **definition only, OPEN**. It needs a Haar-level
+rate for `Π T_{K'} − Π T_K`. Plan: use `l1` (`haar_abs`, `l1_mul`, `l1_add_le`) on `T_{K+j} − T_K =
+Σ_{k=K+1}^{K+j} a_k χ-powers`, with factorial decay of `wilsonA`. `wCoeff_cauchy` is the character-basis rate; it
+applies via `plaq_weighted_le`/`bnd_mul`, but at strong coupling only (`2β ≤ 1`).
+**No limit object (CReal or otherwise) is defined. Nothing about the untruncated Wilson measure is proved.**
