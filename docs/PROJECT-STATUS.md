@@ -6414,3 +6414,9 @@ plumbing; truncated-correlation decay is next.
 `Z4TorusPolymerKP` (2026-10-07): the unconditional weighted KP now also holds on the periodic
 4-torus (`torus_kp`, every side N, winding polymers included). Group-blind plumbing. Not yet
 covered: Polyakov/winding observables, an asymmetric torus, and the Wilson activity link.
+
+`PolymerRatioLipschitz` / `HeatKernelPolymerActivityR1` (2026-10-07):
+- Proved a one-polymer ratio-Lipschitz bound (C=2, q=1/6000) on the degree-24 box and torus
+  gases.
+- Proved an explicit heat-kernel envelope activity at w=1/40 with |z| ≤ (1/10000)^{|γ|}.
+- OPEN: graph-distance decay, and the R1 Haar/character identity Z_Wilson = Ξ(gas).

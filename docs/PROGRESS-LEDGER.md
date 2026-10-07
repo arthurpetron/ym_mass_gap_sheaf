@@ -4,7 +4,21 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: Z4 weighted KP on the periodic torus (2026-10-07 PT)
+## Latest proved increment: one-polymer ratio-Lipschitz + R1 activity envelope (2026-10-07 PT)
+
+- `PolymerRatioLipschitz` (PROVED, GROUP-BLIND PLUMBING):
+  - `cross_step` (exact identity);
+  - `cross_bound`;
+  - `deg24_ratio_lip`: |R(S₀)−R(T₀)| ≤ 2·(1/6000)^{|y|}, cross-multiplied, for box and torus.
+- `HeatKernelPolymerActivityR1` (PROVED):
+  - w = 1/40;
+  - `plaqEnv_le`: Σ_{s≥1} coeffW ≤ 1/10000;
+  - `zHeat_bounds`: zHeat = plaqEnv^{|γ|} ≤ ε^{|γ|};
+  - `heat_kp`.
+- OPEN: d-distance decay, and the R1 Haar identity Z_Wilson = Ξ(gas). See
+  `audits/SCOPE-RATIO-LIPSCHITZ-AND-R1-ACTIVITY-2026-10-07.md`.
+
+## Earlier proved increment: Z4 weighted KP on the periodic torus (2026-10-07 PT)
 
 - `Z4TorusPolymerKP` (PROVED, GROUP-BLIND PLUMBING):
   - `torusChain N : BddLattice` (D = 24), built from `torusNbrs_length` (exactly 24, every N)

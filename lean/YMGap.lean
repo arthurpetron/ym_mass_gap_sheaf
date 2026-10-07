@@ -7379,6 +7379,8 @@ import YMGap.Continuum.SignedPolymerDecoupling
 import YMGap.Continuum.SizeWeightedPolymerKP
 import YMGap.Continuum.Z4PolymerKP
 import YMGap.Continuum.Z4TorusPolymerKP
+import YMGap.Continuum.PolymerRatioLipschitz
+import YMGap.Continuum.HeatKernelPolymerActivityR1
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport
