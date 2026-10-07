@@ -207,3 +207,8 @@ No fail statement is given: the ℓ¹ envelope is an upper bound, not the true a
   - the G(k) = 0 case;
   - the Archimedean lemma in Q′ (from x^d·g ≤ D·y^d for all d, conclude x ≤ y): OPEN, not attempted;
   - the N_t → ∞ corollary r_k ≤ q: OPEN, not attempted.
+
+## PROVED: commit 31, `SU2WilsonSliceGood.lean`
+
+- Z = ∫_U Π_t T_t(U_t, U_{t+1}).
+- OPEN for Z = Tr T^{N_t} with a single kernel: the translation T_t = τ_t T_0 via `pe_reindex`.

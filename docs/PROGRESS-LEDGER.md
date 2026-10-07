@@ -4,7 +4,16 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 30, log-convexity plus clustering gives a finite-volume ratio bound (2026-10-07 PT)
+## Latest proved increment: R1 commit 31, Z as an integral of slice kernels for the actual Wilson torus (transfer step 2e) (2026-10-07 PT)
+
+- `SU2WilsonSliceGood.z_transfer` (PROVED, [propext, Quot.sound]).
+  - Hypothesis: torusLinks N ⊆ links.
+  - Statement: `∫_{links} Π_{p∈torus} T_K(p) ≈ ∫_{links} Π_{t<N} T_t`, where T_t = ∫dV_t (Π_{slicePS t} T_K · Π_{slicePT t} T_K).
+- `good_slices`: the temporal links V_t occur only in slice-t timelike plaquettes.
+- Choice-free replacements for `idxOf_lt_length_iff` and `nodup_range`.
+- Labels: STRONG COUPLING / Wilson T_K, fixed K; also true for U(1), not gap evidence.
+
+## Earlier proved increment: R1 commit 30, log-convexity plus clustering gives a finite-volume ratio bound (2026-10-07 PT)
 
 - `SU2LogConvexGap.gap_finite` (PROVED, [propext, Quot.sound]).
   - Hypotheses, on 0..L: G > 0; G(j+1)² ≤ G(j)G(j+2); G(n) ≤ C q^n.
