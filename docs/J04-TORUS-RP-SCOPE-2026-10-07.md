@@ -161,3 +161,10 @@ changes the head, so moving the context across needs the inverse shear `u ↦ a*
 `|a|² = 1` under Haar. Plan for (d): it does not need head-shear congruence, because it chains `haar_step`
 once per substitution on concrete integrands. Geometry (c) and assembly (d) are NOT started.
 **RP FOR THE ACTUAL TORUS MEASURE IS OPEN.**
+
+**(c) geometry** (`SU2TorusRPGeom.lean`, `N = 2M`, time = `x0`): Θ is `t ↦ 1−t mod N` (`rt`), and `reflLink`
+reverses temporal links. The side labels pos/neg/cross are proved consistent: `refl_invol`, `side_refl` (Θ swaps
+pos and neg and keeps cross), `cross_fixed`, `plaq_pos`/`plaq_neg` (each half plaquette's links lie in that half),
+`plaq_cross` (a crossing plaquette has 2 crossing temporal links and 2 spatial links that are Θ-images of each
+other). Not yet done: linking `reflLink` to the polynomial Θ (`reindex` + `conjSel`) on `linkVar`, and assembly (d).
+**RP FOR THE ACTUAL TORUS MEASURE IS OPEN.**
