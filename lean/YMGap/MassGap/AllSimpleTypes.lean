@@ -158,7 +158,7 @@ minimum-Casimir table. -/
 /-- The legacy representative `RepData` row for each raw Cartan code. -/
 def repDataOf : CartanType → RepData
   | .A n => repOfCasimir (suN_C2_fund (n + 1) (Nat.succ_pos n)) (suN_C2_adj (n + 1))
-  | .B n => repOfCasimir (soOdd_C2_fund n) (soOdd_C2_adj n)
+  | .B n => repOfCasimir (soOdd_spin_C2 n) (soOdd_C2_adj n)  -- J04 c: Spin(2n+1) min(vector, spinor)
   | .C n => repOfCasimir (sp_C2_fund n) (sp_C2_adj n)
   | .D n => repOfCasimir (soEven_vector_C2 n) (soEven_C2_adj n)  -- J04 T1: corrected vector value; min(vector, half-spin) for n ≥ 4
   | .G2 => repOfCasimir g2_C2_fund g2_C2_adj
@@ -189,7 +189,7 @@ theorem admissible_of_cartanType (T : CartanType) (h : IsSimpleRank T) :
              repOfCasimir_cert _ _⟩
   | B n =>
       have hn : 2 ≤ n := h
-      exact ⟨soOdd_gap_lb n (by omega), soOdd_hvee_lb n (by omega),
+      exact ⟨soOdd_spin_gap_lb n (by omega), soOdd_hvee_lb n (by omega),
              repOfCasimir_cert _ _⟩
   | C n =>
       have hn : 3 ≤ n := h
@@ -307,7 +307,7 @@ theorem mass_gap_A (n : Nat) (hn : 1 ≤ n)
               ≤ su2.sigma0) :=
   mass_gap_of_cartanType (.A n) hn rec bundle
 
-/-- Conditional result for the legacy `B_n` row (`n ≥ 2`). -/
+/-- Conditional result for the `B_n` row (`n ≥ 2`). B row (J04 c): `soOdd_spin_C2 n = min(n, n(2n+1)/8)`, the Spin(2n+1) value (5/4 at B₂, 21/8 at B₃). -/
 theorem mass_gap_B (n : Nat) (hn : 2 ≤ n)
     {M : Nat → Type} {μ_inf : ContinuumMeasure M}
     (rec : OSReconstruction μ_inf) (bundle : OSAxiomBundle μ_inf) :

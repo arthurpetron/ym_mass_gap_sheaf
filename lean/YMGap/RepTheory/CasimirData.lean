@@ -320,6 +320,29 @@ theorem rank_one_below_floor :
     soEven_halfSpin_C2 1 < Casimir.gapFloor ∧
     soOdd_spinor_C2 1 < Casimir.gapFloor := by decide
 
+/-! ### `Spin(2n+1)` row: `min(vector, spinor)` (J04 task c) -/
+
+/-- Least of the `B_n` vector and spinor Casimirs (the `Spin(2n+1)` row). -/
+def soOdd_spin_C2 (n : Nat) : Q' := Q'.min' (soOdd_C2_fund n) (soOdd_spinor_C2 n)
+
+/-- Floor through `min'`. -/
+theorem le_min'_of_le {a p q : Q'} (hp : a ≤ p) (hq : a ≤ q) : a ≤ Q'.min' p q := by
+  unfold Q'.min'; split <;> assumption
+
+/-- `Spin(2n+1)` row clears `3/4` for `n ≥ 2` (no no-go at simple ranks). -/
+theorem soOdd_spin_gap_lb (n : Nat) (hn : 2 ≤ n) :
+    Casimir.gapFloor ≤ soOdd_spin_C2 n :=
+  le_min'_of_le (soOdd_gap_lb n (by omega)) (soOdd_spinor_gap_lb n hn)
+
+/-- `B₂`: row value `5/4`. -/
+theorem soOdd_spin_C2_B2 : (soOdd_spin_C2 2).eqv (Q'.mkPos 5 4 (by decide)) := by decide
+/-- `B₃`: row value `21/8`. -/
+theorem soOdd_spin_C2_B3 : (soOdd_spin_C2 3).eqv (Q'.mkPos 21 8 (by decide)) := by decide
+/-- `B₄`: vector and spinor coincide (`4`). -/
+theorem soOdd_spin_C2_B4 : (soOdd_spin_C2 4).eqv (Q'.ofNat 4) := by decide
+/-- `B₅`: the vector `5` is the minimum (spinor `55/8`). -/
+theorem soOdd_spin_C2_B5 : (soOdd_spin_C2 5).eqv (Q'.ofNat 5) := by decide
+
 /-! ## Five exceptional-type legacy constants, floors by `decide`
 
 Each stored literal clears the relevant floor, closed by `decide` on exact
@@ -414,3 +437,6 @@ end YMGap.RepTheory
 #print axioms YMGap.RepTheory.soEven_halfSpin_eq_vector_D4
 #print axioms YMGap.RepTheory.soOdd_spinor_lt_vector_B2
 #print axioms YMGap.RepTheory.rank_one_below_floor
+#print axioms YMGap.RepTheory.soOdd_spin_gap_lb
+#print axioms YMGap.RepTheory.soOdd_spin_C2_B2
+#print axioms YMGap.RepTheory.soOdd_spin_C2_B3
