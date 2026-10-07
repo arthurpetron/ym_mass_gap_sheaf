@@ -60,3 +60,9 @@ On the Spatial Union / Descent carrier this is ALREADY proved:
 Do NOT feed the constant Descent rate into `wilsonGapBranch_afPadded_generic` on `trAF`:
 both the window exit and the upper-half obstruction apply. The live consumer for this rate
 is the lower-margin packaging on the Descent carrier. AF still needs a weak-coupling producer.
+
+## Follow-up: the same rate on the literal all-nome carrier (2026-10-06 PT)
+
+`BF4WilsonAllNomeStrongCouplingUniformRate.allNome_strongCoupling_vacuumSq` inhabits the
+all-nome `WilsonVacuumSqContraction` at `timeRate = 1/4` for every width, under the same guards.
+It is non-vacuous at `w = 1/1024`. It is still not AF. See `SCOPE-ALLNOME-DESCENT-ROUTE-B-2026-10-06.md`.

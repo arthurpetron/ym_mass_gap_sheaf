@@ -7336,6 +7336,9 @@ import YMGap.Continuum.BF4WilsonAllNomeWilsonMixRateDeadEnd
 -- INTERFACE TEST: strong-coupling width-uniform Descent rate ≈ 1/16 (Spatial Union
 -- carrier); NOT all-nome, NOT AF; lower margin + non-vacuity + upper-half obstruction.
 import YMGap.Continuum.BF4WilsonStrongCouplingUniformRate
+-- ROUTE (b), STRONG-COUPLING: width-independent WilsonVacuumSqContraction (rate 1/4) on the
+-- literal all-nome carrier under the three guards; non-vacuous at w=1/1024; NOT AF.
+import YMGap.Continuum.BF4WilsonAllNomeStrongCouplingUniformRate
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport

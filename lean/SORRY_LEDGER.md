@@ -1,5 +1,20 @@
 # Sorry Ledger
 
+## PROVED: route (b) — width-independent strong-coupling contraction on the literal all-nome carrier (2026-10-06 PT)
+
+- `allNome_strongCoupling_vacuumSq` (`BF4WilsonAllNomeStrongCouplingUniformRate`):
+  `WilsonVacuumSqContraction hw0 hw1 width timeRate` (timeRate = 1/4, square 1/16) on
+  `BF4WilsonAllNomeCompletedInner.Completion width` with its `completedTime`, under the three
+  guards; ONE rate for all widths (`allNome_strongCoupling_vacuumSq_all_widths`).
+- Finite adaptation of the Descent chain: the general cluster bound
+  `finite_covariance_distance_bound` is applied at spatial offset 0 on the literal
+  `originalWindowScalar` extent, then passes through the literal joint limits; the dyadic step
+  removes the width-dependent amplitude.
+- Non-vacuity: `existingNome_allNome_strongCoupling` at w = 1/1024 (no free hypotheses).
+- STRONG-COUPLING, NOT AF: constant rate fails the B04 upper half
+  (`constant_rate_not_all_scale_upper`). Scope: `audits/SCOPE-ALLNOME-DESCENT-ROUTE-B-2026-10-06.md`.
+- Axioms {propext, Quot.sound}.
+
 ## PROVED: unconditional strong-coupling non-vacuity at w=1/1024; Union↔all-nome bridge scoped (2026-10-06 PT)
 
 - `existingNome_package_nonvacuous` (`BF4WilsonStrongCouplingUniformRate`): at pilot nome

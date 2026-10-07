@@ -81,3 +81,10 @@ Unconditional non-vacuity of the strong-coupling package at the pilot nome
 `w = invSucc 1023 = 1/1024`, discharging all three Descent guards via
 `existingNome_guards` and `existingNome_entropyRate` (see
 `BF4WilsonStrongCouplingUniformRate.existingNome_package_nonvacuous`).
+
+## Follow-up (2026-10-06 PT)
+
+Route (b) was carried out as a finite adaptation:
+`BF4WilsonAllNomeStrongCouplingUniformRate.allNome_strongCoupling_vacuumSq`. It gives
+strong-coupling only and is not AF. The bridge verdict above is unchanged; route (b) avoids the bridge.
+See `SCOPE-ALLNOME-DESCENT-ROUTE-B-2026-10-06.md`.

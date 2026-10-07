@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Route (b), strong coupling (2026-10-06 PT): the literal fixed-width all-nome
+carrier now has a WIDTH-INDEPENDENT `WilsonVacuumSqContraction` at rate
+`timeRate = 1/4` under the three guards
+(`BF4WilsonAllNomeStrongCouplingUniformRate.allNome_strongCoupling_vacuumSq`).
+It is non-vacuous at `w = 1/1024`. This replaces the `(1/32)^width`-degraded Doeblin
+`mixRate` inside the small-nome window only. It is NOT AF and does not feed the AF
+capstone (`constant_rate_not_all_scale_upper`; schedules leave the window). See
+`audits/SCOPE-ALLNOME-DESCENT-ROUTE-B-2026-10-06.md`.
+
 Strong-coupling width-uniform rate (interface test; PLUMBING, 2026-10-06 PT):
 the Descent carrier already has a WIDTH-INDEPENDENT vacuum-square rate
 `twoStepRate ≈ 1/16` under the three strong-coupling guards
