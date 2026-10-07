@@ -31,6 +31,14 @@ eps bound. The two-mode sequence `R(n) = 1 + 2^(s-n)` has `R(2s) ≥ R(s)/2`
 and `s(1 - q_s) = s/4`. See the audit.
 
 No `sorry`, no axioms.
+
+Integrated alternative: `windowResponseArea x p N = sum_(i<N) R(p+i)`.
+The same moment laws give
+`2*N*R(p+N) + N*(N+1)*e(p+N) <= 2*windowResponseArea x p N`.
+A supplied area bound `windowResponseArea <= C*N*R(p+N)` therefore gives
+the EXISTING shifted H1 with `c0 >= 4*(C-1)` on the half-side window.
+The area bound on the actual AF family is OPEN; this is not a new frontier
+structure or a construction of the missing analytic input.
 -/
 
 import YMGap.Continuum.BF4WilsonAllNomeShiftedH1Anchor
@@ -196,6 +204,46 @@ private theorem ws_coeff (S n : Nat) (hS : S ≤ 2*(n+1)) (theta c0 : Q') (h1 : 
   exact Q'.le_trans' _ _ _ a1 (Q'.le_trans' _ _ _ (Q'.le_of_eqv a2)
     (Q'.le_trans' _ _ _ a3 (Q'.le_of_eqv a4)))
 
+private theorem ws_zero_scale (a : RC) : RCscale 0 a = RCzero := by
+  refine Quotient.inductionOn a ?_
+  intro A
+  exact Quotient.sound (SumOfSquares.Equiv_of_approx_eqv
+    (fun n => Q'.zero_mul_eqv (A.approx n)))
+
+private theorem ws_scale_regroup (a b c d : Q') (r e : RC) :
+    RCadd (RCadd (RCscale a r) (RCscale b e))
+      (RCadd (RCscale c r) (RCscale d e)) =
+    RCadd (RCscale (a+c) r) (RCscale (b+d) e) := by
+  refine Quotient.inductionOn₂ r e ?_
+  intro R E
+  exact Quotient.sound (SumOfSquares.Equiv_of_approx_eqv (fun n =>
+    poly_identity_of_normal_eq
+      (.add (.add (.mul (.var 0) (.var 4)) (.mul (.var 1) (.var 5)))
+        (.add (.mul (.var 2) (.var 4)) (.mul (.var 3) (.var 5))))
+      (.add (.mul (.add (.var 0) (.var 2)) (.var 4))
+        (.mul (.add (.var 1) (.var 3)) (.var 5)))
+      (by decide) (fun
+        | 0 => a | 1 => b | 2 => c | 3 => d | 4 => R.approx n | _ => E.approx n)))
+
+private theorem ws_area_coeff_succ (n : Nat) :
+    2*Q'.ofNat (n+1) + Q'.ofNat (n*(n+1)) ≈
+      Q'.ofNat ((n+1)*((n+1)+1)) := by
+  have hn : (n+1)*((n+1)+1) = 2*(n+1)+n*(n+1) := by
+    simp only [Nat.add_mul, Nat.mul_add, Nat.one_mul, Nat.mul_one]
+    omega
+  rw [hn]
+  exact Q'.eqv_symm (Q'.eqv_trans _ _ _ (Q'.ofNat_add_eqv _ _)
+    (Q'.add_eqv_congr_right _ _ _ (ws_ofNat_mul 2 (n+1))))
+
+private theorem ws_area_cancel_coeff (C : Q') (n : Nat) :
+    2*(C*Q'.ofNat n) + -(2*Q'.ofNat n) ≈
+      Q'.ofNat n * (2*(C + -1)) :=
+  poly_identity_of_normal_eq
+    (.add (.mul (.const 2) (.mul (.var 0) (.var 1)))
+      (.neg (.mul (.const 2) (.var 1))))
+    (.mul (.var 1) (.mul (.const 2) (.add (.var 0) (.neg (.const 1)))))
+    (by decide) (fun | 0 => C | _ => Q'.ofNat n)
+
 /-! ## 1. Moment-only compiler on an arbitrary carrier vector -/
 
 section Generic
@@ -235,6 +283,93 @@ theorem window_telescope (x : V) : ∀ n p : Nat,
       rw [show p + (1+n) = p+1+n by omega] at hanti
       rw [show p + (n+1) = p+1+n by omega, ws_scale_succ, ws_add_assoc, hs]
       exact RCadd_le_add ih hanti
+
+/-- The finite backward response area, on the SAME completed vector and time. -/
+def windowResponseArea (x : V) (p : Nat) : Nat → RC
+  | 0 => RCzero
+  | n+1 => RCadd (MM x p 0) (windowResponseArea x (p+1) n)
+
+/-- Integrated backward telescope. No survival or nonzero-state hypothesis. -/
+theorem window_response_area_lower (x : V) : ∀ n p : Nat,
+    RCle (RCadd (RCscale (2*Q'.ofNat n) (MM x (p+n) 0))
+      (RCscale (Q'.ofNat (n*(n+1))) (MM x (p+n) 1)))
+      (RCscale 2 (windowResponseArea hw0 hw1 width x p n))
+  | 0, p => by
+      rw [windowResponseArea, RCscale_RCzero,
+        RCSignedPairBudget.scale_congr (by decide : 2*Q'.ofNat 0 ≈ 0),
+        RCSignedPairBudget.scale_congr (by decide : Q'.ofNat (0*(0+1)) ≈ 0),
+        ws_zero_scale, ws_zero_scale, ws_add_zero]
+      exact RCle_refl _
+  | n+1, p => by
+      have ih := window_response_area_lower x n (p+1)
+      have ht := window_telescope hw0 hw1 width x n p
+      have ha := window_energy_antitone hw0 hw1 width x 1 (p+n)
+      have hhead := RCle_trans (RCadd_le_add (RCle_refl (MM x (p+n+1) 0))
+        (RCscale_mono (ws_ofNat_nonneg (n+1)) ha)) ht
+      have hsum := RCadd_le_add (RCscale_mono (by decide : (0 : Q') ≤ 2) hhead) ih
+      rw [ws_scale_add, RCscale_RCscale] at hsum
+      rw [show (p+1)+n = p+n+1 by omega, ws_scale_regroup] at hsum
+      have hr : 2 + 2*Q'.ofNat n ≈ 2*Q'.ofNat (n+1) :=
+        Q'.eqv_trans _ _ _
+          (poly_identity_of_normal_eq
+            (.add (.const 2) (.mul (.const 2) (.var 0)))
+            (.mul (.const 2) (.add (.var 0) (.const 1)))
+            (by decide) (fun _ => Q'.ofNat n))
+          (Q'.mul_eqv_congr_left 2 _ _ (Q'.eqv_symm (ws_ofNat_succ n)))
+      rw [RCSignedPairBudget.scale_congr hr,
+        RCSignedPairBudget.scale_congr (ws_area_coeff_succ n)] at hsum
+      rw [windowResponseArea, ws_scale_add]
+      simpa only [Nat.add_assoc] using hsum
+
+/-- An area ceiling pays terminal energy. Only the positive integer N is
+canceled; no state norm or response is inverted. The analytic ceiling is supplied. -/
+theorem window_area_energy_bound (x : V) (p n : Nat) (hn : 0 < n) (C : Q')
+    (harea : RCle (windowResponseArea hw0 hw1 width x p n)
+      (RCscale (C*Q'.ofNat n) (MM x (p+n) 0))) :
+    RCle (RCscale (Q'.ofNat (n+1)) (MM x (p+n) 1))
+      (RCscale (2*(C + -1)) (MM x (p+n) 0)) := by
+  have h := RCle_trans (window_response_area_lower hw0 hw1 width x n p)
+    (RCscale_mono (by decide : (0 : Q') ≤ 2) harea)
+  rw [RCscale_RCscale] at h
+  have hc := RCadd_le_add h (RCle_refl (RCneg (RCscale (2*Q'.ofNat n) (MM x (p+n) 0))))
+  rw [ws_add_cancel_left] at hc
+  change RCle (RCscale (Q'.ofNat (n*(n+1))) (MM x (p+n) 1))
+    (RCsub (RCscale (2*(C*Q'.ofNat n)) (MM x (p+n) 0))
+      (RCscale (2*Q'.ofNat n) (MM x (p+n) 0))) at hc
+  rw [← ws_scale_sub,
+    RCSignedPairBudget.scale_congr (ws_area_cancel_coeff C n),
+    RCSignedPairBudget.scale_congr (ws_ofNat_mul n (n+1))] at hc
+  apply ws_scale_cancel (ws_ofNat_pos n hn)
+  simpa only [RCscale_RCscale] using hc
+
+/-- Integrated area control gives the existing cleared H1 at the endpoint.
+The half-side window satisfies L <= 2*(N+1), giving c0 >= 4*(C-1). -/
+theorem window_area_epsBound (x : V) (p n s L : Nat) (hpn : p+n=s)
+    (hn : 0 < n) (hL : L ≤ 2*(n+1)) (C c0 : Q')
+    (hc : 4*(C + -1) ≤ c0)
+    (harea : RCle (windowResponseArea hw0 hw1 width x p n)
+      (RCscale (C*Q'.ofNat n) (MM x s 0))) :
+    RCle (RCscale (Q'.ofNat L) (RCsub (MM x s 0) (MM x (s+1) 0)))
+      (RCscale c0 (MM x s 0)) := by
+  subst hpn
+  have hs := mixedMoment_split hw0 hw1 x (p+n) 0
+  have hE : RCsub (MM x (p+n) 0) (MM x (p+n+1) 0) = MM x (p+n) 1 := by
+    rw [hs]
+    exact ws_add_sub_left _ _
+  rw [hE]
+  have hfirst := RCscale_scalar_mono (ws_ofNat_le hL)
+    (mixedMoment_nonnegative hw0 hw1 x (p+n) 1)
+  have hsecond := RCscale_mono (by decide : (0 : Q') ≤ 2)
+    (window_area_energy_bound hw0 hw1 width x p n hn C harea)
+  rw [RCscale_RCscale, RCscale_RCscale] at hsecond
+  rw [RCSignedPairBudget.scale_congr (ws_ofNat_mul 2 (n+1))] at hfirst
+  have heq : 2*(2*(C + -1)) ≈ 4*(C + -1) :=
+    poly_identity_of_normal_eq
+      (.mul (.const 2) (.mul (.const 2) (.var 0)))
+      (.mul (.const 4) (.var 0)) (by decide) (fun _ => C + -1)
+  rw [RCSignedPairBudget.scale_congr heq] at hsecond
+  exact RCle_trans hfirst (RCle_trans hsecond
+    (RCscale_scalar_mono hc (mixedMoment_nonnegative hw0 hw1 x (p+n) 0)))
 
 /-- **Window energy bound.** If `θ R(p) ≤ R(p+n+1)` with `0 ≤ θ ≤ 1`, then
 `θ (n+1) e(p+n) ≤ (1-θ) R(p+n)`. -/
@@ -349,6 +484,30 @@ theorem pathShiftedEpsBound_of_windowSurvival (tr : DyadicSmoothedTrajectory) (c
         (ws_coeff (side (j+1)) (side (j+1) - side (j+1) / 2) hS theta c0 h1 hc0)
         (Hw (j+1) hj)
 
+/-- Integrated alternative to point survival: the supplied area bound concerns
+the actual selected smoothed state, original schedule and completed response.
+It is an OPEN analytic input, not constructed by moment positivity. -/
+theorem pathShiftedEpsBound_of_responseArea (tr : DyadicSmoothedTrajectory) (C c0 : Q')
+    (hc : 4*(C + -1) ≤ c0) (hc1 : (1 : Q') ≤ c0)
+    (Harea : ∀ j, 1 ≤ j → RCle
+      (windowResponseArea (tr.schedule.nome_pos j) (tr.schedule.nome_lt_one j)
+        (trajWidth j) (tr.state j) (side j/2) (side j-side j/2))
+      (RCscale (C*Q'.ofNat (side j-side j/2)) (tr.response j (side j)))) :
+    PathShiftedEpsBound tr c0 := by
+  intro j
+  match j with
+  | 0 =>
+      exact oneStepEpsBound_one (tr.schedule.nome_pos 0) (tr.schedule.nome_lt_one 0)
+        (trajWidth 0) _ c0 hc1
+  | j+1 =>
+      have hj : 1 ≤ j+1 := Nat.succ_pos j
+      rw [pathShiftedEpsBound_iff_response tr c0 (j+1) hj]
+      have hS := side_positive (j+1)
+      exact window_area_epsBound (tr.schedule.nome_pos (j+1))
+        (tr.schedule.nome_lt_one (j+1)) (trajWidth (j+1)) (tr.state (j+1))
+        (side (j+1)/2) (side (j+1)-side (j+1)/2) (side (j+1)) (side (j+1))
+        (by omega) (by omega) (by omega) C c0 hc (Harea (j+1) hj)
+
 /-- **Shifted A03 package from backward-window survival.** -/
 theorem path_normalized_anchor_of_windowSurvival (tr : DyadicSmoothedTrajectory)
     (c0 theta delta : Q') (a : Nat) (ha : 1 ≤ a)
@@ -363,6 +522,11 @@ theorem path_normalized_anchor_of_windowSurvival (tr : DyadicSmoothedTrajectory)
 
 #print axioms window_energy_antitone
 #print axioms window_telescope
+#print axioms windowResponseArea
+#print axioms window_response_area_lower
+#print axioms window_area_energy_bound
+#print axioms window_area_epsBound
+#print axioms pathShiftedEpsBound_of_responseArea
 #print axioms window_energy_bound
 #print axioms window_epsBound
 #print axioms oneStepEpsBound_one

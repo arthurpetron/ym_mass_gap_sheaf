@@ -13,6 +13,7 @@ source-specific cancellation of the retained residual is still OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockRayleighSplit
 import YMGap.Continuum.BF4ExactSlabFixedSpatialTransferPositive
 import YMGap.Continuum.BF4ExactSlabFixedSpatialTransferOrder
+import YMGap.Continuum.QuaternionHaarWeightedCauchySchwarz
 
 namespace YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport
 
@@ -46,6 +47,8 @@ open YMGap.Continuum.SU2QuaternionRatPolyDifferential
 open YMGap.Continuum.SU2QuaternionHeadChainComposition (iterateStep iterateStep_supported)
 open YMGap.Continuum.SU2QuaternionArbitraryHaarRadialPositivity
 open YMGap.Continuum.QuaternionHaarSquareCertificate
+open YMGap.Continuum.BF4ExactSlabFixedSpatialSpatialOrder (spatialCertificate)
+open YMGap.Continuum.QuaternionHaarWeightedCauchySchwarz (weightedPair weighted_cauchySchwarz)
 
 local infix:50 " ≈ " => Q'.eqv
 local notation:max "N" width:arg => List.length (baseLinks width)
@@ -677,6 +680,122 @@ theorem original_block_clearedRayleighCost_transport_le {w : Q'}
   rw [hg] at h
   simpa only [input, hnext, terminalMessage_next, Nat.add_assoc] using h
 
+/-- Cap-free lower bound for the literal positive residual bracket. The
+incoming source norm is MULTIPLIED, never inverted; the signed cost is
+squared without assuming its sign. Every pairing retains the original V. -/
+theorem costTransportRemainder_terminal_square_lower {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < 1) (K width : Nat) (hK : headCutoff w ≤ K)
+    (s : Nat) {c : RatPoly} (hc : SupportedQuaternionBlocks (N width) c) :
+    let a := terminalMessage w K width (s+1)
+    let p := weightedMass w K width (polyMul a (transferStep w K width a))
+    let C := weightedMass w K width (polyMul c c)
+    let D := clearedRayleighCost w K width a c
+    p*(D*D) ≤ C*costTransportRemainder w K width a c := by
+  dsimp only
+  let a := terminalMessage w K width (s+1)
+  let z := pair w K width a a
+  let p := pair w K width a (transferStep w K width a)
+  let C := pair w K width c c
+  let y := costTransportResidual w K width a c
+  let D := clearedRayleighCost w K width a c
+  let Y := pair w K width y y
+  let R := pair w K width y (transferStep w K width y)
+  have hy : SupportedQuaternionBlocks (N width) y :=
+    supported_add (support_smul hc _) (support_smul (transferStep_supported w K width hc) _)
+  have hz : (0 : Q') ≤ z :=
+    Q'.le_of_lt (terminalPair_positive hw0 hw1 K width hK (s+1) (s+1))
+  have hp : (0 : Q') ≤ p := transferStep_quadratic_nonnegative w
+    (Q'.le_of_lt hw0) K width a (terminalMessage_supported w K width (s+1))
+  have hC : (0 : Q') ≤ C :=
+    weightedMass_nonnegative hw0 hw1 K width hK (Certificate.square c hc)
+  have hR : (0 : Q') ≤ R :=
+    transferStep_quadratic_nonnegative w (Q'.le_of_lt hw0) K width y hy
+  have pin (f g : RatPoly) :
+      weightedPair (N width) (spatialWeight w K width) f g ≈ pair w K width f g := by
+    unfold weightedPair pair weightedMass
+    exact haar_of_coeff (RatPolyCoeffEqv.mul_comm _ _)
+  have hcy : pair w K width c y ≈ D :=
+    Q'.eqv_trans _ _ _ (pair_add_right w K width c _ _)
+      (Q'.add_eqv_congr' (pair_smul_right w K width p c c)
+        (Q'.eqv_trans _ _ _ (pair_smul_right w K width (-z) c (transferStep w K width c))
+          (Q'.neg_mul_eqv z _)))
+  have hcs : pair w K width c y * pair w K width c y ≤ C*Y :=
+    Q'.le_trans' _ _ _ (Q'.ge_of_eqv (qmul (pin c y) (pin c y)))
+      (Q'.le_trans' _ _ _
+        (weighted_cauchySchwarz (N width) (spatialWeight w K width) c y
+          (spatialCertificate hw0 hw1 K width (N width) (Nat.le_refl _) hK) hc hy)
+        (Q'.le_of_eqv (qmul (pin c c) (pin y y))))
+  have hsquare : D*D ≤ C*Y :=
+    Q'.le_trans' _ _ _ (Q'.ge_of_eqv (qmul hcy hcy)) hcs
+  have hscaled := Q'.mul_le_mul_of_nonneg_left _ _ p hsquare hp
+  have hrest := Q'.add_le_self_of_nonneg (p*(C*Y)) (C*(z*R))
+    (Q'.mul_nonneg _ _ hC (Q'.mul_nonneg _ _ hz hR))
+  have hcollect : p*(C*Y)+C*(z*R) ≈ C*costTransportRemainder w K width a c :=
+    poly_identity_of_normal_eq
+      (.add (.mul (.var 0) (.mul (.var 1) (.var 2)))
+        (.mul (.var 1) (.mul (.var 3) (.var 4))))
+      (.mul (.var 1) (.add (.mul (.var 0) (.var 2)) (.mul (.var 3) (.var 4))))
+      (by decide) (fun | 0 => p | 1 => C | 2 => Y | 3 => z | _ => R)
+  exact Q'.le_trans' _ _ _ hscaled
+    (Q'.le_trans' _ _ _ hrest (Q'.le_of_eqv hcollect))
+
+/-- Division-free incoming/outgoing cost recurrence with a genuine
+quadratic residual payment. The original vacuum mismatch is still signed
+and literal; its existing second-order bound may be applied separately.
+This does not produce a useful surviving-norm coefficient or scaling rate. -/
+theorem terminal_clearedRayleighCost_square_transport {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < 1) (K width : Nat) (hK : headCutoff w ≤ K)
+    (s : Nat) {c : RatPoly} (hc : SupportedQuaternionBlocks (N width) c) :
+    let a := terminalMessage w K width (s+1)
+    let A := transferStep w K width a
+    let b := transferStep w K width c
+    let z := weightedMass w K width (polyMul a a)
+    let p := weightedMass w K width (polyMul a A)
+    let v := weightedMass w K width (polyMul A A)
+    let q := weightedMass w K width (polyMul A (transferStep w K width A))
+    let C := weightedMass w K width (polyMul c c)
+    let B := weightedMass w K width (polyMul b b)
+    let D := clearedRayleighCost w K width a c
+    ((z*z*z)*C)*clearedRayleighCost w K width A b + v*(p*(D*D)) ≤
+      ((v*(p*p))*C)*D + (((z*z)*(z*q-v*p))*B)*C := by
+  dsimp only
+  let a := terminalMessage w K width (s+1)
+  let A := transferStep w K width a
+  let b := transferStep w K width c
+  let z := weightedMass w K width (polyMul a a)
+  let p := weightedMass w K width (polyMul a A)
+  let v := weightedMass w K width (polyMul A A)
+  let q := weightedMass w K width (polyMul A (transferStep w K width A))
+  let C := weightedMass w K width (polyMul c c)
+  let B := weightedMass w K width (polyMul b b)
+  let D := clearedRayleighCost w K width a c
+  let E := clearedRayleighCost w K width A b
+  let R := costTransportRemainder w K width a c
+  have hv : (0 : Q') ≤ v := weightedMass_nonnegative hw0 hw1 K width hK
+    (Certificate.square A (transferStep_supported w K width
+      (terminalMessage_supported w K width (s+1))))
+  have hlower := Q'.mul_le_mul_of_nonneg_left _ _ v
+    (costTransportRemainder_terminal_square_lower hw0 hw1 K width hK s hc) hv
+  have hs := Q'.add_le_add_left (((z*z*z)*C)*E) _ _ hlower
+  have hleft : ((z*z*z)*C)*E+v*(C*R) ≈ C*((z*z*z)*E+v*R) :=
+    poly_identity_of_normal_eq
+      (.add (.mul (.mul (.var 0) (.var 1)) (.var 2))
+        (.mul (.var 3) (.mul (.var 1) (.var 4))))
+      (.mul (.var 1) (.add (.mul (.var 0) (.var 2)) (.mul (.var 3) (.var 4))))
+      (by decide) (fun | 0 => z*z*z | 1 => C | 2 => E | 3 => v | _ => R)
+  have hidentity := Q'.mul_eqv_congr_left C _ _
+    (clearedRayleighCost_transport_identity w K width a hc)
+  have hright : C*((v*(p*p))*D+((z*z)*(z*q-v*p))*B) ≈
+      ((v*(p*p))*C)*D+(((z*z)*(z*q-v*p))*B)*C :=
+    poly_identity_of_normal_eq
+      (.mul (.var 0) (.add (.mul (.var 1) (.var 2)) (.mul (.var 3) (.var 4))))
+      (.add (.mul (.mul (.var 1) (.var 0)) (.var 2))
+        (.mul (.mul (.var 3) (.var 4)) (.var 0)))
+      (by decide) (fun
+        | 0 => C | 1 => v*(p*p) | 2 => D | 3 => (z*z)*(z*q-v*p) | _ => B)
+  exact Q'.le_trans' _ _ _ hs
+    (Q'.le_of_eqv (Q'.eqv_trans _ _ _ hleft (Q'.eqv_trans _ _ _ hidentity hright)))
+
 end YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport
 
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport.costTransportResidual
@@ -689,3 +808,5 @@ end YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport.original_block_clearedRayleighCost_quadratic_vacuum_transport
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport.terminal_clearedRayleighCost_transport_le
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport.original_block_clearedRayleighCost_transport_le
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport.costTransportRemainder_terminal_square_lower
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport.terminal_clearedRayleighCost_square_transport

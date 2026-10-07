@@ -1,5 +1,38 @@
 # Sorry Ledger
 
+## PROVED: integrated response telescope and retained squared cost (2026-10-07)
+
+- `BF4WilsonAllNomeShiftedWindowSurvival.window_response_area_lower`
+  proves `2*N*R(p+N)+N*(N+1)*e(p+N)<=2*area` on the original completed
+  carrier from the actual nonnegative mixed moments and antitone energy.
+  `window_area_energy_bound` cancels only the positive integer N.
+  `window_area_epsBound` and `pathShiftedEpsBound_of_responseArea` feed
+  a supplied actual-family area estimate to the EXISTING shifted H1,
+  with c0>=4*(C-1), unchanged state, schedule, response and normalization.
+  No new frontier structure, response inverse or weakened field.
+- `BF4ExactSlabFixedSpatialRayleighCostTransport.costTransportRemainder_terminal_square_lower`
+  retains `p*D^2<=C*Rem` using actual weighted Cauchy--Schwarz and transfer
+  positivity. `terminal_clearedRayleighCost_square_transport` inserts it
+  into the exact original recurrence, keeping literal V and signed vacuum
+  mismatch. C=0 is permitted; no source inverse or cost-sign premise.
+- `BackwardResponseAreaStrictness.finite_area_input`,
+  `earliest_point_survival_fails`, `finite_H1` and `pure_fast_H1_fails`
+  give exact rational scalar tests. At S=32>20, area C=6 and H1 c0=20
+  hold but point survival theta=1/11 fails. A pure fast mode fails H1 at
+  S=64. No uniform premise weakening or original Yang--Mills instance.
+- Three focused checks pass, with axiom sets inside {propext, Quot.sound}.
+  One monitored 20-GiB worker, 12-GiB reserve and fresh zero-swap preflights.
+  No new source sorry/axiom/classical input, heartbeat raise, canonical-field
+  change or full-root/tree build/audit; root import registration only.
+- OPEN: actual uniform area bound or useful combined signed-cost estimate
+  on the selected justified scaling family; independent AF survival,
+  all-vector changing-action comparison/useful delta budget, physical/volume
+  control, SAME limiting QFT, every group and Clay. The negative square
+  does not imply automatic normalized-energy decay: the surviving denominator
+  matters. These are supporting bounds, not closure of a displayed goal node.
+
+Evidence: `audits/AUDIT-BACKWARD-AREA-AND-RETAINED-COST-2026-10-07.md`.
+
 ## PROVED: transport an initial original energy fraction through filtering (2026-10-07)
 
 - `BF4ExactSlabFixedSpatialSourceRayleighPersistence.sourceRayleigh_floor_step`

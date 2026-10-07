@@ -1,5 +1,19 @@
 # Canonical one-page project status
 
+Supporting integrated response and retained signed cost checked (2026-10-07):
+the ACTUAL completed backward area controls endpoint energy through
+`2*N*R(p+N)+N*(N+1)*e(p+N)<=2*area`. A supplied `area<=C*N*R(side)`
+feeds the EXISTING shifted H1 with c0>=4*(C-1); no response is inverted.
+The original cost recurrence now retains `p*D^2<=C*Rem` and the signed
+vacuum mismatch, with the SAME V and partitions. The finite scalar test at
+S=32,C=6 passes area/H1 while theta=1/11 point survival fails; a pure fast
+mode fails H1 at S=64. These are not original YM or uniform-family results.
+Actual integrated/signed scaling estimates and the independent all-vector
+comparison, physical/volume control, limiting QFT and Clay remain OPEN.
+Three focused targets pass their permitted axiom gates; no full-tree audit.
+Evidence: `audits/AUDIT-BACKWARD-AREA-AND-RETAINED-COST-2026-10-07.md`.
+Broad chart unchanged; no reprint.
+
 Supporting original-energy transport checked (2026-10-07): positivity preserves
 an initial source Rayleigh floor through EVERY actual filtering step. BOTH
 original terminal-envelope endpoints are retained, giving cleared cost

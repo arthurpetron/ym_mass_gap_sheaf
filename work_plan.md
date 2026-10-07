@@ -39,6 +39,33 @@ all-vector, limiting-QFT and physical-clock requirements. Primary-source
 verification and corrections:
 `audits/RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md`.
 
+The selected-state front now has a CHECKED integrated alternative. For the
+ACTUAL completed response, let A(p,N)=sum_(i<N) R(p+i). The backward telescope
+gives `2*N*R(p+N)+N*(N+1)*e(p+N)<=2*A(p,N)` without a survival premise.
+At p=side/2,N=side-p, a supplied `A<=C*N*R(side)` feeds the EXISTING
+shifted H1 with c0>=4*(C-1), canceling only a positive integer, never a norm.
+NEXT: seek this integrated estimate on the actual original-moment expansion
+of the selected AF family; do not require earliest-point survival if this
+smaller-window aggregate can be controlled. The family-uniform C is NOT
+constructed. An exact two-mode scalar datum at S=32,C=6 passes the area and
+c0=20 H1 tests while theta=1/11 point survival fails. This separates those
+finite inputs; no uniformly weaker-premise theorem or original YM instance
+is claimed. A pure fast mode fails the same H1 at S=64: positivity alone
+does not supply the analytic input. The selected upper-energy/survival front
+remains distinct from the all-vector lower-gap producer and physical-clock join.
+
+The ORIGINAL signed cost recurrence is also sharpened, not replaced:
+weighted Cauchy--Schwarz yields `C*Rem>=p*D^2`, and the checked recurrence
+retains that quadratic payment plus the literal signed vacuum mismatch.
+Use it when estimating the actual surviving-form coefficient, retaining V
+and all original partitions. It does NOT imply automatic O(1/time) energy
+decay: a single eigenmode keeps normalized energy constant, and dividing
+by the transmitted square can cancel the apparent gain. No source norm
+is inverted in the formal inequality. Actual area/signed-family estimates,
+the changing-action comparison/useful delta budget, limiting QFT, physical
+mass and every compact simple group remain OPEN. Evidence:
+`audits/AUDIT-BACKWARD-AREA-AND-RETAINED-COST-2026-10-07.md`.
+
 The current Wilson route still needs TWO actual analytic producers on the
 same AF-padded family: the bounded step-ratio/window-survival input, and an
 all-vector completed Wilson contraction with a positive dyadic lower margin.
