@@ -7388,6 +7388,7 @@ import YMGap.Continuum.PolymerRatioLipschitz
 import YMGap.Continuum.HeatKernelPolymerActivityR1
 import YMGap.Continuum.PolymerChainDecay
 import YMGap.Continuum.PolymerDecayZ4
+import YMGap.Continuum.PolymerLatticeDecay
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport

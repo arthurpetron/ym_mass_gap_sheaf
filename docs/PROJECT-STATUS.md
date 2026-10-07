@@ -6433,3 +6433,7 @@ closure (CS_d ≤ C q^d) are next.
 - The truncated two-point quantity is ≤ (7/10)^d·η^{|g|}·ΞΞ (q = 7/10, C = 1), including the
   zHeat envelope gas at w = 1/40.
 - Group-blind plumbing; the R1 Haar identity is still open.
+
+`PolymerLatticeDecay` (2026-10-07): lattice-distance decay for any `PlaqMetric`.
+- Rate (6/7)^R, with c = 1, c' = 0; N-independent.  The decay is paid by the size weights.
+- Group-blind plumbing; R1 is still open.

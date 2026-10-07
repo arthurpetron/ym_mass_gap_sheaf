@@ -69,3 +69,21 @@ For any `Z4BoxGas BL` with `BL.D = 24` (box `z4Chain` or torus `torusChain N`):
 - **R1 still open.** zHeat is an envelope activity, so the Haar identity
   Z_Wilson = Ξ(gas) is still OPEN.  Until it is proved, this is decay of the envelope gas, not
   of Yang–Mills.
+
+## Commit C1: lattice-distance decay, generic metric (`PolymerLatticeDecay.lean`, PROVED)
+
+**Route: size-weighted chain** (not graph distance ÷ N).
+- The chain budget r drops by |h| at each step to h.
+- `diam_le`: a connected polymer has diameter ≤ |h| − 1 (ball growth).
+- So `sepL y g R` (all pair distances ≥ R) implies `farW R R g`.
+- The bound is `CSW_r(g) ≤ λ^r (λη)^{|g|}`, λ = 6/7.  The scalars are:
+  - `(25/36)(1+η) ≤ 6/7`;
+  - `(5/12)(1+η)·2(1+(5/12)η) ≤ 6/7`.
+
+**Result.** `|U| ≤ (6/7)^R (λη)^{|g|} Ξ(l)Ξ(g::l)`:
+- c = 1 and c' = 0, i.e. rate ln(7/6) per lattice unit;
+- C = 1;
+- **independent of the max polymer size N**.
+
+Cost: the size factor drops from η^{|g|} to (6η/7)^{|g|}.  The graph-distance rate 7/10 is
+unchanged in `PolymerDecayZ4`.

@@ -4,7 +4,17 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: graph-distance decay, degree-24 gases and zHeat at w = 1/40 (2026-10-07 PT)
+## Latest proved increment: lattice-distance decay, generic (2026-10-07 PT)
+
+- `PolymerLatticeDecay` (PROVED, GROUP-BLIND PLUMBING).
+  - `CSW`/`farW`/`chainW_bound`: a size-weighted chain.
+  - `CSW_le`: `CSW_r(g) ≤ (6/7)^r (λη)^{|g|}`.
+  - `PlaqMetric`, plus `diam_le`: connected X has `ld p q + 1 ≤ |X|`.
+  - `lattice_decay`: |U| ≤ (6/7)^R (λη)^{|g|} Ξ(l)Ξ(g::l) when every plaquette pair of y and g
+    is at distance ≥ R.  So c = 1, c' = 0, C = 1, all N-independent.
+  - `zheat_lattice_decay`: the same at w = 1/40.
+
+## Earlier proved increment: graph-distance decay, degree-24 gases and zHeat at w = 1/40 (2026-10-07 PT)
 
 - `PolymerDecayZ4` (PROVED, GROUP-BLIND PLUMBING):
   - `CS_le`: CS_d(g) ≤ (7/10)^d η^{|g|};
