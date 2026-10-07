@@ -7399,6 +7399,7 @@ import YMGap.Continuum.SU2TorusRPWord
 import YMGap.Continuum.SU2TorusRPKernel
 import YMGap.Continuum.SU2TorusRPPad
 import YMGap.Continuum.SU2TorusRPSubst
+import YMGap.Continuum.SU2TorusRPReindex
 import YMGap.Continuum.SpecMaxRateFamily
 import YMGap.Continuum.W1StrongCouplingPerturbation
 import YMGap.Continuum.W1VacuumTailRowSum
