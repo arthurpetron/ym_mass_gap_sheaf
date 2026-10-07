@@ -203,3 +203,12 @@ in a time slab of thickness `r`, `‖A_F‖ ≤ ‖F‖_∞` and, for `t > r`,
 abstract weight `f : G.Carrier → Q'` (no `Re tr` on `Q'`); `torusPlaquettes_shift_perm`
 (choice-free perm via `perm_of_nodup_mem`); `wilsonAction_shift_invariant`. Group-blind
 plumbing (U(1) satisfies it); no measure, no gauge invariance, no transfer matrix yet.
+
+## 9. Docstring correction moved here (2026-10-06 PT)
+
+The module header of `Continuum/Z4FiniteBoxTrivalentResolution.lean` says
+"`Z4FiniteBoxExhaustion` constructs the cofinal periodic four-dimensional plaquette boxes."
+That is inaccurate: those boxes are corner-anchored and FREE-boundary (no wrap-around). The
+periodic torus layer is `Continuum/Z4TorusGeometry.lean`. The in-file edit (07f7cad6) was
+reverted byte-for-byte so that lake's source hash matches and downstream oleans are not
+invalidated; the correction lives in this note instead.
