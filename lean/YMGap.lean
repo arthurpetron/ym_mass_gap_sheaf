@@ -7407,6 +7407,7 @@ import YMGap.Continuum.SU2TorusRPReindexCongr
 import YMGap.Continuum.SU2TorusRPCompOn
 import YMGap.Continuum.SU2TorusRPGeom
 import YMGap.Continuum.SU2TorusRPThetaPoly
+import YMGap.Continuum.SU2TorusRPThetaConj
 import YMGap.Continuum.SpecMaxRateFamily
 import YMGap.Continuum.W1StrongCouplingPerturbation
 import YMGap.Continuum.W1VacuumTailRowSum

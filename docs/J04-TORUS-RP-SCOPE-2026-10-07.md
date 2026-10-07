@@ -178,3 +178,9 @@ the `haar_step` chain on the torus integrand, and factorising `Π TK` with `plaq
 **Correction (PECongr):** the unsupported `PECongr` for reindex is FALSE (Prover's `SU2ReindexPECongr.pecongr_fails`:
 n=1, σ=id, monomial x₄). Only the supported forms are used from here on: `reindex_peCongrOn` (ours) /
 `pe_reindex` (Prover's), `ringSubOn_comp`, and `haar_step`. Head-shear congruence is not needed.
+
+**(d1b) conj half of Θ** (`SU2TorusRPThetaConj.lean`): `parity_var`, `sign_polyVar`, `conj_coord` (sign flip on
+`conjSel T` conjugates exactly the `T` blocks), `theta_linkVar` (`sign ∘ reindex` sends `linkVar ℓ` to
+`linkVar (Θℓ)`, conjugated on `T` blocks, QPE). The core `List.nodup_range` uses Classical, so a local
+`nodup_range'` replaces it. Open: the `haar_step` chain on `Π TK` and the factorisation via `plaq_*`
+(items 2–3 of (d)). **RP FOR THE ACTUAL TORUS MEASURE IS OPEN.**
