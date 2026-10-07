@@ -38,6 +38,11 @@ derivations. NEXT supply the negative-hemisphere RADIAL mixing estimate with a
 justified nome-dependent cutoff, and pin scalar substitution/angular heat jets
 before any matrix/original conditional consumer. Do not infer all-finite radial
 control, an original UNWEIGHTED heat bound, or physical scaling from this leg.
+Keep radial product/mixture terms TOGETHER: their separately bounded negative
+mixture has inverse-quadratic nome-defect size even at arbitrarily large
+cutoffs, while the complete antipodal expression is nonnegative. This is a
+research endpoint screen, not a new Lean theorem or a refutation of the joined
+target; do not discard the positive-mixture variance.
 Absolute deficits can spend a heat floor in cutoff tolerances without placing
 its reciprocal in the final curvature coefficient. Two focused checks pass
 fourteen permitted printed gates; no full-root/tree audit or canonical closure.

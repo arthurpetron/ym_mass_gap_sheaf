@@ -505,3 +505,26 @@ is already incorporated there, together with finite-spacing and regularity
 corrections. No measured mass, transfer/Hamiltonian identification or continuum
 regularity hypothesis was imported into these certificates; no duplicate
 paper review or routine listing scan was performed.
+
+### Radial experiment selection: retain the product/mixture cancellation
+
+Independent bounded mathematical review supplies a decisive endpoint screen,
+checked algebraically by root but NOT yet a Lean theorem. At x=-1 and N>=1,
+set r0=2*w/(1-w)^2. Pairing the terms of the finite geometric sum gives
+
+```text
+1-w^(2k+1) >= (2k+1)*w^k*(1-w),
+r_k(-1) <= r0/(2k+1)^2,
+sum_(k=1)^(N-1) 1/(2k+1)^2 <= sum 1/[4k(k+1)] <= 1/4.
+```
+
+Thus S1<=5*r0/4 and S2>=r0^2, so S2/S1>=4*r0/5. The COMPLETE radial
+endpoint is S1-S2/S1>=0 since S1^2>=S2; however the isolated mixture
+contribution is -S2/S1, necessarily of inverse-quadratic nome-defect size.
+This persists at arbitrarily large finite cutoffs. Separately imposing
+inverse-linear floors on product and mixture therefore cannot prove the
+desired joined bound. PRUNE that split, NOT the full radial/onset target,
+the original action, or Yang--Mills. The next producer must retain their
+cancellation (and the radial positive-mixture variance); no premise or
+canonical frontier field changes. This screen is mathematical research
+evidence, kept distinct from the fourteen kernel-checked gates above.
