@@ -76211,3 +76211,60 @@ The focused monitored source check passes, and every printed load-bearing
 declaration uses only `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
 declaration, or enlarged heartbeat budget is introduced.
+
+## J04 parallel track (2026-10-06)
+
+Status: J04 remains OPEN.  This section is a plan, not a result.  It runs in
+parallel with the SU(2) route; items T1-T3 depend on no open SU(2) analytic
+input.
+
+### First concrete Lean tasks (start now)
+
+- **T1 (item a, ~150-300 lines, no deps).**  Modify
+  `lean/YMGap/RepTheory/CasimirData.lean`: keep `soEven_C2_fund` as a
+  deprecated legacy floor scalar; add `soEven_vector_C2 n := (2n-1)/2` and
+  `soEven_halfSpin_C2 n := n(2n-1)/8` (long-root-square-two normalization),
+  `soEven_vector_gap_lb`, `soEven_halfSpin_gap_lb` (for n ≥ 2/n ≥ 3 resp.,
+  checking which rank thresholds clear 3/4), and
+  `soEven_legacy_lt_vector : soEven_C2_fund n < soEven_vector_C2 n`.  Also do the
+  same for the B_n spinor row (`soOdd_spinor_C2 n := n(2n+1)/8`).  Then re-point
+  the D_n row in `MassGap/AllSimpleTypes.lean` (`mass_gap_D`) to a minimum over
+  the representations that survive the chosen global form, or record the
+  failing rank where a floor is not cleared.  Value: V2 (a legacy literal
+  becomes a checked, correctly normalized value) / possibly V3 if a floor fails.
+- **T2 (item c-algebraic, ~300-600 lines, deps: RationalQuaternionUnitNormGroup,
+  RationalQuaternionSignQuotient, BF4GeometricHaarMehlerProjection).**  New
+  file `lean/YMGap/RepTheory/SU2RealizedRow.lean`: define
+  `SU2Realized.spinCharacter (s) : RationalQuaternion -> Q'` (Chebyshev-U in
+  the real part), prove `dimension_eq : spinCharacter s one = SU2.dimension s`,
+  and the Casimir identity for the spin-1/2 character as an exact polynomial
+  certificate; then `su2_row_of_realized : (rowOf SU2Realized).C2_fund ≈
+  su2.C2_fund ∧ ... C2_adj`, where `rowOf` reads the Casimirs from the realized
+  characters rather than literals.  Value: V4/V2 (the su2 RepData row is
+  derived from the actual quaternion carrier instead of being a table entry).
+- **T3 (item b, ~100-200 lines, no deps).**  In
+  `lean/YMGap/MassGap/SimpleGroup.lean`, add
+  `structure GroupBoundGap (R : RepData) (rec : OSReconstruction μ)` carrying
+  the one hypothesis that binds the gap, i.e. a CReal rate `HasSpectralGapAt
+  rec m` with `m ≥ m_0_uniform` *and* a provenance field tying `rec` to the
+  Wilson measure of the group producing `R`; plus
+  `mass_gap_simple_group_bound (R) (hadm) (w) (hb : GroupBoundGap R rec)`.
+  Leave the legacy `mass_gap_simple_group_of_osReconstruction` untouched and
+  docstring it as "unbound".  Value: V2 only for its honest signature; the
+  binding hypothesis itself is the open content (record, do not claim).
+
+### Ladder
+
+| # | Item | Size | Depends on | Start now? | Value |
+|---|------|------|------------|------------|-------|
+| a | D_n (and B_n spinor) Casimir normalization fix, T1 | S | none | yes | V2 (V3 if a floor fails) |
+| b | Bound gap statement / exact binding hypothesis, T3 | S | none | yes | V2 for the signature; V0 if left as a restatement |
+| c | Faithful SU(2) row from the quaternion carrier + characters, T2 | M | existing quaternion group, sign quotient, `quaternionHaar` | yes | V4/V2 |
+| d | `CompactGroupData` interface: `ConstructiveGroup` + positive normalized invariant functional on a dense (polynomial) algebra + class functions/characters + Peter-Weyl orthogonality/completeness as hypotheses; SU(2) instance via `quaternionHaar` (invariance proved on polynomial coefficients) | M-L | c | after c (spec can start now) | V4; V2 for each proved invariance field |
+| e | Per-family realizations: SU(N) via rational unitary matrices + Weyl character formula first (reuses `RG/SUNWeylData`, `WeylDimGeneral`), then Sp(n), SO(n) with global-form descent via `ConstructiveRepresentationDescent`, exceptionals last (G2 root certificate exists) | L-XL per family | d, a | SU(3) data scaffold only | V4 then V2 |
+| f | `WilsonTransferData G`: a per-group transfer-operator interface matching what the SU(2) route actually consumes (plaquette character expansion, positivity, Haar-projection identities) | M | d, and the SU(2) route's final transfer-operator signature | partially (draft fields from SU(2) usage) | V4 |
+| g | SU(2)-worst-case transfer theorem: needs, beyond `monotone_budget`, a comparison of character coefficients/heat-kernel decay across groups at matched coupling, a centre/global-form-aware least nonzero Casimir (from a), and a domination of per-group polymer/cluster constants by SU(2)'s; any of these may fail (check for V3 counterexamples, e.g. growth of dim with rank) | XL | b, d, f, SU(2) analytic route | no | V1 if proved; V3 no-go is a valid outcome |
+
+Non-goals of this track until f/g land: claiming any group's mass gap; the
+existing `MassGap/AllSimpleTypes` theorems remain scalar-row conditional
+statements.
