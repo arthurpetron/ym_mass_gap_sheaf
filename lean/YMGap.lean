@@ -7455,6 +7455,7 @@ import YMGap.Continuum.SU2TorusRPTrim
 import YMGap.Continuum.SU2TorusRPLayoutRPL
 import YMGap.Continuum.SU2TorusRPChoosePC
 import YMGap.Continuum.SU2TorusRPPermExt
+import YMGap.Continuum.SU2TorusRPMirInv
 import YMGap.Continuum.SpecMaxRateFamily
 import YMGap.Continuum.W1StrongCouplingPerturbation
 import YMGap.Continuum.W1VacuumTailRowSum
