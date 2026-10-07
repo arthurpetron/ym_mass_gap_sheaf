@@ -84,3 +84,28 @@ Example: D = 24, M = 2 needs ε·2^{24} ≤ 1/2, i.e. ε ≤ 2^{-25}.
   - The torus version is not instantiated.
   - Linking this count to `SignedPolymerKP` needs the size-weighted KP (item 1), because the
     polymer incompatibility degree is unbounded.
+
+## Update (2026-10-07): size-weighted KP (`SizeWeightedPolymerKP`)
+
+- **Generic weighted KP (PROVED).** Weights m ≥ 1 and |z| ≤ e, with the Dobrushin condition
+  `Cond`: m_a·e_a·Π_{x∈Λ,x≁a} m_x ≤ m_a − 1, plus `Cond2`: e_a·Π ≤ 1.  Both are hypotheses over
+  the finite Λ, so there is no unbounded sum.
+  - `kpw_main`: Ξ ≥ 0 and Ξ(Λ∖b) ≤ m_b·Ξ(Λ).
+  - `kpw_filter`: Ξ(Λ.filter q) ≤ Π_{removed} m·Ξ(Λ).
+  - `kpw_lower`: 1 ≤ Π m·Ξ.
+  - The degree may be unbounded.
+- **Exp-free product-to-sum (PROVED).** `prod_le_sum`: Π(1+δ) ≤ 1+2Σδ when 2Σδ ≤ 1.
+- **Z4 numbers (PROVED).** ε = 1/10000, so |z(γ)| ≤ ε^{|γ|}; m(γ) = 1 + η^{|γ|} with
+  η = 1/2500.
+  - 625η = 1/4, and `geom_quarter` gives Σ_{n=1}^N (1/4)^n ≤ 1/3 for every N (finite closed form).
+  - `z4_cond`: Cond and Cond2 hold PROVIDED `hgroup`: Π_{x≁a}(1+η^{|x|}) ≤ (5/3)^{|a|}.
+  - The scalar check is `z4_scalar`: (1+η^k)·ε^k·(5/3)^k ≤ η^k for k ≥ 1.
+- **What remains for `hgroup` (OPEN):**
+  1. Grouping: Π_{x≁a}(1+δx) ≤ Π_{p∈a}(1 + 2Σ_{x∋p}δx). Assign each incompatible x to a
+     shared plaquette of a, then apply `prod_le_sum` per plaquette.
+  2. Per-plaquette sum: Σ_{x∈Λ, x∋p} η^{|x|} ≤ Σ_n 625^n η^n ≤ 1/3. This needs Λ's polymers
+     through p of size n to be duplicate-free and to inject into
+     `BddLatticeAnimal.enumPolys z4Chain p n`, whose length is ≤ 625^n
+     (`z4ClusterCountBound_animal`).
+  - With (1) and (2), 1 + 2·(1/3) = 5/3, which closes `hgroup`.
+- **Ratio-Lipschitz decay:** NEXT; not started.

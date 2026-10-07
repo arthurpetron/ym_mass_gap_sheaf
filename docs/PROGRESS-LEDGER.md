@@ -4,7 +4,19 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: exact decoupling of the signed polymer gas (2026-10-07 PT)
+## Latest proved increment: size-weighted (Dobrushin-form) KP with Z4 numbers (2026-10-07 PT)
+
+- `SizeWeightedPolymerKP` (PROVED, GROUP-BLIND PLUMBING):
+  - `kpw_main`, `kpw_filter`, `kpw_lower` under the finite Dobrushin condition with weights m ≥ 1;
+  - `prod_le_sum`;
+  - `geom_quarter`;
+  - `z4_cond`: ε = 1/10000, m = 1 + (1/2500)^{|γ|}, given the grouping hypothesis `hgroup`.
+- OPEN:
+  - the grouping lemma;
+  - the injection of box polymers into `enumPolys z4Chain` (625^n);
+  - the ratio-Lipschitz decay.
+
+## Earlier proved increment: exact decoupling of the signed polymer gas (2026-10-07 PT)
 
 - `SignedPolymerDecoupling` (PROVED, GROUP-BLIND PLUMBING):
   - `Xi_append_decoupled`: Ξ(Λ₁++Λ₂) ≈ Ξ(Λ₁)Ξ(Λ₂) for mutually compatible lists.

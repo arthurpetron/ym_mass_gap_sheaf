@@ -6402,3 +6402,7 @@ truncated correlations and the identification with the repo's slab expansion sta
 `SignedPolymerDecoupling` (2026-10-07): exact factorization and truncated correlation = 0 at
 infinite distance. Finite-d decay is OPEN. The Z4 animal count (K = 625) is already provided by
 `ClusterCount4DProgress`.
+
+`SizeWeightedPolymerKP` (2026-10-07): weighted Dobrushin KP over finite lists, plus the Z4
+numbers ε = 10^-4 and η = 1/2500 (625η = 1/4). `z4_cond` is conditional on `hgroup` (the
+grouping lemma and the polymer-to-animal injection, both OPEN). Decay is next.
