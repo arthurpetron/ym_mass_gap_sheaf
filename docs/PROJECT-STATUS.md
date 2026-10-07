@@ -36,7 +36,8 @@ character means and truncated-sum partition function DISCHARGED on the construct
 heat-kernel genuine link fails, w=1/2 model interval [1/9, 13/100];
 `SU2PolyLinkHaarInvariance`: shear invariance (all degrees) and square-positivity proved for `quaternionPolyLinkHaar2`,
 fixed-g invariance for specific g at degree ≤ 2; CharacterDiagResolution audit: link needs a rate defined from the spectrum;
-`SpecMaxRateFamily`: norm-Parseval resolution, ‖Tx‖² ≤ specMax²‖x‖², specMax-rate family (hlink le_refl, REDUCTION on OPEN slab identification; false as stated for W>1));
+`SpecMaxRateFamily`: norm-Parseval resolution, ‖Tx‖² ≤ specMax²‖x‖², specMax-rate family (hlink le_refl, REDUCTION on OPEN slab identification; false as stated for W>1;
+`W1StrongCouplingPerturbation`: W=1 model norm bound w^12+w^22 certified at w=1/1024, 1/2 (truncation only); old CharacterDiagResolution DEPRECATED (audit) for vacuum-carrying ops));
 scope `audits/SCOPE-SU2-TORUS-WILSON-GIBBS-2026-10-06.md`. SC cannot seed `trAF`. No `Φ_j` constructed. Not AF. See
 `audits/SCOPE-RG-STEP-COMPOSITION-REDUCTION-2026-10-06.md`.
 

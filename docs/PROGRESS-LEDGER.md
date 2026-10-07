@@ -4,7 +4,16 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: norm Parseval, operator-norm bound, specMax-rate family (2026-10-06 PT)
+## Latest proved increment: W = 1 strong-coupling perturbation bound, vacuum-defect audit (2026-10-06 PT)
+
+- `W1StrongCouplingPerturbation`: `cs3`, `schur3` (operator-norm row-sum test, plumbing);
+  `w1_norm_bound_1024`, `w1_norm_bound_half`: ‖Tx‖ ≤ (w^12 + w^22)‖x‖ on the model's
+  {χ₁,χ₂,χ₃} compression (κ = 1). MODEL; vacuum coupling, tail and non-linear magnetic
+  weight OPEN.
+- Audit `AUDIT-CHARACTER-DIAG-RESOLUTION-VACUUM`: old structure DEPRECATED (note only) for
+  vacuum-carrying operators; consumer table.
+
+## Earlier proved increment: norm Parseval, operator-norm bound, specMax-rate family (2026-10-06 PT)
 
 - `SpecMaxRateFamily.CharacterDiagNormResolution` (ADDED sibling with `parseval_TT` on a
   vacuum-orthogonality predicate; `ofTsq` derives it from a T²-form Parseval and self-adjointness).
