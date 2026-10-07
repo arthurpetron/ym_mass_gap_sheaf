@@ -6476,3 +6476,5 @@ arbitrary disjoint link-block supports.
 `PolymerRemovalChain` (2026-10-07): R1 commit 14.  The generic removal-chain bound for T(y,g) (key lemma for the truncated χ₁ correlator).
 
 `SU2RemovalDecay` (2026-10-07): R1 commit 15.  The T(y,g) ≤ λ^{R+1}M_yM_g²Ξ² bound for the old and sharp K, plus the SU(2) w₀ instance.  Open: the two-root formula and the rooted sum.
+
+`SU2TwoRoot` (2026-10-07): R1 commit 16.  The exact two-root formula for the truncated χ₁ correlator.

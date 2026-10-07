@@ -4,7 +4,16 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 15, removal-chain decay instances for the old and sharp K (2026-10-07 PT)
+## Latest proved increment: R1 commit 16, the two-root formula for the truncated χ₁ correlator (2026-10-07 PT)
+
+- `SU2TwoRoot` (PROVED, axioms [propext, Quot.sound]).
+- `diff_root`: if u = z off a self-incompatible block B, then `Ξ(u;H) − Ξ(z;H) ≈ Σ_{b∈H∩B} (u_b − z_b)Ξ(z;H_b)`.
+- `two_root` (generic) and `two_root_obs`.  Here A is the set of polymers through p, Bq the set through q, d⁰ = z^p − z, η = z^q − z and ε = (z^{pq} − z^q) − d⁰ (zero unless the polymer contains both p and q):
+  `Zpq·Z − Zp·Zq ≈ Σ_{a∈A} d⁰_a Σ_{b∈Bq} η_b K(a,b) + Σ_{a∈A} ε_a Ξ(z^q;G_a)Ξ(z;G)`.
+  - `K(a,b) = T(b,a;G)` if a and b are compatible, and `−Ξ(G_b)Ξ(G_a)` otherwise.
+- Labels: strong coupling, heat-kernel (spin-truncated), not Wilson; also true for U(1), not gap evidence.
+
+## Earlier proved increment: R1 commit 15, removal-chain decay instances for the old and sharp K (2026-10-07 PT)
 
 - `SU2RemovalDecay` (PROVED, axioms [propext, Quot.sound]).
   - Statement: for y, g ∈ gas, `sepL y g (R+2)` and `Good gas l`, `|Ξ(l)Ξ(l_{g,y}) − Ξ(l_y)Ξ(l_g)| ≤ λ^{R+1}·M_y M_g²·Ξ(l)²`, with λ = 6/7 and M_x = K^{24|x|}.
