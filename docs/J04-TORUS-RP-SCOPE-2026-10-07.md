@@ -312,3 +312,12 @@ RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
 Open: plaqIdx shapes of crossing plaquettes on L (via plaq_cross), the himg facts via chImg_sel/unsel, chain
 fixing ΘF·F, choosing P, C from the actual torus links with Nodup/Perm, and the integrand bridge.
 RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
+
+## d9a–d9b — crossing and non-crossing plaquettes on the layout
+- d9a `img_cross`, `img_pos`, `img_hi`, `rpk_lay0`, `rpk_layM`: with the concrete chain, crossing plaquettes whose
+  index list is [idx c₁, idx ℓ, idx c₂, idx Θℓ] (cut 0) / [idx c₁, idx Θℓ, idx c₂, idx ℓ] (cut M) have RPK
+  Ctw-twists under the layout selector layT.
+- d9b `imgTK_noncross`: plaquettes whose link blocks are positive or upper-half keep T_K (the himg of split_factor).
+Open: derive the index lists from plaq_cross for the actual torus plaquettes; choose P, C from the torus links
+(Nodup, Θ-injectivity, ps ~ pos ++ mir pos ++ cross); the chain fixing ΘF·F; the integrand bridge.
+RP FOR THE ACTUAL TORUS MEASURE IS OPEN.

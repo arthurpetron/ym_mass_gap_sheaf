@@ -136,7 +136,19 @@ theorem rpk_layM {β : Q'} (hβ : (0 : Q') ≤ β) (K : Nat) (hC : C.Nodup) (q :
   · rw [img_cross M P C hnd ha hC c2 h2]; unfold sideOf; rw [if_neg hside2]; rfl
   · rw [← hpa, layT_link _ _ (List.mem_append_right _ (List.mem_map_of_mem hℓ)), refl_dir, hs]
 
+/-- Non-crossing plaquettes (all link blocks positive or in the upper half) keep their `T_K`. -/
+theorem imgTK_noncross {β : Q'} (K : Nat) (q : Z4Plaq)
+    (hq : ∀ b ∈ plaqIdx (P ++ C ++ P.map (reflLink M)) (2 * M) q,
+      (∃ ℓ ∈ P, b = (P ++ C ++ P.map (reflLink M)).idxOf ℓ) ∨ P.length + C.length ≤ b) :
+    imgTK (P ++ C ++ P.map (reflLink M)) (2 * M) β K (chImg .direct (layChain M P C hnd ha)) q =
+      YMGap.Continuum.SU2WilsonPolymerIdentity.TK (P ++ C ++ P.map (reflLink M)) (2 * M) β K q :=
+  YMGap.Continuum.SU2TorusRPCrossMatch.imgTK_eq_TK _ _ β K _ q fun b hb => by
+    rcases hq b hb with ⟨ℓ, hℓ, rfl⟩ | h
+    · exact img_pos M P C hnd ha ℓ hℓ
+    · exact img_hi M P C hnd ha b h
+
 end YMGap.Continuum.SU2TorusRPLayoutCross
 
 #print axioms YMGap.Continuum.SU2TorusRPLayoutCross.rpk_lay0
 #print axioms YMGap.Continuum.SU2TorusRPLayoutCross.rpk_layM
+#print axioms YMGap.Continuum.SU2TorusRPLayoutCross.imgTK_noncross
