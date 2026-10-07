@@ -7740,3 +7740,7 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockInnovationRelativeComparison
 -- exact direct score and both signed Taylor tests retain null cancellation.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialNoiseSurvivalObstruction
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepNullScore
+-- Exact signed reciprocal correction: BOTH Taylor terms reassemble into the
+-- SAME original energy, without an absolute remainder or noise enlargement.
+import YMGap.Continuum.QuaternionHaarExactScoreEnergySplit
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepSignedScoreEnergy

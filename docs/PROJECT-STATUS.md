@@ -1,5 +1,13 @@
 # Canonical one-page project status
 
+Supporting exact reassembly checked (2026-10-07): the actual score/signed
+Taylor bulk equals `Z0*[energy+(1-w)*(sigma*L0-2*J-E)]`, keeping the signed
+reciprocal cross pairing and negative correction square. Original action,
+terminal source and partitions are unchanged. Four gates pass two focused
+checks; no quantitative AF/RG bound follows. Evidence:
+`audits/AUDIT-EXACT-SIGNED-SCORE-ENERGY-2026-10-07.md`.
+Broad chart unchanged; no reprint.
+
 Supporting decisive test checked (2026-10-07): the SAME original width-one
 action has a source with positive literal weighted full noise and zero
 transmitted surviving square. No rational C pays that noise by the square.

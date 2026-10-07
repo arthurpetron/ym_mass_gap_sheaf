@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## PROVED: exact score bulk reassembles into original energy (2026-10-07)
+
+- `QuaternionHaarExactScoreEnergySplit.reciprocal_score_weighted_energy_split`
+  expands the literal finite derivative `A*D(G*b)=G*S+e`, retaining the signed
+  cross pairing and negative correction square, without support/positivity
+  premises, absolute values or a square triangle.
+- `BF4ExactSlabFixedSpatialLastStepSignedScoreEnergy.exactScoreAngularBudget_energy_split`
+  sums the actual active planes with the original `q=Vbar*A` pin and zero
+  inactive derivatives. `exactScoreSignedBulk_energy_split` then reassembles
+  BOTH signed Taylor terms into original energy, with the exact correction
+  `Debt=sigma*L0-2*J-E` inside the unchanged `Z0*(1-w)` factor.
+- Four printed gates pass two focused checks in {propext, Quot.sound}; one
+  monitored 20-GiB worker, 12-GiB reserve, fresh preflights, zero swap. No
+  heartbeat raise, new hole/axiom/classical input, canonical field change or
+  full-root/tree build/audit. No hashed baseline refresh.
+- OPEN: useful selected-source bound on `Z0*[energy+(1-w)*Debt]` in SAME
+  surviving-form units on the justified family, independent AF survival,
+  all-vector changing-action comparison and useful delta budget, physical
+  calibration/volume control, continuum QFT, every group and Clay. The
+  identity supplies neither a smallness estimate nor an RG comparison.
+
+Evidence: `audits/AUDIT-EXACT-SIGNED-SCORE-ENERGY-2026-10-07.md`.
+
 ## PROVED: full-noise payment obstruction; actual signed null cancellation (2026-10-07)
 
 - `BF4ExactSlabFixedSpatialNoiseSurvivalObstruction.originSource` is the

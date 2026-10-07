@@ -208,6 +208,21 @@ consumer; no unchanged application of that theorem is valid. Eighteen gates
 pass two focused checks. Evidence:
 `audits/AUDIT-NOISE-SURVIVAL-DECISIVE-TEST-2026-10-07.md`.
 
+The exact reassembly is NOW CHECKED:
+`LastStepSignedScoreEnergy.exactScoreSignedBulk_energy_split` identifies the
+literal signed bulk with `Z0*[energy(A,phi)+(1-w)*Debt]`, where
+`Debt=sigma*L0-2*J-E`, `L0=sum H[Vbar^2*G^2*S^2]`,
+`J=sum H[Vbar^2*(G*S)*e]`, `E=sum H[Vbar^2*e^2]`,
+`S=A*Db-b*DA` and e is the actual finite reciprocal correction. BOTH
+Taylor terms reassemble into the SAME original energy; no triangle or
+absolute remainder estimate is used, and the negative E is retained.
+NEXT: control this WHOLE expression in `c_cost*Z1*ell[b^2]` units on the
+selected justified family, with c_cost a cost coefficient, not bare coupling.
+No partition is cancelled. This is an identity, not that estimate; the
+selected-state cost upper bound is not the all-vector RG dissipation
+comparison. Four gates passed two focused checks; broad chart unchanged.
+Evidence: `audits/AUDIT-EXACT-SIGNED-SCORE-ENERGY-2026-10-07.md`.
+
 In parallel, the actual finite torus covariance/RP join is being completed
 algebraically. Spatial-character reflection and genuine insertion extraction
 are checked; `SU2WilsonCenteredCovariance.centered_covariance` now proves the
