@@ -5,7 +5,7 @@ Companion to `audits/SCOPE-RG-STEP-COMPOSITION-REDUCTION-2026-10-06.md`. ADDITIV
 
 **REDUCTION ONLY.** No approximate intertwiner `Φ_j` is constructed.
 
-`ApproxRgIntertwiner` (operator-level; rate transfer PROVED):
+`ApproxRgIntertwiner` (quadratic comparison; two-step factor transfer PROVED):
 * coercive lower bound `B_f(x,x) ≤ κ·B_c(Φx,Φx)` with `κ > 0` (prevents `Φ = 0`);
 * norm upper bound `B_c(Φx,Φx) ≤ B_f(x,x)` — together ⇒ `κ ≥ 1` on any
   vacuum vector with a positive Q' floor under the fine diagonal;
@@ -13,10 +13,13 @@ Companion to `audits/SCOPE-RG-STEP-COMPOSITION-REDUCTION-2026-10-06.md`. ADDITIV
   (two fine steps vs one coarse; B-form, no subtype subtraction).
 
 Proved transfer: coarse VacSq at `rC` ⇒ fine **two-step** factor
-`α = κ(rC²+ε)`. Dictionary: VacSq at `rF` implies two-step factor `rF⁴`, so
-choosing `rF⁴ = α` gives `r_F⁴ ≤ κ(r_C²+ε)`, lining up with the 8a341453 algebra
-`r_{j+1}² ≤ r_j + ε_j` after writing `u_j = r_j²` and absorbing `(κ−1)·r_C²` into
-the effective defect `ε' = (κ−1)·r_C² + κ·ε`.
+`α = κ(rC²+ε)`. Dictionary: VacSq at `rF` implies two-step factor `rF⁴`;
+this implication ALONE does not recover a one-step bound. Recovery requires
+`α ≤ rF⁴`, whereas `RgRateRelationκ` below assumes the OPPOSITE inequality
+`rF⁴ ≤ α`. Neither an exact-root witness nor that rate relation is produced
+here. The effective defect is `ε' = (κ−1)·r_C² + κ·ε`.
+`Φ` is a function with the stated quadratic inequalities; linearity and a
+literal vector intertwining identity are not fields of this structure.
 
 No-go (old one-step shape): an attaining fine Rayleigh `≥ r_C` forces
 `r_C ≤ κ(r_C²+ε)`, hence `ε` cannot be tiny when `r_C/κ > r_C²`; weighted
@@ -483,8 +486,8 @@ theorem approxRg_transfers_twoStep_factor
   exact RCle_trans hdef (RCle_trans hsum hmid)
 
 
-/-- Alias: the proved transfer is the two-step factor `κ(rC²+ε)`.
-Choosing `rF` with `rF⁴ = κ(rC²+ε)` matches `vacuumSq_implies_twoStepFactor`.
+/-- Alias: the proved transfer is ONLY the two-step factor `κ(rC²+ε)`.
+One-step recovery and a rate-chain witness are distinct further joins.
 **REDUCTION.** -/
 theorem approxRg_transfers
     {wF wC : Q'} {hwF0 : (0 : Q') < wF} {hwF1 : wF < (1 : Q')}

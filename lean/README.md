@@ -16,6 +16,23 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked finite torus observable joins (2026-10-07):**
+`SU2TorusRPObservableReflection.theta_chi_spatial` identifies the genuine
+mirrored spatial character, and `SU2WilsonObsExtraction.obsTK_extract`
+extracts the actual `1+chi` insertion with membership/nonduplication guards.
+Two focused checks passed permitted gates. The centered covariance/RP join,
+mean invariance, torus transfer and continuum theory remain OPEN.
+
+**Checked SAME-carrier RG recovery (2026-10-07):**
+`BF4WilsonAllNomeRGTwoStepRecovery` proves that a supplied two-step factor
+`alpha <= r^4` gives the actual one-step vacuum-square contraction, via
+completed Cauchy--Schwarz and constructive square order reflection. The
+explicit rational rate `(3+alpha)/4` has margin `(1-alpha)/4`, positive for
+`alpha<1`; its direct half-margin recurrence is proved. The older rate chain
+assumes the opposite fourth-power inequality and is not supplied by this
+transfer. Actual RG comparisons, summable errors, AF seed/survival and the
+continuum Clay target remain OPEN. Focused checks only, with permitted gates.
+
 **Checked padded trajectory on a NomeScheduleAFCalibrated schedule (2026-10-06 UTC):**
 `BF4WilsonAllNomeAFPaddedTrajectory` proves `dyadicNomeSchedule` is NOT
 AF-calibrated (does not satisfy NomeScheduleAFCalibrated for any constants), builds a rational schedule that

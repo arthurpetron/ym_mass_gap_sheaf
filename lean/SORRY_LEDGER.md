@@ -1,14 +1,55 @@
 # Sorry Ledger
 
+## PROVED: actual finite torus observable reflection and insertion extraction (2026-10-07)
+
+- `SU2TorusRPObservableReflection.theta_chi_spatial` identifies the actual
+  reflected fundamental spatial character with its mirror, with physical
+  link coverage, box membership, nonduplication and reflection closure explicit.
+- `SU2WilsonObsExtraction.obsTK_extract` extracts exactly one `1+chi` from
+  the actual `SU2WilsonTrunc.obsTK` product under `P.Nodup`, `p in P`,
+  `p notin S`. Two applications extract distinct roots; duplicated or missing
+  roots are not silently counted twice or inserted.
+- Two narrow checks passed three printed gates, all {propext, Quot.sound}.
+  The extraction dependency-complete target also passed. Root registration
+  only; no full-root build/audit and no new `sorry` or axiom.
+- These discharge two finite algebraic ingredients of
+  `SU2ClusterBridge.hcov`, not that hypothesis itself. OWN centering,
+  covariance cancellation, mean invariance and the exact RP/time-shift
+  identification remain to be joined. No torus transfer, scaling or Clay closure.
+
+## PROVED: SAME-carrier RG two-step recovery; scope correction (2026-10-07)
+
+- `RCNonnegativeSquareReflection.RCsquare_le_reflect_right_nonnegative`
+  reflects square order with a nonnegative right real using rational epsilon
+  estimates. No root, real comparison, norm division or representative choice.
+- `RGExplicitRationalRate.explicitRate alpha = (3+alpha)/4` satisfies
+  `alpha <= rate^4` for `0 <= alpha <= 1`; its exact margin is `(1-alpha)/4`,
+  strictly positive when `alpha < 1`.
+- `BF4WilsonAllNomeRGTwoStepRecovery.vacuumSq_of_twoStepFactor` uses completed
+  Cauchy--Schwarz/time balance on the SAME Wilson carrier, including zero
+  vectors. `approxRg_transfers_explicitRate` now joins the supplied RG
+  quadratic comparison to the actual one-step norm bound.
+- `explicitRate_margin_step` proves the direct half-margin recurrence consumed
+  by `RGStepComposition.scaled_step_core`. The old `RgRateRelationκ` and its
+  fields are unchanged: it assumes `rF^4 <= alpha`, not the recovery direction
+  `alpha <= rF^4`, and is NOT produced by the explicit-rate transfer.
+- Three narrow source checks passed; all 13 printed theorem gates are within
+  {propext, Quot.sound}. The earlier missing-dependency/failed elaboration runs
+  are not verification evidence. No full-root build or repository audit.
+- OPEN: actual comparison maps, strict factors along the AF trajectory,
+  summable errors, an intermediate-coupling seed, the direct recurrence-to-
+  envelope join, survival and physical/OS/continuum/QFT/every-group/Clay.
+
 ## REDUCTION: RG-step composition for the gap frontier (2026-10-06 PT)
 
 - `BF4WilsonAllNomeRGStepComposition`: pure Q' algebra
   `rFine² ≤ rCoarse+ε ⇒ 1−rFine ≥ (1−rCoarse−ε)/2`; typed `ApproxRgIntertwiner`
-  (Φ map + open `transfersRate`); `RgRateChain` / `rg_margin_step`; conditional
+  (Φ function + quadratic comparisons; no `transfersRate` field in the current
+  structure); `RgRateChain` / `rg_margin_step`; conditional
   `WilsonLowerMargin` from `RgMarginEnvelope` at seed scale 0 with dyadic spacing.
 - SC seed availability: `strongCoupling_seed_at_pilot` at w=1/1024 (window only).
-- NO Φ_j constructed. Exact Wilson intertwiners almost certainly do not exist;
-  summable `ε_j` needs Balaban-style analytics (OPEN). Not AF; does not discharge
+- NO Φ_j constructed. Summable `ε_j` remains an analytic input (OPEN).
+  Not AF; does not discharge
   `WilsonAFPaddedGapInput`. Scope: `audits/SCOPE-RG-STEP-COMPOSITION-REDUCTION-2026-10-06.md`.
 - Axioms ⊆ {propext, Quot.sound}; `timeRate_eq_one_fourth` axiom-free.
 

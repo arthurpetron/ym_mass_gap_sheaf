@@ -1,10 +1,26 @@
 # Canonical one-page project status
 
-REDUCTION — RG-step composition (2026-10-06 PT): gap frontier restated as
-(1) step ratio + (2') inhabitability of approx RG intertwiners `Φ_j`. Two-step
-shape `intertwine_twoStep` (`T_f²` vs `T_c`); transfer PROVED
-`r_F⁴ ≤ κ(r_C²+ε)` (VacSq⇒two-step-factor dictionary; effective defect
-`(κ−1)r_C²+κ·ε`). `kappa_ge_one` on pinned vacuum diagonals. One-step shape
+Supporting torus algebra checked (2026-10-07): reflection of the genuine
+spatial character and guarded extraction of the actual `1+chi` insertion.
+The SAME centered covariance/RP equality, mean invariance and transfer
+construction remain OPEN. These do not change the displayed broad chart.
+
+Supporting mathematics checked (2026-10-07):
+`BF4WilsonAllNomeRGTwoStepRecovery.vacuumSq_of_twoStepFactor` recovers a
+one-step bound from a supplied two-step factor on the SAME completed Wilson
+carrier. The rational rate `(3+alpha)/4` has margin `(1-alpha)/4`; the direct
+half-margin recurrence is proved. It does not inhabit the old opposite-
+direction rate relation or construct RG maps, summable defects, an AF seed
+or survival. The displayed broad chart claims remain OPEN and unchanged.
+
+REDUCTION — RG-step composition (2026-10-06 PT; transfer scope CORRECTED
+2026-10-07): proposed inputs include step ratio and actual quadratic RG
+comparison functions `Φ_j`. Two-step shape `intertwine_twoStep` (`T_f²` vs
+`T_c`); transfer PROVED only as a two-step norm factor `α = κ(r_C²+ε)`.
+Recovery requires `α ≤ r_F⁴`; the old rate chain instead assumes `r_F⁴ ≤ α`
+and is NOT produced by that transfer. `Φ` has no linearity or literal vector
+intertwining field. Effective defect `(κ−1)r_C²+κ·ε`.
+`kappa_ge_one` on pinned vacuum diagonals. One-step shape
 no-go: attaining Rayleigh `≥ r_C` forces `ε` lower bound. Dyadic envelope now
 PROVED (not assumed) from `RgRateChainκ` + `Σ2^k eff_k ≤ S` + B04 upper half:
 `2^n m_{j0+n} ≥ m_{j0} − U² − S/2` (`U = M·2^{-j0}`). Non-vacuity (corrected):

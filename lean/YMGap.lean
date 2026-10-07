@@ -7672,3 +7672,14 @@ import YMGap.Continuum.SU2TorusRPBil
 import YMGap.Continuum.SU2TorusRPCSObs
 import YMGap.Continuum.SU2TorusRPObsOf
 import YMGap.Continuum.SU2TorusRPPolyCS
+
+-- SAME-carrier two-step recovery at an explicit rational rate. The RG
+-- comparison maps and weak-coupling analytic bounds remain open.
+import YMGap.Continuum.RCNonnegativeSquareReflection
+import YMGap.Continuum.RGExplicitRationalRate
+import YMGap.Continuum.BF4WilsonAllNomeRGTwoStepRecovery
+
+-- Actual observable algebra for the finite torus covariance/RP join;
+-- centering and reflected/translated mean identification remain open.
+import YMGap.Continuum.SU2TorusRPObservableReflection
+import YMGap.Continuum.SU2WilsonObsExtraction

@@ -5,7 +5,7 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
-## Whole-project goal and live completion map (updated 2026-10-04 UTC)
+## Whole-project goal and live completion map (updated 2026-10-07 UTC)
 
 The unchanged mathematical target is: for each compact simple gauge group G,
 construct a nontrivial quantum Yang--Mills theory on R^4 satisfying the QFT
@@ -25,7 +25,40 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Current mathematical target: SAME macroscopic response ratio via original signed cost (2026-10-04 UTC)
+### Current priorities after the recent-commit review (2026-10-07)
+
+The current Wilson route still needs TWO actual analytic producers on the
+same AF-padded family: the bounded step-ratio/window-survival input, and an
+all-vector completed Wilson contraction with a positive dyadic lower margin.
+Per-scale nondegeneracy, a two-loop-shaped schedule, and a strong-coupling
+width-uniform bound do not supply either producer. Physical scale/volume
+justification, the SAME limiting OS theory, QFT axioms and every group remain
+separate open requirements of the unchanged whole-project goal.
+
+The review found an unjustified RG arrow: `approxRg_transfers` supplies only
+the fine two-step norm factor `alpha = kappa*(rC^2+epsilon)`. Recovery needs
+`alpha <= rF^4`, whereas the old `RgRateRelationκ` assumes `rF^4 <= alpha`.
+The old chain and all its fields are retained unchanged; its inhabitability
+must not be inferred from the transfer. The selected mathematical repair is
+completed Cauchy--Schwarz plus constructive square order reflection, using
+the explicit rational rate `(3+alpha)/4` and its direct margin recurrence.
+No RG comparison map, seed or summable error bound is thereby supplied.
+
+In parallel, the actual finite torus covariance/RP join is being completed
+algebraically: reflection of the spatial character, extraction of the
+`1+chi` insertions under genuine membership/distinctness guards, then OWN
+centering and equality of reflected/translated means. `SU2ClusterBridge.hcov`
+is still a hypothesis, not an identification theorem. No torus transfer or
+continuum gap follows from its finite conditional log-convexity bound.
+
+Check and record each completed join in the dated audit/ledger before using
+it. Next: feed the computed margin recurrence directly to the telescoping
+envelope argument (not the opposite-direction rate-chain assumption), and
+finish the actual centered Haar/RP equality. Then return to the analytic
+producers rather than extending conditional scaffolds indefinitely.
+The canonical chart's displayed broad claims remain unchanged; no reprint.
+
+### Earlier signed-cost route and subsequent checkpoints (2026-10-04 onward)
 
 PADDED TRAJECTORY ON A NomeScheduleAFCalibrated SCHEDULE (2026-10-06 UTC):
 Checked: dyadicNomeSchedule does NOT satisfy NomeScheduleAFCalibrated (any constants); `afNomeSchedule` (rational,

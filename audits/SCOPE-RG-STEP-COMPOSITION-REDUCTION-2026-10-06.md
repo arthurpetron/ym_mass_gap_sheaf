@@ -1,7 +1,8 @@
 # RG-step composition reduction for the Wilson gap frontier (2026-10-06 PT)
 
 Status: **REDUCTION ONLY.** No approximate intertwiner `Φ_j` is constructed.
-Two-step intertwining (`T_f²` vs `T_c`) + proved transfer `r_F⁴ ≤ κ(r_C²+ε)`;
+Correction (2026-10-07): the proved transfer is a **two-step norm factor**
+`α = κ(r_C²+ε)`, not a produced rate satisfying `r_F⁴ ≤ α`.
 κ≥1 on pinned vacuum diagonals; one-step shape no-go; SC cannot seed `trAF`.
 Companion Lean: `lean/YMGap/Continuum/BF4WilsonAllNomeRGStepComposition.lean`.
 
@@ -46,14 +47,16 @@ together with errors `ε_j ≥ 0` and coercivity constants `κ_j > 0`, such that
 2. **Norm upper bound**: `B_j(Φx, Φx) ≤ B_{j+1}(x,x)`.
 3. **Approx intertwining (two fine steps vs one coarse; B-form):**
    `B_{j+1}(T_{j+1}² x) ≤ κ_j·B_j(T_j Φx) + (κ_j·ε_j)·B_{j+1}(x)`
-   (`intertwine_twoStep`; constructive packaging of `Φ∘T² ≈ T∘Φ` without
-   subtype subtraction). Matches the dyadic spacing ratio `a_{j+1}=a_j/2`.
+   (`intertwine_twoStep`, a quadratic comparison, not a literal vector
+   intertwining identity; `Φ` is a function and has no linearity field).
+   Its two-step indices match the dyadic spacing ratio `a_{j+1}=a_j/2`.
 4. **Rate transfer (PROVED from 1–3):** coarse VacSq at `r_j` ⇒ fine **two-step**
-   factor `α = κ_j(r_j²+ε_j)`. Dictionary: VacSq at `r_F` ⇒ two-step factor
-   `r_F⁴` (`vacuumSq_implies_twoStepFactor`), so choosing `r_F⁴ = α` gives
-   `r_F⁴ ≤ κ(r_C²+ε)`. Writing `u_j = r_j²` recovers the 8a341453 shape
-   `u_{j+1} ≤ u_j + ε'_j` after absorbing `(κ−1)·r_C²` into the effective
-   defect `ε' = (κ−1)·r_C² + κ·ε` (`effectiveRgDefect`).
+   factor `α = κ_j(r_j²+ε_j)` (`approxRg_transfers`). Dictionary: VacSq at
+   `r_F` ⇒ two-step factor `r_F⁴` (`vacuumSq_implies_twoStepFactor`). That
+   implication cannot be reversed without a proof. Recovery needs
+   **`α ≤ r_F⁴`**, while the existing `RgRateRelationκ` assumes **`r_F⁴ ≤ α`**.
+   An exact-root witness would satisfy both, but is not constructed here.
+   The effective defect is `ε' = (κ−1)·r_C² + κ·ε` (`effectiveRgDefect`).
 
 **No-go on the old one-step shape.** If a fine vector attains Rayleigh
 `B(Tx)/B(x) ≥ r_C` (pinned diagonal), any one-step defect of the form
