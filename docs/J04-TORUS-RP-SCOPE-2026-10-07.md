@@ -58,10 +58,13 @@ The crossing scalar is `Re(U V*) = Σ_{c<4} u_c v_c`, a sum of Θ-symmetric prod
 
 ## Heat-kernel plan
 
-- `characterPolynomial x s` (Chebyshev U_s(x)) has alternating-sign coefficients in powers of x. The
-  heat-kernel weight `Σ_s coeffW w s · χ_s` therefore has, in general, **negative** coefficients in powers of χ₁
-  (check: for small w, the χ₂ term contributes `−coeffW w 2` to the constant term). The power-sum route does not
-  apply directly.
+- `characterPolynomial x s` (Chebyshev U_s(x)) has alternating-sign coefficients in x. For example,
+  `χ₃ = 8x³ − 4x`, so the coefficient of x in `Σ_s c_s χ_s` is `2c₁ − 4c₃ + 6c₅ − …`.
+  - The coefficients of the heat-kernel weight in powers of χ₁ are therefore **not termwise nonneg**, and their
+    sign is **UNVERIFIED** (correction to the first version of this note).
+  - With `c_s ~ w^{s(s+2)}`, lower orders dominate, so they are plausibly ≥ 0 for small w, uniformly in M.
+  - Option (0): prove that domination, then reuse the power-sum route with no `D^s`. It needs an explicit
+    expansion of `U_s` in powers of x.
 - Options:
   - (i) `D^s` route: `χ_s(UV*) = Σ_{ij} D^s_ij(U) conj D^s_ij(V)`. Its real form is a sum of `Re·Re + Im·Im`
     Θ-products, hence an RPK. Each `χ_s(σ)` is an RPK, so the heat kernel is an RPK (coeffW ≥ 0).
