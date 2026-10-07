@@ -142,3 +142,7 @@ No fail statement is given: the ℓ¹ envelope is an upper bound, not the true a
 ## PROVED: commit 17, `SU2ObsActivity.lean`
 
 - The activity, rooted-sum, λ-shift and environment inputs for the correlator bound.
+
+## PROVED: commit 18, `SU2PairKernel.lean`
+
+- The pair-kernel bound.

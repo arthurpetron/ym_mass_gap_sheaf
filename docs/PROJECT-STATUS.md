@@ -6480,3 +6480,5 @@ arbitrary disjoint link-block supports.
 `SU2TwoRoot` (2026-10-07): R1 commit 16.  The exact two-root formula for the truncated χ₁ correlator.
 
 `SU2ObsActivity` (2026-10-07): R1 commit 17.  Observable-activity bounds and rooted sums at w₀.
+
+`SU2PairKernel` (2026-10-07): R1 commit 18.  The pair-kernel bound.

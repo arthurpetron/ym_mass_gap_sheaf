@@ -4,7 +4,14 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 17, observable-activity bounds and rooted sums at w₀ (2026-10-07 PT)
+## Latest proved increment: R1 commit 18, the pair-kernel bound at w₀ (2026-10-07 PT)
+
+- `SU2PairKernel.kernel_bound` (PROVED, axioms [propext, Quot.sound]).
+  - Statement: for gas polymers a ∋ p and b ∋ q, `|K(a,b)| ≤ 2·λ^{ld(q,p)} μ^{|a|} μ^{|b|}·M_b M_a²·Ξ²`, with λ = 6/7, μ = 7/6 and M = (5/3)^{24|·|}.
+  - Far case: `T_su2_w0`.  Near case: the KP ratio bounds.
+- Labels: strong coupling, heat-kernel (spin-truncated), not Wilson; also true for U(1), not gap evidence.
+
+## Earlier proved increment: R1 commit 17, observable-activity bounds and rooted sums at w₀ (2026-10-07 PT)
 
 - `SU2ObsActivity` (PROVED, axioms [propext, Quot.sound]).
   - `zObs_bound`: `|z^S γ| ≤ D^{|S|} ε_L^{|γ|}` for nodup γ, with D = 514·10¹⁵ and ε_L = 10⁻¹⁵, uniform in M.
