@@ -215,7 +215,8 @@ rational comparisons):
     vector value `(2n−1)/2`; `mass_gap_D` is re-pointed to it.  (Forms where
     the vector does not descend, e.g. `PSO(2n)`, `Ss(2n)`, are not treated.)
   * `B_n`: spinor `<` vector exactly at `n = 2, 3` (`5/4 < 2`, `21/8 < 3`),
-    `=` at `n = 4`.  So the legacy `B` row (`n`) is the `SO(2n+1)` vector
+    and spinor `>` vector for `n ≥ 4` (`B₄`: `9/2 > 4`; the only coincidence
+    in this file is `D₄` triality, `7/2 = 7/2`).  So the legacy `B` row (`n`) is the `SO(2n+1)` vector
     value, NOT the `Spin(2n+1)` minimum at `n = 2, 3`; the spinor value
     still clears `3/4` for `n ≥ 2`.
   * Floor no-gos (explicit): at rank `n = 1` both `soEven_vector_C2 1 = 1/2`
@@ -338,7 +339,8 @@ theorem soOdd_spin_gap_lb (n : Nat) (hn : 2 ≤ n) :
 theorem soOdd_spin_C2_B2 : (soOdd_spin_C2 2).eqv (Q'.mkPos 5 4 (by decide)) := by decide
 /-- `B₃`: row value `21/8`. -/
 theorem soOdd_spin_C2_B3 : (soOdd_spin_C2 3).eqv (Q'.mkPos 21 8 (by decide)) := by decide
-/-- `B₄`: vector and spinor coincide (`4`). -/
+/-- `B₄`: the vector `4` is the minimum (spinor `n(2n+1)/8 = 9/2 > 4`); no
+coincidence at `B₄` — the vector/spinor-type coincidence is `D₄` triality. -/
 theorem soOdd_spin_C2_B4 : (soOdd_spin_C2 4).eqv (Q'.ofNat 4) := by decide
 /-- `B₅`: the vector `5` is the minimum (spinor `55/8`). -/
 theorem soOdd_spin_C2_B5 : (soOdd_spin_C2 5).eqv (Q'.ofNat 5) := by decide

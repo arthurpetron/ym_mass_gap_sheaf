@@ -219,8 +219,9 @@ def casimirReading (s : SU2.Spin) : CasimirReading s :=
   ⟨-(Q'.ofNat s * (Q'.ofNat s + 2)), relativeCharacter_angularCasimir 2 s (by decide)⟩
 
 /-- Realized Casimir: `−lam/4` of the eigen-reading (`1/4` = normalization
-convention making `A₁` fundamental `3/4`).  Uniqueness of `lam` (needs
-`∫ χ_s² ≠ 0`) is not proved here. -/
+convention making `A₁` fundamental `3/4`).  Uniqueness of `lam` holds whenever
+`∫ χ_s² ≉ 0` (`casimirReading_unique` below); it is proved for `s = 1, 2`
+(`realizedCasimir_one_welldefined`, `realizedCasimir_two_welldefined`). -/
 def realizedCasimir (s : SU2.Spin) : Q' :=
   (-(casimirReading s).lam) * Q'.mkPos 1 4 (by decide)
 
