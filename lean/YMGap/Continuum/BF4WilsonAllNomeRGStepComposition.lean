@@ -3,17 +3,21 @@
 
 Companion to `audits/SCOPE-RG-STEP-COMPOSITION-REDUCTION-2026-10-06.md`. ADDITIVE.
 
-**REDUCTION ONLY.** No approximate intertwiner `Φ_j` is constructed. Exact Wilson
-intertwiners almost certainly do not exist; any honest `ε_j` needs Balaban-style
-(or equivalent) quantitative RG estimates. That analytic input is OPEN.
+**REDUCTION ONLY.** No approximate intertwiner `Φ_j` is constructed.
 
-Proved: pure Q' rate algebra (`rFine² ≤ rCoarse+ε ⇒ 1−rFine ≥ (1−rCoarse−ε)/2`);
-typed `ApproxRgIntertwiner` (map + open transfer Prop); margin recurrence;
-conditional dyadic lower-margin packaging from a margin envelope at seed scale 0.
-Not proved: any `Φ_j`, any concrete `ε_j`, unconditional `WilsonAFPaddedGapInput`
-on `trAF`, or any AF/continuum claim. SC seeds only scales still in the window.
+Strengthened `ApproxRgIntertwiner` (operator-level; rate transfer PROVED):
+* coercive lower bound `B_f(x,x) ≤ κ·B_c(Φx,Φx)` with `κ > 0` (prevents `Φ = 0`);
+* norm upper bound `B_c(Φx,Φx) ≤ B_f(x,x)`;
+* quadratic-form intertwining defect (one-step VacSq B-form; no vector subtraction
+  on the subtype — `Completion` has no packaged `AddCommGroup` here).
 
-Optional: `timeRate ≈ 1/4` via `comparison_entropy`.
+Proved: coarse VacSq at `rC` + operator fields ⇒ fine square-factor
+`κ(rC²+ε)`, hence VacSq at any `rF` with `κ(rC²+ε) ≤ rF²`. Choosing equality
+identifies `r_F² = κ(r_C²+ε)` (YM Bot shape with elementary `r_C²`).
+
+Also: every scale of `afNomeSchedule` / `trAF` fails `heatRatio ≤ 1/2`
+(`w_j ≥ w_0 > 1/2`), so strong coupling cannot seed `trAF`. The seed is an open
+intermediate-coupling contraction producer.
 
 Constructive; axioms `propext`, `Quot.sound` only.
 -/
@@ -22,12 +26,21 @@ import YMGap.Continuum.BF4WilsonAllNomeWilsonDynamicFamily
 import YMGap.Continuum.BF4WilsonAllNomeStrongCouplingUniformRate
 import YMGap.Continuum.BF4WilsonDescentUniformConnectedDecay
 import YMGap.Continuum.BF4ExactSlabDescentDistanceDecay
+import YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory
+import YMGap.Continuum.QuaternionHaarCharacterInterval
+import YMGap.Continuum.HeatKernelGap
 import YMGap.Continuum.RingNormaliser
 import YMGap.Continuum.LocatedSpectralGap
+import YMGap.Continuum.RCScaleClose
+import YMGap.Continuum.BoundedTransferCalculus
+import YMGap.Continuum.HamiltonianScalar
+import YMGap.Continuum.ReconstructionCapstone
+import YMGap.Continuum.RCSignedPairBudget
 import YMGap.Constructive.HalfPow
 import YMGap.Constructive.CRealMulMono
 import YMGap.Constructive.Soundness
 import YMGap.Constructive.AbsQ
+import YMGap.Constructive.SumOfSquares
 
 namespace YMGap.Continuum.BF4WilsonAllNomeRGStepComposition
 
@@ -51,6 +64,12 @@ open YMGap.Continuum.BF4ExactSlabPlaquetteSmallNomeCertificate
   (nome_pos nome_lt_one)
 open YMGap.Continuum.BF4ExactSlabSmallNomeHaarComparison (existingNome_guards)
 open YMGap.Continuum.BF4ExactSlabSummableCoreRate (existingNome_entropyRate)
+open YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory
+  (afNomeSchedule afGap afGap_pos afGap_lt_one)
+open YMGap.Continuum.QuaternionHaarCharacterInterval (heatRatio)
+open YMGap.Continuum.HeatKernelGap (qpow_mono)
+open YMGap.Continuum.RCSignedPairBudget (scale_congr)
+open YMGap.Constructive.SumOfSquares (q_mul_self_nonneg)
 
 local infix:50 " ≈ " => Q'.eqv
 
@@ -62,7 +81,7 @@ theorem timeRate_eq_one_fourth :
 
 /-! ## 1. Pure Q' rate algebra -/
 
-/-- Rate-level shadow of one approx intertwiner. **REDUCTION.** -/
+/-- Rate-level shadow of one approx intertwiner (κ-free form). **REDUCTION.** -/
 def RgRateRelation (rFine rCoarse ε : Q') : Prop :=
   (0 : Q') ≤ rFine ∧ rFine ≤ (1 : Q') ∧
     (0 : Q') ≤ ε ∧ rFine * rFine ≤ rCoarse + ε ∧ rCoarse + ε ≤ (1 : Q')
@@ -160,35 +179,182 @@ theorem margin_after_rg_step (rFine rCoarse ε : Q')
     Q'.mul_le_mul_of_nonneg_left _ _ half hmono half_nonneg
   exact Q'.le_trans' _ _ _ h2 h1
 
-/-! ## 2. Approx RG intertwiner (typed; NOT inhabited) -/
+/-- κ-aware rate relation: choose `rFine` with `rFine² ≤ κ(rCoarse²+ε)` for margin. -/
+def RgRateRelationκ (rFine rCoarse ε κ : Q') : Prop :=
+  (0 : Q') ≤ rFine ∧ rFine ≤ (1 : Q') ∧
+    (0 : Q') ≤ ε ∧ (0 : Q') < κ ∧
+      rFine * rFine ≤ κ * (rCoarse * rCoarse + ε) ∧
+        κ * (rCoarse * rCoarse + ε) ≤ (1 : Q')
 
-/-- **REDUCTION / OPEN.** Approximate RG step from fine to coarse.
-`Φ` is typed but never constructed. `transfersRate` is the rate-level
-analytic commitment that intertwining estimates must discharge. -/
+theorem margin_after_rg_step_κ (rFine rCoarse ε κ : Q')
+    (H : RgRateRelationκ rFine rCoarse ε κ) :
+    half * ((1 : Q') - κ * (rCoarse * rCoarse + ε)) ≤ (1 : Q') - rFine := by
+  rcases H with ⟨hr0, hr1, _, _, hsq, _⟩
+  have h1 := one_sub_ge_half_one_sub_sq rFine hr0 hr1
+  have hmono : (1 : Q') - κ * (rCoarse * rCoarse + ε) ≤ (1 : Q') - rFine * rFine :=
+    Q'.add_le_add_left (1 : Q') _ _ (Q'.neg_le_neg hsq)
+  have h2 : half * ((1 : Q') - κ * (rCoarse * rCoarse + ε)) ≤
+      half * ((1 : Q') - rFine * rFine) :=
+    Q'.mul_le_mul_of_nonneg_left _ _ half hmono half_nonneg
+  exact Q'.le_trans' _ _ _ h2 h1
+
+/-! ## 2. Approx RG intertwiner (operator-level; rate transfer PROVED) -/
+
+/-- Square-factor form of VacSq (the `r*r` slot). -/
+def WilsonVacuumSqFactor
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) (width : Nat) (α : Q') : Prop :=
+  ∀ y : VacuumComplement hw0 hw1 (width := width),
+    RCle (completedInner hw0 hw1 (completedTime hw0 hw1 1 y.val)
+            (completedTime hw0 hw1 1 y.val))
+      (RCscale α (completedInner hw0 hw1 y.val y.val))
+
+theorem wilsonVacuumSq_of_factor
+    {w : Q'} {hw0 : (0 : Q') < w} {hw1 : w < (1 : Q')} {width : Nat}
+    (r α : Q') (h : α ≤ r * r) (H : WilsonVacuumSqFactor hw0 hw1 width α) :
+    WilsonVacuumSqContraction hw0 hw1 width r := fun y => by
+  have hBf0 : RCnonneg (completedInner hw0 hw1 y.val y.val) :=
+    completedInner_nonnegative hw0 hw1 y.val
+  exact RCle_trans (H y) (RCscale_mono_scalar h hBf0)
+
+/-- **REDUCTION / OPEN to inhabit.** Operator-level approx RG step.
+
+* `lowerBound`: `B_f(x,x) ≤ κ·B_c(Φx,Φx)` with `κ > 0` — coercive, prevents `Φ = 0`.
+* `upperBound`: `B_c(Φx,Φx) ≤ B_f(x,x)`.
+* `intertwine_oneStep`: quadratic-form defect
+  `B_f(T_f x,T_f x) ≤ κ·B_c(T_c Φx,T_c Φx) + (κ·ε)·B_f(x,x)`
+  (B-form shadow of approx intertwining; no vector subtraction on the subtype).
+
+Linearity of `Φ` is not a separate field: the B-form consequences are what the
+rate proof uses. -/
 structure ApproxRgIntertwiner
     {wF wC : Q'} (hwF0 : (0 : Q') < wF) (hwF1 : wF < (1 : Q'))
     (hwC0 : (0 : Q') < wC) (hwC1 : wC < (1 : Q'))
-    (widthF widthC : Nat) (ε : Q') where
+    (widthF widthC : Nat) (ε κ : Q') where
   Φ :
     VacuumComplement hwF0 hwF1 (width := widthF) →
       VacuumComplement hwC0 hwC1 (width := widthC)
+  kappa_pos : (0 : Q') < κ
   epsilon_nonneg : (0 : Q') ≤ ε
-  transfersRate :
-    ∀ rC rF : Q',
-      WilsonVacuumSqContraction hwC0 hwC1 widthC rC →
-        RgRateRelation rF rC ε →
-          WilsonVacuumSqContraction hwF0 hwF1 widthF rF
+  lowerBound :
+    ∀ x : VacuumComplement hwF0 hwF1 (width := widthF),
+      RCle (completedInner hwF0 hwF1 x.val x.val)
+        (RCscale κ (completedInner hwC0 hwC1 (Φ x).val (Φ x).val))
+  upperBound :
+    ∀ x : VacuumComplement hwF0 hwF1 (width := widthF),
+      RCle (completedInner hwC0 hwC1 (Φ x).val (Φ x).val)
+        (completedInner hwF0 hwF1 x.val x.val)
+  intertwine_oneStep :
+    ∀ x : VacuumComplement hwF0 hwF1 (width := widthF),
+      RCle
+        (completedInner hwF0 hwF1
+          (completedTime hwF0 hwF1 1 x.val)
+          (completedTime hwF0 hwF1 1 x.val))
+        (RCadd
+          (RCscale κ
+            (completedInner hwC0 hwC1
+              (completedTime hwC0 hwC1 1 (Φ x).val)
+              (completedTime hwC0 hwC1 1 (Φ x).val)))
+          (RCscale (κ * ε) (completedInner hwF0 hwF1 x.val x.val)))
 
+private theorem rc_scale_add_right (s t : Q') (a : RC) :
+    RCadd (RCscale s a) (RCscale t a) = RCscale (s + t) a := by
+  refine Quotient.inductionOn a ?_
+  intro A
+  exact Quotient.sound (SumOfSquares.Equiv_of_approx_eqv (fun n =>
+    poly_identity_of_normal_eq
+      (.add (.mul (.var 0) (.var 2)) (.mul (.var 1) (.var 2)))
+      (.mul (.add (.var 0) (.var 1)) (.var 2))
+      (by decide) (fun | 0 => s | 1 => t | _ => A.approx n)))
+
+/-- **PROVED.** Coarse VacSq at `rC` + operator fields ⇒ fine square-factor
+`α = κ(rC²+ε)`. **REDUCTION.** -/
+theorem approxRg_transfers_factor
+    {wF wC : Q'} {hwF0 : (0 : Q') < wF} {hwF1 : wF < (1 : Q')}
+    {hwC0 : (0 : Q') < wC} {hwC1 : wC < (1 : Q')}
+    {widthF widthC : Nat} {ε κ : Q'}
+    (H : ApproxRgIntertwiner hwF0 hwF1 hwC0 hwC1 widthF widthC ε κ)
+    (rC : Q')
+    (hc : WilsonVacuumSqContraction hwC0 hwC1 widthC rC) :
+    WilsonVacuumSqFactor hwF0 hwF1 widthF (κ * (rC * rC + ε)) := by
+  intro y
+  have hκ0 : (0 : Q') ≤ κ := Q'.le_of_lt H.kappa_pos
+  have hr2 : (0 : Q') ≤ rC * rC := q_mul_self_nonneg rC
+  have hκr : (0 : Q') ≤ κ * (rC * rC) := Q'.mul_nonneg _ _ hκ0 hr2
+  have hdef := H.intertwine_oneStep y
+  have hcoarse := hc (H.Φ y)
+  have hcoarseκ :
+      RCle
+        (RCscale κ (completedInner hwC0 hwC1
+          (completedTime hwC0 hwC1 1 (H.Φ y).val)
+          (completedTime hwC0 hwC1 1 (H.Φ y).val)))
+        (RCscale κ (RCscale (rC * rC)
+          (completedInner hwC0 hwC1 (H.Φ y).val (H.Φ y).val))) :=
+    RCscale_mono hκ0 hcoarse
+  have hcoarseκ' :
+      RCle
+        (RCscale κ (completedInner hwC0 hwC1
+          (completedTime hwC0 hwC1 1 (H.Φ y).val)
+          (completedTime hwC0 hwC1 1 (H.Φ y).val)))
+        (RCscale (κ * (rC * rC))
+          (completedInner hwC0 hwC1 (H.Φ y).val (H.Φ y).val)) := by
+    rw [RCscale_RCscale] at hcoarseκ
+    exact hcoarseκ
+  have hup := H.upperBound y
+  have hupκ :
+      RCle
+        (RCscale (κ * (rC * rC))
+          (completedInner hwC0 hwC1 (H.Φ y).val (H.Φ y).val))
+        (RCscale (κ * (rC * rC))
+          (completedInner hwF0 hwF1 y.val y.val)) :=
+    RCscale_mono hκr hup
+  have hleft : RCle
+      (RCscale κ (completedInner hwC0 hwC1
+        (completedTime hwC0 hwC1 1 (H.Φ y).val)
+        (completedTime hwC0 hwC1 1 (H.Φ y).val)))
+      (RCscale (κ * (rC * rC)) (completedInner hwF0 hwF1 y.val y.val)) :=
+    RCle_trans hcoarseκ' hupκ
+  have hsum : RCle
+      (RCadd
+        (RCscale κ (completedInner hwC0 hwC1
+          (completedTime hwC0 hwC1 1 (H.Φ y).val)
+          (completedTime hwC0 hwC1 1 (H.Φ y).val)))
+        (RCscale (κ * ε) (completedInner hwF0 hwF1 y.val y.val)))
+      (RCadd
+        (RCscale (κ * (rC * rC)) (completedInner hwF0 hwF1 y.val y.val))
+        (RCscale (κ * ε) (completedInner hwF0 hwF1 y.val y.val))) :=
+    RCadd_le_add hleft (RCle_refl _)
+  have hadd :
+      RCadd
+        (RCscale (κ * (rC * rC)) (completedInner hwF0 hwF1 y.val y.val))
+        (RCscale (κ * ε) (completedInner hwF0 hwF1 y.val y.val)) =
+      RCscale (κ * (rC * rC) + κ * ε)
+        (completedInner hwF0 hwF1 y.val y.val) :=
+    rc_scale_add_right _ _ _
+  have hfac : κ * (rC * rC) + κ * ε ≈ κ * (rC * rC + ε) :=
+    Q'.eqv_symm (Q'.mul_add_eqv κ (rC * rC) ε)
+  have hmid : RCle
+      (RCadd
+        (RCscale (κ * (rC * rC)) (completedInner hwF0 hwF1 y.val y.val))
+        (RCscale (κ * ε) (completedInner hwF0 hwF1 y.val y.val)))
+      (RCscale (κ * (rC * rC + ε))
+        (completedInner hwF0 hwF1 y.val y.val)) := by
+    rw [hadd, scale_congr hfac (completedInner hwF0 hwF1 y.val y.val)]
+    exact RCle_refl _
+  exact RCle_trans hdef (RCle_trans hsum hmid)
+
+/-- **PROVED.** VacSq on fine at any `rF` with `κ(rC²+ε) ≤ rF²`.
+Choosing equality gives the identification `r_F² = κ(r_C²+ε)`. **REDUCTION.** -/
 theorem approxRg_transfers
     {wF wC : Q'} {hwF0 : (0 : Q') < wF} {hwF1 : wF < (1 : Q')}
     {hwC0 : (0 : Q') < wC} {hwC1 : wC < (1 : Q')}
-    {widthF widthC : Nat} {ε : Q'}
-    (H : ApproxRgIntertwiner hwF0 hwF1 hwC0 hwC1 widthF widthC ε)
+    {widthF widthC : Nat} {ε κ : Q'}
+    (H : ApproxRgIntertwiner hwF0 hwF1 hwC0 hwC1 widthF widthC ε κ)
     (rC rF : Q')
     (hc : WilsonVacuumSqContraction hwC0 hwC1 widthC rC)
-    (hr : RgRateRelation rF rC ε) :
+    (hsq : κ * (rC * rC + ε) ≤ rF * rF) :
     WilsonVacuumSqContraction hwF0 hwF1 widthF rF :=
-  H.transfersRate rC rF hc hr
+  wilsonVacuumSq_of_factor rF (κ * (rC * rC + ε)) hsq
+    (approxRg_transfers_factor H rC hc)
 
 /-! ## 3. Rate chains and one-step margin recurrence -/
 
@@ -233,15 +399,13 @@ def RgMarginEnvelope (r ε : Nat → Q') (j0 : Nat) (S : Q') : Prop :=
 /-- Seed-scale-0 margin constant: `m = 1 − r_0 − S`. -/
 def rgSeedMargin (r : Nat → Q') (S : Q') : Q' := (1 : Q') - r 0 - S
 
-/-- Truncated lower margin from scale `j0` (full `WilsonLowerMargin` = `j0 = 0`
-when the family's spacing is dyadic). **REDUCTION.** -/
+/-- Truncated lower margin from scale `j0`. **REDUCTION.** -/
 def WilsonLowerMarginFrom (F : WilsonDynamicFamily) (j0 : Nat) (m : Q') : Prop :=
   (0 : Q') < m ∧
     ∀ j, j0 ≤ j → m * F.transferSpacing.spacing j ≤ (1 : Q') - F.rate j
 
 /-- At seed scale 0, with dyadic spacing `half^j`, an envelope yields a truncated
-(and hence full) lower-margin shape with `m = 1 − r_0 − S`.
-This is the rate half of a conditional `WilsonAFPaddedGapInput`. **REDUCTION.** -/
+(and hence full) lower-margin shape with `m = 1 − r_0 − S`. **REDUCTION.** -/
 theorem rg_envelope_zero_lower_margin
     (F : WilsonDynamicFamily) (ε : Nat → Q') (S : Q')
     (hsp : ∀ j, F.transferSpacing.spacing j = half ^ j)
@@ -255,8 +419,7 @@ theorem rg_envelope_zero_lower_margin
   rw [hsp j]
   exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.mul_comm_eqv _ _)) henv
 
-/-- Specialisation: envelope at 0 + dyadic spacing ⇒ `WilsonLowerMargin`
-when the family's `latticeMargin` is `1 − rate`. **REDUCTION.** -/
+/-- Specialisation: envelope at 0 + dyadic spacing ⇒ `WilsonLowerMargin`. **REDUCTION.** -/
 theorem rg_envelope_zero_wilsonLowerMargin
     (F : WilsonDynamicFamily) (ε : Nat → Q') (S : Q')
     (hsp : ∀ j, F.transferSpacing.spacing j = half ^ j)
@@ -268,23 +431,118 @@ theorem rg_envelope_zero_wilsonLowerMargin
     have := h.2 j (Nat.zero_le j)
     simpa only [WilsonDynamicFamily.latticeMargin] using this⟩
 
-/-! ## 5. Strong-coupling seed availability (window only) -/
+/-! ## 5. Strong-coupling seed (pilot only; does NOT apply to trAF) -/
 
 /-- At the pilot nome `1/1024`, every literal width carries VacSq at `timeRate`.
-This may seed an RG chain only while the schedule remains in the small-nome
-window; on `trAF`, `w_j → 1` and eventually exits. **REDUCTION / seed.** -/
+This does **not** seed `trAF` / `afNomeSchedule`: every AF scale fails the
+`heatRatio ≤ 1/2` guard (see §6). **REDUCTION / pilot seed only.** -/
 theorem strongCoupling_seed_at_pilot (width : Nat) :
     WilsonVacuumSqContraction nome_pos nome_lt_one width timeRate :=
   allNome_strongCoupling_vacuumSq nome_pos nome_lt_one
     existingNome_guards.1 existingNome_guards.2 existingNome_entropyRate.2 width
+
+/-! ## 6. AF schedule is outside the strong-coupling window -/
+
+private theorem lt_of_lt_of_le_q {a b c : Q'} (h1 : a < b) (h2 : b ≤ c) : a < c := by
+  have e1 : a.num * (b.den : Int) < b.num * (a.den : Int) := h1
+  have e2 : b.num * (c.den : Int) ≤ c.num * (b.den : Int) := h2
+  show a.num * (c.den : Int) < c.num * (a.den : Int)
+  have hcd : (0 : Int) < (c.den : Int) := by exact_mod_cast c.den_pos
+  have had : (0 : Int) ≤ (a.den : Int) := by exact_mod_cast Nat.zero_le _
+  have s1 : (a.num * (c.den : Int)) * (b.den : Int)
+          < (b.num * (a.den : Int)) * (c.den : Int) := by
+    have := Int.mul_lt_mul_of_pos_right e1 hcd
+    have hr : (a.num * (b.den : Int)) * (c.den : Int)
+            = (a.num * (c.den : Int)) * (b.den : Int) := by
+      rw [Int.mul_assoc, Int.mul_assoc, Int.mul_comm (b.den : Int) (c.den : Int)]
+    rwa [hr] at this
+  have s2 : (b.num * (a.den : Int)) * (c.den : Int)
+          ≤ (c.num * (a.den : Int)) * (b.den : Int) := by
+    have := Int.mul_le_mul_of_nonneg_left e2 had
+    have hl : (a.den : Int) * (b.num * (c.den : Int))
+            = (b.num * (a.den : Int)) * (c.den : Int) := by
+      rw [Int.mul_comm b.num (a.den : Int), Int.mul_assoc]
+    have hrr : (a.den : Int) * (c.num * (b.den : Int))
+             = (c.num * (a.den : Int)) * (b.den : Int) := by
+      rw [Int.mul_comm c.num (a.den : Int), Int.mul_assoc]
+    rwa [hl, hrr] at this
+  have schain : (a.num * (c.den : Int)) * (b.den : Int)
+              < (c.num * (a.den : Int)) * (b.den : Int) :=
+    Int.lt_of_lt_of_le s1 s2
+  exact Int.lt_of_mul_lt_mul_right schain (by exact_mod_cast Nat.zero_le _)
+
+private theorem not_lt_of_le_q {a b : Q'} (h : a ≤ b) : ¬ (b < a) := by
+  intro hlt
+  have : b.num * (b.den : Int) < b.num * (b.den : Int) :=
+    lt_of_lt_of_le_q hlt h
+  exact (Int.lt_irrefl _) this
+
+private theorem not_le_of_gt_q {a b : Q'} (h : b < a) : ¬ (a ≤ b) :=
+  fun hle => absurd h (not_lt_of_le_q hle)
+
+/-- `afGap 0 = 234982/484000 < 1/2`. -/
+theorem afGap_zero_lt_half : afGap 0 < half := by
+  change (afGap 0).num * (half.den : Int) < half.num * ((afGap 0).den : Int)
+  decide
+
+/-- `w_0 = 1 − afGap 0 > 1/2` (cross-multiply form). -/
+theorem afNome_zero_gt_half : half < afNomeSchedule.nome 0 := by
+  change half.num * ((afNomeSchedule.nome 0).den : Int) <
+    (afNomeSchedule.nome 0).num * (half.den : Int)
+  decide
+
+/-- Every AF scale has `w_j ≥ w_0 > 1/2`. -/
+theorem afNome_ge_zero (j : Nat) : afNomeSchedule.nome 0 ≤ afNomeSchedule.nome j := by
+  induction j with
+  | zero => exact Q'.le_refl' _
+  | succ j ih => exact Q'.le_trans' _ _ _ ih (afNomeSchedule.nome_mono j)
+
+private theorem heatRatio_mono_local {u v : Q'} (hu0 : (0 : Q') ≤ u) (huv : u ≤ v) :
+    heatRatio u ≤ heatRatio v := by
+  unfold heatRatio
+  have hp : YMGap.Continuum.RGTransport.qpow u 3 ≤
+      YMGap.Continuum.RGTransport.qpow v 3 :=
+    qpow_mono hu0 huv 3
+  have hleft : (2 : Q') * YMGap.Continuum.RGTransport.qpow u 3 ≤
+      2 * YMGap.Continuum.RGTransport.qpow v 3 :=
+    Q'.mul_le_mul_of_nonneg_left _ _ 2 hp (by decide)
+  exact Q'.mul_le_mul_of_nonneg_right _ _ 16 hleft (by decide)
+
+/-- `heatRatio(1/2) = 4 > 1/2`. -/
+theorem heatRatio_half_gt_half : half < heatRatio half := by
+  unfold heatRatio
+  decide
+
+/-- No AF scale satisfies `heatRatio ≤ 1/2`. Hence the three SC guards fail
+everywhere on `trAF` / `afNomeSchedule`, and strong coupling cannot seed that
+trajectory. The seed remains an **open intermediate-coupling** contraction
+producer. -/
+theorem not_heatRatio_le_half_afNome (j : Nat) :
+    ¬ (heatRatio (afNomeSchedule.nome j) ≤ half) := by
+  intro hle
+  have hw0 : (0 : Q') ≤ half := half_nonneg
+  have hge : half ≤ afNomeSchedule.nome j :=
+    Q'.le_trans' _ _ _ (Q'.le_of_lt afNome_zero_gt_half) (afNome_ge_zero j)
+  have hmono : heatRatio half ≤ heatRatio (afNomeSchedule.nome j) :=
+    heatRatio_mono_local hw0 hge
+  have hgt : half < heatRatio half := heatRatio_half_gt_half
+  have hcontr : half < heatRatio (afNomeSchedule.nome j) :=
+    lt_of_lt_of_le_q hgt hmono
+  exact absurd hle (not_le_of_gt_q hcontr)
 
 end YMGap.Continuum.BF4WilsonAllNomeRGStepComposition
 
 #print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.timeRate_eq_one_fourth
 #print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.one_sub_ge_half_one_sub_sq
 #print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.margin_after_rg_step
+#print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.margin_after_rg_step_κ
+#print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.wilsonVacuumSq_of_factor
+#print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.approxRg_transfers_factor
 #print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.approxRg_transfers
 #print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.rg_margin_step
 #print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.rg_envelope_zero_lower_margin
 #print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.rg_envelope_zero_wilsonLowerMargin
 #print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.strongCoupling_seed_at_pilot
+#print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.afGap_zero_lt_half
+#print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.afNome_zero_gt_half
+#print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.not_heatRatio_le_half_afNome
