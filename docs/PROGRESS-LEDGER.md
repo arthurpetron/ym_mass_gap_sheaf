@@ -4,7 +4,20 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: slab partition, gauge invariance, SU(2) torus Gibbs layer (2026-10-06 PT)
+## Latest proved increment: SU(2) Schur orthonormality for spins ≤ 2 (2026-10-06 PT)
+
+- `SU2TorusSchurSmall.polySchurUpTo2` (PROVED finite lemma, exact evaluation): on
+  the exact two-block S³ Haar functional `quaternionHaar 2`,
+  `∫ χ_s χ_t = δ_{st}` for `s, t ≤ 2` (diagonal s=1,2 from Realizer's
+  `selfPairing_one/_two`; seven new exact evaluations).
+- `SU2SchurUpTo H J`, `SU2Schur.toUpTo` (plumbing); `HaarAgreesUpTo H J` (OPEN
+  bridge from `LinkHaar` to `quaternionHaar`); `su2SchurUpTo2_of_agrees`
+  (REDUCTION: bridge ⇒ restricted Schur hypothesis consumed by the Gibbs layer).
+- General Schur orthonormality: OPEN. Axioms: propext, Quot.sound.
+- Also: 4f7f88c4 reverted the Trivalent docstring edit byte-for-byte (free-boundary
+  correction moved to SCOPE-C1 §9); HeatKernelPacketState oleans reused.
+
+## Earlier proved increment: slab partition, gauge invariance, SU(2) torus Gibbs layer (2026-10-06 PT)
 
 Proved finite lemmas (`TorusSlabCover`): slab nodup, disjoint from its complement, cover,
 `slab ++ complement ~ boxVertices N`. Proved algebra (`TorusGaugeInvariance`):

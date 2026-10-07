@@ -66,3 +66,11 @@ hypothesis that fails for U(1) at large β (e.g. a bound using `(s+1)`-weighted 
 2. Prove `SU2Schur` for all s on that polynomial class (Chebyshev orthogonality on S³).
 3. Product over 4N⁴ links: iterated `quaternionHaar` on polynomials (finite, decidable per N).
 4. Positive truncated weights: choose `c`, `J` with `charWeight ≥ δ > 0` on S³ (OPEN).
+
+## Addendum: small-spin Schur input (`SU2TorusSchurSmall`)
+
+- PROVED: `polySchurUpTo2`, i.e. `quaternionHaar 2 (χ_s χ_t) ≈ δ_st` for s,t ≤ 2 (exact).
+- OPEN: `HaarAgreesUpTo` (LinkHaar ↔ quaternionHaar) and general Schur for all s.
+- REDUCTION: `su2SchurUpTo2_of_agrees`.
+- U(1) rule: not satisfied by U(1); the spin-1 adjoint channel (dimension 3) has no
+  U(1) analogue.
