@@ -43,7 +43,8 @@ needs PE distributivity and smul-extraction lemmas, then `torus_rp` at `s·e + t
 (i) `PtSup F → PtSup (τ n F)` (or the `Obs` analogue `OnLinks (· ∈ Pt M)`);
 (ii) `rpB (τ x F) (τ y F) ≈ G(x+y)` with `G n := rpB F (τ n F)`, i.e. `Θ∘τ_x = τ_{-x}∘Θ` under the T_K measure,
 plus invariance of `Π T_K` under time shifts.
-Then `TorusCS` gives `G(x+y)² ≤ G(2x)·G(2y)`. The `LogConvex` step `j ↦ j+1` needs the pair `(τ_a F, τ_{a+1} F)`,
-with `G(2a+1)² ≤ G(2a)·G(2a+2)`; odd `j` uses `F' := τ_? ` conventions decided by the Prover.
+Then `TorusCS` at `(τ_a F, τ_{a+1} F)` gives `G(2a+1)² ≤ G(2a)·G(2a+2)`, which is `LogConvex` at even `j`. Odd `j`
+needs a half-step convention (for example reflecting through a link-midpoint plane instead of a site plane). That
+choice belongs to the Prover.
 
 **STATUS: `TorusRPPoly` AND `TorusCS` ARE OPEN (stated, not proved).**
