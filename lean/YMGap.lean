@@ -7442,6 +7442,7 @@ import YMGap.Continuum.SU2TorusRPLayoutCross
 import YMGap.Continuum.SU2TorusRPCrossGeom
 import YMGap.Continuum.SU2TorusRPCrossPlaq
 import YMGap.Continuum.SU2TorusRPMirGeom
+import YMGap.Continuum.SU2TorusRPLayoutFactor
 import YMGap.Continuum.SpecMaxRateFamily
 import YMGap.Continuum.W1StrongCouplingPerturbation
 import YMGap.Continuum.W1VacuumTailRowSum
