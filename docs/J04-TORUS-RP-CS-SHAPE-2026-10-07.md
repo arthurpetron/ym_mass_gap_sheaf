@@ -103,13 +103,18 @@ it for every `x, y`. `hsup` (`PtSup (τ x)`) is still the caller's obligation, a
 
 ## K → ∞ (status, precise)
 
-`SU2TorusRPKLimit` (PROVED, [propext, Quot.sound]):
-* `closed_le`;
-* `rp_closed`: any rational `x` with `|x − rpB_K F F| ≤ r K` for all K satisfies `0 ≤ x + 2 r K`;
-* `cs_closed`: the analogue for `TorusCS`.
+PROVED ([propext, Quot.sound]; strong coupling `0 ≤ β`, `2·256·β ≤ 1`; fixed torus `2M`):
+* `SU2TorusRPKTail`: `T_{K+j} = T_K ++ tail` (a literal list identity), `l1 tail ≤ 2 (256β)^{K+1}` uniformly in `j`, and
+  `l1 T_K ≤ 2`.
+* `SU2TorusRPKProd`: telescoping `Π(T_K + D) ≡PE Π T_K ++ E`, `l1 E ≤ eb 2 δ |P|`, and `haar_diff`.
+* `SU2TorusRPKCauchy.rpK_cauchy`: `RPKCauchy` for ANY `F G`, i.e. `|rpB_{K+j} F G − rpB_K F G| ≤ l1(ΘF·G) · eb 2 (2(256β)^{K+1}) |P|`
+  for all `K, j`. The rate is explicit and independent of `j`, but NOT volume-uniform (`eb 2 δ n ~ n·2^n·δ`).
+* `SU2TorusRPKLimit.rp_closed` / `cs_closed` and `SU2TorusRPKClosed.cs_limit`: any rationals that the `rpB_K` approximate
+  within `r K` satisfy RP (`0 ≤ x + 2r K`) and CS (`a·a ≤ b·c + 2 s K`, `s K = (C + r K) r K + C r K`).
 
-`RPKCauchy F G r` (`∀ K j, |rpB_{K+j} F G − rpB_K F G| ≤ r K`) is a **definition only, OPEN**. It needs a Haar-level
-rate for `Π T_{K'} − Π T_K`. Plan: use `l1` (`haar_abs`, `l1_mul`, `l1_add_le`) on `T_{K+j} − T_K =
-Σ_{k=K+1}^{K+j} a_k χ-powers`, with factorial decay of `wilsonA`. `wCoeff_cauchy` is the character-basis rate; it
-applies via `plaq_weighted_le`/`bnd_mul`, but at strong coupling only (`2β ≤ 1`).
-**No limit object (CReal or otherwise) is defined. Nothing about the untruncated Wilson measure is proved.**
+Route note: the ℓ¹ monomial tail with `wilsonA_pow2_le` is used, not `wCoeff_cauchy`. The per-character rate
+`c_s^{(K+j)} − c_s^{(K)} ≤ 2β^{K+1}` is per `s`, and summing it over `s ≤ K+j` is not uniform in `j`.
+
+**NOT proved / not claimed:** no limit object (CReal or otherwise) is defined; the untruncated Wilson weight is not
+constructed. The weak-coupling regime is not covered. No volume-uniform rate is given. `C` (a uniform bound on `|rpB_K|`)
+is a hypothesis of `cs_limit`; it follows from `l1(ΘF·G)·2^{|P|}` but that corollary is not written.
