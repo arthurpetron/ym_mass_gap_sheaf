@@ -231,3 +231,11 @@ No fail statement is given: the ℓ¹ envelope is an upper bound, not the true a
 - OPEN:
   - the LogConvex instance (Realizer interface note);
   - the Archimedean lemma in Q′ and the N_t → ∞ corollary.
+
+## PROVED (conditional): commit 35, `SU2TorusGapCond.lean`
+
+- Carried: `hsup`, `hshift` (Realizer), `hcl` (clustering bridge, OPEN).
+- Not claimed:
+  - r ≤ q² at finite volume;
+  - the N_t → ∞ corollary (Archimedean lemma OPEN);
+  - coverage of all local observables.

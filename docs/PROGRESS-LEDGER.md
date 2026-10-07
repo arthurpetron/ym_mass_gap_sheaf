@@ -4,7 +4,15 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 34, LogConvex route under G ≥ 0 (the zero case) (2026-10-07 PT)
+## Latest proved increment: R1 commit 35, LogConvex from torus_cs_poly; conditional finite-volume ratio bound on the torus T_K measure (2026-10-07 PT)
+
+- `SU2TorusGapCond.torus_gap_cond` (PROVED, conditional; [propext, Quot.sound]).
+  - Hypotheses: `hsup` (PtSup τ_x), `hshift` (rpB(τx)(τy) ≈ G(x+y), Realizer's coming result), `hcl` (G n ≤ C q^n, bridge from wilson_trunc_ratio OPEN).
+  - Conclusion: E(k+1)^d·E(k) ≤ C (q²)^(k+d)·E(k)^d with E m = G(2m).
+- `logConvex_E` and `nonneg_E` come from Realizer's `torus_cs_poly` and `torus_rp_poly`.
+- Labels: STRONG COUPLING, fixed K; also true for U(1), not gap evidence.
+
+## Earlier proved increment: R1 commit 34, LogConvex route under G ≥ 0 (the zero case) (2026-10-07 PT)
 
 - `SU2LogConvexZero` (PROVED, [propext, Quot.sound]).
   - `zero_all`: under G ≥ 0 and LogConvex, a zero at any m ≤ L−1 forces G ≈ 0 on 1..L−1.

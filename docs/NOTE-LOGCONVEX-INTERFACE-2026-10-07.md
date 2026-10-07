@@ -31,3 +31,26 @@ for `G(c + ·)` on `0..L`, with `L ≤ 2·a_max` and `c + L ≤ N/2`. Clustering
 
 Z as a periodic chain of time-shifted kernels (trace form) at fixed K is `SU2TransferTrace.z_eq_trace` (commit 33); no transfer operator is defined. Self-adjointness and T ≥ 0
 are not used by this route.
+
+## Agreed split (Prover side, 2026-10-07 PT; cross-reference `docs/J04-TORUS-RP-CS-SHAPE-2026-10-07.md`)
+
+That shape doc is Realizer's (J04 track) and is not edited here.
+
+- **Realizer:**
+  - `torus_rp_poly` and `torus_cs_poly`: PROVED.
+  - Coming: `Θ∘τ_x = τ_{−x}∘Θ` and time-shift invariance of `rpB`. These give
+    `hshift : rpB (τ x) (τ y) ≈ G (x + y)` for `x, y ≤ X`, and `hsup : PtSup (τ x)` for `x ≤ X`.
+- **Prover (commit 35, `SU2TorusGapCond`):** consumes `hsup` and `hshift` as explicit hypotheses until they land.
+- **Odd j.** This is resolved without a half-step convention. Only the CS pairs `(τ_m, τ_{m+2})` are used, so the
+  even subsequence `E m = G(2m)` is log-convex (`logConvex_E`). The bound is per two time steps.
+- **G ≥ 0.** This is derived from `torus_rp_poly`, because `E m ≈ rpB (τ m) (τ m)`. It is not assumed.
+- **Clustering bridge (still OPEN, carried as `hcl : G n ≤ C q^n`, n ≤ 2X).** `wilson_trunc_ratio` is in the
+  polymer normalisation `ZW` with ratio form. Matching it needs:
+  - `ZW ≈` the Haar integral;
+  - `Z > 0`;
+  - `Θ χ_p = χ_{mirror p}`;
+  - equal one-point means (so that `F̃ = F − ⟨F⟩` is the same subtraction on both sides);
+  - the distance `d(θp, τ_n p)` as a function of `n`.
+
+  Also, clustering holds at β_S = 1/(2e12), while RP needs only 0 ≤ β.
+- **Range.** `τ_x` must stay on the positive half, so `X ≲ N_t/4` for the even subsequence.
