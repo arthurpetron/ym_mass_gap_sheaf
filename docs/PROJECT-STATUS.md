@@ -1,5 +1,19 @@
 # Canonical one-page project status
 
+Supporting ACTUAL completed alternating determinant squares checked
+(2026-10-07): K(x)=(x-1)*A(x)^2 and the separately completed endpoint
+determinant=A(1)^2 use the literal E/H/A prefixes, with explicit fixed-nome
+cutoffs. Finite coefficient differentiation and actual omitted-jet payment
+precede completion; no derivative of a value limit is inferred. The original
+bare-theta joint square and its actual finite angular jet are pinned.
+The signed frequency numerator and actual Jacobi-product/jet limit joins,
+full addition/whole-interval radial ceiling, Haar/conditional/scaling,
+independent survival, completed OS comparison, physical/volume control,
+SAME limiting QFT, every group and Clay remain OPEN. Focused checks only;
+no full-root/tree audit. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+Broad chart unchanged; no reprint.
+
 Supporting ACTUAL alternating finite square and mixed-tail join checked
 (2026-10-07): `(x-1)*A_N^2` equals the actual mixed half-diamond sum,
 including N=0. Its difference from the factored literal E/H endpoint
@@ -8,7 +22,8 @@ uniform on [-1,1] at each named nome. The odd prefix is ONE-SIDED; the
 signed bijection, exponent/sign pins and complementary-filter payment are
 proved, not supplied. Five new focused leaves and the reused generalized
 shell engine pass permitted axiom gates; no full-root/tree audit.
-Endpoint-jet payment, SAME completed series/jet and product-limit joins,
+Endpoint-jet payment and the E/H/A determinant completion are now supplied
+above. Remaining product/jet limit joins,
 whole-interval radial ceiling, Haar/conditional/scaling, independent survival,
 completed comparison, physical/volume control, SAME limiting QFT, every
 group and Clay remain OPEN. Evidence:

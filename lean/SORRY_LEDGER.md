@@ -1,5 +1,47 @@
 # Sorry Ledger
 
+## PROVED actual completed alternating determinant squares / OPEN product-frequency join (2026-10-07)
+
+- `ThetaAlternatingEndpointJets.squareKernel_coeff_pin` reflects the finite
+  square into actual coefficients before differentiation.
+  `endpointCell_sum_eq_alternating_square` gives the ACTUAL half-diamond
+  endpoint jet=A_N(1)^2. The actual rectangle is not that finite square.
+- `ThetaAlternatingMixedTail.endpoint_rectangle_error_le_epsilon` pays
+  its omitted endpoint cells using the SAME existing cutoff. Source geometry
+  gives h<=N<radius, so both squared frequencies lie in [0,4*radius^2];
+  preserve their signed difference rather than sum absolute caps.
+  `ThetaAlternatingEndpointRectangle.endpoint_rectangle_factored_pin` and
+  `ThetaAlternatingEndpointJets.endpoint_determinant_square_close` retain
+  the literal one-sided odd/bilateral even endpoint determinant.
+- `ThetaOneSidedSeriesCompletion` and `ThetaEvenSeriesCompletion` construct
+  all five ACTUAL E/H/A value and endpoint-frequency CReals, with literal
+  N-th approximants and an explicit original shell cutoff. Index zero is
+  retained, not shell-dominated. Uniformity is in x on [-1,1] at each named
+  strict nome, not in coupling, spacing, physical time or volume.
+- `ThetaAlternatingCompletedPin.completed_alternating_square_pin` and
+  `completed_endpoint_square_pin` contract the actual paid finite estimates
+  into K(x)=(x-1)*A(x)^2 and endpoint determinant=A(1)^2. The latter is a
+  separately completed frequency identity, not differentiation of a limit.
+- `ThetaJointValuePin.theta_box_endpoint_value_pin` gives the ORIGINAL
+  bare-theta square for all rational w,x,N. `ThetaJointAngularPin.joint_coeff_pin`
+  and `joint_angular_pin` identify its actual coefficient/finite angular jets.
+- OPEN: literal weighted moment M=-2*F*L(F) and signed frequency-box
+  numerator; actual parity rectangle and product value/jet limit joins,
+  retaining the unbalanced odd boundary; full completed addition and useful
+  whole-interval radial ceiling; strict Haar/original conditional joins;
+  useful original signed cost/scaling, survival, completed OS comparison,
+  physical/volume control, SAME QFT, every group and Clay. No analytic input
+  was replaced by a new assumed conclusion.
+- Seven new leaves and the changed mixed-tail leaf pass focused checks and
+  printed axiom gates within {propext, Quot.sound}. No new source sorry,
+  axiom, classical premise, canonical field change or baseline refresh.
+  Root inspected all final sources; independent review found no normalization,
+  index-zero, cutoff or same-object defect. One 20-GiB worker, 12-GiB reserve,
+  fresh dynamic-capacity checks, zero swap. Imports registered, not root-built.
+  No full-root/tree audit; canonical broad chart unchanged.
+
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 ## PROVED actual alternating finite square and mixed tail / OPEN completed addition (2026-10-07)
 
 - `ThetaAlternatingKernel.alternatingPartial_square_expansion` expands the
@@ -20,9 +62,10 @@
   `ThetaAlternatingMixedPin.alternatingPartial_factored_error_le_epsilon`
   supplies its actual square approximation at the explicit existing cutoff,
   uniform in x on [-1,1] at each NAMED 0<w<1, not uniformly in nome/spacing.
-- OPEN: half-diamond formal endpoint derivative and omitted endpoint-jet
-  payment, literal joint value/frequency numerator pins, SAME series/jet and
-  actual product-limit composition, completed addition/whole-interval radial
+- The half-diamond formal endpoint derivative, omitted-jet payment, literal
+  joint value pin and E/H/A determinant completion are now supplied above.
+  OPEN: literal frequency numerator and actual product/jet limit composition,
+  full completed addition/whole-interval radial
   ceiling, strict Haar/original conditional joins and every Clay-facing input.
   Uniform value convergence is not a derivative-limit theorem. The finite
   rectangle's endpoint derivative is not exactly A_N(1)^2.

@@ -27,6 +27,28 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+The ACTUAL completed alternating determinant squares are now CHECKED.
+`ThetaAlternatingCompletedPin.completed_alternating_square_pin` joins
+K(x)=(x-1)*A(x)^2 on the literal E/H/A CReal completions;
+`completed_endpoint_square_pin` joins the separately completed endpoint
+determinant to A(1)^2. All five prefixes retain their ORIGINAL N-th
+approximants and explicit shell cutoffs uniform in x at each named nome.
+Finite coefficient reflection precedes endpoint differentiation; actual
+omitted jet cells have the sharper 4*radius^2 signed-difference cap, so
+the SAME value cutoff pays the endpoint jet, without factor three.
+`ThetaJointValuePin.theta_box_endpoint_value_pin` pins the original bare
+theta square; `ThetaJointAngularPin.joint_angular_pin` transports its
+actual finite angular jet. NEXT prove the literal signed frequency-box
+numerator via the weighted moment M=-2*F*L(F), then compose the actual
+parity rectangle limits, retain the unbalanced odd boundary, and use the
+existing actual product value/first/angular comparisons. Do not equate
+finite bare F_N with finite Euler P_N or differentiate a value limit.
+The full completed addition/whole-interval radial ceiling, strict Haar/
+original conditional joins and every physical/scaling/QFT/all-group/Clay
+obligation remain OPEN. Focused leaves pass their printed gates; no
+full-root/tree audit or broad chart closure. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 The ACTUAL alternating half-diamond square and mixed-tail join are now
 CHECKED. `ThetaAlternatingMixedPin.alternatingPartial_halfDiamond_square`
 proves `(x-1)*A_N(x)^2` equals the literal mixed half-diamond sum, for all
@@ -34,9 +56,9 @@ rational w,x and N including zero. `alternatingPartial_factored_error_le_epsilon
 compares it to the actual `E_N(1)*H_N(x)-H_N(1)*E_N(x)`, with ONE-SIDED H
 and the existing explicit `shellTailCutoff(w,epsilon)`, uniform in x on
 [-1,1] at each named 0<w<1. The sign, exponent, exact bijection, factorization
-and omitted-cell estimate are proved, not supplied. NEXT prove the actual
-half-diamond endpoint derivative and pay its omitted endpoint-jet tail;
-then compose the SAME value/jet series and actual Jacobi product limits.
+and omitted-cell estimate are proved, not supplied. The actual half-diamond
+endpoint derivative, its omitted-jet tail and E/H/A determinant completion
+are now supplied above; the actual Jacobi-product limit join remains required.
 A value limit alone does not authorize differentiation. The useful
 whole-interval radial ceiling, strict Haar/original conditional joins and
 every physical/scaling/QFT/all-group/Clay obligation remain OPEN. Five new

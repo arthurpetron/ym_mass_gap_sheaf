@@ -28,6 +28,7 @@ open YMGap.Continuum.ThetaAngularShellTail
 open YMGap.Continuum.FiniteWeightedCartesianInjection
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm (listQSum)
 open YMGap.Continuum.ChebTFwdBoundClose (ofNat_mul_eqv ofNat_le_ofNat)
+open YMGap.Continuum.ChebTFwdBoundClose (ofNat_nonneg)
 open YMGap.Continuum.RingNormaliser (poly_identity_of_normal_eq)
 
 local infix:50 " ≈ " => Q'.eqv
@@ -45,6 +46,14 @@ def mixedDiamondIndices (N : Nat) : List (Nat × Int) :=
   (mixedRectangleIndices N).filter (fun p => decide (p.1+p.2.natAbs ≤ N))
 
 def mixedRadius (p : Nat × Int) : Nat := p.1+p.2.natAbs
+
+/-- Signed endpoint frequency coefficient of the literal mixed cell.
+The separate finite polynomial pin certifies its derivative interpretation;
+the subtraction is rational, never truncated natural subtraction. -/
+def endpointCell (w : Q') (p : Nat × Int) : Q' :=
+  w^(2*(p.1*(p.1+1))+2*(p.2.natAbs*p.2.natAbs))*
+    (Q'.ofNat ((2*p.1+1)*(2*p.1+1)) +
+      -(Q'.ofNat ((2*p.2).natAbs*(2*p.2).natAbs)))
 
 private theorem mixed_exponent_ge_radius_sq (p : Nat × Int) :
     mixedRadius p*mixedRadius p ≤ 2*(p.1*(p.1+1))+2*(p.2.natAbs*p.2.natAbs) := by
@@ -209,6 +218,125 @@ theorem mixed_rectangle_error_le_epsilon {w x epsilon : Q'}
   Q'.le_trans' _ _ _ (mixed_rectangle_error_le hw0 hw1 hx0 hx1 N)
     (shellTail_le_epsilon hw0 hw1 he (N+1) (N+3) (by omega))
 
+private theorem frequency_square_cap (a R : Nat) (ha : a ≤ 2*R) :
+    Q'.ofNat (a*a) ≤ 4*(Q'.ofNat R*Q'.ofNat R) := by
+  have hn : a*a ≤ 4*(R*R) := by
+    have h := Nat.mul_le_mul ha ha
+    have hp : (2*R)*(2*R) = 4*(R*R) := by
+      simp only [Nat.mul_assoc]
+      rw [← Nat.mul_assoc R 2 R, Nat.mul_comm R 2]
+      simp only [Nat.mul_assoc]
+      omega
+    rw [hp] at h
+    exact h
+  have hp : Q'.ofNat (4*(R*R)) ≈ 4*(Q'.ofNat R*Q'.ofNat R) :=
+    Q'.eqv_trans _ _ _ (ofNat_mul_eqv 4 _)
+      (Q'.mul_eqv_congr_left 4 _ _ (ofNat_mul_eqv R R))
+  exact Q'.le_trans' _ _ _ (ofNat_le_ofNat hn) (Q'.le_of_eqv hp)
+
+private theorem endpoint_difference_abs_le_cap (p : Nat × Int)
+    (hh : p.1 < mixedRadius p) :
+    Q'.abs (Q'.ofNat ((2*p.1+1)*(2*p.1+1)) +
+      -(Q'.ofNat ((2*p.2).natAbs*(2*p.2).natAbs))) ≤
+        4*(Q'.ofNat (mixedRadius p)*Q'.ofNat (mixedRadius p)) := by
+  let a := Q'.ofNat ((2*p.1+1)*(2*p.1+1))
+  let b := Q'.ofNat ((2*p.2).natAbs*(2*p.2).natAbs)
+  let C := 4*(Q'.ofNat (mixedRadius p)*Q'.ofNat (mixedRadius p))
+  have hf : (2*p.2).natAbs ≤ 2*mixedRadius p := by
+    rw [Int.natAbs_mul]
+    change 2*p.2.natAbs ≤ 2*(p.1+p.2.natAbs)
+    omega
+  have ha : a ≤ C := frequency_square_cap _ _ (by omega)
+  have hb : b ≤ C := frequency_square_cap _ _ hf
+  have ha0 : (0 : Q') ≤ a := ofNat_nonneg _
+  have hb0 : (0 : Q') ≤ b := ofNat_nonneg _
+  apply Q'.abs_le
+  · exact Q'.le_trans' _ _ _ (Q'.ge_of_eqv (QPoly.q_zero_add_eqv (-C)))
+      (Q'.add_le_add ha0 (Q'.neg_le_neg hb))
+  · exact Q'.le_trans' _ _ _ (Q'.add_le_add ha (Q'.neg_le_neg hb0))
+      (Q'.le_of_eqv (QPoly.q_add_zero_eqv C))
+
+/-- The endpoint jet fits the SAME cell cap on the omitted-cell domain.
+The strict h<radius guard matters: the zero-k outer row does not satisfy
+this estimate. It is not asserted for all mixed indices. -/
+theorem endpointCell_abs_le_cellCap {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) (p : Nat × Int)
+    (hh : p.1 < mixedRadius p) : Q'.abs (endpointCell w p) ≤ cellCap w (mixedRadius p) := by
+  let E := 2*(p.1*(p.1+1))+2*(p.2.natAbs*p.2.natAbs)
+  let C := 4*(Q'.ofNat (mixedRadius p)*Q'.ofNat (mixedRadius p))
+  have hp : (0 : Q') ≤ w^E := Q'.pow_nonneg w (Q'.le_of_lt hw0) E
+  have hc : (0 : Q') ≤ C := Q'.mul_nonneg _ _ (by decide)
+    (Q'.mul_nonneg _ _ (ofNat_nonneg _) (ofNat_nonneg _))
+  have hg : w^E ≤ w^(mixedRadius p*mixedRadius p) :=
+    HKConvGen.pow_base_antitone (Q'.le_of_lt hw0) (Q'.le_of_lt hw1)
+      (mixed_exponent_ge_radius_sq p)
+  change Q'.abs (w^E*(Q'.ofNat ((2*p.1+1)*(2*p.1+1)) +
+    -(Q'.ofNat ((2*p.2).natAbs*(2*p.2).natAbs)))) ≤ _
+  refine Q'.le_trans' _ _ _ (TsumDeriv.Q'.abs_mul_le _ _) ?_
+  refine Q'.le_trans' _ _ _ (Q'.mul_le_mul_of_nonneg_left _ _ _
+    (endpoint_difference_abs_le_cap p hh) (Q'.abs_nonneg _)) ?_
+  refine Q'.le_trans' _ _ _ (Q'.le_of_eqv
+    (Q'.mul_eqv_congr_right _ _ C (TsumDeriv.Q'.abs_of_nonneg hp))) ?_
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.mul_comm_eqv _ C))
+    (Q'.mul_le_mul_of_nonneg_left _ _ C hg hc)
+
+private theorem endpoint_filter_error_pin (w : Q') (N : Nat) :
+    (listQSum (endpointCell w) (mixedRectangleIndices N) +
+      -listQSum (endpointCell w) (mixedDiamondIndices N)) ≈
+      listQSum (endpointCell w) ((mixedRectangleIndices N).filter
+        (fun p => !(decide (p.1+p.2.natAbs ≤ N)))) := by
+  refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr_right _ _ _
+    (listQSum_filter_partition (endpointCell w)
+      (fun p => decide (p.1+p.2.natAbs ≤ N)) (mixedRectangleIndices N))) ?_
+  exact poly_identity_of_normal_eq
+    (.add (.add (.var 0) (.var 1)) (.neg (.var 0))) (.var 1) (by decide)
+    (fun | 0 => listQSum (endpointCell w) (mixedDiamondIndices N)
+         | _ => listQSum (endpointCell w) ((mixedRectangleIndices N).filter
+             (fun p => !(decide (p.1+p.2.natAbs ≤ N)))))
+
+/-- Actual omitted endpoint-jet tail, paid by the original value-tail budget.
+Source membership gives h<=N<radius, keeping signed frequency cancellation. -/
+theorem endpoint_rectangle_error_le {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) (N : Nat) :
+    Q'.abs (listQSum (endpointCell w) (mixedRectangleIndices N) +
+      -listQSum (endpointCell w) (mixedDiamondIndices N)) ≤ omittedBudget w N := by
+  let source := (mixedRectangleIndices N).filter
+    (fun p => !(decide (p.1+p.2.natAbs ≤ N)))
+  have hlo : ∀ p, p ∈ source → N+1 ≤ mixedRadius p := by
+    intro p hp
+    have hn : ¬p.1+p.2.natAbs ≤ N := by
+      intro h
+      have hb := (List.mem_filter.mp hp).2
+      rw [decide_eq_true h] at hb
+      cases hb
+    dsimp [mixedRadius]
+    omega
+  refine Q'.le_trans' _ _ _ (Q'.le_of_eqv
+    (TsumDeriv.Q'.abs_eqv_congr (endpoint_filter_error_pin w N))) ?_
+  apply finite_shell_sum_bound (Q'.le_of_lt hw0) N source mixedRadius mixedShellIndices (endpointCell w)
+  · exact (rectangle_nodup N).filter _
+  · exact hlo
+  · intro p hp
+    exact rectangle_radius_le N p (List.mem_filter.mp hp).1
+  · exact mixedShell_covers
+  · exact mixedShell_length
+  · intro p hp
+    have hm := (mem_cartesian_iff (List.range (N+1)) (signedIndices N) p).1
+      (List.mem_filter.mp hp).1
+    have hh := List.mem_range.mp hm.1
+    have hr := hlo p hp
+    exact endpointCell_abs_le_cellCap hw0 hw1 p (by omega)
+
+/-- SAME explicit nome cutoff as the value tail; no factor-three inflation
+and no derivative-limit assumption is needed for this finite estimate. -/
+theorem endpoint_rectangle_error_le_epsilon {w epsilon : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) (he : (0 : Q') < epsilon)
+    (N : Nat) (hN : shellTailCutoff w epsilon ≤ N) :
+    Q'.abs (listQSum (endpointCell w) (mixedRectangleIndices N) +
+      -listQSum (endpointCell w) (mixedDiamondIndices N)) ≤ epsilon :=
+  Q'.le_trans' _ _ _ (endpoint_rectangle_error_le hw0 hw1 N)
+    (shellTail_le_epsilon hw0 hw1 he (N+1) (N+3) (by omega))
+
 end YMGap.Continuum.ThetaAlternatingMixedTail
 
 #print axioms YMGap.Continuum.ThetaAlternatingMixedTail.mixedCell
@@ -219,3 +347,7 @@ end YMGap.Continuum.ThetaAlternatingMixedTail
 #print axioms YMGap.Continuum.ThetaAlternatingMixedTail.mixedCell_abs_le_cellCap
 #print axioms YMGap.Continuum.ThetaAlternatingMixedTail.mixed_rectangle_error_le
 #print axioms YMGap.Continuum.ThetaAlternatingMixedTail.mixed_rectangle_error_le_epsilon
+#print axioms YMGap.Continuum.ThetaAlternatingMixedTail.endpointCell
+#print axioms YMGap.Continuum.ThetaAlternatingMixedTail.endpointCell_abs_le_cellCap
+#print axioms YMGap.Continuum.ThetaAlternatingMixedTail.endpoint_rectangle_error_le
+#print axioms YMGap.Continuum.ThetaAlternatingMixedTail.endpoint_rectangle_error_le_epsilon

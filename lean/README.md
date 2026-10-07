@@ -16,6 +16,20 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked ACTUAL completed alternating determinant squares (2026-10-07):**
+`ThetaAlternatingCompletedPin` joins K(x)=(x-1)*A(x)^2 and the separately
+completed endpoint determinant=A(1)^2 on literal E/H/A prefixes. All five
+CReal constructors retain ORIGINAL approximants and named shell cutoffs,
+uniform in the coordinate at each fixed strict nome. Endpoint differentiation
+occurs on coefficient-pinned FINITE polynomials, with actual omitted cells
+paid by the SAME value cutoff. `ThetaJointValuePin` pins the original bare
+theta square; `ThetaJointAngularPin` gives its actual finite angular jet.
+The signed frequency-box numerator, actual Jacobi-product/jet limit joins,
+full completed addition/whole-interval ceiling, Haar/original conditional
+joins and every Clay-facing obligation remain OPEN. Focused checks only,
+permitted printed axiom dependencies; no full-root/tree audit. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 **Checked ACTUAL alternating square and mixed-tail join (2026-10-07):**
 `ThetaAlternatingMixedPin` proves the literal `(x-1)*A_N^2` half-diamond
 identity, including N=0, and its actual endpoint-determinant approximation
@@ -23,8 +37,9 @@ with the existing explicit nome-dependent shell cutoff. The one-sided odd
 normalization, signed index bijection, exact exponents and omitted-cell
 estimate are proved, not assumed. Five new focused leaves pass 42 public
 gates (ten data definitions axiom-free); the reused generalized shell leaf
-also passes. No full-root/tree audit. Endpoint-jet payment, SAME series/jet
-and product-limit composition, whole-interval radial ceiling, Haar/original
+also passes. No full-root/tree audit. Endpoint-jet payment and E/H/A determinant
+completion are now supplied above. Remaining product/jet limit composition,
+whole-interval radial ceiling, Haar/original
 conditional/scaling and all Clay requirements remain OPEN. Evidence:
 `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
 

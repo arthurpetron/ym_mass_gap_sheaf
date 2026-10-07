@@ -4966,6 +4966,13 @@ import YMGap.Continuum.ThetaAlternatingHalfDiamond
 import YMGap.Continuum.ThetaAlternatingMixedTail
 import YMGap.Continuum.ThetaAlternatingMixedRectangle
 import YMGap.Continuum.ThetaAlternatingMixedPin
+import YMGap.Continuum.ThetaAlternatingEndpointRectangle
+import YMGap.Continuum.ThetaAlternatingEndpointJets
+import YMGap.Continuum.ThetaJointValuePin
+import YMGap.Continuum.ThetaJointAngularPin
+import YMGap.Continuum.ThetaOneSidedSeriesCompletion
+import YMGap.Continuum.ThetaEvenSeriesCompletion
+import YMGap.Continuum.ThetaAlternatingCompletedPin
 import YMGap.Continuum.SU2HeatQuarticTailCutoff
 import YMGap.Continuum.QuaternionHaarHeatAngularDeficit
 import YMGap.Continuum.QuaternionHaarHeatRelativeAngularBound

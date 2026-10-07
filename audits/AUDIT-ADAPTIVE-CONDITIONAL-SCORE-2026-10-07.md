@@ -4,6 +4,119 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Observed endpoint-jet and SAME-series contraction (2026-10-07)
+
+The actual completed alternating value and endpoint determinant squares
+are now kernel-checked. This removes that specific series-completion input,
+not the full theta/Jacobi-product addition or curvature ceiling. The
+lattice-measurement note remains calibration context only, as recorded in
+`audits/RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md`; no measured mass,
+Sobolev regularity, area-law implication or Hamiltonian identity is assumed.
+
+The earlier endpoint experiment below proposed a conservative factor-three
+tail. The proved bound is sharper: on OMITTED cells h<=N<T=h+|k|, so both
+frequencies 2*h+1 and |2*k| are <=2*T. Their squared rational difference
+has absolute value <=4*T^2, not the sum of two caps. The original shell
+budget and cutoff therefore pay both value and endpoint jet. The h<T guard
+is load-bearing; this cap is not asserted on the whole mixed carrier.
+
+| Declaration | Current source | Passing focused log |
+| --- | --- | --- |
+| `endpointCell`, `endpointCell_abs_le_cellCap` | `lean/YMGap/Continuum/ThetaAlternatingMixedTail.lean:53`, `lean/YMGap/Continuum/ThetaAlternatingMixedTail.lean:262` | `/private/tmp/ym-oct7-alternating-endpoint-tail2.log` |
+| `endpoint_rectangle_error_le_epsilon` | `lean/YMGap/Continuum/ThetaAlternatingMixedTail.lean:332` | Same mixed-tail log |
+| `squareKernel_coeff_pin`, `endpointCell_sum_eq_alternating_square` | `lean/YMGap/Continuum/ThetaAlternatingEndpointJets.lean:157`, `lean/YMGap/Continuum/ThetaAlternatingEndpointJets.lean:234` | `/private/tmp/ym-oct7-alternating-endpoint-jets3.log` |
+| `mixedRectanglePolynomial_endpoint_derivative`, `endpoint_rectangle_formal_jet_close` | `lean/YMGap/Continuum/ThetaAlternatingEndpointJets.lean:289`, `lean/YMGap/Continuum/ThetaAlternatingEndpointJets.lean:309` | Same endpoint-jets log |
+| `endpoint_rectangle_factored_pin` | `lean/YMGap/Continuum/ThetaAlternatingEndpointRectangle.lean:109` | `/private/tmp/ym-oct7-alternating-endpoint-rectangle1.log` |
+| `endpoint_determinant_square_close` | `lean/YMGap/Continuum/ThetaAlternatingEndpointJets.lean:322` | Same endpoint-jets log |
+| `bareTheta_signed_pin`, `theta_box_endpoint_value_pin` | `lean/YMGap/Continuum/ThetaJointValuePin.lean:152`, `lean/YMGap/Continuum/ThetaJointValuePin.lean:283` | `/private/tmp/ym-oct7-theta-joint-value5.log` |
+| `joint_coeff_pin`, `joint_angular_pin` | `lean/YMGap/Continuum/ThetaJointAngularPin.lean:101`, `lean/YMGap/Continuum/ThetaJointAngularPin.lean:160` | `/private/tmp/ym-oct7-theta-joint-angular2.log` |
+| `oneSidedCutoff`, `shellPrefix_cauchy` | `lean/YMGap/Continuum/ThetaOneSidedSeriesCompletion.lean:41`, `lean/YMGap/Continuum/ThetaOneSidedSeriesCompletion.lean:173` | `/private/tmp/ym-oct7-theta-onesided-completion3.log` |
+| `alternatingCReal`, `oddCReal`, `oddEndpointCReal` | `lean/YMGap/Continuum/ThetaOneSidedSeriesCompletion.lean:256`, `lean/YMGap/Continuum/ThetaOneSidedSeriesCompletion.lean:261`, `lean/YMGap/Continuum/ThetaOneSidedSeriesCompletion.lean:266` | Same one-sided log |
+| `evenCReal`, `evenEndpointCReal` | `lean/YMGap/Continuum/ThetaEvenSeriesCompletion.lean:172`, `lean/YMGap/Continuum/ThetaEvenSeriesCompletion.lean:179` | `/private/tmp/ym-oct7-theta-even-completion2.log` |
+| `completed_alternating_square_pin`, `completed_endpoint_square_pin` | `lean/YMGap/Continuum/ThetaAlternatingCompletedPin.lean:51`, `lean/YMGap/Continuum/ThetaAlternatingCompletedPin.lean:69` | `/private/tmp/ym-oct7-alternating-completed-pin1.log` |
+
+The finite half-diamond value identity is reflected into actual coefficients
+BEFORE formal endpoint differentiation. The endpoint rectangle is its actual
+polynomial, not a substituted square. At N=1 its excess remains 10*w^6.
+The literal E/H endpoint determinant is factored independently, with H
+one-sided. All five CReal constructors retain their exact original N-th
+prefixes. Their differences start at index min(m,n)+1: index zero is not
+incorrectly bounded by the vanishing zero shell. A named Nat cutoff fills
+the legacy CReal.cauchy field; no modulus witness is extracted from Prop.
+Uniformity is in x on [-1,1] at named 0<w<1, NOT in nome or physical scale.
+
+The SAME finite paid estimates now give
+
+```text
+K(x)=E(1)*H(x)-H(1)*E(x)=(x-1)*A(x)^2,
+E(1)*H_endpoint-H(1)*E_endpoint=A(1)^2.
+```
+
+The second is a separately completed frequency identity; it does not claim
+a derivative of a value limit. The original joint box at y=1 is pinned to
+bare F_N^2, including its central one and factor two. Coefficient reflection
+then gives its actual angular product-rule jet. Finite Euler P_N is never
+substituted for F_N. The full signed-frequency numerator is NOT proved yet.
+
+### Exact verification boundary
+
+Seven new leaves and the changed mixed-tail leaf pass their focused checks.
+All 68 printed gates in the eight final logs above stay within
+{propext, Quot.sound}; fourteen printed computational definitions are
+axiom-free. The other constructed CReal definitions carry their actual
+Cauchy proofs, with permitted axiom dependencies. No new source sorry,
+axiom, classical input, native_decide, field weakening or baseline refresh.
+Root inspected the complete final sources; independent mathematical review
+confirmed index-zero handling, normalization, signed cancellation, named
+cutoffs and separate endpoint completion. Initial elaboration failures
+(imports/names, parentheses, scalar congruence and implicit Nat numerals)
+and the repaired omega classical leak are not proof evidence.
+
+Final checked-source SHA256 (earlier tables retain their historical hashes):
+
+- `ThetaAlternatingMixedTail.lean`: `167c39fe3328b3a546c387993334e5e6fd2f12457e24d0290c360cc095a01947`
+- `ThetaAlternatingEndpointJets.lean`: `d1d63242df05424771bfe88cb931391f6d64b8869d685b7947fa7cd6fcfd3f66`
+- `ThetaAlternatingEndpointRectangle.lean`: `0659811e74cb990482635bd8d93a93cccc285692dba9c0f1894d26dd58f106c3`
+- `ThetaJointValuePin.lean`: `aac8a79b93a9056f798481faef97bd6735a858cc5d4ef991d04fd91b05065428`
+- `ThetaJointAngularPin.lean`: `a9eec00d82135fd1b95011cb64f301ef584bcbec53bd238cb6780ff7930cccde`
+- `ThetaOneSidedSeriesCompletion.lean`: `db7297ae26b4acaa34b9d5559e786edff7d1fbe56f8cd62115c3db760731a400`
+- `ThetaEvenSeriesCompletion.lean`: `dfa3a102495553d0b87f51c65a83adcbc952643cb6a62cfa2761b3422601a02f`
+- `ThetaAlternatingCompletedPin.lean`: `154da9ecf23d17281b241b7893916dbc09497033ce7c39b8d541bcc06c39944a`
+
+All checks used the monitored launcher, one 20-GiB worker, 12-GiB reserve,
+fresh capacity/process checks, 87--88% free memory and zero swap. No limits
+raised, concurrent compiler, full-root/tree audit or broad test suite.
+Root imports are registered without claiming a root build. The canonical
+broad chart claims are unchanged; no chart reprint.
+
+### Next bounded experiment and smaller residue
+
+CONTINUE on the literal finite bare-theta frequency numerator. With
+L=(1-x*x)*D^2-x*D, J_N=F_N^2 and
+M_N=sum_(m,n) (m^2+n^2)*w^(m^2+n^2)*T_|m+n|(x), prove the actual pins
+
+```text
+L(J_N)=-sum_(m,n) (m+n)^2*w^(m^2+n^2)*T_|m+n|(x),
+M_N=-2*F_N*L(F_N),
+Q_N=2*M_N+L(J_N)=2*((1-x*x)*(F_N')^2-F_N*L(F_N)).
+```
+
+The first uses actual finite angular ODE and sum transport; the second uses
+signed reflection/product-to-sum and actual Cartesian factorization. The
+coefficient-pinned angular square rule is now supplied. No analytic premise
+is needed for these finite steps. Prediction/test: N=0 gives zero; N=1
+gives Q_N=4*w*x+8*w^2, which can be negative. Do NOT add positivity or an
+Euler-product finite identity. Reuse existing exact signed-list permutations
+and explicit original coefficients; revise if a coefficient or SAME-object
+pin fails. Verification stays narrow, serialized and capped.
+
+Then compose actual parity rectangle limits, explicitly pay the unbalanced
+odd boundary, and join to the literal Jacobi-product value/first/angular
+limits using the existing comparison cutoffs. The full addition-square
+curvature ceiling, strict Haar/original conditional join, useful signed
+cost/scaling estimate, independent survival, completed OS comparison,
+physical/volume control, SAME limiting QFT, every group and Clay remain OPEN.
+
 ## Selected actual parity-tail join
 
 The next finite target is the absolute discrepancy between each actual
@@ -114,7 +227,10 @@ Verification stays root-only, serialized focused checks, one 20-GiB worker,
 or limit raise. Completed series/jet composition and the actual radial
 ceiling remain the downstream consumers and are still OPEN.
 
-### Observed actual alternating-square contraction (2026-10-07 23:26 UTC)
+### Earlier actual alternating-square contraction (2026-10-07 23:26 UTC)
+
+This is checkpoint `e02ff556`; its mixed-tail lines and hash refer to that
+pre-endpoint version. Current endpoint sources and evidence appear above.
 
 The selected finite producer and actual shell consumer PASS. The checked
 square is exactly `(x-1)*A_N(x)^2` on the mixed half-diamond. The actual
