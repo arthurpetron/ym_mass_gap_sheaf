@@ -392,4 +392,12 @@ yet carry, and then `hW`.
 `relabel_haarX` gives `∫ X·Π T_K[L] = ∫ (reindex σ X)·Π T_K[L']` for supported `X`, with one involution step. Open:
 chaining it along the permutation with a composed reindexing and its coordinate action, matching the torus Θ
 (`thetaPoly` on `torusLinks`) with the layout `halfSwap`/`conjSel` Θ, and then `hW`.
+
+## d9y: permutations carrying an observable (`SU2TorusRPPermX`)
+
+`perm_haarX`: for nodup `L₁ ~ L₂` with `|L₁| = n` that contain every plaquette link, there is a list `r` of block
+involutions with `imap r (idx_{L₁} ℓ) = idx_{L₂} ℓ` for every `ℓ`, and `∫ X·Π T_K[L₁] = ∫ (rcomp r X)·Π T_K[L₂]`
+for every supported `X`. Axioms [propext, Quot.sound]. Open: the coordinate action of `rcomp r`
+(`cv b ↦ cv (imap r b)`, via `reindex_coord`/`pe_reindex`), identifying `rcomp r (Θ_torus F · F)` with the layout
+`(Θ_lay F')·F'`, and then `hW`.
 RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
