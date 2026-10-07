@@ -13,9 +13,9 @@ It is rational and cross-multiplied, with no roots. `Pos G L` is a separate hypo
 * `TorusCS : ∀ F G, PtSup F → PtSup G → rpB F G * rpB F G ≤ rpB F F * rpB G G` (target 2). This is the same `≤`
   and cross-multiplied form as `LogConvex`.
 
-**From CS to `LogConvex`.** This step is not done here. It takes `G(j) := rpB F (τ_j F)`, where `τ` is the
-time-translation of observables and `τ_j F` is again `PtSup`, and uses `rpB (τ_a F) (τ_b F) = G(a+b)`. Applying
-`TorusCS` to `τ_j F` and `τ_{j+2} F`... that identification of `G` (transfer structure) is a separate open item.
+**From CS to `LogConvex`.** This step is not done here. It needs `G(n) := rpB F (τ_n F)` with time translation
+`τ`, and the identity `rpB (τ_x F) (τ_y F) ≈ G(x+y)` (transfer structure), so that `TorusCS` at `(τ_x F, τ_y F)` gives
+`G(x+y)² ≤ G(2x)·G(2y)`. Odd `j` additionally needs the CS for the pair `(F, τ_1 F)`. This is a separate open item.
 
 **Proof plan.**
 1. A monomial decomposition `PtSup F → F ≡PE eval (obsOf F)`, with `OnLinks Pt`, reduces `TorusRPPoly` to
@@ -32,5 +32,7 @@ time-translation of observables and `τ_j F` is again `PtSup`, and uses `rpB (τ
 
    Q' identities reduce to Int, closed by `simp only [Int.mul_add, …, Int.mul_comm, Int.mul_left_comm]; omega`
    (checked [propext, Quot.sound]; `grind` brings in Classical and is avoided).
+
+Integer discriminant core `SU2TorusRPCSCore.cs_int`: PROVED ([propext, Quot.sound]).
 
 **STATUS: `TorusRPPoly` AND `TorusCS` ARE OPEN (stated, not proved).**
