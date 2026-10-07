@@ -282,3 +282,15 @@ Open: the geometric instantiation (layout pos ++ cross ++ Θpos, σ = thetaInv o
 taking the actual Π T_K to this form, matching each crossing plaquette's image to rpk_C_cross0/M, and the link-order
 permutation to the integrand). hW is NOT yet discharged for the actual torus integrand.
 RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
+
+## d6a–d6c — PE lift, plaquette matching, end-to-end conditional reduction
+- d6a `pe_lift`: PE n X Y with X, Y supported on n blocks ⇒ PE (n+e) X Y (moves thetaPoly/torus_factor facts to
+  the carrier with fresh split partners).
+- d6b `chImg_sel/unsel`, `imgTK_eq_TK`, `rpk_match0/M`: crossing plaquettes with index lists [s₁,p,s₂,p+a] /
+  [s₁,p+a,s₂,p] have RPK Ctw-twists; unsplit plaquettes keep T_K.
+- d6c `torus_rp_master`: 0 ≤ ∫_{a+a} (ΘF·F)·Π_ps T_K from: ChainOK chain, support/index bounds, chain fixes ΘF·F,
+  the factorisation Π_ps T_K[split] ≈PE (Wp·ΘWp)·Π_cs G, and RPK of each Ctw(G c).
+Open: instantiate these hypotheses from the torus geometry (concrete layout list, idxOf computations for the
+crossing plaquettes, the factorisation via torus_factor + pe_lift + imgTK_eq_TK, chain fixing ΘF·F), and the
+link-order / block-count bridge to the integrand. hW is NOT yet discharged for the actual torus integrand.
+RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
