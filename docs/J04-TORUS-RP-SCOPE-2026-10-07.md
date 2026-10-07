@@ -357,3 +357,12 @@ RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
 Open: that plaquette decomposition for the torus plaquette list, and reindexing the torus integrand (torusLinks order,
 observable F on positive links) onto the layout order; then hW.
 RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
+
+## d9r–d9t — torus plaquette decomposition; layout RP for all torus plaquettes
+- d9r `perm_ext'` (Classical-free). d9s `mir_invol`, `mir_side_neg`.
+- d9t `plaq_perm`: `torusPlaquettes (2M) ~ posT ++ mir posT ++ crossT`; `torus_rp_all`:
+  `0 ≤ ∫_{|L|} (Θ_H F · F) · ∏_{torusPlaquettes (2M)} T_K` on the layout `Pt ++ Ct ++ Θ Pt`, any `F` on the first
+  `|Pt|` blocks, no remaining hypotheses besides `1 ≤ M`, `β ≥ 0`.
+Open: identify the layout integral with the actual torus integrand (torusLinks order, observable algebra on positive
+links) by a block reindexing, and state hW in the target's form.
+RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
