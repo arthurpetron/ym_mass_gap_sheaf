@@ -4,7 +4,16 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 32, time translation of slices and of the Wilson weight (transfer step 2f) (2026-10-07 PT)
+## Latest proved increment: R1 commit 33, Z as a periodic chain of time-shifted kernels (trace form), fixed K, Wilson torus (2026-10-07 PT)
+
+- `SU2TransferTrace.z_eq_trace` (PROVED, [propext, Quot.sound]).
+  - Hypothesis: torusLinks N ⊆ links.
+  - Statement: `H(Π_{p∈torus} T_K(p)) ≈ trT = H(Π_{t<N} Tker (iota t))`.
+  - `Tker ι` is ONE kernel (∫dV_0 of the slice-0 weight with variables placed by ι); `iota t = idxOf ∘ τ_t`.
+- Interface note for Realizer: `docs/NOTE-LOGCONVEX-INTERFACE-2026-10-07.md`.
+- Labels: STRONG COUPLING / Wilson T_K, fixed K; also true for U(1), not gap evidence.
+
+## Earlier proved increment: R1 commit 32, time translation of slices and of the Wilson weight (transfer step 2f) (2026-10-07 PT)
 
 - `SU2TimeShift` (PROVED, [propext, Quot.sound]).
   - `ps_perm`/`pt_perm`/`v_perm`: for t < N, slice t ~ (slice 0).map (shv N t).
@@ -72,7 +81,7 @@ new angle). Run `bash computations/progress_metric.sh` each iteration.
 ## Earlier proved increment: R1 commit 24, transfer-matrix scope note (2026-10-07 PT)
 
 - SCOPE ONLY (no Lean): `docs/SCOPE-SU2-TORUS-TRANSFER-MATRIX-2026-10-07.md`.
-  - Slice kernel T(U,U') with V integrated (no gauge fixing); Z = Tr T^{N_t}; finite rank for finite K.
+  - Slice kernel T(U,U') with V integrated (no gauge fixing); Z as a periodic chain of time-shifted kernels (trace form); finite rank for finite K.
   - The note maps T onto the RP/GNS/OS objects and lists 7 open obligations.
   - Positivity waits on Realizer's `hW` bridge.
 - Labels: strong coupling (gap step); Wilson; also true for U(1), not gap evidence.

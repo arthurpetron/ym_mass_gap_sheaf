@@ -13,8 +13,7 @@ The slice-`t` factor is `W_t = Π_{slicePS t} T_K · Π_{slicePT t} T_K`, and it
 * `z_transfer`: `∫ Π_{p∈torus} T_K(p) ≈ ∫ Π_{t<N} T_t`, where `T_t = ∫dV_t W_t` is a polynomial
   kernel in the remaining (spatial) blocks.  That is, `Z = ∫_U Π_t T_t(U_t, U_{t+1})`.
 
-Still OPEN for `Z = Tr T^{N_t}` with a SINGLE kernel `T`: the translation `T_t = τ_t T_0` via
-`pe_reindex`.
+Still OPEN (done in commit 33): Z as a periodic chain of time-shifted kernels (trace form), via the translation of one kernel.
 -/
 
 import YMGap.Continuum.SU2SliceIntegrate
