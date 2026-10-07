@@ -92,3 +92,31 @@ give the rational unit quaternions `(3+4i)/5, (3+4j)/5`; cited, not
 formalized).  `Continuum/SU2PolyLinkHaar.lean` gives the constructed
 replacement on the polynomial coordinate algebra.  Changing the Gibbs layer's
 hypothesis type is the Prover's call.
+
+## 5. How much of the `LinkHaar SU2` emptiness argument is formalizable
+
+Steps, with cost estimates:
+
+1. *Restriction to ≈-closed indicators* — easy: `F x := if x ∈ A then 1 else 0`
+   needs a decidable ≈-closed predicate; `h` then gives `μ(A)` with finite
+   additivity and invariance from `add`/`left_inv` (≈-congruence of `G.mul`
+   exists).  Small.
+2. *Two explicit rational unit quaternions `a = (3+4i)/5`, `b = (3+4j)/5`
+   generate a free group mod ±1* — the hard part.  Ping-pong on the
+   5-adic valuation of reduced words (norm-5 Lipschitz quaternions, unique
+   factorization of Hurwitz/Lipschitz quaternions at an odd prime) is a
+   self-contained but substantial development (est. 1–2k lines).
+3. *Paradoxical decomposition of the free group* — standard and
+   constructive on reduced words (`F = {e} ∪ W(a) ∪ W(a⁻¹) ∪ W(b) ∪ W(b⁻¹)`,
+   `F = W(a) ∪ a W(a⁻¹)`), moderate.
+4. *Transfer from `F` to `G`* — classically needs a choice of right-coset
+   representatives of `F` in `G`.  Constructively avoidable only by a different
+   route: apply the mean to the indicator functions of the sets
+   `{x | x ∈ W(·)}` *inside `F`* is not enough (μ(F) may be 0).  So step 4
+   needs either choice or an explicit, decidable coset transversal of `⟨a,b⟩`
+   in the rational unit quaternions (not known to us).
+
+So steps 1–3 are formalizable with effort; step 4 is the genuine obstacle in a
+choice-free development.  A cheaper, sufficient fix is to drop `LinkHaar` from
+the Gibbs layer in favour of `PolyLinkHaar`, which the Prover has done
+(`SU2TorusPolyGibbs`).
