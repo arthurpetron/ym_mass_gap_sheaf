@@ -243,5 +243,6 @@ RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
 ## d3h — crossing product & Haar chain (SU2TorusRPCrossProd.lean)
 - `crossWord`, `cross_witness`, `rpk_cross_prod`: tkProd over split crossing words with `SupQ` data is an RPK.
 - `haar_chain`: iterated `haar_step` for a list of Haar-invariant substitutions. Axioms: [propext, Quot.sound].
+- `rp_cross_assembly`: rp_conj_assembly with hWc replaced by `C Wc ≈PE tkProd(crossWords)` + CrossOK data.
 - Open: concrete per-link split instances on the torus integrand; identification of `C Wc` with the crossWord product.
 RP FOR THE ACTUAL TORUS MEASURE IS OPEN.

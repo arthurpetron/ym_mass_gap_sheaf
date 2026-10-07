@@ -60,8 +60,29 @@ theorem haar_chain (n : Nat) :
     Q'.eqv_trans _ _ _ (h S (List.mem_cons_self ..) _)
       (haar_chain n Ss P fun T hT => h T (List.mem_cons_of_mem _ hT))
 
+/-- **Assembly with split crossing kernel.** `hW` reduces to: a Haar-invariant ring substitution `C` with the
+twist properties, and `C Wc ≈PE tkProd` of split crossing words with positive-half data. -/
+theorem rp_cross_assembly {a : Nat} {β : Q'} (hβ : (0 : Q') ≤ β) (K : Nat) (C : RatPoly → RatPoly)
+    (hCh : ∀ X, (quaternionHaar (a + a) (C X)).eqv (quaternionHaar (a + a) X))
+    (hC : YMGap.Continuum.SU2TorusRPSubst.RingSub (a + a) C)
+    (F Wp Wc ThF ThWp : RatPoly) (hF : YMGap.Continuum.SU2TorusRPCore.Sup a F)
+    (hWp : YMGap.Continuum.SU2TorusRPCore.Sup a Wp)
+    (hCF : YMGap.Continuum.SU2HaarAlgebra.PE (a + a) (C F) F)
+    (hCWp : YMGap.Continuum.SU2HaarAlgebra.PE (a + a) (C Wp) Wp)
+    (hThF : YMGap.Continuum.SU2HaarAlgebra.PE (a + a) (C ThF)
+      (YMGap.Continuum.SU2MultiLinkHaarFactorization.shiftPoly a F))
+    (hThWp : YMGap.Continuum.SU2HaarAlgebra.PE (a + a) (C ThWp)
+      (YMGap.Continuum.SU2MultiLinkHaarFactorization.shiftPoly a Wp))
+    (ts : List (PolyQuaternion × PolyQuaternion × PolyQuaternion)) (hts : ∀ t ∈ ts, CrossOK a t)
+    (hWc : YMGap.Continuum.SU2HaarAlgebra.PE (a + a) (C Wc)
+      (tkProd β K (ts.map fun t => crossWord a t.1 t.2.1 t.2.2))) :
+    (0 : Q') ≤ quaternionHaar (a + a) (polyMul (polyMul ThF F) (polyMul (polyMul Wp ThWp) Wc)) :=
+  YMGap.Continuum.SU2TorusRPAssembly.rp_conj_assembly C hCh hC F Wp Wc ThF ThWp hF hWp hCF hCWp hThF hThWp
+    (YMGap.Continuum.SU2TorusRPCore.rpk_congr hWc (rpk_cross_prod hβ K ts hts))
+
 end YMGap.Continuum.SU2TorusRPCrossProd
 
 #print axioms YMGap.Continuum.SU2TorusRPCrossProd.cross_witness
 #print axioms YMGap.Continuum.SU2TorusRPCrossProd.rpk_cross_prod
 #print axioms YMGap.Continuum.SU2TorusRPCrossProd.haar_chain
+#print axioms YMGap.Continuum.SU2TorusRPCrossProd.rp_cross_assembly
