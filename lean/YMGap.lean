@@ -5510,6 +5510,9 @@ import YMGap.Continuum.SU2QuaternionProductHeatFrozenJetCurvature
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFrozenScoreProductCurvature
 -- Computed entrywise cap has inverse-quadratic nome-defect growth, not AF control.
 import YMGap.Continuum.SU2QuaternionLogCurvatureCapObstruction
+-- Exact paired-score energy, not a geodesic-frame or lower-curvature theorem.
+import YMGap.Continuum.QuaternionHaarConditionalScorePairedFrame
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepPairedScoreBudget
 import YMGap.Continuum.SU2QuaternionRelativeHeatDualScore
 import YMGap.Continuum.SU2QuaternionProductHeatScoreVariance
 import YMGap.Continuum.SU2QuaternionProductHeatScoreEnergyObstruction

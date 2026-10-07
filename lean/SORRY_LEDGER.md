@@ -1,5 +1,33 @@
 # Sorry Ledger
 
+## PROVED: paired directions preserve the original exact-score budget (2026-10-07)
+
+- `QuaternionHaarConditionalScorePairedFrame.conditionalScore_firstJet_pin`
+  identifies the literal coupled score with its coordinate first-jet wedge.
+  `decomposable_plucker` and `conditionalScore_plucker` prove cancellation
+  without any sphere, support, positivity or inverse hypothesis.
+- `plusSquare_eq_sixScoreSquare` and `minusSquare_eq_sixScoreSquare` give
+  BOTH three-square energies exactly equal to the original six-plane sum;
+  `plusSquare_weighted_pin` and `minusSquare_weighted_pin` preserve arbitrary
+  polynomial multipliers. There is no hidden factor two or radius division.
+- `BF4ExactSlabFixedSpatialLastStepPairedScoreBudget.pairedScoreAngularBudget_eq_exact`
+  instantiates this on the ACTUAL original terminal/source window, retaining
+  Vbar^2*G^2, sigma, active set and reciprocal degree for every original source.
+- Two focused targets pass eight gates within {propext, Quot.sound}.
+  An initially classical dependent finite-index congruence was replaced by
+  direct proofs at slots 0,1,2; only the final clean logs are proof evidence.
+  A missing defining namespace in the original consumer was also repaired.
+  One 20-GiB worker, 12-GiB reserve, fresh 87--88%-free zero-swap preflights.
+  No new source sorry/axiom/classical input, limit raise or canonical field
+  change. Root registration only; no full-root/tree audit or baseline refresh.
+- OPEN: geometric invariant-frame identification and constructive one-sided
+  curvature producer, original conditional integration/normalization, useful
+  signed-cost/scaling estimate, independent survival, completed cross-action
+  comparison, physical/volume control, SAME limiting QFT, every compact simple
+  group and Clay. The broad chart is unchanged.
+
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 ## PROVED: nome-defect obstruction for the constructed entrywise cap (2026-10-07)
 
 - `SU2QuaternionLogCurvatureCapObstruction.prefixBudget_one_le` uses the

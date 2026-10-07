@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Supporting exact original paired-score conversion checked (2026-10-07):
+the coupled score satisfies Plucker cancellation, and BOTH three-direction
+paired square sums equal its original six-plane energy with no radius factor.
+The ACTUAL exactScoreAngularBudget keeps A=g_(n+r+1), b=T^(r+1)(g_n*psi),
+Vbar^2*G^2, sigma, reciprocal degree and active set. No geometric frame,
+lower-curvature, conditional-normalization or scaling claim is supplied.
+Two focused targets pass eight permitted gates; no full-root/tree audit.
+Useful signed-cost/scaling bounds, independent survival, completed comparison,
+physical/volume control, SAME limiting QFT, every group and Clay remain OPEN.
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+Broad chart unchanged; no reprint.
+
 Supporting cap-only scaling screen checked (2026-10-07):
 `4224 <= (1-w)^2*logCurvatureCap(w)` rules out bounded/inverse-linear nome
 control of THIS constructed entrywise cap. It says nothing about optimal

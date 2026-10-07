@@ -27,6 +27,22 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+The original coupled-score frame conversion is now CHECKED: its decomposable
+bivector satisfies the literal Plucker identity, so either complementary-plane
+triple has exactly the SAME six-plane square energy, with no factor two or
+unit-radius hypothesis. The ACTUAL `exactScoreAngularBudget` is coefficient/
+Haar-exactly rewritten with A=g_(n+r+1), b=T^(r+1)(g_n*psi), Vbar^2*G^2,
+sigma and its active set unchanged. This removes an energy-conversion seam
+for a three-direction one-sided producer; it does NOT prove geometric frame
+identification, a lower-curvature estimate, conditional normalization or AF
+scaling. NEXT seek the genuine constructive producer using this exact currency,
+or estimate the complete retained signed cost. The Jacobi hemisphere argument
+cannot be globalized without an original-law sector/payment join; its N=2
+near-antipodal diagnostic rules out a bound uniform over ALL finite approximants,
+not a nome-dependent cutoff route or the original guarded heat. Two focused
+targets pass eight permitted gates; no full-root/tree audit or broad closure.
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 The cap-only scaling shortcut is now PRUNED by a CHECKED parameter screen:
 `4224 <= (1-w)^2*logCurvatureCap(w)`. This SAME constructed entrywise cap
 contains the global heat-floor reciprocal; additive tensorization cannot make

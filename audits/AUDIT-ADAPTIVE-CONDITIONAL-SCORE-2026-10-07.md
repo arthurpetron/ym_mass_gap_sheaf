@@ -287,3 +287,100 @@ curvature expression already refuted at the original antipode; see
 any curvature method succeeds or fails from this benchmark. The actual
 conditional Hessian, original source/action, output weight, normalization,
 nontrivial survival and all-vector limiting-theory joins remain required.
+
+## Next selected experiment: exact paired-score frame join
+
+Target: write the SAME coupled-score energy in three paired directions,
+without changing its action, source, terminal messages or output multiplier.
+For Sij=A*Dij(b)-b*Dij(A), the first-jet pin Sij=xi*Fj-xj*Fi,
+Fj=A*partial_j(b)-b*partial_j(A), implies the coefficient-exact identity
+S01*S23-S02*S13+S03*S12=0. Consequently
+
+    (S01+S23)^2+(S02-S13)^2+(S03+S12)^2 = sum_(i<j) Sij^2.
+
+The opposite-sign triple has the same energy. Available inputs are literal
+angular differentiation, `conditionalScore` and polynomial ring reflection.
+The actual consumer is `exactScoreAngularBudget`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLastStepExactScoreBudget.lean:112`:
+retain its A=g_(n+r+1), b=T^(r+1)(g_n*psi), Vbar^2*G^2, sigma and active list.
+Predicted outcome: exact equality for arbitrary supported or unsupported
+polynomial A,b and arbitrary multiplier, including zero scores; no inverse,
+conditional-law restriction or stationary measure is needed. This removes
+the energy-conversion obstruction to trying a three-direction producer, NOT
+the missing producer, geometric frame identification or conditional join.
+
+Verification budget: two narrow serialized checks, fresh dynamic preflights,
+one 20-GiB worker and 12-GiB OS reserve. Sol implements finite algebra only;
+root checks it and the original consumer. Revise if a sphere/unit-radius
+hypothesis is needed for the coefficient identity, weights change, or an
+unproved geodesicity/heat-time/Harnack claim is used as a premise.
+
+### Independent Jacobi test (research calculation, not kernel evidence)
+
+The SAME positive Jacobi derivative has a better hemisphere-local estimate:
+with r_k=2*w^(2k+1)/(1+2*w^(2k+1)*x+w^(4k+2)), its positive-mixture
+log Hessian retains E(r_k^2)+Var(r_k). For x>=0, sum r_k and sum r_k^2
+are bounded respectively by 2*w/(1-w^2) and 4*w^2/(1-w^4), with no global
+Euler-floor reciprocal. Original K(V*source) is not hemisphere-supported;
+there is NO supplied global sector/payment join.
+
+The proposed all-finite-Jacobi global inverse-linear bound fails its N=2
+diagnostic: the polynomial is proportional to x+a, where
+a=(w+w^-1+w^3+w^-3)/4. For 1<a<=2, at x=a-2/a its invariant radial log
+Hessian is -a^2/(4*(a^2-1)); a-1 is quadratic in 1-w. This is a rational
+research calculation, NOT a new Lean obstruction. It does not refute a
+cutoff-dependent Jacobi route or the original guarded character prefix:
+their exact value/derivative deficits must be paid. Do not import this
+diagnostic as a theorem about the original transfer or its physical gap.
+
+### Observed paired-score evidence
+
+Both final focused targets PASS, with all eight printed public dependencies
+within {propext, Quot.sound}:
+
+| Declaration | Source |
+| --- | --- |
+| `decomposable_plucker` | `lean/YMGap/Continuum/QuaternionHaarConditionalScorePairedFrame.lean:54` |
+| `conditionalScore_firstJet_pin` | Same source `:70` |
+| `conditionalScore_plucker` | Same source `:103` |
+| `plusSquare_eq_sixScoreSquare` | Same source `:192` |
+| `minusSquare_eq_sixScoreSquare` | Same source `:204` |
+| `plusSquare_weighted_pin` | Same source `:216` |
+| `minusSquare_weighted_pin` | Same source `:222` |
+| `pairedScoreAngularBudget_eq_exact` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLastStepPairedScoreBudget.lean:66` |
+
+Accepted logs, in this order:
+
+```text
+/private/tmp/ym-oct7-paired-score-frame-clean.log
+ae6df76315d15b00b6d229ab0e9559cb037ab7633be643cd063bb5733e6fa4f0
+/private/tmp/ym-oct7-original-paired-score-budget-clean.log
+a1dc372e913053121744f42baa37fc4ebadb92626b2812e3b6014f0a16403007
+```
+
+The first frame compilation passed elaboration but FAILED the axiom gate:
+private dependent finite-index congruences brought `Classical.choice` into
+the energy identities. Intermediate axiom prints localized the dependency;
+direct congruences at literal slots 0,1,2 removed it. The old and localization
+logs are NOT accepted proof evidence. The initial original consumer also
+failed on a missing defining namespace, subsequently supplied without changing
+the statement. No new source sorry/axiom/classical input or limits change.
+Fresh preflights before every launch showed no competing compiler, 87--88%
+free and zero swap; checks ran sequentially with one 20-GiB worker and 12-GiB
+reserve. Root registration only; no full-root/tree audit or baseline refresh.
+
+Decision: CONTINUE with the exact three-score currency, NOT a geometric or
+Harnack claim. The energy conversion is now proved for the original budget,
+including zero/arbitrary sources and signed multipliers. Constructive frame/
+heat identification, the genuine one-sided bound, actual conditional law,
+normalization, retained signed cost and all scaling/Clay joins remain OPEN.
+The user's lattice-measurement note remains incorporated in the existing
+`audits/RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md` and work-plan priority;
+it supplies no numerical premise for this proof. No routine listing scan or
+duplicated literature review was needed. The canonical broad chart is unchanged.
+
+Independent read-only source review found no semantic issue: each triple
+alone retains the original six-score energy without a radius/factor-two
+correction, and the actual consumer adds no source-support, nonzero-source
+or positive-sigma premise. It confirms the algebra-versus-geometric-curvature/
+conditional/scaling boundary; the review itself is not compilation evidence.
