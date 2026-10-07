@@ -7438,6 +7438,7 @@ import YMGap.Continuum.SU2TorusRPSplitFactor
 import YMGap.Continuum.SU2TorusRPLayout
 import YMGap.Continuum.SU2TorusRPLayoutT
 import YMGap.Continuum.SU2TorusRPLayoutChain
+import YMGap.Continuum.SU2TorusRPLayoutCross
 import YMGap.Continuum.SpecMaxRateFamily
 import YMGap.Continuum.W1StrongCouplingPerturbation
 import YMGap.Continuum.W1VacuumTailRowSum
