@@ -57,3 +57,38 @@ lattice Wilson measure.
 
 Items 1–4 correspond to ladder item (e) of work_plan "J04 parallel track";
 items 5–6 to (d)/(f).  None of these exist; nothing in this note is proved.
+
+## 3. SU(2) general-spin Schur orthonormality: why it is not cheap (2026-10-06)
+
+Proved: `∫ χ_s χ_t = δ_st` for `s, t ≤ 2` only, by exact evaluation
+(`SU2TorusSchurSmall.polySchurUpTo2`, `SU2Realized.selfPairing_one/_two`).
+The general statement needs three lemmas that do not exist in the repo:
+
+1. **Clebsch–Gordan for Chebyshev-U** as polynomials:
+   `U_s · U_t = Σ_{j=0}^{min(s,t)} U_{|s−t|+2j}` (`characterPolynomial` level,
+   induction on `min(s,t)` from the three-term recursion — moderate).
+2. **Character mean**: `quaternionHaar 1 (U_n(x₀)) ≈ δ_{n0}`.  This needs the
+   closed form of the one-coordinate sphere moment
+   `sphereMoment4 2k 0 0 0 = Catalan(k)/4^k` (the S³ semicircle law) together
+   with the monomial expansion of `U_n` — a coefficient identity
+   `Σ_k (−1)^k C(n−k,k) 2^{n−2k} · Cat((n−2k)/2)/4^{(n−2k)/2} = δ_{n0}`, which is
+   the real work.
+3. **Haar linearity over `polyAdd`/`polyMul` reorganization** (exists:
+   `quaternionHaar_append`, `quaternionHaar_polySmul`, `HaarCarrierEqv`).
+
+With (1)–(2), orthonormality is a one-line sum.  The relative (two-block)
+version additionally needs `relativeCharacter` mean `≈ δ_{n0}`, which reduces
+to (2) by invariance of `quaternionHaar` under one-block translation (only
+selected-degree translation lemmas exist).
+
+## 4. `LinkHaar SU2` (in `SU2TorusWilsonGibbs`) is empty
+
+It asks for an additive, positive, normalized, left-invariant functional on
+*all* functions on the rational unit quaternions.  On `≈`-invariant indicator
+functions it would be a left-invariant finitely additive mean on the group,
+which is impossible because the group contains a rank-two free subgroup mod ±1
+(classical; e.g. via the norm-5 integer quaternions `2+i, 2+j`, whose squares
+give the rational unit quaternions `(3+4i)/5, (3+4j)/5`; cited, not
+formalized).  `Continuum/SU2PolyLinkHaar.lean` gives the constructed
+replacement on the polynomial coordinate algebra.  Changing the Gibbs layer's
+hypothesis type is the Prover's call.
