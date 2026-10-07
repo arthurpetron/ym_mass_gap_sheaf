@@ -4,7 +4,17 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: C11 slab insertion + torus Wilson action (2026-10-06 PT)
+## Latest proved increment: slab partition, gauge invariance, SU(2) torus Gibbs layer (2026-10-06 PT)
+
+Proved finite lemmas (`TorusSlabCover`): slab nodup, disjoint from its complement, cover,
+`slab ++ complement ~ boxVertices N`. Proved algebra (`TorusGaugeInvariance`):
+`hol_{g·U} ≈ g(w)·hol_U·g(w)⁻¹`; `S_f` gauge-invariant for class functions. REDUCTION
+(`SU2TorusWilsonGibbs`): `ConfigHaar`/`LinkHaar`/`SU2Schur` OPEN structures; SU(2) spin
+characters are class functions (`Re(ghḡ) = |g|²Re h`); `Z ≥ δ^{6N⁴} > 0`; Boltzmann weight
+gauge-invariant. Group-generic except the SU(2) character layer (U(1) rule: no gap claim).
+Scope: `audits/SCOPE-SU2-TORUS-WILSON-GIBBS-2026-10-06.md`.
+
+## Earlier proved increment: C11 slab insertion + torus Wilson action (2026-10-06 PT)
 
 REDUCTION + proved finite lemmas. `TorusSlabInsertion`: time slabs on the torus (`r·N³`
 vertices, `6rN³` plaquettes, complement count, time-shift transport) and PP Lemma 3.3's
