@@ -1,5 +1,37 @@
 # Sorry Ledger
 
+## PROVED: exact original score/dissipation and signed consumer (2026-10-07)
+
+- `BF4ExactSlabFixedSpatialScoreDissipation.scoreDissipationCutoff`
+  constructs one incoming degree paying the score and original-noise errors.
+  `original_lastStep_score_dissipation_le` removes that degree and the
+  auxiliary Young inflation by constructive rational Archimedean order:
+  Zi*score_l+H*Zi*Bout<=H*(1+xi)*Zo*Cin, H=relativeCap^2*spatialCeiling.
+  Outgoing degree l is arbitrary; no source norm or partition is divided.
+- `activePlaneCount` counts six planes for each actual active block.
+  `exactScoreAngularBudget_dissipation_le` feeds the existing complete score
+  budget, retaining that multiplicity and (1+sigma).
+  `exactScoreSignedBulk_dissipation_le` feeds the SAME existing signed bulk
+  while retaining BOTH literal paired Taylor terms, incoming Zi and outer Zo.
+  No raw-loss positivity, remainder sign or quantitative remainder bound.
+  The summed global-loss ceiling is sufficient, not equivalent to the
+  sharper actual score; its multiplicity can make it too loose for scaling.
+- One focused target passes five gates within {propext, Quot.sound}.
+  An incorrect rational cancellation helper call was repaired explicitly;
+  failed elaboration is not proof evidence. No compiler limit raise, new
+  source sorry/axiom/classical input or canonical field change. One 20-GiB
+  worker, 12-GiB reserve, fresh zero-swap process/capacity checks. Root import
+  registration only; no full-root/tree audit or hashed-baseline refresh.
+- OPEN: combined corrected-loss/signed-remainder control in SAME surviving
+  units on the justified scaling family, independent AF response survival,
+  actual all-vector completed fine/coarse comparison/useful budget,
+  physical/volume control, SAME limiting QFT, every compact simple group
+  and Clay. Nome/width caps and terminal xi remain genuine dependencies.
+  This is finite V-weighted reverse-Poincare control, not an OS/RG theorem.
+  The displayed broad chart remains unchanged.
+
+Evidence: `audits/AUDIT-EXACT-SCORE-DISSIPATION-2026-10-07.md`.
+
 ## PROVED: incoming reconstruction-score payment in same incoming units (2026-10-07)
 
 - `BF4ExactSlabFixedSpatialLastStepErrorBudget.lastStepErrorBudgetMultiplier_window_certificate`

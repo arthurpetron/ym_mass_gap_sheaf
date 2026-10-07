@@ -1,5 +1,20 @@
 # Canonical one-page project status
 
+Supporting exact score/dissipation estimate checked (2026-10-07): for the
+ACTUAL original moments, Zi*score_l+H*Zi*Bout<=H*(1+xi)*Zo*Cin. Constructive
+rational order removes the incoming degree and Young overhead; outgoing l
+is arbitrary. The complete angular consumer retains six planes and the
+actual active count. The signed bulk consumer keeps BOTH literal Taylor
+remainders and distinct Zi/Zo; no remainder sign or raw-loss positivity is
+assumed. Nome/width caps and the genuine terminal xi remain. One focused
+target passes five permitted gates; no full-tree audit. The summed global-loss
+ceiling is sufficient, not necessary, and may be too loose for scaling;
+keep the tighter actual signed-score route available. Useful combined
+scaling/surviving-form estimate, AF survival, completed cross-action comparison,
+physical/volume control, limiting QFT, every group and Clay remain OPEN.
+Evidence: `audits/AUDIT-EXACT-SCORE-DISSIPATION-2026-10-07.md`.
+Broad chart unchanged; no reprint.
+
 Supporting incoming reconstruction-score payment checked (2026-10-07):
 the ORIGINAL positive terminal window gives P(a)<=2*(1+kappa)*T1*(Ta)^2.
 The actual outgoing multiplier cancels (Ta)^2 by a cone certificate; projected

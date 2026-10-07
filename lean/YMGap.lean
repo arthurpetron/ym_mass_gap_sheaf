@@ -7212,6 +7212,9 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepProjectedNoise
 -- and outgoing degree at FIXED nome/width; leading interacting noise is open.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialIncomingScoreRelativePayment
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepOriginalDissipation
+-- Exact score versus original normalized loss, with incoming reconstruction
+-- removed. Actual plane count and signed Taylor remainder remain explicit.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialScoreDissipation
 
 -- Actual conditional prediction square pays last innovation by ORIGINAL
 -- incoming Dirichlet energy. Distinct partition scales cancel explicitly;

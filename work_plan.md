@@ -39,6 +39,33 @@ all-vector, limiting-QFT and physical-clock requirements. Primary-source
 verification and corrections:
 `audits/RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md`.
 
+The direct-score front now has a CHECKED original dissipation estimate:
+`Zi*score_l+H*Zi*Bout<=H*(1+xi)*Zo*Cin`, H=relativeCap^2*spatialCeiling.
+One constructed common incoming degree pays both approximation errors, then
+constructive rational order removes that degree and the Young overhead from
+the actual score statement. Outgoing l is arbitrary. The existing complete
+angular budget is bounded with SIX times the ACTUAL active count and its
+(1+sigma) factor. Its signed bulk consumer retains BOTH literal paired Taylor
+remainders and the distinct incoming Zi/outer Zo; neither is silently the
+outgoing Rayleigh partition. Do not assume the raw normalized-square deficit
+is nonnegative, drop the genuine terminal xi, or treat this ordinary finite
+V-weighted theorem as completed OS/RG comparison. NEXT estimate the complete
+corrected original loss PLUS retained signed remainder in surviving-form
+units on the justified scaling family, before separate absolute ceilings
+erase cancellation. Uniformly useful caps/loss control, source-versus-vacuum
+response survival and the actual fine/coarse join are NOT supplied. Evidence:
+`audits/AUDIT-EXACT-SCORE-DISSIPATION-2026-10-07.md`.
+
+This summed corrected-loss ceiling is a SUFFICIENT route, not an equivalent
+prerequisite: it repeats a global loss at every active plane and may be too
+loose for scaling. Keep the tighter actual combined signed-score producer
+available; do not force it through a volume-extensive ceiling. In the new
+route the cleared target is
+`Zo*((1-w)*m*(1+sigma)*D+Zi*R)<=bCost*Zi*Z1*Bout`, with
+`Z1=ell_V[A*T A]` DISTINCT from `Zo=ell_V[A^2]`; bCost is the desired cost
+fraction, not a gauge-coupling parameter. This target is NOT proved. Estimate
+the combined signed quantity, not separate smallness of loss and remainder.
+
 Incoming reconstruction now has a CHECKED derivative-score payment that is
 independent of cutoff, terminal depth, source and outgoing reciprocal degree
 at FIXED nome/width. The positive terminal window sharpens its multiplier to
@@ -50,9 +77,10 @@ C1 reconstruction premise or a fixed-output-degree amplitude. It does NOT
 control the retained leading interacting noise, provide an outgoing-relative
 bound or become AF/volume-uniform. At later filtered times use the actual
 `c=a*phi_k+e_k` reconstruction: the simple unfiltered `c=a*psi` score split
-alone does not cover them. NEXT estimate that leading signed source/action
-contribution on the justified family, including its OWN-center and original
-partitions, and compare source and vacuum gains where seeking response survival.
+alone does not cover them. The score-versus-original-loss join above now
+eliminates the auxiliary incoming ratio from the final score bound. The
+remaining signed source/action estimate must retain its OWN-center and
+original partitions, and compare source/vacuum gains for response survival.
 Evidence: `audits/AUDIT-INCOMING-SCORE-RELATIVE-PAYMENT-2026-10-07.md`.
 
 The selected response calculation now has a CHECKED cofinal screen:
