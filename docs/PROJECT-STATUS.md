@@ -6512,3 +6512,5 @@ Transfer-matrix scope note (2026-10-07): R1 commit 24.  Scope only.
 `SU2TimeShift` (2026-10-07): R1 commit 32.  Time translation of slices and weights.
 
 `SU2TransferTrace` (2026-10-07): R1 commit 33.  Z as a periodic chain of time-shifted kernels (trace form) at fixed K (milestone); no operator T is defined.
+
+`SU2LogConvexZero` (2026-10-07): R1 commit 34.  Zero case for the LogConvex route.

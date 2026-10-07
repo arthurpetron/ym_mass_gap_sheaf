@@ -224,3 +224,10 @@ No fail statement is given: the ℓ¹ envelope is an upper bound, not the true a
 - OPEN:
   - LogConvex for the truncated correlator (interface note);
   - the Archimedean lemma in Q′ and the N_t → ∞ corollary.
+
+## PROVED: commit 34, `SU2LogConvexZero.lean`
+
+- `gap_nonneg` replaces the G > 0 hypothesis of `gap_finite` by G ≥ 0.
+- OPEN:
+  - the LogConvex instance (Realizer interface note);
+  - the Archimedean lemma in Q′ and the N_t → ∞ corollary.

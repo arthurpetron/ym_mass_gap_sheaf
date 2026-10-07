@@ -7505,6 +7505,7 @@ import YMGap.Continuum.SU2LogConvexGap
 import YMGap.Continuum.SU2WilsonSliceGood
 import YMGap.Continuum.SU2TimeShift
 import YMGap.Continuum.SU2TransferTrace
+import YMGap.Continuum.SU2LogConvexZero
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport

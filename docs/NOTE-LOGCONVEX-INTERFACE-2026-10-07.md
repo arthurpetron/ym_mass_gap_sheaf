@@ -22,7 +22,7 @@ directly into `gap_finite` (commit 30). Everything is in Q′, cross-multiplied,
    `B(τ_a F̃, τ_b F̃) ≈ G(c + a + b)` for `a, b ≤ a_max`.
    - G is the truncated correlator, as a trace ratio. With periodic time this is
      the chained-kernel analogue of `Tr(T^{N−n} F̃ T^n F̃) / Tr T^N` (heuristic notation only; no operator is defined). Only the numerator form is needed if `Z > 0` is factored out.
-3. **Positivity:** `0 < G(n)` for `n ≤ L`, or a separate treatment of `G(n) = 0` (`ratio_mono`
+3. **Positivity:** only `0 ≤ G(n)` for `n ≤ L` is needed now (commit 34, `gap_nonneg`; zeros spread by `zero_all`). Earlier note: (`ratio_mono`
    cancels by `G(j+1)`).
 
 With (1) and (2), taking `a − b = ±1` gives `G(c+k)² ≤ G(c+k−1) · G(c+k+1)`, which is `LogConvex`

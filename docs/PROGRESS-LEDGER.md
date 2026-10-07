@@ -4,7 +4,16 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 33, Z as a periodic chain of time-shifted kernels (trace form), fixed K, Wilson torus (2026-10-07 PT)
+## Latest proved increment: R1 commit 34, LogConvex route under G ≥ 0 (the zero case) (2026-10-07 PT)
+
+- `SU2LogConvexZero` (PROVED, [propext, Quot.sound]).
+  - `zero_all`: under G ≥ 0 and LogConvex, a zero at any m ≤ L−1 forces G ≈ 0 on 1..L−1.
+  - `gap_nonneg`: G(k+1)^d·G(k) ≤ C q^(k+d)·G(k)^d for k+d ≤ L, assuming G ≥ 0, LogConvex, clustering, 0 ≤ C, 0 ≤ q. No positivity is assumed.
+- Abstract; the LogConvex instance is still to come from Realizer's general RP and Cauchy–Schwarz.
+- Archimedean lemma in Q′ and the N_t → ∞ corollary: OPEN, not attempted.
+- Labels: strong coupling, fixed K, also true for U(1), not gap evidence.
+
+## Earlier proved increment: R1 commit 33, Z as a periodic chain of time-shifted kernels (trace form), fixed K, Wilson torus (2026-10-07 PT)
 
 - `SU2TransferTrace.z_eq_trace` (PROVED, [propext, Quot.sound]).
   - Hypothesis: torusLinks N ⊆ links.
