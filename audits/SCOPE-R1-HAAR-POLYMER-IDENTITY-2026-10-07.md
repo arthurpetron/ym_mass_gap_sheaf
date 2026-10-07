@@ -198,3 +198,12 @@ No fail statement is given: the ℓ¹ envelope is an upper bound, not the true a
   - `Good` for the actual Wilson slices (V_t links occur only in slice-t plaquettes);
   - translation of the kernel via `pe_reindex`;
   - assembly.
+
+## PROVED: commit 30, `SU2LogConvexGap.lean`
+
+- Abstract rational statement only.
+- OPEN:
+  - the RP Cauchy–Schwarz instance for the truncated torus correlator, via `torus_rp_PC` and its hypotheses;
+  - the G(k) = 0 case;
+  - the Archimedean lemma in Q′ (from x^d·g ≤ D·y^d for all d, conclude x ≤ y): OPEN, not attempted;
+  - the N_t → ∞ corollary r_k ≤ q: OPEN, not attempted.

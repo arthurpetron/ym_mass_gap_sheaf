@@ -6504,3 +6504,5 @@ Transfer-matrix scope note (2026-10-07): R1 commit 24.  Scope only.
 `SU2TailHaar` (2026-10-07): R1 commit 28.  Partial Haar integration (Fubini) for the transfer kernel.
 
 `SU2SliceIntegrate` (2026-10-07): R1 commit 29.  In-place integration of slice-private blocks.
+
+`SU2LogConvexGap` (2026-10-07): R1 commit 30.  Abstract finite-volume ratio bound from log-convexity plus clustering.

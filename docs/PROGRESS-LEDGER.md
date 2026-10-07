@@ -4,7 +4,17 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 29, in-place slice integration of private blocks (transfer step 2d) (2026-10-07 PT)
+## Latest proved increment: R1 commit 30, log-convexity plus clustering gives a finite-volume ratio bound (2026-10-07 PT)
+
+- `SU2LogConvexGap.gap_finite` (PROVED, [propext, Quot.sound]).
+  - Hypotheses, on 0..L: G > 0; G(j+1)² ≤ G(j)G(j+2); G(n) ≤ C q^n.
+  - Conclusion: G(k+1)^d·G(k) ≤ C q^(k+d)·G(k)^d for k+d ≤ L.
+  - Also `ratio_mono` and `ratio_pow`.
+- Abstract: RP Cauchy–Schwarz for the actual truncated correlator is NOT yet supplied.
+- OPEN, not attempted: the Archimedean lemma in Q′ (x^d·g ≤ D·y^d for all d gives x ≤ y); the N_t → ∞ corollary r_k ≤ q.
+- Labels: strong coupling, fixed K, also true for U(1), not gap evidence.
+
+## Earlier proved increment: R1 commit 29, in-place slice integration of private blocks (transfer step 2d) (2026-10-07 PT)
 
 - `SU2SliceIntegrate.slice_integrate` (PROVED, [propext, Quot.sound]): `H(Π_t W_t) ≈ H(Π_t ∫dS_t W_t)`.
   - Hypothesis `Good`: the schedules are in range and each other factor is block-local away from S_t.
