@@ -90,19 +90,35 @@ def envOf (links : List Z4Link) (U : TorusWilsonAction.GaugeConfig SU2TorusWilso
   | some ℓ => coord (i % 4) (U ℓ).val
   | none => 0
 
-theorem getElem?_idxOf {ℓ : Z4Link} : ∀ {l : List Z4Link}, ℓ ∈ l → l[l.idxOf ℓ]? = some ℓ
-  | [], h => absurd h (by simp)
-  | b :: l, h => by
-      rw [List.idxOf_cons]
-      by_cases hb : b = ℓ
-      · subst hb; simp
-      · have hm : ℓ ∈ l := by
-          rcases List.mem_cons.mp h with h | h
-          · exact absurd h.symm hb
-          · exact h
-        have : (b == ℓ) = false := by simpa using hb
-        rw [this]
-        simpa using getElem?_idxOf hm
+private theorem nat_beq_refl (x : Nat) : (x == x) = true := decide_eq_true rfl
+
+/-- Reflexivity of `==` on `Z4Link`, computably (the library `ReflBEq` route is classical). -/
+private theorem link_beq_refl (ℓ : Z4Link) : (ℓ == ℓ) = true := by
+  obtain ⟨⟨a, b, c, d⟩, e⟩ := ℓ
+  have he : (e == e) = true := by cases e <;> rfl
+  show ((a == a && ((b == b) && ((c == c) && (d == d)))) && (e == e)) = true
+  rw [nat_beq_refl a, nat_beq_refl b, nat_beq_refl c, nat_beq_refl d, he]; rfl
+
+private theorem findIdx_go_mem {ℓ : Z4Link} : ∀ (l : List Z4Link) (n : Nat), ℓ ∈ l →
+    ∃ k, List.findIdx.go (· == ℓ) l n = n + k ∧ l[k]? = some ℓ
+  | [], _, h => nomatch h
+  | b :: l, n, h => by
+      show ∃ k, (bif b == ℓ then n else List.findIdx.go (· == ℓ) l (n + 1)) = n + k ∧ _
+      cases hbe : (b == ℓ) with
+      | true => exact ⟨0, rfl, by rw [eq_of_beq hbe]; rfl⟩
+      | false =>
+          cases h with
+          | head => exact absurd hbe (by rw [link_beq_refl ℓ]; exact Bool.noConfusion)
+          | tail _ hm =>
+              obtain ⟨k, hk, hg⟩ := findIdx_go_mem l (n + 1) hm
+              exact ⟨k + 1, by rw [hk, Nat.add_assoc, Nat.add_comm 1 k]; rfl, hg⟩
+
+theorem getElem?_idxOf {ℓ : Z4Link} {l : List Z4Link} (h : ℓ ∈ l) : l[l.idxOf ℓ]? = some ℓ := by
+  obtain ⟨k, hk, hg⟩ := findIdx_go_mem l 0 h
+  have : l.idxOf ℓ = k := by
+    show List.findIdx.go (· == ℓ) l 0 = k
+    rw [hk, Nat.zero_add]
+  rw [this]; exact hg
 
 theorem eval_linkVar (links : List Z4Link) (U : TorusWilsonAction.GaugeConfig SU2TorusWilsonGibbs.SU2)
     {ℓ : Z4Link} (hℓ : ℓ ∈ links) :
