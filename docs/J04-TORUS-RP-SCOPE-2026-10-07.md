@@ -233,3 +233,9 @@ that fixes `F` and `Wp`, sends their Θ-images to `shiftPoly`, and makes `C Wc` 
 `C = sign(above 4a T)` and the geometric Θ in the half-shift layout. This discharges `hW` for every integrand of the
 `torus_factor` form, conditional on (1) the half-shift layout and (2) RPK of `C Wc`. Both are blocked on the
 crossing split, which is still open. **RP FOR THE ACTUAL TORUS MEASURE IS OPEN.**
+
+## d3g — crossing-word RPK (SU2TorusRPCrossSplit.lean)
+- `cross_split_word`: once the crossing links are split as `Uᵢ = (ΘBᵢ)*Bᵢ`, the crossing plaquette scalar is `≅ dot (shQ Y) Y` with `Y = B₁PB₂*`.
+- `rpk_cross_split`: under `SupQ a Y`, the `T_K` of a split crossing plaquette is an RPK. Axioms: [propext, Quot.sound].
+- Still open: carrying out the split on the concrete torus integrand (via haar_step) and the final instantiation of `hW`.
+RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
