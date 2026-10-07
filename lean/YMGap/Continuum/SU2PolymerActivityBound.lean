@@ -322,9 +322,41 @@ theorem polymer_activity_sq_le (X : List (Z4Plaq × List (Q' × Nat))) (hX : Pol
     · exact add_neg_cancel_q _ _
   exact Q'.le_trans' _ _ _ h3 hsq
 
+/-! ## Two-sided form -/
+
+theorem bProd_nonneg : ∀ X : List (Z4Plaq × List (Q' × Nat)), (0 : Q') ≤ bProd X
+  | [] => by decide
+  | q :: rest => Q'.mul_nonneg _ _ (bSum_nonneg q.2) (bProd_nonneg rest)
+
+/-- `0 ≤ u, 0 ≤ y, u² ≤ y² → u ≤ y` (decidable Int split, no Classical). -/
+theorem le_of_sq_le {u y : Q'} (hy : (0 : Q') ≤ y) (h : u * u ≤ y * y) : u ≤ y :=
+  if hle : u ≤ y then hle else by
+    have hyu : y < u := Int.not_le.mp hle
+    have hu0 : (0 : Q') < u := Q'.lt_of_le_of_lt hy hyu
+    have a : u * y < u * u := Q'.mul_lt_mul_of_pos_left hu0 hyu
+    have b : y * y ≤ u * y := Q'.mul_le_mul_of_nonneg_right y u y (Q'.le_of_lt hyu) hy
+    have c : u * u < u * u := Q'.lt_of_le_of_lt (Q'.le_trans' _ _ _ h b) a
+    exact absurd c (Int.lt_irrefl _)
+
+/-- `x² ≤ y², 0 ≤ y → −y ≤ x ≤ y`. -/
+theorem two_sided_of_sq_le {x y : Q'} (h : x * x ≤ y * y) (hy : (0 : Q') ≤ y) :
+    -y ≤ x ∧ x ≤ y := by
+  have hu : Q'.abs x ≤ y :=
+    le_of_sq_le hy (Q'.le_trans' _ _ _ (Q'.le_of_eqv (abs_mul_abs x)) h)
+  exact ⟨Q'.le_trans' _ _ _ (Q'.neg_le_neg hu) (Q'.le_trans' _ _ _ (Q'.neg_le_neg (Q'.neg_le_abs x))
+      (Q'.le_of_eqv (Q'.neg_neg_eqv x))),
+    Q'.le_trans' _ _ _ (Q'.le_abs_self x) hu⟩
+
+theorem polymer_activity_abs_le (X : List (Z4Plaq × List (Q' × Nat))) (hX : PolymerOK links N X) :
+    let h := (multiLinkHaar links.length).h
+    let F := polyProd links N X
+    (-bProd X) ≤ h F ∧ h F ≤ bProd X :=
+  two_sided_of_sq_le (polymer_activity_sq_le X hX).2 (bProd_nonneg X)
+
 end YMGap.Continuum.SU2PolymerActivityBound
 
 #print axioms YMGap.Continuum.SU2PolymerActivityBound.bnd_add
 #print axioms YMGap.Continuum.SU2PolymerActivityBound.bnd_charSum
 #print axioms YMGap.Continuum.SU2PolymerActivityBound.bnd_polyProd
 #print axioms YMGap.Continuum.SU2PolymerActivityBound.polymer_activity_sq_le
+#print axioms YMGap.Continuum.SU2PolymerActivityBound.polymer_activity_abs_le
