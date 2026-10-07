@@ -1,5 +1,19 @@
 # Canonical one-page project status
 
+Supporting incoming reconstruction-score payment checked (2026-10-07):
+the ORIGINAL positive terminal window gives P(a)<=2*(1+kappa)*T1*(Ta)^2.
+The actual outgoing multiplier cancels (Ta)^2 by a cone certificate; projected
+weight and original V-symmetry give a fixed-nome/width cap times the SAME
+incoming square. One explicit cutoff pays the differentiated correction by
+epsilon*ell_V(c^2) for EVERY supported source and outgoing degree, independent
+of K and terminal depth. Zero input is covered without division. The leading
+interacting noise is retained and NOT bounded; no outgoing-relative, completed
+OS, AF-uniform or survival claim. Two focused checks pass nine new permitted
+gates; no full-tree audit. Scaling/signed-cost estimates, physical/volume
+control, limiting QFT, every group and Clay remain OPEN. Evidence:
+`audits/AUDIT-INCOMING-SCORE-RELATIVE-PAYMENT-2026-10-07.md`.
+Broad chart unchanged; no reprint.
+
 Supporting interacting-response spread and cofinal screen checked (2026-10-07):
 the ORIGINAL finite V-weighted moments obey
 `Q*(C*B-Q^2)<=C*(C*R-Q*B)` without division. The residual-square identity

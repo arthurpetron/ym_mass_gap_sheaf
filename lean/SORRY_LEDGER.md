@@ -1,5 +1,36 @@
 # Sorry Ledger
 
+## PROVED: incoming reconstruction-score payment in same incoming units (2026-10-07)
+
+- `BF4ExactSlabFixedSpatialLastStepErrorBudget.lastStepErrorBudgetMultiplier_window_certificate`
+  proves P(a)<=2*(1+kappa)*T1*(Ta)^2 from the actual positive scalar window
+  and kappa*l=u. `lastStepErrorBudgetMultiplier_reciprocal_cap_certificate`
+  pays G^2*P(a) by 2*(1+kappa)*stepCap using the ACTUAL multiplier square,
+  not a terminal/source inverse.
+- `BF4ExactSlabFixedSpatialIncomingScoreRelativePayment.incomingEnvelope_reciprocal_cap_certificate`
+  constructs that join for the original terminal and every outgoing degree.
+  `incomingErrorEnvelope_reciprocal_weight_le` retains Vbar^2 and V-weighted
+  symmetry, with cap 2*(1+kappa)*spatialCeiling*stepCap^2 times ell_V(c^2).
+  `original_lastStep_incomingRatio_relative_score_le` retains the leading
+  interacting noise and the Young factor. `incomingScoreRelativeCutoff` and
+  `original_lastStep_incomingRatio_relative_score_tolerance` pay the geometric
+  differentiated reconstruction correction by epsilon*ell_V(c^2), for all
+  supported sources and outgoing degrees, independent of K,n,r,psi,l at
+  fixed nome/width/eta/tolerance. No source inverse or zero-output inference.
+- Two focused checks pass nine new gates within {propext, Quot.sound}.
+  One capped 20-GiB worker, 12-GiB reserve, fresh zero-swap capacity checks.
+  Explicit intermediate forms repaired elaboration failures without raising
+  limits. No new source sorry/axiom/classical input or canonical field change;
+  no full-tree/root audit or hashed baseline refresh. Root registration only.
+- OPEN: the leading original interacting noise/signed-cost estimate on the
+  justified scaling family, independent AF survival, actual all-vector
+  changing-action comparison/useful budget, physical/volume control, SAME
+  limiting QFT, every compact simple group and Clay. This is ordinary finite
+  incoming L2 payment, not an outgoing-relative, OS or AF-uniform theorem.
+  The displayed broad chart remains unchanged.
+
+Evidence: `audits/AUDIT-INCOMING-SCORE-RELATIVE-PAYMENT-2026-10-07.md`.
+
 ## PROVED: original temporal spread and cofinal bare-heat screen (2026-10-07)
 
 - `BF4ExactSlabFixedSpatialSourceRayleighPersistence.sourceRayleigh_spread_residual_supported`

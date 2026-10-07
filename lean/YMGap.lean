@@ -7208,6 +7208,9 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepRatioRefinement
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepNoiseDissipation
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepReconstructionNorm
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepProjectedNoise
+-- Actual incoming reconstruction-score payment independent of depth, source
+-- and outgoing degree at FIXED nome/width; leading interacting noise is open.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialIncomingScoreRelativePayment
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepOriginalDissipation
 
 -- Actual conditional prediction square pays last innovation by ORIGINAL

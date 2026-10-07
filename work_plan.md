@@ -39,6 +39,22 @@ all-vector, limiting-QFT and physical-clock requirements. Primary-source
 verification and corrections:
 `audits/RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md`.
 
+Incoming reconstruction now has a CHECKED derivative-score payment that is
+independent of cutoff, terminal depth, source and outgoing reciprocal degree
+at FIXED nome/width. The positive terminal window sharpens its multiplier to
+`P(a)<=2*(1+kappa)*T1*(Ta)^2`; the actual outgoing multiplier-square certificate
+and projected spatial insertion pay the envelope by the SAME incoming
+V-weighted square. The computed tolerance onset requires no source inverse
+and covers zero incoming square. Reuse this bound rather than impose another
+C1 reconstruction premise or a fixed-output-degree amplitude. It does NOT
+control the retained leading interacting noise, provide an outgoing-relative
+bound or become AF/volume-uniform. At later filtered times use the actual
+`c=a*phi_k+e_k` reconstruction: the simple unfiltered `c=a*psi` score split
+alone does not cover them. NEXT estimate that leading signed source/action
+contribution on the justified family, including its OWN-center and original
+partitions, and compare source and vacuum gains where seeking response survival.
+Evidence: `audits/AUDIT-INCOMING-SCORE-RELATIVE-PAYMENT-2026-10-07.md`.
+
 The selected response calculation now has a CHECKED cofinal screen:
 `side_j*(1-w_j^12)` exceeds EVERY supplied rational cap beyond EVERY supplied
 starting scale on the actual AF nome schedule. The signed spatial family has
