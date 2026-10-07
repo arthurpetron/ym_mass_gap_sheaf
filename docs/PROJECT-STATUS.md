@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Supporting cap-free finite prediction/comparison checked (2026-10-07):
+`BlockUnitalPrediction` restores constants exactly and bounds its square in
+the SAME ordinary finite marginal by `1+mixRate^k`, without a source cap or
+stationarity premise. `BlockInnovationRelativeComparison` retains history
+and pays covariance with `nu*(Nfull+B^2)`, including literal Vbar^2*Gout^2.
+Neither supplies an OS-completed map or the actual cross-action two-step
+comparison. AF survival, useful signed-cost/scaling control and Clay stay
+OPEN. Three focused checks pass 24 permitted gates. Evidence:
+`audits/AUDIT-ORIGINAL-CAP-FREE-PREDICTION-2026-10-07.md`.
+Broad chart unchanged; no reprint.
+
 Supporting nonunit innovation estimate checked (2026-10-07):
 `BlockInnovationTower` retains signed covariance and historical variance on
 the original K*V window, without a unit-mass assumption. `BlockInnovationCovariance`

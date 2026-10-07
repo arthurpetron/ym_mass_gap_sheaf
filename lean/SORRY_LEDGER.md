@@ -1,5 +1,40 @@
 # Sorry Ledger
 
+## PROVED: cap-free original finite prediction/comparison (2026-10-07)
+
+- `QuaternionHaarUnitalReciprocalPrediction` constructs positive finite
+  reciprocal/residual witnesses, exact unital prediction and its Jensen
+  certificate from the structural identity aG+r=1; no normalized density.
+- `BF4ExactSlabFixedSpatialBlockUnitalPrediction.blockUnitalPrediction_one`
+  proves exact constant preservation of G*b+(1-aG)*psi. Its
+  `blockUnitalPrediction_jensen_certificate` retains the ORIGINAL window.
+  `blockUnitalSecondMoment_upper` and `blockUnitalPrediction_square_upper`
+  use actual weighted transfer symmetry and positive residual endpoints to
+  give the same-marginal factor 1+mixRate^k for every supported source.
+  The adjoint density defect is not set to zero. This is NOT an OS norm.
+- `BlockInnovationRelativeComparison.innovationRelativeLoss` returns the
+  explicit nu=mixRate^(2k)/eta. Its
+  `original_innovation_relativeComparison_certificate` constructs
+  (1+nu)*Nfull+nu*B^2-(1-eta)*Nlast from the actual signed tower,
+  joined-source determinant and multiplier square interval. Historical
+  variance stays retained; B^2 is not erased on the vacuum. Positive eta
+  is explicit; useful positive left coefficient additionally needs eta<1.
+  `original_innovation_relativeComparison_weighted_bound` preserves literal
+  Vbar^2*Gout^2, independent output degree and time n+t+1.
+- Three final serialized focused checks pass 24 {propext, Quot.sound} gates;
+  independent mathematical reviews found no error and checked degenerate
+  endpoints. One 20-GiB capped worker, 12-GiB OS reserve, fresh preflights,
+  zero swap. No new hole/axiom/classical input, canonical field change or
+  raised heartbeat; no full-root/tree build/audit or baseline regeneration.
+- OPEN: actual dense OS realization and difference-form continuity of the
+  auxiliary map; weighted B^2 payment in centered surviving-form units;
+  useful combined direct-score/signed-remainder bound on the justified family;
+  actual changing-action two-step comparison, ordinary delta budget, AF
+  survival, physical calibration/volume control, continuum QFT, every group,
+  Clay. Generic completion machinery does not supply these analytic inputs.
+
+Evidence: `audits/AUDIT-ORIGINAL-CAP-FREE-PREDICTION-2026-10-07.md`.
+
 ## PROVED: original nonunit innovation and geometric covariance (2026-10-07)
 
 - `SU2QuaternionUnnormalizedVarianceTower.innovation_certificate` constructs

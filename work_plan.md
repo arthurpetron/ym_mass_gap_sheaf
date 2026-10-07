@@ -172,6 +172,24 @@ Eleven new gates passed. Evidence:
 Evidence: `audits/AUDIT-RECENT-COMMITS-AND-CENTERED-SIGNED-PRODUCER-2026-10-07.md`
 and `audits/AUDIT-GLUED-ENDPOINT-AND-SIGNED-PRODUCER-2026-10-07.md`.
 
+The cap-free alternative is NOW CHECKED: use the actual shrinking joined
+source psi*lift(1-aG), not a claimed-small historical residual. Its determinant
+and the old signed tower give
+`(1-eta)*noise_last <= (1+nu)*noise_full+nu*B^2`,
+`nu=mixRate^(2k)/eta`, with explicit eta>0, all supported psi, and the literal
+Vbar^2*Gout^2 consumer. Choose eta<1 for useful absorption; the B^2 leakage
+cannot be dropped on the vacuum. Separately the finite prediction
+`P psi=G*b+(1-aG)*psi` preserves constants EXACTLY, and original transfer
+symmetry gives `||P psi||_mu^2 <= (1+mixRate^k)||psi||_mu^2`,
+mu=V*g_n*g_(n+t), without global source caps or assumed stationarity.
+These finite estimates do not provide the required OS norm, action map or
+uniform diagonal scaling modulus. NEXT: a useful weighted transmitted-source
+payment/centered join or actual OS realization, alongside the primary combined
+score/signed-remainder estimate. Do not complete an unrelated marginal and
+present it as an OS map. Independent AF survival and actual changing-action
+all-vector comparison remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-CAP-FREE-PREDICTION-2026-10-07.md`.
+
 In parallel, the actual finite torus covariance/RP join is being completed
 algebraically. Spatial-character reflection and genuine insertion extraction
 are checked; `SU2WilsonCenteredCovariance.centered_covariance` now proves the
@@ -19398,6 +19416,64 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
    bounded and proofs parallel, with Lean verification serialized under the
    existing safety contract. Meeting the fronts is a theorem to prove, not
    a promise that the remaining mathematics is small.
+10. **Use a decision-driven research loop (2026-10-07, user-requested
+    TasteVal review).** Before a costly proof experiment, record briefly in
+    the existing task/audit: exact proposition and SAME-object consumer,
+    available inputs, predicted outcome, decisive degeneracy/parameter test,
+    verification budget, and a condition for abandoning or revising the branch.
+    Separate mathematical selection from implementation; assign bounded
+    implementation to Sol/Luna when appropriate and independent read-only
+    review to consequential joins. Keep full source inspection: these are
+    working roles, not a blind reporting barrier. The implementer must flag
+    missing inputs rather than substitute an action, norm or stronger premise.
+    While the single capped compiler runs, advance an independent mathematical
+    question. Afterwards record observed evidence separately from interpretation
+    and choose continue/revise/prune; a passed finite check is not a scaling
+    result. Prefer one decisive mathematical change over repeated wrappers or
+    parameter sweeps. Reassess a branch that produces no new estimate or useful
+    obstruction. Do not spend a budget merely to exhaust it, impose token
+    quotas, add process agents for trivial steps, or score progress by modules.
+    Clay, canonical fields, axiom gates and dynamic-memory limits are unchanged.
+    Adaptation and current test:
+    `audits/AUDIT-RESEARCH-PIPELINE-TASTEVAL-2026-10-07.md`.
+
+**Quantitative completion viewpoint (2026-10-07, user-supplied Lawvere idea):**
+use the existing constructive extension APIs rather than treating completion
+as a new analytic obstacle or building another categorical scaffold. A dense
+map must preserve the ACTUAL source/target form, respect representative/null
+equivalence, and carry a quantitative difference bound or continuity modulus;
+its Cauchy-row image and quotient descent can then use existing machinery.
+Our `CReal` squared seminorm has a factor-two triangle estimate, not the
+literal Lawvere additive metric law. Do not identify asymmetric forward-Cauchy
+completion with adjoint-weight Cauchy completion without a proved comparison.
+The current finite `blockUnitalPrediction_square_upper` bounds an ORDINARY
+original marginal, not the reflected Wilson form. Completing that marginal
+does not supply an OS map, changing-action comparison, useful delta budget or
+AF survival. First prove the required SAME OS-form continuity/realization join,
+or return to the actual signed-cost estimate; no completion wrapper closes it.
+Existing consumers and the precise missing join are recorded in
+`audits/AUDIT-ORIGINAL-CAP-FREE-PREDICTION-2026-10-07.md`.
+
+**Group/fiber scope guard (2026-10-07, user follow-up):** index prospective
+proof carriers by the ACTUAL compact gauge-group realization and global form,
+not just a Lie-algebra label. Constants/moduli may depend on that group unless
+the actual consumer requires a common bound. Do not substitute a split-real
+Hitchin component, surface flat-connection moduli, or its geometric boundary
+for the full four-dimensional lattice action and its reflected completion.
+Metric completion of proof carriers is not restricted to split-real groups.
+Classification data and principal embeddings alone supply neither compact
+Haar/action realization nor a natural transformation of the required YM
+theories. `CompactSimpleGlobalFormCode` records central-quotient data, but
+there is still no final realized-all-groups continuum producer in the source.
+Keep that external Clay requirement explicit; do not mistake scalar tables
+or Cartan tags for its formal closure. Compact classical flat-moduli spaces
+do not eliminate quantum state completion or imply a spectral gap. Sobolev
+completion may be an analytic tool, but is not the physical OS Hilbert space
+or its Hamiltonian: retain the interacting measure, reflected form, continuous
+time/generator, nontrivial excitation and physical mass calibration. Tannakian
+representation data alone also require their actual compact-Haar/action join.
+Detailed source pins:
+`audits/AUDIT-RESEARCH-PIPELINE-TASTEVAL-2026-10-07.md`.
 
 ### Bidirectional parallel checkpoint (2026-09-17)
 

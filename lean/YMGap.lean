@@ -7730,3 +7730,9 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepCenteredScoreNoise
 import YMGap.Continuum.SU2QuaternionUnnormalizedVarianceTower
 import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockInnovationTower
 import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockInnovationCovariance
+-- Residual completion restores constants and gives cap-free ORIGINAL finite
+-- marginal bounds. History/vacuum leakage stay paid; no completed OS map or
+-- changing-action/scaling comparison follows without its actual join.
+import YMGap.Continuum.QuaternionHaarUnitalReciprocalPrediction
+import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockUnitalPrediction
+import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockInnovationRelativeComparison

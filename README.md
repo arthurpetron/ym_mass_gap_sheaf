@@ -43,6 +43,19 @@ vacuum identity prevents treating finite reconstruction as an exactly
 vacuum-preserving comparison. Eleven new gates passed; scaling remains open.
 See the [proof and next analytic boundary](audits/AUDIT-ORIGINAL-INNOVATION-COVARIANCE-2026-10-07.md).
 
+**Latest cap-free finite bounds (2026-10-07):** adding the literal reciprocal
+residual restores constants exactly in an auxiliary prediction. Its squared
+norm is bounded by `1+mixRate^k` in the SAME original finite marginal, with no
+global observable cap. The original innovation comparison now also replaces
+that cap by the actual transmitted-source square, retaining history and vacuum
+leakage. Focused constructive checks passed; neither result is an OS-completed
+map or a scaling gap. See the
+[proofs and remaining norm/action joins](audits/AUDIT-ORIGINAL-CAP-FREE-PREDICTION-2026-10-07.md).
+
+The [research-pipeline update](audits/AUDIT-RESEARCH-PIPELINE-TASTEVAL-2026-10-07.md)
+adds explicit predictions, decisive tests and branch-revision decisions to the
+existing forward--backward workflow, without changing the mathematical goal.
+
 **Latest exact blocked-action join (2026-10-07):** the actual two-layer middle
 integral and its compressed boundary kernel now have a proved endpoint marginal
 equal to the original `T1`, retaining the middle spatial interaction once.

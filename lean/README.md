@@ -16,6 +16,20 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked cap-free original finite prediction/comparison (2026-10-07):**
+`QuaternionHaarUnitalReciprocalPrediction` constructs a positive finite
+prediction, exact constant preservation and Jensen. `BlockUnitalPrediction`
+joins Jensen and actual weighted transfer symmetry to the source-cap-free
+same-marginal upper factor `1+mixRate^k`, retaining the adjoint density defect.
+`BlockInnovationRelativeComparison` constructs
+`(1-eta)*Nlast <= (1+nu)*Nfull+nu*B^2`, `nu=mixRate^(2k)/eta`, with the
+literal Vbar^2*Gout^2 output multiplier and independent output degree.
+History and vacuum leakage are not discarded. Three focused checks pass
+24 permitted printed gates; no full build/audit. The norm here is ordinary
+finite marginal L2, not the completed OS form. Actual OS realization,
+changing-action comparison, useful scaling budget and AF survival remain OPEN.
+Evidence: `audits/AUDIT-ORIGINAL-CAP-FREE-PREDICTION-2026-10-07.md`.
+
 **Checked original nonunit innovation and covariance (2026-10-07):**
 `SU2QuaternionUnnormalizedVarianceTower` and `BlockInnovationTower` construct
 the original noise comparison with signed covariance and historical residual
