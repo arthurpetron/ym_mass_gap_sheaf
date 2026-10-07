@@ -4,7 +4,16 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: ℓ∞ plaquette metrics on the Z4 box and torus, and zHeat lattice decay (2026-10-07 PT)
+## Latest proved increment: R1 commit 1, Haar factorization over arbitrary disjoint block supports (2026-10-07 PT)
+
+- `SU2HaarDisjointSupport` (PROVED):
+  - `mono_disj`: `H_n(m₁m₂) ≈ H_n(m₁)H_n(m₂)` when every block is free in m₁ or in m₂;
+  - `haar_disj`: `∫ p·q ≈ ∫p ∫q` for p free off a block set A and q free on A.
+- This generalizes Realizer's prefix `haar_factor`, so no block reindexing is needed for
+  link-disjoint polymers.
+- R1 identity itself: OPEN.
+
+## Earlier proved increment: ℓ∞ plaquette metrics on the Z4 box and torus, and zHeat lattice decay (2026-10-07 PT)
 
 - `Z4PlaqMetric` (PROVED, GROUP-BLIND PLUMBING):
   - `boxMetric : PlaqMetric z4Chain`, the ℓ∞ distance of base vertices;

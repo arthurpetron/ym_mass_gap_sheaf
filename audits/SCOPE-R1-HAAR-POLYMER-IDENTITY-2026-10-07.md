@@ -1,0 +1,52 @@
+# SCOPE: R1, the Haar character expansion as a polymer gas (box, Dirichlet)
+
+## PROVED: commit 1, `SU2HaarDisjointSupport.lean`
+
+- `haar_disj n A p q`: if p is free off the block set A and q is free on A, then
+  `quaternionHaar n (polyMul p q) ≈ quaternionHaar n p · quaternionHaar n q`.
+- `mono_disj` is the monomial core.  It is built from `prefix_congr` / `exponentAt_drop` and
+  needs no block swaps.  So the pointwise conjShear-equals-substitution lemma is **not needed**
+  for R1 factorization.
+
+## Remaining steps (not started)
+
+1. **Support.** `plaqCharacter links N p s` has every monomial free outside the blocks
+   `idxOf` of p's 4 links.  This needs support tracking through `PolyQuaternion.mul/conj`,
+   `.scalar` and `characterPolynomial`.
+2. **Expansion.**
+   - `plaqWeight = c₀χ₀ + f_p`, where `c₀χ₀ ≈ 1` under Haar (`coeffW_zero_eqv`) and
+     `f_p = Σ_{1≤s≤M} coeffW·χ_s`.
+   - Then `∫Π(1+f_p) = Σ_{S⊆P} ∫Π_{p∈S} f_p`.
+   - Grouping S into link-connected components and applying `haar_disj` gives a polymer sum.
+3. **Activity bound.** `|z(γ)| ≤ (env)^{|γ|}`.
+
+## MISMATCH 1: compatibility
+
+- The existing KP and decay gas (`Z4PolymerKP`, `PolymerDecayZ4`, `PolymerLatticeDecay`) uses
+  `shareB` = **shares a plaquette**.
+- Haar factorization needs **link-disjointness**.  Two plaquette-disjoint polymers that share a
+  link do not factorize.
+- The correct gas has polymers that are link-connected (`connectedIn` is already link-adjacency).
+  X and Y are incompatible iff some plaquette of X is equal or link-adjacent to one of Y, i.e.
+  `q ∈ nbrs p` or `q = p`.
+- **Consequence for the KP constants:**
+  - The grouping lemma must run over the ≤ 25|a| plaquettes adjacent to a, not just the |a|
+    plaquettes of a.
+  - The `M` factor becomes about `(5/3)^{25|a|}` instead of `(5/3)^{|a|}`.
+  - So ε = 1/10000 and η = 1/2500 no longer close the bound.  They must be re-derived, roughly
+    ε ≲ η·(3/5)^{50}, which needs a much smaller w.
+- `PolymerChainDecay`, `chainW_bound` and `diam_le` are generic in `inc` and carry over.
+  `z4_hgroup`, `CS_le` and `CSW_le` must be redone for the new `inc`.
+
+## MISMATCH 2: activity bound needs a new ingredient
+
+- Only `multiLinkHaar_square_nonneg` (positivity on squares) is available.
+- `|∫F| ≤ sup|F|` needs Haar positivity on polynomials that are pointwise nonnegative on
+  `(S³)ⁿ`, or an SOS certificate for `(s+1)² − χ_s²` modulo the sphere ideal.  Neither is in
+  the tree.
+- Honest alternative: the ℓ¹ route `|∫F| ≤ Σ|coeff|·|moment| ≤ ‖F‖₁`.  This needs the new lemma
+  `|sphereMoment4| ≤ 1`.
+  - But `‖χ_s(U_p)‖₁` grows like ~(2·64)^s, so the activity bound would hold only for smaller w
+    (about w ≤ 1/100), not at w = 1/40.
+  - `charEnv` assumed `|χ_s| ≤ s+1` pointwise.  Under the Haar functional that is a sup bound,
+    and it is exactly the missing positivity.

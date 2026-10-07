@@ -6441,3 +6441,9 @@ closure (CS_d ≤ C q^d) are next.
 `Z4PlaqMetric` (2026-10-07): the box and torus ℓ∞ metrics are instantiated.
 - zHeat (w = 1/40) truncated two-point decay is (6/7)^{dist_ℓ∞(supp y, supp g)}, independent of
   N and of the torus size.
+
+`SU2HaarDisjointSupport` (2026-10-07): R1 commit 1.  The multi-link Haar factorizes over
+arbitrary disjoint link-block supports.
+- Remaining for R1: support tracking for the plaquette characters, the subset/polymer expansion,
+  and the activity bound.
+- Two mismatches are documented in `audits/SCOPE-R1-HAAR-POLYMER-IDENTITY-2026-10-07.md`.
