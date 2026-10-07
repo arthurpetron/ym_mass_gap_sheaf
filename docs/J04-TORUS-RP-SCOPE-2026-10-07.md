@@ -79,7 +79,7 @@ The crossing scalar is `Re(U V*) = Σ_{c<4} u_c v_c`, a sum of Θ-symmetric prod
 | `hperm`: torus plaquettes ~ `posT ++ posT.map mir ++ crossT` | PROVED (`SU2TorusRPPlaqSplit.plaq_perm`, d9r–d9t) |
 | torus-order ↔ layout-order integral with observable | PROVED (`SU2TorusRPTorusX.torus_X`, `SU2TorusRPTorusZ.torus_Z`, d9u–d9z'') |
 | reflection matching `rcomp r (Θ_torus G · G) ≡ layout RP form` | OPEN |
-| `hW` (target: `T_K` with `wilsonA`, matching `SU2TorusRPKernel` `tkProd`) | OPEN |
+| `hW` (target: `T_K` with `wilsonA`, matching `SU2TorusRPKernel` `tkProd`) | STATED (`SU2TorusRPObs.TorusRP`), OPEN |
 | `D^s` matrix coefficients in real form | MISSING. Needed only for the heat kernel. |
 
 ## Heat-kernel plan
@@ -418,4 +418,14 @@ the torus `Θ_torus F · F` (via `thetaPoly` on `torusLinks`) should be identifi
 `pos_imap`: positive links map under `imap r` into the first `|Pt|` blocks. **Remaining for hW:** show that for torus observables `G` on positive links, `rcomp r (Θ_torus G · G)` is PE to the
 layout form `signSel(conjSel layT)(reindex halfSwap F')·F'` for some `F'` with `Sup |Pt| F'`. After that,
 `torus_rp_all` closes `hW`.
+
+## e1: observables and the `hW` target (`SU2TorusRPObs`)
+
+**Choice:** `hW` targets `T_K` with `wilsonA` weights, because the existing `hW` in `SU2TorusRPKernel.wilson_rp_qfull`
+is stated with `tkProd β K`, which is the `T_K` form. `Obs` is a syntax for link-coordinate observables; `sub_evalI`
+transports observables along any `RingSub`, and `rcomp_obs` transports them along the torus→layout reindexing.
+`TorusRP M hM β K` (**stated, not proved**) says: for every `e` on positive links (`OnLinks (· ∈ Pt M) e`),
+`0 ≤ ∫_{|torusLinks|} (thetaT e)·e·Π_{torusPlaquettes} T_K[torusLinks]`, with `thetaT = thetaPoly` on
+`torusLinks (2M)`. Open: reflection matching, i.e. `rcomp r ∘ thetaT ≡ layout Θ ∘ rcomp r` on positive-link
+variables.
 RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
