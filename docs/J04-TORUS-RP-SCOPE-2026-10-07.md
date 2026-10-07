@@ -331,3 +331,14 @@ RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
   RPK and hσ are discharged. Remaining hypotheses: hXfix (chain fixes X), hsup, hps, hWp; plus the choice of P, C
   and the bridge from the torus integrand to this layout.
 RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
+
+## d9h–d9n — analytic hypotheses of the layout master discharged
+- d9h `sup_wilsonPoly`, `sup_TK`, `sup_prodTK`; d9i `mem_lay`, `hps_lay`, `hWp_lay`; d9j `hsup_lay`.
+- d9k–d9l `mp_single`, `pe_single`, `poly_fix`: a RingSub that is literally additive, prefix-respecting, with supported
+  outputs, fixing every occurring variable, fixes the polynomial.
+- d9m `fix_list`, `lay_fix`: the concrete split chain fixes `X = Θ_H F · F` when `F` lives on the first `|P|` blocks.
+- d9n `torus_rp_lay`: `0 ≤ ∫ (Θ_H F · F) · ∏_ps T_K` on the layout, from purely combinatorial/geometric data
+  (L nodup, C nonempty nodup ⊇ crossing links, P ⊇ pos links in the box, ps ~ pos ++ mir pos ++ cross, ps in box).
+Open: choose P, C, pos, cross from the actual torus (ps = all torus plaquettes); bridge from the torus
+integrand/observable algebra (its link ordering and F's block placement) to this layout form; then hW.
+RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
