@@ -75,3 +75,8 @@ No fail statement is given: the ℓ¹ envelope is an upper bound, not the true a
 - Context-stable equivalence `PE` (shifted moment functional `phi`).
 - Proved: commutativity, associativity, unit, scalar≈1, closure under ·/++, and the factor-extraction `pe_extract`.
 - No new hypotheses.
+
+## PROVED: commit 5, `SU2ClusterExplore.lean`
+
+- `explore_haar` and `root_step` (analytic half).
+- Next, combinatorial half: leaves have R = P'.filter(¬touch A'); exploration commutes with filtering by a compatibility predicate; then Ξ identity by strong induction.

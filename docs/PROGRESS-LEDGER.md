@@ -4,7 +4,15 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 4, context-stable Haar algebra (2026-10-07 PT)
+## Latest proved increment: R1 commit 5, cluster exploration of the Haar integral (2026-10-07 PT)
+
+- `SU2ClusterExplore` (PROVED).
+  - Definitions: link adjacency `adj`/`touch`, first-touching `pick`, and the binary exploration tree `explore`.
+  - `explore_haar`: ∫(Π_A f)(Π_Q W) ≈ Σ_leaves ∫Π_{A'} f · ∫Π_R W, with W = c+f, c≈1, fuel ≥ |Q|.
+  - `root_step`: Z(p₀::P') ≈ Z(P') + Σ_{(A',R)∈explore [p₀] P'} ∫Π_{A'}f · Z(R).
+  - Hypotheses: every plaquette's links are box coordinates (`Lk`), and the f_p block support from commit 3.
+
+## Earlier proved increment: R1 commit 4, context-stable Haar algebra (2026-10-07 PT)
 
 - `SU2HaarAlgebra` (PROVED).
   - Defines `phi n X m = Σ x.c·H_n(m·x.m)` and `PE n X Y := ∀ m, phi X m ≈ phi Y m`.
