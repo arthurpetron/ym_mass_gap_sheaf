@@ -24,7 +24,9 @@ need `f_j ≤ Fρ^{K−j}` (necessary), so polynomial errors still give `C ~ ρ^
 `audits/SCOPE-C1-SQUARE-BOX-DOUBLING-2026-10-06.md`; periodic torus layer now in Lean
 (`Z4TorusGeometry`: lengths `4N⁴`/`6N⁴`, exact 6-incidence, translations, free-box embedding)
 and doubling iteration (`SquareBoxDoublingIteration`, REDUCTION); the doubling inequality is
-OPEN and must use non-abelian input (U(1) proves-too-much test, scope §7). SC cannot seed `trAF`. No `Φ_j` constructed. Not AF. See
+OPEN and must use non-abelian input (U(1) proves-too-much test, scope §7). C11 (scope §8): torus slab
+geometry + PP Lemma 3.3 algebra (`TorusSlabInsertion`, analytic inputs explicit) and the
+translation-invariant torus Wilson action (`TorusWilsonAction`); both group-blind plumbing. SC cannot seed `trAF`. No `Φ_j` constructed. Not AF. See
 `audits/SCOPE-RG-STEP-COMPOSITION-REDUCTION-2026-10-06.md`.
 
 Route (b), strong coupling (2026-10-06 PT): the literal fixed-width all-nome

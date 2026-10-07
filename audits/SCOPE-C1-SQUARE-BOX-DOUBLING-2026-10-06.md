@@ -180,3 +180,26 @@ hypotheses are all satisfied by the 4D `U(1)` Wilson action at large `β` is ref
 Coulomb phase and must not be pursued.
 
 Status. Framing only; nothing in Milestone 3 is proved. OPEN.
+
+## 8. C11 slab insertion and the torus Wilson action (2026-10-06 PT)
+
+PP Lemma 3.3 (F215 paper 5, `reviews/openai-math/F215-METHODS.md` §1.6 P6): for bounded `F`
+in a time slab of thickness `r`, `‖A_F‖ ≤ ‖F‖_∞` and, for `t > r`,
+`|E_tor;t,w F − E_cyl,w F| ≤ ‖F‖_∞ (s(t−r) + s(t))`, via `E_tor F = Tr(A_F T^{(t−r)/a})/(1+s(t))`.
+
+`Continuum/TorusSlabInsertion.lean`:
+- proved finite geometry: `slabVertices N s r` (time slab mod `N`), `slabVertices_length = r·N³`,
+  `slabPlaquettes_length = 6·r·N³`, `mem_slabVertices`, `slabPlaquettes_sub` (in torus),
+  `slab_complement_count` (`r ≤ N`: slab + complement = `N⁴`), `slab_timeShift`.
+- REDUCTION: `SlabInsertionSpectrum` carries the analytic inputs as fields (spectral
+  decomposition / trace-ratio identity `E·(1+s_n) ≈ d₀ + Σ d_iλ_i^m`, `λ_i ≥ 0`,
+  `|d_i| ≤ M = ‖F‖_∞`, `m + r = n`); proved `slab_insertion_bound`:
+  `|E − d₀| ≤ M(s_m + s_n)`.
+- U(1) test: group-blind; geometric/spectral PLUMBING. It moves smallness of `s` into a
+  torus≈cylinder comparison and cannot carry the gap.
+
+`Continuum/TorusWilsonAction.lean`: `GaugeConfig G = Z4Link → G.Carrier` for
+`RepTheory.ConstructiveGroup`; periodic `holonomy`; `wilsonAction G N f U = Σ_p f(U_p)` with
+abstract weight `f : G.Carrier → Q'` (no `Re tr` on `Q'`); `torusPlaquettes_shift_perm`
+(choice-free perm via `perm_of_nodup_mem`); `wilsonAction_shift_invariant`. Group-blind
+plumbing (U(1) satisfies it); no measure, no gauge invariance, no transfer matrix yet.

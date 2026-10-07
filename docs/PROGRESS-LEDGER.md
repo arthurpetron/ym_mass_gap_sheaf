@@ -4,7 +4,16 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: periodic Z⁴ torus + doubling iteration (2026-10-06 PT)
+## Latest proved increment: C11 slab insertion + torus Wilson action (2026-10-06 PT)
+
+REDUCTION + proved finite lemmas. `TorusSlabInsertion`: time slabs on the torus (`r·N³`
+vertices, `6rN³` plaquettes, complement count, time-shift transport) and PP Lemma 3.3's
+spectral algebra `|E_tor − d₀| ≤ M(s_m + s_n)` from the explicit analytic structure
+`SlabInsertionSpectrum`. `TorusWilsonAction`: `Σ_p f(U_p)` over `ConstructiveGroup` links,
+translation invariance `wilsonAction_shift_invariant` (choice-free perm). Both group-blind
+(U(1) test): plumbing, cannot carry the gap.
+
+## Earlier proved increment: periodic Z⁴ torus + doubling iteration (2026-10-06 PT)
 
 Proved finite combinatorics (`Z4TorusGeometry`, general `N`): wrap-around `tAdd`/`tSub` with
 exact inverses; `torusLinks`/`torusPlaquettes` of length `4N⁴`/`6N⁴`, Nodup; every link on
