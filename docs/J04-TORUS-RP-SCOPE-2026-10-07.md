@@ -221,3 +221,8 @@ split into fresh A/B blocks, the pos/neg/cross factorisation of `Π TK`, and `hW
 the layout becomes `L₁ ++ Θ(L₁)`; (ii) a conj on the second half only, so that `thetaPoly Wp` becomes `shiftPoly Wp`
 (`theta_shift`); (iii) RPK of the split crossing words (`rpk_cut1`/`cross_word_cut2`); (iv) assembly into
 `wilson_rp_qfull`. **RP FOR THE ACTUAL TORUS MEASURE IS OPEN.**
+
+**(d3e) half-only conj** (`SU2TorusRPHalfConj.lean`): `parity_congr`, `sign_congr`, `sign_first_half` (a second-half
+selection fixes first-half polynomials), `sign_second_half` (on second-half polynomials, the full and the restricted
+selection flip identically). This settles open point (ii) at the lemma level. Still open: the crossing split, the RPK
+crossing words, and assembly into `wilson_rp_qfull`. **RP FOR THE ACTUAL TORUS MEASURE IS OPEN.**
