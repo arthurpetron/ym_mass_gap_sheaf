@@ -4,7 +4,15 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 20, ratio form of the truncated χ₁ correlator decay (2026-10-07 PT)
+## Latest proved increment: R1 commit 21, truncated-correlator decay generic in the plaquette weight (2026-10-07 PT)
+
+- `SU2TruncGeneric.trunc_gen` (PROVED, axioms [propext, Quot.sound]).
+  - Statement: `|Ξ(z^{pq})Ξ(z) − Ξ(z^p)Ξ(z^q)| ≤ λ^{ld(q,p)}·(Cg·Ξ(z)²)`, with `Cg = 2·D1²·K1² + D2·K1`.
+  - Inputs: the activity agreements, the activity bounds (D1, D2, ε) and a link-KP package (M, environment, T-bound, rooted sums ≤ K1).
+- Heat kernel and Wilson are both instances.
+- Labels: strong coupling; generic (heat kernel or Wilson); also true for U(1), not gap evidence.
+
+## Earlier proved increment: R1 commit 20, ratio form of the truncated χ₁ correlator decay (2026-10-07 PT)
 
 - `SU2TruncRatio` (PROVED, axioms [propext, Quot.sound]).
   - `ratio_of`: pure algebra.

@@ -155,3 +155,7 @@ No fail statement is given: the ℓ¹ envelope is an upper bound, not the true a
 ## PROVED: commit 20, `SU2TruncRatio.lean`
 
 - The ratio form.
+
+## PROVED: commit 21, `SU2TruncGeneric.lean`
+
+- The generic correlator decay.
