@@ -47,4 +47,9 @@ Then `TorusCS` at `(τ_a F, τ_{a+1} F)` gives `G(2a+1)² ≤ G(2a)·G(2a+2)`, w
 needs a half-step convention (for example reflecting through a link-midpoint plane instead of a site plane). That
 choice belongs to the Prover.
 
-**STATUS: `TorusRPPoly` AND `TorusCS` ARE OPEN (stated, not proved).**
+**Obs-level CS PROVED:** `SU2TorusRPCSObs.torus_cs_obs`. For `OnLinks (· ∈ Pt M)` observables `e, e'`,
+`rpB F G * rpB F G ≤ rpB F F * rpB G G` with `F = eval e`, `G = eval e'` (truncated T_K weight, fixed K). It uses the
+bilinearity in `SU2TorusRPBil`. Axioms [propext, Quot.sound]. `Obs` contains constants and is closed under `+`, `·`
+and negation, so the truncated `F − c` is again an `Obs`.
+
+**STATUS: `TorusRPPoly` AND `TorusCS` FOR GENERAL `PtSup` POLYNOMIALS ARE OPEN. The `Obs` versions are proved.**

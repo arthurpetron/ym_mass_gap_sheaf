@@ -7666,3 +7666,4 @@ import YMGap.Continuum.SU2TorusRPCSCore
 import YMGap.Continuum.SU2TorusRPCSRat
 import YMGap.Continuum.SU2TorusRPSym
 import YMGap.Continuum.SU2TorusRPBil
+import YMGap.Continuum.SU2TorusRPCSObs
