@@ -149,3 +149,7 @@ obligations:
   - The selected (non-head) shear can be obtained as reindex ∘ head ∘ reindex from the instances above. Composing
     `RingSub`s (`RingSub` closed under composition) is routine and not yet written.
 - (c), (d) OPEN. **RP FOR THE ACTUAL TORUS MEASURE REMAINS OPEN.**
+
+**(b7) reindex `PECongrOn`** (`SU2TorusRPReindexCongr.lean`): `reindex_peCongrOn σ : PECongrOn n (reindexQuaternionPolynomial σ)`
+(supported variant: `Sup n X → Sup n Y → PE n X Y → PE n (σX) (σY)`). Still open: head-shear `PECongrOn`, a supported
+`ringSub_comp`, geometry (c), assembly (d). **RP FOR THE ACTUAL TORUS MEASURE IS OPEN.**
