@@ -7673,3 +7673,4 @@ import YMGap.Continuum.SU2TorusRPKLimit
 import YMGap.Continuum.SU2TorusShiftPerm
 import YMGap.Continuum.SU2TorusTimeRefl
 import YMGap.Continuum.SU2TorusTau
+import YMGap.Continuum.SU2TorusTauVar
