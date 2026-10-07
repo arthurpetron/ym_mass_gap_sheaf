@@ -7820,3 +7820,4 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceRayleighPersistence
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLocalEnergyTransport
 import YMGap.Continuum.SU2TorusRPKLimit
 import YMGap.Continuum.SU2TorusTimeRefl
+import YMGap.Continuum.SU2TorusTau
