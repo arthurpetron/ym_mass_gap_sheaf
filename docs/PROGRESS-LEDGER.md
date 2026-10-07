@@ -4,7 +4,20 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: trace route on the real strong-coupling carrier (2026-10-06 PT)
+## Latest proved increment: invariance and square-positivity of the constructed polynomial link Haar (2026-10-06 PT)
+
+- `SU2PolyLinkHaarInvariance` (for `quaternionPolyLinkHaar2`, h = quaternionHaar 2):
+  - `polyLinkHaar2_left_shear_invariant` / `_right_shear_invariant`: PROVED for all p and
+    all degrees, with a general Haar-integrated multiplier block (Fubini form).
+  - `polyLinkHaar2_fixedG_invariant_deg2`: PROVED for SPECIFIC g ∈ {(3+4i)/5, (3+4j)/5,
+    (1+2i+2j+4k)/5}, on the 15 head monomials of degree ≤ 2, left and right
+    (`fixedGCheck_nonunit_fails` is the sanity check). General fixed g: OPEN.
+  - `polyLinkHaar2_square_nonneg`: PROVED, `0 ≤ h(p·p)` for every supported p (all degrees).
+- Audit `SCOPE-CHARACTER-DIAG-RESOLUTION-2026-10-06`: `hlink` (rate ≤ specMax) is a sharpness
+  assertion; the carrier rate 1/4 is loose and the link is the wrong shape (direction,
+  operator, form vs norm). Recommendation: define the rate from the spectrum.
+
+## Earlier proved increment: trace route on the real strong-coupling carrier (2026-10-06 PT)
 
 - `SpectralHalvingStrongCouplingCarrier.scFamily W`: literal all-nome Wilson carrier at
   w = 1/1024, rate `timeRate` (≈ 1/4), dyadic spacing; unconditional.
