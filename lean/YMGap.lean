@@ -7432,6 +7432,7 @@ import YMGap.Continuum.SU2TorusRPSplitRP
 import YMGap.Continuum.SU2TorusRPPELift
 import YMGap.Continuum.SU2TorusRPCrossMatch
 import YMGap.Continuum.SU2TorusRPMaster
+import YMGap.Continuum.SU2TorusRPThetaAbs
 import YMGap.Continuum.SpecMaxRateFamily
 import YMGap.Continuum.W1StrongCouplingPerturbation
 import YMGap.Continuum.W1VacuumTailRowSum
