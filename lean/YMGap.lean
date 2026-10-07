@@ -7435,6 +7435,7 @@ import YMGap.Continuum.SU2TorusRPMaster
 import YMGap.Continuum.SU2TorusRPThetaAbs
 import YMGap.Continuum.SU2TorusRPHalfSwap
 import YMGap.Continuum.SU2TorusRPSplitFactor
+import YMGap.Continuum.SU2TorusRPLayout
 import YMGap.Continuum.SpecMaxRateFamily
 import YMGap.Continuum.W1StrongCouplingPerturbation
 import YMGap.Continuum.W1VacuumTailRowSum
