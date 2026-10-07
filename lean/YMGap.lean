@@ -7654,3 +7654,4 @@ import YMGap.Continuum.SU2TorusRPTorusZ
 import YMGap.Continuum.SU2TorusRPRelabelX
 import YMGap.Continuum.SU2TorusRPPermX
 import YMGap.Continuum.SU2TorusRPPermCoord
+import YMGap.Continuum.SU2TorusRPTorusX

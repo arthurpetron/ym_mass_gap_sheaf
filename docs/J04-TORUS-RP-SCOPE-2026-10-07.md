@@ -407,4 +407,12 @@ for every supported `X`. Axioms [propext, Quot.sound]. Open: the coordinate acti
 [propext, Quot.sound]. `rcomp_ringSub` shows `rcomp r` is a `RingSub n`. Open: using these and `perm_haarX`/`lay_perm`,
 the torus `Θ_torus F · F` (via `thetaPoly` on `torusLinks`) should be identified with the layout
 `signSel(conjSel layT)(reindex halfSwap F')·F'`, and then `hW` can be stated and discharged.
+
+## d9z'': the torus observable bridge (`SU2TorusRPTorusX`)
+
+`torus_X`: there is a list `r` with `imap r (idx_torusLinks ℓ) = idx_L ℓ` such that, for every supported `X`,
+`∫_{|torusLinks|} X·Π_{torusPlaquettes} T_K[torusLinks] = ∫ (rcomp r X)·Π T_K[L]`. Axioms [propext, Quot.sound].
+**Remaining for hW:** show that for torus observables `G` on positive links, `rcomp r (Θ_torus G · G)` is PE to the
+layout form `signSel(conjSel layT)(reindex halfSwap F')·F'` for some `F'` with `Sup |Pt| F'`. After that,
+`torus_rp_all` closes `hW`.
 RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
