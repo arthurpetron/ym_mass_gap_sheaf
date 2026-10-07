@@ -49,6 +49,16 @@ consumer, with explicit floor `seed*(1-seed)-S/2 > 0`. Global factor caps and a
 B04 ceiling are consequences, not assumptions of this join. Actual comparisons
 and a useful budget remain OPEN; this does not construct them.
 
+The gap producer need not inhabit the FULL coercive `ApproxRgIntertwiner`.
+`twoStepFactor_of_upper_comparison` uses only an upper norm comparison and the
+actual two-step estimate; `computedRate_contraction_of_upperComparisons` feeds
+these directly into the SAME computed-rate induction, with no lower comparison.
+Positive-time smoothing followed by a zero-preserving map is PROVED unable to
+satisfy the full interface's lower bound, because the original carrier has
+positive-norm fringe states killed by time. This does NOT rule out that map for
+the smaller gap producer. Keep the old fields unchanged, but do not spend proof
+effort on their unnecessary coercivity when producing the contraction.
+
 The budget must control distortion as well as additive error: computed successor
 rates are at least `3/4`, and `effectiveDefect >= (9/16)*(kappa-1)` thereafter.
 Do not treat `kappa >= 1`, `kappa -> 1` or error summability without the weighted
@@ -62,9 +72,13 @@ actual OWN-centered integral equals `Z` times the literal insertion covariance,
 with root membership and distinctness retained.
 `SU2TorusRPOwnMeanReflection.ownMean_mirror` and `theta_centeredCharacter` now
 prove reflection invariance of the OWN mean and actual centered observable,
-including the full temporal Wilson weight. Translation invariance of OWN means
-and the exact RP/time joins still need to be assembled.
-`SU2ClusterBridge.hcov` remains a hypothesis, not an identification theorem.
+including the full temporal Wilson weight. `SU2TorusOwnMeanTimeShift` now proves
+translation invariance of the OWN mean with explicit full link/plaquette
+permutations. `SU2TorusCenteredCovarianceRP.hcov` identifies the actual RP
+response with `Z*cov` for physical spatial roots in the finite range. Positive-
+half support and the full pairing shift law remain to be assembled; this is
+the fixed `betaS` Taylor-Wilson torus branch, not a transport to the all-nome
+original completed carrier.
 No torus transfer or continuum gap follows from its finite conditional ratio bound.
 
 Check and record each completed join in the dated audit/ledger before using
@@ -73,6 +87,12 @@ actual finite torus Haar/RP identification, while testing an action-specific
 producer for the explicit RG comparisons and their demanding distortion/error
 budget. Keep the independent survival estimate in view; do not extend conditional
 scaffolds in place of these analytic producers.
+The next RG comparison must retain the COMPLETE integrated middle action:
+`original_twoLayer_gluing` keeps `K01*V1*K12` under the middle Haar integral.
+Bare heat composition does not remove `V1`. Start with the smaller upper/two-
+step comparison on the original completed form, or a direct SAME-operator bound;
+ordinary weighted L2 contraction is not automatically this OS norm bound.
+Evidence: `audits/AUDIT-TORUS-TRANSLATION-AND-RG-PRODUCER-2026-10-07.md`.
 The canonical chart's displayed broad claims remain unchanged; no reprint.
 
 ### Earlier signed-cost route and subsequent checkpoints (2026-10-04 onward)

@@ -1,5 +1,52 @@
 # Sorry Ledger
 
+## PROVED: finite torus translated means and actual RP covariance (2026-10-07)
+
+- `SU2TorusLinksTimeShift` constructs explicit periodic shift/inverse identities,
+  actual full link and plaquette permutations, and the inverse-list index pin.
+  Every physical temporal action factor is retained.
+- `SU2TorusOwnMeanTimeShift.character_moment_timeShift` transports the actual
+  character moment by supported Haar relabelling; `ownMean_timeShift` gives
+  equality of OWN means with the SAME unchanged partition reciprocal.
+  The legacy propositional permutation witness is eliminated only into a
+  propositional integral identity, not into computational data.
+- `SU2TorusCenteredCovarianceRP.response_covariance` and `hcov` identify actual
+  `rpB(tau0,taun)` with `Z*SU2ClusterBridge.cov`. Physical guards are explicit:
+  `b,c,d < 2M`, spatial plane, `n+1 <= M`, and `2X+1 <= M` for the whole range.
+  The roots are physically present and distinct; Z positivity is derived.
+- Three final focused checks passed their 15 printed gates within
+  {propext, Quot.sound}. Failed missing-cache, notation and projection-reduction
+  runs are not evidence. No source hole, new axiom or raised limits.
+- OPEN: positive-half `PtSup`, full weighted pairing shift law, torus transfer,
+  heat-action carrier comparison, spacing/volume limits and continuum/Clay.
+
+## PROVED: smaller RG gap comparison; full-interface smoothing obstruction (2026-10-07)
+
+- `BF4WilsonAllNomeRGTimeSmoothingObstruction.twoStepFactor_of_upper_comparison`
+  proves the fine two-step factor `kappa*(rC^2+epsilon)` from the actual map's
+  upper norm bound, two-step comparison, `kappa >= 0` and coarse contraction.
+  No coercive lower comparison, linearity or norm inverse is required.
+- `no_coercive_positive_time_smoothing` and
+  `approxRg_not_positive_time_smoothing` use the actual positive-norm boundary
+  plaquette killed by time to rule out zero-preserving postprocessing of any
+  positive-time image as a producer of the FULL interface's lower comparison.
+  They do NOT rule out the smaller upper-only producer.
+- `BF4WilsonAllNomeRGComputedMargin.computedRate_contraction_of_upperComparisons`
+  joins that smaller producer to the existing explicit rate computation and
+  positive dyadic floor. The former full-interface theorem and all canonical
+  types/fields remain unchanged. The floor still needs the useful weighted
+  distortion/error budget and its scalar sign guards.
+- Two final focused checks passed three and fourteen gates respectively,
+  all within {propext, Quot.sound}. Available pressure/swap was checked before
+  each launch; verification was serialized with one 20-GiB worker and 12-GiB
+  reserve. No full-root or full-tree audit is claimed; CI remains off.
+- OPEN: actual SAME-form upper/two-step comparisons and their useful AF budget,
+  independent survival, physical scaling, limiting OS/QFT/every-group/Clay.
+  Keep the full `K01*V1*K12` integrated action; bare heat composition is not
+  the interacting two-step action.
+
+Evidence: `audits/AUDIT-TORUS-TRANSLATION-AND-RG-PRODUCER-2026-10-07.md`.
+
 ## PROVED: reflected OWN mean and centered character on the actual torus (2026-10-07)
 
 - `SU2TorusRPOwnMeanReflection.theta_weight` preserves ALL actual Taylor-Wilson
@@ -12,8 +59,9 @@
 - The final one-file check passed four gates, all {propext, Quot.sound}.
   Earlier local-notation/missing-namespace elaboration failures are not evidence;
   no memory/heartbeat limits were increased. No source hole or axiom introduced.
-- OPEN: translated OWN means, the exact `hcov` RP assembly, positive-time
-  support/time-additivity, torus transfer and continuum/Clay. Full-root
+- Translated OWN means and the exact finite `hcov` RP assembly are now proved
+  above. OPEN: positive-time support/time-additivity, torus transfer and
+  continuum/Clay. Full-root
   verification was not run; only these leaf imports were registered.
 
 ## PROVED: computed RG telescope and existing Wilson lower-margin consumer (2026-10-07)
@@ -50,8 +98,8 @@
 - The final one-file check passed four printed gates, all
   {propext, Quot.sound}. Generic opaque determinant algebra resolved the first
   elaboration timeout without a limit increase; failed runs are not evidence.
-- OPEN: translated OWN mean identification and the exact RP/time
-  assembly of `hcov`; positive-half support, time-shift pairing, transfer and
+- Translated OWN means and finite RP assembly of `hcov` are now proved above.
+  OPEN: positive-half support, time-shift pairing, transfer and
   scaling/continuum/QFT/Clay. No analytic decay bound is supplied by this algebra.
 
 ## PROVED: actual finite torus observable reflection and insertion extraction (2026-10-07)
@@ -69,8 +117,9 @@
 - These discharge two finite algebraic ingredients of
   `SU2ClusterBridge.hcov`, not that hypothesis itself. OWN centering, covariance
   cancellation and reflected mean invariance have since been proved above;
-  translated means and the exact RP/time-shift identification remain to be
-  joined. No torus transfer, scaling or Clay closure.
+  translated means and the exact finite RP covariance have since been proved.
+  Positive support and time-shift pairing remain to be joined. No torus
+  transfer, scaling or Clay closure.
 
 ## PROVED: SAME-carrier RG two-step recovery; scope correction (2026-10-07)
 

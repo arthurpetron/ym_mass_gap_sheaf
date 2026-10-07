@@ -4,8 +4,20 @@ Supporting torus algebra checked (2026-10-07): spatial-character reflection,
 guarded insertion extraction and the actual OWN-centered Haar covariance
 identity (`SU2WilsonCenteredCovariance.centered_covariance`), plus reflected
 OWN means and centered observables (`SU2TorusRPOwnMeanReflection`). The exact
-covariance/RP join, translated means and transfer construction remain OPEN.
+translated OWN means are now checked (`SU2TorusOwnMeanTimeShift`), and
+`SU2TorusCenteredCovarianceRP.hcov` pins the actual finite RP response to the
+SAME covariance under physical root guards. Positive-half support, the pairing
+shift law and transfer construction remain OPEN.
 These do not change the displayed broad chart.
+
+Supporting RG producer correction checked (2026-10-07):
+`twoStepFactor_of_upper_comparison` and
+`computedRate_contraction_of_upperComparisons` need no coercive lower norm
+comparison. The full `ApproxRgIntertwiner` remains unchanged; positive-time
+smoothing followed by zero-preserving postprocessing cannot satisfy its lower
+bound on the original positive-norm fringe. That obstruction does NOT forbid
+the smaller gap producer. Actual upper/two-step estimates and the weighted
+defect budget remain OPEN; complete middle spatial action factors must be kept.
 
 Supporting RG telescope checked (2026-10-07):
 `BF4WilsonAllNomeRGComputedMargin.computedWilsonFamily_lowerMargin` supplies

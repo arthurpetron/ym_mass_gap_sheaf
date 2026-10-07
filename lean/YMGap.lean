@@ -7688,5 +7688,13 @@ import YMGap.Continuum.SU2WilsonObsExtraction
 -- comparison/budget inputs. Finite OWN centering preserves the SAME Wilson Z.
 import YMGap.Continuum.BF4WilsonAllNomeRGComputedMargin
 import YMGap.Continuum.SU2WilsonCenteredCovariance
--- Reflection preserves the actual Wilson OWN mean; translation/RP joins open.
+-- Reflection preserves the actual Wilson OWN mean.
 import YMGap.Continuum.SU2TorusRPOwnMeanReflection
+-- Full torus translations and the actual finite RP covariance are identified;
+-- positive-half support, weighted time pairing and transfer remain open.
+import YMGap.Continuum.SU2TorusLinksTimeShift
+import YMGap.Continuum.SU2TorusOwnMeanTimeShift
+import YMGap.Continuum.SU2TorusCenteredCovarianceRP
+-- The gap comparison does not need the full RG interface's coercive lower
+-- bound. Its positive-time-smoothing obstruction is scoped to that full field.
+import YMGap.Continuum.BF4WilsonAllNomeRGTimeSmoothingObstruction

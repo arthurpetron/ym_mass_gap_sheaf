@@ -16,6 +16,19 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked finite RP covariance and smaller RG producer (2026-10-07):**
+`SU2TorusLinksTimeShift` supplies explicit periodic permutations of the full
+link/plaquette lists, and `SU2TorusOwnMeanTimeShift` proves translated OWN
+means with the unchanged Wilson partition. `SU2TorusCenteredCovarianceRP.hcov`
+identifies the actual OWN-centered RP response with `Z*cov` on physical roots.
+Positive-half support/time-additivity and a torus transfer remain OPEN.
+On the separate original all-nome carrier, the checked upper-only quadratic
+transfer feeds the computed-rate induction without the full RG interface's
+coercive lower bound. Time smoothing is excluded only from that FULL interface,
+not from the smaller gap producer. Actual comparisons, useful error budgets,
+survival, physical calibration and all continuum/Clay requirements remain OPEN.
+Five focused checks only; no full-root build/audit or canonical field changes.
+
 **Checked direct RG telescope and OWN covariance (2026-10-07):**
 `BF4WilsonAllNomeRGComputedMargin` computes the rates from one seed and proves
 their dyadic floor `seed*(1-seed)-S/2`, given actual comparison functions and
@@ -25,16 +38,18 @@ remain OPEN. `SU2WilsonCenteredCovariance` proves the actual OWN-centered Haar
 integral equals the literal insertion covariance times the SAME partition,
 under genuine root guards. `SU2TorusRPOwnMeanReflection` also proves reflected
 OWN mean/centered-character identities, retaining the full temporal weight.
-Translated means, full covariance/RP identification, survival,
-physical scaling and continuum/Clay remain OPEN. Narrow checks only.
+Translated means and the finite covariance/RP identification are now proved
+above; positive-half support/time-additivity, survival, physical scaling and
+continuum/Clay remain OPEN. Narrow checks only.
 
 **Checked finite torus observable joins (2026-10-07):**
 `SU2TorusRPObservableReflection.theta_chi_spatial` identifies the genuine
 mirrored spatial character, and `SU2WilsonObsExtraction.obsTK_extract`
 extracts the actual `1+chi` insertion with membership/nonduplication guards.
 Two focused checks passed permitted gates. OWN centering and reflected mean
-invariance are now proved above; the full covariance/RP join, translated
-means, torus transfer and continuum theory remain OPEN.
+invariance, translated means and the finite covariance/RP join are now proved
+above; positive-half support/time-additivity, torus transfer and continuum
+theory remain OPEN.
 
 **Checked SAME-carrier RG recovery (2026-10-07):**
 `BF4WilsonAllNomeRGTwoStepRecovery` proves that a supplied two-step factor

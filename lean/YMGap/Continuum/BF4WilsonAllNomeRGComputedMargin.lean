@@ -20,12 +20,14 @@ limit, continuum theory or Clay theorem is constructed here.
 -/
 
 import YMGap.Continuum.BF4WilsonAllNomeRGTwoStepRecovery
+import YMGap.Continuum.BF4WilsonAllNomeRGTimeSmoothingObstruction
 
 namespace YMGap.Continuum.BF4WilsonAllNomeRGComputedMargin
 
 set_option autoImplicit false
 
 open YMGap.Constructive
+open YMGap.Constructive.CReal (RCle RCscale RCadd)
 open YMGap.Constructive.HalfPow
 open YMGap.Continuum.RingNormaliser (poly_identity_of_normal_eq)
 open YMGap.Continuum.BF4WilsonAllNomeRGStepComposition
@@ -34,6 +36,10 @@ open YMGap.Continuum.RGExplicitRationalRate
 open YMGap.Continuum.BF4WilsonAllNomeExprAnchorTrajectory (ExprAnchorTrajectory)
 open YMGap.Continuum.BF4WilsonAllNomeExprMixRateContraction (WilsonVacuumSqContraction)
 open YMGap.Continuum.BF4WilsonAllNomeWilsonDynamicFamily
+open YMGap.Continuum.BF4WilsonAllNomeCompletedInner (completedInner)
+open YMGap.Continuum.BF4WilsonAllNomeCompletedTime (VacuumComplement completedTime)
+open YMGap.Continuum.BF4WilsonAllNomeRGTimeSmoothingObstruction
+  (twoStepFactor_of_upper_comparison)
 
 local infix:50 " ≈ " => Q'.eqv
 
@@ -295,6 +301,54 @@ theorem computedRate_contraction (tr : ExprAnchorTrajectory) (seed S : Q')
         (Q'.le_of_lt (computedRate_lt_one seed S epsilon kappa hk he hm0 hS hfloor (n+1)))
     exact approxRg_transfers_explicitRate (H n) _ ih hcap
 
+/-- The SAME computed-rate induction needs only upper norm comparisons and
+the actual two-step comparison. No coercive lower comparison is assumed or
+constructed; maps losing fringe norms are not excluded by this consumer.
+The action-specific comparisons and weighted defect budget remain OPEN. -/
+theorem computedRate_contraction_of_upperComparisons (tr : ExprAnchorTrajectory) (seed S : Q')
+    (epsilon kappa : Nat → Q')
+    (hk : ∀ n, (1 : Q') ≤ kappa n) (he : ∀ n, (0 : Q') ≤ epsilon n)
+    (hm0 : (0 : Q') ≤ (1 : Q') - seed)
+    (hS : RgErrorSummable (effectiveDefectSeq kappa epsilon (computedRate seed epsilon kappa)) 0 S)
+    (hfloor : (0 : Q') < seedFloor seed S)
+    (hseed : WilsonVacuumSqContraction (tr.schedule.nome_pos 0) (tr.schedule.nome_lt_one 0) (tr.width 0) seed)
+    (Phi : ∀ n, VacuumComplement (tr.schedule.nome_pos (n+1)) (tr.schedule.nome_lt_one (n+1))
+      (width := tr.width (n+1)) →
+        VacuumComplement (tr.schedule.nome_pos n) (tr.schedule.nome_lt_one n) (width := tr.width n))
+    (hupper : ∀ n x, RCle
+      (completedInner (tr.schedule.nome_pos n) (tr.schedule.nome_lt_one n) (Phi n x).val (Phi n x).val)
+      (completedInner (tr.schedule.nome_pos (n+1)) (tr.schedule.nome_lt_one (n+1)) x.val x.val))
+    (htwo : ∀ n x, RCle
+      (completedInner (tr.schedule.nome_pos (n+1)) (tr.schedule.nome_lt_one (n+1))
+        (completedTime (tr.schedule.nome_pos (n+1)) (tr.schedule.nome_lt_one (n+1)) 2 x.val)
+        (completedTime (tr.schedule.nome_pos (n+1)) (tr.schedule.nome_lt_one (n+1)) 2 x.val))
+      (RCadd (RCscale (kappa n)
+        (completedInner (tr.schedule.nome_pos n) (tr.schedule.nome_lt_one n)
+          (completedTime (tr.schedule.nome_pos n) (tr.schedule.nome_lt_one n) 1 (Phi n x).val)
+          (completedTime (tr.schedule.nome_pos n) (tr.schedule.nome_lt_one n) 1 (Phi n x).val)))
+        (RCscale (kappa n * epsilon n)
+          (completedInner (tr.schedule.nome_pos (n+1)) (tr.schedule.nome_lt_one (n+1)) x.val x.val)))) :
+    ∀ n, WilsonVacuumSqContraction (tr.schedule.nome_pos n) (tr.schedule.nome_lt_one n)
+      (tr.width n) (computedRate seed epsilon kappa n) := by
+  intro n
+  induction n with
+  | zero => exact hseed
+  | succ n ih =>
+    have hk0 : (0 : Q') ≤ kappa n :=
+      Q'.le_trans' _ _ _ (by decide : (0 : Q') ≤ (1 : Q')) (hk n)
+    have h0 : (0 : Q') ≤ kappa n *
+        (computedRate seed epsilon kappa n * computedRate seed epsilon kappa n + epsilon n) :=
+      Q'.mul_nonneg _ _ hk0
+        (Q'.zero_le_add _ _ (SumOfSquares.q_mul_self_nonneg _) (he n))
+    have hcap := factor_le_one_of_rate_le_one _
+      (Q'.le_of_lt (computedRate_lt_one seed S epsilon kappa hk he hm0 hS hfloor (n+1)))
+    exact vacuumSq_explicitRate_of_twoStepFactor _ h0 hcap
+      (twoStepFactor_of_upper_comparison
+        (tr.schedule.nome_pos (n+1)) (tr.schedule.nome_lt_one (n+1))
+        (tr.schedule.nome_pos n) (tr.schedule.nome_lt_one n)
+        (tr.width (n+1)) (tr.width n) (epsilon n) (kappa n)
+        (computedRate seed epsilon kappa n) (Phi n) hk0 (hupper n) (htwo n) ih)
+
 /-- Actual family witness produced from the named analytic inputs above. -/
 def computedWilsonFamily (tr : ExprAnchorTrajectory) (seed S : Q')
     (epsilon kappa : Nat → Q') (hseed0 : (0 : Q') ≤ seed)
@@ -345,5 +399,6 @@ end YMGap.Continuum.BF4WilsonAllNomeRGComputedMargin
 #print axioms YMGap.Continuum.BF4WilsonAllNomeRGComputedMargin.computedRate_nonnegative
 #print axioms YMGap.Continuum.BF4WilsonAllNomeRGComputedMargin.computedRate_lt_one
 #print axioms YMGap.Continuum.BF4WilsonAllNomeRGComputedMargin.computedRate_contraction
+#print axioms YMGap.Continuum.BF4WilsonAllNomeRGComputedMargin.computedRate_contraction_of_upperComparisons
 #print axioms YMGap.Continuum.BF4WilsonAllNomeRGComputedMargin.computedWilsonFamily
 #print axioms YMGap.Continuum.BF4WilsonAllNomeRGComputedMargin.computedWilsonFamily_lowerMargin

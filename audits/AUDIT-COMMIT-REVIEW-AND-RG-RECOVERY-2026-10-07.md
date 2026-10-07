@@ -144,8 +144,8 @@ states did not, so it is not reprinted.
 
 The direct rate computation and floor are retained as rational data, not hidden
 in existential witnesses:
-`lean/YMGap/Continuum/BF4WilsonAllNomeRGComputedMargin.lean:41`, `computedRate`;
-`seedFloor` at line 47. With `m0 = 1-seed`, the proof gives
+`lean/YMGap/Continuum/BF4WilsonAllNomeRGComputedMargin.lean:47`, `computedRate`;
+`seedFloor` at line 53. With `m0 = 1-seed`, the proof gives
 
 ```
 m(n) <= m0 * 2^-n
@@ -159,17 +159,17 @@ positive floor above. This finite-prefix estimate asserts no convergence
 without a modulus. The upper margin is derived, not imported from B04.
 Joint induction uses the previous lower bound to establish the sign needed
 at the next step; it does not assume all-scale factor caps or contractions:
-`computedMargin_invariant` at line 166; `computedMargin_lower` at line 222.
+`computedMargin_invariant` at line 172; `computedMargin_lower` at line 228.
 
 ONE supplied seed contraction and actual comparison functions then give every
-next SAME-carrier contraction (`computedRate_contraction` at line 276), the
-explicit family (`computedWilsonFamily` at line 299) and the EXISTING
-`WilsonLowerMargin` consumer (`computedWilsonFamily_lowerMargin` at line 318).
+next SAME-carrier contraction (`computedRate_contraction` at line 282), the
+explicit family (`computedWilsonFamily` at line 353) and the EXISTING
+`WilsonLowerMargin` consumer (`computedWilsonFamily_lowerMargin` at line 372).
 The old opposite-direction `RgRateChainκ` is not used or altered.
 
 The budget is demanding. Computed successor rates are at least 3/4
-(`computedRate_succ_lower` at line 60), and the effective defect thereafter
-is at least `9/16*(kappa-1)` (`computedDefect_distortion_lower` at line 84).
+(`computedRate_succ_lower` at line 66), and the effective defect thereafter
+is at least `9/16*(kappa-1)` (`computedDefect_distortion_lower` at line 90).
 Thus controlling only additive errors, or merely requiring `kappa -> 1`, is
 insufficient for the displayed weighted-prefix input. The finite all-nome
 Doeblin theorem supplies an available seed at its own rate
@@ -203,8 +203,11 @@ the successful proofs simplify the zero-based error index, isolate generic
 determinant algebra and use the correct explicit reflection namespace/notation.
 Root registration only: no full-root or whole-repository audit is claimed.
 
-Next finite joins: translated OWN means, physical-root guards and actual
-covariance/RP assembly, then positive-time support/time-additivity. Actual
+At that checkpoint the next finite joins were translated OWN means,
+physical-root guards and actual covariance/RP assembly. These are now checked
+in `audits/AUDIT-TORUS-TRANSLATION-AND-RG-PRODUCER-2026-10-07.md`; positive-time
+support/time-additivity remain OPEN. That continuation also proves the RG gap
+consumer needs no coercive lower comparison. Actual
 action-specific RG comparisons and their useful weighted distortion/error
 budget remain OPEN, together with independent survival, physical calibration,
 limiting OS/QFT/every-group/Clay. No canonical frontier field was changed or
