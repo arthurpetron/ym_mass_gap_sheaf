@@ -53,3 +53,28 @@ Everything is in cross-multiplied form; there is no division in Q'.
 - the `Z4SpinSummedFaceActivity*` envelopes.
 
 None of them provides the gas identity.
+
+## 3. Review fixes (2026-10-07, 01:33 PT)
+
+### (1) Envelope corrected
+The earlier text said `|χ_s| ≤ dim s` was "absorbed in coeffW". **That was wrong.** Bounding
+the character costs a second factor of (s+1).
+
+- **New envelope:** `charEnv w M = Σ_{s=1}^M (s+1)²·w^{s(s+2)}`, and
+  `zHeat M γ = charEnv(1/40, M)^{|γ|}`.
+- **Certified threshold interval for |z| ≤ ε = 1/10000:**
+  - `charEnv_pass`: at w = 1/40, `0 ≤ charEnv ≤ ε` for every M. The tail is geometric with
+    ratio 4w³ = 1/16000, and the invariant is `charEnv ≤ c − c·r^M`.
+  - `charEnv_fail`: at w = 1/20, `charEnv > ε` for every M ≥ 1, because the s=1 term alone is
+    4w³ = 1/2000.
+  - So the threshold w* lies in [1/40, 1/20).
+- `PlaquetteActivity.plaqActivity` (the coeffW sum, without the character factor) is no
+  longer used.
+
+### (2) Activity hypotheses
+- The general KP results assume **only the lower bound `z X ≥ −ε^{|X|}`**:
+  - `kpw_main` / `deg24_kp` / `z4_kp` / `torus_kp` (hypothesis `hz1`).
+- The decay and Lipschitz results need the **two-sided `|z X| ≤ ε^{|X|}`** (`hz1` + `hz2`):
+  - `deg24_ratio_lip`;
+  - the d-decay in progress.
+- `zHeat` satisfies both, since `0 ≤ zHeat ≤ ε^{|γ|}`.

@@ -6420,3 +6420,7 @@ covered: Polyakov/winding observables, an asymmetric torus, and the Wilson activ
   gases.
 - Proved an explicit heat-kernel envelope activity at w=1/40 with |z| ≤ (1/10000)^{|γ|}.
 - OPEN: graph-distance decay, and the R1 Haar/character identity Z_Wilson = Ξ(gas).
+
+Fix (2026-10-07): the R1 envelope now includes the |χ_s| ≤ s+1 factor (Σ(s+1)²w^{s(s+2)}).
+- The threshold is certified: ≤ ε at w=1/40, > ε at w=1/20.
+- KP needs only z ≥ −ε^{|X|}; decay and Lipschitz need |z| ≤ ε^{|X|}.

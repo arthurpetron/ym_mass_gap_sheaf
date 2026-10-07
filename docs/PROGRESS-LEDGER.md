@@ -12,8 +12,9 @@ new angle). Run `bash computations/progress_metric.sh` each iteration.
   - `deg24_ratio_lip`: |R(S₀)−R(T₀)| ≤ 2·(1/6000)^{|y|}, cross-multiplied, for box and torus.
 - `HeatKernelPolymerActivityR1` (PROVED):
   - w = 1/40;
-  - `plaqEnv_le`: Σ_{s≥1} coeffW ≤ 1/10000;
-  - `zHeat_bounds`: zHeat = plaqEnv^{|γ|} ≤ ε^{|γ|};
+  - corrected envelope Σ(s+1)²w^{s(s+2)}: `charEnv_pass` (≤ 1/10000 at w=1/40) and
+    `charEnv_fail` (> 1/10000 at w=1/20), so the threshold lies in [1/40, 1/20);
+  - `zHeat_bounds`: zHeat = charEnv^{|γ|} ≤ ε^{|γ|};
   - `heat_kp`.
 - OPEN: d-distance decay, and the R1 Haar identity Z_Wilson = Ξ(gas). See
   `audits/SCOPE-RATIO-LIPSCHITZ-AND-R1-ACTIVITY-2026-10-07.md`.
