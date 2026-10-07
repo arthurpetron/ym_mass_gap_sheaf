@@ -1,0 +1,10 @@
+mu=3.78
+lean_S4_A_kfree=0.6264606669
+lean_S4_A_kappa=3.2014495940
+lean_S4_B=0.6264606669
+proj_sum_A_kfree=10.0233706706
+proj_sum_A_kappa=51.2231935045
+proj_sum_B=10.0233706706
+lean_S4_teper_A_kfree=0.6241771825
+lean_S4_teper_A_kappa=3.1950890577
+lean_S4_teper_B=0.6241771825
