@@ -138,3 +138,7 @@ No fail statement is given: the ℓ¹ envelope is an upper bound, not the true a
 ## PROVED: commit 16, `SU2TwoRoot.lean`
 
 - The exact two-root formula, using T(b,a) kernels and both-point polymers.
+
+## PROVED: commit 17, `SU2ObsActivity.lean`
+
+- The activity, rooted-sum, λ-shift and environment inputs for the correlator bound.

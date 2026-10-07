@@ -4,7 +4,16 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 16, the two-root formula for the truncated χ₁ correlator (2026-10-07 PT)
+## Latest proved increment: R1 commit 17, observable-activity bounds and rooted sums at w₀ (2026-10-07 PT)
+
+- `SU2ObsActivity` (PROVED, axioms [propext, Quot.sound]).
+  - `zObs_bound`: `|z^S γ| ≤ D^{|S|} ε_L^{|γ|}` for nodup γ, with D = 514·10¹⁵ and ε_L = 10⁻¹⁵, uniform in M.
+  - `root_sum`: `Σ_{a∋p} c^{|a|} ≤ (5/3)^{24}` for c ≤ 1/2500, via `hgroupL` with a = [p].
+  - `lam_shift`: `λ^{d−s} ≤ λ^d (7/6)^s`.
+  - `env_w0`: `Ξ > 0` and `Ξ(l_a) ≤ M_a Ξ(l)` for the w₀ activity.
+- Labels: strong coupling, heat-kernel (spin-truncated), not Wilson; also true for U(1), not gap evidence.
+
+## Earlier proved increment: R1 commit 16, the two-root formula for the truncated χ₁ correlator (2026-10-07 PT)
 
 - `SU2TwoRoot` (PROVED, axioms [propext, Quot.sound]).
 - `diff_root`: if u = z off a self-incompatible block B, then `Ξ(u;H) − Ξ(z;H) ≈ Σ_{b∈H∩B} (u_b − z_b)Ξ(z;H_b)`.

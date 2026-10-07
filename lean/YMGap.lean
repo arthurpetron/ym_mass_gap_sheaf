@@ -7425,6 +7425,7 @@ import YMGap.Continuum.SU2ObsRoot
 import YMGap.Continuum.PolymerRemovalChain
 import YMGap.Continuum.SU2RemovalDecay
 import YMGap.Continuum.SU2TwoRoot
+import YMGap.Continuum.SU2ObsActivity
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport
