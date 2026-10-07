@@ -7355,6 +7355,9 @@ import YMGap.Continuum.SpectralTraceSandwich
 -- REDUCTION: two-boundary RG envelope u_j + |λ_j| ≤ C ρ^{K−j} under closure
 -- (ρ−q)(1−aρ) > η·a·CL with terminal-weighted errors; comparison with RgErrorSummable.
 import YMGap.Continuum.RGTwoBoundaryEnvelope
+-- REDUCTION / finite check: trace bounds s_{M0·2^j} ≤ U ≤ 1/2 on per-scale models + OPEN
+-- link rate ≤ specMax ⇒ WilsonLowerMargin (1/(2M0)).
+import YMGap.Continuum.SpectralHalvingMargin
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport

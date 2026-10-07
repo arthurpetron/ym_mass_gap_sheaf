@@ -328,6 +328,24 @@ to the terminal scale, the base improves from `1/2` to `ρ` (close to 1 when `q,
 are small), and a max replaces the sum. Polynomial (AF) errors still need either
 `K`-dependent constants or an extra mechanism.
 
+## Trace bounds ⇒ halving time ⇒ margin (2026-10-06 ~10:40 PM PT; REDUCTION / finite check)
+
+Lean: `lean/YMGap/Continuum/SpectralHalvingMargin.lean`.
+* `specMax_pow_le_half_of_trace S n (0<n) U (s_n ≤ U) (U ≤ 1/2) : specMax S ^ n ≤ 1/2`.
+* `specMax_le_one_of_trace` (same hypotheses): `specMax S ≤ 1`, so no extra hypothesis.
+* `halvingMargin_le_of_trace` (same): `halvingMargin n ≤ 1 − specMax S`.
+* `rate_pow_le_half_of_trace … r (0 ≤ r) (r ≤ specMax S) … : r ^ n ≤ 1/2`.
+* `wilsonLowerMargin_of_traceCertificates F M0 (0<M0) hsp S U (hlink : ∀ j, F.rate j ≤
+  specMax (S j)) (∀ j, excitedTrace (S j) (M0·2^j) ≤ U j) (∀ j, U j ≤ 1/2) :
+  WilsonLowerMargin F (halvingMargin M0)`.
+* `wilsonLowerMargin_of_traceCertificatesFrom` (all hypotheses only for `j ≥ j0`):
+  `WilsonLowerMargin F (prefixRateMargin F.rate (halvingMargin M0) j0)`.
+
+OPEN: `hlink`. Nothing ties `WilsonDynamicFamily.rate` to a finite spectral model. The
+only model (`excitedCharModel`) is closed-form and tied to `op` only via the OPEN
+`CharacterDiagResolution`. Volume uniformity is scoped separately:
+`audits/SCOPE-C1-SQUARE-BOX-DOUBLING-2026-10-06.md`.
+
 ## Seeding by strong coupling (honest limits)
 
 * `allNome_strongCoupling_vacuumSq` gives `WilsonVacuumSqContraction` at
@@ -392,3 +410,5 @@ summable `ε_j` for the Wilson action along the chosen schedule.
   (`SpectralTraceSandwich`; proved finite lemmas).
 * 2026-10-06 ~10:10 PM PT — Two-boundary envelope (`RGTwoBoundaryEnvelope`): closure
   `η·a·CL < (ρ−q)(1−aρ)`, explicit `C`; terminal weighting necessary. REDUCTION.
+* 2026-10-06 ~10:40 PM PT — `SpectralHalvingMargin` (trace bounds ⇒ margin; link OPEN) and
+  the C1 scope note `SCOPE-C1-SQUARE-BOX-DOUBLING-2026-10-06.md`.

@@ -4,7 +4,16 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: two-boundary RG envelope (2026-10-06 PT)
+## Latest proved increment: trace bounds ⇒ Wilson margin; C1 scope (2026-10-06 PT)
+
+REDUCTION / finite check (`SpectralHalvingMargin`): `s_n ≤ U ≤ 1/2` ⇒ `specMax^n ≤ 1/2`,
+`specMax ≤ 1`, `1/(2n) ≤ 1 − specMax`; family wrappers
+`wilsonLowerMargin_of_traceCertificates(From)` with `n_j = M0·2^j`, under the OPEN link
+`F.rate j ≤ specMax (S j)`. Scope note `audits/SCOPE-C1-SQUARE-BOX-DOUBLING-2026-10-06.md`:
+no torus layer in Lean (corner-anchored free boxes only), 4D constants table, first
+milestone `Z4TorusGeometry`. Axioms {propext, Quot.sound}; box launcher checks only.
+
+## Earlier proved increment: two-boundary RG envelope (2026-10-06 PT)
 
 REDUCTION (`RGTwoBoundaryEnvelope`): `TwoBoundaryRecursion K` (forward `u`, backward `|λ|`
 from the pin `λ_0 = 0`); `twoBoundary_envelope`: `u_j + |λ_j| ≤ C ρ^{K−j}` under the

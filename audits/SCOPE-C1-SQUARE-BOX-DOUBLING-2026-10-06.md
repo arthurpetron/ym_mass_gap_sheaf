@@ -1,0 +1,122 @@
+# SCOPE — C1 SquareBoxDoubling (volume uniformity) — 2026-10-06 ~10:45 PM PT
+
+Status: SCOPE NOTE ONLY (no Lean in this commit for C1). Labels: OPEN / packaging plan.
+
+## 0. Prior references in the repo
+
+Searched `lean/`, `audits/`, `docs/`, `work_plan.md` for `SquareBox`, `square box`,
+`SquareBoxDoubling`, `Doubling`, `C1`, `torus`, `periodic`, `finite-size`, `Martinelli`,
+`Family 215`.
+
+* No `SquareBoxDoubling` (or any square-box doubling statement) exists. The only
+  "square box" hit is `P2HalfTimeEndpointSupportCompiler.boxSum_top_endpointDirect`, a
+  cutoff-square index box in a coefficient sum. It is unrelated.
+* "Doubling" hits are time-doubling (`BoundedMidpointDoublingEventual.
+  bounded_midpointDoubling_leEv_anchor`, `RationalTwoModeSurvivalObstruction`
+  `response_doubling_upper`), not spatial box doubling.
+* `BF4DyadicWilsonSquare*` (49 files) are PLANAR Wilson LOOPS of side `2^s` with
+  `spacing s = half^s`. They are not boxes; the loop-specific constant
+  `384·(2^s)^3·(1−w)` (file header) is not reusable for volume doubling.
+* Finite-size criteria: `audits/RESEARCH-DEFECT-RETAINING-COLLECTIVE-ROUTE-2026-09-30.md`
+  says "Refined inverse-square finite-size criteria are a separate possible route, not
+  yet transferred to this carrier", and rejects the earlier `18/L − 3/L²` patch threshold
+  as a necessary condition.
+* `work_plan.md:49`: "Witness of `WilsonAFPaddedGapInput` on AF | OPEN (needs a
+  weak-coupling, volume-uniform producer with `1−r_j ≍ 2^-j`)". This is the consumer.
+* `work_plan.md` "## 215." is "global dependent recoupling column capacity" (2026-08-27).
+  It is unrelated, and I found no "Family 215" read in the repo.
+
+## 1. The doubling statement (target shape)
+
+Finite-size doubling (Martinelli–Olivieri-type criterion, adapted to lattice gauge theory).
+For boxes `Λ_L` of side `L` (in a torus of side `N ≥ 2L + pad`), with a per-box rate
+`r(Λ_L) < 1`, the claim is: for every `L ≥ L0`,
+`1 − r(Λ_{2L}) ≥ (1 − r(Λ_L))·(1 − ε_L)`, with `Π_k (1 − ε_{2^k L0}) ≥ c > 0`.
+Iterating gives `1 − r(Λ_{2^k L0}) ≥ c·(1 − r(Λ_{L0}))` uniformly in volume. Seeding
+then needs only ONE finite-box certificate, e.g. through the trace sandwich
+(`SpectralTraceSandwich` / `SpectralHalvingMargin`).
+
+In 4D, `Λ_L → Λ_{2L}` is a chain of `d = 4` one-direction doublings
+(`L^4 → 2L·L^3 → … → (2L)^4`), each covering by two overlapping slabs. The loss `ε`
+compounds 4 times per doubling (2D: 2 times). The analytic input for each step
+(decoupling of the overlap at weak coupling) is the real content. It is OPEN, and no
+existing Lean supplies it.
+
+## 2. Torus / periodic layer: status
+
+**Missing in Lean.** What exists:
+* `ClusterCount4DProgress`: `Z4Vertex := Nat × Nat × Nat × Nat` ("corner-anchored"),
+  `addE`, truncated `subE` (`subE_addE`), `Z4Link`, `Z4Plaq`, `Z4Plane`, `edgesOf`.
+  Coordinates do not wrap.
+* `Z4FiniteBoxExhaustion`: `boxVertices`, `boxPlaquettes`, `boxLinks` (FREE boundary),
+  `boxVertices_length = n^4`, `boxPlaquettes_length = 6n^4`, `boxLinks_length = 24n^4`
+  (boundary OCCURRENCES, with repetition), monotonicity, `CofinalFiniteZ4Exhaustion`,
+  `z4BoxExhaustion`.
+* `Z4FiniteBoxTrivalentResolution` (`distinctBoxLinks`, `incidentPlaqIds`): its header
+  calls the boxes "cofinal periodic", but the definitions are the corner-anchored
+  free-boundary boxes above. That wording is misleading.
+* `Z4FiniteBoxIncidentDegreeBound.incidentPlaqIds_length_le_six`: `≤ 6` incident
+  plaquettes (an upper bound only; boundary links have fewer).
+* `Z4UniformShiftPhysicalTransport.uniformShiftLink` / `uniformShiftPlaquette`: positive
+  translation by a padding (no wraparound).
+* `SepLatticeZ4Linf.linfDist`, `Z4LinfShellCount.ball_count`
+  (`≤ (2r+1)^4·6` faces in an ℓ∞ ball).
+* Periodic only abstractly, and only in time: `ReferenceWeightTimeGeometry.
+  GeometryEnrichedReferenceWeight` (`timeExtent`, `periodic` via `iterateTau`), with
+  instances in `TwoSliceCharacterReflection` and `MultiSliceWilsonPositiveTimePilot`.
+* The `BF4ExactSlab*` carriers are time-reflection slabs with an `extent` parameter, not
+  spatial tori.
+
+Needed: a spatial (and temporal) 4-torus with wraparound links and plaquettes, exact
+incidence (every link in exactly 6 plaquettes for `N ≥ 3`), a translation group action,
+and an embedding of free boxes `boxPlaquettes L` into the torus for `L + 1 ≤ N`.
+
+## 3. Constants that are 2D- or cube-specific and must be re-derived in 4D
+
+| Quantity | 2D value | 4D value | Where it lives now |
+|---|---|---|---|
+| plaquettes per link | 2 | `2(d−1) = 6` (exact on torus) | `incidentPlaqIds_length_le_six` (≤ only, free box) |
+| plaquettes per site | 1 | `C(4,2) = 6` | `boxPlaquettes_length = 6n^4` |
+| link occurrences per site | 4 | 24 | `boxLinks_length = 24n^4` |
+| ℓ∞-ball face count | `(2r+1)^2` | `(2r+1)^4·6` | `Z4LinfShellCount.ball_count` |
+| dyadic block growth | 4 | `16 = 2^4` | `Z4LinfGeometricSum.countCap` (`…*16`, `16·r^N ≤ 1/2`) |
+| sub-boxes per doubling | 4 | `2^d = 16` | none (new) |
+| one-direction doublings per step | 2 | 4 (loss compounds 4×) | none (new) |
+| box boundary faces | `4L` | `2d·L^{d−1} = 8L^3` (cubes), ×6 planes for plaquettes | none (new) |
+| overlap width / padding | rectangle `L×2L` | slab `L^3×2L`, padding for `uniformShift*` | `Z4UniformShift*` (padding only) |
+| finite-size threshold | e.g. `18/L − 3/L²` (patch, rejected as necessary) | to be re-derived | `RESEARCH-DEFECT-RETAINING-COLLECTIVE-ROUTE-2026-09-30.md` |
+| polymer / animal connectivity | — | 4D plaquette animals | `ClusterCount4DProgress`, `Z4CanonicalPolymer*` |
+
+The `BF4DyadicWilsonSquare` loop constants (perimeter 4, `384·(2^s)^3`) are loop data,
+not box data. The doubling step should not reuse them.
+
+## 4. Dependencies on existing files
+
+* Geometry: `ClusterCount4DProgress`, `Z4FiniteBoxExhaustion`,
+  `Z4FiniteBoxTrivalentResolution`, `Z4FiniteBoxIncidentDegreeBound`,
+  `Z4UniformShiftPhysicalTransport`, `SepLatticeZ4Linf`, `Z4LinfShellCount`,
+  `Z4LinfGeometricSum`, `FiniteSizeGeometricSum`.
+* Seeding and rate side: `SpectralTraceSandwich`, `SpectralHalvingMargin`,
+  `BF4WilsonHalvingTimeMargin` (`WilsonAFPaddedGapInput` consumer),
+  `BF4WilsonAllNomeWilsonDynamicFamily` (`WilsonDynamicFamily`, all-vector contraction).
+* Not reusable as-is: `BF4DyadicWilsonSquare*` (loops), `BF4ExactSlab*` (time slabs,
+  free spatial boundary).
+
+## 5. Minimal first Lean milestone (finite and decidable, no analysis)
+
+`Continuum/Z4TorusGeometry.lean`:
+1. `TorusVertex N := Fin N × Fin N × Fin N × Fin N` (or Nat with `% N`), `torusAddE` and
+   `torusSubE` with `torusSubE (torusAddE v m) m = v` exactly (wraparound, `0 < N`).
+2. `torusLinks N`, `torusPlaquettes N`, with lengths `4N^4` and `6N^4` (distinct, Nodup).
+3. Exact incidence: for `N ≥ 3`, every link lies in exactly 6 plaquettes (upgrading
+   `incidentPlaqIds_length_le_six` from ≤ to =).
+4. Translation action `torusShift` preserving incidence, plus the free-box embedding
+   `boxPlaquettes L ↪ torusPlaquettes N` for `L + 1 ≤ N` (compatible with
+   `Z4FiniteBoxExhaustion.mem_boxPlaquettes`).
+
+Milestone 2 (pure `Q'` algebra, cheap): `SquareBoxDoubling` as a Prop on a scale-indexed
+rate `r : Nat → Q'` (`1 − r (k+1) ≥ (1 − r k)(1 − ε k)`), and the iteration lemma
+`Π (1 − ε) ≥ c ⇒ 1 − r k ≥ c (1 − r 0)`. Output in `WilsonLowerMargin` form.
+
+Milestone 3 (OPEN, the real content): the per-step overlap-decoupling estimate for the
+Wilson transfer on torus boxes at weak coupling, with 4D constants from §3.
