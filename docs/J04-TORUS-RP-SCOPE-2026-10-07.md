@@ -153,3 +153,11 @@ obligations:
 **(b7) reindex `PECongrOn`** (`SU2TorusRPReindexCongr.lean`): `reindex_peCongrOn σ : PECongrOn n (reindexQuaternionPolynomial σ)`
 (supported variant: `Sup n X → Sup n Y → PE n X Y → PE n (σX) (σY)`). Still open: head-shear `PECongrOn`, a supported
 `ringSub_comp`, geometry (c), assembly (d). **RP FOR THE ACTUAL TORUS MEASURE IS OPEN.**
+
+**(b8) supported composition + chaining** (`SU2TorusRPCompOn.lean`): `RingSubOn`, `ringSubOn_comp` (outer map needs
+`PECongrOn`, inner map must keep polynomials supported), `haar_step` (`∫S P ≈ ∫P` and `S P ≈PE P'` give `∫P ≈ ∫P'`).
+Head-shear `PECongrOn` is NOT proved. The obstruction: in a context monomial that has head exponents, the shear
+changes the head, so moving the context across needs the inverse shear `u ↦ a*·u` plus the sphere relation
+`|a|² = 1` under Haar. Plan for (d): it does not need head-shear congruence, because it chains `haar_step`
+once per substitution on concrete integrands. Geometry (c) and assembly (d) are NOT started.
+**RP FOR THE ACTUAL TORUS MEASURE IS OPEN.**
