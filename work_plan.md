@@ -27,6 +27,20 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+The adaptive conditional-score front now has a CHECKED local polynomial
+direction input. Both signs of all 36 ordered mixed heat-Hessian entries
+construct `6*U*sum_i u_i^2+sum_ij u_i*u_j*Mij` for supported polynomial
+coefficients. It is instantiated with the ACTUAL lifted scores A*Di b-b*Di A,
+A=T a, b=T c, at each original active kinetic factor. No derivative acts on
+the coefficients; six counts the rotations at ONE block, not active blocks.
+This removes the constant-rational-direction restriction locally, NOT the
+whole-product/conditional Gram join or its normalization. NEXT assemble the
+original product frozen Hessian without duplicating a global loss per block,
+then seek the genuine joint conditional estimate with V, output weight and
+terminal mismatch retained. Nome curvature dependence is explicit and not
+AF-uniform. Three focused checks pass four permitted gates; no new canonical
+field closes. Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 The global output-heat front now has a CHECKED no-count norm-loss estimate:
 `(1-w^2)*Angular(Pf)+w^2*H[(Pf)^2]<=w^2*H[f^2]`, covering every finite
 cutoff and both nome endpoints. Its ACTUAL interacting-transfer join keeps

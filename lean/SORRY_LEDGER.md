@@ -1,5 +1,34 @@
 # Sorry Ledger
 
+## PROVED: local frozen curvature with actual adaptive transfer scores (2026-10-07)
+
+- `QuaternionHaarSixPolynomialMatrixEnvelope.two_polynomial_envelope_certificate`
+  constructs pairwise square completion with arbitrary supported polynomial
+  coefficients. `six_polynomial_matrix_envelope_certificate` retains all
+  36 ORDERED entries and gives `6*U*sum_i u_i^2+sum_ij u_i*u_j*Mij`.
+  No symmetry assumption or derivative-of-coefficient term.
+- `SU2QuaternionFrozenSixHeatCurvature.heat_frozen_six_curvature_certificate`
+  uses BOTH signs of the actual heat log-Hessian bounds at the selected block.
+  Six is the local rotation count, not a volume/active-block count.
+- `BF4ExactSlabFixedSpatialFrozenScoreCurvature.lastStep_frozen_six_score_curvature_certificate`
+  supplies the local envelope with the ACTUAL lifted A*Di b-b*Di A, where
+  A=T a, b=T c and T is the original interacting transfer. Active membership
+  pins the actual factor; no source sign, inverse or stationarity premise.
+- Three focused checks pass four gates within {propext, Quot.sound}.
+  One 20-GiB worker, 12-GiB reserve, fresh zero-swap capacity/process checks.
+  Missing namespace opens, a comment form and a parenthesis were repaired
+  without changing the mathematical statement or raising limits. No new
+  source sorry/axiom/classical input or canonical field change. Root import
+  registration only; no full-root/tree audit or hashed-baseline refresh.
+- OPEN: whole-product frozen-direction assembly, conditional Gram/order
+  reflection and the actual weighted normalized joint score estimate;
+  useful signed-cost/scaling control, independent AF response survival,
+  completed changing-action comparison, physical/volume control, SAME
+  limiting QFT, every compact simple group and Clay. The explicit nome
+  curvature cap is not AF-uniform. The broad chart is unchanged.
+
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 ## PROVED: global output heat energy paid by one projected-source loss (2026-10-07)
 
 - `SU2HeatProductReversePoincare.casimir_power_le_mul_geomSum`,

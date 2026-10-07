@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Supporting adaptive local curvature input checked (2026-10-07): all 36
+ORDERED entries give a six-direction envelope for supported POLYNOMIAL
+coefficients, instantiated with the ACTUAL lifted original transfer scores
+A*Di b-b*Di A. Coefficients are frozen algebraically, never differentiated.
+Six counts rotations at ONE block; no active-volume multiplicity is claimed.
+The whole-product/conditional Gram and weighted normalization joins remain
+OPEN, as do useful signed-cost/scaling control, AF survival, completed
+comparison, physical/volume control, SAME limiting QFT, every group and Clay.
+Three focused targets pass four permitted gates; no full-tree audit.
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+Broad chart unchanged; no reprint.
+
 Supporting global output-heat estimate checked (2026-10-07):
 `(1-w^2)*Angular(Pf)+w^2*H[(Pf)^2]<=w^2*H[f^2]` uses ONE decrement for
 all output directions, with no active-count factor or positive heat floor.

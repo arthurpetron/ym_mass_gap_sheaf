@@ -5499,6 +5499,11 @@ import YMGap.Continuum.SU2QuaternionSelectedLinkHeadObstruction
 import YMGap.Continuum.SU2QuaternionDisjointTemporalCrossTerm
 import YMGap.Continuum.SU2QuaternionProductHeatAngularHessian
 import YMGap.Continuum.SU2QuaternionHeatLogCurvature
+-- Local frozen polynomial directions, including actual coupled transfer scores.
+-- Whole-product conditional-score and scaling joins remain open.
+import YMGap.Continuum.QuaternionHaarSixPolynomialMatrixEnvelope
+import YMGap.Continuum.SU2QuaternionFrozenSixHeatCurvature
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFrozenScoreCurvature
 import YMGap.Continuum.SU2QuaternionRelativeHeatDualScore
 import YMGap.Continuum.SU2QuaternionProductHeatScoreVariance
 import YMGap.Continuum.SU2QuaternionProductHeatScoreEnergyObstruction
