@@ -6437,3 +6437,7 @@ closure (CS_d ≤ C q^d) are next.
 `PolymerLatticeDecay` (2026-10-07): lattice-distance decay for any `PlaqMetric`.
 - Rate (6/7)^R, with c = 1, c' = 0; N-independent.  The decay is paid by the size weights.
 - Group-blind plumbing; R1 is still open.
+
+`Z4PlaqMetric` (2026-10-07): the box and torus ℓ∞ metrics are instantiated.
+- zHeat (w = 1/40) truncated two-point decay is (6/7)^{dist_ℓ∞(supp y, supp g)}, independent of
+  N and of the torus size.

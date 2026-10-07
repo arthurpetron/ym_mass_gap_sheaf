@@ -87,3 +87,15 @@ For any `Z4BoxGas BL` with `BL.D = 24` (box `z4Chain` or torus `torusChain N`):
 
 Cost: the size factor drops from η^{|g|} to (6η/7)^{|g|}.  The graph-distance rate 7/10 is
 unchanged in `PolymerDecayZ4`.
+
+## Commit C2: Z4 metrics (`Z4PlaqMetric.lean`, PROVED)
+
+- `boxMetric`: ℓ∞ distance of base vertices.
+- `torusMetric N`: per coordinate `min(|ā−b̄|, N−|ā−b̄|)` with `x̄ = x mod N`.
+- Both satisfy: zero diagonal, triangle inequality, and `≤ 1` across a shared link.  On the torus
+  the link condition uses that bounded plaquettes lie in the box.
+- Corollaries `zheat_box_decay` and `zheat_torus_decay` (every N).
+
+**Still OPEN.** These cover the envelope gas only:
+- R1 (the Haar identity Z_Wilson = Ξ) is not proved.
+- The decay→gap bridge is not proved.

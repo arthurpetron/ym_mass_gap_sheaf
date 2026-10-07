@@ -4,7 +4,16 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: lattice-distance decay, generic (2026-10-07 PT)
+## Latest proved increment: ℓ∞ plaquette metrics on the Z4 box and torus, and zHeat lattice decay (2026-10-07 PT)
+
+- `Z4PlaqMetric` (PROVED, GROUP-BLIND PLUMBING):
+  - `boxMetric : PlaqMetric z4Chain`, the ℓ∞ distance of base vertices;
+  - `torusMetric N : PlaqMetric (torusChain N)`, the wrapped ℓ∞ distance `min(|Δ|, N−|Δ|)` per
+    coordinate mod N.
+- `zheat_box_decay` and `zheat_torus_decay`:
+  `|U| ≤ (6/7)^R (6η/7)^{|g|} Ξ(l)Ξ(g::l)` at ℓ∞ support separation R, for zHeat at w = 1/40.
+
+## Earlier proved increment: lattice-distance decay, generic (2026-10-07 PT)
 
 - `PolymerLatticeDecay` (PROVED, GROUP-BLIND PLUMBING).
   - `CSW`/`farW`/`chainW_bound`: a size-weighted chain.
