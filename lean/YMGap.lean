@@ -7818,3 +7818,4 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialTotalSignedScorePayment
 -- source and its reconstructed energy; scaling-smallness remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceRayleighPersistence
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLocalEnergyTransport
+import YMGap.Continuum.SU2TorusRPKLimit
