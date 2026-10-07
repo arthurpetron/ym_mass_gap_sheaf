@@ -346,6 +346,114 @@ theorem af_path_normalized_anchor_of_halfSurvival
   af_path_normalized_anchor_of_windowSurvival 2 afHalf afHalf 2 (by decide)
     (by decide) (by decide) (by decide) (by decide) (by decide) (by decide) (by decide) Hw
 
+/-! ## 4. Bare heat cannot supply the AF-family uniform shifted H1
+
+These are scalar statements about the SAME AF nome schedule, not statements
+about the spectrum of the interacting completed transfer K(V·). The literal
+signed spatial family has bare product-heat eigenvalue `qpow w 12`; time
+averaging of a pure mode does not change its normalized one-step loss.
+We construct a violating scale beyond EVERY supplied start and rational cap.
+-/
+
+/-- An explicit probe scale, not a physical spacing or convergence modulus. -/
+def afBareHeatProbeScale (cap : Q') (start : Nat) : Nat :=
+  1 + 2 * ((1000 * (cap.num.natAbs + start + 1)) * 1000)
+
+theorem afBareHeatProbeScale_ge_start (cap : Q') (start : Nat) :
+    start ≤ afBareHeatProbeScale cap start := by
+  unfold afBareHeatProbeScale
+  omega
+
+private theorem afE_linear_upper (j : Nat) : afE j ≤ 172*j+484 := by
+  have hlog := log2_succ_le j
+  unfold afE
+  omega
+
+/-- Side times bare coupling loss exceeds ANY rational cap at a constructed
+cofinal scale. This proves the scaling screen rather than assuming asymptotics. -/
+theorem afGap_side_gt_at_probe (cap : Q') (start : Nat) :
+    cap < Q'.ofNat (side (afBareHeatProbeScale cap start)) *
+      afGap (afBareHeatProbeScale cap start) := by
+  let N := cap.num.natAbs
+  let D := 1000*(N+start+1)
+  let j := afBareHeatProbeScale cap start
+  have hD : 1 ≤ D := by dsimp [D]; omega
+  have hx := nat_choice D 171 656 hD
+  change D*(2*(D*1000)+171*(2*(D*1000))+656) < 2^(1+2*(D*1000)) at hx
+  have hj : j=1+2*(D*1000) := rfl
+  have he : 2*(D*1000)+171*(2*(D*1000))+656 = 172*j+484 := by
+    rw [hj]
+    omega
+  rw [he, ← hj] at hx
+  have hND : N*1000 ≤ D := by dsimp [D]; omega
+  have hsmall : N*(1000*afE j) ≤ D*(172*j+484) := by
+    calc
+      N*(1000*afE j) = (N*1000)*afE j := (Nat.mul_assoc _ _ _).symm
+      _ ≤ D*afE j := Nat.mul_le_mul_right _ hND
+      _ ≤ D*(172*j+484) := Nat.mul_le_mul_left _ (afE_linear_upper j)
+  have hlarge : 2^j ≤ 234982*2^j := by
+    have h := Nat.mul_le_mul_right (2^j) (by decide : 1 ≤ 234982)
+    simpa only [Nat.one_mul] using h
+  have hnat : N*(1000*afE j) < 234982*2^j :=
+    Nat.lt_of_lt_of_le (Nat.lt_of_le_of_lt hsmall hx) hlarge
+  have hq : Q'.ofNat N < Q'.ofNat (side j)*afGap j := by
+    show (N : Int) * ((Q'.ofNat (side j)*afGap j).den : Int) <
+      (Q'.ofNat (side j)*afGap j).num * 1
+    rw [Q'.mul_den_cast, Q'.mul_num_cast, Q'.ofNat_den_cast, afGap_den]
+    have hn : (afGap j).num = 234982 := rfl
+    rw [hn]
+    simp only [Q'.ofNat_num_cast, side, Int.one_mul, Int.mul_one]
+    have hcast := Int.ofNat_lt.mpr hnat
+    simpa only [Int.natCast_mul, Int.mul_comm] using hcast
+  exact Q'.lt_of_le_of_lt (le_ofNat_natAbs cap) hq
+
+private theorem af_qpow_le_one (w : Q') (hw0 : (0 : Q') ≤ w) (hw1 : w ≤ 1) :
+    ∀ k : Nat, RingNormaliser.qpow w k ≤ 1
+  | 0 => Q'.le_refl' _
+  | k+1 => Q'.le_trans' _ _ _
+      (Q'.mul_le_mul_of_nonneg_right _ _ w (af_qpow_le_one w hw0 hw1 k) hw0)
+      (Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.one_mul_eqv w)) hw1)
+
+/-- The actual bare spatial-family heat eigenvalue w^12 has at least the
+one-link loss 1-w. No interacting-transfer identification is made. -/
+theorem afGap_le_bareHeatLoss (j : Nat) :
+    afGap j ≤ (1 : Q') - RingNormaliser.qpow (afNomeSchedule.nome j) 12 := by
+  let w := afNomeSchedule.nome j
+  have hw0 := Q'.le_of_lt (afNomeSchedule.nome_pos j)
+  have hw1 := Q'.le_of_lt (afNomeSchedule.nome_lt_one j)
+  have hpow : RingNormaliser.qpow w 12 ≤ w :=
+    Q'.le_trans' _ _ _
+      (Q'.mul_le_mul_of_nonneg_right _ _ w (af_qpow_le_one w hw0 hw1 11) hw0)
+      (Q'.le_of_eqv (Q'.one_mul_eqv w))
+  have h := af_one_sub_le hpow
+  exact Q'.le_trans' _ _ _ (Q'.ge_of_eqv (af_one_sub_one_sub (afGap j))) h
+
+/-- The bare family-mode H1 coefficient exceeds every rational constant at
+an explicit cofinal scale. Spatial averaging and pure-mode time smoothing
+cannot produce the interacting uniform H1 from this eigenvalue alone. -/
+theorem afBareHeatLoss_side_gt_at_probe (cap : Q') (start : Nat) :
+    cap < Q'.ofNat (side (afBareHeatProbeScale cap start)) *
+      ((1 : Q') - RingNormaliser.qpow
+        (afNomeSchedule.nome (afBareHeatProbeScale cap start)) 12) := by
+  have hscale : (0 : Q') ≤ Q'.ofNat (side (afBareHeatProbeScale cap start)) := by
+    change (0 : Int)*1 ≤ ((side (afBareHeatProbeScale cap start) : Nat) : Int)*1
+    simp only [Int.mul_one]
+    omega
+  exact ClusteringImpliesGap.lt_of_lt_of_le (afGap_side_gt_at_probe cap start)
+    (Q'.mul_le_mul_of_nonneg_left _ _ _
+      (afGap_le_bareHeatLoss (afBareHeatProbeScale cap start)) hscale)
+
+/-- Even an eventual uniform scalar H1 coefficient for the bare family mode
+is impossible on this AF schedule. This does NOT refute actual Wilson H1. -/
+theorem afBareHeatLoss_no_uniform_cap (cap : Q') (start : Nat) :
+    ¬ (∀ j, start ≤ j → Q'.ofNat (side j)*
+      ((1 : Q')-RingNormaliser.qpow (afNomeSchedule.nome j) 12) ≤ cap) := by
+  intro h
+  have hl := afBareHeatLoss_side_gt_at_probe cap start
+  have hu := h _ (afBareHeatProbeScale_ge_start cap start)
+  exact ClusteringImpliesGap.lt_irrefl' cap
+    (ClusteringImpliesGap.lt_of_lt_of_le hl hu)
+
 end YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory
 
 #print axioms YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory.dyadic_af_core
@@ -371,3 +479,9 @@ end YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory
 #print axioms YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory.af_path_normalized_anchor_of_windowSurvival
 #print axioms YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory.afHalf
 #print axioms YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory.af_path_normalized_anchor_of_halfSurvival
+#print axioms YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory.afBareHeatProbeScale
+#print axioms YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory.afBareHeatProbeScale_ge_start
+#print axioms YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory.afGap_side_gt_at_probe
+#print axioms YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory.afGap_le_bareHeatLoss
+#print axioms YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory.afBareHeatLoss_side_gt_at_probe
+#print axioms YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory.afBareHeatLoss_no_uniform_cap

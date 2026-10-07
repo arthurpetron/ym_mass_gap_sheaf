@@ -1,5 +1,19 @@
 # Canonical one-page project status
 
+Supporting interacting-response spread and cofinal screen checked (2026-10-07):
+the ORIGINAL finite V-weighted moments obey
+`Q*(C*B-Q^2)<=C*(C*R-Q*B)` without division. The residual-square identity
+retains the temporal CS gap; a useful family-relative bound and its completed
+join remain OPEN. On the actual AF schedule, a constructed cofinal scale
+violates every rational cap on `side*(1-w^12)`. This rules out the bare-heat
+replacement for uniform H1, NOT the actual interacting transfer or Yang--Mills.
+Next estimate the complete signed source/action contribution, retaining D(V),
+OWN-center, off-diagonal correlations and original partitions. Two focused
+targets pass permitted gates; no full-tree audit. Physical/volume control,
+limiting QFT, every group and Clay remain OPEN. Evidence:
+`audits/AUDIT-INTERACTING-RESPONSE-SHAPE-2026-10-07.md`.
+Broad chart unchanged; no reprint.
+
 Supporting integrated response and retained signed cost checked (2026-10-07):
 the ACTUAL completed backward area controls endpoint energy through
 `2*N*R(p+N)+N*(N+1)*e(p+N)<=2*area`. A supplied `area<=C*N*R(side)`

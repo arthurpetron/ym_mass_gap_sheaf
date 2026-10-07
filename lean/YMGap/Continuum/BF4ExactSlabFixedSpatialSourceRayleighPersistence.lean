@@ -282,8 +282,156 @@ theorem sourceRayleigh_floor_persists {w : Q'} (hw0 : (0 : Q') < w)
       have hs := sourceRayleigh_floor_step hw0 hw1 K width hK hb hrho ih
       simpa only [block_succ] using hs
 
+private theorem pair_scaled_sub_expand (w C Q : Q') (K width : Nat)
+    (a b d e : RatPoly) :
+    pair w K width (polyAdd (polySmul C a) (polySmul (-Q) b))
+      (polyAdd (polySmul C d) (polySmul (-Q) e)) ≈
+      C*(C*pair w K width a d) + -(Q*(C*pair w K width a e)) +
+        (-(Q*(C*pair w K width b d)) + (Q*Q)*pair w K width b e) := by
+  have h0 : pair w K width (polySmul C a) (polySmul C d) ≈
+      C*(C*pair w K width a d) :=
+    Q'.eqv_trans _ _ _ (pair_smul_left w K width C a _)
+      (Q'.mul_eqv_congr_left _ _ _ (pair_smul_right w K width C a d))
+  have h1 := pair_smul_left w K width C a e
+  have h2 := pair_smul_right w K width C b d
+  exact Q'.eqv_trans _ _ _
+    (pair_sub_expand w Q K width (polySmul C a) b (polySmul C d) e)
+    (Q'.add_eqv_congr'
+      (Q'.add_eqv_congr' h0
+        (Q'.neg_eqv_congr _ _ (Q'.mul_eqv_congr_left _ _ _ h1)))
+      (Q'.add_eqv_congr'
+        (Q'.neg_eqv_congr _ _ (Q'.mul_eqv_congr_left _ _ _ h2))
+        (Q'.eqv_refl _)))
+
+/-- The division-free source residual stays on the ORIGINAL spatial carrier.
+Its coefficients are actual V-weighted moments, not chosen scalar caps. -/
+theorem sourceRayleigh_spread_residual_supported (w : Q') (K width : Nat)
+    {c : RatPoly} (hc : SupportedQuaternionBlocks (N width) c) :
+    let Tc := transferStep w K width c
+    let C := pair w K width c c
+    let Q := pair w K width c Tc
+    SupportedQuaternionBlocks (N width)
+      (polyAdd (polySmul C Tc) (polySmul (-Q) c)) := by
+  dsimp only
+  exact supported_add
+    (support_smul (transferStep_supported w K width hc) _)
+    (support_smul hc _)
+
+/-- Exact ORIGINAL transfer quadratic of y=C*Tc-Q*c. The temporal Gram
+determinant is retained with its sign; no source norm is divided or canceled. -/
+theorem sourceRayleigh_spread_transfer_identity (w : Q') (K width : Nat)
+    {c : RatPoly} (hc : SupportedQuaternionBlocks (N width) c) :
+    let Tc := transferStep w K width c
+    let C := pair w K width c c
+    let Q := pair w K width c Tc
+    let B := pair w K width Tc Tc
+    let R := pair w K width Tc (transferStep w K width Tc)
+    let y := polyAdd (polySmul C Tc) (polySmul (-Q) c)
+    pair w K width y (transferStep w K width y) ≈
+      C*(C*R + -(Q*B)) + -(Q*(C*B + -(Q*Q))) := by
+  dsimp only
+  let Tc := transferStep w K width c
+  let T2c := transferStep w K width Tc
+  let C := pair w K width c c
+  let Q := pair w K width c Tc
+  let B := pair w K width Tc Tc
+  let R := pair w K width Tc T2c
+  let y := polyAdd (polySmul C Tc) (polySmul (-Q) c)
+  have hTc := transferStep_supported w K width hc
+  have hcross : pair w K width c T2c ≈ B :=
+    transferStep_weighted_symmetric w K width hTc hc
+  have hTy : RatPolyCoeffEqv (transferStep w K width y)
+      (polyAdd (polySmul C T2c) (polySmul (-Q) Tc)) :=
+    (transferStep_add w K width _ _).trans
+      ((transferStep_smul w K width C Tc).add
+        (transferStep_smul w K width (-Q) c))
+  have hexpand : pair w K width y (transferStep w K width y) ≈
+      C*(C*R) + -(Q*(C*B)) + (-(Q*(C*B)) + (Q*Q)*Q) :=
+    Q'.eqv_trans _ _ _ (pair_congr w K width (RatPolyCoeffEqv.refl _) hTy)
+      (Q'.eqv_trans _ _ _ (pair_scaled_sub_expand w C Q K width Tc c T2c Tc)
+        (Q'.add_eqv_congr' (Q'.eqv_refl _)
+          (Q'.add_eqv_congr'
+            (Q'.neg_eqv_congr _ _ (Q'.mul_eqv_congr_left _ _ _
+              (Q'.mul_eqv_congr_left _ _ _ hcross)))
+            (Q'.eqv_refl _))))
+  exact Q'.eqv_trans _ _ _ hexpand
+    (poly_identity_of_normal_eq
+      (.add (.add (.mul (.var 0) (.mul (.var 0) (.var 3)))
+        (.neg (.mul (.var 1) (.mul (.var 0) (.var 2)))))
+        (.add (.neg (.mul (.var 1) (.mul (.var 0) (.var 2))))
+          (.mul (.mul (.var 1) (.var 1)) (.var 1))))
+      (.add (.mul (.var 0) (.add (.mul (.var 0) (.var 3))
+        (.neg (.mul (.var 1) (.var 2)))))
+        (.neg (.mul (.var 1) (.add (.mul (.var 0) (.var 2))
+          (.neg (.mul (.var 1) (.var 1)))))))
+      (by decide) (fun | 0 => C | 1 => Q | 2 => B | _ => R))
+
+/-- Exact squared residual: the ORIGINAL weighted source CS gap, multiplied
+by C. This diagnostic includes zero-norm sources without a separate branch. -/
+theorem sourceRayleigh_spread_square_identity (w : Q') (K width : Nat)
+    {c : RatPoly} (hc : SupportedQuaternionBlocks (N width) c) :
+    let Tc := transferStep w K width c
+    let C := pair w K width c c
+    let Q := pair w K width c Tc
+    let B := pair w K width Tc Tc
+    let y := polyAdd (polySmul C Tc) (polySmul (-Q) c)
+    pair w K width y y ≈ C*(C*B + -(Q*Q)) := by
+  dsimp only
+  let Tc := transferStep w K width c
+  let C := pair w K width c c
+  let Q := pair w K width c Tc
+  let B := pair w K width Tc Tc
+  let y := polyAdd (polySmul C Tc) (polySmul (-Q) c)
+  have hcross : pair w K width Tc c ≈ Q := pair_symmetric w K width Tc c
+  have hexpand : pair w K width y y ≈
+      C*(C*B) + -(Q*(C*Q)) + (-(Q*(C*Q)) + (Q*Q)*C) :=
+    Q'.eqv_trans _ _ _ (pair_scaled_sub_expand w C Q K width Tc c Tc c)
+      (Q'.add_eqv_congr'
+        (Q'.add_eqv_congr_left _ _ _
+          (Q'.neg_eqv_congr _ _ (Q'.mul_eqv_congr_left _ _ _
+            (Q'.mul_eqv_congr_left _ _ _ hcross))))
+        (Q'.eqv_refl _))
+  exact Q'.eqv_trans _ _ _ hexpand
+    (poly_identity_of_normal_eq
+      (.add (.add (.mul (.var 0) (.mul (.var 0) (.var 2)))
+        (.neg (.mul (.var 1) (.mul (.var 0) (.var 1)))))
+        (.add (.neg (.mul (.var 1) (.mul (.var 0) (.var 1))))
+          (.mul (.mul (.var 1) (.var 1)) (.var 0))))
+      (.mul (.var 0) (.add (.mul (.var 0) (.var 2))
+        (.neg (.mul (.var 1) (.var 1)))))
+      (by decide) (fun | 0 => C | 1 => Q | _ => B))
+
+/-- Quantitative source Rayleigh increase retains the ACTUAL temporal Gram
+spread. Only original transfer positivity is used: no positive-norm guard,
+source floor, inverse, coefficient cap, or spectral representation. A useful
+source-relative lower bound on this spread remains an open analytic input. -/
+theorem sourceRayleigh_spread_step {w : Q'} (hw : (0 : Q') ≤ w)
+    (K width : Nat) {c : RatPoly} (hc : SupportedQuaternionBlocks (N width) c) :
+    let Tc := transferStep w K width c
+    let C := pair w K width c c
+    let Q := pair w K width c Tc
+    let B := pair w K width Tc Tc
+    let R := pair w K width Tc (transferStep w K width Tc)
+    Q*(C*B + -(Q*Q)) ≤ C*(C*R + -(Q*B)) := by
+  dsimp only
+  let Tc := transferStep w K width c
+  let C := pair w K width c c
+  let Q := pair w K width c Tc
+  let y := polyAdd (polySmul C Tc) (polySmul (-Q) c)
+  have hy : SupportedQuaternionBlocks (N width) y :=
+    sourceRayleigh_spread_residual_supported w K width hc
+  have hpositive : (0 : Q') ≤ pair w K width y (transferStep w K width y) :=
+    transferStep_quadratic_nonnegative w hw K width y hy
+  exact Q'.le_of_sub_nonneg
+    (Q'.le_trans' _ _ _ hpositive
+      (Q'.le_of_eqv (sourceRayleigh_spread_transfer_identity w K width hc)))
+
 #print axioms sourceRayleigh_supported
 #print axioms sourceRayleigh_floor_step
 #print axioms sourceRayleigh_floor_persists
+#print axioms sourceRayleigh_spread_residual_supported
+#print axioms sourceRayleigh_spread_transfer_identity
+#print axioms sourceRayleigh_spread_square_identity
+#print axioms sourceRayleigh_spread_step
 
 end YMGap.Continuum.BF4ExactSlabFixedSpatialSourceRayleighPersistence

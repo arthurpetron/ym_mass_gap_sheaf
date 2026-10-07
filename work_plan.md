@@ -39,12 +39,30 @@ all-vector, limiting-QFT and physical-clock requirements. Primary-source
 verification and corrections:
 `audits/RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md`.
 
+The selected response calculation now has a CHECKED cofinal screen:
+`side_j*(1-w_j^12)` exceeds EVERY supplied rational cap beyond EVERY supplied
+starting scale on the actual AF nome schedule. The signed spatial family has
+this eigenvalue only for bare product heat; pure-mode box smoothing cannot
+repair its normalized loss. PRUNE that replacement, not the actual interacting
+transfer or Wilson H1. The ORIGINAL finite transfer also has the checked
+division-free spread estimate `Q*(C*B-Q^2)<=C*(C*R-Q*B)` for its literal
+V-weighted moments. This retains the temporal determinant; it does not provide
+a useful lower bound on it or identify the finite pairing with the completed
+OS norm. Norm/CS interpretations still need the actual positivity guards.
+NEXT: estimate the complete signed source/action contribution with original
+OWN-center, off-diagonal family correlations and partitions retained, to
+control the actual backward area. Neither positive spread nor spatial face
+count ensures response survival near the SAME vacuum rate. The explicit
+D(V)-times-paired-residual term cannot be replaced by a bare Casimir estimate.
+Independent review and exact focused-check evidence:
+`audits/AUDIT-INTERACTING-RESPONSE-SHAPE-2026-10-07.md`.
+
 The selected-state front now has a CHECKED integrated alternative. For the
 ACTUAL completed response, let A(p,N)=sum_(i<N) R(p+i). The backward telescope
 gives `2*N*R(p+N)+N*(N+1)*e(p+N)<=2*A(p,N)` without a survival premise.
 At p=side/2,N=side-p, a supplied `A<=C*N*R(side)` feeds the EXISTING
 shifted H1 with c0>=4*(C-1), canceling only a positive integer, never a norm.
-NEXT: seek this integrated estimate on the actual original-moment expansion
+Seek this integrated estimate on the actual original-moment expansion
 of the selected AF family; do not require earliest-point survival if this
 smaller-window aggregate can be controlled. The family-uniform C is NOT
 constructed. An exact two-mode scalar datum at S=32,C=6 passes the area and

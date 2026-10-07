@@ -1,5 +1,39 @@
 # Sorry Ledger
 
+## PROVED: original temporal spread and cofinal bare-heat screen (2026-10-07)
+
+- `BF4ExactSlabFixedSpatialSourceRayleighPersistence.sourceRayleigh_spread_residual_supported`
+  keeps y=C*Tc-Q*c on the original finite carrier.
+  `sourceRayleigh_spread_transfer_identity` and
+  `sourceRayleigh_spread_square_identity` retain the literal V-weighted
+  moments; `sourceRayleigh_spread_step` proves
+  `Q*(C*B-Q^2)<=C*(C*R-Q*B)` from actual transfer positivity.
+  No norm inverse, positive-norm guard, assumed spread floor or spectral
+  theorem. A normalized norm/CS reading requires the original positivity
+  guards and is not an extra conclusion of the standalone w>=0 theorem.
+- `BF4WilsonAllNomeAFPaddedTrajectory.afBareHeatProbeScale` constructs an
+  explicit cofinal probe from any rational cap and start. The checked
+  `afGap_side_gt_at_probe`, `afGap_le_bareHeatLoss`,
+  `afBareHeatLoss_side_gt_at_probe` and `afBareHeatLoss_no_uniform_cap`
+  rule out an eventual cap on side*(1-w^12) for this AF schedule.
+  This concerns bare product heat, not the interacting K(V·) spectrum,
+  original completed H1 or a Yang--Mills counterexample.
+- Two focused checks pass all printed gates inside {propext, Quot.sound};
+  probe data are axiom-free. One monitored 20-GiB worker, 12-GiB reserve,
+  fresh capacity preflights, zero swap, no competing compiler.
+  Explicit rewriting repaired a recursion-depth elaboration failure;
+  no heartbeat/recursion-limit raise, new source sorry/axiom/classical input,
+  canonical field change, full-root/tree build/audit or baseline refresh.
+- OPEN: useful original interacting response-area or temporal-spread bound
+  on the selected AF family, including the SAME completed-moment join.
+  Nonnegative/strict spread alone does not ensure proximity to the actual
+  vacuum rate. D(V), OWN-center, signed off-diagonal correlations and both
+  partitions remain in the analytic estimate. All-vector changing-action
+  comparison/useful delta budget, physical/volume control, limiting QFT,
+  every compact simple group and Clay remain OPEN. Broad chart unchanged.
+
+Evidence: `audits/AUDIT-INTERACTING-RESPONSE-SHAPE-2026-10-07.md`.
+
 ## PROVED: integrated response telescope and retained squared cost (2026-10-07)
 
 - `BF4WilsonAllNomeShiftedWindowSurvival.window_response_area_lower`
