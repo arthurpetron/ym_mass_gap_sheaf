@@ -6385,3 +6385,7 @@ audit** (`audits/AUDIT-CHARACTER-DIAG-RESOLUTION-VACUUM-2026-10-06.md`).
 `W1VacuumTailRowSum` (2026-10-07): the W=1 model with the vacuum coupling and all spins gives an excited
 form bound of w^12 + κw^22 (certified at κ=1/4, w=1/1024 and 1/2); dense n×n Schur test. MODEL; the
 min-max step is cited.
+
+`W1VariationalMinMax` (2026-10-07): easy-direction min-max as finite algebra. Every 2-D span has
+a nonzero (given linear independence) x ⊥ χ₀ with form ≤ (w^12+κw^22)‖x‖² for the vacuum-included
+W=1 model. MODEL; reading it as λ₂ is a remark. Limits: see the ledger entry. Model work paused.

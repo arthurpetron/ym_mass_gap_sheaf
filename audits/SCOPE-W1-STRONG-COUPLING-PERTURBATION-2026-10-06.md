@@ -72,3 +72,7 @@ strong-coupling only.  It makes no large-β claim, so the U(1) rule refutes noth
   - the identification of this model with the true slab;
   - W = 2 (6j), deferred for review.
 - `schurN`: dense n×n row-sum form test (PROVED, plumbing).
+
+## Update: cited min-max step closed variationally (`W1VariationalMinMax`)
+`twoDim_perp` / `twoDim_perp_nonzero` replace the cited Courant–Fischer step with a variational
+statement. The λ₂ reading is a remark. See PROGRESS-LEDGER for the does/doesn't-show page.

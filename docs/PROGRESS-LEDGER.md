@@ -4,7 +4,56 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: W = 1 model with vacuum coupling and full spin tail; dense n×n Schur test; vacuity sweep (2026-10-07 PT)
+## Latest proved increment: easy-direction min-max for the W = 1 model, and what the W = 1 certificate does and does not show (2026-10-07 PT)
+
+**New Lean (`YMGap.Continuum.W1VariationalMinMax`, PROVED, MODEL; axioms ⊆ {propext, Quot.sound}).**
+- `perp_form_bound`: if x₀ = 0, the form of the full vacuum-included tridiagonal T
+  (vacuum coupling κw⁶ kept) satisfies form(x) ≤ (w¹² + κw²²)‖x‖² at every cutoff.
+- `twoDim_perp`: for any v1, v2 there are x and (a, b), not both ≈ 0, with x ≈ a·v1 + b·v2,
+  ⟨x,χ₀⟩ ≈ 0, and the same form bound.
+  - Generic case: x = ⟨v2,χ₀⟩v1 − ⟨v1,χ₀⟩v2.
+  - Degenerate case (both vectors ⊥ χ₀): x = v1.
+- `twoDim_perp_nonzero`: if v1, v2 are linearly independent on i ≤ n, then x ≢ 0.
+  Nonzero-ness rests on exactly this hypothesis.
+
+**How this connects to λ₂.** The Lean statement is variational: every 2-dimensional span
+contains a nonzero vector ⊥ χ₀ whose Rayleigh quotient is ≤ ρ. Reading this as "λ₂(T_N) ≤ ρ"
+is a REMARK. It uses the max-min characterization of λ₂ for a finite symmetric matrix, which
+is not formalized. The proof itself needs no spectral theorem.
+
+**What the W = 1 certificate SHOWS.** The W = 1 certificate is `W1StrongCouplingPerturbation`
++ `W1VacuumTailRowSum` + this file. For the explicit model operator (e_s = w^{4c4(s)},
+c_s = κw^{2c4(s)+2c4(s+1)}, all spins s ≥ 0, vacuum included) it shows:
+- ⟨χ₀,Tχ₀⟩ = 1;
+- every finitely supported vector ⊥ χ₀ has form ≤ (w¹² + κw²²)‖x‖².
+These are certified at κ = 1/4 for w = 1/1024 and w = 1/2. Variationally, the excited level
+of every finite section sits below w¹² + κw²², while the vacuum level is ≥ 1, uniformly in N.
+
+**What it does NOT show toward the real slab gap:**
+1. *Model vs true slab.* T is a hand-built tridiagonal spin-chain model of one W = 1 slab
+   transfer. Nothing identifies it with the actual Wilson transfer operator on the slab
+   Hilbert space. The SCOPE-SLAB-PETER-WEYL-IDENTIFICATION identification is OPEN.
+2. *Linearized weight.* The magnetic factor is linearized as 1 + κχ₁ (κ = 1/4 keeps it
+   positive). The true Boltzmann weight exp(β·Re tr) and its full character expansion are
+   not treated, and the higher characters are dropped.
+3. *Finitely supported vectors vs ℓ².* The bounds hold for every cutoff n. Extending them to
+   the ℓ² operator (closure/density, boundedness of T) is not formalized.
+4. *W = 1 only.* Width-2 slabs bring in 6j recoupling, deferred pending review. Nothing here
+   controls W ≥ 2 or W → ∞.
+5. *Strong coupling only.* The certificate uses small w (strong coupling, β ≪ 1) via the
+   hypothesis w³² + κw²² ≤ w¹². It gives no β-uniform bound, so it says nothing about the
+   continuum regime β → ∞, where the real mass-gap question lives.
+6. *U(1) rule.* `triForm_le`, `schurN`, `perp_form_bound`, `twoDim_perp` and
+   `twoDim_perp_nonzero` are group-blind. Only the c4 exponents are SU(2)-specific. The
+   analogous U(1) model gives the same kind of strong-coupling gap, and compact U(1) in 4D
+   is known to lose its gap at weak coupling. So this certificate cannot distinguish SU(2)
+   from U(1) and carries no non-abelian content beyond the exponents. Under the U(1) rule it
+   is evidence of nothing about the continuum gap.
+
+**Status.** MODEL / PLUMBING. No PROVED or PARTIAL milestone is upgraded. Model work is paused
+here; the next step awaits review (6j / W = 2, or the slab identification).
+
+## Earlier proved increment: W = 1 model with vacuum coupling and full spin tail; dense n×n Schur test; vacuity sweep (2026-10-07 PT)
 
 - `W1VacuumTailRowSum`: `triForm_le` (infinite tridiagonal row-sum test on finitely supported
   sequences), `excitedForm_bound` (χ₀⊥ form ≤ (w^12+κw^22)‖x‖², all spins), certified at
