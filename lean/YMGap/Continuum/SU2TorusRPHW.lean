@@ -1,8 +1,8 @@
 /-
 # Torus RP (e3): discharge of the `hW` target `TorusRP`
 
-`torus_rp hM hβ K : TorusRP hM β K`. This is reflection positivity for the actual torus `T_K` measure (`wilsonA`
-weights) on `torusLinks (2M)` order, with Θ = `thetaPoly` on `torusLinks` and observables on positive links.
+`torus_rp hM hβ K : TorusRP hM β K`. This is reflection positivity for the torus measure with the truncated T_K
+weight (fixed K) (`wilsonA` weights) on `torusLinks (2M)` order, with Θ = `thetaPoly` on `torusLinks` and observables on positive links.
 
 The chain: `torus_X` moves to layout order; `rcomp_imgR`/`like_obs` match the torus Θ with the layout `thetaH`
 on observables; `haar_drop'` passes from `|L|` to `a+a` blocks; `torus_rp_lay` closes.

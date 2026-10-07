@@ -7,6 +7,7 @@ This doc covers the RP row of `audits/SCOPE-R1-CLUSTER-TO-GAP-2026-10-07.md`. Th
 `Π_{torusPlaquettes} T_K`, where `T_K` is the degree-`K` `wilsonA` character polynomial of the Wilson weight. It holds
 for every `K` and every `β ≥ 0`, with Θ = `thetaPoly` and polynomial observables (`Obs`) on positive links.
 **Not covered:** the untruncated Wilson Boltzmann weight (`K → ∞`), and observables outside the `Obs` syntax.
+J04 (all compact simple groups) remains OPEN; this is SU(2) only.
 The Wilson statements hold for every β ≥ 0 (β-uniform; no strong-coupling label). By itself RP is not gap
 evidence. The heat kernel is set aside; Wilson is the target action.
 
