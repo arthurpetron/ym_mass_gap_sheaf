@@ -4950,6 +4950,8 @@ import YMGap.Continuum.JacobiProductRadialSignedTail
 import YMGap.Continuum.JacobiProductRadialLimit
 -- Endpoint producer and finite convolution ingredients; completed addition remains open.
 import YMGap.Continuum.JacobiProductRadialEndpoint
+import YMGap.Continuum.ThetaCeilingCells
+import YMGap.Continuum.ThetaCeilingNamedNomes
 import YMGap.Continuum.ThetaParityConvolution
 import YMGap.Continuum.ChebyshevHalfShiftProduct
 import YMGap.Continuum.ThetaAngularShellTail

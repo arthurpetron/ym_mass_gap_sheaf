@@ -21,6 +21,23 @@ new angle). Run `bash computations/progress_metric.sh` each iteration.
   closure remain OPEN. No broad chart node changes. Evidence:
   `audits/AUDIT-CONDITIONAL-GRUSS-AND-ORIGINAL-SCORE-2026-10-07.md`.
 
+## Latest proved increment: R1 commit 37, certified theta-ceiling D_∞(x) ≤ 2w/(1−w²) on all of [−1,1] at the named nomes w = 1/2 and w = 4/5 (2026-10-07 PT)
+
+- `ThetaCeilingCells` (PROVED): a cell-enclosure engine for the SAME constructed limit `productRadialCostCReal`. It has three parts:
+  - antitone `sTerm`, plus monotone interval enclosures on cells in [0,1] and in [−1,0], as cleared sums of nonnegative products;
+  - the signed tail `D_{N+L} ≤ D_N + 4c_N/(1−w²)` from an explicit onset `c_N ≤ 1/8`, reusing `radialSummand_bounds` and `sTerm_finite_tail_le`;
+  - `ceiling_of_chain`, which turns a decidable cell chain from −1 to 1 into `CReal.leRat D_∞(x) C`.
+- `ThetaCeilingNamedNomes` (PROVED):
+  - `theta_ceiling_half`: D_∞(x) ≤ 4/3, with N = 2 (c_2 = 1/32), payment 1/6 and 14 dyadic cells.
+  - `theta_ceiling_ff`: D_∞(x) ≤ 40/9, with N = 5 (c_5 = (4/5)^11), payment ≈ 0.954 and 66 dyadic cells.
+  - Pins: `half_cap` and `ff_cap` give transverseCap = 2w/(1−w²). The chains are checked by kernel `decide`.
+- Numerical max/cap is 0.541 at w = 1/2 and 0.504 at w = 4/5; the true max is at x = 1, or x ≈ 0.97 to float precision. The certificate's worst cell, plus the tail payment, uses 92.8% and 99.4% of the cap respectively.
+- The 3/[2(1−w)] shortcut is NOT used. The result is nome-specific, not uniform in w. It is not an addition identity, an angular or Haar certificate, or a physical statement.
+- OPEN:
+  - Rational x only; extending to real x needs a continuity or density argument.
+  - Only the two named nomes.
+  - The bound is stated at the cap, not via the general-w addition-square route.
+
 ## Earlier proved increment: R1 commit 36, clustering bridge for the single-plaquette observable: Z > 0, explicit torus distance, hcl discharged modulo hcov (2026-10-07 PT)
 
 - `SU2ClusterBridge` (PROVED, conditional). STRONG COUPLING β_S = 1/(2e12); Wilson T_K at fixed K (Cw and λ are uniform in K, Z is not); also true for U(1); not gap evidence.

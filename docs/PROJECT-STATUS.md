@@ -6959,3 +6959,5 @@ Transfer-matrix scope note (2026-10-07): R1 commit 24.  Scope only.
 `SU2TorusGapCond` (2026-10-07): R1 commit 35.  Conditional finite-volume ratio bound on the actual torus measure.
 
 `SU2ClusterBridge` (2026-10-07): R1 commit 36. hcl is discharged from wilson_trunc_ratio modulo hcov; C = Z·Cw·(6/7), q = 6/7.
+
+`ThetaCeilingNamedNomes` (2026-10-07): R1 commit 37. D_∞(x) ≤ 2w/(1−w²) on every rational x ∈ [−1,1] at w = 1/2 (N=2, 14 cells) and w = 4/5 (N=5, 66 cells), for the constructed limit. Rigorous Q′ interval certificate. OPEN: rational x only (real x needs continuity/density); only the two named nomes; stated at the cap, not the general-w addition-square route.
