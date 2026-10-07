@@ -210,3 +210,8 @@ the pos/neg/cross factorisation of `Π TK`, and the final `hW`. **RP FOR THE ACT
 (`linkInv` is `k ↦ k+|L|`) and `reindex_eq_shift` (the reindex half of Θpoly is `shiftPoly |L|` on L-supported
 polynomials). Crossing links are Θ-fixed, so they do NOT fit this form; they must first be split into fresh
 `A`/`B` blocks (A in L, B = Θ(A)). That split and steps 2–3 are open. **RP FOR THE ACTUAL TORUS MEASURE IS OPEN.**
+
+**(d3c) Θpoly = conj ∘ shift** (`SU2TorusRPThetaShift.lean`): `sign_invol` (the sign flip is an involution up to
+PE) and `theta_shift` (`sign(sign(reindex σ X)) ≈PE shiftPoly a X` for half-shift σ and `Sup a X`). Undoing the
+temporal conj, which is Haar-invariant (`conj_haar`), turns Θpoly into `rp_full`'s `shiftPoly`. Open: the crossing
+split into fresh A/B blocks, the pos/neg/cross factorisation of `Π TK`, and `hW`. **RP FOR THE ACTUAL TORUS MEASURE IS OPEN.**
