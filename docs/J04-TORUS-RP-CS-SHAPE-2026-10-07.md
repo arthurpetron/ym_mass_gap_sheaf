@@ -66,8 +66,7 @@ simple groups) remains OPEN; this is SU(2) only.**
 
 **Torus-RP side owns (this track; all OPEN unless marked):**
 1. `τ_t : RatPoly → RatPoly`, the block reindex `idxOf ℓ ↦ idxOf (shv (2M) t ℓ)` on `torusLinks (2M)`.
-2. Full-torus permutation `(torusPlaquettes (2M)).map (shv (2M) t) ~ torusPlaquettes (2M)`, from `perm_shift` per slice
-   (or directly, because `shv` is a bijection of `InBox`).
+2. **PROVED** (`SU2TorusShiftPerm.tp_shift_perm`, `tl_shift_perm`, any `t`, [propext, Quot.sound]): full-torus permutation `(torusPlaquettes N).map (shv N t) ~ torusPlaquettes N`, and likewise for links.
 3. `Π T_K` invariance: `τ_t (Π_p TK p) ≡PE Π_p TK p`, via `tk_shift` and item 2.
 4. Haar invariance under `τ_t`. The existing reindex machinery (`SU2TorusRPReindex`) covers block *involutions*
    only. Plan: write `τ_t = R_a ∘ R_b` as a composition of two time reflections `t ↦ c − t (mod 2M)`. These are

@@ -7670,3 +7670,4 @@ import YMGap.Continuum.SU2TorusRPCSObs
 import YMGap.Continuum.SU2TorusRPObsOf
 import YMGap.Continuum.SU2TorusRPPolyCS
 import YMGap.Continuum.SU2TorusRPKLimit
+import YMGap.Continuum.SU2TorusShiftPerm
