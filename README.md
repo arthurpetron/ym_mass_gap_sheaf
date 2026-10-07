@@ -1,6 +1,6 @@
 # Constructive Yang--Mills mass-gap formalization
 
-## Current proof boundary (2026-10-04 UTC)
+## Current proof boundary (2026-10-07 UTC)
 
 The [canonical one-page status chart](docs/PROJECT-STATUS.md) keeps fixed
 wording, layout, proof-status meanings and permanent node IDs across updates.
@@ -10,7 +10,22 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Verified exact companion / observed-loss split (2026-10-04 UTC):**
+**Current analytic frontier:** on the original all-nome Wilson carrier,
+AF window survival and a changing-scale, all-vector gap estimate remain open.
+The checked RG recovery now computes rates from one seed and a useful weighted
+comparison-error budget; it does not construct that budget. Its gap consumer
+needs no coercive lower norm comparison. Physical scaling, the SAME limiting
+OS/QFT theory and every compact simple group remain open.
+
+**Latest finite proof (2026-10-07):** the actual centered Taylor-Wilson torus
+source now has proved positive-half support, weighted pairing additivity and
+covariance identification. These discharge all three identification premises
+of its finite moment inequality. Four focused checks passed 14 constructive
+axiom gates. This fixed-coupling, finite-window scalar result is **not an
+every-vector or continuum mass gap**. See the
+[proof and remaining analytic work](audits/AUDIT-TORUS-FINITE-RATIO-AND-OS-PRODUCER-2026-10-07.md).
+
+**Earlier verified exact companion / observed-loss split (2026-10-04 UTC):**
 The original channel heat retains its discarded positive companion square.
 Its computed cap deficit is exactly the full increment plus an
 observable-weighted source loss. This reaches the actual chronological/OWN

@@ -24,11 +24,11 @@ the original forward-shifted index:
 Supported Haar relabelling identifies the actual plaquette word and full Wilson
 weight, giving the unnormalized moment and OWN mean identities:
 
-- `lean/YMGap/Continuum/SU2TorusOwnMeanTimeShift.lean:96`, `inverseShift_word`.
-- `lean/YMGap/Continuum/SU2TorusOwnMeanTimeShift.lean:120`, `inverseShift_weight`.
-- `lean/YMGap/Continuum/SU2TorusOwnMeanTimeShift.lean:136`,
+- `lean/YMGap/Continuum/SU2TorusOwnMeanTimeShift.lean:100`, `inverseShift_word`.
+- `lean/YMGap/Continuum/SU2TorusOwnMeanTimeShift.lean:124`, `inverseShift_weight`.
+- `lean/YMGap/Continuum/SU2TorusOwnMeanTimeShift.lean:140`,
   `character_moment_timeShift`.
-- `lean/YMGap/Continuum/SU2TorusOwnMeanTimeShift.lean:156`, `ownMean_timeShift`.
+- `lean/YMGap/Continuum/SU2TorusOwnMeanTimeShift.lean:160`, `ownMean_timeShift`.
 
 Both means use the literal SAME partition reciprocal. No cancellation or
 positivity premise is needed for their equality. `perm_haarX`'s legacy
@@ -54,8 +54,10 @@ translation and pairing assembly.
 
 This is finite Taylor-Wilson data at the existing fixed `betaS` and cutoff K.
 It is not automatically the original all-nome heat-action completion below.
-Positive-half `PtSup`, the weighted pairing shift law, a torus transfer, and
-changing-scale/volume control remain OPEN.
+Positive-half `PtSup` and weighted pairing were open at this checkpoint; they
+are now proved and joined in
+`audits/AUDIT-TORUS-FINITE-RATIO-AND-OS-PRODUCER-2026-10-07.md`.
+A torus transfer and changing-scale/volume control remain OPEN.
 
 ## A genuine obstruction, with its unnecessary premise removed
 
@@ -103,7 +105,7 @@ producer, nor construct such a producer.
 The original action gluing is explicit:
 `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTwoLayerGluing.lean:61`,
 `middleIntegrand`, retains `K01*V1*K12`; `gluedMiddle` at line 73 integrates that
-COMPLETE middle factor. `original_twoLayer_gluing` at line 201 pins the SAME
+COMPLETE middle factor. `original_twoLayer_gluing` at line 188 pins the SAME
 original endpoint observables and action. Bare heat semigroup composition
 does not remove the written `V1` factor.
 

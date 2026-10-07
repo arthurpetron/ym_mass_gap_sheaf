@@ -7679,8 +7679,7 @@ import YMGap.Continuum.RCNonnegativeSquareReflection
 import YMGap.Continuum.RGExplicitRationalRate
 import YMGap.Continuum.BF4WilsonAllNomeRGTwoStepRecovery
 
--- Actual observable algebra for the finite torus covariance/RP join;
--- full translated RP/time-pairing identification remains open.
+-- Actual observable algebra for the finite torus covariance/RP join.
 import YMGap.Continuum.SU2TorusRPObservableReflection
 import YMGap.Continuum.SU2WilsonObsExtraction
 
@@ -7690,11 +7689,15 @@ import YMGap.Continuum.BF4WilsonAllNomeRGComputedMargin
 import YMGap.Continuum.SU2WilsonCenteredCovariance
 -- Reflection preserves the actual Wilson OWN mean.
 import YMGap.Continuum.SU2TorusRPOwnMeanReflection
--- Full torus translations and the actual finite RP covariance are identified;
--- positive-half support, weighted time pairing and transfer remain open.
+-- Full torus translations and the actual finite RP covariance are identified.
 import YMGap.Continuum.SU2TorusLinksTimeShift
 import YMGap.Continuum.SU2TorusOwnMeanTimeShift
 import YMGap.Continuum.SU2TorusCenteredCovarianceRP
+-- Proved support and weighted time additivity discharge the actual finite
+-- moment-ratio inputs. No transfer, every-source or continuum gap is inferred.
+import YMGap.Continuum.SU2TorusCenteredPositiveSupport
+import YMGap.Continuum.SU2TorusCenteredPairShift
+import YMGap.Continuum.SU2TorusCenteredFiniteRatio
 -- The gap comparison does not need the full RG interface's coercive lower
 -- bound. Its positive-time-smoothing obstruction is scoped to that full field.
 import YMGap.Continuum.BF4WilsonAllNomeRGTimeSmoothingObstruction

@@ -206,7 +206,9 @@ Root registration only: no full-root or whole-repository audit is claimed.
 At that checkpoint the next finite joins were translated OWN means,
 physical-root guards and actual covariance/RP assembly. These are now checked
 in `audits/AUDIT-TORUS-TRANSLATION-AND-RG-PRODUCER-2026-10-07.md`; positive-time
-support/time-additivity remain OPEN. That continuation also proves the RG gap
+support/time-additivity are now proved and joined in
+`audits/AUDIT-TORUS-FINITE-RATIO-AND-OS-PRODUCER-2026-10-07.md`.
+The preceding continuation also proves the RG gap
 consumer needs no coercive lower comparison. Actual
 action-specific RG comparisons and their useful weighted distortion/error
 budget remain OPEN, together with independent survival, physical calibration,

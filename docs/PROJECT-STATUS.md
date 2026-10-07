@@ -6,9 +6,20 @@ identity (`SU2WilsonCenteredCovariance.centered_covariance`), plus reflected
 OWN means and centered observables (`SU2TorusRPOwnMeanReflection`). The exact
 translated OWN means are now checked (`SU2TorusOwnMeanTimeShift`), and
 `SU2TorusCenteredCovarianceRP.hcov` pins the actual finite RP response to the
-SAME covariance under physical root guards. Positive-half support, the pairing
-shift law and transfer construction remain OPEN.
+SAME covariance under physical root guards. Positive-half support and the
+weighted pairing shift law are now proved; `SU2TorusCenteredFiniteRatio`
+discharges all three identification inputs of the finite moment inequality.
+This remains one spatial-character source, fixed betaS, finite K and finite
+time range, with the explicit partition prefactor. Transfer construction and
+every-source/scaling estimates remain OPEN.
 These do not change the displayed broad chart.
+
+Action-specific review (2026-10-07): the existing original finite conditional
+variance loss already has a SAME completed OS scalar pin for the padded-square
+source. Do not reopen it. What remains is a useful changing-action/all-vector
+comparison, retaining signed terms, shared normalization and the COMPLETE
+middle spatial factor, plus independent AF window survival. Evidence:
+`audits/AUDIT-TORUS-FINITE-RATIO-AND-OS-PRODUCER-2026-10-07.md`.
 
 Supporting RG producer correction checked (2026-10-07):
 `twoStepFactor_of_upper_comparison` and

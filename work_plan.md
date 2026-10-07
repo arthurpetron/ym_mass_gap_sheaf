@@ -75,24 +75,37 @@ prove reflection invariance of the OWN mean and actual centered observable,
 including the full temporal Wilson weight. `SU2TorusOwnMeanTimeShift` now proves
 translation invariance of the OWN mean with explicit full link/plaquette
 permutations. `SU2TorusCenteredCovarianceRP.hcov` identifies the actual RP
-response with `Z*cov` for physical spatial roots in the finite range. Positive-
-half support and the full pairing shift law remain to be assembled; this is
-the fixed `betaS` Taylor-Wilson torus branch, not a transport to the all-nome
-original completed carrier.
-No torus transfer or continuum gap follows from its finite conditional ratio bound.
+response with `Z*cov` for physical spatial roots in the finite range. Actual
+syntactic positive-half support and full weighted pairing additivity are now
+proved by `SU2TorusCenteredPositiveSupport.hsup` and
+`SU2TorusCenteredPairShift.hshift`. `SU2TorusCenteredFiniteRatio.actual_torus_ratio`
+joins all three proved inputs on the SAME family, with no abstract support,
+shift or covariance assumptions. This is the fixed `betaS` Taylor-Wilson
+finite-window scalar branch, with explicit Z prefactor, not a transport to
+the all-nome original completed carrier. No torus transfer, every-source bound
+or continuum gap follows from it.
 
 Check and record each completed join in the dated audit/ledger before using
-it. The computed recurrence-to-envelope join is now complete. Next: finish the
-actual finite torus Haar/RP identification, while testing an action-specific
-producer for the explicit RG comparisons and their demanding distortion/error
-budget. Keep the independent survival estimate in view; do not extend conditional
-scaffolds in place of these analytic producers.
+it. The computed recurrence-to-envelope join and finite torus Haar/RP
+identification are now complete in their stated scopes. Next: an action-specific
+producer for the explicit RG comparisons and their
+demanding distortion/error budget. Keep the independent survival estimate in
+view; do not extend conditional scaffolds in place of these analytic producers.
 The next RG comparison must retain the COMPLETE integrated middle action:
 `original_twoLayer_gluing` keeps `K01*V1*K12` under the middle Haar integral.
 Bare heat composition does not remove `V1`. Start with the smaller upper/two-
 step comparison on the original completed form, or a direct SAME-operator bound;
 ordinary weighted L2 contraction is not automatically this OS norm bound.
+However, the existing padded-square conditional variance DOES already reach
+the SAME completed OS response (`originalOwnBlockVariance_converges`,
+`centeredVector_time_pairing`, `completedInner_time_sum`). Reuse that scalar
+pin; the missing estimate is trajectory-useful, cutoff-uniform and all-vector,
+with the actual blocked/coarse action discrepancy relative to the surviving
+original quadratic form. Do not confuse positive conditional noise with the
+required quantitative bound or require unnecessary full-interface coercivity.
 Evidence: `audits/AUDIT-TORUS-TRANSLATION-AND-RG-PRODUCER-2026-10-07.md`.
+Finite closure and source pins:
+`audits/AUDIT-TORUS-FINITE-RATIO-AND-OS-PRODUCER-2026-10-07.md`.
 The canonical chart's displayed broad claims remain unchanged; no reprint.
 
 ### Earlier signed-cost route and subsequent checkpoints (2026-10-04 onward)

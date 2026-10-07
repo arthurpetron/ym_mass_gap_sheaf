@@ -6,11 +6,11 @@ The existing supported Haar relabelling theorem then transports a physical
 plaquette character. Its new link indices are exactly the old shifted indices;
 the full Wilson weight, including temporal plaquettes, is unchanged up to PE.
 
-This proves the one-point translation identity needed by
-`SU2ClusterBridge.hcov`, without assuming equality of means. The partition
-reciprocal is literally unchanged, so no reciprocal cancellation is used.
-RP/time-pairing assembly, all-vector estimates and continuum limits remain
-separate obligations.
+This proves one-point and weighted centered-pair translation without
+assuming equality of means. The partition reciprocal is literally unchanged,
+so no reciprocal cancellation is used. Finite RP/time-pairing is assembled
+in `SU2TorusCenteredPairShift`; all-vector estimates and continuum limits
+remain separate obligations.
 -/
 
 import YMGap.Continuum.SU2TorusLinksTimeShift
@@ -26,7 +26,7 @@ open YMGap.Continuum.Z4TorusGeometry
 open YMGap.Continuum.SU2QuaternionPolynomialHaarCarrier
 open YMGap.Continuum.BF4GeometricSpinNetworkMehler (PolyQuaternion characterPolynomial)
 open YMGap.Continuum.BF4GeometricHaarMehlerProjection (quaternionHaar)
-open YMGap.Continuum.SU2HaarAlgebra (PE pe_refl pe_trans pe_haar)
+open YMGap.Continuum.SU2HaarAlgebra (PE pe_refl pe_trans pe_haar pe_append)
 open YMGap.Continuum.SU2HaarL1Activity (prodPoly)
 open YMGap.Continuum.SU2TorusRPSubst
   (QPE qsub qpe_mul qpe_conj pe_smul pe_mul2)
@@ -41,10 +41,14 @@ open YMGap.Continuum.SU2WilsonPolymerIdentity (TK)
 open YMGap.Continuum.SU2WilsonCharacterPower (wilsonPoly)
 open YMGap.Continuum.SU2WilsonActivity (wilsonA)
 open YMGap.Continuum.SU2LinkDecaySharpInst (betaS)
-open YMGap.Continuum.SU2WilsonCenteredCovariance (weight ownMean)
+open YMGap.Continuum.SU2WilsonCenteredCovariance (weight ownMean centeredCharacter)
 open YMGap.Continuum.SU2TimeShift (shv wordI tAdd_vs)
 open YMGap.Continuum.SU2TorusLinksTimeShift
 open YMGap.Continuum.SU2QuaternionArbitraryHaarBlockReflection (QuaternionBlockInvolution)
+open YMGap.Continuum.SU2TorusRPCore (Sup sup_mul sup_one)
+open YMGap.Continuum.SU2TorusRPCompOn (sup_add sup_smul)
+open YMGap.Continuum.SU2QuaternionRatPolyDifferential (RatPolyCoeffEqv)
+open YMGap.Continuum.SU2TorusRPKernel (pe_of_coeff)
 
 local infix:50 " ≈ " => Q'.eqv
 
@@ -159,6 +163,53 @@ theorem ownMean_timeShift (p : Z4Plaq) (hp : p ∈ Ps) :
   unfold ownMean
   exact Q'.mul_eqv_congr_right _ _ _ (character_moment_timeShift hM K t p hp)
 
+private theorem centered_supported (p : Z4Plaq) (hp : p ∈ Ps) :
+    Sup (Ls).length (centeredCharacter Ls (2 * M) K Ps p) :=
+  sup_add (YMGap.Continuum.SU2TorusRPOwnMeanReflection.character_supported hM p hp)
+    (sup_smul _ (sup_one _))
+
+private theorem rcomp_centered_timeShift
+    (r : List (QuaternionBlockInvolution (Ls).length))
+    (hi : ∀ ℓ, imap r ((Ls).idxOf ℓ) = (Li).idxOf ℓ)
+    (p : Z4Plaq) (hp : p ∈ Ps) :
+    PE (Ls).length (rcomp r (centeredCharacter Ls (2 * M) K Ps p))
+      (centeredCharacter Ls (2 * M) K Ps (shv (2 * M) t p)) := by
+  have hchar := rcomp_character Ls Li r (2 * M) p (plaqL_mem hM p hp) hi
+  have hword : chi Li (2 * M) p = chi Ls (2 * M) (shv (2 * M) t p) := by
+    unfold chi YMGap.Continuum.SU2TorusMultiLinkPolyGibbs.plaqCharacter
+    rw [inverseShift_word hM t p hp]
+  rw [hword] at hchar
+  have hR := rcomp_ringSub r
+  unfold centeredCharacter
+  refine pe_trans _ (hR.add _ _) (pe_append _ hchar ?_)
+  refine pe_trans _ (hR.smul _ _) (pe_trans _ (pe_smul _ _ hR.one) ?_)
+  exact pe_of_coeff _ (RatPolyCoeffEqv.smul_coefficient
+    (Q'.neg_eqv_congr _ _ (ownMean_timeShift hM K t p hp)) polyOne)
+
+/-- Periodic translation preserves the COMPLETE weighted pair of actual
+OWN-centered characters. This is the finite weighted-pair invariance needed
+by the RP pairing shift law, not just a plaquette-product permutation. -/
+theorem centered_pair_moment_timeShift (p : Z4Plaq) (hp : p ∈ Ps)
+    (q : Z4Plaq) (hq : q ∈ Ps) :
+    quaternionHaar (Ls).length
+      (polyMul (polyMul (centeredCharacter Ls (2 * M) K Ps p)
+        (centeredCharacter Ls (2 * M) K Ps q)) (weight Ls (2 * M) K Ps)) ≈
+    quaternionHaar (Ls).length
+      (polyMul (polyMul (centeredCharacter Ls (2 * M) K Ps (shv (2 * M) t p))
+        (centeredCharacter Ls (2 * M) K Ps (shv (2 * M) t q)))
+        (weight Ls (2 * M) K Ps)) := by
+  obtain ⟨r, hi, hh⟩ := perm_haarX (2 * M) betaS K Ps
+    (torusLinks_inverseTimeShift_perm (by omega) t).symm rfl
+    (torusLinks_nodup _) (fun a ha => plaqL_mem hM a ha)
+  have hm := hh (polyMul (centeredCharacter Ls (2 * M) K Ps p)
+      (centeredCharacter Ls (2 * M) K Ps q))
+    (sup_mul (centered_supported hM K p hp) (centered_supported hM K q hq))
+  have hc := pe_trans _ ((rcomp_ringSub r).mul _ _)
+    (pe_mul2 _ (rcomp_centered_timeShift hM K t r hi p hp)
+      (rcomp_centered_timeShift hM K t r hi q hq))
+  exact Q'.eqv_trans _ _ _ hm
+    (pe_haar _ (pe_mul2 _ hc (inverseShift_weight hM K t)))
+
 end YMGap.Continuum.SU2TorusOwnMeanTimeShift
 
 #print axioms YMGap.Continuum.SU2TorusOwnMeanTimeShift.rcomp_character
@@ -166,3 +217,4 @@ end YMGap.Continuum.SU2TorusOwnMeanTimeShift
 #print axioms YMGap.Continuum.SU2TorusOwnMeanTimeShift.inverseShift_weight
 #print axioms YMGap.Continuum.SU2TorusOwnMeanTimeShift.character_moment_timeShift
 #print axioms YMGap.Continuum.SU2TorusOwnMeanTimeShift.ownMean_timeShift
+#print axioms YMGap.Continuum.SU2TorusOwnMeanTimeShift.centered_pair_moment_timeShift

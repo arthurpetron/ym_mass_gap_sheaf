@@ -1,5 +1,37 @@
 # Sorry Ledger
 
+## PROVED: all identification inputs of the actual finite torus ratio (2026-10-07)
+
+- `SU2TorusOwnMeanTimeShift.centered_pair_moment_timeShift` proves actual
+  weighted OWN-centered pair translation, retaining the full action and SAME
+  means/partition, for physical roots and arbitrary periodic time shift.
+- `SU2TorusCenteredPositiveSupport.character_ptSup`, `tau_ptSup`, `hsup`
+  prove RAW positive-link monomial support of the actual source, not a
+  Haar-equivalent replacement; centering adds only a supported constant.
+- `SU2TorusCenteredPairShift.pairing_shift` and `hshift` use actual reflected
+  roots and simultaneous translation to prove `rpB(tau x,tau y)=response(x+y)`
+  up to Q' equivalence, in the guarded physical range.
+- `SU2TorusCenteredFiniteRatio.actual_torus_ratio` supplies all three proved
+  support/shift/covariance inputs to the EXISTING cluster ratio consumer.
+  None is assumed by this theorem. All use the SAME full Taylor-Wilson action.
+- Scope: fixed betaS, finite K, spatial physical roots, `2X+1 <= M` and
+  `k+e <= X`. Explicit Z prefactor, rate `(6/7)^2`. K=0 is allowed; no source
+  nondegeneracy, unrestricted time or norm-relative strict bound is supplied.
+- Four final focused checks passed 14 printed gates, all
+  {propext, Quot.sound}; narrow dependency-complete targets passed. Independent
+  read-only review found no action/normalization/range substitution. No hole,
+  axiom, field weakening or raised heartbeat limit. Memory checks serialized
+  with one 20-GiB worker/12-GiB reserve; swap remained zero. No full-root build,
+  full audit or hashed-baseline regeneration; CI stays off.
+- OPEN: same torus transfer/null-space descent and every-source bound;
+  heat-action carrier comparison; actual all-nome changing-action comparison
+  with useful weighted budget; AF survival; physical scaling/volume control;
+  limiting OS/QFT/every-group/Clay. The padded-square conditional variance
+  already has its SAME completed OS scalar pin; reuse it, rather than reopening
+  it or substituting finite weighted L2 contraction for the missing RG estimate.
+
+Evidence: `audits/AUDIT-TORUS-FINITE-RATIO-AND-OS-PRODUCER-2026-10-07.md`.
+
 ## PROVED: finite torus translated means and actual RP covariance (2026-10-07)
 
 - `SU2TorusLinksTimeShift` constructs explicit periodic shift/inverse identities,
@@ -17,7 +49,8 @@
 - Three final focused checks passed their 15 printed gates within
   {propext, Quot.sound}. Failed missing-cache, notation and projection-reduction
   runs are not evidence. No source hole, new axiom or raised limits.
-- OPEN: positive-half `PtSup`, full weighted pairing shift law, torus transfer,
+- Positive-half `PtSup` and full weighted pairing are now proved above.
+- OPEN: torus transfer,
   heat-action carrier comparison, spacing/volume limits and continuum/Clay.
 
 ## PROVED: smaller RG gap comparison; full-interface smoothing obstruction (2026-10-07)
@@ -60,8 +93,8 @@ Evidence: `audits/AUDIT-TORUS-TRANSLATION-AND-RG-PRODUCER-2026-10-07.md`.
   Earlier local-notation/missing-namespace elaboration failures are not evidence;
   no memory/heartbeat limits were increased. No source hole or axiom introduced.
 - Translated OWN means and the exact finite `hcov` RP assembly are now proved
-  above. OPEN: positive-time support/time-additivity, torus transfer and
-  continuum/Clay. Full-root
+  above; positive-time support/time-additivity are now proved too.
+  OPEN: torus transfer and continuum/Clay. Full-root
   verification was not run; only these leaf imports were registered.
 
 ## PROVED: computed RG telescope and existing Wilson lower-margin consumer (2026-10-07)
@@ -99,8 +132,9 @@ Evidence: `audits/AUDIT-TORUS-TRANSLATION-AND-RG-PRODUCER-2026-10-07.md`.
   {propext, Quot.sound}. Generic opaque determinant algebra resolved the first
   elaboration timeout without a limit increase; failed runs are not evidence.
 - Translated OWN means and finite RP assembly of `hcov` are now proved above.
-  OPEN: positive-half support, time-shift pairing, transfer and
-  scaling/continuum/QFT/Clay. No analytic decay bound is supplied by this algebra.
+  Positive-half support and time-shift pairing are now proved above.
+  OPEN: transfer and scaling/continuum/QFT/Clay. No analytic decay bound is
+  supplied by this algebra.
 
 ## PROVED: actual finite torus observable reflection and insertion extraction (2026-10-07)
 
@@ -118,7 +152,7 @@ Evidence: `audits/AUDIT-TORUS-TRANSLATION-AND-RG-PRODUCER-2026-10-07.md`.
   `SU2ClusterBridge.hcov`, not that hypothesis itself. OWN centering, covariance
   cancellation and reflected mean invariance have since been proved above;
   translated means and the exact finite RP covariance have since been proved.
-  Positive support and time-shift pairing remain to be joined. No torus
+  Positive support and time-shift pairing are now joined above. No torus
   transfer, scaling or Clay closure.
 
 ## PROVED: SAME-carrier RG two-step recovery; scope correction (2026-10-07)

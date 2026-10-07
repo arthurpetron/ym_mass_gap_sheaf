@@ -7,9 +7,9 @@ centered at its OWN mean. Reflection and the checked finite covariance
 identity prove the exact `hcov` input of `SU2ClusterBridge.torus_gap_bridge`.
 
 All roots are physical: spatial coordinates are below 2M and n+1 ≤ M.
-This is at the existing fixed betaS and finite K. Identification as translates
-of a single centered source, the pairing shift law, and positive-link PtSup
-remain separate obligations. No decay estimate or continuum claim is made.
+This is at the existing fixed betaS and finite K. Positive-link support and
+the pairing shift law are proved in the named companion leaves; their finite
+ratio consumer does not construct a transfer or continuum mass gap.
 -/
 
 import YMGap.Continuum.SU2TorusRPOwnMeanReflection

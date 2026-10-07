@@ -16,12 +16,26 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked actual finite torus moment inequality (2026-10-07):**
+`SU2TorusCenteredPositiveSupport.hsup` proves syntactic positive-link support,
+`SU2TorusCenteredPairShift.hshift` proves weighted pairing additivity, and
+`SU2TorusCenteredFiniteRatio.actual_torus_ratio` joins these with the existing
+covariance pin. No abstract support/shift/covariance assumptions remain for
+this physical spatial-character family. Scope: fixed betaS, finite K and
+finite time range, explicit partition prefactor; NOT a transfer, every-source
+strict form bound or continuum gap. Four focused checks passed 14 permitted
+gates; no full-root build/audit. The original all-nome scalar OS pin already
+exists; the changing-action all-vector estimate and independent AF survival
+are the live analytic work. Evidence:
+`audits/AUDIT-TORUS-FINITE-RATIO-AND-OS-PRODUCER-2026-10-07.md`.
+
 **Checked finite RP covariance and smaller RG producer (2026-10-07):**
 `SU2TorusLinksTimeShift` supplies explicit periodic permutations of the full
 link/plaquette lists, and `SU2TorusOwnMeanTimeShift` proves translated OWN
 means with the unchanged Wilson partition. `SU2TorusCenteredCovarianceRP.hcov`
 identifies the actual OWN-centered RP response with `Z*cov` on physical roots.
-Positive-half support/time-additivity and a torus transfer remain OPEN.
+Positive-half support/time-additivity are now proved above; a torus transfer
+remains OPEN.
 On the separate original all-nome carrier, the checked upper-only quadratic
 transfer feeds the computed-rate induction without the full RG interface's
 coercive lower bound. Time smoothing is excluded only from that FULL interface,
@@ -39,7 +53,7 @@ integral equals the literal insertion covariance times the SAME partition,
 under genuine root guards. `SU2TorusRPOwnMeanReflection` also proves reflected
 OWN mean/centered-character identities, retaining the full temporal weight.
 Translated means and the finite covariance/RP identification are now proved
-above; positive-half support/time-additivity, survival, physical scaling and
+above; survival, physical scaling and
 continuum/Clay remain OPEN. Narrow checks only.
 
 **Checked finite torus observable joins (2026-10-07):**
@@ -48,7 +62,7 @@ mirrored spatial character, and `SU2WilsonObsExtraction.obsTK_extract`
 extracts the actual `1+chi` insertion with membership/nonduplication guards.
 Two focused checks passed permitted gates. OWN centering and reflected mean
 invariance, translated means and the finite covariance/RP join are now proved
-above; positive-half support/time-additivity, torus transfer and continuum
+above; torus transfer and continuum
 theory remain OPEN.
 
 **Checked SAME-carrier RG recovery (2026-10-07):**
