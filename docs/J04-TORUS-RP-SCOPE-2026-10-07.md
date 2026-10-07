@@ -271,3 +271,14 @@ RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
 Open: instantiate this layout for the concrete torus (Nodup/permutation to the integrand's link order), compute
 C on the split crossing words (→ crossWord / cross_word_M forms), and discharge the rp_cross_assembly hypotheses.
 RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
+
+## d5a–d5c — coordinates, concrete twist, and RP for the split half-layout form
+- d5a `shQ_cv` (shQ a U_b = U_{b+a}), SupQ lemmas, `rpk_cross0_cv`, `rpk_crossM_cv`.
+- d5b `Ctw a T` (conjugate second-half T-selected blocks); `rpk_C_cross0/M`: Ctw of the split crossing T_K
+  (direct orientation; left split at t=0, right at t=M) is an RPK.
+- d5c `torus_rp_split`: with σ k = k+a on the first half and Θ X = sign(conjSel Tb)(reindex σ X),
+  0 ≤ ∫(ΘF·F)·((Wp·ΘWp)·Π_cs G) whenever each Ctw(G c) is an RPK — every rp_conj_assembly hypothesis discharged.
+Open: the geometric instantiation (layout pos ++ cross ++ Θpos, σ = thetaInv on it, the shear chain + haar_extend
+taking the actual Π T_K to this form, matching each crossing plaquette's image to rpk_C_cross0/M, and the link-order
+permutation to the integrand). hW is NOT yet discharged for the actual torus integrand.
+RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
