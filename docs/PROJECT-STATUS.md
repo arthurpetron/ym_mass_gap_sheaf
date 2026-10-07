@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Supporting decisive test checked (2026-10-07): the SAME original width-one
+action has a source with positive literal weighted full noise and zero
+transmitted surviving square. No rational C pays that noise by the square.
+The actual exact-score budget and complete signed bulk nevertheless vanish
+on the SAME transmitted-null source, by checked tangent/null cancellation.
+The blanket noise-payment shortcut is pruned; the primary combined signed
+estimate, AF survival and actual cross-action comparison stay OPEN.
+This is not a padded-family or Yang--Mills counterexample. Eighteen gates
+pass two focused checks. Evidence:
+`audits/AUDIT-NOISE-SURVIVAL-DECISIVE-TEST-2026-10-07.md`.
+Broad chart unchanged; no reprint.
+
 Supporting cap-free finite prediction/comparison checked (2026-10-07):
 `BlockUnitalPrediction` restores constants exactly and bounds its square in
 the SAME ordinary finite marginal by `1+mixRate^k`, without a source cap or

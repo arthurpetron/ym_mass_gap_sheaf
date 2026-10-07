@@ -1,5 +1,37 @@
 # Sorry Ledger
 
+## PROVED: full-noise payment obstruction; actual signed null cancellation (2026-10-07)
+
+- `BF4ExactSlabFixedSpatialNoiseSurvivalObstruction.originSource` is the
+  literal inactive width-one origin character shifted by coeffW(w,1).
+  `origin_transmitted_pair_zero` and
+  `origin_transmitted_surviving_square_zero` annihilate its original
+  one-step image under every supported test and the unchanged V-weighted
+  square, for all finite depths. `origin_weighted_noise_positive` retains
+  literal Vbar^2*Gout^2 at output n+1, reciprocal degree one, and uses
+  actual positive action/terminal/transfer floors.
+  `origin_no_noise_survival_bound` refutes every rational C payment of
+  this full historical noise by the transmitted square.
+- `BF4ExactSlabFixedSpatialLastStepNullScore.exactScoreAngularBudget_zero`
+  and `exactScoreSignedBulk_zero` prove finite exact-source cancellation
+  from Haar-nullity of the ACTUAL transmitted numerator. Tangential
+  derivative stability and fixed null Taylor tests supply the result,
+  without assuming a zero bulk or adaptive-tree congruence. Its
+  `origin_transmitted_null`, `origin_exactScoreAngularBudget_zero` and
+  `origin_exactScoreSignedBulk_zero` join the SAME concrete source.
+- Final focused checks pass 6+12 printed gates in {propext, Quot.sound};
+  one monitored capped worker, 12-GiB reserve, fresh preflights, zero swap.
+  No new hole/axiom/classical input, field changes or raised heartbeat.
+  No full-root/tree build/audit or baseline refresh.
+- PRUNED: blanket full-noise-to-transmitted-square payment. NOT refuted:
+  retained Lambda*B^2 payment, narrower guarded source estimates, strictly
+  padded AF survival or the actual completed cross-action comparison.
+  OPEN: useful combined signed-cost estimate on the justified family,
+  independent AF survival, actual RG maps/comparison and useful delta budget,
+  physical calibration/volume control, continuum QFT, every group, Clay.
+
+Evidence: `audits/AUDIT-NOISE-SURVIVAL-DECISIVE-TEST-2026-10-07.md`.
+
 ## PROVED: cap-free original finite prediction/comparison (2026-10-07)
 
 - `QuaternionHaarUnitalReciprocalPrediction` constructs positive finite

@@ -16,6 +16,16 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked decisive noise/score test (2026-10-07):** the original positive
+width-one action has a supported source with zero transmitted square but
+strictly positive literal Vbar^2*Gout^2-weighted full noise. No rational C
+pays that noise from the surviving norm. The actual direct-score budget and
+complete signed bulk are nevertheless zero on the SAME source, and generally
+on transmitted Haar-null sources. Two focused checks pass 18 permitted gates;
+no full build/audit. This prunes a blanket noise ceiling, not strictly padded
+AF survival, the primary exact-score route or Yang--Mills. Evidence:
+`audits/AUDIT-NOISE-SURVIVAL-DECISIVE-TEST-2026-10-07.md`.
+
 **Checked cap-free original finite prediction/comparison (2026-10-07):**
 `QuaternionHaarUnitalReciprocalPrediction` constructs a positive finite
 prediction, exact constant preservation and Jensen. `BlockUnitalPrediction`

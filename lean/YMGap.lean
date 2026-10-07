@@ -7736,3 +7736,7 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockInnovationCovariance
 import YMGap.Continuum.QuaternionHaarUnitalReciprocalPrediction
 import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockUnitalPrediction
 import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockInnovationRelativeComparison
+-- Full historical noise need not descend to the transmitted state. The SAME
+-- exact direct score and both signed Taylor tests retain null cancellation.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialNoiseSurvivalObstruction
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepNullScore

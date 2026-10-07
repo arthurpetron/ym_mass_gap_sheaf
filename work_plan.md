@@ -190,6 +190,24 @@ present it as an OS map. Independent AF survival and actual changing-action
 all-vector comparison remain OPEN. Evidence:
 `audits/AUDIT-ORIGINAL-CAP-FREE-PREDICTION-2026-10-07.md`.
 
+The decisive full-noise test is NOW CHECKED. On the SAME original positive
+width-one action, psi=chi_origin-coeffW(w,1) has ell[(T(g_n*psi))^2]=0 but
+H[Vbar^2*Gout^2*noise_full]>0 at output reciprocal degree one, for every
+finite n and every admissible w,K. No finite rational C pays that full
+historical noise from the transmitted square. PRUNE that blanket payment;
+do not classify lost historical variance as a small reconstruction error.
+In contrast, `LastStepNullScore` proves the actual direct-score budget and
+complete signed bulk vanish on transmitted Haar-null sources, including
+this SAME source: tangent Haar integration by parts and fixed null Taylor
+tests preserve the cancellation. NEXT: estimate the COMBINED actual signed
+quadratic cost, not an enlarged full-noise ceiling. This does not refute
+the retained Lambda*B^2 leakage payment, a narrower guarded source family,
+strictly padded AF survival or the actual cross-action gap producer.
+The weighted leakage still lacks the A^2 factor of the old surviving-square
+consumer; no unchanged application of that theorem is valid. Eighteen gates
+pass two focused checks. Evidence:
+`audits/AUDIT-NOISE-SURVIVAL-DECISIVE-TEST-2026-10-07.md`.
+
 In parallel, the actual finite torus covariance/RP join is being completed
 algebraically. Spatial-character reflection and genuine insertion extraction
 are checked; `SU2WilsonCenteredCovariance.centered_covariance` now proves the
@@ -19474,6 +19492,18 @@ time/generator, nontrivial excitation and physical mass calibration. Tannakian
 representation data alone also require their actual compact-Haar/action join.
 Detailed source pins:
 `audits/AUDIT-RESEARCH-PIPELINE-TASTEVAL-2026-10-07.md`.
+
+**Static/quantum generator scope guard (2026-10-07, user input):** retain
+the distinction between classical fixed-point fields and the quantum
+Hamiltonian. Static d_A^*F=0 is not the stronger nabla_A F=0; the flat
+torus commuting-triple sector is not the full interacting theory; self-dual
+curvature acts through trace-free spinor endomorphisms, not generally scalars.
+Use these classical/spinorial tools only with a named SAME-action analytic
+consumer. No restriction to E=0 or F=0, coupled matter system, or static
+moduli compactness replaces quantum state completion, continuous physical
+time, generator/spectral identification or a nontrivial excitation. Existing
+regularized log/graph results are not thereby physical Hamiltonians. Review:
+`audits/AUDIT-STATIC-YM-AND-QUANTUM-GENERATOR-2026-10-07.md`.
 
 ### Bidirectional parallel checkpoint (2026-09-17)
 
