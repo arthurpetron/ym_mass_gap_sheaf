@@ -16,6 +16,16 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked finite radial-mixture cancellation (2026-10-07):**
+`JacobiHeatRadialMixtureCancellation` constructs pair-mass/weighted-variance
+positivity from actual finite nonnegative moments, pins the full signed
+radial numerator, and pays it from a supplied PRODUCT ceiling without
+division, including N=0. The analytic product ceiling, actual heat-jet
+identification, Poisson/second-angular-derivative join and original
+conditional/scaling bounds remain OPEN. One focused target passes seven
+permitted gates; no full-root/tree audit or Clay closure. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 **Checked global transverse Jacobi curvature and actual paired scalar jets
 (2026-10-07):** `JacobiHeatTransverseCurvature` constructs
 `C_T*h^2-x*h*h_x>=0` using the actual formal derivative of normalized finite

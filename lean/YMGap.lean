@@ -4941,6 +4941,8 @@ import YMGap.Continuum.JacobiShiftedRelativeSlope
 import YMGap.Continuum.JacobiHeatRelativeAngularBound
 -- Global transverse Jacobi cost only; radial and original unweighted joins remain open.
 import YMGap.Continuum.JacobiHeatTransverseCurvature
+-- Finite radial cancellation; the analytic product ceiling is still supplied.
+import YMGap.Continuum.JacobiHeatRadialMixtureCancellation
 import YMGap.Continuum.SU2HeatQuarticTailCutoff
 import YMGap.Continuum.QuaternionHaarHeatAngularDeficit
 import YMGap.Continuum.QuaternionHaarHeatRelativeAngularBound

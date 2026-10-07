@@ -27,6 +27,21 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+The radial-mixture front now has a CHECKED cancellation-preserving finite
+reduction: actual nonnegative finite moments construct S1^2-S2>=0 and
+S1*S3-S2^2>=0. With a=1-x^2 and D=a*S2+x*S1, the cleared numerator is
+`Lnum=-(S1^2-S2)*D+2*a*(S1*S3-S2^2)`. A supplied nonnegative PRODUCT ceiling
+D<=C pays the whole numerator, with no moment division and including N=0.
+NEXT construct that product-curvature ceiling; the narrower analytic route
+needs the underlying theta3 PRODUCT's Gaussian/angular derivative join, not
+a full SU(2)/Faraut image formula. Existing all-nome product/cosine-series
+equality is available, but its Poisson/second-angular-derivative leg is NOT.
+Finite-moment/actual heat-jet pins, explicit cutoff transport and original
+conditional consumers remain required. Auxiliary circle time -log(w) is
+not physical carrier time -4*log(w) or standard g^2=-8*log(w). One focused
+target passes seven permitted gates; no full-root/tree audit or canonical
+closure. Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 The lower-curvature front now has a CHECKED global TRANSVERSE Jacobi producer:
 `C_T*h^2-x*h*h_x >= 0`, `C_T=2*w/(1-w^2)`, with
 `(1-w)*C_T <= 1`. The actual normalized heat and FORMAL derivative are retained,

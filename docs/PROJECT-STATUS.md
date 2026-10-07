@@ -1,5 +1,21 @@
 # Canonical one-page project status
 
+Supporting finite radial-mixture contraction checked (2026-10-07): the
+ACTUAL finite moment sums construct pair-mass and weighted-variance
+positivity. Exact signed cancellation makes a supplied nonnegative PRODUCT
+curvature ceiling sufficient for the full cleared derivative-mixture bound,
+without division and including the empty prefix. The product ceiling,
+actual heat-jet/limit pins and original conditional join are still OPEN.
+The narrower next analytic route needs the underlying theta3 product's
+Gaussian/second-angular-derivative bridge, not a full SU(2) image formula;
+neither it nor physical-clock identification is imported as a premise.
+One focused target passes seven permitted gates; no full-root/tree audit.
+Useful signed-cost/scaling estimates, independent survival, completed
+comparison, physical/volume control, SAME limiting QFT, every group and Clay
+remain OPEN. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+Broad chart unchanged; no reprint.
+
 Supporting actual scalar jets and GLOBAL transverse curvature checked (2026-10-07):
 plus-paired second/mixed scalar jets are pinned on original blocks 0/1,
 retaining frozen polynomial coefficients and arbitrary output multipliers;

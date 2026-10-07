@@ -528,3 +528,106 @@ the original action, or Yang--Mills. The next producer must retain their
 cancellation (and the radial positive-mixture variance); no premise or
 canonical frontier field changes. This screen is mathematical research
 evidence, kept distinct from the fourteen kernel-checked gates above.
+
+## Next bounded experiment: contract radial mixture to product curvature
+
+Root verified the exact scalar cancellation, but no Lean result is yet claimed
+in this section. Put a=1-x^2, D=a*S2+x*S1, with S_j the finite r-power sums.
+The cleared radial numerator is exactly
+
+```text
+Lnum = -(S1^2-S2)*D + 2*a*(S1*S3-S2^2).
+C*S1^2+Lnum = (C-D)*(S1^2-S2)+C*S2+2*a*(S1*S3-S2^2).
+```
+
+Available constructive finite inputs: r_i>=0, so S1^2-S2>=0 and
+S1*S3-S2^2>=0, the latter by weighted squared pair differences. Thus a>=0,
+C>=0 and the PRODUCT bound D<=C suffice. No reciprocal S1 or heat floor is
+needed, and the empty prefix is included. The direct consumer is the radial
+research target above; this is a strictly sharper mathematical reduction,
+not an assumed original gap or new frontier bundle.
+
+Sol implements the finite rational identities/positivity; root alone runs the
+focused 20-GiB check after a fresh preflight. An independent read-only review
+locates the exact remaining same-product Gaussian/second-derivative input.
+Predicted outcome: finite cancellation contracts; the Poisson/curvature input
+remains open. Revise if any moment is not the actual finite prefix, positivity
+is silently assumed instead of proved, a division excludes zero prefixes, or
+a Poisson equality/physical time is inferred from the algebra. Auxiliary
+circle time t_theta=-log(w) must not be identified with the carrier time
+-4*log(w) or standard g^2=-8*log(w). No geometric or continuum closure.
+
+### Narrow analytic route, without importing a classical premise
+
+The underlying P(w,cos(theta)) is the theta3 product at angle theta/2, not
+the SU(2) derivative heat itself. The product normalization and modular
+transformation are classical benchmarks in
+[NIST DLMF 20.5.3](https://dlmf.nist.gov/20.5.E3) and
+[20.7.32](https://dlmf.nist.gov/20.7.E32). Root's inference from those formulas:
+for auxiliary circle time t_theta=-log(w), P is proportional to the positive
+wrapped Gaussian sum G=sum_j exp(-(theta-2*pi*j)^2/(4*t_theta)). Its cleared
+log-Hessian is -G^2/(2*t_theta) plus a nonnegative weighted variance. This
+suggests D_infinity<=1/(2*t_theta), NOT an imported constructive theorem.
+
+For a cutoff with w^(2*N+1)<=1/8, the negative product tail costs at most
+sum_(k>=N) r_k<=8*w^(2*N+1)/(1-w^2)<=1/(1-w). Together with
+t_theta>=1-w this suggests C=3/[2*(1-w)] for the finite joined radial
+expression. These are research estimates pending actual derivative, tail
+and limit proofs, not an available physical bound or established Lean cutoff.
+
+The needed analytic join is specifically the SAME theta3 PRODUCT's Gaussian
+identity and first/second angular derivative control with explicit moduli.
+Do not unnecessarily demand a full SU(2)/Faraut image formula or its sine-
+denominator endpoint removal: h is reached through finite algebra instead.
+Existing `JacobiTripleProductOnBox.thetaProduct_eq_fullThetaSeries`
+(`lean/YMGap/Continuum/JacobiTripleProductOnBox.lean:91`) already identifies
+the all-nome on-box product with the normalized cosine series. It does not
+prove the Poisson/Gaussian or second-derivative join. `JacobiModularCReal`
+explicitly withholds modular inversion, and the Faraut image formulas remain
+supplied inputs. No classical source is added as a Lean axiom or hypothesis;
+angle/carrier, finite-to-limit and physical-time identifications stay OPEN.
+
+### Observed finite radial cancellation evidence
+
+The final focused target PASSes all seven gates within {propext, Quot.sound}.
+The first three moment nonnegativity theorems use propext only.
+
+| Declaration | Source |
+| --- | --- |
+| `M1_nonneg` | `lean/YMGap/Continuum/JacobiHeatRadialMixtureCancellation.lean:50` |
+| `M2_nonneg` | Same source `:54` |
+| `M3_nonneg` | Same source `:57` |
+| `first_square_gap_nonneg` | Same source `:63` |
+| `moment_variance_nonneg` | Same source `:112` |
+| `radialNumerator_cancellation` | Same source `:157` |
+| `radialMixture_payment_nonneg` | Same source `:177` |
+
+Accepted log and SHA-256:
+
+```text
+/private/tmp/ym-oct7-radial-mixture2.log
+0abeaf288548027f0a0b4267a1c4bde6a26a75dfa1be4382f716ca65c07d7f0d
+```
+
+Initial elaboration failed on a missing convenience congruence, unreduced
+empty-prefix goals and a function-pattern layout. Root used the core rational
+congruences and explicit empty reduction; no hypotheses changed. No source
+sorry/axiom/classical input. Both preflights showed no competing compiler,
+87--88% free and zero swap; one 20-GiB worker, 12-GiB reserve. No full-root/tree
+build/audit or baseline refresh. This is finite rational algebra, not yet an
+actual angular heat inequality.
+
+Independent read-only review confirmed the actual moment sums, constructed
+variance/pair positivity, empty case and full signed numerator/payment. It
+also confirmed the narrower missing theta3 circle-Gaussian bridge: no full
+SU(2) Faraut sine-denominator formula is needed for this route. The review
+itself is not compilation evidence.
+
+Decision: CONTINUE from the PROVED finite reduction to a genuine product
+curvature producer and SAME heat-jet/cutoff/conditional joins. No separated
+mixture floor, global density-floor cost, or classical Poisson premise is
+introduced. The finite derivative/moment identifications, Gaussian derivative
+limits, useful original signed cost, scaling, independent survival, completed
+comparison and all physical/continuum/Clay obligations remain OPEN. Together
+this continuation checks three focused leaves and twenty-one public gates,
+without changing any canonical displayed broad claim. No chart reprint.

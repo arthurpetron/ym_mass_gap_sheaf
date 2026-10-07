@@ -1,5 +1,31 @@
 # Sorry Ledger
 
+## PROVED reduction / OPEN product ceiling: finite radial-mixture cancellation (2026-10-07)
+
+- `JacobiHeatRadialMixtureCancellation.M1_nonneg`, `M2_nonneg` and
+  `M3_nonneg` concern the actual finite sums, with nonnegative r only on
+  the relevant prefix. `first_square_gap_nonneg` proves S1^2-S2>=0;
+  `moment_variance_nonneg` proves S1*S3-S2^2>=0 by positive square
+  increments. Neither positivity input is re-assumed in the consumer.
+- `radialNumerator_cancellation` pins the entire signed numerator to
+  `-(S1^2-S2)*D+2*(1-x^2)*(S1*S3-S2^2)`. Given C>=0,1-x^2>=0,D<=C,
+  `radialMixture_payment_nonneg` proves C*S1^2+Lnum>=0. No moment or heat
+  floor is inverted; zero/empty prefixes remain included.
+- The genuinely missing PRODUCT ceiling is an explicit argument to this
+  reduction, not a produced analytic estimate or new canonical field.
+  OPEN: instantiate the finite r-moments in actual heat derivatives, construct
+  the sharper product ceiling via a justified finite route or SAME theta3
+  Gaussian/second-angular-derivative bridge with moduli, and prove cutoff,
+  original unweighted/conditional, scaling and all downstream Clay joins.
+- Final focused check passes seven gates within {propext, Quot.sound};
+  first three use propext only. Initial elaboration errors were repaired
+  with core congruence, explicit empty-prefix reduction and a literal
+  environment; no statement change. One 20-GiB worker, 12-GiB reserve,
+  fresh 87--88%-free zero-swap preflights; no full-root/tree build/audit,
+  baseline refresh, new sorry/axiom/classical input or canonical closure.
+
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 ## PROVED: actual paired scalar jets and global transverse Jacobi cost (2026-10-07)
 
 - `SU2QuaternionPairedFrameScalarJets.pairedScorePlus_zero_derivative_pin`
