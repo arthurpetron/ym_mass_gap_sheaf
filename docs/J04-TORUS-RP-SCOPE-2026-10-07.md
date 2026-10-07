@@ -184,3 +184,8 @@ n=1, σ=id, monomial x₄). Only the supported forms are used from here on: `rei
 `linkVar (Θℓ)`, conjugated on `T` blocks, QPE). The core `List.nodup_range` uses Classical, so a local
 `nodup_range'` replaces it. Open: the `haar_step` chain on `Π TK` and the factorisation via `plaq_*`
 (items 2–3 of (d)). **RP FOR THE ACTUAL TORUS MEASURE IS OPEN.**
+
+**(d2a) Θpoly on spatial `T_K`** (`SU2TorusRPThetaTK.lean`): `thetaPoly = sign(conjSel tSel) ∘ reindex(thetaInv)`,
+`theta_ringSub` (RingSub), `theta_spatial_link`, `theta_TK_spatial`: `thetaPoly (TK (v,P)) ≈PE TK (rv v, P)` for
+spatial `P`. Open: time-plaquettes (reflected word via `refl_word`, conjugated temporal links), the `haar_step`
+chain over the full product, and the `plaq_*` factorisation. **RP FOR THE ACTUAL TORUS MEASURE IS OPEN.**
