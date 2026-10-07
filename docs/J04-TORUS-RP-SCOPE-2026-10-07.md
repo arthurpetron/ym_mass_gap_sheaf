@@ -412,7 +412,7 @@ the torus `Θ_torus F · F` (via `thetaPoly` on `torusLinks`) should be identifi
 
 `torus_X`: there is a list `r` with `imap r (idx_torusLinks ℓ) = idx_L ℓ` such that, for every supported `X`,
 `∫_{|torusLinks|} X·Π_{torusPlaquettes} T_K[torusLinks] = ∫ (rcomp r X)·Π T_K[L]`. Axioms [propext, Quot.sound].
-**Remaining for hW:** show that for torus observables `G` on positive links, `rcomp r (Θ_torus G · G)` is PE to the
+`pos_imap`: positive links map under `imap r` into the first `|Pt|` blocks. **Remaining for hW:** show that for torus observables `G` on positive links, `rcomp r (Θ_torus G · G)` is PE to the
 layout form `signSel(conjSel layT)(reindex halfSwap F')·F'` for some `F'` with `Sup |Pt| F'`. After that,
 `torus_rp_all` closes `hW`.
 RP FOR THE ACTUAL TORUS MEASURE IS OPEN.

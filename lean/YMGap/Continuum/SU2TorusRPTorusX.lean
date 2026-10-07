@@ -44,6 +44,19 @@ theorem torus_X (β : Q') (K : Nat) :
   YMGap.Continuum.SU2TorusRPPermX.perm_haarX (2 * M) β K _ (YMGap.Continuum.SU2TorusRPTorusZ.lay_perm hM) rfl
     (torusLinks_nodup _) (YMGap.Continuum.SU2TorusRPTorusZ.plaqL_mem hM)
 
+/-- Positive links land in the first `|Pt|` layout blocks, so under `imap r` a torus observable on positive links
+becomes one on the first `|Pt|` blocks. -/
+theorem pos_idx (ℓ : Z4Link) (h : ℓ ∈ Pt M) :
+    (Pt M ++ Ct M ++ (Pt M).map (reflLink M)).idxOf ℓ < (Pt M).length := by
+  rw [List.append_assoc]
+  exact (YMGap.Continuum.SU2TorusRPSwap.idx_mem ℓ _ [] (Pt M) h).2
+
+theorem pos_imap (r : List (QuaternionBlockInvolution (torusLinks (2 * M)).length))
+    (hr : ∀ ℓ, imap r ((torusLinks (2 * M)).idxOf ℓ) = (Pt M ++ Ct M ++ (Pt M).map (reflLink M)).idxOf ℓ)
+    (ℓ : Z4Link) (h : ℓ ∈ Pt M) : imap r ((torusLinks (2 * M)).idxOf ℓ) < (Pt M).length := by
+  rw [hr]; exact pos_idx ℓ h
+
 end YMGap.Continuum.SU2TorusRPTorusX
 
 #print axioms YMGap.Continuum.SU2TorusRPTorusX.torus_X
+#print axioms YMGap.Continuum.SU2TorusRPTorusX.pos_imap
