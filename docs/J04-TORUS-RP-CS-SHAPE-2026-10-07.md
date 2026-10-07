@@ -35,9 +35,8 @@ It is rational and cross-multiplied, with no roots. `Pos G L` is a separate hypo
 
 Integer discriminant core `SU2TorusRPCSCore.cs_int` and rational form `SU2TorusRPCSRat.cs_q` (`(∀ s t : Int, 0 ≤ quad a b c s t) → b*b ≤ a*c`): PROVED ([propext, Quot.sound]). Symmetry `SU2TorusRPSym.rpB_symm`: `rpB (eval e) (eval e') ≈ rpB (eval e') (eval e)` for observables on torus links,
 via `theta_haar`, `theta_prod`, `tp_mir_perm` and `theta2_obs` (`Θ∘Θ ≡ id`): PROVED ([propext, Quot.sound]).
-Remaining for `TorusCS`: the bilinear expansion `rpB(sF+tG, sF+tG) ≈ quad (rpB F F) (rpB F G) (rpB G G) s t`. This
-needs PE distributivity and smul-extraction lemmas, then `torus_rp` at `s·e + t·e'` and `cs_q`. Also remaining:
-`TorusRPPoly`, i.e. `PtSup F → F ≡ eval (obsOf F)`.
+Bilinear expansion (`SU2TorusRPBil`) and `PtSup F → F ≡PE eval (obsOf F)` (`SU2TorusRPObsOf.obsOf_pe`, `obsOf_on`):
+PROVED ([propext, Quot.sound]).
 
 **Interface needed from the Prover (time translation, item 3).** `τ : Nat → RatPoly → RatPoly` such that:
 (i) `PtSup F → PtSup (τ n F)` (or the `Obs` analogue `OnLinks (· ∈ Pt M)`);
@@ -52,4 +51,10 @@ choice belongs to the Prover.
 bilinearity in `SU2TorusRPBil`. Axioms [propext, Quot.sound]. `Obs` contains constants and is closed under `+`, `·`
 and negation, so the truncated `F − c` is again an `Obs`.
 
-**STATUS: `TorusRPPoly` AND `TorusCS` FOR GENERAL `PtSup` POLYNOMIALS ARE OPEN. The `Obs` versions are proved.**
+**General `PtSup` versions PROVED:** `SU2TorusRPPolyCS.torus_rp_poly : TorusRPPoly hM β K` and
+`SU2TorusRPPolyCS.torus_cs_poly : TorusCS hM β K` (for `0 ≤ β`; truncated T_K weight, fixed K), via `rpB_obsOf`.
+Axioms [propext, Quot.sound].
+
+**STATUS: SU(2) torus RP and RP Cauchy–Schwarz for `PtSup` polynomials (truncated T_K, fixed K) are PROVED. Still OPEN:
+time translation `τ` and its interface (Prover), the odd-`j` convention, `K → ∞`, and LogConvex. J04 (all compact
+simple groups) remains OPEN; this is SU(2) only.**

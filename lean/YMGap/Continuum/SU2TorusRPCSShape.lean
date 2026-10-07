@@ -1,12 +1,12 @@
 /-
-# Torus RP (f0): statement shapes for the RP Cauchy–Schwarz (definitions only, NOTHING PROVED)
+# Torus RP (f0): statement shapes for the RP Cauchy–Schwarz (definitions only)
 
 `rpB hM β K F G = ∫_{|torusLinks|} Θ(F)·G·Π T_K` is the RP form for the torus `T_K` measure. `TorusCS` is the
 target **Cauchy–Schwarz** in the cross-multiplied rational shape that `SU2LogConvexGap.LogConvex` consumes
 (`G(j+1)·G(j+1) ≤ G j · G(j+2)`): `rpB F G · rpB F G ≤ rpB F F · rpB G G`. `TorusRPPoly` is the target
 **general-polynomial RP** for supported polynomials (`PtSup`), a class closed under subtracting constants.
 
-**OPEN: `TorusCS` and `TorusRPPoly` are stated here and not proved. RP holds for `Obs` observables (`torus_rp`).**
+Nothing is proved in this file. `TorusRPPoly` and `TorusCS` are proved (for `0 ≤ β`) in `SU2TorusRPPolyCS`.
 -/
 
 import YMGap.Continuum.SU2TorusRPHW
