@@ -75,10 +75,12 @@ simple groups) remains OPEN; this is SU(2) only.**
    (no conjugation). Then `quaternionHaar_reindex` applies to each factor. PROVED (`SU2TorusTimeRefl`): `rt_inv`,
    `rt_comp` (`ρ_t ∘ ρ_0 = vs t` on the time coordinate). Also PROVED: the block involution `SU2TorusTimeRefl.sigma`, the map
    `SU2TorusTau.tau N t hN := σ_t ∘ σ_0`, and `haar_tau` (`∫ τ_t X ≈ ∫ X` for supported `X`).
-5. `Θ∘τ_x ≡ τ_{−x}∘Θ` on `PtSup`/`Sup` polynomials. Then `rpB (τ_x F) (τ_y F) ≈ G(x+y)` with `G n := rpB F (τ_n F)`.
+5. Link level PROVED (`SU2TorusReflShift.refl_shift`: `reflLink (shv x ℓ) = shv (2M − x%2M) (reflLink ℓ)` on the box).
+   OPEN: polynomial level `Θ∘τ_x ≡ τ_{−x}∘Θ` on `PtSup`/`Sup` polynomials. Then `rpB (τ_x F) (τ_y F) ≈ G(x+y)` with `G n := rpB F (τ_n F)`.
    Combined with `torus_cs_poly`, this gives `G(x+y)² ≤ G(2x)·G(2y)`. `τ_x F` must remain `PtSup`, which needs
    `x + (support time) ≤ M`. This is a real restriction and must appear in the statement.
-6. **Odd `j`.** A reflection `t ↦ c − t` with odd `c` fixes no site plane (the plane is at link midpoints). Proposed
+6. **Odd `j`.** NOTE: the existing `reflLink` (`rt`: `a ↦ 1 − a mod 2M`) is already a *link-midpoint* reflection
+   (planes at ½ and M+½). A reflection `t ↦ c − t` with odd `c` fixes no site plane (the plane is at link midpoints). Proposed
    convention: prove item 5 for *both* parities of `c` by using the general reflection `R_c`. That way odd `j` comes
    from the pair `(τ_a F, τ_{a+1} F)` under the midpoint reflection, with no half-step translation. The midpoint
    RP itself (`torus_rp` for odd `c`) is OPEN: the existing layout proof is for the site plane.
