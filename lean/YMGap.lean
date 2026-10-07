@@ -7372,6 +7372,7 @@ import YMGap.Continuum.SU2PolyLinkHaarInvariance
 import YMGap.Continuum.SU2TorusMultiLinkPolyGibbs
 import YMGap.Continuum.SU2MultiLinkHaarFactorization
 import YMGap.Continuum.SU2PlaqWordHolonomy
+import YMGap.Continuum.SU2MultiLinkHaarInvariance
 import YMGap.Continuum.SpecMaxRateFamily
 import YMGap.Continuum.W1StrongCouplingPerturbation
 import YMGap.Continuum.W1VacuumTailRowSum
