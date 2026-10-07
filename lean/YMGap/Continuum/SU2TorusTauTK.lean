@@ -5,8 +5,9 @@
 * `tau_TK`: `τ_t (T_K p) ≡PE T_K (shv t p)` for `p` in the box. This uses the Prover's `tk_shift` (read-only) and
   `tau_lv`.
 
-**OPEN**: `τ_t (Π_p T_K) ≡ Π_p T_K` (from `prodPoly_sub`, `tau_TK` and `tp_shift_perm`), `Θ∘τ_x ≡ τ_{−x}∘Θ`, and the
-correlator identity.
+* `tau_prod`: `τ_t (Π_{torusPlaquettes} T_K) ≡PE Π T_K`.
+
+**OPEN**: `Θ∘τ_x ≡ τ_{−x}∘Θ` and the correlator identity.
 -/
 
 import YMGap.Continuum.SU2TorusTauVar
@@ -53,6 +54,31 @@ theorem tau_TK (β : Q') (K : Nat) (p : Z4Plaq) (hp : InBox N p.1) :
     (YMGap.Continuum.SU2TorusRPSubst.qpe_mul (YMGap.Continuum.SU2TorusRPSubst.qpe_conj (l _ _ (h1 _)))
       (YMGap.Continuum.SU2TorusRPSubst.qpe_conj (l _ _ hp)))).s
 
+open YMGap.Continuum.SU2HaarL1Activity (prodPoly)
+
+theorem prod_pe {n : Nat} {F G : Z4Plaq → RatPoly} : ∀ ps : List Z4Plaq, (∀ p ∈ ps, PE n (F p) (G p)) →
+    PE n (prodPoly F ps) (prodPoly G ps)
+  | [], _ => pe_refl _ _
+  | p :: ps, h => YMGap.Continuum.SU2TorusRPSubst.pe_mul2 _ (h p (List.mem_cons_self ..))
+      (prod_pe ps fun q hq => h q (List.mem_cons_of_mem _ hq))
+
+theorem prod_map (F : Z4Plaq → RatPoly) (f : Z4Plaq → Z4Plaq) : ∀ ps : List Z4Plaq,
+    prodPoly F (ps.map f) = prodPoly (fun p => F (f p)) ps
+  | [] => rfl
+  | p :: ps => by rw [List.map_cons]; show polyMul _ _ = polyMul _ _; rw [prod_map F f ps]
+
+/-- **`Π T_K` is invariant under `τ_t`** (PE, whole torus). -/
+theorem tau_prod (β : Q') (K : Nat) :
+    PE (torusLinks N).length
+      (tau N t hN (prodPoly (YMGap.Continuum.SU2WilsonPolymerIdentity.TK (torusLinks N) N β K) (torusPlaquettes N)))
+      (prodPoly (YMGap.Continuum.SU2WilsonPolymerIdentity.TK (torusLinks N) N β K) (torusPlaquettes N)) := by
+  refine pe_trans _ (YMGap.Continuum.SU2TorusRPSubst.prodPoly_sub (tau_ringSub N t hN) _ _) ?_
+  refine pe_trans _ (prod_pe _ fun p hp => tau_TK N t hN β K p ?_) ?_
+  · obtain ⟨v, P⟩ := p; exact (mem_torusPlaquettes N v P).1 hp
+  · rw [← prod_map]
+    exact YMGap.Continuum.SU2TorusRPFactor.prod_perm _ _ (YMGap.Continuum.SU2TorusShiftPerm.tp_shift_perm N t hN)
+
 end YMGap.Continuum.SU2TorusTauTK
 
 #print axioms YMGap.Continuum.SU2TorusTauTK.tau_TK
+#print axioms YMGap.Continuum.SU2TorusTauTK.tau_prod
