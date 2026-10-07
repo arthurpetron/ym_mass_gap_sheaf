@@ -4,7 +4,21 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: halving-time certificate ⇒ Wilson lower margin (2026-10-06 PT)
+## Latest proved increment: trace sandwich + From-j0 closure (2026-10-06 PT)
+
+Proved finite lemmas (`SpectralTraceSandwich`): `specMax^n ≤ s_n` (`0 < n`),
+`s_{2n} ≤ specMax^n·s_n`, root-free `le_of_pow_le_pow`, and the certified interval
+`specMax_mem_of_trace_bounds` (`A ≤ s_{2n}`, `s_n ≤ B ≤ ρhi^n`, `ρlo^n·B ≤ A`, `0 < B`).
+Uses `λ_i ≥ 0` (model field). Packaging (`BF4WilsonHalvingTimeMargin`):
+`wilsonLowerMargin_of_from` via the structural fold `prefixRateMargin`
+(`min(m, min_{j<j0} (1−r_j)·2^j)`, uses `rate_lt_one`);
+`wilsonAFPaddedGapInput_of_halvingTimeFrom` needs certificates only for `j ≥ j0`.
+`excitedCharSpectralGapData.model` is a `SpectralModel` (direct applicability) but
+closed-form, unweighted, and tied to `op` only via the OPEN `CharacterDiagResolution`.
+Evidence: `audits/SCOPE-RG-STEP-COMPOSITION-REDUCTION-2026-10-06.md`.
+Axioms {propext, Quot.sound} (some lemmas fewer); box launcher checks only.
+
+## Earlier proved increment: halving-time certificate ⇒ Wilson lower margin (2026-10-06 PT)
 
 REDUCTION after `f28c4bb9`: `wilsonLowerMargin_of_halvingTime` turns
 `∀ j, r_j^{M0·2^j} ≤ 1/2` (constant physical halving time `M0`) into

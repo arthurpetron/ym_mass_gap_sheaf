@@ -7348,6 +7348,9 @@ import YMGap.Continuum.BF4WilsonAllNomeStepRatioLinearCeiling
 -- REDUCTION: one integer halving-time certificate r_j^(M0·2^j) ≤ 1/2 per scale gives
 -- WilsonLowerMargin (1/(2M0)); direct fit into WilsonAFPaddedGapInput's margin conjunct.
 import YMGap.Continuum.BF4WilsonHalvingTimeMargin
+-- PROVED finite lemmas: trace sandwich specMax^n ≤ s_n, s_{2n} ≤ specMax^n·s_n and the
+-- root-free certified rate interval ρlo ≤ specMax ≤ ρhi from rational trace bounds.
+import YMGap.Continuum.SpectralTraceSandwich
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport

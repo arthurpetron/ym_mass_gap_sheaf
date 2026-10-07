@@ -15,7 +15,9 @@ from `2^{2C+3}` to LINEAR `16(C+1)` (`BF4WilsonAllNomeStepRatioLinearCeiling`;
 exponential was a crude `1/θ` conversion artifact). Spacing `half^j` matches
 `trAF` by `rfl`. Margin half of the AF input reduced to one integer halving-time
 certificate `r_j^{M0·2^j} ≤ 1/2` per scale (`BF4WilsonHalvingTimeMargin`,
-`m = 1/(2M0)`, direct fit; contraction conjunct still OPEN). SC cannot seed `trAF`. No `Φ_j` constructed. Not AF. See
+`m = 1/(2M0)`, direct fit; contraction conjunct still OPEN); certificates needed only
+for `j ≥ j0` (`prefixRateMargin` fold). Trace sandwich on `SpectralModel`
+(`SpectralTraceSandwich`): rational bounds on `s_n`, `s_{2n}` certify `ρlo ≤ specMax ≤ ρhi`. SC cannot seed `trAF`. No `Φ_j` constructed. Not AF. See
 `audits/SCOPE-RG-STEP-COMPOSITION-REDUCTION-2026-10-06.md`.
 
 Route (b), strong coupling (2026-10-06 PT): the literal fixed-width all-nome

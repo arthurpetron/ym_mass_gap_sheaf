@@ -223,6 +223,65 @@ of the AF input into one integer certificate per scale: `r_j^{M0·2^j} ≤ 1/2`
 certificates must hold at EVERY `j` (the `From`-`j0` variant gives only
 `WilsonLowerMarginFrom`, which `WilsonAFPaddedGapInput` does not accept directly).
 
+## From-j0 closure of the halving-time margin (2026-10-06 ~10:00 PM PT; packaging)
+
+Same Lean file. Closes the From-`j0` mismatch flagged above.
+
+* `prefixRateMargin r m : Nat → Q'`, `0 ↦ m`, `k+1 ↦ min (prefixRateMargin r m k)
+  ((1 − r k)·2^k)`: structural fold, decidable `Q'.min'` (no existential).
+* `qmin_le_left`, `qmin_le_right`, `qmin_pos` (strict positivity survives `min`: the
+  result IS one of the two inputs, so the cross-multiplied order needs no setoid care).
+* `prefixRateMargin_pos (0 < m) (∀ j, r j < 1)`, `prefixRateMargin_le_base`,
+  `prefixRateMargin_le_scale : j < k → prefixRateMargin r m k ≤ (1 − r j)·2^j`.
+* `wilsonLowerMargin_of_from F j0 m (spacing j = half^j) (WilsonLowerMarginFrom F j0 m) :
+  WilsonLowerMargin F (prefixRateMargin F.rate m j0)`. Uses the structure field
+  `WilsonDynamicFamily.rate_lt_one` (no extra hypothesis). For `j < j0`:
+  `m'·2^{-j} ≤ ((1−r_j)·2^j)·2^{-j} ≈ 1 − r_j`; for `j ≥ j0`: `m'·a_j ≤ m·a_j ≤ 1 − r_j`.
+* `wilsonLowerMargin_of_halvingTimeFrom`, and
+  `wilsonAFPaddedGapInput_of_halvingTimeFrom r hr0 hr1 Hc j0 M0 (0 < M0)
+  (∀ j ≥ j0, r j^(M0·2^j) ≤ 1/2) : WilsonAFPaddedGapInput`
+  (`m = prefixRateMargin r (1/(2M0)) j0`).
+
+Verdict: the mismatch is closed; certificates are needed only for `j ≥ j0`. Rate family,
+`r_j < 1` and the contraction `Hc` remain OPEN.
+
+## Trace sandwich (2026-10-06 ~10:00 PM PT; proved finite lemmas)
+
+Lean: `lean/YMGap/Continuum/SpectralTraceSandwich.lean`, on `SpectralGap.SpectralModel`
+(`Continuum/SpectralGap.lean`; `λ_i ≥ 0` is the field `lam_nonneg`), `specMax`
+(`Continuum/LocatedSpectralGap.lean`, running `Q'.max'` fold with a `0` floor) and
+`finSum` (`Constructive/RationalTail.lean`).
+
+* `excitedTrace S n := finSum (fun i => S.lam i ^ n) S.k`.
+* `specMax_pow_le_excitedTrace S n (0 < n) : specMax S ^ n ≤ excitedTrace S n`.
+* `excitedTrace_double_le S n : excitedTrace S (2*n) ≤ specMax S ^ n * excitedTrace S n`.
+* `le_of_pow_le_pow a b (0 ≤ b) n (0 < n) (a^n ≤ b^n) : a ≤ b` (root-free).
+* `specMax_le_of_trace_le S n (0 < n) U ρ (0 ≤ ρ) (s_n ≤ U) (U ≤ ρ^n) : specMax S ≤ ρ`.
+* `specMax_pow_mul_ge S n A B (A ≤ s_{2n}) (s_n ≤ B) : A ≤ specMax S ^ n * B`.
+* `specMax_pow_ge_of_ratio S n L (0 < s_n) (L·s_n ≤ s_{2n}) : L ≤ specMax S ^ n`.
+* `specMax_ge_of_trace_bounds S n (0 < n) ρ A B (0 < B) (A ≤ s_{2n}) (s_n ≤ B)
+  (ρ^n·B ≤ A) : ρ ≤ specMax S`.
+* `specMax_mem_of_trace_bounds`: `ρlo ≤ specMax S ∧ specMax S ≤ ρhi`.
+
+Hypotheses: `λ_i ≥ 0` (model field; even powers NOT needed because of it), `0 < n`
+(the `k = 0, n = 0` edge `1 ≤ 0` is false), `0 < B` resp. `0 < s_n` for the lower bound.
+All `Q'`, no `CReal`.
+
+**Distance to `WilsonSpectralBridge.excitedCharSpectralGapData` (description only).**
+`(excitedCharSpectralGapData op w hw0 hw1 N).model` IS a `SpectralModel`
+(`excitedCharModel w hw0 N`: `k = N`, `lam i = qpow w (c4 (i+1))`, rational, nonnegative
+by field, weights `dimQ (i+1)`), so every sandwich lemma applies to it with zero glue.
+But: (1) its eigenvalues are closed-form, `specMax = w^3 = heatKernelSep` for `N ≥ 1`
+(already the `LocatedSpectralGap.sep`), so the sandwich adds nothing there; (2) the
+trace is UNWEIGHTED, while a physical `Tr T^n` carries multiplicities (`dimQ`, or its
+square); a weighted variant needs `w_i ≥ 1`-type hypotheses (not proved); (3) the model is
+tied to `op` only through the OPEN `CharacterDiagResolution` (Peter–Weyl/Schur in
+`cinner`, `CReal.RC`-valued), so bounds on model traces say nothing about `op` without it;
+(4) it is single-edge, fixed spacing, truncated to `N` modes, and not connected to the
+`WilsonDynamicFamily.rate j` (an all-vector squared-norm contraction rate) at all. The
+useful target is a model whose eigenvalues are NOT closed-form, with `s_n`, `s_{2n}`
+bounded by a rigorous finite computation.
+
 ## Seeding by strong coupling (honest limits)
 
 * `allNome_strongCoupling_vacuumSq` gives `WilsonVacuumSqContraction` at
@@ -282,3 +341,6 @@ summable `ε_j` for the Wilson action along the chosen schedule.
 * 2026-10-06 ~9:50 PM PT — Halving-time margin (`BF4WilsonHalvingTimeMargin`):
   `r_j^{M0·2^j} ≤ 1/2` ⇒ `WilsonLowerMargin F (1/(2M0))`; direct fit into
   `WilsonAFPaddedGapInput` margin conjunct. REDUCTION.
+* 2026-10-06 ~10:00 PM PT — From-`j0` closure (`prefixRateMargin`,
+  `wilsonAFPaddedGapInput_of_halvingTimeFrom`; packaging) and trace sandwich
+  (`SpectralTraceSandwich`; proved finite lemmas).

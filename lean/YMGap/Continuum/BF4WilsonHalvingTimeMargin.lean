@@ -16,6 +16,9 @@ time `M0` at every scale. Then `m = 1/(2M0)`.
 * `wilsonLowerMargin_of_halvingTime`, `wilsonLowerMarginFrom_of_halvingTime`.
 * `wilsonAFPaddedGapInput_of_halvingTime`: DIRECT fit for the margin conjunct; the
   rate family, `r_j < 1` and the all-vector `WilsonVacuumSqContraction` stay OPEN inputs.
+* `prefixRateMargin` / `wilsonLowerMargin_of_from`: From-`j0` margin + `rate_lt_one` ⇒
+  all-scale margin `min(m, min_{j<j0} (1−r_j)·2^j)` (structural fold, decidable min);
+  `wilsonAFPaddedGapInput_of_halvingTimeFrom` needs certificates only for `j ≥ j0`.
 
 **REDUCTION.** No certificate is produced for any YM trajectory.
 Constructive; axioms `propext`, `Quot.sound` only.
@@ -30,6 +33,7 @@ set_option autoImplicit false
 
 open YMGap.Constructive
 open YMGap.Constructive.HalfPow (half half_nonneg)
+open YMGap.Continuum (one_sub_pos_of_lt_one)
 open YMGap.Continuum.RingNormaliser (poly_identity_of_normal_eq)
 open YMGap.Continuum.BF4WilsonAllNomeExprStepRatioWindowSurvival (bernoulli_pow)
 open YMGap.Continuum.BF4WilsonAllNomeExprMixRateContraction (WilsonVacuumSqContraction)
@@ -181,6 +185,117 @@ theorem wilsonAFPaddedGapInput_of_halvingTime (r : Nat → Q')
     wilsonLowerMargin_of_halvingTime (exprWilsonFamily trAF r hr0 hr1 Hc) M0 hM0
       (exprWilsonFamily_spacing_half_pow trAF r hr0 hr1 Hc) hcert⟩
 
+/-! ## Closing the From-`j0` mismatch (finite prefix fold)
+
+For `j < j0` the needed margin at scale `j` is `(1 − r_j)·2^j` (convention
+`m·2^{-j} ≤ 1 − r_j`). `prefixRateMargin r m j0` folds the decidable `Q'` min of `m`
+with these `j0` values by structural recursion on `j0`; strict positivity follows from
+`F.rate_lt_one` (field of `WilsonDynamicFamily`). -/
+
+/-- `min p q ≤ p` (decidable `Q'` order). -/
+theorem qmin_le_left (p q : Q') : min p q ≤ p := by
+  show Q'.min' p q ≤ p
+  unfold Q'.min'
+  by_cases h : p ≤ q
+  · rw [if_pos h]; exact Q'.le_refl' p
+  · rw [if_neg h]
+    show q.num * (p.den : Int) ≤ p.num * (q.den : Int)
+    have h' : ¬ (p.num * (q.den : Int) ≤ q.num * (p.den : Int)) := h
+    exact Int.le_of_lt (Int.not_le.mp h')
+
+/-- `min p q ≤ q`. -/
+theorem qmin_le_right (p q : Q') : min p q ≤ q := by
+  show Q'.min' p q ≤ q
+  unfold Q'.min'
+  by_cases h : p ≤ q
+  · rw [if_pos h]; exact h
+  · rw [if_neg h]; exact Q'.le_refl' q
+
+/-- Strict positivity is preserved by `min` (the result is one of the inputs). -/
+theorem qmin_pos (p q : Q') (hp : (0 : Q') < p) (hq : (0 : Q') < q) : (0 : Q') < min p q := by
+  show (0 : Q') < Q'.min' p q
+  unfold Q'.min'
+  by_cases h : p ≤ q
+  · rw [if_pos h]; exact hp
+  · rw [if_neg h]; exact hq
+
+/-- Finite prefix fold: `prefixRateMargin r m j0 = min(m, min_{j<j0} (1 − r_j)·2^j)`. -/
+def prefixRateMargin (r : Nat → Q') (m : Q') : Nat → Q'
+  | 0 => m
+  | k + 1 => min (prefixRateMargin r m k) (((1 : Q') - r k) * Q'.ofNat (2 ^ k))
+
+theorem prefixRateMargin_pos (r : Nat → Q') (m : Q') (hm : (0 : Q') < m)
+    (hr : ∀ j, r j < (1 : Q')) : ∀ k, (0 : Q') < prefixRateMargin r m k
+  | 0 => hm
+  | k + 1 => qmin_pos _ _ (prefixRateMargin_pos r m hm hr k)
+      (Q'.mul_pos (one_sub_pos_of_lt_one (hr k))
+        (lc_lt_of_lt_of_le (by decide : (0 : Q') < Q'.ofNat 1)
+          (lc_ofNat_le (Nat.two_pow_pos k))))
+
+theorem prefixRateMargin_le_base (r : Nat → Q') (m : Q') :
+    ∀ k, prefixRateMargin r m k ≤ m
+  | 0 => Q'.le_refl' m
+  | k + 1 => Q'.le_trans' _ _ _ (qmin_le_left _ _) (prefixRateMargin_le_base r m k)
+
+theorem prefixRateMargin_le_scale (r : Nat → Q') (m : Q') :
+    ∀ k j, j < k → prefixRateMargin r m k ≤ ((1 : Q') - r j) * Q'.ofNat (2 ^ j)
+  | 0, j, h => absurd h (Nat.not_lt_zero j)
+  | k + 1, j, h => by
+    rcases Nat.lt_or_ge j k with hjk | hjk
+    · exact Q'.le_trans' _ _ _ (qmin_le_left _ _) (prefixRateMargin_le_scale r m k j hjk)
+    · have hj : j = k := Nat.le_antisymm (Nat.lt_succ_iff.mp h) hjk
+      subst hj
+      exact qmin_le_right _ _
+
+/-- `((1 − r)·2^j)·2^{-j} ≈ 1 − r`. -/
+theorem scaleMargin_mul_half_pow (x : Q') (j : Nat) :
+    (x * Q'.ofNat (2 ^ j)) * half ^ j ≈ x := by
+  have e1 : (x * Q'.ofNat (2 ^ j)) * half ^ j ≈ x * (Q'.ofNat (2 ^ j) * half ^ j) :=
+    poly_identity_of_normal_eq
+      (.mul (.mul (.var 0) (.var 1)) (.var 2)) (.mul (.var 0) (.mul (.var 1) (.var 2)))
+      (by decide) (fun | 0 => x | 1 => Q'.ofNat (2 ^ j) | _ => half ^ j)
+  exact Q'.eqv_trans _ _ _ e1 (Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_left _ _ _ (ofNat_two_pow_mul_half_pow j)) (Q'.mul_one_eqv x))
+
+/-- **PROVED (packaging).** On dyadic spacing, a From-`j0` margin plus `F.rate_lt_one`
+gives an all-scale margin `m' = prefixRateMargin F.rate m j0 > 0`. -/
+theorem wilsonLowerMargin_of_from (F : WilsonDynamicFamily) (j0 : Nat) (m : Q')
+    (hsp : ∀ j, F.transferSpacing.spacing j = half ^ j)
+    (h : WilsonLowerMarginFrom F j0 m) :
+    WilsonLowerMargin F (prefixRateMargin F.rate m j0) := by
+  refine ⟨prefixRateMargin_pos F.rate m h.1 F.rate_lt_one j0, fun j => ?_⟩
+  show prefixRateMargin F.rate m j0 * F.transferSpacing.spacing j ≤ (1 : Q') - F.rate j
+  rcases Nat.lt_or_ge j j0 with hj | hj
+  · rw [hsp j]
+    exact Q'.le_trans' _ _ _
+      (Q'.mul_le_mul_of_nonneg_right _ _ _ (prefixRateMargin_le_scale F.rate m j0 j hj)
+        (Q'.pow_nonneg half half_nonneg j))
+      (Q'.le_of_eqv (scaleMargin_mul_half_pow _ j))
+  · exact Q'.le_trans' _ _ _
+      (Q'.mul_le_mul_of_nonneg_right _ _ _ (prefixRateMargin_le_base F.rate m j0)
+        (Q'.le_of_lt (F.transferSpacing.spacing_pos j)))
+      (h.2 j hj)
+
+/-- **PROVED (REDUCTION).** Certificates only for `j ≥ j0` give an all-scale margin. -/
+theorem wilsonLowerMargin_of_halvingTimeFrom (F : WilsonDynamicFamily) (j0 M0 : Nat)
+    (hM0 : 0 < M0) (hsp : ∀ j, F.transferSpacing.spacing j = half ^ j)
+    (hcert : ∀ j, j0 ≤ j → F.rate j ^ (M0 * 2 ^ j) ≤ half) :
+    WilsonLowerMargin F (prefixRateMargin F.rate (halvingMargin M0) j0) :=
+  wilsonLowerMargin_of_from F j0 (halvingMargin M0) hsp
+    (wilsonLowerMarginFrom_of_halvingTime F j0 M0 hM0 hsp hcert)
+
+/-- **Wiring (direct fit, REDUCTION).** Halving-time certificates only for `j ≥ j0`
+witness `WilsonAFPaddedGapInput` with `m = prefixRateMargin r (1/(2M0)) j0`. -/
+theorem wilsonAFPaddedGapInput_of_halvingTimeFrom (r : Nat → Q')
+    (hr0 : ∀ j, (0 : Q') ≤ r j) (hr1 : ∀ j, r j < (1 : Q'))
+    (Hc : ∀ j, WilsonVacuumSqContraction ((trAF).schedule.nome_pos j)
+      ((trAF).schedule.nome_lt_one j) ((trAF).width j) (r j))
+    (j0 M0 : Nat) (hM0 : 0 < M0) (hcert : ∀ j, j0 ≤ j → r j ^ (M0 * 2 ^ j) ≤ half) :
+    WilsonAFPaddedGapInput :=
+  ⟨r, hr0, hr1, Hc, prefixRateMargin r (halvingMargin M0) j0,
+    wilsonLowerMargin_of_halvingTimeFrom (exprWilsonFamily trAF r hr0 hr1 Hc) j0 M0 hM0
+      (exprWilsonFamily_spacing_half_pow trAF r hr0 hr1 Hc) hcert⟩
+
 end YMGap.Continuum.BF4WilsonHalvingTimeMargin
 
 #print axioms YMGap.Continuum.BF4WilsonHalvingTimeMargin.one_sub_pow_ge
@@ -189,3 +304,9 @@ end YMGap.Continuum.BF4WilsonHalvingTimeMargin
 #print axioms YMGap.Continuum.BF4WilsonHalvingTimeMargin.wilsonLowerMargin_of_halvingTime
 #print axioms YMGap.Continuum.BF4WilsonHalvingTimeMargin.wilsonLowerMarginFrom_of_halvingTime
 #print axioms YMGap.Continuum.BF4WilsonHalvingTimeMargin.wilsonAFPaddedGapInput_of_halvingTime
+#print axioms YMGap.Continuum.BF4WilsonHalvingTimeMargin.qmin_pos
+#print axioms YMGap.Continuum.BF4WilsonHalvingTimeMargin.prefixRateMargin_pos
+#print axioms YMGap.Continuum.BF4WilsonHalvingTimeMargin.prefixRateMargin_le_scale
+#print axioms YMGap.Continuum.BF4WilsonHalvingTimeMargin.wilsonLowerMargin_of_from
+#print axioms YMGap.Continuum.BF4WilsonHalvingTimeMargin.wilsonLowerMargin_of_halvingTimeFrom
+#print axioms YMGap.Continuum.BF4WilsonHalvingTimeMargin.wilsonAFPaddedGapInput_of_halvingTimeFrom
