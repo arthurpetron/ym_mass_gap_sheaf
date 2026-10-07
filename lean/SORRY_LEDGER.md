@@ -1,5 +1,33 @@
 # Sorry Ledger
 
+## PROVED: construct finite signed-overhead payment, including null targets (2026-10-07)
+
+- `QuaternionHaarFiniteReciprocalScoreCap.reciprocal_score_finite_cap_le`
+  computes the actual reciprocal-score cap independent of degree.
+  `signed_debt_le` retains signed pairing before weighted Young.
+- `BF4ExactSlabFixedSpatialAdaptiveSignedScorePayment.adaptiveSignedScorePayment`
+  constructs positive sigma before the correction onset, paying the original
+  signed reciprocal debt to arbitrary relative tolerance when Z1*B>0.
+- `QuaternionHaarPositiveWeightNullReflection.haar_null_of_positive_weight_square_zero`
+  proves arbitrary-insertion Haar nullity from the SAME positive-weight square.
+  `BF4ExactSlabFixedSpatialTotalSignedScorePayment.totalSignedScorePayment`
+  uses the actual spatial floor, positive Z1 and existing null cancellation
+  to REMOVE that positive-target premise. Every supported finite source gets
+  sigma/onset data with `Bulk_sigma <= Z0*energy+epsilon*(Z1*B)` for all later
+  degrees. No source inverse or new null/survival hypothesis.
+- Final four focused targets pass 8 printed gates in {propext, Quot.sound}.
+  Serialized monitored 20-GiB worker, 12-GiB reserve and zero swap; repaired
+  elaboration failures are not evidence. No heartbeat raise, new source
+  sorry/axiom/classical input or canonical field change. No full-root/tree
+  build/audit or hashed baseline refresh.
+- OPEN: useful bound on genuine original energy in SAME surviving-form units
+  along the justified family; regulator-uniform diagonal modulus, independent
+  AF survival, actual all-vector RG comparison/useful delta budget, physical
+  calibration/volume control, SAME limiting QFT, every group and Clay.
+  Fixed-parameter approximation payment is not any of these inputs.
+
+Evidence: `audits/AUDIT-ADAPTIVE-SIGNED-SCORE-PAYMENT-2026-10-07.md`.
+
 ## PROVED: exact score bulk reassembles into original energy (2026-10-07)
 
 - `QuaternionHaarExactScoreEnergySplit.reciprocal_score_weighted_energy_split`

@@ -27,6 +27,18 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+The user's lattice-mass note sharpens the backward physical-time checks,
+without supplying a proof input. A fitted glueball channel does not exclude
+other low-energy states; scale-set GeV estimates are diagnostics, not bounds.
+The discrete transfer's exact logarithm is not an unconditional finite-spacing
+Kogut--Susskind identity: the temporal-continuum limit is a separate join.
+Do not assume W^{1,p} quantum sample connections, a general proved 2+1D
+continuum construction, or an area-law/finite-volume-liminf shortcut to the
+limiting Hamiltonian gap. Reuse existing SAME-rate interfaces and retain the
+all-vector, limiting-QFT and physical-clock requirements. Primary-source
+verification and corrections:
+`audits/RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md`.
+
 The current Wilson route still needs TWO actual analytic producers on the
 same AF-padded family: the bounded step-ratio/window-survival input, and an
 all-vector completed Wilson contraction with a positive dyadic lower margin.
@@ -222,6 +234,25 @@ No partition is cancelled. This is an identity, not that estimate; the
 selected-state cost upper bound is not the all-vector RG dissipation
 comparison. Four gates passed two focused checks; broad chart unchanged.
 Evidence: `audits/AUDIT-EXACT-SIGNED-SCORE-ENERGY-2026-10-07.md`.
+
+The finite signed approximation overhead is NOW CONSTRUCTED, not assumed
+small. `BF4ExactSlabFixedSpatialAdaptiveSignedScorePayment` computes a score cap M
+independent of reciprocal degree, chooses sigma BEFORE the onset, and pays
+the signed debt to arbitrary relative tolerance. `TotalSignedScorePayment`
+removes the positive-target guard: a zero original V-weighted transmitted
+square is proved Haar-null under every insertion, then the existing exact
+null cancellation supplies sigma=1/onset=0. For EVERY supported finite source,
+the constructed certificate gives `Bulk_sigma <= Z0*energy+epsilon*(Z1*B)`
+at every later degree, without assuming source survival or inverting B.
+The cap/onset remain regulator/source dependent; sigma is a Young coefficient,
+not string tension or coupling. NEXT: estimate genuine ORIGINAL energy in
+SAME surviving-form units on the justified family. Reuse the existing
+complete-source angular commutation/paired derivative, retaining D(V*a),
+D(V*c) and signed action terms; do not reopen identities or pay full history
+from a transmitted square. No AF-uniform modulus, survival or actual
+all-vector RG comparison follows. Eight gates pass four focused targets;
+broad chart unchanged. Evidence:
+`audits/AUDIT-ADAPTIVE-SIGNED-SCORE-PAYMENT-2026-10-07.md`.
 
 In parallel, the actual finite torus covariance/RP join is being completed
 algebraically. Spatial-character reflection and genuine insertion extraction

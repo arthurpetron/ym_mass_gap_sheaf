@@ -7744,3 +7744,10 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepNullScore
 -- SAME original energy, without an absolute remainder or noise enlargement.
 import YMGap.Continuum.QuaternionHaarExactScoreEnergySplit
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepSignedScoreEnergy
+-- Construct finite approximation payment, choosing sigma BEFORE degree.
+-- A proved positive-weight null reflection handles EVERY finite source;
+-- genuine original-energy and scaling/all-vector estimates remain open.
+import YMGap.Continuum.QuaternionHaarFiniteReciprocalScoreCap
+import YMGap.Continuum.BF4ExactSlabFixedSpatialAdaptiveSignedScorePayment
+import YMGap.Continuum.QuaternionHaarPositiveWeightNullReflection
+import YMGap.Continuum.BF4ExactSlabFixedSpatialTotalSignedScorePayment

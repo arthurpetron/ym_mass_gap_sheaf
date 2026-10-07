@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Supporting finite approximation payment checked (2026-10-07): a computed
+degree-independent score cap chooses sigma BEFORE the explicit degree onset,
+paying signed reciprocal debt to arbitrary relative tolerance. The total
+construction covers EVERY supported finite source: zero original weighted
+square is proved Haar-null under arbitrary insertions, then exact cancellation
+supplies the null branch. Bound: `Bulk_sigma <= Z0*energy+epsilon*(Z1*B)`.
+No survival premise or source inverse; no regulator-uniform estimate either.
+The genuine original energy on the justified family, independent AF survival,
+actual all-vector comparison, physical/volume control and Clay remain OPEN.
+Eight permitted gates pass four focused targets; evidence:
+`audits/AUDIT-ADAPTIVE-SIGNED-SCORE-PAYMENT-2026-10-07.md`.
+Broad chart unchanged; no reprint.
+
 Supporting exact reassembly checked (2026-10-07): the actual score/signed
 Taylor bulk equals `Z0*[energy+(1-w)*(sigma*L0-2*J-E)]`, keeping the signed
 reciprocal cross pairing and negative correction square. Original action,
