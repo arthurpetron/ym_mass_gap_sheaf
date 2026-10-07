@@ -7387,6 +7387,7 @@ import YMGap.Continuum.SU2WilsonActivity
 import YMGap.Continuum.SU2WilsonPolymerIdentity
 import YMGap.Continuum.SU2WilsonLinkDecay
 import YMGap.Continuum.SU2WilsonKRate
+import YMGap.Continuum.SU2LinkGroupSharp
 import YMGap.Continuum.SpecMaxRateFamily
 import YMGap.Continuum.W1StrongCouplingPerturbation
 import YMGap.Continuum.W1VacuumTailRowSum
