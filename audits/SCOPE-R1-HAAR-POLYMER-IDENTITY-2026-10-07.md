@@ -89,3 +89,8 @@ No fail statement is given: the ℓ¹ envelope is an upper bound, not the true a
 ## PROVED: commit 7, `SU2LinkGasGeometry.lean`
 
 - Adjacency symmetry, the 24-neighbour cover `nb`, Adjacent from adj, and grown ⇒ connected.
+
+## PROVED: commit 8, `SU2LinkGasBox.lean`
+
+- `linkBox` and `hgroupL` (K = (5/3)^{24}).
+- Note: the earlier shareB KP/decay results (PolymerDecayZ4, PolymerLatticeDecay) are for the *envelope* gas with shareB incompatibility. They are not a statement about the Haar measure. The Haar-faithful gas is gas N P with incL.

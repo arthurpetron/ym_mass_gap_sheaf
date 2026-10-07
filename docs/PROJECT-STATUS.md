@@ -6460,3 +6460,5 @@ arbitrary disjoint link-block supports.
 `SU2PolymerIdentity` (2026-10-07): R1 commit 6.  The Haar polymer identity polyPartition ≈ Ξ(link-compatible gas, true activities) is closed on finite boxes.
 
 `SU2LinkGasGeometry` (2026-10-07): R1 commit 7.  Geometry adapters for link-compatibility KP.
+
+`SU2LinkGasBox` (2026-10-07): R1 commit 8.  The link-compatibility grouping bound holds with K = (5/3)^24 per plaquette.

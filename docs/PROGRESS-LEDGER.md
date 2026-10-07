@@ -4,7 +4,13 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 7, link-gas geometry on the torus box (2026-10-07 PT)
+## Latest proved increment: R1 commit 8, the link gas is a Z4BoxGas, and the link grouping bound (2026-10-07 PT)
+
+- `SU2LinkGasBox` (PROVED).
+  - `linkBox`: gas N P is a Z4BoxGas (torusChain N). It needs P duplicate-free and inside torusPlaquettes N. Proved properties: connected, duplicate-free, sizes in 1..|P|, distinct supports.
+  - `hgroupL`: Π_{x∈gas, x link-incompatible with a}(1+η^{|x|}) ≤ (5/3)^{24·sz a}, via the 24-neighbour cover and z4_hgroup.
+
+## Earlier proved increment: R1 commit 7, link-gas geometry on the torus box (2026-10-07 PT)
 
 - `SU2LinkGasGeometry` (PROVED).
   - `adj_symm`, `incL_symm`.
