@@ -379,4 +379,11 @@ and then `hW`.
 these along `List.Perm` gives `perm_haar`: for nodup `L₁ ~ L₂` containing every plaquette link,
 `∫_{|L₁|} Π T_K[L₁] = ∫ Π T_K[L₂]`. Axioms [propext, Quot.sound]. This covers the bare product only; observables and
 Θ are not carried across yet.
+
+## d9w: the torus-order integral equals the layout one (`SU2TorusRPTorusZ`)
+
+`lay_perm` gives `torusLinks (2M) ~ Pt ++ Ct ++ Θ Pt`, and `torus_Z` gives
+`∫_{|torusLinks|} Π_{torusPlaquettes} T_K[torusLinks] = ∫_{|L|} Π T_K[L]`, where `L` is the layout. Axioms
+[propext, Quot.sound]. Still open: transporting observables `F` and the reflection Θ, which `perm_haar` does not
+yet carry, and then `hW`.
 RP FOR THE ACTUAL TORUS MEASURE IS OPEN.

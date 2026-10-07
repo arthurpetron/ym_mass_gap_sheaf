@@ -7650,3 +7650,4 @@ import YMGap.Continuum.GNSOrthogonalDualProjection
 import YMGap.Continuum.BF4DyadicWilsonSquareConnectedDualOverlap
 import YMGap.Continuum.SU2TorusRPRelabel
 import YMGap.Continuum.SU2TorusRPSwap
+import YMGap.Continuum.SU2TorusRPTorusZ
