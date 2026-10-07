@@ -6424,3 +6424,7 @@ covered: Polyakov/winding observables, an asymmetric torus, and the Wilson activ
 Fix (2026-10-07): the R1 envelope now includes the |χ_s| ≤ s+1 factor (Σ(s+1)²w^{s(s+2)}).
 - The threshold is certified: ≤ ε at w=1/40, > ε at w=1/20.
 - KP needs only z ≥ −ε^{|X|}; decay and Lipschitz need |z| ≤ ε^{|X|}.
+
+`PolymerChainDecay` (2026-10-07): the chain iteration is proved. Truncated two-point quantity ≤
+explicit chain sum CS_d (generic, explicit KP-environment hypotheses). The path count and
+closure (CS_d ≤ C q^d) are next.

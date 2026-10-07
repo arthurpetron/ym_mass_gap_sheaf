@@ -4,7 +4,17 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: one-polymer ratio-Lipschitz + R1 activity envelope (2026-10-07 PT)
+## Latest proved increment: chain iteration for truncated polymer correlations (2026-10-07 PT)
+
+- `PolymerChainDecay` (PROVED, GROUP-BLIND PLUMBING, two-sided |z| ≤ ε):
+  - `Xi_perm`, `telescope`;
+  - `chain_bound`: |Ξ(y::g::l)Ξ(l) − Ξ(y::l)Ξ(g::l)| ≤ CS_d(g)·Ξ(l)Ξ(g::l) for g at
+    incompatibility distance ≥ d, under an explicit KP environment, with an explicit chain sum
+    CS.
+- Next (commit B): bound CS_d by C q^d on the box and torus gases.
+- Scope: `audits/SCOPE-POLYMER-D-DECAY-2026-10-07.md`.
+
+## Earlier proved increment: one-polymer ratio-Lipschitz + R1 activity envelope (2026-10-07 PT)
 
 - `PolymerRatioLipschitz` (PROVED, GROUP-BLIND PLUMBING):
   - `cross_step` (exact identity);
