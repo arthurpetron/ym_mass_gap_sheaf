@@ -33,6 +33,10 @@ It is rational and cross-multiplied, with no roots. `Pos G L` is a separate hypo
    Q' identities reduce to Int, closed by `simp only [Int.mul_add, …, Int.mul_comm, Int.mul_left_comm]; omega`
    (checked [propext, Quot.sound]; `grind` brings in Classical and is avoided).
 
-Integer discriminant core `SU2TorusRPCSCore.cs_int` and rational form `SU2TorusRPCSRat.cs_q` (`(∀ s t : Int, 0 ≤ quad a b c s t) → b*b ≤ a*c`): PROVED ([propext, Quot.sound]). Remaining for `TorusCS`: bilinear expansion `rpB(sF+tG, sF+tG) ≈ quad (rpB F F) (rpB F G) (rpB G G) s t` (needs symmetry), plus `TorusRPPoly`.
+Integer discriminant core `SU2TorusRPCSCore.cs_int` and rational form `SU2TorusRPCSRat.cs_q` (`(∀ s t : Int, 0 ≤ quad a b c s t) → b*b ≤ a*c`): PROVED ([propext, Quot.sound]). Symmetry `SU2TorusRPSym.rpB_symm`: `rpB (eval e) (eval e') ≈ rpB (eval e') (eval e)` for observables on torus links,
+via `theta_haar`, `theta_prod`, `tp_mir_perm` and `theta2_obs` (`Θ∘Θ ≡ id`): PROVED ([propext, Quot.sound]).
+Remaining for `TorusCS`: the bilinear expansion `rpB(sF+tG, sF+tG) ≈ quad (rpB F F) (rpB F G) (rpB G G) s t`. This
+needs PE distributivity and smul-extraction lemmas, then `torus_rp` at `s·e + t·e'` and `cs_q`. Also remaining:
+`TorusRPPoly`, i.e. `PtSup F → F ≡ eval (obsOf F)`.
 
 **STATUS: `TorusRPPoly` AND `TorusCS` ARE OPEN (stated, not proved).**
