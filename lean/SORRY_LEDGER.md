@@ -1,5 +1,37 @@
 # Sorry Ledger
 
+## PROVED: actual paired scalar jets and global transverse Jacobi cost (2026-10-07)
+
+- `SU2QuaternionPairedFrameScalarJets.pairedScorePlus_zero_derivative_pin`
+  retains arbitrary A,b and identifies the literal coupled paired score with
+  the SAME three derivations. `relativeScalar_second_jet` and
+  `relativeScalar_mixed_jet` prove the actual repeated/symmetrized jets on
+  original blocks 0/1; `frozenScalarSecondJet_pin` and its weighted pin retain
+  arbitrary frozen polynomial coefficients and output multiplier.
+- `JacobiHeatTransverseCurvature.product_formal_derivative_pin` identifies
+  the Jacobi Leibniz polynomial with the actual formal derivative.
+  `factor_transverse_certificate` and
+  `productDerivative_transverse_certificates` construct full-interval positive
+  certificates retaining Euler factors and adding 2*w^(2*k+1), including the
+  empty case. `heat_transverse_curvature_certificate` constructs
+  `C_T*h^2-x*h*h_x>=0` for literal normalized Jacobi heat at EVERY finite N.
+  `transverseCap_denominator_pin` gives `C_T*(1-w^2)=2*w`, and
+  `transverseCap_nome_defect_le_one` gives `(1-w)*C_T<=1`. No heat-floor
+  reciprocal, hemisphere support or cutoff onset is assumed for this leg.
+- Two final focused targets pass fourteen printed gates within
+  {propext, Quot.sound}. Initial transverse checks failed elaboration and
+  are not proof evidence; repaired namespace/method and explicit-argument
+  transports leave statements unchanged. One 20-GiB worker, 12-GiB reserve,
+  fresh 87--88%-free zero-swap preflights; no full-root/tree audit or baseline
+  refresh. No new source sorry/axiom/classical input or canonical field change.
+- OPEN: negative-hemisphere radial mixing at a justified cutoff, scalar
+  substitution/angular heat pins and arbitrary-block frame recoding, original
+  UNWEIGHTED prefix transport, original conditional integration/normalization,
+  useful complete signed-cost/scaling estimate, independent survival, completed
+  comparison, physical/volume control, SAME limiting QFT, every group and Clay.
+
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 ## PROVED: paired directions preserve the original exact-score budget (2026-10-07)
 
 - `QuaternionHaarConditionalScorePairedFrame.conditionalScore_firstJet_pin`

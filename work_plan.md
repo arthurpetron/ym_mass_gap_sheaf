@@ -27,6 +27,22 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+The lower-curvature front now has a CHECKED global TRANSVERSE Jacobi producer:
+`C_T*h^2-x*h*h_x >= 0`, `C_T=2*w/(1-w^2)`, with
+`(1-w)*C_T <= 1`. The actual normalized heat and FORMAL derivative are retained,
+all finite N (including 0/1) and the full interval -1<=x<=1 are covered, and no
+heat-floor reciprocal occurs in the cost. Exact plus-paired scalar second and
+mixed jets are also CHECKED on the original blocks 0/1, with arbitrary frozen
+polynomial coefficients; the literal paired coupled score uses those same
+derivations. NEXT supply the negative-hemisphere RADIAL mixing estimate with a
+justified nome-dependent cutoff, and pin scalar substitution/angular heat jets
+before any matrix/original conditional consumer. Do not infer all-finite radial
+control, an original UNWEIGHTED heat bound, or physical scaling from this leg.
+Absolute deficits can spend a heat floor in cutoff tolerances without placing
+its reciprocal in the final curvature coefficient. Two focused checks pass
+fourteen permitted printed gates; no full-root/tree audit or canonical closure.
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 The original coupled-score frame conversion is now CHECKED: its decomposable
 bivector satisfies the literal Plucker identity, so either complementary-plane
 triple has exactly the SAME six-plane square energy, with no factor two or

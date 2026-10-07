@@ -16,6 +16,18 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked global transverse Jacobi curvature and actual paired scalar jets
+(2026-10-07):** `JacobiHeatTransverseCurvature` constructs
+`C_T*h^2-x*h*h_x>=0` using the actual formal derivative of normalized finite
+Jacobi heat, for every cutoff and the full interval -1<=x<=1.
+`C_T=2*w/(1-w^2)` and `(1-w)*C_T<=1`; no reciprocal heat floor enters the
+cost. `SU2QuaternionPairedFrameScalarJets` pins literal second/mixed scalar
+jets on original blocks 0/1, frozen polynomial contraction, and the actual
+paired coupled-score derivative. Two focused targets pass fourteen permitted
+gates; no full-root/tree audit. Radial mixing, angular heat/substitution,
+original unweighted-prefix/conditional joins, useful scaling and Clay remain
+OPEN. Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 **Checked decisive noise/score test (2026-10-07):** the original positive
 width-one action has a supported source with zero transmitted square but
 strictly positive literal Vbar^2*Gout^2-weighted full noise. No rational C

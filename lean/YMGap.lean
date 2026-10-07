@@ -4939,6 +4939,8 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalAngularBound
 import YMGap.Continuum.QuaternionHaarRelativeAngularBound
 import YMGap.Continuum.JacobiShiftedRelativeSlope
 import YMGap.Continuum.JacobiHeatRelativeAngularBound
+-- Global transverse Jacobi cost only; radial and original unweighted joins remain open.
+import YMGap.Continuum.JacobiHeatTransverseCurvature
 import YMGap.Continuum.SU2HeatQuarticTailCutoff
 import YMGap.Continuum.QuaternionHaarHeatAngularDeficit
 import YMGap.Continuum.QuaternionHaarHeatRelativeAngularBound
@@ -5513,6 +5515,8 @@ import YMGap.Continuum.SU2QuaternionLogCurvatureCapObstruction
 -- Exact paired-score energy, not a geodesic-frame or lower-curvature theorem.
 import YMGap.Continuum.QuaternionHaarConditionalScorePairedFrame
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepPairedScoreBudget
+-- Actual paired scalar jets, not a heat/PDE or complete curvature theorem.
+import YMGap.Continuum.SU2QuaternionPairedFrameScalarJets
 import YMGap.Continuum.SU2QuaternionRelativeHeatDualScore
 import YMGap.Continuum.SU2QuaternionProductHeatScoreVariance
 import YMGap.Continuum.SU2QuaternionProductHeatScoreEnergyObstruction

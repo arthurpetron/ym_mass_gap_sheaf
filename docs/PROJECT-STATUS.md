@@ -1,5 +1,21 @@
 # Canonical one-page project status
 
+Supporting actual scalar jets and GLOBAL transverse curvature checked (2026-10-07):
+plus-paired second/mixed scalar jets are pinned on original blocks 0/1,
+retaining frozen polynomial coefficients and arbitrary output multipliers;
+the actual coupled score uses exactly these derivations. The normalized
+finite Jacobi heat has the certificate `C_T*h^2-x*h*h_x>=0` on the full
+scalar interval for every cutoff, with `C_T=2*w/(1-w^2)` and
+`(1-w)*C_T<=1`. No heat-floor reciprocal is in this cost. RADIAL mixing,
+angular heat/substitution pins, original unweighted-prefix transport and
+conditional normalization remain OPEN; no completed or physical gap follows.
+Two focused targets pass fourteen permitted gates; no full-root/tree audit.
+Useful signed-cost/scaling estimates, independent survival, completed
+comparison, physical/volume control, SAME limiting QFT, every group and Clay
+remain OPEN. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+Broad chart unchanged; no reprint.
+
 Supporting exact original paired-score conversion checked (2026-10-07):
 the coupled score satisfies Plucker cancellation, and BOTH three-direction
 paired square sums equal its original six-plane energy with no radius factor.

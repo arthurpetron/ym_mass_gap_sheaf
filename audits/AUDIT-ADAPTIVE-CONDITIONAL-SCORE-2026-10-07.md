@@ -384,3 +384,124 @@ alone retains the original six-score energy without a radius/factor-two
 correction, and the actual consumer adds no source-support, nonzero-source
 or positive-sigma premise. It confirms the algebra-versus-geometric-curvature/
 conditional/scaling boundary; the review itself is not compilation evidence.
+
+## Next experiment: actual paired scalar jets and global transverse producer
+
+The previous checkpoint is PROGRESS: `71419b7c` supplies checked original
+score/budget equalities and is pushed to main. This continuation preserves the
+unchanged Clay objective and the original action. Two bounded mathematical
+tasks meet at the relative scalar, rather than growing cap-only wrappers.
+
+1. Prove actual paired second scalar jets on blocks 0/1: Ji^2(x)=-x and
+   JiJj(x)+JjJi(x)=0 for distinct directions, hence the frozen polynomial
+   contraction is -(sum ui^2)*x. Available inputs: the literal relative scalar,
+   supported angular carrier differentiation and finite canonical checks.
+   Coefficients ui must not be differentiated. Arbitrary-block recoding and
+   a geometric heat/PDE identification are separate, not implied by this pin.
+2. Construct a GLOBAL one-sided transverse polynomial certificate for the
+   literal Jacobi heat h and its ACTUAL formal scalar derivative h_x:
+
+       C_T*h^2-x*h*h_x >= 0,   C_T=2*w/(1-w^2).
+
+   No density-floor reciprocal belongs in C_T. The full interval is covered
+   by the exact affine identity, with c=w^(2k+1):
+
+       f-x = ((c^2+2c)*(1+x)+((c-1)^2+1)*(1-x))/2,
+       f=1+2*c*x+c^2.
+
+   Retain the Euler factor. Simultaneous positive product/derivative
+   induction adds 2*c at each factor; the finite geometric sum is bounded by
+   C_T. Use the actual QPoly formal derivative and coefficient identities,
+   not merely a recursively defined jet. Initial empty/constant heat cases,
+   x=+/-1, full signed x and the normalization are decisive checks.
+
+The second target is an actual partial curvature producer, NOT a global
+matrix lower bound: the negative-hemisphere radial mixing inequality remains
+unsupplied. The scalar certificate's angular/substitution pin, exact weighted
+character join, and transport to the original UNWEIGHTED prefix must be
+proved before an original transfer estimate is claimed. Existing absolute
+deficits may use the heat floor in their tighter CUT OFF tolerance without
+placing its reciprocal in the final curvature cost; the current cutoff alone
+does not supply that transport. No global hemisphere assumption is allowed.
+
+Sol implements the bounded leaves; root serializes focused verification,
+using one 20-GiB worker, 12-GiB reserve and a fresh dynamic preflight at every
+launch. Revise if the actual derivative pin is absent, finite cutoffs or
+unit-radius endpoints are dropped, or a full radial/matrix result is inferred
+from the transverse leg. No new hypothesis bundle, canonical field change,
+routine literature scan or chart reprint is planned.
+
+### Observed scalar-jet and transverse evidence
+
+Both final focused targets PASS. All fourteen printed public dependencies
+are exactly {propext, Quot.sound}; no new source sorry/axiom/classical input.
+
+| Declaration | Source |
+| --- | --- |
+| `pairedScorePlus_zero_derivative_pin` | `lean/YMGap/Continuum/SU2QuaternionPairedFrameScalarJets.lean:54` |
+| `pairedDerivative_carrier` | Same source `:90` |
+| `relativeScalar_supported` | Same source `:105` |
+| `relativeScalar_second_jet` | Same source `:129` |
+| `relativeScalar_mixed_jet` | Same source `:139` |
+| `frozenScalarSecondJet_pin` | Same source `:212` |
+| `frozenScalarSecondJet_weighted_pin` | Same source `:243` |
+| `product_formal_derivative_pin` | `lean/YMGap/Continuum/JacobiHeatTransverseCurvature.lean:112` |
+| `factor_transverse_certificate` | Same source `:185` |
+| `productDerivative_transverse_certificates` | Same source `:234` |
+| `transverseCap_denominator_pin` | Same source `:289` |
+| `transverseCap_nome_defect_le_one` | Same source `:301` |
+| `transversePrefixCost_le_cap` | Same source `:319` |
+| `heat_transverse_curvature_certificate` | Same source `:334` |
+
+Accepted logs and SHA-256:
+
+```text
+/private/tmp/ym-oct7-paired-scalar-jets-final.log
+a1af551a8ae2d384203dd16b7411f9128c2de5af78a6384bf48e7a816f984b5e
+/private/tmp/ym-oct7-jacobi-transverse3.log
+6dbf688f5c492008d7f0bc43ff312f27415bade37d5ab1e2696318af0ebab4d6
+```
+
+The earlier transverse logs are FAILED elaboration, not accepted evidence.
+Repairs used named coefficient negation, explicit polynomial/constant
+arguments and exact finite-sum normalization; no mathematical hypothesis
+changed. Fresh preflights before each launch showed no competing compiler,
+87--88% free and zero swap. Verification was serialized with one 20-GiB
+worker and 12-GiB reserve. Root import registration only; no full-root/tree
+build, full axiom audit or baseline refresh was run.
+
+Independent read-only source review found no material issue: actual second
+jets precede multiplication by frozen u, interval certificates retain both
+1+x and 1-x, and the formal derivative/Euler/normalization pins are literal.
+Its review was not compilation evidence. No geometric group flow, covariant
+matrix Hessian, original unweighted heat, OS norm or physical gap is claimed.
+
+Decision: CONTINUE. The transverse coefficient has the desired inverse-linear
+nome-defect scale, unlike the prior constructed entrywise cap. The negative-
+hemisphere RADIAL mixture is the substantive missing estimate. With
+r_k=2*c_k/(1+2*c_k*x+c_k^2), c_k=w^(2*k+1), S_m=sum r_k^m, the still-unproved
+denominator-cleared radial target is
+
+```text
+C*S1^2 >= (1-x^2)*(S2*S1^2-2*S3*S1+S2^2)
+              + x*(S1^3-S1*S2),   C=O(1/(1-w)), N>=N0(w).
+```
+
+This is a research target, not a new Lean premise or assertion of an available
+cutoff N0. The N=2 diagnostic above prevents claiming it for all finite N.
+Scalar substitution/angular heat pins, arbitrary-block recoding, exact
+weighted-character derivative transport and the original unweighted cutoff
+join must also be established before an original conditional matrix estimate.
+Complete signed cost, normalization, independent survival, completed
+comparison, physical/volume control, SAME limiting QFT and every-group/Clay
+requirements remain OPEN. Supporting proofs change none of the canonical
+chart's displayed broad claims; no chart is reprinted.
+
+The current pasted note
+`/Users/darthur/.codex/attachments/cf965d8e-085c-42c2-a303-16f0ae70d860/Pasted text.txt`
+was read against the existing lattice-mass research audit and work-plan
+priority. Its useful numerical-channel versus physical-generator distinction
+is already incorporated there, together with finite-spacing and regularity
+corrections. No measured mass, transfer/Hamiltonian identification or continuum
+regularity hypothesis was imported into these certificates; no duplicate
+paper review or routine listing scan was performed.
