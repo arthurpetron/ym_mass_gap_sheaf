@@ -4,7 +4,19 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: trace sandwich + From-j0 closure (2026-10-06 PT)
+## Latest proved increment: two-boundary RG envelope (2026-10-06 PT)
+
+REDUCTION (`RGTwoBoundaryEnvelope`): `TwoBoundaryRecursion K` (forward `u`, backward `|λ|`
+from the pin `λ_0 = 0`); `twoBoundary_envelope`: `u_j + |λ_j| ≤ C ρ^{K−j}` under the
+derived closure `D = (ρ−q)(1−aρ) − η·a·CL > 0`, `f_j ≤ Fρ^{K−j}`, any `C` with
+`D(1−aρ)C ≥ (1−aρ + a·CL)((ρ−q)(1−aρ)u_K + (ηa + 1 − aρ)F) + a·D·F`; explicit
+`C = Num/(D(1−aρ))`. Comparison: implied by `RgErrorSummable` after reflection (ρ ≥ 1/2);
+terminal geometric weighting is NECESSARY (`terminal_weighting_necessary`), so
+polynomially decaying errors do not fit with `K`-uniform `C`.
+Evidence: `audits/SCOPE-RG-STEP-COMPOSITION-REDUCTION-2026-10-06.md`.
+Axioms {propext, Quot.sound}; box launcher checks only.
+
+## Earlier proved increment: trace sandwich + From-j0 closure (2026-10-06 PT)
 
 Proved finite lemmas (`SpectralTraceSandwich`): `specMax^n ≤ s_n` (`0 < n`),
 `s_{2n} ≤ specMax^n·s_n`, root-free `le_of_pow_le_pow`, and the certified interval

@@ -17,7 +17,9 @@ exponential was a crude `1/θ` conversion artifact). Spacing `half^j` matches
 certificate `r_j^{M0·2^j} ≤ 1/2` per scale (`BF4WilsonHalvingTimeMargin`,
 `m = 1/(2M0)`, direct fit; contraction conjunct still OPEN); certificates needed only
 for `j ≥ j0` (`prefixRateMargin` fold). Trace sandwich on `SpectralModel`
-(`SpectralTraceSandwich`): rational bounds on `s_n`, `s_{2n}` certify `ρlo ≤ specMax ≤ ρhi`. SC cannot seed `trAF`. No `Φ_j` constructed. Not AF. See
+(`SpectralTraceSandwich`): rational bounds on `s_n`, `s_{2n}` certify `ρlo ≤ specMax ≤ ρhi`. Two-boundary envelope
+(`RGTwoBoundaryEnvelope`): `u_j + |λ_j| ≤ Cρ^{K−j}` under `η·a·CL < (ρ−q)(1−aρ)`; errors
+need `f_j ≤ Fρ^{K−j}` (necessary), so polynomial errors still give `C ~ ρ^{-K}`. SC cannot seed `trAF`. No `Φ_j` constructed. Not AF. See
 `audits/SCOPE-RG-STEP-COMPOSITION-REDUCTION-2026-10-06.md`.
 
 Route (b), strong coupling (2026-10-06 PT): the literal fixed-width all-nome

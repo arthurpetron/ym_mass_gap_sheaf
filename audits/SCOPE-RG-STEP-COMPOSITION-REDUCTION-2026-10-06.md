@@ -282,6 +282,52 @@ tied to `op` only through the OPEN `CharacterDiagResolution` (Peter–Weyl/Schur
 useful target is a model whose eigenvalues are NOT closed-form, with `s_n`, `s_{2n}`
 bounded by a rigorous finite computation.
 
+## Two-boundary envelope (2026-10-06 ~10:10 PM PT; REDUCTION)
+
+Lean: `lean/YMGap/Continuum/RGTwoBoundaryEnvelope.lean`.
+
+`TwoBoundaryRecursion K`: `u, lam, f : Nat → Q'`, `q, eta, a, CL, rho : Q'`, with
+`u ≥ 0`, `0 ≤ q, η, a, CL`, `q < ρ < 1`, `aρ < 1`, and for `j < K`:
+forward `u_j ≤ q u_{j+1} + η|λ_{j+1}| + f_{j+1}` (runs `K → 0`, datum `u_K`),
+backward `|λ_{j+1}| ≤ a|λ_j| + a·CL·u_{j+1} + a f_{j+1}` (runs `0 → K`), pin `λ_0 = 0`
+(`|·| = Q'.abs`).
+
+Index check: the weight `ρ^{K−j}` is consistent with both directions. Forward: `q < ρ`.
+Backward from the pin: the λ-recursion contributes `a Σ (aρ)^m`, finite iff `aρ < 1`.
+No discrepancy with the requested shape.
+
+Derived closure condition (weighted max, attained finite folds `X = max u_j ρ^j`,
+`Y = max |λ_j| ρ^j`): with `α = ρ − q`, `β = 1 − aρ`,
+`D := αβ − η·a·CL > 0`, i.e. `η·a·CL < (ρ − q)(1 − aρ)`.
+Maximiser inequalities: `αX ≤ α u_K ρ^K + ηY + Fρ^K`; `βY ≤ a·CL·X + aFρ^K`
+(the `j = 0` maximiser case uses the pin). Eliminating `Y`: `D X ≤ ρ^K (αβ u_K + (ηa+β)F)`.
+
+Statements:
+* `TerminalWeightedErrors f ρ K F := 0 ≤ F ∧ ∀ j ≤ K, f j ≤ F·ρ^{K−j}`.
+* `twoBoundary_envelope R F hw (hD : 0 < closureDefect) C (hC : envelopeNum F ≤ D·β·C) :
+  ∀ j ≤ K, u j + |lam j| ≤ C·ρ^{K−j}`, with
+  `envelopeNum F = (β + a·CL)(αβ u_K + (ηa + β)F) + a·D·F`.
+* `twoBoundary_envelope_explicit`: `C = envelopeConst = Num/(D·β)` (`Q'.divPos`).
+* `closure_algebra` (the elimination), `forward_weighted`, `backward_weighted`,
+  `wmax`, `le_wmax`, `wmax_attained`.
+
+Comparison with `RgErrorSummable`:
+* `rgErrorSummable_term_le`: `2^k ε_{j0+k} ≤ S` (sum condition forces each term).
+* `terminalWeighted_of_rgErrorSummable (ρ ≥ 1/2)`: `RgErrorSummable (k ↦ f (K−k)) 0 S ⇒
+  TerminalWeightedErrors f ρ K S`. After reflecting the index, the envelope's
+  requirement is weaker: max not sum, and any base `ρ ∈ (q, min(1, 1/a))` instead of `1/2`.
+* `exactForwardSystem` + `terminal_weighting_necessary`: on the exact forward system
+  (`λ ≡ 0`) every envelope forces `f_{j+1} ≤ C ρ^{K−j}`; `far_end_error_forces_C`:
+  `f_1 ≤ C ρ^K`.
+
+**Verdict / discrepancy.** The claim "polynomially decaying `f` fit when `K` is the
+endpoint" does NOT hold with a `K`-uniform constant. Geometric decay of `f` away from
+the terminal scale is NECESSARY, so any `K`-independent far-end error `f_1` forces
+`C ≥ f_1 ρ^{-K}`. The gain over `RgErrorSummable` is real but bounded: the anchor moves
+to the terminal scale, the base improves from `1/2` to `ρ` (close to 1 when `q, aρ`
+are small), and a max replaces the sum. Polynomial (AF) errors still need either
+`K`-dependent constants or an extra mechanism.
+
 ## Seeding by strong coupling (honest limits)
 
 * `allNome_strongCoupling_vacuumSq` gives `WilsonVacuumSqContraction` at
@@ -344,3 +390,5 @@ summable `ε_j` for the Wilson action along the chosen schedule.
 * 2026-10-06 ~10:00 PM PT — From-`j0` closure (`prefixRateMargin`,
   `wilsonAFPaddedGapInput_of_halvingTimeFrom`; packaging) and trace sandwich
   (`SpectralTraceSandwich`; proved finite lemmas).
+* 2026-10-06 ~10:10 PM PT — Two-boundary envelope (`RGTwoBoundaryEnvelope`): closure
+  `η·a·CL < (ρ−q)(1−aρ)`, explicit `C`; terminal weighting necessary. REDUCTION.

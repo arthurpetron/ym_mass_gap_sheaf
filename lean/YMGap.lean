@@ -7351,6 +7351,9 @@ import YMGap.Continuum.BF4WilsonHalvingTimeMargin
 -- PROVED finite lemmas: trace sandwich specMax^n ≤ s_n, s_{2n} ≤ specMax^n·s_n and the
 -- root-free certified rate interval ρlo ≤ specMax ≤ ρhi from rational trace bounds.
 import YMGap.Continuum.SpectralTraceSandwich
+-- REDUCTION: two-boundary RG envelope u_j + |λ_j| ≤ C ρ^{K−j} under closure
+-- (ρ−q)(1−aρ) > η·a·CL with terminal-weighted errors; comparison with RgErrorSummable.
+import YMGap.Continuum.RGTwoBoundaryEnvelope
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport
