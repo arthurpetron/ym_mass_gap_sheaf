@@ -4,7 +4,17 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: LINEAR step-ratio ceiling + absolute RG seed (2026-10-06 PT)
+## Latest proved increment: halving-time certificate ⇒ Wilson lower margin (2026-10-06 PT)
+
+REDUCTION after `f28c4bb9`: `wilsonLowerMargin_of_halvingTime` turns
+`∀ j, r_j^{M0·2^j} ≤ 1/2` (constant physical halving time `M0`) into
+`WilsonLowerMargin F (1/(2M0))` on dyadic spacing; From-`j0` variant;
+`wilsonAFPaddedGapInput_of_halvingTime` fills the margin conjunct directly. Rate
+family, `r_j < 1`, all-vector contraction and the certificates remain OPEN.
+Evidence: `audits/SCOPE-RG-STEP-COMPOSITION-REDUCTION-2026-10-06.md`.
+Axioms {propext, Quot.sound}; box launcher checks only.
+
+## Earlier proved increment: LINEAR step-ratio ceiling + absolute RG seed (2026-10-06 PT)
 
 REDUCTION after `5f1308ef`: the B04 upper-half ceiling from the step ratio is
 now `side_j(1−r_j) ≤ 16(C+1)` (`expr_stepRatio_forces_rate_linear`,

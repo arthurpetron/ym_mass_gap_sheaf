@@ -13,7 +13,9 @@ PROVED (not assumed) from `RgRateChainκ` + `Σ2^k eff_k ≤ S` + B04 upper half
 inequality in `rg_absolute_seed_lowerMarginFrom`. Step-ratio ceiling sharpened
 from `2^{2C+3}` to LINEAR `16(C+1)` (`BF4WilsonAllNomeStepRatioLinearCeiling`;
 exponential was a crude `1/θ` conversion artifact). Spacing `half^j` matches
-`trAF` by `rfl`. SC cannot seed `trAF`. No `Φ_j` constructed. Not AF. See
+`trAF` by `rfl`. Margin half of the AF input reduced to one integer halving-time
+certificate `r_j^{M0·2^j} ≤ 1/2` per scale (`BF4WilsonHalvingTimeMargin`,
+`m = 1/(2M0)`, direct fit; contraction conjunct still OPEN). SC cannot seed `trAF`. No `Φ_j` constructed. Not AF. See
 `audits/SCOPE-RG-STEP-COMPOSITION-REDUCTION-2026-10-06.md`.
 
 Route (b), strong coupling (2026-10-06 PT): the literal fixed-width all-nome

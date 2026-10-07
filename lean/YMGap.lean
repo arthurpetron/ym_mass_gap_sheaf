@@ -7345,6 +7345,9 @@ import YMGap.Continuum.BF4WilsonAllNomeRGStepComposition
 -- REDUCTION: step-ratio upper ceiling LINEAR in C (16(C+1), was 2^(2C+3));
 -- absolute seed lower margin from J on. Same open inputs. Not AF.
 import YMGap.Continuum.BF4WilsonAllNomeStepRatioLinearCeiling
+-- REDUCTION: one integer halving-time certificate r_j^(M0·2^j) ≤ 1/2 per scale gives
+-- WilsonLowerMargin (1/(2M0)); direct fit into WilsonAFPaddedGapInput's margin conjunct.
+import YMGap.Continuum.BF4WilsonHalvingTimeMargin
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport

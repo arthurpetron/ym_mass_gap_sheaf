@@ -199,6 +199,30 @@ No no-go is needed: the exponential is removed under the CURRENT hypotheses. The
 open inputs are unchanged (step ratio, H-var/H-ray, orbit contraction, κ chain,
 summable defect, one finite seed inequality); Φ inhabitability still OPEN.
 
+## Halving-time margin (2026-10-06 ~9:50 PM PT; REDUCTION, finite-check type)
+
+Lean: `lean/YMGap/Continuum/BF4WilsonHalvingTimeMargin.lean`. Turns the MARGIN half
+of the AF input into one integer certificate per scale: `r_j^{M0·2^j} ≤ 1/2`
+(`n_j = M0·2^j` steps at spacing `2^{-j}` = constant physical time `M0`).
+
+* `one_sub_pow_ge d (0 ≤ d) (d ≤ 1) n : 1 − n·d ≤ (1−d)^n` (from `bernoulli_pow`).
+* `halvingMargin n := ⟨1, 2n−1⟩` (= `1/(2n)` for `n ≥ 1`).
+* `margin_of_pow_le_half r n (0 < n) (0 ≤ r) (r ≤ 1) (r^n ≤ 1/2) :
+  halvingMargin n ≤ 1 − r` (Bernoulli ⇒ `1/2 ≤ n(1−r)`, then cancel `n > 0`; no case
+  split, no Classical).
+* `wilsonLowerMargin_of_halvingTime F M0 (0 < M0) (spacing j = half^j)
+  (∀ j, F.rate j^(M0·2^j) ≤ 1/2) : WilsonLowerMargin F (halvingMargin M0)`.
+* `wilsonLowerMarginFrom_of_halvingTime F j0 M0 … (∀ j ≥ j0, …) :
+  WilsonLowerMarginFrom F j0 (halvingMargin M0)`.
+* `wilsonAFPaddedGapInput_of_halvingTime r hr0 hr1 Hc M0 (0 < M0)
+  (∀ j, r j^(M0·2^j) ≤ 1/2) : WilsonAFPaddedGapInput`.
+
+**Wiring verdict: direct fit** for the margin conjunct (`m = 1/(2M0)`, spacing by
+`rfl`). Still OPEN: the rate family itself with `r_j < 1` and the all-vector
+`WilsonVacuumSqContraction` on `trAF` (`Hc`), and the certificates. The
+certificates must hold at EVERY `j` (the `From`-`j0` variant gives only
+`WilsonLowerMarginFrom`, which `WilsonAFPaddedGapInput` does not accept directly).
+
 ## Seeding by strong coupling (honest limits)
 
 * `allNome_strongCoupling_vacuumSq` gives `WilsonVacuumSqContraction` at
@@ -255,3 +279,6 @@ summable `ε_j` for the Wilson action along the chosen schedule.
   U < 1 necessary, not sufficient). Absolute seed lemma
   `rg_absolute_seed_lowerMarginFrom`. Linear ceiling `16(C+1)` replaces `2^{2C+3}`
   (`BF4WilsonAllNomeStepRatioLinearCeiling`). REDUCTION; Φ OPEN.
+* 2026-10-06 ~9:50 PM PT — Halving-time margin (`BF4WilsonHalvingTimeMargin`):
+  `r_j^{M0·2^j} ≤ 1/2` ⇒ `WilsonLowerMargin F (1/(2M0))`; direct fit into
+  `WilsonAFPaddedGapInput` margin conjunct. REDUCTION.
