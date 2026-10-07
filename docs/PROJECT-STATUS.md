@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Supporting producer tests checked (2026-10-07):
+`BF4WilsonAllNomeRGSlowStateRetention` joins supplied shifted H1/window survival
+and relative comparison into necessary O(1/side) norm retention on the actual
+shifted state; no full lower norm comparison or norm division.
+`BF4ExactSlabFixedSpatialCubeHeatOnlyObstruction` gives a positive exact face
+test of the original width-two cutoff-one T1, forbidding its replacement by
+any constant/free kinetic vacuum marginal. This is not the ambient gluedMiddle
+pin or a no-go for every interacting coarse action. Actual survival, map and
+relative estimate remain OPEN. Evidence:
+`audits/AUDIT-RG-PRODUCER-RETENTION-AND-HEAT-ONLY-2026-10-07.md`.
+Broad chart unchanged; no reprint.
+
 Supporting relative-dissipation reduction checked (2026-10-07):
 `BF4WilsonAllNomeRGRelativeDissipation` uses an upper map bound and
 `F <= delta*A+(1-delta)*C`, without lower norm coercivity. Its error is

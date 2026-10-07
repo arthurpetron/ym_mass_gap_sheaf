@@ -7707,3 +7707,8 @@ import YMGap.Continuum.BF4WilsonAllNomeRGTimeSmoothingObstruction
 import YMGap.Continuum.BF4WilsonAllNomeRGRelativeDissipation
 import YMGap.Continuum.BF4WilsonAllNomeRGDissipationBudget
 import YMGap.Continuum.BF4ExactSlabFixedSpatialConditionalNoiseVacuumObstruction
+-- The supplied survival/comparison fronts force selective retention of the
+-- actual slow state. An exact original face test forbids heat-only vacuum
+-- substitution; neither result constructs the interacting coarse comparison.
+import YMGap.Continuum.BF4WilsonAllNomeRGSlowStateRetention
+import YMGap.Continuum.BF4ExactSlabFixedSpatialCubeHeatOnlyObstruction

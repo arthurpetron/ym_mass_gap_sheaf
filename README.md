@@ -18,6 +18,14 @@ prefix sums of relative errors; neither that action comparison nor its useful
 budget is constructed. No coercive lower norm comparison is needed. Physical
 scaling, the SAME limiting OS/QFT theory and every compact simple group remain open.
 
+**Latest producer tests (2026-10-07):** the survival and relative-comparison
+branches now imply selective norm retention on the actual slow state. An exact
+original-action face test also forbids replacing its interacting vacuum
+marginal by a bare heat marginal, even with a changed heat nome or cutoff.
+Two focused checks passed 11 constructive gates. Neither test constructs the
+missing interacting comparison or AF survival. See the
+[proved constraints and next exact join](audits/AUDIT-RG-PRODUCER-RETENTION-AND-HEAT-ONLY-2026-10-07.md).
+
 **Latest mathematical reduction (2026-10-07):** relative error
 `epsilon_n = delta_n*(1-r_n^2)` gives the explicit dyadic margin floor
 `(1-seed)*(seed-D)` from `sum(delta) <= D < seed < 1`. The rates themselves

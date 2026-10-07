@@ -82,6 +82,24 @@ removes this particular counterexample but supplies no quantitative comparison.
 No canonical fields are changed. Evidence and exact source pins:
 `audits/AUDIT-RG-RELATIVE-DISSIPATION-2026-10-07.md`.
 
+The two analytic fronts now have a checked NECESSARY compatibility test:
+shifted H1 (or the existing window-survival input) and the relative comparison
+force `side_j*(1-delta)*(A-B) <= 4*c0*A` on the ACTUAL shifted original state.
+An ordinary delta prefix cap D gives the cleared coefficient `1-D`. Thus a
+useful map must preserve this slow state's norm to O(1/side_j) when D<1 and
+the state is nonzero; this is selective retention, not full fringe coercivity.
+Survival and the actual map/comparison remain unsupplied.
+There is also an exact original-action test against a heat-only shortcut:
+at width 2, K=1, w>0, the actual first-message face moment is
+`w^12*(alpha+alpha^5/16)>0`, alpha=2*w^3; every constant/free kinetic vacuum
+marginal has zero face moment, for EVERY free nome and cutoff. No raw expansion
+or cutoff-one action-positivity claim is needed. This does not rule out an
+interacting coarse action. The next bounded exact join is the ambient
+`gluedMiddle` endpoint marginal to this original slice first-message test,
+keeping endpoint spatial factors separate. It will expose, not estimate away,
+the remaining action discrepancy. Evidence:
+`audits/AUDIT-RG-PRODUCER-RETENTION-AND-HEAT-ONLY-2026-10-07.md`.
+
 In parallel, the actual finite torus covariance/RP join is being completed
 algebraically. Spatial-character reflection and genuine insertion extraction
 are checked; `SU2WilsonCenteredCovariance.centered_covariance` now proves the

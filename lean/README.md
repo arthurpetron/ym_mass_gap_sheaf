@@ -16,6 +16,20 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked selective RG retention and exact heat-only screen (2026-10-07):**
+`BF4WilsonAllNomeRGSlowStateRetention` derives four-lag loss from existing
+shifted H1, then necessary norm retention on the actual shifted original
+excitation from the supplied relative comparison. Ordinary delta prefixes
+give `side*(1-D)*(A-B) <= 4*c0*A`. This connects the two OPEN analytic fronts
+without assuming retention or dividing by the excitation norm.
+`BF4ExactSlabFixedSpatialCubeHeatOnlyObstruction` proves actual width-two
+cutoff-one T1 is not supported-Haar equivalent to any constant or free kinetic
+vacuum marginal, whatever its nome/cutoff. Its face test is strictly positive
+for w>0, not a claim of full cutoff-action positivity. Ambient gluedMiddle
+identification and interacting coarse comparison remain OPEN. Two focused
+checks passed 11 permitted gates; no full-root/tree build or audit. Evidence:
+`audits/AUDIT-RG-PRODUCER-RETENTION-AND-HEAT-ONLY-2026-10-07.md`.
+
 **Checked relative RG dissipation and ordinary budget (2026-10-07):**
 `BF4WilsonAllNomeRGRelativeDissipation` recovers the SAME completed fine
 contraction from an upper map bound and the relative comparison

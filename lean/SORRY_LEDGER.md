@@ -1,5 +1,38 @@
 # Sorry Ledger
 
+## PROVED: selective RG slow-state retention and original heat-only screen (2026-10-07)
+
+- `BF4WilsonAllNomeRGSlowStateRetention.shiftedState` constructs the actual
+  original box-smoothed, side/2-advanced vacuum-complement state.
+  `shiftedState_fourStep_loss` DERIVES its four-lag loss bound from existing
+  shifted H1 and decreasing mixed-moment increments; no slow-loss premise added.
+- `shiftedState_retention` joins the supplied relative comparison with existing
+  coarse time nonexpansiveness to get `side*(1-delta)*(A-B) <= 4*c0*A`.
+  `shiftedState_retention_of_cap`, `_of_window`, `_of_prefix` give the cleared
+  1-D coefficient and existing survival input join. No norm division, assumed
+  retention, gap assumption or full all-vector coercivity. Fine n+1 uses delta n.
+- `BF4ExactSlabFixedSpatialCubeHeatOnlyObstruction.kineticMap_one_haar`
+  proves every original free kinetic map sends one to a tested constant, with
+  no nome/late-cutoff guard. `tested_original_one_exact` and `_positive` retain
+  the complete original width-two action and exact fringe integration:
+  tested T1 equals `w^12*(alpha+alpha^5/16)>0` at K=1,w>0, alpha=2*w^3.
+- `original_one_not_constant` and `original_one_not_free` exclude every scalar
+  constant and every free kinetic vacuum marginal, even at another nome/cutoff,
+  using the same physical face. No positivity of the entire K1 action or
+  normalized measure is claimed. This is NOT a no-go for interacting coarse
+  actions or a proved ambient gluedMiddle endpoint pin.
+- Two final focused checks passed 6+5 gates, all {propext, Quot.sound}.
+  Independent read-only review confirmed time counts, no circularity and
+  scope. One monitored 20-GiB worker/12-GiB reserve; swap zero. Earlier local
+  notation/namespace elaboration failures are not evidence. No new holes,
+  axioms, classical input, frontier-field changes or raised heartbeats.
+  No full-root/tree build/audit, hashed-baseline regeneration or CI enablement.
+- OPEN: actual AF survival, original fine/coarse map and relative estimate with
+  useful budget; ambient gluedMiddle endpoint identification; normalized
+  interacting coarse-action comparison; physical/OS/QFT/every-group/Clay.
+
+Evidence: `audits/AUDIT-RG-PRODUCER-RETENTION-AND-HEAT-ONLY-2026-10-07.md`.
+
 ## PROVED: relative RG comparison and ordinary error-budget reduction (2026-10-07)
 
 - `BF4WilsonAllNomeRGRelativeDissipation.relative_comparison_iff_dissipation`
