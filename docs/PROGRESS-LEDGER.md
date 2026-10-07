@@ -4,7 +4,21 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: COARSE linear-credit scaling obstruction (2026-10-04 UTC)
+## Latest proved increment: LINEAR step-ratio ceiling + absolute RG seed (2026-10-06 PT)
+
+REDUCTION after `5f1308ef`: the B04 upper-half ceiling from the step ratio is
+now `side_j(1−r_j) ≤ 16(C+1)` (`expr_stepRatio_forces_rate_linear`,
+`wilsonUpper_of_stepRatio_linear`), replacing `2^(2C+3)`. The exponential came from
+converting `θ ≤ (r²)^q` with `c0 ≈ 2/θ`; a log-free block root step needs only
+`log(1/θ)`. Window survival's `θ_C` stays exponential (intrinsic). Absolute seed
+lemma `rg_absolute_seed_lowerMarginFrom`: κ chain + summable eff + absolute ceiling
+⇒ `WilsonLowerMarginFrom F j0 (μ − M²2^{-j0} − Ŝ/2)`; seed = one finite inequality.
+Non-vacuity note corrected (U < 1 necessary, not sufficient). Same open inputs;
+Φ inhabitability OPEN; not AF. Evidence:
+`audits/SCOPE-RG-STEP-COMPOSITION-REDUCTION-2026-10-06.md`.
+Axioms {propext, Quot.sound}; box launcher checks only.
+
+## Earlier proved increment: COARSE linear-credit scaling obstruction (2026-10-04 UTC)
 
 PROGRESS after `8c32500`: the actual computed rho<=4^(-size) at EVERY
 strict nome. Explicit uniform onset rejects any eventual positive floor

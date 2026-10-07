@@ -109,11 +109,20 @@ B04 upper half is genuinely used). Telescoped (`rgKappa_envelope_invariant`):
 * **c = 1 form** (`rgKappa_dyadic_envelope_abs`): `2^n·m_{j0+n} ≥ m_{j0} − (M² + S)`.
 * Half-power form: `2^{-n}(m_{j0} − U² − S/2) ≤ m_{j0+n}`.
 
-**Non-vacuity condition.** Useful only if `m_{j0} > U² + S/2` (j0 = 0: `m_0 > M² + S/2`).
-Since the upper margin at `n = 0` gives `m_{j0} ≤ U`, this requires `U² < U`, i.e.
-`U = M·2^{-j0} < 1`, so one must start at `j0 > log₂ M`; and the seed margin must
-dominate `M²·4^{-j0} + S/2`. For the existing `exprWilsonFamily` upper margin
-`M = 2^{2C+3} + 2^{j0+2}` the j0 = 0 seed is vacuous; a later start scale is needed.
+**Non-vacuity condition (CORRECTED 2026-10-06 ~9:45 PM PT, per YM Bot review).**
+Useful only if `m_{j0} > U² + S/2`. `U = M·2^{-j0} < 1` (`j0 > log₂ M`) is
+**necessary but not sufficient**. In absolute units put `μ := 2^{j0}·m_{j0}` (seed
+mass in `a_j = 2^{-j}` units; `μ ≤ M`) and `Ŝ := Σ_{j≥j0} 2^j eff_j = 2^{j0}S`. The
+seed condition is then exactly
+
+  `μ > M²·2^{-j0} + Ŝ/2`,
+
+with output floor `m = μ − M²2^{-j0} − Ŝ/2` in physical units. Real requirements:
+(a) defect tail `Ŝ < 2μ`, and (b) `2^{j0} > M²/(μ − Ŝ/2)`. Lean:
+`rg_absolute_seed_lowerMarginFrom` (below). With the old step-ratio ceiling
+`M ≥ 2^{2C+3}` and `C = 3`, `M² ≥ 2^18`: the seed sits ≈ `18 + log₂(1/μ)` dyadic steps
+below the anchor. With the linear ceiling `M = 16(C+1) = 64`, `M² = 2^12`: ≈
+`12 + log₂(1/μ)` steps.
 
 **Rewired.** `rg_envelope_zero_lower_margin` and `rg_envelope_zero_wilsonLowerMargin`
 now take `RgRateChainκ F.rate ε κ 0`, summable effective defect `S`, and
@@ -132,6 +141,63 @@ factor-2 RG step. Remaining mismatch (documented, not fixed): the widths
 `4^j + 1` grow ×4 per step (not a spatial 2-blocking), and there is no concrete
 `a(w)` (`NomeSchedulePhysicalBox` open), so the dyadic identification of the nome
 schedule with the RG step is a calibration choice, not a theorem.
+
+## Absolute seed lemma (2026-10-06 ~9:45 PM PT; REDUCTION)
+
+Convention = `WilsonLowerMargin` / `WilsonLowerMarginFrom` (reused, already in the
+file): `m · spacing j ≤ 1 − r_j`, `spacing j = 2^{-j}` (physical units).
+Definitions: `seedMass r j0 = 2^{j0}·m_{j0}` (μ), `defectTail j0 S = 2^{j0}·S` (Ŝ),
+`absSeedFloor r j0 S M = μ + −(M·M·2^{-j0}) + −(½·Ŝ)`.
+
+`rg_absolute_seed_lowerMarginFrom F ε κ j0 S M hsp H hS hM0 hup hpos :
+WilsonLowerMarginFrom F j0 (absSeedFloor F.rate j0 S M)` from
+`spacing j = half^j`, `RgRateChainκ F.rate ε κ j0`,
+`RgErrorSummable (effectiveDefectSeq κ ε F.rate) j0 S`, `0 ≤ M`, the absolute
+ceiling `∀ j ≥ j0, F.latticeMargin j ≤ M · spacing j`, and the single finite
+inequality `hpos : 0 < absSeedFloor F.rate j0 S M`.
+
+## Ceiling sharpening: LINEAR in C (2026-10-06 ~9:45 PM PT; REDUCTION, packaging)
+
+Lean: `lean/YMGap/Continuum/BF4WilsonAllNomeStepRatioLinearCeiling.lean`.
+
+**Verdict: the exponential `2^{2C+3}` is an artifact, not intrinsic.** Where it
+comes from: (1) `block_pow_floor` gives window survival with `θ_C = (1/2)^{2C+2}`;
+(2) `window_gap_compat` gives `θ ≤ (r²)^q`, `side = 4q`; (3) `side_rate_le_c0`
+converts with `c0 ≥ 2(1−θ)/θ`, i.e. `c0 = 2^{2C+3} ≈ 2/θ_C`.
+* Step (1)'s exponential IS intrinsic to window survival: a geometric response
+  `R(n) = ρ^n` with `s(1−ρ) = c` has `R(s+1)/R(s/2) = ρ^{s/2+1} ≈ e^{−c/2}`, so no
+  polynomial `θ` can be certified for the window ratio (math remark; not a Lean
+  theorem).
+* Step (3) is crude: `(r²)^q ≥ θ` gives `2q(1−r) ≤ 2q(−ln r) ≤ ln(1/θ)`, so the
+  ceiling only needs `log(1/θ)`. The rational bound `x^q ≤ 1/(1+q(1−x))` used there
+  turns `1/θ` into the ceiling.
+
+New log-free step (3), by blocks: `q = pK + t` (`K = 2C+2`, `t < K`);
+`(1/2)^K ≤ (r²)^q ≤ ((r²)^p)^K`; upper Bernoulli `x^p(1 + p(1−x)) ≤ 1`
+(`upper_bernoulli`) and a `K`-th-root step (`le_one_of_pow_le_one`,
+`block_rate_le_one`) give `p(1−r²) ≤ 1`; then `q(1−r) ≤ Kp(1−r²) + t ≤ 2K`:
+
+* `side_rate_le_linear θ r q L K : L = 2(2q) → 0 ≤ r → r ≤ 1 → half^{K+1} ≤ θ →
+  θ ≤ (r·r)^q → ofNat L · (1 − r) ≤ ofNat (8(K+1))`.
+* `expr_stepRatio_forces_rate_linear` (same hypotheses as
+  `expr_stepRatio_forces_rate_anyC`): `side_j(1 − r_j) ≤ 8(2C+2) = 16(C+1)` for
+  `j ≥ max(2, j0)` (was `2^{2C+3}`).
+* `wilsonUpper_of_stepRatio_linear`: `WilsonUpperMargin (exprWilsonFamily …)
+  (ofNat (8(2C+2) + 2^{j0+2}))` (was `2^{2C+3} + 2^{j0+2}`). Since `j0` only needs
+  `2C ≤ side j0 = 2^{j0}`, the minimal `j0` has `2^{j0+2} < 16C`: linear too.
+* `stepRatio_absolute_ceiling_from … J (2 ≤ J) (j0 ≤ J)`: `∀ j ≥ J,
+  latticeMargin j ≤ 16(C+1) · spacing j` — relative `U = 16(C+1)·2^{-J}` from `J` on,
+  no small-scale term.
+* `exprWilson_lowerMarginFrom_linearCeiling`: step-ratio inputs + κ chain from `J` +
+  summable eff `≤ S` + `hpos : 0 < absSeedFloor r J S (16(C+1))` ⇒
+  `WilsonLowerMarginFrom (exprWilsonFamily …) J (absSeedFloor r J S (16(C+1)))`.
+
+Constants: at `C = 3`, `M = 64`, `M² = 2^12` (was `2^18`): the seed scale moves up
+≈ 6 dyadic steps. The sharp log form would give `side(1−r) ≲ 2 ln(1/θ_C) ≈ 2.77(C+1)`
+(and ≈ `c` with the sharp `θ ≈ e^{−c/2}`); `16(C+1)` is within a constant of that.
+No no-go is needed: the exponential is removed under the CURRENT hypotheses. The
+open inputs are unchanged (step ratio, H-var/H-ray, orbit contraction, κ chain,
+summable defect, one finite seed inequality); Φ inhabitability still OPEN.
 
 ## Seeding by strong coupling (honest limits)
 
@@ -185,3 +251,7 @@ summable `ε_j` for the Wilson action along the chosen schedule.
   `eff` + B04 upper half (`rgKappa_dyadic_envelope`, sharp
   `2^n m_{j0+n} ≥ m_{j0} − U² − S/2`; c = 1 form with `M²+S`); zero-scale lower
   margin rewired through κ chain; spacing verdict recorded. REDUCTION; Φ OPEN.
+* 2026-10-06 ~9:45 PM PT — Non-vacuity note corrected (μ > M²2^{-j0} + Ŝ/2;
+  U < 1 necessary, not sufficient). Absolute seed lemma
+  `rg_absolute_seed_lowerMarginFrom`. Linear ceiling `16(C+1)` replaces `2^{2C+3}`
+  (`BF4WilsonAllNomeStepRatioLinearCeiling`). REDUCTION; Φ OPEN.

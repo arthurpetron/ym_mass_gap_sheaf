@@ -7,9 +7,13 @@ shape `intertwine_twoStep` (`T_f²` vs `T_c`); transfer PROVED
 `(κ−1)r_C²+κ·ε`). `kappa_ge_one` on pinned vacuum diagonals. One-step shape
 no-go: attaining Rayleigh `≥ r_C` forces `ε` lower bound. Dyadic envelope now
 PROVED (not assumed) from `RgRateChainκ` + `Σ2^k eff_k ≤ S` + B04 upper half:
-`2^n m_{j0+n} ≥ m_{j0} − U² − S/2` (`U = M·2^{-j0}`; non-vacuous only for
-`j0 > log₂ M`). Spacing `half^j` matches `trAF` by `rfl`. SC cannot seed
-`trAF`. No `Φ_j` constructed. Not AF. See
+`2^n m_{j0+n} ≥ m_{j0} − U² − S/2` (`U = M·2^{-j0}`). Non-vacuity (corrected):
+`j0 > log₂ M` is necessary, not sufficient; exact seed condition
+`μ > M²2^{-j0} + Ŝ/2` (`μ = 2^{j0}m_{j0}`, `Ŝ = 2^{j0}S`), packaged as one finite
+inequality in `rg_absolute_seed_lowerMarginFrom`. Step-ratio ceiling sharpened
+from `2^{2C+3}` to LINEAR `16(C+1)` (`BF4WilsonAllNomeStepRatioLinearCeiling`;
+exponential was a crude `1/θ` conversion artifact). Spacing `half^j` matches
+`trAF` by `rfl`. SC cannot seed `trAF`. No `Φ_j` constructed. Not AF. See
 `audits/SCOPE-RG-STEP-COMPOSITION-REDUCTION-2026-10-06.md`.
 
 Route (b), strong coupling (2026-10-06 PT): the literal fixed-width all-nome

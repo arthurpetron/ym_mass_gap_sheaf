@@ -7342,6 +7342,9 @@ import YMGap.Continuum.BF4WilsonAllNomeStrongCouplingUniformRate
 -- REDUCTION: RG-step composition (rate algebra + ApproxRgIntertwiner + conditional
 -- dyadic lower margin from envelope). No Φ_j inhabited. Not AF.
 import YMGap.Continuum.BF4WilsonAllNomeRGStepComposition
+-- REDUCTION: step-ratio upper ceiling LINEAR in C (16(C+1), was 2^(2C+3));
+-- absolute seed lower margin from J on. Same open inputs. Not AF.
+import YMGap.Continuum.BF4WilsonAllNomeStepRatioLinearCeiling
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport

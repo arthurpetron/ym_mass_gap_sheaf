@@ -27,8 +27,13 @@ No-go (old one-step shape): an attaining fine Rayleigh `≥ r_C` forces
 `2^n·m_{j0+n} ≥ m_{j0} − U² − S/2` (`rgKappa_dyadic_envelope`; absolute
 `U = M·2^{-j0}`, c = 1 form `≥ m_{j0} − (M²+S)` in `rgKappa_dyadic_envelope_abs`).
 `rg_envelope_zero_lower_margin` / `rg_envelope_zero_wilsonLowerMargin` now go
-through the κ chain with seed `m_0 − M² − S/2`. Non-vacuous only when
-`m_{j0} > U² + S/2`; since `m_{j0} ≤ U`, this needs `U < 1`, i.e. `j0 > log₂ M`.
+through the κ chain with seed `m_0 − M² − S/2`. Non-vacuity (CORRECTED):
+`U < 1` (`j0 > log₂ M`) is NECESSARY but NOT sufficient. With seed mass
+`μ = 2^{j0}m_{j0}` (`μ ≤ M`) and defect tail `Ŝ = 2^{j0}S`, the exact condition is
+`μ > M²·2^{-j0} + Ŝ/2`, i.e. `Ŝ < 2μ` and `2^{j0} > M²/(μ − Ŝ/2)`; the output floor in
+physical units is `μ − M²2^{-j0} − Ŝ/2` (`rg_absolute_seed_lowerMarginFrom`).
+The ceiling `M` can be taken LINEAR in `C` (`16(C+1)`, see
+`BF4WilsonAllNomeStepRatioLinearCeiling`) instead of `2^{2C+3}`.
 Spacing: `exprWilsonFamily` (hence `trAF`) has `spacing j = half^j` by `rfl`.
 
 Also: SC cannot seed `trAF` (`not_heatRatio_le_half_afNome`). Seed = open
@@ -1138,6 +1143,107 @@ theorem rg_envelope_zero_wilsonLowerMargin
     have := h.2 j (Nat.zero_le j)
     simpa only [WilsonDynamicFamily.latticeMargin] using this⟩
 
+/-! ### 4b. Absolute seed lemma (one finite inequality at one scale)
+
+Physical-unit convention = `WilsonLowerMargin`/`WilsonLowerMarginFrom`:
+`m · spacing j ≤ 1 − r_j` with `spacing j = 2^{-j}`.
+Seed mass `μ = 2^{j0}·m_{j0}` (`μ ≤ M` under the absolute ceiling), defect tail
+`Ŝ = 2^{j0}·S` (`S` bounds `Σ_{k<n} 2^k eff_{j0+k}`, i.e. `Ŝ` bounds
+`Σ_{j≥j0} 2^j eff_j`). Output floor `μ − M²·2^{-j0} − Ŝ/2`. -/
+
+/-- Seed mass `μ = 2^{j0}·m_{j0}`. -/
+def seedMass (r : Nat → Q') (j0 : Nat) : Q' := Q'.ofNat (2 ^ j0) * latticeMarginOf r j0
+
+/-- Absolute defect tail `Ŝ = 2^{j0}·S`. -/
+def defectTail (j0 : Nat) (S : Q') : Q' := Q'.ofNat (2 ^ j0) * S
+
+/-- Absolute output floor `μ − M²·2^{-j0} − Ŝ/2`. -/
+def absSeedFloor (r : Nat → Q') (j0 : Nat) (S M : Q') : Q' :=
+  seedMass r j0 + -(M * M * half ^ j0) + -(half * defectTail j0 S)
+
+theorem absSeedFloor_eqv (r : Nat → Q') (j0 : Nat) (S M : Q') :
+    absSeedFloor r j0 S M ≈
+      Q'.ofNat (2 ^ j0) *
+        (latticeMarginOf r j0 + -(M * half ^ j0 * (M * half ^ j0)) + -(half * S)) := by
+  have e1 : Q'.ofNat (2 ^ j0) *
+        (latticeMarginOf r j0 + -(M * half ^ j0 * (M * half ^ j0)) + -(half * S)) ≈
+      Q'.ofNat (2 ^ j0) * latticeMarginOf r j0 +
+        -((M * M * half ^ j0) * (Q'.ofNat (2 ^ j0) * half ^ j0)) +
+        -(half * (Q'.ofNat (2 ^ j0) * S)) :=
+    poly_identity_of_normal_eq
+      (.mul (.var 0) (.add (.add (.var 1)
+        (.neg (.mul (.mul (.var 2) (.var 3)) (.mul (.var 2) (.var 3)))))
+        (.neg (.mul (.var 4) (.var 5)))))
+      (.add (.add (.mul (.var 0) (.var 1))
+        (.neg (.mul (.mul (.mul (.var 2) (.var 2)) (.var 3)) (.mul (.var 0) (.var 3)))))
+        (.neg (.mul (.var 4) (.mul (.var 0) (.var 5)))))
+      (by decide)
+      (fun | 0 => Q'.ofNat (2 ^ j0) | 1 => latticeMarginOf r j0 | 2 => M
+           | 3 => half ^ j0 | 4 => half | _ => S)
+  have e2 : (M * M * half ^ j0) * (Q'.ofNat (2 ^ j0) * half ^ j0) ≈ M * M * half ^ j0 :=
+    Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_left _ _ _ (ofNat_two_pow_mul_half_pow j0))
+      (Q'.mul_one_eqv _)
+  have e3 : Q'.ofNat (2 ^ j0) * latticeMarginOf r j0 +
+        -((M * M * half ^ j0) * (Q'.ofNat (2 ^ j0) * half ^ j0)) +
+        -(half * (Q'.ofNat (2 ^ j0) * S)) ≈ absSeedFloor r j0 S M :=
+    Q'.add_eqv_congr_right _ _ _
+      (Q'.add_eqv_congr_left _ _ _ (Q'.neg_eqv_congr _ _ e2))
+  exact Q'.eqv_symm (Q'.eqv_trans _ _ _ e1 e3)
+
+/-- **PROVED (REDUCTION). Absolute seed lemma.** κ chain from `j0`, summable
+effective defect `≤ S`, and the absolute ceiling `m_j ≤ M·2^{-j}` for `j ≥ j0`
+give `WilsonLowerMarginFrom F j0 (μ − M²·2^{-j0} − Ŝ/2)`. The only remaining
+seed input is the single finite inequality `μ > M²·2^{-j0} + Ŝ/2` (`hpos`). -/
+theorem rg_absolute_seed_lowerMarginFrom
+    (F : WilsonDynamicFamily) (ε κ : Nat → Q') (j0 : Nat) (S M : Q')
+    (hsp : ∀ j, F.transferSpacing.spacing j = half ^ j)
+    (H : RgRateChainκ F.rate ε κ j0)
+    (hS : RgErrorSummable (effectiveDefectSeq κ ε F.rate) j0 S)
+    (hM0 : (0 : Q') ≤ M)
+    (hup : ∀ j, j0 ≤ j → F.latticeMargin j ≤ M * F.transferSpacing.spacing j)
+    (hpos : (0 : Q') < absSeedFloor F.rate j0 S M) :
+    WilsonLowerMarginFrom F j0 (absSeedFloor F.rate j0 S M) := by
+  refine ⟨hpos, ?_⟩
+  intro j hj
+  obtain ⟨n, rfl⟩ := Nat.exists_eq_add_of_le hj
+  have hp0 : (0 : Q') ≤ half ^ j0 := Q'.pow_nonneg half half_nonneg j0
+  have hU0 : (0 : Q') ≤ M * half ^ j0 := Q'.mul_nonneg _ _ hM0 hp0
+  have hupU : ∀ k : Nat, latticeMarginOf F.rate (j0 + k) ≤ M * half ^ j0 * half ^ k := by
+    intro k
+    have h := hup (j0 + k) (Nat.le_add_right j0 k)
+    rw [hsp] at h
+    have e : M * half ^ (j0 + k) ≈ M * half ^ j0 * half ^ k :=
+      Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_left _ _ _ (half_pow_add_eqv j0 k))
+        (poly_identity_of_normal_eq
+          (.mul (.var 0) (.mul (.var 1) (.var 2)))
+          (.mul (.mul (.var 0) (.var 1)) (.var 2))
+          (by decide) (fun | 0 => M | 1 => half ^ j0 | _ => half ^ k))
+    exact Q'.le_trans' _ _ _ h (Q'.le_of_eqv e)
+  have henv := rgKappa_dyadic_envelope_halfPow F.rate ε κ j0 S (M * half ^ j0)
+    H hS hU0 hupU n
+  rw [hsp]
+  have e1 : absSeedFloor F.rate j0 S M * half ^ (j0 + n) ≈
+      half ^ n * ((Q'.ofNat (2 ^ j0) * half ^ j0) *
+        (latticeMarginOf F.rate j0 + -(M * half ^ j0 * (M * half ^ j0)) + -(half * S))) :=
+    Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ _ _ (absSeedFloor_eqv F.rate j0 S M))
+      (Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_left _ _ _ (half_pow_add_eqv j0 n))
+        (poly_identity_of_normal_eq
+          (.mul (.mul (.var 0) (.var 1)) (.mul (.var 2) (.var 3)))
+          (.mul (.var 3) (.mul (.mul (.var 0) (.var 2)) (.var 1)))
+          (by decide)
+          (fun | 0 => Q'.ofNat (2 ^ j0)
+               | 1 => latticeMarginOf F.rate j0 + -(M * half ^ j0 * (M * half ^ j0)) +
+                   -(half * S)
+               | 2 => half ^ j0 | _ => half ^ n)))
+  have e2 : half ^ n * ((Q'.ofNat (2 ^ j0) * half ^ j0) *
+        (latticeMarginOf F.rate j0 + -(M * half ^ j0 * (M * half ^ j0)) + -(half * S))) ≈
+      half ^ n *
+        (latticeMarginOf F.rate j0 + -(M * half ^ j0 * (M * half ^ j0)) + -(half * S)) :=
+    Q'.mul_eqv_congr_left _ _ _ (Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_right _ _ _ (ofNat_two_pow_mul_half_pow j0))
+      (Q'.eqv_trans _ _ _ (Q'.mul_comm_eqv _ _) (Q'.mul_one_eqv _)))
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.eqv_trans _ _ _ e1 e2)) henv
+
 /-- Spacing consistency: every `exprWilsonFamily` (hence the `trAF` family)
 uses `dyadicPhysicalSpacing`, whose spacing is `half ^ j` by definition. -/
 theorem exprWilsonFamily_spacing_half_pow (tr : ExprAnchorTrajectory) (r : Nat → Q')
@@ -1305,3 +1411,5 @@ end YMGap.Continuum.BF4WilsonAllNomeRGStepComposition
 #print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.rgMarginEnvelopeκ_dyadic
 #print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.rg_envelope_zero_lower_margin_assumed
 #print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.exprWilsonFamily_lowerMargin_of_kappaChain
+#print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.absSeedFloor_eqv
+#print axioms YMGap.Continuum.BF4WilsonAllNomeRGStepComposition.rg_absolute_seed_lowerMarginFrom
