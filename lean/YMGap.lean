@@ -4948,6 +4948,11 @@ import YMGap.Continuum.JacobiHeatRadialMomentJets
 -- Actual signed cost, explicit convergence data and finite-tail transport; no analytic ceiling.
 import YMGap.Continuum.JacobiProductRadialSignedTail
 import YMGap.Continuum.JacobiProductRadialLimit
+-- Endpoint producer and finite convolution ingredients; completed addition remains open.
+import YMGap.Continuum.JacobiProductRadialEndpoint
+import YMGap.Continuum.ThetaParityConvolution
+import YMGap.Continuum.ChebyshevHalfShiftProduct
+import YMGap.Continuum.ThetaAngularShellTail
 import YMGap.Continuum.SU2HeatQuarticTailCutoff
 import YMGap.Continuum.QuaternionHaarHeatAngularDeficit
 import YMGap.Continuum.QuaternionHaarHeatRelativeAngularBound

@@ -1,5 +1,39 @@
 # Sorry Ledger
 
+## PROVED finite addition-route ingredients / OPEN completed addition (2026-10-07)
+
+- `ThetaParityConvolution.signed_box_parity_convolution` gives the exact
+  signed-box sum as two sums on independently enumerated even/odd diamonds,
+  for arbitrary signed rational weights. Explicit encode/decode data are
+  inverse on ALL signed integers; actual frequency/exponent pins retain the
+  odd offset +1 and zero cutoff. No rectangle-factorization claim.
+- `ChebyshevHalfShiftProduct.halfShift_product` proves
+  (1-x)*(U_n+sinCoord n)*(U_m+sinCoord m)=T_dist-T_(n+m+1), for arbitrary x
+  and all indices. Difference rotation is proved, not supplied as a premise.
+- `JacobiProductRadialEndpoint.productRadialCostCReal_at_one_le_cap` supplies
+  a ceiling on the SAME actual endpoint limit. The finite cost is exactly
+  the first moment; each actual denominator is >=1, hence r_i<=2*c_i.
+  It does NOT prove cost(x)<=cost(1).
+- `ThetaAngularShellTail.shellTerm_succ_le_half`, `shellTail_le_two` and
+  `shellTail_le_epsilon` construct the tail of 16*T^3*w^(T^2), with explicit
+  onset/tolerance/cutoff data. Cubic growth costs 8 and the named onset
+  forces w^(2*T+1)<=1/16. Actual angular shell counting/domination is NOT
+  supplied by this scalar leaf.
+- OPEN: theta/jet weight specialization, diamond-to-rectangle tails,
+  shifted/alternating convolution, actual combined second-jet Jacobi
+  comparison and SAME limit composition. These are the missing analytic
+  ceiling producer, not a new hypothesis bundle. Haar/action/conditional,
+  scaling and all downstream Clay obligations remain open.
+- Four focused targets pass thirty printed gates in {propext, Quot.sound},
+  six data definitions axiom-free. Root inspected complete sources;
+  independent read-only mathematical reviews found no material defect.
+  One capped 20-GiB worker, 12-GiB reserve, fresh 87--88%-free zero-swap
+  preflights. Initial parity/shell elaboration failures are not evidence.
+  No new source sorry/axiom/classical input, field change, baseline refresh
+  or full-root/tree audit. Root imports registered, not full-root verified.
+
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 ## PROVED actual radial limit / OPEN analytic ceiling (2026-10-07)
 
 - `JacobiProductRadialSignedTail.radialSummand_sum_pin` identifies the actual

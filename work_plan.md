@@ -27,6 +27,21 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+The addition route now has CHECKED finite producers: exact signed box-to-
+even/odd DIAMOND convolution (`ThetaParityConvolution`), radical-free
+half-shift kernel (`ChebyshevHalfShiftProduct`), and the actual endpoint
+limit ceiling D_infinity(1)<=2*w/(1-w^2) (`JacobiProductRadialEndpoint`).
+`ThetaAngularShellTail` constructs a half-geometric tail and explicit
+cutoff for 16*T^3*w^(T^2) after a computed onset. NEXT specialize the
+convolution to the actual theta and endpoint-jet weights, prove their
+diamond-to-rectangle domination by these shells, and take SAME series
+limits; the scalar tail alone does not perform that join. The shifted/
+alternating convolution and combined second-jet Jacobi comparison are
+still required. Use existing first-derivative comparison rather than
+build general angular calculus. Four focused targets pass all public gates;
+no completed addition/whole-interval ceiling or canonical chart closure.
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 The ACTUAL signed radial cost now has a CHECKED limit and finite-tail
 transport. `JacobiProductRadialSignedTail` proves -r_i<=d_i<=r_i on the
 whole interval and D_N<=D_(N+L)+4*c_N/(1-w^2) at c_N<=1/8; the scaled

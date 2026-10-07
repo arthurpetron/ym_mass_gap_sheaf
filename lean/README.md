@@ -27,6 +27,17 @@ nine permitted axiom gates; no full-root/tree audit. Useful curvature,
 angular/cutoff/conditional/scaling joins and all Clay requirements remain OPEN.
 Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
 
+**Checked finite addition-route ingredients (2026-10-07):** exact signed
+box-to-even/odd-diamond reindex, half-shift Chebyshev product kernel, actual
+endpoint radial-limit ceiling and explicit cubic Gaussian-shell tail modulus.
+`ThetaParityConvolution`, `ChebyshevHalfShiftProduct`,
+`JacobiProductRadialEndpoint` and `ThetaAngularShellTail` pass focused checks
+and their public axiom gates. These do NOT identify finite diamonds with
+rectangles or prove the completed addition identity/whole-interval ceiling.
+Actual weight specialization, shell domination and second-jet/limit pins
+remain OPEN; no full-root/tree audit or Clay closure. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 **Checked actual radial limit and signed finite tail (2026-10-07):**
 `JacobiProductRadialSignedTail` pays negative omitted increments explicitly,
 with payment 4*c_N/(1-w^2) at c_N<=1/8 and scaled cost at most 1/2.

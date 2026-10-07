@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Supporting finite addition route checked (2026-10-07): signed box-to-two-
+diamond convolution, radical-free half-shift kernel, actual endpoint limit
+ceiling D_infinity(1)<=2*w/(1-w^2), and explicit cubic Gaussian-shell tail
+cutoff. These are actual finite identities/estimates, not completed theta
+addition. Actual theta/jet weight specialization, diamond-to-rectangle shell
+domination and combined second-jet/limit pins remain OPEN. Four focused
+targets pass permitted gates; no full-root/tree audit. Whole-interval
+ceiling, Haar/conditional join, signed-cost/scaling estimates, independent
+survival, completed comparison, physical/volume control, SAME limiting QFT,
+every group and Clay remain OPEN. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+Broad chart unchanged; no reprint.
+
 Supporting ACTUAL radial limit and signed-tail transport checked (2026-10-07):
 the literal finite cost has a constructed CReal limit with explicit tolerance
 and Nat cutoff data, uniform in x at each named nome. Negative omitted terms

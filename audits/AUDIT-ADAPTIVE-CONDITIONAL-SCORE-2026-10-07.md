@@ -940,3 +940,128 @@ constant. No strict margin/Haar/action certificate is claimed here.
 Decision: CONTINUE the shorter addition-square producer with bounded finite
 reindex work and independent mathematical review. Retain derivative-limit,
 original weighted conditional/scaling and all downstream Clay obligations.
+
+## Observed proof increment: finite addition-route producers
+
+The next bounded experiments also supply actual objects/estimates rather
+than another assumed-addition consumer. Root inspected complete sources;
+independent Sol reviews checked signs, zero/negative indices, normalizations
+and the exact remaining scope.
+
+- `lean/YMGap/Continuum/ThetaParityConvolution.lean:314`,
+  `signed_box_parity_convolution`, proves the full arbitrary-weight finite
+  signed-box equality to EVEN+ODD DIAMOND sums. `encode_decode` (line 46),
+  `decode_encode` (line 68) and `boxParityDecode` (line 212) carry explicit
+  inverse/boxed data. `even_frequency_pin` / `odd_frequency_pin` (73/79)
+  and `even_exponent_pin` / `odd_exponent_pin` (85/93) retain both branches,
+  including the odd exponent +1. The containing box N+1 is only an
+  enumeration device; `evenDiamondIndices_mem` / `oddDiamondIndices_mem`
+  (179/195) impose EXACT transformed original-box constraints. N=0 has one
+  even cell and no odd cells. No rectangle substitution is claimed.
+- `lean/YMGap/Continuum/ChebyshevHalfShiftProduct.lean:113`,
+  `halfShift_product`, constructs the exact shifted kernel
+  (1-x)*C_n*C_m=T_dist-T_(n+m+1), C_n=U_n+sinCoord n. `rotation_difference`
+  (line 86) is proved from existing rotation addition and Pythagorean
+  identities, on both index orders. Arbitrary rational x and zero indices
+  are included; n=m=0 gives 1-x. This supplies finite algebra for the
+  independent shifted/alternating convolution, not that completed identity.
+- `lean/YMGap/Continuum/JacobiProductRadialEndpoint.lean:31`,
+  `productRadialCost_at_one_pin`, gives the ACTUAL D_N(1)=M1. At line 40,
+  `endpoint_sTerm_le_rate` uses the actual denominator 1+2*c+c^2>=1.
+  `productRadialCost_at_one_le_cap` (54) and
+  `productRadialCostCReal_at_one_le_cap` (65) therefore produce the useful
+  endpoint ceiling C_T=2*w/(1-w^2), on every prefix and the SAME constructed
+  limit. The whole-interval comparison D_infinity(x)<=D_infinity(1) is NOT
+  supplied. No heat-floor reciprocal enters this ceiling.
+- `lean/YMGap/Continuum/ThetaAngularShellTail.lean:87`,
+  `shellTerm_succ_le_half`, proves the actual shell 16*T^3*w^(T^2)
+  contracts by half after `shellOnset` (line 34). The constructive onset
+  max(1,powBaseCutoff(w,1/16)) forces w^(2*T+1)<=1/16, and cubic growth
+  costs at most 8. `shellTail_le_two` (line 135) bounds every finite tail
+  by twice its first shell. `shellTolerance` (161), `shellTailCutoff` (165)
+  and `shellTail_le_epsilon` (192) retain explicit rational/Nat data paying
+  epsilon at every later index. The angular shell count and domination
+  of actual convolution errors are still missing joins, not hypotheses
+  silently discharged by this scalar leaf.
+
+### Exact verification boundary
+
+Same monitored one-worker policy and fresh dynamic preflight at EACH launch:
+87--88% free memory, zero swap, no competing compiler/test/runner process;
+mandatory 20-GiB worker ceiling and 12-GiB reserve. Final focused evidence:
+
+```text
+/private/tmp/ym-oct7-theta-parity2.log
+SHA256 95021dc5c73842ad76f11b33363e4cd54771127527bde5de47e18543666a796e
+13 public printed gates pass in {propext, Quot.sound}.
+
+/private/tmp/ym-oct7-radial-endpoint1.log
+SHA256 d1701accb555e21641cc8b4d92d4e05159fb1b931476cf292e9edb4934007f75
+4 public printed gates pass in {propext, Quot.sound}.
+
+/private/tmp/ym-oct7-halfshift1.log
+SHA256 e19bbddd4f8e8c3e8a5d7ddcb08f8439184f367d2460780bbeb39d3740e21627
+5 public printed gates pass; natDist and halfShiftCoord are axiom-free.
+
+/private/tmp/ym-oct7-angular-shell4.log
+SHA256 3f78f9bb909c75c73626d150f425e801021960e2f7919291a231709d360c9f69
+8 public printed gates pass; shellTerm, shellOnset, shellTolerance and
+shellTailCutoff are axiom-free.
+```
+
+The first parity check failed map-lambda typing, diamond decidability and
+hidden-definition transport; the statements were unchanged in repair.
+Static review removed a false UNUSED arithmetic equality before any shell
+compile. Initial shell checks failed imports, unsupported tactic, lambda/
+parenthesis parsing and explicit-argument normalization; the final source
+passes. Failed-check sorryAx output is not evidence. No source sorry/axiom,
+classical input, canonical field change, baseline refresh or full-root/tree
+check/audit. Imports are registered without claiming full-root verification.
+The displayed canonical goal claims remain open, so there is no chart reprint.
+
+### Narrower mathematical join selected (RESEARCH, not a proved identity)
+
+Use normalized half-nome series without square roots:
+
+```text
+E(x)=1+2*sum_(n>=1) w^(2*n*n)*T_(2*n)(x),
+H(x)=sum_(n>=0) w^(2*n*(n+1))*T_(2*n+1)(x),
+P(x)^2=E(1)*E(x)+4*w*H(1)*H(x),
+K(x)=E(1)*H(x)-H(1)*E(x).
+```
+
+The coefficient is 4*w, not 2*w. After the still-missing actual convergent
+convolutions, the elementary determinant square yields
+
+```text
+P(1)^2*(E(x)*E(y)+4*w*H(x)*H(y))-P(x)^2*P(y)^2
+  =4*w*K(x)*K(y).
+K(x)=(x-1)*A(x)^2, K'(1)=B^2, B=A(1).
+```
+
+Only the endpoint first scalar jet in y is needed. Its actual finite joint
+kernel is the signed-box weight
+w^(m^2+n^2)*T_|m+n|(x)*T_|m-n|(y). The endpoint derivative has weight
+(m-n)^2; completing that convolution would give
+E(x)*E'(1)+4*w*H(x)*H'(1)=2*D_infinity(x)*P(x)^2.
+The differentiated determinant then gives the originally proposed square
+2*w*(1-x)*A(x)^2*B^2. Independent mathematical reviews confirm these signs
+and factors. Neither of the completed equalities is a Lean input yet.
+
+Available first-derivative bridge inspected by root in full:
+`lean/YMGap/Continuum/FiniteJacobiDerivativeComparison.lean:252`,
+`fullProdDx_sub_two_dPartial_close`, already supplies the actual finite
+Jacobi FIRST-jet comparison with explicit cutoff. Reuse it. It does not
+supply the combined second-jet deficit required by D. Existing
+`lean/YMGap/Continuum/ChebUDClosure.lean:389`, `udClosure`, supplies the
+scalar Chebyshev angular ODE; the finite second formal-jet pin and weighted
+coefficient comparison remain necessary. No general angular calculus or
+Poisson/modular detour is imposed.
+
+Decision: CONTINUE by specializing the checked finite reindex to actual
+theta/jet weights, proving diamond-to-rectangle shell domination, and
+composing SAME series limits. Then prove the shifted/alternating square and
+the actual combined jet comparison. The endpoint ceiling and signed finite
+tail are now produced, so the residue is smaller. Do not replace the missing
+join by a theta-addition premise, identify each finite truncation with the
+limit, or infer a Haar/conditional/physical gap from these scalar lemmas.
