@@ -4,7 +4,14 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 28, partial Haar integral over trailing blocks (transfer step 2c) (2026-10-07 PT)
+## Latest proved increment: R1 commit 29, in-place slice integration of private blocks (transfer step 2d) (2026-10-07 PT)
+
+- `SU2SliceIntegrate.slice_integrate` (PROVED, [propext, Quot.sound]): `H(Π_t W_t) ≈ H(Π_t ∫dS_t W_t)`.
+  - Hypothesis `Good`: the schedules are in range and each other factor is block-local away from S_t.
+  - This is the ∫dV_t step of the transfer kernel, in place.
+- Labels: algebra, every coupling; also true for U(1), not gap evidence.
+
+## Earlier proved increment: R1 commit 28, partial Haar integral over trailing blocks (transfer step 2c) (2026-10-07 PT)
 
 - `SU2TailHaar.fubini` (PROVED, [propext, Quot.sound]): `∫_{a+b} P ≈ ∫_a (tailInt a b P)`.
   - `tailInt` integrates out the last b blocks, which is the `∫dV` of the slice kernel; the result is supported on a blocks (`tailInt_sup`).

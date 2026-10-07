@@ -191,3 +191,10 @@ No fail statement is given: the ℓ¹ envelope is an upper bound, not the true a
   - multiplicativity of `tailInt` over disjoint tail groups;
   - slice link ordering and translation of the slice weight via `pe_reindex`;
   - assembly.
+
+## PROVED: commit 29, `SU2SliceIntegrate.lean`
+
+- In-place slice integration. Still OPEN for Z = Tr T^{N_t}:
+  - `Good` for the actual Wilson slices (V_t links occur only in slice-t plaquettes);
+  - translation of the kernel via `pe_reindex`;
+  - assembly.
