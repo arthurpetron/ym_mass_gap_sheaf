@@ -76,7 +76,10 @@ The crossing scalar is `Re(U V*) = Σ_{c<4} u_c v_c`, a sum of Θ-symmetric prod
 | crossing-word identity after the split (coeff level) | PROVED (`SU2TorusRPWord.cross_word_cut1/2`) |
 | reflected-plaquette identity | PROVED (`SU2TorusRPWord.refl_word`) |
 | quaternion-product crossing kernels, `T_K` congruence, generalized RP | PROVED (`SU2TorusRPKernel.rpk_qdot`, `rpk_cut1`, `wilson_rp_qfull`; `hW` still a hypothesis) |
-| torus bridge discharging `hW` | OPEN |
+| `hperm`: torus plaquettes ~ `posT ++ posT.map mir ++ crossT` | PROVED (`SU2TorusRPPlaqSplit.plaq_perm`, d9r–d9t) |
+| torus-order ↔ layout-order integral with observable | PROVED (`SU2TorusRPTorusX.torus_X`, `SU2TorusRPTorusZ.torus_Z`, d9u–d9z'') |
+| reflection matching `rcomp r (Θ_torus G · G) ≡ layout RP form` | OPEN |
+| `hW` (target: `T_K` with `wilsonA`, matching `SU2TorusRPKernel` `tkProd`) | OPEN |
 | `D^s` matrix coefficients in real form | MISSING. Needed only for the heat kernel. |
 
 ## Heat-kernel plan
