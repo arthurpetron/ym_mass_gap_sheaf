@@ -246,3 +246,15 @@ RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
 - `rp_cross_assembly`: rp_conj_assembly with hWc replaced by `C Wc ≈PE tkProd(crossWords)` + CrossOK data.
 - Open: concrete per-link split instances on the torus integrand; identification of `C Wc` with the crossWord product.
 RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
+
+## d4a–d4e — concrete crossing split, one link at a time
+- d4a `haar_extend`: fresh Haar blocks (supported p: ∫_{b+e} p = ∫_b p).
+- d4b `prefix_pe`, `steps_ringSub`: the existing all-degree selected-shear chain is a RingSub.
+- d4c `step_coord_sel/other`: left/inverse shear maps U_s ↦ U_m*·U_s, fixes other coordinates (QPE).
+- d4d `subst_prod`, `split_prod_haar`: any Haar-invariant RingSub acts plaquette-wise on the actual torus Π T_K.
+- d4e `split_step`: ∫ Π_ps T_K = ∫ Π_ps T_K[U_s ↦ U_m* U_s] for one crossing link (unconditional in degree).
+All axioms [propext, Quot.sound].
+Open: iterating split_step over all crossing links (second step acts on the image product, needs an image-of-image
+lemma or a simultaneous img), choosing multiplier blocks so that the result is in the L ++ Θ(L) layout, and the
+identification C Wc ≈PE tkProd(crossWord) feeding rp_cross_assembly.
+RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
