@@ -4,7 +4,16 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 35, LogConvex from torus_cs_poly; conditional finite-volume ratio bound on the torus T_K measure (2026-10-07 PT)
+## Latest proved increment: R1 commit 36, clustering bridge for the single-plaquette observable: Z > 0, explicit torus distance, hcl discharged modulo hcov (2026-10-07 PT)
+
+- `SU2ClusterBridge` (PROVED, conditional). STRONG COUPLING β_S = 1/(2e12); Wilson T_K at fixed K (Cw and λ are uniform in K, Z is not); also true for U(1); not gap evidence.
+  - Geometry: `wilson_trunc_ratio` instantiated at torusLinks(2M), N=2M, torusPlaquettes(2M) is the same lattice, plaquette set and T_K weight as rpB. No mismatch.
+  - `Z_pos`: 0 < Z, constructive in Q′.
+  - `dist_mir_shift`: ld(τ_n p, mir p) = n+1 for spatial p at time 1 and n+1 ≤ M (torus metric, no wrap).
+  - `cov_decay`: |cov| ≤ Cw·λ^(n+1), λ = 6/7.
+  - `torus_gap_bridge`: E(k+1)^e·E k ≤ Z·(Cw·λ)·(λ²)^(k+e)·E k^e for k+e ≤ X, 2X+1 ≤ M. Carries hsup, hshift and hcov (OPEN: G n ≈ Z·cov n, i.e. Θχ_p ≡ χ_{mir p}, the bilinear expansion and equal one-point means).
+
+## Earlier proved increment: R1 commit 35, LogConvex from torus_cs_poly; conditional finite-volume ratio bound on the torus T_K measure (2026-10-07 PT)
 
 - `SU2TorusGapCond.torus_gap_cond` (PROVED, conditional; [propext, Quot.sound]).
   - Hypotheses: `hsup` (PtSup τ_x), `hshift` (rpB(τx)(τy) ≈ G(x+y), Realizer's coming result), `hcl` (G n ≤ C q^n, bridge from wilson_trunc_ratio OPEN).

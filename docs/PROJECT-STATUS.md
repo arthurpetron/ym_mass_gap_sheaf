@@ -6516,3 +6516,5 @@ Transfer-matrix scope note (2026-10-07): R1 commit 24.  Scope only.
 `SU2LogConvexZero` (2026-10-07): R1 commit 34.  Zero case for the LogConvex route.
 
 `SU2TorusGapCond` (2026-10-07): R1 commit 35.  Conditional finite-volume ratio bound on the actual torus measure.
+
+`SU2ClusterBridge` (2026-10-07): R1 commit 36. hcl is discharged from wilson_trunc_ratio modulo hcov; C = Z·Cw·(6/7), q = 6/7.
