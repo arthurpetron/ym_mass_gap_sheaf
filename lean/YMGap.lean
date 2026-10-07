@@ -7389,6 +7389,7 @@ import YMGap.Continuum.SU2WilsonLinkDecay
 import YMGap.Continuum.SU2WilsonKRate
 import YMGap.Continuum.SU2LinkGroupSharp
 import YMGap.Continuum.SU2LinkKPSharp
+import YMGap.Continuum.SU2LinkDecaySharp
 import YMGap.Continuum.SpecMaxRateFamily
 import YMGap.Continuum.W1StrongCouplingPerturbation
 import YMGap.Continuum.W1VacuumTailRowSum
