@@ -1,8 +1,8 @@
 /-
 # Torus RP (d4f): simultaneous crossing split by a chain of shears
 
-For a list of left/inverse shears with pairwise distinct selected blocks and multipliers that are never selected,
-the chain maps `U_s ↦ U_m*·U_s` for each step `(s, m)` and fixes all other coordinates (`chain_coord`).
+For a list of left shears of one orientation with pairwise distinct selected blocks and multipliers that are never selected,
+the chain maps `U_s ↦ M_m·U_s` (`M_m = U_m` direct, `U_m*` inverse) for each step `(s, m)` and fixes all other coordinates (`chain_coord`).
 With `split_prod_haar` this splits ALL crossing links of the actual torus `Π T_K` at once (`split_chain`).
 
 **RP FOR THE ACTUAL TORUS MEASURE IS OPEN.**
@@ -36,27 +36,39 @@ local notation "Sup" => YMGap.Continuum.SU2QuaternionFiniteProductHaarFubini.Sup
 
 variable {tailBlocks : Nat}
 
+/-- Multiplier quaternion for an orientation. -/
+def multQ (o : SelectedMultiplierOrientation) (m : Nat) : PolyQuaternion :=
+  match o with
+  | .direct => cv m
+  | .inverse => conj (cv m)
+
+/-- Left (`M·U`) or right (`U·M`) multiplication. -/
+def sideMul (sd : SelectedTranslationSide) (Mq U : PolyQuaternion) : PolyQuaternion :=
+  match sd with
+  | .left => mul Mq U
+  | .right => mul U Mq
+
 /-- Coordinate image of a split chain. -/
-def chImg : List (SelectedTranslationStep tailBlocks) → Nat → PolyQuaternion
+def chImg (o : SelectedMultiplierOrientation) : List (SelectedTranslationStep tailBlocks) → Nat → PolyQuaternion
   | [], b => cv b
-  | st :: r, b => if b = st.selected then mul (conj (cv st.multiplier)) (cv b) else chImg r b
+  | st :: r, b => if b = st.selected then sideMul st.side (multQ o st.multiplier) (cv b) else chImg o r b
 
 /-- Admissible split chain. -/
-structure ChainOK (steps : List (SelectedTranslationStep tailBlocks)) : Prop where
-  side : ∀ st ∈ steps, st.side = .left
-  orient : ∀ st ∈ steps, st.multiplierOrientation = .inverse
+structure ChainOK (o : SelectedMultiplierOrientation) (steps : List (SelectedTranslationStep tailBlocks)) : Prop where
+  orient : ∀ st ∈ steps, st.multiplierOrientation = o
   distinct : steps.Pairwise fun x y => x.selected ≠ y.selected
   fresh : ∀ st ∈ steps, ∀ st' ∈ steps, st.multiplier ≠ st'.selected
 
-theorem chainOK_tail {st : SelectedTranslationStep tailBlocks} {r : List (SelectedTranslationStep tailBlocks)}
-    (h : ChainOK (st :: r)) : ChainOK r :=
-  ⟨fun x hx => h.side x (List.mem_cons_of_mem _ hx), fun x hx => h.orient x (List.mem_cons_of_mem _ hx),
+theorem chainOK_tail {o : SelectedMultiplierOrientation} {st : SelectedTranslationStep tailBlocks} {r : List (SelectedTranslationStep tailBlocks)}
+    (h : ChainOK o (st :: r)) : ChainOK o r :=
+  ⟨fun x hx => h.orient x (List.mem_cons_of_mem _ hx),
    (List.pairwise_cons.mp h.distinct).2,
    fun x hx y hy => h.fresh x (List.mem_cons_of_mem _ hx) y (List.mem_cons_of_mem _ hy)⟩
 
-theorem chain_padded (hb : 0 < tailBlocks) : ∀ (steps : List (SelectedTranslationStep tailBlocks)), ChainOK steps →
+theorem chain_padded (o : SelectedMultiplierOrientation) (hb : 0 < tailBlocks) :
+    ∀ (steps : List (SelectedTranslationStep tailBlocks)), ChainOK o steps →
     ∀ b, b < tailBlocks + 1 →
-    PaddedQuaternionCoeffEqv (tailBlocks + 1) (applySelectedTranslationStepsQuaternion hb steps (cv b)) (chImg steps b)
+    PaddedQuaternionCoeffEqv (tailBlocks + 1) (applySelectedTranslationStepsQuaternion hb steps (cv b)) (chImg o steps b)
   | [], _, b, _ => PaddedQuaternionCoeffEqv.refl _ _
   | st :: r, h, b, hbl => by
       have hr := chainOK_tail h
@@ -68,16 +80,27 @@ theorem chain_padded (hb : 0 < tailBlocks) : ∀ (steps : List (SelectedTranslat
       refine (PaddedQuaternionCoeffEqv.applySteps hb r h1).trans ?_
       unfold chImg coordinateImage
       by_cases hs : b = st.selected
-      · rw [if_pos hs, if_pos hs, h.side st (List.mem_cons_self ..), h.orient st (List.mem_cons_self ..)]
-        refine (applySteps_mul hb r _ _).trans (PaddedQuaternionCoeffEqv.mul ?_ ?_)
-        · refine (applySteps_conj hb r _).trans (PaddedQuaternionCoeffEqv.conj ?_)
-          exact applySteps_fixed_coordinate hb r _ st.multiplier_lt
+      · rw [if_pos hs, if_pos hs, h.orient st (List.mem_cons_self ..)]
+        have hm : PaddedQuaternionCoeffEqv (tailBlocks + 1)
+            (applySelectedTranslationStepsQuaternion hb r (multQ o st.multiplier)) (multQ o st.multiplier) := by
+          have hfix := applySteps_fixed_coordinate hb r _ st.multiplier_lt
             (fun y hy => h.fresh st (List.mem_cons_self ..) y (List.mem_cons_of_mem _ hy))
-        · subst hs
+          cases o
+          · exact hfix
+          · exact (applySteps_conj hb r _).trans (PaddedQuaternionCoeffEqv.conj hfix)
+        have hu : PaddedQuaternionCoeffEqv (tailBlocks + 1)
+            (applySelectedTranslationStepsQuaternion hb r (cv st.selected)) (cv b) := by
+          rw [hs]
           exact applySteps_fixed_coordinate hb r _ st.selected_lt
             (fun y hy => (List.pairwise_cons.mp h.distinct).1 y hy)
+        have hmul := applySteps_mul hb r
+        cases hsd : st.side <;> cases o <;> simp only [sideMul, multQ] at hm ⊢
+        · exact (hmul _ _).trans (PaddedQuaternionCoeffEqv.mul hm hu)
+        · exact (hmul _ _).trans (PaddedQuaternionCoeffEqv.mul hm hu)
+        · exact (hmul _ _).trans (PaddedQuaternionCoeffEqv.mul hu hm)
+        · exact (hmul _ _).trans (PaddedQuaternionCoeffEqv.mul hu hm)
       · rw [if_neg hs, if_neg hs]
-        exact chain_padded hb r hr b hbl
+        exact chain_padded o hb r hr b hbl
 
 theorem steps_supported_ne (hb : 0 < tailBlocks) (st : SelectedTranslationStep tailBlocks)
     (r : List (SelectedTranslationStep tailBlocks)) (p : RatPoly) :
@@ -92,22 +115,27 @@ theorem pe_idR (n : Nat) (p : RatPoly) (hp : Sup n p) : YMGap.Continuum.SU2HaarA
     (YMGap.Continuum.SU2QuaternionHeadSubstitutionPrefix.prefix_symm
       (identityReindexQuaternionPolynomial_prefix n p)) hp (idR_sup n p)
 
-theorem chImg_idR (hR : RingSub (tailBlocks + 1) (idR (tailBlocks + 1))) :
+theorem chImg_idR (o : SelectedMultiplierOrientation) (hR : RingSub (tailBlocks + 1) (idR (tailBlocks + 1))) :
     ∀ (steps : List (SelectedTranslationStep tailBlocks)) (b : Nat), b < tailBlocks + 1 →
-    QPE (tailBlocks + 1) (qsub (idR (tailBlocks + 1)) (chImg steps b)) (chImg steps b)
+    QPE (tailBlocks + 1) (qsub (idR (tailBlocks + 1)) (chImg o steps b)) (chImg o steps b)
   | [], b, hbl => id_coord _ b hbl
   | st :: r, b, hbl => by
       unfold chImg
       by_cases hs : b = st.selected
       · rw [if_pos hs]
-        exact qpe_trans (qmul_sub hR _ _) (qpe_mul (qpe_trans (qconj_sub hR _)
-          (qpe_conj (id_coord _ _ st.multiplier_lt))) (id_coord _ _ hbl))
-      · rw [if_neg hs]; exact chImg_idR hR r b hbl
+        have hm : QPE (tailBlocks + 1) (qsub (idR (tailBlocks + 1)) (multQ o st.multiplier)) (multQ o st.multiplier) := by
+          cases o
+          · exact id_coord _ _ st.multiplier_lt
+          · exact qpe_trans (qconj_sub hR _) (qpe_conj (id_coord _ _ st.multiplier_lt))
+        cases st.side
+        · exact qpe_trans (qmul_sub hR _ _) (qpe_mul hm (id_coord _ _ hbl))
+        · exact qpe_trans (qmul_sub hR _ _) (qpe_mul (id_coord _ _ hbl) hm)
+      · rw [if_neg hs]; exact chImg_idR o hR r b hbl
 
-theorem chain_coord (hb : 0 < tailBlocks) (st : SelectedTranslationStep tailBlocks)
-    (r : List (SelectedTranslationStep tailBlocks)) (h : ChainOK (st :: r)) (b : Nat) (hbl : b < tailBlocks + 1) :
-    QPE (tailBlocks + 1) (qsub (applySelectedTranslationSteps hb (st :: r)) (cv b)) (chImg (st :: r) b) := by
-  have hp := chain_padded hb (st :: r) h b hbl
+theorem chain_coord (o : SelectedMultiplierOrientation) (hb : 0 < tailBlocks) (st : SelectedTranslationStep tailBlocks)
+    (r : List (SelectedTranslationStep tailBlocks)) (h : ChainOK o (st :: r)) (b : Nat) (hbl : b < tailBlocks + 1) :
+    QPE (tailBlocks + 1) (qsub (applySelectedTranslationSteps hb (st :: r)) (cv b)) (chImg o (st :: r) b) := by
+  have hp := chain_padded o hb (st :: r) h b hbl
   have hR := YMGap.Continuum.SU2TorusRPReindex.reindex_ringSub (identityQuaternionBlockInvolution (tailBlocks + 1))
   have e : qsub (applySelectedTranslationSteps hb (st :: r)) (cv b) =
       applySelectedTranslationStepsQuaternion hb (st :: r) (cv b) := rfl
@@ -115,19 +143,19 @@ theorem chain_coord (hb : 0 < tailBlocks) (st : SelectedTranslationStep tailBloc
   refine qpe_trans (r := qsub (idR (tailBlocks + 1)) (applySelectedTranslationStepsQuaternion hb (st :: r) (cv b)))
     ⟨pe_idR _ _ (steps_supported_ne hb st r _), pe_idR _ _ (steps_supported_ne hb st r _),
     pe_idR _ _ (steps_supported_ne hb st r _), pe_idR _ _ (steps_supported_ne hb st r _)⟩
-    (qpe_trans (qpe_of_coeff _ hp) (chImg_idR hR _ b hbl))
+    (qpe_trans (qpe_of_coeff _ hp) (chImg_idR o hR _ b hbl))
 
 /-- **Simultaneous concrete crossing split** of the actual torus `Π T_K`. -/
-theorem split_chain (hb : 0 < tailBlocks) (st : SelectedTranslationStep tailBlocks)
-    (r : List (SelectedTranslationStep tailBlocks)) (h : ChainOK (st :: r))
+theorem split_chain (o : SelectedMultiplierOrientation) (hb : 0 < tailBlocks) (st : SelectedTranslationStep tailBlocks)
+    (r : List (SelectedTranslationStep tailBlocks)) (h : ChainOK o (st :: r))
     (links : List Z4Link) (N : Nat) (β : Q') (K : Nat) (ps : List Z4Plaq)
     (hsup : Sup (tailBlocks + 1) (prodPoly (YMGap.Continuum.SU2WilsonPolymerIdentity.TK links N β K) ps))
     (hps : ∀ p ∈ ps, ∀ b ∈ plaqIdx links N p, b < tailBlocks + 1) :
     (quaternionHaar (tailBlocks + 1) (prodPoly (YMGap.Continuum.SU2WilsonPolymerIdentity.TK links N β K) ps)).eqv
-      (quaternionHaar (tailBlocks + 1) (prodPoly (imgTK links N β K (chImg (st :: r))) ps)) :=
+      (quaternionHaar (tailBlocks + 1) (prodPoly (imgTK links N β K (chImg o (st :: r))) ps)) :=
   split_prod_haar links N β K (YMGap.Continuum.SU2TorusRPStepSub.steps_ringSub hb (st :: r)) ps
     (YMGap.Continuum.SU2QuaternionAllDegreeHaarTranslationChain.applySelectedTranslationSteps_haar hb _ _ hsup)
-    _ (chain_coord hb st r h) hps
+    _ (chain_coord o hb st r h) hps
 
 end YMGap.Continuum.SU2TorusRPSplitChain
 
