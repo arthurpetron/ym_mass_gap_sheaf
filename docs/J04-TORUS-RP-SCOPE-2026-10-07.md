@@ -428,4 +428,16 @@ transports observables along any `RingSub`, and `rcomp_obs` transports them alon
 `0 ≤ ∫_{|torusLinks|} (thetaT e)·e·Π_{torusPlaquettes} T_K[torusLinks]`, with `thetaT = thetaPoly` on
 `torusLinks (2M)`. Open: reflection matching, i.e. `rcomp r ∘ thetaT ≡ layout Θ ∘ rcomp r` on positive-link
 variables.
+
+## e2: reflection-matching pieces (`SU2TorusRPMatch`)
+
+* `like_obs`: any `ThetaLike` substitution sends `eval L e` to `evalI (imgR L M) e`, where `imgR` gives the Θ-image
+  link variable, conjugated on temporal links.
+* `thetaT_like`: the torus Θ is `ThetaLike` on `torusLinks`.
+* `rcomp_imgR`: the torus→layout reindexing sends `imgR torusLinks` to `imgR layout`.
+* `rcomp_pe`, `sup_evalI`: PE congruence for `rcomp r` on supported polynomials, and support of evaluated
+  observables.
+
+Axioms [propext, Quot.sound]. Open: the assembly into `TorusRP`. The layout Θ (`thetaH`) is `ThetaLike` at `a+a`
+blocks while the integral is over `|L|` blocks, so the gap must be bridged with `pe_lift`/`haar_drop'`.
 RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
