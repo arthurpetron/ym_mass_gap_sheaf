@@ -349,3 +349,11 @@ RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
 Open: P, C, pos, cross from the actual torus link/plaquette lists, and reindexing the torus integrand
 (its link order, observables F on positive links) onto the layout; then hW.
 RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
+
+## d9q — concrete P, C from the torus links
+- `Pt M`, `Ct M` (pos / crossing filters of `torusLinks (2M)`); `lay_nodup`, `Ct_nodup`, `Ct_ne`, `mem_Pt/Ct`.
+- `torus_rp_PC`: layout RP with P = Pt, C = Ct; remaining hypotheses are only the plaquette decomposition
+  `ps ~ pos ++ mir pos ++ cross` (pos in-box pos plaquettes, cross in-box crossing plaquettes, ps in the box).
+Open: that plaquette decomposition for the torus plaquette list, and reindexing the torus integrand (torusLinks order,
+observable F on positive links) onto the layout order; then hW.
+RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
