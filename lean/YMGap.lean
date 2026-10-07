@@ -95,6 +95,7 @@ import YMGap.RepTheory.SU3
 import YMGap.RepTheory.RepData
 import YMGap.RepTheory.SimpleGroup
 import YMGap.RepTheory.CasimirData
+import YMGap.RepTheory.SU2RealizedRow
 import YMGap.RepTheory.Spin4
 import YMGap.RepTheory.Spin4Reflection
 import YMGap.RepTheory.LatticeAnisotropy
