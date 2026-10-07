@@ -69,3 +69,9 @@ No fail statement is given: the ℓ¹ envelope is an upper bound, not the true a
 - `polymer_factor`: `∫ (Π_γ F)(Π_R G) ≈ ∫Π_γ F · ∫Π_R G` when the block sets are disjoint.
 - `idx_disj`: plaquettes sharing no link, with all links in `links`, have disjoint block sets.
 - `plaqWeight_split`: `plaqWeight w M p = [([], coeffW w 0·1)] ++ fPoly w p M`.
+
+## PROVED: commit 4, `SU2HaarAlgebra.lean`
+
+- Context-stable equivalence `PE` (shifted moment functional `phi`).
+- Proved: commutativity, associativity, unit, scalar≈1, closure under ·/++, and the factor-extraction `pe_extract`.
+- No new hypotheses.

@@ -4,7 +4,16 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 3, plaquette block support and polymer-product factorization (2026-10-07 PT)
+## Latest proved increment: R1 commit 4, context-stable Haar algebra (2026-10-07 PT)
+
+- `SU2HaarAlgebra` (PROVED).
+  - Defines `phi n X m = Σ x.c·H_n(m·x.m)` and `PE n X Y := ∀ m, phi X m ≈ phi Y m`.
+  - `pe_haar`: PE gives equal Haar integrals.
+  - Closure: `pe_mulL`, `pe_mulR`, `pe_append`.
+  - Algebra: `pe_comm`, `pe_assoc`, `pe_const` (c≈1), `pe_one`.
+  - `pe_extract`: pulls any factor of `prodPoly` to the front.
+
+## Earlier proved increment: R1 commit 3, plaquette block support and polymer-product factorization (2026-10-07 PT)
 
 - `SU2PlaqSupport` (PROVED).
   - Closure lemmas for block support under +, ·, −, scalars, quaternion product/conjugate, and characters.

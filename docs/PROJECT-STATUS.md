@@ -6452,3 +6452,5 @@ arbitrary disjoint link-block supports.
 - ℓ¹ route; at w₀ = 10⁻⁸ the true Haar activity is ≤ (10⁻¹⁵)^{|γ|}.
 
 `SU2PlaqSupport` (2026-10-07): R1 commit 3.  Haar factorization of polymer products over link-disjoint plaquette sets.
+
+`SU2HaarAlgebra` (2026-10-07): R1 commit 4.  Under quaternionHaar, polyMul is commutative and associative in every context.

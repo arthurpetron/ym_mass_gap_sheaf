@@ -7395,6 +7395,7 @@ import YMGap.Continuum.Z4PlaqMetric
 import YMGap.Continuum.SU2HaarDisjointSupport
 import YMGap.Continuum.SU2HaarL1Activity
 import YMGap.Continuum.SU2PlaqSupport
+import YMGap.Continuum.SU2HaarAlgebra
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport
