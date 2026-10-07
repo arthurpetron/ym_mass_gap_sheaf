@@ -631,3 +631,116 @@ limits, useful original signed cost, scaling, independent survival, completed
 comparison and all physical/continuum/Clay obligations remain OPEN. Together
 this continuation checks three focused leaves and twenty-one public gates,
 without changing any canonical displayed broad claim. No chart reprint.
+
+## Next experiment: actual radial heat/moment jet join
+
+Previous checkpoint `75075d27` is verified PROGRESS and pushed to main.
+The finite radial algebra must now refer to actual Jacobi derivatives before
+it is a heat estimate. For r_i=HKConv.sTerm(w,x,i), retain the same full
+Euler-weighted product P and normalized heat h=(inverseNome/2)*P'_x.
+Prove the actual FORMAL first three product jets at 1+x:
+
+```text
+P'   = P*S1,
+P''  = P*(S1^2-S2),
+P''' = P*(S1^3-3*S1*S2+2*S3).
+C*h^2+(1-x^2)*(h*h_xx-h_x^2)-x*h*h_x
+     = (inverseNome*half*P)^2*(C*S1^2+Lnum).
+```
+
+Consumer: `JacobiHeatRadialMixtureCancellation.radialMixture_payment_nonneg`.
+Inputs already available are the literal shifted product/heat, formal
+Leibniz rules, first-derivative normalization and factor/sTerm cancellation.
+The output is an ACTUAL finite scalar heat implication given the smaller
+PRODUCT ceiling; it does not produce that analytic ceiling. Empty/constant
+prefixes, x=-1, full signed x and the normalization are decisive tests.
+No derivative is freely supplied in lieu of formal differentiation.
+
+Sol implements the bounded actual-jet leaf, root checks it with one 20-GiB
+worker and 12-GiB reserve after a fresh dynamic preflight. A parallel math
+review seeks a shorter signed product ceiling without insisting on a full
+Poisson formalization; another reviews the later Haar-certificate join.
+Revise if only recursive free jets are pinned, any factor/normalization is
+dropped, a zero case is excluded, or pointwise order is silently treated as
+Haar-square/conditional/OS order. No new frontier bundle or field weakening.
+
+The eventual polynomial certificate route may use the cleared identity
+`P*Lheat=P''*Qproduct+C*P*(P'^2-P*P'')+2*(1-x^2)*P^3*variance`.
+Its positivity and positive-multiplier removal must themselves be constructed
+under arbitrary original action insertions; this paragraph is a research
+target, not that missing proof. No chart claim changes from selecting it.
+
+### Observed outcome: ACTUAL finite heat-jet join checked
+
+The experiment succeeds at its stated scalar scope. All nine load-bearing
+declarations in `JacobiHeatRadialMomentJets.lean` pass the focused check and
+print exactly {propext, Quot.sound}. No elaboration retry or statement change
+was needed. The public padded-coefficient evaluation bridge is reused.
+
+| Declaration | Source |
+| --- | --- |
+| `product_derivative_coeff_pin` | `lean/YMGap/Continuum/JacobiHeatRadialMomentJets.lean:130` |
+| `product_first_moment_pin` | Same source `:142` |
+| `product_second_moment_pin` | Same source `:149` |
+| `product_third_moment_pin` | Same source `:175` |
+| `heat_eval_moment_pin` | Same source `:214` |
+| `heat_first_moment_pin` | Same source `:226` |
+| `heat_second_moment_pin` | Same source `:242` |
+| `heat_radial_moment_pin` | Same source `:265` |
+| `heat_radial_nonnegative_of_productCost` | Same source `:305` |
+
+Accepted log and SHA-256:
+
+```text
+/private/tmp/ym-oct7-radial-moment-jets1.log
+ba78f37d8dd70c8a081efe89bd38818a1382990b06a7cc3a160bb334fa333a9b
+```
+
+Root read the complete source; independent read-only review confirmed actual
+formal pderiv through order three, literal sTerm/factor cancellation, repeated
+index terms, inverseNome*half normalization, and empty/constant prefixes.
+The final expression consumes exactly C>=0, x^2<=1 and actual D<=C. No heat
+or moment density is inverted. This closes the scalar heat/moment pin missing
+from checkpoint 75075d27; it does NOT produce the product ceiling.
+
+Fresh escalated preflight found no competing compiler, 88% free and zero
+swap. One capped 20-GiB worker, 12-GiB reserve; no full-root/tree build/audit
+or baseline refresh. The root import is registered, not a full-root check.
+No new sorry/axiom/classical input or canonical frontier change. Broad chart
+unchanged; no reprint.
+
+### Parallel product-ceiling and certificate review
+
+These are mathematical/source reviews, not new Lean evidence. For the
+negative hemisphere the elementary signed summand
+F(s)=(1+x*cosh(s))/(cosh(s)+x)^2 has integral one. For -1<x<0 it has a
+single negative minimum and total variation at most 3/[2*(1+x)]. Midpoint
+quadrature would bound the infinite sum by 1/(2*t_theta)+3/[4*(1+x)],
+giving an inverse-linear nome-defect ceiling when 1+x>=1-w. At
+x<=-2*w/(1+w^2), every finite summand is nonpositive. This leaves the strip
+`(1-w)^2/(1+w^2) < 1+x < 1-w`; its width is not a payment under the
+original action. No global elementary summed bound was found.
+
+A fixed-multiplier termwise telescoping shortcut fails: at w=1/2,c=1/8,
+the comparison using g(c)=(1-c^2)/(1+2*c*x+c^2) would require K>=85/81
+at x=1 and K<=45/49 at x=-1. This rejects that particular comparison,
+not the summed target or Yang--Mills. Retain signed corrections or use the
+genuine theta3 Gaussian bridge.
+
+The prospective cleared polynomial identity and pair-variance exponent 3
+were independently confirmed. Existing square-certificate multiplication,
+positive-coefficient substitution and positive-window order reflection can
+retain overlapping variables and a certified original action weight. The
+missing analytic producer is a SAME finite Certificate for
+`Qproduct=C*P^2-(1-x^2)*(P'^2-P*P'')-x*P*P'` with useful nome dependence.
+Scalar pointwise positivity is not such a certificate. Positive-multiplier
+reflection cancels only in a Haar expectation; it does not assert polynomial
+certificate division. An actual action weight must also be certified before
+it is used in that construction.
+
+Decision: CONTINUE from the checked actual heat-jet reduction to that genuine
+product-ceiling producer and its Haar/conditional join. Do not extend wrappers
+that re-assume it, split away the mixture variance, or identify the auxiliary
+circle clock with physical time. Explicit angular/cutoff/limit transport,
+useful original signed cost, scaling, independent survival, completed
+comparison and all physical/continuum/Clay obligations remain OPEN.

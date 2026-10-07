@@ -1,11 +1,25 @@
 # Canonical one-page project status
 
+Supporting ACTUAL radial heat/moment join checked (2026-10-07): formal
+product derivatives through order three and normalized h,h_x,h_xx are
+pinned to the literal Jacobi moments. The exact radial expression retains
+the full signed numerator and inverseNome*half normalization, including
+empty/constant prefixes. A supplied SAME product ceiling pays the scalar
+expression; its useful producer, Haar-square/weighted conditional join,
+angular and cutoff/limit transport remain OPEN. One focused target passes
+nine permitted axiom gates; no full-root/tree audit. Useful signed-cost/
+scaling estimates, independent survival, completed comparison, physical/
+volume control, SAME limiting QFT, every group and Clay remain OPEN.
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+Broad chart unchanged; no reprint.
+
 Supporting finite radial-mixture contraction checked (2026-10-07): the
 ACTUAL finite moment sums construct pair-mass and weighted-variance
 positivity. Exact signed cancellation makes a supplied nonnegative PRODUCT
 curvature ceiling sufficient for the full cleared derivative-mixture bound,
 without division and including the empty prefix. The product ceiling,
-actual heat-jet/limit pins and original conditional join are still OPEN.
+angular/limit pins and original conditional join are still OPEN; actual
+scalar heat-jet pins are now supplied above.
 The narrower next analytic route needs the underlying theta3 product's
 Gaussian/second-angular-derivative bridge, not a full SU(2) image formula;
 neither it nor physical-clock identification is imported as a premise.

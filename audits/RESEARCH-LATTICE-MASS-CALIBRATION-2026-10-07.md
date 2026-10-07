@@ -17,8 +17,15 @@ math-ph listing scan. The latest cached listing scan remains 2026-09-30
    1730(50)(80) MeV using r0^-1=410(20) MeV. This verifies the rough 1.7 GeV
    scale-set estimate, not the note's attribution of m/sqrt(string tension)
    approximately 3.9 to that paper: **NOT FOUND** in the inspected text.
+   The primary dimensionless result there is r0*m=4.21(11)(4).
+   Dividing its MeV estimate by an independently chosen 440 MeV does not
+   produce its measured string-tension ratio. Athenodorou--Teper (2021),
+   Table 34, instead reports SU(3) m0++/sqrt(sigma)=3.405(21).
+   Keep these reference scales separate; neither result fixes a required
+   numerical mass for the Clay theorem.
    Neither that number nor its extrapolation is a kernel certificate.
    [Primary paper, sections II and VI](https://arxiv.org/html/hep-lat/9901004).
+   [Athenodorou--Teper, continuum tables](https://arxiv.org/html/2106.00364v2).
 2. Preserve physical time normalization. An exact discrete-time generator,
    when its logarithm/domain is constructed, is -log(T)/a_t. Do not identify
    it at finite a_t with the standard Kogut--Susskind electric-plus-magnetic

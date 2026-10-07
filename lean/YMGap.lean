@@ -4943,6 +4943,8 @@ import YMGap.Continuum.JacobiHeatRelativeAngularBound
 import YMGap.Continuum.JacobiHeatTransverseCurvature
 -- Finite radial cancellation; the analytic product ceiling is still supplied.
 import YMGap.Continuum.JacobiHeatRadialMixtureCancellation
+-- Actual first three product jets and normalized heat; no product-ceiling producer.
+import YMGap.Continuum.JacobiHeatRadialMomentJets
 import YMGap.Continuum.SU2HeatQuarticTailCutoff
 import YMGap.Continuum.QuaternionHaarHeatAngularDeficit
 import YMGap.Continuum.QuaternionHaarHeatRelativeAngularBound

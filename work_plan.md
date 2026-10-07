@@ -27,6 +27,20 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+The radial cancellation is now pinned to CHECKED ACTUAL Jacobi heat jets.
+`JacobiHeatRadialMomentJets` identifies formal P', P'', P''' with
+P*S1, P*(S1^2-S2), P*(S1^3-3*S1*S2+2*S3), respectively, using the literal
+Euler-weighted factors and HKConv.sTerm. The normalized h,h_x,h_xx retain
+inverseNome*half. The full radial heat expression equals
+`(inverseNome*half*P)^2*(C*S1^2+Lnum)`; the existing cancellation pays it
+from C>=0, x^2<=1 and the explicit SAME product cost D<=C. No free recursive
+jet or positive-density division is substituted. Empty and constant prefixes
+remain covered. NEXT construct the useful product ceiling and its actual
+Haar-certificate/weighted conditional join; scalar nonnegativity alone is
+not that certificate. One focused target passes nine permitted axiom gates;
+no full-root/tree audit or canonical closure. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 The radial-mixture front now has a CHECKED cancellation-preserving finite
 reduction: actual nonnegative finite moments construct S1^2-S2>=0 and
 S1*S3-S2^2>=0. With a=1-x^2 and D=a*S2+x*S1, the cleared numerator is
@@ -36,8 +50,9 @@ NEXT construct that product-curvature ceiling; the narrower analytic route
 needs the underlying theta3 PRODUCT's Gaussian/angular derivative join, not
 a full SU(2)/Faraut image formula. Existing all-nome product/cosine-series
 equality is available, but its Poisson/second-angular-derivative leg is NOT.
-Finite-moment/actual heat-jet pins, explicit cutoff transport and original
-conditional consumers remain required. Auxiliary circle time -log(w) is
+Finite-moment/actual scalar heat-jet pins are now supplied above; angular,
+explicit cutoff transport and original conditional consumers remain required.
+Auxiliary circle time -log(w) is
 not physical carrier time -4*log(w) or standard g^2=-8*log(w). One focused
 target passes seven permitted gates; no full-root/tree audit or canonical
 closure. Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
@@ -146,6 +161,9 @@ control is NOT supplied. Evidence:
 The user's lattice-mass note sharpens the backward physical-time checks,
 without supplying a proof input. A fitted glueball channel does not exclude
 other low-energy states; scale-set GeV estimates are diagnostics, not bounds.
+Keep a measured dimensionless ratio tied to its OWN reference scale:
+Morningstar--Peardon's r0-based 1.7 GeV estimate is not a measurement of
+m/sqrt(sigma)=3.9; Athenodorou--Teper reports 3.405(21) for SU(3).
 The discrete transfer's exact logarithm is not an unconditional finite-spacing
 Kogut--Susskind identity: the temporal-continuum limit is a separate join.
 Do not assume W^{1,p} quantum sample connections, a general proved 2+1D

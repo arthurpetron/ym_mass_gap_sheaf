@@ -1,5 +1,29 @@
 # Sorry Ledger
 
+## PROVED actual scalar heat-jet join / OPEN product ceiling and Haar join (2026-10-07)
+
+- `JacobiHeatRadialMomentJets.product_derivative_coeff_pin` pins the actual
+  affine-product formal derivative. `product_first_moment_pin`,
+  `product_second_moment_pin` and `product_third_moment_pin` identify
+  evaluated P', P'', P''' with the literal HKConv.sTerm moments, retaining
+  Euler factors, diagonal/repeated-index corrections and N=0.
+- `heat_eval_moment_pin`, `heat_first_moment_pin` and
+  `heat_second_moment_pin` retain the actual inverseNome*half normalization.
+  `heat_radial_moment_pin` gives the exact full signed heat numerator.
+  `heat_radial_nonnegative_of_productCost` consumes C>=0, x^2<=1 and the
+  explicit SAME product ceiling D<=C; no moment or heat density is divided.
+- This closes the finite scalar heat/moment identification requested by the
+  earlier reduction below. It does NOT produce a useful product ceiling,
+  Haar-square certificate, angular/original-action conditional estimate,
+  Poisson/derivative-limit or scaling theorem. Those joins remain OPEN.
+- One focused check passes all nine printed gates within
+  {propext, Quot.sound}; independent read-only review confirms the exact
+  scope. One 20-GiB worker, 12-GiB reserve, fresh 88%-free zero-swap preflight.
+  No new sorry/axiom/classical input, field change, full-root/tree audit or
+  baseline refresh. Root import is registered but not a full-root check.
+
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 ## PROVED reduction / OPEN product ceiling: finite radial-mixture cancellation (2026-10-07)
 
 - `JacobiHeatRadialMixtureCancellation.M1_nonneg`, `M2_nonneg` and
@@ -13,8 +37,8 @@
   floor is inverted; zero/empty prefixes remain included.
 - The genuinely missing PRODUCT ceiling is an explicit argument to this
   reduction, not a produced analytic estimate or new canonical field.
-  OPEN: instantiate the finite r-moments in actual heat derivatives, construct
-  the sharper product ceiling via a justified finite route or SAME theta3
+  The actual finite scalar heat/moment identification is now PROVED above.
+  OPEN: construct the sharper product ceiling via a justified finite route or SAME theta3
   Gaussian/second-angular-derivative bridge with moduli, and prove cutoff,
   original unweighted/conditional, scaling and all downstream Clay joins.
 - Final focused check passes seven gates within {propext, Quot.sound};
