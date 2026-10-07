@@ -6,6 +6,7 @@
   `tau_lv`.
 
 * `tau_prod`: `τ_t (Π_{torusPlaquettes} T_K) ≡PE Π T_K`.
+* `shift_inv`: `∫ τA·τB·Π T_K ≈ ∫ A·B·Π T_K` (supported integrand).
 
 **OPEN**: `Θ∘τ_x ≡ τ_{−x}∘Θ` and the correlator identity.
 -/
@@ -78,7 +79,22 @@ theorem tau_prod (β : Q') (K : Nat) :
   · rw [← prod_map]
     exact YMGap.Continuum.SU2TorusRPFactor.prod_perm _ _ (YMGap.Continuum.SU2TorusShiftPerm.tp_shift_perm N t hN)
 
+/-- **The torus `T_K` integral is invariant under the time shift:** `∫ τA·τB·Π T_K ≈ ∫ A·B·Π T_K`. -/
+theorem shift_inv (β : Q') (K : Nat) (A B : RatPoly)
+    (hP : YMGap.Continuum.SU2QuaternionArbitraryHaarRadialPositivity.SupportedQuaternionBlocks (torusLinks N).length
+      (polyMul (polyMul A B) (prodPoly (YMGap.Continuum.SU2WilsonPolymerIdentity.TK (torusLinks N) N β K) (torusPlaquettes N)))) :
+    (YMGap.Continuum.BF4GeometricHaarMehlerProjection.quaternionHaar (torusLinks N).length
+      (polyMul (polyMul (tau N t hN A) (tau N t hN B))
+        (prodPoly (YMGap.Continuum.SU2WilsonPolymerIdentity.TK (torusLinks N) N β K) (torusPlaquettes N)))).eqv
+    (YMGap.Continuum.BF4GeometricHaarMehlerProjection.quaternionHaar (torusLinks N).length
+      (polyMul (polyMul A B) (prodPoly (YMGap.Continuum.SU2WilsonPolymerIdentity.TK (torusLinks N) N β K) (torusPlaquettes N)))) := by
+  have hR := tau_ringSub N t hN
+  have hPE := pe_trans _ (hR.mul (polyMul A B) _) (YMGap.Continuum.SU2TorusRPSubst.pe_mul2 _ (hR.mul A B) (tau_prod N t hN β K))
+  exact Q'.eqv_trans _ _ _ (Q'.eqv_symm (YMGap.Continuum.SU2HaarAlgebra.pe_haar _ hPE))
+    (YMGap.Continuum.SU2TorusTau.haar_tau N t hN _ hP)
+
 end YMGap.Continuum.SU2TorusTauTK
 
 #print axioms YMGap.Continuum.SU2TorusTauTK.tau_TK
 #print axioms YMGap.Continuum.SU2TorusTauTK.tau_prod
+#print axioms YMGap.Continuum.SU2TorusTauTK.shift_inv

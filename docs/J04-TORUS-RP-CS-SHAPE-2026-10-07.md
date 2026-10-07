@@ -69,6 +69,7 @@ simple groups) remains OPEN; this is SU(2) only.**
    DEFINED as `SU2TorusTau.tau`. PROVED: `SU2TorusTauVar.tau_lv` (`qsub τ_t (linkVar ℓ) ≡ linkVar (shv t ℓ)`).
 2. **PROVED** (`SU2TorusShiftPerm.tp_shift_perm`, `tl_shift_perm`, any `t`, [propext, Quot.sound]): full-torus permutation `(torusPlaquettes N).map (shv N t) ~ torusPlaquettes N`, and likewise for links.
 3. **PROVED** (`SU2TorusTauTK.tau_ringSub`, `tau_TK`, `tau_prod`): `τ_t (Π_p TK p) ≡PE Π_p TK p`, via `tk_shift` and item 2.
+   Also PROVED: `shift_inv`, i.e. `∫ τA·τB·Π T_K ≈ ∫ A·B·Π T_K` (time-shift invariance of the `T_K` torus integral).
 4. Haar invariance under `τ_t`. The existing reindex machinery (`SU2TorusRPReindex`) covers block *involutions*
    only. Plan: write `τ_t = ρ_t ∘ ρ_0`, where `ρ_c` is the pure time-coordinate index involution `a ↦ c − a (mod N)`
    (no conjugation). Then `quaternionHaar_reindex` applies to each factor. PROVED (`SU2TorusTimeRefl`): `rt_inv`,
