@@ -7394,6 +7394,7 @@ import YMGap.Continuum.SU2LinkDecaySharpInst
 import YMGap.Continuum.SU2TorusRPCore
 import YMGap.Continuum.SU2TorusRPWilson
 import YMGap.Continuum.SU2TorusRPHaar
+import YMGap.Continuum.SU2TorusRPSplitSel
 import YMGap.Continuum.SpecMaxRateFamily
 import YMGap.Continuum.W1StrongCouplingPerturbation
 import YMGap.Continuum.W1VacuumTailRowSum
