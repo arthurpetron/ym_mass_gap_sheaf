@@ -27,6 +27,38 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+The cap-only scaling shortcut is now PRUNED by a CHECKED parameter screen:
+`4224 <= (1-w)^2*logCurvatureCap(w)`. This SAME constructed entrywise cap
+contains the global heat-floor reciprocal; additive tensorization cannot make
+it bounded or inverse-linear in the nome defect. This is a limitation of the
+chosen bound, NOT a lower bound on actual curvature/noise or a Yang--Mills
+counterexample. NEXT prioritize a sharper ONE-SIDED lower-curvature producer
+without that global reciprocal, or the complete signed-cost estimate retaining
+its Hessian/noise cancellations. Hamilton's sphere heat matrix-Harnack result
+is a research benchmark only: reconstruct it constructively, identify heat
+time, account for the six-rotation acceleration term (or justify a frame
+change), and transfer to the literal finite prefix with explicit deficits.
+No classical theorem is imported as a Lean premise. Keep direct differential
+pins bounded and consumer-driven; do not grow wrappers around this unusable
+cap alone. Four focused targets pass nine permitted gates in this checkpoint,
+including additive original score jets and this screen; no broad closure.
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
+The local adaptive envelope now has a CHECKED additive frozen-JET product
+construction. Exact polynomial-cost square completion retains the product
+cross jets and adds local costs, with no active-count multiplier. The local
+matrix envelope is coefficient-exactly pinned to its frozen first/second heat
+jets; recursive assembly is instantiated on the LITERAL original kineticWeight
+with the ACTUAL lifted transfer scores. Empty products and repeated factors
+are covered. IMPORTANT: product jets are DEFINED by frozen Leibniz recursion;
+their direct whole-kernel angular differential and conditional integration
+pins are still missing. Prove those pins before using the conditional
+Gram/normalization target. Full unweighted Haar does NOT annihilate the log
+Hessian; the original weighted conditional Hessian must be retained. Nome
+curvature is still explicit and NOT a useful AF-uniform cap. Three focused
+checks pass six permitted gates; no broad chart/scorecard closure. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 The adaptive conditional-score front now has a CHECKED local polynomial
 direction input. Both signs of all 36 ordered mixed heat-Hessian entries
 construct `6*U*sum_i u_i^2+sum_ij u_i*u_j*Mij` for supported polynomial

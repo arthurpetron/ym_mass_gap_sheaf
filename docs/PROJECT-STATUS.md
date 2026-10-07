@@ -1,5 +1,29 @@
 # Canonical one-page project status
 
+Supporting cap-only scaling screen checked (2026-10-07):
+`4224 <= (1-w)^2*logCurvatureCap(w)` rules out bounded/inverse-linear nome
+control of THIS constructed entrywise cap. It says nothing about optimal
+curvature, actual noise or retained Hessian cancellation. Prioritize a genuine
+one-sided lower-curvature producer or the complete signed-cost estimate;
+do not extend cap-only scaling wrappers. One focused target passes three
+permitted gates, alongside the additive original jet construction below.
+Physical/volume control, SAME limiting QFT, every group and Clay remain OPEN.
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+Broad chart unchanged; no reprint.
+
+Supporting additive original score-JET assembly checked (2026-10-07):
+the local matrix envelope is pinned to actual heat-factor frozen derivatives;
+polynomial-cost tensorization keeps cross jets and adds local costs over the
+LITERAL kineticWeight, with ACTUAL lifted transfer-score coefficients. No
+active-count multiplier, coefficient derivative or conditional Hessian sign.
+Product jets remain recursive: direct whole-kernel differential and conditional
+Gram/normalization pins are OPEN. Useful AF/scaling control, independent
+survival, completed comparison, physical/volume control, SAME limiting QFT,
+every group and Clay remain OPEN. Three focused targets pass six permitted
+gates; no full-tree audit. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+Broad chart unchanged; no reprint.
+
 Supporting adaptive local curvature input checked (2026-10-07): all 36
 ORDERED entries give a six-direction envelope for supported POLYNOMIAL
 coefficients, instantiated with the ACTUAL lifted original transfer scores

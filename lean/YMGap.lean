@@ -5504,6 +5504,12 @@ import YMGap.Continuum.SU2QuaternionHeatLogCurvature
 import YMGap.Continuum.QuaternionHaarSixPolynomialMatrixEnvelope
 import YMGap.Continuum.SU2QuaternionFrozenSixHeatCurvature
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFrozenScoreCurvature
+-- Additive original product jets; direct differential/conditional joins remain open.
+import YMGap.Continuum.QuaternionHaarPolynomialJetCurvature
+import YMGap.Continuum.SU2QuaternionProductHeatFrozenJetCurvature
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFrozenScoreProductCurvature
+-- Computed entrywise cap has inverse-quadratic nome-defect growth, not AF control.
+import YMGap.Continuum.SU2QuaternionLogCurvatureCapObstruction
 import YMGap.Continuum.SU2QuaternionRelativeHeatDualScore
 import YMGap.Continuum.SU2QuaternionProductHeatScoreVariance
 import YMGap.Continuum.SU2QuaternionProductHeatScoreEnergyObstruction

@@ -125,3 +125,165 @@ and an exact discrete transfer logarithm does not bypass physical-clock or
 limiting-theory identification. The SAME completed comparison, justified
 scaling family, nontrivial survival and limiting QFT remain open. This local
 certificate closes no broad chart node or Clay obligation.
+
+## Next experiment: polynomial-cost tensorization
+
+Selected target: construct the displayed product-jet identity, then instantiate
+it with local frozen heat jets on the literal original product. The adaptive
+coefficient restriction is already removed. The missing input here is additive
+polynomial-cost assembly, not another scalar smoothing estimate.
+
+Available inputs are the local six envelope, supported opposite-square
+multiplication and the existing scalar product identity. Predicted result:
+local costs add, cross products cancel exactly and no active-count multiplier
+appears. Decisive tests: empty product, duplicate factors, arbitrary signed
+and output-dependent coefficients. Differentiate only the heat factors, never
+the coefficients. A recursive formal jet is not yet a direct differential
+or conditional integral pin; keep that boundary explicit.
+
+Verification budget remains serialized focused checks with one 20-GiB worker,
+12-GiB reserve and fresh dynamic process/memory preflights. Root verifies;
+Sol supplies only the finite product identity; an independent reviewer inspects
+the actual join. Stop/revise if an integrated log-Hessian sign is assumed,
+cross-block derivatives are dropped, source/action/output weights change or
+the proposed consumer needs a missing derivative pin.
+
+### Observed tensorization evidence
+
+Three serialized focused checks PASS; six printed declarations use only
+{propext, Quot.sound}:
+
+| Declaration | Source | Passing log |
+| --- | --- | --- |
+| `polynomialJet_product_curvature_certificate` | `lean/YMGap/Continuum/QuaternionHaarPolynomialJetCurvature.lean:49` | `/private/tmp/ym-oct7-polynomial-jet-curvature.log` |
+| `frozenSixHeatEnvelope_jet_pin` | `lean/YMGap/Continuum/SU2QuaternionProductHeatFrozenJetCurvature.lean:95` | `/private/tmp/ym-oct7-product-frozen-jets3.log` |
+| `heat_frozen_six_jet_certificate` | `lean/YMGap/Continuum/SU2QuaternionProductHeatFrozenJetCurvature.lean:109` | Same product log |
+| `productHeat_frozenJet_curvature_certificate` | `lean/YMGap/Continuum/SU2QuaternionProductHeatFrozenJetCurvature.lean:153` | Same product log |
+| `lastStepScoreCoefficients_supported` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFrozenScoreProductCurvature.lean:53` | `/private/tmp/ym-oct7-original-frozen-score-product.log` |
+| `original_kinetic_frozenScoreJet_certificate` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFrozenScoreProductCurvature.lean:70` | Same original-score log |
+
+Log SHA256 in the three-log order above:
+
+```text
+f9f1ae8b3fc81457d7eef94ad58958ea6932ac3648746edfc0cbbd155afd78be
+7a7368679cfa73d66192262f51560fdd47fe9654aa3f743717638a693f1f4e40
+079c9ac6e4340329594c57e1bdd727dfdfa99b523fc56af411bac47d662c8730
+```
+
+The first product attempt failed on a defining namespace; the second failed
+because a constant-zero polynomial is not definitionally the empty zero list.
+The repaired empty-product transport uses `RatPolyCoeffEqv.zero_smul`, not a
+limit raise or changed claim. Those failed logs are not proof evidence.
+Each launch had a fresh capacity/process preflight: 87--88% free, zero swap,
+no competing compiler. No new source sorry/axiom/classical input or canonical
+field change; root import registration only, no full-root/tree audit or
+hashed-baseline refresh. Empty and duplicate-factor cases are in the universal
+recursive theorem, not separate numerical claims.
+
+### Interpretation and remaining exact joins
+
+CONTINUE. The local matrix-to-heat-jet pin and additive polynomial-cost product
+construction are checked, including the original kinetic base and actual
+transfer-score coefficients. They do NOT yet assert that the recursive jets
+equal a direct whole-kernel frozen angular sum. The missing differential pins
+are precisely the first/second frozen Leibniz rules and factor localization;
+coefficients must not be differentiated.
+
+The subsequent conditional target retains the Hessian:
+S_u^2 <= Noise*(R*A^2+A*F2(A)-F1(A)^2), with A=T a, and only under the
+genuine positive conditional law and a justified source factorization/error
+join. For arbitrary original c, do not silently set phi=c/a. The existing
+incoming reciprocal/error construction remains required where appropriate.
+Output coefficients must pull through head integration before this target is
+an actual original-score statement. `partialHaarHeads_mul_lift` in
+`lean/YMGap/Continuum/SU2QuaternionHeadChainComposition.lean:51` and
+`angularDerivative_partialHaarHeads` in
+`lean/YMGap/Continuum/SU2QuaternionHaarTailDerivative.lean:171` are the existing
+pin inputs. Polynomial-column Gram alone does not supply the score column
+F1(K)/K; a cleared square/order-reflection join is still missing.
+
+Do NOT assume an integrated log-Hessian vanishes: free marginal cancellation
+is only integral DD K=0. With full unweighted Haar and a constant angular
+generator, H[h*D^2h-(Dh)^2]=-2*H[(Dh)^2]; conditional/action/output insertions
+retain their own derivatives. No such sign or cancellation is imported here.
+
+The nome cap still includes `heatSecondDerivativeCap/headFloor+relativeCap^2`
+(`lean/YMGap/Continuum/SU2QuaternionHeatLogCurvature.lean:143`,
+`secondRelativeCap`, and `:148`, `logCurvatureCap`). No useful near-one-nome
+or physical scaling control is supplied by additive tensorization.
+The broad chart and Clay status remain OPEN and unchanged.
+
+## Decisive parameter screen selected before further derivative scaffolding
+
+Independent source review identified a cap issue: the current entrywise bound
+uses the reciprocal global heat floor. Before investing in more differential
+joins, test the conservative cleared proposition
+
+    4224 <= (1-w)^2 * logCurvatureCap(w).
+
+Available inputs: the EXISTING `headFloor_le_nome_defect_square`,
+`lean/YMGap/Continuum/BF4ExactSlabHeadFloorNomeCeiling.lean:61`; the zeroth-term
+`prefix_bound`, `lean/YMGap/Continuum/SU2HeatPolynomialPrefixBound.lean:105`;
+and the literal cap formulas. This screen concerns the chosen bound only,
+NOT the true optimal curvature, any noise, retained signed Hessian or YM gap.
+
+Predicted outcome: the screen passes; additive product algebra cannot make
+this cap bounded or inverse-linear in the nome defect. If confirmed, prioritize
+a sharper ONE-SIDED lower-curvature producer or the complete signed-cost route
+over further wrappers around this entrywise cap. Cancellation/noise estimates
+are not refuted and must not be dropped. The screen is a rational theorem
+with the same gate/single-worker budget, not a numerical parameter sweep.
+Observed evidence: focused check PASS, three declarations within
+{propext, Quot.sound}:
+
+- `prefixBudget_one_le`,
+  `lean/YMGap/Continuum/SU2QuaternionLogCurvatureCapObstruction.lean:37`;
+- `heatSecondDerivativeCap_ge_4224`, same source `:46`;
+- `logCurvatureCap_nome_defect_square_lower`, same source `:59`.
+
+Accepted log `/private/tmp/ym-oct7-log-curvature-cap-obstruction2.log`, SHA256
+`71baf4d2702ff7f2426971442fecaa270a8d1985f7964acff9a7e508bdf80c95`.
+An earlier failed check omitted the explicit reciprocal positivity proof;
+the repair supplies the existing `headFloor_positive`, with no limit raise
+or changed statement. No new source sorry/axiom/classical input or canonical
+field change. The same fresh preflight/single-worker limits apply; no full
+audit or root rebuild.
+
+Decision: REVISE the analytic priority toward the one-sided producer or
+complete retained signed-cost estimate. Bounded direct derivative pins remain
+useful algebra, but do not treat this entrywise cap alone as a scaling
+producer. Do not infer a theorem about noise or surviving variance from
+a theorem about the cap. Independent review confirms this distinction and
+the accurate recursive-versus-direct jet boundary.
+
+### One-sided research benchmark, not a formal input
+
+Hamilton's original *A Matrix Harnack Estimate for the Heat Equation*,
+Corollary 4.4 (pp. 125--126), bounds the covariant log Hessian of a positive
+heat-equation solution below by -g/(2*t) on compact manifolds with nonnegative
+sectional curvature and parallel Ricci tensor; it explicitly includes spheres.
+This is a possible one-sided benchmark, not a Lean theorem or finite-prefix
+certificate. Root checked the original-paper transcription; direct publisher
+PDF requests returned 403.
+[Original paper transcription, Corollary 4.4](https://doczz.net/doc/7681685/a-matrix-harnack-estimate-for-the-heat-equation),
+[publisher record](https://doi.org/10.4310/CAG.1993.v1.n1.a6).
+
+Our inference for a possible route: prove the constructive kernel/heat-time
+identification and one-sided lower-curvature estimate, then transfer it to
+the original finite prefix using an explicit value/derivative deficit and
+positivity margin. None of these joins is supplied by citing the paper.
+
+There is a frame distinction: for a frozen ambient rotation field X(x)=B*x
+on the unit sphere, its tangent acceleration is B^2*x+|B*x|^2*x. Consequently
+D_X^2(log h) includes the covariant Hessian AND the log-gradient paired with
+this acceleration. That term must be controlled or removed by a justified
+frame change, not silently omitted. Constant left-invariant SU(2) directions
+are a candidate geodesic frame in a bi-invariant metric, but their exact
+comparison with the existing six-rotation jets is unproved here.
+
+Do not confuse this desired LOWER bound with the stronger Ricci-two UPPER
+curvature expression already refuted at the original antipode; see
+`audits/AUDIT-ORIGINAL-ANTIPODAL-CURVATURE-2026-10-03.md`. Do not claim
+any curvature method succeeds or fails from this benchmark. The actual
+conditional Hessian, original source/action, output weight, normalization,
+nontrivial survival and all-vector limiting-theory joins remain required.

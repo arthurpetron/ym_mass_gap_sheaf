@@ -1,5 +1,68 @@
 # Sorry Ledger
 
+## PROVED: nome-defect obstruction for the constructed entrywise cap (2026-10-07)
+
+- `SU2QuaternionLogCurvatureCapObstruction.prefixBudget_one_le` uses the
+  literal zeroth tail term and existing prefix theorem.
+  `heatSecondDerivativeCap_ge_4224` evaluates the actual 32,32,64 parameters.
+  `logCurvatureCap_nome_defect_square_lower` proves
+  `4224 <= (1-w)^2*logCurvatureCap(w)` using the original positive head-floor
+  reciprocal and the existing head-floor nome-defect ceiling.
+- This diagnoses the chosen cap ONLY. It is not an actual-curvature lower
+  bound, a refutation of compensating noise/Hessian cancellations, or an
+  interacting/OS/Yang--Mills counterexample. Cap-only scaling control is
+  pruned; sharper one-sided lower curvature and complete signed cost remain
+  possible routes, not supplied results.
+- One focused check passes three gates within {propext, Quot.sound}.
+  One 20-GiB worker, 12-GiB reserve, fresh 87--88%-free zero-swap preflights.
+  A missing explicit positivity proof for the reciprocal identity was repaired
+  without changing the statement or raising limits. No new source sorry/axiom/
+  classical input or canonical field change. Root registration only; no
+  full-root/tree audit or hashed-baseline refresh.
+- OPEN: useful original conditional-score/signed-cost estimates on a justified
+  scaling family, independent survival, completed cross-action comparison,
+  physical/volume control, SAME limiting QFT, every compact simple group and
+  Clay. Hamilton's geometric heat bound is a research benchmark, not a formal
+  hypothesis; frame, constructive heat and finite-prefix joins are missing.
+  The broad chart remains unchanged.
+
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
+## PROVED: additive frozen-JET curvature on original kinetic product (2026-10-07)
+
+- `QuaternionHaarPolynomialJetCurvature.polynomialJet_product_curvature_certificate`
+  replaces scalar-only budgets by actual polynomial costs. Opposite supported
+  squares cancel the mixed product curvature terms exactly, with no factor or
+  cost sign assumption. Old scalar APIs are unchanged.
+- `SU2QuaternionProductHeatFrozenJetCurvature.frozenSixHeatEnvelope_jet_pin`
+  identifies all 36 ordered matrix entries with the actual local frozen jets.
+  `heat_frozen_six_jet_certificate` constructs the local jet envelope.
+  `productHeat_frozenJet_curvature_certificate` assembles the literal product
+  with additive costs, including empty products and repeated factors. The
+  six remains a local rotation count, not an active-count multiplier.
+- `BF4ExactSlabFixedSpatialFrozenScoreProductCurvature.lastStepScoreCoefficients_supported`
+  retains the original A=T a, b=T c on the doubled carrier.
+  `original_kinetic_frozenScoreJet_certificate` pins the base to the original
+  kineticWeight with its actual active factors and coupled output scores.
+- IMPORTANT: these product jets are DEFINED by frozen Leibniz recursion.
+  Their equality to direct whole-kernel angular differential sums and the
+  conditional integration/Gram/normalization joins remain OPEN. No coefficient
+  is differentiated. Free marginal DD K cancellation is not a vanishing log
+  Hessian; no conditional Hessian sign is assumed.
+- Three focused checks pass six gates within {propext, Quot.sound}.
+  One 20-GiB worker, 12-GiB reserve, fresh 87--88%-free zero-swap preflights.
+  A missing defining namespace and empty-product zero-polynomial transport
+  repaired failed elaboration without limit raises or statement changes.
+  No new source sorry/axiom/classical input, canonical field change, scorecard
+  closure or hashed-baseline refresh. Root import registration only; no
+  full-root/tree audit. Independent review separates recursive and direct jets.
+- OPEN: useful signed-cost/scaling bounds with original action/output weight
+  and terminal mismatch, independent AF survival, completed cross-action
+  comparison, physical/volume control, SAME limiting QFT, every compact simple
+  group and Clay. The broad chart is unchanged.
+
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 ## PROVED: local frozen curvature with actual adaptive transfer scores (2026-10-07)
 
 - `QuaternionHaarSixPolynomialMatrixEnvelope.two_polynomial_envelope_certificate`
