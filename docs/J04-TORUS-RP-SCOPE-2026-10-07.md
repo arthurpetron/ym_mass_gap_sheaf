@@ -294,3 +294,12 @@ Open: instantiate these hypotheses from the torus geometry (concrete layout list
 crossing plaquettes, the factorisation via torus_factor + pe_lift + imgTK_eq_TK, chain fixing ΘF·F), and the
 link-order / block-count bridge to the integrand. hW is NOT yet discharged for the actual torus integrand.
 RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
+
+## d7a–d7c — Θ on the split carrier and the hfac factorisation
+- d7a `ThetaLike`, `thetaL_TK`, `thetaL_prod`: theta_TK/theta_prod for any Θ-like RingSub on any carrier.
+- d7b `halfSwap a` (k ↔ k+a), `thetaH a Tb = sign(conjSel Tb)∘reindex(halfSwap a)` (the Θ of torus_rp_master,
+  with hσ by `halfSwap_low`), `thetaH_like`: Θ-like on links with idx ℓ < a, idx Θℓ = idx ℓ + a, Tb(idx ℓ + a) = isT.
+- d7c `split_factor`: supplies the hfac hypothesis of torus_rp_master from ps ~ pos ++ mir pos ++ cross.
+Open: the concrete layout list and its idxOf facts (HD for pos links, plaqIdx for crossing plaquettes), the chain
+construction with ChainOK, the chain fixing ΘF·F, and the bridge from the integrand's link order/block count.
+RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
