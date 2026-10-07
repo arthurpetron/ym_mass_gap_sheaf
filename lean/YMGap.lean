@@ -7447,6 +7447,7 @@ import YMGap.Continuum.SU2TorusRPLayoutMaster
 import YMGap.Continuum.SU2TorusRPSupTK
 import YMGap.Continuum.SU2TorusRPLayoutBounds
 import YMGap.Continuum.SU2TorusRPLayoutSup
+import YMGap.Continuum.SU2TorusRPFixPoly
 import YMGap.Continuum.SpecMaxRateFamily
 import YMGap.Continuum.W1StrongCouplingPerturbation
 import YMGap.Continuum.W1VacuumTailRowSum
