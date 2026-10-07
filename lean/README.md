@@ -16,6 +16,20 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked ACTUAL parity weighted-tail join (2026-10-07):**
+`ThetaParityDiamondTail` bounds both the original signed theta box and its
+actual endpoint-frequency-square jet against FACTORED literal even/odd
+rectangle sums, using the SAME explicit cutoff. Four-sector shell coverage,
+exact length 4*T and actual Gaussian/frequency bounds are proved in
+`ThetaParityShellEnumeration` and `ThetaParityShellWeights`. The odd signed
+rectangle stays unbalanced; no finite factor four is inserted. Three new
+focused leaves pass 24 public gates (two data definitions axiom-free); the
+existing convolution leaf was rechecked after exposing its unchanged NoDup
+proof. Alternating half-diamond square, SAME completed series/jet joins,
+whole-interval ceiling, Haar/conditional/scaling and all Clay requirements
+remain OPEN. No full-root/tree audit. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 **Checked actual radial heat/moment join (2026-10-07):**
 `JacobiHeatRadialMomentJets` pins the actual first three formal product
 derivatives and normalized heat jets to the literal finite Jacobi moments.
@@ -36,7 +50,8 @@ coefficient derivatives, with all-point reflection BEFORE differentiation.
 `ThetaParityWeights` provides actual even/odd weight factorizations, finite
 sum identities and genuine endpoint formal jets. `ThetaParityShellGeometry`
 gives exact domains and both exponent/frequency bounds; it does not count
-shells or dominate actual weighted tails. Five focused targets pass permitted
+shells or dominate actual weighted tails; those are supplied above.
+Five earlier focused targets pass permitted
 axiom gates; no full-root/tree audit. Completed addition/whole-interval ceiling,
 Haar/conditional/scaling and all Clay requirements remain OPEN. Evidence:
 `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
@@ -48,9 +63,9 @@ endpoint radial-limit ceiling and explicit cubic Gaussian-shell tail modulus.
 `JacobiProductRadialEndpoint` and `ThetaAngularShellTail` pass focused checks
 and their public axiom gates. These do NOT identify finite diamonds with
 rectangles or prove the completed addition identity/whole-interval ceiling.
-Actual weight specialization and finite combined second-jet comparison are
-now supplied above; shell domination and completed jet/limit pins remain
-OPEN; no full-root/tree audit or Clay closure. Evidence:
+Actual weight specialization, finite combined second-jet comparison and
+shell domination are now supplied above; completed jet/limit pins remain
+OPEN. No full-root/tree audit or Clay closure. Evidence:
 `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
 
 **Checked actual radial limit and signed finite tail (2026-10-07):**

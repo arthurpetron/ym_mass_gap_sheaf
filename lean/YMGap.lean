@@ -4958,6 +4958,9 @@ import YMGap.Continuum.QPolyAffineJetTranslation
 import YMGap.Continuum.FiniteJacobiAngularComparison
 import YMGap.Continuum.ThetaParityWeights
 import YMGap.Continuum.ThetaParityShellGeometry
+import YMGap.Continuum.ThetaParityShellEnumeration
+import YMGap.Continuum.ThetaParityShellWeights
+import YMGap.Continuum.ThetaParityDiamondTail
 import YMGap.Continuum.SU2HeatQuarticTailCutoff
 import YMGap.Continuum.QuaternionHaarHeatAngularDeficit
 import YMGap.Continuum.QuaternionHaarHeatRelativeAngularBound

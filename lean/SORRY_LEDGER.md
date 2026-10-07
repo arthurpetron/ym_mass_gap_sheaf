@@ -1,5 +1,37 @@
 # Sorry Ledger
 
+## PROVED actual parity weighted tails / OPEN alternating and completed addition (2026-10-07)
+
+- `ThetaParityShellEnumeration` gives explicit four-sector lists, coverage
+  of every positive even shell and every shifted-odd shell, and exact list
+  lengths 4*T. Coverage handles the negative-axis even vertex separately;
+  radius zero is not incorrectly included in the empty even list.
+- `ThetaParityShellWeights` bounds the actual signed theta cells by their
+  true Gaussian exponents, transports both parity pins, and pays endpoint
+  frequency-square weights by 4*T^2*w^(T^2), including negative indices.
+- `ThetaParityDiamondTail` injects the actual NoDup omitted lists into
+  those shell lists. Every omitted radius lies in N+1..2*N+3. The actual
+  signed discrepancy is the exact complementary-filter sum, bounded by
+  `omittedBudget`; neither shell counts nor discrepancy estimates are
+  assumed. `rectangleTailCutoff` pays epsilon/2 per branch using the
+  existing scalar shell cutoff. `theta_box_factored_error_close` and
+  `frequency_box_factored_error_close` retain literal scalar rectangle
+  products and a SINGLE odd w, not a false same-cutoff factor four.
+- OPEN: exact shifted/alternating half-diamond square and its mixed-shell
+  tail, SAME series/jet limit composition, completed addition/whole-interval
+  radial ceiling, strict Haar/original conditional joins and every physical,
+  scaling, survival, QFT, all-group and Clay obligation.
+- Three new focused checks pass 24 public gates within {propext, Quot.sound};
+  two cutoff/budget data definitions are axiom-free. The unchanged box NoDup
+  proof was exposed for reuse and its existing convolution leaf rechecked.
+  No new sorry/axiom/classical premise or field weakening. Root inspected
+  the complete sources; independent mathematical review checked range,
+  counts, actual weights, signed error and odd normalization. One 20-GiB
+  worker, 12-GiB reserve, fresh live capacity checks, zero swap. No full-root/
+  tree audit or baseline refresh; imports registered without a root-build claim.
+
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 ## PROVED actual angular comparison / OPEN completed addition ceiling (2026-10-07)
 
 - `ChebyshevFormalJets` supplies actual T coefficient polynomials and both
@@ -21,8 +53,9 @@
   endpoint-derivative pins use actual finite coefficient polynomials, not an
   assumed interpretation. `ThetaParityShellGeometry` proves exact domain/
   radius equivalences, both exponent>=radius^2 and frequency<=2*radius bounds.
-- OPEN: actual shell count and omitted weighted-sum domination, shifted/
-  alternating convolution, SAME series/jet limit composition, completed
+- Actual shell coverage/count and omitted weighted-sum domination are now
+  supplied above. OPEN: shifted/alternating convolution, SAME series/jet
+  limit composition, completed
   addition/whole-interval ceiling, strict Haar and original conditional joins.
   The finite bare Gaussian box is NOT the finite Euler-weighted product.
   No physical, scaling, survival, QFT, all-group or Clay atom is closed.
@@ -55,9 +88,9 @@ Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
   `shellTail_le_epsilon` construct the tail of 16*T^3*w^(T^2), with explicit
   onset/tolerance/cutoff data. Cubic growth costs 8 and the named onset
   forces w^(2*T+1)<=1/16. Actual angular shell counting/domination is NOT
-  supplied by this scalar leaf.
+  supplied by this scalar leaf; the actual finite join is supplied above.
 - Theta/jet weight specialization and finite actual combined second-jet
-  comparison are now supplied above. OPEN: diamond-to-rectangle tails,
+  comparison and diamond-to-rectangle tails are now supplied above. OPEN:
   shifted/alternating convolution and SAME completed jet/limit composition.
   These are the missing analytic
   ceiling producer, not a new hypothesis bundle. Haar/action/conditional,

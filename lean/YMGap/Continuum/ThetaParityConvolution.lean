@@ -168,7 +168,7 @@ theorem boxIndices_mem (N : Nat) (z : SignedPair) : z ∈ boxIndices N ↔ BoxBo
   · intro h
     exact ⟨⟨h.1,h.2.1⟩,h.2.2⟩
 
-private theorem boxIndices_nodup (N : Nat) : (boxIndices N).Nodup := by
+theorem boxIndices_nodup (N : Nat) : (boxIndices N).Nodup := by
   have hi : (signedIndices N).Nodup :=
     TorusWilsonAction.nodup_map_on (fun i : Nat => (i : Int)-(N : Int))
       (fun i _ j _ he => by
@@ -322,6 +322,8 @@ theorem signed_box_parity_convolution (weight : SignedPair → Q') (N : Nat) :
   exact Q'.eqv_trans _ _ _ hp ha
 
 end YMGap.Continuum.ThetaParityConvolution
+
+#print axioms YMGap.Continuum.ThetaParityConvolution.boxIndices_nodup
 
 #print axioms YMGap.Continuum.ThetaParityConvolution.encode_decode
 #print axioms YMGap.Continuum.ThetaParityConvolution.decode_encode

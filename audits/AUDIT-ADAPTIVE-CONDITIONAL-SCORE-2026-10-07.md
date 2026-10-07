@@ -4,6 +4,95 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Selected actual parity-tail join
+
+The next finite target is the absolute discrepancy between each actual
+even/odd diamond sum at cutoff N and its literal ambient rectangle
+`boxIndices (N+1)`, for BOTH theta values and endpoint-frequency-square
+weights. Use the exact filter partition, not a same-cutoff rectangle
+identity. Omitted cells have radius T>N, and inside the ambient rectangle
+T<=2*N+3. Explicit four-sector lists of length 4*T must cover every such
+shell. Their actual frequency-weighted cells pay at most
+`4*T^2*w^(T^2)`; unweighted cells pay less at T>=1. Thus each omitted sum
+must be bounded by `finSum (fun j => 16*(N+1+j)^3*w^((N+1+j)^2)) (N+3)`.
+The existing scalar tail cutoff at epsilon/2 then pays both branches.
+
+Inputs are literal parity exponent/frequency pins and actual Chebyshev
+bounds, not supplied shell-count or discrepancy estimates. Decisive cases:
+N=0, T=1, both negative indices, and shifted odd endpoints. A symmetric
+integer odd rectangle is NOT paired under j -> -j-1; its boundary term
+must remain until a justified later join. This step does not assert the
+completed addition square, a radial curvature ceiling, or an operator gap.
+Verification remains root-only serialized focused safe-launcher checks,
+one 20-GiB worker and 12-GiB reserve with fresh capacity checks; no limit
+raises, full-tree audit, or new assumed analytic interface.
+
+### Observed actual weighted-tail contraction
+
+Three new serialized focused checks PASS, with 24 printed public gates
+within {propext, Quot.sound}; the two budget/cutoff definitions are
+axiom-free. The existing convolution leaf also passes after making its
+unchanged NoDup proof public. No sorry/axiom/classical premise, limit raise,
+baseline refresh or full-root/tree audit.
+
+| Declaration | Source | Passing log |
+| --- | --- | --- |
+| `evenShellIndices_length`, `oddShellIndices_length` | `lean/YMGap/Continuum/ThetaParityShellEnumeration.lean:54`, `lean/YMGap/Continuum/ThetaParityShellEnumeration.lean:60` | `/private/tmp/ym-oct7-parity-shell-enumeration3.log` |
+| `evenShellIndices_mem_of_radius`, `oddShellIndices_mem_of_radius` | `lean/YMGap/Continuum/ThetaParityShellEnumeration.lean:66`, `lean/YMGap/Continuum/ThetaParityShellEnumeration.lean:161` | Same enumeration log |
+| `evenFrequencyCell_abs_le`, `oddFrequencyCell_abs_le` | `lean/YMGap/Continuum/ThetaParityShellWeights.lean:152`, `lean/YMGap/Continuum/ThetaParityShellWeights.lean:170` | `/private/tmp/ym-oct7-parity-shell-weights2.log` |
+| `theta_rectangle_factored_pin`, `frequency_rectangle_factored_pin` | `lean/YMGap/Continuum/ThetaParityDiamondTail.lean:394`, `lean/YMGap/Continuum/ThetaParityDiamondTail.lean:406` | `/private/tmp/ym-oct7-parity-diamond-tail6.log` |
+| `theta_box_factored_error_close`, `frequency_box_factored_error_close` | `lean/YMGap/Continuum/ThetaParityDiamondTail.lean:424`, `lean/YMGap/Continuum/ThetaParityDiamondTail.lean:442` | Same diamond-tail log |
+| `rectangleTailCutoff` | `lean/YMGap/Continuum/ThetaParityDiamondTail.lean:308` | Same diamond-tail log; axiom-free |
+| `boxIndices_nodup` (unchanged proof, now public) | `lean/YMGap/Continuum/ThetaParityConvolution.lean:171` | `/private/tmp/ym-oct7-parity-convolution-public-nodup.log` |
+
+Final checked-source SHA256:
+
+- `ThetaParityShellEnumeration.lean`: `7de2b98044f1906c17369670e409a658e594e5b26609c8518c7ecefa5cb72c09`
+- `ThetaParityShellWeights.lean`: `eb0201f8c80cbd8a745634d3cc5828ceb5948bc56b4fbb1f299f461037293005`
+- `ThetaParityDiamondTail.lean`: `a064b42190f559b16c76d959927e3135e34ae5cd09d9369539f6540249ad79e6`
+- `ThetaParityConvolution.lean`: `36af6727e975686e41a9a094ebc9e28c72821778e20b924726e231c8017d6a47`
+
+The first enumeration attempt mishandled j=0,k=-T and casted Nat
+subtraction; the final proof isolates that vertex on side 3. The final
+kernel check covers N=0, T=1 and all signed indices without numerical
+sampling. Independent review checked the actual range, finite injection,
+factor 16, signed error and odd normalization. All launches used one
+20-GiB worker, 12-GiB reserve and fresh live capacity checks (87--88% free,
+zero swap). Only focused targets were checked; registering root imports is
+not a root-build claim. Completed addition/whole-interval ceiling,
+Haar/conditional/scaling and all Clay-facing requirements remain OPEN.
+
+### Next selected finite target (RESEARCH, not a Lean premise)
+
+For C_n=`ChebyshevHalfShiftProduct.halfShiftCoord n x`, consider
+`A_N=sum_(n=0..N) (-1)^n*w^(n*(n+1))*C_n`,
+`H_N(x)=sum_(h=0..N) w^(2*h*(h+1))*T_(2*h+1)(x)` and
+`E_N(x)=sum_(k=-N..N) w^(2*k^2)*T_|2*k|(x)`.
+The candidate exact finite square is
+
+    (x-1)*A_N^2
+      = sum_(h>=0,k in Int,h+|k|<=N)
+          w^(2*h*(h+1)+2*k^2)*(T_(2*h+1)(x)-T_|2*k|(x)).
+
+`halfShift_product` supplies the pairwise kernel. The selected constructive
+bijective reindex uses the existing parity decoder on (n,m): the even
+sector maps to (h,k) with |k|<=h; the odd sector maps to |k|>=h+1 and its
+alternating sign reverses the Chebyshev difference. The exact bijection,
+alternating-sign/exponent pins and mixed omitted-sum proof are still OPEN,
+not supplied assumptions. The intended rectangular difference is
+`E_N(1)*H_N(x)-H_N(1)*E_N(x)`; its omitted cells have N<h+|k|<=2*N
+and should be paid by the existing actual even shells. Decisive tests are
+N=0 and N=1 (candidate omitted payment at N=1 is
+`2*w^6*(T_3(x)-T_2(x))`), signed k and both sign sectors.
+
+H_N is one-sided: it is HALF the balanced bilateral odd sum. Using a full
+bilateral odd sum instead changes the square's coefficient to
+`2*(x-1)*A_N^2`. The unbalanced rectangles in the checked theorem above
+must retain their boundary term. Do not claim finite factor four or a
+completed square before the corresponding tails and SAME limit joins.
+Keep the next implementation to this finite producer and its shell
+consumer; no new assumed positivity or frontier bundle is needed.
+
 ## Mathematical selection before implementation
 
 The previous checkpoint proves an unweighted whole-product norm-loss law

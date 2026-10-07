@@ -1,5 +1,20 @@
 # Canonical one-page project status
 
+Supporting ACTUAL parity weighted-tail join checked (2026-10-07): the
+original signed theta box and its actual endpoint-frequency-square jet
+approach the FACTORED literal even/odd rectangle sums with the SAME explicit
+cutoff, uniform on the full scalar interval at each named nome. Four-sector
+shell coverage, exact length 4*T and actual Gaussian/frequency bounds are
+proved, not supplied. Odd signed rectangles remain unbalanced; no false
+finite factor four. Three new focused leaves pass 24 public gates (two data
+definitions axiom-free), and the existing convolution leaf was rechecked
+after exposing its unchanged NoDup proof. No full-root/tree audit.
+Alternating half-diamond square, SAME completed joins/whole-interval ceiling,
+Haar/conditional/scaling, independent survival, completed comparison,
+physical/volume control, SAME limiting QFT, every group and Clay remain OPEN.
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+Broad chart unchanged; no reprint.
+
 Supporting ACTUAL angular comparison and parity-jet joins checked (2026-10-07):
 the original finite Jacobi product's `(1-x*x)*P''-x*P'` has an explicit
 bare-theta comparison cutoff uniform in x on [-1,1] at each named nome;
@@ -7,8 +22,9 @@ its same-product radial numerator is exactly P^2*D. Padded coefficient
 reflection precedes formal differentiation. Actual theta/endpoint weights
 are transported to both diamonds, with endpoint weights now pinned to actual
 finite formal derivatives. Both shell exponents dominate radius^2 and both
-frequencies are <=2*radius. Exact shell counts, weighted-tail domination,
-shifted/alternating convolution and SAME completed series joins remain OPEN.
+frequencies are <=2*radius. Shell coverage/counts and weighted-tail domination
+are now supplied above; shifted/alternating convolution and SAME completed
+series joins remain OPEN.
 Five focused targets pass permitted gates; no full-root/tree audit. Completed
 addition/whole-interval ceiling, Haar/conditional/scaling, independent survival,
 completed comparison, physical/volume control, SAME limiting QFT, every group
@@ -21,8 +37,8 @@ diamond convolution, radical-free half-shift kernel, actual endpoint limit
 ceiling D_infinity(1)<=2*w/(1-w^2), and explicit cubic Gaussian-shell tail
 cutoff. These are actual finite identities/estimates, not completed theta
 addition. Actual theta/jet weight specialization and finite combined second-jet
-comparison are now supplied above; diamond-to-rectangle shell domination
-and completed jet/limit pins remain OPEN. Four earlier focused
+comparison and diamond-to-rectangle shell domination are now supplied above;
+completed jet/limit pins remain OPEN. Four earlier focused
 targets pass permitted gates; no full-root/tree audit. Whole-interval
 ceiling, Haar/conditional join, signed-cost/scaling estimates, independent
 survival, completed comparison, physical/volume control, SAME limiting QFT,

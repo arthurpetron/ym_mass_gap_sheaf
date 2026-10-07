@@ -27,6 +27,25 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+The ACTUAL omitted parity-tail join is now CHECKED:
+`ThetaParityDiamondTail.theta_box_factored_error_close` and
+`frequency_box_factored_error_close` bound the original signed box value
+and endpoint-frequency-square jet against the FACTORED actual even/odd
+rectangles. A single explicit `rectangleTailCutoff(w,epsilon)` pays both
+branches, uniform in x,y on the full scalar interval at each named nome.
+`ThetaParityShellEnumeration` supplies explicit four-sector coverage and
+length 4*T; `ThetaParityShellWeights` supplies actual Gaussian/frequency
+domination. No supplied discrepancy/count estimate or finite factor four
+is used: the odd signed rectangle remains unbalanced. NEXT prove the exact
+alternating half-diamond square, pay its omitted mixed shells, then compose
+SAME series/jet limits. Research target and normalization are recorded in
+the audit; they are not Lean premises. Completed addition/whole-interval
+ceiling, Haar/conditional/scaling and every Clay requirement remain OPEN.
+Three new focused leaves pass 24 public gates (two data definitions
+axiom-free); the existing convolution leaf was separately rechecked after
+exposing its unchanged box NoDup proof. No full-root/tree audit. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 The actual combined angular Jacobi comparison is now CHECKED:
 `FiniteJacobiAngularComparison.productAngularJet_sub_bare_close` controls
 the ORIGINAL `(1-x*x)*P''-x*P'` versus the SAME bare theta angular sum with
@@ -38,9 +57,9 @@ with P^2*D, retaining signed cancellation and avoiding density division.
 `ThetaParityWeights` specializes actual theta/endpoint weights to both
 diamonds and pins the endpoint weights to actual finite formal derivatives.
 `ThetaParityShellGeometry` supplies exact domains, BOTH exponent>=radius^2
-and frequency<=2*radius bounds. NEXT count actual shells and dominate omitted
-weighted sums by the existing scalar tail, then compose SAME series limits
-and the shifted/alternating square. No finite bare/product identification,
+and frequency<=2*radius bounds. Actual shell coverage/counting and omitted
+weighted-sum domination are now supplied above. SAME series limits and the
+shifted/alternating square remain required. No finite bare/product identification,
 completed addition/whole-interval ceiling, Haar/conditional/scaling or Clay
 closure. Five focused targets pass their permitted axiom gates; no full-root/
 tree audit. Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
@@ -50,10 +69,10 @@ even/odd DIAMOND convolution (`ThetaParityConvolution`), radical-free
 half-shift kernel (`ChebyshevHalfShiftProduct`), and the actual endpoint
 limit ceiling D_infinity(1)<=2*w/(1-w^2) (`JacobiProductRadialEndpoint`).
 `ThetaAngularShellTail` constructs a half-geometric tail and explicit
-cutoff for 16*T^3*w^(T^2) after a computed onset. NEXT specialize the
-convolution to the actual theta and endpoint-jet weights (now supplied above),
-prove their diamond-to-rectangle domination by these shells, and take SAME
-series limits; the scalar tail alone does not perform that join. The shifted/
+cutoff for 16*T^3*w^(T^2) after a computed onset. Actual theta/endpoint-jet
+specialization and diamond-to-rectangle domination are now supplied above.
+NEXT take SAME series limits; the scalar tail alone does not perform that
+join. The shifted/
 alternating convolution and completed jet/limit joins are still required;
 the finite combined second-jet comparison is supplied above. Reuse existing
 first-derivative comparison rather than build general angular calculus.
