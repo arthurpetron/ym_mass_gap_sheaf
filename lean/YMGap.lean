@@ -7438,6 +7438,7 @@ import YMGap.Continuum.SU2TwoRoot
 import YMGap.Continuum.SU2ObsActivity
 import YMGap.Continuum.SU2PairKernel
 import YMGap.Continuum.SU2TruncDecay
+import YMGap.Continuum.SU2TruncRatio
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport

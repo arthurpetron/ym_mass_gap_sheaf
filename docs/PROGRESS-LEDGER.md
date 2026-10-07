@@ -4,7 +4,14 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 19, truncated χ₁ correlator decay at w₀ (2026-10-07 PT)
+## Latest proved increment: R1 commit 20, ratio form of the truncated χ₁ correlator decay (2026-10-07 PT)
+
+- `SU2TruncRatio` (PROVED, axioms [propext, Quot.sound]).
+  - `ratio_of`: pure algebra.
+  - `trunc_ratio`: `|Zpq/Z − (Zp/Z)(Zq/Z)| ≤ Ctr·(6/7)^{ld(q,p)}` at w₀, uniform in N, M and P.  This is `|⟨χpχq⟩ − ⟨χp⟩⟨χq⟩|` for p ≠ q, by `ZObs_factor`.
+- Labels: strong coupling, heat-kernel (spin-truncated), not Wilson; also true for U(1), not gap evidence.
+
+## Earlier proved increment: R1 commit 19, truncated χ₁ correlator decay at w₀ (2026-10-07 PT)
 
 - `SU2TruncDecay.trunc_decay` (PROVED, axioms [propext, Quot.sound]).
   - Setting: torus, w₀ = 10⁻⁸, uniform in N, M and P.
