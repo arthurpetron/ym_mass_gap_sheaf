@@ -7383,6 +7383,7 @@ import YMGap.Continuum.SU2PolymerActivityBound
 import YMGap.Continuum.SU2PolymerActivityHeat
 import YMGap.Continuum.SU2WilsonCharacterPower
 import YMGap.Continuum.SU2WilsonCoeffBounds
+import YMGap.Continuum.SU2WilsonActivity
 import YMGap.Continuum.SpecMaxRateFamily
 import YMGap.Continuum.W1StrongCouplingPerturbation
 import YMGap.Continuum.W1VacuumTailRowSum
