@@ -72,9 +72,10 @@ The crossing scalar is `Re(U V*) = Σ_{c<4} u_c v_c`, a sum of Θ-symmetric prod
 | block-involution reindexing `quaternionHaar ∘ reindex = quaternionHaar` | EXISTS (`SU2QuaternionArbitraryHaarBlockReflection.quaternionHaar_reindex`) |
 | sign-flip / conj invariance on selected coordinates | EXISTS (`quaternionHaar_signSelected`) |
 | split of a crossing link `∫ f(L) = ∫ f(L·A)` (head shear, all degrees) | EXISTS (`translatedHeadPolynomial_haar`). Restated for RP in `SU2TorusRPHaar`. |
-| split at an arbitrary (non-head) block | via reindex + head shear. The composition lemma is OPEN. |
-| crossing-word identity `scalar(V L' U* L*) ≡ Σ_c X_c Y_c` after the split (coeff level) | OPEN |
-| reflected-plaquette identity `scalar(Θ-word) ≡ shift(scalar(word))` with conj on temporal blocks | OPEN |
+| split at an arbitrary block | PROVED (`SU2TorusRPSplitSel.split_sel_cut1/2`) |
+| crossing-word identity after the split (coeff level) | PROVED (`SU2TorusRPWord.cross_word_cut1/2`) |
+| reflected-plaquette identity | PROVED (`SU2TorusRPWord.refl_word`) |
+| quaternion-product crossing kernels, `T_K` congruence, generalized RP | PROVED (`SU2TorusRPKernel.rpk_qdot`, `rpk_cut1`, `wilson_rp_qfull`; `hW` still a hypothesis) |
 | torus bridge discharging `hW` | OPEN |
 | `D^s` matrix coefficients in real form | MISSING. Needed only for the heat kernel. |
 
@@ -105,3 +106,24 @@ The crossing scalar is `Re(U V*) = Σ_{c<4} u_c v_c`, a sum of Θ-symmetric prod
    Λ₊-polynomials; the GNS/transfer step then uses `CompactTransferGNS`.
 4. RP is β-uniform. The gap chain still needs the strong-coupling clustering, so the GAP window (not RP) is
    strong coupling only.
+
+## Bridge status (after items 1–4 part)
+
+PROVED (all [propext, Quot.sound]): `split_sel_cut1/2`, `cross_word_cut1/2`, `refl_word`, `pe_of_coeff`,
+`shQ_mul`, `rpk_qdot`, `rpk_cut1`, `wilson_rp_qfull`.
+
+**OPEN: the assembly that discharges `hW`.** RP FOR THE ACTUAL TORUS MEASURE REMAINS OPEN. The exact remaining
+obligations:
+- (a) **Padding.** `∫_n p = ∫_{n+k} p` for p on the first n blocks, to add the k split variables. This follows
+  from `haar_factor` with `q = polyOne`.
+- (b) **Substitution homomorphism on the integrand.** The split, conj flip and reindex maps commute with
+  `polyMul`/`polyAdd`/`wilsonPoly`/`plaqWord` up to `≅`.
+  - The pieces exist (`translatedHeadPolynomial_mul/add/smul`, `selectedLeft/RightTranslatedPolynomial_mul`,
+    `reindexQuaternionPolynomial_mul/character`, `signSelectedPolynomial_mul_prefix/character_prefix`), some
+    under support guards.
+  - Their action on `linkVar` (a coordinate quaternion ↦ the split product) is still to be proved.
+- (c) **Geometry.** Partition `torusPlaquettes N` (even N_t) into positive, Θ-reflected and crossing plaquettes.
+  Order `links` as Λ₊ ++ split variables ++ Θ-images. Show `plaqWord` of each class is the word used in
+  `cross_word_cut1/2` / `refl_word`.
+- (d) **Assembly.** With (a)–(c), the transformed integrand is PE to `W₊·ΘW₊·tkProd xs`, with `xs` the crossing
+  scalars. This discharges `hW` in `wilson_rp_qfull`.

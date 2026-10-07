@@ -7396,6 +7396,7 @@ import YMGap.Continuum.SU2TorusRPWilson
 import YMGap.Continuum.SU2TorusRPHaar
 import YMGap.Continuum.SU2TorusRPSplitSel
 import YMGap.Continuum.SU2TorusRPWord
+import YMGap.Continuum.SU2TorusRPKernel
 import YMGap.Continuum.SpecMaxRateFamily
 import YMGap.Continuum.W1StrongCouplingPerturbation
 import YMGap.Continuum.W1VacuumTailRowSum
