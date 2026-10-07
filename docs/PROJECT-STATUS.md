@@ -6498,3 +6498,5 @@ Transfer-matrix scope note (2026-10-07): R1 commit 24.  Scope only.
 `SU2TorusSlice` (2026-10-07): R1 commit 25.  Slice geometry for the transfer matrix, coordinated with `SU2TorusRPGeom`.
 
 `SU2ReindexPECongr` (2026-10-07): R1 commit 26.  Supported PECongr for reindex; the unsupported form is refuted.
+
+`SU2SliceOrder` (2026-10-07): R1 commit 27.  Slice-order factorisation of the torus integrand.

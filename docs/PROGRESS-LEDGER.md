@@ -4,7 +4,14 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 26, supported PECongr for block reindexing (transfer step 2a) (2026-10-07 PT)
+## Latest proved increment: R1 commit 27, torus integrand in slice order (transfer step 2b) (2026-10-07 PT)
+
+- `SU2SliceOrder.torus_prod_slice` (PROVED, [propext, Quot.sound]): `Π_{p∈torus} F p ≅ Π_{t<N} (Π_{PS_t} F · Π_{PT_t} F)` for every plaquette weight F, including the Wilson `T_K`.
+  - Proof: `prod_perm` (List.Perm induction) and `torus_slice_perm`.
+  - Classical-free; this avoids `filter_eq_nil_iff` and `beq_self_eq_true` on Nat, which pull `Classical.choice`.
+- Labels: geometry and algebra, every coupling; also true for U(1), not gap evidence.
+
+## Earlier proved increment: R1 commit 26, supported PECongr for block reindexing (transfer step 2a) (2026-10-07 PT)
 
 - `SU2ReindexPECongr.pe_reindex` (PROVED, [propext, Quot.sound]): `Sup n X → Sup n Y → PE n X Y → PE n (σX) (σY)`.
   - Key lemma `phi_reindex`: `phi n (σX) m ≈ phi n X (σm)` for supported X and m.

@@ -180,3 +180,7 @@ No fail statement is given: the ℓ¹ envelope is an upper bound, not the true a
 ## PROVED: commit 26, `SU2ReindexPECongr.lean`
 
 - Supported PECongr for reindex. Note for Realizer: the unsupported `PECongr` for reindex is false (`pecongr_fails`), so use `pe_reindex` with `Sup` hypotheses.
+
+## PROVED: commit 27, `SU2SliceOrder.lean`
+
+- Slice-order factorisation. Choice-lemma watch: `List.filter_eq_nil_iff` and `beq_self_eq_true` (on Nat) pull `Classical.choice`.
