@@ -7661,3 +7661,4 @@ import YMGap.Continuum.SU2TorusRPTorusX
 import YMGap.Continuum.SU2TorusRPObs
 import YMGap.Continuum.SU2TorusRPMatch
 import YMGap.Continuum.SU2TorusRPHW
+import YMGap.Continuum.SU2TorusRPCSShape
