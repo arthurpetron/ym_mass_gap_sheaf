@@ -4,8 +4,9 @@ import YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
 /-!
 # Trivalent resolution of the finite four-dimensional box incidence relation
 
-`Z4FiniteBoxExhaustion` constructs the cofinal periodic four-dimensional
-plaquette boxes.  This file gives their first representation-theoretic graph
+`Z4FiniteBoxExhaustion` constructs the cofinal corner-anchored,
+free-boundary (non-periodic, no wrap-around) four-dimensional plaquette boxes;
+the periodic torus layer is `Z4TorusGeometry`.  This file gives their first representation-theoretic graph
 realization: every plaquette receives a numerical edge identifier, and the
 plaquettes incident on each physical lattice link are joined by a canonical
 trivalent fusion chain.

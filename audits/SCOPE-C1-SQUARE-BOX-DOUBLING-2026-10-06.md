@@ -120,3 +120,63 @@ rate `r : Nat → Q'` (`1 − r (k+1) ≥ (1 − r k)(1 − ε k)`), and the ite
 
 Milestone 3 (OPEN, the real content): the per-step overlap-decoupling estimate for the
 Wilson transfer on torus boxes at weak coupling, with 4D constants from §3.
+
+## 6. Milestones 1 and 2: status (2026-10-06 PT)
+
+Milestone 1 (`Continuum/Z4TorusGeometry.lean`, proved finite combinatorics, GENERAL `N`):
+vertices are `boxVertices N` (Nat coordinates `< N`, `InBox N`); `tAdd`/`tSub` use
+`(x+1) % N`, `(x+N−1) % N`; `tSub_tAdd`, `tAdd_tSub` exact on in-range vertices; `tSub_ne`
+for `2 ≤ N`. `torusLinks_length = 4N⁴`, `torusPlaquettes_length = 6N⁴`, both Nodup.
+`torus_link_incidence_eq_six`: for `2 ≤ N` (so for `N ≥ 3`) each torus link is on EXACTLY 6
+plaquettes (two inclusions with the explicit 6-element `incidentPlaqs`, no enumeration).
+Translation `tShift` (range, identity, composition, `tAdd_tShift`, `torusEdgesOf_shift`);
+embedding `box_torusEdges_eq` (`L + 1 ≤ N` ⇒ `torusEdgesOf N p = edgesOf p`). Not done:
+any measure, transfer matrix or reflection positivity on the torus.
+
+Milestone 2 (`Continuum/SquareBoxDoublingIteration.lean`, REDUCTION): `doubling_iterate`
+(`g k(1−ε k) ≤ g(k+1)`, `ε ≤ 1` ⇒ `g 0·Π_{i<k}(1−ε i) ≤ g k`), `slab_doubling_iterate`
+(four slab steps per doubling, read at `4k`), `prodLoss_ge_one_sub_sumLoss`
+(`1 − Σε ≤ Π(1−ε)`), `doubling_uniform_gap` (`Σ_{i<k} ε ≤ σ` ⇒ `g 0(1−σ) ≤ g k`). The
+doubling inequality itself and summability of `ε` are OPEN.
+
+## 7. Milestone 3 framing: the "proves too much" test
+
+The test. Any proof of the per-doubling inequality `1 − r(2L) ≥ (1 − r(L))(1 − ε_L)`
+with `Σ ε_L < 1` (at fixed weak coupling `β`, uniformly in `L`) that never uses the
+structure of `SU(N)` applies verbatim to the 4D `U(1)` Wilson model. That model at weak
+coupling (`β` above the deconfinement point) is in the Coulomb phase: a massless photon,
+`⟨W(C)⟩` with perimeter law, and power-law (`|x|^{-4}`-type for plaquette observables)
+correlations. Its vacuum-sector transfer gap on `L`-boxes closes like `~ 1/L` (lowest
+photon momentum `2π/L`). So `1 − r(L) → 0`, and no summable `ε` can exist for `U(1)`.
+A group-insensitive decoupling estimate therefore proves a false theorem.
+
+Which step must fail for `U(1)`. With `1 − r(L) ~ c/L`, the doubling ratio is
+`(1−r(2L))/(1−r(L)) ~ 1/2`, i.e. `ε_L ~ 1/2` for every `L`, not summable. The failing step
+is the per-step overlap-decoupling bound itself: the claim that the cross-slab coupling
+across the four slab interfaces costs only `ε_L → 0`. For `U(1)` the interface carries a
+long-range (massless) Gaussian mode whose contribution does not decay with `L`. Any
+estimate that bounds the interface coupling by local norms (`‖e^{-H}‖`, cluster
+expansion, Kotecký–Preiss at the interface) without a group-dependent input must be
+wrong at weak coupling, because those same tools are uniform in the gauge group.
+(At strong coupling such estimates are fine and do hold for `U(1)` too; there `U(1)` has
+a gap. That is consistent: the gap there comes from `β` small, not from the group.)
+
+Where non-abelianness must enter (at least one is necessary):
+1. Asymptotic freedom (sign of the one-loop β-function coefficient `b₀ = 11N/(48π²) > 0`
+   for `SU(N)`; `b₀ < 0` / zero for `U(1)`). This is what makes the effective coupling at
+   scale `2^k L₀` GROW, so that each doubling eventually reaches the strong-coupling regime
+   where `ε` is small. Concretely, `ε_L` should be a function of the running coupling
+   `g(L)`, small only once `g(L)` is large; `U(1)` has `g(L)` decreasing to a fixed value.
+2. No massless gauge bosons: the self-interaction (commutator term `[A_μ, A_ν]` in `F`)
+   gives the quartic and cubic vertices that, nonperturbatively, gap the gluon. In `U(1)`
+   `F = dA` is linear and the free photon is exact at long distances.
+3. Center symmetry / confinement: `Z_N` center vortices disorder Wilson loops (area law).
+   `U(1)` in 4D lacks the compact-monopole condensation at weak coupling (it occurs only at
+   strong coupling), and its center is all of `U(1)`.
+For the doubling inequality this means: the per-step ε must be stated as a function of an
+input (the running coupling at scale `L`, or a vortex-free-energy / 't Hooft-loop bound)
+that is provably different for `SU(N)` and `U(1)`. A Milestone-3 statement whose
+hypotheses are all satisfied by the 4D `U(1)` Wilson action at large `β` is refuted by the
+Coulomb phase and must not be pursued.
+
+Status. Framing only; nothing in Milestone 3 is proved. OPEN.

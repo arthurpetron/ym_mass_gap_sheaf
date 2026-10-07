@@ -7358,6 +7358,8 @@ import YMGap.Continuum.RGTwoBoundaryEnvelope
 -- REDUCTION / finite check: trace bounds s_{M0·2^j} ≤ U ≤ 1/2 on per-scale models + OPEN
 -- link rate ≤ specMax ⇒ WilsonLowerMargin (1/(2M0)).
 import YMGap.Continuum.SpectralHalvingMargin
+import YMGap.Continuum.Z4TorusGeometry
+import YMGap.Continuum.SquareBoxDoublingIteration
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport

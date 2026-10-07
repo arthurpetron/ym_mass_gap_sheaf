@@ -4,7 +4,18 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: trace bounds ⇒ Wilson margin; C1 scope (2026-10-06 PT)
+## Latest proved increment: periodic Z⁴ torus + doubling iteration (2026-10-06 PT)
+
+Proved finite combinatorics (`Z4TorusGeometry`, general `N`): wrap-around `tAdd`/`tSub` with
+exact inverses; `torusLinks`/`torusPlaquettes` of length `4N⁴`/`6N⁴`, Nodup; every link on
+EXACTLY 6 plaquettes for `N ≥ 2`; translation action `tShift` commuting with boundaries;
+free-box embedding (`L + 1 ≤ N` ⇒ same edges). REDUCTION (`SquareBoxDoublingIteration`):
+`g k(1−ε k) ≤ g(k+1)` ⇒ `g 0·Π(1−ε) ≤ g k`; `1 − Σε ≤ Π(1−ε)`; uniform gap `g 0(1−σ)`.
+The doubling inequality is OPEN; Milestone 3 framing (scope note §7): a group-blind estimate
+would gap 4D `U(1)` (Coulomb, gap `~1/L`), so `ε` must depend on AF / no-photon / center
+input. Docstring fix: `Z4FiniteBoxTrivalentResolution` boxes are free-boundary, not periodic.
+
+## Earlier proved increment: trace bounds ⇒ Wilson margin; C1 scope (2026-10-06 PT)
 
 REDUCTION / finite check (`SpectralHalvingMargin`): `s_n ≤ U ≤ 1/2` ⇒ `specMax^n ≤ 1/2`,
 `specMax ≤ 1`, `1/(2n) ≤ 1 − specMax`; family wrappers
