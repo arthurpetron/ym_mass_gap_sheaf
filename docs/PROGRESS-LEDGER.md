@@ -21,7 +21,13 @@ new angle). Run `bash computations/progress_metric.sh` each iteration.
   closure remain OPEN. No broad chart node changes. Evidence:
   `audits/AUDIT-CONDITIONAL-GRUSS-AND-ORIGINAL-SCORE-2026-10-07.md`.
 
-## Latest proved increment: R1 commit 37, certified theta-ceiling D_∞(x) ≤ 2w/(1−w²) on all of [−1,1] at the named nomes w = 1/2 and w = 4/5 (2026-10-07 PT)
+## Latest proved increment: R1 commit 38, normalised-covariance torus ratio with a volume-uniform constant (2026-10-07 PT)
+
+- `SU2TorusNormalizedRatio.normalized_torus_ratio` (PROVED): `Ê(k+1)^e·Ê(k) ≤ (Cw·λ)·(λ²)^(k+e)·Ê(k)^e`, with `Ê(k) = cov(2k) = E(k)/Z`, for k+e ≤ X. It is obtained from `actual_torus_ratio` and `hcov` by cancelling `Z^(e+1) > 0`; the e = 0 case comes from `cov_decay`. The constant `Cw·λ` (λ = 6/7) contains no Z.
+- Carried: only 2X+1 ≤ M, an in-box root (b, c, d < 2M) and a spatial plane. hsup, hshift and hcov are discharged upstream by `SU2TorusCenteredPositiveSupport`, `SU2TorusCenteredPairShift` and `SU2TorusCenteredCovarianceRP`.
+- Scope: one spatial plaquette at time 1; strong coupling β_S = 1/(2e12); Wilson T_K at fixed K, with constants uniform in K and volume; U(1)-true; not gap evidence.
+
+## Earlier proved increment: R1 commit 37, certified theta-ceiling D_∞(x) ≤ 2w/(1−w²) on all of [−1,1] at the named nomes w = 1/2 and w = 4/5 (2026-10-07 PT)
 
 - `ThetaCeilingCells` (PROVED): a cell-enclosure engine for the SAME constructed limit `productRadialCostCReal`. It has three parts:
   - antitone `sTerm`, plus monotone interval enclosures on cells in [0,1] and in [−1,0], as cleared sums of nonnegative products;

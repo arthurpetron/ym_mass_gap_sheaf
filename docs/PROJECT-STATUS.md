@@ -6961,3 +6961,5 @@ Transfer-matrix scope note (2026-10-07): R1 commit 24.  Scope only.
 `SU2ClusterBridge` (2026-10-07): R1 commit 36. hcl is discharged from wilson_trunc_ratio modulo hcov; C = Z·Cw·(6/7), q = 6/7.
 
 `ThetaCeilingNamedNomes` (2026-10-07): R1 commit 37. D_∞(x) ≤ 2w/(1−w²) on every rational x ∈ [−1,1] at w = 1/2 (N=2, 14 cells) and w = 4/5 (N=5, 66 cells), for the constructed limit. Rigorous Q′ interval certificate. OPEN: rational x only (real x needs continuity/density); only the two named nomes; stated at the cap, not the general-w addition-square route.
+
+`SU2TorusNormalizedRatio` (2026-10-07): R1 commit 38. Normalised covariance Ê = E/Z satisfies the finite ratio bound with constant Cw·(6/7), with no Z, so it is uniform in K and volume. Carried: 2X+1 ≤ M, in-box root, spatial plane (hsup/hshift/hcov discharged upstream). Scope: one spatial plaquette, strong coupling β_S, Wilson T_K fixed K, U(1)-true, not gap evidence.

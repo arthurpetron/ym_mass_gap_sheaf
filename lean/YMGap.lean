@@ -7763,6 +7763,7 @@ import YMGap.Continuum.SU2TorusCenteredCovarianceRP
 import YMGap.Continuum.SU2TorusCenteredPositiveSupport
 import YMGap.Continuum.SU2TorusCenteredPairShift
 import YMGap.Continuum.SU2TorusCenteredFiniteRatio
+import YMGap.Continuum.SU2TorusNormalizedRatio
 -- The gap comparison does not need the full RG interface's coercive lower
 -- bound. Its positive-time-smoothing obstruction is scoped to that full field.
 import YMGap.Continuum.BF4WilsonAllNomeRGTimeSmoothingObstruction
