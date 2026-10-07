@@ -132,7 +132,21 @@ theorem conj_ringSub (n N : Nat) (S : Nat → Bool) : RingSub n (signSelectedPol
     show PE n [signSelectedTerm N S ([], 1)] polyOne
     simp only [signSelectedTerm, parity_nil]; exact pe_refl n _
 
+/-! ## Composition -/
+
+/-- `S` respects `PE n`. -/
+def PECongr (n : Nat) (S : RatPoly → RatPoly) : Prop := ∀ {X Y}, PE n X Y → PE n (S X) (S Y)
+
+theorem ringSub_comp {n : Nat} {S R : RatPoly → RatPoly} (hS : RingSub n S) (hSc : PECongr n S)
+    (hR : RingSub n R) : RingSub n (fun p => S (R p)) where
+  mul p q := pe_trans n (hSc (hR.mul p q)) (hS.mul _ _)
+  add p q := pe_trans n (hSc (hR.add p q)) (hS.add _ _)
+  smul c p := pe_trans n (hSc (hR.smul c p)) (hS.smul _ _)
+  neg p := pe_trans n (hSc (hR.neg p)) (hS.neg _)
+  one := pe_trans n (hSc hR.one) hS.one
+
 end YMGap.Continuum.SU2TorusRPConj
 
 #print axioms YMGap.Continuum.SU2TorusRPConj.parity_monoMul
 #print axioms YMGap.Continuum.SU2TorusRPConj.conj_ringSub
+#print axioms YMGap.Continuum.SU2TorusRPConj.ringSub_comp
