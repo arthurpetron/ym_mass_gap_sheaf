@@ -321,3 +321,13 @@ RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
 Open: derive the index lists from plaq_cross for the actual torus plaquettes; choose P, C from the torus links
 (Nodup, Θ-injectivity, ps ~ pos ++ mir pos ++ cross); the chain fixing ΘF·F; the integrand bridge.
 RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
+
+## d9c–d9g — geometric instantiation of the master
+- d9c `cross_shape0/M`: plaqIdx of an actual in-box crossing plaquette has the rpk_lay0 / rpk_layM shape.
+- d9d `rpk_cross_plaq`: every in-box crossing plaquette is RPK after the layout split (C ⊇ crossing links, P ⊇ pos links).
+- d9e `refl_box`, `mir_side`, `plaqIdx_eq`.
+- d9f `lay_factor`: hfac on the layout for `ps ~ pos ++ mir pos ++ cross`.
+- d9g `torus_rp_layout`: torus_rp_master on the concrete layout/chain/selector/half swap; ChainOK, hfac, per-crossing
+  RPK and hσ are discharged. Remaining hypotheses: hXfix (chain fixes X), hsup, hps, hWp; plus the choice of P, C
+  and the bridge from the torus integrand to this layout.
+RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
