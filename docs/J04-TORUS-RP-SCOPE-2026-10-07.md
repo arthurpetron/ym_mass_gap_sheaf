@@ -200,3 +200,8 @@ crossing split into `wilson_rp_qfull`. **RP FOR THE ACTUAL TORUS MEASURE IS OPEN
 (`thetaPoly (Π TK) ≈PE Π TK∘mir`), `theta_haar` (∫Θpoly X ≈ ∫X for supported X), `torus_mirror`
 (`∫ Π_{ps} TK ≈ ∫ Π_{ps.map mir} TK`). Item 2 of (d) is done. Open: item 3 (pos/neg/cross factorisation, crossing split,
 `wilson_rp_qfull`). **RP FOR THE ACTUAL TORUS MEASURE IS OPEN.**
+
+**(d3a) shift bridge** (`SU2TorusRPShiftBridge.lean`): `reindex_shift`: if `σ k = k + a` for `k < a`, then
+`reindex σ X ≈PE shiftPoly a X` on `Sup a X`. This links the geometric Θ to `rp_full`'s `shiftPoly`. Open for
+item 3: ordering the torus links as `L ++ Θ(L)` (pos half, then its mirror) plus the split crossing variables,
+the pos/neg/cross factorisation of `Π TK`, and the final `hW`. **RP FOR THE ACTUAL TORUS MEASURE IS OPEN.**
