@@ -205,3 +205,8 @@ crossing split into `wilson_rp_qfull`. **RP FOR THE ACTUAL TORUS MEASURE IS OPEN
 `reindex σ X ≈PE shiftPoly a X` on `Sup a X`. This links the geometric Θ to `rp_full`'s `shiftPoly`. Open for
 item 3: ordering the torus links as `L ++ Θ(L)` (pos half, then its mirror) plus the split crossing variables,
 the pos/neg/cross factorisation of `Π TK`, and the final `hW`. **RP FOR THE ACTUAL TORUS MEASURE IS OPEN.**
+
+**(d3b) item 3 step 1, link order** (`SU2TorusRPHalfOrder.lean`): for `links = L ++ L.map f`, `half_map`
+(`linkInv` is `k ↦ k+|L|`) and `reindex_eq_shift` (the reindex half of Θpoly is `shiftPoly |L|` on L-supported
+polynomials). Crossing links are Θ-fixed, so they do NOT fit this form; they must first be split into fresh
+`A`/`B` blocks (A in L, B = Θ(A)). That split and steps 2–3 are open. **RP FOR THE ACTUAL TORUS MEASURE IS OPEN.**

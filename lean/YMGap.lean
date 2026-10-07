@@ -7412,6 +7412,7 @@ import YMGap.Continuum.SU2TorusRPThetaTK
 import YMGap.Continuum.SU2TorusRPThetaTime
 import YMGap.Continuum.SU2TorusRPThetaProd
 import YMGap.Continuum.SU2TorusRPShiftBridge
+import YMGap.Continuum.SU2TorusRPHalfOrder
 import YMGap.Continuum.SpecMaxRateFamily
 import YMGap.Continuum.W1StrongCouplingPerturbation
 import YMGap.Continuum.W1VacuumTailRowSum
