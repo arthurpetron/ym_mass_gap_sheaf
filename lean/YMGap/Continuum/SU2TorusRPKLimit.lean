@@ -5,11 +5,11 @@ Nothing here defines a limit of `rpB` in `K`. We state, in Q', that an inequalit
 holds for any rational that every truncation approximates within `r K`, up to `2·r K`:
 
 * `closed_le` : `x_K ≤ y_K`, `|x − x_K| ≤ r`, `|y − y_K| ≤ r` ⟹ `x ≤ (y + r) + r`.
-* `rp_closed` : `0 ≤ rpB_K F F` for all `K` (`torus_rp_poly`), and `|x − rpB_K F F| ≤ r K` ⟹ `0 ≤ x + r K`.
+* `rp_closed` : `0 ≤ rpB_K F F` for all `K` (`torus_rp_poly`), and `|x − rpB_K F F| ≤ r K` ⟹ `0 ≤ (x + r K) + r K`.
 * `cs_closed` : the same for `TorusCS`, with `x = a·a` and `y = b·c` the products of the approximated values.
 
-`RPKCauchy` states the target uniform-in-`K` Cauchy bound for `rpB`. It is a DEFINITION ONLY here and is
-**OPEN**. The Haar-level rate (`|h(Π T_{K'}) − h(Π T_K)|`) has not been built.
+`RPKCauchy` states the uniform-in-`K` Cauchy bound for `rpB`; it is only defined here. It is PROVED in
+`SU2TorusRPKCauchy.rpK_cauchy` at strong coupling (`2·256·β ≤ 1`), with an explicit rate that is not volume-uniform.
 -/
 
 import YMGap.Continuum.SU2TorusRPPolyCS
