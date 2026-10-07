@@ -109,3 +109,25 @@ Example: D = 24, M = 2 needs ε·2^{24} ≤ 1/2, i.e. ε ≤ 2^{-25}.
      (`z4ClusterCountBound_animal`).
   - With (1) and (2), 1 + 2·(1/3) = 5/3, which closes `hgroup`.
 - **Ratio-Lipschitz decay:** NEXT; not started.
+
+## Update (2026-10-07): `hgroup` closed, Z4 KP unconditional (`Z4PolymerKP`)
+
+- **Polymer.** A `Z4BoxGas` is a finite list of plaquette sets on `z4Chain` (the
+  corner-anchored Z≥0⁴ plaquettes) with these properties:
+  - each set is duplicate-free and internally connected (a genuine lattice animal);
+  - 1 ≤ |X| ≤ N;
+  - supports are pairwise distinct.
+  - Incompatibility `shareB` means sharing a plaquette.
+- **Hypothesis-free main result.** `z4_kp` holds for every such list and every activity with
+  |z X| ≤ (1/10000)^{|X|}:
+  - Ξ ≥ 0;
+  - Ξ(Λ∖b) ≤ (1+(1/2500)^{|b|})·Ξ(Λ);
+  - 1 ≤ Π(1+(1/2500)^{|X|})·Ξ(Λ).
+- **Ingredients:**
+  - `group_le`: the grouping lemma, using the computable first-shared-plaquette choice `asg`.
+  - `pigeon`: the up-to-support pigeonhole.
+  - `class_sum`: the per-plaquette sum ≤ geoS N ≤ 1/3, via `z4ClusterCountBound_animal` (625^n).
+  - `z4_hgroup`.
+  - Two `simpa`/`omega` uses that pulled in `Classical.choice` were replaced by explicit Nat
+    lemmas.
+- **Decay:** the ratio-Lipschitz decay is NEXT; not started.

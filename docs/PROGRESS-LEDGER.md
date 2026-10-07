@@ -4,7 +4,16 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: size-weighted (Dobrushin-form) KP with Z4 numbers (2026-10-07 PT)
+## Latest proved increment: unconditional Z4 weighted KP (2026-10-07 PT)
+
+- `Z4PolymerKP` (PROVED, GROUP-BLIND PLUMBING):
+  - `group_le`, `pigeon`, `class_sum`, `z4_hgroup`;
+  - `z4_kp`: KP nonnegativity, removal ratio and lower bound for every `Z4BoxGas` (connected,
+    distinct plaquette animals of size ≤ N, sharing-a-plaquette incompatibility) with
+    |z| ≤ (10^-4)^{|X|}. No residual hypothesis.
+- Next: ratio-Lipschitz decay.
+
+## Earlier proved increment: size-weighted (Dobrushin-form) KP with Z4 numbers (2026-10-07 PT)
 
 - `SizeWeightedPolymerKP` (PROVED, GROUP-BLIND PLUMBING):
   - `kpw_main`, `kpw_filter`, `kpw_lower` under the finite Dobrushin condition with weights m ≥ 1;

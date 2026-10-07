@@ -6406,3 +6406,7 @@ infinite distance. Finite-d decay is OPEN. The Z4 animal count (K = 625) is alre
 `SizeWeightedPolymerKP` (2026-10-07): weighted Dobrushin KP over finite lists, plus the Z4
 numbers ε = 10^-4 and η = 1/2500 (625η = 1/4). `z4_cond` is conditional on `hgroup` (the
 grouping lemma and the polymer-to-animal injection, both OPEN). Decay is next.
+
+`Z4PolymerKP` (2026-10-07): the Z4 weighted KP is UNCONDITIONAL for box polymer systems of
+connected plaquette animals (`z4_kp`), with constants independent of the volume. Group-blind
+plumbing; truncated-correlation decay is next.
