@@ -4,7 +4,17 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 9, KP for the link-compatibility gas (activity as hypothesis) (2026-10-07 PT)
+## Latest proved increment: R1 commit 10, lattice decay for the actual SU(2) polyPartition (strong coupling) (2026-10-07 PT)
+
+- `SU2LinkDecay.su2_link_decay` (PROVED, axioms ⊆ {propext, Quot.sound}).
+  - Statement: for w₀ = 10⁻⁸ and any spin truncation M, `polyPartition w₀ M links N P ≈ Ξ(z; gas N P)`.
+  - For y, g at torus ℓ∞ distance ≥ R+1: |U z y g l| ≤ (6/7)^R · (λ²η)^{|g|} · Ξ(l)Ξ(g::l), where U = Ξ(y::g::l)Ξ(l) − Ξ(y::l)Ξ(g::l).
+  - The bound is uniform in M.
+- Generic `link_decay` takes the activity hypothesis |z γ| ≤ ε^{|γ|}. Scalar pass `decay_pass` at ε_L = 10⁻¹⁵ (decide).
+- REGIME: strong coupling, heat-kernel action (spin-truncated), not Wilson. Also true for U(1), so by the U(1) rule this is NOT gap evidence.
+- OBSERVABLE: polymer insertion/removal correlations U. Wilson-loop decay is NOT claimed. Wilson Bessel-ratio coefficients remain open.
+
+## Earlier proved increment: R1 commit 9, KP for the link-compatibility gas (activity as hypothesis) (2026-10-07 PT)
 
 - `SU2LinkKP` (PROVED).
   - KP condition: `condL` (Cond/Cond2) under the scalar hypothesis εK(1+η) ≤ η, with K=(5/3)^24 and η=1/2500.

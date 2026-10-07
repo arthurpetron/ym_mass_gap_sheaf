@@ -99,3 +99,10 @@ No fail statement is given: the ℓ¹ envelope is an upper bound, not the true a
 
 - KP environment for (gas N P, incL), with the activity as a hypothesis so that both the ℓ¹ bound and Realizer's charEnv bound can feed it.
 - Pass: ε_L=1e-15. K=(5/3)^24, η=1/2500.
+
+## PROVED: commit 10, `SU2LinkDecay.lean`
+
+- `su2_link_decay` chains polyPartition_eq_Xi → link KP (commit 9) → chainW_bound (lattice decay).
+- Constants: w₀=1e-8, ε_L=1e-15, η=1/2500, K=(5/3)^24 per plaquette, rate λ=6/7 per unit of distance, with weight 2|h|.
+- Observable: insertion/removal correlation U only, not Wilson loops.
+- Strong coupling, so it also holds for U(1): not gap evidence.
