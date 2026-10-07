@@ -15,6 +15,9 @@ This swaps the ℓ¹ activity bound (w₀ = 10⁻⁸) for Realizer's sharper
 * `su2_link_decay_heat`: for w ∈ {0, 1/100000}, `polyPartition ≈ Ξ(gas)` and
   `|U| ≤ (6/7)^R (λ²η)^{|g|} Ξ(l)Ξ(g::l)`, uniform in M.
 The observable is the polymer insertion/removal correlation U.  No Wilson loop is involved.
+
+Wilson counterpart of this polymer decay: Realizer's `SU2WilsonLinkDecay`.  An observable
+decay for Wilson needs the same insertion over T_K's split (later).
 -/
 
 import YMGap.Continuum.SU2LinkDecay

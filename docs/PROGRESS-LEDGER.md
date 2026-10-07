@@ -4,7 +4,17 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 12, χ₁ observable insertion and cross-multiplied truncation (2026-10-07 PT)
+## Latest proved increment: R1 commit 13, (1+χ)(c₀+f) factorisation and the one-root formula (2026-10-07 PT)
+
+- `SU2ObsRoot` (PROVED, axioms ⊆ {propext, Quot.sound}).
+  - `obs_factor`: (1+χ)(c₀+f) ≅ c₀+(f+χ+χf), using c₀ ≈ 1 (the c₀χ ≅ χ identification).
+  - `ZObs_factor`: ZObs S ≈ ∫Π_r [r∈S ? (1+χ_r)(c₀+f_r) : c₀+f_r].
+  - `root_split`.
+  - `one_point_root`: ZObs[p]−Z ≈ Σ_{a∋p}(z^p_a−z_a)Ξ(rest∩cpt a).
+- OPEN: the two-root formula for Zpq, a T(y,g)-type chain bound, and the modified-activity bound at w_H.
+- Labels: heat-kernel (spin-truncated), not Wilson; also true for U(1), not gap evidence.  Wilson polymer decay: Realizer's SU2WilsonLinkDecay.
+
+## Earlier proved increment: R1 commit 12, χ₁ observable insertion and cross-multiplied truncation (2026-10-07 PT)
 
 - `SU2ObsInsertion` (PROVED, axioms ⊆ {propext, Quot.sound}).
   - `ZObs_nil`: ZObs [] = polyPartition.

@@ -118,3 +118,9 @@ No fail statement is given: the ℓ¹ envelope is an upper bound, not the true a
 - Observable insertion as modified activities on the same gas.  Cross-multiplied truncation identity.
 - The decay and the part-2 (OS/transfer) map are in SCOPE-R1-CLUSTER-TO-GAP-2026-10-07.md.
 - Strong coupling, heat-kernel (spin-truncated), not Wilson; also true for U(1), not gap evidence.
+
+## PROVED: commit 13, `SU2ObsRoot.lean`
+
+- c₀χ ≅ χ factorisation proved (not docs-only).  One-root decomposition.
+- Open for the correlator bound: the two-root expansion and a chain bound for T(y,g)=Ξ(l)Ξ(l_yg)−Ξ(l_y)Ξ(l_g).  chain_bound cannot be reused with activity-1 roots, because KP fails at the roots.  The w_H modified activities are also open.
+- Next big item: RP plus a transfer matrix for the torus polyPartition.

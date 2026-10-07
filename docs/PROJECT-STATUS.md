@@ -6470,3 +6470,5 @@ arbitrary disjoint link-block supports.
 `SU2LinkDecayHeat` (2026-10-07): R1 commit 11.  w₀ raised from 1e-8 to 1e-5 via charEnv.  Strong coupling, heat-kernel (spin-truncated), not Wilson; also true for U(1), not gap evidence.
 
 `SU2ObsInsertion` (2026-10-07): R1 commit 12.  The χ₁ truncated correlator reduced to a Ξ cross-difference; its decay is open.  Clustering→gap scope note added.  Strong coupling, heat-kernel, U(1)-true.
+
+`SU2ObsRoot` (2026-10-07): R1 commit 13.  The Gibbs expectation for χ₁ insertions is exact, plus the one-point root formula.  NEXT BIG ITEM: reflection positivity plus a transfer matrix for the torus polyPartition (see SCOPE-R1-CLUSTER-TO-GAP-2026-10-07.md); not started.  Heat-kernel, not Wilson; U(1)-true, not gap evidence.

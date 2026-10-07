@@ -16,6 +16,9 @@ This is not a Wilson-loop decay statement.
   so link-incompatible polymers are at distance ≤ 1.
 * `link_decay`: the generic theorem with activity hypothesis `|z γ| ≤ ε^{|γ|}` on gas polymers.
 * `su2_link_decay`: the SU(2) instance at `w₀ = 10⁻⁸` (`ε_L = 10⁻¹⁵`), uniform in the truncation `M`.
+
+Wilson counterpart of this polymer decay: Realizer's `SU2WilsonLinkDecay`.  An observable
+decay for Wilson needs the same insertion over T_K's split (later).
 -/
 
 import YMGap.Continuum.SU2LinkKP
