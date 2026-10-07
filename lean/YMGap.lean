@@ -7680,6 +7680,13 @@ import YMGap.Continuum.RGExplicitRationalRate
 import YMGap.Continuum.BF4WilsonAllNomeRGTwoStepRecovery
 
 -- Actual observable algebra for the finite torus covariance/RP join;
--- centering and reflected/translated mean identification remain open.
+-- full translated RP/time-pairing identification remains open.
 import YMGap.Continuum.SU2TorusRPObservableReflection
 import YMGap.Continuum.SU2WilsonObsExtraction
+
+-- Computed RG margins feed the existing consumer, given the actual analytic
+-- comparison/budget inputs. Finite OWN centering preserves the SAME Wilson Z.
+import YMGap.Continuum.BF4WilsonAllNomeRGComputedMargin
+import YMGap.Continuum.SU2WilsonCenteredCovariance
+-- Reflection preserves the actual Wilson OWN mean; translation/RP joins open.
+import YMGap.Continuum.SU2TorusRPOwnMeanReflection

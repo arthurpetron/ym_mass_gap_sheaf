@@ -39,23 +39,40 @@ The review found an unjustified RG arrow: `approxRg_transfers` supplies only
 the fine two-step norm factor `alpha = kappa*(rC^2+epsilon)`. Recovery needs
 `alpha <= rF^4`, whereas the old `RgRateRelationκ` assumes `rF^4 <= alpha`.
 The old chain and all its fields are retained unchanged; its inhabitability
-must not be inferred from the transfer. The selected mathematical repair is
-completed Cauchy--Schwarz plus constructive square order reflection, using
-the explicit rational rate `(3+alpha)/4` and its direct margin recurrence.
-No RG comparison map, seed or summable error bound is thereby supplied.
+must not be inferred from the transfer. The mathematical repair is now checked:
+completed Cauchy--Schwarz, constructive square order reflection and the explicit
+rational rate `(3+alpha)/4`. `BF4WilsonAllNomeRGComputedMargin` then computes
+the rate sequence, derives its OWN upper margin and telescopes directly.
+ONE supplied seed contraction plus actual comparisons and a weighted effective
+defect budget `S` give all-scale contractions and the existing lower-margin
+consumer, with explicit floor `seed*(1-seed)-S/2 > 0`. Global factor caps and a
+B04 ceiling are consequences, not assumptions of this join. Actual comparisons
+and a useful budget remain OPEN; this does not construct them.
+
+The budget must control distortion as well as additive error: computed successor
+rates are at least `3/4`, and `effectiveDefect >= (9/16)*(kappa-1)` thereafter.
+Do not treat `kappa >= 1`, `kappa -> 1` or error summability without the weighted
+prefix bound as sufficient. The existing finite all-nome Doeblin theorem can
+supply a seed contraction, but it does not supply this RG budget or an AF margin.
 
 In parallel, the actual finite torus covariance/RP join is being completed
-algebraically: reflection of the spatial character, extraction of the
-`1+chi` insertions under genuine membership/distinctness guards, then OWN
-centering and equality of reflected/translated means. `SU2ClusterBridge.hcov`
-is still a hypothesis, not an identification theorem. No torus transfer or
-continuum gap follows from its finite conditional log-convexity bound.
+algebraically. Spatial-character reflection and genuine insertion extraction
+are checked; `SU2WilsonCenteredCovariance.centered_covariance` now proves the
+actual OWN-centered integral equals `Z` times the literal insertion covariance,
+with root membership and distinctness retained.
+`SU2TorusRPOwnMeanReflection.ownMean_mirror` and `theta_centeredCharacter` now
+prove reflection invariance of the OWN mean and actual centered observable,
+including the full temporal Wilson weight. Translation invariance of OWN means
+and the exact RP/time joins still need to be assembled.
+`SU2ClusterBridge.hcov` remains a hypothesis, not an identification theorem.
+No torus transfer or continuum gap follows from its finite conditional ratio bound.
 
 Check and record each completed join in the dated audit/ledger before using
-it. Next: feed the computed margin recurrence directly to the telescoping
-envelope argument (not the opposite-direction rate-chain assumption), and
-finish the actual centered Haar/RP equality. Then return to the analytic
-producers rather than extending conditional scaffolds indefinitely.
+it. The computed recurrence-to-envelope join is now complete. Next: finish the
+actual finite torus Haar/RP identification, while testing an action-specific
+producer for the explicit RG comparisons and their demanding distortion/error
+budget. Keep the independent survival estimate in view; do not extend conditional
+scaffolds in place of these analytic producers.
 The canonical chart's displayed broad claims remain unchanged; no reprint.
 
 ### Earlier signed-cost route and subsequent checkpoints (2026-10-04 onward)

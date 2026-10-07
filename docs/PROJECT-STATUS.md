@@ -1,9 +1,21 @@
 # Canonical one-page project status
 
-Supporting torus algebra checked (2026-10-07): reflection of the genuine
-spatial character and guarded extraction of the actual `1+chi` insertion.
-The SAME centered covariance/RP equality, mean invariance and transfer
-construction remain OPEN. These do not change the displayed broad chart.
+Supporting torus algebra checked (2026-10-07): spatial-character reflection,
+guarded insertion extraction and the actual OWN-centered Haar covariance
+identity (`SU2WilsonCenteredCovariance.centered_covariance`), plus reflected
+OWN means and centered observables (`SU2TorusRPOwnMeanReflection`). The exact
+covariance/RP join, translated means and transfer construction remain OPEN.
+These do not change the displayed broad chart.
+
+Supporting RG telescope checked (2026-10-07):
+`BF4WilsonAllNomeRGComputedMargin.computedWilsonFamily_lowerMargin` supplies
+the EXISTING lower-margin consumer from ONE seed contraction, actual RG
+comparisons and a sufficiently small weighted effective-defect budget. Rates
+are computed; their OWN upper ceiling and factor caps are proved. Explicit
+floor `seed*(1-seed)-S/2`. Distortion is load-bearing:
+`effectiveDefect >= (9/16)*(kappa-1)` beyond the seed. Actual comparisons and
+the useful budget remain OPEN, as do survival and physical/continuum control.
+No old opposite-direction rate chain or broad chart claim is discharged.
 
 Supporting mathematics checked (2026-10-07):
 `BF4WilsonAllNomeRGTwoStepRecovery.vacuumSq_of_twoStepFactor` recovers a

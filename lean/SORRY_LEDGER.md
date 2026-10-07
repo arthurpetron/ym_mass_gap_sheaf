@@ -1,5 +1,59 @@
 # Sorry Ledger
 
+## PROVED: reflected OWN mean and centered character on the actual torus (2026-10-07)
+
+- `SU2TorusRPOwnMeanReflection.theta_weight` preserves ALL actual Taylor-Wilson
+  plaquette factors, including temporal factors, by the explicit Haar reflection
+  and torus plaquette permutation. `character_supported` proves support of
+  actual physical roots.
+- `ownMean_mirror` proves reflected OWN mean equality without assuming it;
+  `theta_centeredCharacter` transports the genuine OWN-centered spatial
+  character to its OWN-centered mirror. The partition reciprocal is unchanged.
+- The final one-file check passed four gates, all {propext, Quot.sound}.
+  Earlier local-notation/missing-namespace elaboration failures are not evidence;
+  no memory/heartbeat limits were increased. No source hole or axiom introduced.
+- OPEN: translated OWN means, the exact `hcov` RP assembly, positive-time
+  support/time-additivity, torus transfer and continuum/Clay. Full-root
+  verification was not run; only these leaf imports were registered.
+
+## PROVED: computed RG telescope and existing Wilson lower-margin consumer (2026-10-07)
+
+- `BF4WilsonAllNomeRGComputedMargin.computedRate` is explicit rational data.
+  `computedMargin_upper` derives the OWN ceiling, while the finite
+  `computedMargin_invariant` and `computedMargin_lower` prove the floor
+  `seedFloor = seed*(1-seed)-S/2`. Positivity is established inductively before
+  factor caps; neither all-scale caps nor the B04 ceiling is a premise.
+- `computedRate_contraction` needs ONE seed contraction and the actual supplied
+  quadratic comparison at each step. `computedWilsonFamily` constructs the
+  SAME trajectory family; `computedWilsonFamily_lowerMargin` reaches the
+  EXISTING `WilsonLowerMargin` with that explicit floor and dyadic spacing.
+  No `RgRateChainκ` witness is asserted or required.
+- `computedDefect_distortion_lower` records that effective defects pay at least
+  `9/16*(kappa-1)` beyond the seed. Weighted prefix control of those defects
+  is a substantial analytic input, not merely `kappa >= 1` or `kappa -> 1`.
+- The one-file check passed all 13 printed gates within {propext, Quot.sound}.
+  The earlier syntax/definitional-unification failures are not evidence; the
+  successful proof simplifies the zero-based error index without raising limits.
+- OPEN: actual comparisons, a sufficiently small weighted defect budget,
+  survival, physical calibration/volume control, limiting OS/QFT/every-group/Clay.
+  A supplied useful seed remains an argument; the existing finite all-nome
+  Doeblin theorem can supply one, but does not supply the subsequent budget.
+
+## PROVED: actual OWN-centered finite Wilson covariance (2026-10-07)
+
+- `SU2WilsonCenteredCovariance.single_insertion` and `pair_insertion` preserve
+  all original `betaS` Taylor-Wilson factors, requiring physical membership,
+  nonduplication and distinct roots.
+- `centered_covariance_clear` cancels only the SAME positive partition;
+  `centered_covariance` identifies the actual OWN-centered Haar integral with
+  `Z` times the literal `Q'.recip` covariance in `SU2ClusterBridge`.
+- The final one-file check passed four printed gates, all
+  {propext, Quot.sound}. Generic opaque determinant algebra resolved the first
+  elaboration timeout without a limit increase; failed runs are not evidence.
+- OPEN: translated OWN mean identification and the exact RP/time
+  assembly of `hcov`; positive-half support, time-shift pairing, transfer and
+  scaling/continuum/QFT/Clay. No analytic decay bound is supplied by this algebra.
+
 ## PROVED: actual finite torus observable reflection and insertion extraction (2026-10-07)
 
 - `SU2TorusRPObservableReflection.theta_chi_spatial` identifies the actual
@@ -13,9 +67,10 @@
   The extraction dependency-complete target also passed. Root registration
   only; no full-root build/audit and no new `sorry` or axiom.
 - These discharge two finite algebraic ingredients of
-  `SU2ClusterBridge.hcov`, not that hypothesis itself. OWN centering,
-  covariance cancellation, mean invariance and the exact RP/time-shift
-  identification remain to be joined. No torus transfer, scaling or Clay closure.
+  `SU2ClusterBridge.hcov`, not that hypothesis itself. OWN centering, covariance
+  cancellation and reflected mean invariance have since been proved above;
+  translated means and the exact RP/time-shift identification remain to be
+  joined. No torus transfer, scaling or Clay closure.
 
 ## PROVED: SAME-carrier RG two-step recovery; scope correction (2026-10-07)
 
@@ -36,9 +91,10 @@
 - Three narrow source checks passed; all 13 printed theorem gates are within
   {propext, Quot.sound}. The earlier missing-dependency/failed elaboration runs
   are not verification evidence. No full-root build or repository audit.
-- OPEN: actual comparison maps, strict factors along the AF trajectory,
-  summable errors, an intermediate-coupling seed, the direct recurrence-to-
-  envelope join, survival and physical/OS/continuum/QFT/every-group/Clay.
+- The direct recurrence-to-envelope join is now proved above for computed rates.
+  Strict factors follow from its positive budget floor rather than being assumed.
+- OPEN: actual comparison maps and a useful weighted effective-defect budget
+  along the AF trajectory, survival and physical/OS/continuum/QFT/every-group/Clay.
 
 ## REDUCTION: RG-step composition for the gap frontier (2026-10-06 PT)
 

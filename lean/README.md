@@ -16,12 +16,25 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked direct RG telescope and OWN covariance (2026-10-07):**
+`BF4WilsonAllNomeRGComputedMargin` computes the rates from one seed and proves
+their dyadic floor `seed*(1-seed)-S/2`, given actual comparison functions and
+a useful weighted defect budget. Global factor caps/B04 ceiling are not
+assumed. Distortion must be paid alongside additive error; the analytic inputs
+remain OPEN. `SU2WilsonCenteredCovariance` proves the actual OWN-centered Haar
+integral equals the literal insertion covariance times the SAME partition,
+under genuine root guards. `SU2TorusRPOwnMeanReflection` also proves reflected
+OWN mean/centered-character identities, retaining the full temporal weight.
+Translated means, full covariance/RP identification, survival,
+physical scaling and continuum/Clay remain OPEN. Narrow checks only.
+
 **Checked finite torus observable joins (2026-10-07):**
 `SU2TorusRPObservableReflection.theta_chi_spatial` identifies the genuine
 mirrored spatial character, and `SU2WilsonObsExtraction.obsTK_extract`
 extracts the actual `1+chi` insertion with membership/nonduplication guards.
-Two focused checks passed permitted gates. The centered covariance/RP join,
-mean invariance, torus transfer and continuum theory remain OPEN.
+Two focused checks passed permitted gates. OWN centering and reflected mean
+invariance are now proved above; the full covariance/RP join, translated
+means, torus transfer and continuum theory remain OPEN.
 
 **Checked SAME-carrier RG recovery (2026-10-07):**
 `BF4WilsonAllNomeRGTwoStepRecovery` proves that a supplied two-step factor
