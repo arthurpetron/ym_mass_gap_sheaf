@@ -4,7 +4,19 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 1, Haar factorization over arbitrary disjoint block supports (2026-10-07 PT)
+## Latest proved increment: R1 commit 2, ℓ¹ Haar bound and true-activity envelope (2026-10-07 PT)
+
+- `SU2HaarL1Activity` (PROVED).
+  - `sm4_bounds`: 0 ≤ sphereMoment4 ≤ 1, so `haar_abs`: |∫p| ≤ ‖p‖₁.
+  - `l1_mul`: ℓ¹ is submultiplicative.
+  - `word_l1`: ‖scalar(plaqWord)‖₁ ≤ 256.
+  - `char_l1`: ‖χ_s‖₁ ≤ 513^s.
+  - `fPoly_l1`: ‖Σ_{1≤s≤M} coeffW w s χ_s(U_p)‖₁ ≤ charEnv(513w, M).
+  - `fPoly_pass`: at w₀ = 10⁻⁸, ‖f_p‖₁ ≤ ε_L = 10⁻¹⁵ for every M.
+  - `activity_bound`: |∫Π_{p∈γ} f_p| ≤ ε_L^{|γ|}.
+- No positivity beyond the moment formula is used.
+
+## Earlier proved increment: R1 commit 1, Haar factorization over arbitrary disjoint block supports (2026-10-07 PT)
 
 - `SU2HaarDisjointSupport` (PROVED):
   - `mono_disj`: `H_n(m₁m₂) ≈ H_n(m₁)H_n(m₂)` when every block is free in m₁ or in m₂;

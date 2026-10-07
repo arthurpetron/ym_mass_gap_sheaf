@@ -6447,3 +6447,6 @@ arbitrary disjoint link-block supports.
 - Remaining for R1: support tracking for the plaquette characters, the subset/polymer expansion,
   and the activity bound.
 - Two mismatches are documented in `audits/SCOPE-R1-HAAR-POLYMER-IDENTITY-2026-10-07.md`.
+
+`SU2HaarL1Activity` (2026-10-07): R1 activity side.
+- ℓ¹ route; at w₀ = 10⁻⁸ the true Haar activity is ≤ (10⁻¹⁵)^{|γ|}.

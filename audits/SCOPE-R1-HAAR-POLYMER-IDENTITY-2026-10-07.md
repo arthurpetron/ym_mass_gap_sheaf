@@ -50,3 +50,15 @@
     (about w ≤ 1/100), not at w = 1/40.
   - `charEnv` assumed `|χ_s| ≤ s+1` pointwise.  Under the Haar functional that is a sup bound,
     and it is exactly the missing positivity.
+
+## PROVED: commit 2, `SU2HaarL1Activity.lean` (ℓ¹ route, decision (b))
+
+- |sphereMoment4| ≤ 1 is proved as a Nat inequality on double factorials.
+- `|∫_n p| ≤ ‖p‖₁`.
+- `‖χ_s(U_p)‖₁ ≤ 513^s`.
+- At **w₀ = 1/10⁸**: `‖Σ_{s=1}^M coeffW w₀ s χ_s(U_p)‖₁ ≤ ε_L = 1/10¹⁵` uniformly in M (via `charEnv_inv` at 513·w₀).
+- `activity_bound`: `|∫ Π_{p∈γ} f_p| ≤ ε_L^{|γ|}`.
+
+**Loss.** `term_le` bounds 513^s by 513^{s(s+2)}, an extra factor 513² at s = 1.  The pass is therefore not sharp; the sharp ℓ¹ threshold is about 25× larger in w.
+
+No fail statement is given: the ℓ¹ envelope is an upper bound, not the true activity, so a fail would not certify anything about Haar.
