@@ -1,6 +1,8 @@
 /-
 # Wilson action, commit 1: powers of the trace in characters (Clebsch–Gordan / Catalan triangle)
 
+**STRONG COUPLING ONLY (β ≲ 1e-4)** track: a volume-uniform strong-coupling cluster expansion
+for the actual Wilson action, equally true for U(1); NOT mass-gap/continuum evidence.
 (YM Group Realizer, J04 Wilson track.)  With `χ_s = characterPolynomial x s` (`χ_0 = 1`,
 `χ_1 = 2x`, the trace when `x = u₀`):
 
@@ -171,7 +173,7 @@ def wilsonPoly (x : RatPoly) (a : Nat → Q') : Nat → RatPoly
   | 0 => polySmul (a 0) (chiPow x 0)
   | K + 1 => polyAdd (wilsonPoly x a K) (polySmul (a (K + 1)) (chiPow x (K + 1)))
 
-/-- Exact character coefficients `c_s^{(K)} = Σ_{k≤K} a_k mult k s`. -/
+/-- STRONG COUPLING ONLY track. Exact character coefficients `c_s^{(K)} = Σ_{k≤K} a_k mult k s`. -/
 def wCoeff (a : Nat → Q') : Nat → Nat → Q'
   | 0, s => a 0 * mult 0 s
   | K + 1, s => wCoeff a K s + a (K + 1) * mult (K + 1) s

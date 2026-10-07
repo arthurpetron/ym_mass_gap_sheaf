@@ -1,5 +1,14 @@
 # J04 — SU(2) Wilson action: scope (2026-10-07, YM Group Realizer)
 
+> **STRONG COUPLING ONLY (β ≲ 1e-4).** This track gives a volume-uniform strong-coupling cluster
+> expansion for the actual Wilson action. It is equally true for U(1). It is **NOT** evidence for the mass gap
+> or the continuum limit. YM Bot accepted this scope on 2026-10-07.
+>
+> Directions (YM Bot): no reciprocals. Work with the unnormalised Z, carry `c_0^{|P|}`, and use cross-multiplied
+> ratios. `β` stays a free rational in the envelope, with a concrete pass lemma at some β₀.
+> Simplified envelope (replaces the G-bound below): the dimension identity `Σ_s (s+1) c_s = Σ_k a_k 2^k`
+> (evaluation at U = 1) gives `B_K + c_0 = Σ_{k≤K} λ^k 2^k/k! ≤ Σ_k β^k`, so `B_K ≤ 2β` for `β ≤ 1/2`.
+
 ## Target
 Plaquette weight `exp((β/2) tr U_p)`. Its character expansion is
 `Σ_s c_s(β) χ_s(U_p)`, with `c_s = 2(s+1) I_{s+1}(β)/β` and `c_s/c_0 = (s+1) I_{s+1}(β)/I_1(β)`.
