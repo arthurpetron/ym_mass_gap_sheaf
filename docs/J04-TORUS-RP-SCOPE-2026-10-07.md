@@ -404,7 +404,7 @@ for every supported `X`. Axioms [propext, Quot.sound]. Open: the coordinate acti
 ## d9z: coordinate action of the composed reindexing (`SU2TorusRPPermCoord`)
 
 `rcomp_coord` shows that for `b < n`, `imap r b < n` and `qsub (rcomp r) (cv b) ≡ cv (imap r b)`. Axioms
-[propext, Quot.sound]. Open: `rcomp r` is a `RingSub` on supported polynomials. Using that and `perm_haarX`/`lay_perm`,
+[propext, Quot.sound]. `rcomp_ringSub` shows `rcomp r` is a `RingSub n`. Open: using these and `perm_haarX`/`lay_perm`,
 the torus `Θ_torus F · F` (via `thetaPoly` on `torusLinks`) should be identified with the layout
 `signSel(conjSel layT)(reindex halfSwap F')·F'`, and then `hW` can be stated and discharged.
 RP FOR THE ACTUAL TORUS MEASURE IS OPEN.

@@ -39,6 +39,29 @@ theorem rcomp_coord : ∀ (r : List (QuaternionBlockInvolution n)) (b : Nat), b 
     exact ⟨pe_reindex σ (rcomp_sup r _ hs.1) ht.1 hq.s, pe_reindex σ (rcomp_sup r _ hs.2.1) ht.2.1 hq.i,
       pe_reindex σ (rcomp_sup r _ hs.2.2.1) ht.2.2.1 hq.j, pe_reindex σ (rcomp_sup r _ hs.2.2.2) ht.2.2.2 hq.k⟩
 
+open YMGap.Continuum.SU2TorusRPSubst (RingSub)
+open YMGap.Continuum.SU2HaarAlgebra (pe_trans)
+open YMGap.Continuum.SU2ReindexPECongr (sup_reindex)
+open YMGap.Continuum.SU2TorusRPCompOn (sup_add sup_smul sup_neg)
+open YMGap.Continuum.SU2TorusRPCore (sup_mul sup_one)
+
+/-- `rcomp r` is a ring substitution up to `PE`. -/
+theorem rcomp_ringSub : ∀ r : List (QuaternionBlockInvolution n), RingSub n (rcomp r)
+  | [] => ⟨fun _ _ => pe_refl n _, fun _ _ => pe_refl n _, fun _ _ => pe_refl n _, fun _ => pe_refl n _,
+      pe_refl n _⟩
+  | [σ] => YMGap.Continuum.SU2TorusRPReindex.reindex_ringSub σ
+  | σ :: τ :: r => by
+    have ih := rcomp_ringSub (τ :: r)
+    have hS := YMGap.Continuum.SU2TorusRPReindex.reindex_ringSub σ
+    have hs : ∀ X, YMGap.Continuum.SU2TorusRPCore.Sup n (rcomp (τ :: r) X) := fun X => sup_reindex τ _
+    exact
+      { mul := fun p q => pe_trans n (pe_reindex σ (hs _) (sup_mul (hs p) (hs q)) (ih.mul p q)) (hS.mul _ _)
+        add := fun p q => pe_trans n (pe_reindex σ (hs _) (sup_add (hs p) (hs q)) (ih.add p q)) (hS.add _ _)
+        smul := fun c p => pe_trans n (pe_reindex σ (hs _) (sup_smul c (hs p)) (ih.smul c p)) (hS.smul _ _)
+        neg := fun p => pe_trans n (pe_reindex σ (hs _) (sup_neg (hs p)) (ih.neg p)) (hS.neg _)
+        one := pe_trans n (pe_reindex σ (hs _) (sup_one n) ih.one) hS.one }
+
 end YMGap.Continuum.SU2TorusRPPermCoord
 
 #print axioms YMGap.Continuum.SU2TorusRPPermCoord.rcomp_coord
+#print axioms YMGap.Continuum.SU2TorusRPPermCoord.rcomp_ringSub
