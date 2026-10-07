@@ -127,3 +127,19 @@ obligations:
   `cross_word_cut1/2` / `refl_word`.
 - (d) **Assembly.** With (a)–(c), the transformed integrand is PE to `W₊·ΘW₊·tkProd xs`, with `xs` the crossing
   scalars. This discharges `hW` in `wilson_rp_qfull`.
+
+## Assembly progress (a)/(b)
+
+- (a) PROVED: `SU2TorusRPPad.pad_haar` (∫_{n+k} p ≈ ∫_n p for p on the first n blocks).
+- (b) PROVED in part:
+  - `SU2TorusRPSubst`: `RingSub n S` (a ring homomorphism up to `PE n`); transport through `T_K`, Hamilton
+    words, `plaqWord` shape (`TK_word_sub`) and plaquette products (`prodPoly_sub`).
+  - `SU2TorusRPReindex`: block involutions are `RingSub`s with `σ: coordinateVariable b ↦ coordinateVariable (σ b)`.
+  - `SU2TorusRPHeadSub`: the head shear `translatedHeadPolynomial T` is a `RingSub`; head coordinate ↦ T, tail fixed.
+- (b) OPEN:
+  - The conj flip `signSelectedPolynomial` as a `RingSub`. Its product law exists only as
+    `QuaternionPrefixPolynomialEqv` under block support. This needs either a support-restricted `RingSub` or an
+    unconditional parity lemma for `selectedExponentParity (monoMul ..)`.
+  - The selected (non-head) shear can be obtained as reindex ∘ head ∘ reindex from the instances above. Composing
+    `RingSub`s (`RingSub` closed under composition) is routine and not yet written.
+- (c), (d) OPEN. **RP FOR THE ACTUAL TORUS MEASURE REMAINS OPEN.**
