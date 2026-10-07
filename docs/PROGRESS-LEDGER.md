@@ -4,7 +4,19 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: easy-direction min-max for the W = 1 model, and what the W = 1 certificate does and does not show (2026-10-07 PT)
+## Latest proved increment: scaling of the proved mixRate margin (2026-10-07 PT)
+
+- `MixRateMarginScaling` (PROVED, OBSTRUCTION-TO-USE):
+  - `mixFraction_le_pow`: margin ≤ (1/32)^{|temporalFaces width|} for all 0 < w < 1;
+  - `mixRate_ge`;
+  - `temporalFaces_one` (n(1) = 3, kernel decide);
+  - `mixFraction_le_width1` (≤ 2^-15).
+- Measured (`#eval`, not proved): n(width) = 3·width³ for width 1..4.
+- Consequence: margin ≤ 2^{-15 width³}. It is not width-uniform, and it is incompatible with
+  both the 2^n-weighted and the fresh-per-scale halving shapes under width doubling.
+- See `audits/SCOPE-MIXRATE-MARGIN-SCALING-2026-10-07.md`.
+
+## Earlier proved increment: easy-direction min-max for the W = 1 model, and what the W = 1 certificate does and does not show (2026-10-07 PT)
 
 **New Lean (`YMGap.Continuum.W1VariationalMinMax`, PROVED, MODEL; axioms ⊆ {propext, Quot.sound}).**
 - `perp_form_bound`: if x₀ = 0, the form of the full vacuum-included tridiagonal T

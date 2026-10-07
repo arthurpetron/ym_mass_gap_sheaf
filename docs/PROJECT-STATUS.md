@@ -6389,3 +6389,8 @@ min-max step is cited.
 `W1VariationalMinMax` (2026-10-07): easy-direction min-max as finite algebra. Every 2-D span has
 a nonzero (given linear independence) x ⊥ χ₀ with form ≤ (w^12+κw^22)‖x‖² for the vacuum-included
 W=1 model. MODEL; reading it as λ₂ is a remark. Limits: see the ledger entry. Model work paused.
+
+`MixRateMarginScaling` (2026-10-07): the proved Wilson mixRate margin satisfies
+margin ≤ (1/32)^{|temporalFaces width|} = 2^{-15 width³} (exponent proved at width 1, measured to
+width 4). The per-face Doeblin route cannot supply the scale-uniform lower margin, which stays
+OPEN; a different method is needed.
