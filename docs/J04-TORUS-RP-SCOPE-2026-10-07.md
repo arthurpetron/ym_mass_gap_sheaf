@@ -342,3 +342,10 @@ RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
 Open: choose P, C, pos, cross from the actual torus (ps = all torus plaquettes); bridge from the torus
 integrand/observable algebra (its link ordering and F's block placement) to this layout form; then hW.
 RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
+
+## d9o–d9p — fresh split blocks dropped
+- d9o `haar_drop`: Haar blocks carrying no variables can be dropped.
+- d9p `torus_rp_layL`: the layout RP statement on exactly `|L| = 2|P| + |C|` link blocks.
+Open: P, C, pos, cross from the actual torus link/plaquette lists, and reindexing the torus integrand
+(its link order, observables F on positive links) onto the layout; then hW.
+RP FOR THE ACTUAL TORUS MEASURE IS OPEN.

@@ -7452,6 +7452,7 @@ import YMGap.Continuum.SU2TorusRPFixSub
 import YMGap.Continuum.SU2TorusRPChainFix
 import YMGap.Continuum.SU2TorusRPLayoutRP
 import YMGap.Continuum.SU2TorusRPTrim
+import YMGap.Continuum.SU2TorusRPLayoutRPL
 import YMGap.Continuum.SpecMaxRateFamily
 import YMGap.Continuum.W1StrongCouplingPerturbation
 import YMGap.Continuum.W1VacuumTailRowSum
