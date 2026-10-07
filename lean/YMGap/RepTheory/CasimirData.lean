@@ -19,7 +19,7 @@ stored here is:
   | A_n  | n      | n+1          | n(n+2)/(2(n+1))  |  (= (N²−1)/(2N), N=n+1)
   | B_n  | n      | 2n−1         | n                |
   | C_n  | n      | n+1          | (2n+1)/4         |
-  | D_n  | n      | 2n−2         | (2n−1)/4         |
+  | D_n  | n      | 2n−2         | (2n−1)/4 legacy; repDataOf now uses vector (2n−1)/2 |
   | G₂   | 2      | 4            | 2                |
   | F₄   | 4      | 9            | 6                |
   | E₆   | 6      | 12           | 26/3             |
@@ -196,6 +196,130 @@ theorem soEven_hvee_lb (n : Nat) (hn : 2 ≤ n) :
     exact_mod_cast this
   omega
 
+/-! ## Corrected `D_n` / `B_n` Casimirs (long-root-square-two normalization)
+
+J04 track T1.  In the normalization where `A₁` fundamental is `3/4`
+(`C₂(λ) = ⟨λ, λ+2ρ⟩/2` with long roots of square length two):
+
+  * `D_n` vector `ω₁`:      `C₂ = (2n−1)/2`;
+  * `D_n` half-spin `ω_n`:  `C₂ = n(2n−1)/8`;
+  * `B_n` vector `ω₁`:      `C₂ = n` (= the legacy `soOdd_C2_fund`);
+  * `B_n` spinor `ω_n`:     `C₂ = n(2n+1)/8`.
+
+Global-form consequences recorded here (no claim is made beyond these
+rational comparisons):
+
+  * `D_n`, `n ≥ 4`: half-spin `≥` vector, with equality at `n = 4`
+    (triality, both `7/2`).  So for every global form in which the vector
+    descends (`SO(2n)`, `Spin(2n)`) the least of these two values is the
+    vector value `(2n−1)/2`; `mass_gap_D` is re-pointed to it.  (Forms where
+    the vector does not descend, e.g. `PSO(2n)`, `Ss(2n)`, are not treated.)
+  * `B_n`: spinor `<` vector exactly at `n = 2, 3` (`5/4 < 2`, `21/8 < 3`),
+    `=` at `n = 4`.  So the legacy `B` row (`n`) is the `SO(2n+1)` vector
+    value, NOT the `Spin(2n+1)` minimum at `n = 2, 3`; the spinor value
+    still clears `3/4` for `n ≥ 2`.
+  * Floor no-gos (explicit): at rank `n = 1` both `soEven_vector_C2 1 = 1/2`
+    and `soEven_halfSpin_C2 1 = 1/8`, `soOdd_spinor_C2 1 = 3/8` lie strictly
+    below `3/4`.  Rank 1 is outside the simple range for `B`/`D`, so no floor
+    fails at any simple rank (`B_n, n ≥ 2`; `D_n, n ≥ 4`; in fact `n ≥ 2`
+    for every corrected value). -/
+
+/-- `D_n` vector Casimir `(2n−1)/2`. -/
+def soEven_vector_C2 (n : Nat) : Q' := Q'.mkPos (2 * (n : Int) - 1) 2 (by decide)
+
+/-- `D_n` half-spin Casimir `n(2n−1)/8`. -/
+def soEven_halfSpin_C2 (n : Nat) : Q' :=
+  Q'.mkPos ((n : Int) * (2 * (n : Int) - 1)) 8 (by decide)
+
+/-- `B_n` spinor Casimir `n(2n+1)/8`. -/
+def soOdd_spinor_C2 (n : Nat) : Q' :=
+  Q'.mkPos ((n : Int) * (2 * (n : Int) + 1)) 8 (by decide)
+
+private theorem den_mkPos2 (a : Int) : ((Q'.mkPos a 2 (by decide)).den : Int) = 2 := by
+  rw [Q'.mkPos_den (h := by decide)]; rfl
+private theorem den_mkPos8 (a : Int) : ((Q'.mkPos a 8 (by decide)).den : Int) = 8 := by
+  rw [Q'.mkPos_den (h := by decide)]; rfl
+private theorem den_mkPos4 (a : Int) : ((Q'.mkPos a 4 (by decide)).den : Int) = 4 := by
+  rw [Q'.mkPos_den (h := by decide)]; rfl
+
+/-- `D_n` vector clears `3/4` for `n ≥ 2`: `3·2 ≤ 4·(2n−1)`. -/
+theorem soEven_vector_gap_lb (n : Nat) (hn : 2 ≤ n) :
+    Casimir.gapFloor ≤ soEven_vector_C2 n := by
+  show (Casimir.gapFloor).num * ((soEven_vector_C2 n).den : Int)
+     ≤ (soEven_vector_C2 n).num * ((Casimir.gapFloor).den : Int)
+  have hgn : (Casimir.gapFloor).num = (3 : Int) := rfl
+  have hgd : ((Casimir.gapFloor).den : Int) = (4 : Int) := rfl
+  have hfn : (soEven_vector_C2 n).num = 2 * (n : Int) - 1 := rfl
+  rw [hgn, hgd, hfn, show ((soEven_vector_C2 n).den : Int) = 2 from den_mkPos2 _]
+  have : (2 : Int) ≤ (n : Int) := by omega
+  omega
+
+private theorem prod_ge (n : Nat) (hn : 2 ≤ n) (c : Int) (hc : 3 ≤ 2 * (n : Int) + c) :
+    6 ≤ (n : Int) * (2 * (n : Int) + c) := by
+  have h1 : (2 : Int) ≤ (n : Int) := by omega
+  have h2 : (2 : Int) * 3 ≤ (n : Int) * (2 * (n : Int) + c) :=
+    Int.mul_le_mul h1 hc (by decide) (by omega)
+  omega
+
+/-- `D_n` half-spin clears `3/4` for `n ≥ 2`: `n(2n−1) ≥ 6`. -/
+theorem soEven_halfSpin_gap_lb (n : Nat) (hn : 2 ≤ n) :
+    Casimir.gapFloor ≤ soEven_halfSpin_C2 n := by
+  show (Casimir.gapFloor).num * ((soEven_halfSpin_C2 n).den : Int)
+     ≤ (soEven_halfSpin_C2 n).num * ((Casimir.gapFloor).den : Int)
+  have hgn : (Casimir.gapFloor).num = (3 : Int) := rfl
+  have hgd : ((Casimir.gapFloor).den : Int) = (4 : Int) := rfl
+  have hfn : (soEven_halfSpin_C2 n).num = (n : Int) * (2 * (n : Int) - 1) := rfl
+  rw [hgn, hgd, hfn, show ((soEven_halfSpin_C2 n).den : Int) = 8 from den_mkPos8 _]
+  have := prod_ge n hn (-1) (by omega)
+  have e : (n : Int) * (2 * (n : Int) - 1) = (n : Int) * (2 * (n : Int) + -1) := by
+    congr 1
+  omega
+
+/-- `B_n` spinor clears `3/4` for `n ≥ 2`: `n(2n+1) ≥ 6`. -/
+theorem soOdd_spinor_gap_lb (n : Nat) (hn : 2 ≤ n) :
+    Casimir.gapFloor ≤ soOdd_spinor_C2 n := by
+  show (Casimir.gapFloor).num * ((soOdd_spinor_C2 n).den : Int)
+     ≤ (soOdd_spinor_C2 n).num * ((Casimir.gapFloor).den : Int)
+  have hgn : (Casimir.gapFloor).num = (3 : Int) := rfl
+  have hgd : ((Casimir.gapFloor).den : Int) = (4 : Int) := rfl
+  have hfn : (soOdd_spinor_C2 n).num = (n : Int) * (2 * (n : Int) + 1) := rfl
+  rw [hgn, hgd, hfn, show ((soOdd_spinor_C2 n).den : Int) = 8 from den_mkPos8 _]
+  have := prod_ge n hn 1 (by omega)
+  omega
+
+/-- The legacy `D_n` scalar is strictly below the vector Casimir for `n ≥ 1`:
+`(2n−1)/4 < (2n−1)/2`. -/
+theorem soEven_legacy_lt_vector (n : Nat) (hn : 1 ≤ n) :
+    soEven_C2_fund n < soEven_vector_C2 n := by
+  show (soEven_C2_fund n).num * ((soEven_vector_C2 n).den : Int)
+     < (soEven_vector_C2 n).num * ((soEven_C2_fund n).den : Int)
+  have h1 : (soEven_C2_fund n).num = 2 * (n : Int) - 1 := rfl
+  have h2 : (soEven_vector_C2 n).num = 2 * (n : Int) - 1 := rfl
+  rw [h1, h2, show ((soEven_vector_C2 n).den : Int) = 2 from den_mkPos2 _,
+      show ((soEven_C2_fund n).den : Int) = 4 from den_mkPos4 _]
+  have : (1 : Int) ≤ (n : Int) := by omega
+  omega
+
+/-- Triality point: at `D₄` the half-spin and vector values coincide (`7/2`). -/
+theorem soEven_halfSpin_eq_vector_D4 :
+    (soEven_halfSpin_C2 4).eqv (soEven_vector_C2 4) := by decide
+
+/-- At `D₅` the half-spin value exceeds the vector value (`45/8 > 9/2`). -/
+theorem soEven_vector_lt_halfSpin_D5 :
+    soEven_vector_C2 5 < soEven_halfSpin_C2 5 := by decide
+
+/-- `B₂`: spinor `5/4` < stored vector `2`. -/
+theorem soOdd_spinor_lt_vector_B2 : soOdd_spinor_C2 2 < soOdd_C2_fund 2 := by decide
+/-- `B₃`: spinor `21/8` < stored vector `3`. -/
+theorem soOdd_spinor_lt_vector_B3 : soOdd_spinor_C2 3 < soOdd_C2_fund 3 := by decide
+
+/-- Explicit rank-one no-go (outside the simple range): the corrected
+values fall below the `3/4` floor at `n = 1`. -/
+theorem rank_one_below_floor :
+    soEven_vector_C2 1 < Casimir.gapFloor ∧
+    soEven_halfSpin_C2 1 < Casimir.gapFloor ∧
+    soOdd_spinor_C2 1 < Casimir.gapFloor := by decide
+
 /-! ## Five exceptional-type legacy constants, floors by `decide`
 
 Each stored literal clears the relevant floor, closed by `decide` on exact
@@ -283,3 +407,10 @@ end YMGap.RepTheory
 #print axioms YMGap.RepTheory.gapFloor_attained_su2
 #print axioms YMGap.RepTheory.hveeFloor_attained_su2
 #print axioms YMGap.RepTheory.gapFloor_strict_su3
+#print axioms YMGap.RepTheory.soEven_vector_gap_lb
+#print axioms YMGap.RepTheory.soEven_halfSpin_gap_lb
+#print axioms YMGap.RepTheory.soOdd_spinor_gap_lb
+#print axioms YMGap.RepTheory.soEven_legacy_lt_vector
+#print axioms YMGap.RepTheory.soEven_halfSpin_eq_vector_D4
+#print axioms YMGap.RepTheory.soOdd_spinor_lt_vector_B2
+#print axioms YMGap.RepTheory.rank_one_below_floor
