@@ -4,7 +4,16 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: chain iteration for truncated polymer correlations (2026-10-07 PT)
+## Latest proved increment: graph-distance decay, degree-24 gases and zHeat at w = 1/40 (2026-10-07 PT)
+
+- `PolymerDecayZ4` (PROVED, GROUP-BLIND PLUMBING):
+  - `CS_le`: CS_d(g) ≤ (7/10)^d η^{|g|};
+  - `deg24_decay`: |Ξ(y::g::l)Ξ(l) − Ξ(y::l)Ξ(g::l)| ≤ (7/10)^d η^{|g|} Ξ(l)Ξ(g::l) at
+    incompatibility distance ≥ d, for box and torus, with |z| ≤ ε^{|X|};
+  - `zheat_decay`: the same for zHeat at w = 1/40.
+- q = 7/10, C = 1.  R1 (Haar identity) is still open.
+
+## Earlier proved increment: chain iteration for truncated polymer correlations (2026-10-07 PT)
 
 - `PolymerChainDecay` (PROVED, GROUP-BLIND PLUMBING, two-sided |z| ≤ ε):
   - `Xi_perm`, `telescope`;

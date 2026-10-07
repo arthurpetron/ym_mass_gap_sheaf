@@ -6428,3 +6428,8 @@ Fix (2026-10-07): the R1 envelope now includes the |χ_s| ≤ s+1 factor (Σ(s+1
 `PolymerChainDecay` (2026-10-07): the chain iteration is proved. Truncated two-point quantity ≤
 explicit chain sum CS_d (generic, explicit KP-environment hypotheses). The path count and
 closure (CS_d ≤ C q^d) are next.
+
+`PolymerDecayZ4` (2026-10-07): d-decay CLOSED for the degree-24 box and torus polymer gases.
+- The truncated two-point quantity is ≤ (7/10)^d·η^{|g|}·ΞΞ (q = 7/10, C = 1), including the
+  zHeat envelope gas at w = 1/40.
+- Group-blind plumbing; the R1 Haar identity is still open.

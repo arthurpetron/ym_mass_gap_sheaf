@@ -33,12 +33,39 @@ is `Good` if it is nodup with all members in Γ.
 
 The d = ∞ limit is the exact zero `truncated_zero_of_decoupled`; this commit does not need it.
 
-## Commit B: path count and closure (next)
-Bound `CS_d(g) ≤ C·q^d·η^{|g|}` on the degree-24 box and torus gases. The planned constants:
+## Commit B: closure (`PolymerDecayZ4.lean`, PROVED)
 
-- **Base:** `ε_g M_g m_g ≤ 2(1/6000)^{|g|}` and `2(1+ε_yM_y) ≤ 5/2`, which gives
-  `CS_0 ≤ 5η^{|g|}` with η = 1/2500.
-- **Step:** use the per-plaquette sum `Σ_{h∋q} η^{|h|} ≤ 1/3` (`class_sum`) and a sum-grouping
-  lemma.  This gives `CS_{d+1}(g) ≤ (2/3)|g|(5/12)^{|g|} · max CS_d/η` ≤ (5/18)·….
-- **Target:** q = 5/18 and C = 5.  The KP environment is instantiated with `Good` = nodup ⊆
-  `B.polys`, which needs a nodup-subset product lemma.
+**Constants: q = 7/10, C = 1.** The earlier target was q = 5/18, C = 5.  The proved q is weaker
+because the step uses the product bound
+`Σ_{h∈Γ, h∩g≠∅} η^{|h|} ≤ Π(1+η^{|h|}) ≤ (5/3)^{|g|}` (`z4_hgroup`).  The sharper per-plaquette
+grouping (`class_sum`, ≤ |g|/3) was not needed.  C improved to 1.
+
+### Setting
+For any `Z4BoxGas BL` with `BL.D = 24` (box `z4Chain` or torus `torusChain N`):
+- Γ = `B.polys`, and `Good` = duplicate-free inside Γ;
+- ε = 1/10000 and η = 1/2500;
+- ε_a = ε^{|a|}, M_a = (5/3)^{|a|}, m_a = 1+η^{|a|}.
+
+### Ingredients
+- **`env_pos`, `env_M`, `env_m`, `env_z`:** the `chain_bound` hypotheses, discharged.
+  - Positivity uses the new lemma `pos_of_one_le_mul` together with `kpw_lower`.
+  - A new duplicate-free sub-list lemma `prodm_sub_le` (choice-free) feeds `z4_hgroup` into
+    `z4_cond` for every Good list.
+- **`CS_le`:** `CS_d(g) ≤ (7/10)^d·η^{|g|}`. The scalar facts are
+  - `scalar_base`: `ε^s(5/3)^s(1+η^s)·2(1+ε^t(5/3)^t) ≤ η^s`;
+  - `scalar_step`: `ε^s(5/3)^s(1+η^s)(5/3)^s ≤ (7/10)η^s`, using (1+η)·25/36 ≤ 7/10.
+
+### Results
+- **`deg24_decay`:** if g is at incompatibility distance ≥ d from y and y::g::l is Good, then
+  `|Ξ(y::g::l)Ξ(l) − Ξ(y::l)Ξ(g::l)| ≤ (7/10)^d·η^{|g|}·Ξ(l)Ξ(g::l)`.
+  - This requires the two-sided bound `|z| ≤ ε^{|X|}`.
+- **`zheat_decay`:** the same bound for the explicit heat-kernel activity `zHeat` at w = 1/40.
+
+### Scope
+- **Distance notion.** "Distance" is incompatibility-graph distance inside the gas
+  (`far`): y and g are not incompatible, and every Γ-neighbour of g is at distance ≥ d−1.
+  Converting this to lattice distance is OPEN but routine: two polymers sharing a plaquette
+  are within diameter range.
+- **R1 still open.** zHeat is an envelope activity, so the Haar identity
+  Z_Wilson = Ξ(gas) is still OPEN.  Until it is proved, this is decay of the envelope gas, not
+  of Yang–Mills.
