@@ -7410,6 +7410,7 @@ import YMGap.Continuum.SU2TorusRPThetaPoly
 import YMGap.Continuum.SU2TorusRPThetaConj
 import YMGap.Continuum.SU2TorusRPThetaTK
 import YMGap.Continuum.SU2TorusRPThetaTime
+import YMGap.Continuum.SU2TorusRPThetaProd
 import YMGap.Continuum.SpecMaxRateFamily
 import YMGap.Continuum.W1StrongCouplingPerturbation
 import YMGap.Continuum.W1VacuumTailRowSum

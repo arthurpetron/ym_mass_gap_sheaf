@@ -195,3 +195,8 @@ chain over the full product, and the `plaq_*` factorisation. **RP FOR THE ACTUAL
 `thetaPoly (TK (v,P)) ≈PE TK (rv(v+e0), P)` for every time-plaquette. Together with `theta_TK_spatial`, Θpoly sends
 every plaquette weight to its mirror's. Open: the `haar_step` product chain, the `plaq_*` factorisation and the
 crossing split into `wilson_rp_qfull`. **RP FOR THE ACTUAL TORUS MEASURE IS OPEN.**
+
+**(d2c) product chain** (`SU2TorusRPThetaProd.lean`): `mir`, `theta_TK`, `theta_prod`
+(`thetaPoly (Π TK) ≈PE Π TK∘mir`), `theta_haar` (∫Θpoly X ≈ ∫X for supported X), `torus_mirror`
+(`∫ Π_{ps} TK ≈ ∫ Π_{ps.map mir} TK`). Item 2 of (d) is done. Open: item 3 (pos/neg/cross factorisation, crossing split,
+`wilson_rp_qfull`). **RP FOR THE ACTUAL TORUS MEASURE IS OPEN.**
