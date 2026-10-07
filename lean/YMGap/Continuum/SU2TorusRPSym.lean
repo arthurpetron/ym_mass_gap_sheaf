@@ -100,7 +100,40 @@ theorem tp_mir_perm : ((torusPlaquettes (2 * M)).map (mir M)).Perm (torusPlaquet
   · have hb := (mt p).1 h
     exact List.mem_map.2 ⟨mir M p, (mt _).2 (mir_box hM p hb), YMGap.Continuum.SU2TorusRPMirInv.mir_invol hM p hb⟩
 
+include hM in
+/-- **Symmetry of the RP form** on link observables: `⟨ΘF·G⟩ = ⟨ΘG·F⟩`. -/
+theorem rpB_symm (β : Q') (K : Nat) (e e' : Obs) (he : OnLinks (· ∈ torusLinks (2 * M)) e)
+    (he' : OnLinks (· ∈ torusLinks (2 * M)) e') :
+    (YMGap.Continuum.SU2TorusRPCSShape.rpB hM β K (eval (torusLinks (2 * M)) e) (eval (torusLinks (2 * M)) e')).eqv
+      (YMGap.Continuum.SU2TorusRPCSShape.rpB hM β K (eval (torusLinks (2 * M)) e') (eval (torusLinks (2 * M)) e)) := by
+  have hR := (YMGap.Continuum.SU2TorusRPMatch.thetaT_like hM).ring
+  have sF := sup_eval e he
+  have sG := sup_eval e' he'
+  have hbox := fun p hp => (YMGap.Continuum.SU2TorusRPPlaqSplit.mem_tp (M := M) p).1 hp
+  have sPi : Sup (torusLinks (2 * M)).length (prodPoly (YMGap.Continuum.SU2WilsonPolymerIdentity.TK
+      (torusLinks (2 * M)) (2 * M) β K) (torusPlaquettes (2 * M))) :=
+    YMGap.Continuum.SU2TorusRPSupTK.sup_prodTK _ _ β K _ fun p hp =>
+      YMGap.Continuum.SU2TorusRPSwap.plaqIdx_lt _ _ p (YMGap.Continuum.SU2TorusRPTorusZ.plaqL_mem hM p hp)
+  have sX := sup_mul (sup_mul (thetaT_sup hM (eval (torusLinks (2 * M)) e)) sG) sPi
+  have hinv := YMGap.Continuum.SU2TorusRPThetaProd.theta_haar hM (torusLinks (2 * M)) (torusLinks_nodup _)
+    YMGap.Continuum.SU2TorusRPObs.tl_box (tl_cl hM) _ sX
+  have hprod := YMGap.Continuum.SU2TorusRPThetaProd.theta_prod hM (torusLinks (2 * M)) (torusLinks_nodup _)
+    YMGap.Continuum.SU2TorusRPObs.tl_box (tl_cl hM) β K (torusPlaquettes (2 * M))
+    (fun p hp => ⟨(hbox p hp).1, YMGap.Continuum.SU2TorusRPTorusZ.plaqL_mem hM p hp⟩)
+  have hperm := YMGap.Continuum.SU2TorusRPFactor.prod_perm (torusLinks (2 * M)).length
+    (YMGap.Continuum.SU2WilsonPolymerIdentity.TK (torusLinks (2 * M)) (2 * M) β K) (tp_mir_perm hM)
+  have hPE : PE (torusLinks (2 * M)).length
+      (thetaT hM (polyMul (polyMul (thetaT hM (eval (torusLinks (2 * M)) e)) (eval (torusLinks (2 * M)) e'))
+        (prodPoly (YMGap.Continuum.SU2WilsonPolymerIdentity.TK (torusLinks (2 * M)) (2 * M) β K) (torusPlaquettes (2 * M)))))
+      (polyMul (polyMul (thetaT hM (eval (torusLinks (2 * M)) e')) (eval (torusLinks (2 * M)) e))
+        (prodPoly (YMGap.Continuum.SU2WilsonPolymerIdentity.TK (torusLinks (2 * M)) (2 * M) β K) (torusPlaquettes (2 * M)))) :=
+    pe_trans _ (hR.mul _ _) (pe_mul2 _ (pe_trans _ (hR.mul _ _)
+      (pe_trans _ (pe_mul2 _ (theta2_obs hM e he) (pe_refl _ _)) (pe_comm _ _ _)))
+      (pe_trans _ hprod hperm))
+  exact Q'.eqv_trans _ _ _ (Q'.eqv_symm hinv) (pe_haar _ hPE)
+
 end YMGap.Continuum.SU2TorusRPSym
 
 #print axioms YMGap.Continuum.SU2TorusRPSym.theta2_obs
 #print axioms YMGap.Continuum.SU2TorusRPSym.tp_mir_perm
+#print axioms YMGap.Continuum.SU2TorusRPSym.rpB_symm
