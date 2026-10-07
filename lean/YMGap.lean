@@ -7369,6 +7369,7 @@ import YMGap.Continuum.SU2TorusSchurSmall
 import YMGap.Continuum.SU2TorusPolyGibbs
 import YMGap.Continuum.SpectralHalvingStrongCouplingCarrier
 import YMGap.Continuum.SU2PolyLinkHaarInvariance
+import YMGap.Continuum.SU2TorusMultiLinkPolyGibbs
 import YMGap.Continuum.SpecMaxRateFamily
 import YMGap.Continuum.W1StrongCouplingPerturbation
 import YMGap.Continuum.W1VacuumTailRowSum
