@@ -303,3 +303,12 @@ RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
 Open: the concrete layout list and its idxOf facts (HD for pos links, plaqIdx for crossing plaquettes), the chain
 construction with ChainOK, the chain fixing ΘF·F, and the bridge from the integrand's link order/block count.
 RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
+
+## d8a–d8c — layout index facts, block selector, concrete chain
+- d8a `lay_pos`, `lay_cross` (+ classical-free `idxOf_lt`, `idxOf_left`, `idxOf_map`) on L = P ++ C ++ P.map Θ.
+- d8b `layT` (temporal on links, true on fresh blocks), `lay_HD` (pos links are half-swap admissible), `layT_fresh`.
+- d8c `layChain` (one direct shear per crossing link: idx c ↦ multiplier idx c + a, left at t=0, right otherwise),
+  `layChain_ok : ChainOK .direct`.
+Open: plaqIdx shapes of crossing plaquettes on L (via plaq_cross), the himg facts via chImg_sel/unsel, chain
+fixing ΘF·F, choosing P, C from the actual torus links with Nodup/Perm, and the integrand bridge.
+RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
