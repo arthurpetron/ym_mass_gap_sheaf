@@ -4,7 +4,17 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: invariance and square-positivity of the constructed polynomial link Haar (2026-10-06 PT)
+## Latest proved increment: norm Parseval, operator-norm bound, specMax-rate family (2026-10-06 PT)
+
+- `SpecMaxRateFamily.CharacterDiagNormResolution` (ADDED sibling with `parseval_TT` on a
+  vacuum-orthogonality predicate; `ofTsq` derives it from a T²-form Parseval and self-adjointness).
+- `charDiag_normGap` (PROVED, plumbing): on perp, ‖Tx‖² ≤ specMax(excitedCharModel)²·‖x‖².
+- `specMaxRateFamily` / `specMaxRate_hlink` (le_refl) / `specMaxRate_lowerMargin` (REDUCTION
+  on the OPEN contraction hypothesis `hC` on Completion).
+- Audit `SCOPE-SLAB-PETER-WEYL-IDENTIFICATION`: the identification is false as needed for
+  W > 1 (spin-network rather than single-link basis; magnetic mixing). Replacements listed.
+
+## Earlier proved increment: invariance and square-positivity of the constructed polynomial link Haar (2026-10-06 PT)
 
 - `SU2PolyLinkHaarInvariance` (for `quaternionPolyLinkHaar2`, h = quaternionHaar 2):
   - `polyLinkHaar2_left_shear_invariant` / `_right_shear_invariant`: PROVED for all p and

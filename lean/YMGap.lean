@@ -7369,6 +7369,7 @@ import YMGap.Continuum.SU2TorusSchurSmall
 import YMGap.Continuum.SU2TorusPolyGibbs
 import YMGap.Continuum.SpectralHalvingStrongCouplingCarrier
 import YMGap.Continuum.SU2PolyLinkHaarInvariance
+import YMGap.Continuum.SpecMaxRateFamily
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport
