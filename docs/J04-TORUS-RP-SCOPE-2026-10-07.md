@@ -168,3 +168,9 @@ pos and neg and keeps cross), `cross_fixed`, `plaq_pos`/`plaq_neg` (each half pl
 `plaq_cross` (a crossing plaquette has 2 crossing temporal links and 2 spatial links that are Θ-images of each
 other). Not yet done: linking `reflLink` to the polynomial Θ (`reindex` + `conjSel`) on `linkVar`, and assembly (d).
 **RP FOR THE ACTUAL TORUS MEASURE IS OPEN.**
+
+**(d1) Θ on link variables** (`SU2TorusRPThetaPoly.lean`): `linkInv links f`, the block involution induced by any
+involution `f` under which `links` is closed. `reindex_linkVar`: reindexing sends `linkVar ℓ` to `linkVar (f ℓ)`
+(QPE). `thetaInv` is the instance for Θ = `reflLink M`. A Classical leak via `beq_self_eq_true` on `Z4Link` was
+avoided (`beq_iff_eq.mpr rfl`). Still open in (d): conjugating reversed temporal links (`conjSel` on `linkVar`),
+the `haar_step` chain on the torus integrand, and factorising `Π TK` with `plaq_*`. **RP FOR THE ACTUAL TORUS MEASURE IS OPEN.**
