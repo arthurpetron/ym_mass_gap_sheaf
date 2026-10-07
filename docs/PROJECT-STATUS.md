@@ -6456,3 +6456,5 @@ arbitrary disjoint link-block supports.
 `SU2HaarAlgebra` (2026-10-07): R1 commit 4.  Under quaternionHaar, polyMul is commutative and associative in every context.
 
 `SU2ClusterExplore` (2026-10-07): R1 commit 5.  The analytic half of the Haar polymer identity, via cluster exploration.
+
+`SU2PolymerIdentity` (2026-10-07): R1 commit 6.  The Haar polymer identity polyPartition ≈ Ξ(link-compatible gas, true activities) is closed on finite boxes.

@@ -4,7 +4,17 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 5, cluster exploration of the Haar integral (2026-10-07 PT)
+## Latest proved increment: R1 commit 6, the Haar polymer identity, CLOSED (2026-10-07 PT)
+
+- `SU2PolymerIdentity` (PROVED).
+- `polyPartition_eq_Xi`: `polyPartition w M links N P ≈ Ξ(incL, z_true)(gas N P)`. This holds for every finite plaquette list P whose links lie in `links` (a Dirichlet box is the case P = interior plaquettes).
+  - `gas`: link-connected clusters, computed by exploration and kept as sublists.
+  - `incL`: the two polymers share a link.
+  - `z(γ) = ∫Π_γ f_p`.
+- Combinatorial lemmas: `leaf_spec`, `pick_filter`, `explore_filter`, `gas_filter`, `Xi_block`, and the generic `polymer_identity` (W = c+f, c≈1).
+- Normalization: `∫Π W` itself, with Z(∅)=1.
+
+## Earlier proved increment: R1 commit 5, cluster exploration of the Haar integral (2026-10-07 PT)
 
 - `SU2ClusterExplore` (PROVED).
   - Definitions: link adjacency `adj`/`touch`, first-touching `pick`, and the binary exploration tree `explore`.

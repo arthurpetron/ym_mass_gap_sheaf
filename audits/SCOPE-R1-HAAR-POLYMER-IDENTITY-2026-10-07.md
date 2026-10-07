@@ -80,3 +80,8 @@ No fail statement is given: the ℓ¹ envelope is an upper bound, not the true a
 
 - `explore_haar` and `root_step` (analytic half).
 - Next, combinatorial half: leaves have R = P'.filter(¬touch A'); exploration commutes with filtering by a compatibility predicate; then Ξ identity by strong induction.
+
+## PROVED: commit 6, `SU2PolymerIdentity.lean`. The identity is CLOSED.
+
+- `polyPartition_eq_Xi` (finite box; hypothesis `Lk`: plaquette links are box coordinates).
+- Remaining for R1: KP convergence for this gas at the link-incompatibility constants (grouping bound over `incL`).
