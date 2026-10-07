@@ -159,3 +159,7 @@ No fail statement is given: the ℓ¹ envelope is an upper bound, not the true a
 ## PROVED: commit 21, `SU2TruncGeneric.lean`
 
 - The generic correlator decay.
+
+## PROVED: commit 22, `SU2WilsonObsActivity.lean`
+
+- The observable Wilson activity bound, uniform in K.

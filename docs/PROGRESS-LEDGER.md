@@ -4,7 +4,15 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 21, truncated-correlator decay generic in the plaquette weight (2026-10-07 PT)
+## Latest proved increment: R1 commit 22, observable Wilson activities bounded uniformly in K (2026-10-07 PT)
+
+- `SU2WilsonObsActivity.zW_bound` (PROVED, axioms [propext, Quot.sound]).
+  - Statement: `|zW S γ| ≤ Dw^{|S|} ε^{|γ|}` for nodup γ, when `2β ≤ ε`, `1 ≤ Dw` and `ε+(2+2ε) ≤ Dw·ε`.
+  - The activity `zW S γ = ∫Π gWo` uses `gWo = F` off S and `(F+χ)+χF` on S, where F is Realizer's `FW`.
+  - Proof: `gWo_cs` (the χ₁-shift via `chi1_mul_succ`) plus `polymer_activity_abs_le`.
+- Labels: strong coupling; Wilson (uniform in K); also true for U(1), not gap evidence.
+
+## Earlier proved increment: R1 commit 21, truncated-correlator decay generic in the plaquette weight (2026-10-07 PT)
 
 - `SU2TruncGeneric.trunc_gen` (PROVED, axioms [propext, Quot.sound]).
   - Statement: `|Ξ(z^{pq})Ξ(z) − Ξ(z^p)Ξ(z^q)| ≤ λ^{ld(q,p)}·(Cg·Ξ(z)²)`, with `Cg = 2·D1²·K1² + D2·K1`.

@@ -6488,3 +6488,5 @@ arbitrary disjoint link-block supports.
 `SU2TruncRatio` (2026-10-07): R1 commit 20.  Ratio form `|⟨χpχq⟩ − ⟨χp⟩⟨χq⟩| ≤ C λ^d` at w₀.
 
 `SU2TruncGeneric` (2026-10-07): R1 commit 21.  The correlator decay, abstracted once over the activity and KP package.
+
+`SU2WilsonObsActivity` (2026-10-07): R1 commit 22.  Observable Wilson activity bound.
