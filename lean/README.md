@@ -27,6 +27,20 @@ nine permitted axiom gates; no full-root/tree audit. Useful curvature,
 angular/cutoff/conditional/scaling joins and all Clay requirements remain OPEN.
 Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
 
+**Checked ACTUAL combined angular comparison and parity jets (2026-10-07):**
+`FiniteJacobiAngularComparison` controls the original `(1-x*x)*P''-x*P'`
+with the existing explicit quadratic-Gaussian cutoff, uniform in x on [-1,1]
+at each named nome, and pins the actual radial numerator to P^2*D.
+`ChebyshevFormalJets` and `QPolyAffineJetTranslation` supply the actual
+coefficient derivatives, with all-point reflection BEFORE differentiation.
+`ThetaParityWeights` provides actual even/odd weight factorizations, finite
+sum identities and genuine endpoint formal jets. `ThetaParityShellGeometry`
+gives exact domains and both exponent/frequency bounds; it does not count
+shells or dominate actual weighted tails. Five focused targets pass permitted
+axiom gates; no full-root/tree audit. Completed addition/whole-interval ceiling,
+Haar/conditional/scaling and all Clay requirements remain OPEN. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 **Checked finite addition-route ingredients (2026-10-07):** exact signed
 box-to-even/odd-diamond reindex, half-shift Chebyshev product kernel, actual
 endpoint radial-limit ceiling and explicit cubic Gaussian-shell tail modulus.
@@ -34,8 +48,9 @@ endpoint radial-limit ceiling and explicit cubic Gaussian-shell tail modulus.
 `JacobiProductRadialEndpoint` and `ThetaAngularShellTail` pass focused checks
 and their public axiom gates. These do NOT identify finite diamonds with
 rectangles or prove the completed addition identity/whole-interval ceiling.
-Actual weight specialization, shell domination and second-jet/limit pins
-remain OPEN; no full-root/tree audit or Clay closure. Evidence:
+Actual weight specialization and finite combined second-jet comparison are
+now supplied above; shell domination and completed jet/limit pins remain
+OPEN; no full-root/tree audit or Clay closure. Evidence:
 `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
 
 **Checked actual radial limit and signed finite tail (2026-10-07):**

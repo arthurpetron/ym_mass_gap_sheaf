@@ -1,5 +1,42 @@
 # Sorry Ledger
 
+## PROVED actual angular comparison / OPEN completed addition ceiling (2026-10-07)
+
+- `ChebyshevFormalJets` supplies actual T coefficient polynomials and both
+  formal derivatives at every degree and rational argument, endpoint T'_n(1)
+  =n^2, and the angular ODE. `coefficients_of_eval_eqv` is constructive padded
+  coefficient reflection; differentiating a supplied scalar equality is not
+  used. `QPolyAffineJetTranslation` proves both actual unit-slope translated
+  jets and their coefficient pins, retaining the original shifted product.
+- `FiniteJacobiAngularComparison.product_series_coeff_pin` reflects the
+  actual Euler-weighted finite Jacobi identity BEFORE differentiation.
+  `productAngularJet_pin` and `productAngularJet_sub_bare_pin` preserve -n^2
+  and the signed coefficient deficit. `productAngularJet_sub_bare_le` uses
+  the existing explicit derivativeScale(w)*w^(2*N+1) budget;
+  `productAngularJet_sub_bare_close` uses the existing computed cutoff,
+  uniform in x on [-1,1] at named w. `productRadialNumerator_pin` proves the
+  literal same-product numerator equals P^2*D, without density division.
+- `ThetaParityWeights` specializes actual theta and endpoint frequency
+  weights to both parity diamonds, with exactly one odd w. The cell and sum
+  endpoint-derivative pins use actual finite coefficient polynomials, not an
+  assumed interpretation. `ThetaParityShellGeometry` proves exact domain/
+  radius equivalences, both exponent>=radius^2 and frequency<=2*radius bounds.
+- OPEN: actual shell count and omitted weighted-sum domination, shifted/
+  alternating convolution, SAME series/jet limit composition, completed
+  addition/whole-interval ceiling, strict Haar and original conditional joins.
+  The finite bare Gaussian box is NOT the finite Euler-weighted product.
+  No physical, scaling, survival, QFT, all-group or Clay atom is closed.
+- Five focused targets pass public printed gates in {propext, Quot.sound},
+  with no new sorry/axiom/classical premise or field weakening. Root inspected
+  full sources; independent read-only reviews confirm the mathematical scope.
+  Initial geometry passed elaboration but leaked Classical.choice through
+  omega on conjunction goals; splitting them explicitly removes that dependency
+  in the FINAL checked source. One 20-GiB worker, 12-GiB reserve, fresh dynamic
+  preflights, zero swap. No baseline refresh or full-root/tree audit. Imports
+  registered without claiming full-root verification.
+
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 ## PROVED finite addition-route ingredients / OPEN completed addition (2026-10-07)
 
 - `ThetaParityConvolution.signed_box_parity_convolution` gives the exact
@@ -19,9 +56,10 @@
   onset/tolerance/cutoff data. Cubic growth costs 8 and the named onset
   forces w^(2*T+1)<=1/16. Actual angular shell counting/domination is NOT
   supplied by this scalar leaf.
-- OPEN: theta/jet weight specialization, diamond-to-rectangle tails,
-  shifted/alternating convolution, actual combined second-jet Jacobi
-  comparison and SAME limit composition. These are the missing analytic
+- Theta/jet weight specialization and finite actual combined second-jet
+  comparison are now supplied above. OPEN: diamond-to-rectangle tails,
+  shifted/alternating convolution and SAME completed jet/limit composition.
+  These are the missing analytic
   ceiling producer, not a new hypothesis bundle. Haar/action/conditional,
   scaling and all downstream Clay obligations remain open.
 - Four focused targets pass thirty printed gates in {propext, Quot.sound},

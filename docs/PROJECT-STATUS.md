@@ -1,11 +1,28 @@
 # Canonical one-page project status
 
+Supporting ACTUAL angular comparison and parity-jet joins checked (2026-10-07):
+the original finite Jacobi product's `(1-x*x)*P''-x*P'` has an explicit
+bare-theta comparison cutoff uniform in x on [-1,1] at each named nome;
+its same-product radial numerator is exactly P^2*D. Padded coefficient
+reflection precedes formal differentiation. Actual theta/endpoint weights
+are transported to both diamonds, with endpoint weights now pinned to actual
+finite formal derivatives. Both shell exponents dominate radius^2 and both
+frequencies are <=2*radius. Exact shell counts, weighted-tail domination,
+shifted/alternating convolution and SAME completed series joins remain OPEN.
+Five focused targets pass permitted gates; no full-root/tree audit. Completed
+addition/whole-interval ceiling, Haar/conditional/scaling, independent survival,
+completed comparison, physical/volume control, SAME limiting QFT, every group
+and Clay remain OPEN. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+Broad chart unchanged; no reprint.
+
 Supporting finite addition route checked (2026-10-07): signed box-to-two-
 diamond convolution, radical-free half-shift kernel, actual endpoint limit
 ceiling D_infinity(1)<=2*w/(1-w^2), and explicit cubic Gaussian-shell tail
 cutoff. These are actual finite identities/estimates, not completed theta
-addition. Actual theta/jet weight specialization, diamond-to-rectangle shell
-domination and combined second-jet/limit pins remain OPEN. Four focused
+addition. Actual theta/jet weight specialization and finite combined second-jet
+comparison are now supplied above; diamond-to-rectangle shell domination
+and completed jet/limit pins remain OPEN. Four earlier focused
 targets pass permitted gates; no full-root/tree audit. Whole-interval
 ceiling, Haar/conditional join, signed-cost/scaling estimates, independent
 survival, completed comparison, physical/volume control, SAME limiting QFT,

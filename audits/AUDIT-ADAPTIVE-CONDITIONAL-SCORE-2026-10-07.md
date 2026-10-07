@@ -1065,3 +1065,132 @@ the actual combined jet comparison. The endpoint ceiling and signed finite
 tail are now produced, so the residue is smaller. Do not replace the missing
 join by a theta-addition premise, identify each finite truncation with the
 limit, or infer a Haar/conditional/physical gap from these scalar lemmas.
+
+## Next bounded experiment: actual combined angular Jacobi comparison
+
+Exact proposition: the literal Euler-weighted polynomial's angular jet
+`(1-x*x)*P''-x*P'` approaches the corresponding bare theta angular sum,
+with a computed cutoff uniform in x on [-1,1] at each named nome. This
+removes the combined second-jet comparison input from the addition-route
+radial ceiling; it does not itself prove the addition identity or ceiling.
+
+Available inputs: `FiniteJacobiIdentity.Ppart_eq_finiteJacobi` is an
+all-rational finite equality; `ChebyshevFormalJets` pins both ACTUAL formal
+jets and `(1-x*x)*T_n''-x*T_n'=-n*n*T_n`. Constructive coefficient reflection
+can lift the all-point finite equality before differentiation. Unit-slope
+affine translation is still needed to identify the already-used shifted
+product jets. The actual coefficient deficit is controlled by
+`FiniteJacobiSeriesComparison.coefficientError_succ_le_gaussian`; the
+existing `FiniteJacobiDerivativeComparison.shiftedGaussian_le` absorbs
+the same quadratic frequency factor, without estimating T_n'' separately.
+
+Prediction/test: the whole angular error has the existing explicit
+`derivativeScale(w)*w^(2*N+1)` budget. Constant/empty order must give zero;
+both endpoints must be included; nome dependence must stay explicit.
+Verification: source review and serialized focused capped targets only,
+no new general angular calculus or full-tree audit. Revise if the jet join
+requires a substituted polynomial or an assumed second-derivative pin.
+
+## Observed proof increment: actual angular comparison and finite endpoint jets
+
+The selected combined second-jet comparison is now produced, not a supplied
+premise. Completed additions, ceilings and physical joins remain open.
+
+- `lean/YMGap/Continuum/ChebyshevFormalJets.lean:39`, `Tpoly`, is the actual
+  first-kind coefficient recurrence. `eval_Tpoly_derivative` (130),
+  `eval_Tpoly_second_derivative` (187) and `first_derivative_at_one` (199)
+  pin both actual formal jets and T'_n(1)=n^2, including degree zero.
+  `coefficients_of_eval_eqv` (163) constructively reflects all-rational
+  evaluation equality into padded coefficients; `formal_angular_ode` (245)
+  states the actual `(1-x*x)*T_n''-x*T_n'=-n^2*T_n` for every rational x.
+- `lean/YMGap/Continuum/QPolyAffineJetTranslation.lean:31`, `translate`,
+  reuses actual Horner composition with [c,1]. `eval_translate_derivative`
+  (105), `derivative_coeff_pin` (122), `second_derivative_coeff_pin` (128)
+  and `eval_translate_second_derivative` (133) derive both unit-slope jets.
+  The existing shifted Jacobi product is retained, not replaced by a free
+  derivative sequence or assumed chain rule.
+- `lean/YMGap/Continuum/FiniteJacobiAngularComparison.lean:143`,
+  `product_series_coeff_pin`, reflects the ACTUAL Euler-normalized finite
+  identity before differentiation. `productAngularJet_pin` (154) gives the
+  exact whole angular series with -n^2 coefficients. The actual signed
+  coefficient deficit is retained by `productAngularJet_sub_bare_pin` (188).
+  `productAngularJet_sub_bare_le` (245) pays its whole error by the existing
+  explicit `derivativeScale(w)*w^(2*N+1)`; `productAngularJet_sub_bare_close`
+  (269) uses the existing Q'/Nat cutoff, uniform x on [-1,1] at named w.
+  The quadratic Gaussian majorant suffices because the jets are combined,
+  not separately estimated by fourth-degree frequency weights.
+  `productRadialNumerator_pin` (288) proves
+  `(1-x*x)*(P')^2-P*((1-x*x)*P''-x*P')=P^2*D`
+  for the SAME literal product and HKConv.sTerm moments, without division.
+- `lean/YMGap/Continuum/ThetaParityWeights.lean:119`, `thetaCell_even_pin`,
+  and `thetaCell_odd_pin` (137) factor the actual cells, with exactly one
+  odd w and natural exponents valid on negative indices. `theta_box_eq_diamonds`
+  (202) and `frequency_box_eq_diamonds` (218) specialize the actual finite
+  reindex. `thetaCellPolynomial_endpoint_derivative` (246) and
+  `thetaSumPolynomial_endpoint_derivative` (282) now pin frequency weights
+  to ACTUAL finite coefficient derivatives, including zero/empty cases.
+  This is a scalar y-jet at y=1; no infinite/angle derivative is asserted.
+- `lean/YMGap/Continuum/ThetaParityShellGeometry.lean:33`,
+  `evenDiamond_iff_radius`, and `oddDiamond_iff_radius` (176) give exact
+  domain geometry. `even_exponent_ge_radius_sq` (150) and
+  `odd_exponent_ge_radius_sq` (339) give BOTH Gaussian exponent bounds;
+  `even_frequencies_le_radius` (156) and `odd_frequencies_le_radius` (169)
+  give the two caps. `oddRadius_eq_encoded_corner_max` (301) and actual
+  encoded exponent pinning make the odd estimate a direct max-square bound.
+  No shell count or actual weighted-sum domination is supplied yet.
+
+### Exact verification boundary
+
+All five final focused targets pass. Public printed gates stay within
+{propext, Quot.sound}; computational definitions with gates are axiom-free.
+No new sorry/axiom/classical premise, native_decide, field weakening, baseline
+refresh or full-root/tree audit. Root imports are registered, not root-built.
+Every launch used one 20-GiB worker, a 12-GiB reserve and a fresh process/
+memory preflight; free memory stayed 85--88% and swap zero. No limits raised.
+
+```text
+/private/tmp/ym-oct7-chebyshev-formal-jets2.log
+SHA256 b88bdde01eced69d595d6b58ae06979b431127d665e41a89ae10eb4150aba0c9
+10 public printed gates; Tpoly and H are axiom-free.
+
+/private/tmp/ym-oct7-affine-jet-translation1.log
+SHA256 ff61d90241514337ea4ae32beeef96f636e72eb9b961c0df308a749e21c8887e
+6 public printed gates; translate is axiom-free.
+
+/private/tmp/ym-oct7-jacobi-angular-comparison3.log
+SHA256 e5ecb234c27e180c06af1aa1a36dc25814b8ba2cc61e6230e210e0c20ee8b88e
+13 public printed gates; five definitions are axiom-free.
+
+/private/tmp/ym-oct7-theta-parity-weights3.log
+SHA256 ec6afae30c81ea700993079e6682688e16dfac16181c716fba831bff719e836b
+15 public printed gates; both cell/sum polynomial definitions are axiom-free.
+
+/private/tmp/ym-oct7-parity-shell-geometry6.log
+SHA256 f6406c6a9f2a49a75729aac9daa263338d0a5c59e28a7be48ffc0a32908d3628
+8 public printed gates; all permitted.
+```
+
+Root inspected the complete final sources. Independent read-only mathematical
+reviews found no substantive defect in actual jets, coefficient reflection,
+angular signs, Gaussian budget, radial cancellation, parity weights and all
+domain sign quadrants. Initial elaboration failures (casts, match layout,
+recursion unfolding and a misplaced proof block) are not proof evidence.
+The geometry initially elaborated with Classical.choice through omega on
+conjunction goals; explicit conjunction introduction removed that dependency
+in the final checked source. No such intermediate version is committed.
+
+### Decision and smaller residue
+
+CONTINUE: count the actual shells and pay omitted weighted sums, then compose
+the actual diamond/rectangle series limits and shifted/alternating square.
+The finite angular comparison and endpoint formal-jet producers are now
+available. The raw Gaussian box's SAME-N endpoint jet belongs to bare F_N,
+NOT finite Euler-weighted P_N: their completed identification still needs
+the proved comparison and convergence joins. Never assert a per-N equality
+between that box jet and `2*productRadialNumerator`.
+
+Completed addition/whole-interval ceiling, strict Haar/weighted conditional
+join, scaling/signed-cost estimates, independent survival, completed OS
+comparison, physical/volume control, SAME limiting QFT, every group and Clay
+remain OPEN. The displayed canonical claims have not changed, so no chart
+reprint is warranted.

@@ -27,18 +27,37 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+The actual combined angular Jacobi comparison is now CHECKED:
+`FiniteJacobiAngularComparison.productAngularJet_sub_bare_close` controls
+the ORIGINAL `(1-x*x)*P''-x*P'` versus the SAME bare theta angular sum with
+an explicit cutoff, uniform in x on [-1,1] at each named nome. The finite
+all-point identity is reflected to padded coefficients BEFORE differentiation;
+actual Chebyshev jets and unit-slope translation are proved, not supplied.
+`productRadialNumerator_pin` identifies the exact same-product numerator
+with P^2*D, retaining signed cancellation and avoiding density division.
+`ThetaParityWeights` specializes actual theta/endpoint weights to both
+diamonds and pins the endpoint weights to actual finite formal derivatives.
+`ThetaParityShellGeometry` supplies exact domains, BOTH exponent>=radius^2
+and frequency<=2*radius bounds. NEXT count actual shells and dominate omitted
+weighted sums by the existing scalar tail, then compose SAME series limits
+and the shifted/alternating square. No finite bare/product identification,
+completed addition/whole-interval ceiling, Haar/conditional/scaling or Clay
+closure. Five focused targets pass their permitted axiom gates; no full-root/
+tree audit. Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 The addition route now has CHECKED finite producers: exact signed box-to-
 even/odd DIAMOND convolution (`ThetaParityConvolution`), radical-free
 half-shift kernel (`ChebyshevHalfShiftProduct`), and the actual endpoint
 limit ceiling D_infinity(1)<=2*w/(1-w^2) (`JacobiProductRadialEndpoint`).
 `ThetaAngularShellTail` constructs a half-geometric tail and explicit
 cutoff for 16*T^3*w^(T^2) after a computed onset. NEXT specialize the
-convolution to the actual theta and endpoint-jet weights, prove their
-diamond-to-rectangle domination by these shells, and take SAME series
-limits; the scalar tail alone does not perform that join. The shifted/
-alternating convolution and combined second-jet Jacobi comparison are
-still required. Use existing first-derivative comparison rather than
-build general angular calculus. Four focused targets pass all public gates;
+convolution to the actual theta and endpoint-jet weights (now supplied above),
+prove their diamond-to-rectangle domination by these shells, and take SAME
+series limits; the scalar tail alone does not perform that join. The shifted/
+alternating convolution and completed jet/limit joins are still required;
+the finite combined second-jet comparison is supplied above. Reuse existing
+first-derivative comparison rather than build general angular calculus.
+The earlier four focused targets pass all public gates;
 no completed addition/whole-interval ceiling or canonical chart closure.
 Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
 

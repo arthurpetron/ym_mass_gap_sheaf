@@ -4953,6 +4953,11 @@ import YMGap.Continuum.JacobiProductRadialEndpoint
 import YMGap.Continuum.ThetaParityConvolution
 import YMGap.Continuum.ChebyshevHalfShiftProduct
 import YMGap.Continuum.ThetaAngularShellTail
+import YMGap.Continuum.ChebyshevFormalJets
+import YMGap.Continuum.QPolyAffineJetTranslation
+import YMGap.Continuum.FiniteJacobiAngularComparison
+import YMGap.Continuum.ThetaParityWeights
+import YMGap.Continuum.ThetaParityShellGeometry
 import YMGap.Continuum.SU2HeatQuarticTailCutoff
 import YMGap.Continuum.QuaternionHaarHeatAngularDeficit
 import YMGap.Continuum.QuaternionHaarHeatRelativeAngularBound
