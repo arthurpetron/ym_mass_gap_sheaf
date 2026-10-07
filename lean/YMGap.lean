@@ -7827,3 +7827,4 @@ import YMGap.Continuum.SU2TorusReflShift
 import YMGap.Continuum.SU2TorusThetaTau
 import YMGap.Continuum.SU2TorusCorrelator
 import YMGap.Continuum.SU2TorusRPKTail
+import YMGap.Continuum.SU2TorusRPKProd
