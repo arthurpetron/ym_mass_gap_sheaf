@@ -1,5 +1,45 @@
 # Sorry Ledger
 
+## PROVED: relative RG comparison and ordinary error-budget reduction (2026-10-07)
+
+- `BF4WilsonAllNomeRGRelativeDissipation.relative_comparison_iff_dissipation`
+  proves the signed equivalence `F <= delta*A+(1-delta)*C` iff
+  `(1-delta)*(A-C) <= A-F`. The original completed fine/coarse carriers,
+  time operators and inner products remain unchanged.
+- `twoStepFactor_of_relative_comparison` and
+  `contraction_of_relative_comparison` combine that supplied estimate with
+  an upper map bound and coarse contraction. The factor is
+  `rC^2+delta*(1-rC^2)`; the existing rational one-step recovery applies.
+  No lower norm comparison, linearity or norm inverse is needed.
+- `BF4WilsonAllNomeRGDissipationBudget.weightedEffectiveDefect_le_relative`
+  uses the existing COMPUTED upper margin to cancel the dyadic weight.
+  `relativeError_summable` feeds the existing budget with
+  `S=2*(1-seed)*D`; the seed floor is exactly `(1-seed)*(seed-D)`.
+- `relativeRate`, `relativeError`, `computedRate_relativeError`,
+  `relativeRate_bounds` and `relativeRate_margin_lower` construct these
+  sequences and derive the positive dyadic floor from ordinary prefix sums.
+  No external error self-consistency, contraction or rate floor is assumed
+  by the numerical specialization. Scalar sign/cap guards stay explicit.
+- `BF4ExactSlabFixedSpatialConditionalNoiseVacuumObstruction.blockNoise_one`
+  proves exact constant-noise cancellation. `terminal_input_not_le_noise`
+  rules out arbitrary input norm bounded by any scalar multiple of that noise,
+  using the actual positive terminal mass (`0<w<1`, `K>=headCutoff w`).
+  This does NOT refute centered comparison or an actual algorithmic residual.
+- Three final focused checks passed 7+9+2 printed gates, all within
+  {propext, Quot.sound}; the exact budget dependency target passed too.
+  Independent read-only review found no circularity or action substitution.
+  One monitored 20-GiB compiler, 12-GiB reserve, swap zero. No source hole,
+  new axiom, canonical field weakening, raised heartbeat or full-root/tree
+  audit; hashed baseline not regenerated and CI stays off.
+- OPEN: actual original fine/coarse maps, relative dissipated-form comparison
+  and useful ordinary delta budget; independent AF window survival; physical
+  spacing/volume control, SAME limiting OS/QFT, every group and Clay. The
+  complete `K01*V1*K12` integral is not identified with a selected coarse
+  heat/spatial action by bare heat composition. Ordinary endpoint weighted L2
+  loss is not silently substituted for the completed OS norm loss.
+
+Evidence: `audits/AUDIT-RG-RELATIVE-DISSIPATION-2026-10-07.md`.
+
 ## PROVED: all identification inputs of the actual finite torus ratio (2026-10-07)
 
 - `SU2TorusOwnMeanTimeShift.centered_pair_moment_timeShift` proves actual

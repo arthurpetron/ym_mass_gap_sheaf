@@ -12,10 +12,19 @@ Mathlib-free Lean with explicit witnesses and moduli.
 
 **Current analytic frontier:** on the original all-nome Wilson carrier,
 AF window survival and a changing-scale, all-vector gap estimate remain open.
-The checked RG recovery now computes rates from one seed and a useful weighted
-comparison-error budget; it does not construct that budget. Its gap consumer
-needs no coercive lower norm comparison. Physical scaling, the SAME limiting
-OS/QFT theory and every compact simple group remain open.
+The checked RG recovery computes rates from one seed. A relative dissipated-
+norm comparison now reduces its dyadically weighted error budget to ordinary
+prefix sums of relative errors; neither that action comparison nor its useful
+budget is constructed. No coercive lower norm comparison is needed. Physical
+scaling, the SAME limiting OS/QFT theory and every compact simple group remain open.
+
+**Latest mathematical reduction (2026-10-07):** relative error
+`epsilon_n = delta_n*(1-r_n^2)` gives the explicit dyadic margin floor
+`(1-seed)*(seed-D)` from `sum(delta) <= D < seed < 1`. The rates themselves
+are constructed, rather than assumed. Three focused checks passed 18
+constructive axiom gates. This is a sufficient estimate to seek, **not an
+inhabited Yang--Mills scaling bound**. See the
+[relative comparison and remaining action estimate](audits/AUDIT-RG-RELATIVE-DISSIPATION-2026-10-07.md).
 
 **Latest finite proof (2026-10-07):** the actual centered Taylor-Wilson torus
 source now has proved positive-half support, weighted pairing additivity and

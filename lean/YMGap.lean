@@ -7701,3 +7701,9 @@ import YMGap.Continuum.SU2TorusCenteredFiniteRatio
 -- The gap comparison does not need the full RG interface's coercive lower
 -- bound. Its positive-time-smoothing obstruction is scoped to that full field.
 import YMGap.Continuum.BF4WilsonAllNomeRGTimeSmoothingObstruction
+-- Relative dissipated-norm comparison recovers the same completed contraction
+-- and reduces its useful error budget to ordinary prefix sums. Actual
+-- cross-action estimates are still open; arbitrary input/noise conversion fails.
+import YMGap.Continuum.BF4WilsonAllNomeRGRelativeDissipation
+import YMGap.Continuum.BF4WilsonAllNomeRGDissipationBudget
+import YMGap.Continuum.BF4ExactSlabFixedSpatialConditionalNoiseVacuumObstruction

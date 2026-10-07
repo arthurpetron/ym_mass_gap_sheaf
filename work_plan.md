@@ -65,6 +65,23 @@ Do not treat `kappa >= 1`, `kappa -> 1` or error summability without the weighte
 prefix bound as sufficient. The existing finite all-nome Doeblin theorem can
 supply a seed contraction, but it does not supply this RG budget or an AF margin.
 
+The preferred sufficient estimate is now relative DISSIPATED-form comparison,
+not a bare additive norm error. Write `A=||x||_f^2`, `F=||T_f^2 x||_f^2`,
+`C=||T_c Phi x||_c^2`. An upper map bound and
+`F <= delta*A+(1-delta)*C`, equivalently
+`(1-delta)*(A-C) <= A-F`, give the fine factor
+`rC^2+delta*(1-rC^2)` with kappa=1. The checked constructed-rate specialization
+uses `epsilon_n=delta_n*(1-r_n^2)`. Its OWN upper margin cancels the `2^n`
+error weight, so ordinary delta prefix sums bounded by `D < seed < 1` give
+the explicit existing floor `(1-seed)*(seed-D)`. This reduces the required
+budget; it does NOT construct an action-specific comparison or delta bound.
+It also does not infer the new comparison from the old full interface.
+The actual constant-observable noise is zero despite positive terminal input
+mass, so do not convert an arbitrary input-norm error into noise. Centering
+removes this particular counterexample but supplies no quantitative comparison.
+No canonical fields are changed. Evidence and exact source pins:
+`audits/AUDIT-RG-RELATIVE-DISSIPATION-2026-10-07.md`.
+
 In parallel, the actual finite torus covariance/RP join is being completed
 algebraically. Spatial-character reflection and genuine insertion extraction
 are checked; `SU2WilsonCenteredCovariance.centered_covariance` now proves the
@@ -88,8 +105,8 @@ or continuum gap follows from it.
 Check and record each completed join in the dated audit/ledger before using
 it. The computed recurrence-to-envelope join and finite torus Haar/RP
 identification are now complete in their stated scopes. Next: an action-specific
-producer for the explicit RG comparisons and their
-demanding distortion/error budget. Keep the independent survival estimate in
+producer for the relative dissipated-form comparison and its ordinary delta
+budget (or a direct SAME-operator estimate). Keep independent survival in
 view; do not extend conditional scaffolds in place of these analytic producers.
 The next RG comparison must retain the COMPLETE integrated middle action:
 `original_twoLayer_gluing` keeps `K01*V1*K12` under the middle Haar integral.

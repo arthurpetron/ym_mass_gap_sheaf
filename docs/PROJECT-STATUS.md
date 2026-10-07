@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Supporting relative-dissipation reduction checked (2026-10-07):
+`BF4WilsonAllNomeRGRelativeDissipation` uses an upper map bound and
+`F <= delta*A+(1-delta)*C`, without lower norm coercivity. Its error is
+`delta*(1-rC^2)`. Constructed rates in `BF4WilsonAllNomeRGDissipationBudget`
+have dyadic margin floor `(1-seed)*(seed-D)` from an ordinary delta prefix
+budget `D < seed < 1`; the computed upper margin pays the dyadic weight.
+Actual maps, action comparison and a useful budget remain OPEN. Constant
+conditional-noise cancellation forbids arbitrary input-norm/noise conversion,
+not centered comparison. Evidence:
+`audits/AUDIT-RG-RELATIVE-DISSIPATION-2026-10-07.md`.
+The displayed broad chart claims remain unchanged; no reprint.
+
 Supporting torus algebra checked (2026-10-07): spatial-character reflection,
 guarded insertion extraction and the actual OWN-centered Haar covariance
 identity (`SU2WilsonCenteredCovariance.centered_covariance`), plus reflected

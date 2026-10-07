@@ -16,6 +16,24 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked relative RG dissipation and ordinary budget (2026-10-07):**
+`BF4WilsonAllNomeRGRelativeDissipation` recovers the SAME completed fine
+contraction from an upper map bound and the relative comparison
+`F <= delta*A+(1-delta)*C`; its factor is
+`rC^2+delta*(1-rC^2)`. No coercive lower comparison is imposed.
+`BF4WilsonAllNomeRGDissipationBudget` constructs the rates/errors and proves
+that ordinary nonnegative delta prefix sums bounded by `D < seed < 1` give
+the existing dyadic floor `(1-seed)*(seed-D)`.
+`BF4ExactSlabFixedSpatialConditionalNoiseVacuumObstruction` proves constant
+observables have zero conditional noise but positive terminal input mass;
+arbitrary input-norm/noise conversion therefore fails. This is NOT a
+vacuum-complement or reciprocal-residual no-go. Three focused checks passed
+18 gates within {propext, Quot.sound}, plus the budget dependency target.
+Actual changing-action comparison/maps and a useful delta budget remain OPEN;
+the full middle spatial action and separate OWN normalizations must be retained.
+No full-root/tree audit, new axiom, hole or canonical field change. Evidence:
+`audits/AUDIT-RG-RELATIVE-DISSIPATION-2026-10-07.md`.
+
 **Checked actual finite torus moment inequality (2026-10-07):**
 `SU2TorusCenteredPositiveSupport.hsup` proves syntactic positive-link support,
 `SU2TorusCenteredPairShift.hshift` proves weighted pairing additivity, and
