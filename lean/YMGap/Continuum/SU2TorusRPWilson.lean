@@ -1,8 +1,12 @@
 /-
-# Torus RP, commit 2: crossing plaquettes for the truncated Wilson weight `T_K` (STRONG COUPLING-independent)
+# Torus RP, commit 2: crossing plaquettes for the truncated Wilson weight `T_K` (every β ≥ 0)
+
+**RP FOR THE ACTUAL TORUS MEASURE IS OPEN.** `wilson_rp_full` takes the factorization `hW` as a hypothesis. The torus
+bridge that discharges it has not landed.
 
 The crossing scalar `σ_b = Σ_{c<4} u_c v_c = Re(U V*)` pairs block `b` (U, positive half) with block `a+b`
-(V = Θ U). In temporal gauge on the crossing links, this is the scalar part of a crossing plaquette word.
+(V = Θ U). In the split formulation the crossing scalar is `Σ_c Y_c · shift Y_c` with `Y` a quaternion product,
+an RPK term of the same kind.
 `σ_b` is a reflection-positive kernel. Since `T_K = Σ_k a_k χ_1^k` with `a_k = wilsonA β k ≥ 0` and
 `χ_1 = 2σ`, every crossing `T_K` and every finite product of them is an RPK (power-sum argument, no `D^s`).
 

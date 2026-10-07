@@ -2,27 +2,46 @@
 
 This doc covers the RP row of `audits/SCOPE-R1-CLUSTER-TO-GAP-2026-10-07.md`. The measure is
 `SU2TorusMultiLinkPolyGibbs` (`quaternionHaar n` = `multiLinkHaar n`, weights `Π_p W_p`). It is NOT the BF4 slab law.
-RP holds for every β ≥ 0 / w ≥ 0. It is not a strong-coupling statement, but by itself it is not gap evidence.
+**STATUS: RP FOR THE ACTUAL TORUS MEASURE IS OPEN.** What is proved is the abstract half-split statement
+(`rp_full`, `wilson_rp_full`), with the factorization `hW` as a HYPOTHESIS. The bridge that discharges `hW` for
+the torus Wilson integrand has not landed.
+The Wilson statements hold for every β ≥ 0 (β-uniform; no strong-coupling label). By itself RP is not gap
+evidence. The heat kernel is set aside; Wilson is the target action.
 
-## Formulation (Osterwalder–Seiler, plane between time slices)
+## Formulation (DECIDED: reflection pair of planes, no gauge fixing, split crossing links)
 
-- Θ is a time-reflection plane between slices t = 0 and t = 1. On a torus with even N_t there is a second cut at
-  t = N_t/2, and both cuts are crossed.
-- Links split three ways: positive-half links Λ₊ (both endpoints at t ≥ 1), negative-half links Λ₋ = ΘΛ₊, and the
-  temporal links crossing a cut.
-- **Crossing links:** gauge-fix every crossing temporal link to 1 (temporal gauge on one layer at each cut).
-  - This is legitimate: the crossing links of the cuts form a forest, so it is a maximal gauge fixing that can be
-    absorbed by Haar invariance at the sites of one side.
-  - Alternative: treat the crossing links as reflected-half variables via `U ↦ U*`. That needs Haar
-    conjugation invariance.
-- **Polynomial Θ:** order the links so that blocks 0..a−1 are Λ₊ and block a+i is the reflection of block i.
-  - Spatial links reflect to spatial links with the same orientation. With the crossing links fixed to 1,
-    Θ is the block translation `shiftPoly a`.
-  - Orientation conjugation enters only through the crossing plaquette word, which becomes `U·V*`.
-  - Non-crossing plaquettes on the reflected side have words that are Θ-images of positive-side words, up to
-    inversion. The weights are class functions that are real and even under `U ↦ U*`, so `W(Θp) = Θ W(p)`.
-    This identification (via `characterPolynomial` of conj = itself) is still OPEN in Lean.
-- **Target:** `0 ≤ ∫ Θ(F)·F·Π_p W_p` for F a polynomial on Λ₊.
+**Why not gauge fixing.** On the periodic torus the crossing temporal links of the two cuts cannot all be set to 1:
+together with the time-winding links they carry a Polyakov-loop holonomy that survives any gauge transformation.
+The first version of this note was wrong on this point.
+
+**Chosen formulation.**
+- **Lattice and reflection:** a torus with even N_t. Θ: t ↦ 1 − t (mod N_t) reflects across the pair of planes
+  {t = 1/2, t = (N_t+1)/2}.
+- **The halves:**
+  - Λ₊ = spatial links at t ∈ {1, …, N_t/2} together with temporal links (x,t)→(x,t+1) for t ∈ {1, …, N_t/2 − 1}.
+  - Λ₋ = ΘΛ₊.
+  - The crossing temporal links are C₁ = {(x,0)→(x,1)} and C₂ = {(x,N_t/2)→(x,N_t/2+1)}.
+- **No gauge fixing.** Each crossing link L is split as a Haar product of a Λ₊ variable B and its reflected copy
+  A = ΘB. By Haar invariance, `∫ f(L) dL = ∫∫ f(A*·B) dA dB` at cut 1 and `∫∫ f(B·A*) dA dB` at cut 2.
+  - This is the polynomial head shear (`translatedHeadPolynomial_haar`) combined with sign-flip conj invariance
+    (`quaternionHaar_signSelected`).
+  - There is no Polyakov obstruction, since every link stays an integrated variable.
+- **Variables and Θ:** the links are ordered so that blocks 0..a−1 are Λ₊ ∪ {B's} and block a+i is Θ of block i.
+  - Each reflected **temporal** link is stored as `conj(shift U)`, via the sign-flip invariance on its block.
+    Each reflected spatial link is stored as `shift U`.
+  - With this convention Θ is the block translation `shiftPoly a`.
+- **Crossing plaquette, cut 1:** spatial links U (t=1) and V = ΘU (t=0), crossing links L, L' at x and x+e. The word
+  `V·L'·U*·L*` with `L = A*B` has scalar part `Re(X·Y*)`, where `Y = B·U·B'*` and `X = A·V·A'* = shift Y`.
+  - So the scalar is `Σ_c Y_c·shift(Y_c)`, a term of the RPK cone with `A = Y_c`.
+  - Cut 2 is the same, with `Y = B*·U·B'`.
+- **Non-crossing reflected plaquettes:** the scalar of the reflected word equals the shifted scalar of the original
+  word, since `Re(q) = Re(q*)` and traces are cyclic.
+- **Target statement (actual torus):** `0 ≤ ∫_{torus} Θ(F)·F·Π_p T_K(U_p)` for F a polynomial in Λ₊ links, the
+  integral being the torus `quaternionHaar` over all links.
+  - Bridge: (split + conj invariance + reordering by `quaternionHaar_reindex`) turns this into
+    `∫_{a+a} ΘF·F·(W₊·ΘW₊·Π_{crossing} T_K(Σ_c Y_c·shift Y_c))`. That is `wilson_rp_full` with the cross kernel
+    generalised from `x_{4b+c}` to quaternion-product components `Y_c` (already covered by the RPK cone: any
+    `A` on Λ₊).
 
 ## Mechanism and what is proved
 
@@ -36,7 +55,7 @@ The crossing scalar is `Re(U V*) = Σ_{c<4} u_c v_c`, a sum of Θ-symmetric prod
   - `rpk_pos`: `RPK a W → 0 ≤ ∫ F·ΘF·W`.
   - Closure: `rpk_one`, `rpk_append`, `rpk_smul`, `rpk_mul`.
 - `rp_full`: if `W ≡ W₊·ΘW₊·W_c` with `W_c ∈ RPK`, then `0 ≤ ∫ ΘF·F·W`.
-- **No reflection-invariance lemma is needed:** Θ is a block translation, and haar_factor handles it directly.
+- Θ is a block translation in this abstract setting. Reflection/conj invariance enters only in the bridge.
 
 ### `SU2TorusRPWilson` (commit B)
 
@@ -50,10 +69,13 @@ The crossing scalar is `Re(U V*) = Σ_{c<4} u_c v_c`, a sum of Θ-symmetric prod
 |---|---|
 | half-split factorization `∫_{a+b} p·shift q = ∫p ∫q` | EXISTS (`haar_factor`) |
 | commutative / associative Haar-PE algebra | EXISTS (`SU2HaarAlgebra`) |
-| `blockSwapInvolution` / block permutation invariance | EXISTS (BF4 files). Needed only to bring the torus link order into the half-split order. |
-| Θ-ordering of `links` for the torus (a permutation lemma `quaternionHaar` ∘ block-perm = `quaternionHaar`) | MISSING |
-| gauge fixing of crossing links (Haar left-invariance at a site, polynomial form) | MISSING. This is the main new Haar lemma. |
-| conj invariance `χ_s(U*) = χ_s(U)` at polynomial level, plus `plaqWord` of a reflected plaquette | MISSING (routine) |
+| block-involution reindexing `quaternionHaar ∘ reindex = quaternionHaar` | EXISTS (`SU2QuaternionArbitraryHaarBlockReflection.quaternionHaar_reindex`) |
+| sign-flip / conj invariance on selected coordinates | EXISTS (`quaternionHaar_signSelected`) |
+| split of a crossing link `∫ f(L) = ∫ f(L·A)` (head shear, all degrees) | EXISTS (`translatedHeadPolynomial_haar`). Restated for RP in `SU2TorusRPHaar`. |
+| split at an arbitrary (non-head) block | via reindex + head shear. The composition lemma is OPEN. |
+| crossing-word identity `scalar(V L' U* L*) ≡ Σ_c X_c Y_c` after the split (coeff level) | OPEN |
+| reflected-plaquette identity `scalar(Θ-word) ≡ shift(scalar(word))` with conj on temporal blocks | OPEN |
+| torus bridge discharging `hW` | OPEN |
 | `D^s` matrix coefficients in real form | MISSING. Needed only for the heat kernel. |
 
 ## Heat-kernel plan
@@ -75,11 +97,11 @@ The crossing scalar is `Re(U V*) = Σ_{c<4} u_c v_c`, a sum of Θ-symmetric prod
 
 ## Risks / open
 
-1. **Geometry.** Show that the torus `polyPartition` (with the link list reordered and crossing links gauge-fixed)
-   is PE to `W₊·ΘW₊·Π crossTK`, with the crossing plaquette scalar ≡ `cross a b`. This is the remaining bridge from
-   `wilson_rp_full` to the actual measure. It needs the three missing Haar lemmas above.
-2. **Two cuts on the torus:** both cuts' crossing plaquettes enter `bs`. The gauge fixing must use only one
-   layer per cut, and Λ₊ must be the half-torus between the cuts.
+1. **Geometry (the bridge, OPEN).** Under the split formulation above, show the torus Wilson integrand is PE to
+   `W₊·ΘW₊·Π T_K(Σ_c Y_c·shift Y_c)`. Until then RP for the actual torus measure is OPEN.
+2. **Two cuts on the torus:** both cuts' crossing plaquettes enter. The split formulation handles both, with no
+   gauge fixing.
 3. **Transfer matrix** (next row of the gap scope) is still OPEN. RP gives a positive semi-definite form on
    Λ₊-polynomials; the GNS/transfer step then uses `CompactTransferGNS`.
-4. RP is β-uniform, but the gap still needs the strong-coupling clustering, so the window remains STRONG COUPLING ONLY.
+4. RP is β-uniform. The gap chain still needs the strong-coupling clustering, so the GAP window (not RP) is
+   strong coupling only.

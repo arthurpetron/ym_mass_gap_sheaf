@@ -2,9 +2,11 @@
 # Torus RP, commit 1: the abstract half-split reflection-positivity core
 
 The setting is `SU(2)^(a+a)`. Blocks `0..a-1` are the positive half; block `a+i` is the reflection of block `i`.
-The reflection Θ acts on polynomials as the block translation `sh := shiftPoly a`. (The temporal links crossing
-Θ are gauge-fixed to `1`, and orientation conjugation is absorbed into the identification; see
-`docs/J04-TORUS-RP-SCOPE-2026-10-07.md`.)
+The reflection Θ acts on polynomials as the block translation `sh := shiftPoly a`. Crossing links are split, not
+gauge-fixed; see `docs/J04-TORUS-RP-SCOPE-2026-10-07.md`.
+
+**RP FOR THE ACTUAL TORUS MEASURE IS OPEN.** This file is the abstract half-split statement. The factorization of the
+torus integrand (`hW` in `rp_full`) is a hypothesis until the bridge lands. Valid for every coupling.
 
 * `sh_mul`: `sh (p·q) = sh p · sh q` (literal list equality).
 * `kern L = Σ_{(c,A)∈L} c · A · sh A`: a **reflection-positive kernel**. `RPK a W` holds when `W` is
