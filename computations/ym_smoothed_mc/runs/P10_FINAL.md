@@ -49,7 +49,7 @@ Going from 40→100 still raised the VRF ~1.3× at W, so nsub=100 is not fully s
 | nsub=100 | 0.038(11) | 0.007(33) | 0.031(35) — consistent within 1σ |
 | nsub=40 | 0.046(18) | 0.020(36) | 0.026(40) — consistent |
 
-E3d is ~3× noisier (it includes frozen-boundary slices that are not sub-averaged) and is consistent with E1 and with 0. The primary claim rests on E1: **W(Y_j, s=3) = 0.038(11) is +3.5σ from 0**, clearly positive. E3d does not contradict this; it is simply not precise enough to confirm or refute at the same confidence.
+E3d is ~3× noisier (it includes frozen-boundary slices that are not sub-averaged) and is consistent with both E1 and with 0. **Accurate claim:** W(Y_j, s=3) is **positive at 3.5σ in E1** (0.038(11)); the subtraction-free E3d check is **unresolved** (0.007(33), only +0.2σ). E3d does not contradict E1; it is not precise enough to confirm the same confidence on its own.
 
 ## Does W fall off with side faster than the flow loop?
 
@@ -75,7 +75,7 @@ The ~2σ tension quoted mid-run (pilot 0.112 vs then-current ~0.072–0.080) has
 ## Verdict
 
 1. **Side 2:** W(Y_j) = 0.082(6), resolved well past ±0.02. Positive, ~2× below the flow-loop W, ~1σ below the n=2-overlap ground-state floor.
-2. **Side 3 (key question):** W(Y_j) = 0.038(11), **+3.5σ from 0, clearly positive.** E3d 0.007(33) is consistent. The pilot's 0.037(49) is confirmed; the question "positive or consistent with 0?" is answered: **positive**.
+2. **Side 3 (key question):** W(Y_j) = 0.038(11) in E1 (**positive at 3.5σ**); subtraction-free E3d = 0.007(33) is **unresolved** and consistent with both E1 and 0. The pilot's 0.037(49) is confirmed by E1. Do **not** read this as an E3d confirmation of positivity.
 3. **Side 4:** still unresolved (0.041(67)); denominator R_Y(2)/R_Y(0)=0.025(2). Nested two-level scheme remains the path for ±0.03 (see `P10_NESTED_SCOPE.md`).
 4. Exact Lean anchor survival falls off with side faster than the flow loop (ratio ~0.5 → ~0.4).
 
