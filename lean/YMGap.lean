@@ -7829,3 +7829,4 @@ import YMGap.Continuum.SU2TorusCorrelator
 import YMGap.Continuum.SU2TorusRPKTail
 import YMGap.Continuum.SU2TorusRPKProd
 import YMGap.Continuum.SU2TorusRPKCauchy
+import YMGap.Continuum.SU2TorusRPKClosed
