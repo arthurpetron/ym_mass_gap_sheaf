@@ -1,5 +1,36 @@
 # Sorry Ledger
 
+## PROVED: signed shift cancellation and actual direct-score cost join (2026-10-07)
+
+- `SU2QuaternionCenteredSignedRemainder.sourceEnergy_shifted` preserves
+  full product heat and endpoint sources on any selected list, at every
+  nome/cutoff, with support only. `weightedAngularEnergy_shifted` and
+  `signedRemainder_shifted` yield exact S(q,phi-c)=S(q,phi).
+- `signedRemainder_le_centered_mixed_minus_diagonal` estimates the shifted
+  mixed term while RETAINING its negative diagonal remainder, under the
+  explicit scalar cutoff guard. `signedRemainder_le_centered_mixed` also
+  proves the weaker mixed-only ceiling using existing diagonal positivity.
+- `BF4ExactSlabFixedSpatialLastStepCenteredMixedCost.centeredMixedBulk`
+  keeps the actual exact score and both original partitions.
+  `exactScoreSignedBulk_le_centeredMixed` derives source/ratio support and
+  applies the stronger bound to the ACTUAL q and phi.
+  `original_block_centered_mixed_cost_relative_tolerance` consumes it at
+  degree k+1, with unchanged Z1*m(b²) error payment. No finite reciprocal
+  ratio of psi-c is identified with phi-c; only the remainder is shifted.
+- Two final focused checks passed 5+3 printed gates within {propext,
+  Quot.sound}. Independent read-only review passed. One monitored 20-GiB
+  worker, 12-GiB reserve, fresh capacity preflights and zero swap. No new
+  holes, axioms, classical input, field weakening or raised heartbeats.
+  No full-root/tree build/audit or hashed-baseline regeneration; CI off.
+- OPEN: useful COMBINED direct-score/signed-remainder bound versus the SAME
+  surviving form along a justified family, actual interacting coarse action
+  and two-step comparison, ordinary delta budget, independent AF survival,
+  physical/volume control, SAME continuum OS/QFT theory, every group and Clay.
+  Neither budget minimization by centering nor improvement over the existing
+  corrected square-completion ceiling is asserted.
+
+Evidence: `audits/AUDIT-RECENT-COMMITS-AND-CENTERED-SIGNED-PRODUCER-2026-10-07.md`.
+
 ## PROVED: actual glued endpoint marginal and heat-only obstruction (2026-10-07)
 
 - `BF4ExactSlabFixedSpatialGluedEndpointMarginal.placed_image_local` and

@@ -16,6 +16,17 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked signed cancellation and actual direct-score join (2026-10-07):**
+`SU2QuaternionCenteredSignedRemainder` proves shift invariance of the
+COMBINED Taylor remainder, at every nome/cutoff with the same source.
+`BF4ExactSlabFixedSpatialLastStepCenteredMixedCost` reaches the original
+complete one-step cost with a centered mixed budget, RETAINING its negative
+diagonal remainder, actual direct score and both partitions. The finite
+reciprocal construction itself is not shifted. Eight new permitted gates
+passed in two focused checks; no full-root/tree build or audit. Useful
+scaling-family control of this combined cost and AF survival remain OPEN.
+Evidence: `audits/AUDIT-RECENT-COMMITS-AND-CENTERED-SIGNED-PRODUCER-2026-10-07.md`.
+
 **Checked actual blocked endpoint marginal (2026-10-07):**
 `BF4ExactSlabFixedSpatialGluedEndpointMarginal` identifies the actual
 `K01*V1*K12` middle integral's lower endpoint test with original `transferStep 1`.

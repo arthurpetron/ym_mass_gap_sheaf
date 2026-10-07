@@ -112,13 +112,26 @@ nome/cutoff can match its endpoint marginal at width 2,K=1,w>0. This is an
 unnormalized finite obstruction, not whole-action positivity or a prohibition
 on interacting coarse actions. Ten new constructive gates passed.
 
-The parallel producer review narrows the next ANALYTIC estimate. Existing
-`LastStepCorrectionPaidCost.original_block_lastStep_correctionPaid_cost_relative_tolerance`
-pays reciprocal correction, terminal drift and reconstruction in Z1*m(b²).
+The recent-commit/producer review repoints the next ANALYTIC estimate to the
+STRONGER EXISTING direct-score consumer:
+`LastStepExactScoreCost.original_block_exact_score_cost_relative_tolerance`.
+It pays reciprocal correction, drift and reconstruction in Z1*m(b²), with
+no conditional Jensen enlargement or global score cap repeated over links.
 After positive partition normalization its error is relative to m(b²)/Z0,
-not an absolute input cap. Reuse this payment. The still-unpaid term is the
-COMBINED original paired score plus signed Taylor remainder difference, with
-both partitions and complete spatial action retained. The cost is one-step
+not an absolute input cap. Reuse this payment and actual score.
+The new `SU2QuaternionCenteredSignedRemainder.signedRemainder_shifted`
+proves S(q,phi-c)=S(q,phi) for every nome/cutoff under support only.
+`LastStepCenteredMixedCost.original_block_centered_mixed_cost_relative_tolerance`
+now keeps Z0*[h*L+h²*pairBudget(q,q*(phi-c)²)-R(q*(phi-c),q*(phi-c))],
+h=1-w, with the actual direct score L, projected terminal source q, original
+conditional phi and unchanged errors. The negative diagonal is RETAINED.
+Only the remainder evaluation is shifted; the finite reciprocal ratio of
+psi-c is NOT identified with phi-c. The scalar quadratic cutoff guard is
+explicit. Eight new constructive gates passed.
+This is an alternative finite ceiling, not a proof that centering minimizes
+the budget or improves the older corrected square-completion bound.
+The COMBINED original score and signed remainder still need a useful bound
+in SAME surviving-form units along the justified family. The cost is one-step
 Rayleigh pairing, not already fine two-step norm dissipation; the actual
 coarse action/map and that comparison join are still missing. Existing
 `SignedMultiplicationLimit.dampedDropLimit_nonpositive` uses the fixed-parameter
@@ -126,7 +139,8 @@ completed gap, so it is not an independent changing-family budget producer.
 Constructed numerical margins permit per-scale positive approximation targets;
 separate parameter-dependent onsets do not supply a uniform diagonal modulus.
 Do not add tolerance-specialization wrappers instead of estimating the bulk.
-Evidence: `audits/AUDIT-GLUED-ENDPOINT-AND-SIGNED-PRODUCER-2026-10-07.md`.
+Evidence: `audits/AUDIT-RECENT-COMMITS-AND-CENTERED-SIGNED-PRODUCER-2026-10-07.md`
+and `audits/AUDIT-GLUED-ENDPOINT-AND-SIGNED-PRODUCER-2026-10-07.md`.
 
 In parallel, the actual finite torus covariance/RP join is being completed
 algebraically. Spatial-character reflection and genuine insertion extraction

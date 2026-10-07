@@ -7717,3 +7717,7 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialCubeHeatOnlyObstruction
 -- changing-action relative estimate and scaling remain open.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialGluedEndpointMarginal
 import YMGap.Continuum.BF4ExactSlabFixedSpatialCubeGluedHeatOnlyObstruction
+-- Same-source signed shift cancellation and actual direct-score cost.
+-- Useful changing-family surviving-form estimate remains OPEN.
+import YMGap.Continuum.SU2QuaternionCenteredSignedRemainder
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepCenteredMixedCost

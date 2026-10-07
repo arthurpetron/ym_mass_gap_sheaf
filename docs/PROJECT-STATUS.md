@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Supporting signed cancellation and actual cost join checked (2026-10-07):
+`SU2QuaternionCenteredSignedRemainder` proves S(q,phi-c)=S(q,phi), keeping
+the SAME source and heat at every nome/cutoff. The direct-score consumer
+`BF4ExactSlabFixedSpatialLastStepCenteredMixedCost` uses a centered mixed
+budget while RETAINING the favorable negative diagonal remainder and both
+original partition factors. Only the remainder evaluation is shifted, not
+the finite reciprocal construction from psi. Eight new constructive gates
+passed. The combined SAME-form estimate along the scaling family, actual
+coarse comparison and AF survival remain OPEN. This is not a proved budget
+improvement over existing corrected square-completion bounds. Evidence:
+`audits/AUDIT-RECENT-COMMITS-AND-CENTERED-SIGNED-PRODUCER-2026-10-07.md`.
+Broad chart unchanged; no reprint.
+
 Supporting original blocked-action join checked (2026-10-07):
 `BF4ExactSlabFixedSpatialGluedEndpointMarginal` identifies the actual middle
 integral and compressed boundary kernel's lower endpoint tests with original

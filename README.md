@@ -18,6 +18,15 @@ prefix sums of relative errors; neither that action comparison nor its useful
 budget is constructed. No coercive lower norm comparison is needed. Physical
 scaling, the SAME limiting OS/QFT theory and every compact simple group remain open.
 
+**Latest signed-cost progress (2026-10-07):** the combined Taylor remainder
+is now proved invariant under a constant observable shift. Its actual
+conditional-source consumer retains the direct score, favorable negative
+diagonal term, original partitions and already-paid approximation errors.
+Eight new constructive gates passed. This provides a finite centered
+ceiling, **not** the missing scaling-family estimate or continuum gap.
+The [recent-commit review and checked cancellation](audits/AUDIT-RECENT-COMMITS-AND-CENTERED-SIGNED-PRODUCER-2026-10-07.md)
+repoints the work plan to this existing sharper direct-score route.
+
 **Latest exact blocked-action join (2026-10-07):** the actual two-layer middle
 integral and its compressed boundary kernel now have a proved endpoint marginal
 equal to the original `T1`, retaining the middle spatial interaction once.
