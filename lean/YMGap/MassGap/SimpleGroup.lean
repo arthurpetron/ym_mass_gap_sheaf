@@ -68,6 +68,7 @@ import YMGap.RG.WeylCharacterBound
 import YMGap.RG.WeylDimGeneral
 import YMGap.RepTheory.CasimirData
 import YMGap.MassGap.SU2
+import YMGap.Continuum.WilsonConsistency
 
 namespace YMGap.MassGap.SimpleGroup
 
@@ -582,46 +583,68 @@ theorem mass_gap_SU2_via_uniform
       (∀ N, finSum (truncatedConst su2.K_steps su2.eta_max) N ≤ su2.sigma0) :=
   mass_gap_simple_group_of_osReconstruction su2 su2_admissible su2_uniform_witness rec bundle
 
-/-! ## J04 T3 — the bound-gap statement with an explicit open hypothesis
+/-! ## J04 T3/b — the bound-gap statement, tied to the repo's Wilson measure
 
-`GroupBoundGap R rec WilsonOrigin` packages exactly the content that the legacy
-theorem leaves unbound:
+The only Wilson measure the repository constructs is the SU(2) heat-kernel
+inverse-limit measure `WilsonConsistency.wilsonContinuumMeasure w hw` on the
+stage family `WilsonM k = ProbFunctional (wilsonSystem.Obs k)`.  The provenance
+predicate is therefore concrete:
 
-* a constructive-real rate `rate ≥ m_0_uniform` with `HasSpectralGapAt rec rate`
-  (the located-margin rate binding of `OSReconstruction.HasSpectralGapAt`);
-* `origin : WilsonOrigin R μ_inf` — the claim that the measure `μ_inf`
-  reconstructed by `rec` is the continuum limit of the Wilson lattice measure of
-  the compact simple group whose `RepData` row is `R`.
+  `SU2WilsonOrigin R μ :≡ R = su2 ∧ ∃ w hw, μ = wilsonContinuumMeasure w hw`.
 
-`WilsonOrigin` is a **caller-supplied predicate**.  The repository constructs no
-compact group, Haar measure, or Wilson measure for a general `R`, so this
-predicate is an OPEN HYPOTHESIS: it is not defined, constructed or proved here,
-and any instance of `GroupBoundGap` currently must be assumed.  Nothing below
-discharges it; the theorem only refuses to state a gap without it. -/
+It is not `True`: `not_SU2WilsonOrigin_su3` refutes it for the SU(3) row.
 
-/-- The binding hypothesis for a group-pinned mass gap (open content). -/
-structure GroupBoundGap (R : RepData)
-    {M : Nat → Type} {μ_inf : ContinuumMeasure M}
-    (rec : OSReconstruction μ_inf)
-    (WilsonOrigin : RepData → ContinuumMeasure M → Prop) : Prop where
-  /-- Located-margin rate at least the uniform scalar `m_0`. -/
+**Obstruction (recorded, proved).**  `GroupBoundGap.row_eq_su2`: any
+`GroupBoundGap R rec` forces `R = su2`.  So for every non-SU(2) row the bound
+statement is currently uninhabitable — not because a gap fails, but because no
+Wilson measure for that group exists in the repo.  Extending it requires a
+per-group Wilson measure (ladder items d–f).
+
+**Open content.**  The rate field `rate_exists` (`HasSpectralGapAt rec m`,
+`m ≥ m_0_uniform`, for an `OSReconstruction` of the Wilson measure) is the open
+hypothesis.  No instance of `GroupBoundGap` is constructed anywhere. -/
+
+open YMGap.Continuum.WilsonConsistency in
+/-- The Wilson stage family of the repo's SU(2) Wilson measure. -/
+abbrev WilsonM : Nat → Type :=
+  fun k => YMGap.Continuum.ObservableMeasure.ProbFunctional
+    (YMGap.Continuum.WilsonConsistency.wilsonSystem.Obs k)
+
+/-- Concrete provenance: the row is SU(2) and `μ` is the repo's Wilson
+inverse-limit measure at some heat-kernel weight `w ≥ 0`. -/
+def SU2WilsonOrigin (R : RepData) (μ : ContinuumMeasure WilsonM) : Prop :=
+  R = su2 ∧ ∃ (w : Q') (hw : (0 : Q') ≤ w),
+    μ = YMGap.Continuum.WilsonConsistency.wilsonContinuumMeasure w hw
+
+/-- Non-vacuity: the SU(3) row has no SU(2) Wilson origin. -/
+theorem not_SU2WilsonOrigin_su3 (μ : ContinuumMeasure WilsonM) :
+    ¬ SU2WilsonOrigin su3 μ := by
+  intro h
+  have := congrArg (fun r : RepData => r.C2_fund.num) h.1
+  exact absurd this (by decide)
+
+/-- The binding hypothesis for a group-pinned mass gap. -/
+structure GroupBoundGap (R : RepData) {μ_inf : ContinuumMeasure WilsonM}
+    (rec : OSReconstruction μ_inf) : Prop where
+  /-- OPEN: located-margin rate at least the uniform scalar `m_0`. -/
   rate_exists : ∃ rate : CReal, CReal.ofQ' m_0_uniform ≤ rate ∧ HasSpectralGapAt rec rate
-  /-- OPEN: `μ_inf` is the Wilson measure of the group producing `R`. -/
-  origin : WilsonOrigin R μ_inf
+  /-- `μ_inf` is the repo's SU(2) Wilson measure and `R` is the SU(2) row. -/
+  origin : SU2WilsonOrigin R μ_inf
 
-/-- **Bound conditional mass gap for a scalar row.**  Same budget transport as
-the legacy theorem, but the spectral-gap conjunct is the rate-bound
-`HasSpectralGapAt rec m` with `m ≥ m_0_uniform`, and the conclusion carries the
-Wilson-origin provenance of `μ_inf`.  All group content is in the hypothesis
-`hb`, which is open. -/
+/-- **Obstruction**: a bound gap can only be stated for the SU(2) row. -/
+theorem GroupBoundGap.row_eq_su2 {R : RepData} {μ_inf : ContinuumMeasure WilsonM}
+    {rec : OSReconstruction μ_inf} (hb : GroupBoundGap R rec) : R = su2 :=
+  hb.origin.1
+
+/-- **Bound conditional mass gap.**  Rate-bound gap `HasSpectralGapAt rec m`,
+`m ≥ m_0_uniform`, for an OS reconstruction of the repo's SU(2) Wilson measure;
+all analytic content is in the open hypothesis `hb.rate_exists`. -/
 theorem mass_gap_simple_group_bound
     (R : RepData) (hadm : AdmissibleSimpleGroup R) (w : UniformBudgetWitness R)
-    {M : Nat → Type} {μ_inf : ContinuumMeasure M}
-    {rec : OSReconstruction μ_inf}
-    {WilsonOrigin : RepData → ContinuumMeasure M → Prop}
-    (hb : GroupBoundGap R rec WilsonOrigin) :
+    {μ_inf : ContinuumMeasure WilsonM} {rec : OSReconstruction μ_inf}
+    (hb : GroupBoundGap R rec) :
     (∃ m : CReal, CReal.ofQ' m_0_uniform ≤ m ∧ HasSpectralGapAt rec m) ∧
-      WilsonOrigin R μ_inf ∧
+      SU2WilsonOrigin R μ_inf ∧
       (0 : Q') < m_0_uniform ∧
       (∀ N, finSum (truncatedConst R.K_steps R.eta_max) N ≤ su2.sigma0) :=
   ⟨hb.rate_exists, hb.origin, m_0_uniform_positive, budget_closes_uniform R hadm w⟩
@@ -632,6 +655,8 @@ end YMGap.MassGap.SimpleGroup
 
 #print axioms YMGap.MassGap.SimpleGroup.budget_closes_uniform
 #print axioms YMGap.MassGap.SimpleGroup.mass_gap_simple_group_bound
+#print axioms YMGap.MassGap.SimpleGroup.not_SU2WilsonOrigin_su3
+#print axioms YMGap.MassGap.SimpleGroup.GroupBoundGap.row_eq_su2
 #print axioms YMGap.MassGap.SimpleGroup.closureCertificate_of_admissible
 #print axioms YMGap.MassGap.SimpleGroup.m_0_uniform_positive
 #print axioms YMGap.MassGap.SimpleGroup.m_0_uniform_squared_le
