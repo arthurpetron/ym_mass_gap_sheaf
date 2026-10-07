@@ -1,0 +1,6 @@
+j,w,beta,asqrt,source
+4,0.7803906542056075,2.0164490138421893,0.7283409486795629,extrap ln(a√σ) slope from β=2.2/2.3 (FHK92 T3 hep-lat/9208012); two-loop cross-check=0.7410
+5,0.8027019311502939,2.2750868684288794,0.39171708580079007,interp ln(a√σ) in β between 2.2 and 2.3 (FHK92)
+6,0.8208978658536585,2.5334853367026366,0.17017162915456396,interp ln(a√σ) in β between 2.5 and 2.6 (FHK92)
+7,0.841656334231806,2.9005095829207477,0.05540013456654193,"two-loop from FHK92 T3 / UKQCD hep-lat/9209007 @β=2.85; lit-slope alt=0.0537 (AS-violating, illustrative)"
+8,0.853593769470405,3.158562128210144,0.02867148038448473,"two-loop from FHK92 T3 / UKQCD hep-lat/9209007 @β=2.85; lit-slope alt=0.0236 (AS-violating, illustrative)"
