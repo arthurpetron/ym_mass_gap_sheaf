@@ -7414,6 +7414,7 @@ import YMGap.Continuum.SU2LinkGasBox
 import YMGap.Continuum.SU2LinkKP
 import YMGap.Continuum.SU2LinkDecay
 import YMGap.Continuum.SU2LinkDecayHeat
+import YMGap.Continuum.SU2ObsInsertion
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport

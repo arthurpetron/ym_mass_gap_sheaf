@@ -4,7 +4,18 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 11, decay via the character envelope at w = 1/100000 (2026-10-07 PT)
+## Latest proved increment: R1 commit 12, χ₁ observable insertion and cross-multiplied truncation (2026-10-07 PT)
+
+- `SU2ObsInsertion` (PROVED, axioms ⊆ {propext, Quot.sound}).
+  - `ZObs_nil`: ZObs [] = polyPartition.
+  - `ZObs_eq_Xi`: ZObs S ≈ Ξ(z^S; gas N P).
+  - `zObs_off`.
+  - `trunc_eq_Xi`: Zpq·Z − Zp·Zq ≈ Ξ(z^{pq})Ξ(z) − Ξ(z^p)Ξ(z^q).
+  - `l1_gObs`.
+- OPEN: the decay bound itself.  Remaining: root decomposition, the sum over rooted polymers, and the modified-activity bound at w_H.  See audits/SCOPE-R1-CLUSTER-TO-GAP-2026-10-07.md.
+- Labels: strong coupling, heat-kernel (spin-truncated), not Wilson; also true for U(1), not gap evidence.
+
+## Earlier proved increment: R1 commit 11, decay via the character envelope at w = 1/100000 (2026-10-07 PT)
 
 - `SU2LinkDecayHeat.su2_link_decay_heat` (PROVED, axioms ⊆ {propext, Quot.sound}).
   - Statement: for w ∈ {0, 1/100000} and any M, `polyPartition ≈ Ξ(gas)` and |U| ≤ (6/7)^R (λ²η)^{|g|} Ξ(l)Ξ(g::l).

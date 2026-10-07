@@ -112,3 +112,9 @@ No fail statement is given: the ℓ¹ envelope is an upper bound, not the true a
 - charEnv swap: w₀ = 1/100000, ε_H = 5e-15, K = (5/3)^24, η = 1/2500, λ = 6/7.  Uniform in M.
 - Lever: sharpening K.  A rooted tree count on the 20-neighbour link graph (K ≈ e·20 ≈ 54) with a single factor of K in the decay could reach w ≈ 1/40.
 - Strong coupling, heat-kernel (spin-truncated), not Wilson; also true for U(1), not gap evidence.
+
+## PROVED: commit 12, `SU2ObsInsertion.lean`
+
+- Observable insertion as modified activities on the same gas.  Cross-multiplied truncation identity.
+- The decay and the part-2 (OS/transfer) map are in SCOPE-R1-CLUSTER-TO-GAP-2026-10-07.md.
+- Strong coupling, heat-kernel (spin-truncated), not Wilson; also true for U(1), not gap evidence.
