@@ -120,3 +120,73 @@ So steps 1–3 are formalizable with effort; step 4 is the genuine obstacle in a
 choice-free development.  A cheaper, sufficient fix is to drop `LinkHaar` from
 the Gibbs layer in favour of `PolyLinkHaar`, which the Prover has done
 (`SU2TorusPolyGibbs`).
+
+## Hand-off to YM Lean Prover: multi-plaquette activity bound (2026-10-07)
+
+Files: `lean/YMGap/Continuum/SU2PolymerActivityBound.lean` (namespace
+`YMGap.Continuum.SU2PolymerActivityBound`) and `SU2PlaqWeightedCharacterBound.lean`.
+All axioms are `[propext, Quot.sound]`. The plaquettes may share links, and no independence is used.
+
+### Exact signatures
+```lean
+-- YMGap.Continuum.SU2PolymerActivityBound   (section vars: links : List Z4Link, N : Nat)
+def charSum (p : Z4Plaq) : List (Q' × Nat) → RatPoly      -- Σ c·χ_s(U_p)
+  | [] => polyZero
+  | t :: ts => polyAdd (polySmul t.1 (plaqCharacter links N p t.2)) (charSum p ts)
+def bSum : List (Q' × Nat) → Q'                           -- Σ |c|·(s+1)
+  | [] => 0
+  | t :: ts => Q'.abs t.1 * Q'.ofInt ((t.2 : Int) + 1) + bSum ts
+def polyProd : List (Z4Plaq × List (Q' × Nat)) → RatPoly  -- [] => polyOne; q::r => charSum q.1 q.2 * polyProd r
+def bProd    : List (Z4Plaq × List (Q' × Nat)) → Q'       -- [] => 1;       q::r => bSum q.2 * bProd r
+def PolymerOK (links : List Z4Link) (N : Nat) (X : List (Z4Plaq × List (Q' × Nat))) : Prop :=
+  ∀ q ∈ X, YMGap.Continuum.SU2PlaqWordHolonomy.LinksCover links N q.1 ∧ ∀ t ∈ q.2, (0 : Q') < Q'.abs t.1
+theorem polymer_activity_sq_le (X) (hX : PolymerOK links N X) :
+    let h := (multiLinkHaar links.length).h; let F := polyProd links N X
+    h (polyMul F F) ≤ bProd X * bProd X ∧ h F * h F ≤ bProd X * bProd X
+theorem polymer_activity_abs_le (X) (hX : PolymerOK links N X) :
+    let h := (multiLinkHaar links.length).h; let F := polyProd links N X
+    (-bProd X) ≤ h F ∧ h F ≤ bProd X
+theorem bProd_nonneg (X) : 0 ≤ bProd X
+theorem two_sided_of_sq_le {x y : Q'} (h : x*x ≤ y*y) (hy : 0 ≤ y) : -y ≤ x ∧ x ≤ y
+
+-- YMGap.Continuum.SU2PlaqWeightedCharacterBound
+def Bnd (n : Nat) (f : RatPoly) (B : Q') : Prop := ∀ G, SupportedCoordinates (4*n) G →
+  H n (polyMul (polyMul f G) (polyMul f G)) ≤ (B*B) * H n (polyMul G G)
+theorem plaq_weighted_le (links N p) (hc : LinksCover links N p) (s : Nat) :
+  Bnd links.length (plaqCharacter links N p s) (Q'.ofInt ((s : Int) + 1))
+
+-- YMGap.Continuum.SU2CharacterCauchySchwarz
+theorem plaq_character_cs (links N p) (hc : LinksCover links N p) (s : Nat)
+    (G : RatPoly) (hG : SupportedCoordinates (4 * links.length) G) (t : Q') (ht : 0 ≤ t) :
+    let χ := plaqCharacter links N p s; let h := (multiLinkHaar links.length).h
+    let B := t * (t * Q'.ofInt (((s:Int)+1)*((s:Int)+1))) + h (polyMul G G)
+    Q'.ofInt 2 * (t * h (polyMul χ G)) ≤ B ∧ -(Q'.ofInt 2 * (t * h (polyMul χ G))) ≤ B
+
+-- YMGap.Continuum.SU2PlaqRadius
+theorem plaqWord_radius_carrier (links N p) (hc : LinksCover links N p) :
+  HaarCarrierEqv links.length (Nq (plaqWord links N p)) polyOne
+```
+
+### Mapping onto the heat-kernel activity
+**Mismatch:** `HeatKernelPolymerActivityR1.lean` currently defines **no** `fPoly`. It has
+`envTerm`/`charEnv`/`zHeat` only. The polynomial side lives in `SU2TorusMultiLinkPolyGibbs`:
+`plaqWeight w links N p M = Σ_{s=0}^{M} coeffW w s · χ_s(U_p)` (this includes s = 0) and
+`torusIntegrand = Π_p plaqWeight`. The intended centred per-plaquette factor is
+`fPoly p := plaqWeight w links N p M − coeffW w 0 · χ_0 = Σ_{s=1}^{M} coeffW w s · χ_s(U_p)`.
+Here `coeffW w 0 ≈ 1` (`coeffW_zero_eqv`) and `χ_0 = 1`.
+
+* Pass `q = (p, cs w M)` with `cs w M := [(coeffW w 1, 1), …, (coeffW w M, M)]`.
+  Then `charSum links N p (cs w M) ≅ fPoly p`. That needs one `RatPolyCoeffEqv` lemma against
+  `plaqWeight`, which is still to be written.
+* Drop s = 0 because the term is centred. A constant term would contribute `1·(0+1)` to `bSum`
+  and break the `ε^{|γ|}` smallness.
+* Filter out zero coefficients. `PolymerOK` needs `0 < |c|`. For `0 < w`, every
+  `coeffW w s = (s+1)·w^{s(s+2)} > 0`, so nothing is filtered. If `w = 0`, use `cs = []`, which
+  gives `charSum = 0` and `bSum = 0`.
+* `bSum (cs w M) = Σ_{s=1}^{M} |coeffW w s|·(s+1) = Σ_{s=1}^{M} (s+1)²·w^{s(s+2)} = charEnv w M`,
+  up to `≈`. Use `|coeffW| = coeffW` for `w ≥ 0` and `dimQ s = s+1`. That bridge lemma is open.
+* So for a polymer γ with plaquette list X(γ), `|h(Π_{p∈γ} fPoly p)| ≤ charEnv w M ^ |γ| = zHeat M γ`
+  at `w = wR1`, via `polymer_activity_abs_le`. You must supply `LinksCover links N p` for each p.
+* Sharper option: for plaquettes on disjoint links, `haar_disj` (14c3f5a8) factorises
+  `h(Π f_p) = Π h(f_p)`. For centred `f_p`, `h(f_p) = 0`. So a polymer containing a plaquette
+  that shares no link with the others has zero activity. The present bound does not exploit this.
