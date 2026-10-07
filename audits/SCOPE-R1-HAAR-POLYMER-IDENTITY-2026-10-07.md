@@ -212,3 +212,7 @@ No fail statement is given: the ℓ¹ envelope is an upper bound, not the true a
 
 - Z = ∫_U Π_t T_t(U_t, U_{t+1}).
 - OPEN for Z = Tr T^{N_t} with a single kernel: the translation T_t = τ_t T_0 via `pe_reindex`.
+
+## PROVED: commit 32, `SU2TimeShift.lean`
+
+- Slice translation and the translated weight. The assembly of Z = Tr T^{N_t} follows in commit 33.

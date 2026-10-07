@@ -4,7 +4,14 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 31, Z as an integral of slice kernels for the actual Wilson torus (transfer step 2e) (2026-10-07 PT)
+## Latest proved increment: R1 commit 32, time translation of slices and of the Wilson weight (transfer step 2f) (2026-10-07 PT)
+
+- `SU2TimeShift` (PROVED, [propext, Quot.sound]).
+  - `ps_perm`/`pt_perm`/`v_perm`: for t < N, slice t ~ (slice 0).map (shv N t).
+  - `tk_shift`: `TK links (shv t p) = TKi (idxOf ∘ shv t) p`. The weight of a translated plaquette is one fixed polynomial function with translated variables.
+- Labels: geometry and algebra, every coupling; also true for U(1), not gap evidence.
+
+## Earlier proved increment: R1 commit 31, Z as an integral of slice kernels for the actual Wilson torus (transfer step 2e) (2026-10-07 PT)
 
 - `SU2WilsonSliceGood.z_transfer` (PROVED, [propext, Quot.sound]).
   - Hypothesis: torusLinks N ⊆ links.

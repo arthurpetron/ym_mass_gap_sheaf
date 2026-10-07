@@ -6508,3 +6508,5 @@ Transfer-matrix scope note (2026-10-07): R1 commit 24.  Scope only.
 `SU2LogConvexGap` (2026-10-07): R1 commit 30.  Abstract finite-volume ratio bound from log-convexity plus clustering.
 
 `SU2WilsonSliceGood` (2026-10-07): R1 commit 31.  Z = ∫_U Π_t T_t for the actual Wilson torus.
+
+`SU2TimeShift` (2026-10-07): R1 commit 32.  Time translation of slices and weights.
