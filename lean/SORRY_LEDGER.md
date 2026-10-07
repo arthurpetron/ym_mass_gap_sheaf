@@ -1,5 +1,37 @@
 # Sorry Ledger
 
+## PROVED actual radial limit / OPEN analytic ceiling (2026-10-07)
+
+- `JacobiProductRadialSignedTail.radialSummand_sum_pin` identifies the actual
+  finite signed sum with the existing product moment cost. Its
+  `radialSummand_bounds` proves -r_i<=d_i<=r_i on the FULL interval.
+  `sTerm_tail_le_four_geoAmp`, `sTerm_finite_tail_le` and
+  `productRadialCost_finite_tail_le` retain the onset c_N<=1/8 and explicitly
+  pay negative omitted terms. `radialTailPayment_denominator_pin` pins
+  E_N*(1-w^2)=4*c_N; `radialTailPayment_nome_defect_le_half` proves
+  (1-w)*E_N<=1/2. No product monotonicity or completed ceiling is assumed.
+- `JacobiProductRadialLimit.productRadialCostCReal` constructs the SAME
+  D_N sequence; `productRadialCostCReal_approx` is rfl. `radialTolerance`
+  and `radialCutoff` are Q'/Nat data, with `radialCutoff_tail_le` and
+  `radialCutoff_cauchy` proving the explicit modulus uniform in x at each
+  named w. The legacy Prop field is filled from named data, not the reverse.
+  `productRadialCost_le_limit_ceiling` consumes a ceiling on THIS limit and
+  transfers it to D_N<=C+E_N. Cstar(w) is in convergence, not that ceiling.
+- OPEN: construct the actual addition square and its derivative/limit pins
+  to produce the useful ceiling. Existing `ThetaProductStrictFloor` provides
+  the actual product floor; strict margin, exact Haar certificate and original
+  weighted conditional/scaling instantiation are not supplied by these leaves.
+  No canonical field is changed and no Clay-facing atom is closed.
+- Two focused checks pass seventeen printed gates in {propext, Quot.sound},
+  including three axiom-free data definitions. Root read both complete
+  sources; independent read-only mathematical review found no material defect.
+  One 20-GiB worker, 12-GiB reserve, fresh 87--88%-free zero-swap preflights.
+  The first tail check had one 0+j elaboration error, repaired without changing
+  the statement. No new sorry/axiom/classical input, full-root/tree audit or
+  baseline refresh. Root imports are registered, not a full-root check.
+
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 ## PROVED actual scalar heat-jet join / OPEN product ceiling and Haar join (2026-10-07)
 
 - `JacobiHeatRadialMomentJets.product_derivative_coeff_pin` pins the actual
@@ -15,7 +47,7 @@
 - This closes the finite scalar heat/moment identification requested by the
   earlier reduction below. It does NOT produce a useful product ceiling,
   Haar-square certificate, angular/original-action conditional estimate,
-  Poisson/derivative-limit or scaling theorem. Those joins remain OPEN.
+  addition/derivative-limit or scaling theorem. Those joins remain OPEN.
 - One focused check passes all nine printed gates within
   {propext, Quot.sound}; independent read-only review confirms the exact
   scope. One 20-GiB worker, 12-GiB reserve, fresh 88%-free zero-swap preflight.

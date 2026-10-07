@@ -1,5 +1,19 @@
 # Canonical one-page project status
 
+Supporting ACTUAL radial limit and signed-tail transport checked (2026-10-07):
+the literal finite cost has a constructed CReal limit with explicit tolerance
+and Nat cutoff data, uniform in x at each named nome. Negative omitted terms
+are paid by 4*c_N/(1-w^2) at c_N<=1/8, with scaled payment <=1/2. A ceiling
+on THIS limit transfers to the actual finite prefix; it is still an unsupplied
+analytic input. The density reciprocal is confined to convergence, not this
+finite ceiling. Two focused targets pass seventeen permitted gates (three
+axiom-free); no full-root/tree audit. Addition-square ceiling, Haar/weighted
+conditional join, useful signed-cost/scaling estimates, independent survival,
+completed comparison, physical/volume control, SAME limiting QFT, every group
+and Clay remain OPEN. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+Broad chart unchanged; no reprint.
+
 Supporting ACTUAL radial heat/moment join checked (2026-10-07): formal
 product derivatives through order three and normalized h,h_x,h_xx are
 pinned to the literal Jacobi moments. The exact radial expression retains
@@ -20,9 +34,10 @@ curvature ceiling sufficient for the full cleared derivative-mixture bound,
 without division and including the empty prefix. The product ceiling,
 angular/limit pins and original conditional join are still OPEN; actual
 scalar heat-jet pins are now supplied above.
-The narrower next analytic route needs the underlying theta3 product's
-Gaussian/second-angular-derivative bridge, not a full SU(2) image formula;
-neither it nor physical-clock identification is imported as a premise.
+The selected next analytic route is the underlying theta3 addition square;
+the Gaussian/second-angular-derivative bridge remains an alternative, not a
+required detour. Neither it nor physical-clock identification is imported
+as a premise.
 One focused target passes seven permitted gates; no full-root/tree audit.
 Useful signed-cost/scaling estimates, independent survival, completed
 comparison, physical/volume control, SAME limiting QFT, every group and Clay

@@ -744,3 +744,199 @@ that re-assume it, split away the mixture variance, or identify the auxiliary
 circle clock with physical time. Explicit angular/cutoff/limit transport,
 useful original signed cost, scaling, independent survival, completed
 comparison and all physical/continuum/Clay obligations remain OPEN.
+
+## Next experiment: theta addition square and signed finite cutoff
+
+Checkpoint a71313a4 is verified PROGRESS and pushed to main. The next
+producer remains the useful SAME-product radial ceiling, not another
+consumer that assumes it. Root found a shorter algebraic candidate than
+Poisson/modular inversion; two independent mathematical screens confirm
+the sign and constants. This section is a DERIVATION/PLAN, not Lean evidence.
+
+### The addition square, without a Gaussian or physical-clock premise
+
+Use [DLMF 20.7.8](https://dlmf.nist.gov/20.7.E8), together with
+[20.7.2](https://dlmf.nist.gov/20.7.E2) and
+[20.7.4](https://dlmf.nist.gov/20.7.E4). Multiplying E8 by theta3(0)^2,
+substituting E2 for theta4(z)^2, and substituting E4 for the remaining
+theta2/theta3 difference gives, after positive theta4(0)^2 cancellation,
+
+```text
+g0^2*g(z+u)*g(z-u) = g(z)^2*g(u)^2 + theta1(z)^2*theta1(u)^2,
+g(z)=theta3(z,w), g0=g(0).
+```
+
+E8 is not verbatim this identity; the conversion is essential. An alternate
+pure-convolution derivation uses [Watson E13/E14](https://dlmf.nist.gov/20.7.E14)
+and the elementary dot-product/determinant square identity. Splitting a
+bilateral double sum by equal parity under (m,n)->(m+n,m-n) is the proposed
+constructive proof; reindex the finite domain and bound its boundary before
+passing to the limit. Literal same-N truncated theta sums do NOT satisfy
+the infinite addition identity exactly.
+
+Twice differentiating in u at zero gives
+
+```text
+g0^2*(g*gzz-gz^2) - g0*gzz(0)*g^2 = theta1'(0)^2*theta1(z)^2 >= 0.
+```
+
+For x=cos(2z), the angular logarithmic curvature is -4*D_infinity(x).
+Hence the derived ceiling is
+
+```text
+D_infinity(x) <= D_infinity(1)
+              = sum_i 2*c_i/(1+c_i)^2
+              <= C_T = 2*w/(1-w^2) <= 1/(1-w).
+```
+
+No limiting curvature, addition identity or differentiated equality is
+currently a produced Lean input. Existing product/cos-series equality alone
+does not supply them. The auxiliary argument is not physical time.
+
+Fractional powers, sine coordinates and elliptic functions need not be
+introduced into the rational cleared target. Put
+
+```text
+R_n(x) = 1 + 2*sum_{k=1}^n T_k(x),
+A(x) = sum_{n>=0} (-1)^n*w^(n*(n+1))*R_n(x),
+B    = sum_{n>=0} (-1)^n*(2*n+1)*w^(n*(n+1)).
+P0^2*[D0*P^2-(1-x^2)*(P'^2-P*P'')-x*P*P']
+      = 2*w*(1-x)*A(x)^2*B^2,
+P0=P(1), D0=P'(1)/P0.
+```
+
+This is the same square after eliminating theta1's quarter-nome and
+half-angle factors; its sign and factor two were independently checked.
+For the FULL Euler-weighted product, P=1+2*w*x+O(w^4); no spurious w^2
+term is retained. Needed new proof: actual convergent parity convolution,
+the appropriate formal derivative/limit pins and explicit tail moduli.
+
+### The independent finite tail producer
+
+For the ACTUAL rational factor r_i=2*c_i/(1+2*c_i*x+c_i^2), retain
+d_i=(1-x^2)*r_i^2+x*r_i. On [-1,1], the proposed exact cleared identity
+`factor_i^2*(r_i-d_i)=2*c_i*(1-x)*(1-c_i)^2` proves d_i<=r_i;
+d_i+r_i>=0 proves the other sign. At c_N<=1/8, each tail denominator
+is at least 1/2, so r_{N+j}<=4*c_N*(w^2)^j and an explicit sufficient
+finite-to-finite error is E_N=4*c_N/(1-w^2), with
+`(1-w)*E_N<=1/2`. Combined with the ADDITION ceiling, this would give
+`D_N<=3/[2*(1-w)]`. This does not assume finite-product monotonicity.
+
+Sol implements that bounded actual signed-tail leaf; root alone compiles
+with one 20-GiB worker and 12-GiB reserve after a fresh dynamic preflight.
+Its immediate consumer is finite cutoff transport of the addition-square
+ceiling to the actual jets in JacobiHeatRadialMomentJets. Revise if the
+sign of omitted terms is lost, positivity of the denominator is assumed
+without proof, the cost includes an original heat-floor reciprocal, or an
+infinite identity is claimed for literal finite truncations.
+
+### The strict scalar-to-Haar join already has an actual consumer
+
+Root read `QuaternionHaarBernsteinRowCertificate.strictPolynomialCertificate`
+(`lean/YMGap/Continuum/QuaternionHaarBernsteinRowCertificate.lean:205`): an
+explicit STRICT rational interval margin computes a Bernstein cutoff/row
+and an exact original Haar square certificate, with no loss in the target
+polynomial. `QuaternionHaarUnitIntervalCoordinate.unitArgument_certificate`
+and `oneMinusUnitArgument_certificate` supply its actual coordinates from
+a constructed unit square bound.
+
+After the missing addition ceiling and checked tail, choosing
+C=2/(1-w) leaves slack delta=1/[2*(1-w)]. The finite product's explicit
+positive lower bound ell_N=product_i Euler_i*(1-c_i)^2 would give
+`Qproduct >= ell_N^2*delta`. That margin, not a mere non-strict sign,
+is the required input to the EXISTING Bernstein producer. A small ell_N
+may enlarge its approximation modulus; its reciprocal is NOT placed in
+the curvature coefficient. Then retain any certified overlapping original
+action by certificate multiplication and use the existing positive-window
+Haar order reflection for positive multipliers. This join still needs the
+actual interval margin, product lower bound and original-action instantiation.
+
+Decision: REVISE analytic selection toward the shorter addition-square
+producer; retain Poisson as an alternative, not an extra required obstacle.
+No new bundle, weakened canonical field, classical premise, chart closure
+or physical mass claim follows from this research selection.
+
+## Observed proof increment: actual signed radial limit and cutoff transport
+
+The finite-tail experiment succeeded. Root read both full new sources;
+independent Sol mathematical review found no material sign, constant or
+scope defect. This section records kernel evidence, separately from the
+addition-square research above.
+
+- `lean/YMGap/Continuum/JacobiProductRadialSignedTail.lean:60`,
+  `radialSummand_sum_pin`, pins the literal signed sum to the actual
+  `productRadialCost`. At line 72, `radialSummand_bounds` proves
+  -r_i<=d_i<=r_i on the FULL interval. Its exact cancellation is
+  f_i-(1+x)*2*c_i=(1-c_i)^2; no sign of d_i is discarded.
+- At line 148, `sTerm_tail_le_four_geoAmp` uses c_N<=1/8, hence each omitted
+  denominator >=1/2, to prove r_(N+j)<=4*c_(N+j). At line 178,
+  `sTerm_finite_tail_le` sums this against the actual geometric tail.
+  At line 215,
+  `productRadialCost_finite_tail_le` gives D_N<=D_(N+L)+E_N for every L.
+- `radialTailPayment_denominator_pin` (line 238) and
+  `radialTailPayment_nome_defect_le_half` (line 252) pin E_N*(1-w^2)=4*c_N and
+  (1-w)*E_N<=1/2. The onset remains an explicit hypothesis; these theorems
+  do not silently produce a cutoff or the infinite ceiling.
+- `lean/YMGap/Continuum/JacobiProductRadialLimit.lean:131`,
+  `productRadialCostCReal`, constructs the actual D_N sequence. At line 143,
+  `productRadialCostCReal_approx` is rfl. `radialTolerance` (line 86) and
+  `radialCutoff` (line 90) are Q'/Nat data; `radialCutoff_tail_le` (line 108)
+  and `radialCutoff_cauchy` (line 168) prove the explicit convergence
+  modulus, uniform in x at each named w. The legacy Prop modulus is filled
+  from named data, never used to extract that data.
+- `productRadialCost_le_limit_ceiling` (line 191) consumes a bound on THIS
+  limit and transports it to D_N<=C+E_N using the signed finite comparison
+  at max(N,M), then removes the rational precision error. Cstar(w) occurs
+  only in convergence, not the finite ceiling coefficient.
+
+### Exact verification boundary
+
+One worker, mandatory 20-GiB ceiling, 12-GiB reserve. Fresh dynamic
+preflights before each launch found 87--88% free memory, zero swap and no
+competing Lean/Lake/pytest/runner processes. Root used only the monitored
+launcher. The first signed-tail check failed on 0+j normalization, not
+mathematics; an explicit Nat.zero_add rewrite repaired it without changing
+any statement. Failed-check sorryAx output is NOT proof evidence.
+
+Final focused checks, each emitting an olean:
+
+```text
+/private/tmp/ym-oct7-radial-signed-tail2.log
+SHA256 ca3fd8e53c0b1ea6c2a4135851b321b387dfe5c2d6f7ad288700ac269305b3dd
+7 printed gates pass, all within {propext, Quot.sound}.
+
+/private/tmp/ym-oct7-radial-limit1.log
+SHA256 3a61c927d2b771e3eb36f65770118dbd9cd4527b7a8bee60a2d6670bc289029c
+10 printed gates pass, all within {propext, Quot.sound}.
+radialTailPrefactor, radialTolerance and radialCutoff are axiom-free.
+```
+
+No full-root/tree build or audit, baseline refresh, new source sorry/axiom,
+classical input or canonical field change. Root imports are registered;
+this is not a full-root check. The canonical displayed claims remain open,
+so the ASCII chart is unchanged and not reprinted.
+
+### Continue: actual convolution, not another assumed-ceiling consumer
+
+The addition/derivative-limit ceiling is the missing producer. Independent
+research review spells out the finite geometry: (m,n)->(m+n,m-n) has an
+even class m=j+k,n=j-k and odd class m=j+k+1,n=j-k. The exponent pins are
+2*j^2+2*k^2 and 2*j*(j+1)+2*k*(k+1)+1. The original |m|,|n|<=N box becomes
+the even |j|+|k|<=N diamond or the odd half-shifted diamond, NOT the whole
+containing rectangle. For either class, omitted shells T>=N+1 have at most
+4*T points, exponent >=T^2 and second-angular weight <=4*T^2; proposed
+error is bounded by 16*sum_(T>=N+1) T^3*w^(T^2). These statements are
+RESEARCH until the exact finite reindex/tail producer is checked.
+
+Root also read the whole existing `ThetaProductStrictFloor.lean`:
+`floor_le_Ppart` (line 91) supplies a positive floor for the ACTUAL
+Euler-weighted finite product, uniform in x,N at each named nome;
+`thetaConvCRealGen_geRat_floor` (line 101) covers its existing completion.
+Thus a new floor module is unnecessary. With a genuinely produced ceiling
+and strict slack delta, Qproduct>=delta*floor(w)^2 would feed the EXISTING
+Bernstein producer. This affects the certificate modulus, not the curvature
+constant. No strict margin/Haar/action certificate is claimed here.
+
+Decision: CONTINUE the shorter addition-square producer with bounded finite
+reindex work and independent mathematical review. Retain derivative-limit,
+original weighted conditional/scaling and all downstream Clay obligations.

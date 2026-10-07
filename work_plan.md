@@ -27,6 +27,34 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+The ACTUAL signed radial cost now has a CHECKED limit and finite-tail
+transport. `JacobiProductRadialSignedTail` proves -r_i<=d_i<=r_i on the
+whole interval and D_N<=D_(N+L)+4*c_N/(1-w^2) at c_N<=1/8; the scaled
+payment is at most 1/2. `JacobiProductRadialLimit` constructs a CReal whose
+approximants are literally D_N, with explicit tolerance/cutoff data uniform
+in x at each named nome. A ceiling on THIS limit transfers to the actual
+finite cost; the density reciprocal enters only its convergence modulus,
+not that finite ceiling. NEXT produce the missing addition-square ceiling,
+not another consumer that assumes it. Existing `ThetaProductStrictFloor`
+already supplies the actual product floor for a later strict Bernstein join.
+Two focused targets pass seventeen permitted axiom gates (three data
+definitions are axiom-free); no full-root/tree audit or broader chart closure.
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
+Selected next analytic producer: the SAME theta3 ADDITION square, as a
+shorter alternative to a full Poisson/Gaussian bridge. Its differentiated
+identity would give D_infinity(x)<=D_infinity(1)<=C_T on the whole interval.
+The cleared rational target has square side `2*w*(1-x)*A(x)^2*B^2`, with
+theta1's fractional nome and half-angle factors eliminated. This remains
+RESEARCH, not a Lean input. Prove actual even/odd finite convolution with
+tails, not a false same-N truncation identity. The ACTUAL signed radial
+sum's limit/modulus and finite tail at c_N<=1/8 are now supplied above;
+addition plus that tail would give D_N<=3/[2*(1-w)]. A strict slack at
+C=2/(1-w), together with the explicit finite product lower bound, would
+feed the EXISTING strictPolynomialCertificate/Haar producer. Do not add a
+new positivity interface or put inverse-floor costs in C. Decision/tests:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 The radial cancellation is now pinned to CHECKED ACTUAL Jacobi heat jets.
 `JacobiHeatRadialMomentJets` identifies formal P', P'', P''' with
 P*S1, P*(S1^2-S2), P*(S1^3-3*S1*S2+2*S3), respectively, using the literal
@@ -46,9 +74,9 @@ reduction: actual nonnegative finite moments construct S1^2-S2>=0 and
 S1*S3-S2^2>=0. With a=1-x^2 and D=a*S2+x*S1, the cleared numerator is
 `Lnum=-(S1^2-S2)*D+2*a*(S1*S3-S2^2)`. A supplied nonnegative PRODUCT ceiling
 D<=C pays the whole numerator, with no moment division and including N=0.
-NEXT construct that product-curvature ceiling; the narrower analytic route
-needs the underlying theta3 PRODUCT's Gaussian/angular derivative join, not
-a full SU(2)/Faraut image formula. Existing all-nome product/cosine-series
+NEXT construct that product-curvature ceiling; the alternative Gaussian
+route needs only the underlying theta3 PRODUCT's Gaussian/angular derivative join,
+not a full SU(2)/Faraut image formula. Existing all-nome product/cosine-series
 equality is available, but its Poisson/second-angular-derivative leg is NOT.
 Finite-moment/actual scalar heat-jet pins are now supplied above; angular,
 explicit cutoff transport and original conditional consumers remain required.

@@ -27,12 +27,24 @@ nine permitted axiom gates; no full-root/tree audit. Useful curvature,
 angular/cutoff/conditional/scaling joins and all Clay requirements remain OPEN.
 Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
 
+**Checked actual radial limit and signed finite tail (2026-10-07):**
+`JacobiProductRadialSignedTail` pays negative omitted increments explicitly,
+with payment 4*c_N/(1-w^2) at c_N<=1/8 and scaled cost at most 1/2.
+`JacobiProductRadialLimit` constructs the SAME finite-cost sequence as a
+CReal, with explicit tolerance and Nat cutoff data uniform in x at each
+named nome. A supplied ceiling on this limit transfers to the actual finite
+prefix. The convergence modulus uses Cstar(w); the finite ceiling does not.
+Seventeen printed gates pass across two focused targets, three axiom-free.
+The addition-square ceiling, Haar/conditional join and scaling remain OPEN;
+no full-root/tree audit or Clay closure. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 **Checked finite radial-mixture cancellation (2026-10-07):**
 `JacobiHeatRadialMixtureCancellation` constructs pair-mass/weighted-variance
 positivity from actual finite nonnegative moments, pins the full signed
 radial numerator, and pays it from a supplied PRODUCT ceiling without
 division, including N=0. Actual scalar heat-jet identification is now
-supplied above; the analytic product ceiling, Poisson/second-angular join and original
+supplied above; the analytic product ceiling, addition/derivative-limit join and original
 conditional/scaling bounds remain OPEN. One focused target passes seven
 permitted gates; no full-root/tree audit or Clay closure. Evidence:
 `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.

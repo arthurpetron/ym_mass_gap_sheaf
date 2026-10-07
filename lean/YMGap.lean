@@ -4945,6 +4945,9 @@ import YMGap.Continuum.JacobiHeatTransverseCurvature
 import YMGap.Continuum.JacobiHeatRadialMixtureCancellation
 -- Actual first three product jets and normalized heat; no product-ceiling producer.
 import YMGap.Continuum.JacobiHeatRadialMomentJets
+-- Actual signed cost, explicit convergence data and finite-tail transport; no analytic ceiling.
+import YMGap.Continuum.JacobiProductRadialSignedTail
+import YMGap.Continuum.JacobiProductRadialLimit
 import YMGap.Continuum.SU2HeatQuarticTailCutoff
 import YMGap.Continuum.QuaternionHaarHeatAngularDeficit
 import YMGap.Continuum.QuaternionHaarHeatRelativeAngularBound
