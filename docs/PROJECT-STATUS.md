@@ -6394,3 +6394,7 @@ W=1 model. MODEL; reading it as λ₂ is a remark. Limits: see the ledger entry.
 margin ≤ (1/32)^{|temporalFaces width|} = 2^{-15 width³} (exponent proved at width 1, measured to
 width 4). The per-face Doeblin route cannot supply the scale-uniform lower margin, which stays
 OPEN; a different method is needed.
+
+`SignedPolymerKP` (2026-10-07): finite signed KP over Q'. It gives volume-uniform per-polymer
+bounds M^{-|Λ|} ≤ Ξ ≤ (1+εM^D)^{|Λ|} and the removal ratio ≤ M. Group-blind plumbing; decay of
+truncated correlations and the identification with the repo's slab expansion stay OPEN.

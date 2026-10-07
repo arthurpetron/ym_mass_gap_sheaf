@@ -4,7 +4,21 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: scaling of the proved mixRate margin (2026-10-07 PT)
+## Latest proved increment: finite signed-activity Kotecký–Preiss bound (2026-10-07 PT)
+
+- `SignedPolymerKP` (PROVED, GROUP-BLIND PLUMBING): an abstract finite polymer gas with signed
+  activities |z| ≤ ε and incompatibility degree ≤ D, under M ≥ 1, Mε·M^D ≤ M−1 and εM^D ≤ 1.
+  - `kp_main`: Ξ ≥ 0, and the one-polymer removal ratio Ξ(Λ∖γ) ≤ M·Ξ(Λ).
+  - `kp_filter`: Ξ(Λ.filter q) ≤ M^{#removed}·Ξ(Λ).
+  - `kp_lower`: M^{-|Λ|} ≤ Ξ.
+  - `kp_upper`: Ξ ≤ (1+εM^D)^{|Λ|}.
+  - Constants are volume-independent.
+- Next: size-weighted KP, truncated-correlation decay, and identification with the repo's slab
+  expansion.
+- U(1) rule: not gap evidence by itself.
+- See `audits/SCOPE-POLYMER-KP-STRONG-COUPLING-2026-10-07.md`.
+
+## Earlier proved increment: scaling of the proved mixRate margin (2026-10-07 PT)
 
 - `MixRateMarginScaling` (PROVED, OBSTRUCTION-TO-USE):
   - `mixFraction_le_pow`: margin ≤ (1/32)^{|temporalFaces width|} for all 0 < w < 1;
