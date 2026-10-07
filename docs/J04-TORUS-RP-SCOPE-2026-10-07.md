@@ -386,4 +386,10 @@ these along `List.Perm` gives `perm_haar`: for nodup `L₁ ~ L₂` containing ev
 `∫_{|torusLinks|} Π_{torusPlaquettes} T_K[torusLinks] = ∫_{|L|} Π T_K[L]`, where `L` is the layout. Axioms
 [propext, Quot.sound]. Still open: transporting observables `F` and the reflection Θ, which `perm_haar` does not
 yet carry, and then `hW`.
+
+## d9x: relabelling with an observable (`SU2TorusRPRelabelX`)
+
+`relabel_haarX` gives `∫ X·Π T_K[L] = ∫ (reindex σ X)·Π T_K[L']` for supported `X`, with one involution step. Open:
+chaining it along the permutation with a composed reindexing and its coordinate action, matching the torus Θ
+(`thetaPoly` on `torusLinks`) with the layout `halfSwap`/`conjSel` Θ, and then `hW`.
 RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
