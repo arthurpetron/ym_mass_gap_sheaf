@@ -7377,6 +7377,7 @@ import YMGap.Continuum.SU2MultiLinkHaarBlockSwap
 import YMGap.Continuum.SU2CharacterSquareIdentity
 import YMGap.Continuum.SU2CharacterHaarBound
 import YMGap.Continuum.SU2PlaqRadius
+import YMGap.Continuum.SU2CharacterCauchySchwarz
 import YMGap.Continuum.SpecMaxRateFamily
 import YMGap.Continuum.W1StrongCouplingPerturbation
 import YMGap.Continuum.W1VacuumTailRowSum
