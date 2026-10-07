@@ -27,6 +27,14 @@ ceiling, **not** the missing scaling-family estimate or continuum gap.
 The [recent-commit review and checked cancellation](audits/AUDIT-RECENT-COMMITS-AND-CENTERED-SIGNED-PRODUCER-2026-10-07.md)
 repoints the work plan to this existing sharper direct-score route.
 
+**Latest covariance sharpening (2026-10-07):** the original conditional
+score now satisfies `S^2 <= (L^2*A^2 - (dA)^2)*Noise`, retaining a correction
+discarded by the previous bound. Its checked consumer preserves the exact
+spatial/reciprocal weight of the direct-score budget. Three focused checks
+and two downstream regressions passed; no full-tree audit was run. This is
+a sharper finite ceiling, not the missing scaling estimate. See the
+[certificate and scope](audits/AUDIT-CONDITIONAL-GRUSS-AND-ORIGINAL-SCORE-2026-10-07.md).
+
 **Latest exact blocked-action join (2026-10-07):** the actual two-layer middle
 integral and its compressed boundary kernel now have a proved endpoint marginal
 equal to the original `T1`, retaining the middle spatial interaction once.

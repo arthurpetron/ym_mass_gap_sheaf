@@ -16,6 +16,19 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked original conditional covariance sharpening (2026-10-07):**
+`SU2QuaternionConditionalGrussSquare` constructs the corrected coefficient
+`L^2*A^2-D^2` from the two positive conditional laws `L*W +/- d`.
+`BlockScoreVariance.original_block_centered_scoreVariance_certificate`
+retains the output mean-derivative square for every original block window.
+`LastStepCenteredScoreNoise.exactScoreAngularBudget_le_centeredNoise`
+preserves the exact Vbar^2*G^2 multiplier. The old public bound and its
+consumers remain intact. Three focused checks passed nine printed gates
+(five new declarations); two downstream regressions passed nine more.
+All reported dependencies are within {propext, Quot.sound}; no full-root/tree
+build or audit. Useful summed/scaling control remains OPEN. Evidence:
+`audits/AUDIT-CONDITIONAL-GRUSS-AND-ORIGINAL-SCORE-2026-10-07.md`.
+
 **Checked signed cancellation and actual direct-score join (2026-10-07):**
 `SU2QuaternionCenteredSignedRemainder` proves shift invariance of the
 COMBINED Taylor remainder, at every nome/cutoff with the same source.

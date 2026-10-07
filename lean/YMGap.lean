@@ -7721,3 +7721,7 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialCubeGluedHeatOnlyObstruction
 -- Useful changing-family surviving-form estimate remains OPEN.
 import YMGap.Continuum.SU2QuaternionCenteredSignedRemainder
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepCenteredMixedCost
+-- Original conditional covariance retains its mean-derivative correction.
+-- Useful summed/scaling control is not supplied by this finite ceiling.
+import YMGap.Continuum.SU2QuaternionConditionalGrussSquare
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepCenteredScoreNoise

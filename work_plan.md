@@ -139,6 +139,19 @@ completed gap, so it is not an independent changing-family budget producer.
 Constructed numerical margins permit per-scale positive approximation targets;
 separate parameter-dependent onsets do not supply a uniform diagonal modulus.
 Do not add tolerance-specialization wrappers instead of estimating the bulk.
+The next finite sharpening is NOW CHECKED: the conditional Gruss certificate
+retains `L^2*A^2-(dA)^2` on the full original terminal-weighted window.
+`LastStepCenteredScoreNoise.exactScoreAngularBudget_le_centeredNoise` uses
+the SAME Vbar^2*G^2 multiplier as the exact direct-score consumer; the old
+public square bound is recovered without changing any of its hypotheses.
+Use this optional ceiling only when its literal conditional noise and retained
+correction can be usefully controlled. It does not replace the primary exact
+score by a smallness claim, furnish AF survival, or turn the one-step pairing
+cost into a fine two-step norm comparison. When dA=0 it gives the old cap.
+Do not repeat its global cap over all active links and call that a useful
+scaling budget. Next: estimate the combined actual score and signed remainder
+in SAME surviving-form units, preserving this correction where it is useful.
+Evidence: `audits/AUDIT-CONDITIONAL-GRUSS-AND-ORIGINAL-SCORE-2026-10-07.md`.
 Evidence: `audits/AUDIT-RECENT-COMMITS-AND-CENTERED-SIGNED-PRODUCER-2026-10-07.md`
 and `audits/AUDIT-GLUED-ENDPOINT-AND-SIGNED-PRODUCER-2026-10-07.md`.
 

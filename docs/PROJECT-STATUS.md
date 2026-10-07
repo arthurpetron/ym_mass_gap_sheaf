@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Supporting original covariance sharpening checked (2026-10-07):
+`SU2QuaternionConditionalGrussSquare` and
+`BlockScoreVariance.original_block_centered_scoreVariance_certificate`
+retain the mean-derivative correction `L^2*A^2-(dA)^2` on the complete
+original window. `LastStepCenteredScoreNoise` passes this to the SAME
+Vbar^2*G^2-weighted direct-score budget. No source, conditional mass or norm
+is inverted; legacy consumers still check. Useful combined signed cost in
+surviving-form units, AF survival and the changing-action comparison remain
+OPEN. Evidence: `audits/AUDIT-CONDITIONAL-GRUSS-AND-ORIGINAL-SCORE-2026-10-07.md`.
+Broad chart unchanged; no reprint.
+
 Supporting signed cancellation and actual cost join checked (2026-10-07):
 `SU2QuaternionCenteredSignedRemainder` proves S(q,phi-c)=S(q,phi), keeping
 the SAME source and heat at every nome/cutoff. The direct-score consumer

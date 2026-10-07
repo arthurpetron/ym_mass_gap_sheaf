@@ -4,7 +4,24 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 36, clustering bridge for the single-plaquette observable: Z > 0, explicit torus distance, hcl discharged modulo hcov (2026-10-07 PT)
+## Latest original-score increment: conditional Gruss correction (2026-10-07 UTC)
+
+- `SU2QuaternionConditionalGrussSquare.conditionalGrussSquare_certificate`
+  produces `(L^2*A^2-D^2)*det(W,f)-S^2` from actual positive `LW +/- d`.
+  Only the positive auxiliary `4L^2` is inverted.
+- `BlockScoreVariance.original_block_centered_scoreVariance_certificate`
+  applies it to every full original terminal-weighted window; the old public
+  bound follows by adding `(dA)^2*Noise` and retains its exact signature.
+- `LastStepCenteredScoreNoise.exactScoreAngularBudget_le_centeredNoise`
+  uses the exact original Vbar^2*G^2 weight, not conditional Jensen.
+- Three focused checks: nine permitted printed gates, including five new
+  declarations. Two immediate downstream regressions: nine permitted gates.
+  No full-root/tree build or audit. Useful combined signed cost in SAME
+  surviving-form units, AF survival, all-vector scaling comparison and Clay
+  closure remain OPEN. No broad chart node changes. Evidence:
+  `audits/AUDIT-CONDITIONAL-GRUSS-AND-ORIGINAL-SCORE-2026-10-07.md`.
+
+## Earlier proved increment: R1 commit 36, clustering bridge for the single-plaquette observable: Z > 0, explicit torus distance, hcl discharged modulo hcov (2026-10-07 PT)
 
 - `SU2ClusterBridge` (PROVED, conditional). STRONG COUPLING β_S = 1/(2e12); Wilson T_K at fixed K (Cw and λ are uniform in K, Z is not); also true for U(1); not gap evidence.
   - Geometry: `wilson_trunc_ratio` instantiated at torusLinks(2M), N=2M, torusPlaquettes(2M) is the same lattice, plaquette set and T_K weight as rpB. No mismatch.

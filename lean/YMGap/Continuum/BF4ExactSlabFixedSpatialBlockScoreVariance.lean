@@ -9,7 +9,7 @@ changing-family response bound.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockScoreReplica
 import YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalJacobiAngularBound
 import YMGap.Continuum.SU2QuaternionAngularLift
-import YMGap.Continuum.SU2QuaternionMultiHeadSignedDualSquare
+import YMGap.Continuum.SU2QuaternionConditionalGrussSquare
 
 namespace YMGap.Continuum.BF4ExactSlabFixedSpatialBlockScoreVariance
 
@@ -44,6 +44,7 @@ open YMGap.Continuum.SU2QuaternionRelativeHeatPairGeometry
 open YMGap.Continuum.SU2QuaternionProductHeatRelativeAngularMessage
 open YMGap.Continuum.SU2QuaternionMultiHeadVarianceReplica (determinant)
 open YMGap.Continuum.SU2QuaternionMultiHeadSignedDualSquare
+open YMGap.Continuum.SU2QuaternionConditionalGrussSquare
 open YMGap.Continuum.QuaternionHaarSquareCertificate
 open YMGap.Continuum.QuaternionHaarPolynomialSquareBound
 open YMGap.Continuum.QuaternionHaarRelativeAngularBound
@@ -241,10 +242,11 @@ private theorem terminal_block (w : Q') (K width n t : Nat) :
   exact (iterateStep_add (N width) (kineticWeight w K width)
     (spatialWeight w K width) n t polyOne).symm
 
-/-- Constructed division-free covariance bound for the ACTUAL original
-terminal block and its original-depth rational center.  The conditional
-noise is retained literally, not replaced by a surviving response norm. -/
-def original_block_scoreVariance_certificate {w : Q'}
+/-- Sharper covariance bound for the ACTUAL original terminal block.
+The conditional noise and the negative mean-derivative square are both
+retained. Only the positive auxiliary relative cap is inverted, never a
+conditional mass, terminal source or excitation norm. -/
+def original_block_centered_scoreVariance_certificate {w : Q'}
     (hw0 : (0 : Q') < w) (hw1 : w < 1) (K width : Nat)
     (hK : relativeCutoff w 32 ≤ K) (n r s : Nat)
     (hs : s ∈ activeBlocks width) {i j : Nat} (hi : i < 4) (hj : j < 4)
@@ -256,9 +258,11 @@ def original_block_scoreVariance_certificate {w : Q'}
     let S := polyAdd (polyMul A (angularDerivative (4*s+i) (4*s+j) b))
       (polyNeg (polyMul b (angularDerivative (4*s+i) (4*s+j) A)))
     Certificate (N width) (polyAdd
-      (polyMul (cap (relativeCap w 32*relativeCap w 32))
-        (polyMul (polyMul A A)
-          (blockNoise w K width (r+1) (terminalMessage w K width n) psi)))
+      (polyMul
+        (polyAdd (polyMul (cap (relativeCap w 32*relativeCap w 32)) (polyMul A A))
+          (polyNeg (polyMul (angularDerivative (4*s+i) (4*s+j) A)
+            (angularDerivative (4*s+i) (4*s+j) A))))
+        (blockNoise w K width (r+1) (terminalMessage w K width n) psi))
       (polyNeg (polyMul S S))) := by
   dsimp only
   let heads := (r+1)*(N width)
@@ -292,8 +296,9 @@ def original_block_scoreVariance_certificate {w : Q'}
     dsimp only [heads]
     omega
   rw [hsize, hci, hcj] at P
-  have C := conditionalCovarianceSquare_certificate (N width) heads W d psi
-    (relativeCap w 32) hW hd hpsiAll P.lower P.upper
+  have C := conditionalGrussSquare_certificate (N width) heads W d psi
+    (relativeCap w 32) (relativeCap_positive hw0 (by decide))
+    hW hd hpsiAll P.lower P.upper
   have hA0 := mass_pin w K width n (r+1)
   have hA : RatPolyCoeffEqv (partialHaarHeads heads W)
       (terminalMessage w K width (n+(r+1))) := by
@@ -328,9 +333,61 @@ def original_block_scoreVariance_certificate {w : Q'}
     (angularDerivative_partialHaarHeads heads (4*s+i) (4*s+j) W).symm.trans
       (angularDerivative_congr _ _ hA)
   have hscore := (hA.mul hdb).add (RatPolyCoeffEqv.neg (hb.mul hda))
+  have hcoefficient := ((hA.mul hA).mul_left
+    (cap (relativeCap w 32*relativeCap w 32))).add
+      (RatPolyCoeffEqv.neg (hda.mul hda))
   exact Certificate.ofCoeff
-    ((((hA.mul hA).mul hnoise).mul_left _).add
+    ((hcoefficient.mul hnoise).add
       (RatPolyCoeffEqv.neg (hscore.mul hscore))).symm C
+
+/-- The older public covariance bound is retained unchanged as a consequence
+of the sharper estimate, by adding back the certified nonnegative
+mean-derivative square times the literal conditional noise. -/
+def original_block_scoreVariance_certificate {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < 1) (K width : Nat)
+    (hK : relativeCutoff w 32 ≤ K) (n r s : Nat)
+    (hs : s ∈ activeBlocks width) {i j : Nat} (hi : i < 4) (hj : j < 4)
+    (f : RatPoly) (c : Q') (hf : SupportedQuaternionBlocks (N width) f) :
+    let A := terminalMessage w K width (n+(r+1))
+    let psi := shifted f c
+    let b := originalBlockTransfer w K width (r+1)
+      (polyMul (terminalMessage w K width n) psi)
+    let S := polyAdd (polyMul A (angularDerivative (4*s+i) (4*s+j) b))
+      (polyNeg (polyMul b (angularDerivative (4*s+i) (4*s+j) A)))
+    Certificate (N width) (polyAdd
+      (polyMul (cap (relativeCap w 32*relativeCap w 32))
+        (polyMul (polyMul A A)
+          (blockNoise w K width (r+1) (terminalMessage w K width n) psi)))
+      (polyNeg (polyMul S S))) := by
+  dsimp only
+  let A := terminalMessage w K width (n+(r+1))
+  let DA := angularDerivative (4*s+i) (4*s+j) A
+  let b := originalBlockTransfer w K width (r+1)
+    (polyMul (terminalMessage w K width n) (shifted f c))
+  let noise := blockNoise w K width (r+1) (terminalMessage w K width n) (shifted f c)
+  let S := polyAdd (polyMul A (angularDerivative (4*s+i) (4*s+j) b))
+    (polyNeg (polyMul b DA))
+  have P := original_block_centered_scoreVariance_certificate
+    hw0 hw1 K width hK n r s hs hi hj f c hf
+  have hsn := activeBlocks_lt width s hs
+  have hDA := angularDerivative_supported_at (show 4*s+i < 4*N width by omega)
+    (show 4*s+j < 4*N width by omega) (terminalMessage_supported w K width (n+(r+1)))
+  have hhead := Nat.le_trans (headCutoff_le_relativeCutoff w 32) hK
+  have PN := BF4ExactSlabFixedSpatialBlockConditionalNoise.blockNoise_certificate
+    hw0 hw1 K width hhead (r+1) (terminalMessage_supported w K width n)
+    (shifted_supported hf c) (terminalMessage_certificate hw0 hw1 K width hhead n)
+  have Q := (Certificate.square DA hDA).mul PN
+  have hrestore := coeffEvalExpr_eqv_of_normalize_eq
+    (.add
+      (.add (.mul (.add (.mul (.var 0) (.mul (.var 1) (.var 1)))
+        (.neg (.mul (.var 2) (.var 2)))) (.var 3)) (.neg (.mul (.var 4) (.var 4))))
+      (.mul (.mul (.var 2) (.var 2)) (.var 3)))
+    (.add (.mul (.var 0) (.mul (.mul (.var 1) (.var 1)) (.var 3)))
+      (.neg (.mul (.var 4) (.var 4))))
+    (by decide) (fun
+      | 0 => cap (relativeCap w 32*relativeCap w 32)
+      | 1 => A | 2 => DA | 3 => noise | _ => S)
+  exact Certificate.ofCoeff hrestore.symm (P.add Q)
 
 /-- The literal padded square retains its chronological OWN center at n;
 neither this center nor the full window action is changed at the output. -/
@@ -358,6 +415,7 @@ def paddedSquare_own_block_scoreVariance_certificate {w : Q'}
 
 #print axioms halfOpenAction_outputRelative
 #print axioms blockWindowWeight_outputRelative
+#print axioms original_block_centered_scoreVariance_certificate
 #print axioms original_block_scoreVariance_certificate
 #print axioms paddedSquare_own_block_scoreVariance_certificate
 
