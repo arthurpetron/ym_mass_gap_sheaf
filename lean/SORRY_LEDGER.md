@@ -1,5 +1,43 @@
 # Sorry Ledger
 
+## PROVED actual alternating finite square and mixed tail / OPEN completed addition (2026-10-07)
+
+- `ThetaAlternatingKernel.alternatingPartial_square_expansion` expands the
+  literal alternating half-shift prefix on its actual Cartesian list.
+  `ThetaAlternatingHalfDiamond.listQSum_positiveSquare_halfDiamond` reindexes
+  arbitrary signed weights through explicit inverse data, bounded domains,
+  NoDup and permutation proofs. No counting or bijection premise is supplied.
+- `ThetaAlternatingMixedPin.alternatingPairCell_encodeMixed_pin` retains the
+  exact exponent and odd alternating sign. `alternatingPartial_halfDiamond_square`
+  gives `(x-1)*A_N^2` on the ACTUAL half-diamond, for all rational w,x and
+  N including zero. Negative k is handled without replacing its signed cell.
+- `ThetaAlternatingMixedTail` pays the actual complementary-filter sum via
+  the existing even-shell enumeration and the now-public carrier-generic
+  `ThetaParityDiamondTail.finite_shell_sum_bound`. The engine's proof and
+  guards are preserved; old actual parity callers were rechecked.
+  `ThetaAlternatingMixedRectangle.mixed_rectangle_factored_pin` gives the
+  literal endpoint determinant, with ONE-SIDED odd and bilateral even prefixes.
+  `ThetaAlternatingMixedPin.alternatingPartial_factored_error_le_epsilon`
+  supplies its actual square approximation at the explicit existing cutoff,
+  uniform in x on [-1,1] at each NAMED 0<w<1, not uniformly in nome/spacing.
+- OPEN: half-diamond formal endpoint derivative and omitted endpoint-jet
+  payment, literal joint value/frequency numerator pins, SAME series/jet and
+  actual product-limit composition, completed addition/whole-interval radial
+  ceiling, strict Haar/original conditional joins and every Clay-facing input.
+  Uniform value convergence is not a derivative-limit theorem. The finite
+  rectangle's endpoint derivative is not exactly A_N(1)^2.
+- Five new focused leaves pass 42 printed gates within {propext, Quot.sound},
+  ten data definitions axiom-free. The generalized existing shell leaf also
+  passes all old and new gates. Initial elaboration failures and the temporary
+  Classical.choice leak are not evidence; final checked sources have neither.
+  No new source sorry, axiom, classical premise, canonical field change,
+  baseline refresh or full-root/tree audit. Root inspected the complete sources;
+  independent review checked both sign sectors, N=0/1 and normalization.
+  One 20-GiB worker, 12-GiB reserve, fresh dynamic preflights and zero swap.
+  Root imports registered without claiming a root build. Broad chart unchanged.
+
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 ## PROVED actual parity weighted tails / OPEN alternating and completed addition (2026-10-07)
 
 - `ThetaParityShellEnumeration` gives explicit four-sector lists, coverage
@@ -17,8 +55,8 @@
   existing scalar shell cutoff. `theta_box_factored_error_close` and
   `frequency_box_factored_error_close` retain literal scalar rectangle
   products and a SINGLE odd w, not a false same-cutoff factor four.
-- OPEN: exact shifted/alternating half-diamond square and its mixed-shell
-  tail, SAME series/jet limit composition, completed addition/whole-interval
+- The exact shifted/alternating half-diamond square and its mixed-shell tail
+  are now supplied above. OPEN: SAME series/jet limit composition, completed addition/whole-interval
   radial ceiling, strict Haar/original conditional joins and every physical,
   scaling, survival, QFT, all-group and Clay obligation.
 - Three new focused checks pass 24 public gates within {propext, Quot.sound};

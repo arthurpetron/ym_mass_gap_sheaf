@@ -1,5 +1,20 @@
 # Canonical one-page project status
 
+Supporting ACTUAL alternating finite square and mixed-tail join checked
+(2026-10-07): `(x-1)*A_N^2` equals the actual mixed half-diamond sum,
+including N=0. Its difference from the factored literal E/H endpoint
+determinant is controlled by the existing explicit nome-dependent cutoff,
+uniform on [-1,1] at each named nome. The odd prefix is ONE-SIDED; the
+signed bijection, exponent/sign pins and complementary-filter payment are
+proved, not supplied. Five new focused leaves and the reused generalized
+shell engine pass permitted axiom gates; no full-root/tree audit.
+Endpoint-jet payment, SAME completed series/jet and product-limit joins,
+whole-interval radial ceiling, Haar/conditional/scaling, independent survival,
+completed comparison, physical/volume control, SAME limiting QFT, every
+group and Clay remain OPEN. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+Broad chart unchanged; no reprint.
+
 Supporting ACTUAL parity weighted-tail join checked (2026-10-07): the
 original signed theta box and its actual endpoint-frequency-square jet
 approach the FACTORED literal even/odd rectangle sums with the SAME explicit
@@ -9,7 +24,7 @@ proved, not supplied. Odd signed rectangles remain unbalanced; no false
 finite factor four. Three new focused leaves pass 24 public gates (two data
 definitions axiom-free), and the existing convolution leaf was rechecked
 after exposing its unchanged NoDup proof. No full-root/tree audit.
-Alternating half-diamond square, SAME completed joins/whole-interval ceiling,
+The alternating finite square is now supplied above; SAME completed joins/whole-interval ceiling,
 Haar/conditional/scaling, independent survival, completed comparison,
 physical/volume control, SAME limiting QFT, every group and Clay remain OPEN.
 Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.

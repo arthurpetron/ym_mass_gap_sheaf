@@ -29,6 +29,10 @@ raises, full-tree audit, or new assumed analytic interface.
 
 ### Observed actual weighted-tail contraction
 
+This earlier checkpoint is commit `9d094a29`; its source lines and hashes
+below identify that pre-generalization version. The reused shell engine's
+current source and verification are recorded in the later alternating join.
+
 Three new serialized focused checks PASS, with 24 printed public gates
 within {propext, Quot.sound}; the two budget/cutoff definitions are
 axiom-free. The existing convolution leaf also passes after making its
@@ -77,9 +81,10 @@ The candidate exact finite square is
 `halfShift_product` supplies the pairwise kernel. The selected constructive
 bijective reindex uses the existing parity decoder on (n,m): the even
 sector maps to (h,k) with |k|<=h; the odd sector maps to |k|>=h+1 and its
-alternating sign reverses the Chebyshev difference. The exact bijection,
-alternating-sign/exponent pins and mixed omitted-sum proof are still OPEN,
-not supplied assumptions. The intended rectangular difference is
+alternating sign reverses the Chebyshev difference. At this selection point
+the exact bijection, alternating-sign/exponent pins and mixed omitted-sum
+proof were OPEN, not supplied assumptions; they are now proved in the
+observed section below. The intended rectangular difference is
 `E_N(1)*H_N(x)-H_N(1)*E_N(x)`; its omitted cells have N<h+|k|<=2*N
 and should be paid by the existing actual even shells. Decisive tests are
 N=0 and N=1 (candidate omitted payment at N=1 is
@@ -92,6 +97,111 @@ must retain their boundary term. Do not claim finite factor four or a
 completed square before the corresponding tails and SAME limit joins.
 Keep the next implementation to this finite producer and its shell
 consumer; no new assumed positivity or frontier bundle is needed.
+
+Selected implementation split: Sol constructs the literal Cartesian
+alternating-square expansion and the explicit mixed half-diamond bijection;
+root proves the actual exponent/frequency/sign transport and composes them.
+The mixed omitted-cell tail can reuse the already-proved finite shell
+injection by generalizing its decidable carrier, not by copying a new tail
+engine or adding an assumed analytic estimate. A second bounded Sol task
+will instantiate it on the actual mixed rectangle. Independent review
+checks the finite map, N=0/1, signed k and the one-sided odd normalization.
+The predicted finite square and its epsilon error are mathematical
+propositions to prove, not supplied fields. Stop/revise if a parity sign,
+truncated subtraction, cutoff domain or SAME nome/coordinate fails to match.
+Verification stays root-only, serialized focused checks, one 20-GiB worker,
+12-GiB reserve and fresh dynamic-capacity checks, with no full-tree audit
+or limit raise. Completed series/jet composition and the actual radial
+ceiling remain the downstream consumers and are still OPEN.
+
+### Observed actual alternating-square contraction (2026-10-07 23:26 UTC)
+
+The selected finite producer and actual shell consumer PASS. The checked
+square is exactly `(x-1)*A_N(x)^2` on the mixed half-diamond. The actual
+rectangle factors as `E_N(1)*H_N(x)-H_N(1)*E_N(x)`, with ONE-SIDED H and
+the original bilateral E; its difference from the square is paid by the
+existing `shellTailCutoff(w,epsilon)`. No analytic discrepancy, sign,
+reindexing, factorization or counting premise is supplied. The identity
+covers all rational w,x,N; the error requires named 0<w<1 and -1<=x<=1.
+Uniformity is in x, NOT in nome, volume, physical time or spacing.
+
+| Declaration | Current source | Passing log |
+| --- | --- | --- |
+| `alternatingPartial_square_expansion` | `lean/YMGap/Continuum/ThetaAlternatingKernel.lean:99` | `/private/tmp/ym-oct7-alternating-kernel1.log` |
+| `positiveSquare_halfDiamond_permutation`, `listQSum_positiveSquare_halfDiamond` | `lean/YMGap/Continuum/ThetaAlternatingHalfDiamond.lean:485`, `lean/YMGap/Continuum/ThetaAlternatingHalfDiamond.lean:520` | `/private/tmp/ym-oct7-alternating-half-diamond4.log` |
+| `cellCap`, `finite_shell_sum_bound` | `lean/YMGap/Continuum/ThetaParityDiamondTail.lean:40`, `lean/YMGap/Continuum/ThetaParityDiamondTail.lean:117` | `/private/tmp/ym-oct7-parity-generic-shell.log` |
+| `mixed_rectangle_error_le`, `mixed_rectangle_error_le_epsilon` | `lean/YMGap/Continuum/ThetaAlternatingMixedTail.lean:172`, `lean/YMGap/Continuum/ThetaAlternatingMixedTail.lean:203` | `/private/tmp/ym-oct7-alternating-mixed-tail1.log` |
+| `mixed_rectangle_factored_pin` | `lean/YMGap/Continuum/ThetaAlternatingMixedRectangle.lean:104` | `/private/tmp/ym-oct7-alternating-mixed-rectangle2.log` |
+| `alternatingPairCell_encodeMixed_pin`, `alternatingPartial_halfDiamond_square` | `lean/YMGap/Continuum/ThetaAlternatingMixedPin.lean:141`, `lean/YMGap/Continuum/ThetaAlternatingMixedPin.lean:174` | `/private/tmp/ym-oct7-alternating-mixed-pin1.log` |
+| `alternatingPartial_factored_error_le_epsilon` | `lean/YMGap/Continuum/ThetaAlternatingMixedPin.lean:222` | Same mixed-pin log |
+
+Final checked-source SHA256:
+
+- `ThetaAlternatingKernel.lean`: `57146f90eea4784b0accfc8a7253561cfddb1b52e09fd494e0c0ad4dcf057257`
+- `ThetaAlternatingHalfDiamond.lean`: `ce23c437090d09b02a3737ef36fdadcfd981f3b6df4f926812b901121d413fa8`
+- `ThetaAlternatingMixedTail.lean`: `77dbf3f062d46e73db9ed26647aa0871a9bfbb88e0835e1f46dde31fb9e9dbb3`
+- `ThetaAlternatingMixedRectangle.lean`: `97e6b16dca39607ca42d684888af515f8c8d5218db745515231fa26c623a9ab4`
+- `ThetaAlternatingMixedPin.lean`: `6c18aab0241b9d6d9ba82964cc86f7f2894c7fd351b0f45da219e6a57f167a78`
+- `ThetaParityDiamondTail.lean` (current generalized engine): `7a71cbc8b95736b08ff4caf44c19b1070c04bd7ca3d70a04ecd2928c9efaf536`
+
+The five new focused leaves pass 42 printed public gates within
+{propext, Quot.sound}; ten definitions are axiom-free. The existing shell
+leaf passes every old gate plus its two newly public gates. Root inspected
+all sources and independently checked the even/odd algebra. Read-only
+mathematical review found no sign/normalization defect. N=0 gives T1-T0.
+At N=1 the half-diamond is
+`T1-T0 + 2*w^2*(T1-T2) + w^4*(T3-T0)`; the rectangle adds exactly
+`2*w^6*(T3-T2)`. Universal checked statements cover these cases without
+sampling. Both signed k branches and the odd-sector reversal are retained.
+
+Initial cast/projection elaboration failures and an omega-on-pair/conjunction
+Classical.choice leak were repaired; only the final sources/logs above are
+proof evidence. The temporary isolated pair-algebra check is diagnostic,
+not an additional repository proof. No new source sorry/axiom/classical
+premise, canonical field change, baseline refresh or full-root/tree audit.
+All launches were serialized through the safe launcher: one 20-GiB worker,
+12-GiB reserve, fresh 88%-free zero-swap capacity checks, no competing
+compiler and no limit raises. Root imports registered, not root-built.
+Completed addition/whole-interval radial ceiling, strict Haar/original
+conditional/scaling and every Clay-facing requirement remain OPEN.
+The canonical broad chart state is unchanged; no reprint.
+
+### Next selected join: endpoint jets and SAME limits (RESEARCH)
+
+Do not differentiate the completed value identity without a derivative
+producer. The required finite endpoint cell is
+
+    w^(2*h*(h+1)+2*k^2) * ((2*h+1)^2-(2*k)^2).
+
+Its HALF-DIAMOND sum should equal A_N(1)^2 by reflecting the proved finite
+square into actual coefficient polynomials before formal differentiation.
+The RECTANGLE endpoint derivative is not equal to that square at finite N:
+the N=1 excess is `10*w^6`. It needs its own omitted-jet payment. For
+positive radius T=h+|k|, the proposed absolute frequency difference is
+at most 9*T^2; existing 4*T shell coverage then suggests a conservative
+`3*omittedBudget`, and a cutoff at epsilon/3. These are propositions to
+prove, NOT new inputs or assumed derivative limits.
+
+Available inputs: `ChebyshevFormalJets.coefficients_of_eval_eqv`,
+`CoeffEqv.pderiv`, `pderiv_pmul`, `pderiv_padd`, `pderiv_pscale`,
+`QPoly.eval_pmul`, `eval_padd`, `eval_pscale`, and the literal mixed-tail
+engine above. Build only the necessary half-shift/alternating coefficient
+polynomials, not a new calculus. Downstream SAME-object residues include
+the actual joint value J_N(x,1)=bareTheta_N(x)^2, the endpoint-frequency
+numerator pin to its actual first/angular jets, and the product-limit join
+using `Ppart_sub_bareTheta_close`, `fullProdDx_sub_two_dPartial_close`,
+`productAngularJet_sub_bare_close` and `productRadialNumerator_pin`.
+Keep actual prefix approximants and the existing `KPLimit.crealOfTail`
+construction/moduli when composing CReal limits. Retain the unbalanced
+odd boundary through this join; do not silently insert a finite factor four.
+
+Continue this finite producer/jet route, with N=0/1 as decisive tests.
+Stop/revise if finite rectangle and half-diamond jets are conflated, a
+derivative is inferred merely from value convergence, or the bare theta
+prefix is substituted for the finite Euler product. Verification remains
+serialized focused checks under the unchanged dynamic-memory contract.
+The intended addition-square curvature ceiling is still an analytic
+producer to establish, not an inhabited premise.
 
 ## Mathematical selection before implementation
 

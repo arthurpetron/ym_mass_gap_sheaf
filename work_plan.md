@@ -27,6 +27,23 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+The ACTUAL alternating half-diamond square and mixed-tail join are now
+CHECKED. `ThetaAlternatingMixedPin.alternatingPartial_halfDiamond_square`
+proves `(x-1)*A_N(x)^2` equals the literal mixed half-diamond sum, for all
+rational w,x and N including zero. `alternatingPartial_factored_error_le_epsilon`
+compares it to the actual `E_N(1)*H_N(x)-H_N(1)*E_N(x)`, with ONE-SIDED H
+and the existing explicit `shellTailCutoff(w,epsilon)`, uniform in x on
+[-1,1] at each named 0<w<1. The sign, exponent, exact bijection, factorization
+and omitted-cell estimate are proved, not supplied. NEXT prove the actual
+half-diamond endpoint derivative and pay its omitted endpoint-jet tail;
+then compose the SAME value/jet series and actual Jacobi product limits.
+A value limit alone does not authorize differentiation. The useful
+whole-interval radial ceiling, strict Haar/original conditional joins and
+every physical/scaling/QFT/all-group/Clay obligation remain OPEN. Five new
+focused leaves and the reused shell engine pass their printed axiom gates;
+no full-root/tree audit. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 The ACTUAL omitted parity-tail join is now CHECKED:
 `ThetaParityDiamondTail.theta_box_factored_error_close` and
 `frequency_box_factored_error_close` bound the original signed box value
@@ -36,9 +53,9 @@ branches, uniform in x,y on the full scalar interval at each named nome.
 `ThetaParityShellEnumeration` supplies explicit four-sector coverage and
 length 4*T; `ThetaParityShellWeights` supplies actual Gaussian/frequency
 domination. No supplied discrepancy/count estimate or finite factor four
-is used: the odd signed rectangle remains unbalanced. NEXT prove the exact
-alternating half-diamond square, pay its omitted mixed shells, then compose
-SAME series/jet limits. Research target and normalization are recorded in
+is used: the odd signed rectangle remains unbalanced. The exact alternating
+half-diamond square and omitted mixed tails are now supplied above; SAME
+series/jet limits remain required. Research target and normalization are recorded in
 the audit; they are not Lean premises. Completed addition/whole-interval
 ceiling, Haar/conditional/scaling and every Clay requirement remain OPEN.
 Three new focused leaves pass 24 public gates (two data definitions
@@ -58,8 +75,8 @@ with P^2*D, retaining signed cancellation and avoiding density division.
 diamonds and pins the endpoint weights to actual finite formal derivatives.
 `ThetaParityShellGeometry` supplies exact domains, BOTH exponent>=radius^2
 and frequency<=2*radius bounds. Actual shell coverage/counting and omitted
-weighted-sum domination are now supplied above. SAME series limits and the
-shifted/alternating square remain required. No finite bare/product identification,
+weighted-sum domination and the shifted/alternating finite square are now
+supplied above. SAME series limits remain required. No finite bare/product identification,
 completed addition/whole-interval ceiling, Haar/conditional/scaling or Clay
 closure. Five focused targets pass their permitted axiom gates; no full-root/
 tree audit. Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
@@ -72,8 +89,8 @@ limit ceiling D_infinity(1)<=2*w/(1-w^2) (`JacobiProductRadialEndpoint`).
 cutoff for 16*T^3*w^(T^2) after a computed onset. Actual theta/endpoint-jet
 specialization and diamond-to-rectangle domination are now supplied above.
 NEXT take SAME series limits; the scalar tail alone does not perform that
-join. The shifted/
-alternating convolution and completed jet/limit joins are still required;
+join. The shifted/alternating finite convolution is now supplied above;
+completed jet/limit joins are still required;
 the finite combined second-jet comparison is supplied above. Reuse existing
 first-derivative comparison rather than build general angular calculus.
 The earlier four focused targets pass all public gates;

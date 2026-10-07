@@ -36,7 +36,8 @@ open YMGap.Continuum.RingNormaliser (poly_identity_of_normal_eq)
 
 local infix:50 " ≈ " => Q'.eqv
 
-private def cellCap (w : Q') (T : Nat) : Q' :=
+/-- Explicit derivative-weighted cap for one positive-radius shell cell. -/
+def cellCap (w : Q') (T : Nat) : Q' :=
   4*(Q'.ofNat T*Q'.ofNat T)*w^(T*T)
 
 /-- Actual scalar budget for the finite omitted shells. -/
@@ -110,11 +111,13 @@ private theorem abs_sum_le {A : Type} (weight : A → Q') : ∀ xs,
       Q'.le_trans' _ _ _ (TsumDeriv.abs_add_le _ _)
         (Q'.add_le_add_left _ _ _ (abs_sum_le weight zs))
 
--- This is a finite internal counting proof, instantiated below only with
--- the actual enumerations and actual weights. No public analytic input.
-private theorem omitted_sum_bound {w : Q'} (hw : (0 : Q') ≤ w)
-    (N : Nat) (source : List SignedPair) (radius : SignedPair → Nat)
-    (shell : Nat → List SignedPair) (weight : SignedPair → Q')
+/-- Finite weighted shell injection on a decidable carrier. The caller
+supplies finite enumeration/pointwise proofs, not a discrepancy estimate;
+below and in the mixed alternating consumer these are actual constructions. -/
+theorem finite_shell_sum_bound {A : Type} [DecidableEq A]
+    {w : Q'} (hw : (0 : Q') ≤ w)
+    (N : Nat) (source : List A) (radius : A → Nat)
+    (shell : Nat → List A) (weight : A → Q')
     (hnd : source.Nodup)
     (hlo : ∀ z, z ∈ source → N+1 ≤ radius z)
     (hhi : ∀ z, z ∈ source → radius z ≤ 2*N+3)
@@ -124,8 +127,8 @@ private theorem omitted_sum_bound {w : Q'} (hw : (0 : Q') ≤ w)
     Q'.abs (listQSum weight source) ≤ omittedBudget w N := by
   let target := (List.range (N+3)).flatMap (fun i =>
     (shell (N+1+i)).map (fun z => (i,z)))
-  let encodeCell := fun z : SignedPair => (radius z-(N+1),z)
-  let targetWeight := fun p : Nat × SignedPair => cellCap w (N+1+p.1)
+  let encodeCell := fun z : A => (radius z-(N+1),z)
+  let targetWeight := fun p : Nat × A => cellCap w (N+1+p.1)
   have hinj : listQSum (fun z => Q'.abs (weight z)) source ≤
       listQSum targetWeight target := by
     apply listQSum_le_of_injective source target _ targetWeight encodeCell hnd
@@ -221,7 +224,7 @@ private theorem even_omitted_bound {w : Q'} (hw : (0 : Q') ≤ w)
   refine Q'.le_trans' _ _ _
     (Q'.le_of_eqv (TsumDeriv.Q'.abs_eqv_congr
       (filter_error_pin weight N (fun z => decide (EvenDiamondBound N z))))) ?_
-  apply omitted_sum_bound hw N source (fun z => evenRadius z.1 z.2) evenShellIndices weight
+  apply finite_shell_sum_bound hw N source (fun z => evenRadius z.1 z.2) evenShellIndices weight
   · exact (boxIndices_nodup (N+1)).filter _
   · exact hlo
   · intro z hz
@@ -253,7 +256,7 @@ private theorem odd_omitted_bound {w : Q'} (hw : (0 : Q') ≤ w)
   refine Q'.le_trans' _ _ _
     (Q'.le_of_eqv (TsumDeriv.Q'.abs_eqv_congr
       (filter_error_pin weight N (fun z => decide (OddDiamondBound N z))))) ?_
-  apply omitted_sum_bound hw N source (fun z => oddRadius z.1 z.2) oddShellIndices weight
+  apply finite_shell_sum_bound hw N source (fun z => oddRadius z.1 z.2) oddShellIndices weight
   · exact (boxIndices_nodup (N+1)).filter _
   · exact hlo
   · intro z hz
@@ -470,3 +473,5 @@ end YMGap.Continuum.ThetaParityDiamondTail
 #print axioms YMGap.Continuum.ThetaParityDiamondTail.frequency_box_factored_error_close
 #print axioms YMGap.Continuum.ThetaParityDiamondTail.omittedBudget
 #print axioms YMGap.Continuum.ThetaParityDiamondTail.rectangleTailCutoff
+#print axioms YMGap.Continuum.ThetaParityDiamondTail.cellCap
+#print axioms YMGap.Continuum.ThetaParityDiamondTail.finite_shell_sum_bound

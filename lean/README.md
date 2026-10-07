@@ -16,6 +16,18 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked ACTUAL alternating square and mixed-tail join (2026-10-07):**
+`ThetaAlternatingMixedPin` proves the literal `(x-1)*A_N^2` half-diamond
+identity, including N=0, and its actual endpoint-determinant approximation
+with the existing explicit nome-dependent shell cutoff. The one-sided odd
+normalization, signed index bijection, exact exponents and omitted-cell
+estimate are proved, not assumed. Five new focused leaves pass 42 public
+gates (ten data definitions axiom-free); the reused generalized shell leaf
+also passes. No full-root/tree audit. Endpoint-jet payment, SAME series/jet
+and product-limit composition, whole-interval radial ceiling, Haar/original
+conditional/scaling and all Clay requirements remain OPEN. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 **Checked ACTUAL parity weighted-tail join (2026-10-07):**
 `ThetaParityDiamondTail` bounds both the original signed theta box and its
 actual endpoint-frequency-square jet against FACTORED literal even/odd
@@ -25,7 +37,7 @@ exact length 4*T and actual Gaussian/frequency bounds are proved in
 rectangle stays unbalanced; no finite factor four is inserted. Three new
 focused leaves pass 24 public gates (two data definitions axiom-free); the
 existing convolution leaf was rechecked after exposing its unchanged NoDup
-proof. Alternating half-diamond square, SAME completed series/jet joins,
+proof. The alternating finite square is now supplied above; SAME completed series/jet joins,
 whole-interval ceiling, Haar/conditional/scaling and all Clay requirements
 remain OPEN. No full-root/tree audit. Evidence:
 `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
