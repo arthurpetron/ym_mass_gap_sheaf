@@ -226,3 +226,10 @@ the layout becomes `L₁ ++ Θ(L₁)`; (ii) a conj on the second half only, so t
 selection fixes first-half polynomials), `sign_second_half` (on second-half polynomials, the full and the restricted
 selection flip identically). This settles open point (ii) at the lemma level. Still open: the crossing split, the RPK
 crossing words, and assembly into `wilson_rp_qfull`. **RP FOR THE ACTUAL TORUS MEASURE IS OPEN.**
+
+**(d3f) conclusion step** (`SU2TorusRPAssembly.lean`): `rp_conj_assembly`. Given a Haar-invariant RingSub `C`
+that fixes `F` and `Wp`, sends their Θ-images to `shiftPoly`, and makes `C Wc` an RPK, we get
+`0 ≤ ∫ (ΘF·F)·((Wp·ΘWp)·Wc)`. `theta_C_shift` and `C_fixes` verify the twist hypotheses for
+`C = sign(above 4a T)` and the geometric Θ in the half-shift layout. This discharges `hW` for every integrand of the
+`torus_factor` form, conditional on (1) the half-shift layout and (2) RPK of `C Wc`. Both are blocked on the
+crossing split, which is still open. **RP FOR THE ACTUAL TORUS MEASURE IS OPEN.**
