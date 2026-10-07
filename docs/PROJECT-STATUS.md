@@ -31,7 +31,9 @@ invariance for class weights (`TorusGaugeInvariance`), and a first SU(2) torus G
 (`SU2TorusWilsonGibbs`: Haar integrals OPEN as structures, Z > 0, gauge-invariant weight;
 `SU2TorusSchurSmall`: Schur orthonormality proved exactly for spins ≤ 2 on `quaternionHaar 2`;
 LinkHaar/ConfigHaar DEPRECATED as empty for SU(2) (non-amenability); `SU2TorusPolyGibbs`: Schur ≤ 2,
-character means and truncated-sum partition function DISCHARGED on the constructed `PolyLinkHaar`);
+character means and truncated-sum partition function DISCHARGED on the constructed `PolyLinkHaar`;
+`SpectralHalvingStrongCouplingCarrier`: trace chain non-vacuous on the w=1/1024 carrier (circular link),
+heat-kernel genuine link fails, w=1/2 model interval [1/9, 13/100]);
 scope `audits/SCOPE-SU2-TORUS-WILSON-GIBBS-2026-10-06.md`. SC cannot seed `trAF`. No `Φ_j` constructed. Not AF. See
 `audits/SCOPE-RG-STEP-COMPOSITION-REDUCTION-2026-10-06.md`.
 

@@ -4,7 +4,20 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: SU(2) Gibbs layer re-pointed to the polynomial domain (2026-10-06 PT)
+## Latest proved increment: trace route on the real strong-coupling carrier (2026-10-06 PT)
+
+- `SpectralHalvingStrongCouplingCarrier.scFamily W`: literal all-nome Wilson carrier at
+  w = 1/1024, rate `timeRate` (≈ 1/4), dyadic spacing; unconditional.
+- `scFamily_hlink` + `scFamily_trace` ⇒ `scFamily_lowerMargin_via_trace :
+  WilsonLowerMargin (scFamily W) (halvingMargin 1)` through
+  `wilsonLowerMargin_of_traceCertificates`. **CIRCULAR** (one-mode model built from the
+  known rate): non-vacuity of the chain only.
+- Genuine link no-go: `excitedChar_specMax_lt_rate` + `nome_cube_lt_rate`: the heat-kernel
+  character model has specMax ≤ w³ < timeRate, so `hlink` fails for it.
+- Intermediate w = 1/2: `midModel_interval : 1/9 ≤ specMax ≤ 13/100` from exact traces
+  (closed-form model only; Wilson-rate link at w = 1/2 OPEN, no carrier exists).
+
+## Earlier proved increment: SU(2) Gibbs layer re-pointed to the polynomial domain (2026-10-06 PT)
 
 - `LinkHaar SU2` / `ConfigHaar SU2 N` marked DEPRECATED (empty: invariant mean on all
   functions of a non-amenable group); theorems assuming them are vacuous for SU(2).
