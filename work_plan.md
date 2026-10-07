@@ -27,6 +27,24 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+The global output-heat front now has a CHECKED no-count norm-loss estimate:
+`(1-w^2)*Angular(Pf)+w^2*H[(Pf)^2]<=w^2*H[f^2]`, covering every finite
+cutoff and both nome endpoints. Its ACTUAL interacting-transfer join keeps
+q=Pi_fringe(V*f) and bounds Angular(Tf) with this projected-source Haar
+decrement. There is no active-plane factor, heat floor or source inverse.
+This norm is NOT ell_V[f^2] or the completed OS norm; it cannot be multiplied
+by the conditional output weight Vbar^2*Gout^2. The LITERAL one-coordinate
+heat has a CHECKED positive-weight square loss -161/4096: PRUNE the arbitrary
+output-weight shortcut, not the interacting transfer. Separate a/c smoothing
+does not control A*Db-b*DA. The ORIGINAL evolving-terminal variance balance
+already exists in LastStepNoiseDissipation; add no stationary-law wrapper.
+STOP generic smoothing extensions: NEXT bound the actual K*V coupled score
+JOINTLY across all planes, retaining D(Va), D(Vc) and the terminal mismatch,
+or estimate the tighter complete signed-energy cost directly. Keep
+source/vacuum rates, OWN-center and original partitions. Useful AF/volume
+control is NOT supplied. Evidence:
+`audits/AUDIT-GLOBAL-HEAT-NORM-LOSS-2026-10-07.md`.
+
 The user's lattice-mass note sharpens the backward physical-time checks,
 without supplying a proof input. A fitted glueball channel does not exclude
 other low-energy states; scale-set GeV estimates are diagnostics, not bounds.

@@ -1,5 +1,48 @@
 # Sorry Ledger
 
+## PROVED: global output heat energy paid by one projected-source loss (2026-10-07)
+
+- `SU2HeatProductReversePoincare.casimir_power_le_mul_geomSum`,
+  `qpow_squared_reverse_poincare` and `product_squared_reverse_poincare`
+  prove the scalar squared-attenuation law, retaining zero Casimir,
+  omitted paths and both nome endpoints. No degree/cutoff-largeness guard.
+- `SU2QuaternionProductHeatReversePoincare.productMap_square_grouped`
+  derives the original squared path grouping.
+  `productMap_angular_norm_loss_le` sums against proved nonnegative path
+  masses: `(1-w^2)*Angular(Pf)+w^2*H[(Pf)^2]<=w^2*H[f^2]`.
+  No coordinate-count factor, assumed joint orthogonality, inverse or floor.
+- `BF4ExactSlabFixedSpatialTransferReversePoincare.transferStep_angular_projected_norm_loss_le`
+  retains the COMPLETE original source q=Pi_fringe(V*f) on the actual
+  transfer. Both norm terms are ordinary Haar, not ell_V[f^2] or completed
+  OS; multiplying the inequality by Vbar^2*Gout^2 is not justified.
+- `SU2QuaternionWeightedNormLossObstruction.weight_floor_certificate`
+  and `probe_floor_certificate` construct the positive floors 1/2 and 3/4.
+  `literal_output_coeff_pin`, `weightedInputSquare_pin` and
+  `weightedOutputSquare_pin` use the LITERAL degree-one product heat:
+  input=61/64, output=4065/4096. `weightedLoss_negative` and
+  `weighted_reverse_poincare_false` rule out arbitrary positive output
+  weighting of the norm-loss law. This is NOT an interacting-transfer,
+  physical gauge-invariant state, completed OS or Yang--Mills counterexample.
+- Four focused checks pass sixteen gates within {propext, Quot.sound}.
+  One 20-GiB worker, 12-GiB reserve, fresh zero-swap capacity/process
+  preflights. Explicit zero-power algebra and missing namespace opens
+  repaired failed elaboration. The diagnostic's integer-only expression
+  constants and expanded-square recursion failure were repaired by tiny
+  coefficient canonicalization and one staged output pin, not limit raises.
+  No new source sorry/axiom/classical input,
+  raised limit or canonical field change. Root import registration only;
+  no full-root/tree audit or hashed-baseline refresh.
+- OPEN: actual coupled conditional score A*Db-b*DA with output weight,
+  useful combined signed-cost estimate on a justified scaling family,
+  independent AF response survival, actual completed all-vector fine/coarse
+  comparison, physical/volume control, SAME limiting QFT, every compact
+  simple group and Clay. Stop generic smoothing extensions at this seam.
+  The original terminal variance balance already exists; a joint all-plane
+  conditional-score estimate must keep its mismatch and D(Va), D(Vc).
+  The displayed broad chart remains unchanged.
+
+Evidence: `audits/AUDIT-GLOBAL-HEAT-NORM-LOSS-2026-10-07.md`.
+
 ## PROVED: exact original score/dissipation and signed consumer (2026-10-07)
 
 - `BF4ExactSlabFixedSpatialScoreDissipation.scoreDissipationCutoff`

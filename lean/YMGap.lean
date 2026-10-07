@@ -6426,10 +6426,16 @@ import YMGap.Continuum.SU2QuaternionConcentratedSourceHeatFence
 import YMGap.Continuum.SU2HeatSquaredCasimirSmoothing
 import YMGap.Continuum.SU2QuaternionHeadHeatSmoothing
 import YMGap.Continuum.SU2HeatProductCasimirSmoothing
+import YMGap.Continuum.SU2HeatProductReversePoincare
 import YMGap.Continuum.SU2QuaternionCyclicPathBlockCasimir
 import YMGap.Continuum.SU2QuaternionCyclicPathHeatEigen
 import YMGap.Continuum.SU2QuaternionProductHeatSmoothing
+import YMGap.Continuum.SU2QuaternionProductHeatReversePoincare
+-- Positive arbitrary output weights need not preserve this Haar norm loss.
+-- This literal finite-heat obstruction is not a Yang--Mills counterexample.
+import YMGap.Continuum.SU2QuaternionWeightedNormLossObstruction
 import YMGap.Continuum.BF4ExactSlabFixedSpatialTransferSmoothing
+import YMGap.Continuum.BF4ExactSlabFixedSpatialTransferReversePoincare
 import YMGap.Continuum.BF4ExactSlabFixedSpatialCenteredTransferReserve
 -- Actual moving-center finite quadratic and its joint limit on the SAME
 -- physical bond carrier. Single-slice sources, fixed nome and spatial width.

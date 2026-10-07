@@ -1,5 +1,22 @@
 # Canonical one-page project status
 
+Supporting global output-heat estimate checked (2026-10-07):
+`(1-w^2)*Angular(Pf)+w^2*H[(Pf)^2]<=w^2*H[f^2]` uses ONE decrement for
+all output directions, with no active-count factor or positive heat floor.
+The ACTUAL interacting transfer join retains q=Pi_fringe(V*f); its norm is
+ordinary Haar, NOT ell_V[f^2] or completed OS. The weighted conditional
+score/cross-term join is NOT supplied. A literal positive-weight heat example
+has loss -161/4096, pruning arbitrary output weighting, NOT Yang--Mills.
+The original terminal variance balance already exists; seek joint all-plane
+conditional control or the tighter complete signed-energy estimate, not
+another smoothing/stationarity wrapper. Four focused targets pass sixteen
+permitted gates; no full-tree audit.
+Useful signed-cost/scaling control, independent AF survival, completed
+cross-action comparison, physical/volume control, SAME limiting QFT,
+every group and Clay remain OPEN. Evidence:
+`audits/AUDIT-GLOBAL-HEAT-NORM-LOSS-2026-10-07.md`.
+Broad chart unchanged; no reprint.
+
 Supporting exact score/dissipation estimate checked (2026-10-07): for the
 ACTUAL original moments, Zi*score_l+H*Zi*Bout<=H*(1+xi)*Zo*Cin. Constructive
 rational order removes the incoming degree and Young overhead; outgoing l
