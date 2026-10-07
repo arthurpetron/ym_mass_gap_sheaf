@@ -4,7 +4,19 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: SU(2) Schur orthonormality for spins ≤ 2 (2026-10-06 PT)
+## Latest proved increment: SU(2) Gibbs layer re-pointed to the polynomial domain (2026-10-06 PT)
+
+- `LinkHaar SU2` / `ConfigHaar SU2 N` marked DEPRECATED (empty: invariant mean on all
+  functions of a non-amenable group); theorems assuming them are vacuous for SU(2).
+- `SU2TorusPolyGibbs` (on Realizer's `PolyLinkHaar`): `PolySchurUpTo`, `PolyHaarAgreesUpTo`,
+  `polySchurUpTo_of_agrees` (REDUCTION); `polyHaarAgreesUpTo2`, `polySchurUpTo2_constructed`,
+  `polyCharMeanUpTo2_constructed` (DISCHARGED, exact on `quaternionHaar 2`);
+  `boltzmannPoly`/`partitionPoly` (truncated character sums, one relative plaquette),
+  `partitionPoly_eqv_c0` (REDUCTION), `partition_constructed` (DISCHARGED, J ≤ 2).
+- OPEN: polynomial invariance field, positivity, general-s Schur, multi-plaquette torus
+  measure, c_s = Wilson character coefficients. Freeness witness: not done.
+
+## Earlier proved increment: SU(2) Schur orthonormality for spins ≤ 2 (2026-10-06 PT)
 
 - `SU2TorusSchurSmall.polySchurUpTo2` (PROVED finite lemma, exact evaluation): on
   the exact two-block S³ Haar functional `quaternionHaar 2`,

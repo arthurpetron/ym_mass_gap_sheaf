@@ -29,7 +29,9 @@ geometry + PP Lemma 3.3 algebra (`TorusSlabInsertion`, analytic inputs explicit)
 translation-invariant torus Wilson action (`TorusWilsonAction`); both group-blind plumbing. Slab partition (`TorusSlabCover`), gauge
 invariance for class weights (`TorusGaugeInvariance`), and a first SU(2) torus Gibbs layer
 (`SU2TorusWilsonGibbs`: Haar integrals OPEN as structures, Z > 0, gauge-invariant weight;
-`SU2TorusSchurSmall`: Schur orthonormality proved exactly for spins ≤ 2 on `quaternionHaar 2`, LinkHaar bridge OPEN);
+`SU2TorusSchurSmall`: Schur orthonormality proved exactly for spins ≤ 2 on `quaternionHaar 2`;
+LinkHaar/ConfigHaar DEPRECATED as empty for SU(2) (non-amenability); `SU2TorusPolyGibbs`: Schur ≤ 2,
+character means and truncated-sum partition function DISCHARGED on the constructed `PolyLinkHaar`);
 scope `audits/SCOPE-SU2-TORUS-WILSON-GIBBS-2026-10-06.md`. SC cannot seed `trAF`. No `Φ_j` constructed. Not AF. See
 `audits/SCOPE-RG-STEP-COMPOSITION-REDUCTION-2026-10-06.md`.
 

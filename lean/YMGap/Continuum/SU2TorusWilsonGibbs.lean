@@ -56,7 +56,10 @@ open YMGap.RepTheory
 
 /-! ## 1. Open Haar hypotheses -/
 
-/-- **OPEN.** Product Haar integral over torus gauge configurations. -/
+/-- **DEPRECATED (vacuous for `G = SU2`).** Product Haar integral on ALL functions of
+configurations.  For the rational unit quaternions no invariant mean on all
+functions exists (free rank-2 subgroup, non-amenability), so theorems assuming it are
+vacuous there.  Kept for compatibility; use `SU2TorusPolyGibbs` (polynomial domain). -/
 structure ConfigHaar (G : ConstructiveGroup.{0}) (N : Nat) where
   I : (GaugeConfig G → Q') → Q'
   add : ∀ F H, (I (fun U => F U + H U)).eqv (I F + I H)
@@ -68,7 +71,10 @@ structure ConfigHaar (G : ConstructiveGroup.{0}) (N : Nat) where
     (I (fun U => F (gaugeTransform G N g U))).eqv (I F)
   shift_inv : ∀ (t : Z4Vertex) F, (I (fun U => F (shiftConfig G N t U))).eqv (I F)
 
-/-- **OPEN.** Single-link Haar functional. -/
+/-- **DEPRECATED (vacuous for `G = SU2`).** Single-link Haar functional on ALL
+functions: `LinkHaar SU2` is empty (non-amenability of the rational unit
+quaternions, free subgroup from `(3+4i)/5`, `(3+4j)/5`).  Kept for compatibility;
+use `SU2PolyLinkHaar.PolyLinkHaar` and `SU2TorusPolyGibbs`. -/
 structure LinkHaar (G : ConstructiveGroup.{0}) where
   h : (G.Carrier → Q') → Q'
   add : ∀ F H, (h (fun x => F x + H x)).eqv (h F + h H)

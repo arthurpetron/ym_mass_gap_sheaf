@@ -74,3 +74,13 @@ hypothesis that fails for U(1) at large β (e.g. a bound using `(s+1)`-weighted 
 - REDUCTION: `su2SchurUpTo2_of_agrees`.
 - U(1) rule: not satisfied by U(1); the spin-1 adjoint channel (dimension 3) has no
   U(1) analogue.
+
+## Correction: `LinkHaar`/`ConfigHaar` are vacuous for SU(2); polynomial re-pointing
+
+`LinkHaar SU2` asks for an invariant mean on ALL functions of the rational unit
+quaternions, which contain a free rank-2 subgroup (e.g. from (3+4i)/5, (3+4j)/5);
+by non-amenability no such mean exists, so every theorem assuming it (including
+`partition_pos`, `su2SchurUpTo2_of_agrees`) is vacuous for SU(2).  The structures are
+marked DEPRECATED.  `SU2TorusPolyGibbs` restates Schur/agreement/partition on
+`PolyLinkHaar` (Realizer), where the J ≤ 2 statements are DISCHARGED on the
+constructed `quaternionPolyLinkHaar2`.  Freeness witness in Lean: not done.
