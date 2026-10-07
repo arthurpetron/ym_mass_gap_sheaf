@@ -7421,6 +7421,7 @@ import YMGap.Continuum.SU2TorusRPCrossSplit
 import YMGap.Continuum.SU2TorusRPCrossProd
 import YMGap.Continuum.SU2TorusRPExtend
 import YMGap.Continuum.SU2TorusRPStepSub
+import YMGap.Continuum.SU2TorusRPStepCoord
 import YMGap.Continuum.SpecMaxRateFamily
 import YMGap.Continuum.W1StrongCouplingPerturbation
 import YMGap.Continuum.W1VacuumTailRowSum
