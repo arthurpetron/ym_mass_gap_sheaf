@@ -79,11 +79,12 @@ simple groups) remains OPEN; this is SU(2) only.**
    OPEN: polynomial level `Θ∘τ_x ≡ τ_{−x}∘Θ` on `PtSup`/`Sup` polynomials. Then `rpB (τ_x F) (τ_y F) ≈ G(x+y)` with `G n := rpB F (τ_n F)`.
    Combined with `torus_cs_poly`, this gives `G(x+y)² ≤ G(2x)·G(2y)`. `τ_x F` must remain `PtSup`, which needs
    `x + (support time) ≤ M`. This is a real restriction and must appear in the statement.
-6. **Odd `j`.** NOTE: the existing `reflLink` (`rt`: `a ↦ 1 − a mod 2M`) is already a *link-midpoint* reflection
-   (planes at ½ and M+½). A reflection `t ↦ c − t` with odd `c` fixes no site plane (the plane is at link midpoints). Proposed
-   convention: prove item 5 for *both* parities of `c` by using the general reflection `R_c`. That way odd `j` comes
-   from the pair `(τ_a F, τ_{a+1} F)` under the midpoint reflection, with no half-step translation. The midpoint
-   RP itself (`torus_rp` for odd `c`) is OPEN: the existing layout proof is for the site plane.
+6. **Odd `j` (corrected).** The proved `reflLink` (`rt`: `a ↦ 1 − a mod 2M`) is a *link-midpoint* reflection
+   (planes at ½ and M+½). Then `⟨Θ τ_x F · τ_y F⟩ ≈ G(x+y)`, and CS at `(τ_a F, τ_{a+1} F)` gives
+   `G(2a+1)² ≤ G(2a)·G(2a+2)`, which is `LogConvex` at EVEN `j`. ODD `j` needs `2x = j` with integer `x`, which is impossible
+   with this reflection. It needs RP for a *site-plane* reflection (`a ↦ −a`), and that is OPEN: the layout proof covers
+   only the midpoint plane. Alternative that needs no new RP: the Prover consumes `LogConvex` for even `j` only, or for
+   `n ↦ G(2n)`. The choice belongs to the Prover.
 
 **Prover consumes:** item 5 plus `torus_cs_poly` to produce `LogConvex`. The Prover does not reprove items 1–4.
 
