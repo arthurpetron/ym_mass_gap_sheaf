@@ -372,4 +372,11 @@ links) by a block reindexing, and state hW in the target's form.
 plaquette, then `reindex σ (Π T_K[L]) ≡ Π T_K[L']` and `∫ Π T_K[L] = ∫ Π T_K[L']`. Axioms [propext, Quot.sound].
 Open: chaining involutions for the general `torusLinks → layout` permutation, carrying the observables and Θ across,
 and then `hW`.
+
+## d9v: link-order permutation invariance (`SU2TorusRPSwap`)
+
+`swapInv` is the adjacent block transposition, an involution, and `swap_idx` shows it relabels `idxOf`. Chaining
+these along `List.Perm` gives `perm_haar`: for nodup `L₁ ~ L₂` containing every plaquette link,
+`∫_{|L₁|} Π T_K[L₁] = ∫ Π T_K[L₂]`. Axioms [propext, Quot.sound]. This covers the bare product only; observables and
+Θ are not carried across yet.
 RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
