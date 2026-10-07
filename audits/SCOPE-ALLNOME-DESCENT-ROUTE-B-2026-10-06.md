@@ -69,3 +69,10 @@ amplitude completely.
   uniform across widths. No cross-width carrier map, spatial limit, continuum,
   Hamiltonian or physical-spacing identification is made. It does not identify the
   all-nome carrier with `UnionCompletion`; the bridge verdict stands.
+
+## Follow-up (2026-10-06 PT)
+
+The SC seed `allNome_strongCoupling_vacuumSq` / `strongCoupling_seed_at_pilot` is
+the coarse-scale input to the RG-step composition reduction
+(`SCOPE-RG-STEP-COMPOSITION-REDUCTION-2026-10-06.md`). It does not by itself yield
+AF; rates must climb via approx intertwiners with summable `ε_j`.

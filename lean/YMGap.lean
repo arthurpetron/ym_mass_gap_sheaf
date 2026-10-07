@@ -7339,6 +7339,9 @@ import YMGap.Continuum.BF4WilsonStrongCouplingUniformRate
 -- ROUTE (b), STRONG-COUPLING: width-independent WilsonVacuumSqContraction (rate 1/4) on the
 -- literal all-nome carrier under the three guards; non-vacuous at w=1/1024; NOT AF.
 import YMGap.Continuum.BF4WilsonAllNomeStrongCouplingUniformRate
+-- REDUCTION: RG-step composition (rate algebra + ApproxRgIntertwiner + conditional
+-- dyadic lower margin from envelope). No Φ_j inhabited. Not AF.
+import YMGap.Continuum.BF4WilsonAllNomeRGStepComposition
 -- Retain the favorable ORIGINAL residual across consecutive signed costs;
 -- useful aggregate cancellation on a justified changing family remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRayleighCostTransport

@@ -1,5 +1,17 @@
 # Sorry Ledger
 
+## REDUCTION: RG-step composition for the gap frontier (2026-10-06 PT)
+
+- `BF4WilsonAllNomeRGStepComposition`: pure Q' algebra
+  `rFine² ≤ rCoarse+ε ⇒ 1−rFine ≥ (1−rCoarse−ε)/2`; typed `ApproxRgIntertwiner`
+  (Φ map + open `transfersRate`); `RgRateChain` / `rg_margin_step`; conditional
+  `WilsonLowerMargin` from `RgMarginEnvelope` at seed scale 0 with dyadic spacing.
+- SC seed availability: `strongCoupling_seed_at_pilot` at w=1/1024 (window only).
+- NO Φ_j constructed. Exact Wilson intertwiners almost certainly do not exist;
+  summable `ε_j` needs Balaban-style analytics (OPEN). Not AF; does not discharge
+  `WilsonAFPaddedGapInput`. Scope: `audits/SCOPE-RG-STEP-COMPOSITION-REDUCTION-2026-10-06.md`.
+- Axioms ⊆ {propext, Quot.sound}; `timeRate_eq_one_fourth` axiom-free.
+
 ## PROVED: route (b) — width-independent strong-coupling contraction on the literal all-nome carrier (2026-10-06 PT)
 
 - `allNome_strongCoupling_vacuumSq` (`BF4WilsonAllNomeStrongCouplingUniformRate`):
