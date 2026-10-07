@@ -4,7 +4,19 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: unconditional Z4 weighted KP (2026-10-07 PT)
+## Latest proved increment: Z4 weighted KP on the periodic torus (2026-10-07 PT)
+
+- `Z4TorusPolymerKP` (PROVED, GROUP-BLIND PLUMBING):
+  - `torusChain N : BddLattice` (D = 24), built from `torusNbrs_length` (exactly 24, every N)
+    and `torus_sound`;
+  - `torusClusterCountBound_animal` (625ⁿ);
+  - `torus_kp`: unconditional KP on the torus for every N, winding polymers included.
+- `Z4PolymerKP` is generalised to any degree-24 `BddLattice` (`deg24_kp`); `z4_kp` is
+  unchanged.
+- Scope: `audits/SCOPE-Z4-TORUS-POLYMER-KP-2026-10-07.md` (small sides, winding polymers,
+  symmetric torus only).
+
+## Earlier proved increment: unconditional Z4 weighted KP (2026-10-07 PT)
 
 - `Z4PolymerKP` (PROVED, GROUP-BLIND PLUMBING):
   - `group_le`, `pigeon`, `class_sum`, `z4_hgroup`;

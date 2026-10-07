@@ -6410,3 +6410,7 @@ grouping lemma and the polymer-to-animal injection, both OPEN). Decay is next.
 `Z4PolymerKP` (2026-10-07): the Z4 weighted KP is UNCONDITIONAL for box polymer systems of
 connected plaquette animals (`z4_kp`), with constants independent of the volume. Group-blind
 plumbing; truncated-correlation decay is next.
+
+`Z4TorusPolymerKP` (2026-10-07): the unconditional weighted KP now also holds on the periodic
+4-torus (`torus_kp`, every side N, winding polymers included). Group-blind plumbing. Not yet
+covered: Polyakov/winding observables, an asymmetric torus, and the Wilson activity link.

@@ -38,20 +38,23 @@ open YMGap.Continuum.SignedPolymerKP
 open YMGap.Continuum.SizeWeightedPolymerKP
 open YMGap.Continuum.BddLatticeAnimal (IsClusterThrough enumPolys sameSupport animalCount
   animalK animalCount_le_pow)
-open YMGap.Continuum.ClusterCount4DProgress (z4Chain z4ClusterCountBound_animal)
+open YMGap.Continuum.ClusterCount4DProgress (z4Chain)
+open YMGap.Continuum.BddLatticeAnimal (BddLattice)
 
 local instance : Add PolyExpr := ⟨PolyExpr.add⟩
 local instance : Mul PolyExpr := ⟨PolyExpr.mul⟩
 
-abbrev PL := z4Chain.toLattice.Plaquette
-abbrev Poly := List PL
-instance : DecidableEq PL := z4Chain.decEq
+abbrev PL (BL : BddLattice) := BL.toLattice.Plaquette
+abbrev Poly (BL : BddLattice) := List (PL BL)
+instance (BL : BddLattice) : DecidableEq (PL BL) := BL.decEq
+
+variable {BL : BddLattice}
 
 /-! ## Sharing, first shared plaquette -/
 
-def shareB (X Y : Poly) : Bool := X.any (fun p => decide (p ∈ Y))
+def shareB (X Y : Poly BL) : Bool := X.any (fun p => decide (p ∈ Y))
 
-theorem shareB_iff : ∀ X Y : Poly, shareB X Y = true ↔ ∃ p, p ∈ X ∧ p ∈ Y
+theorem shareB_iff : ∀ X Y : Poly BL, shareB X Y = true ↔ ∃ p, p ∈ X ∧ p ∈ Y
   | [], _ => ⟨fun h => by simp [shareB] at h, fun ⟨_, hp, _⟩ => absurd hp List.not_mem_nil⟩
   | a :: X, Y => by
     have ih := shareB_iff X Y
@@ -66,15 +69,15 @@ theorem shareB_iff : ∀ X Y : Poly, shareB X Y = true ↔ ∃ p, p ∈ X ∧ p 
       | head => exact Or.inl hq
       | tail _ h => exact Or.inr ⟨p, h, hq⟩
 
-theorem shareB_symm (X Y : Poly) : shareB X Y = shareB Y X :=
+theorem shareB_symm (X Y : Poly BL) : shareB X Y = shareB Y X :=
   Bool.eq_iff_iff.mpr ((shareB_iff X Y).trans (Iff.trans
     ⟨fun ⟨p, h1, h2⟩ => ⟨p, h2, h1⟩, fun ⟨p, h1, h2⟩ => ⟨p, h2, h1⟩⟩ (shareB_iff Y X).symm))
 
-def firstIn (a : Poly) : Poly → Option PL
+def firstIn (a : Poly BL) : Poly BL → Option (PL BL)
   | [] => none
   | p :: x => if p ∈ a then some p else firstIn a x
 
-theorem firstIn_spec (a : Poly) : ∀ (x : Poly) (q : PL), firstIn a x = some q → q ∈ x ∧ q ∈ a
+theorem firstIn_spec (a : Poly BL) : ∀ (x : Poly BL) (q : PL BL), firstIn a x = some q → q ∈ x ∧ q ∈ a
   | [], _, h => by simp [firstIn] at h
   | p :: x, q, h => by
     by_cases hp : p ∈ a
@@ -84,7 +87,7 @@ theorem firstIn_spec (a : Poly) : ∀ (x : Poly) (q : PL), firstIn a x = some q 
       have := firstIn_spec a x q h
       exact ⟨List.mem_cons_of_mem _ this.1, this.2⟩
 
-theorem firstIn_some (a : Poly) : ∀ x : Poly, (∃ p, p ∈ x ∧ p ∈ a) → ∃ q, firstIn a x = some q
+theorem firstIn_some (a : Poly BL) : ∀ x : Poly BL, (∃ p, p ∈ x ∧ p ∈ a) → ∃ q, firstIn a x = some q
   | [], ⟨_, hp, _⟩ => absurd hp List.not_mem_nil
   | p :: x, ⟨r, hr, hra⟩ => by
     by_cases hp : p ∈ a
@@ -94,9 +97,9 @@ theorem firstIn_some (a : Poly) : ∀ x : Poly, (∃ p, p ∈ x ∧ p ∈ a) →
       | head => exact absurd hra hp
       | tail _ h => exact firstIn_some a x ⟨r, h, hra⟩
 
-def asg (a : Poly) (d : PL) (x : Poly) : PL := (firstIn a x).getD d
+def asg (a : Poly BL) (d : PL BL) (x : Poly BL) : PL BL := (firstIn a x).getD d
 
-theorem asg_spec (a : Poly) (d : PL) (x : Poly) (h : shareB a x = true) :
+theorem asg_spec (a : Poly BL) (d : PL BL) (x : Poly BL) (h : shareB a x = true) :
     asg a d x ∈ x ∧ asg a d x ∈ a := by
   obtain ⟨p, hpa, hpx⟩ := (shareB_iff a x).mp h
   obtain ⟨q, hq⟩ := firstIn_some a x ⟨p, hpx, hpa⟩
@@ -149,8 +152,8 @@ theorem insert_le {β : Type} [DecidableEq β] (q0 : β) (c : Q') (hc : (1 : Q')
       exact Q'.le_trans' _ _ _ (Q'.le_of_eqv comm)
         (Q'.mul_le_mul_of_nonneg_left _ _ _ (insert_le q0 c hc G hG A hA) (hG q))
 
-theorem group_le {β : Type} (f : β → Q') (hf : ∀ x, (1 : Q') ≤ f x) (asgf : β → PL)
-    (A : List PL) : ∀ L : List β, (∀ x, x ∈ L → asgf x ∈ A) →
+theorem group_le {β : Type} (f : β → Q') (hf : ∀ x, (1 : Q') ≤ f x) (asgf : β → PL BL)
+    (A : List (PL BL)) : ∀ L : List β, (∀ x, x ∈ L → asgf x ∈ A) →
       prodm f L ≤ prodm (fun q => prodm f (L.filter (fun x => decide (asgf x = q)))) A
   | [], _ => prodm_ge_one (fun _ => (1 : Q')) (fun _ => Q'.le_refl' 1) A
   | x :: L, hL => by
@@ -202,18 +205,18 @@ theorem len_split {β : Type} (p : β → Bool) :
     cases hp : p a <;> simp only [List.filter, hp, Bool.not_false, Bool.not_true,
       List.length_cons] <;> omega
 
-def ssB (X Y : Poly) : Bool := X.all (fun a => decide (a ∈ Y)) && Y.all (fun a => decide (a ∈ X))
+def ssB (X Y : Poly BL) : Bool := X.all (fun a => decide (a ∈ Y)) && Y.all (fun a => decide (a ∈ X))
 
-theorem ssB_iff (X Y : Poly) : ssB X Y = true ↔ sameSupport X Y := by
+theorem ssB_iff (X Y : Poly BL) : ssB X Y = true ↔ sameSupport X Y := by
   simp only [ssB, Bool.and_eq_true, List.all_eq_true, decide_eq_true_iff]
   rfl
 
-theorem ss_trans {X Y W : Poly} (h1 : sameSupport X Y) (h2 : sameSupport Y W) :
+theorem ss_trans {X Y W : Poly BL} (h1 : sameSupport X Y) (h2 : sameSupport Y W) :
     sameSupport X W := ⟨fun a h => h2.1 a (h1.1 a h), fun a h => h1.2 a (h2.2 a h)⟩
 
-theorem ss_symm {X Y : Poly} (h : sameSupport X Y) : sameSupport Y X := ⟨h.2, h.1⟩
+theorem ss_symm {X Y : Poly BL} (h : sameSupport X Y) : sameSupport Y X := ⟨h.2, h.1⟩
 
-theorem pigeon : ∀ (L2 L1 : List Poly), L1.Pairwise (fun X Y => ¬ sameSupport X Y) →
+theorem pigeon : ∀ (L2 L1 : List (Poly BL)), L1.Pairwise (fun X Y => ¬ sameSupport X Y) →
     (∀ X, X ∈ L1 → ∃ Y, Y ∈ L2 ∧ sameSupport X Y) → L1.length ≤ L2.length
   | [], [], _, _ => Nat.le_refl 0
   | [], X :: _, _, h => by
@@ -250,25 +253,25 @@ theorem pigeon : ∀ (L2 L1 : List Poly), L1.Pairwise (fun X Y => ¬ sameSupport
 
 /-! ## Per-plaquette geometric count -/
 
-def sz : Poly → Nat
+def sz : Poly BL → Nat
   | [] => 1
   | X => X.length
 
-theorem sz_of_ne (X : Poly) (h : 1 ≤ X.length) : sz X = X.length := by
+theorem sz_of_ne (X : Poly BL) (h : 1 ≤ X.length) : sz X = X.length := by
   cases X with
   | nil => simp at h
   | cons _ _ => rfl
 
-theorem sz_pos (X : Poly) : 1 ≤ sz X := by
+theorem sz_pos (X : Poly BL) : 1 ≤ sz X := by
   cases X with
   | nil => exact Nat.le_refl 1
   | cons _ _ => exact Nat.succ_le_succ (Nat.zero_le _)
 
-def δ (X : Poly) : Q' := etaZ ^ sz X
+def δ (X : Poly BL) : Q' := etaZ ^ sz X
 
-theorem δ_nonneg (X : Poly) : (0 : Q') ≤ δ X := Q'.pow_nonneg _ (by decide) _
+theorem δ_nonneg (X : Poly BL) : (0 : Q') ≤ δ X := Q'.pow_nonneg _ (by decide) _
 
-theorem sumd_split (p : Poly → Bool) : ∀ L : List Poly,
+theorem sumd_split (p : Poly BL → Bool) : ∀ L : List (Poly BL),
     (sumd δ L).eqv (sumd δ (L.filter p) + sumd δ (L.filter (fun x => !p x)))
   | [] => (by decide : (0 : Q').eqv (0 + 0))
   | a :: L => by
@@ -286,7 +289,7 @@ theorem sumd_split (p : Poly → Bool) : ∀ L : List Poly,
       exact poly_identity_of_normal_eq (V 0 + (V 1 + V 2)) ((V 0 + V 1) + V 2) (by decide)
         (fun | 0 => δ a | 1 => sumd δ (L.filter p) | _ => sumd δ (L.filter (fun x => !p x)))
 
-theorem sumd_const (v : Q') : ∀ L : List Poly, (∀ X, X ∈ L → δ X = v) →
+theorem sumd_const (v : Q') : ∀ L : List (Poly BL), (∀ X, X ∈ L → δ X = v) →
     (sumd δ L).eqv (Q'.ofNat L.length * v)
   | [], _ => by
     let V := PolyExpr.var
@@ -326,20 +329,21 @@ theorem pow_congr' {a b : Q'} (h : a.eqv b) : ∀ k : Nat, (a ^ k).eqv (b ^ k)
   | k + 1 => Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ _ _ h)
       (Q'.mul_eqv_congr_left _ _ _ (pow_congr' h k))
 
-theorem K_eta : (animalK z4Chain * etaZ).eqv quarter := by decide
+theorem K_eta (hD : BL.D = 24) : (animalK BL * etaZ).eqv quarter := by
+  unfold animalK; rw [hD]; decide
 
 /-- **Per-plaquette count (PROVED).** -/
-theorem class_sum (q : PL) : ∀ (N : Nat) (L : List Poly),
+theorem class_sum (hD : BL.D = 24) (q : PL BL) : ∀ (N : Nat) (L : List (Poly BL)),
     L.Pairwise (fun X Y => ¬ sameSupport X Y) →
-    (∀ X, X ∈ L → IsClusterThrough z4Chain q X.length X) →
+    (∀ X, X ∈ L → IsClusterThrough BL q X.length X) →
     (∀ X, X ∈ L → 1 ≤ X.length ∧ X.length ≤ N) → sumd δ L ≤ geoS N
   | 0, [], _, _, _ => Q'.le_refl' _
   | 0, X :: _, _, _, hs =>
     absurd (Nat.le_trans (hs X List.mem_cons_self).1 (hs X List.mem_cons_self).2) (by decide)
   | N + 1, L, hpw, hcl, hs => by
-    let p : Poly → Bool := fun X => decide (X.length = N + 1)
+    let p : Poly BL → Bool := fun X => decide (X.length = N + 1)
     have hsplit := sumd_split p L
-    have hrest := class_sum q N (L.filter (fun x => !p x)) (pairwise_filter _ _ hpw)
+    have hrest := class_sum hD q N (L.filter (fun x => !p x)) (pairwise_filter _ _ hpw)
       (fun X hX => hcl X (mem_filter' _ hX).1)
       (fun X hX => by
         have hm := mem_filter' _ hX
@@ -356,21 +360,21 @@ theorem class_sum (q : PL) : ∀ (N : Nat) (L : List Poly),
       have hl : X.length = N + 1 := of_decide_eq_true hm.2
       show etaZ ^ sz X = _
       rw [sz_of_ne X (hl ▸ Nat.succ_le_succ (Nat.zero_le N)), hl]
-    have hcount : Lc.length ≤ (enumPolys z4Chain q (N + 1)).length :=
+    have hcount : Lc.length ≤ (enumPolys BL q (N + 1)).length :=
       pigeon _ Lc (pairwise_filter _ _ hpw) (fun X hX => by
         have hm := mem_filter' _ hX
         have hl : X.length = N + 1 := of_decide_eq_true hm.2
         have hc := hcl X hm.1
         rw [hl] at hc
-        exact (z4ClusterCountBound_animal q).2 (N + 1) X hc)
-    have hA : animalCount z4Chain q (N + 1) ≤ animalK z4Chain ^ (N + 1) :=
-      animalCount_le_pow z4Chain q (N + 1)
+        exact (YMGap.Continuum.AdjSpanningBuild.clusterCountBound_animal BL q).2 (N + 1) X hc)
+    have hA : animalCount BL q (N + 1) ≤ animalK BL ^ (N + 1) :=
+      animalCount_le_pow BL q (N + 1)
     have hη0 : (0 : Q') ≤ etaZ ^ (N + 1) := Q'.pow_nonneg _ (by decide) _
     have hclass : sumd δ Lc ≤ quarter ^ (N + 1) := by
       refine Q'.le_trans' _ _ _ (Q'.le_of_eqv (sumd_const _ Lc hconst)) ?_
       refine Q'.le_trans' _ _ _ (Q'.mul_le_mul_of_nonneg_right _ _ _ (ofNat_le' hcount) hη0) ?_
       refine Q'.le_trans' _ _ _ (Q'.mul_le_mul_of_nonneg_right _ _ _ hA hη0) ?_
-      exact Q'.le_of_eqv (Q'.eqv_trans _ _ _ (mul_pow' _ _ _) (pow_congr' K_eta _))
+      exact Q'.le_of_eqv (Q'.eqv_trans _ _ _ (mul_pow' _ _ _) (pow_congr' (K_eta hD) _))
     refine Q'.le_trans' _ _ _ (Q'.le_of_eqv hsplit) ?_
     refine Q'.le_trans' _ _ _ (Q'.add_le_add hclass hrest) (Q'.le_of_eqv ?_)
     let V := PolyExpr.var
@@ -379,8 +383,8 @@ theorem class_sum (q : PL) : ∀ (N : Nat) (L : List Poly),
 
 /-! ## The box gas and the unconditional Z4 KP -/
 
-structure Z4BoxGas where
-  polys : List Poly
+structure Z4BoxGas (BL : BddLattice) where
+  polys : List (Poly BL)
   N : Nat
   size_ok : ∀ X, X ∈ polys → 1 ≤ X.length ∧ X.length ≤ N
   nodup : ∀ X, X ∈ polys → X.Nodup
@@ -389,18 +393,17 @@ structure Z4BoxGas where
 
 def five3 : Q' := Q'.mkPos 5 3 (by decide)
 
-theorem pow_const_prodm (c : Q') : ∀ A : List PL, prodm (fun _ => c) A = c ^ A.length
+theorem pow_const_prodm (c : Q') : ∀ A : List (PL BL), prodm (fun _ => c) A = c ^ A.length
   | [] => rfl
   | _ :: A => by
     show c * prodm (fun _ => c) A = c ^ (A.length + 1)
     rw [pow_const_prodm c A]; rfl
 
 /-- **`hgroup` closed (PROVED).** -/
-theorem z4_hgroup (B : Z4BoxGas) (a : Poly) :
+theorem z4_hgroup (hD : BL.D = 24) (d : PL BL) (B : Z4BoxGas BL) (a : Poly BL) :
     prodm (fun x => 1 + etaZ ^ sz x) (B.polys.filter (shareB a)) ≤ five3 ^ sz a := by
   let L := B.polys.filter (shareB a)
-  let d : PL := ((0, 0, 0, 0), YMGap.Continuum.ClusterCount4DProgress.Z4Plane.p01)
-  have hf : ∀ x, (1 : Q') ≤ 1 + etaZ ^ sz x :=
+  have hf : ∀ x : Poly BL, (1 : Q') ≤ 1 + etaZ ^ sz x :=
     fun x => Q'.add_le_self_of_nonneg _ _ (Q'.pow_nonneg _ (by decide) _)
   have hasg : ∀ x, x ∈ L → asg a d x ∈ a := fun x hx => (asg_spec a d x (mem_filter' _ hx).2).2
   refine Q'.le_trans' _ _ _ (group_le _ hf (asg a d) a L hasg) ?_
@@ -413,7 +416,7 @@ theorem z4_hgroup (B : Z4BoxGas) (a : Poly) :
       have hq : asg a d X = q := by simpa using h1.2
       exact ⟨h2.1, hq ▸ (asg_spec a d X h2.2).1⟩
     have hS : sumd δ Lq ≤ geoS B.N :=
-      class_sum q B.N Lq (pairwise_filter _ _ (pairwise_filter _ _ B.distinct))
+      class_sum hD q B.N Lq (pairwise_filter _ _ (pairwise_filter _ _ B.distinct))
         (fun X hX => ⟨rfl, (hmemB X hX).2, B.nodup X (hmemB X hX).1, B.conn X (hmemB X hX).1⟩)
         (fun X hX => B.size_ok X (hmemB X hX).1)
     have hS3 : sumd δ Lq ≤ third := Q'.le_trans' _ _ _ hS (geom_quarter B.N)
@@ -434,18 +437,27 @@ theorem z4_hgroup (B : Z4BoxGas) (a : Poly) :
 
 /-- **Unconditional Z4 KP (PROVED).** For every box polymer system and every activity with
 `|z X| ≤ (1/10000)^{|X|}`. -/
-theorem z4_kp (B : Z4BoxGas) (z : Poly → Q')
+theorem deg24_kp (hD : BL.D = 24) (d : PL BL) (B : Z4BoxGas BL) (z : Poly BL → Q')
     (hz1 : ∀ X, (0 : Q') ≤ z X + epsZ ^ sz X) :
     ((0 : Q') ≤ Xi z shareB B.polys ∧
       ∀ p b r, B.polys = p ++ b :: r →
         Xi z shareB (p ++ r) ≤ (1 + etaZ ^ sz b) * Xi z shareB B.polys) ∧
     (1 : Q') ≤ prodm (fun x => 1 + etaZ ^ sz x) B.polys * Xi z shareB B.polys := by
-  have hc := z4_cond shareB sz sz_pos B.polys (fun a => z4_hgroup B a)
-  have hm : ∀ x, (1 : Q') ≤ 1 + etaZ ^ sz x :=
+  have hc := z4_cond shareB sz sz_pos B.polys (fun a => z4_hgroup hD d B a)
+  have hm : ∀ x : Poly BL, (1 : Q') ≤ 1 + etaZ ^ sz x :=
     fun x => Q'.add_le_self_of_nonneg _ _ (Q'.pow_nonneg _ (by decide) _)
-  have he : ∀ a, (0 : Q') ≤ epsZ ^ sz a := fun a => Q'.pow_nonneg _ (by decide) _
+  have he : ∀ a : Poly BL, (0 : Q') ≤ epsZ ^ sz a := fun a => Q'.pow_nonneg _ (by decide) _
   exact ⟨kpw_main z shareB _ _ shareB_symm hm he hz1 B.polys hc.1 hc.2,
     kpw_lower z shareB _ _ shareB_symm hm he hz1 B.polys hc.1 hc.2⟩
+
+/-- **Unconditional Z4 KP on the corner-anchored box (PROVED)**: `deg24_kp` at `z4Chain`. -/
+theorem z4_kp (B : Z4BoxGas z4Chain) (z : Poly z4Chain → Q')
+    (hz1 : ∀ X, (0 : Q') ≤ z X + epsZ ^ sz X) :
+    ((0 : Q') ≤ Xi z shareB B.polys ∧
+      ∀ p b r, B.polys = p ++ b :: r →
+        Xi z shareB (p ++ r) ≤ (1 + etaZ ^ sz b) * Xi z shareB B.polys) ∧
+    (1 : Q') ≤ prodm (fun x => 1 + etaZ ^ sz x) B.polys * Xi z shareB B.polys :=
+  deg24_kp rfl ((0, 0, 0, 0), YMGap.Continuum.ClusterCount4DProgress.Z4Plane.p01) B z hz1
 
 end YMGap.Continuum.Z4PolymerKP
 
@@ -454,4 +466,5 @@ end YMGap.Continuum.Z4PolymerKP
 #print axioms YMGap.Continuum.Z4PolymerKP.pigeon
 #print axioms YMGap.Continuum.Z4PolymerKP.class_sum
 #print axioms YMGap.Continuum.Z4PolymerKP.z4_hgroup
+#print axioms YMGap.Continuum.Z4PolymerKP.deg24_kp
 #print axioms YMGap.Continuum.Z4PolymerKP.z4_kp
