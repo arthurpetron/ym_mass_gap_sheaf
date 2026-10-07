@@ -4,7 +4,17 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 18, the pair-kernel bound at w₀ (2026-10-07 PT)
+## Latest proved increment: R1 commit 19, truncated χ₁ correlator decay at w₀ (2026-10-07 PT)
+
+- `SU2TruncDecay.trunc_decay` (PROVED, axioms [propext, Quot.sound]).
+  - Setting: torus, w₀ = 10⁻⁸, uniform in N, M and P.
+  - Statement: `|Zpq·Z − Zp·Zq| ≤ λ^{ld(q,p)}·(C·Z²)`, where λ = 6/7, Z = the heat-kernel partition function, and Zp, Zq, Zpq are the χ₁-insertion combinations of `trunc_eq_Xi`.
+  - `C = Ctr = 2·D1²·K² + D2·K` ≈ 2.4·10⁴⁶, where K = (5/3)^24, D1 = D + 1, D2 = D² + 2D + 1 and D = 514·10¹⁵.
+  - d = ld(q,p) is the torus ℓ∞ plaquette distance (`torusMetric`).
+- Labels: strong coupling, heat-kernel (spin-truncated), not Wilson; also true for U(1), not gap evidence.  This is decay of a plaquette-character correlator, not a mass gap.
+- RP and the transfer matrix are owned by YM Group Realizer (`SU2TorusRPWilson`).
+
+## Earlier proved increment: R1 commit 18, the pair-kernel bound at w₀ (2026-10-07 PT)
 
 - `SU2PairKernel.kernel_bound` (PROVED, axioms [propext, Quot.sound]).
   - Statement: for gas polymers a ∋ p and b ∋ q, `|K(a,b)| ≤ 2·λ^{ld(q,p)} μ^{|a|} μ^{|b|}·M_b M_a²·Ξ²`, with λ = 6/7, μ = 7/6 and M = (5/3)^{24|·|}.

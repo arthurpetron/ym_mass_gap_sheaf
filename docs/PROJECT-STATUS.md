@@ -6482,3 +6482,5 @@ arbitrary disjoint link-block supports.
 `SU2ObsActivity` (2026-10-07): R1 commit 17.  Observable-activity bounds and rooted sums at w₀.
 
 `SU2PairKernel` (2026-10-07): R1 commit 18.  The pair-kernel bound.
+
+`SU2TruncDecay` (2026-10-07): R1 commit 19.  `|Zpq Z − Zp Zq| ≤ (6/7)^d · C · Z²` at w₀, uniform in N and M (heat-kernel, not Wilson).

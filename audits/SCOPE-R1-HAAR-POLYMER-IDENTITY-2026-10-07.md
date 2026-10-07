@@ -146,3 +146,8 @@ No fail statement is given: the ℓ¹ envelope is an upper bound, not the true a
 ## PROVED: commit 18, `SU2PairKernel.lean`
 
 - The pair-kernel bound.
+
+## PROVED: commit 19, `SU2TruncDecay.lean`
+
+- Truncated χ₁ correlator decay at w₀, uniform in N and M.
+- OPEN: the Wilson analogue; ratio form (divide by Z²; Z > 0 is available from `env_w0`); the wH version.
