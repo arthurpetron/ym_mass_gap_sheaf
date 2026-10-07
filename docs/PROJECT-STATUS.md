@@ -6398,3 +6398,7 @@ OPEN; a different method is needed.
 `SignedPolymerKP` (2026-10-07): finite signed KP over Q'. It gives volume-uniform per-polymer
 bounds M^{-|Λ|} ≤ Ξ ≤ (1+εM^D)^{|Λ|} and the removal ratio ≤ M. Group-blind plumbing; decay of
 truncated correlations and the identification with the repo's slab expansion stay OPEN.
+
+`SignedPolymerDecoupling` (2026-10-07): exact factorization and truncated correlation = 0 at
+infinite distance. Finite-d decay is OPEN. The Z4 animal count (K = 625) is already provided by
+`ClusterCount4DProgress`.

@@ -4,7 +4,16 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: finite signed-activity Kotecký–Preiss bound (2026-10-07 PT)
+## Latest proved increment: exact decoupling of the signed polymer gas (2026-10-07 PT)
+
+- `SignedPolymerDecoupling` (PROVED, GROUP-BLIND PLUMBING):
+  - `Xi_append_decoupled`: Ξ(Λ₁++Λ₂) ≈ Ξ(Λ₁)Ξ(Λ₂) for mutually compatible lists.
+  - `truncated_zero_of_decoupled`: the truncated two-point quantity vanishes at d = ∞.
+- OPEN: the finite-distance decay C(εM^D)^d.
+- The Z4 animal count already exists (`ClusterCount4DProgress.z4Chain`, D = 24, K = 625); no
+  new code was added for it.
+
+## Earlier proved increment: finite signed-activity Kotecký–Preiss bound (2026-10-07 PT)
 
 - `SignedPolymerKP` (PROVED, GROUP-BLIND PLUMBING): an abstract finite polymer gas with signed
   activities |z| ≤ ε and incompatibility degree ≤ D, under M ≥ 1, Mε·M^D ≤ M−1 and εM^D ≤ 1.

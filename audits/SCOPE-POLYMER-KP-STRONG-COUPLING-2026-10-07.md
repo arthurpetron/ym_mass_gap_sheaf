@@ -61,3 +61,26 @@ Example: D = 24, M = 2 needs ε·2^{24} ≤ 1/2, i.e. ε ≤ 2^{-25}.
    Z4 animal count.
 4. Feeding the result into a width-uniform transfer margin, via a clustering ⇒ gap bridge
    (`ClusteringImpliesGap`, `ClusterGapReduction`).
+
+## Update (2026-10-07): items 2 and 3
+
+- **Item 2 (decay), partial.** `SignedPolymerDecoupling`:
+  - `Xi_append_decoupled`: if Λ₁ and Λ₂ are mutually compatible, then Ξ(Λ₁++Λ₂) ≈ Ξ(Λ₁)Ξ(Λ₂).
+  - `truncated_zero_of_decoupled`: Ξ(Λ∖A∖B)Ξ(Λ) ≈ Ξ(Λ∖A)Ξ(Λ∖B) when A touches only Λ₁ and
+    B touches only Λ₂.
+  - This is clustering at d = ∞ only.
+  - Still OPEN: the finite-d bound C(εM^D)^d.
+    - Head-peeling does not close on the truncated quantity. With c ∉ A∪B, the expansion is
+      Δ(c::l) = Δ(l) + z_c·[mixed cross terms] + z_c²·Δ(l∖N(c)), and the cross terms are not
+      of Δ form.
+    - Plan: either a ratio-Lipschitz induction (R_A = Ξ(Λ∖A)/Ξ(Λ) telescoped as products of
+      1/(1+z_c R_{N(c)}), with Lipschitz constant ≤ M², giving δ_d ≤ (D ε M²)·δ_{d−1}), or a
+      replica (doubled-gas) swap argument.
+- **Item 3 (Z4 animal count): already in the repo, no new code.**
+  - `ClusterCount4DProgress.z4Chain` is a genuine BddLattice on Z≥0⁴ plaquettes (corner-anchored
+    box, not a torus), with degree D = 24 (`z4Nbrs_length`, `z4_sound`).
+  - `z4ClusterCountBound` gives animalCount n ≤ 625^n (K = (D+1)²).
+  - `z4ClusterCountBound_animal` carries the unconditional overcount via `AdjSpanningBuild`.
+  - The torus version is not instantiated.
+  - Linking this count to `SignedPolymerKP` needs the size-weighted KP (item 1), because the
+    polymer incompatibility degree is unbounded.
