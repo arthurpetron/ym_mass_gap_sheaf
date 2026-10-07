@@ -124,3 +124,8 @@ No fail statement is given: the ℓ¹ envelope is an upper bound, not the true a
 - c₀χ ≅ χ factorisation proved (not docs-only).  One-root decomposition.
 - Open for the correlator bound: the two-root expansion and a chain bound for T(y,g)=Ξ(l)Ξ(l_yg)−Ξ(l_y)Ξ(l_g).  chain_bound cannot be reused with activity-1 roots, because KP fails at the roots.  The w_H modified activities are also open.
 - Next big item: RP plus a transfer matrix for the torus polyPartition.
+
+## PROVED: commit 14, `PolymerRemovalChain.lean`
+
+- T(y,g) bound by D-telescoping started from the y and g neighbourhoods; no KP at the roots.
+- Strong coupling, heat-kernel, U(1)-true.

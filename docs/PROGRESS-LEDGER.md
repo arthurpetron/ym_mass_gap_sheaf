@@ -4,7 +4,16 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 13, (1+χ)(c₀+f) factorisation and the one-root formula (2026-10-07 PT)
+## Latest proved increment: R1 commit 14, generic removal chain bound T(y,g) without KP at the roots (2026-10-07 PT)
+
+- `PolymerRemovalChain` (PROVED, axioms ⊆ {propext, Quot.sound}).
+  - Statement: `T_bound : farW y f r g → Good Γ l → |Ξ(l)Ξ(l_{g,y}) − Ξ(l_y)Ξ(l_g)| ≤ M_y·BW f r g·Ξ(l)²`.
+  - Generic: the activity enters only via |z| ≤ ε plus the KP environment on Γ-lists.  y and g are arbitrary, with no KP condition at them.
+  - Proof: D-telescoping on the removal form `Dr`, via `Vr_eqv`/`Vr_inc`.
+  - `BW_le`: ε_g m_g BW ≤ CSW, so the lattice-decay bounds transfer.
+- Labels: strong coupling, heat-kernel (spin-truncated), not Wilson; also true for U(1), not gap evidence.
+
+## Earlier proved increment: R1 commit 13, (1+χ)(c₀+f) factorisation and the one-root formula (2026-10-07 PT)
 
 - `SU2ObsRoot` (PROVED, axioms ⊆ {propext, Quot.sound}).
   - `obs_factor`: (1+χ)(c₀+f) ≅ c₀+(f+χ+χf), using c₀ ≈ 1 (the c₀χ ≅ χ identification).
