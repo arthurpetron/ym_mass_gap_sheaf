@@ -4,7 +4,16 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: W = 1 strong-coupling perturbation bound, vacuum-defect audit (2026-10-06 PT)
+## Latest proved increment: W = 1 model with vacuum coupling and full spin tail; dense n×n Schur test; vacuity sweep (2026-10-07 PT)
+
+- `W1VacuumTailRowSum`: `triForm_le` (infinite tridiagonal row-sum test on finitely supported
+  sequences), `excitedForm_bound` (χ₀⊥ form ≤ (w^12+κw^22)‖x‖², all spins), certified at
+  κ = 1/4 for w = 1/1024 and 1/2; `vacuum_rayleigh`; `schurN` (dense n×n). Min-max is cited, not
+  formalized. MODEL.
+- Docs: work_plan Milestone 11.16 DONE → PARTIAL; M4 narrative and `OpenPhysicalWilsonBridge`
+  annotated VACUOUS for operators with a vacuum.
+
+## Earlier proved increment: W = 1 strong-coupling perturbation bound, vacuum-defect audit (2026-10-06 PT)
 
 - `W1StrongCouplingPerturbation`: `cs3`, `schur3` (operator-norm row-sum test, plumbing);
   `w1_norm_bound_1024`, `w1_norm_bound_half`: ‖Tx‖ ≤ (w^12 + w^22)‖x‖ on the model's

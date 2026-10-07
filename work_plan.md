@@ -48737,6 +48737,12 @@ The execution phases are:
    pinned to the selected OS functional, a concrete time translation is
    selected on the completed Wilson GNS carrier, and its operator-form gap is
    required to use exactly the OS bundle's model and separator.
+   [2026-10-06 note: the `WilsonCharacterOS4Pin` / `WilsonCharacterSquarePin` /
+   `WilsonOperatorNormGapHandoff` constructors route through
+   `physicalCharacterDiagResolution` and `wilsonTransferSpectralBridge`; they are
+    **VACUOUS for operators with a vacuum, see audit** (`audits/AUDIT-CHARACTER-DIAG-RESOLUTION-VACUUM-2026-10-06.md`).
+   M4's status (inhabitation OPEN) is unchanged, but these constructors are not a
+   viable inhabitation route as stated.]
    `WilsonCharacterOS4Pin` now reduces that form-gap field to the finite
    physical character-coordinate map and its two Schur diagonal identities,
    together with explicit fieldwise pins identifying the finite model and
@@ -53017,7 +53023,7 @@ than a structural demo.
 >    (`UniformCouplingFromAF.TrueMarginRecursion` — the genuine
 >    dimensionless `Δ_k = m_lat(a_k)/a_k`, DISTINCT from the proved
 >    survival-product surrogate), `OpenPhysicalWilsonBridge`
->    (`WilsonSpectralBridge.CharacterDiagResolution`),
+>    (`WilsonSpectralBridge.CharacterDiagResolution`; 2026-10-06:**VACUOUS for operators with a vacuum, see audit** (`audits/AUDIT-CHARACTER-DIAG-RESOLUTION-VACUUM-2026-10-06.md`)),
 >    `OpenBoundedHamiltonian`
 >    (`BoundedFunctionalCalculusResidual`, `e^{−H} = T`), and
 >    `OpenContinuumMinlos`. These overlap the Tier-0 atoms (Minlos
@@ -54281,7 +54287,7 @@ identified with the graded bond-moving defect `≤ (1−w_k)²` from the
 
 ### Milestone 11.16 — The physical Wilson / Peter–Weyl bridge
 
-**Status.** DONE (2026-07-03, single-bond + reduction) — `Continuum/PhysicalWilsonBridge.lean`: `physicalWilsonPeterWeyl` CLOSES the single bond (physical `cinner` = char-diagonal) modulo the sole primitive `AngleCosineIntegral` (∫cos kθ = πδ); the K-fold product assembly (`cprod_physPairing_diag/offdiag`) is proved; arbitrary-x `CharacterDiagResolution` REDUCED to (A) `PhysicalCharacterCoordinateMap` + (B) `HeatKernelReferenceWeight`. FINDING: the EQUALITY form is structurally UNSATISFIABLE (rational `E_Λ` vs irrational `reflWeight=e^{−tC₂}`) → DOMINATION is the right bridge.
+**Status.** PARTIAL (downgraded 2026-10-06 from DONE). Single-bond computation stands; the arbitrary-x `CharacterDiagResolution` reduction is  **VACUOUS for operators with a vacuum, see audit** (`audits/AUDIT-CHARACTER-DIAG-RESOLUTION-VACUUM-2026-10-06.md`): its Parseval fields range over excited modes for ALL x, forcing ⟨Tx,x⟩ ≤ w³⟨x,x⟩ everywhere, so no operator with a normalized fixed vacuum inhabits it (only `charTransfer`, `vacuum := 0`). Replacement: `SpecMaxRateFamily.CharacterDiagNormResolution` (restricted to vac⊥). Original status text: DONE (2026-07-03, single-bond + reduction) — `Continuum/PhysicalWilsonBridge.lean`: `physicalWilsonPeterWeyl` CLOSES the single bond (physical `cinner` = char-diagonal) modulo the sole primitive `AngleCosineIntegral` (∫cos kθ = πδ); the K-fold product assembly (`cprod_physPairing_diag/offdiag`) is proved; arbitrary-x `CharacterDiagResolution` REDUCED to (A) `PhysicalCharacterCoordinateMap` + (B) `HeatKernelReferenceWeight`. FINDING: the EQUALITY form is structurally UNSATISFIABLE (rational `E_Λ` vs irrational `reflWeight=e^{−tC₂}`) → DOMINATION is the right bridge.
 
 **Goal.** Retire `OpenPhysicalWilsonBridge`: prove the Peter–Weyl /
 Schur diagonalization **inside the actual physical inner product** —

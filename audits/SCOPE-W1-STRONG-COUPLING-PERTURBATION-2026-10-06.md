@@ -53,3 +53,22 @@ Lean: `Continuum/W1StrongCouplingPerturbation.lean`.  **MODEL, not the true slab
 `cs3` and `schur3` are U(1)-blind plumbing.  With U(1) characters (`e^{inθ}`, c4 → n²,
 fusion `χ₁χ_n = χ_{n±1}`) the same bound holds, with λ_lead = w^4.  The result is
 strong-coupling only.  It makes no large-β claim, so the U(1) rule refutes nothing.
+
+## Update: vacuum coupling and tail included (`W1VacuumTailRowSum`)
+
+- Operator: the infinite symmetric tridiagonal T on all spins s ≥ 0, including the vacuum,
+  with `e s = w^{4c4(s)}` (e 0 = 1) and `c s = κ w^{2c4(s)+2c4(s+1)}` (c 0 = κw⁶ ≠ 0).
+- Type: sequences `Nat → Q'`, cut off at an arbitrary n (all finitely supported vectors).
+- `triForm_le` (infinite row-sum test, PROVED) gives `excitedForm_bound`: for x ⊥ χ₀,
+  ⟨x,Tx⟩ ≤ (w^{12} + κw^{22})‖x‖² for ALL spins.  The hypothesis is
+  w^{32} + κw^{22} ≤ w^{12}.  It is certified at κ = 1/4 for w = 1/1024 and w = 1/2.
+- `vacuum_rayleigh`: ⟨χ₀,Tχ₀⟩ = 1.
+- True eigenvalue split: by Courant–Fischer (cited, not formalized), every finite section
+  has λ₁ ≥ 1 and λ₂ ≤ w^{12} + κw^{22}.  This holds although the top eigenvector is not χ₀.
+- Still OPEN:
+  - the min-max theorem itself (not formalized);
+  - the passage from finitely supported vectors to ℓ² (density/closure);
+  - the non-linearized magnetic weight;
+  - the identification of this model with the true slab;
+  - W = 2 (6j), deferred for review.
+- `schurN`: dense n×n row-sum form test (PROVED, plumbing).

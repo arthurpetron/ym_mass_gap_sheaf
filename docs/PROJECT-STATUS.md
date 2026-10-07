@@ -6370,3 +6370,18 @@ linear pin or any analytic certificate. The focused check remains
 | 1 / 196 | 2026-09-27 | Eliminated the matched path's independent finite-prefix/full-log ceiling input by connecting `fullRangeLogRateCeilingOfPhysicalRateBand` to `toFullRangeLogRateCeiling_ofStrengthBandComputed`, then threading it through the exact separator, cutoff-removal, and continuum-handoff adapters. Physical-gap variation, exact-rate reconstruction, projective/OS data, continuum/QFT, physical-mass, every-group, and Clay inputs remain open. Focused check: 5,243 jobs, `{propext, Quot.sound}`, no `sorryAx`. |
 | 1 / 197 | 2026-09-27 | Replaced the matched path's primitive physical-gap/reciprocal-spacing variation seam by the smaller `SummableRationalStepVariation (rescaledStrength ...)` interface. Added `toExactRateCutoffRemoval_ofRescaledStrengthAndComputedCeiling` and `toContinuumHandoff_ofRescaledStrengthAndComputedCeiling`, preserving the same observable and completed carrier while leaving the scaling witness, rescaled-strength variation, exact-rate reconstruction, projective/OS data, continuum/QFT, physical-mass, every-group, and Clay inputs open. Focused check: 5,243 jobs, `{propext, Quot.sound}`, no `sorryAx`. |
 | 1 / 198 | 2026-09-27 | Added same-carrier primitive-factorization adapters for independent physical-gap plus normalized-strength variations, and for literal ray-capacity plus finite-sector mass-floor plus physical-gap variations: `toExactRateCutoffRemoval_ofPhysicalGapAndStrengthAndComputedCeiling`, `toContinuumHandoff_ofPhysicalGapAndStrengthAndComputedCeiling`, and the two corresponding `...ofRayCapacityAndMassFloorAndPhysicalGapAndComputedCeiling` declarations. All variation, scaling, exact-rate reconstruction, projective/OS, continuum/QFT, physical-mass, every-group, and Clay inputs remain open. Focused check: 5,243 jobs, `{propext, Quot.sound}`, no `sorryAx`. |
+
+## 2026-10-06 vacuity sweep (CharacterDiagResolution chain)
+
+`wilsonTransferSpectralBridge`, `wilsonTransferFormGap`, `wilsonCharacterDiagResolution`,
+`physicalCharacterDiagResolution`, `WilsonOperatorNormGapHandoff` and the
+`WilsonLinkedOSReconstruction` character pins are **VACUOUS for operators with a vacuum, see
+audit** (`audits/AUDIT-CHARACTER-DIAG-RESOLUTION-VACUUM-2026-10-06.md`).
+- No PROJECT-STATUS chart row rests on them; the B02–B04 and BF4 completed form gaps use
+  `Completion`, not this chain, and are unaffected.
+- work_plan Milestone 11.16 was downgraded DONE → PARTIAL; the M4 narrative and the
+  `OpenPhysicalWilsonBridge` token are annotated.
+
+`W1VacuumTailRowSum` (2026-10-07): the W=1 model with the vacuum coupling and all spins gives an excited
+form bound of w^12 + κw^22 (certified at κ=1/4, w=1/1024 and 1/2); dense n×n Schur test. MODEL; the
+min-max step is cited.
