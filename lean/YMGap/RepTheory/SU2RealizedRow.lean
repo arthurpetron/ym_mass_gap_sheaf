@@ -48,6 +48,7 @@ import YMGap.Continuum.BF4GeometricHaarMehlerProjection
 import YMGap.Continuum.SU2QuaternionRelativeCharacterCasimir
 import YMGap.Continuum.SU2QuaternionConditionalHeatGenerator
 import YMGap.Continuum.ChebyshevBound
+import YMGap.Continuum.BF4CompactActionCPOrder
 
 namespace YMGap.RepTheory.SU2Realized
 
@@ -223,6 +224,75 @@ convention making `A₁` fundamental `3/4`).  Uniqueness of `lam` (needs
 def realizedCasimir (s : SU2.Spin) : Q' :=
   (-(casimirReading s).lam) * Q'.mkPos 1 4 (by decide)
 
+
+/-! ### Uniqueness of the eigen-reading (well-definedness of `realizedCasimir`)
+
+Pairing the eigen-identity with `χ_s` itself gives `lam · N_s ≈ lam' · N_s`,
+`N_s = ∫ χ_s · χ_s` on the two-block Haar carrier.  So the reading is unique
+whenever `N_s ≉ 0`.  We prove `N_1 ≈ 1` and `N_2 ≈ 1` by exact evaluation, which
+makes `realizedCasimir 1` and `realizedCasimir 2` (the ones used by the row)
+well-defined.  The general `N_s ≈ 1` (Schur orthonormality for all `s`) is
+not proved here. -/
+
+/-- Self-pairing of the relative character. -/
+def selfPairing (s : SU2.Spin) : Q' :=
+  quaternionHaar 2 (polyMul (relativeCharacter s) (relativeCharacter s))
+
+private theorem cancel_right {a b N : Q'} (hN : ¬ N.eqv 0) (h : (a * N).eqv (b * N)) :
+    a.eqv b := by
+  have hn : N.num ≠ 0 := by
+    intro h0; apply hN; show N.num * 1 = 0 * (N.den : Int); rw [h0]; simp
+  have hd : (N.den : Int) ≠ 0 := by have := N.den_pos; omega
+  unfold Q'.eqv at h ⊢
+  have h' : (N.num * (N.den : Int)) * (a.num * (b.den : Int)) =
+      (N.num * (N.den : Int)) * (b.num * (a.den : Int)) := by
+    have e : (a * N).num * ((b * N).den : Int) = (b * N).num * ((a * N).den : Int) := h
+    have da : ((a * N).den : Int) = (a.den : Int) * (N.den : Int) := by
+      show (((a.den * N.den - 1) + 1 : Nat) : Int) = _
+      have := Nat.mul_pos a.den_pos N.den_pos
+      rw [Nat.sub_add_cancel this]; push_cast; rfl
+    have db : ((b * N).den : Int) = (b.den : Int) * (N.den : Int) := by
+      show (((b.den * N.den - 1) + 1 : Nat) : Int) = _
+      have := Nat.mul_pos b.den_pos N.den_pos
+      rw [Nat.sub_add_cancel this]; push_cast; rfl
+    rw [da, db] at e
+    change (a.num * N.num) * ((b.den : Int) * N.den) = (b.num * N.num) * ((a.den : Int) * N.den) at e
+    simp only [Int.mul_assoc, Int.mul_comm, Int.mul_left_comm] at e ⊢
+    exact e
+  exact Int.eq_of_mul_eq_mul_left (Int.mul_ne_zero hn hd) h'
+
+/-- **Uniqueness**: two eigen-readings agree whenever `N_s ≉ 0`. -/
+theorem casimirReading_unique {s : SU2.Spin} (hN : ¬ (selfPairing s).eqv 0)
+    (r r' : CasimirReading s) : r.lam.eqv r'.lam := by
+  have e := r.eigen (relativeCharacter s)
+  have e' := r'.eigen (relativeCharacter s)
+  have h1 := YMGap.Continuum.BF4CompactActionCPOrder.quaternionHaar_polyMul_smul_right 2 r.lam
+    (relativeCharacter s) (relativeCharacter s)
+  have h2 := YMGap.Continuum.BF4CompactActionCPOrder.quaternionHaar_polyMul_smul_right 2 r'.lam
+    (relativeCharacter s) (relativeCharacter s)
+  have k : (r.lam * selfPairing s).eqv (r'.lam * selfPairing s) :=
+    Q'.eqv_trans _ _ _ (Q'.eqv_symm h1)
+      (Q'.eqv_trans _ _ _ (Q'.eqv_symm e) (Q'.eqv_trans _ _ _ e' h2))
+  exact cancel_right hN k
+
+/-- `N_1 ≈ 1` (exact evaluation). -/
+theorem selfPairing_one : (selfPairing 1).eqv 1 := by decide
+
+set_option maxRecDepth 100000 in
+/-- `N_2 ≈ 1` (exact evaluation). -/
+theorem selfPairing_two : (selfPairing 2).eqv 1 := by decide
+
+theorem realizedCasimir_two_welldefined (r : CasimirReading 2) :
+    r.lam.eqv (casimirReading 2).lam :=
+  casimirReading_unique (fun h => absurd (Q'.eqv_trans _ _ _ (Q'.eqv_symm selfPairing_two) h)
+    (by decide)) r _
+
+/-- The realized Casimirs used by the row are independent of the reading. -/
+theorem realizedCasimir_one_welldefined (r : CasimirReading 1) :
+    r.lam.eqv (casimirReading 1).lam :=
+  casimirReading_unique (fun h => absurd (Q'.eqv_trans _ _ _ (Q'.eqv_symm selfPairing_one) h)
+    (by decide)) r _
+
 /-- The dimension-normalized `RepData` row whose Casimirs are read from the realized characters
 (fund = spin ½, `s = 1`; adjoint = spin 1, `s = 2`).  The remaining fields are
 copied operating-point literals from `su2`. -/
@@ -247,3 +317,7 @@ end YMGap.RepTheory.SU2Realized
 #print axioms YMGap.RepTheory.SU2Realized.su2_row_of_realized
 #print axioms YMGap.RepTheory.SU2Realized.relativeCharacter_eq_spinCharacter
 #print axioms YMGap.RepTheory.SU2Realized.eval_relativeScalar
+#print axioms YMGap.RepTheory.SU2Realized.casimirReading_unique
+#print axioms YMGap.RepTheory.SU2Realized.selfPairing_one
+#print axioms YMGap.RepTheory.SU2Realized.realizedCasimir_one_welldefined
+#print axioms YMGap.RepTheory.SU2Realized.realizedCasimir_two_welldefined
