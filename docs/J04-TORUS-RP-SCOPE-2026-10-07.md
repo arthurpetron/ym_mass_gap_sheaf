@@ -2,9 +2,11 @@
 
 This doc covers the RP row of `audits/SCOPE-R1-CLUSTER-TO-GAP-2026-10-07.md`. The measure is
 `SU2TorusMultiLinkPolyGibbs` (`quaternionHaar n` = `multiLinkHaar n`, weights `Π_p W_p`). It is NOT the BF4 slab law.
-**STATUS: RP FOR THE ACTUAL TORUS MEASURE IS OPEN.** What is proved is the abstract half-split statement
-(`rp_full`, `wilson_rp_full`), with the factorization `hW` as a HYPOTHESIS. The bridge that discharges `hW` for
-the torus Wilson integrand has not landed.
+**STATUS (e3): `hW` IS DISCHARGED for its target `TorusRP`** (`SU2TorusRPHW.torus_rp`, axioms
+[propext, Quot.sound]). This is RP on `torusLinks (2M)` for the torus `T_K` integrand
+`Π_{torusPlaquettes} T_K`, where `T_K` is the degree-`K` `wilsonA` character polynomial of the Wilson weight. It holds
+for every `K` and every `β ≥ 0`, with Θ = `thetaPoly` and polynomial observables (`Obs`) on positive links.
+**Not covered:** the untruncated Wilson Boltzmann weight (`K → ∞`), and observables outside the `Obs` syntax.
 The Wilson statements hold for every β ≥ 0 (β-uniform; no strong-coupling label). By itself RP is not gap
 evidence. The heat kernel is set aside; Wilson is the target action.
 
@@ -78,8 +80,8 @@ The crossing scalar is `Re(U V*) = Σ_{c<4} u_c v_c`, a sum of Θ-symmetric prod
 | quaternion-product crossing kernels, `T_K` congruence, generalized RP | PROVED (`SU2TorusRPKernel.rpk_qdot`, `rpk_cut1`, `wilson_rp_qfull`; `hW` still a hypothesis) |
 | `hperm`: torus plaquettes ~ `posT ++ posT.map mir ++ crossT` | PROVED (`SU2TorusRPPlaqSplit.plaq_perm`, d9r–d9t) |
 | torus-order ↔ layout-order integral with observable | PROVED (`SU2TorusRPTorusX.torus_X`, `SU2TorusRPTorusZ.torus_Z`, d9u–d9z'') |
-| reflection matching `rcomp r (Θ_torus G · G) ≡ layout RP form` | OPEN |
-| `hW` (target: `T_K` with `wilsonA`, matching `SU2TorusRPKernel` `tkProd`) | STATED (`SU2TorusRPObs.TorusRP`), OPEN |
+| reflection matching `rcomp r (Θ_torus G · G) ≡ layout RP form` | PROVED (`SU2TorusRPMatch`, used in `torus_rp`) |
+| `hW` (target: `T_K` with `wilsonA`, matching `SU2TorusRPKernel` `tkProd`) | PROVED (`SU2TorusRPHW.torus_rp : TorusRP`) |
 | `D^s` matrix coefficients in real form | MISSING. Needed only for the heat kernel. |
 
 ## Heat-kernel plan
@@ -440,4 +442,13 @@ variables.
 
 Axioms [propext, Quot.sound]. Open: the assembly into `TorusRP`. The layout Θ (`thetaH`) is `ThetaLike` at `a+a`
 blocks while the integral is over `|L|` blocks, so the gap must be bridged with `pe_lift`/`haar_drop'`.
-RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
+
+## e3: `hW` discharged (`SU2TorusRPHW.torus_rp`)
+
+`torus_rp hM hβ K : TorusRP hM β K`. The chain: `torus_X` (to layout order); `rcomp_pe`, `like_obs` with
+`thetaT_like`, `sub_evalI` with `rcomp_imgR`, and `rcomp_obs` (Θ matching on the torus side); `haar_drop'` (`|L|` to
+`a+a` blocks); `like_obs` with `thetaH_like`/`lay_HD` (layout Θ); and `torus_rp_lay`. Axioms [propext, Quot.sound].
+Scope: the degree-`K` `T_K` (`wilsonA`) torus integrand and `Obs` observables on positive links. The
+untruncated Wilson weight is not covered.
+
+RP FOR THE TORUS T_K MEASURE (TorusRP) IS PROVED; RP FOR THE UNTRUNCATED WILSON MEASURE (K → ∞) IS OPEN.
