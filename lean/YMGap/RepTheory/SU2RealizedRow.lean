@@ -27,11 +27,10 @@ the dimensions `s+1`) from objects that already exist in the repository:
   `sin((s+1)θ)/sin θ`; that trigonometric identity is *not* formalized.  What
   is proved is `dimension_eq` (value `s+1` at the identity) and the sign
   parity at `-1`.
-* The Casimir value is taken from the proved Laplacian eigen-identity on the
-  Haar carrier for the polynomial `relativeCharacter s`
-  (`characterPolynomial`).  The identification of that polynomial with
-  `spinCharacter s` composed with the relative scalar is **not** proved here
-  (left open); both are `U_s` by construction in their respective files.
+* The Casimir value is read (`casimirReading`, `realizedCasimir`) from the
+  proved Laplacian eigen-identity for `relativeCharacter s`, and
+  `relativeCharacter_eq_spinCharacter` proves that polynomial evaluates to
+  `spinCharacter s (g₀ g₁⁻¹)` at every rational environment.
 * The conversion `C₂ = (eigenvalue of −Δ_{S³}) / 4` is a normalization
   convention (the one making `A₁` fundamental `3/4`), not a derived fact.
 * Only `C2_fund`, `C2_adj` are derived.  `g_sq`, `conv`, `rho_sf`, `eta_max`,
@@ -48,6 +47,7 @@ import YMGap.RepTheory.RationalQuaternionSignQuotient
 import YMGap.Continuum.BF4GeometricHaarMehlerProjection
 import YMGap.Continuum.SU2QuaternionRelativeCharacterCasimir
 import YMGap.Continuum.SU2QuaternionConditionalHeatGenerator
+import YMGap.Continuum.ChebyshevBound
 
 namespace YMGap.RepTheory.SU2Realized
 
@@ -117,9 +117,6 @@ theorem spinHalf_haar_orthonormal :
     (quaternionHaar 1 [([2], 4)]).eqv 1 := by
   decide
 
-/-- Realized Casimir from the Laplace eigenvalue `−s(s+2)`, normalized by `1/4`. -/
-def realizedCasimir (s : SU2.Spin) : Q' :=
-  (Q'.ofNat s * (Q'.ofNat s + 2)) * Q'.mkPos 1 4 (by decide)
 
 /-- The eigen-identity the Casimir is read from (re-exported). -/
 theorem realizedCasimir_source (s : SU2.Spin) :
@@ -128,7 +125,105 @@ theorem realizedCasimir_source (s : SU2.Spin) :
         (relativeCharacter s)) :=
   relativeCharacter_angularCasimir 2 s (by decide)
 
-/-- The `RepData` row whose Casimirs are read from the realized characters
+
+/-! ## (a) The relative character IS the spin character of `g₀ g₁⁻¹`
+
+`relativeCharacter s = characterPolynomial relativeScalar s`, where
+`relativeScalar` is the scalar part of the polynomial word `x₀ · conj x₁`.
+We show that at every rational environment `ρ` its value is
+`spinCharacter s (x₀(ρ) · conj x₁(ρ))` computed in `RationalQuaternion`.
+No trigonometric identity is needed: both sides are the same Chebyshev-`U`
+recursion (`Cheb.U` = `chebU`, proved below), and the only content is the
+Hamilton-product evaluation of the polynomial word. -/
+
+open YMGap.Continuum.BF4GeometricSpinNetworkMehler
+open YMGap.Continuum.SU2QuaternionWilsonWeightSOS
+open YMGap.Continuum.SU2QuaternionPolynomialHaarCarrier
+open YMGap.Continuum.RingNormaliser
+
+/-- Quaternion block `c` of an environment. -/
+def quatAt (rho : Nat → Q') (c : Nat) : RationalQuaternion :=
+  ⟨rho (4 * c), rho (4 * c + 1), rho (4 * c + 2), rho (4 * c + 3)⟩
+
+/-- The rational relative element `g₀ · g₁⁻¹ = x₀ · conj x₁`. -/
+def relativeElement (rho : Nat → Q') : RationalQuaternion :=
+  RationalQuaternion.mul (quatAt rho 0) (RationalQuaternion.conj (quatAt rho 1))
+
+theorem chebPair_eq_U (t : Q') : ∀ n, chebPair n t = (YMGap.Continuum.Cheb.U n t, YMGap.Continuum.Cheb.U (n + 1) t)
+  | 0 => rfl
+  | n + 1 => by
+      show ((chebPair n t).2, 2 * t * (chebPair n t).2 - (chebPair n t).1) = _
+      rw [chebPair_eq_U t n]
+      rfl
+
+theorem chebU_eq_U (n : Nat) (t : Q') : chebU n t = YMGap.Continuum.Cheb.U n t := by
+  show (chebPair n t).1 = _
+  rw [chebPair_eq_U]
+
+private theorem qmul {a a' b b' : Q'} (ha : a.eqv a') (hb : b.eqv b') : (a * b).eqv (a' * b') :=
+  Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ _ b ha) (Q'.mul_eqv_congr_left a' _ _ hb)
+
+theorem U_congr {a b : Q'} (h : a.eqv b) : ∀ n,
+    (YMGap.Continuum.Cheb.U n a).eqv (YMGap.Continuum.Cheb.U n b) ∧
+    (YMGap.Continuum.Cheb.U (n + 1) a).eqv (YMGap.Continuum.Cheb.U (n + 1) b)
+  | 0 => ⟨Q'.eqv_refl _, qmul (Q'.eqv_refl _) h⟩
+  | n + 1 => by
+      have ih := U_congr h n
+      refine ⟨ih.2, ?_⟩
+      rw [YMGap.Continuum.Cheb.U_succ_succ, YMGap.Continuum.Cheb.U_succ_succ]
+      exact Q'.add_eqv_congr' (qmul (qmul (Q'.eqv_refl _) h) ih.2)
+        (Q'.neg_eqv_congr _ _ ih.1)
+
+private theorem regroup (a b c d : Q') :
+    (a + -(b + (c + d))).eqv ((a + -b) + (-c + -d)) := by
+  refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr_left a _ _ (Q'.neg_add_eqv_split b (c + d))) ?_
+  refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr_left a _ _
+    (Q'.add_eqv_congr_left (-b) _ _ (Q'.neg_add_eqv_split c d))) ?_
+  exact Q'.eqv_symm (Q'.add_assoc_eqv a (-b) (-c + -d))
+
+/-- Evaluation of the polynomial relative scalar is the real part of the
+rational relative element. -/
+theorem eval_relativeScalar (rho : Nat → Q') :
+    (evalRatPoly rho relativeScalar).eqv (relativeElement rho).r := by
+  have hm := (evalPolyQuaternion_mul rho (PolyQuaternion.coordinateVariable 0)
+    (PolyQuaternion.conj (PolyQuaternion.coordinateVariable 1))).scalar
+  refine Q'.eqv_trans _ _ _ hm ?_
+  have v := fun i => evalRatPoly_var rho i
+  have n := fun i => Q'.eqv_trans _ _ _ (evalRatPoly_neg rho (polyVar i)) (Q'.neg_eqv_congr _ _ (v i))
+  refine Q'.eqv_trans _ _ _ ?_ (regroup _ _ _ _)
+  exact Q'.add_eqv_congr' (qmul (v 0) (v 4))
+    (Q'.neg_eqv_congr _ _ (Q'.add_eqv_congr' (qmul (v 1) (n 5))
+      (Q'.add_eqv_congr' (qmul (v 2) (n 6)) (qmul (v 3) (n 7)))))
+
+/-- **(a)** `relativeCharacter s` evaluates to `spinCharacter s (g₀ g₁⁻¹)` at
+every rational environment. -/
+theorem relativeCharacter_eq_spinCharacter (rho : Nat → Q') (s : SU2.Spin) :
+    (evalRatPoly rho (relativeCharacter s)).eqv (spinCharacter s (relativeElement rho)) := by
+  refine Q'.eqv_trans _ _ _ (eval_characterPolynomial rho relativeScalar s) ?_
+  show Q'.eqv _ (chebU s (relativeElement rho).r)
+  rw [chebU_eq_U]
+  exact (U_congr (eval_relativeScalar rho) s).1
+
+/-! ### Casimir read from the eigen-identity -/
+
+/-- An eigen-reading of the realized character: a scalar `lam` with
+`Δ_{S³} χ_s ≈ lam · χ_s` on the two-block Haar carrier. -/
+structure CasimirReading (s : SU2.Spin) where
+  lam : Q'
+  eigen : HaarCarrierEqv 2 (angularLaplacian (relativeCharacter s))
+    (YMGap.Continuum.SU2QuaternionPolynomialHaarCarrier.polySmul lam (relativeCharacter s))
+
+/-- The reading supplied by the proved eigen-identity. -/
+def casimirReading (s : SU2.Spin) : CasimirReading s :=
+  ⟨-(Q'.ofNat s * (Q'.ofNat s + 2)), relativeCharacter_angularCasimir 2 s (by decide)⟩
+
+/-- Realized Casimir: `−lam/4` of the eigen-reading (`1/4` = normalization
+convention making `A₁` fundamental `3/4`).  Uniqueness of `lam` (needs
+`∫ χ_s² ≠ 0`) is not proved here. -/
+def realizedCasimir (s : SU2.Spin) : Q' :=
+  (-(casimirReading s).lam) * Q'.mkPos 1 4 (by decide)
+
+/-- The dimension-normalized `RepData` row whose Casimirs are read from the realized characters
 (fund = spin ½, `s = 1`; adjoint = spin 1, `s = 2`).  The remaining fields are
 copied operating-point literals from `su2`. -/
 def rowOfRealized : RepData :=
@@ -150,3 +245,5 @@ end YMGap.RepTheory.SU2Realized
 #print axioms YMGap.RepTheory.SU2Realized.spinHalf_haar_orthonormal
 #print axioms YMGap.RepTheory.SU2Realized.realizedCasimir_source
 #print axioms YMGap.RepTheory.SU2Realized.su2_row_of_realized
+#print axioms YMGap.RepTheory.SU2Realized.relativeCharacter_eq_spinCharacter
+#print axioms YMGap.RepTheory.SU2Realized.eval_relativeScalar
