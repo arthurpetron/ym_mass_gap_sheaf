@@ -258,3 +258,16 @@ Open: iterating split_step over all crossing links (second step acts on the imag
 lemma or a simultaneous img), choosing multiplier blocks so that the result is in the L ++ Θ(L) layout, and the
 identification C Wc ≈PE tkProd(crossWord) feeding rp_cross_assembly.
 RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
+
+## d4f–d4h — simultaneous split chain and second-cut crossing words
+- d4f/d4g `chain_coord`, `split_chain`: one Haar-invariant chain of selected shears (per-step side, fixed orientation,
+  distinct selected blocks, never-selected multipliers) splits ALL crossing links of the actual Π T_K at once:
+  U_s ↦ M·U_s (left) or U_s·M (right).
+- d4h `cross_word_M`, `rpk_cross_M`: at the cut t = M (right split U = B·(ΘB)*, positive spatial link in the last
+  slot) the crossing T_K is an RPK, Y = B₂*P*B₁.
+- Layout plan (no reindex needed): links = pos ++ cross ++ map reflLink pos, blocks = 2a with a = |pos|+|cross|;
+  fresh multipliers for cross link j at index |pos|+j+a, added by haar_extend. Direct orientation, so that the
+  conjugation twist C turns U_m into (ΘB)*.
+Open: instantiate this layout for the concrete torus (Nodup/permutation to the integrand's link order), compute
+C on the split crossing words (→ crossWord / cross_word_M forms), and discharge the rp_cross_assembly hypotheses.
+RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
