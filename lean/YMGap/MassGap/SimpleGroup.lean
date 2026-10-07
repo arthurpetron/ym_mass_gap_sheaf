@@ -162,6 +162,10 @@ numeric fields.  Axiom-gate: `[propext]` / `[propext, Quot.sound]`
 (Q'-rational `decide` facts + the budget-closure `[propext]` + the trivial
 OS bridge). -/
 theorem mass_gap_simple_group_of_osReconstruction
+    -- UNBOUND (J04 T3): nothing in this signature ties `rec`, `μ_inf` or the
+    -- `HasSpectralGap rec` conjunct to the group behind `R`, and `m_0` is not
+    -- related to `rec.gapBound`.  See `mass_gap_simple_group_bound` for the
+    -- version that carries the binding as an explicit open hypothesis.
     (R : RepData) (hadm : AdmissibleSimpleGroup R) (w : UniformBudgetWitness R)
     {M : Nat → Type} {μ_inf : ContinuumMeasure M}
     (rec : OSReconstruction μ_inf) (bundle : OSAxiomBundle μ_inf) :
@@ -578,11 +582,56 @@ theorem mass_gap_SU2_via_uniform
       (∀ N, finSum (truncatedConst su2.K_steps su2.eta_max) N ≤ su2.sigma0) :=
   mass_gap_simple_group_of_osReconstruction su2 su2_admissible su2_uniform_witness rec bundle
 
+/-! ## J04 T3 — the bound-gap statement with an explicit open hypothesis
+
+`GroupBoundGap R rec WilsonOrigin` packages exactly the content that the legacy
+theorem leaves unbound:
+
+* a constructive-real rate `rate ≥ m_0_uniform` with `HasSpectralGapAt rec rate`
+  (the located-margin rate binding of `OSReconstruction.HasSpectralGapAt`);
+* `origin : WilsonOrigin R μ_inf` — the claim that the measure `μ_inf`
+  reconstructed by `rec` is the continuum limit of the Wilson lattice measure of
+  the compact simple group whose `RepData` row is `R`.
+
+`WilsonOrigin` is a **caller-supplied predicate**.  The repository constructs no
+compact group, Haar measure, or Wilson measure for a general `R`, so this
+predicate is an OPEN HYPOTHESIS: it is not defined, constructed or proved here,
+and any instance of `GroupBoundGap` currently must be assumed.  Nothing below
+discharges it; the theorem only refuses to state a gap without it. -/
+
+/-- The binding hypothesis for a group-pinned mass gap (open content). -/
+structure GroupBoundGap (R : RepData)
+    {M : Nat → Type} {μ_inf : ContinuumMeasure M}
+    (rec : OSReconstruction μ_inf)
+    (WilsonOrigin : RepData → ContinuumMeasure M → Prop) : Prop where
+  /-- Located-margin rate at least the uniform scalar `m_0`. -/
+  rate_exists : ∃ rate : CReal, CReal.ofQ' m_0_uniform ≤ rate ∧ HasSpectralGapAt rec rate
+  /-- OPEN: `μ_inf` is the Wilson measure of the group producing `R`. -/
+  origin : WilsonOrigin R μ_inf
+
+/-- **Bound conditional mass gap for a scalar row.**  Same budget transport as
+the legacy theorem, but the spectral-gap conjunct is the rate-bound
+`HasSpectralGapAt rec m` with `m ≥ m_0_uniform`, and the conclusion carries the
+Wilson-origin provenance of `μ_inf`.  All group content is in the hypothesis
+`hb`, which is open. -/
+theorem mass_gap_simple_group_bound
+    (R : RepData) (hadm : AdmissibleSimpleGroup R) (w : UniformBudgetWitness R)
+    {M : Nat → Type} {μ_inf : ContinuumMeasure M}
+    {rec : OSReconstruction μ_inf}
+    {WilsonOrigin : RepData → ContinuumMeasure M → Prop}
+    (hb : GroupBoundGap R rec WilsonOrigin) :
+    (∃ m : CReal, CReal.ofQ' m_0_uniform ≤ m ∧ HasSpectralGapAt rec m) ∧
+      WilsonOrigin R μ_inf ∧
+      (0 : Q') < m_0_uniform ∧
+      (∀ N, finSum (truncatedConst R.K_steps R.eta_max) N ≤ su2.sigma0) :=
+  ⟨hb.rate_exists, hb.origin, m_0_uniform_positive, budget_closes_uniform R hadm w⟩
+
 end YMGap.MassGap.SimpleGroup
 
 /-! ## Axiom-dependency gates (AGENTS.md Rule 1) -/
 
 #print axioms YMGap.MassGap.SimpleGroup.budget_closes_uniform
+#print axioms YMGap.MassGap.SimpleGroup.mass_gap_simple_group_bound
 #print axioms YMGap.MassGap.SimpleGroup.closureCertificate_of_admissible
 #print axioms YMGap.MassGap.SimpleGroup.m_0_uniform_positive
 #print axioms YMGap.MassGap.SimpleGroup.m_0_uniform_squared_le
