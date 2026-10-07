@@ -33,6 +33,6 @@ It is rational and cross-multiplied, with no roots. `Pos G L` is a separate hypo
    Q' identities reduce to Int, closed by `simp only [Int.mul_add, …, Int.mul_comm, Int.mul_left_comm]; omega`
    (checked [propext, Quot.sound]; `grind` brings in Classical and is avoided).
 
-Integer discriminant core `SU2TorusRPCSCore.cs_int`: PROVED ([propext, Quot.sound]).
+Integer discriminant core `SU2TorusRPCSCore.cs_int` and rational form `SU2TorusRPCSRat.cs_q` (`(∀ s t : Int, 0 ≤ quad a b c s t) → b*b ≤ a*c`): PROVED ([propext, Quot.sound]). Remaining for `TorusCS`: bilinear expansion `rpB(sF+tG, sF+tG) ≈ quad (rpB F F) (rpB F G) (rpB G G) s t` (needs symmetry), plus `TorusRPPoly`.
 
 **STATUS: `TorusRPPoly` AND `TorusCS` ARE OPEN (stated, not proved).**

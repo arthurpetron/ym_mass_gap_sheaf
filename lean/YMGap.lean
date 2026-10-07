@@ -7663,3 +7663,4 @@ import YMGap.Continuum.SU2TorusRPMatch
 import YMGap.Continuum.SU2TorusRPHW
 import YMGap.Continuum.SU2TorusRPCSShape
 import YMGap.Continuum.SU2TorusRPCSCore
+import YMGap.Continuum.SU2TorusRPCSRat
