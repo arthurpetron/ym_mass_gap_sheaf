@@ -4,7 +4,15 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 23, Wilson truncated χ₁ correlator decay at β_S, uniform in K (2026-10-07 PT)
+## Latest proved increment: R1 commit 24, transfer-matrix scope note (2026-10-07 PT)
+
+- SCOPE ONLY (no Lean): `docs/SCOPE-SU2-TORUS-TRANSFER-MATRIX-2026-10-07.md`.
+  - Slice kernel T(U,U') with V integrated (no gauge fixing); Z = Tr T^{N_t}; finite rank for finite K.
+  - The note maps T onto the RP/GNS/OS objects and lists 7 open obligations.
+  - Positivity waits on Realizer's `hW` bridge.
+- Labels: strong coupling (gap step); Wilson; also true for U(1), not gap evidence.
+
+## Earlier proved increment: R1 commit 23, Wilson truncated χ₁ correlator decay at β_S, uniform in K (2026-10-07 PT)
 
 - `SU2WilsonTrunc.wilson_trunc_ratio` (PROVED, axioms [propext, Quot.sound]).
   - Statement: `|Z_pq/Z − (Z_p/Z)(Z_q/Z)| ≤ Cw·λ^{ld(q,p)}`, with λ = 6/7.

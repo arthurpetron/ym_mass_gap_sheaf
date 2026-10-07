@@ -167,3 +167,7 @@ No fail statement is given: the ℓ¹ envelope is an upper bound, not the true a
 ## PROVED: commit 23, `SU2WilsonTrunc.lean`
 
 - The Wilson truncated-correlator ratio bound at β_S.
+
+## SCOPE: commit 24, transfer matrix
+
+- See `docs/SCOPE-SU2-TORUS-TRANSFER-MATRIX-2026-10-07.md`.

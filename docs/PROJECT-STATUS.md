@@ -6492,3 +6492,5 @@ arbitrary disjoint link-block supports.
 `SU2WilsonObsActivity` (2026-10-07): R1 commit 22.  Observable Wilson activity bound.
 
 `SU2WilsonTrunc` (2026-10-07): R1 commit 23.  Wilson truncated correlator decay, ratio form, uniform in K.
+
+Transfer-matrix scope note (2026-10-07): R1 commit 24.  Scope only.
