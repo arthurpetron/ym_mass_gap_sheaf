@@ -58,3 +58,58 @@ Axioms [propext, Quot.sound].
 **STATUS: SU(2) torus RP and RP Cauchy–Schwarz for `PtSup` polynomials (truncated T_K, fixed K) are PROVED. Still OPEN:
 time translation `τ` and its interface (Prover), the odd-`j` convention, `K → ∞`, and LogConvex. J04 (all compact
 simple groups) remains OPEN; this is SU(2) only.**
+
+## Correlator identity: who owns what (agreed split, 2026-10-07)
+
+**Prover owns (PROVED, `SU2TimeShift`, read-only to us):** `vs`, `shv`, `tAdd_vs`, `perm_shift` (slice families),
+`TKi`, and `tk_shift : TK links (shv t p) = TKi (idxOf ∘ shv t) p` (plain equality).
+
+**Torus-RP side owns (this track; all OPEN unless marked):**
+1. `τ_t : RatPoly → RatPoly`, the block reindex `idxOf ℓ ↦ idxOf (shv (2M) t ℓ)` on `torusLinks (2M)`.
+   DEFINED as `SU2TorusTau.tau`. PROVED: `SU2TorusTauVar.tau_lv` (`qsub τ_t (linkVar ℓ) ≡ linkVar (shv t ℓ)`).
+2. **On HEAD** (`SU2TorusLinksTimeShift.torusPlaquettes_timeShift_perm`, `torusLinks_timeShift_perm`, from darthur's Mac
+   session): full-torus permutation `(torusPlaquettes N).map (shv N t) ~ torusPlaquettes N`, and likewise for links. The
+   box-only duplicates (`SU2TorusShiftPerm`) were dropped.
+3. **PROVED** (`SU2TorusTauTK.tau_ringSub`, `tau_TK`, `tau_prod`): `τ_t (Π_p TK p) ≡PE Π_p TK p`, via `tk_shift` and item 2.
+   Also PROVED: `shift_inv`, i.e. `∫ τA·τB·Π T_K ≈ ∫ A·B·Π T_K` (time-shift invariance of the `T_K` torus integral).
+4. Haar invariance under `τ_t`. The existing reindex machinery (`SU2TorusRPReindex`) covers block *involutions*
+   only. Plan: write `τ_t = ρ_t ∘ ρ_0`, where `ρ_c` is the pure time-coordinate index involution `a ↦ c − a (mod N)`
+   (no conjugation). Then `quaternionHaar_reindex` applies to each factor. PROVED (`SU2TorusTimeRefl`): `rt_inv`,
+   `rt_comp` (`ρ_t ∘ ρ_0 = vs t` on the time coordinate). Also PROVED: the block involution `SU2TorusTimeRefl.sigma`, the map
+   `SU2TorusTau.tau N t hN := σ_t ∘ σ_0`, and `haar_tau` (`∫ τ_t X ≈ ∫ X` for supported `X`).
+5. Link level PROVED (`SU2TorusReflShift.refl_shift`: `reflLink (shv x ℓ) = shv (2M − x%2M) (reflLink ℓ)` on the box).
+   Polynomial level on link observables PROVED (`SU2TorusThetaTau.theta_tau_obs`: `Θ(τ_x(eval e)) ≡ τ_{2M−x%2M}(Θ(eval e))`).
+   **Correlator identity PROVED on link observables** (`SU2TorusCorrelator.corr_obs`, [propext, Quot.sound]):
+   `rpB (τ_x F) (τ_z F) ≈ rpB F (τ_{x+z} F)` for `F = eval e`, `e` on torus links, every `x, z`, `β`, `K` (truncated T_K weight,
+   fixed K). Also proved: `tau_tau_obs` (`τ_{−x} τ_{x+z} F ≡ τ_z F`).
+   OPEN: (a) the `PtSup` (general polynomial) extension via `obsOf`; (b) `PtSup`/`Pt M`-support of `τ_a F`, which is needed
+   before `torus_cs_poly` applies to `(τ_a F, τ_{a+1} F)`. It holds only if the support of `F`, shifted by `a+1`, stays in the
+   positive half. That is a support condition for the Prover to state. Then `rpB (τ_x F) (τ_y F) ≈ G(x+y)` with `G n := rpB F (τ_n F)`.
+   Combined with `torus_cs_poly`, this gives `G(x+y)² ≤ G(2x)·G(2y)`. `τ_x F` must remain `PtSup`, which needs
+   `x + (support time) ≤ M`. This is a real restriction and must appear in the statement.
+6. **Odd `j` (corrected).** The proved `reflLink` (`rt`: `a ↦ 1 − a mod 2M`) is a *link-midpoint* reflection
+   (planes at ½ and M+½). Then `⟨Θ τ_x F · τ_y F⟩ ≈ G(x+y)`, and CS at `(τ_a F, τ_{a+1} F)` gives
+   `G(2a+1)² ≤ G(2a)·G(2a+2)`, which is `LogConvex` at EVEN `j`. ODD `j` needs `2x = j` with integer `x`, which is impossible
+   with this reflection. It needs RP for a *site-plane* reflection (`a ↦ −a`), and that is OPEN: the layout proof covers
+   only the midpoint plane. Alternative that needs no new RP: the Prover consumes `LogConvex` for even `j` only, or for
+   `n ↦ G(2n)`. The choice belongs to the Prover.
+
+**Consumer on HEAD:** `SU2TorusGapCond` takes `hshift : rpB (τ x) (τ y) ≈ G (x+y)` as a hypothesis. For
+`τ x := tau (2M) x (eval e)` and `G n := rpB (eval e) (tau (2M) n (eval e))`, `SU2TorusCorrelator.corr_obs` discharges
+it for every `x, y`. `hsup` (`PtSup (τ x)`) is still the caller's obligation, and is OPEN for general `e`. HEAD's
+`SU2TorusCenteredPairShift.hshift` proves the same shape for OWN-centred single-plaquette characters at `betaS`.
+
+**Prover consumes:** item 5 plus `torus_cs_poly` to produce `LogConvex`. The Prover does not reprove items 1–4.
+
+## K → ∞ (status, precise)
+
+`SU2TorusRPKLimit` (PROVED, [propext, Quot.sound]):
+* `closed_le`;
+* `rp_closed`: any rational `x` with `|x − rpB_K F F| ≤ r K` for all K satisfies `0 ≤ x + 2 r K`;
+* `cs_closed`: the analogue for `TorusCS`.
+
+`RPKCauchy F G r` (`∀ K j, |rpB_{K+j} F G − rpB_K F G| ≤ r K`) is a **definition only, OPEN**. It needs a Haar-level
+rate for `Π T_{K'} − Π T_K`. Plan: use `l1` (`haar_abs`, `l1_mul`, `l1_add_le`) on `T_{K+j} − T_K =
+Σ_{k=K+1}^{K+j} a_k χ-powers`, with factorial decay of `wilsonA`. `wCoeff_cauchy` is the character-basis rate; it
+applies via `plaq_weighted_le`/`bnd_mul`, but at strong coupling only (`2β ≤ 1`).
+**No limit object (CReal or otherwise) is defined. Nothing about the untruncated Wilson measure is proved.**
