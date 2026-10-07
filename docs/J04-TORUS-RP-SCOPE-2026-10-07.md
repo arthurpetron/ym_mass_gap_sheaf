@@ -239,3 +239,9 @@ crossing split, which is still open. **RP FOR THE ACTUAL TORUS MEASURE IS OPEN.*
 - `rpk_cross_split`: under `SupQ a Y`, the `T_K` of a split crossing plaquette is an RPK. Axioms: [propext, Quot.sound].
 - Still open: carrying out the split on the concrete torus integrand (via haar_step) and the final instantiation of `hW`.
 RP FOR THE ACTUAL TORUS MEASURE IS OPEN.
+
+## d3h — crossing product & Haar chain (SU2TorusRPCrossProd.lean)
+- `crossWord`, `cross_witness`, `rpk_cross_prod`: tkProd over split crossing words with `SupQ` data is an RPK.
+- `haar_chain`: iterated `haar_step` for a list of Haar-invariant substitutions. Axioms: [propext, Quot.sound].
+- Open: concrete per-link split instances on the torus integrand; identification of `C Wc` with the crossWord product.
+RP FOR THE ACTUAL TORUS MEASURE IS OPEN.

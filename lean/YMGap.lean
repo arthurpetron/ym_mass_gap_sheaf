@@ -7418,6 +7418,7 @@ import YMGap.Continuum.SU2TorusRPFactor
 import YMGap.Continuum.SU2TorusRPHalfConj
 import YMGap.Continuum.SU2TorusRPAssembly
 import YMGap.Continuum.SU2TorusRPCrossSplit
+import YMGap.Continuum.SU2TorusRPCrossProd
 import YMGap.Continuum.SpecMaxRateFamily
 import YMGap.Continuum.W1StrongCouplingPerturbation
 import YMGap.Continuum.W1VacuumTailRowSum
