@@ -94,3 +94,8 @@ No fail statement is given: the ℓ¹ envelope is an upper bound, not the true a
 
 - `linkBox` and `hgroupL` (K = (5/3)^{24}).
 - Note: the earlier shareB KP/decay results (PolymerDecayZ4, PolymerLatticeDecay) are for the *envelope* gas with shareB incompatibility. They are not a statement about the Haar measure. The Haar-faithful gas is gas N P with incL.
+
+## PROVED: commit 9, `SU2LinkKP.lean`
+
+- KP environment for (gas N P, incL), with the activity as a hypothesis so that both the ℓ¹ bound and Realizer's charEnv bound can feed it.
+- Pass: ε_L=1e-15. K=(5/3)^24, η=1/2500.

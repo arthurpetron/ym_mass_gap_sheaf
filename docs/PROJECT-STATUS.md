@@ -6462,3 +6462,5 @@ arbitrary disjoint link-block supports.
 `SU2LinkGasGeometry` (2026-10-07): R1 commit 7.  Geometry adapters for link-compatibility KP.
 
 `SU2LinkGasBox` (2026-10-07): R1 commit 8.  The link-compatibility grouping bound holds with K = (5/3)^24 per plaquette.
+
+`SU2LinkKP` (2026-10-07): R1 commit 9.  KP for the Haar-faithful link gas; ε_L = 1e-15 passes.

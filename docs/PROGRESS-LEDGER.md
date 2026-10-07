@@ -4,7 +4,16 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 8, the link gas is a Z4BoxGas, and the link grouping bound (2026-10-07 PT)
+## Latest proved increment: R1 commit 9, KP for the link-compatibility gas (activity as hypothesis) (2026-10-07 PT)
+
+- `SU2LinkKP` (PROVED).
+  - KP condition: `condL` (Cond/Cond2) under the scalar hypothesis εK(1+η) ≤ η, with K=(5/3)^24 and η=1/2500.
+  - Activity hypothesis: |z γ| ≤ ε^{|γ|} on gas N P only.
+  - The chain_bound environment: `envL_pos/M/m/z`.
+  - Transport back to the untruncated activity: `Xi_congr`, `Xi_zc`.
+  - `kp_pass`: ε_L = 10⁻¹⁵ passes (decide).
+
+## Earlier proved increment: R1 commit 8, the link gas is a Z4BoxGas, and the link grouping bound (2026-10-07 PT)
 
 - `SU2LinkGasBox` (PROVED).
   - `linkBox`: gas N P is a Z4BoxGas (torusChain N). It needs P duplicate-free and inside torusPlaquettes N. Proved properties: connected, duplicate-free, sizes in 1..|P|, distinct supports.
