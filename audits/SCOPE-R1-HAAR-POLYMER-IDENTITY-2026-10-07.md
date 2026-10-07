@@ -171,3 +171,8 @@ No fail statement is given: the ℓ¹ envelope is an upper bound, not the true a
 ## SCOPE: commit 24, transfer matrix
 
 - See `docs/SCOPE-SU2-TORUS-TRANSFER-MATRIX-2026-10-07.md`.
+
+## PROVED: commit 25, `SU2TorusSlice.lean`
+
+- Slice geometry. Coordination with Realizer: it uses `rt` and `reflLink` from `SU2TorusRPGeom`. Only the slice view is added, with no new reflection.
+- Wording: the β_S = 1/(2·10¹²) clustering is a uniform-in-K strong-coupling result, also true for U(1), and not gap evidence.

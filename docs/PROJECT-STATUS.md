@@ -6494,3 +6494,5 @@ arbitrary disjoint link-block supports.
 `SU2WilsonTrunc` (2026-10-07): R1 commit 23.  Wilson truncated correlator decay, ratio form, uniform in K.
 
 Transfer-matrix scope note (2026-10-07): R1 commit 24.  Scope only.
+
+`SU2TorusSlice` (2026-10-07): R1 commit 25.  Slice geometry for the transfer matrix, coordinated with `SU2TorusRPGeom`.

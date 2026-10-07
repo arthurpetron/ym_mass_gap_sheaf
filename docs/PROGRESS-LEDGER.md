@@ -4,7 +4,17 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 24, transfer-matrix scope note (2026-10-07 PT)
+## Latest proved increment: R1 commit 25, torus time-slice geometry (transfer step 1) (2026-10-07 PT)
+
+- `SU2TorusSlice` (PROVED, axioms ⊆ [propext, Quot.sound]).
+  - Slice variables: `U_t` (spatial links) and `V_t` (temporal links).
+  - `plaq_slice_spatial`: a spatial plaquette lies in `U_t`. `plaq_slice_time`: a timelike plaquette uses exactly `V_t`, `U_t` and `U_{t+1}`.
+  - Slice lists, with `slice_cover_link/plaq` (every link and plaquette is in exactly one class).
+  - `refl_slice_*`: Realizer's `reflLink` maps `U_t → U_{rt t}` and `V_t → V_{rt(t+1)}`. It reuses `SU2TorusRPGeom` without duplicating it.
+- Labels: geometry, every coupling; also true for U(1), not gap evidence.
+- Note: the β_S = 1/(2·10¹²) clustering (commits 21–23) is a uniform-in-K strong-coupling result, also true for U(1), and not gap evidence.
+
+## Earlier proved increment: R1 commit 24, transfer-matrix scope note (2026-10-07 PT)
 
 - SCOPE ONLY (no Lean): `docs/SCOPE-SU2-TORUS-TRANSFER-MATRIX-2026-10-07.md`.
   - Slice kernel T(U,U') with V integrated (no gauge fixing); Z = Tr T^{N_t}; finite rank for finite K.
