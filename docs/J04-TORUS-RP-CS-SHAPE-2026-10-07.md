@@ -76,7 +76,8 @@ simple groups) remains OPEN; this is SU(2) only.**
    `rt_comp` (`ρ_t ∘ ρ_0 = vs t` on the time coordinate). Also PROVED: the block involution `SU2TorusTimeRefl.sigma`, the map
    `SU2TorusTau.tau N t hN := σ_t ∘ σ_0`, and `haar_tau` (`∫ τ_t X ≈ ∫ X` for supported `X`).
 5. Link level PROVED (`SU2TorusReflShift.refl_shift`: `reflLink (shv x ℓ) = shv (2M − x%2M) (reflLink ℓ)` on the box).
-   OPEN: polynomial level `Θ∘τ_x ≡ τ_{−x}∘Θ` on `PtSup`/`Sup` polynomials. Then `rpB (τ_x F) (τ_y F) ≈ G(x+y)` with `G n := rpB F (τ_n F)`.
+   Polynomial level on link observables PROVED (`SU2TorusThetaTau.theta_tau_obs`: `Θ(τ_x(eval e)) ≡ τ_{2M−x%2M}(Θ(eval e))`).
+   OPEN: the `PtSup` extension (via `obsOf`). Then `rpB (τ_x F) (τ_y F) ≈ G(x+y)` with `G n := rpB F (τ_n F)`.
    Combined with `torus_cs_poly`, this gives `G(x+y)² ≤ G(2x)·G(2y)`. `τ_x F` must remain `PtSup`, which needs
    `x + (support time) ≤ M`. This is a real restriction and must appear in the statement.
 6. **Odd `j` (corrected).** The proved `reflLink` (`rt`: `a ↦ 1 − a mod 2M`) is a *link-midpoint* reflection
