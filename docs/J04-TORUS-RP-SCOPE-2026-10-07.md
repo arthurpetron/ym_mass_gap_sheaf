@@ -174,3 +174,7 @@ involution `f` under which `links` is closed. `reindex_linkVar`: reindexing send
 (QPE). `thetaInv` is the instance for Θ = `reflLink M`. A Classical leak via `beq_self_eq_true` on `Z4Link` was
 avoided (`beq_iff_eq.mpr rfl`). Still open in (d): conjugating reversed temporal links (`conjSel` on `linkVar`),
 the `haar_step` chain on the torus integrand, and factorising `Π TK` with `plaq_*`. **RP FOR THE ACTUAL TORUS MEASURE IS OPEN.**
+
+**Correction (PECongr):** the unsupported `PECongr` for reindex is FALSE (Prover's `SU2ReindexPECongr.pecongr_fails`:
+n=1, σ=id, monomial x₄). Only the supported forms are used from here on: `reindex_peCongrOn` (ours) /
+`pe_reindex` (Prover's), `ringSubOn_comp`, and `haar_step`. Head-shear congruence is not needed.

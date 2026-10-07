@@ -6,7 +6,9 @@
 * `conj_ringSub N S : RingSub n (signSelectedPolynomial N S)` for every `N`, `S`, `n`. The monomials are unchanged and
   the coefficients match up to sign bookkeeping.
 * `ringSub_comp`: `RingSub n S → RingSub n R → RingSub n (S ∘ R)`, provided `S` respects `PE n` (`PECongr`).
-  `PECongr` for the conj flip, reindex and head shear is NOT yet proved (OPEN).
+  Unsupported `PECongr` holds for the conj flip (`conj_peCongr`), but it is FALSE for reindex (Prover's
+  `SU2ReindexPECongr.pecongr_fails`: n=1, σ=id, x₄). Use only supported forms: `reindex_peCongrOn` /
+  Prover's `pe_reindex`, together with `SU2TorusRPCompOn.ringSubOn_comp` and `haar_step`.
 
 **RP FOR THE ACTUAL TORUS MEASURE IS OPEN** (geometry (c) and assembly (d) remain).
 -/
