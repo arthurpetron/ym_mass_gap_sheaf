@@ -138,7 +138,8 @@ obligations:
   - `SU2TorusRPHeadSub`: the head shear `translatedHeadPolynomial T` is a `RingSub`; head coordinate ↦ T, tail fixed.
 - (b) PROVED since: the conj flip is a `RingSub` with no support hypothesis (`SU2TorusRPConj.conj_ringSub`, via
   `parity_monoMul`), and `ringSub_comp` holds GIVEN `PECongr n S` (S respects `PE n`).
-- (b) OPEN: `PECongr` for reindex / head shear / conj flip. Haar-context equivalence is not obviously preserved by
+- (b) PROVED: `PECongr` for the conj flip (`SU2TorusRPConjCongr.conj_peCongr`, support-free, via odd moments vanish).
+- (b) OPEN: `PECongr` for reindex / head shear. Haar-context equivalence is not obviously preserved by
   monomial-changing maps. Likely route: support-restricted `PE`, using the invariance lemmas (`quaternionHaar_reindex`,
   `quaternionHaar_signSelected`, `translatedHeadPolynomial_haar`) in shifted contexts.
 - (b) earlier note, superseded:
