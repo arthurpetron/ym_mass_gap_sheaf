@@ -6450,3 +6450,5 @@ arbitrary disjoint link-block supports.
 
 `SU2HaarL1Activity` (2026-10-07): R1 activity side.
 - ℓ¹ route; at w₀ = 10⁻⁸ the true Haar activity is ≤ (10⁻¹⁵)^{|γ|}.
+
+`SU2PlaqSupport` (2026-10-07): R1 commit 3.  Haar factorization of polymer products over link-disjoint plaquette sets.

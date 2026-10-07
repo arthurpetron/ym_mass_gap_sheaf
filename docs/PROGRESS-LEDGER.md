@@ -4,7 +4,16 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Latest proved increment: R1 commit 2, ℓ¹ Haar bound and true-activity envelope (2026-10-07 PT)
+## Latest proved increment: R1 commit 3, plaquette block support and polymer-product factorization (2026-10-07 PT)
+
+- `SU2PlaqSupport` (PROVED).
+  - Closure lemmas for block support under +, ·, −, scalars, quaternion product/conjugate, and characters.
+  - `plaq_free`, `fPoly_free`: χ_s(U_p) and f_p use only p's 4 link blocks.
+  - `polymer_factor`: index-disjoint plaquette lists factorize under Haar.
+  - `idx_disj`: link-disjoint ⇒ index-disjoint.
+  - `plaqWeight_split`: plaqWeight = [c₀] ++ f_p, an exact list identity.
+
+## Earlier proved increment: R1 commit 2, ℓ¹ Haar bound and true-activity envelope (2026-10-07 PT)
 
 - `SU2HaarL1Activity` (PROVED).
   - `sm4_bounds`: 0 ≤ sphereMoment4 ≤ 1, so `haar_abs`: |∫p| ≤ ‖p‖₁.

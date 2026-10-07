@@ -62,3 +62,10 @@
 **Loss.** `term_le` bounds 513^s by 513^{s(s+2)}, an extra factor 513² at s = 1.  The pass is therefore not sharp; the sharp ℓ¹ threshold is about 25× larger in w.
 
 No fail statement is given: the ℓ¹ envelope is an upper bound, not the true activity, so a fail would not certify anything about Haar.
+
+## PROVED: commit 3, `SU2PlaqSupport.lean`
+
+- Supports: `f_p` lives on the blocks `idxOf` of p's 4 links (`plaqLinks`).
+- `polymer_factor`: `∫ (Π_γ F)(Π_R G) ≈ ∫Π_γ F · ∫Π_R G` when the block sets are disjoint.
+- `idx_disj`: plaquettes sharing no link, with all links in `links`, have disjoint block sets.
+- `plaqWeight_split`: `plaqWeight w M p = [([], coeffW w 0·1)] ++ fPoly w p M`.
