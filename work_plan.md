@@ -27,6 +27,22 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED actual finite all-link Gauss endpoint action (2026-10-08 UTC):
+`VertexGaussWilsonWord.vertexGauss` sums literal -L at each positive-link
+start and +R at its finish on the ORIGINAL boundary-complete carrier.
+`physical_link_local` isolates the contributing physical link using carrier
+Nodup and idxOf injectivity; `oriented_link_endpoint` produces the correct
+oriented endpoint signs, including reversal. Common-padded coefficient
+strength, no unit/sphere premise, no differentiated padded equality.
+Focused check 3/six permitted public gates and independent complete FINAL-source
+review pass; root import registered only, not root-built. NEXT finite residue:
+raw summed Leibniz, compatible ordered-word endpoint telescope, scalar trace
+cyclicity and character recurrence. Closed-character Gauss zero remains OPEN.
+No new quantitative Ward bound or continuum gauge domain follows. MAIN
+ORIGINAL signed cost/OWN surviving variance or DIRECT macro retention on a
+justified changing family remains OPEN and primary. Exact evidence: parallel
+QFT-inputs audit. No displayed chart claim changed.
+
 CHECKED next finite gauge producer (2026-10-08 UTC):
 `LeftRightAngularAction.coordinate_action` now gives literal e_i*q / q*e_i
 derivatives, reverse-link endpoint signs and distinct-block zero. L is the

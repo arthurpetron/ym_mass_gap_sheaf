@@ -16,6 +16,48 @@ constructive Mathlib-free MLTT/HoTT gate. **The goal remains OPEN.**
 
 ## Selected finite vertex-Gauss source law (2026-10-08 UTC)
 
+### Observed actual all-link endpoint action
+
+The actual finite operator is now checked:
+`lean/YMGap/Continuum/BF4ExactSlabVertexGaussWilsonWord.lean:43`,
+`linkGauss`, contributes -L at each positive-link start and +R at its finish;
+`vertexGauss:54` sums over the ORIGINAL boundaryCompleteSlabLinks with each
+original idxOf. `vertexGaussQuaternion:58` acts on the actual four polynomial
+components. `physical_link_local:202` derives the single contributing link
+using physical membership, carrier Nodup and idxOf injectivity, not an assumed
+endpoint tangent. `endpointQuaternion:231` records the oriented endpoint
+formula and `oriented_link_endpoint:241` proves it, including reverse
+orientation. Repeated word occurrences are not deduplicated. All coordinate
+conclusions remain common-padded coefficient identities; no sphere/unit
+premise, Haar promotion or differentiated padded equality.
+
+Focused check 3 passes six public axiom gates: three actual operator
+definitions print propext, the endpoint formula is axiom-free, and both public
+theorems print exactly {propext,Quot.sound}. The first two bounded checks
+rejected parser/dotted-identifier/dependent-if elaboration only. Repairs rename
+the local carrier notation, identify the coefficient constructor explicitly,
+use constructive case splitting and simplify the finite-sum membership iff;
+no public claim or mathematical hypothesis changed. Rejected synthetic
+sorryAx outputs are not accepted proof evidence or source holes. Independent
+complete FINAL-source review PASS with final hash. Each launch had a fresh
+process/memory/swap preflight, one 20-GiB-capped worker, 12-GiB OS reserve,
+87--88% pressure-free reading and zero swap. Root import registered only,
+not root-built; no full-tree build/audit or resource-option increase.
+
+```text
+SOURCE lean/YMGap/Continuum/BF4ExactSlabVertexGaussWilsonWord.lean
+SHA256 c21b7699ad9e488e95b21fd6fb235a0a46741bb5cb3668139e3e7788487ca39a
+CHECK  /private/tmp/ym-oct8-vertex-gauss-endpoint3.log
+SHA256 bd662b390dd3f85a3786698116cfa81d935a386a0b9a40fdec45b58b094bbb55
+```
+
+This increment proves physical-link endpoints ONLY. Exact remaining finite
+residue is raw summed Leibniz, the compatible ordered-word endpoint telescope,
+scalar trace cyclicity and character recurrence. Full closed-character Gauss
+zero, continuum generator/domain and quantitative physical signed estimate
+remain OPEN. The main original cost/OWN-variance or DIRECT macro-retention
+input on a justified changing family remains primary; chart claims unchanged.
+
 ### Next bounded producer: literal left/right link action
 
 Selection after the checked arbitrary-coordinate pin, not a new analytic

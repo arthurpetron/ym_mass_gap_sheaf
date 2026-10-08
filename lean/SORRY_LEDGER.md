@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## PROVED actual physical-link Gauss endpoint action / OPEN closed-word annihilation (2026-10-08 UTC)
+
+`lean/YMGap/Continuum/BF4ExactSlabVertexGaussWilsonWord.lean:54`,
+`vertexGauss`, is the actual full-carrier finite sum of -L at each positive
+link start and +R at its finish. `physical_link_local:202` produces index
+isolation with physical membership, carrier Nodup and idxOf injectivity.
+`oriented_link_endpoint:241` produces minus-left at the ORIENTED start and
+plus-right at its finish, retaining reverse orientation. Common-padded
+coefficient equalities, not sphere/unit or Haar premises. No padded
+equivalence is differentiated. Focused capped check 3/six permitted public
+gates and independent complete FINAL-source review pass. No new sorry,
+axiom, analytic input, classical/native shortcut or resource-option increase.
+Root import registered only; no full-root/tree build/audit. Raw summed
+Leibniz, compatible ordered-word telescope and closed-character Gauss zero
+remain finite proof residues; continuum gauge domain, MAIN changing-family
+cost/OWN variance or DIRECT macro retention, physical mass/full QFT/every
+group/Clay remain OPEN. Exact source/log hashes: parallel QFT-inputs audit.
+Canonical chart claims unchanged.
+
 ## PROVED actual left/right angular coordinate action / OPEN full vertex Gauss telescope (2026-10-08 UTC)
 
 `lean/YMGap/Continuum/SU2QuaternionLeftRightAngularAction.lean:49`,

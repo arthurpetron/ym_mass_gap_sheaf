@@ -7983,3 +7983,7 @@ import YMGap.Continuum.SU2QuaternionAngularCoordinatePadded
 -- Actual left/right angular link action, including reversed and distinct
 -- blocks. No finite Gauss telescope or continuum domain is inferred.
 import YMGap.Continuum.SU2QuaternionLeftRightAngularAction
+
+-- Literal all-link vertex Gauss action on each physical oriented link.
+-- Closed-word annihilation and continuum gauge domain remain open.
+import YMGap.Continuum.BF4ExactSlabVertexGaussWilsonWord
