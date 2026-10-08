@@ -1,5 +1,35 @@
 # Sorry Ledger
 
+## PROVED actual paired finite-heat curvature / OPEN original-prefix and interacting joins (2026-10-07)
+
+- `QPolyHaarAngularChain.paired_subst_second` supplies the literal finite
+  second jet including scalar acceleration, after actual first coefficient pins.
+- `JacobiHeatLogConcavity.heat_logConcavity_certificate` constructs
+  h'^2-h*h'' from three positive discriminant recurrences, correctly
+  normalized and including prefixes zero/one. No heat-floor inverse.
+- `SU2QuaternionPairedScalarSquare.complementSquare` constructs
+  1-X^2-(J_i X)^2 as the other TWO original quaternion-component squares.
+  The unit norm is an actual SAME arbitrary-insertion carrier relation.
+- `JacobiHeatRadialSubstitutionPin.radial_substitution_pin` identifies the
+  literal radial polynomial with the same shifted heat/formal jets.
+  `SU2QuaternionPairedJacobiCurvature.paired_curvature_certificate` then
+  constructs C*h^2+h*J_i^2(h)-(J_i h)^2 at C=C_T+tail_N+delta,
+  N>=1, omitted-factor onset and delta>0. No endpoint division.
+- OPEN: full frozen-direction matrix, arbitrary-block recoding, sharp SAME
+  original unweighted-prefix curvature transport, original interacting
+  conditional score, useful scaling estimate, independent survival,
+  completed OS/physical/volume control, SAME QFT, every group and Clay.
+  Reuse existing value/first/mixed deficits; pay the actual discrepancy
+  with original prefix floor in precision/onset only, not in the cost.
+- Five focused leaves/25 gates within {propext, Quot.sound}; four printed
+  data definitions axiom-free. No sorry/custom axiom/classical/native
+  shortcut, field weakening or baseline refresh. One capped worker,
+  fresh dynamic preflights and zero swap; no full-root/tree audit.
+  Root imports registered, not root-built; broad chart claims unchanged.
+
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+Earlier entries retain their verification-time boundaries.
+
 ## PROVED general-nome SAME-product radial ceiling / OPEN original Haar-prefix curvature join (2026-10-07)
 
 - `ThetaProductAngularCompletion` constructs the actual product angular

@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Supporting ACTUAL paired finite-heat curvature checked (2026-10-07):
+actual Horner jets meet the radial certificate, heat log-concavity and
+the literal two-square quaternion complement. Each original paired
+direction has a constructed certificate at C_T+tail_N+delta, with nonempty
+prefix/onset and paid positive slack. No endpoint division or floor
+reciprocal in the cost. Full frozen matrix, sharp original unweighted-prefix
+transport, interacting conditional score and all OS/scaling/survival/
+physical/QFT/every-group/Clay claims remain OPEN. Five focused leaves/25
+permitted gates; no full-root/tree audit. Broad displayed claims remain
+unchanged; no chart reprint. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 Supporting GENERAL-NOME addition square and SAME product radial ceiling
 checked (2026-10-07): Q=2*P^2*D meets the actual parity/determinant completions.
 The positive normalization cancels to D(x)<=2*w/(1-w*w) on the full scalar

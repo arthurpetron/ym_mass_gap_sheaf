@@ -27,6 +27,31 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+The ACTUAL paired-direction curvature join is now CHECKED:
+`SU2QuaternionPairedJacobiCurvature.paired_curvature_certificate` constructs
+C*h^2+h*J_i^2(h)-(J_i h)^2 for the literal finite weighted heat, at
+C=C_T+tail_N+delta. Actual Horner first/second jets precede the join;
+positive product discriminants prove heat log-concavity, and the SAME
+quaternion norm yields the other-two-square complement. No endpoint
+division, supplied cone/curvature identity or inverse floor in the cost.
+
+NEXT transfer THIS curvature to the ORIGINAL prefix, preserving N=K+1
+through the existing weighted/prefix coefficient pins. Reuse value/first/
+mixed deficit moduli, retaining ALL FOUR ordered mixed terms in J_i^2.
+Pay the literal curvature discrepancy by slack and the ORIGINAL prefix
+floor, with that floor in precision/onset ONLY. Establish a cutoff-
+independent upper cap before selecting one cutoff; never assume the final
+curvature or replace the original action. In parallel, a full frozen-
+direction matrix and arbitrary-block recoding may extend the exact local
+geometry. A basis-direction bound alone does not give that matrix.
+Then join the ORIGINAL interacting conditional score; a free heat marginal
+does not supply the required integrated log-Hessian sign. Five focused
+leaves/25 permitted gates checked; no full-root/tree audit or chart closure.
+All OS/scaling/survival/physical/QFT/every-group/Clay requirements remain OPEN.
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
+The supporting checkpoints below retain their verification-time boundaries.
+
 The SAME actual product/radial-cost join, completed addition square and
 GENERAL-NOME whole-interval ceiling are now CHECKED. Actual product angular
 jets have a direct completion with an explicit comparison/prefix cutoff.

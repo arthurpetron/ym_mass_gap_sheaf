@@ -10,7 +10,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Latest mathematical contraction (2026-10-07):** the original product
+**Latest mathematical contraction (2026-10-07):** a constructed curvature
+certificate now bounds the actual finite heat derivatives in each original
+paired quaternion direction. The proof joins radial curvature, actual heat
+log-concavity and a literal two-square complement, without endpoint division
+or an inverse heat floor in the cost. The original unweighted-prefix and
+interacting conditional joins remain next; no physical gap is claimed.
+See the [exact proof boundary](audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md).
+
+**Supporting general-nome contraction (2026-10-07):** the original product
 and signed theta numerator now meet in a proved completed addition square.
 It produces the whole-interval radial-cost ceiling `D(x) <= 2w/(1-w²)`
 for every strict nome, with signed finite tails retained. This supplies

@@ -4991,6 +4991,12 @@ import YMGap.Continuum.ThetaProductRadialCeiling
 import YMGap.Continuum.JacobiHeatRadialProducedBound
 -- Actual substituted radial Haar witness; positive slack is paid in the cost.
 import YMGap.Continuum.JacobiHeatRadialHaarCertificate
+-- Actual finite log-concavity and paired-derivative curvature, no endpoint division.
+import YMGap.Continuum.QPolyHaarAngularChain
+import YMGap.Continuum.JacobiHeatLogConcavity
+import YMGap.Continuum.SU2QuaternionPairedScalarSquare
+import YMGap.Continuum.JacobiHeatRadialSubstitutionPin
+import YMGap.Continuum.SU2QuaternionPairedJacobiCurvature
 import YMGap.Continuum.SU2HeatQuarticTailCutoff
 import YMGap.Continuum.QuaternionHaarHeatAngularDeficit
 import YMGap.Continuum.QuaternionHaarHeatRelativeAngularBound

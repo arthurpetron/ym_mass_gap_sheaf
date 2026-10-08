@@ -4,6 +4,109 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Observed actual paired-heat curvature join (2026-10-07 local; checked 2026-10-08 UTC)
+
+Classification: VERIFIED PROGRESS on the SAME finite weighted heat.
+The lattice-mass note remains context, not an empirical mass hypothesis.
+This increment produces curvature for the literal paired derivatives,
+not merely an interface asking for it.
+
+### Mathematical contraction
+
+Let P be the EXISTING finite shifted Euler product and H=P', J=P'', K=P'''.
+Appending its actual affine factor F with slope b gives positive polynomial
+representatives for V=H^2-P*J, W=H*J-P*K and D=J^2-H*K:
+
+```text
+V_next = F^2*V + b^2*P^2,
+W_next = F^2*W + 2*b*F*V + 2*b^2*P*H,
+D_next = F^2*D + b*F*W + b^2*(H^2+3*V).
+```
+
+The actual first THREE formal jets are coefficient-pinned before these
+identities are used. Positive shifted coefficients compile D into a Haar
+certificate for h'^2-h*h'', where h is the ORIGINAL inverse-nome/half-
+normalized finite Jacobi heat. The normalization is squared exactly.
+All prefixes, including zero/one, are retained. No heat-floor inverse,
+root-interlacing theorem, supplied derivative identity or limit derivative.
+
+For the ACTUAL relative quaternion word on blocks zero/one, X is its scalar.
+The three literal paired first derivatives are the NEGATIVE vector
+components. Actual norm multiplicativity and the original unit-norm carrier
+relation identify 1-X^2-(J_i X)^2 with the OTHER TWO component squares.
+This is a constructed certificate under arbitrary original insertion
+relations, not an assumed coordinate cone or a division by 1-X^2.
+
+The finite Horner chain rule supplies the actual first and second paired
+jets; the second keeps the scalar acceleration term, whose actual value is
+-X under the SAME Haar carrier. The final checked polynomial contraction is
+
+```text
+C*h^2 + h*(J_i J_i h) - (J_i h)^2
+  = radial_C(h)
+    + (h'^2-h*h'') * [1-X^2-(J_i X)^2].
+```
+
+Both right-hand terms now have constructed certificates. The produced
+`paired_curvature_certificate` has C=C_T(w)+tail_N(w)+delta for N>=1,
+0<w<1, delta>0 and the existing omitted-factor onset. The floor appears
+only in the radial Bernstein construction, NEVER in C. The two scalar
+endpoints require no exceptional argument. This is separately for each
+of the THREE original plus-paired directions, not yet a full frozen
+quadratic-form/matrix estimate.
+
+### Declaration and verification evidence
+
+| Produced declaration | Final source | Passing focused log |
+| --- | --- | --- |
+| `angular_subst`, `paired_subst`, `paired_subst_second` | `lean/YMGap/Continuum/QPolyHaarAngularChain.lean:79`, `:149`, `:167` | `/private/tmp/ym-oct7-angular-chain2.log` |
+| `product_discriminants_formal_pin`, `discriminants_nonnegative`, `heat_logConcavity_certificate` | `lean/YMGap/Continuum/JacobiHeatLogConcavity.lean:209`, `:313`, `:372` | `/private/tmp/ym-oct7-heat-log-concavity1.log` |
+| `paired_first_jet`, `relativeScalarSquare`, `complementSquare` | `lean/YMGap/Continuum/SU2QuaternionPairedScalarSquare.lean:57`, `:76`, `:150` | `/private/tmp/ym-oct7-paired-scalar-square3.log` |
+| `radial_substitution_pin` | `lean/YMGap/Continuum/JacobiHeatRadialSubstitutionPin.lean:101` | `/private/tmp/ym-oct7-radial-substitution2.log` |
+| `pairedHeat_first_pin`, `pairedHeat_second_pin`, `paired_curvature_certificate` | `lean/YMGap/Continuum/SU2QuaternionPairedJacobiCurvature.lean:69`, `:77`, `:109` | `/private/tmp/ym-oct7-paired-jacobi-curvature1.log` |
+
+Five focused leaves/25 printed gates pass within {propext, Quot.sound};
+four printed data definitions are axiom-free. Root read all final source;
+independent reviews checked actual jet signs, normalization, zero prefixes,
+carrier padding, endpoint handling and limited scope. No source sorry,
+custom axiom, classical/native shortcut, field weakening or baseline refresh.
+Every check used a fresh dynamic process/memory/swap preflight, one 20-GiB
+worker and a 12-GiB reserve; observed 87--88% free and zero swap. All five
+final checks completed at initial observation; no concurrent compiler,
+full-root/tree build or audit. Root imports registered, not root-built.
+
+Final checked-source SHA256:
+
+- `QPolyHaarAngularChain.lean`: `36910ac5c324724ecd133a3660d10c22ed621dde115d8c85416eb9371cc6905d`
+- `JacobiHeatLogConcavity.lean`: `a12064981d947b6fb85cc4072b2b536c2a1d269dd2de5cc5b95c1286dd5575b8`
+- `SU2QuaternionPairedScalarSquare.lean`: `805d403482c884d0d43a0fc1d525e910da6168dafcf608c8786299ab10783a0f`
+- `JacobiHeatRadialSubstitutionPin.lean`: `c22e74e641aa8307b2f3e590fa83ffd1350abe200d9d830f91251aa01f022434`
+- `SU2QuaternionPairedJacobiCurvature.lean`: `eabb7d006f21a4ea616e136134e6617718fff5e01edc1c20e1e6022715100018`
+
+### Next actual join and unchanged physical boundary
+
+Transfer this curvature, not just a relative absolute derivative budget,
+to the ORIGINAL unweighted prefix. Preserve N=K+1 using
+`QuaternionHaarAllNomeHeatCertificate.prefix_eq_weighted_add_deficit`
+(`lean/YMGap/Continuum/QuaternionHaarAllNomeHeatCertificate.lean:65`) and
+`JacobiWeightedHeatPolynomial.shiftedHeat_subst_coeffEqv_weightedPolynomial`
+(`lean/YMGap/Continuum/JacobiWeightedHeatPolynomial.lean:154`). Reuse the
+existing value/first/mixed deficit producers named below; a paired second
+derivative contains ALL FOUR ordered mixed terms, including the minus signs.
+Pay the actual curvature discrepancy with slack using the ORIGINAL
+`prefixFloorCertificate` (`lean/YMGap/Continuum/QuaternionHaarAllNomeHeatCertificate.lean:137`),
+placing its dependence only in precision/onset, not the final upper cost.
+These existing dependencies were source-inspected, not recompiled here.
+
+Full frozen-direction curvature, arbitrary-block recoding, original-prefix
+curvature transport and the ORIGINAL interacting conditional score remain
+OPEN. No integrated log-Hessian sign follows from a free heat marginal.
+All-vector OS/scaling estimates, independent nontrivial continuum survival,
+volume/spacing control, physical Hamiltonian calibration, SAME QFT,
+every compact simple group and Clay remain OPEN. The nome dependence is
+explicit; 1-w is not an identified physical clock. Broad displayed claims
+stay OPEN and unchanged; no chart reprint.
+
 ## Observed general-nome product addition and radial ceiling (2026-10-07 local; checked 2026-10-08 UTC)
 
 Classification: VERIFIED PROGRESS. Continue the actual original-object route.

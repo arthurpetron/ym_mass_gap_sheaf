@@ -16,6 +16,21 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked actual paired finite-heat curvature (2026-10-07):**
+`QPolyHaarAngularChain` proves the literal first/second paired jets.
+`JacobiHeatLogConcavity` constructs h'^2-h*h'' by positive affine-product
+discriminant recurrences, retaining the original normalization and zero
+prefixes. `SU2QuaternionPairedScalarSquare` constructs the OTHER TWO
+quaternion-component squares. `JacobiHeatRadialSubstitutionPin` pins the
+actual radial polynomial to these same jets; `SU2QuaternionPairedJacobiCurvature`
+joins them into curvature at cost C_T+tail_N+delta, with N>=1/onset/delta>0.
+No endpoint division or floor reciprocal in the cost. Five focused leaves/
+25 permitted gates; four printed definitions axiom-free. This is three
+separate paired directions of the weighted heat, not a full frozen matrix,
+unweighted-prefix or interacting estimate. Those joins and all Clay-facing
+obligations remain OPEN; no full-root/tree audit or chart closure.
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 **Checked general-nome SAME-product radial ceiling (2026-10-07):**
 `ThetaProductAngularCompletion` retains literal product angular jets and
 constructs their cutoff. `ThetaProductRadialCompletedPin` joins Q=2*P^2*D
