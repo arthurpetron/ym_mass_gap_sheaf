@@ -16,6 +16,17 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked finite physical-source Gauss join (2026-10-08 UTC):**
+the EXISTING `BF4ExactSlabFixedSpatialGaussTransfer` now proves zero for
+physical signed spatial spans, literal rational OWN centering, original
+iterations/terminal messages and actual finite conditional approximants.
+Every physical-face, support, full-action/fringe and reciprocal-window
+guard remains. Focused check 2 PASS; five new gates permitted only.
+This is finite source admissibility, not a horizontal/scaling bound.
+The original dense algebra already consists of closed physical loops;
+an EXTRA unbounded charged-field Gauss domain is not imposed on it.
+Physical/continuum/QFT/every-group/Clay remain OPEN. Evidence: adaptive-score audit.
+
 **Checked original temporal covariance payments (2026-10-08 UTC):**
 `BF4WilsonAllNomePositiveOrbitResponseOrder.response_crossRatio_increment_le`
 reduces long-lag covariance to h times the SAME shifted three-moment spread,

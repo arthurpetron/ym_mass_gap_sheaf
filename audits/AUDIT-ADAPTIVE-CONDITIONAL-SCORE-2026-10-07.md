@@ -4,6 +4,140 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Selected finite physical-source Gauss join (2026-10-08 UTC)
+
+OBSERVED (2026-10-08 16:30 UTC): the selected finite join is now CHECKED.
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialGaussTransfer.lean:551`,
+`spatialSpan_gauss_zero`, retains physical membership of every signed or
+repeated face; `shifted_gauss_zero:566` uses the EXISTING shifted polynomial
+and any literal rational center, including the chronological OWN center.
+`iterateStep_gauss_zero:575` respects the actual tail recursion;
+`terminalMessage_gauss_zero:585` is about literal T^n(1), not stationarity.
+`blockConditionalRatio_gauss_zero:615` preserves the actual g_(n+t),
+T^t(g_n*psi), existing upper window and every finite reciprocal degree.
+Source/message algebra admits arbitrary nome/K and zero width; the ratio
+keeps its existing strict-nome/head-cutoff positivity guards. This supplies
+the finite physical-source constraint input, not a horizontal estimate.
+
+Final focused check 2 exits zero in 3.71 seconds; ALL ten printed gates
+stay within {propext,Quot.sound}, and all five new gates use exactly those
+two permitted axioms. Source: 643 lines (+221), SHA256
+  39a7a8f1bd137e13eb088d5b9bcf57f6aa8e0c2e1686d350c294d273393b80a9.
+Log `/private/tmp/ym-oct8-physical-source-gauss2.log`, SHA256
+  1be8693cc0e7effa577b1e233445bec18aaf53826dd90afffb6dc0fb62dca1f4.
+Two unchanged lint warnings and one unused recursion binder are reported,
+not suppressed. Check 1 fails on missing namespace names and unfolding
+timeouts; its error-recovery sorryAx output is NOT proof evidence.
+Repairs only resolve names and shield existing bulky definitions locally;
+no theorem statement, analytic premise or resource option changes.
+
+Both launches followed successful fresh process/memory preflight: no
+competing compiler/runner/test process, 84--86% memory-pressure headroom,
+zero swap, one 20-GiB worker and a 12-GiB reserve. No limit raise, lock
+bypass, user-process termination, new module/frontier/sorry/axiom or root/
+tree build/audit; existing root import unchanged, CI still manual-only.
+Root read the complete source plus repair and complete final log.
+Independent COMPLETE final-source review PASS at the same 643-line source
+hash: raw physical placement, supported Haar reflection, signed/OWN
+centering, actual iteration chronology and reciprocal degree all retained.
+CONTINUE with the actual complete signed moving-window payment or relative
+innovation. Do not impose an extra ambient charged-field Gauss domain on
+the existing closed-loop algebra. Physical/continuum/QFT/every-group/Clay
+remain OPEN; exact canonical displayed claims are unchanged.
+
+The supplied lattice-measurement attachment is already reconciled in
+`RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md`; no measured mass,
+finite-spacing Kogut--Susskind identity, Sobolev sample regularity or
+area-law-to-gap premise is added. Its useful backward requirement is the
+SAME physical, gauge-invariant source and transfer, not a numerical gap input.
+
+Selected proposition in the EXISTING `BF4ExactSlabFixedSpatialGaussTransfer`
+leaf: the literal slice generator annihilates every physical signed
+`spatialSpan`, every original terminal message, and every original finite
+`blockConditionalRatio` of a supported Gauss-invariant input. Subtracting
+the literal OWN rational center must preserve that statement. Available
+inputs are `SliceHeat.plaquette_pin`, actual closed-character endpoint
+cancellation, supported Haar reflection, `transferStep_gauss_zero`, the
+actual `DirichletWindow.terminalMessage_next`, and finite reciprocal algebra.
+All spatial face memberships are required: polynomial support alone does
+not imply that the source word closes. No padded equality is differentiated.
+
+Consumer: finite physical-source admissibility for the existing original
+conditional prediction/score construction, a necessary QFT-side input.
+Prediction: finite algebra and induction suffice without any new analytic
+hypothesis. Tests: signed/repeated faces, empty lists, zero width/cutoff,
+arbitrary terminal depth and reciprocal degree, support/fringe and OWN
+centering. Completed generator domains and gauge-group exponentiation are
+NOT inferred. This does not pay a horizontal derivative or scaling estimate.
+
+Budget: one existing Lean leaf, at most 400 added lines and four focused
+checks, each serialized after fresh process/memory preflight with one
+20-GiB worker and a 12-GiB reserve. Sol implements; independent read-only
+review inspects the complete final source. Abandon/revise if closure needs
+an assumed gauge law, a different action/carrier, differentiated padding,
+unjustified reciprocal denominator or an unbounded completion extension.
+
+Parallel MAIN selection: the coherent-energy and weighted-Casimir screens
+retain the full original density and BOTH signed Taylor debts, but produce
+no changing-family relative upper bound. Casimir of the raw spatial family
+does not identify the filtered conditional ratio's Casimir. Opposite
+incidence alone does not annihilate the coherent tail. Prune another local
+cancellation/IBP wrapper; preserve complete signed window payment or
+relative innovation as the main analytic frontier. No canonical chart
+claim changes from this selection.
+
+### Observed MAIN analytic screen: no free incidence/Casimir payment
+
+`BF4ExactSlabFixedSpatialFamilyCoherentTail.family_coherent_row:383`
+retains the squared SUM of signed tails and its negative incident-span square.
+`BF4ExactSlabFixedSpatialAdjacentAngularCancellation.original_adjacent_angular_difference:203`
+retains the transported difference character, not a coefficient-difference
+bound. Its actual odd-marginal consequence is `original_adjacent_marginal_angular_le:249`.
+`BF4ExactSlabFixedSpatialFamilyRelativeWard.padded_family_energy_relative_ward:333`
+still has the explicit factor 24+24*|qs|*marginalScoreCap(w)^2 and the
+COMPLETE signed normalized remainder. These are existing theorems, not new
+proof progress. The actual unit family has |qs|=3*N^6 at base=N^2.
+
+The alternative weighted-Casimir calculation is PAPER only. For raw
+f=spatialSpan and phi=f-c, IBP gives
+  H[W*Gamma(phi)] = 12*H[W*phi^2]+12*c*H[W*phi]
+                    +(1/2)*H[phi^2*Delta(W)].
+The density-Laplacian is unpaid. In particular, the actual payment density
+from `BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.original_ratioNoise_gradientPayment_weighted_pin:384`
+contains spatialWeight*a*T(spatialFringeMass*Ta), not the OWN-centering law;
+its mean term need not vanish. No Casimir-12 pin for the filtered ratio is
+produced. PRUNE another IBP wrapper; keep the complete signed payment in
+the SAME surviving variance units as the analytic obligation. This screen
+does not refute a favorable interacting cancellation or actual survival.
+
+### Backward domain screen: prune an extra ambient Gauss prerequisite
+
+The ACTUAL dense syntax already consists of closed physical loops:
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonProbe.lean:45`,
+`SourceLoop`; `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonWindow.lean:50`,
+`WindowExpression`; and
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonIntrinsicForm.lean:45`,
+`IntrinsicExpression`. The existing
+`lean/YMGap/Continuum/BF4ExactSlabVertexGaussClosedCharacter.lean:579`,
+`placedWindow_gauss_zero`, annihilates each placed dense test with BOTH
+placement-room guards. These source facts are prior proofs, not new closure.
+
+The physical pairing is pinned by
+`lean/YMGap/Continuum/BF4WilsonAllNomeBondOSRealization.lean:63`, `bondForm`;
+its SAME completed carrier by `dense_limit:190` there and
+`lean/YMGap/Continuum/BF4WilsonAllNomeBondOSCompletion.lean:365`,
+`constant_pairing`. Do not impose an unbounded Gauss generator on a LARGER
+charged-field algebra as an extra prerequisite for these closed observables.
+No such generator or domain extension is constructed, and no canonical
+field is changed or discharged by this planning decision.
+
+For a larger algebra, the radical/closability argument remains PAPER and
+requires a G-stable dense domain (including G^2*p), SAME-form antisymmetry
+and fixed-test continuity/density. Full-action Ward and transfer
+intertwining alone do not supply that realization or a reflected
+two-endpoint antisymmetry pin. PRUNE that extra branch for the present
+physical test algebra; keep the actual conditional-source constraint join.
+
 ## Observed late-response saturation (2026-10-08 16:11 UTC)
 
 CHECKED in the existing leaves, with no new module or conditional compiler:

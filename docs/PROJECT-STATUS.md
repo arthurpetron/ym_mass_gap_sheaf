@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Supporting finite physical-source Gauss join checked (2026-10-08 UTC):
+the existing GaussTransfer leaf proves zero for physical signed spatial
+families, OWN rational centering, original terminal messages and actual
+finite conditional approximants. All action/fringe/membership/positivity
+guards remain; focused check 2 PASS and five new permitted gates.
+This is finite source admissibility, not horizontal control or continuum
+QFT. The backward screen prunes an EXTRA ambient charged-field domain
+prerequisite for the existing closed-loop algebra; no canonical field changes.
+MAIN signed family payment and all physical/Clay goals remain OPEN.
+Exact displayed claims unchanged; no chart reprint. Evidence: adaptive-score audit.
+
 Supporting ORIGINAL temporal covariance payment checked (2026-10-08 UTC):
 the existing positive-orbit response leaf proves Delta_h<=h*S with a positive
 floor and Delta_h<=(r0-r1)*r_h with NO floor, retaining actual late decay.

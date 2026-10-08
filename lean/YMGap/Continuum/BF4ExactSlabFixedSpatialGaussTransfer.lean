@@ -13,6 +13,8 @@ import YMGap.Continuum.BF4ExactSlabVertexGaussHeatAction
 import YMGap.Continuum.BF4ExactSlabFixedSpatialTransferPositive
 import YMGap.Continuum.SU2QuaternionProductHeatAngularCommutation
 import YMGap.Continuum.SU2QuaternionHaarAngularIBPAt
+import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalRatio
+import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteFamilySchedule
 namespace YMGap.Continuum.BF4ExactSlabFixedSpatialGaussTransfer
 set_option autoImplicit false
 open YMGap.Constructive YMGap.Continuum
@@ -414,9 +416,228 @@ theorem transferStep_gauss_zero (w : Q') (K width : Nat) (v : Z4Vertex) (i : Fin
       (HaarCarrierEqv.trans (HaarCarrierEqv.mul_left _ h) (RatPolyCoeffEqv.haarCarrier (.mul_zero_right _))))
       (RatPolyCoeffEqv.haarCarrier (map_zero _ w K _))
 
+/-! Finite original sources and messages stay in the SAME Gauss constraint.
+Only literal physical spatial faces are admitted below. Rational centering
+and finite reciprocal polynomials retain that constraint; no completed
+generator, horizontal-energy payment or survival claim is supplied. -/
+open YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonProbe
+open YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonPlaquette
+open YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteFamilySchedule (spatialSpan spatialSpan_supported)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialFacePlacement (spatialFaces)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialKineticHeat (kineticWeight kineticWeight_supported)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalBracket (terminalMessage terminalMessage_supported)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialDirichletWindow (terminalMessage_next)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialBlockMultiplicationDefect (originalBlockTransfer)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalRatio
+  (blockConditionalRatio blockReciprocal blockWindowUpper blockWindowUpper_positive)
+open YMGap.Continuum.QuaternionHaarDensityVariance (shifted)
+open YMGap.Continuum.QuaternionHaarPolynomialGeometricInverse (corrector)
+open YMGap.Continuum.QuaternionHaarMonotoneGeometricInverse (corrector_supported)
+open YMGap.Continuum.QuaternionHaarPositiveWindowInverse
+  (reciprocal reciprocal_supported remainder remainder_supported scale)
+attribute [local irreducible] baseLinks kineticWeight spatialWeight
+
+private theorem support_smul {blocks : Nat} {p : RatPoly}
+    (hp : SupportedQuaternionBlocks blocks p) (c : Q') :
+    SupportedQuaternionBlocks blocks (polySmul c p) :=
+  BF4ExactSlabPlaquetteObservableAlgebra.supported_smul hp c
+
+private theorem reflect_carrier (width : Nat) {p q : RatPoly}
+    (hp : SupportedQuaternionBlocks (N width) p) (hq : SupportedQuaternionBlocks (N width) q)
+    (h : HaarCarrierEqv (B width) ((E width).polynomial p) ((E width).polynomial q)) :
+    HaarCarrierEqv (N width) p q :=
+  carrier_of_supported hp hq ((E width).polynomial_supportedHaar_reflect hp hq (.of_carrier h))
+
+private theorem slice_add (width : Nat) (v : Z4Vertex) (i : Fin 3) {p q : RatPoly}
+    (hp : SupportedQuaternionBlocks (N width) p) (hq : SupportedQuaternionBlocks (N width) q) :
+    HaarCarrierEqv (N width) (sliceGauss width v i (polyAdd p q))
+      (polyAdd (sliceGauss width v i p) (sliceGauss width v i q)) := by
+  have h := gauss_embedding width v i (supported_add hp hq)
+  rw [BlockEmbedding.polynomial_add] at h
+  have hr := HaarCarrierEqv.add (HaarCarrierEqv.symm (gauss_embedding width v i hp))
+    (HaarCarrierEqv.symm (gauss_embedding width v i hq))
+  rw [← BlockEmbedding.polynomial_add] at hr
+  exact reflect_carrier width (sliceGauss_supported width v i (supported_add hp hq))
+    (supported_add (sliceGauss_supported width v i hp) (sliceGauss_supported width v i hq))
+    (HaarCarrierEqv.trans h (HaarCarrierEqv.trans
+      (RatPolyCoeffEqv.haarCarrier (vertexGauss_add width v i _ _)) hr))
+
+private theorem slice_smul (width : Nat) (v : Z4Vertex) (i : Fin 3) (c : Q') {p : RatPoly}
+    (hp : SupportedQuaternionBlocks (N width) p) :
+    HaarCarrierEqv (N width) (sliceGauss width v i (polySmul c p))
+      (polySmul c (sliceGauss width v i p)) := by
+  have h := gauss_embedding width v i (support_smul hp c)
+  rw [BlockEmbedding.polynomial_smul] at h
+  have hr := HaarCarrierEqv.smul c (HaarCarrierEqv.symm (gauss_embedding width v i hp))
+  rw [← BlockEmbedding.polynomial_smul] at hr
+  exact reflect_carrier width (sliceGauss_supported width v i (support_smul hp c))
+    (support_smul (sliceGauss_supported width v i hp) c)
+    (HaarCarrierEqv.trans h (HaarCarrierEqv.trans
+      (RatPolyCoeffEqv.haarCarrier (vertexGauss_smul width v i c _)) hr))
+
+private theorem reflect_gauss_zero (width : Nat) (v : Z4Vertex) (i : Fin 3) {p : RatPoly}
+    (hp : SupportedQuaternionBlocks (N width) p)
+    (h : HaarCarrierEqv (B width) (vertexGauss width v i ((E width).polynomial p)) polyZero) :
+    HaarCarrierEqv (N width) (sliceGauss width v i p) polyZero :=
+  reflect_carrier width (sliceGauss_supported width v i hp) (zero_supported _)
+    (HaarCarrierEqv.trans (gauss_embedding width v i hp) h)
+
+private theorem slice_one_zero (width : Nat) (v : Z4Vertex) (i : Fin 3) :
+    HaarCarrierEqv (N width) (sliceGauss width v i polyOne) polyZero := by
+  have hp := padded_carrier (PaddedPolynomialCoeffEqv.of_prefix (E width).polynomial_one_prefix)
+    ((E width).polynomial_supported polyOne) (supported_one _)
+  exact reflect_gauss_zero width v i (supported_one _) (HaarCarrierEqv.trans
+    (along_carrier (boundaryCompleteSlabLinks width) v i hp)
+    (RatPolyCoeffEqv.haarCarrier (vertexGauss_one width v i)))
+
+private theorem slice_zero_zero (width : Nat) (v : Z4Vertex) (i : Fin 3) :
+    HaarCarrierEqv (N width) (sliceGauss width v i polyZero) polyZero :=
+  reflect_gauss_zero width v i (zero_supported _)
+    (RatPolyCoeffEqv.haarCarrier (vertexGauss_zero width v i))
+
+private theorem slice_add_zero (width : Nat) (v : Z4Vertex) (i : Fin 3) {p q : RatPoly}
+    (hp : SupportedQuaternionBlocks (N width) p) (hq : SupportedQuaternionBlocks (N width) q)
+    (h : HaarCarrierEqv (N width) (sliceGauss width v i p) polyZero)
+    (h' : HaarCarrierEqv (N width) (sliceGauss width v i q) polyZero) :
+    HaarCarrierEqv (N width) (sliceGauss width v i (polyAdd p q)) polyZero :=
+  HaarCarrierEqv.trans (slice_add width v i hp hq)
+    (HaarCarrierEqv.trans (HaarCarrierEqv.add h h') (RatPolyCoeffEqv.haarCarrier (.add_zero _)))
+
+private theorem slice_smul_zero (width : Nat) (v : Z4Vertex) (i : Fin 3) (c : Q') {p : RatPoly}
+    (hp : SupportedQuaternionBlocks (N width) p)
+    (h : HaarCarrierEqv (N width) (sliceGauss width v i p) polyZero) :
+    HaarCarrierEqv (N width) (sliceGauss width v i (polySmul c p)) polyZero :=
+  HaarCarrierEqv.trans (slice_smul width v i c hp)
+    (HaarCarrierEqv.trans (HaarCarrierEqv.smul c h) (RatPolyCoeffEqv.haarCarrier (.smul_zero c)))
+
+private theorem slice_neg_zero (width : Nat) (v : Z4Vertex) (i : Fin 3) {p : RatPoly}
+    (hp : SupportedQuaternionBlocks (N width) p)
+    (h : HaarCarrierEqv (N width) (sliceGauss width v i p) polyZero) :
+    HaarCarrierEqv (N width) (sliceGauss width v i (polyNeg p)) polyZero :=
+  HaarCarrierEqv.trans (along_carrier (baseLinks width) v i (RatPolyCoeffEqv.haarCarrier (neg_smul p)))
+    (slice_smul_zero width v i (-1) hp h)
+
+private theorem slice_mul_zero (width : Nat) (v : Z4Vertex) (i : Fin 3) {p q : RatPoly}
+    (hp : SupportedQuaternionBlocks (N width) p) (hq : SupportedQuaternionBlocks (N width) q)
+    (h : HaarCarrierEqv (N width) (sliceGauss width v i p) polyZero)
+    (h' : HaarCarrierEqv (N width) (sliceGauss width v i q) polyZero) :
+    HaarCarrierEqv (N width) (sliceGauss width v i (polyMul p q)) polyZero :=
+  HaarCarrierEqv.trans (slice_mul width v i hp hq) (HaarCarrierEqv.trans
+    (HaarCarrierEqv.add (HaarCarrierEqv.mul_right q h) (HaarCarrierEqv.mul_left p h'))
+    (RatPolyCoeffEqv.haarCarrier ((RatPolyCoeffEqv.mul_zero_left q).add (.mul_zero_right p))))
+
+private theorem sourceLoop_zero (width : Nat) (loop : SourceLoop width)
+    (v : Z4Vertex) (i : Fin 3) (spin : Nat) :
+    HaarCarrierEqv (N width) (sliceGauss width v i (sourceCharacter width loop.edges spin)) polyZero := by
+  have hp := sourceCharacter_supported width loop.edges spin
+  have hq := BF4ExactSlabTemporalGaugeWilsonWord.character_supported width
+    (loop.edges.map (shiftEntry 0)) spin
+  have hpin := padded_carrier
+    (PaddedPolynomialCoeffEqv.of_prefix (character_pin (Nat.le_refl width) (Nat.zero_le width) loop spin))
+    ((E width).polynomial_supported _) hq
+  exact reflect_gauss_zero width v i hp (HaarCarrierEqv.trans
+    (along_carrier (boundaryCompleteSlabLinks width) v i hpin)
+    (padded_carrier (placedSourceLoop_gauss_zero (Nat.le_refl width) (Nat.zero_le width) loop v i spin)
+      (vertexGauss_supported width v i hq) (zero_supported _)))
+
+private theorem spatialFace_zero (width : Nat) (face : Z4Plaq) (hf : face∈spatialFaces width)
+    (v : Z4Vertex) (i : Fin 3) : HaarCarrierEqv (N width)
+    (sliceGauss width v i (characterPolynomial (plaquette width face).scalar 1)) polyZero :=
+  HaarCarrierEqv.trans (HaarCarrierEqv.symm (along_carrier (baseLinks width) v i
+    (RatPolyCoeffEqv.haarCarrier (sourceCharacter_plaquette width face 1))))
+    (sourceLoop_zero width (plaquetteLoop face hf) v i 1)
+
+/-- Every signed physical face is retained; empty families and zero coefficients remain. -/
+theorem spatialSpan_gauss_zero (width : Nat) (c : Z4Plaq → Q') (v : Z4Vertex) (i : Fin 3) :
+    ∀ qs : List Z4Plaq, (∀ face, face∈qs → face∈spatialFaces width) →
+      HaarCarrierEqv (N width) (sliceGauss width v i (spatialSpan width c qs)) polyZero
+  | [], _ => slice_zero_zero width v i
+  | face::qs, hqs => slice_add_zero width v i
+      (support_smul (SU2QuaternionRelativeHeatPairGeometry.character_supported
+        (BF4ExactSlabFixedSpatialSpatialOrder.plaquette_supported width (N width) (Nat.le_refl _) face).scalar 1) (c face))
+      (spatialSpan_supported width c qs)
+      (slice_smul_zero width v i (c face)
+        (SU2QuaternionRelativeHeatPairGeometry.character_supported
+          (BF4ExactSlabFixedSpatialSpatialOrder.plaquette_supported width (N width) (Nat.le_refl _) face).scalar 1)
+        (spatialFace_zero width face (hqs face List.mem_cons_self) v i))
+      (spatialSpan_gauss_zero width c v i qs (fun q hq => hqs q (List.mem_cons_of_mem face hq)))
+
+/-- Literal rational subtraction preserves the original constraint, including OWN centers. -/
+theorem shifted_gauss_zero (width : Nat) (v : Z4Vertex) (i : Fin 3) {p : RatPoly}
+    (hp : SupportedQuaternionBlocks (N width) p)
+    (h : HaarCarrierEqv (N width) (sliceGauss width v i p) polyZero) (center : Q') :
+    HaarCarrierEqv (N width) (sliceGauss width v i (shifted p center)) polyZero :=
+  slice_add_zero width v i (support_smul hp 1) (support_smul (supported_one _) (-center))
+    (slice_smul_zero width v i 1 hp h)
+    (slice_smul_zero width v i (-center) (supported_one _) (slice_one_zero width v i))
+
+/-- Finite ORIGINAL transfer iteration preserves every supported signed input constraint. -/
+theorem iterateStep_gauss_zero (w : Q') (K width : Nat) (v : Z4Vertex) (i : Fin 3) :
+    ∀ count : Nat, ∀ {p : RatPoly}, SupportedQuaternionBlocks (N width) p →
+      HaarCarrierEqv (N width) (sliceGauss width v i p) polyZero →
+      HaarCarrierEqv (N width) (sliceGauss width v i
+        (iterateStep (N width) (kineticWeight w K width) (spatialWeight w K width) count p)) polyZero
+  | 0, _, _, h => h
+  | count+1, p, hp, h => iterateStep_gauss_zero w K width v i count
+      (transferStep_supported w K width hp) (transferStep_gauss_zero w K width v i hp h)
+
+/-- Every actual terminal message is invariant, not a stationary or limiting replacement. -/
+theorem terminalMessage_gauss_zero (w : Q') (K width n : Nat) (v : Z4Vertex) (i : Fin 3) :
+    HaarCarrierEqv (N width) (sliceGauss width v i (terminalMessage w K width n)) polyZero :=
+  iterateStep_gauss_zero w K width v i n (supported_one _) (slice_one_zero width v i)
+
+private theorem corrector_gauss_zero (width : Nat) (v : Z4Vertex) (i : Fin 3) {R : RatPoly}
+    (hp : SupportedQuaternionBlocks (N width) R)
+    (h : HaarCarrierEqv (N width) (sliceGauss width v i R) polyZero) :
+    ∀ k : Nat, HaarCarrierEqv (N width) (sliceGauss width v i (corrector R k)) polyZero
+  | 0 => slice_zero_zero width v i
+  | k+1 => slice_add_zero width v i (supported_one _)
+      (supported_polyMul (neg_supported hp) (corrector_supported hp k)) (slice_one_zero width v i)
+      (slice_mul_zero width v i (neg_supported hp) (corrector_supported hp k)
+        (slice_neg_zero width v i hp h) (corrector_gauss_zero width v i hp h k))
+
+private theorem reciprocal_gauss_zero (width : Nat) (v : Z4Vertex) (i : Fin 3) {A : RatPoly}
+    (hp : SupportedQuaternionBlocks (N width) A)
+    (h : HaarCarrierEqv (N width) (sliceGauss width v i A) polyZero)
+    (u : Q') (hu : (0 : Q') < u) (k : Nat) :
+    HaarCarrierEqv (N width) (sliceGauss width v i (reciprocal A u hu k)) polyZero := by
+  have hR : HaarCarrierEqv (N width) (sliceGauss width v i (remainder A u hu)) polyZero :=
+    slice_add_zero width v i (support_smul hp (scale u hu)) (neg_supported (supported_one _))
+      (slice_smul_zero width v i (scale u hu) hp h)
+      (slice_neg_zero width v i (supported_one _) (slice_one_zero width v i))
+  exact slice_smul_zero width v i (scale u hu)
+    (corrector_supported (remainder_supported hp u hu) k)
+    (corrector_gauss_zero width v i (remainder_supported hp u hu) hR k)
+
+/-- The actual finite ratio uses g_(n+t), T^t(g_n*psi) and its existing upper
+window, unchanged. All auxiliary degrees and zero/fringe cases are retained;
+there is no completed inverse, derivative-energy estimate or survival claim. -/
+theorem blockConditionalRatio_gauss_zero {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < 1)
+    (K width : Nat) (hK : BF4ExactSlabRetainedHeatHeadComparison.headCutoff w ≤ K)
+    (n t : Nat) (v : Z4Vertex) (i : Fin 3) {psi : RatPoly}
+    (hp : SupportedQuaternionBlocks (N width) psi)
+    (h : HaarCarrierEqv (N width) (sliceGauss width v i psi) polyZero) (k : Nat) :
+    HaarCarrierEqv (N width)
+      (sliceGauss width v i (blockConditionalRatio hw0 hw1 K width hK n t psi k)) polyZero := by
+  have hg := terminalMessage_supported w K width n
+  have hA := terminalMessage_supported w K width (n+t)
+  have hnum := iterateStep_supported (kineticWeight_supported w K width)
+    (spatialWeight_supported w K width) t (supported_polyMul hg hp)
+  exact slice_mul_zero width v i
+    (reciprocal_supported hA _ _ k) hnum
+    (reciprocal_gauss_zero width v i hA (terminalMessage_gauss_zero w K width (n+t) v i)
+      (blockWindowUpper w K width n t) (blockWindowUpper_positive hw0 hw1 K width hK n t) k)
+    (iterateStep_gauss_zero w K width v i t (supported_polyMul hg hp)
+      (slice_mul_zero width v i hg hp (terminalMessage_gauss_zero w K width n v i) h))
+
 end YMGap.Continuum.BF4ExactSlabFixedSpatialGaussTransfer
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialGaussTransfer.sliceGauss
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialGaussTransfer.sliceGauss_supported
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialGaussTransfer.spatialWeight_gauss_zero
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialGaussTransfer.transferStep_gauss_intertwining
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialGaussTransfer.transferStep_gauss_zero
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialGaussTransfer.spatialSpan_gauss_zero
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialGaussTransfer.shifted_gauss_zero
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialGaussTransfer.iterateStep_gauss_zero
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialGaussTransfer.terminalMessage_gauss_zero
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialGaussTransfer.blockConditionalRatio_gauss_zero

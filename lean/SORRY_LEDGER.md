@@ -1,5 +1,22 @@
 # Sorry Ledger
 
+## PROVED finite physical-source Gauss join / OPEN horizontal and continuum estimates (2026-10-08 UTC)
+
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialGaussTransfer.lean:551`,
+`spatialSpan_gauss_zero`; `shifted_gauss_zero:566`;
+`iterateStep_gauss_zero:575`; `terminalMessage_gauss_zero:585`; and
+`blockConditionalRatio_gauss_zero:615` retain physical signed/repeated faces,
+literal OWN rational centers, full original transfer/fringe, actual terminal
+messages and every finite reciprocal degree under its existing positivity
+guards. Focused check 2 PASS; five new gates exactly {propext,Quot.sound}.
+No new hole/axiom/analytic premise, module/frontier or resource increase.
+This finite constraint is produced, NOT a horizontal signed-cost estimate,
+changing-family reserve or continuum QFT law. No unbounded charged-field
+domain is added as an extra prerequisite for the closed-loop test algebra;
+no canonical field is changed. MAIN signed payment and all physical/
+continuum/QFT/every-group/Clay obligations remain OPEN. Exact hashes and
+final-source review: adaptive-score audit. Root import unchanged; no tree audit.
+
 ## PROVED SAME-slice Gauss/transfer join / OPEN completed domain (2026-10-08 UTC)
 
 `lean/YMGap/Continuum/SU2QuaternionHaarBlockEmbeddingAngular.lean:116`,
