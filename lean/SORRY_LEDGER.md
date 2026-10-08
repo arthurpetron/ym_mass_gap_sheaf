@@ -1,5 +1,23 @@
 # Sorry Ledger
 
+## PROVED nome-sensitive ORIGINAL cutoff accuracy / OPEN charged values and scaling (2026-10-08 UTC)
+
+`lean/YMGap/Continuum/BF4ExactSlabSmallNomeOneFaceCutoffStability.lean:227`,
+`nomeFaceTailInterval`, produces cap (648/71)*w^8*(1/72)^(K-1) at NAMED
+0<=w<=1/2,K>=1; its relative cap uses the SAME early floor 1055/2272.
+`BF4ExactSlabSmallNomeCutoffStability.lean:304`, `original_nome_cutoff_bound`,
+and `expectation_nome_cutoff_bound:398` reach actual finite normalized moments
+and the SAME existing original expectation. `quarter_nome_72_cutoff_one_budget:410`
+checks coefficient 729/16880<1/20. Shared cancellation/induction/limit proof
+retains BOTH OWN masses and all occurrences; old public statements and
+canonical guards are unchanged. Concrete tail intervals supply every generic
+helper premise; no new analytic input/hole/axiom is introduced. Two accepted
+focused checks/31 permitted gates and independent final-source review; no
+root/tree audit or broad physical claim. The affine-mask leaf is NOT yet
+accepted: its compiled draft contains a prohibited classical dependency
+being repaired. Charged values, active reduction, changing-family retention
+and physical/Clay obligations remain OPEN. Evidence/hashes: pilot audit.
+
 ## PROVED full finite-list normalized cutoff payment and actual inserted degree / OPEN charged values and scaling (2026-10-08 UTC)
 
 `BF4ExactSlabSmallNomeCutoffStability.lean:248`, `original_cutoff_bound`,

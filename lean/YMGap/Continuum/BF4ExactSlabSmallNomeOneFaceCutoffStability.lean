@@ -10,6 +10,8 @@ specified occurrence cutoffs >= 1; its positivity and strict mass are
 constructed, not assumed. Repeated faces/shared links are allowed.
 No headCutoff/relativeCutoff consumer is changed. This is one-face finite
 cutoff control, not a volume-uniform telescope, OS norm or scaling result.
+The nome-sensitive refinement retains the actual label-two head 9*w^8;
+both estimates use the SAME early floor and normalized cancellation proof.
 -/
 
 import YMGap.Continuum.QuaternionHaarSmallNomeHeatCertificate
@@ -133,6 +135,102 @@ def faceTailInterval_early {w : Q'} (hw0 : (0 : Q') ≤ w) (hw : w ≤ half)
     (.scalar (supported_slabPlaquette _ _) (haarNorm_slabPlaquette (slabPlaquetteAt_mem hi)))
     K hK L
 
+/-- Keep the actual first omitted majorant, rather than its half-nome cap.
+This is (648/71)*w^8*(1/72)^(K-1). -/
+def nomeTailCap (w : Q') (K : Nat) : Q' :=
+  Q'.mkPos 72 71 (by decide) * pointwiseHeatMajorant w 2 * sharpTailRatio ^ (K-1)
+
+/-- The SAME first-tail cap divided by the produced fixed early floor.
+This is (20736/1055)*w^8*(1/72)^(K-1). -/
+def nomeRelativeTailCap (w : Q') (K : Nat) : Q' :=
+  Q'.mkPos 2304 1055 (by decide) * pointwiseHeatMajorant w 2 * sharpTailRatio ^ (K-1)
+
+theorem nomeRelativeTailCap_nonnegative {w : Q'} (hw0 : (0 : Q') ≤ w) (K : Nat) :
+    (0 : Q') ≤ nomeRelativeTailCap w K :=
+  Q'.mul_nonneg _ _
+    (Q'.mul_nonneg _ _ (by decide)
+      (YMGap.Continuum.BondMovingScaledNorm.tailTerm_nonneg hw0 2 2))
+    (Q'.pow_nonneg sharpTailRatio sharpTailRatio_nonnegative (K-1))
+
+theorem nomeTailCap_relative_floor (w : Q') (K : Nat) :
+    nomeTailCap w K ≈ nomeRelativeTailCap w K * floor := by
+  unfold nomeTailCap nomeRelativeTailCap
+  have h : Q'.mkPos 72 71 (by decide) ≈ Q'.mkPos 2304 1055 (by decide) * floor := by
+    decide
+  exact Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_right _ _ _ (Q'.mul_eqv_congr_right _ _ _ h))
+    (poly_identity_of_normal_eq
+      (.mul (.mul (.mul (.var 0) (.var 1)) (.var 2)) (.var 3))
+      (.mul (.mul (.mul (.var 0) (.var 2)) (.var 3)) (.var 1)) (by decide)
+      (fun
+        | 0 => Q'.mkPos 2304 1055 (by decide)
+        | 1 => floor
+        | 2 => pointwiseHeatMajorant w 2
+        | _ => sharpTailRatio ^ (K-1)))
+
+theorem nomeRelativeTailCap_zero (K : Nat) : nomeRelativeTailCap 0 K ≈ 0 := by
+  unfold nomeRelativeTailCap
+  exact Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_right _ _ _ (by decide :
+      Q'.mkPos 2304 1055 (by decide) * pointwiseHeatMajorant 0 2 ≈ 0))
+    (Q'.zero_mul_eqv _)
+
+/-- The old corridor cap is recovered exactly at its endpoint. -/
+theorem nomeRelativeTailCap_half (K : Nat) :
+    nomeRelativeTailCap half K ≈ relativeTailCap K := by
+  unfold nomeRelativeTailCap relativeTailCap
+  exact Q'.mul_eqv_congr_right _ _ _ (by decide)
+
+/-- Actual finite tail with its nome dependence intact, including zero nome. -/
+theorem nome_shifted_majorant_bound {w : Q'} (hw0 : (0 : Q') ≤ w) (hw : w ≤ half)
+    (K : Nat) (hK : 1 ≤ K) (L : Nat) :
+    finSum (fun j => pointwiseHeatMajorant w (K+1+j)) L ≤ nomeTailCap w K := by
+  let a := pointwiseHeatMajorant w 2
+  let r := sharpTailRatio
+  let p := r ^ (K-1)
+  have hdom := CharacterTail.geom_dom
+    (fun j => pointwiseHeatMajorant w (2+j)) a r sharpTailRatio_nonnegative
+    (by simpa only [Nat.add_zero] using Q'.le_of_eqv (Q'.eqv_refl a))
+    (fun j => by
+      change pointwiseHeatMajorant w (2+(j+1)) ≤ r * pointwiseHeatMajorant w (2+j)
+      rw [show 2+(j+1) = (2+j)+1 by omega]
+      exact pointwiseHeatMajorant_succ_le hw0 hw (2+j) (by omega))
+  have hhead : pointwiseHeatMajorant w (K+1) ≤ a*p := by
+    simpa only [show 2+(K-1) = K+1 by omega] using hdom (K-1)
+  apply CharacterTail.geom_series_le (fun j => pointwiseHeatMajorant w (K+1+j))
+    (a*p) r (nomeTailCap w K) sharpTailRatio_nonnegative
+    (Q'.mul_nonneg _ _
+      (Q'.mul_nonneg _ _ (by decide)
+        (YMGap.Continuum.BondMovingScaledNorm.tailTerm_nonneg hw0 2 2))
+      (Q'.pow_nonneg sharpTailRatio sharpTailRatio_nonnegative (K-1)))
+    (by simpa only [Nat.add_zero] using hhead)
+    (fun j => by
+      change pointwiseHeatMajorant w (K+1+(j+1)) ≤ r * pointwiseHeatMajorant w (K+1+j)
+      rw [show K+1+(j+1) = (K+1+j)+1 by omega]
+      exact pointwiseHeatMajorant_succ_le hw0 hw (K+1+j) (by omega))
+  have hscalar : (1 : Q') + sharpTailRatio * Q'.mkPos 72 71 (by decide) ≈
+      Q'.mkPos 72 71 (by decide) := by decide
+  exact Q'.le_of_eqv (Q'.eqv_trans _ _ _
+    (poly_identity_of_normal_eq
+      (.add (.mul (.var 0) (.var 1))
+        (.mul (.var 2) (.mul (.mul (.var 3) (.var 0)) (.var 1))))
+      (.mul (.add (.const 1) (.mul (.var 2) (.var 3))) (.mul (.var 0) (.var 1)))
+      (by decide) (fun
+        | 0 => a
+        | 1 => p
+        | 2 => r
+        | _ => Q'.mkPos 72 71 (by decide)))
+    (Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ _ _ hscalar)
+      (Q'.eqv_symm (Q'.mul_assoc_eqv _ _ _))))
+
+/-- Produced Type-valued interval on the literal ORIGINAL slab face tail. -/
+def nomeFaceTailInterval {w : Q'} (hw0 : (0 : Q') ≤ w) (hw : w ≤ half)
+    (K L extent id : Nat) (hi : id ∈ slabPhysicalFaceEdges extent) (hK : 1 ≤ K) :
+    Interval (blocks extent) (faceHeatTail w extent id (K+1) L) (nomeTailCap w K) :=
+  (Interval.finiteRange _ _ (fun j => termInterval hw0
+    (.scalar (supported_slabPlaquette _ _) (haarNorm_slabPlaquette (slabPlaquetteAt_mem hi)))
+    (K+1+j)) L).weaken (nome_shifted_majorant_bound hw0 hw K hK L)
+
 /-- ORIGINAL spectator factors, indexed by (physical face, inclusive cutoff).
 The list may repeat a face and give its occurrences different cutoffs. -/
 def background (w : Q') (extent : Nat) (entries : List (Nat × Nat)) : RatPoly :=
@@ -184,29 +282,28 @@ variable {w : Q'} (hw0 : (0 : Q') ≤ w) (hw : w ≤ half)
 
 include hw0 hw hi hK H
 
-private theorem mass_difference_bound :
+private theorem mass_difference_bound {eta : Q'} (he : (0 : Q') ≤ eta)
+    (R : Interval (blocks extent) (faceHeatTail w extent id (K+1) L) (eta*floor)) :
     Q'.abs (faceMass w (K+L) extent id B + -(faceMass w K extent id B)) ≤
-      relativeTailCap K * faceMass w (K+L) extent id B := by
-  have R := (faceTailInterval_early hw0 hw K L extent id hi hK).changeCap
-    (tailCap_relative_floor K)
+      eta * faceMass w (K+L) extent id B := by
   exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.abs_eqv_congr (insertion_difference w K L extent id B)))
     (Q'.le_trans' _ _ _ (R.weighted_haar_bound H)
       (Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.mul_assoc_eqv _ _ _))
         (Q'.mul_le_mul_of_nonneg_left _ _ _
           (floor_insertion H (faceFloorCertificate hw0 hw (K+L) extent id hi (by omega)))
-          (relativeTailCap_nonnegative K))))
+          he)))
 
-private theorem moment_difference_bound {p : RatPoly} {c : Q'} (P : Interval (blocks extent) p c) :
+private theorem moment_difference_bound {eta : Q'} (he : (0 : Q') ≤ eta)
+    (R : Interval (blocks extent) (faceHeatTail w extent id (K+1) L) (eta*floor))
+    {p : RatPoly} {c : Q'} (P : Interval (blocks extent) p c) :
     Q'.abs (faceMoment w (K+L) extent id B p + -(faceMoment w K extent id B p)) ≤
-      (c*relativeTailCap K) * faceMass w (K+L) extent id B := by
-  have R := (faceTailInterval_early hw0 hw K L extent id hi hK).changeCap
-    (tailCap_relative_floor K)
+      (c*eta) * faceMass w (K+L) extent id B := by
   have hp := @haar_of_coeff (blocks extent) _ _
     (((RatPolyCoeffEqv.mul_comm p B).mul_right (faceHeatTail w extent id (K+1) L)).trans
       (RatPolyCoeffEqv.mul_assoc B p _))
-  have hc := Q'.mul_nonneg _ _ P.nonnegative (relativeTailCap_nonnegative K)
-  have horder : (c*(relativeTailCap K*floor))*quaternionHaar (blocks extent) B ≈
-      (c*relativeTailCap K)*(floor*quaternionHaar (blocks extent) B) :=
+  have hc := Q'.mul_nonneg _ _ P.nonnegative he
+  have horder : (c*(eta*floor))*quaternionHaar (blocks extent) B ≈
+      (c*eta)*(floor*quaternionHaar (blocks extent) B) :=
     Q'.eqv_trans _ _ _
       (Q'.mul_eqv_congr_right _ _ _ (Q'.eqv_symm (Q'.mul_assoc_eqv _ _ _)))
       (Q'.mul_assoc_eqv _ _ _)
@@ -226,17 +323,19 @@ private theorem old_moment_bound {p : RatPoly} {c : Q'} (P : Interval (blocks ex
   exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.abs_eqv_congr hp))
     (P.weighted_haar_bound (H.mul (faceCertificate hw0 hw K extent id hi hK)))
 
-private theorem determinant_bound {p : RatPoly} {c : Q'} (P : Interval (blocks extent) p c) :
+private theorem determinant_bound {eta : Q'} (he : (0 : Q') ≤ eta)
+    (R : Interval (blocks extent) (faceHeatTail w extent id (K+1) L) (eta*floor))
+    {p : RatPoly} {c : Q'} (P : Interval (blocks extent) p c) :
     Q'.abs (faceMoment w (K+L) extent id B p * faceMass w K extent id B +
       -(faceMoment w K extent id B p * faceMass w (K+L) extent id B)) ≤
-      (2*c*relativeTailCap K)*(faceMass w (K+L) extent id B * faceMass w K extent id B) :=
-  RationalRelativePerturbation.relative_determinant_bound _ _ _ _ c (relativeTailCap K)
-    P.nonnegative (relativeTailCap_nonnegative K)
+      (2*c*eta)*(faceMass w (K+L) extent id B * faceMass w K extent id B) :=
+  RationalRelativePerturbation.relative_determinant_bound _ _ _ _ c eta
+    P.nonnegative he
     (H.mul (faceCertificate hw0 hw K extent id hi hK)).haar_nonnegative
     (H.mul (faceCertificate hw0 hw (K+L) extent id hi (by omega))).haar_nonnegative
     (old_moment_bound hw0 hw K extent id hi hK H P)
-    (moment_difference_bound hw0 hw K L extent id hi hK H P)
-    (mass_difference_bound hw0 hw K L extent id hi hK H)
+    (moment_difference_bound hw0 hw K L extent id hi hK H he R P)
+    (mass_difference_bound hw0 hw K L extent id hi hK H he R)
 
 omit K L hK in
 private theorem faceMass_positive (J : Nat) (hJ : 1 ≤ J)
@@ -244,6 +343,27 @@ private theorem faceMass_positive (J : Nat) (hJ : 1 ≤ J)
     (0 : Q') < faceMass w J extent id B :=
   Q'.pos_of_lt_of_le (Q'.mul_pos floor_positive hB)
     (floor_insertion H (faceFloorCertificate hw0 hw J extent id hi hJ))
+
+omit H in
+/-- Shared cancellation machinery for a produced Type-valued tail interval.
+The concrete tail producers supply R; it is not a new analytic input. -/
+theorem original_background_normalized_from_tail {eta : Q'} (he : (0 : Q') ≤ eta)
+    (R : Interval (blocks extent) (faceHeatTail w extent id (K+1) L) (eta*floor))
+    (entries : List (Nat × Nat))
+    (hentries : ∀ e, e ∈ entries → e.1 ∈ slabPhysicalFaceEdges extent ∧ 1 ≤ e.2)
+    {p : RatPoly} {c : Q'} (P : Interval (blocks extent) p c) :
+    let B := background w extent entries
+    let H := backgroundCertificate hw0 hw extent entries hentries
+    let hB := background_mass_positive hw0 hw extent entries hentries
+    Q'.abs
+      (faceMoment w (K+L) extent id B p * Q'.recipPos (faceMass w (K+L) extent id B)
+          (faceMass_positive hw0 hw extent id hi H (K+L) (by omega) hB) +
+       -(faceMoment w K extent id B p * Q'.recipPos (faceMass w K extent id B)
+          (faceMass_positive hw0 hw extent id hi H K hK hB))) ≤ 2*c*eta := by
+  dsimp only
+  exact ratio_difference_bound _ _ _ _ (2*c*eta) _ _
+    (determinant_bound hw0 hw K L extent id hi hK
+      (backgroundCertificate hw0 hw extent entries hentries) he R P)
 
 omit H in
 /-- NORMALIZED original one-face change. Every spectator factor and both
@@ -259,11 +379,11 @@ theorem original_background_normalized (entries : List (Nat × Nat))
       (faceMoment w (K+L) extent id B p * Q'.recipPos (faceMass w (K+L) extent id B)
           (faceMass_positive hw0 hw extent id hi H (K+L) (by omega) hB) +
        -(faceMoment w K extent id B p * Q'.recipPos (faceMass w K extent id B)
-          (faceMass_positive hw0 hw extent id hi H K hK hB))) ≤ 2*c*relativeTailCap K := by
-  dsimp only
-  exact ratio_difference_bound _ _ _ _ (2*c*relativeTailCap K) _ _
-    (determinant_bound hw0 hw K L extent id hi hK
-      (backgroundCertificate hw0 hw extent entries hentries) P)
+          (faceMass_positive hw0 hw extent id hi H K hK hB))) ≤ 2*c*relativeTailCap K :=
+  original_background_normalized_from_tail hw0 hw K L extent id hi hK
+    (relativeTailCap_nonnegative K)
+    ((faceTailInterval_early hw0 hw K L extent id hi hK).changeCap (tailCap_relative_floor K))
+    entries hentries P
 
 #print axioms tailCap
 #print axioms relativeTailCap
@@ -276,5 +396,14 @@ theorem original_background_normalized (entries : List (Nat × Nat))
 #print axioms backgroundCertificate
 #print axioms background_mass_positive
 #print axioms original_background_normalized
+#print axioms nomeTailCap
+#print axioms nomeRelativeTailCap
+#print axioms nomeRelativeTailCap_nonnegative
+#print axioms nomeTailCap_relative_floor
+#print axioms nomeRelativeTailCap_zero
+#print axioms nomeRelativeTailCap_half
+#print axioms nome_shifted_majorant_bound
+#print axioms nomeFaceTailInterval
+#print axioms original_background_normalized_from_tail
 
 end YMGap.Continuum.BF4ExactSlabSmallNomeOneFaceCutoffStability

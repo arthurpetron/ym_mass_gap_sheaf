@@ -27,6 +27,26 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED useful nome-sensitive ORIGINAL cutoff accuracy (2026-10-08 UTC):
+`SmallNomeOneFaceCutoffStability.nomeFaceTailInterval` keeps the actual
+9*w^8 head, producing cap (648/71)*w^8*(1/72)^(K-1) at NAMED
+0<=w<=1/2,K>=1. The SAME produced floor 1055/2272 gives relative cap
+(20736/1055)*w^8*(1/72)^(K-1). `SmallNomeCutoffStability.original_nome_cutoff_bound`
+and `expectation_nome_cutoff_bound` reuse the shared normalized cancellation,
+occurrence-list induction and SAME existing original limit. BOTH OWN masses,
+repeats/shared links, old public statements and canonical guards stay intact.
+At F=72,K=1,w=1/4 the full bound is (729/16880)*c<c/20, with c from the
+actual observable interval; zero nome gives zero and half nome recovers the
+old cap exactly. This removes the chosen small-nome accuracy bottleneck,
+not the charged values, active reduction or changing-family retention.
+Two serialized focused capped checks/31 permitted gates and independent
+final-source review pass; no root/tree audit or chart closure. The parallel
+affine-mask proof is still under axiom-gate repair, not accepted. NEXT:
+constructive charged selection, actual inner-carrier reduction and signed
+contraction with its original weights. DIRECT macro retention, scaling,
+physical calibration, QFT/every-group and Clay remain OPEN. Exact evidence:
+original-moment-pilot feasibility audit. Earlier entries are checkpoints.
+
 CHECKED full ORIGINAL finite-list cutoff payment and inserted degree
 (2026-10-08 UTC): `SmallNomeCutoffStability.original_cutoff_bound` bounds
 the actual normalized change K->K+L by

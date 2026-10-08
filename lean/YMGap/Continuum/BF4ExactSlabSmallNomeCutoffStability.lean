@@ -11,6 +11,8 @@ At strict nome the very same estimate reaches the EXISTING all-nome selected
 face expectation by its original common-cutoff stream. Its headCutoff and
 limit/modulus are unchanged. The face-count factor is explicit: no volume-
 uniform, w -> 1, OS-norm, retention or physical/continuum claim is made.
+The nome-sensitive refinement keeps 9*w^8 in the omitted-tail budget and
+reuses this SAME telescope and limit. Existing public bounds are unchanged.
 -/
 
 import YMGap.Continuum.BF4ExactSlabSmallNomeOneFaceCutoffStability
@@ -39,7 +41,11 @@ open YMGap.Continuum.BF4ExactSlabAllExtentWeightedFactorization
 open YMGap.Continuum.BF4ExactSlabAllExtentObservableHaarForm (faceHeatPolynomial)
 open YMGap.Continuum.BF4ExactSlabSmallNomeOneFaceCutoffStability
   (background backgroundCertificate background_mass_positive relativeTailCap
-    original_background_normalized)
+    relativeTailCap_nonnegative tailCap_relative_floor faceTailInterval_early
+    nomeRelativeTailCap nomeRelativeTailCap_nonnegative nomeTailCap_relative_floor
+    nomeFaceTailInterval original_background_normalized_from_tail)
+open YMGap.Continuum.BF4ExactSlabAllExtentFaceHeatTail (faceHeatTail)
+open YMGap.Continuum.QuaternionHaarSmallNomeHeatCertificate (floor)
 open YMGap.Continuum.BF4ExactSlabOneFaceCutoffStability (faceMass faceMoment)
 open YMGap.Continuum.SU2AllLabelPointwiseHeatCorridor (half)
 open YMGap.Continuum.Z4HalfTimeReflectionGeometry (boundaryCompleteSlabLinks)
@@ -120,19 +126,21 @@ private theorem entryValue_face_pin {w : Q'} (hw0 : (0 : Q') ≤ w) (hw : w ≤ 
 
 private theorem entryValue_oneFace {w : Q'} (hw0 : (0 : Q') ≤ w) (hw : w ≤ half)
     (extent id K L : Nat) (hi : id ∈ slabPhysicalFaceEdges extent) (hK : 1 ≤ K)
+    {eta : Q'} (heta : (0 : Q') ≤ eta)
+    (R : Interval (blocks extent) (faceHeatTail w extent id (K+1) L) (eta*floor))
     (es : List (Nat × Nat))
     (he : ∀ e, e ∈ es → e.1 ∈ slabPhysicalFaceEdges extent ∧ 1 ≤ e.2)
     {p : RatPoly} {c : Q'} (P : Interval (blocks extent) p c) :
     Q'.abs (entryValue hw0 hw extent ((id,K+L)::es)
         (cons_physical hi (by omega) es he) p +
       -(entryValue hw0 hw extent ((id,K)::es) (cons_physical hi hK es he) p)) ≤
-      2*c*relativeTailCap K := by
+      2*c*eta := by
   have hz (J : Nat) (hJ : 1 ≤ J) :
       (0 : Q') < faceMass w J extent id (background w extent es) :=
     Q'.pos_of_lt_of_le
       (background_mass_positive hw0 hw extent ((id,J)::es) (cons_physical hi hJ es he))
       (Q'.le_of_eqv (haar_of_coeff (RatPolyCoeffEqv.mul_comm _ _)))
-  have h := original_background_normalized hw0 hw K L extent id hi hK es he P
+  have h := original_background_normalized_from_tail hw0 hw K L extent id hi hK heta R es he P
   dsimp only at h
   exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.abs_eqv_congr (Q'.add_eqv_congr'
     (entryValue_face_pin hw0 hw extent id (K+L) hi (by omega) es he p (hz _ (by omega)))
@@ -145,10 +153,11 @@ private theorem abs_triangle (a b d : Q') :
       (.add (.add (.var 0) (.neg (.var 1))) (.add (.var 1) (.neg (.var 2))))
       (by decide) (fun | 0 => a | 1 => b | _ => d)))) (ExpNeg.abs_add_le _ _)
 
-/-- Finite-list telescope with arbitrary actual mixed-cutoff frozen spectators.
-No independence, distinct-face or unit-partition premise is used. -/
-theorem original_mixed_cutoff_bound {w : Q'} (hw0 : (0 : Q') ≤ w) (hw : w ≤ half)
+private theorem mixed_cutoff_bound_from_tail {w : Q'} (hw0 : (0 : Q') ≤ w) (hw : w ≤ half)
     (K L extent : Nat) (hK : 1 ≤ K) (ids : List Nat)
+    {eta : Q'} (heta : (0 : Q') ≤ eta)
+    (tails : ∀ id, id ∈ slabPhysicalFaceEdges extent →
+      Interval (blocks extent) (faceHeatTail w extent id (K+1) L) (eta*floor))
     (hi : ∀ id, id ∈ ids → id ∈ slabPhysicalFaceEdges extent)
     (frozen : List (Nat × Nat))
     (hf : ∀ e, e ∈ frozen → e.1 ∈ slabPhysicalFaceEdges extent ∧ 1 ≤ e.2)
@@ -157,11 +166,11 @@ theorem original_mixed_cutoff_bound {w : Q'} (hw0 : (0 : Q') ≤ w) (hw : w ≤ 
         (append_physical _ _ (atCutoff_physical (by omega) ids hi) hf) p +
       -(entryValue hw0 hw extent (atCutoff K ids ++ frozen)
         (append_physical _ _ (atCutoff_physical hK ids hi) hf) p)) ≤
-      2*c*Q'.ofNat ids.length*relativeTailCap K := by
+      2*c*Q'.ofNat ids.length*eta := by
   induction ids generalizing frozen with
   | nil =>
       exact Q'.le_of_eqv (by
-        change Q'.abs (_ + -_) ≈ 2*c*Q'.ofNat 0*relativeTailCap K
+        change Q'.abs (_ + -_) ≈ 2*c*Q'.ofNat 0*eta
         exact Q'.eqv_trans _ _ _ (Q'.abs_eqv_congr (Q'.add_neg_self_eqv _))
           (Q'.eqv_trans _ _ _ (by decide : Q'.abs (0 : Q') ≈ 0)
             (Q'.eqv_symm (Q'.eqv_trans _ _ _
@@ -182,8 +191,8 @@ theorem original_mixed_cutoff_bound {w : Q'} (hw0 : (0 : Q') ≤ w) (hw : w ≤ 
         (cons_physical hid (by omega : 1 ≤ K+L) _ ho) p
       let later := entryValue hw0 hw extent ((id,K+L)::newEs)
         (cons_physical hid (by omega : 1 ≤ K+L) _ hn) p
-      have one : Q'.abs (middle + -old) ≤ 2*c*relativeTailCap K :=
-        entryValue_oneFace hw0 hw extent id K L hid hK oldEs ho P
+      have one : Q'.abs (middle + -old) ≤ 2*c*eta :=
+        entryValue_oneFace hw0 hw extent id K L hid hK heta (tails id hid) oldEs ho P
       have hf' := cons_physical hid (by omega : 1 ≤ K+L) frozen hf
       have tail := ih hit ((id,K+L)::frozen) hf'
       have hnew := entryValue_perm hw0 hw extent
@@ -195,24 +204,42 @@ theorem original_mixed_cutoff_bound {w : Q'} (hw0 : (0 : Q') ≤ w) (hw : w ≤ 
         (append_physical _ _ (atCutoff_physical hK ids hit) hf') p
         (List.perm_middle (a := (id,K+L)) (l₁ := atCutoff K ids) (l₂ := frozen)).symm
       have tail' : Q'.abs (later + -middle) ≤
-          2*c*Q'.ofNat ids.length*relativeTailCap K :=
+          2*c*Q'.ofNat ids.length*eta :=
         Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.abs_eqv_congr
           (Q'.add_eqv_congr' hnew (Q'.neg_eqv_congr _ _ hmid)))) tail
       have hcount : Q'.ofNat (ids.length+1) ≈ Q'.ofNat ids.length + 1 :=
         Q'.eqv_trans _ _ _ (Q'.ofNat_add_eqv _ 1)
           (Q'.add_eqv_congr_left _ _ _ (by decide : Q'.ofNat 1 ≈ (1 : Q')))
-      have hsum : (2*c*Q'.ofNat ids.length*relativeTailCap K) + (2*c*relativeTailCap K) ≈
-          2*c*Q'.ofNat (ids.length+1)*relativeTailCap K :=
+      have hsum : (2*c*Q'.ofNat ids.length*eta) + (2*c*eta) ≈
+          2*c*Q'.ofNat (ids.length+1)*eta :=
         Q'.eqv_trans _ _ _
           (poly_identity_of_normal_eq
             (.add (.mul (.mul (.mul (.const 2) (.var 0)) (.var 1)) (.var 2))
               (.mul (.mul (.const 2) (.var 0)) (.var 2)))
             (.mul (.mul (.mul (.const 2) (.var 0)) (.add (.var 1) (.const 1))) (.var 2))
-            (by decide) (fun | 0 => c | 1 => Q'.ofNat ids.length | _ => relativeTailCap K))
+            (by decide) (fun | 0 => c | 1 => Q'.ofNat ids.length | _ => eta))
           (Q'.mul_eqv_congr_right _ _ _
             (Q'.mul_eqv_congr_left _ _ _ (Q'.eqv_symm hcount)))
       exact Q'.le_trans' _ _ _ (abs_triangle later middle old)
         (Q'.le_trans' _ _ _ (Q'.add_le_add tail' one) (Q'.le_of_eqv hsum))
+
+/-- Finite-list telescope with arbitrary actual mixed-cutoff frozen spectators.
+No independence, distinct-face or unit-partition premise is used. -/
+theorem original_mixed_cutoff_bound {w : Q'} (hw0 : (0 : Q') ≤ w) (hw : w ≤ half)
+    (K L extent : Nat) (hK : 1 ≤ K) (ids : List Nat)
+    (hi : ∀ id, id ∈ ids → id ∈ slabPhysicalFaceEdges extent)
+    (frozen : List (Nat × Nat))
+    (hf : ∀ e, e ∈ frozen → e.1 ∈ slabPhysicalFaceEdges extent ∧ 1 ≤ e.2)
+    {p : RatPoly} {c : Q'} (P : Interval (blocks extent) p c) :
+    Q'.abs (entryValue hw0 hw extent (atCutoff (K+L) ids ++ frozen)
+        (append_physical _ _ (atCutoff_physical (by omega) ids hi) hf) p +
+      -(entryValue hw0 hw extent (atCutoff K ids ++ frozen)
+        (append_physical _ _ (atCutoff_physical hK ids hi) hf) p)) ≤
+      2*c*Q'.ofNat ids.length*relativeTailCap K :=
+  mixed_cutoff_bound_from_tail hw0 hw K L extent hK ids
+    (relativeTailCap_nonnegative K)
+    (fun id hid => (faceTailInterval_early hw0 hw K L extent id hid hK).changeCap
+      (tailCap_relative_floor K)) hi frozen hf P
 
 private theorem uniform_background (w : Q') (extent K : Nat) : ∀ ids : List Nat,
     background w extent (atCutoff K ids) =
@@ -244,6 +271,23 @@ private theorem cutoffValue_entry_pin {w : Q'} (hw0 : (0 : Q') ≤ w) (hw : w �
   normalizedMoment_congr _ _
     (by rw [uniform_background]; exact RatPolyCoeffEqv.refl _) (RatPolyCoeffEqv.refl p)
 
+private theorem cutoff_bound_from_tail {w : Q'} (hw0 : (0 : Q') ≤ w) (hw : w ≤ half)
+    (K L extent : Nat) (hK : 1 ≤ K) (ids : List Nat)
+    {eta : Q'} (heta : (0 : Q') ≤ eta)
+    (tails : ∀ id, id ∈ slabPhysicalFaceEdges extent →
+      Interval (blocks extent) (faceHeatTail w extent id (K+1) L) (eta*floor))
+    (hi : ∀ id, id ∈ ids → id ∈ slabPhysicalFaceEdges extent)
+    {p : RatPoly} {c : Q'} (P : Interval (blocks extent) p c) :
+    Q'.abs (cutoffValue hw0 hw extent (K+L) (by omega) ids hi p +
+      -(cutoffValue hw0 hw extent K hK ids hi p)) ≤
+      2*c*Q'.ofNat ids.length*eta := by
+  have h := mixed_cutoff_bound_from_tail hw0 hw K L extent hK ids heta tails hi []
+    (fun _ h => nomatch h) P
+  simp only [List.append_nil] at h
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.abs_eqv_congr (Q'.add_eqv_congr'
+    (cutoffValue_entry_pin hw0 hw extent (K+L) (by omega) ids hi p)
+    (Q'.neg_eqv_congr _ _ (cutoffValue_entry_pin hw0 hw extent K hK ids hi p))))) h
+
 /-- Actual normalized finite-list cutoff error; multiplicities count literally. -/
 theorem original_cutoff_bound {w : Q'} (hw0 : (0 : Q') ≤ w) (hw : w ≤ half)
     (K L extent : Nat) (hK : 1 ≤ K) (ids : List Nat)
@@ -251,12 +295,22 @@ theorem original_cutoff_bound {w : Q'} (hw0 : (0 : Q') ≤ w) (hw : w ≤ half)
     {p : RatPoly} {c : Q'} (P : Interval (blocks extent) p c) :
     Q'.abs (cutoffValue hw0 hw extent (K+L) (by omega) ids hi p +
       -(cutoffValue hw0 hw extent K hK ids hi p)) ≤
-      2*c*Q'.ofNat ids.length*relativeTailCap K := by
-  have h := original_mixed_cutoff_bound hw0 hw K L extent hK ids hi [] (fun _ h => nomatch h) P
-  simp only [List.append_nil] at h
-  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.abs_eqv_congr (Q'.add_eqv_congr'
-    (cutoffValue_entry_pin hw0 hw extent (K+L) (by omega) ids hi p)
-    (Q'.neg_eqv_congr _ _ (cutoffValue_entry_pin hw0 hw extent K hK ids hi p))))) h
+      2*c*Q'.ofNat ids.length*relativeTailCap K :=
+  cutoff_bound_from_tail hw0 hw K L extent hK ids (relativeTailCap_nonnegative K)
+    (fun id hid => (faceTailInterval_early hw0 hw K L extent id hid hK).changeCap
+      (tailCap_relative_floor K)) hi P
+
+/-- Nome-sensitive error for the SAME original products and BOTH OWN masses. -/
+theorem original_nome_cutoff_bound {w : Q'} (hw0 : (0 : Q') ≤ w) (hw : w ≤ half)
+    (K L extent : Nat) (hK : 1 ≤ K) (ids : List Nat)
+    (hi : ∀ id, id ∈ ids → id ∈ slabPhysicalFaceEdges extent)
+    {p : RatPoly} {c : Q'} (P : Interval (blocks extent) p c) :
+    Q'.abs (cutoffValue hw0 hw extent (K+L) (by omega) ids hi p +
+      -(cutoffValue hw0 hw extent K hK ids hi p)) ≤
+      2*c*Q'.ofNat ids.length*nomeRelativeTailCap w K :=
+  cutoff_bound_from_tail hw0 hw K L extent hK ids (nomeRelativeTailCap_nonnegative hw0 K)
+    (fun id hid => (nomeFaceTailInterval hw0 hw K L extent id hid hK).changeCap
+      (nomeTailCap_relative_floor w K)) hi P
 
 open YMGap.Continuum.BF4ExactSlabRetainedHeatHeadComparison (headCutoff)
 open YMGap.Continuum.BF4ExactSlabAllNomeFaceSetExpectation (expectation)
@@ -280,30 +334,32 @@ theorem commonValue_cutoff_pin {w : Q'} (hw0 : (0 : Q') < w) (hw : w ≤ half)
 private theorem commonValue_early_bound {w : Q'} (hw0 : (0 : Q') < w) (hw : w ≤ half)
     (K extent : Nat) (hK : 1 ≤ K) (ids : List Nat)
     (hi : ∀ id, id ∈ ids → id ∈ slabPhysicalFaceEdges extent)
-    {p : RatPoly} {c : Q'} (P : Interval (blocks extent) p c) (n : Nat) :
+    (p : RatPoly) (B : Q')
+    (bounds : ∀ L, Q'.abs (cutoffValue (Q'.le_of_lt hw0) hw extent (K+L) (by omega) ids hi p +
+      -(cutoffValue (Q'.le_of_lt hw0) hw extent K hK ids hi p)) ≤ B) (n : Nat) :
     Q'.abs (commonValue w hw0 (Q'.lt_of_le_of_lt hw (by decide : half < (1 : Q')))
         extent ids hi p (headCutoff w+K) n +
       -(cutoffValue (Q'.le_of_lt hw0) hw extent K hK ids hi p)) ≤
-      2*c*Q'.ofNat ids.length*relativeTailCap K := by
-  have h := original_cutoff_bound (Q'.le_of_lt hw0) hw K (headCutoff w+n) extent hK ids hi P
+      B := by
+  have h := bounds (headCutoff w+n)
   have h' : Q'.abs (cutoffValue (Q'.le_of_lt hw0) hw extent
       (headCutoff w+K+n) (by omega) ids hi p +
         -(cutoffValue (Q'.le_of_lt hw0) hw extent K hK ids hi p)) ≤
-      2*c*Q'.ofNat ids.length*relativeTailCap K := by
+      B := by
     simpa only [Nat.add_assoc, Nat.add_left_comm] using h
   exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.abs_eqv_congr (Q'.add_eqv_congr'
     (commonValue_cutoff_pin hw0 hw extent K hK ids hi p n) (Q'.eqv_refl _)))) h'
 
-/-- The SAME pre-existing all-nome expectation is within the early-cutoff budget.
-No new limit, discarded head guard or differentiation/exchange premise is used. -/
-theorem expectation_cutoff_bound {w : Q'} (hw0 : (0 : Q') < w) (hw : w ≤ half)
+private theorem expectation_bound_from_cutoffs {w : Q'} (hw0 : (0 : Q') < w) (hw : w ≤ half)
     (K extent : Nat) (hK : 1 ≤ K) (ids : List Nat)
     (hi : ∀ id, id ∈ ids → id ∈ slabPhysicalFaceEdges extent)
-    {p : RatPoly} {c : Q'} (P : Interval (blocks extent) p c) :
+    (p : RatPoly) (B : Q')
+    (bounds : ∀ L, Q'.abs (cutoffValue (Q'.le_of_lt hw0) hw extent (K+L) (by omega) ids hi p +
+      -(cutoffValue (Q'.le_of_lt hw0) hw extent K hK ids hi p)) ≤ B) :
     leEv (CReal.abs (CReal.sub
       (expectation w hw0 (Q'.lt_of_le_of_lt hw (by decide : half < (1 : Q'))) extent ids hi p)
       (ofQ' (cutoffValue (Q'.le_of_lt hw0) hw extent K hK ids hi p))))
-      (ofQ' (2*c*Q'.ofNat ids.length*relativeTailCap K)) := by
+      (ofQ' B) := by
   have h := convergesTo_abs (convergesTo_add
     (commonValue_converges w hw0 (Q'.lt_of_le_of_lt hw (by decide : half < (1 : Q')))
       extent ids hi p (headCutoff w+K))
@@ -322,8 +378,40 @@ theorem expectation_cutoff_bound {w : Q'} (hw0 : (0 : Q') < w) (hw : w ≤ half)
   apply leEv_of_ofQ'_limit_le hc (convergesTo_const _)
   intro epsilon he
   exact ⟨0, fun n _ => Q'.le_trans' _ _ _
-    (commonValue_early_bound hw0 hw K extent hK ids hi P n)
+    (commonValue_early_bound hw0 hw K extent hK ids hi p B bounds n)
     (Q'.add_le_self_of_nonneg _ _ (Q'.le_of_lt he))⟩
+
+/-- The SAME pre-existing all-nome expectation is within the early-cutoff budget.
+No new limit, discarded head guard or differentiation/exchange premise is used. -/
+theorem expectation_cutoff_bound {w : Q'} (hw0 : (0 : Q') < w) (hw : w ≤ half)
+    (K extent : Nat) (hK : 1 ≤ K) (ids : List Nat)
+    (hi : ∀ id, id ∈ ids → id ∈ slabPhysicalFaceEdges extent)
+    {p : RatPoly} {c : Q'} (P : Interval (blocks extent) p c) :
+    leEv (CReal.abs (CReal.sub
+      (expectation w hw0 (Q'.lt_of_le_of_lt hw (by decide : half < (1 : Q'))) extent ids hi p)
+      (ofQ' (cutoffValue (Q'.le_of_lt hw0) hw extent K hK ids hi p))))
+      (ofQ' (2*c*Q'.ofNat ids.length*relativeTailCap K)) :=
+  expectation_bound_from_cutoffs hw0 hw K extent hK ids hi p _
+    (fun L => original_cutoff_bound (Q'.le_of_lt hw0) hw K L extent hK ids hi P)
+
+/-- Nome-sensitive error reaches the unchanged EXISTING original expectation. -/
+theorem expectation_nome_cutoff_bound {w : Q'} (hw0 : (0 : Q') < w) (hw : w ≤ half)
+    (K extent : Nat) (hK : 1 ≤ K) (ids : List Nat)
+    (hi : ∀ id, id ∈ ids → id ∈ slabPhysicalFaceEdges extent)
+    {p : RatPoly} {c : Q'} (P : Interval (blocks extent) p c) :
+    leEv (CReal.abs (CReal.sub
+      (expectation w hw0 (Q'.lt_of_le_of_lt hw (by decide : half < (1 : Q'))) extent ids hi p)
+      (ofQ' (cutoffValue (Q'.le_of_lt hw0) hw extent K hK ids hi p))))
+      (ofQ' (2*c*Q'.ofNat ids.length*nomeRelativeTailCap w K)) :=
+  expectation_bound_from_cutoffs hw0 hw K extent hK ids hi p _
+    (fun L => original_nome_cutoff_bound (Q'.le_of_lt hw0) hw K L extent hK ids hi P)
+
+/-- Exact finite-pilot accuracy coefficient, not a moment value or retention. -/
+theorem quarter_nome_72_cutoff_one_budget :
+    2*Q'.ofNat 72*nomeRelativeTailCap (Q'.mkPos 1 4 (by decide)) 1 ≈
+      Q'.mkPos 729 16880 (by decide) ∧
+    Q'.mkPos 729 16880 (by decide) < Q'.mkPos 1 20 (by decide) := by
+  constructor <;> decide
 
 #print axioms atCutoff
 #print axioms entryValue
@@ -333,5 +421,8 @@ theorem expectation_cutoff_bound {w : Q'} (hw0 : (0 : Q') < w) (hw : w ≤ half)
 #print axioms original_cutoff_bound
 #print axioms commonValue_cutoff_pin
 #print axioms expectation_cutoff_bound
+#print axioms original_nome_cutoff_bound
+#print axioms expectation_nome_cutoff_bound
+#print axioms quarter_nome_72_cutoff_one_budget
 
 end YMGap.Continuum.BF4ExactSlabSmallNomeCutoffStability

@@ -4,6 +4,20 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## ORIGINAL cutoff accuracy retains nome dependence (2026-10-08 UTC)
+
+Actual tail intervals retain 9*w^8, giving full normalized error
+<=2*c*ofNat(ids.length)*(20736/1055)*w^8*(1/72)^(K-1) at NAMED
+0<=w<=1/2,K>=1. The unchanged original all-nome expectation receives the
+same bound at strict nome. At F=72,K=1,w=1/4 it is 729*c/16880<c/20.
+OLD public statements/guards, BOTH OWN partitions and repeated/shared factors
+remain; cancellation/telescope/limit machinery is reused rather than cloned.
+Two accepted focused capped checks/31 permitted gates, independent final
+source review; no root/tree audit, guard, metric or chart closure. Affine
+selection remains under constructive axiom-gate repair. Charged values,
+active reduction and all changing-family/physical/Clay claims stay OPEN.
+Exact evidence: original-moment-pilot feasibility audit dated 2026-09-30.
+
 ## ORIGINAL full-list cutoff error reaches its existing limit; inserted degree produced (2026-10-08 UTC)
 
 `BF4ExactSlabSmallNomeCutoffStability.original_cutoff_bound` pays a LINEAR

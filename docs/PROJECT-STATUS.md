@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Supporting useful ORIGINAL nome-sensitive cutoff accuracy checked
+(2026-10-08 UTC): actual Haar tails retain 9*w^8, with normalized cap
+2*c*ofNat(ids.length)*(20736/1055)*w^8*(1/72)^(K-1), NAMED 0<=w<=1/2,K>=1.
+The SAME existing expectation inherits it; at 72 faces,K=1,w=1/4 this is
+729*c/16880<c/20. Zero/half endpoint tests, old public bounds, BOTH OWN
+masses and repetitions are preserved. Two accepted focused checks/31
+permitted gates and independent final-source review; no root/tree audit.
+Charged values, active reduction, changing-family retention and physical/
+Clay stay OPEN; affine selection is not yet axiom-gate accepted. Displayed
+claims unchanged, no chart reprint. Evidence: original-moment-pilot audit.
+
 Supporting ORIGINAL full-list normalized cutoff payment and literal
 inserted degree checked (2026-10-08 UTC): error
 <=2*c*ofNat(ids.length)*(81/1055)*(1/72)^(K-1) at NAMED 0<=w<=1/2,K>=1,

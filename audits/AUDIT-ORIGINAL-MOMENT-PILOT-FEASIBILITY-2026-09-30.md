@@ -604,3 +604,85 @@ payment or a feasible higher-cutoff evaluator is still needed. Existing
 worst-case half-nome head. Retaining the actual head is an eligible bounded
 next estimate, not yet a produced interval/telescope certificate. No large
 moment evaluation, new Lean check or displayed chart change in this screen.
+
+## Selected nome-sensitive accuracy and charged parity joins (2026-10-08 UTC)
+
+Exact next estimate: keep the actual label-two head 9*w^8 in the existing
+1/72 geometric argument. Produce the literal face-tail Haar interval with
+cap (648/71)*w^8*(1/72)^(K-1), and pay it by the unchanged early floor
+1055/2272. Reuse the same normalized cancellation/list induction/limit,
+giving relative cap (20736/1055)*w^8*(1/72)^(K-1). Existing public estimates
+and canonical guards remain; do not clone their cancellation proofs.
+Consumer: actual original early-cutoff moments compared to the EXISTING
+all-nome expectation. Prediction: at 72 faces,K=1,w=1/4 the full error is
+(729/16880)*c, less than c/20, with cap c from the actual observable interval.
+Tests: w=0 tail zero; w=1/2 old cap; repeated faces and distinct OWN masses;
+inclusive K=1; no new pointwise-to-Haar inference. This is fixed-corridor
+pilot accuracy, not w->1/scaling/retention. Budget: two changed focused
+targets, serialized 20-GiB/12-GiB verification, full independent review.
+Stop/revise if a new analytic tail/floor input or action/limit change is needed.
+
+Parallel bounded join: total occurrence-degree parity equals the edge parity
+of action-mask XOR insertion-mask. Reuse the cited actual degree/incidence
+pins and existing 128-mask completeness. Actual odd-degree Haar vanishing
+must eliminate every nonclosed affine mask. Repeated insertions retain their
+polynomial even when their parity mask is zero. Consumer: charged active-
+carrier reduction, not an evaluated contraction. One bounded Sol leaf,
+root/independent source review and later serialized check; no 2^72 expansion,
+new elimination certificate, H32 evaluation, runtime or physical closure.
+Selection is not acceptance evidence. Main DIRECT macro retention or
+sufficient JOINT original-family estimate and full Clay target remain OPEN.
+
+## Observed nome-sensitive ORIGINAL cutoff accuracy (2026-10-08 UTC)
+
+CHECKED actual interval producer, not a scalar/measurement premise:
+`lean/YMGap/Continuum/BF4ExactSlabSmallNomeOneFaceCutoffStability.lean:227`,
+`nomeFaceTailInterval`, retains the actual label-two majorant 9*w^8 with
+the existing 1/72 ratio. It produces cap (648/71)*w^8*(1/72)^(K-1).
+`nomeRelativeTailCap:145` divides by the unchanged produced floor 1055/2272;
+`nomeRelativeTailCap_zero:171` and `nomeRelativeTailCap_half:179` check
+zero tail and exact recovery of the old endpoint cap. Named corridor remains
+0<=w<=1/2,K>=1. No canonical head guard changes or pointwise-to-Haar leap.
+
+`lean/YMGap/Continuum/BF4ExactSlabSmallNomeCutoffStability.lean:304`,
+`original_nome_cutoff_bound`, and `expectation_nome_cutoff_bound:398` supply
+full-list error 2*c*ofNat(ids.length)*nomeRelativeTailCap(w,K), retaining
+BOTH OWN masses, all occurrences and the SAME existing limit/modulus.
+Shared cancellation, induction and limit passage are factored once; EVERY
+old public bound retains its statement/guards and passes the focused regression.
+`quarter_nome_72_cutoff_one_budget:410` kernel-checks coefficient 729/16880<1/20.
+This is actual useful absolute accuracy at the chosen fixed small nome,
+not a charged moment value, favourable signed reserve or scaling estimate.
+
+Accepted focused checks: OneFace 1.04s/20 gates, Full 1.23s/11 gates. All
+31 gates are within {propext,Quot.sound}; four OneFace definitions and two
+Full declarations are axiom-free. Accepted logs have no warning/error/sorryAx.
+Independent FINAL complete-source review passes. One preliminary check's
+unknown reflexivity identifier is NOT evidence; repair uses the existing
+setoid reflexivity/order lemma, without changing any statement or option.
+Static review also replaced rational normalizer constants with explicit
+scalar identities before checking. Each check used one 20-GiB worker,
+12-GiB reserve/fresh 88%-free zero-swap/exclusion preflight. No root/tree
+build, audit, guard, metric or large moment computation.
+
+```text
+Accepted OneFace log /private/tmp/ym-nome-sensitive-oneface-20261008-b.log
+SHA256 afb4f219de04eb3a6a47bdf97d43a9dd7507773936ef9eed679ab673919fe867
+Checked OneFace source SHA256
+de3347b49b57364d5a7586458e2294170c58e44fc03851148a5ec4a75ddbaa36
+Accepted Full log /private/tmp/ym-nome-sensitive-full-cutoff-20261008-a.log
+SHA256 b87a8a8204439e9e087c40a37725bf0af585305b64e17ede3954fbf8a1fed6f8
+Checked Full source SHA256
+7a1cb7689c1cc000a90f196b41fab00939551e592b249c0f696b44ca64226751
+```
+
+Decision: CONTINUE. Chosen small-nome accuracy is now supplied; no need to
+force a higher-cutoff evaluator solely to pay this corridor error. Charged
+values/active reduction remain unpaid. The parallel affine-mask draft is
+NOT accepted yet: its successful elaboration still reports Classical.choice
+in count_singleton and downstream parity declarations; focused diagnostic
+gates locate it, and a constructive repair is underway. No classical
+quarantine or frontier weakening is authorized or used. DIRECT retention,
+justified changing-family/physical calibration, QFT/every-group and Clay
+remain OPEN. No displayed chart claim changes. Earlier line citations refer
+to their recorded checkpoint source hashes; new citations above are current.
