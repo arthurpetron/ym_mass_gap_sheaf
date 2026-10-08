@@ -6,10 +6,14 @@ spins and signed terms are transported on the SAME fixed-width carrier.
 The normalized finite originalWindowScalar keeps its action and reciprocal;
 its existing joint limit keeps explicit Within guards. The actual common,
 intrinsic and odd bond reflected forms are invariant, with radius/time-advance
-commutation. Three focused leaves/28 permitted gates, independent full-source
-reviews; no root/tree audit. Completed spatial operators, scaling control,
-continuum covariance and every physical/Clay claim remain OPEN. Canonical
-chart unchanged, no reprint. Evidence:
+commutation. Their actual completed spatial operator and witnessed
+time-sector/dense bond-image joins are now also CHECKED: pairing, distance,
+unit, involution and time/root commutation preserve the SAME carrier; Cauchy
+and supplied range moduli are retained. Three further focused leaves/41
+permitted gates, independent full-source reviews; no root/tree audit. This is
+one fixed-width/nome permutation, not full cubic/continuous covariance or a
+represented bond-completion map. Scaling, continuum covariance and every
+physical/Clay claim remain OPEN. Canonical chart unchanged, no reprint. Evidence:
 `audits/AUDIT-PARALLEL-QFT-INPUTS-2026-09-17.md`.
 
 Supporting ORIGINAL action-weighted spatial-swap identity checked
@@ -20,7 +24,7 @@ Common padding is removed only with produced action/image support and
 explicit insertion support; no positivity is assumed. Two focused leaves,
 20 permitted gates, independent complete-source review; no root/tree audit.
 Its previously open Wilson-loop/window and source-form joins are now checked
-above; the completed spatial operator is still open. Signed scaling, changing-family
+above, including the actual completed operator/time-sector input. Signed scaling, changing-family
 survival and every continuum/physical/Clay claim remain OPEN. Chart unchanged,
 no reprint. Evidence: `audits/AUDIT-PARALLEL-QFT-INPUTS-2026-09-17.md`.
 

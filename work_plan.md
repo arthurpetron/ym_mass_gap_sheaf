@@ -71,13 +71,24 @@ reflected-form and literal odd bondForm preservation. Radius tags and time
 advance commute exactly; no new limit or physical pairing is introduced.
 Three focused leaves, 28 permitted gates, independent complete-source
 reviews; root imports registered only, no root/tree audit or field closure.
-NEXT produce signed-linear/difference and involution laws for this actual
-source map, then its SAME-carrier nonexpansiveness for the existing
-`CRealSeminormCompletion.SquaredSeminorm.Nonexpansive.completionMap` consumer.
-The completed spatial operator and its physical bond/time-sector join are
-still OPEN. Stop if an action factor, source path or p12 orientation is
-dropped. No translated-width isometry, surrogate action, continuous rotation
-or continuum QFT claim.
+The actual completed spatial operator and its witnessed range/dense bond
+image join are now CHECKED (2026-10-08 UTC): `SpatialAxisSwapAlgebra`
+produces involution, signed-linear/difference laws and actual all-nome
+nonexpansiveness. `SpatialAxisSwapCompletion` uses the EXISTING completionMap,
+retains every Cauchy modulus and proves involution, pairing/distance/unit
+preservation, time commutation and actual-unit orthogonality preservation.
+`SpatialAxisSwapTimeSector` commutes with every finite signed defect
+polynomial and existing fixed-depth root, using a transported valid original
+convergence rate, not equality of root-row moduli. It maps actual RangeLimit
+preimages with unchanged outer modulus and constructs actual State witnesses;
+`image_swap_pin` retains the literal source embed and constructed first root.
+Three focused leaves/41 permitted gates, independent complete-source review;
+no root/tree audit, assumed isometry, new analytic premise or field closure.
+This bounded lane now has its actual completed/time-sector consumer. Do not
+extend it with freely supplied covariance/completion interfaces. A full cubic
+action, represented bond-completion map, changing-width/scaling comparison,
+continuous rotations and continuum QFT covariance are still OPEN. Stop if
+an action factor, source path or p12 orientation is dropped.
 Signed scaling remains the primary frontier.
 Evidence and exact focused logs: `audits/AUDIT-PARALLEL-QFT-INPUTS-2026-09-17.md`.
 
@@ -88,6 +99,17 @@ the missing chronological surviving-norm estimate or add another Doob wrapper.
 The actual initial-energy consumer already exists; a useful family-uniform
 initial fraction is still an unsupplied input. Continue JOINT signed
 action/source control. Evidence: the adaptive audit.
+
+Independent localized-pair screen (2026-10-08 UTC, source review only): the
+actual connected-Gram consumer `SourceVarianceGram.original_centered_energy_budget`
+retains sourceIncrementCost and raw projected-source pair responses, not just
+the OWN qPq moments in WardMoments. No statistical raw-to-OWN comparison or
+mean-crossing payment is produced by near-unit geometry/caps alone. Do not
+convert that screen into an integrated energy lower bound or an impossibility
+claim. NEXT primary mathematics remains an action-specific joint relative
+response estimate, with all original mean corrections/remainders retained;
+use the existing initial-energy or WindowSignedCost consumer, not another
+interface carrying the desired conclusion. Evidence: the adaptive audit.
 
 The positive original Ward gradient payment now has a CHECKED reciprocal-free
 upper envelope (2026-10-08 UTC):

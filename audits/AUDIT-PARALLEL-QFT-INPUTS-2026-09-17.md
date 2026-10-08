@@ -277,3 +277,56 @@ survival remain OPEN. The primary coupled signed interaction estimate is
 still OPEN; the independent harmonic-response screen is recorded in the
 adaptive audit and supplies no replacement estimate. No displayed physical/
 Clay chart claim changed; no chart reprint.
+
+### Subsequent 2026-10-08 UTC: SAME completed operator and witnessed time sector
+
+The previous source-form checkpoint's operator/range/dense-image joins are
+now constructed. All source paths below are relative to `lean/YMGap/Continuum/`.
+
+| Declaration | Source | Exact checked scope |
+| --- | --- | --- |
+| `swapSourceLoop_involutive`, `swapExpression_involutive`, `swapIntrinsic_involutive` | `BF4WilsonAllNomeSpatialAxisSwapAlgebra.lean:42`, `:50`, `:78` | Actual entry/vertex involutions and list-map identity; no supplied inverse or form hypothesis. |
+| `swapIntrinsic_sum`, `swapIntrinsic_difference`, `swapIntrinsic_smul`, `distSq_swap`, `swapNonexpansive` | `BF4WilsonAllNomeSpatialAxisSwapAlgebra.lean:88`, `:99`, `:111`, `:118`, `:127` | Literal common-radius signed operations; SAME original all-nome reflected distance supplies the existing nonexpansive input. |
+| `completedSwap`, `swap_cauchy_modulus`, `completedSwap_involutive`, `completedSwap_time` | `BF4WilsonAllNomeSpatialAxisSwapCompletion.lean:50`, `:58`, `:61`, `:70` | Existing completionMap/null quotient, original Cauchy modulus unchanged, involutive map commuting with actual integer time. |
+| `completedSwap_add`, `completedSwap_smul`, `completedSwap_sub`, `completedSwap_unit` | `BF4WilsonAllNomeSpatialAxisSwapCompletion.lean:80`, `:91`, `:102`, `:107` | Actual signed linear operations and original unit preserved; no new pairing or ground-state claim. |
+| `representativeInner_swap`, `completedInner_swap`, `completedDist_swap`, `completedSwap_preserves_vacuumComplement` | `BF4WilsonAllNomeSpatialAxisSwapCompletion.lean:117`, `:125`, `:136`, `:142` | Existing pairSequence limits/quotient pairing and subtraction distance preserved; orthogonality means ONLY orthogonality to the existing unit. |
+| `completedSwap_actionFrom`, `completedSwap_finiteRoot`, `completedSwap_root` | `BF4WilsonAllNomeSpatialAxisSwapTimeSector.lean:79`, `:96`, `:104` | Every finite signed polynomial in I-T and every supplied fixed-depth original root commute. Old-source limitRate supplies a valid transported convergence rate; mapped root-row modulus equality is NOT assumed. |
+| `swapRange`, `swapRange_modulus`, `swapState` | `BF4WilsonAllNomeSpatialAxisSwapTimeSector.lean:123`, `:132`, `:136` | Actual supplied original preimages mapped by mapCauchy; supplied outer modulus retained verbatim; State keeps its produced Type-valued range witness. |
+| `swapState_distance`, `swapState_inner`, `swapState_involutive_val`, `image_swap_pin` | `BF4WilsonAllNomeSpatialAxisSwapTimeSector.lean:143`, `:147`, `:153`, `:170` | Actual range-state pairing/distance and underlying-vector involution. Dense physical bond image remains the literal root(1) of the original swapped source embedding. |
+
+The operator preserves one fixed-width/nome spatial permutation, not a
+width-changing map or continuum Euclidean covariance. Root commutation is
+for every supplied finite depth but claims no uniform-depth modulus. State
+involution compares underlying vectors (the existing stateSetoid relation),
+not equality of arbitrary Type-valued range-certificate data. No quotient
+representative or preimage is selected by choice. No new analytic premise,
+assumed isometry, replacement action/carrier/norm or canonical field closure.
+
+Sol authored the source algebra; root authored the completed operator;
+the independent reviewer authored the root/range/dense-image consumer. Root
+read all final complete sources, and independent complete-source mathematical
+reviews passed. The algebra's initial map-id simplifier mismatch and the
+operator's local-notation/named-argument collision were fixed without any
+proof-limit increase. No sorry, new axiom, classical/native decision or
+noncomputable extraction was introduced.
+
+Three final leaves pass focused serialized checks, with all 41 printed
+gates exactly {propext, Quot.sound}. Root alone compiled: one worker, hard
+20 GiB ceiling, 12 GiB reserve. Every launch had a fresh process/memory/swap
+preflight: no competing compiler/runner, 87--88% system-wide free and zero
+swap. No full-root/tree build, audit, guard or baseline refresh.
+
+- `/private/tmp/ym-spatial-swap-algebra-20261008b.log`, SHA256
+  `6b14fccde0acccbcd95e1a808dcac275b347c45ae13f3bbdf31739453c146d4c`.
+- `/private/tmp/ym-spatial-swap-completion-20261008b.log`, SHA256
+  `845e832b16b17f4d0eaab2915dba73da884c8c347903f974358127a8ab377000`.
+- `/private/tmp/ym-spatial-swap-time-sector-20261008a.log`, SHA256
+  `1fc44d2f3feb112b1d8ef457aa16c432219fe0373ed29a588b7a59a48b03349a`.
+
+Imports are registered only. This bounded lane has now reached an actual
+completed operator and existing physical dense-image consumer, rather than
+another conditional completion wrapper. Full cubic action, represented
+bond-completion map, spatial/spacing control, continuous rotations and
+continuum covariance remain OPEN. Primary coupled signed response/scaling,
+independent survival, physical calibration, full QFT and every-group/Clay
+obligations remain OPEN. No displayed chart claim changed; no chart reprint.

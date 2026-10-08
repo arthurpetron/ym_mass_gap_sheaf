@@ -102,6 +102,29 @@ their complete remainder estimate. Do not import the bare eigenpin into the
 different incoming weight V*a*T(Vbar*Ta). CONTINUE action-specific JOINT
 response/Taylor control; no new harmonic-response wrapper is justified.
 
+Independent localized-pair screen (2026-10-08 UTC, source review only):
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSourceVarianceGram.lean:208`,
+`original_centered_energy_budget`, retains actual
+q=projectedEndpointSource w K width (terminalMessage w K width depth), psi=F-OWNmean,
+r=(q-q')*(F-F') and s=(q+q')*(psi+psi'). Their product can be expanded on
+paper as (q^2-q'^2)*(psi^2-psi'^2); bare character transmission then concerns
+raw projected-source q^2 moments, NOT automatically the OWN qPq moments in
+`BF4DyadicWilsonSquareWardMoments.lean:385`, `paddedSquare_ward`.
+`BF4ExactSlabFixedSpatialSourceVarianceGram.lean:138`,
+`centeredNormExpression`, and `centered_sum_norm:145` retain the complete
+sourceIncrementCost, centeredMixedMoment and interacting variance. The
+nonnegativity theorem `centered_denominator_nonnegative:175` is not their
+useful upper comparison. No source-level raw-to-OWN moment or localized
+mean-crossing payment was found in this inspected route. The existing
+positive spectator-band response
+`BF4DyadicWilsonSquareSpectatorResponse.lean:237`,
+`paddedSquare_energy_band_cleared`, is not a new order-one gain producer.
+These are source/math reviews, not newly checked Lean response identities,
+integrated energy lower bounds or an obstruction to the BF4/Yang--Mills
+estimate. Do not add a localized-certificate interface assuming the missing
+statistical payment. The actual JOINT relative response estimate remains
+the primary frontier.
+
 Bounded estimate: on ACTUAL a=g_d, A=Ta, Ephi=T(a*(Jphi)^2), Vbar and
 the existing finite G_k(A), test H[Vbar^2*G_k^2*A^3*Ephi]
 <=H[Vbar^2*A*Ephi], coefficient ONE for every finite k. Produce the A
