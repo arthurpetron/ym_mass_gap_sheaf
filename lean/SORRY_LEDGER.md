@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED finite Jacobi lower log-Hessian / OPEN original source-weighted comparison (2026-10-08 UTC)
+
+`lean/YMGap/Continuum/JacobiHeatNearFlatLogHessian.lean:142`,
+`heat_logHessian_lower`, proves C_T*h^2+h*h''-(h')^2>=0 for the actual
+normalized finite Jacobi derivative heat, every prefix including zero and
+every x>=0. `sTerm_le_one:71`, `sTerm_le_transverseRate:82`,
+`firstMoment_le_cap:92` and `secondMoment_le_first:101` produce the actual
+moment ceiling; no analytic bound or heat inverse is assumed. C_T=2w/(1-w^2)
+names the strict nome dependence; the bound is uniform in PREFIX, not nome.
+Focused capped check 2/all five gates exactly {propext,Quot.sound}, complete
+independent FINAL-source review PASS. Root import registered only; no root/tree
+build/audit. No new hole, axiom or option increase. This is not the original
+character-cutoff polynomial or a full-Haar hemisphere certificate. PAPER
+paired geometry gives a (1-w)-rescaled transverse error <=2*(1-X)*R*h^2;
+original-prefix transport, negative-X payment, SAME-source concentration,
+physical clock/curl and the changing-family signed margin remain OPEN.
+The independent last-window noise reduction/generic Schur error payment
+remain PAPER, not checked declarations. Exact proof/log hashes and consumers:
+adaptive-score audit. Continuum/physical/QFT/every-group/Clay and chart unchanged.
+
 ## PROVED direct ORIGINAL cubic response lower bound / OPEN relative scaling margin (2026-10-08 UTC)
 
 `lean/YMGap/Continuum/BF4WilsonAllNomeCubicResponseLower.lean:207`,

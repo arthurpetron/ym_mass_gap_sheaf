@@ -4,6 +4,149 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Near-flat Jacobi-heat comparison: checked finite estimate (2026-10-08 UTC)
+
+Status: finite scalar estimate CHECKED; paired and last-window consumers
+below remain PAPER, with their unproved original/analytic joins explicit.
+The repeated user lattice-measurement note is already reconciled in
+`audits/RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md`. A targeted primary
+reread confirms Morningstar--Peardon's Table 7 uses r0*m=4.21(11)(4), and
+1730(50)(80) MeV after setting r0^-1=410(20) MeV; it does not measure the
+note's quoted string-tension ratio. Its correlator selects states with
+nonzero overlap, not every excitation. Creutz's abstract extracts the
+Kogut--Susskind Hamiltonian by sending temporal spacing to zero, not by a
+finite-spacing identity. Reuse the existing corrections and SAME-logarithm
+consumer; no measured mass or smooth sample-connection premise is adopted.
+[Morningstar--Peardon, sections II and VI](https://arxiv.org/html/hep-lat/9901004).
+[Creutz, abstract](https://doi.org/10.1103/PhysRevD.15.1128).
+
+Actual proposition proved: for the finite normalized Jacobi polynomial h_N,
+0<w<1 and x>=0, the denominator-cleared lower log-Hessian bound is
+
+    0 <= C_T(w)*h_N(x)^2+h_N(x)*h_N''(x)-h_N'(x)^2,
+    C_T(w)=2*w/(1-w*w).
+
+The finite moment pins are
+`lean/YMGap/Continuum/JacobiHeatRadialMomentJets.lean:214`,
+`heat_eval_moment_pin`; `:226`, `heat_first_moment_pin`; and `:242`,
+`heat_second_moment_pin`. With Q=`normalizedProduct` they give
+h=Q*M1, h'=Q*(M1^2-M2), h''=Q*(M1^3-3*M1*M2+2*M3).
+Here h_N is the finite weighted normalized Jacobi derivative approximation,
+not the original character-cutoff polynomial. It is defined by
+`JacobiShiftedPositiveCoefficients.heat` at
+`lean/YMGap/Continuum/JacobiShiftedPositiveCoefficients.lean:126`.
+The proposed numerator is EXACTLY
+
+    Q^2*((C_T-M2)*M1^2 + 2*M1*M3-M2^2).
+
+`lean/YMGap/Continuum/JacobiHeatRadialMixtureCancellation.lean:112`,
+`moment_variance_nonneg`, produces M1*M3-M2^2>=0. The remaining bound
+M2<=M1<=C_T is produced from r_i=2*w^(2*i+1)/(1+2*x*w^(2*i+1)
++w^(4*i+2)) on x>=0, retaining the empty prefix. No reciprocal heat minimum,
+volume coefficient, free Gaussian, or new analytic hypothesis is needed for
+this FINITE rational estimate. The lower half is now checked; existing
+log-concavity supplies the upper half on the intended scalar interval.
+C_T is explicitly nome-dependent, diverging as w->1; the proved uniformity
+is only in finite prefix. The rescaled coefficient below is not a physical
+mass floor.
+
+PAPER paired consumer: on 0<=X<=1, for R=sum u_i^2 and v=J_u X, geometry gives
+v^2<=2*(1-X)*R. Thus the transverse term
+(h*h''-(h')^2)*v^2 lies between -2*C_T*(1-X)*R*h^2 and zero.
+The existing `JacobiHeatTransverseCurvature.transverseCap_nome_defect_le_one`
+at `lean/YMGap/Continuum/JacobiHeatTransverseCurvature.lean:301` gives
+(1-w)*C_T<=1, so the rescaled error coefficient is <=2. This does NOT remove
+the radial slope or identify it with a physical Gaussian/curl clock.
+Near-flat concentration must be proved under the SAME original source-dependent
+insertion, not just vacuum: `RatioNoiseWardAbsorption.
+original_ratioNoise_gradientPayment_weighted_pin` at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.lean:384`
+retains ell_V[a*(J phi)^2*T(Vbar*Ta)]. The X<0 contribution and original-prefix
+jet comparison also remain unpaid. Consequently no scaling/gap node closes.
+
+Verification budget: one leaf <=350 lines, no option increases, at most three
+focused root checks under the 20-GiB/one-worker policy, complete final-source
+review. Abandon/revise if direct actual-factor bounds require a larger new
+analytic framework; do not expand a Gaussian or curvature-assumption wrapper.
+
+Observed output: `lean/YMGap/Continuum/JacobiHeatNearFlatLogHessian.lean`
+has 183 lines, SHA256
+`8c3c04cd8ab07bb341acafcdae97b15a57156a722d8bc4f72f1c5b63b746d319`.
+Declarations: `sTerm_le_one:71`, `sTerm_le_transverseRate:82`,
+`firstMoment_le_cap:92`, `secondMoment_le_first:101`,
+`heat_logHessian_lower:142`. Root and independent reviewer completely read
+the FINAL source; mathematical/scope review PASS including x>1 and N=0.
+Focused check 1 found only the missing `QPolyFormalDerivative.pderiv`
+namespace open; four auxiliary gates already passed, while the failed theorem's
+diagnostic sorryAx was NOT a source hole. Root repaired that one open line.
+Focused check 2 PASS, all five gates exactly {propext,Quot.sound}:
+`/private/tmp/ym-oct8-nearflat-loghessian2.log`, SHA256
+`4cf52f0a5547333e9ce7b61d3cccb6584f088fdb7cdfcc99051f2247c5004111`.
+Both initial calls were terminal (0.69s/0.64s); no artificial wait or further
+check. Before EACH launch, process inspection found no competing worker,
+memory_pressure reported 84 percent headroom and swap usage was zero.
+One hard 20-GiB worker/12-GiB reserve throughout, no option increase.
+Root import registered only; no root/tree build/audit/guard/metric. No chart
+claim or Clay-facing field changes. Continue to the actual weighted estimate,
+not another half-line certificate or endpoint-slope/calculus interface.
+
+Independent PAPER reduction of the direct macro route: with U=T^u,
+a=U*g_n, b=U*(g_n*psi), A=U*a, C=U*A=g_(n+3u), Z=ell(a^2), W=ell(A^2),
+and a supported polynomial prediction phi, set e=b-a*phi and
+D_phi=A*U(a*phi^2)-U(a*phi)^2. Exact expansion/symmetry gives
+
+    W*ell(b^2)-Z*ell((U*b)^2)
+      = Z*ell(D_phi)+ell[a*phi^2*(W*a-Z*C)]
+        +W*ell[e*(b+a*phi)]-Z*ell[(U*e)*(U*b+U(a*phi))].
+
+No inverse conditional density or whole-history-noise subtraction occurs.
+`BF4ExactSlabFixedSpatialTerminalComparison.terminalComparison_relative_width`
+at `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalComparison.lean:306`
+with s=n+u-1,r=2u,t=0 and 1<=n+u pays the drift in absolute value by
+comparisonEta(width,n+u-1)*W*ell(a^2*phi^2). No finite stationarity or
+endpoint recentering is used. The actual last-window innovation PLUS the
+signed prediction correction, relative to W*ell(b^2), remains unpaid.
+`blockConditionalRatio_reconstruction` at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockConditionalRatio.lean:281`
+produces a SAME-warmed-norm reconstruction error; this is not by itself a
+bound on its transferred signed correction. Review that quantitative join
+in parallel, rather than add a consumer which merely assumes retention.
+
+The sharp terminal-Schur closure currently applies only to a transmitted
+source: `original_block_terminal_schur_source_le` at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalSchurClosure.lean:109`.
+PAPER extension to arbitrary supported r (including e) is possible with the
+same actual positive terminal a and produced certificate U*a-T^d*a>=0:
+approximate r by a*G_k*r, retain its relative square error and contractive
+multiplier square, then let the coarse transfer-continuity error vanish.
+Generic inputs are `reciprocal_weighted_error_le` at
+`lean/YMGap/Continuum/QuaternionHaarReciprocalWeightedError.lean:60`, and
+the polynomial Schur square at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalSchurTest.lean:84`.
+The GENERIC declaration is not yet proved; do not claim the transferred
+error payment is kernel-checked for e from the transmitted-source
+specialization. No arbitrary observable/transfer preimage is assumed.
+
+PAPER quantitative consequence AFTER proving that generic join: put
+B=ell(b^2), p=a*phi, and use the produced ell(p^2)<=B and
+ell(e^2)<=delta^2*B, delta>0. With eta=comparisonEta(width,n+u-1),
+S=(1+eta)^2, the normalized terminal Schur bounds give output square caps
+S*(W/Z)*B for U*b and U*p, and S*(W/Z)*delta^2*B for U*e.
+Rational Young applied to EACH of the four signed cross terms pays their
+sum in absolute value by 2*delta*(1+S)*W*B. No square root, source cap,
+unfiltered variance or surviving-norm inverse occurs. The terminal drift
+then costs at most eta*W*B, and the remaining sufficient estimate is
+
+    Z*ell(D_phi) <= [1-kappa-eta-2*delta*(1+S)]*W*B.
+
+This is an ACTUAL last-window innovation relative to the warmed norm;
+positivity alone cannot pay it. Generic closure and this changing-family
+analytic estimate are separate unpaid steps, not another assumed survival
+certificate. The full historical noise is not needed for this reduction.
+The actual multiplier bound is `blockConditionalRatio_surviving_square_le`
+at `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockConditionalDrift.lean:81`;
+it is not a supplied nondegeneracy hypothesis.
+
 ## Direct cubic ORIGINAL-response estimate: checked output and scope (2026-10-08 UTC)
 
 Previous goal turn: PROGRESS, commit `7604b6b2` supplies the actual signed

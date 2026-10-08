@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Supporting finite Jacobi LOWER log-Hessian checked (2026-10-08 UTC): actual
+formal heat jets and produced moment ceilings give C_T*h^2+h*h''-(h')^2>=0
+for every prefix and x>=0. Explicit nome-dependent C_T; no heat inverse or
+supplied analytic ceiling. Five permitted gates and complete independent
+FINAL-source review; focused check only, root registration, no tree audit.
+This is weighted Jacobi heat, not the original character cutoff or a
+source-weighted/full-Haar/scaling estimate. Those joins and the changing-family
+margin remain OPEN. Canonical displayed claims unchanged; no chart reprint.
+Evidence: adaptive conditional-score audit.
+
 Supporting direct ORIGINAL cubic response lower bound checked
 (2026-10-08 UTC): four mixed time/defect moments give
 R_x(N)>=d0-N*d1+C(N,2)*d2-C(N,3)*d3 on the SAME completion, without

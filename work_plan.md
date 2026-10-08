@@ -27,6 +27,39 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED actual Jacobi heat estimate (2026-10-08 UTC):
+`JacobiHeatNearFlatLogHessian.heat_logHessian_lower` proves the missing
+LOWER log-Hessian bound for the actual finite normalized Jacobi heat
+on the stronger half-line x>=0, including every empty/nonempty prefix:
+  0<=C_T(w)*h^2+h*h''-(h')^2, C_T=2w/(1-w^2).
+Actual moment jets and the produced finite moment variance reduce it to
+(C_T-M2)*M1^2+2*M1*M3-M2^2>=0; M2<=M1<=C_T is PRODUCED from the
+ACTUAL factors, not an assumed analytic ceiling. PAPER: on 0<=X<=1,
+existing concavity and paired geometry bound the transverse discrepancy by
+2*C_T*(1-X)*R*h^2, whose (1-w)-rescaled coefficient is <=2.
+Consumer: retain signed local curvature in the original conditional-score
+budget. Source-weighted near-flat concentration, X<0 payment, original-prefix
+transport and physical clock/curl identification are NOT supplied. No Gaussian
+substitution or frontier strengthening. One leaf <=350 lines, at most three
+root-owned focused checks were budgeted; final 183-line leaf passes check 2
+and complete independent FINAL-source review, all five gates exactly
+{propext,Quot.sound}. Root registration only, no root/tree audit. No further
+curvature wrapper selected. NEXT actual estimate remains SAME-source weighted
+concentration/signed last-window innovation on the justified changing family.
+The repeated lattice-measurement attachment is already reconciled in the
+existing calibration audit; reuse its channel/whole-gap, reference-scale and
+temporal-continuum corrections. No numerical/Sobolev/Kogut--Susskind premise,
+new roadmap box or chart change. Continue toward the actual SAME-source margin.
+The heat here is the finite weighted Jacobi derivative approximation, NOT
+the original character cutoff; that transport remains explicit and open.
+PAPER direct-response reduction retains ONLY the last-u-window innovation,
+terminal drift and signed prediction correction. Drift and reciprocal error
+can be paid in SAME-warmed-norm currency AFTER a generic terminal-Schur
+closure for arbitrary supported error; that closure is not yet checked.
+The remaining analytic estimate is Z*ell(D_phi)<=
+[1-kappa-eta-2*delta*(1+(1+eta)^2)]*W*ell(b^2), not full-history noise.
+Exact chronology, available inputs and missing joins: adaptive-score audit.
+
 CHECKED direct ORIGINAL cubic response estimate (2026-10-08 UTC):
 `CubicResponseLower.cubic_response_lower` proves
 R_x(N)>=d0-N*d1+C(N,2)*d2-C(N,3)*d3 from the EXISTING positive mixed

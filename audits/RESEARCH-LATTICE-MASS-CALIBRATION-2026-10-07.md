@@ -19,6 +19,16 @@ reviewed here. Reuse these corrections; no new literature fetch or numerical
 premise. Continue with the actual SAME-source relative response budget; the
 new full-cost/filtering screen is recorded in the adaptive-score audit.
 
+Continuation, 2026-10-08 UTC: the same attachment remains incorporated; no
+new measurement-driven premise or duplicate interface is selected. Targeted
+Morningstar--Peardon/Creutz reread confirms the reference-scale and
+temporal-continuum corrections below. The actual selected estimate is now
+the finite Jacobi LOWER log-Hessian on x>=0, with an independently derived
+last-window innovation reduction of the ORIGINAL warmed-source response.
+Both are recorded at the top of the adaptive-score audit; the weighted Jacobi
+heat is not substituted for the original character cutoff. This is continued
+analytic work, not evidence that the numerical mass closes a proof node.
+
 ## Useful distinctions, with corrections
 
 1. Keep a glueball-channel measurement separate from a theory-wide spectral
