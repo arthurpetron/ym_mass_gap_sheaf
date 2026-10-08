@@ -27,6 +27,35 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+Source reconciliation (2026-10-08 UTC, READ-ONLY mathematical review): a
+signed spatial plaquette profile is already an actual original-algebra
+observable with a produced SAME-completion variance floor:
+`AllNomePlaquetteFamilyVariance.centered_norm_floor` bounds it below by
+varianceFloor(w)*sum(c_p^2), for physical nonrepeated faces. Positive norm
+also requires sum(c_p^2)>0. This is spatial averaging of observables, NOT
+smearing of SU(2) links. General forward-head
+Wilson words also already have a finite original-action variance producer
+in `WilsonWordVariance.finiteValue_variance_floor`. Do not build those
+producers again or select a six-link rectangle solely for another fixed-nome
+floor. For an explicit spatial profile the next useful experiment is its
+JOINT original-action filtered cost/window estimate, not another source or
+nondegeneracy interface. No useful scaling Rayleigh reserve or spatial-link
+flow has been produced. The detailed source map is in the lattice-mass
+research audit; this review closes no canonical proof claim.
+
+The adjacent-stage residue screen now also distinguishes square completion
+from coercivity: it replaces the spatial transfer commutator by a positive
+SOURCE-weighted action-jump moment and a preimage endpoint norm, while the
+chronological vacuum defect remains signed. Neither moment is bounded by
+the SAME surviving variance. Keep this as a source-level mathematical
+screen, not another conditional Lean module or a favorable-sign claim.
+The adaptive audit records the formula and exact original endpoint joins.
+The represented derivative-domain converse was also found already proved
+in `DerivativeInputRange.representedGraphOfQuotientLimit`; no duplicate
+generator/completion branch is needed. Main work remains the coupled signed
+estimate on the existing carrier, including a possible DIRECT reserve on
+the already-filtered source rather than the stronger unfiltered input.
+
 The adjacent-stage sign shortcut is now PRUNED by a CHECKED finite diagnostic
 (2026-10-08 UTC). `RationalWeightedTemporalResidueObstruction` retains
 T=K*M_V, the V-weighted form, a=T^0*1, BOTH chronological partitions,

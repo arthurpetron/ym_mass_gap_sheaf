@@ -130,3 +130,43 @@ is not automatically a flowed link; unitary nonlinear projection or flow
 requires its own certified approximation. Do not reuse square-source floors
 for a changed source, change the original action, or claim continuum survival
 from operator smearing. The signed interacting estimate remains primary.
+
+### Source reconciliation: observable profiles versus link flow
+
+2026-10-08 UTC, independent read-only source reviews and root inspection;
+no additional literature scan, Lean edit or compiler run. The general
+expression inputs above must not obscure existing source-specific producers:
+
+- `lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteFamilyVariance.lean:140`,
+  `centered_norm_floor`, already gives the original Wilson connected-moment
+  floor varianceFloor(w)*sum(c_p^2) for an arbitrary signed family of physical,
+  nonrepeated spatial plaquettes. `familyExcitation_norm_floor:151` joins it
+  to the actual completed vector; `familyExcitation_correlator_pin:187`
+  retains the SAME completed time operator. Positive norm additionally needs
+  sum(c_p^2)>0, as in `familyExcitation_norm_ne_zero:162`; physical/Nodup
+  guards alone allow all-zero coefficients. This permits spatial profiles
+  of plaquette OBSERVABLES now. The constant depends on strict nome; neither
+  a useful changing-family Rayleigh bound nor window survival follows.
+- `lean/YMGap/Continuum/BF4ExactSlabWilsonWordVariance.lean:142`,
+  `normalizedVariance_floor`, retains the actual selected-action mean and
+  gives starRatio(w)*(1+m^2). `finiteValue_variance_floor:196` supplies the
+  weaker starRatio(w) bound at every regulator stage for a physical word
+  with a forward selected head link absent from its tail. The physical,
+  nonrepeated action-face list stays explicit. This is already a general
+  finite word producer, not merely a plaquette/square example.
+- `lean/YMGap/Continuum/BF4ExactSlabSpatialWilsonRectangle.lean:38`,
+  `rectangleEdges`, and `rectangle:47` supply a concrete closed six-link
+  spatial word; `no_coefficient_plaquette_recoding:121` is a pointwise
+  algebra distinction, not a variance or scaling theorem. A new source-loop
+  specialization/limit join would still need proof. It is not selected just
+  to obtain another fixed-nome nondegeneracy example.
+
+The eligible simpler alternative is therefore an EXPLICIT signed spatial
+plaquette profile using those existing constructors and floors. Its unpaid
+task is a useful original-action FILTERED cost/window estimate with all cross
+terms and OWN means, not its source representation or unfiltered positive
+variance. No such estimate was produced in this review. Individual word
+floors are not a variance floor for an arbitrary word mixture. Actual
+staple-averaged/flowed unit-link construction and its unit, gauge, support,
+approximation and survival joins remain absent from the inspected source
+modules. Do not identify an observable profile with link flow.

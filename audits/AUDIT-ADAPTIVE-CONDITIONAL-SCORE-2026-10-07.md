@@ -6,6 +6,57 @@ and a finite strictly positive physical Hamiltonian mass gap.
 
 ## Weighted chronological sign screen (2026-10-08 UTC)
 
+### Follow-on square-completion screen (source review only)
+
+Independent mathematical review and root source inspection, 2026-10-08 UTC.
+This is a PAPER reduction, not a new Lean theorem or a produced scaling bound.
+Retain T=K*M_V, ell_V=H[V*], a=g_d, A=Ta, z=ell_V[a^2], v=ell_V[A^2],
+the supported incoming phi and a spatial insertion Theta. On the original
+two-endpoint kernel define
+
+```text
+P(x,y) = K(x,y)*V(x)*V(y)*a(x)*A(y)
+C      = ell_V[a*phi^2*(T(Theta*A)-Theta*T(A))]
+M      = H2[P*phi(x)^2] = ell_V[a*phi^2*T(A)]
+JTheta = H2[P*phi(x)^2*(Theta(y)-Theta(x))^2].
+```
+
+The original kernel/action/terminal positivity certificates make P positive.
+For each positive rational tau, expanding the two literal nonnegative
+squares P*(phi(x)*(Theta(y)-Theta(x)) +/- tau*phi(x))^2 gives
+
+```text
+  +/- 2*tau*C <= JTheta + tau^2*M.
+```
+
+Thus square completion needs no fourth power of phi or source inverse, but
+the full chronological residue still contains BOTH the commutator z*C and
+ell_V[a*phi^2*Theta*(z*T(A)-v*a)]. This is not a sign or stationary-law pin.
+The exact existing SAME endpoint identity is
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLastStepNoiseDissipation.lean:86`,
+`lastStepNoise_endpoint_pin`: M contains innovation PLUS the outgoing source
+norm. It is not the surviving variance alone. The actual positive Ward
+payment retains the additional spatial insertion T(Vbar*A), by
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.lean:384`,
+`original_ratioNoise_gradientPayment_weighted_pin`.
+
+No supporting producer bounds the source-weighted action-jump square JTheta
+and chronological defect jointly by the required SAME surviving variance.
+In particular
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSourceTaylor.lean:132`,
+`energy_taylor_angular`, has the actual projected source and BOTH outgoing
+signed remainders; it does not assert a matching negative JTheta. Do not
+substitute its density for P or cancel unlike weights. Decision: retain this
+screen as an explicit unpaid moment, not another conditional square-bound
+module. The coupled signed window estimate remains OPEN.
+
+Duplicate screen resolved: the suggested converse from represented dyadic
+quotient convergence to coordinate range/graph witnesses is ALREADY in
+`lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeInputRange.lean:69`,
+`inputRange`, and `representedGraphOfQuotientLimit:94`. Do not rebuild it.
+No Lean edit, compiler, new hypothesis, canonical field or chart delta from
+these source reviews.
+
 Selected proposition: test whether original-form positive weighted transfer,
 chronological partitions and OWN centering alone sign the additional weighted
 time residue. Its source consumer is the proposed adjacent-stage cancellation
