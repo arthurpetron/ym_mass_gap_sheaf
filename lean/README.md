@@ -16,6 +16,16 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked finite macro/window separation (2026-10-08 UTC):**
+`RationalMacroRetentionWithoutInitialEnergy.windowBudgetSeparation` returns
+an explicit horizon-eight scalar two-mode witness: quarter macro retention
+holds, but the factor-two even-lag window budget fails even at zero margin.
+Focused check1 and COMPLETE independent final-source review PASS; all nine
+new gates are axiom-free. This is not a BF4 source or physical/scaling result.
+Direct original macro retention remains co-primary, with its interacting
+input OPEN; no stronger window reserve is made necessary. Exact evidence:
+adaptive-score audit. No root/tree audit or canonical closure.
+
 **Checked ORIGINAL joint gradient/spatial absorption (2026-10-08 UTC):**
 The SAME conditional law now pays the gradient cross and spatial response
 together through the determinant of Vbar*Jphi+(J Vbar)*phi, with outgoing

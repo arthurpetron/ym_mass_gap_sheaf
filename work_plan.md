@@ -224,9 +224,13 @@ physical/QFT/every-group/Clay remain OPEN; displayed canonical claims unchanged.
 
 Post-follow-through selection (2026-10-08 UTC): the requested paper's bounded
 parallel completeness check found no further producer of the ORIGINAL window
-budget. Target the complete signed aggregate, or a quantitative SAME-law
-angular-to-transfer-defect comparison paying it against warmed OWN variance
-and BOTH masses. Existing time-defect smoothing is not that comparison.
+budget. Keep DIRECT original macro retention co-primary: the signed-window
+budget is sufficient, NOT necessary. The actual existing direct consumer is
+`DyadicNormalizedMacroRatio.normalizedAnchorResponse_block_floor`, which
+requires only its SAME-source macro ratio. Alternatively target the complete
+signed aggregate, or a quantitative SAME-law angular-to-transfer-defect
+comparison paying it against warmed OWN variance and BOTH masses. Existing
+time-defect smoothing is not that comparison.
 A fixed-order local power ceiling cannot alone pay the improving-precision
 seed's exponentially growing window; this screens the ceiling strategy,
 not the actual signed cost or a physically justified trajectory. Do not
@@ -234,6 +238,21 @@ repeat IBP/polarization wrappers without new quantitative payment. Source
 pins and the PAPER precision-seed screen are in the final section of
 `audits/RESEARCH-2610-09093-2026-10-08.md`. No Lean edit, new premise,
 closed proof node or chart-state change.
+
+CHECKED route-selection separation (2026-10-08 UTC): the EXISTING
+`RationalMacroRetentionWithoutInitialEnergy` now returns an explicit
+Type-valued horizon-eight/quarter-retention witness. Its literal positive
+two-mode response retains at least a quarter from lag16 to lag32, while
+the factor-two even-lag window budget fails even with kappa=0. All nine new
+gates are AXIOM-FREE; focused check1 and COMPLETE independent final-source
+review PASS. This certifies one finite scalar instance of the earlier PAPER
+screen, not a BF4 source, all-horizon result or physical survival claim.
+Retain direct macro moments as a co-primary analytic target; no unnecessary
+source-residual reserve is imposed on that route. The original interacting
+ratio, justified scaling, physical/QFT/every-group/Clay remain OPEN. No
+canonical field/claim changes or chart reprint. Exact evidence: adaptive-score
+audit. One monitored 20-GiB worker/12-GiB reserve, fresh dynamic preflight;
+no root/tree audit or limit increase.
 
 Targeted paper review integrated (2026-10-08 UTC, user request):
 `audits/RESEARCH-2610-09093-2026-10-08.md` records the long paper and companion

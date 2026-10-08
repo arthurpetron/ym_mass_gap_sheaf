@@ -7906,3 +7906,77 @@ the opportunity is cancellation inside the actual joint conditional variance.
 This reduces the form of the finite payment, not its changing-family size.
 Continuum survival, physical mass calibration, full same-theory QFT, every
 compact simple group and Clay remain OPEN. Canonical chart unchanged.
+
+## Selected direct-retention versus window-budget kernel screen (2026-10-08)
+
+Previous turn: PROGRESS as a documentation-only selection refinement,
+commit `2c10553f`; no new analytic theorem. The two bounded mathematical
+screens now return to already-known missing inputs, so neither a normalized
+telescope wrapper nor a generic adaptive-order interface is selected.
+
+The exact finite telescope on paper is
+`2*c_t=v_t-v_(t+1)+ell((W_t*b_t-Z_t*T*b_t)^2)/(Z_t*W_t^2)
+ -(Z_t*Z_(t+1)-W_t^2)*v_(t+1)/W_t^2`.
+It retains the distinct masses. Its completed remainder is the nonnegative
+second defect, not an unpaid favorable reserve. This is PAPER, not a new
+Lean identity; the earlier audit already distinguishes direct retention
+from the sufficient window budget.
+
+Select a bounded kernel certificate for a concrete instance of that earlier
+two-mode screen in `computations/window_reserve_two_mode_screen.py`:
+`u=8`, `lambda=1/100`, `mu=31/32`,
+`R(n)=lambda^(2*u)*mu^n+mu^(2*u)*lambda^n`. Return the horizon and retention
+coefficient as explicit data; prove positive warmed response, rates in
+`(0,1)`, `R(4*u)>=R(2*u)/4`, and failure of
+`2*sum_{t=u}^{2*u-1}(R(2*t)-R(2*t+1))<=R(2*u)`.
+Prediction: exact rational inequalities pass by kernel computation.
+Degeneracy check: positive warmed response and both strictly nonstationary
+modes exclude zero-state/vacuum artifacts. This is NOT an original YM state.
+
+Consumer of the route-selection evidence is the choice between actual
+original macro retention and `WindowSignedCost.original_window_budget_macro_ratio`'s
+stronger sufficient input. The latter remains eligible, not mandatory.
+No canonical field changes. Budget: a short addition to the EXISTING
+`RationalMacroRetentionWithoutInitialEnergy` leaf; one focused monitored
+20-GiB/one-worker check with 12-GiB reserve after a fresh capacity/conflict
+preflight, plus independent final-source review. No root/tree audit.
+Abandon expansion if this requires a new frontier/interface, foreign oracle,
+or any claim that the toy moments estimate the original interacting source.
+
+### Observed finite separation and next decision
+
+Focused check1 PASS, exit0. All NINE new public gates are AXIOM-FREE; all
+TEN existing gates remain within {propext, Quot.sound}. No errors, warnings,
+sorryAx, choice, native computation or option increase. ROOT inspected the
+complete final248-line source; independent COMPLETE frozen-source review
+PASS with the matching hash. The exact eight losses at 16,18,...,30 match
+`aggregate_window_macro_ratio`'s u=8 criterion. Rate positivity/strictness
+and R(16)>0 exclude a zero-norm or vacuum counterexample.
+
+The new declarations are `windowSeparation_retention:204`,
+`windowSeparation_budget_fails:209`, `windowBudgetSeparation:216` in
+`lean/YMGap/Continuum/RationalMacroRetentionWithoutInitialEnergy.lean`.
+The witness returns u=8 and kappa=1/4, without erasing them into Exists.
+Failure at kappa=0 also excludes the stronger quarter-margin window test.
+The all-horizon PAPER argument and the actual BF4 source estimate are NOT
+claimed checked by this one finite witness.
+
+    final source 7e7f391d4ada65b3ced4d652049b5589aea80178ef7ca06813c534f4b76a0be5
+    /private/tmp/ym-oct8-window-separation1.log PASS
+    SHA256 e98f94f9d409308a5b3a737e834d34b4c0fa854a6bcbf77b9f44d06d079be63f
+
+Fresh conflict/memory preflight: no competing compiler/runner/test process,
+84% system-wide free memory, zero swap observed before launch. One serialized
+20-GiB monitored worker with 12-GiB reserve; handle73286 is terminal.
+No root/tree build/audit, limit increase, lock bypass or touched duplicate.
+
+CONTINUE DIRECT original macro moments as a co-primary analytic producer,
+alongside sufficient joint signed cost. In particular
+`normalizedAnchorResponse_block_floor`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicNormalizedMacroRatio.lean:132`,
+consumes the direct SAME-source ratio, not the stronger residual sum.
+No reverse macro-to-window implication or unnecessary initial-norm floor
+is required. No new interface/frontier or canonical field is introduced.
+The actual interacting ratio/relative payment, justified scaling, continuum
+survival, physical calibration, full QFT, every group and Clay remain OPEN.
+Displayed chart claims unchanged; no chart reprint.

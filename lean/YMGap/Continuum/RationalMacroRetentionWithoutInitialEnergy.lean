@@ -13,12 +13,14 @@ continuum or Yang--Mills counterexample. No spectral theorem is used.
 -/
 
 import YMGap.Continuum.RationalTwoModeSurvivalObstruction
+import YMGap.Constructive.RationalTail
 
 namespace YMGap.Continuum.RationalMacroRetentionWithoutInitialEnergy
 
 set_option autoImplicit false
 
 open YMGap.Constructive
+open YMGap.Constructive.RationalTail (finSum)
 open YMGap.Constructive.HalfPow (half half_nonneg)
 open YMGap.Continuum.RingNormaliser (poly_identity_of_normal_eq)
 open YMGap.Continuum.RationalTwoModeSurvivalObstruction
@@ -172,6 +174,57 @@ theorem initial_budget_incompatible (n : Nat) (hn : 5 ≤ horizon n)
   exact (Int.not_lt.mpr (Q'.le_trans' _ _ _ hchain hbudget))
     (by decide : (1 : Q') < Q'.ofNat 5*initialLossFloor)
 
+/-- Fast rate of the fixed finite window-budget diagnostic below. -/
+def windowFastRate : Q' := Q'.mkPos 1 100 (by decide)
+
+/-- Slow rate of the fixed finite window-budget diagnostic below. -/
+def windowSlowRate : Q' := Q'.mkPos 31 32 (by decide)
+
+/-- Literal two-mode scalar moments, with the weights fixed at horizon eight.
+These are not moments of an original BF4 source or a physical theory. -/
+def windowSeparationResponse (lag : Nat) : Q' :=
+  windowFastRate^16*windowSlowRate^lag +
+    windowSlowRate^16*windowFastRate^lag
+
+/-- The eight one-step losses at even times 16,18,...,30. -/
+def windowSeparationCost : Q' :=
+  finSum (fun j => windowSeparationResponse (2*(8+j)) -
+    windowSeparationResponse (2*(8+j)+1)) 8
+
+theorem windowSeparation_rates :
+    (0 : Q') < windowFastRate ∧ windowFastRate < windowSlowRate ∧
+      windowSlowRate < 1 := by
+  decide
+
+theorem windowSeparation_warmed_positive :
+    (0 : Q') < windowSeparationResponse 16 := by
+  decide
+
+/-- Macro retention holds at this one literal finite horizon. -/
+theorem windowSeparation_retention :
+    initialLossFloor*windowSeparationResponse 16 ≤ windowSeparationResponse 32 := by
+  decide
+
+/-- The summed one-step window budget fails despite that macro retention. -/
+theorem windowSeparation_budget_fails :
+    ¬ (2*windowSeparationCost ≤ windowSeparationResponse 16) := by
+  decide
+
+/-- Computed horizon and retention fraction with their finite numerical proofs.
+This separates scalar sufficient conditions only: no BF4 source, physical
+survival, or assertion at every horizon is supplied by this witness. -/
+def windowBudgetSeparation :
+    Σ' u : Nat, Σ' kappa : Q',
+      u = 8 ∧ kappa ≈ initialLossFloor ∧
+      ((0 : Q') < windowFastRate ∧ windowFastRate < windowSlowRate ∧
+        windowSlowRate < 1) ∧
+      (0 : Q') < windowSeparationResponse (2*u) ∧
+      kappa*windowSeparationResponse (2*u) ≤ windowSeparationResponse (4*u) ∧
+      ¬ (2*windowSeparationCost ≤ windowSeparationResponse (2*u)) :=
+  ⟨8, initialLossFloor, rfl, Q'.eqv_refl _, windowSeparation_rates,
+    windowSeparation_warmed_positive, windowSeparation_retention,
+    windowSeparation_budget_fails⟩
+
 end YMGap.Continuum.RationalMacroRetentionWithoutInitialEnergy
 
 #print axioms YMGap.Continuum.RationalMacroRetentionWithoutInitialEnergy.response
@@ -184,3 +237,12 @@ end YMGap.Continuum.RationalMacroRetentionWithoutInitialEnergy
 #print axioms YMGap.Continuum.RationalMacroRetentionWithoutInitialEnergy.response_macro_retention
 #print axioms YMGap.Continuum.RationalMacroRetentionWithoutInitialEnergy.initial_loss_lower
 #print axioms YMGap.Continuum.RationalMacroRetentionWithoutInitialEnergy.initial_budget_incompatible
+#print axioms YMGap.Continuum.RationalMacroRetentionWithoutInitialEnergy.windowFastRate
+#print axioms YMGap.Continuum.RationalMacroRetentionWithoutInitialEnergy.windowSlowRate
+#print axioms YMGap.Continuum.RationalMacroRetentionWithoutInitialEnergy.windowSeparationResponse
+#print axioms YMGap.Continuum.RationalMacroRetentionWithoutInitialEnergy.windowSeparationCost
+#print axioms YMGap.Continuum.RationalMacroRetentionWithoutInitialEnergy.windowSeparation_rates
+#print axioms YMGap.Continuum.RationalMacroRetentionWithoutInitialEnergy.windowSeparation_warmed_positive
+#print axioms YMGap.Continuum.RationalMacroRetentionWithoutInitialEnergy.windowSeparation_retention
+#print axioms YMGap.Continuum.RationalMacroRetentionWithoutInitialEnergy.windowSeparation_budget_fails
+#print axioms YMGap.Continuum.RationalMacroRetentionWithoutInitialEnergy.windowBudgetSeparation
