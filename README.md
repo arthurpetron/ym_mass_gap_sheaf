@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Latest same-series scalar join (2026-10-07):** the original signed
+frequency numerator is proved and completed from independently constructed
+value/first/angular series. Actual completed parity rectangles now equal
+the original theta square and signed numerator, paying the odd boundary
+and N+1/N offset. Focused constructive checks passed. The Jacobi radial-cost
+join, useful curvature ceiling and all physical/scaling obligations remain
+open. See the [exact proof boundary](audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md).
+
 **Current analytic frontier:** on the original all-nome Wilson carrier,
 AF window survival and a changing-scale, all-vector gap estimate remain open.
 The checked RG recovery computes rates from one seed. A relative dissipated-

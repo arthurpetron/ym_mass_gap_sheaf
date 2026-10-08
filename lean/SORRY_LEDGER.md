@@ -1,5 +1,42 @@
 # Sorry Ledger
 
+## PROVED actual signed numerator and completed parity-series join / OPEN SAME product-cost join (2026-10-07)
+
+- `ThetaJointAngularPin.joint_angular_frequency_pin` proves the negative
+  literal plus-frequency sum. `ThetaJointWeightedMoment.moment_sum_angular_pin`
+  constructs M=-2*F*L(F) by actual reflection/Cartesian factorization.
+  `ThetaJointFrequencyNumerator.frequency_box_numerator_pin` gives the
+  original difference-frequency Q=2*((1-x*x)*(F')^2-F*L(F)). All rational
+  inputs/cutoffs, including zero; no positivity or finite Euler substitution.
+- `ThetaBareAngularCompletion.bareAngularCReal` retains literal angularSum
+  approximants and the existing explicit coordinate-uniform fixed-nome cutoff.
+  `ThetaJointFrequencyCompletion.bare_first_jet_pin` preserves factor two;
+  its constructed numerator is pinned to the ACTUAL box at EVERY approximant.
+- `ThetaOddBoundaryPin` constructs both O_N=2*H_N-h_N finite pins.
+  `ThetaOddSeriesCompletion` retains the exact signed-prefix approximants,
+  supplies `oddSignedCutoff` at epsilon/4, and proves the actual value and
+  separately completed endpoint series equal twice their one-sided series.
+- `ThetaJointRectangleCompletion.completed_value_rectangle_pin` and
+  `completed_frequency_rectangle_pin` join actual completed rectangles to
+  the same full theta square and signed numerator. N+1/N is paid with the
+  rectangle's constructed Cauchy proof. Final equivalence does not supply a
+  new combined coordinate-uniform Type-valued modulus. No witness extraction
+  from Prop or limit differentiation.
+- OPEN: actual product value/first/angular numerator versus
+  `JacobiProductRadialLimit.productRadialCostCReal`; completed addition square
+  and useful whole-interval ceiling; strict Haar/original conditional joins;
+  useful signed cost/scaling, independent survival, completed OS comparison,
+  physical/volume control, SAME QFT, every compact simple group and Clay.
+- Seven new leaves and two changed leaves pass nine focused checks and 61
+  printed gates within {propext, Quot.sound}; fifteen printed computational
+  definitions are axiom-free. No source sorry, new axiom, classical input,
+  native_decide, weakened canonical field or baseline refresh. Independent
+  source/math review found no normalization or same-object defect. All checks
+  use one 20-GiB worker, 12-GiB reserve and fresh dynamic preflights; zero swap.
+  Root imports registered, not root-built; no full-tree audit or chart closure.
+
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 ## PROVED actual completed alternating determinant squares / OPEN product-frequency join (2026-10-07)
 
 - `ThetaAlternatingEndpointJets.squareKernel_coeff_pin` reflects the finite
@@ -25,9 +62,9 @@
 - `ThetaJointValuePin.theta_box_endpoint_value_pin` gives the ORIGINAL
   bare-theta square for all rational w,x,N. `ThetaJointAngularPin.joint_coeff_pin`
   and `joint_angular_pin` identify its actual coefficient/finite angular jets.
-- OPEN: literal weighted moment M=-2*F*L(F) and signed frequency-box
-  numerator; actual parity rectangle and product value/jet limit joins,
-  retaining the unbalanced odd boundary; full completed addition and useful
+- The literal weighted moment, signed frequency-box numerator and actual
+  parity rectangle limits are now supplied above, retaining the odd boundary.
+  OPEN: actual product value/jet/radial-cost limit joins; full completed addition and useful
   whole-interval radial ceiling; strict Haar/original conditional joins;
   useful original signed cost/scaling, survival, completed OS comparison,
   physical/volume control, SAME QFT, every group and Clay. No analytic input

@@ -4,7 +4,123 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
-## Observed endpoint-jet and SAME-series contraction (2026-10-07)
+## Observed signed numerator and completed parity-series join (2026-10-07 local; checked 2026-10-08 UTC)
+
+The previous checkpoint's literal signed-frequency numerator and actual
+parity/SAME-series joins are now supplied. The user's lattice-note review
+remains context, not an empirical premise:
+`audits/RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md`. The live plan continues
+forward from original scalar objects and backward from the SAME physical
+Hamiltonian requirements; a measured channel mass closes no analytic input.
+
+### Actual mathematical contraction
+
+Write L=(1-x*x)*D^2-x*D and F_N for the ORIGINAL bare theta prefix, not the
+finite Jacobi Euler product. Actual squared signed frequencies give
+
+```text
+L(J_N) = -sum_(m,n) (m+n)^2*w^(m^2+n^2)*T_|m+n|(x),
+M_N = sum_(m,n) (m^2+n^2)*w^(m^2+n^2)*T_|m+n|(x) = -2*F_N*L(F_N),
+Q_N = 2*M_N+L(J_N) = 2*((1-x*x)*(F_N')^2-F_N*L(F_N)).
+```
+
+These pins hold for ALL rational w,x and N, including zero; no analytic
+guard or positivity input. The actual Int identity
+|m-n|^2+|m+n|^2=2*(|m|^2+|n|^2) is kernel-normalized, not truncated Nat
+subtraction. Actual signed-list reflection and Cartesian factorization
+produce M. Existing finite formal angular rules produce the first line.
+Independent review confirms N=0 gives zero; N=1 gives M=4*w*x+8*w^2*x^2
+and Q=4*w*x+8*w^2, which may be negative. No positivity is added.
+
+The literal bare angular prefixes now form a constructed CReal with the
+existing shell cutoff. The first-series completion is twice the existing
+actual dSeriesCReal, pinned to the finite formal jet BEFORE any limit.
+Arithmetic on these independently constructed series produces Q's CReal;
+EVERY approximation is equivalent to the actual signed frequency-box sum.
+
+The odd rectangle has actual unbalanced boundaries
+O_N=2*H_N-h_N and O_endpoint,N=2*H_endpoint,N-h_endpoint,N. Both finite pins
+hold at zero and retain their top term. Literal signed-prefix completions
+use `oddSignedCutoff(w,epsilon)=oneSidedCutoff(w,epsilon/4)`, paying twice
+the one-sided prefix discrepancy plus two boundary terms. The value and
+independently completed frequency series each equal twice their ORIGINAL
+one-sided completion. A finite factor four is never inserted.
+
+Finally the ACTUAL completed value rectangle at y=1 equals F^2, and the
+ACTUAL completed endpoint-frequency rectangle equals Q's constructed
+value/first/angular numerator. The original paid rectangle lives at N+1
+and the box at N; the rectangle's constructed Cauchy proof pays this offset
+with half the tolerance. Endpoint scalar multiplication is commuted inside
+the actual finite sums, not silently definitionally equated.
+
+### Declaration evidence and verification boundary
+
+| Declaration | Final source | Passing focused log |
+| --- | --- | --- |
+| `angular_add`, `angular_scale` (unchanged proofs exposed) | `lean/YMGap/Continuum/FiniteJacobiAngularComparison.lean:87`, `lean/YMGap/Continuum/FiniteJacobiAngularComparison.lean:103` | `/private/tmp/ym-oct7-angular-public-linearity1.log` |
+| `joint_angular_frequency_pin` | `lean/YMGap/Continuum/ThetaJointAngularPin.lean:222` | `/private/tmp/ym-oct7-joint-angular-frequency1.log` |
+| `moment_sum_factor_pin`, `moment_sum_angular_pin` | `lean/YMGap/Continuum/ThetaJointWeightedMoment.lean:92`, `lean/YMGap/Continuum/ThetaJointWeightedMoment.lean:171` | `/private/tmp/ym-oct7-joint-weighted-moment1.log` |
+| `frequency_square_balance`, `frequency_box_numerator_pin` | `lean/YMGap/Continuum/ThetaJointFrequencyNumerator.lean:46`, `lean/YMGap/Continuum/ThetaJointFrequencyNumerator.lean:103` | `/private/tmp/ym-oct7-joint-frequency-numerator2.log` |
+| `bareAngularCReal`, `bareAngularCReal_formal_pin` | `lean/YMGap/Continuum/ThetaBareAngularCompletion.lean:91`, `lean/YMGap/Continuum/ThetaBareAngularCompletion.lean:104` | `/private/tmp/ym-oct7-bare-angular-completion1.log` |
+| `bare_first_jet_pin`, `frequencyNumeratorCReal_box_pin` | `lean/YMGap/Continuum/ThetaJointFrequencyCompletion.lean:54`, `lean/YMGap/Continuum/ThetaJointFrequencyCompletion.lean:84` | `/private/tmp/ym-oct7-frequency-completion1.log` |
+| `odd_signed_boundary_pin`, `odd_signed_endpoint_boundary_pin` | `lean/YMGap/Continuum/ThetaOddBoundaryPin.lean:161`, `lean/YMGap/Continuum/ThetaOddBoundaryPin.lean:204` | `/private/tmp/ym-oct7-odd-boundary3.log` |
+| `oddSignedCutoff`, `oddSignedCReal_eq_twice`, `oddSignedEndpointCReal_eq_twice` | `lean/YMGap/Continuum/ThetaOddSeriesCompletion.lean:36`, `lean/YMGap/Continuum/ThetaOddSeriesCompletion.lean:175`, `lean/YMGap/Continuum/ThetaOddSeriesCompletion.lean:190` | `/private/tmp/ym-oct7-odd-series-completion2.log` |
+| `completed_value_rectangle_pin`, `completed_frequency_rectangle_pin` | `lean/YMGap/Continuum/ThetaJointRectangleCompletion.lean:97`, `lean/YMGap/Continuum/ThetaJointRectangleCompletion.lean:117` | `/private/tmp/ym-oct7-joint-rectangle-completion1.log` |
+
+Seven new leaves and two changed leaves pass nine focused checks. All 61
+printed gates in those final logs stay within {propext, Quot.sound}; fifteen
+printed computational definitions are axiom-free. No source sorry, custom
+axiom, classical input, native_decide, canonical field weakening or baseline
+refresh. Initial failed elaborations are not proof evidence. Root read every
+final source; independent review found no normalization, zero-index,
+same-object or constructive-elimination defect. All runs used one 20-GiB
+worker, a 12-GiB reserve and fresh dynamic capacity/process checks; observed
+86--87% free memory and zero swap. No concurrent compiler/test suite, raised
+limits, full-root/tree build or audit. Root imports are registered, not built.
+
+Named angular/odd cutoffs are coordinate-uniform at each strict fixed nome,
+NOT uniform in nome, coupling, spacing, physical time or volume. Final
+rectangle Equiv uses the existing arithmetic CReal.cauchy thresholds solely
+inside Prop. It does NOT expose a new combined, coordinate-uniform
+Type-valued modulus, nor extract a modulus from Prop. No such stronger
+consumer has been claimed closed.
+
+Final checked-source SHA256; subsequent historical tables retain their
+checkpoint snapshots rather than pretending to be current hashes:
+
+- `FiniteJacobiAngularComparison.lean`: `32fcec01a53ffcf57137b8abfd8a74651d5fe67cea71f8a52dc121bb722c56c1`
+- `ThetaJointAngularPin.lean`: `836cf0f500c37026d8b43fc32c3d32602b3180e9a9d6469e5eaa31645fe2422d`
+- `ThetaJointWeightedMoment.lean`: `765d3800ba66a9c39e3325bd5d413ed1abb165b762f5bb60a108ba1f4fe52e06`
+- `ThetaJointFrequencyNumerator.lean`: `59f4ab1f4c104cfc5ab33c74c80e486afb1cd47db06a5f0b227ebf4d3ed9413a`
+- `ThetaBareAngularCompletion.lean`: `287ed43275053c976b602d86ee9b94e52a2b23cac4b61eedd54b73063e64a8e3`
+- `ThetaJointFrequencyCompletion.lean`: `409fa740141a74359b6ba9d996dfaaf2184c6efb4271c3d9b5490cba8bcb1a33`
+- `ThetaOddBoundaryPin.lean`: `c968a2bcaf6e955e46a9615135611c836c40cdcd744abb1e989cf0964a0a9717`
+- `ThetaOddSeriesCompletion.lean`: `ed32e7b0af2de6be88fdbfa0a4b8c414a490dd7ca2d9303a7b231337a5317755`
+- `ThetaJointRectangleCompletion.lean`: `4db2d7c592e2836193cc08c0fba9125277204c5027938a366aec1dbb5f54031a`
+
+### Next actual consumer and residue
+
+CONTINUE at the SAME Jacobi radial-cost limit, not a fresh assumed curvature
+interface. The actual finite `FiniteJacobiAngularComparison.productRadialNumerator_pin`
+in `lean/YMGap/Continuum/FiniteJacobiAngularComparison.lean:290` identifies
+the cleared product numerator with P_N^2*D_N. Join its value/first/angular
+limits to the constructed numerator above using the EXISTING comparison
+cutoffs and actual `JacobiProductRadialLimit.productRadialCostCReal` in
+`lean/YMGap/Continuum/JacobiProductRadialLimit.lean:131`. The product's literal
+angular completion/SAME-product cost pin remain required; a finite comparison
+alone is not that producer. Then combine with the actual completed
+alternating determinant squares to obtain the cleared addition identity
+and useful whole-interval ceiling. Stop/revise on any coefficient,
+normalization, original-object or cutoff mismatch. Do not replace finite
+bare F_N by finite Euler P_N or differentiate a value limit.
+
+The full addition/whole-interval ceiling, strict Haar/original conditional
+join, useful signed-cost/scaling estimate, independent AF survival,
+all-vector completed OS comparison, physical/volume control, SAME limiting
+QFT, every compact simple group and Clay remain OPEN. The canonical broad
+chart is unchanged; no reprint.
+
+## Prior endpoint-jet and SAME-series checkpoint (2026-10-07; residue superseded above)
 
 The actual completed alternating value and endpoint determinant squares
 are now kernel-checked. This removes that specific series-completion input,
@@ -89,7 +205,7 @@ raised, concurrent compiler, full-root/tree audit or broad test suite.
 Root imports are registered without claiming a root build. The canonical
 broad chart claims are unchanged; no chart reprint.
 
-### Next bounded experiment and smaller residue
+### Prior bounded experiment (now supplied above)
 
 CONTINUE on the literal finite bare-theta frequency numerator. With
 L=(1-x*x)*D^2-x*D, J_N=F_N^2 and

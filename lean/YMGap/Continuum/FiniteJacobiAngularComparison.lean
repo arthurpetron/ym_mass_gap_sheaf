@@ -83,7 +83,8 @@ private theorem angular_congr {p q : Poly} (h : CoeffEqv p q) (x : Q') :
     (Q'.neg_eqv_congr _ _
       (Q'.mul_eqv_congr_left _ _ _ (QPolyCoefficientEvaluation.coefficient_eval h.pderiv x)))
 
-private theorem angular_add (p q : Poly) (x : Q') :
+/-- Finite angular additivity, reused by the literal joint-box numerator. -/
+theorem angular_add (p q : Poly) (x : Q') :
     angularEval (padd p q) x ≈ angularEval p x + angularEval q x := by
   have h1 := Q'.eqv_trans _ _ _
     (QPolyCoefficientEvaluation.coefficient_eval (pderiv_padd p q) x) (eval_padd _ _ x)
@@ -98,7 +99,8 @@ private theorem angular_add (p q : Poly) (x : Q') :
         unfold angularEval
         ring_qeqv)
 
-private theorem angular_scale (c : Q') (p : Poly) (x : Q') :
+/-- Finite angular scalar transport, reused by the literal joint-box numerator. -/
+theorem angular_scale (c : Q') (p : Poly) (x : Q') :
     angularEval (pscale c p) x ≈ c*angularEval p x := by
   have h1 := Q'.eqv_trans _ _ _
     (QPolyCoefficientEvaluation.coefficient_eval (pderiv_pscale c p) x) (eval_pscale _ _ x)
@@ -319,6 +321,8 @@ theorem productRadialNumerator_pin {w x : Q'} (hw0 : (0 : Q') < w)
 end YMGap.Continuum.FiniteJacobiAngularComparison
 
 #print axioms YMGap.Continuum.FiniteJacobiAngularComparison.angularEval
+#print axioms YMGap.Continuum.FiniteJacobiAngularComparison.angular_add
+#print axioms YMGap.Continuum.FiniteJacobiAngularComparison.angular_scale
 #print axioms YMGap.Continuum.FiniteJacobiAngularComparison.seriesPoly
 #print axioms YMGap.Continuum.FiniteJacobiAngularComparison.angularSum
 #print axioms YMGap.Continuum.FiniteJacobiAngularComparison.eval_seriesPoly

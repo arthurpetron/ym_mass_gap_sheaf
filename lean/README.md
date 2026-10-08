@@ -16,6 +16,20 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked ACTUAL signed numerator and parity/SAME-series joins (2026-10-07):**
+`ThetaJointFrequencyNumerator` proves Q_N=2*((1-x*x)*(F_N')^2-F_N*L(F_N))
+on the ORIGINAL box for all rational inputs, including N=0. Literal angular
+and unbalanced odd value/endpoint prefixes have constructed completions
+with named fixed-nome cutoffs; the finite odd top term is retained.
+`ThetaJointFrequencyCompletion` pins every numerator approximation to Q_N.
+`ThetaJointRectangleCompletion` joins actual completed rectangles to F^2
+and Q, paying N+1/N rather than assuming finite equality. It does not expose
+a new combined coordinate-uniform data modulus. The actual Jacobi radial-
+cost limit join, addition/whole-interval ceiling, Haar/original conditional
+and every physical/scaling/QFT/all-group/Clay obligation remain OPEN.
+Nine focused targets pass their permitted printed gates; no full-root/tree
+audit. Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 **Checked ACTUAL completed alternating determinant squares (2026-10-07):**
 `ThetaAlternatingCompletedPin` joins K(x)=(x-1)*A(x)^2 and the separately
 completed endpoint determinant=A(1)^2 on literal E/H/A prefixes. All five
@@ -24,7 +38,8 @@ uniform in the coordinate at each fixed strict nome. Endpoint differentiation
 occurs on coefficient-pinned FINITE polynomials, with actual omitted cells
 paid by the SAME value cutoff. `ThetaJointValuePin` pins the original bare
 theta square; `ThetaJointAngularPin` gives its actual finite angular jet.
-The signed frequency-box numerator, actual Jacobi-product/jet limit joins,
+The signed frequency-box numerator and actual parity-series limits are now
+supplied above; actual Jacobi-product/radial-cost limit joins,
 full completed addition/whole-interval ceiling, Haar/original conditional
 joins and every Clay-facing obligation remain OPEN. Focused checks only,
 permitted printed axiom dependencies; no full-root/tree audit. Evidence:

@@ -1,12 +1,28 @@
 # Canonical one-page project status
 
+Supporting ACTUAL signed numerator and parity/SAME-series joins checked
+(2026-10-07): Q_N=2*((1-x*x)*(F_N')^2-F_N*L(F_N)) is proved on the original
+box, including N=0. The literal angular series and unbalanced odd value/
+endpoint series are constructed with explicit fixed-nome cutoffs.
+Completed actual rectangles meet the original F^2 and signed Q, paying
+the odd boundary and N+1/N offset. No derivative of a value limit or finite
+Euler substitution. Final rectangle equivalence uses existing arithmetic
+Cauchy proofs; no new combined uniform data modulus is claimed. The SAME
+Jacobi radial-cost limit pin, full addition/whole-interval ceiling, Haar/
+conditional/scaling, independent survival, completed OS comparison,
+physical/volume control, SAME QFT, every group and Clay remain OPEN.
+Focused checks only; no full-root/tree audit. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+Broad chart unchanged; no reprint.
+
 Supporting ACTUAL completed alternating determinant squares checked
 (2026-10-07): K(x)=(x-1)*A(x)^2 and the separately completed endpoint
 determinant=A(1)^2 use the literal E/H/A prefixes, with explicit fixed-nome
 cutoffs. Finite coefficient differentiation and actual omitted-jet payment
 precede completion; no derivative of a value limit is inferred. The original
 bare-theta joint square and its actual finite angular jet are pinned.
-The signed frequency numerator and actual Jacobi-product/jet limit joins,
+The signed numerator and actual parity-series limits are now supplied above;
+actual Jacobi-product/radial-cost limit joins,
 full addition/whole-interval radial ceiling, Haar/conditional/scaling,
 independent survival, completed OS comparison, physical/volume control,
 SAME limiting QFT, every group and Clay remain OPEN. Focused checks only;

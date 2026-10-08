@@ -4973,6 +4973,13 @@ import YMGap.Continuum.ThetaJointAngularPin
 import YMGap.Continuum.ThetaOneSidedSeriesCompletion
 import YMGap.Continuum.ThetaEvenSeriesCompletion
 import YMGap.Continuum.ThetaAlternatingCompletedPin
+import YMGap.Continuum.ThetaJointWeightedMoment
+import YMGap.Continuum.ThetaJointFrequencyNumerator
+import YMGap.Continuum.ThetaOddBoundaryPin
+import YMGap.Continuum.ThetaOddSeriesCompletion
+import YMGap.Continuum.ThetaBareAngularCompletion
+import YMGap.Continuum.ThetaJointFrequencyCompletion
+import YMGap.Continuum.ThetaJointRectangleCompletion
 import YMGap.Continuum.SU2HeatQuarticTailCutoff
 import YMGap.Continuum.QuaternionHaarHeatAngularDeficit
 import YMGap.Continuum.QuaternionHaarHeatRelativeAngularBound

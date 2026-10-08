@@ -27,6 +27,7 @@ open YMGap.Continuum.ThetaJointValuePin
 open YMGap.Continuum.ChebyshevFormalJets
 open YMGap.Continuum.FiniteJacobiAngularComparison
 open YMGap.Continuum.FiniteJacobiSeriesComparison (bareTheta)
+open YMGap.Continuum.ChebTFwdBoundClose (ofNat_mul_eqv)
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm (listQSum listQSum_congr)
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphEdgeOrderNorm (listQSum_map)
 open YMGap.Continuum.RingNormaliser (poly_identity_of_normal_eq)
@@ -45,11 +46,14 @@ def polySum : List Poly → Poly
   | [] => []
   | p::ps => padd p (polySum ps)
 
+/-- Original joint coefficient cell as an actual x-polynomial. -/
+def jointCellPolynomial (w : Q') (z : SignedPair) : Poly :=
+  pscale (w^(z.1.natAbs*z.1.natAbs + z.2.natAbs*z.2.natAbs))
+    (Tpoly (z.1+z.2).natAbs)
+
 /-- Literal polynomial for the joint theta sum on the original signed box. -/
 def jointPolynomial (w : Q') (N : Nat) : Poly :=
-  polySum ((boxIndices N).map fun z =>
-    pscale (w^(z.1.natAbs*z.1.natAbs + z.2.natAbs*z.2.natAbs))
-      (Tpoly (z.1+z.2).natAbs))
+  polySum ((boxIndices N).map (jointCellPolynomial w))
 
 /-- Literal coefficient polynomial of the original symmetric bare prefix. -/
 def barePolynomial (w : Q') (N : Nat) : Poly :=
@@ -175,6 +179,51 @@ theorem joint_angular_pin (w x : Q') (N : Nat) :
       (Q'.neg_eqv_congr _ _ (Q'.mul_eqv_congr_left _ _ _ (coefficient_eval hfirst x)))
   exact Q'.eqv_trans _ _ _ hang (angular_square_rule (barePolynomial w N) x)
 
+/-- Literal plus-frequency-square coefficient; no positivity is asserted. -/
+def plusFrequencyCell (w x : Q') (z : SignedPair) : Q' :=
+  Q'.ofNat ((z.1+z.2).natAbs*(z.1+z.2).natAbs) *
+    w^(z.1.natAbs*z.1.natAbs+z.2.natAbs*z.2.natAbs) *
+      Cheb.T (z.1+z.2).natAbs x
+
+private theorem jointCell_angular_pin (w x : Q') (z : SignedPair) :
+    angularEval (jointCellPolynomial w z) x ≈ -(plusFrequencyCell w x z) := by
+  let a := (z.1+z.2).natAbs
+  let c := w^(z.1.natAbs*z.1.natAbs+z.2.natAbs*z.2.natAbs)
+  have hmode : angularEval (Tpoly a) x ≈
+      -(Q'.ofNat (a*a)*Cheb.T a x) :=
+    Q'.eqv_trans _ _ _ (formal_angular_ode a x)
+      (Q'.neg_eqv_congr _ _ (mul_congr
+        (Q'.eqv_symm (ofNat_mul_eqv a a)) (eval_Tpoly a x)))
+  exact Q'.eqv_trans _ _ _ (angular_scale c (Tpoly a) x)
+    (Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_left c _ _ hmode)
+      (poly_identity_of_normal_eq
+        (.mul (.var 0) (.neg (.mul (.var 1) (.var 2))))
+        (.neg (.mul (.mul (.var 1) (.var 0)) (.var 2)))
+        (by decide) (fun | 0 => c | 1 => Q'.ofNat (a*a) | _ => Cheb.T a x)))
+
+private theorem angular_joint_sum (w x : Q') : ∀ zs : List SignedPair,
+    angularEval (polySum (zs.map (jointCellPolynomial w))) x ≈
+      -(listQSum (plusFrequencyCell w x) zs)
+  | [] => poly_identity_of_normal_eq
+      (.add (.mul (.add (.const 1) (.neg (.mul (.var 0) (.var 0)))) (.const 0))
+        (.neg (.mul (.var 0) (.const 0)))) (.neg (.const 0))
+      (by decide) (fun _ => x)
+  | z::zs => Q'.eqv_trans _ _ _ (angular_add _ _ x)
+      (Q'.eqv_trans _ _ _
+        (add_congr (jointCell_angular_pin w x z) (angular_joint_sum w x zs))
+        (poly_identity_of_normal_eq
+          (.add (.neg (.var 0)) (.neg (.var 1)))
+          (.neg (.add (.var 0) (.var 1))) (by decide)
+          (fun | 0 => plusFrequencyCell w x z | _ => listQSum (plusFrequencyCell w x) zs)))
+
+/-- Actual angular jet equals the negative literal plus-frequency-square
+box sum, including N=0. This is finite sum transport, not differentiation
+of a value limit. -/
+theorem joint_angular_frequency_pin (w x : Q') (N : Nat) :
+    angularEval (jointPolynomial w N) x ≈
+      -(listQSum (plusFrequencyCell w x) (boxIndices N)) :=
+  angular_joint_sum w x (boxIndices N)
+
 end YMGap.Continuum.ThetaJointAngularPin
 
 #print axioms YMGap.Continuum.ThetaJointAngularPin.jointPolynomial
@@ -182,3 +231,5 @@ end YMGap.Continuum.ThetaJointAngularPin
 #print axioms YMGap.Continuum.ThetaJointAngularPin.joint_coeff_pin
 #print axioms YMGap.Continuum.ThetaJointAngularPin.angular_square_rule
 #print axioms YMGap.Continuum.ThetaJointAngularPin.joint_angular_pin
+#print axioms YMGap.Continuum.ThetaJointAngularPin.plusFrequencyCell
+#print axioms YMGap.Continuum.ThetaJointAngularPin.joint_angular_frequency_pin

@@ -5,7 +5,7 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
-## Whole-project goal and live completion map (updated 2026-10-07 UTC)
+## Whole-project goal and live completion map (updated 2026-10-08 UTC)
 
 The unchanged mathematical target is: for each compact simple gauge group G,
 construct a nontrivial quantum Yang--Mills theory on R^4 satisfying the QFT
@@ -27,6 +27,32 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+The ACTUAL signed frequency numerator and completed parity/SAME-series
+joins are now CHECKED. `ThetaJointFrequencyNumerator.frequency_box_numerator_pin`
+proves Q_N=2*((1-x*x)*(F_N')^2-F_N*L(F_N)) on the ORIGINAL signed box,
+for all rational w,x,N, including zero. `ThetaBareAngularCompletion`
+constructs the literal angular series with the existing coordinate-uniform
+fixed-nome cutoff. `ThetaJointFrequencyCompletion.frequencyNumeratorCReal_box_pin`
+pins EVERY approximant of its constructed value/first/angular numerator to
+Q_N. `ThetaOddBoundaryPin` retains O_N=2*H_N-h_N, independently for value
+and endpoint frequency; `ThetaOddSeriesCompletion` constructs literal signed
+prefix CReals with the explicit shell cutoff at epsilon/4 and proves each
+equals twice its one-sided completion. `ThetaJointRectangleCompletion`
+joins the ACTUAL completed value rectangle at y=1 to F^2 and its separately
+completed frequency rectangle to Q. The N+1 rectangle/N box offset is paid,
+not erased. Final rectangle equivalence uses the existing arithmetic Cauchy
+proofs; no new combined coordinate-uniform Type-valued modulus is claimed.
+NEXT join the SAME actual product value/first/angular numerator to the
+existing `JacobiProductRadialLimit.productRadialCostCReal`, using the checked
+finite product numerator identity and comparison cutoffs. Then contract
+with the actual completed alternating determinants into the cleared
+addition square and useful whole-interval radial ceiling. Do not identify
+finite F_N with Euler P_N or differentiate a value limit. Strict Haar/
+original conditional joins, useful signed cost/scaling, independent survival,
+completed OS comparison, physical/volume control, SAME QFT, every group and
+Clay remain OPEN. Focused checks only; broad chart claims unchanged.
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 The ACTUAL completed alternating determinant squares are now CHECKED.
 `ThetaAlternatingCompletedPin.completed_alternating_square_pin` joins
 K(x)=(x-1)*A(x)^2 on the literal E/H/A CReal completions;
@@ -38,10 +64,10 @@ omitted jet cells have the sharper 4*radius^2 signed-difference cap, so
 the SAME value cutoff pays the endpoint jet, without factor three.
 `ThetaJointValuePin.theta_box_endpoint_value_pin` pins the original bare
 theta square; `ThetaJointAngularPin.joint_angular_pin` transports its
-actual finite angular jet. NEXT prove the literal signed frequency-box
-numerator via the weighted moment M=-2*F*L(F), then compose the actual
-parity rectangle limits, retain the unbalanced odd boundary, and use the
-existing actual product value/first/angular comparisons. Do not equate
+actual finite angular jet. The literal signed frequency-box numerator,
+weighted moment and actual parity rectangle limits are now supplied above,
+with the unbalanced odd boundary retained. The existing actual product
+value/first/angular comparisons must still meet the radial-cost limit. Do not equate
 finite bare F_N with finite Euler P_N or differentiate a value limit.
 The full completed addition/whole-interval radial ceiling, strict Haar/
 original conditional joins and every physical/scaling/QFT/all-group/Clay
