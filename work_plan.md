@@ -287,6 +287,23 @@ coefficient equality, respectively, before repair. One 20-GiB worker,
 their imported differential leaf. No root/tree audit, new premise, canonical
 closure or chart change. Exact declarations/source/log hashes: score audit.
 
+CHECKED finite alignment-energy obstruction (2026-10-08 UTC):
+`QuaternionHaarConditionalRegressionWitness.AlignmentEnergy` now uses the
+ACTUAL cutoff-one SU(2) heat at w=1/2 and proves its alignment residual PSD
+for every supported signed one-head source. The OWN-centered coordinate has
+variance1/4, but the residual's mixed-minus-diagonal energy is -15/256.
+PRUNE inferring a favorable signed energy remainder from kernel PSD alone;
+the ORIGINAL positive heat energy and action-specific BF4 estimates are not
+refuted. Focused check2/21 new permitted gates and COMPLETE independent
+frozen 514-line source review PASS; check1 failed only on missing namespace
+opens. One serial 20-GiB worker/12-GiB reserve, fresh successful dynamic
+preflights, zero observed swap; no root/tree audit or limits raised.
+The parallel Casimir screen found its exact cancellation ALREADY present,
+with the full action/terminal derivative residual retained. CONTINUE the
+original action-dependent JOINT payment or DIRECT macro numerator, not a new
+alignment/Casimir wrapper. Exact source/log hashes and remaining weight join:
+adaptive-score audit. Canonical displayed claims unchanged; no chart reprint.
+
 Source reconciliation after the targeted paper review (2026-10-08 UTC):
 the proposed fusion-based ORIGINAL edge-mass localization is ALREADY checked,
 not a new frontier. `ExactKineticAlignment.exact_alignment_normalized_of_cutoff`

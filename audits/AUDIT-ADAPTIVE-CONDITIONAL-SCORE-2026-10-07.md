@@ -8195,3 +8195,115 @@ do NOT determine a universal sign for this correction. A sign conclusion
 using extra actual action/source structure is not refuted. The original
 JOINT signed estimate versus surviving OWN variance, or DIRECT original
 macro ratio, remains OPEN. No canonical displayed proof claim changes.
+
+## Selected test: PSD alignment residual versus signed energy (2026-10-08)
+
+Previous goal turn: PROGRESS, `0ecdeb93`, a corrected original-input inventory
+and rejection of duplicate alignment work, not a new physical estimate.
+Current independent forward/backward reviews found a decisive algebraic
+test before using that input on the MAIN energy difference.
+
+For a bilinear kernel form B write E_B(a,f)=B(a,a*f^2)-B(a*f,a*f).
+With R_i=B_{K*(X_i-w^3)}, the actual alignment input is PSD of R_i.
+The proposed join would need a favorable sign or quantitative payment of
+
+    R_i(a,a*f^2) - R_i(a*f,a*f).
+
+PSD of R_i alone does not sign its mixed first term. The selected diagnostic
+uses the ACTUAL one-link SU(2) heat prefix at w=1/2, cutoff1, a=1 and f=x0.
+PAPER prediction: R_i(1,1)=R_i(1,f^2)=0,
+R_i(f,f)=15/256, so its energy remainder is -15/256, although R_i is PSD.
+The original heat is strictly positive and f is centered in its OWN law.
+This is a finite heat-kernel algebra screen, NOT a BF4 action, its closed
+Wilson algebra, a surviving excitation or a Yang--Mills counterexample.
+
+Existing MAIN consumers: `energy_identity`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialDirichletForm.lean:267`, retains
+the full original jump square; `original_window_budget_macro_ratio`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeWindowSignedCost.lean:245`, demands the
+complete signed cost relative to OWN surviving variance. The DIRECT alternative
+`normalizedAnchorResponse_block_floor`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicNormalizedMacroRatio.lean:132`,
+still demands its original macroscopic ratio and BOTH chronological masses.
+The test removes no original obligation; it screens an invalid universal join.
+
+Available inputs: actual `heatAt`, character insertion positivity and the
+existing finite Haar witness leaf. Plan one bounded addition in that EXISTING
+leaf, no new interface or canonical field. Independently review final source,
+then use one serialized monitored 20-GiB worker and 12-GiB OS reserve after a
+fresh dynamic preflight. No root/tree check or limit increase. Revise/abandon
+if the claimed PSD cannot be pinned to the actual residual or if the finite
+moments differ; no substitute kernel is permitted. Observed verification and
+the resulting continue/revise/prune decision will be recorded separately.
+
+### Observed: kernel PSD does not sign the energy remainder
+
+Focused check2 PASS, 2026-10-08 UTC. The EXISTING
+`lean/YMGap/Continuum/QuaternionHaarConditionalRegressionWitness.lean`,
+namespace `AlignmentEnergy`, now proves:
+
+- `heat_kernel_pin`:398 and `heat_floor_certificate`:414 pin the literal
+  cutoff-one heat and its positive half-floor on two quaternion Haar heads.
+- `residual_character_pin`:407 identifies
+  R=(15/32)*chi_1+(1/8)*chi_2; `residual_quadratic_nonnegative`:421 proves
+  its supported PSD quadratic for EVERY signed one-head polynomial, using
+  the existing actual character Gram and the unit remaining kernel.
+- `f_supported`:456 and `own_source_moments`:472 retain the actual supported
+  coordinate, original heat mass1, OWN mean0 and variance1/4.
+- `residual_entries`:479 proves R(1,1)=R(1,f^2)=0 and R(f,f)=15/256.
+  `energy_remainder_exact`:485 proves the mixed-minus-diagonal remainder
+  equals -15/256 and is strictly negative.
+
+R is a sign-changing kernel insertion, NOT a positive probability density.
+Its PSD operator form is insufficient to make its Dirichlet energy positive;
+the actual positive K energy is not refuted. This screens the proposed
+universal kernel-order-to-energy-order inference, NOT the original BF4
+action/closed Wilson algebra, DIRECT retention or the Clay problem.
+
+All 21 new printed gates and 32 previous gates are empty or contained in
+{propext, Quot.sound}. No literal `sorry`, new axiom, `Classical.*`,
+`native_decide`, canonical-field change or trusted external computation.
+Independent COMPLETE frozen 514-line final-source review PASS.
+Check1 terminal FAILED on missing `SupportedQuaternionBlocks`/`supported_one`
+namespace opens; the defining declarations were located and opened before
+check2. Elaboration-generated `sorryAx` in that failed log was rejected;
+every final printed gate is permitted. No mathematical statement was weakened.
+
+Accepted verification command, repository root:
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionHaarConditionalRegressionWitness.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionHaarConditionalRegressionWitness.olean --log-file /private/tmp/ym-oct8-alignment-energy2.log
+
+SHA256 evidence:
+
+    final Lean source: 5fc022ddb6d97ee6396e389a8df12d878154f5338a10d741fc0b79ff694f0ab9
+    /private/tmp/ym-oct8-alignment-energy1.log: 2bb2e960fa200c45b6d74d5ab6ec9abf52686f776259c356d62045564857af78
+    /private/tmp/ym-oct8-alignment-energy2.log: 3d0fbb60710737cdd3c1b0bdd3b9329c90771763c9ec4bd1e6723e61f29561f4
+
+Each launch followed a fresh successful live process/memory preflight:
+83% memory free, zero swap and no competing compiler/runner/pytest process.
+One monitored 20-GiB worker, 64-MiB stack and 12-GiB OS reserve; no root/tree
+build/audit or resource-limit increase. Local finite-normalization settings
+match the imported differential leaf and previous score-sign namespace.
+
+The parallel ORIGINAL Casimir screen is source analysis, not a new theorem.
+`family_ward`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyVarianceWard.lean:124`,
+already gives marginalAngular+wardResidual=12*oddMass*oddVariance using
+`spatialSpan_casimir`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyCasimir.lean:294`.
+The residual defined by `blockResidual` and `totalResidual`,
+`lean/YMGap/Continuum/SU2QuaternionWeightedCasimirWard.lean:45`, `:59`,
+retains J(spatialWeight*g_n*g_(n+1)) against (f-c)*Jf.
+The current joint Ward payment instead uses the pullback Sa*T(Vbar*A), by
+`original_ratioNoise_noiseGradientPayment_weighted_pin`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.lean:631`.
+Bare Casimir eigenpins do not identify these weights or eliminate the full
+source/fringe correction and negative predictable-gradient square.
+
+**Decision:** PRUNE the PSD-to-favorable-energy shortcut and duplicate
+Casimir cancellation work. CONTINUE a quantitative action-dependent complete
+signed estimate in warmed OWN-variance units or the actual macroscopic
+numerator, preserving BOTH chronological partitions. No new analytic premise
+or original relative budget is supplied by this diagnostic. Scaling survival,
+physical calibration, full QFT/every-group/Clay remain OPEN. No canonical
+displayed proof/expansion state changed; no ASCII reprint.

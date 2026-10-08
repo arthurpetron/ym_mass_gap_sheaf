@@ -15,6 +15,7 @@ import YMGap.Continuum.SU2QuaternionPartialFactorizedHaar
 import YMGap.Continuum.BF4ExactPhysicalCenteredVacuumTransmittedMarginal
 import YMGap.Continuum.QuaternionHaarPositiveWindowInverse
 import YMGap.Continuum.SU2QuaternionRelativeHeatAngularInvariant
+import YMGap.Continuum.SU2QuaternionProductHeatPositive
 
 namespace YMGap.Continuum.QuaternionHaarConditionalRegressionWitness
 
@@ -357,5 +358,157 @@ theorem score_signs : (0 : Q') < total 0 ∧ total 1 < (0 : Q') := by
 #print axioms score_signs
 
 end ScoreSign
+
+/-! ## Auxiliary one-link heat alignment-energy test
+
+The actual cutoff-one SU(2) character heat factor at nome `1/2` produces a
+positive quadratic alignment residual. Its mixed-minus-diagonal energy on a
+centered coordinate is negative. This is a finite one-link kinetic diagnostic,
+not a BF4 action, a physical Wilson observable, or a mass-gap counterexample. -/
+
+namespace AlignmentEnergy
+
+set_option maxRecDepth 100000
+set_option maxHeartbeats 12000000
+
+open YMGap.Continuum.SU2QuaternionRelativeHeatPairGeometry (heatAt scalarAt)
+open YMGap.Continuum.SU2QuaternionArbitraryHaarRadialPositivity
+  (SupportedQuaternionBlocks)
+open YMGap.Continuum.QuaternionHaarSquareCertificate (supported_one)
+open YMGap.Continuum.SU2QuaternionProductHeatPositive
+  (haarQuadratic insertion insertion_coeff insertion_add insertion_smul
+    character_insertion_nonnegative productHeat_quadratic_nonnegative)
+open YMGap.Continuum.SU2QuaternionRatPolyDifferential
+open YMGap.Continuum.BF4GeometricSpinNetworkMehler (characterPolynomial)
+open YMGap.Continuum.SU2QuaternionPartialFactorizedHaar (liftBoundary)
+
+private def w : Q' := Q'.mkPos 1 2 (by decide)
+private def half : Q' := Q'.mkPos 1 2 (by decide)
+private def wCubed : Q' := w^3
+private def cOne : Q' := Q'.mkPos 15 32 (by decide)
+private def cTwo : Q' := Q'.mkPos 1 8 (by decide)
+
+/-- Literal cutoff-one heat character factor on the two quaternion heads. -/
+def K : RatPoly := heatAt 0 1 w 1
+def scalar : RatPoly := scalarAt 1 0
+def R : RatPoly :=
+  polyMul K (polyAdd scalar (polyNeg (polySmul wCubed polyOne)))
+
+/-- The literal heat packet reduces to `1 + scalar/2` at this nome and cutoff. -/
+theorem heat_kernel_pin :
+    RatPolyCoeffEqv K (polyAdd polyOne (polySmul half (scalarAt 0 1))) := by
+  exact RatPolyCoeffEqv.of_canon_termwise (by decide)
+
+theorem scalar_pair_pin : RatPolyCoeffEqv scalar (scalarAt 0 1) := by
+  exact RatPolyCoeffEqv.of_canon_termwise (by decide)
+
+/-- The same residual is a positive combination of the genuine first two
+relative characters. This is a coefficient identity, not a positivity axiom. -/
+theorem residual_character_pin :
+    RatPolyCoeffEqv R
+      (polyAdd (polySmul cOne (characterPolynomial scalar 1))
+        (polySmul cTwo (characterPolynomial scalar 2))) := by
+  exact RatPolyCoeffEqv.of_canon_termwise (by decide)
+
+/-- The actual heat factor has the explicit strict half-floor certificate. -/
+def heat_floor_certificate :
+    Certificate 2 (polyAdd K (polyNeg (polySmul half polyOne))) :=
+  Certificate.ofCoeff (RatPolyCoeffEqv.of_canon_termwise (by decide))
+    ScoreSign.coupling_floor_certificate
+
+/-- The residual is PSD as a two-head Haar quadratic for every supported,
+possibly signed, one-head polynomial. -/
+theorem residual_quadratic_nonnegative (p : RatPoly)
+    (hp : SupportedQuaternionBlocks 1 p) :
+    (0 : Q') ≤ insertion 1 polyOne p R := by
+  have hbase : ∀ q, SupportedQuaternionBlocks 1 q →
+      (0 : Q') ≤ haarQuadratic 1 polyOne q := by
+    intro q hq
+    simpa [YMGap.Continuum.SU2QuaternionProductHeatMarginals.productHeat,
+      YMGap.Continuum.BF4ExactSlabAllExtentWeightedFactorization.polynomialProduct]
+      using (productHeat_quadratic_nonnegative 1 w (by decide) 0 []
+        (by intro i hi; cases hi) q hq)
+  have hW : SupportedQuaternionBlocks (1+1) polyOne := supported_one _
+  have h1 := character_insertion_nonnegative (blocks := 1) (slot := 0)
+    (by decide) hW hbase hp 1
+  have h2 := character_insertion_nonnegative (blocks := 1) (slot := 0)
+    (by decide) hW hbase hp 2
+  have hs : (0 : Q') ≤
+      cOne * insertion 1 polyOne p (characterPolynomial scalar 1) +
+      cTwo * insertion 1 polyOne p (characterPolynomial scalar 2) :=
+    Q'.zero_le_add _ _
+      (Q'.mul_nonneg _ _ (by decide) h1)
+      (Q'.mul_nonneg _ _ (by decide) h2)
+  have he : insertion 1 polyOne p R ≈
+      cOne * insertion 1 polyOne p (characterPolynomial scalar 1) +
+      cTwo * insertion 1 polyOne p (characterPolynomial scalar 2) :=
+    Q'.eqv_trans _ _ _ (insertion_coeff 1 polyOne p residual_character_pin)
+      (Q'.eqv_trans _ _ _ (insertion_add 1 polyOne p _ _)
+        (Q'.add_eqv_congr'
+          (insertion_smul 1 polyOne p _ cOne)
+          (insertion_smul 1 polyOne p _ cTwo)))
+  exact Q'.le_trans' _ _ _ hs (Q'.ge_of_eqv he)
+
+/-- Unit endpoint source and first-coordinate probe. -/
+def a : RatPoly := polyOne
+def f : RatPoly := (PolyQuaternion.coordinateVariable 0).scalar
+
+theorem f_supported : SupportedQuaternionBlocks 1 f :=
+  (QuaternionHaarUnitScalarSquare.Supported.coordinate
+    (blocks := 1) (block := 0) (by decide)).scalar
+
+/-- Bilinear residual pairing on the original two-head Haar carrier. -/
+def residualPair (p q : RatPoly) : Q' :=
+  quaternionHaar 2 (polyMul (polyMul a (polyMul p (liftBoundary 1 q))) R)
+
+def ownMean : Q' := quaternionHaar 2 (polyMul K f)
+def ownSecond : Q' := quaternionHaar 2 (polyMul K (polyMul f f))
+def residualMass : Q' := residualPair a a
+def mixed : Q' := residualPair a (polyMul a (polyMul f f))
+def diagonal : Q' := residualPair (polyMul a f) (polyMul a f)
+def energyRemainder : Q' := mixed + -diagonal
+
+/-- The probe is centered in its own actual heat-weighted law. -/
+theorem own_source_moments :
+    quaternionHaar 2 K ≈ 1 ∧ ownMean ≈ 0 ∧
+    ownSecond ≈ Q'.mkPos 1 4 (by decide) := by
+  decide
+
+/-- Residual row sum and mixed coordinate-square term both vanish, while the
+diagonal PSD entry is strictly positive. -/
+theorem residual_entries :
+    residualMass ≈ 0 ∧ mixed ≈ 0 ∧
+    diagonal ≈ Q'.mkPos 15 256 (by decide) := by
+  decide
+
+/-- PSD does not give the mixed-minus-diagonal energy a positive sign. -/
+theorem energy_remainder_exact :
+    energyRemainder ≈ -(Q'.mkPos 15 256 (by decide)) ∧
+    energyRemainder < (0 : Q') := by
+  decide
+
+#print axioms K
+#print axioms scalar
+#print axioms R
+#print axioms heat_kernel_pin
+#print axioms scalar_pair_pin
+#print axioms residual_character_pin
+#print axioms heat_floor_certificate
+#print axioms residual_quadratic_nonnegative
+#print axioms a
+#print axioms f
+#print axioms f_supported
+#print axioms residualPair
+#print axioms ownMean
+#print axioms ownSecond
+#print axioms residualMass
+#print axioms mixed
+#print axioms diagonal
+#print axioms energyRemainder
+#print axioms own_source_moments
+#print axioms residual_entries
+#print axioms energy_remainder_exact
+
+end AlignmentEnergy
 
 end YMGap.Continuum.QuaternionHaarConditionalRegressionWitness
