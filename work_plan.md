@@ -27,6 +27,27 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+READ-ONLY route revision (2026-10-08 UTC): hemisphere log-concavity supplies
+the wrong curvature orientation and no marginal covariance payment; do not
+implement that wrapper. Exact second-defect credit removes slack in the
+factor-two window test but supplies no relative estimate. DIRECT filtered
+variational control remains eligible: certify actual original moments with
+OWN centers and distinct Z0,Z1, plus the chosen source direction/overlap;
+a maximum Ritz value alone is insufficient. Existing family-band calibration
+obstruction already rules out reusing its coarse coefficient. No new matrix
+interface or stronger initial-cost prerequisite is selected. Main remains
+the interacting JOINT filtered estimate. Source-backed formulas and independent
+screen: the adaptive-score audit below. Separately, the available second
+completed spatial generator and its actual ordered-source/completed braid
+are now CHECKED as a bounded independent QFT input, not a scaling claim.
+`SpatialHeadSwapCompletion` preserves pairing/distance, unit, vacuum complement
+and actual time, with supplied Cauchy moduli unchanged. `SpatialSwapBraid`
+proves U01 U12 U01=U12 U01 U12 and (U01 U12)^3=I on the SAME completion.
+Two serialized focused 20-GiB checks and independent full-source review pass;
+no root/tree audit or canonical chart closure. Full signed-cubic/continuous
+covariance and the second time-sector/bond-image joins remain OPEN. Evidence:
+the parallel QFT-inputs audit dated 2026-09-17.
+
 CHECKED selected ORIGINAL antisymmetric source (2026-10-08 UTC): origin
 p01-minus-p02 has zero chronological, endpoint and moving OWN means, with
 the SAME complete action/partition. Its raw embed in the existing Wilson
@@ -109,7 +130,8 @@ action/reciprocal, and `SpatialHeadSwapForm.intrinsicForm_swap` and
 `bondForm_swap` preserve the distinct existing pairings and time/radius tags.
 Three further serialized focused 20-GiB checks/30 permitted gates and
 independent complete-source review pass. The second generator's completed
-operator, full completed cubic and continuum covariance joins remain OPEN.
+operator and adjacent-permutation braid are now CHECKED above. Full
+signed-cubic and continuum covariance joins remain OPEN.
 Four serialized focused 20-GiB checks and independent complete-source review
 pass for the earlier geometry/word/Haar/action checkpoint. Root imports
 registered only; no full-tree audit or canonical chart

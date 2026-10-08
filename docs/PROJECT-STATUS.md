@@ -1,14 +1,18 @@
 # Canonical one-page project status
 
-Supporting second ORIGINAL spatial generator source/form join checked
-(2026-10-08 UTC): literal x0/x1 transports arbitrary ordered Wilson paths
-with inverse flags/time offsets intact, preserves the SAME normalized
-chronological window/partition, and preserves its existing joint, common,
-intrinsic and odd bond forms. Three focused capped checks/30 permitted
-gates and independent complete-source review; no root/tree audit. The
-second completed spatial operator, full cubic/continuous covariance and
-every scaling/physical claim remain OPEN. Canonical chart unchanged,
-no reprint. Evidence: the parallel QFT-inputs audit dated 2026-09-17.
+Supporting second ORIGINAL completed spatial generator and coherence checked
+(2026-10-08 UTC): literal x0/x1 now acts on the EXISTING Wilson completion,
+preserving pairing/distance, unit, vacuum complement and completed x3 time;
+supplied Cauchy moduli remain unchanged. The actual ordered-source braid
+descends to U01 U12 U01=U12 U01 U12, hence (U01 U12)^3=I (order dividing
+three, not faithfulness). Its preceding ordered Wilson/window/common/intrinsic/
+odd bond pins retain the SAME action and normalization. Two further focused
+capped checks/31 permitted gates and independent complete-source review;
+no root/tree audit. Full signed-cubic/continuous covariance, the second
+time-sector/bond-image joins and every scaling/physical claim remain OPEN.
+Canonical chart unchanged, no reprint. Evidence: the parallel QFT-inputs
+audit dated 2026-09-17. The independent curvature/variational screen in the
+adaptive audit supplies no new relative rate.
 
 Supporting selected antisymmetric ORIGINAL source checked (2026-10-08 UTC):
 p01-minus-p02 has exact chronological/endpoint/OWN mean zero and a nonzero

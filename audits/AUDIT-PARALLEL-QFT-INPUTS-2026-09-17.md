@@ -14,6 +14,82 @@ Yang--Mills theory on R^4 with the required same-theory QFT axioms, isolated
 vacuum and finite positive physical Hamiltonian mass gap, within the
 constructive Mathlib-free MLTT/HoTT gate. **The goal remains OPEN.**
 
+## Selected completed spatial coherence increment (2026-10-08 UTC)
+
+Proposition: extend the produced x0/x1 source isometry to the EXISTING
+original Wilson completion, then lift the actual ordered-source braid to
+U01*U12*U01 = U12*U01*U12 on that SAME completion. The two involutions then
+give (U01*U12)^3=I. Consumer: coherent finite spatial permutation covariance,
+an independent input to the QFT lane; not the signed scaling estimate.
+
+Available inputs: `BF4WilsonAllNomeSpatialHeadSwapForm.intrinsicForm_swap`,
+the existing `Nonexpansive.completionMap`, the first completed generator in
+`BF4WilsonAllNomeSpatialAxisSwapCompletion`, and
+`BF4ExactSlabSpatialHeadSwapGeometry.swapVertex_braid` / `swapLink_braid`.
+The source loop start, ordered edges, reverse flags, spin, offsets and signed
+expression syntax must satisfy the braid before quotient descent. No
+canonical plaquette reordering or quaternion-factor commutation is permitted.
+
+Predicted output: actual involutive pairing/distance-preserving operator,
+with unchanged supplied Cauchy modulus, unit and completed-time commutation;
+then actual completed braid/cycle identities. Degenerate/null states and
+arbitrary temporal-radius tags remain covered. Stop if a new carrier, form,
+analytic estimate or assumed symmetry is required. No signed reflection,
+continuous rotation, continuum covariance or scaling closure is asserted.
+Verification budget: Sol implements the single completed-generator leaf;
+root supplies/reviews the coherence proof, with independent source review
+and serialized focused 20-GiB checks, 12-GiB reserve, fresh capacity preflight.
+Observed results will be recorded separately after checking.
+
+### Observed completed-generator and braid evidence
+
+Both leaves pass root-controlled focused kernel checks and independent
+complete-source semantic review. The second generator preserves the SAME
+original intrinsic pairing, completed distance, unit, vacuum complement and
+completed x3 time. Both actual adjacent swaps retain their supplied Cauchy
+moduli. Ordered source loops satisfy the braid before quotient descent;
+no generic assumed group action is used. The cycle has order DIVIDING three;
+faithfulness and inequality of the quotient operators are not claimed.
+
+| Produced result | Exact declaration |
+| --- | --- |
+| Actual second completed operator, original embed, unchanged Cauchy modulus | `lean/YMGap/Continuum/BF4WilsonAllNomeSpatialHeadSwapCompletion.lean:155`, `completedSwap`; `:159`, `completedSwap_embed`; `:163`, `swap_cauchy_modulus` |
+| Involution, actual time and original unit | Same module `:166`, `completedSwap_involutive`; `:176`, `completedSwap_time`; `:213`, `completedSwap_unit` |
+| SAME pairing/distance and vacuum complement | Same module `:231`, `completedInner_swap`; `:241`, `completedDist_swap`; `:246`, `completedSwap_preserves_vacuumComplement` |
+| Literal ordered edges/loops, signed expression and intrinsic braid | `lean/YMGap/Continuum/BF4WilsonAllNomeSpatialSwapBraid.lean:43`, `swapEntry_braid`; `:66`, `swapSourceLoop_braid`; `:75`, `swapExpression_braid`; `:103`, `swapIntrinsic_braid` |
+| Actual completed U01 U12 U01 = U12 U01 U12; (U01 U12)^3=I | Same module `:116`, `completedSwap_braid`; `:128`, `completedCycle_cube` |
+
+Verification: two serialized one-worker focused checks at 20 GiB, with
+12-GiB OS reserve and fresh dynamic-capacity/process preflight before each.
+Both preflights report 88% system-wide memory free and zero swap use; no
+competing compiler or runner. All 25+6=31 printed gates are empty or within
+{propext, Quot.sound}; the edge braid is axiom-free. No sorryAx, new
+hole/axiom, classical/native shortcut, limit increase or canonical field
+change. Root imports registered only; no root/full-tree audit or guard.
+
+Successful logs and SHA-256:
+
+```text
+/private/tmp/ym-headswap-completion-20261008.log
+  844b98c4dabcf029b1f759158b56f301e51f958e869eb28c9bca26375ce25b47
+/private/tmp/ym-spatial-swap-braid-20261008.log
+  b0c9861073a10bc91ab594cfff0d151c41df407684c055c201bd14d023aacf9f
+```
+
+Checked source SHA-256, same completed-generator/braid order:
+
+```text
+1f94570673f491b497e8a7989865c359b377e78013c02ed5f8d8a95fbdbff801
+3b7bb5dbf244b1c1fb133264ee01bc5516a6e32a9a48dbbd670419946e364895
+```
+
+Decision: the available finite QFT input is produced. Full signed-cubic,
+continuous/continuum covariance, the second generator's witnessed time-sector
+and bond-image joins, useful joint signed scaling estimates and all physical
+Clay obligations remain OPEN. No canonical chart claim closes or chart is
+reprinted. Return the main lane to an actual interacting producer; the separate
+curvature/variational screens in the adaptive audit add no analytic estimate.
+
 ## Second spatial generator: selected Wilson/reflected-form join (2026-10-08 UTC)
 
 Proposition: transport arbitrary ordered SourceLoop/WindowExpression data by
@@ -83,10 +159,11 @@ Checked source SHA-256, in the same loop/window/form order:
 4e48b377ee438e5241625a8213baf72afda9cc7d157609faefb480abab1e5f58
 ```
 
-Decision: this independent finite QFT input is produced. The second
-generator's actual completed spatial operator and full completed cubic action
-are still OPEN here, as are continuous/continuum covariance, signed scaling
-control and every physical/Clay obligation. No state-family survival follows.
+Decision at this source/form checkpoint: the independent finite QFT input
+was produced, while the second completed operator and completed permutation
+coherence were still OPEN. Their subsequent checked proofs are recorded above.
+Full signed-cubic and continuous/continuum covariance, signed scaling control
+and every physical/Clay obligation remain OPEN. No state-family survival follows.
 
 ## Answer: which inputs are already known?
 

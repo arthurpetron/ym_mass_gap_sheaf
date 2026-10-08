@@ -4,6 +4,25 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Completed spatial permutation coherence (2026-10-08 UTC)
+
+`SpatialHeadSwapCompletion` produces the actual second involutive linear
+isometry on the EXISTING original Wilson completion, with unit/time and
+vacuum-complement preservation and unchanged supplied Cauchy moduli.
+`SpatialSwapBraid.completedSwap_braid` and `completedCycle_cube` prove
+U01 U12 U01=U12 U01 U12 and (U01 U12)^3=I from literal ordered sources.
+Two serialized focused 20-GiB checks/31 permitted gates and independent
+complete-source review pass; no root/tree audit. This is finite QFT input,
+not full signed-cubic/continuous covariance, a scaling rate or chart closure.
+Evidence: the parallel QFT-inputs audit dated 2026-09-17.
+
+Read-only main-lane decision: prune hemisphere log-concavity as the wrong
+curvature orientation; exact second-defect credit removes slack but supplies
+no estimate. Keep direct filtered variational control eligible only with
+actual original moments and source direction/overlap, not a maximum Ritz
+value alone. No new conditional matrix interface. Actual JOINT signed cost
+versus SAME surviving variance remains OPEN. Evidence: the adaptive audit.
+
 ## Second spatial generator joins the actual Wilson reflected forms (2026-10-08 UTC)
 
 `HeadSwapWilsonLoop`, `HeadSwapWilsonWindow` and `SpatialHeadSwapForm`
@@ -11,8 +30,9 @@ produce the concrete x0/x1 ordered-source transport and SAME original
 window/joint/common/intrinsic/odd bond invariance. No supplied symmetry,
 replacement pairing or changed chronological reciprocal. Three focused
 checks/30 permitted gates and independent full-source review; no root/tree
-audit. Second completed operator/full cubic and continuum covariance stay
-OPEN; no canonical chart claim closes. Exact sources/logs are in the
+audit. At that checkpoint the second completed operator remained OPEN;
+its subsequent proof and braid are recorded above. Full signed-cubic and
+continuum covariance stay OPEN; no canonical chart claim closes. Exact sources/logs are in the
 parallel QFT-inputs audit dated 2026-09-17.
 
 Separately, a read-only mathematical screen shows the remaining actual

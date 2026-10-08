@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED second completed spatial generator and permutation braid / OPEN continuum covariance (2026-10-08 UTC)
+
+`BF4WilsonAllNomeSpatialHeadSwapCompletion.completedSwap` is the actual
+x0/x1 map on the EXISTING original Wilson completion. Its proved source
+isometry supplies the unchanged Cauchy modulus; `completedSwap_involutive`,
+`completedSwap_time`, `completedInner_swap`, `completedDist_swap` and
+`completedSwap_preserves_vacuumComplement` retain the SAME pairing, physical
+x3 time and unit. `BF4WilsonAllNomeSpatialSwapBraid.swapSourceLoop_braid`,
+`swapExpression_braid` and `swapIntrinsic_braid` prove the literal ordered
+source relation before quotient descent. `completedSwap_braid` proves
+U01 U12 U01=U12 U01 U12; `completedCycle_cube` gives (U01 U12)^3=I, not
+faithfulness or exact order three. No assumed group action or new carrier.
+Two focused capped checks/31 permitted gates and independent complete-source
+review pass; root imports registered only, no root/tree audit or guard.
+No new hole/axiom, classical/native shortcut, limit increase, canonical field
+or chart closure. Full signed-cubic/continuous covariance, second witnessed
+time-sector/bond-image joins, actual signed scaling estimate, survival and
+all physical/Clay claims remain OPEN. Exact sources/logs/hashes are in the
+parallel QFT-inputs audit dated 2026-09-17.
+
 ## PROVED second spatial-generator Wilson/reflected join / OPEN completed cubic covariance (2026-10-08 UTC)
 
 `BF4ExactSlabSpatialHeadSwapWilsonLoop.swapSourceLoop`, `word_swap` and
@@ -10,8 +30,9 @@ changing inverse flags or commuting factors. `HeadSwapWilsonWindow` proves
 and reciprocal. `BF4WilsonAllNomeSpatialHeadSwapForm.originalJointLimit_swap`,
 `commonForm_swap`, `intrinsicForm_swap` and `bondForm_swap` retain the
 existing limit, time/radius tags and distinct intrinsic/odd bond pairings.
-The second generator's completed spatial operator, full completed cubic
-and continuum covariance are OPEN; no signed scaling estimate, state
+At that source/form checkpoint the second completed operator was OPEN;
+its subsequent proof and braid are recorded above. Full signed-cubic
+and continuum covariance remain OPEN; no signed scaling estimate, state
 survival or physical/Clay closure follows. Three focused capped checks,
 30 permitted gates and independent complete-source review; no root/tree
 audit, new hole/axiom, limit increase, canonical field or chart closure.
@@ -51,8 +72,8 @@ ORIGINAL action-weighted Haar invariance for supported insertions, retaining
 every heat coefficient/spin, chronological factor and terminal spatial slice.
 No supplied symmetry/isometry or new analytic premise. At this earlier
 checkpoint the new generator's Wilson/reflected/completed joins were OPEN;
-the subsequent source/reflected-form proof is recorded above. Its completed
-operator and full cubic/continuum covariance remain OPEN, as do joint signed
+the subsequent source/reflected-form and completed-operator/braid proofs are
+recorded above. Full signed-cubic/continuum covariance remain OPEN, as do joint signed
 scaling and all physical/Clay obligations.
 Four focused one-worker 20-GiB checks and independent final-source review
 pass; all 64 printed gates are empty or within {propext, Quot.sound}.

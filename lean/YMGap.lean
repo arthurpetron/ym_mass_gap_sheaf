@@ -7935,6 +7935,8 @@ import YMGap.Continuum.BF4ExactSlabSpatialHeadSwapAction
 import YMGap.Continuum.BF4ExactSlabSpatialHeadSwapWilsonLoop
 import YMGap.Continuum.BF4ExactSlabSpatialHeadSwapWilsonWindow
 import YMGap.Continuum.BF4WilsonAllNomeSpatialHeadSwapForm
+import YMGap.Continuum.BF4WilsonAllNomeSpatialHeadSwapCompletion
+import YMGap.Continuum.BF4WilsonAllNomeSpatialSwapBraid
 
 -- A nonzero exactly centered ORIGINAL antisymmetric plaquette source.
 -- The actual Gram means vanish under the produced width>=2 locality guard;

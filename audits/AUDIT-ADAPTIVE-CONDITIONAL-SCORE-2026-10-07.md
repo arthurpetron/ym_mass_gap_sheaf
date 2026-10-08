@@ -4,6 +4,108 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Curvature orientation and filtered variational screen (2026-10-08 UTC)
+
+Root inspection and independent read-only mathematical review. These are
+DERIVATIONS from existing declarations, not new kernel-checked estimates.
+No hypothesis, compiler, source or canonical frontier is added by this screen.
+
+### Regional log-concavity does not pay the required lower curvature
+
+For X=relativeScalar, d=D_u X, R=sum(u_i^2), the actual frozen second jet
+gives
+
+    h*D_u^2 h - (D_u h)^2 = (h*h''-h'^2)*d^2 - R*X*h*h'.
+
+Source: `lean/YMGap/Continuum/SU2QuaternionPairedFrozenJacobiCurvature.lean:54`,
+`frozenHeat_second_pin`. Scalar log-concavity and h'>=0 would therefore
+give an UPPER log-Hessian sign on X>=0. The actual certificate at `:83`,
+`frozen_curvature_certificate`, instead gives
+
+    C*R*h^2 + h*D_u^2 h - (D_u h)^2 >= 0,
+
+a LOWER bound. The upper regional sign does not lower the required C.
+It also says h*dd<=d^2, not that the integrated dd is nonpositive, as
+required by `lean/YMGap/Continuum/QuaternionHaarCurvatureDualBound.lean:148`,
+`curvature_dual_bound`. The signed version `curvature_signed_dual_bound:180`
+retains that term correctly.
+
+The actual marginal expression retains A*D_u^2 A-(D_u A)^2+C*R*A^2:
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLocalMarginalJets.lean:497`,
+`localSignedFisher_marginal_pin`; the matched terminal consumer is
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalLocalSignedGram.lean:649`,
+`terminal_local_signed_score_bound`. Integrating a positive density adds
+conditional score covariance to its log-Hessian. There is no produced
+hemisphere restriction, southern-region payment or covariance bound here.
+Moreover the Jacobi certificate is for the weighted approximant; the original
+prefix lower-curvature transport does not assert a regional upper-sign pin.
+**PRUNE a hemisphere-sign wrapper; it supplies no required payment.**
+
+### Exact defect credit removes slack, not the missing rate
+
+Write R(k)=B(x,T^k x), D=I-T, and m(k,l)=B(x,T^k D^l x). The existing
+`lean/YMGap/Continuum/BF4WilsonAllNomeTimeDefectMoments.lean:349`,
+`mixedMoment_split`, gives the exact identity
+
+    R(2*start)-R(2*(start+count))
+      = 2*sum_{j<count} m(2*(start+j),1)
+        - sum_{j<count} m(2*(start+j),2).
+
+The retained second-defect sum is nonnegative by `mixedMoment_nonnegative:343`;
+at even lag each summand is ||D*T^(start+j)x||^2. Thus the factor-two window
+test in `lean/YMGap/Continuum/BF4WilsonAllNomeWindowSignedCost.lean:181`,
+`aggregate_window_macro_ratio`, is sufficient, not necessary. On a scalar
+mode rho its credit is order (1-rho)^2 per step. At rho=1/4, start=count=1,
+the actual macro retention is R(4)/R(2)=1/16, while twice the one-step cost
+divided by R(2) is 3/2; the missing second-defect credit is 9/16. This is a
+scalar test of sufficiency slack, not an original YM source or a scaling
+counterexample. Fixed rho still loses every scale-independent macro floor
+as the window grows. No estimate of this credit
+against SAME filtered variance is supplied. A new exact-credit consumer alone
+would just restate the macro-ratio obligation, so it is NOT implemented.
+
+### A filtered Galerkin certificate is eligible, but must supply real moments
+
+At one ORIGINAL chronological endpoint, use the literal moving OWN centers:
+
+    v_i = T^u(g_stage*(f_i-c_i,stage))
+    G_ij = ell(v_i*v_j)/Z0
+    H_ij = ell(v_i*T(v_j))/Z1.
+
+The six symmetric entries of a two-source compression can be represented
+using `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockWindowPin.lean:52`,
+`observedMessage_endpoints`; `:88`, `block_window_numerator`; `:139`,
+`normalized_block_window_pin`. The actual filtered norm/cost and their
+fixed-source limits are pinned by
+`lean/YMGap/Continuum/BF4WilsonAllNomeOriginalRayleighLimit.lean:96`,
+`originalOwnBlockVariance_pin`; `:104`, `originalOwnBlockCost_pin`;
+`:130`, `originalOwnBlockVariance_converges`; `:143`,
+`originalOwnBlockCost_converges`.
+
+A genuine division-free sufficient certificate is the positive-semidefinite
+matrix with entries
+
+    Z0*ell(v_i*T(v_j)) - rho*Z1*ell(v_i*v_j).
+
+It pays the chosen source only when its actual filtered numerator equals
+sum(alpha_i*v_i). A maximum Ritz value alone gives a slow trial, NOT overlap
+with the designated source. Rank one is precisely the missing filtered cost
+estimate. A direct macro matrix B(v_i,T^(2u)v_j)-kappa*B(v_i,v_j) bypasses
+the sufficient-only factor-two test, but its chosen-source quadratic bound
+is the still-unpaid macro retention. Do not iterate (Z0/Z1)*T as if later
+chronological partitions were unchanged. Zero/degenerate Gram directions
+need no variance reciprocal.
+
+The current family-band coefficients are already screened by
+`lean/YMGap/Continuum/BF4WilsonAllNomeFamilyBandCalibrationObstruction.lean:117`,
+`family_band_coefficient_floor`, and `:139`,
+`transported_family_band_coefficient_floor`; no duplicate ceiling is needed.
+**Decision:** keep DIRECT filtered signed or variational control eligible,
+but select no matrix interface without a concrete original-moment bound and,
+where needed, quantitative source overlap. Neither this screen nor finite
+spatial-symmetry work supplies survival or a scaling rate. Main work remains
+the actual interacting producer, not more CS/completion/spectral wrappers.
+
 ## Remaining Gram-credit screen and route decision (2026-10-08 UTC)
 
 Root source inspection and independent bounded mathematical reviews. The
