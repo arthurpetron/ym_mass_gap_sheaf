@@ -222,6 +222,19 @@ CONTINUE joint variance AND signed centered density control versus OWN
 surviving variance and BOTH masses on a justified changing family. Scaling,
 physical/QFT/every-group/Clay remain OPEN; displayed canonical claims unchanged.
 
+Post-follow-through selection (2026-10-08 UTC): the requested paper's bounded
+parallel completeness check found no further producer of the ORIGINAL window
+budget. Target the complete signed aggregate, or a quantitative SAME-law
+angular-to-transfer-defect comparison paying it against warmed OWN variance
+and BOTH masses. Existing time-defect smoothing is not that comparison.
+A fixed-order local power ceiling cannot alone pay the improving-precision
+seed's exponentially growing window; this screens the ceiling strategy,
+not the actual signed cost or a physically justified trajectory. Do not
+repeat IBP/polarization wrappers without new quantitative payment. Source
+pins and the PAPER precision-seed screen are in the final section of
+`audits/RESEARCH-2610-09093-2026-10-08.md`. No Lean edit, new premise,
+closed proof node or chart-state change.
+
 Targeted paper review integrated (2026-10-08 UTC, user request):
 `audits/RESEARCH-2610-09093-2026-10-08.md` records the long paper and companion
 review, exact relevant equations, SAME-original-source consumers and access
