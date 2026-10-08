@@ -58,6 +58,24 @@ zero, continuum generator/domain and quantitative physical signed estimate
 remain OPEN. The main original cost/OWN-variance or DIRECT macro-retention
 input on a justified changing family remains primary; chart claims unchanged.
 
+### Selected direct closed-character consumer
+
+Against that checked actual endpoint producer, select one bounded new leaf
+ending in closedCharacter_gauss_zero: raw scalar link/sum rules, raw
+quaternion Leibniz, induction on the ORIGINAL compatible physical ordered
+word, endpoint associativity cancellation, scalar cyclicity and the literal
+Chebyshev recurrence. At interior vertex m the terms (q*e_i)*r and
+-q*(e_i*r) cancel by existing quaternion associativity; no sphere/unit input,
+word deduplication or differentiated padded equality. Empty-word cancellation
+uses the existing two unit multiplication identities. Public outputs must
+refer to the actual vertexGauss, not a symbolic assigned tangent.
+One parallel author, complete independent FINAL-source review, at most three
+root-owned focused checks, unchanged one-worker/20-GiB/12-GiB-reserve policy
+and fresh dynamic preflight each time. Stop/revise for a broad foundational
+gap or >650-line leaf; do not add a resource-option increase. At selection
+this consumer is UNVERIFIED. Placement/window extension waits for this proof.
+This does not construct a continuum domain or the main relative estimate.
+
 ### Next bounded producer: literal left/right link action
 
 Selection after the checked arbitrary-coordinate pin, not a new analytic

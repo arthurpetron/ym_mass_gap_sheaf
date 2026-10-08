@@ -4,6 +4,76 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Small signed-filter pencil: one strict margin pays its OWN norm (2026-10-08 UTC)
+
+PAPER algebra, independently screened and root source-checked; no new Lean
+closure, analytic premise or compiler/interface is introduced. For the ACTUAL
+source x write m_k=B(x,T^(L+k)x), G=[[m0,m1],[m1,m2]],
+H=[[m1,m2],[m2,m3]] and D=G-H. These are the existing signed-filter
+quadratic forms, not new moments:
+`lean/YMGap/Continuum/BF4WilsonAllNomeBilinearTime.lean:195`, `orbitSum_pairing`, and
+`lean/YMGap/Continuum/BF4WilsonAllNomeResponseHankelPositivity.lean:290`,
+`hausdorffSum_first_nonneg`, give the actual expansion and D nonnegativity
+for rational filter coefficients.
+
+For rational epsilon>0, u and delta>0, a produced strict signed margin
+
+    delta <= u^T*(H-(1-epsilon)*G)*u
+           = epsilon*u^T*G*u-u^T*D*u
+
+already gives the SAME filtered norm floor delta/epsilon <= u^T*G*u.
+The cleared version delta <= u^T*(c*G-s*D)*u, c>0 and s>=0,
+gives delta/c <= u^T*G*u. Thus do NOT require an independent Gram
+determinant/nondegeneracy estimate once this strict quantitative margin is
+actually paid. This concerns the filtered state's finite completed norm,
+not overlap with an earlier source or survival in a continuum limit.
+
+For r=1-epsilon the exact two-by-two scalar test is
+
+    det(H-r*G) = (m1*m3-m2^2)
+                -r*(m0*m3-m1*m2)+r^2*(m0*m2-m1^2).
+
+If R=H-r*G has R00<0 and det(R)<0, the symbolic vector
+(-R01,R00) has signed margin R00*det(R)>0. Its entries are moment values,
+NOT automatically rational filter coefficients: constructive rational
+approximations must retain an explicit positive margin. No sign decision on
+an arbitrary CReal or choice of an unlocated eigenvector is permitted.
+For fixed radius-zero original expressions with Within 0, L=2*t,
+`lean/YMGap/Continuum/BF4WilsonAllNomeOriginalRayleighLimit.lean:96`,
+`originalOwnBlockVariance_pin`, `:104`, `originalOwnBlockCost_pin`, and
+their `:130`, `originalOwnBlockVariance_converges`, `:143`,
+`originalOwnBlockCost_converges`, give
+
+    (m0,m1,m2,m3)=(V_t,V_t-C_t,V_(t+1),V_(t+1)-C_(t+1)).
+
+When both unfiltered diagonal tests fail strictly, the remaining determinant
+test is
+
+    [V_(t+1)-r*(V_t-C_t)]^2
+      > (C_t-epsilon*V_t)*(C_(t+1)-epsilon*V_(t+1)).
+
+This keeps BOTH original chronological masses and moving OWN centers; no
+free variance, raw Haar source norm or terminal Perron premise replaces them.
+The existing macro compiler is
+`lean/YMGap/Continuum/BF4WilsonAllNomeOddResponseJensen.lean:339`,
+`macro_ratio_of_oneStep_block_energy`; the later-endpoint join is
+`lean/YMGap/Continuum/BF4WilsonAllNomeMacroRatioFilteredCost.lean:123`,
+`macro_to_filtered_budget`. Their other guards/index requirements remain.
+
+Positivity does NOT supply the strict margin even for nondegenerate G:
+the abstract two-point response m_k=((1/4)^k+(1/2)^k)/2 at L=0 has
+(m0,m1,m2,m3)=(1,3/8,5/32,9/128), det(G)=1/64>0,
+but every surviving filter has H/G<=1/2. At r=3/4,
+R00=-3/8 and det(R)=1/512>0. This is a finite abstract diagnostic,
+NOT a BF4/Yang--Mills counterexample or a new Lean certificate.
+
+Decision: retain the four ORIGINAL moments as an optional quantitative
+search, with ONE strict margin paying its OWN norm. Do not implement a
+determinant/square-completion wrapper without actual changing-family signs,
+explicit error margins and rational coefficients. DIRECT macro retention
+remains co-primary. No such original determinant margin is produced here;
+scaling, continuum/physical/QFT/every-group/Clay and chart claims stay OPEN.
+
 ## What vertex Gauss cancellation can and cannot pay (2026-10-08 UTC)
 
 Root source inspection and independent read-only Sol screen while the actual

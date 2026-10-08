@@ -27,6 +27,34 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+MAIN signed-filter screen (2026-10-08 UTC; PAPER/source review): for the
+ACTUAL four-moment pencil G,H, a STRICT rational margin in H-(1-epsilon)G
+pays both retention and its SAME filtered norm via G-H>=0. No independent
+Gram nondegeneracy input is needed once the margin is paid. Reuse the two
+OWN variance/cost limit pairs at t,t+1 for fixed radius-zero expressions;
+both chronological masses and OWN centers remain. The two-by-two determinant
+is a scalar diagnostic, not an actual signed estimate. Nondegenerate
+abstract moment positivity still fails to supply it. Seek its genuine
+changing-family margin with constructive rational coefficients/moduli or
+DIRECT original macro retention; do not add another matrix/interface wrapper.
+Exact equations/source guards: adaptive conditional-score audit. Main and
+continuum/physical/QFT/every-group/Clay remain OPEN; chart unchanged.
+
+Selected bounded direct finite consumer (2026-10-08 UTC; unverified):
+prove closedCharacter_gauss_zero for the ACTUAL compatible physical original
+word and EVERY character spin. One new leaf derives scalar raw sum rules,
+quaternion Leibniz, ordered endpoint telescoping and scalar trace cyclicity;
+no assumed source law or replacement derivation. Only pad AFTER forming
+actual derivatives. Retain inverse/repeated occurrences and all geometry
+guards. Parallel author does not compile; complete independent FINAL-source
+review precedes at most three serialized root checks under the unchanged
+20-GiB/one-worker/12-GiB-reserve/fresh-preflight policy. Stop/revise for a broad
+missing foundation or >650-line leaf; no resource-option increase. Actual
+placement/window consumer waits for closed-character zero. In parallel,
+screen the original small signed-filter moment pencil for a genuinely useful
+macro-retention threshold, not another square-completion/IMS/Gauss wrapper.
+No selected output is counted as proved. MAIN scaling estimate remains OPEN.
+
 CHECKED actual finite all-link Gauss endpoint action (2026-10-08 UTC):
 `VertexGaussWilsonWord.vertexGauss` sums literal -L at each positive-link
 start and +R at its finish on the ORIGINAL boundary-complete carrier.
