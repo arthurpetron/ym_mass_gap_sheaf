@@ -16,6 +16,16 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked ACTUAL odd-excitation boundary screen (2026-10-08 UTC):**
+`BF4WilsonAllNomeFringeTimeKernel.antisymmetric_excitation_time_positive_zero`
+annihilates the existing positive-norm p01-minus-p02 source at every positive
+integer time at width1. Its TWO original mean corrections cancel; no source
+or action replacement. Padded widths have the existing whole-family positive
+response theorem, not this annihilation. One first focused check and COMPLETE
+independent source review PASS; only {propext, Quot.sound}, no tree audit.
+Useful changing-family response and physical/Clay claims remain OPEN.
+Exact evidence: adaptive-score audit; chart unchanged.
+
 **Checked ORIGINAL symmetry-matched dual contraction (2026-10-08 UTC):**
 `BF4WilsonAllNomeSpatialAxisSwapCompletion` constructs even/odd averages
 on the SAME original completion, with exact norm splitting, contraction,

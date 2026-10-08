@@ -8412,3 +8412,97 @@ variance. These theorems provide neither that overlap nor a positive-time
 source norm floor, justified changing family, continuum excitation or physical
 gap. Contraction of both norm and macro defect alone does not order their
 ratio. Clay/canonical displayed claims remain OPEN/unchanged; no chart reprint.
+
+## Actual odd-excitation transfer test: padding is necessary (2026-10-08)
+
+Selection recorded BEFORE implementation. Previous goal turn: PROGRESS,
+the checked SAME-completion sector averages and actual-source pin were
+committed/pushed as `8546b8b7`; no survival/scaling/Clay claim was closed.
+The active goal and target remain unchanged.
+
+**Next proposition/consumer:** the produced antisymmetric excitation at
+width ONE has zero original one-step image despite its strictly positive
+initial norm. This screens its use as a DIRECT macro detector source. The
+exact two-face kernel instance is NOT already declared. It can be proved
+in the EXISTING `BF4WilsonAllNomeFringeTimeKernel.lean` leaf, by cancelling
+both equal ORIGINAL centering coefficients and using the two inactive-face
+time pins. No new completion, action, analytic input or frontier structure.
+
+Available original inputs: `excitation_norm_floor`, `state_mean_zero` and
+`excitation_swap_odd` in `BF4WilsonAllNomeAntisymmetricPlaquette.lean`;
+`x_antisymmetric` in `BF4WilsonAllNomeOriginPlaquetteOrbitResponse.lean:241`;
+`centeredPart_embed` in `BF4WilsonAllNomeCenteringPin.lean:78`;
+actual completed linear/unit-projection laws;
+`inactive_face_time_one_zero`, `originFace_not_fully_active` in
+`BF4WilsonAllNomeFringeTimeKernel.lean:59`, `:76`, and the literal far02
+link index in `BF4ExactSlabWidthOneGeometry.lean:48`.
+
+**Prediction/decisive contrast:** width1 kills BOTH centered faces; width>=2
+does NOT. The latter is ALREADY supplied by
+`family_time_geometric_floor`,
+`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteFamilyBondOrbit.lean:110`,
+with base1, the literal two-face family, rho=`familyResponseFraction(w,2)`.
+Do not implement another positive-time propagation compiler. The existing
+`familyResponseFraction_le_ceiling`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeFamilyBandCalibrationObstruction.lean:64`,
+bounds this COMPUTED lower-bound coefficient by 2^(-560); it says nothing
+about an upper bound on the true source response. Thus the available padded
+positive response does not supply the missing near-unit/scaling rate.
+
+**Budget/abandon condition:** Sol implements only the concrete width-one
+instance in that existing fringe leaf; independent complete-source review,
+ROOT serial focused safe check20-GiB worker/12-GiB reserve after fresh dynamic
+preflight. Abandon if the join needs a new analytic premise, full-tree check
+or source substitution. While checking, investigate MAIN's complete original
+signed-payment estimate, not further sector interfaces. No new hole, axiom,
+canonical field or displayed chart state; record observed result separately.
+
+### Observed concrete transfer screen and narrowed next action
+
+2026-10-08 22:49 UTC. First focused check PASSED. The new public results are
+`face02_not_fully_active`, `antisymmetric_excitation_time_one_zero`,
+`antisymmetric_excitation_time_positive_zero`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeFringeTimeKernel.lean:100`, `:126`,
+`:176`. The source is the literal existing antisymmetric excitation at width1,
+not a replacement. Its original unit coefficient is zero, so the two
+individual ORIGINAL plaquette mean corrections agree and cancel exactly.
+Pairing extensionality identifies the raw source with their centered
+difference; actual time linearity and the two inactive-face pins kill it.
+The original semigroup then kills it at every positive integer time.
+Initial norm positivity is unchanged. It is not a Yang--Mills counterexample.
+
+COMPLETE independent 257-line final-source review PASS, SHA-256
+`23b3834108445ff66a39b484168811ba1532abdc5edbdc59bb674eaa5f359a6d`.
+Focused log `/private/tmp/ym-oct8-odd-fringe-check1.log`, SHA-256
+`cbfa2498376050d82eb4ca60731b9b39214d256c88f8affc05b1a3dbc00f26dc`.
+All three new public gates and the six retained gates print only
+`[propext, Quot.sound]`; no error, new hole, axiom, classical use or premise.
+Safe launcher jobs1/20-GiB worker/12-GiB reserve, fresh preflight with no
+other build, 83% reported free memory and zero swap. No full-tree audit,
+limit increase or foreign-code execution. No whole-library verification.
+
+**Decision:** PRUNE the width1 state as a positive-time detector/non-erasure
+witness. REUSE the existing padded family geometric response, not another
+compiler: at width>=2, base1 and the literal two-face family supply the
+positive lower coefficient rho(w,2), independent of width, regulators and
+boundary time. This is source-reviewed reuse of the existing theorem, not a
+newly compiled geometric-floor instance here. Its computed rho<=2^(-560)
+does not yield a useful scaling rate; no upper bound on the TRUE response
+follows from a ceiling on this lower-bound coefficient. The MAIN padded
+dyadic square remains unchanged; no arbitrary completed width map is inferred.
+
+The independent MAIN review found the proposed full gradient/spatial
+determinant reassembly ALREADY checked, by
+`original_ratioNoise_jointGradient_certificate` and
+`original_ratioNoise_ward_unitJointGradient_le`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.lean:999`,
+`:1076`. It retains the actual negative transmitted-mean square and leaves
+exactly the signed centered density correction in the equation recorded in
+the earlier joint-gradient section. No unconditional favorable sign or
+additional positive-form reduction was found. Do not reimplement that join
+or count the matching mean-square reserve twice. CONTINUE the missing
+action-specific estimate of joint variance MINUS centered density payment
+against OWN surviving variance and BOTH masses, or DIRECT original macro
+retention on a justified changing family. Padding, local positive response
+and symmetry matching do not replace it. All continuum/physical/QFT/every-
+group/Clay and displayed canonical claims remain OPEN/unchanged; no chart.

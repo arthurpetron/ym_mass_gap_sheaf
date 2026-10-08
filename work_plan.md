@@ -364,6 +364,24 @@ defect/norm ratio merely because both quantities contract. Evidence and
 exact checked source/log hashes: the adaptive-score audit. No canonical
 displayed proof/expansion claim changed; no ASCII reprint.
 
+Actual-source transfer screen (2026-10-08 22:49 UTC): the new checked
+`FringeTimeKernel.antisymmetric_excitation_time_positive_zero` kills the
+existing positive-norm odd excitation at EVERY positive integer time at
+width1. Both ORIGINAL individual centering corrections cancel; no source
+or operator is replaced. PRUNE this width1 detector/non-erasure instance.
+The padded width>=2 geometric response is ALREADY supplied by
+`PlaquetteFamilyBondOrbit.family_time_geometric_floor`; do not rebuild it.
+Its computed rho(w,2)<=2^(-560) is a weak lower certificate, NOT a true
+response upper bound or useful scaling rate. One focused first check and
+COMPLETE independent source review PASS; only permitted axioms, no tree audit.
+The parallel MAIN review likewise found joint gradient/spatial determinant
+reassembly already checked. NEXT remains action-specific payment of joint
+variance MINUS centered density covariance against OWN surviving variance
+and BOTH masses, or DIRECT macro retention on a justified changing family.
+No additional sign, extra mean-square reserve, width map, MAIN replacement
+or canonical closure is inferred. Exact evidence: adaptive-score audit;
+displayed claims unchanged, no chart reprint.
+
 Requested parallel follow-up (2026-10-08 UTC): the cached paper review now
 pins MAIN's joint correction as
 `H_xy[Kkin*G^2*(J_out A)*X^2*(J_in+J_out)(spatialWeight*a*Vbar^2)]`

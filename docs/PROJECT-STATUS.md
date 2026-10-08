@@ -374,6 +374,18 @@ Two focused checks and independent source review; no full-tree audit.
 Displayed claims are unchanged; no chart reprint. Evidence:
 `audits/AUDIT-INTERACTING-RESPONSE-SHAPE-2026-10-07.md`.
 
+Supporting ACTUAL odd-excitation boundary screen checked
+(2026-10-08 22:49 UTC; chart unchanged): the existing positive-norm,
+exactly centered p01-minus-p02 source is killed by original time at EVERY
+positive integer at width1. Its two original centering corrections cancel;
+the SAME completed operator kills both inactive centered faces. This prunes
+the width1 survival/detector instance, not padded sources or Yang--Mills.
+At width>=2 the existing whole-family geometric floor applies, but its
+computed coefficient supplies no useful scaling rate. One focused first
+check and independent complete-source review PASS; permitted axioms only,
+no full-tree audit. All continuum/physical/Clay claims remain OPEN.
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 Supporting ORIGINAL symmetry-matched detector contraction checked
 (2026-10-08 22:40 UTC; chart unchanged): even/odd swap averages on the SAME
 Wilson completion split the norm exactly, contract the dual norm and commute

@@ -12,7 +12,11 @@ import YMGap.Continuum.BF4WilsonAllNomeFringeCorrelation
 import YMGap.Continuum.BF4WilsonAllNomeGeometry
 import YMGap.Continuum.BF4WilsonAllNomeBilinearTime
 import YMGap.Continuum.BF4WilsonAllNomePlaquetteExcitation
+import YMGap.Continuum.BF4WilsonAllNomeAntisymmetricPlaquette
+import YMGap.Continuum.BF4WilsonAllNomeCenteringPin
+import YMGap.Continuum.BF4WilsonAllNomeCompletedPairingContinuity
 import YMGap.Continuum.BF4ExactSlabWidthOneGeometry
+import YMGap.Constructive.CRealAbs
 
 namespace YMGap.Continuum.BF4WilsonAllNomeFringeTimeKernel
 
@@ -25,11 +29,23 @@ open YMGap.Continuum.BF4ExactSlabFixedSpatialFacePlacement (spatialFaces)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonPlaquette (plaquetteLoop)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialFringeFaceGeometry (FullyActive)
 open YMGap.Continuum.BF4ExactSlabWidthOneGeometry
-  (far01_x0_index activeBlocks_one)
+  (far01_x0_index far02_x0_index activeBlocks_one)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialAntisymmetricPlaquette
+  (face01 face02 faces faces_physical)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonIntrinsicForm (unit IntrinsicExpression)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonIntrinsicSeminorm (sum)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonIntrinsicAlgebra (smul)
 open YMGap.Continuum.BF4WilsonAllNomeCompletedInner
 open YMGap.Continuum.BF4WilsonAllNomeCompletedTime
 open YMGap.Continuum.BF4WilsonAllNomeBilinearTime
-  (completedTime_zero_element completedInner_zero_right)
+  (completedTime_zero_element completedTime_sub completedInner_zero_right)
+open YMGap.Continuum.BF4WilsonAllNomeCompletedPairingContinuity
+  (completedInner_sub_left)
+open YMGap.Continuum.BF4WilsonAllNomeCenteringPin (centeredPart_embed)
+open YMGap.Continuum.BF4WilsonAllNomeUnitProjection (centeredPart_pairing)
+open YMGap.Continuum.BF4WilsonAllNomeCompletedRealScalar (completed_eq_of_pairings)
+open YMGap.Continuum.BF4WilsonAllNomeLinear
+open YMGap.Continuum.BF4WilsonAllNomeLinearLaws
 open YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteKinetic
   (plaquette_active_after_padding)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteUniformResponse
@@ -44,6 +60,7 @@ open YMGap.Continuum.BF4WilsonAllNomePlaquetteExcitation
   (originFace originFace_mem plaquetteExcitation plaquetteExcitation_ne_zero
     plaquetteExcitation_response_floor)
 open YMGap.Continuum.BF4WilsonAllNomeFringeCorrelation (centeredTimeMoment_zero)
+open YMGap.Continuum.BF4WilsonAllNomeAntisymmetricPlaquette (excitation state)
 
 variable {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
   (width : Nat) (face : Z4Plaq) (hf : face ∈ spatialFaces width)
@@ -78,6 +95,91 @@ theorem originFace_not_fully_active : ¬ FullyActive 1 originFace := by
   have hlink := hactive ((0, 1, 0, 0), .x0) (by decide)
   rw [far01_x0_index, activeBlocks_one] at hlink
   exact (by decide : ¬ (2 : Nat) ∈ [0, 1, 4]) hlink
+
+/-- The second original face also touches an inactive width-one x0 link. -/
+theorem face02_not_fully_active : ¬ FullyActive 1 face02 := by
+  intro hactive
+  have hlink := hactive ((0, 0, 1, 0), .x0) (by decide)
+  rw [far02_x0_index, activeBlocks_one] at hlink
+  exact (by decide : ¬ (5 : Nat) ∈ [0, 1, 4]) hlink
+
+private theorem rc_sub_zero_eq {a b : RC} (h : RCsub a b = RCzero) : a = b := by
+  revert h
+  refine Quotient.inductionOn₂ a b ?_
+  intro x y h
+  exact Quotient.sound (CReal.Equiv_of_sub_eqv_zero (Quotient.exact h))
+
+private theorem rc_sub_sub_same (a b c : RC) :
+    RCsub (RCsub a c) (RCsub b c) = RCsub a b := by
+  refine Quotient.inductionOn₃ a b c ?_
+  intro x y z
+  exact Quotient.sound (SumOfSquares.Equiv_of_approx_eqv (fun n =>
+    RingNormaliser.poly_identity_of_normal_eq
+      (.add (.add (.var 0) (.neg (.var 2)))
+        (.neg (.add (.var 1) (.neg (.var 2)))))
+      (.add (.var 0) (.neg (.var 1))) (by decide)
+      (fun | 0 => x.approx n | 1 => y.approx n | _ => z.approx n)))
+
+/-- The actual nonzero antisymmetric source has zero ONE-step image at width
+one. Its two original mean corrections agree and cancel; neither face is
+replaced by a differently centered or auxiliary source. -/
+theorem antisymmetric_excitation_time_one_zero :
+    completedTime hw0 hw1 (width := 1) 1
+      (excitation hw0 hw1 (by decide : 1 ≤ 1)).val =
+        completedZero hw0 hw1 1 := by
+  let hw : 1 ≤ 1 := by decide
+  let hf01 : face01 ∈ spatialFaces 1 :=
+    faces_physical hw face01 (by simp [faces])
+  let hf02 : face02 ∈ spatialFaces 1 :=
+    faces_physical hw face02 (by simp [faces])
+  let a : IntrinsicExpression 1 := loopState (plaquetteLoop face01 hf01)
+  let b : IntrinsicExpression 1 := loopState (plaquetteLoop face02 hf02)
+  have hstate : state hw = sum (smul 1 a)
+      (sum (smul (-1) b) (smul 0 (unit 1))) := by rfl
+  have hsource : (excitation hw0 hw1 hw).val =
+      completedSub hw0 hw1 (embed hw0 hw1 a) (embed hw0 hw1 b) := by
+    change embed hw0 hw1 (state hw) = _
+    rw [hstate, ← completedAdd_embed, ← completedAdd_embed,
+      ← completedSmul_embed, ← completedSmul_embed, ← completedSmul_embed,
+      completedSmul_one, completedSmul_zero, completedAdd_zero]
+    rfl
+  have hmean0 : B (completedSub hw0 hw1 (embed hw0 hw1 a) (embed hw0 hw1 b))
+      (unitState hw0 hw1 1) = RCzero := by
+    rw [← hsource]
+    exact (completedInner_symm hw0 hw1 _ _).trans (excitation hw0 hw1 hw).property
+  rw [completedInner_sub_left] at hmean0
+  have hmeans : B (embed hw0 hw1 a) (unitState hw0 hw1 1) =
+      B (embed hw0 hw1 b) (unitState hw0 hw1 1) := rc_sub_zero_eq hmean0
+  have hcentered : (excitation hw0 hw1 hw).val =
+      completedSub hw0 hw1
+        (plaquetteExcitation hw0 hw1 1 face01 hf01).val
+        (plaquetteExcitation hw0 hw1 1 face02 hf02).val := by
+    change (excitation hw0 hw1 hw).val =
+      completedSub hw0 hw1 (centeredVector hw0 hw1 a) (centeredVector hw0 hw1 b)
+    rw [hsource, ← centeredPart_embed hw0 hw1 a, ← centeredPart_embed hw0 hw1 b]
+    apply completed_eq_of_pairings hw0 hw1
+    intro z
+    rw [completedInner_sub_left, completedInner_sub_left,
+      centeredPart_pairing, centeredPart_pairing, hmeans]
+    exact (rc_sub_sub_same (B (embed hw0 hw1 a) z)
+      (B (embed hw0 hw1 b) z)
+      (RCmul (B (embed hw0 hw1 b) (unitState hw0 hw1 1))
+        (B (unitState hw0 hw1 1) z))).symm
+  change completedTime hw0 hw1 1 (excitation hw0 hw1 hw).val = _
+  rw [hcentered, completedTime_sub,
+    inactive_face_time_one_zero hw0 hw1 1 face01 hf01
+      (by simpa only [face01, originFace] using originFace_not_fully_active),
+    inactive_face_time_one_zero hw0 hw1 1 face02 hf02 face02_not_fully_active,
+    completedSub_self]
+
+/-- Every later positive integer time also kills this SAME width-one state. -/
+theorem antisymmetric_excitation_time_positive_zero (n : Nat) :
+    completedTime hw0 hw1 (width := 1) (n+1)
+      (excitation hw0 hw1 (by decide : 1 ≤ 1)).val =
+        completedZero hw0 hw1 1 := by
+  rw [completedTime_add,
+    antisymmetric_excitation_time_one_zero hw0 hw1,
+    completedTime_zero_element]
 
 /-- The nonzero width-one origin excitation is annihilated by the original
 one-step completed time map. -/
@@ -144,6 +246,9 @@ theorem no_centered_plaquette_time_transport (padding : Nat)
 
 #print axioms inactive_face_time_one_zero
 #print axioms originFace_not_fully_active
+#print axioms face02_not_fully_active
+#print axioms antisymmetric_excitation_time_one_zero
+#print axioms antisymmetric_excitation_time_positive_zero
 #print axioms originPlaquette_time_one_zero
 #print axioms completedTime_one_not_injective_width_one
 #print axioms padded_origin_time_one_ne_zero
