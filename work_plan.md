@@ -27,7 +27,47 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED prerequisite for independent finite gauge input (2026-10-08 UTC):
+`AngularCoordinatePadded.angularDerivative_polyVar_padded` now produces the
+literal angular coordinate action at COMMON-PADDED coefficient strength on
+arbitrary blocks, including coincident-plane/other-coordinate cases. The
+trailing-zero self derivative is pinned symbolically, not through Haar or a
+sphere premise. Focused capped verification and independent complete-source
+review pass; root import registered only, no root/tree build/audit.
+This removes the coordinate prerequisite, not the full Gauss law. NEXT:
+actual L/R coordinate and reversed-link pins, then physical all-link sum and
+literal endpoint telescope, without differentiating padded surrogates.
+Exact source/log evidence and scope: parallel QFT-inputs audit. Main analytic
+frontier and continuum/physical/QFT/every-group/Clay remain OPEN; chart unchanged.
+
+Selected independent finite gauge input (2026-10-08 UTC; full law NOT YET PROVED):
+construct the ACTUAL all-link vertex angular derivation and prove it kills
+the literal closed Wilson character/window by endpoint telescoping. The first
+implementation review stopped without a Lean edit at a missing arbitrary-block
+coordinate pin. REVISE to that one symbolic common-padded coordinate identity
+first; the existing head-only Haar pin is insufficient. Then reassess the
+actual left/right coordinate action and original closed-source telescope. Use
+common-padded coefficient equality, actual physical membership and the
+existing gaugeLink orientation; retain every reverse/repeated occurrence.
+This is a finite original-source law, not a continuum generator/domain or
+the main signed Ward estimate. Stop if a large missing foundational API or
+unproved coordinate pin is required. Bounded implementation/check decision:
+parallel QFT-inputs audit. Main ORIGINAL cost/OWN-variance or macro retention
+on a justified changing family remains the analytic priority; chart unchanged.
+
 Analytic screen (2026-10-08 UTC; PAPER/source review, no new Lean closure):
+PRUNE a double-commutator/IMS wrapper: weighted localization is exactly the
+existing boundary-drift + original-energy + complete signed-defect split.
+T=P*M_V still acts on V*A; finite OWN centering retains a cross term because
+the finite terminal message is not a supplied Perron eigenvector. Existing
+free plaquette energy pays raw H[q^2], not SAME surviving interacting variance;
+Z0*H[q^2] versus Z1*S and the signed costs remain unpaid. The retained radial
+MAJORANT coefficient exceeds 15/16 on cofinal AF probes; this screens that
+majorant, not the actual cost or possible cancellations. Reuse these existing
+stronger producers, seek a genuinely new relative estimate, and do not infer
+uniformity from the bare commutator's algebra. Exact guards/evidence: adaptive
+conditional-score audit. No displayed chart claim changes.
+
 retaining all Ward square losses gives Hcal+U=P0-Delta-Qabs-2*Bfav.
 A degree-one reciprocal gives a 1/3 payment, but its favorable relative
 coefficient tends to zero with outgoing degree; this argument is not uniform

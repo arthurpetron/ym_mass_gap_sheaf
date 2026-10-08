@@ -7975,3 +7975,7 @@ import YMGap.Continuum.BF4DyadicWilsonSquareAFSignedCancellation
 -- Positive weighted transfer and literal OWN centering alone cannot sign
 -- the extra spatially weighted temporal residue.
 import YMGap.Continuum.RationalWeightedTemporalResidueObstruction
+
+-- Actual arbitrary-coordinate angular action at common-padded coefficient
+-- strength. Finite vertex Gauss telescope and continuum domain remain open.
+import YMGap.Continuum.SU2QuaternionAngularCoordinatePadded

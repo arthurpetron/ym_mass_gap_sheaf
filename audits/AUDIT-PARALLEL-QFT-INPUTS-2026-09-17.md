@@ -14,6 +14,111 @@ Yang--Mills theory on R^4 with the required same-theory QFT axioms, isolated
 vacuum and finite positive physical Hamiltonian mass gap, within the
 constructive Mathlib-free MLTT/HoTT gate. **The goal remains OPEN.**
 
+## Selected finite vertex-Gauss source law (2026-10-08 UTC)
+
+Independent forward input for the backward gauge/QFT requirements, not a
+replacement for the main original signed-cost estimate. Selected proposition:
+the ACTUAL vertex angular derivation annihilates the literal compatible closed
+physical Wilson character, every spin, and its guarded placed window.
+No existing declaration directly consumes vertex-Gauss-zero yet; the output
+is a missing finite original-observable law, not a new frontier interface or
+a continuum gauge-generator/domain inhabitant.
+
+For the existing gaugeLink=conj(start)*q*finish convention, use
+-sum outgoing L + sum incoming R over the actual boundaryCompleteSlabLinks,
+with each original idxOf quaternion block. The three left generators are
+(J01+J23,J02-J13,J03+J12); right generators have the opposite second-plane
+signs. The indispensable producer is the actual coordinate-action pin,
+not a formal variation symbol. On oriented entries the derivative is
+-eta(start)*q + q*eta(finish). Leibniz telescopes to that same endpoint
+formula for the ordered word; closedness makes its scalar commutator zero.
+Character recurrence and signed window operations then propagate zero.
+Keep every reversed/repeated occurrence, actual membership and placement guard.
+
+Representation guard: use exact COMMON-PADDED polynomial coefficient equality
+at the actual linkCount. Raw RatPolyCoeffEqv distinguishes trailing-zero
+monomial lengths; do not promote a Haar/prefix pin to raw equality.
+The infinitesimal telescope itself needs no sphere/unit-norm assumption.
+Inputs are existing angular add/Leibniz rules, actual coordinate membership
+and finite-path algebra. The first implementation review stopped WITHOUT a
+Lean edit: the available head-coordinate Haar pin is not an arbitrary-block
+coefficient pin. Specifically,
+`lean/YMGap/Continuum/QuaternionHaarCoordinateAngularInterval.lean:69`,
+`derivativeFactor_self_carrier`, assumes both indices <4 and returns only
+`HaarCarrierEqv`. It cannot justify the required generator coordinate action.
+
+REVISE to one prerequisite, not a conditional Gauss wrapper: for a,b,c<4*B,
+produce the common-padded coefficient identity
+
+    J_ab(x_c) = (if c=b then x_a else 0) - (if c=a then x_b else 0).
+
+The self partial derivative is a trailing-zero monomial, not raw polyOne.
+Common padding identifies it with the constant; the off-diagonal producer
+`QuaternionHaarCoordinateAngularInterval.ratDerivative_polyVar_ne:48`
+already returns raw coefficient equality with zero. Prove the self identity
+symbolically at arbitrary indices, combine these two actual derivatives,
+and test a=b (zero), c outside {a,b} (zero), and non-head blocks. This output
+is the missing coordinate input for the selected actual left/right Gauss
+action; no direct closed-source Gauss consumer is present yet. No change to
+the action, coordinate convention, original observable or frontier type.
+Abandon if a broad differential API or an unproved coordinate premise is
+required. Do not differentiate merely padded-equivalent surrogate inputs.
+
+Budget for this revised prerequisite: one bounded Sol implementation,
+independent complete FINAL-source review and at most three root-owned
+serialized focused checks, 20-GiB cap, 12-GiB OS reserve and fresh dynamic
+preflight at each launch. No full-tree audit. At selection the coordinate
+identity and full finite Gauss-source law are NOT newly proved.
+Finite Gauss-source law does not supply a
+simultaneous-endpoint density Ward estimate, OS domain, changing-family
+retention, continuum QFT or a positive physical mass gap. Chart claims unchanged.
+
+### Observed prerequisite: actual angular coordinate action
+
+The revised producer is now kernel-checked, not an input premise:
+`lean/YMGap/Continuum/SU2QuaternionAngularCoordinatePadded.lean:54`,
+`ratDerivative_polyVar_self_padded`, proves common-padded coefficient equality
+for the literal self derivative. `angularDerivative_polyVar_padded:80`
+produces the selected coordinate action for arbitrary guarded a,b,c<4*B.
+The helper induction keeps the trailing-zero list before padding; the
+off-diagonal derivative uses existing raw zero equality. Equal plane indices,
+unaffected coordinates and arbitrary non-head blocks are covered by the
+universal statement. No sphere/unit premise, Haar equality promotion,
+symbolic generator substitution or differentiation of padded inputs.
+
+Focused check 2 passed with BOTH public gates exactly {propext,Quot.sound}.
+Check 1 failed only because `decide` saw a free coordinate in an unreduced
+pair projection; the final proof first changes that coefficient goal to
+the closed Q'.ofNat(1)*1=1 setoid statement. Its rejected elaboration's
+synthetic sorryAx output is not proof evidence or an accepted source hole.
+No new sorry, axiom, analytic premise, native/classical shortcut, canonical
+weakening or resource-option increase. Root inspected the complete source;
+independent read-only final-source mathematical review passed. Both launches
+had fresh process/memory preflights, one worker, a 20-GiB hard ceiling and
+12-GiB reserve; preflight pressure-free memory 87--88%, swap zero.
+Root import registered only, not root-built. No full-tree build/audit.
+
+```text
+SOURCE lean/YMGap/Continuum/SU2QuaternionAngularCoordinatePadded.lean
+SHA256 c715574cdedeb93207acd0a4f2ee08fef5d597864e4eb7f0c5646b8b3945325a
+CHECK  /private/tmp/ym-oct8-angular-coordinate-padded2.log
+SHA256 3c3bf210e97d44772faea50a9adbdb6215685069921b633ebd4627820fea439c
+```
+
+Decision: CONTINUE the finite original-source branch with the ACTUAL L/R
+coordinate action, then the finite physical-link sum and endpoint telescope.
+An independent source review gives L=(D01+D23,D02-D13,D03+D12) and
+R=(D01-D23,D02+D13,D03-D12), acting as e_i*q and q*e_i respectively,
+WITHOUT a factor 1/2. Reversed links need the corresponding conjugated
+coordinate pins; actual idxOf membership/injectivity and the physical list
+Nodup must reduce the finite sum. These equations are selected PAPER
+consequences, NOT newly proved declarations. No general padded derivative
+congruence API is needed: apply raw Leibniz FIRST, then substitute padded
+coordinate pins using existing multiplication/addition congruence.
+Abandon/revise if this becomes a broad foundation rather than the literal
+original-source producer. Full Gauss-zero, continuum generator/domain and
+the MAIN changing-family signed estimate remain OPEN. Chart unchanged.
+
 ## Selected literal Wilson vertex-gauge input (2026-10-08 UTC)
 
 The supplied lattice-measurement attachment is already reconciled in

@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED arbitrary-coordinate angular action / OPEN actual vertex Gauss telescope (2026-10-08 UTC)
+
+`lean/YMGap/Continuum/SU2QuaternionAngularCoordinatePadded.lean:54`,
+`ratDerivative_polyVar_self_padded`, identifies the literal all-zero
+derivative monomial with one AFTER common padding, not at raw coefficient
+strength. `angularDerivative_polyVar_padded:80` produces the actual
+x_a*partial_b-x_b*partial_a action on every declared carrier coordinate,
+including equal-plane/other-coordinate cases and arbitrary non-head blocks.
+No sphere/unit premise, Haar-to-coefficient promotion or differentiation of
+padded-equivalent inputs. The missing prerequisite for the actual L/R Gauss
+coordinate action is reduced; full all-link/reversed-link action and original
+closed Wilson telescope are still OPEN. Accepted focused single-file check,
+both public gates exactly {propext,Quot.sound}; independent complete final-source
+review. No new sorry/axiom/analytic premise, classical/native shortcut or
+resource-option increase. Root import registered only, not root-built; no
+full-root/tree audit. Main ORIGINAL signed cost/OWN variance or DIRECT macro
+retention on a justified changing family, physical/continuum/QFT/every-group
+and Clay remain OPEN. Exact evidence/hashes: parallel QFT-inputs audit.
+No displayed chart claim changed.
+
 ## PROVED literal Wilson gauge-source completion / OPEN OS/scaling and signed estimate (2026-10-08 UTC)
 
 `lean/YMGap/Continuum/BF4ExactSlabVertexGaugeWilsonWord.lean:174`,

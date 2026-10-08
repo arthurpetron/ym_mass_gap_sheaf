@@ -4,6 +4,105 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Double-commutator localization screen (2026-10-08 UTC)
+
+Root source inspection and two independent read-only Sol reviews. The
+displayed commutator rewrites and centering calculation are PAPER algebra,
+not new kernel-checked estimates. The proposed consumer is the original
+relative threshold Z0*J >= (1-epsilon)*Z1*S, with BOTH OWN masses. No new
+commutator/localization module is selected.
+
+Use the actual weighted pairing <p,q>_V, actual transfer T=P*M_V,
+A=T^t(g), b=T^t(g*f), u=A*f, d=b-u, Z0=<A,A>_V,
+Z1=<A,T*A>_V and H_A=Z1*I-Z0*T. On supported finite polynomials set
+
+    Q_f(A) = f^2*T(A) - 2*f*T(f*A) + T(f^2*A).
+
+Weighted symmetry gives <A,Q_f(A)>_V=2*energy(A,f). Thus the complete
+localization identity is exactly
+
+    Z1*S-Z0*J = <A*f^2,H_A*A>_V
+                 + (Z0/2)*<A,Q_f(A)>_V
+                 + <d,H_A*(b+u)>_V.
+
+Its three terms are the EXISTING boundary drift, original energy and complete
+signed multiplication cost:
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockRayleighSplit.lean:204`,
+`signedMultiplicationCost_difference`, and `:244`,
+`original_block_rayleigh_split`. The actual two-endpoint squared-jump
+identity is already produced by
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialDirichletForm.lean:267`,
+`energy_identity`. This rewrite supplies no new sign or relative bound.
+It concerns finite polynomials, not a completed multiplication operator.
+
+Although [M_f,[M_f,T]]=[M_f,[M_f,P]]*M_V algebraically, the incoming
+argument remains V*A and the pairing remains V-weighted. The potential has
+not disappeared. The iterated defect explicitly transfers the old defect
+with V by
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockMultiplicationDefect.lean:107`,
+`blockMultiplicationDefect_succ`. Pointwise conversion via the existing
+`BF4ExactSlabFixedSpatialCentralDensity.spatialCeiling:75` in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCentralDensity.lean`
+uses prefixCap(w)^(spatialFaces(width).length), not a spatially uniform cap.
+
+Finite OWN centering also retains a signed debt. For C_A(z)=<z,H_A*z>_V,
+
+    C_A(b-c*A) = C_A(b) - 2*c*<A,H_A*b>_V.
+
+C_A(A)=0 is only its Rayleigh identity; it does NOT imply H_A*A=0.
+The actual finite definitions of the distinct partition factors and drift
+are `clearedRayleighCost:131` and `boundaryDrift:136` in the same
+BlockRayleighSplit file. No finite Perron eigenvector identity is substituted.
+
+### Existing free-energy budget and its unpaid original join
+
+The actual free source is q=fringeProject(V*g), not g. Its exact original
+energy join is
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialProjectedSourceEnergy.lean:102`,
+`energy_projected_source`, under supported source/observable and the explicit
+fringe-independence guards. For g=terminalMessage(n), a strictly padded
+fundamental plaquette, 0<w<1, K>=2 and headCutoff(w)<=K, the EXISTING
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSourceYoungGeometricBudget.lean:96`,
+`padded_terminal_plaquette_energy_geometric_budget`, proves
+
+    2*E <= 8*(1-w)*H[q^2*(4-f^2)] + 960*(1-w)^2*H[q^2].
+
+Discarding only nonnegative H[q^2*f^2] gives the PAPER consequence
+E<=(16*(1-w)+480*(1-w)^2)*H[q^2]. The stronger signed version at `:77`,
+`padded_terminal_plaquette_signed_geometric_budget`, retains the actual
+source-increment correction. Neither raw source moment is the interacting
+centered variance. To pay the original threshold, Z0*H[q^2] still needs
+a useful comparison with Z1*S, together with the boundary and signed costs.
+The existing rank-one bounds
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTransferSandwich.lean:197`,
+`transferStepLowerCertificate`, and `:223`, `transferStepUpperCertificate`,
+retain their width-dependent kinetic floor/cap; they do not supply this
+changing-family relative comparison.
+
+Sharper OWN-centered retained covariance/local radial bounds already exist:
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareFilteredGainCovariance.lean:321`,
+`paddedSquare_own_commutatorGain_retained_covariance_bound`, and
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareFilteredGainRadialCost.lean:258`,
+`paddedSquare_own_commutatorGain_local_radial_bound`. Their radial majorant
+has r2(x)=1-4*x^3+3*x^4, x=w^(8*side), and a=w^(12*side).
+`lean/YMGap/Continuum/BF4WilsonAllNomeAFPaddedTrajectory.lean:511`,
+`afSquareTransmission_lt_at_probe`, supplies cofinal actual AF probes with
+a<1/8; hence x^3=a^2<1/64 and r2(x)>15/16 by PAPER arithmetic.
+This is a lower floor on a MAJORANT COEFFICIENT, not on the actual signed
+cost. A small relative original local source heat loss remains unproduced.
+Even an optimistic absolute fixed-power payment cannot alone settle that
+AF macro budget: the scalar screen
+`lean/YMGap/Continuum/BF4WilsonAllNomeAFPowerBudget.lean:156`,
+`afPowerBudget_no_uniform_cap`, rules out an eventual cap for every fixed
+natural power side(j)*afGap(j)^p. It does not rule out signed cancellation
+or constitute an original Yang--Mills counterexample.
+
+Decision: PRUNE a redundant double-commutator/IMS wrapper. Seek a genuinely
+new signed relative estimate or DIRECT macro retention on the justified
+changing family. The independent actual finite gauge-source branch may
+advance a backward QFT input, but does not discharge this analytic frontier.
+No canonical claim or chart status changed; no new Lean check in this screen.
+
 ## Square losses and the exact late-endpoint join (2026-10-08 UTC)
 
 Root source inspection and independent Sol mathematical screens. The new
