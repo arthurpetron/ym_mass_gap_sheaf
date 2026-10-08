@@ -562,6 +562,123 @@ theorem afSquareTransmission_lt_at_probe {eta : Q'}
           (eta.den : Int) at hfloor
     omega
 
+/-! ## 5. A geometric certificate cannot rescue a loss bounded below by afGap
+
+This screens scalar SUFFICIENT certificates, not actual interacting responses.
+The probe is at least one, so its dyadic side is even and `side/2+1` is the
+actual backward lag `side+1-side/2`. No such equality at scale zero is claimed.
+-/
+
+private theorem af_qpow_rg (rho : Q') : ∀ n : Nat,
+    RingNormaliser.qpow rho n = RGTransport.qpow rho n
+  | 0 => rfl
+  | n+1 => congrArg (fun z : Q' => z*rho) (af_qpow_rg rho n)
+
+private theorem af_geometric_floor_necessary {rho theta : Q'}
+    (hrho0 : (0 : Q') ≤ rho) (hrho1 : rho ≤ (1 : Q')) (n : Nat)
+    (hfloor : theta ≤ RingNormaliser.qpow rho n) :
+    theta * (1 + Q'.ofNat n * (1-rho)) ≤ (1 : Q') := by
+  let loss : Q' := 1-rho
+  have hloss0 : (0 : Q') ≤ loss := Q'.sub_nonneg_of_le hrho1
+  have hloss1 : loss ≤ (1 : Q') := Q'.le_trans' _ _ _
+    (Q'.add_le_add_left 1 _ _ (Q'.neg_le_neg hrho0))
+    (Q'.le_of_eqv (by change (1 : Q') + -0 ≈ 1; decide))
+  have hpower : RGTransport.qpow (ReciprocalBernoulliUpper.oneSub loss) n ≈
+      RingNormaliser.qpow rho n := by
+    rw [← af_qpow_rg (ReciprocalBernoulliUpper.oneSub loss) n]
+    exact RingNormaliser.qpow_eqv_congr (af_one_sub_one_sub rho) n
+  have hbern : RingNormaliser.qpow rho n *
+      ReciprocalBernoulliUpper.bernDen loss n ≤ (1 : Q') := Q'.le_trans' _ _ _
+    (Q'.ge_of_eqv (Q'.mul_eqv_congr_right _ _ _ hpower))
+    (ReciprocalBernoulliUpper.oneSub_pow_mul_bernDen_le hloss0 hloss1 n)
+  exact Q'.le_trans' _ _ _
+    (Q'.mul_le_mul_of_nonneg_right _ _ _ hfloor
+      (Q'.le_of_lt (ReciprocalBernoulliUpper.bernDen_pos hloss0 n))) hbern
+
+private theorem af_two_mul_lt_cancel {a b : Q'} (h : (2 : Q')*a < 2*b) : a < b := by
+  change (2*a).num * ((2*b).den : Int) < (2*b).num * ((2*a).den : Int) at h
+  rw [Q'.mul_num_cast, Q'.mul_num_cast, Q'.mul_den_cast, Q'.mul_den_cast] at h
+  change (2*a.num)*(1*(b.den : Int)) < (2*b.num)*(1*(a.den : Int)) at h
+  simp only [Int.one_mul, Int.mul_assoc] at h
+  change a.num*(b.den : Int) < b.num*(a.den : Int)
+  omega
+
+/-- Computable cofinal probe for an arbitrary geometric certificate, not
+an interacting-response or physical-spacing modulus. -/
+def afGeometricCertificateProbeScale (theta : Q') (start : Nat) : Nat :=
+  afBareHeatProbeScale (2 * Q'.ofNat theta.den) start
+
+theorem afGeometricCertificateProbeScale_ge_start (theta : Q') (start : Nat) :
+    start ≤ afGeometricCertificateProbeScale theta start :=
+  afBareHeatProbeScale_ge_start (2 * Q'.ofNat theta.den) start
+
+/-- EVERY nonnegative scalar rate with loss at least afGap has geometric
+credit below theta at the explicit backward-lag probe. Endpoints rho=0,1
+and theta>1 are retained; no Wilson-response ceiling is asserted. -/
+theorem afGeometricCertificate_lt_at_probe {theta rho : Q'}
+    (htheta : (0 : Q') < theta) (start : Nat)
+    (hrho0 : (0 : Q') ≤ rho) (hrho1 : rho ≤ (1 : Q'))
+    (hgap : afGap (afGeometricCertificateProbeScale theta start) ≤ 1-rho) :
+    RingNormaliser.qpow rho
+      (side (afGeometricCertificateProbeScale theta start)/2+1) < theta := by
+  let j := afGeometricCertificateProbeScale theta start
+  let h := side j/2+1
+  let loss : Q' := 1-rho
+  have hloss0 : (0 : Q') ≤ loss := Q'.sub_nonneg_of_le hrho1
+  have hnum : (1 : Int) ≤ theta.num := by
+    have hn := Q'.num_pos_of_pos htheta
+    omega
+  have hden : (1 : Q') ≤ theta * Q'.ofNat theta.den := by
+    show (1 : Int)*((theta*Q'.ofNat theta.den).den : Int) ≤
+      (theta*Q'.ofNat theta.den).num*1
+    rw [Q'.mul_den_cast, Q'.mul_num_cast, Q'.ofNat_den_cast, Q'.ofNat_num_cast]
+    simp only [Int.mul_one, Int.one_mul]
+    simpa only [Int.one_mul] using
+      Int.mul_le_mul_of_nonneg_right hnum (Int.natCast_nonneg theta.den)
+  have hside : Q'.ofNat (side j) ≤ 2*Q'.ofNat h := Q'.le_trans' _ _ _
+    (CReal.ofNat_le_ofNat (by dsimp only [h]; omega : side j ≤ 2*h))
+    (Q'.le_of_eqv (SU3CharFactor.ofNat_mul_eqv 2 h))
+  have hN0 : (0 : Q') ≤ Q'.ofNat (side j) := by
+    rw [Q'.zero_le_iff_num_nonneg]
+    exact Int.natCast_nonneg _
+  have hbudget : Q'.ofNat (side j)*afGap j ≤ 2*(Q'.ofNat h*loss) :=
+    Q'.le_trans' _ _ _ (Q'.mul_le_mul_of_nonneg_left _ _ _ hgap hN0)
+      (Q'.le_trans' _ _ _ (Q'.mul_le_mul_of_nonneg_right _ _ _ hside hloss0)
+        (Q'.le_of_eqv (Q'.mul_assoc_eqv 2 (Q'.ofNat h) loss)))
+  have hlarge : Q'.ofNat theta.den < Q'.ofNat h*loss := af_two_mul_lt_cancel
+    (ClusteringImpliesGap.lt_of_lt_of_le
+      (afGap_side_gt_at_probe (2*Q'.ofNat theta.den) start) hbudget)
+  have hsum : Q'.ofNat h*loss ≤ (1 : Q')+Q'.ofNat h*loss :=
+    Q'.le_trans' _ _ _ (Q'.ge_of_eqv (Q'.eqv_of_eq (Q'.zero_add' _)))
+      (Q'.add_le_add_right 0 1 _ (by decide))
+  have hstrict : (1 : Q') < theta*(1+Q'.ofNat h*loss) := Q'.lt_of_le_of_lt hden
+    (Q'.mul_lt_mul_of_pos_left htheta (ClusteringImpliesGap.lt_of_lt_of_le hlarge hsum))
+  by_cases hfloor : theta ≤ RingNormaliser.qpow rho h
+  · have hu := af_geometric_floor_necessary hrho0 hrho1 h hfloor
+    exact False.elim (ClusteringImpliesGap.lt_irrefl' 1
+      (ClusteringImpliesGap.lt_of_lt_of_le hstrict hu))
+  · change (RingNormaliser.qpow rho h).num*(theta.den : Int) <
+      theta.num*((RingNormaliser.qpow rho h).den : Int)
+    change ¬ theta.num*((RingNormaliser.qpow rho h).den : Int) ≤
+      (RingNormaliser.qpow rho h).num*(theta.den : Int) at hfloor
+    omega
+
+/-- No eventual uniform positive floor for these scalar geometric certificates.
+The rate may vary with scale; no actual interacting survival is refuted. -/
+theorem afGeometricCertificate_no_eventual_floor {theta : Q'}
+    (htheta : (0 : Q') < theta) (start : Nat) (rho : Nat → Q')
+    (hrho0 : ∀ j, start ≤ j → (0 : Q') ≤ rho j)
+    (hrho1 : ∀ j, start ≤ j → rho j ≤ (1 : Q'))
+    (hgap : ∀ j, start ≤ j → afGap j ≤ 1-rho j) :
+    ¬ (∀ j, start ≤ j → theta ≤ RingNormaliser.qpow (rho j) (side j/2+1)) := by
+  intro hfloor
+  let j := afGeometricCertificateProbeScale theta start
+  have hj := afGeometricCertificateProbeScale_ge_start theta start
+  have hl := afGeometricCertificate_lt_at_probe htheta start
+    (hrho0 j hj) (hrho1 j hj) (hgap j hj)
+  exact ClusteringImpliesGap.lt_irrefl' theta
+    (Q'.lt_of_le_of_lt (hfloor j hj) hl)
+
 end YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory
 
 #print axioms YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory.dyadic_af_core
@@ -598,3 +715,7 @@ end YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory
 #print axioms YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory.afSquareTransmissionProbeScale
 #print axioms YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory.afSquareTransmissionProbeScale_ge_start
 #print axioms YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory.afSquareTransmission_lt_at_probe
+#print axioms YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory.afGeometricCertificateProbeScale
+#print axioms YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory.afGeometricCertificateProbeScale_ge_start
+#print axioms YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory.afGeometricCertificate_lt_at_probe
+#print axioms YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory.afGeometricCertificate_no_eventual_floor

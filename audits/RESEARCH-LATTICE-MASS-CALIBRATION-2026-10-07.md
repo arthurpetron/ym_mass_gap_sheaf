@@ -47,6 +47,12 @@ analytic work, not evidence that the numerical mass closes a proof node.
    Neither that number nor its extrapolation is a kernel certificate.
    [Primary paper, sections II and VI](https://arxiv.org/html/hep-lat/9901004).
    [Athenodorou--Teper, continuum tables](https://arxiv.org/html/2106.00364v2).
+   Targeted source clarification, 2026-10-08 UTC: Morningstar--Peardon's
+   section II uses an IMPROVED anisotropic action S_II, not the isotropic
+   Wilson action or this repository's original heat action. Its measured
+   channel and variational coefficients cannot be imported into the current
+   SU(2) carrier without an actual same-theory identification. This adds no
+   measurement premise or action substitution to the plan.
 2. Preserve physical time normalization. An exact discrete-time generator,
    when its logarithm/domain is constructed, is -log(T)/a_t. Do not identify
    it at finite a_t with the standard Kogut--Susskind electric-plus-magnetic

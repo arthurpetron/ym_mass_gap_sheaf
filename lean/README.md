@@ -16,6 +16,15 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked geometric cap/floor pruning (2026-10-08 UTC):**
+`BF4WilsonAllNomeAFPaddedTrajectory.afGeometricCertificate_lt_at_probe`
+constructively excludes a uniform positive backward-window power for scalar
+rates whose loss is >=afGap, even with changing rates and an arbitrary start.
+This prunes a proposed geometric rescue of the coarse certificate, NOT
+actual Wilson survival or the direct signed-window estimate. Focused leaf
+check 2 and independent complete-source review PASS; gates permitted only.
+No new module/frontier or broad audit. Evidence: adaptive-score audit.
+
 **Checked SAME-slice original Gauss/transfer join (2026-10-08 UTC):**
 `SU2QuaternionHaarBlockEmbeddingAngular` transports actual derivatives and
 reflects supported Haar equality. `BF4ExactSlabFixedSpatialGaussTransfer`

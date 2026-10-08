@@ -27,6 +27,21 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED geometric cap/floor pruning (2026-10-08 UTC):
+`BF4WilsonAllNomeAFPaddedTrajectory.afGeometricCertificate_lt_at_probe`
+constructs j beyond ANY start where EVERY scalar rate with loss >=afGap(j)
+has backward-window power below ANY supplied positive theta; the eventual
+uniform-certificate corollary also allows scale-dependent rates. Thus using
+geometric rather than linear propagation cannot rescue the earlier coarse
+cap/floor strategy. This is NOT a ceiling on actual interacting responses
+or a refutation of smoothed survival. One existing leaf, focused check 2
+and independent complete-source review PASS, permitted gates only; no new
+module or frontier. MAIN remains the joint original moving-moment credit
+or relative-innovation estimate, not another propagation compiler. Exact
+verification boundary and the corrected process-preflight defect are in
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`. Physical/Clay
+and canonical displayed claims remain OPEN/unchanged.
+
 CHECKED independent SAME-slice gauge/transfer join (2026-10-08 UTC):
 `BF4ExactSlabFixedSpatialGaussTransfer.spatialWeight_gauss_zero` retains every
 original spatial face; `transferStep_gauss_intertwining` and
@@ -184,8 +199,9 @@ Canonical displayed claims unchanged; no chart reprint.
 Attachment reconciliation (2026-10-08 UTC): the latest lattice-measurement
 note repeats the source-backed calibration audit. Retain channel versus
 every-state gap, reference-scale dependence, and the temporal-continuum
-Wilson/Kogut--Susskind distinction. No numerical mass, strong Sobolev sample
-convergence or finite-spacing Hamiltonian equality is a new premise.
+Wilson/Kogut--Susskind distinction. The cited spectroscopy uses an improved
+anisotropic action, not this original heat action. No numerical mass, strong
+Sobolev sample convergence or finite-spacing Hamiltonian equality is a new premise.
 Reuse `audits/RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md`; continue
 the original interacting estimate rather than create another interface.
 

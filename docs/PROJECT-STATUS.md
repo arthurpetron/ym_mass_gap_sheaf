@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Supporting geometric cap/floor obstruction checked (2026-10-08 UTC):
+the existing AF trajectory leaf constructs a cofinal scale where ANY scalar
+rate with loss >=afGap has backward-window power below a given positive
+theta. Geometric propagation cannot rescue that coarse certificate.
+This is NOT a bound on actual interacting responses or failed survival.
+Focused leaf check 2 and independent complete-source review PASS; the main
+signed moving-window/relative-innovation input and physical/Clay goals remain
+OPEN. Exact displayed claims unchanged; no chart reprint. Evidence:
+adaptive-score audit (including the corrected process-preflight defect).
+
 Supporting SAME-slice ORIGINAL-transfer gauge preservation checked
 (2026-10-08 UTC): the actual slice Gauss generator kills the full spatial
 weight and intertwines T=P(V*·) at arbitrary-insertion Haar strength.

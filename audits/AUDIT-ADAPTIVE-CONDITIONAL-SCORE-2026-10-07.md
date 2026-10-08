@@ -4,6 +4,91 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Observed geometric cap/floor obstruction (2026-10-08 UTC)
+
+CHECKED in the EXISTING AF trajectory leaf:
+`lean/YMGap/Continuum/BF4WilsonAllNomeAFPaddedTrajectory.lean:608`,
+`afGeometricCertificateProbeScale`, returns a computable cofinal probe;
+`afGeometricCertificateProbeScale_ge_start:611` retains any supplied start.
+`afGeometricCertificate_lt_at_probe:618` proves rho^(N/2+1)<theta for
+EVERY 0<=rho<=1 with afGap(j)<=1-rho at that probe.
+`afGeometricCertificate_no_eventual_floor:668` excludes an eventual fixed
+positive scalar floor even for a scale-dependent rho. The proof uses the
+actual rational AF denominator and reciprocal Bernoulli, not asymptotics.
+The probes are >=1, where the dyadic side is even and the displayed exponent
+is the ACTUAL backward lag. Endpoints rho=0,1, theta>1 and nonreduced positive
+rationals are retained. Neither a Wilson response ceiling nor an interacting
+energy lower bound is asserted.
+
+Observed verification: focused check 2 exits zero, no warnings/errors.
+The probe is axiom-free; the other three new public gates are exactly
+{propext,Quot.sound}. All existing printed gates remain permitted, with no
+sorryAx. Check 1 rejected only the corollary's reversed order composition;
+root repaired it to theta<=power<theta. Its error-generated sorryAx is NOT
+accepted proof evidence. No new source sorry, axiom, option, import or frontier.
+Exactly 121 lines added (final 721), within the 160-line/two-check budget.
+Root read the complete source and the exact final repair; independent
+complete-source mathematical review reconciled to the final hash PASS.
+Only this leaf and its olean were checked; no root/tree build, audit, guard
+or progress metric. One monitored 20-GiB worker, 12-GiB reserve; memory
+preflights 87% then 86% pressure-free, zero swap. Process preflight passed
+before check 1. The second refresh's awk matcher FAILED; it was corrected
+immediately, finding no competing compiler/test/runner after the brief check.
+This is a procedural preflight defect, not a fully passing second preflight;
+future launches must stop if ANY preflight command fails, before compiling.
+
+```text
+SOURCE lean/YMGap/Continuum/BF4WilsonAllNomeAFPaddedTrajectory.lean
+SHA256 94cd6132b4245a558476f4665bb4e89987372e4dae24252e0895a6c90dd8f1b5
+CHECK  /private/tmp/ym-oct8-af-geometric-certificate2.log
+SHA256 fc045df278600bbc0a13fa9f8302cbf1d38481da9e8bc6eae86e5ed7c0703fc3
+```
+
+Decision: PRUNE the proposed geometric rescue of the coarse cap/floor
+certificate, whose PAPER loss >=48*afGap meets the stronger checked screen
+already at loss >=afGap. The algebra linking the original energy cap and
+variance cap to 48 remains the earlier PAPER strategy diagnostic, not a new
+formal energy bound. This result does NOT refute actual smoothed survival,
+the later-moment credit/payment test, or the Yang--Mills theory. Continue
+MAIN with the SAME-source signed moving-window credit/payment or original
+relative-innovation estimate, not another propagation compiler. Physical
+scaling/calibration, QFT, every group and Clay stay OPEN. No canonical field
+or exact displayed claim changes, so no chart reprint.
+
+## Selected geometric cap/floor obstruction (2026-10-08 UTC)
+
+Exact proposition: for each positive rational theta and supplied start,
+construct j>=start such that EVERY scalar 0<=rho<=1 with
+afGap(j)<=1-rho satisfies rho^(side(j)/2+1)<theta. This is a necessity
+for a proposed sufficient GEOMETRIC certificate, not an upper bound on an
+interacting response. The consumer being screened is
+`BF4WilsonAllNomeOddResponseJensen.response_shift_floor`, against the actual
+backward lag of `BF4WilsonAllNomeShiftedWindowSurvival.PathShiftedWindowSurvival`.
+It removes the proposed rescue of the coarse cap/floor strategy by replacing
+its nonpositive linear Bernoulli credit with geometric propagation. It does
+not remove or change a canonical analytic field.
+
+Available inputs: the existing explicit cofinal `afBareHeatProbeScale` and
+`afGap_side_gt_at_probe` in `BF4WilsonAllNomeAFPaddedTrajectory`, and
+`ReciprocalBernoulliUpper.oneSub_pow_mul_bernDen_le`. At h=N/2+1, N<=2h.
+Use the explicit cap 2*ofNat(theta.den): theta*ofNat(theta.den)>=1, while
+reciprocal Bernoulli and theta<=rho^h would force theta*N*afGap<=2,
+contradicting the probe. No logarithm, limiting argument, inverse, spectral
+measure, physical-spacing assumption or actual-transfer identification.
+
+Predicted result: the scalar geometric certificate cannot stay uniformly
+positive on this schedule even with loss merely >=afGap; the cap/floor
+strategy's PAPER loss >=48*afGap is therefore not rescued. Test rho=0,
+rho=1, theta>1, j=0 and arbitrary supplied start. No lower bound on the
+actual interacting energy or failure of actual smoothed survival follows.
+Implement in the EXISTING AF trajectory leaf, no new module/interface.
+Budget: <=160 added Lean lines, <=2 root-owned focused checks, one worker,
+20-GiB ceiling and 12-GiB reserve with fresh dynamic preflight at each launch.
+Independent final-source mathematical review is required. Stop/revise if
+the only result duplicates the bare w^(12*N) obstruction or needs a new
+analytic premise. Main signed moving-moment credit/payment and original
+relative innovation stay OPEN and primary. No chart reprint.
+
 ## Observed SAME-slice Gauss/ORIGINAL-transfer join (2026-10-08 UTC)
 
 The selected finite join is now CHECKED, not an assumed invariance interface.
