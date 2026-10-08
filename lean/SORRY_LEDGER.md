@@ -1,5 +1,23 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL inserted active-carrier reduction / OPEN charged contractions (2026-10-08 UTC)
+
+`lean/YMGap/Continuum/BF4ExactCutoffOneInsertedActiveCarrier.lean:59`,
+`inner_insertionMask_bit_zero`, and `affine_action_inner_support:82` produce
+ORIGINAL selected-action inner support from actual inner insertion IDs and
+membership of action XOR charge in the existing 128. The action itself need
+not be closed. `reindex_insertedIntegrand_tailZero:218` proves the absent tail
+for the SAME literal weighted integrand; `exactCutoffOneInsertedHaar_eq_active:236`
+uses the existing permutation and normalized inactive deletion to give H32.
+Every insertion occurrence and original heat coefficient remain. Arbitrary
+Q' nome/insertion length; no outer insertion, contraction value or nonzero
+sufficiency claim. Accepted focused capped check/12 gates exactly within
+{propext,Quot.sound}; independent full final-source review. No new input,
+hole, axiom, quarantine or option increase. Root import registered only,
+not root-built. Actual one/two-insertion degree/size production, charged
+values, DIRECT retention or sufficient JOINT estimate and all changing-family/
+physical/Clay requirements remain OPEN. Evidence/hashes: pilot audit.
+
 ## PROVED original inserted affine-mask selection / OPEN active reduction and charged values (2026-10-08 UTC)
 
 `lean/YMGap/Continuum/BF4ExactCutoffOneInsertedMask.lean:148`,

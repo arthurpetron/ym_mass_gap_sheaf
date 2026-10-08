@@ -1,12 +1,24 @@
 # Canonical one-page project status
 
+Supporting ORIGINAL inserted H116->H32 reduction checked (2026-10-08 UTC):
+closed affine parity and actual inner insertion IDs produce inner support
+of the ORIGINAL action. Its literal heat coefficient and every insertion
+occurrence remain in the integrand. The existing permutation and normalized
+tail deletion remove exactly 84 absent variables; arbitrary rational nome
+and insertion multiplicity. One focused capped check/12 permitted gates,
+independent complete final-source review; root import registered, not built.
+Charged values/size-bound production and all changing-family/physical/Clay
+claims remain OPEN. Canonical displayed claims unchanged; no chart reprint.
+Evidence: original-moment-pilot feasibility audit.
+
 Supporting ORIGINAL inserted affine-mask selection checked (2026-10-08 UTC):
 literal action plus insertion degree has action-XOR-charge parity. Even
 degree on every actual link is equivalent to membership in the existing
 128 closed masks; nonclosed masks give zero actual inserted 116-link Haar.
 Repeated insertions retain their polynomial; all original action weights
 remain. One focused capped check/19 permitted gates and full independent
-review. Active-carrier reduction and charged values remain OPEN. This is
+review. Active-carrier reduction is subsequently checked above; charged
+values remain OPEN. This is
 supporting finite pilot work, not a changed canonical displayed claim.
 Evidence: original-moment-pilot feasibility audit; no chart reprint.
 
@@ -14,7 +26,8 @@ Supporting useful ORIGINAL nome-sensitive cutoff accuracy checked
 (2026-10-08 UTC): actual Haar tails retain 9*w^8, with normalized cap
 2*c*ofNat(ids.length)*(20736/1055)*w^8*(1/72)^(K-1), NAMED 0<=w<=1/2,K>=1.
 The SAME existing expectation inherits it; at 72 faces,K=1,w=1/4 this is
-729*c/16880<c/20. Zero/half endpoint tests, old public bounds, BOTH OWN
+729*c/16880<=c/20, with strict coefficient 729/16880<1/20. Zero/half endpoint
+tests, old public bounds, BOTH OWN
 masses and repetitions are preserved. Two accepted focused checks/31
 permitted gates and independent final-source review; no root/tree audit.
 Charged values, active reduction, changing-family retention and physical/

@@ -615,7 +615,8 @@ giving relative cap (20736/1055)*w^8*(1/72)^(K-1). Existing public estimates
 and canonical guards remain; do not clone their cancellation proofs.
 Consumer: actual original early-cutoff moments compared to the EXISTING
 all-nome expectation. Prediction: at 72 faces,K=1,w=1/4 the full error is
-(729/16880)*c, less than c/20, with cap c from the actual observable interval.
+(729/16880)*c<=c/20, with coefficient 729/16880<1/20 and nonnegative cap c
+from the actual observable interval (also valid at c=0).
 Tests: w=0 tail zero; w=1/2 old cap; repeated faces and distinct OWN masses;
 inclusive K=1; no new pointwise-to-Haar inference. This is fixed-corridor
 pilot accuracy, not w->1/scaling/retention. Budget: two changed focused
@@ -731,4 +732,95 @@ do NOT replace its original popcount/heat weight by that of z. No charged
 value, active reduction, positive response reserve or scaling retention is
 claimed here. DIRECT macroscopic retention or sufficient JOINT original-
 family estimate, continuum survival, physical mass/QFT/every-group and Clay
+remain OPEN. No canonical displayed claim changed; no chart reprint.
+
+## Selected ORIGINAL inserted active-carrier join (2026-10-08 UTC)
+
+Previous goal increment: PROGRESS, accepted accuracy and constructive affine
+selection committed/pushed as 72ac2157 and 51631e1f. Current selected proposition:
+H116(I) = H32(trim32(reindex(I))) for the literal
+`BF4ExactCutoffOneInsertedDegree.exactCutoffOneInsertedIntegrand`, assuming
+cutoff-one physical labels, actual inner insertion IDs and affine membership
+in the existing 128 closed masks. This exact inserted consumer does not yet
+exist; it removes the pilot's active-carrier reduction input, not charged
+evaluation or changing-family retention. Keep original heat weights intact.
+
+Available inputs: SurfaceActiveCarrier's actual inner-factor zero-tail theorem
+(602), tail product closure (445), Haar reindexing (369), reindexed term lengths
+(394), inactive deletion (258), and closed-mask face-support check (486).
+Produce action inner support: outside the inner 24 faces both closed affine
+mask and insertion XOR charge have zero bits, hence so does the action mask.
+Generalize the selected-action fold locally; the legacy fold (682) assumes
+an uncharged closed action and cannot be applied to translated candidates.
+
+Prediction: no new geometry certificate, analytic input or permutation;
+finite bit algebra and occurrence-preserving product induction suffice.
+Decisive tests: empty/repeated insertion lists; charge-zero is NOT polynomial
+one; translated action weight remains its original coefficient; outer
+insertions do NOT qualify. Budget: one new focused leaf, bounded Sol
+implementation and independent full-source review, serialized 20-GiB worker
+with 12-GiB reserve/fresh dynamic preflight. Revise if a required support fact
+is unavailable or if the proof assumes the desired zero tail instead of
+producing it. No large contraction, root/tree build, audit, guard or metric.
+
+## Observed ORIGINAL inserted H116->H32 reduction (2026-10-08 UTC)
+
+Accepted source `lean/YMGap/Continuum/BF4ExactCutoffOneInsertedActiveCarrier.lean`:
+`inner_insertionMask_bit_zero:59` and `affine_action_inner_support:82`
+derive ORIGINAL action inner support from actual inner insertion IDs and
+closed affine membership. The original action mask need not itself be closed.
+`reindex_insertedIntegrand_tailZero:218` retains the literal heat coefficient
+and both occurrence-preserving products. `exactCutoffOneInsertedHaar_eq_active:236`
+uses the EXISTING checked permutation/exact term lengths/normalized deletion
+to give the SAME inserted H32 value. Arbitrary Q' nome and list multiplicity;
+no polynomial expansion, action replacement, repeated-factor deletion,
+new geometry/permutation certificate or support conclusion as a hypothesis.
+Outer insertions do not meet the actual-inner-ID guard.
+
+Accepted final focused check c: exit 0, 1.53s, all 12 public/helper gates
+exactly {propext,Quot.sound}, no error/warning/sorryAx/choice. Complete
+independent FINAL-source review passes. Preliminary a/b logs are NOT evidence:
+missing selective namespace and an unfolded-index arithmetic alignment were
+repaired, with unchanged guards/math and no option increase. Each launch
+used one 20-GiB worker/12-GiB reserve and fresh 88%-free/zero-swap/exclusion
+preflight. Root import registered only; no root/tree build, audit, guard,
+metric or large charged calculation. Minor accuracy documentation correction:
+the coefficient is strictly below 1/20, but the c-scaled bound is non-strict
+at c=0; no Lean theorem changed.
+
+```text
+Accepted log /private/tmp/ym-cutoff-one-inserted-active-20261008-c.log
+SHA256 b31d6930c154c088bb5d3aefebf892e0b743f68b5f2f41db842c929ddc53a5c0
+Checked final source SHA256
+db12ed438218d8e1126ac9b0ea1f0ac3023d5e3863c7aa5ff394a2e71216d5c2
+```
+
+### Separate read-only next-budget screen (not a proved bound)
+
+Sol source review and root reconciliation identify one missing actual
+geometry certificate: on each raw block<116, the sum of incidence of the
+literal inner24 faces is at most 3. No declaration asserting it was found
+in `BF4CutoffOneBinarySurfaceCertificate`, `BF4CutoffOneBinarySurfaceEmbedding`,
+`BF4ExactCutoffOneSurfaceActiveCarrier`, or the inserted degree/mask leaves.
+Existing compact bivalency (`BF4CutoffOneBinarySurfaceCertificate.lean:124`,
+`binarySurfaceMasks_edge_bivalent`) does not supply this translated-action
+bound automatically. Actual insertion incidence is 0/1 by
+`BF4ExactCutoffOneSurfaceCharacterReindex.lean:129`,
+`slabFaceBlockDegree_eq_incidenceBit`; even actual total degree is supplied
+by `BF4ExactCutoffOneInsertedMask.lean:189`, `inserted_parity_allowed_iff_mem`.
+
+If the actual inner24 cap is produced, the new action-support theorem bounds
+selected action degree by 3. One/two insertion occurrences add at most 2;
+even degree then forces {0,2,4}. Away from insertion edges it forces {0,2}.
+`BF4GeometricSpinNetworkMehler.lean:356`, `orientedPlaquetteBoundary_length`,
+supplies four boundary entries per insertion, suggesting at most 8 quartic
+links (at most 4 for a repeated face). This count/degree argument still needs
+its actual finite proof. It bounds input degrees, NOT evaluator intermediate
+sizes or runtime. No new numerical sweep, compiler or result from this screen.
+
+Decision: CONTINUE with that small incidence/degree producer before selecting
+a costly signed contraction. Active reduction and fixed-small-nome accuracy
+are supplied; charged values, original positive reserve, DIRECT macroscopic
+retention or sufficient JOINT changing-family estimate remain unsupplied.
+Continuum survival, calibrated physical gap, SAME QFT/every-group and Clay
 remain OPEN. No canonical displayed claim changed; no chart reprint.

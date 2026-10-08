@@ -4,6 +4,20 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## ORIGINAL inserted H116->H32 carrier reduction (2026-10-08 UTC)
+
+Actual closed-affine support plus inner insertion IDs produce ORIGINAL
+selected-action inner support; no assumption that the action itself is closed.
+Both occurrence folds and the unchanged heat coefficient have proved zero
+inactive tails after the existing permutation. Exact normalized Haar deletion
+gives the SAME weighted H32 integrand. Arbitrary rational nome/multiplicity;
+outer insertions excluded. One accepted focused capped check/12 permitted
+gates, independent full final-source review. Root import registered only;
+no root/tree audit, guard, metric, contraction value or chart closure.
+NEXT actual degree/size budget for the one/two-insertion signed contractor.
+DIRECT retention, changing-family/physical/QFT/every-group/Clay stay OPEN.
+Exact evidence and the separate read-only budget screen: pilot audit.
+
 ## ORIGINAL inserted affine-mask selection (2026-10-08 UTC)
 
 Produced literal degree/parity identity, physical face guard and 72-bit
@@ -23,7 +37,8 @@ Exact evidence: original-moment-pilot feasibility audit.
 Actual tail intervals retain 9*w^8, giving full normalized error
 <=2*c*ofNat(ids.length)*(20736/1055)*w^8*(1/72)^(K-1) at NAMED
 0<=w<=1/2,K>=1. The unchanged original all-nome expectation receives the
-same bound at strict nome. At F=72,K=1,w=1/4 it is 729*c/16880<c/20.
+same bound at strict nome. At F=72,K=1,w=1/4 it is 729*c/16880<=c/20,
+with strict coefficient 729/16880<1/20 (including c=0).
 OLD public statements/guards, BOTH OWN partitions and repeated/shared factors
 remain; cancellation/telescope/limit machinery is reused rather than cloned.
 Two accepted focused capped checks/31 permitted gates, independent final

@@ -27,6 +27,26 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED ORIGINAL inserted H116->H32 carrier reduction (2026-10-08 UTC):
+`CutoffOneInsertedActiveCarrier.affine_action_inner_support` produces ORIGINAL
+action inner support from closed affine membership and actual inner insertion
+IDs. The action mask itself need not be closed. Its
+`reindex_insertedIntegrand_tailZero` retains every original heat coefficient
+and insertion OCCURRENCE, then `exactCutoffOneInsertedHaar_eq_active` deletes
+exactly 84 proved-absent normalized Haar variables using the EXISTING checked
+permutation/trim. Arbitrary Q' nome and insertion-list length; outer insertions
+do not qualify. One accepted focused capped check/12 permitted gates and
+independent complete FINAL-source review; no new assumption/hole/axiom or
+resource-option increase. Root import registered only, not root-built.
+NEXT: produce the actual inner24 incidence cap and resulting {0,2,4} degree
+bound for one/two insertions; then a signed contraction/evaluator with its
+verified original-integrand pin and adequate size bound. The parallel
+source screen is recorded in the pilot feasibility audit, NOT a proof of
+quartic count/runtime. Charged values and useful retention are still OPEN.
+DIRECT macro retention or sufficient JOINT original-family signed estimate,
+changing-family control, continuum survival, calibrated physical mass,
+QFT/every-group and Clay remain OPEN. Displayed chart claims unchanged.
+
 CHECKED constructive ORIGINAL inserted affine-mask selection (2026-10-08 UTC):
 `CutoffOneInsertedMask.inserted_totalDegree_parity` pins the literal
 selected-action plus insertion OCCURRENCE degree to action-mask XOR charge.
@@ -41,7 +61,8 @@ No new axiom, hole, analytic premise, quarantine or resource option.
 NEXT missing proposition: for insertions on the actual inner 24 faces,
 reduce the literal inserted 116-link integrand to the SAME 32-link active
 carrier, including translated action candidates z XOR charge and their
-original weights. No charged H32 value or active reduction is proved here.
+original weights. That active reduction is subsequently checked above;
+this selection alone supplies no charged H32 value.
 This bounded pilot supports the still-OPEN DIRECT macroscopic retention or
 sufficient JOINT original-family signed-cost/variance estimate; continuum
 survival, calibrated physical gap, QFT/every-group and Clay remain OPEN.
@@ -55,14 +76,15 @@ CHECKED useful nome-sensitive ORIGINAL cutoff accuracy (2026-10-08 UTC):
 and `expectation_nome_cutoff_bound` reuse the shared normalized cancellation,
 occurrence-list induction and SAME existing original limit. BOTH OWN masses,
 repeats/shared links, old public statements and canonical guards stay intact.
-At F=72,K=1,w=1/4 the full bound is (729/16880)*c<c/20, with c from the
-actual observable interval; zero nome gives zero and half nome recovers the
+At F=72,K=1,w=1/4 the full bound is (729/16880)*c<=c/20, with coefficient
+729/16880<1/20 and nonnegative c from the actual observable interval;
+zero nome gives zero and half nome recovers the
 old cap exactly. This removes the chosen small-nome accuracy bottleneck,
 not the charged values, active reduction or changing-family retention.
 Two serialized focused capped checks/31 permitted gates and independent
 final-source review pass; no root/tree audit or chart closure. The subsequent
-affine-mask selection is accepted above. NEXT: actual inner-carrier reduction
-and signed contraction with its original weights. DIRECT macro retention, scaling,
+affine-mask selection and actual inner-carrier reduction are accepted above.
+NEXT: signed contraction with its original weights. DIRECT macro retention, scaling,
 physical calibration, QFT/every-group and Clay remain OPEN. Exact evidence:
 original-moment-pilot feasibility audit. Earlier entries are checkpoints.
 
