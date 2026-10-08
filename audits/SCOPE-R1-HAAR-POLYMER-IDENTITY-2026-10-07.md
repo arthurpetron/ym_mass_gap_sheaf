@@ -244,3 +244,7 @@ No fail statement is given: the ℓ¹ envelope is an upper bound, not the true a
 
 - Z > 0, the explicit distance n+1, covariance decay, and the conditional ratio bound with explicit constants.
 - OPEN: hcov, hsup, hshift. All local observables is a separate open item.
+
+## PROVED: commit 38, `SU2TorusNormalizedRatio.lean`
+
+- Normalised ratio bound with the volume-uniform constant Cw·λ. Carried: 2X+1 ≤ M, in-box root, spatial plane. Scope: one spatial plaquette, β_S, fixed K (constants uniform in K and volume), U(1)-true, not gap evidence.

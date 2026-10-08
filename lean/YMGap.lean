@@ -4950,6 +4950,8 @@ import YMGap.Continuum.JacobiProductRadialSignedTail
 import YMGap.Continuum.JacobiProductRadialLimit
 -- Endpoint producer and finite convolution ingredients; completed addition remains open.
 import YMGap.Continuum.JacobiProductRadialEndpoint
+import YMGap.Continuum.ThetaCeilingCells
+import YMGap.Continuum.ThetaCeilingNamedNomes
 import YMGap.Continuum.ThetaParityConvolution
 import YMGap.Continuum.ChebyshevHalfShiftProduct
 import YMGap.Continuum.ThetaAngularShellTail
@@ -7768,6 +7770,7 @@ import YMGap.Continuum.SU2TorusCenteredCovarianceRP
 import YMGap.Continuum.SU2TorusCenteredPositiveSupport
 import YMGap.Continuum.SU2TorusCenteredPairShift
 import YMGap.Continuum.SU2TorusCenteredFiniteRatio
+import YMGap.Continuum.SU2TorusNormalizedRatio
 -- The gap comparison does not need the full RG interface's coercive lower
 -- bound. Its positive-time-smoothing obstruction is scoped to that full field.
 import YMGap.Continuum.BF4WilsonAllNomeRGTimeSmoothingObstruction
@@ -7825,3 +7828,15 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialTotalSignedScorePayment
 -- source and its reconstructed energy; scaling-smallness remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceRayleighPersistence
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLocalEnergyTransport
+import YMGap.Continuum.SU2TorusRPKLimit
+import YMGap.Continuum.SU2TorusTimeRefl
+import YMGap.Continuum.SU2TorusTau
+import YMGap.Continuum.SU2TorusTauVar
+import YMGap.Continuum.SU2TorusTauTK
+import YMGap.Continuum.SU2TorusReflShift
+import YMGap.Continuum.SU2TorusThetaTau
+import YMGap.Continuum.SU2TorusCorrelator
+import YMGap.Continuum.SU2TorusRPKTail
+import YMGap.Continuum.SU2TorusRPKProd
+import YMGap.Continuum.SU2TorusRPKCauchy
+import YMGap.Continuum.SU2TorusRPKClosed
