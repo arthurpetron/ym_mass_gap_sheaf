@@ -4,6 +4,110 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Observed three-replica signed conditional jet Gram (2026-10-08 UTC)
+
+Decision: pursue the polynomial-valued conditional join directly. A rational
+full-Haar centered Schur bound would not itself cancel a surviving polynomial
+marginal. The chosen proposition is arbitrary-certified-insertion positivity
+of the SAME conditional determinant N*F-S^2, with the signed Hessian retained.
+Available inputs: produced original-prefix frozen curvature; positive kernel
+windows; shared-tail copy/lift/head-Fubini certificates; constructive integrated
+positive-window reflection. No finite certificate-level division is assumed.
+
+Classification: VERIFIED PROGRESS. For three copied rows with
+kernel P_i, score d_i, augmented Hessian dd_i and observable f_i, put
+h_i=f_j-f_k cyclically, B_i=P_j*P_k and w=sum_i B_i*d_i*h_i. The cleared
+replica determinant satisfies
+
+```text
+(P0*P1*P2)*T = w^2 + sum_i (B_i*h_i)^2*(P_i*dd_i-d_i^2).
+```
+
+All three curvature witnesses construct the right side. Kernel windows
+cancel the product multiplier only in Haar order. Exact shared-tail triple
+integration now identifies the weighted T with six times the 3x3 moment determinant.
+Multiplying the retained positive marginal A gives N*F-S^2=A*det(M), without
+a polynomial marginal inverse or a strict variance premise. This is an
+integrated order claim under arbitrary certified tail insertions, not a claim
+that T or the divided determinant has a finite square certificate.
+
+Pre-verification checks and revision criteria (retained experiment record):
+constant/zero observable, zero heads/tail, nonzero score mean,
+signed cross terms and exact factor SIX; preserve the actual input action in
+each copy and all shared survivors. Verify narrow leaves serially with one
+20-GiB worker/fresh dynamic preflight, no full audit. Revise if replica copies
+share an integrated head, an insertion is lost, positivity is assumed for the
+target determinant, or an actual positive-kernel window is unavailable. The
+remaining original product/domain-jet recoding and incoming-source residual
+must still meet this producer; no OS/scaling/Clay claim changes.
+
+### Constructed output and its exact boundary
+
+With I the ORIGINAL ordered-head integral, define A=I(qP), b=I(qP*phi),
+D=I(qd), v=I(qP*phi^2), e=I(qd*phi), G=I(qddAug). The checked output is
+
+```text
+N=A*v-b^2, S=A*e-b*D, F=A*G-D^2;
+H_tail(R*S^2) <= H_tail(R*N*F).
+```
+
+The input density q and tail insertion R have explicit square certificates;
+R has NO support or independence premise. The actual marginal A is produced
+positive by head integration and retained as a spectator. Neither A nor N
+is assumed strictly positive or inverted. Copies of constant caps are
+identified only by supported Haar-carrier equality, not false raw coefficient
+equality. The exact factor SIX is cancelled as a positive rational, not an
+analytic loss. Zero heads/source and constant observables are admitted by
+the general statements; independent source review checked these boundaries.
+
+The literal ORIGINAL-prefix consumer constructs its curvature and windows
+from the prior producers, with ddAug=dd+C*threeSquare(u)*P and the named
+fixed-nome onset. No Hessian sign, curvature bound or target Gram inequality
+is a premise of that consumer. The polynomial cost stays INSIDE G.
+The precomputed paired-jet moments D/G are NOT identified with derivatives
+of the marginal A when q or coefficients depend on integrated heads. This
+is an actual finite conditional jet-moment inequality, not yet the full
+interacting-action score estimate or an arbitrary incoming c=q*phi claim.
+
+| Produced declaration | Final source | Passing focused log |
+| --- | --- | --- |
+| `cleared_replica_pin`, `cleared_replica_certificate`, `centered_difference_pin` | `lean/YMGap/Continuum/QuaternionHaarClearedThreeGram.lean:89`, `:117`, `:153` | `/private/tmp/ym-cleared-three-gram-20261008.log` |
+| `positiveFromLowerWindow`, `multiplyPositiveWindows` | `lean/YMGap/Continuum/QuaternionHaarCertifiedPositiveWindowProduct.lean:44`, `:58` | `/private/tmp/ym-positive-window-product-20261008c.log` |
+| `copy_add`, `copy_neg`, `copy_cap_carrier` plus eight unchanged regression gates | `lean/YMGap/Continuum/SU2QuaternionMultiHeadVarianceReplica.lean:320`, `:325`, `:333` | `/private/tmp/ym-copy-cap-20261008.log` |
+| `tripleCopy`, `tripleCopy_mul/add/neg/supported/certificate`, `replica_product_three` | `lean/YMGap/Continuum/SU2QuaternionTripleHeadReplica.lean:34`, `:41`, `:60`, `:66`, `:72`, `:95`, `:122` | `/private/tmp/ym-triple-head-20261008c.log` |
+| `weighted_replica_integral_pin` (plus `symTensor_integral_pin`) | `lean/YMGap/Continuum/SU2QuaternionConditionalSignedGramReplica.lean:235`, `:144` | `/private/tmp/ym-conditional-gram-replica-20261008.log` |
+| `tripleKernelWindow` and its five actual copy/lift producers | `lean/YMGap/Continuum/SU2QuaternionTripleHeadPositiveWindow.lean:195` | `/private/tmp/ym-triple-window-20261008.log` |
+| `conditional_determinant_nonnegative`, `conditional_signed_score_bound` | `lean/YMGap/Continuum/SU2QuaternionConditionalSignedGramOrder.lean:127`, `:200` | `/private/tmp/ym-conditional-gram-order-20261008.log` |
+| `prefix_cleared_curvature_certificate`, `prefix_conditional_signed_score_bound` | `lean/YMGap/Continuum/SU2QuaternionPairedFrozenHeatPrefixConditionalGram.lean:49`, `:81` | `/private/tmp/ym-prefix-conditional-gram-20261008b.log` |
+
+Eight final focused targets checked; 35 printed gates within {propext,
+Quot.sound}, of which 27 are new and eight are unchanged copy-module
+regressions. Root inspected all final sources; independent mathematical
+review found no material defect. No source sorry/custom axiom/classical/
+native shortcut, weakened field or baseline refresh. Every launch followed
+a fresh dynamic preflight; one capped 20-GiB worker/12-GiB reserve, 85--88%
+free and zero swap. All checks finished in their initial calls. Root imports
+registered, not root-built; no full-tree audit or broad chart closure.
+
+Final checked-source SHA256:
+
+- `QuaternionHaarClearedThreeGram.lean`: `135ae6259a0612f5bdacba975767028e661cd5495ec9d0e0589fb08d18579f04`
+- `QuaternionHaarCertifiedPositiveWindowProduct.lean`: `6f7a2038de1a31e0184126435e3ae939085cd8629cce5c9b1b9bdda07d853485`
+- `SU2QuaternionMultiHeadVarianceReplica.lean`: `085355d57658e5c281232ae272b467bdc28729c1063f978fafd141819035288b`
+- `SU2QuaternionTripleHeadReplica.lean`: `eb686b085c1c54faead901e2e634e8ca1b8150e21f6bc910dae63b9393b1e112`
+- `SU2QuaternionConditionalSignedGramReplica.lean`: `1e27690b1e8f0fc4229b2891cc5329aded4915bc25d82d8f7360e5ae488e1566`
+- `SU2QuaternionTripleHeadPositiveWindow.lean`: `3b3ef82fc163fa5a79e9a9e45f6fb19ea3e80cc4d750858ccddfe424fb300363`
+- `SU2QuaternionConditionalSignedGramOrder.lean`: `c1fc774293f0de15cdd0392aa633676752b92d8d21ffadb96b31e811aa52196d`
+- `SU2QuaternionPairedFrozenHeatPrefixConditionalGram.lean`: `fbb8c00a9a0d1f34db0f49237f80d4f54f6a3378944a126377fce2bac9533319`
+
+NEXT: actual product/domain-jet recoding, exact original source/derivative
+identifications and incoming reconstruction residual, then useful signed
+norm comparison on a justified scaling family. Do not replace this sharper
+Gram by historical-noise domination or infer a marginal-derivative pin from
+bare integration. The lattice-measurement note remains research context
+only, with corrections in `audits/RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md`.
+All survival/OS/physical/QFT/every-group/Clay obligations remain OPEN.
+
 ## Observed signed integrated ORIGINAL-prefix Gram (2026-10-07 local; checked 2026-10-08 UTC)
 
 Classification: VERIFIED PROGRESS, without asserting an integrated Hessian sign.

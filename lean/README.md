@@ -16,6 +16,20 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked conditional ORIGINAL-prefix jet Gram (2026-10-07 local):**
+`SU2QuaternionConditionalSignedGramOrder.conditional_signed_score_bound`
+retains the signed second-jet moment and negative score-mean square after
+exact shared-tail three-replica integration and actual kernel-window reflection.
+`SU2QuaternionPairedFrozenHeatPrefixConditionalGram.prefix_conditional_signed_score_bound`
+constructs its original-prefix curvature/windows. The positive marginal is
+multiplied, not inverted; certified q/R are explicit, with no R support or
+independence premise. Eight focused targets/35 permitted gates, including
+eight existing regressions. These are PRECOMPUTED jet moments, not proved
+derivatives of the full interacting marginal. Actual action/source/derivative
+joins and all scaling/physical/Clay claims remain OPEN. Root imports registered,
+not root-built; no full-tree audit or broad chart closure. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 **Checked signed integrated ORIGINAL-prefix Gram precursor (2026-10-07 local):**
 `QuaternionHaarCurvatureDualBound.curvature_signed_dual_bound` retains the
 actual integrated Hessian rather than requiring it nonpositive.

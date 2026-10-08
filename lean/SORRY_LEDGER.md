@@ -1,5 +1,37 @@
 # Sorry Ledger
 
+## PROVED shared-tail conditional ORIGINAL-prefix jet Gram / OPEN full interacting score (2026-10-08 UTC)
+
+- `QuaternionHaarClearedThreeGram.cleared_replica_certificate` constructs
+  productP*T from actual copied augmented curvature witnesses and squares;
+  no positivity of the uncleared T is assumed.
+- `SU2QuaternionConditionalSignedGramReplica.weighted_replica_integral_pin`
+  proves the exact SIX-times signed moment determinant with ONE shared tail.
+- `SU2QuaternionTripleHeadPositiveWindow.tripleKernelWindow` constructs
+  literal cubic kernel windows. Copied scalar caps use supported Haar-carrier
+  equality, not false raw coefficient equality.
+- `SU2QuaternionConditionalSignedGramOrder.conditional_determinant_nonnegative`
+  cancels the kernel multiplier only in full Haar order under arbitrary
+  certified tail insertions. `conditional_signed_score_bound` constructs the
+  marginal's positive certificate, multiplies it as a spectator and proves
+  H_tail(R*S^2)<=H_tail(R*N*(A*G-D^2)). No marginal inverse/Hessian sign.
+- `SU2QuaternionPairedFrozenHeatPrefixConditionalGram.prefix_conditional_signed_score_bound`
+  consumes PRODUCED original-prefix curvature/windows, with the augmented
+  cost and polynomial direction norm INSIDE the second-jet moment.
+- OPEN: actual full interacting product/domain-jet recoding, marginal-derivative
+  and original source identifications, arbitrary-c reconstruction residual,
+  useful scaling comparison, independent survival, completed OS/physical/QFT,
+  every group and Clay. Precomputed jet moments are not automatically
+  derivatives of the marginal for head-dependent q or coefficients.
+- Eight focused targets/35 printed gates within {propext, Quot.sound},
+  including eight existing copy-module regression gates. No source sorry/
+  custom axiom/classical/native shortcut, weakened field or baseline refresh.
+  Independent mathematical review found no defect. Fresh dynamic preflights,
+  one capped 20-GiB worker/12-GiB reserve, 85--88% free and zero swap.
+  Root imports registered, not root-built; no full-tree audit/chart closure.
+
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 ## PROVED signed integrated ORIGINAL-prefix Gram / OPEN normalized conditional assembly (2026-10-07 local)
 
 - `QuaternionHaarCurvatureDualBound.curvature_signed_dual_bound` retains

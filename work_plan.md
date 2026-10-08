@@ -47,12 +47,28 @@ is assumed. Two further focused checks/four printed permitted gates,
 including the unchanged dual bound. This is full Haar, not a constructed
 normalized partial conditional law or full original-action instance.
 
+The centered shared-tail conditional JET Gram is now CHECKED, including its
+literal ORIGINAL-prefix consumer:
+`SU2QuaternionPairedFrozenHeatPrefixConditionalGram.prefix_conditional_signed_score_bound`.
+Three actual head replicas construct a cleared square identity. Produced
+kernel windows cancel their multiplier only in integrated Haar order;
+exact triple Fubini gives SIX times the signed moment determinant.
+For A=I(qP), b=I(qP*phi), D=I(qd), v=I(qP*phi^2), e=I(qd*phi),
+G=I(qddAug), the result is H_tail(R*S^2)<=H_tail(R*N*F), where
+S=Ae-bD, N=Av-b^2, F=AG-D^2. The actual positive marginal is multiplied,
+never inverted. Certified q/R remain explicit; R needs no support or
+independence premise. Actual prefix curvature/windows are PRODUCED, not
+assumed. Eight focused targets/35 permitted gates, including eight existing
+regressions. This concerns PRECOMPUTED jets, not yet derivatives of A.
+
 NEXT arbitrary-block/product recoding as actually needed by the ORIGINAL
 conditional score; retain the integrated Hessian and negative score-mean
 square in its signed Gram, rather than demand a nonpositive Hessian.
 For a justified source law the target is S^2<=Noise*(C*R*A^2+A*F2(A)-F1(A)^2).
-Coefficients must pull through the SAME head integration; positive-marginal
-reflection/cancellation must be constructed. For arbitrary c, do not silently
+Coefficients and actual source derivatives must pull through the SAME head
+integration. The integrated kernel reflection and marginal-spectator Gram
+are now constructed; the full interacting action and marginal-derivative
+identifications are not. For arbitrary c, do not silently
 write phi=c/a: retain the existing reconstruction/error join. A free heat
 marginal supplies neither the missing sign nor these identifications.
 Retain every original action factor and signed correction; no assumed-bound
@@ -60,6 +76,13 @@ wrapper. All useful scaling, independent
 survival, completed OS, physical/volume, SAME QFT, every-group and Clay
 requirements remain OPEN. No full-root/tree audit or broad chart closure.
 Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
+The user lattice-measurement note is reconciled in
+`audits/RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md`. It guides physical
+time/observable checks, never supplies a measured-mass Lean premise, an
+every-state gap, finite-spacing Kogut--Susskind identity or strong Sobolev
+continuum limit. Continue backward from the SAME limiting Hamiltonian and
+forward from the original action; the calibration and survival joins remain open.
 
 The following supporting checkpoints retain their verification-time boundaries.
 

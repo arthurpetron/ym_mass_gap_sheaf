@@ -10,7 +10,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Latest mathematical contraction (2026-10-07 local):** the **full frozen
+**Latest mathematical contraction (2026-10-07 local):** the signed conditional
+jet Gram now reaches the **original heat prefix** with one shared surviving
+tail. A three-replica square identity, exact moment integration and produced
+positive kernel windows give `H(R*S^2) <= H(R*N*(A*G-D^2))`, retaining the
+signed augmented Hessian moment and negative score-mean square. The marginal
+is multiplied, never inverted. Certified incoming density and tail insertion
+remain explicit. Full interacting-action/source and marginal-derivative
+identifications remain open; this is not a scaling or physical mass gap.
+See the [checked scope and next join](audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md).
+
+**Supporting contraction (2026-10-07 local):** the **full frozen
 polynomial-direction matrix** now reaches the **original unweighted heat
 prefix**, with all nine actual ordered mixed jets and an explicit cutoff.
 Its cost is independent of cutoff, carrier size and direction at each fixed

@@ -5013,6 +5013,14 @@ import YMGap.Continuum.QuaternionHaarFrozenCurvatureApproximation
 import YMGap.Continuum.SU2QuaternionPairedFrozenHeatPrefixCurvature
 -- SAME-prefix signed integrated Gram precursor; no Hessian-sign assumption.
 import YMGap.Continuum.SU2QuaternionPairedFrozenHeatPrefixSignedGram
+-- Exact signed conditional jet moments; shared tail, no marginal inverse.
+import YMGap.Continuum.QuaternionHaarClearedThreeGram
+import YMGap.Continuum.QuaternionHaarCertifiedPositiveWindowProduct
+import YMGap.Continuum.SU2QuaternionTripleHeadReplica
+import YMGap.Continuum.SU2QuaternionConditionalSignedGramReplica
+import YMGap.Continuum.SU2QuaternionTripleHeadPositiveWindow
+import YMGap.Continuum.SU2QuaternionConditionalSignedGramOrder
+import YMGap.Continuum.SU2QuaternionPairedFrozenHeatPrefixConditionalGram
 import YMGap.Continuum.SU2HeatQuarticTailCutoff
 import YMGap.Continuum.QuaternionHaarHeatAngularDeficit
 import YMGap.Continuum.QuaternionHaarHeatRelativeAngularBound

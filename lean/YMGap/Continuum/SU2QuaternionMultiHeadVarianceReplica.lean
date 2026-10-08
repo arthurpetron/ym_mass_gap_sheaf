@@ -40,6 +40,7 @@ open YMGap.Continuum.SU2QuaternionHaarCertificateIntegration
 open YMGap.Continuum.SU2QuaternionHaarKernelBound
 open YMGap.Continuum.SU2QuaternionFactorizedHaarContraction
 open YMGap.Continuum.QuaternionHaarSquareCertificate
+open YMGap.Continuum.QuaternionHaarPolynomialSquareBound (cap)
 open YMGap.Continuum.QuaternionHaarAngularCarrier
 
 local infix:50 " ≈ " => Q'.eqv
@@ -315,6 +316,36 @@ def copyCertificate (tail heads : Nat) (W : RatPoly)
     Certificate (tail+(heads+heads)) (copy heads W) :=
   copy_certificate tail heads W hW P
 
+/-- Literal shared-tail copying preserves addition. -/
+theorem copy_add (heads : Nat) (p q : RatPoly) :
+    copy heads (polyAdd p q) = polyAdd (copy heads p) (copy heads q) := by
+  simp only [copy, insertPolynomial, polyAdd, List.map_append]
+
+/-- Literal shared-tail copying preserves negation. -/
+theorem copy_neg (heads : Nat) (p : RatPoly) :
+    copy heads (polyNeg p) = polyNeg (copy heads p) := by
+  simp only [copy, insertPolynomial, polyNeg, List.map_map]
+  rfl
+
+/-- A copied scalar cap is the SAME constant under every insertion on the
+actual two-head/shared-tail carrier. Its zero padding is not raw coefficient
+equality and is removed only after both support guards are checked. -/
+theorem copy_cap_carrier (tail heads : Nat) (c : Q') :
+    HaarCarrierEqv (tail+(heads+heads)) (copy heads (cap c)) (cap c) := by
+  have hcap : ∀ blocks : Nat, SupportedQuaternionBlocks blocks (cap c) := by
+    intro blocks t ht
+    change t ∈ [([], c*(1 : Q'))] at ht
+    obtain rfl := List.mem_singleton.mp ht
+    exact Nat.zero_le _
+  apply carrierOfPrefix (copySupported tail heads (hcap (tail+heads)))
+    (hcap (tail+(heads+heads)))
+  change QuaternionPrefixPolynomialEqv (tail+(heads+heads))
+    [(insertMonomial heads heads [], c*(1 : Q'))] [([], c*(1 : Q'))]
+  refine .cons ⟨Q'.eqv_refl _, ?_⟩ .nil
+  intro coordinate _
+  rw [insert_exponent]
+  simp only [exponentAt, List.getD_nil, ite_self]
+
 /-- The polynomial normalizer is retained without any reciprocal. -/
 def determinant (heads : Nat) (W f : RatPoly) : RatPoly :=
   polyAdd
@@ -459,6 +490,9 @@ theorem spectator_nonnegative (tail heads : Nat) (W f R : RatPoly)
 #print axioms partial_copy
 #print axioms copySupported
 #print axioms copyCertificate
+#print axioms copy_add
+#print axioms copy_neg
+#print axioms copy_cap_carrier
 #print axioms replica_product
 #print axioms replica_identity
 #print axioms replica_certificate

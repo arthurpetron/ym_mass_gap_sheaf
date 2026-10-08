@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Supporting shared-tail conditional ORIGINAL-prefix JET Gram checked
+(2026-10-08 UTC): three actual head replicas give the exact signed moment
+determinant, constructed kernel windows cancel only inside Haar order,
+and the actual positive marginal is multiplied, not inverted. The prefix
+consumer constructs its own augmented curvature/windows. Negative score-mean
+square and signed Hessian remain. Certified q/R are explicit; R needs no
+support/independence premise. PRECOMPUTED jet moments are not yet derivatives
+of the full interacting marginal. Eight focused targets/35 permitted gates,
+including eight existing regressions; no full-root/tree audit. Full action/
+source/derivative joins and all scaling/physical/Clay chart claims remain OPEN.
+Broad chart unchanged; no reprint. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 Supporting signed integrated ORIGINAL-prefix Gram checked (2026-10-07 local):
 the produced full prefix curvature supplies the SAME full-Haar bound with
 the signed Hessian and polynomial direction norm INSIDE integration. No
