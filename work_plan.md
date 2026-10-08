@@ -334,6 +334,18 @@ BOTH masses. Gauge symmetry alone supplies no horizontal high-order zero;
 an admissible-background estimate needs an original-measure complement budget
 before it can be consumed. These are selection tests, not new proved inputs.
 
+Supplement follow-through (2026-10-08 22:28 UTC): the requested parallel
+review adds complete parameter covers and sensitive nonzero controls to
+the direct-response experiment design; exact coverage and scope are in
+the same research report. For the ORIGINAL finite windows, target the
+cleared margin `Z_s*J_(2s)-kappa*Z_(2s)*J_s`, retaining the computed OWN
+center and BOTH distinct positive chronological partitions. Certify errors
+relative to the transmitted response, not a large initial norm. A bounded
+finite certificate still needs its actual completed/scaling passage; no
+auxiliary fermion gap, two-dimensional constant or numerical replay supplies
+it. Keep DIRECT macro retention and JOINT payment co-primary. No new
+wrapper, Lean claim, chart change or foreign-code execution is selected.
+
 Requested parallel follow-up (2026-10-08 UTC): the cached paper review now
 pins MAIN's joint correction as
 `H_xy[Kkin*G^2*(J_out A)*X^2*(J_in+J_out)(spatialWeight*a*Vbar^2)]`
