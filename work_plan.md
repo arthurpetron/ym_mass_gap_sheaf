@@ -27,6 +27,18 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED supporting variance estimate (2026-10-08 UTC): the EXISTING
+`GeneralizedLinearWard.original_score_variance_floor` now produces
+4/(7+10*C^2+4*C^4) for the SAME original weight and OWN mean, from its six
+relative score certificates and amplitude-four carrier identity. Signed
+residuals are retained; only positive C^2 and the actual partition are
+canceled. First focused safe check and COMPLETE frozen-source independent
+review PASS, all new gates permitted. CONTINUE its literal padded-square
+frame and existing completed-norm joins, then the still-missing changing-
+family relative time-loss estimate. This nome-dependent normalization input
+does not prove macro retention, scaling survival or a physical mass gap.
+Exact evidence: adaptive conditional-score audit. Canonical claims unchanged.
+
 CHECKED MAIN original-source contraction (2026-10-08 UTC): the sharper radial
 certificate now reaches the literal ORIGINAL prefix, any selected output
 pair and the full terminal signed Gram. The computed fixed-nome cost is

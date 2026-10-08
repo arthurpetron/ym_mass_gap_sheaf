@@ -8506,3 +8506,83 @@ against OWN surviving variance and BOTH masses, or DIRECT original macro
 retention on a justified changing family. Padding, local positive response
 and symmetry matching do not replace it. All continuum/physical/QFT/every-
 group/Clay and displayed canonical claims remain OPEN/unchanged; no chart.
+
+## Score-controlled original variance floor: selection (2026-10-08 UTC)
+
+Previous goal turn: no new mathematical estimate or authoritative change.
+The direct macro-defect identities and consumers were already implemented;
+another warming/conditional-innovation wrapper is not selected. A read-only
+arbitrary-gap screen retains chronological boundary drift even with an exact
+quotient source. Likewise, simultaneous kinetic rotations transfer derivatives
+to the actual spatial action and terminal source; the existing Haar Bochner
+identity does not delete the density-drift terms.
+
+**Next proposition:** for the literal fundamental dyadic Wilson square in the
+ORIGINAL odd marginal, produce the positive floor
+
+    oddVariance >= 4/(7+10*C^2+4*C^4),  C=marginalScoreCap(w).
+
+The SAME original square, action, OWN mean and odd partition are retained.
+This is a quantitative normalization input, not a macro-retention estimate.
+The intended completed consumer is the existing `dyadicOriginalNorm` / its
+normalization machinery; its exact finite-to-completed join must be exhibited,
+not inferred by equating even and odd masses.
+
+**Available inputs and PAPER argument:**
+`generalized_linear_ward` and `residual_upper_scaled`,
+`lean/YMGap/Continuum/QuaternionHaarGeneralizedLinearWard.lean:106`, `:283`,
+with constant OWN mean m and scale t=2*C^2, give 3*m^2<=2*C^2*e.
+`energy_le_variance`,
+`lean/YMGap/Continuum/QuaternionHaarRelativeCenteredWard.lean:137`, gives
+e<=6*(1+C^2)*v. The literal one-occurrence unit-tail geometry supplies
+e+v+m^2=4, by `paddedSquare_block_gamma`,
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareWardMoments.lean:206`.
+Consequently 12<=(21+30*C^2+12*C^4)*v. All six actual relative bounds
+and positive C are produced by the ORIGINAL marginal machinery in
+`BF4ExactSlabFixedSpatialRelativeWardBound` / `MarginalRelativeBound`.
+The argument uses no global density minimum, inverse variance, replacement
+law, or separately favorable derivative sign. Independent PAPER algebra
+review agrees; it is not yet a new kernel-checked theorem.
+
+**Decisive tests:** a zero or merely head-linear source does NOT satisfy the
+amplitude-four identity; produce it for the literal unit word. Means may be
+zero; cancel only positive scalar C^2 and the actual positive partition.
+The floor is nome-dependent, not spacing-uniform. A sharper raw variance
+floor alone still does not pay macroscopic time loss or prove continuum
+survival. Do not weaken the direct macro condition or any canonical field.
+
+**Verification budget / abandon condition:** bounded implementation in
+existing algebra and actual-source leaves, independent complete frozen-source
+review and serial focused safe checks, one 20-GiB worker / 12-GiB OS reserve
+after every fresh dynamic/process preflight. No full-tree build/audit or limit
+increase. Reject a consumer needing an unsupplied geometry/limit premise or
+equating different chronological masses. Record observed evidence separately.
+No displayed canonical claim changes and no ASCII reprint are selected.
+
+### Observed generic contraction (2026-10-08 UTC)
+
+The PAPER algebra above is now kernel-checked in the EXISTING
+`QuaternionHaarGeneralizedLinearWard.lean`. `raw_mean_square_le_energy`
+retains the complete signed Ward residual and proves
+3*m^2*Z <= 2*C^2*E. `original_score_variance_floor` combines it with the
+SAME centered Ward estimate and supplied amplitude-four carrier identity,
+producing `scoreVarianceFloor C = 4/(7+10*C^2+4*C^4)` against the OWN
+normalized variance. Only positive C^2 and the actual positive Z are canceled;
+no nonzero-mean or energy premise is added.
+
+Focused check 1 PASS, exit 0. The six new public gates print no axioms beyond
+{propext, Quot.sound}; `scoreVarianceFactor` itself uses none. Independent
+review read the COMPLETE frozen 616-line source, rechecked its hash, and
+found no defect or changed old API. Fresh preflight found no competing
+compiler/runner, 84% free memory and zero swap. One 20-GiB capped worker,
+12-GiB reserve, no limit increase or root/full-tree audit.
+
+    /private/tmp/ym-oct8-score-variance-generic1.log
+    SHA256 823ea85d265ca3436f6220046e10e27848889c3da6ff65fd95d3109fb3feb854
+    Final source SHA256 c90cb8e09b21a30fcf56c7a8f43b7eb428fadcdf0c24a33598f1dca0ac365367
+
+CONTINUE the literal padded-square frame and SAME completed-norm joins;
+those are not yet verified by this generic check. Existing prediction-floor
+algebra is preserved; the new floor is an additional explicit bound, not the
+first same-weight coercivity result. Scaling survival, physical mass, SAME
+continuum QFT, every group and Clay remain OPEN. No chart-state change.
