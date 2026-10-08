@@ -41,7 +41,7 @@ open YMGap.Continuum.JacobiShiftedPositiveCoefficients (heat)
 open YMGap.Continuum.SU2QuaternionPairedJacobiCurvature (pairedHeat)
 open YMGap.Continuum.QuaternionHaarSquareCertificate
 open YMGap.Continuum.QuaternionHaarPolynomialSquareBound (cap)
-open YMGap.Continuum.JacobiHeatRadialProducedBound (radialCap)
+open YMGap.Continuum.JacobiHeatRadialProducedBound (radialCap nearFlatRadialCap)
 open YMGap.Continuum.JacobiProductRadialSignedTail (eighth)
 
 theorem frozenHeat_first_pin (w : Q') (N : Nat) (u : Fin 3 → RatPoly) :
@@ -78,23 +78,19 @@ def frozenCurvature (w C : Q') (N : Nat) (u : Fin 3 → RatPoly) : RatPoly :=
     (polyAdd (polyMul h (frozenSecondJet u h))
       (polyNeg (polyMul (frozenFirstJet u h) (frozenFirstJet u h))))
 
-/-- Full frozen quadratic form at the SAME radial cost. Neither unit
-direction, strict nonzero direction nor supplied curvature is required. -/
-def frozen_curvature_certificate {blocks : Nat} {w delta : Q'}
+private def frozen_curvature_of_radial_certificate {blocks : Nat} {w : Q'}
     (hb : 1 < blocks) (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
-    (N : Nat) (hN1 : 1 ≤ N) (hsmall : HKPos.geoAmp w N ≤ eighth)
-    (hdelta : (0 : Q') < delta) (u : Fin 3 → RatPoly)
-    (hu : ∀ i, SupportedQuaternionBlocks blocks (u i)) :
-    Certificate blocks (frozenCurvature w (radialCap w N+delta) N u) := by
+    (N : Nat) (C : Q') (u : Fin 3 → RatPoly)
+    (hu : ∀ i, SupportedQuaternionBlocks blocks (u i))
+    (radial : Certificate blocks (subst relativeScalar
+      (JacobiHeatRadialHaarCertificate.radialPolynomial w N C))) :
+    Certificate blocks (frozenCurvature w C N u) := by
   let X := relativeScalar
   let h := pairedHeat w N
   let hx := subst (polyAdd polyOne X) (pderiv (heat w N))
   let hxx := subst (polyAdd polyOne X) (pderiv (pderiv (heat w N)))
   let d := frozenFirstJet u X
   let R := threeSquare u
-  let C := radialCap w N+delta
-  let radial := JacobiHeatRadialHaarCertificate.radialCertificate hw0 hw1
-    (relativeScalarSquare hb) N hN1 hsmall hdelta
   let radial' := Certificate.ofCoeff
     (JacobiHeatRadialSubstitutionPin.radial_substitution_pin X w C N).symm radial
   let direction : Certificate blocks R :=
@@ -138,8 +134,35 @@ def frozen_curvature_certificate {blocks : Nat} {w delta : Q'}
         | 4 => d | 5 => X | _ => R))
     ((direction.mul radial').add (complement.mul discriminant))
 
+/-- Full frozen quadratic form at the SAME radial cost. Neither unit
+direction, strict nonzero direction nor supplied curvature is required. -/
+def frozen_curvature_certificate {blocks : Nat} {w delta : Q'}
+    (hb : 1 < blocks) (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (N : Nat) (hN1 : 1 ≤ N) (hsmall : HKPos.geoAmp w N ≤ eighth)
+    (hdelta : (0 : Q') < delta) (u : Fin 3 → RatPoly)
+    (hu : ∀ i, SupportedQuaternionBlocks blocks (u i)) :
+    Certificate blocks (frozenCurvature w (radialCap w N+delta) N u) :=
+  frozen_curvature_of_radial_certificate hb hw0 hw1 N (radialCap w N+delta) u hu
+    (JacobiHeatRadialHaarCertificate.radialCertificate hw0 hw1
+      (relativeScalarSquare hb) N hN1 hsmall hdelta)
+
+/-- Sharper full frozen certificate from the PRODUCED whole-interval radial
+certificate, retaining the actual finite-tail allowance and the same guards.
+No interacting marginal curvature or source-weighted payment is asserted. -/
+def frozen_curvature_nearFlat_certificate {blocks : Nat} {w delta : Q'}
+    (hb : 1 < blocks) (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (N : Nat) (hN1 : 1 ≤ N) (hsmall : HKPos.geoAmp w N ≤ eighth)
+    (hdelta : (0 : Q') < delta) (u : Fin 3 → RatPoly)
+    (hu : ∀ i, SupportedQuaternionBlocks blocks (u i)) :
+    Certificate blocks (frozenCurvature w (nearFlatRadialCap w N+delta) N u) :=
+  frozen_curvature_of_radial_certificate hb hw0 hw1 N (nearFlatRadialCap w N+delta) u hu
+    (JacobiHeatRadialHaarCertificate.nearFlatRadialCertificate hw0 hw1
+      (relativeScalarSquare hb) N hN1 hsmall hdelta)
+
 end YMGap.Continuum.SU2QuaternionPairedFrozenJacobiCurvature
 
 #print axioms YMGap.Continuum.SU2QuaternionPairedFrozenJacobiCurvature.frozenHeat_first_pin
 #print axioms YMGap.Continuum.SU2QuaternionPairedFrozenJacobiCurvature.frozenHeat_second_pin
 #print axioms YMGap.Continuum.SU2QuaternionPairedFrozenJacobiCurvature.frozen_curvature_certificate
+#print axioms YMGap.Continuum.SU2QuaternionPairedFrozenJacobiCurvature.frozen_curvature_of_radial_certificate
+#print axioms YMGap.Continuum.SU2QuaternionPairedFrozenJacobiCurvature.frozen_curvature_nearFlat_certificate

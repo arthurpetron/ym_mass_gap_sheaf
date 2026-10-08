@@ -34,12 +34,16 @@ open YMGap.Continuum.SU2QuaternionPairedFrameScalarJets (pairedDerivative)
 open YMGap.Continuum.SU2QuaternionPairedScalarSquare (relativeWord_supported relativeWord_unit)
 open YMGap.Continuum.SU2QuaternionPairedHeatPrefixDeficit
 open YMGap.Continuum.SU2QuaternionPairedHeatPrefixMixedDeficit
-open YMGap.Continuum.SU2QuaternionPairedFrozenJacobiCurvature (frozen_curvature_certificate)
+open YMGap.Continuum.SU2QuaternionPairedFrozenJacobiCurvature
+  (frozen_curvature_certificate frozen_curvature_nearFlat_certificate)
 open YMGap.Continuum.SU2QuaternionPairedHeatPrefixCurvature (prefixCurvatureCost)
 open YMGap.Continuum.JacobiHeatRadialProducedBound
-  (radialCap radialOnset radialOnset_small_factor radialCap_nonnegative)
+  (radialCap radialOnset radialOnset_small_factor radialCap_nonnegative
+    nearFlatRadialCap nearFlatRadialCap_nonnegative)
 open YMGap.Continuum.JacobiHeatPrefixCurvaturePrecision
-  (curvatureCap curvatureCap_nonnegative radialCap_le_curvatureCap)
+  (curvatureCap curvatureCap_nonnegative radialCap_le_curvatureCap
+    nearFlatCurvatureCap nearFlatCurvatureCap_nonnegative nearFlatRadialOnset
+    nearFlatRadialOnset_small_factor nearFlatRadialCap_le_curvatureCap)
 open YMGap.Continuum.BF4ExactSlabRetainedHeatHeadComparison (headFloor headFloor_positive headCutoff)
 
 /-- Quarter-floor precision pays factor six without changing the final cost. -/
@@ -164,6 +168,94 @@ def prefix_frozen_curvature_certificate {blocks : Nat} {w : Q'}
                 (QuaternionHaarFrozenCurvatureApproximation.firstJet u (fun i => pairedDerivative i p)))))))
     (V.add S)
 
+/-- Sharper produced envelope; all original-prefix discrepancy caps are retained. -/
+def nearFlatPrefixFrozenCurvatureTolerance (w : Q') : Q' :=
+  JacobiHeatPrefixCurvaturePrecision.errorTolerance (precisionFloor w) (nearFlatCurvatureCap w)
+    (prefixValueCap w) (prefixFirstCap w) (prefixSecondCap w)
+
+/-- Head floor, actual finite tail and six-column approximation are all paid. -/
+def nearFlatPrefixFrozenCurvatureCutoff (w : Q') : Nat :=
+  max (headCutoff w) (max (nearFlatRadialOnset w)
+    (pairedDeficitCutoff w (nearFlatPrefixFrozenCurvatureTolerance w)))
+
+def nearFlatPrefixCurvatureCost (w : Q') : Q' := nearFlatCurvatureCap w+1
+
+/-- Sharper full frozen matrix on the SAME ORIGINAL character prefix, for every
+strict nome and supported frozen direction. No interacting marginal or signed
+source-weighted innovation payment is supplied by this Haar certificate. -/
+def prefix_frozen_curvature_nearFlat_certificate {blocks : Nat} {w : Q'}
+    (hb : 1 < blocks) (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : nearFlatPrefixFrozenCurvatureCutoff w ≤ K) (u : Fin 3 → RatPoly)
+    (hu : ∀ i, SupportedQuaternionBlocks blocks (u i)) :
+    Certificate blocks (prefixFrozenCurvature w (nearFlatPrefixCurvatureCost w) K u) := by
+  have hhead : headCutoff w ≤ K := by unfold nearFlatPrefixFrozenCurvatureCutoff at hK; omega
+  have hradial : nearFlatRadialOnset w ≤ K+1 := by
+    unfold nearFlatPrefixFrozenCurvatureCutoff at hK
+    omega
+  have herror : pairedDeficitCutoff w (nearFlatPrefixFrozenCurvatureTolerance w) ≤ K := by
+    unfold nearFlatPrefixFrozenCurvatureCutoff at hK
+    omega
+  have ht : (0 : Q') < nearFlatPrefixFrozenCurvatureTolerance w :=
+    JacobiHeatPrefixCurvaturePrecision.errorTolerance_positive (precisionFloor_positive hw0 hw1)
+  let p := pairedPrefix w K
+  let C := nearFlatRadialCap w (K+1)+1
+  let Cbar := nearFlatCurvatureCap w
+  have hC : (0 : Q') ≤ C :=
+    Q'.zero_le_add _ _ (nearFlatRadialCap_nonnegative hw0 _) Q'.zero_le_one
+  have hCCbar : C ≤ Cbar := nearFlatRadialCap_le_curvatureCap hw0 hw1 (K+1) hradial
+  let P := prefix_value_interval hb hw0 hw1 K
+  let DP := prefix_first_interval hb hw0 hw1 K
+  let DDP := prefix_mixed_interval hb hw0 hw1 K
+  let E := deficit_value_interval hb hw0 hw1 ht K herror
+  let DE := deficit_first_interval hb hw0 hw1 ht K herror
+  let DDE := deficit_mixed_interval hb hw0 hw1 ht K herror
+  have hbudget : 6*QuaternionHaarCurvatureApproximation.errorCap C
+      (prefixValueCap w) (prefixFirstCap w) (prefixSecondCap w)
+      (nearFlatPrefixFrozenCurvatureTolerance w) (2*nearFlatPrefixFrozenCurvatureTolerance w)
+      (4*nearFlatPrefixFrozenCurvatureTolerance w) ≤ headFloor w*headFloor w :=
+    Q'.le_trans' _ _ _
+      (Q'.mul_le_mul_of_nonneg_left _ _ 6
+        (JacobiHeatPrefixCurvaturePrecision.error_budget (precisionFloor_positive hw0 hw1) hC
+          (nearFlatCurvatureCap_nonnegative hw0) hCCbar
+          P.nonnegative (DP 0).nonnegative (DDP 0 0).nonnegative) (by decide))
+      (six_quarter_square_le (headFloor w))
+  let floor := QuaternionHaarAllNomeHeatCertificate.prefixFloorCertificate hw0 hw1
+    (relativeWord_supported hb) (relativeWord_unit hb) K hhead
+  let weighted := frozen_curvature_nearFlat_certificate hb hw0 hw1 (K+1) (by omega)
+    (nearFlatRadialOnset_small_factor hw0 hw1 (K+1) hradial) (by decide : (0 : Q') < 1) u hu
+  let V := QuaternionHaarFrozenCurvatureApproximation.curvature_approximation_certificate u hu
+    hC (Q'.le_of_lt (headFloor_positive hw0 hw1)) (prefix_split_pin hw0 hw1 K)
+    (prefix_first_split_pin hw0 hw1 K) (prefix_mixed_split_pin hw0 hw1 K)
+    P E DP DE DDP DDE hbudget floor weighted
+  let direction : Certificate blocks (threeSquare u) :=
+    (Certificate.square (u 0) (hu 0)).add
+      ((Certificate.square (u 1) (hu 1)).add (Certificate.square (u 2) (hu 2)))
+  let S := Certificate.ofCoeff (cap_mul_left (Cbar + -C) (polyMul (threeSquare u) (polyMul p p)))
+    (Certificate.smul (Cbar + -C) (Q'.sub_nonneg_of_le hCCbar)
+      (direction.mul (Certificate.square p P.support)))
+  have hcap : RatPolyCoeffEqv (cap (Cbar+1))
+      (polyAdd (cap (C+1)) (cap (Cbar + -C))) :=
+    (RatPolyCoeffEqv.smul_coefficient (poly_identity_of_normal_eq
+      (.add (.var 0) (.const 1))
+      (.add (.add (.var 1) (.const 1)) (.add (.var 0) (.neg (.var 1))))
+      (by decide) (fun | 0 => Cbar | _ => C)) polyOne).trans
+      (cap_add (C+1) (Cbar + -C)).symm
+  exact Certificate.ofCoeff
+    (((hcap.mul (RatPolyCoeffEqv.refl _)).add (RatPolyCoeffEqv.refl _)).trans
+      (coeffEvalExpr_eqv_of_normalize_eq
+        (.add (.mul (.add (.var 0) (.var 1)) (.var 2)) (.var 3))
+        (.add (.add (.mul (.var 0) (.var 2)) (.var 3)) (.mul (.var 1) (.var 2)))
+        (by decide) (fun
+          | 0 => cap (C+1) | 1 => cap (Cbar + -C)
+          | 2 => polyMul (threeSquare u) (polyMul p p)
+          | _ => polyAdd
+              (polyMul p (QuaternionHaarThreePolynomialMatrixEnvelope.quadraticForm u
+                (fun i j => pairedDerivative i (pairedDerivative j p))))
+              (polyNeg (polyMul
+                (QuaternionHaarFrozenCurvatureApproximation.firstJet u (fun i => pairedDerivative i p))
+                (QuaternionHaarFrozenCurvatureApproximation.firstJet u (fun i => pairedDerivative i p)))))))
+    (V.add S)
+
 end YMGap.Continuum.SU2QuaternionPairedFrozenHeatPrefixCurvature
 
 #print axioms YMGap.Continuum.SU2QuaternionPairedFrozenHeatPrefixCurvature.precisionFloor
@@ -173,3 +265,7 @@ end YMGap.Continuum.SU2QuaternionPairedFrozenHeatPrefixCurvature
 #print axioms YMGap.Continuum.SU2QuaternionPairedFrozenHeatPrefixCurvature.prefixFrozenCurvatureTolerance_positive
 #print axioms YMGap.Continuum.SU2QuaternionPairedFrozenHeatPrefixCurvature.prefix_frozen_curvature_adaptive_certificate
 #print axioms YMGap.Continuum.SU2QuaternionPairedFrozenHeatPrefixCurvature.prefix_frozen_curvature_certificate
+#print axioms YMGap.Continuum.SU2QuaternionPairedFrozenHeatPrefixCurvature.nearFlatPrefixFrozenCurvatureTolerance
+#print axioms YMGap.Continuum.SU2QuaternionPairedFrozenHeatPrefixCurvature.nearFlatPrefixFrozenCurvatureCutoff
+#print axioms YMGap.Continuum.SU2QuaternionPairedFrozenHeatPrefixCurvature.nearFlatPrefixCurvatureCost
+#print axioms YMGap.Continuum.SU2QuaternionPairedFrozenHeatPrefixCurvature.prefix_frozen_curvature_nearFlat_certificate

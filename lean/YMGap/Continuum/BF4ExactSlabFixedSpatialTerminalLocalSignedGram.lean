@@ -70,7 +70,7 @@ open YMGap.Continuum.QuaternionHaarClearedThreeGram
   (centeredScore centeredNoise centeredFisher)
 open YMGap.Continuum.SU2QuaternionPairedHeatPrefixCurvature (prefixCurvatureCost)
 open YMGap.Continuum.SU2QuaternionPairedFrozenHeatPrefixCurvature
-  (prefixFrozenCurvatureCutoff)
+  (prefixFrozenCurvatureCutoff nearFlatPrefixFrozenCurvatureCutoff nearFlatPrefixCurvatureCost)
 open YMGap.Continuum.BF4ExactSlabRetainedHeatHeadComparison
   (headCutoff headFloor headFloor_positive)
 open YMGap.Continuum.BF4ExactSlabAllNomeTailInterval (prefixCap)
@@ -78,7 +78,7 @@ open YMGap.Continuum.SU2QuaternionWeightedProductLocalGap (heatInterval)
 open YMGap.Continuum.SU2QuaternionProductHeatContraction (heatAt_floorCertificate)
 open YMGap.Continuum.SU2QuaternionAngularSupport (polySmul_supported)
 open YMGap.Continuum.SU2QuaternionPairedHeatAtFrozenCurvature
-  (heatAt_frozen_curvature_certificate frozenCurvatureAt)
+  (heatAt_frozen_curvature_certificate heatAt_frozen_curvature_nearFlat_certificate frozenCurvatureAt)
 open YMGap.Continuum.QuaternionHaarCertifiedPositiveWindowProduct
   (positiveFromLowerWindow)
 open YMGap.Continuum.BF4GeometricHaarMehlerProjection (quaternionHaar)
@@ -96,6 +96,15 @@ def sourceFrozenFirst (w : Q') (K width s : Nat) (u : Fin 3 → RatPoly) : RatPo
 def sourceFrozenAugmentedSecond (w : Q') (K width s : Nat)
     (u : Fin 3 → RatPoly) : RatPoly :=
   localFrozenAugmentedSecond w K width s u
+
+private def sourceFrozenAugmentedSecondAt (w C : Q') (K width s : Nat)
+    (u : Fin 3 → RatPoly) : RatPoly :=
+  polyAdd
+    (quadraticForm (fun i => liftBoundary (N width) (u i))
+      (fun i j => pairedDerivativeAt (N width+s) i
+        (pairedDerivativeAt (N width+s) j (localPrefix w K width s))))
+    (polyMul (polyMul (cap C) (threeSquare (fun i => liftBoundary (N width) (u i))))
+      (localPrefix w K width s))
 
 /-- Frozen output derivative of the matched marginal T(a). -/
 def sourceMarginalFirst (w : Q') (K width s : Nat) (a : RatPoly)
@@ -329,19 +338,18 @@ private theorem source_second_sum (w : Q') (K width s : Nat)
             ((source_second_term w K width s hs ha 2 1 (u 2) (u 1)).add
               (source_second_term w K width s hs ha 2 2 (u 2) (u 2)))))))
 
-private theorem source_cost (w : Q') (K width s : Nat)
+private theorem source_cost (w C : Q') (K width s : Nat)
     (hs : s ∈ activeBlocks width) (a : RatPoly) (u : Fin 3 → RatPoly) :
     RatPolyCoeffEqv
       (partialHaarHeads (N width)
         (polyMul (sourceDensity w K width s a)
-          (polyMul (polyMul (cap (prefixCurvatureCost w))
+          (polyMul (polyMul (cap C)
             (threeSquare (fun i => liftBoundary (N width) (u i))))
             (localPrefix w K width s))))
-      (polyMul (polyMul (cap (prefixCurvatureCost w)) (threeSquare u))
+      (polyMul (polyMul (cap C) (threeSquare u))
         (transferStep w K width a)) := by
   let q := sourceDensity w K width s a
   let P := localPrefix w K width s
-  let C := prefixCurvatureCost w
   have hmove : RatPolyCoeffEqv
       (polyMul q (polyMul (polyMul (cap C)
         (threeSquare (fun i => liftBoundary (N width) (u i)))) P))
@@ -374,6 +382,30 @@ private theorem source_cost (w : Q') (K width s : Nat)
       ((pull_coefficient (N width) (threeSquare u) _).trans
         (hmass.mul_left (threeSquare u)))).trans hfinal))
 
+private theorem source_momentG_at_pin (w C : Q') (K width s : Nat)
+    (hs : s ∈ activeBlocks width) {a : RatPoly}
+    (ha : SupportedQuaternionBlocks (N width) a) (u : Fin 3 → RatPoly) :
+    RatPolyCoeffEqv
+      (momentG (N width) (sourceDensity w K width s a)
+        (sourceFrozenAugmentedSecondAt w C K width s u))
+      (polyAdd (sourceMarginalSecond w K width s a u)
+        (polyMul (polyMul (cap C) (threeSquare u))
+          (transferStep w K width a))) := by
+  change RatPolyCoeffEqv
+    (partialHaarHeads (N width)
+      (polyMul (sourceDensity w K width s a)
+        (polyAdd (quadraticForm (fun i => liftBoundary (N width) (u i))
+          (fun i j => pairedDerivativeAt (N width+s) i
+            (pairedDerivativeAt (N width+s) j (localPrefix w K width s))))
+          (polyMul (polyMul (cap C)
+            (threeSquare (fun i => liftBoundary (N width) (u i))))
+            (localPrefix w K width s))))) _
+  exact (partialHaarHeads_congr (N width)
+    (RatPolyCoeffEqv.mul_add_right _ _ _)).trans
+      ((integrate_add (N width) _ _).trans
+        ((source_second_sum w K width s hs ha u).add
+          (source_cost w C K width s hs a u)))
+
 /-- The matched augmented second moment retains the full signed Hessian. -/
 theorem source_momentG_pin (w : Q') (K width s : Nat)
     (hs : s ∈ activeBlocks width) {a : RatPoly}
@@ -383,21 +415,8 @@ theorem source_momentG_pin (w : Q') (K width s : Nat)
         (localFrozenAugmentedSecond w K width s u))
       (polyAdd (sourceMarginalSecond w K width s a u)
         (polyMul (polyMul (cap (prefixCurvatureCost w)) (threeSquare u))
-          (transferStep w K width a))) := by
-  change RatPolyCoeffEqv
-    (partialHaarHeads (N width)
-      (polyMul (sourceDensity w K width s a)
-        (polyAdd (quadraticForm (fun i => liftBoundary (N width) (u i))
-          (fun i j => pairedDerivativeAt (N width+s) i
-            (pairedDerivativeAt (N width+s) j (localPrefix w K width s))))
-          (polyMul (polyMul (cap (prefixCurvatureCost w))
-            (threeSquare (fun i => liftBoundary (N width) (u i))))
-            (localPrefix w K width s))))) _
-  exact (partialHaarHeads_congr (N width)
-    (RatPolyCoeffEqv.mul_add_right _ _ _)).trans
-      ((integrate_add (N width) _ _).trans
-        ((source_second_sum w K width s hs ha u).add
-          (source_cost w K width s hs a u)))
+          (transferStep w K width a))) :=
+  source_momentG_at_pin w (prefixCurvatureCost w) K width s hs ha u
 
 private theorem support_extend {small large : Nat} {p : RatPoly}
     (hp : SupportedQuaternionBlocks small p) (h : small ≤ large) :
@@ -474,22 +493,22 @@ theorem terminal_momentG_pin (w : Q') (K width s n r : Nat)
   source_momentG_pin w K width s hs
     (terminalMessage_supported w K width (n+r)) u
 
-private theorem source_fisher_pin (w : Q') (K width s : Nat)
+private theorem source_fisher_pin (w C : Q') (K width s : Nat)
     (hs : s ∈ activeBlocks width) {a : RatPoly}
     (ha : SupportedQuaternionBlocks (N width) a) (u : Fin 3 → RatPoly) :
     RatPolyCoeffEqv
       (conditionalFisher (N width) (sourceDensity w K width s a)
         (localPrefix w K width s) (localFrozenFirst w K width s u)
-        (localFrozenAugmentedSecond w K width s u))
+        (sourceFrozenAugmentedSecondAt w C K width s u))
       (polyAdd
         (polyMul (transferStep w K width a)
           (polyAdd (sourceMarginalSecond w K width s a u)
-            (polyMul (polyMul (cap (prefixCurvatureCost w)) (threeSquare u))
+            (polyMul (polyMul (cap C) (threeSquare u))
               (transferStep w K width a))))
         (polyNeg (polyMul (sourceMarginalFirst w K width s a u)
           (sourceMarginalFirst w K width s a u)))) :=
   ((source_mass w K width s hs a).mul
-    (source_momentG_pin w K width s hs ha u)).add
+    (source_momentG_at_pin w C K width s hs ha u)).add
       (RatPolyCoeffEqv.neg
         ((source_momentD_pin w K width s hs ha u).mul
           (source_momentD_pin w K width s hs ha u)))
@@ -643,6 +662,101 @@ theorem source_score_pin (w : Q') (K width s : Nat)
       (localOutputDensity_independent w K width s hs)
       (local_factor_pin w K width s hs) ha hc u))
 
+private theorem terminal_local_signed_score_bound_at {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K width s n r : Nat) (hs : s ∈ activeBlocks width)
+    (hhead : headCutoff w ≤ K) (cost : Q')
+    {phi R : RatPoly}
+    (hphi : SupportedQuaternionBlocks (N width) phi)
+    (u : Fin 3 → RatPoly)
+    (hu : ∀ i, SupportedQuaternionBlocks (N width) (u i))
+    (PR : Certificate (N width) R)
+    (curvature : Certificate (N width+N width)
+      (frozenCurvatureAt (N width+s) cost (localPrefix w K width s)
+        (fun i => liftBoundary (N width) (u i)))) :
+    let a := terminalMessage w K width (n+r)
+    let A := transferStep w K width a
+    let B := transferStep w K width (polyMul a phi)
+    let DA := sourceMarginalFirst w K width s a u
+    let DDA := sourceMarginalSecond w K width s a u
+    quaternionHaar (N width) (polyMul R
+      (polyMul (firstJet u (pairedScorePlus s A B))
+        (firstJet u (pairedScorePlus s A B)))) ≤
+    quaternionHaar (N width) (polyMul R
+      (polyMul
+        (polyAdd (polyMul A (transferStep w K width
+          (polyMul a (polyMul phi phi)))) (polyNeg (polyMul B B)))
+        (polyAdd
+          (polyMul A (polyAdd DDA
+            (polyMul (polyMul (cap cost) (threeSquare u)) A)))
+          (polyNeg (polyMul DA DA))))) := by
+  dsimp only
+  let a := terminalMessage w K width (n+r)
+  let q := terminalDensity w K width s n r
+  let P := localPrefix w K width s
+  let d := localFrozenFirst w K width s u
+  let dd := sourceFrozenAugmentedSecondAt w cost K width s u
+  let v := fun i => liftBoundary (N width) (u i)
+  have ha : SupportedQuaternionBlocks (N width) a :=
+    terminalMessage_supported w K width (n+r)
+  have hslot : s < N width := activeBlocks_lt width s hs
+  have hout : N width+s < N width+N width := by omega
+  have hv : ∀ i, SupportedQuaternionBlocks (N width+N width) (v i) :=
+    fun i => lift_supported (hu i) (N width)
+  have hp := heatInterval hout (by omega : s < N width+N width) hw0 hw1 K
+  have hd : SupportedQuaternionBlocks (N width+N width) d :=
+    three_supported (fun i =>
+      supported_polyMul (hv i) (pairedDerivativeAt_supported hout i hp.support))
+  have hsecond : SupportedQuaternionBlocks (N width+N width)
+      (quadraticForm v (fun i j => pairedDerivativeAt (N width+s) i
+        (pairedDerivativeAt (N width+s) j P))) :=
+    three_supported (fun i => three_supported (fun j =>
+      supported_polyMul (supported_polyMul (hv i) (hv j))
+        (pairedDerivativeAt_supported hout i
+          (pairedDerivativeAt_supported hout j hp.support))))
+  have hnorm := three_supported (fun i => supported_polyMul (hv i) (hv i))
+  have hdd : SupportedQuaternionBlocks (N width+N width) dd :=
+    supported_add hsecond (supported_polyMul
+      (supported_polyMul
+        (polySmul_supported (supported_one _) cost) hnorm)
+      hp.support)
+  have hphiFull : SupportedQuaternionBlocks (N width+N width) phi :=
+    support_extend hphi (by omega)
+  have hclear : RatPolyCoeffEqv
+      (polyAdd (polyMul P dd) (polyNeg (polyMul d d)))
+      (frozenCurvatureAt (N width+s) cost P v) :=
+    coeffEvalExpr_eqv_of_normalize_eq
+      (.add (.mul (.var 0) (.add (.var 2) (.mul (.mul (.var 3) (.var 4)) (.var 0))))
+        (.neg (.mul (.var 1) (.var 1))))
+      (.add (.mul (.var 3) (.mul (.var 4) (.mul (.var 0) (.var 0))))
+        (.add (.mul (.var 0) (.var 2)) (.neg (.mul (.var 1) (.var 1)))))
+      (by decide) (fun
+        | 0 => P | 1 => d
+        | 2 => quadraticForm v (fun i j => pairedDerivativeAt (N width+s) i
+            (pairedDerivativeAt (N width+s) j P))
+        | 3 => cap cost | _ => threeSquare v)
+  let C := Certificate.ofCoeff hclear curvature
+  have hm := headFloor_positive hw0 hw1
+  have hle : headFloor w ≤ prefixCap w+headFloor w :=
+    Q'.le_trans' _ _ _ (Q'.add_le_self_of_nonneg (headFloor w) _ hp.nonnegative)
+      (Q'.le_of_eqv (Q'.add_comm_eqv _ _))
+  have hupper := Q'.pos_of_lt_of_le hm hle
+  have hgram := conditional_signed_score_bound (N width) (N width)
+    q P d dd phi R
+    (terminalDensity_supported w K width s n r) hp.support hd hdd hphiFull
+    (terminalDensity_certificate hw0 hw1 K width s n r hhead) C PR
+    hm hupper hle
+    (heatAt_floorCertificate hout (by omega : s < N width+N width)
+      hw0 hw1 K hhead)
+    (hp.raise (headFloor w) (Q'.le_of_lt hm)).upper
+  have hscore := source_score_pin w K width s hs ha hphi u
+  have hnoise := source_noise_pin w K width s hs a phi
+  have hfisher := source_fisher_pin w cost K width s hs ha u
+  exact Q'.le_trans' _ _ _
+    (Q'.le_of_eqv (haar_of_coeff ((hscore.mul hscore).mul_left R).symm))
+    (Q'.le_trans' _ _ _ hgram
+      (Q'.le_of_eqv (haar_of_coeff ((hnoise.mul hfisher).mul_left R))))
+
 /-- Exact original-action conditional signed Gram with the positive terminal
 source inserted into q. Both derivatives and the reciprocal-facing marginal
 are A=T(a); the RHS is NOT asserted nonnegative term by term or bounded above. -/
@@ -671,78 +785,51 @@ theorem terminal_local_signed_score_bound {w : Q'}
           (polyMul A (polyAdd DDA
             (polyMul (polyMul (cap (prefixCurvatureCost w)) (threeSquare u)) A)))
           (polyNeg (polyMul DA DA))))) := by
-  dsimp only
-  let a := terminalMessage w K width (n+r)
-  let q := terminalDensity w K width s n r
-  let P := localPrefix w K width s
-  let d := localFrozenFirst w K width s u
-  let dd := localFrozenAugmentedSecond w K width s u
-  let v := fun i => liftBoundary (N width) (u i)
-  have ha : SupportedQuaternionBlocks (N width) a :=
-    terminalMessage_supported w K width (n+r)
-  have hslot : s < N width := activeBlocks_lt width s hs
-  have hb : 1 < N width+N width := by omega
+  have hslot := activeBlocks_lt width s hs
+  have hout : N width+s < N width+N width := by omega
+  have hhead : headCutoff w ≤ K := by unfold prefixFrozenCurvatureCutoff at hK; omega
+  exact terminal_local_signed_score_bound_at hw0 hw1 K width s n r hs hhead
+    (prefixCurvatureCost w) hphi u hu PR
+    (heatAt_frozen_curvature_certificate (by omega) ⟨N width+s,hout⟩ ⟨s,by omega⟩
+      (by simp only; omega) hw0 hw1 K hK _ (fun i => lift_supported (hu i) (N width)))
+
+/-- The sharper PRODUCED original heat certificate in the SAME terminal signed
+Gram. Full spectator action, all nine marginal jets, noise and negative DA square
+are unchanged. This is not an upper innovation bound or completed-norm estimate. -/
+theorem terminal_local_signed_score_bound_nearFlat {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K width s n r : Nat) (hs : s ∈ activeBlocks width)
+    (hK : nearFlatPrefixFrozenCurvatureCutoff w ≤ K)
+    {phi R : RatPoly}
+    (hphi : SupportedQuaternionBlocks (N width) phi)
+    (u : Fin 3 → RatPoly)
+    (hu : ∀ i, SupportedQuaternionBlocks (N width) (u i))
+    (PR : Certificate (N width) R) :
+    let a := terminalMessage w K width (n+r)
+    let A := transferStep w K width a
+    let B := transferStep w K width (polyMul a phi)
+    let DA := sourceMarginalFirst w K width s a u
+    let DDA := sourceMarginalSecond w K width s a u
+    quaternionHaar (N width) (polyMul R
+      (polyMul (firstJet u (pairedScorePlus s A B))
+        (firstJet u (pairedScorePlus s A B)))) ≤
+    quaternionHaar (N width) (polyMul R
+      (polyMul
+        (polyAdd (polyMul A (transferStep w K width
+          (polyMul a (polyMul phi phi)))) (polyNeg (polyMul B B)))
+        (polyAdd
+          (polyMul A (polyAdd DDA
+            (polyMul (polyMul (cap (nearFlatPrefixCurvatureCost w)) (threeSquare u)) A)))
+          (polyNeg (polyMul DA DA))))) := by
+  have hslot := activeBlocks_lt width s hs
   have hout : N width+s < N width+N width := by omega
   have hhead : headCutoff w ≤ K := by
-    unfold prefixFrozenCurvatureCutoff at hK
+    unfold nearFlatPrefixFrozenCurvatureCutoff at hK
     omega
-  have hv : ∀ i, SupportedQuaternionBlocks (N width+N width) (v i) :=
-    fun i => lift_supported (hu i) (N width)
-  have hp := heatInterval hout (by omega : s < N width+N width) hw0 hw1 K
-  have hd : SupportedQuaternionBlocks (N width+N width) d :=
-    three_supported (fun i =>
-      supported_polyMul (hv i) (pairedDerivativeAt_supported hout i hp.support))
-  have hsecond : SupportedQuaternionBlocks (N width+N width)
-      (quadraticForm v (fun i j => pairedDerivativeAt (N width+s) i
-        (pairedDerivativeAt (N width+s) j P))) :=
-    three_supported (fun i => three_supported (fun j =>
-      supported_polyMul (supported_polyMul (hv i) (hv j))
-        (pairedDerivativeAt_supported hout i
-          (pairedDerivativeAt_supported hout j hp.support))))
-  have hnorm := three_supported (fun i => supported_polyMul (hv i) (hv i))
-  have hdd : SupportedQuaternionBlocks (N width+N width) dd :=
-    supported_add hsecond (supported_polyMul
-      (supported_polyMul
-        (polySmul_supported (supported_one _) (prefixCurvatureCost w)) hnorm)
-      hp.support)
-  have hphiFull : SupportedQuaternionBlocks (N width+N width) phi :=
-    support_extend hphi (by omega)
-  have hclear : RatPolyCoeffEqv
-      (polyAdd (polyMul P dd) (polyNeg (polyMul d d)))
-      (frozenCurvatureAt (N width+s) (prefixCurvatureCost w) P v) :=
-    coeffEvalExpr_eqv_of_normalize_eq
-      (.add (.mul (.var 0) (.add (.var 2) (.mul (.mul (.var 3) (.var 4)) (.var 0))))
-        (.neg (.mul (.var 1) (.var 1))))
-      (.add (.mul (.var 3) (.mul (.var 4) (.mul (.var 0) (.var 0))))
-        (.add (.mul (.var 0) (.var 2)) (.neg (.mul (.var 1) (.var 1)))))
-      (by decide) (fun
-        | 0 => P | 1 => d
-        | 2 => quadraticForm v (fun i j => pairedDerivativeAt (N width+s) i
-            (pairedDerivativeAt (N width+s) j P))
-        | 3 => cap (prefixCurvatureCost w) | _ => threeSquare v)
-  let C := Certificate.ofCoeff hclear
-    (heatAt_frozen_curvature_certificate hb ⟨N width+s,hout⟩ ⟨s,by omega⟩
-      (by simp only; omega) hw0 hw1 K hK v hv)
-  have hm := headFloor_positive hw0 hw1
-  have hle : headFloor w ≤ prefixCap w+headFloor w :=
-    Q'.le_trans' _ _ _ (Q'.add_le_self_of_nonneg (headFloor w) _ hp.nonnegative)
-      (Q'.le_of_eqv (Q'.add_comm_eqv _ _))
-  have hupper := Q'.pos_of_lt_of_le hm hle
-  have hgram := conditional_signed_score_bound (N width) (N width)
-    q P d dd phi R
-    (terminalDensity_supported w K width s n r) hp.support hd hdd hphiFull
-    (terminalDensity_certificate hw0 hw1 K width s n r hhead) C PR
-    hm hupper hle
-    (heatAt_floorCertificate hout (by omega : s < N width+N width)
-      hw0 hw1 K hhead)
-    (hp.raise (headFloor w) (Q'.le_of_lt hm)).upper
-  have hscore := source_score_pin w K width s hs ha hphi u
-  have hnoise := source_noise_pin w K width s hs a phi
-  have hfisher := source_fisher_pin w K width s hs ha u
-  exact Q'.le_trans' _ _ _
-    (Q'.le_of_eqv (haar_of_coeff ((hscore.mul hscore).mul_left R).symm))
-    (Q'.le_trans' _ _ _ hgram
-      (Q'.le_of_eqv (haar_of_coeff ((hnoise.mul hfisher).mul_left R))))
+  exact terminal_local_signed_score_bound_at hw0 hw1 K width s n r hs hhead
+    (nearFlatPrefixCurvatureCost w) hphi u hu PR
+    (heatAt_frozen_curvature_nearFlat_certificate (by omega) ⟨N width+s,hout⟩ ⟨s,by omega⟩
+      (by simp only; omega) hw0 hw1 K hK _ (fun i => lift_supported (hu i) (N width)))
 
 end YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalLocalSignedGram
 
@@ -756,3 +843,8 @@ end YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalLocalSignedGram
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalLocalSignedGram.source_momentG_pin
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalLocalSignedGram.source_score_pin
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalLocalSignedGram.terminal_local_signed_score_bound
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalLocalSignedGram.terminal_local_signed_score_bound_nearFlat
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalLocalSignedGram.sourceFrozenAugmentedSecondAt
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalLocalSignedGram.source_momentG_at_pin
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalLocalSignedGram.source_fisher_pin
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalLocalSignedGram.terminal_local_signed_score_bound_at

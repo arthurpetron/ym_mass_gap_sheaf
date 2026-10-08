@@ -165,14 +165,15 @@ private theorem curvature_jet_carrier {blocks : Nat} (C : Q')
         HaarCarrierEqv.mul (HaarCarrierEqv.refl _ _) (hdd i j)))))
       (HaarCarrierEqv.neg (HaarCarrierEqv.mul hf hf)))
 
-/-- Produced SAME original-packet curvature at ANY distinct selected pair,
-with the FIRST endpoint differentiated and the original onset/cost intact. -/
-def heatAt_frozen_curvature_certificate {blocks : Nat} {w : Q'}
+private def heatAt_frozen_curvature_of_prefix_certificate {blocks : Nat} {w : Q'}
     (hb : 1 < blocks) (a b : Fin blocks) (hab : a.val ≠ b.val)
     (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
-    (K : Nat) (hK : prefixFrozenCurvatureCutoff w ≤ K)
+    (K : Nat) (C : Q')
+    (canonical : ∀ (v : Fin 3 → RatPoly),
+      (∀ i, SupportedQuaternionBlocks blocks (v i)) →
+      Certificate blocks (prefixFrozenCurvature w C K v))
     (u : Fin 3 → RatPoly) (hu : ∀ i, SupportedQuaternionBlocks blocks (u i)) :
-    Certificate blocks (frozenCurvatureAt a.val (prefixCurvatureCost w)
+    Certificate blocks (frozenCurvatureAt a.val C
       (heatAt a.val b.val w K) u) := by
   let ss := pairSteps hb a b
   let p := heatAt a.val b.val w K
@@ -202,24 +203,52 @@ def heatAt_frozen_curvature_certificate {blocks : Nat} {w : Q'}
       (pairedDerivativeAt_supported (by omega) j hprefix) (by
         simpa only [pairedDerivativeAt_zero] using hfirst j)
   have hchart := chain_frozenCurvatureAt ss (by omega : 0 < blocks)
-    (prefixCurvatureCost w) p hp u
+    C p hp u
   rw [pair_zero hb a b hab] at hchart
-  have hcanon := curvature_jet_carrier (prefixCurvatureCost w) v hheat hfirst hsecond
-  let Q := prefix_frozen_curvature_certificate hb hw0 hw1 K hK v
+  have hcanon := curvature_jet_carrier C v hheat hfirst hsecond
+  let Q := canonical v
     (fun i => applyQuaternionBlockSwapChain_supported ss (u i) (hu i))
   let chartCert := Certificate.transport (hchart.trans hcanon) Q
-  have hcurv := frozenCurvatureAt_supported a.isLt (prefixCurvatureCost w) hp u hu
+  have hcurv := frozenCurvatureAt_supported a.isLt C hp u hu
   have hchartSup := applyQuaternionBlockSwapChain_supported ss _ hcurv
   have hinv : HaarCarrierEqv blocks
       (applyQuaternionBlockSwapChain ss.reverse (applyQuaternionBlockSwapChain ss
-        (frozenCurvatureAt a.val (prefixCurvatureCost w) p u)))
-      (frozenCurvatureAt a.val (prefixCurvatureCost w) p u) :=
+        (frozenCurvatureAt a.val C p u)))
+      (frozenCurvatureAt a.val C p u) :=
     carrierOfPrefix (applyQuaternionBlockSwapChain_supported ss.reverse _ hchartSup)
       hcurv (reverse_apply_inverse_prefix ss _)
   exact Certificate.transport hinv.symm (chain_certificate ss.reverse hchartSup chartCert)
+
+/-- Produced SAME original-packet curvature at ANY distinct selected pair,
+with the FIRST endpoint differentiated and the original onset/cost intact. -/
+def heatAt_frozen_curvature_certificate {blocks : Nat} {w : Q'}
+    (hb : 1 < blocks) (a b : Fin blocks) (hab : a.val ≠ b.val)
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : prefixFrozenCurvatureCutoff w ≤ K)
+    (u : Fin 3 → RatPoly) (hu : ∀ i, SupportedQuaternionBlocks blocks (u i)) :
+    Certificate blocks (frozenCurvatureAt a.val (prefixCurvatureCost w)
+      (heatAt a.val b.val w K) u) :=
+  heatAt_frozen_curvature_of_prefix_certificate hb a b hab hw0 hw1 K
+    (prefixCurvatureCost w) (prefix_frozen_curvature_certificate hb hw0 hw1 K hK) u hu
+
+/-- Sharper produced ORIGINAL-prefix certificate at any distinct selected
+pair and its FIRST (possibly output) endpoint. All frozen coefficients travel
+after their raw jets; no interacting source-weighted payment is asserted. -/
+def heatAt_frozen_curvature_nearFlat_certificate {blocks : Nat} {w : Q'}
+    (hb : 1 < blocks) (a b : Fin blocks) (hab : a.val ≠ b.val)
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : nearFlatPrefixFrozenCurvatureCutoff w ≤ K)
+    (u : Fin 3 → RatPoly) (hu : ∀ i, SupportedQuaternionBlocks blocks (u i)) :
+    Certificate blocks (frozenCurvatureAt a.val (nearFlatPrefixCurvatureCost w)
+      (heatAt a.val b.val w K) u) :=
+  heatAt_frozen_curvature_of_prefix_certificate hb a b hab hw0 hw1 K
+    (nearFlatPrefixCurvatureCost w)
+    (prefix_frozen_curvature_nearFlat_certificate hb hw0 hw1 K hK) u hu
 
 end YMGap.Continuum.SU2QuaternionPairedHeatAtFrozenCurvature
 
 #print axioms YMGap.Continuum.SU2QuaternionPairedHeatAtFrozenCurvature.frozenCurvatureAt_supported
 #print axioms YMGap.Continuum.SU2QuaternionPairedHeatAtFrozenCurvature.chain_frozenCurvatureAt
 #print axioms YMGap.Continuum.SU2QuaternionPairedHeatAtFrozenCurvature.heatAt_frozen_curvature_certificate
+#print axioms YMGap.Continuum.SU2QuaternionPairedHeatAtFrozenCurvature.heatAt_frozen_curvature_of_prefix_certificate
+#print axioms YMGap.Continuum.SU2QuaternionPairedHeatAtFrozenCurvature.heatAt_frozen_curvature_nearFlat_certificate

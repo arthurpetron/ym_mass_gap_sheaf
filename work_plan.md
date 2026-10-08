@@ -27,6 +27,22 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED MAIN original-source contraction (2026-10-08 UTC): the sharper radial
+certificate now reaches the literal ORIGINAL prefix, any selected output
+pair and the full terminal signed Gram. The computed fixed-nome cost is
+`nearFlatPrefixCurvatureCost = 4+1/(1-w*w)`, with a new explicit tolerance
+and cutoff paying BOTH the eighth-factor onset and the tail allowance <=1.
+`TerminalLocalSignedGram.terminal_local_signed_score_bound_nearFlat` retains
+the SAME terminal density, A=T(a), all nine ordered marginal jets, literal
+conditional noise and negative DA square. No interacting source is replaced
+by kinetic heat. Five final focused targets and COMPLETE independent
+final-source reviews PASS; precision check 1 needed only an explicit
+denominator type and check 2 passed. All printed gates permitted.
+Existing public types, canonical fields and displayed chart claims unchanged.
+One serial 20-GiB worker/12-GiB reserve after each successful live preflight,
+zero observed swap; no root/full-tree build or audit. Exact evidence and
+source/log hashes: adaptive conditional-score audit.
+
 CHECKED next MAIN contraction (2026-10-08 UTC): the existing SAME completed
 addition-square comparison passes the new finite endpoint ceiling to ALL
 of [-1,1]. `ThetaProductRadialCeiling.productRadialCost_le_nearFlatCap_add_tail`
@@ -47,15 +63,16 @@ No new analytic premise, canonical field or physical/scaling statement.
 Exact source/log hashes and the narrowed southern-support warning: adaptive
 conditional-score audit. Displayed canonical claims unchanged; no chart.
 
-CONTINUE the sharper ORIGINAL join: reuse the existing full frozen-direction
-reconstruction with this produced radial certificate, then pay the literal
-original-character value/first/mixed-jet deficits at an explicit cutoff.
-The existing Bernstein/compiler construction is no longer the missing radial
-input. Do not condition the original law or replace its marginal by kinetic
-heat; `TerminalLocalSignedGram.terminal_local_signed_score_bound` still uses
-the actual source density and OWN center. Complete signed cost versus OWN
-surviving variance and BOTH masses, physical/scaling/QFT/every-group/Clay
-remain OPEN. A global curvature ceiling is not the missing innovation bound.
+CONTINUE the SAME-source signed payment: the full frozen reconstruction,
+original-character value/first/mixed-jet deficit transport and selected-pair
+recoding are now checked at the sharper cost above, not pending inputs.
+Use that original terminal signed Fisher with the existing actual Ward
+absorption; retain the signed marginal Hessian, negative DA square, spatial
+and weight-derivative contributions TOGETHER before an absolute bound.
+Do not condition the original law, replace its marginal by kinetic heat or
+treat the local curvature allowance as a useful relative innovation ceiling.
+Complete signed cost versus OWN surviving variance and BOTH masses,
+physical/scaling/QFT/every-group/Clay remain OPEN. No chart reprint.
 
 CHECKED MAIN endpoint screen (2026-10-08 UTC): the EXISTING scalar leaves
 now produce h'<=C_T*h on X>=0 and

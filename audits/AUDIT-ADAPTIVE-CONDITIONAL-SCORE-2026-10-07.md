@@ -7313,3 +7313,120 @@ actual constructive global comparison already present in this repository
 made that detour unnecessary for this bound. Continuum/QFT, physical mass,
 every compact simple group and the unchanged Clay goal remain OPEN.
 Canonical displayed claims are unchanged; no chart reprint.
+
+## Next bounded original-prefix contraction (2026-10-08 UTC)
+
+Previous turn: PROGRESS (`d7eafaaa`, four checked leaves and actual radial
+certificate; review reconciliation `19ae7ef1`; both pushed). Selection
+before verification: produce full frozen ORIGINAL-prefix curvature at
+`4+1/(1-w^2)`, with a computed cutoff/tolerance. Inputs are the actual
+near-flat radial certificate, existing full frozen reconstruction, exact
+original value/first/all-nine mixed-jet deficit pins and original heat floor.
+The tail is charged before selecting precision: require BOTH c_N<=1/8
+and c_N<=(1-w^2)/4, which pays the literal radialTailPayment<=1.
+The former does not follow from the latter at every strict nome. Weighted
+slack one and approximation slack one then give the stated cost; six-column
+matrix error is paid by quarter-floor precision, not a dimension cost.
+
+Actual consumers: `SU2QuaternionPairedHeatAtFrozenCurvature.heatAt_frozen_curvature_certificate`
+and `BF4ExactSlabFixedSpatialTerminalLocalSignedGram.terminal_local_signed_score_bound`.
+They must keep the SAME original action, arbitrary supported frozen directions,
+all ordered mixed jets, OWN center and terminal density. Predicted outcome:
+a smaller produced original-prefix allowance, NOT an upper innovation or
+physical gap. Tests: strict nomes approaching zero/one, N=0/1 guarded,
+arbitrary zero/repeated/signed directions. Budget: changed focused leaves
+only, serial 20-GiB worker/12-GiB reserve with fresh live preflights and
+independent complete final-source review. Abandon/revise any attempt to
+reuse an unjustified old cutoff, discard signed deficits, or replace the
+original law by kinetic heat. Mathematical selection checked independently;
+new Lean proof status awaits focused checks. No chart-state change.
+
+### Observed: original-prefix and original terminal joins checked
+
+The selected mathematical contraction is now CHECKED, not a supplied cost
+interface. The exact sharper fixed-nome allowance is the computed rational
+`nearFlatPrefixCurvatureCost = nearFlatCap+3 = 4+1/(1-w^2)`.
+
+- `lean/YMGap/Continuum/JacobiHeatPrefixCurvaturePrecision.lean:86`,
+  `nearFlatRadialOnset`, computes the max of the actual eighth onset and the
+  power cutoff at (1-w^2)/4. `nearFlatRadialOnset_tail_le_one` (:100) pays
+  the literal 4*c_N/(1-w^2); `nearFlatRadialCap_le_curvatureCap` (:135)
+  bounds weighted cost plus one by `nearFlatCurvatureCap` (:65).
+- `lean/YMGap/Continuum/SU2QuaternionPairedFrozenJacobiCurvature.lean:152`,
+  `frozen_curvature_nearFlat_certificate`, constructs the actual full frozen
+  heat certificate from the produced radial witness, retaining all nine jets
+  and the favorable cross-product-square/log-discriminant complement.
+- `lean/YMGap/Continuum/SU2QuaternionPairedFrozenHeatPrefixCurvature.lean:186`,
+  `prefix_frozen_curvature_nearFlat_certificate`, consumes the exact SAME
+  original value/first/ordered mixed-jet deficit pins and actual head floor.
+  The quarter-floor precision pays the six-column error; floor dependence is
+  confined to precision, not an inverse coefficient in the cost. New tolerance
+  (:172), cutoff (:177) and cost (:181) are computed Type-level data.
+- `lean/YMGap/Continuum/SU2QuaternionPairedHeatAtFrozenCurvature.lean:237`,
+  `heatAt_frozen_curvature_nearFlat_certificate`, transports this certificate
+  to any distinct selected pair's FIRST endpoint after taking the actual jets.
+  Supported Haar equality and the reverse chart return the literal heatAt.
+- `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalLocalSignedGram.lean:799`,
+  `terminal_local_signed_score_bound_nearFlat`, now constructs the local
+  curvature input to the actual original terminal signed Gram. The density is
+  STILL localOutputDensity*a with a=terminalMessage(n+r); q*P equals
+  lastStepAction*a. A=T(a), B=T(a*phi), all nine DDA jets, the actual noise
+  A*T(a*phi^2)-B^2 and the negative DA^2 term remain unchanged. No termwise
+  positive Hessian, upper innovation, norm floor or conditional-law replacement
+  is assumed. Arbitrary supported signed phi permits original rational centers.
+
+Private arbitrary-cost reconstruction/recoding/moment helpers reuse the SAME
+existing proofs; old public types and guards are unchanged. Public sharper
+instances PRODUCE their certificates and use their NEW computed cutoff.
+The strict nome, nonempty weighted prefix and distinct-pair/support guards
+remain; no zero direction or signed observable is discarded. No new import,
+module, axiom, sorry, classical/native proof, resource option or frontier
+weakening. Complete independent mathematical FINAL-source reviews PASS at
+every hash below; root inspected all changed proofs and actual consumers.
+
+Five final focused targets PASS, exit 0, with 21/5/11/5/15 printed gates.
+All observed axiom sets lie within {propext, Quot.sound}. Precision check 1
+failed ONLY to infer the reciprocal denominator in an untyped local `have`;
+check 2 fixes its type explicitly and removes the failed elaboration's
+sorryAx. No sorry appears in source or in any final successful gate output.
+The other four checks passed on first launches. Existing unused-variable
+warning in the precision API was unchanged.
+
+    precision source a11da2a89c48c4adfed0ebd12f056f0d3cda96f755d197acb1415c6311aec152
+    /private/tmp/ym-oct8-sharper-prefix-precision1.log FAIL
+    SHA256 a6a01e0e7b906b488b0c1dbddd4b213f96a7c518a9b952dc6ab1de1acdea8769
+    /private/tmp/ym-oct8-sharper-prefix-precision2.log PASS
+    SHA256 cafda7908f82ead14dd4d8a75eef732f4e90f64399766b518981f1b68ea41ba2
+
+    frozen heat source 32783d59e175df0b776b6a76c2f4ad25beee7da99c9801dff0ac75848d7ff5ef
+    /private/tmp/ym-oct8-sharper-frozen-heat1.log PASS
+    SHA256 7c103c2621eba14b471d4add794bf80a8082a685195cc15e3ecc4a4e359db261
+
+    original prefix source a75b73dea3bdfd744ce98eae9919f9c9bc881990cf61aee37c84866e95368c42
+    /private/tmp/ym-oct8-sharper-original-prefix1.log PASS
+    SHA256 0e8bd0e50f50f13cebb50ea6d8bb0515d2d3f10618aa9909bbbe28e534055f46
+
+    selected pair source a710e517b1f486e53c7bd295a9259ae4cdece93394b403060612f7132343fed4
+    /private/tmp/ym-oct8-sharper-selected-pair1.log PASS
+    SHA256 02c54879f302ee248c0baf8d07770c5e9e62d96dd150f733b7fd4dec6924934e
+
+    original terminal source d438da0739d7d8855bb9e6e43f3999fc0f5b3298c5ee99c4f89d46f11efe83d6
+    /private/tmp/ym-oct8-sharper-original-terminal-gram1.log PASS
+    SHA256 cb4be337c96e09a32560dff96d3c2e65cd474e8417daa4b612e806ce59fac291
+
+Safety: serial monitored 20-GiB worker, 12-GiB OS reserve after EACH successful
+fresh live conflict/memory preflight; observed 84--85% pressure-free, zero
+swap. Initial sandbox-only host reads were denied, so no check launched from
+that incomplete preflight; permitted read-only host inspection succeeded
+before every launch. No lock bypass/removal, limits increase, broad tests,
+root/full-tree build or axiom audit. User-owned duplicate files untouched.
+
+Decision: CONTINUE actual Ward/signed payment with this sharper original
+terminal Fisher, retaining its signed Hessian, negative DA square and the
+original density/spatial/weight contributions together. The local allowance
+still depends on nome and diverges near one; it is NOT a useful completed
+innovation reserve by itself. Complete signed cost relative to OWN surviving
+variance and BOTH chronological masses remains OPEN. Nontrivial continuum
+survival, physical calibration, full QFT structure, every compact simple group
+and the unchanged Clay target remain OPEN. No canonical field or displayed
+chart state changes, hence no chart reprint.

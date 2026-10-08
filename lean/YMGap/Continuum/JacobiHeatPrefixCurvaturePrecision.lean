@@ -60,6 +60,91 @@ theorem radialCap_le_curvatureCap {w : Q'} (hw0 : (0 : Q') < w)
   exact Q'.add_le_add_right _ _ 1
     (Q'.add_le_add_left (transverseCap w) _ _ (geoTailBase_numerator_mono hnum))
 
+/-- The actual finite tail is reduced before precision is chosen. Weighted
+slack is one; the final original-prefix approximation adds another one. -/
+def nearFlatCurvatureCap (w : Q') : Q' :=
+  JacobiProductRadialNearFlatBound.nearFlatCap w + 2
+
+theorem nearFlatCurvatureCap_nonnegative {w : Q'} (_hw0 : (0 : Q') < w) :
+    (0 : Q') ≤ nearFlatCurvatureCap w :=
+  Q'.zero_le_add _ _ (JacobiProductRadialNearFlatBound.nearFlatCap_nonnegative w)
+    (by decide : (0 : Q') ≤ 2)
+
+/-- Literal sufficient amplitude for a tail payment of at most one. -/
+def nearFlatRadialThreshold (w : Q') : Q' :=
+  Q'.mkPos 1 4 (by decide) * (1 + -(w*w))
+
+private theorem nome_gap_positive {w : Q'} (hw0 : (0 : Q') < w)
+    (hw1 : w < (1 : Q')) : (0 : Q') < 1 + -(w*w) :=
+  HKPos.one_sub_pos (HKPos.q_lt_of_le_of_lt
+    (Q'.le_trans' _ _ _
+      (Q'.mul_le_mul_of_nonneg_right w 1 w (Q'.le_of_lt hw1) (Q'.le_of_lt hw0))
+      (Q'.le_of_eqv (Q'.one_mul_eqv w))) hw1)
+
+/-- Both guards are retained: the new tail threshold alone does not imply
+the existing eighth-amplitude onset at every strict nome. -/
+def nearFlatRadialOnset (w : Q') : Nat :=
+  max (JacobiHeatRadialProducedBound.radialOnset w)
+    (HKConvGen.powBaseCutoff w (nearFlatRadialThreshold w))
+
+theorem nearFlatRadialOnset_small_factor {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (N : Nat) (hN : nearFlatRadialOnset w ≤ N) :
+    HKPos.geoAmp w N ≤ JacobiProductRadialSignedTail.eighth :=
+  JacobiHeatRadialProducedBound.radialOnset_small_factor hw0 hw1 N (by
+    unfold nearFlatRadialOnset at hN
+    omega)
+
+/-- Produced bound on the literal signed-tail allowance, not a substituted
+heat floor or an assumed cutoff-independent curvature estimate. -/
+theorem nearFlatRadialOnset_tail_le_one {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (N : Nat) (hN : nearFlatRadialOnset w ≤ N) : radialTailPayment w N ≤ 1 := by
+  have hgap := nome_gap_positive hw0 hw1
+  have hthreshold : (0 : Q') < nearFlatRadialThreshold w :=
+    HKPos.q_mul_pos (by decide : (0 : Q') < Q'.mkPos 1 4 (by decide)) hgap
+  have hcut : HKConvGen.powBaseCutoff w (nearFlatRadialThreshold w) ≤ N := by
+    unfold nearFlatRadialOnset at hN
+    omega
+  have hamp : HKPos.geoAmp w N ≤ nearFlatRadialThreshold w :=
+    Q'.le_trans' _ _ _
+      (HKConvGen.pow_base_antitone (Q'.le_of_lt hw0) (Q'.le_of_lt hw1)
+        (m := N) (n := 2*N+1) (by omega))
+      (Q'.le_trans' _ _ _
+        (HKConvGen.pow_base_antitone (Q'.le_of_lt hw0) (Q'.le_of_lt hw1) hcut)
+        (HKConvGen.pow_base_le_cutoff hw0 hw1 hthreshold))
+  have hpin : 4*nearFlatRadialThreshold w ≈ 1 + -(w*w) :=
+    Q'.eqv_trans _ _ _
+      (Q'.eqv_symm (Q'.mul_assoc_eqv 4 (Q'.mkPos 1 4 (by decide)) (1 + -(w*w))))
+      (Q'.eqv_trans _ _ _
+        (Q'.mul_eqv_congr_right _ 1 _
+          (by decide : (4 : Q')*Q'.mkPos 1 4 (by decide) ≈ 1))
+        (Q'.one_mul_eqv _))
+  have hnum : 4*HKPos.geoAmp w N ≤ 1 + -(w*w) :=
+    Q'.le_trans' _ _ _
+      (Q'.mul_le_mul_of_nonneg_left _ _ 4 hamp (by decide)) (Q'.le_of_eqv hpin)
+  change ((4*HKPos.geoAmp w N)*1)*HKConv.divPos 1 (1 + -(w*w)) ≤ 1
+  have hinv : (0 : Q') ≤ HKConv.divPos 1 (1 + -(w*w)) :=
+    HKConv.divPos_nonneg Q'.zero_le_one
+  exact Q'.le_trans' _ _ _
+    (Q'.mul_le_mul_of_nonneg_right _ _ _
+      (Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.mul_one_eqv _)) hnum) hinv)
+    (Q'.le_of_eqv (Q'.eqv_trans _ _ _ (Q'.mul_comm_eqv _ _)
+      (HKConv.divPos_mul_eqv (CReal.num_pos_of_pos hgap))))
+
+theorem nearFlatRadialCap_le_curvatureCap {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (N : Nat) (hN : nearFlatRadialOnset w ≤ N) :
+    JacobiHeatRadialProducedBound.nearFlatRadialCap w N+1 ≤ nearFlatCurvatureCap w :=
+  Q'.le_trans' _ _ _
+    (Q'.add_le_add_right _ _ 1
+      (Q'.add_le_add_left (JacobiProductRadialNearFlatBound.nearFlatCap w) _ _
+        (nearFlatRadialOnset_tail_le_one hw0 hw1 N hN)))
+    (Q'.le_of_eqv (poly_identity_of_normal_eq
+      (.add (.add (.var 0) (.const 1)) (.const 1))
+      (.add (.var 0) (.const 2)) (by decide)
+      (fun _ => JacobiProductRadialNearFlatBound.nearFlatCap w)))
+
 /-- Fixed error coefficient, selected before any finite cutoff. -/
 def errorCoefficient (Cbar U0 U1 U2 : Q') : Q' :=
   Cbar*(2*U0+1)+4*U0+U2+4*U1+8
@@ -190,6 +275,13 @@ end YMGap.Continuum.JacobiHeatPrefixCurvaturePrecision
 #print axioms YMGap.Continuum.JacobiHeatPrefixCurvaturePrecision.curvatureCap_nonnegative
 #print axioms YMGap.Continuum.JacobiHeatPrefixCurvaturePrecision.geoTailBase_numerator_mono
 #print axioms YMGap.Continuum.JacobiHeatPrefixCurvaturePrecision.radialCap_le_curvatureCap
+#print axioms YMGap.Continuum.JacobiHeatPrefixCurvaturePrecision.nearFlatCurvatureCap
+#print axioms YMGap.Continuum.JacobiHeatPrefixCurvaturePrecision.nearFlatCurvatureCap_nonnegative
+#print axioms YMGap.Continuum.JacobiHeatPrefixCurvaturePrecision.nearFlatRadialThreshold
+#print axioms YMGap.Continuum.JacobiHeatPrefixCurvaturePrecision.nearFlatRadialOnset
+#print axioms YMGap.Continuum.JacobiHeatPrefixCurvaturePrecision.nearFlatRadialOnset_small_factor
+#print axioms YMGap.Continuum.JacobiHeatPrefixCurvaturePrecision.nearFlatRadialOnset_tail_le_one
+#print axioms YMGap.Continuum.JacobiHeatPrefixCurvaturePrecision.nearFlatRadialCap_le_curvatureCap
 #print axioms YMGap.Continuum.JacobiHeatPrefixCurvaturePrecision.errorCoefficient
 #print axioms YMGap.Continuum.JacobiHeatPrefixCurvaturePrecision.errorCoefficient_nonnegative
 #print axioms YMGap.Continuum.JacobiHeatPrefixCurvaturePrecision.errorTolerance

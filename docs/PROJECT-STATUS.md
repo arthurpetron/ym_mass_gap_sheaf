@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Supporting sharper ORIGINAL terminal signed Gram checked (2026-10-08 UTC):
+the produced radial certificate now reaches the original character prefix,
+its selected output endpoint and the full terminal density at computed cost
+`4+1/(1-w*w)`. The new cutoff/tolerance pays both actual tail guards and ALL
+nine signed jet deficits; the negative marginal mean square is retained.
+Five final focused targets and COMPLETE independent final-source reviews PASS,
+all printed gates permitted. This fills the sharper original-prefix join,
+not the complete signed cost versus OWN surviving variance and BOTH masses.
+Physical/Clay and exact displayed chart claims remain OPEN/unchanged;
+no chart reprint. Evidence: adaptive conditional-score audit.
+
 Supporting sharper finite heat curvature checked (2026-10-08 UTC):
 the actual endpoint telescope and SAME completed addition square produce
 a whole-interval cost `1+1/(1-w*w)+radialTailPayment`, and its actual
