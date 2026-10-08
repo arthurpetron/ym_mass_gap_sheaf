@@ -425,6 +425,37 @@ theorem response_crossRatio_increment_le (x : V) (L h : Nat) (epsilon : Q')
     (by unfold completedInner completedTime; rfl)
     (by unfold completedInner completedTime; rfl) epsilon he hfloor h
 
+private theorem late_defect_gap (c a u v : RC) :
+    RCsub (RCmul (RCsub c a) u)
+      (RCsub (RCmul c v) (RCmul a u)) = RCmul c (RCsub u v) := by
+  refine Quotient.inductionOn₂ c a ?_
+  intro C A
+  refine Quotient.inductionOn₂ u v ?_
+  exact fun U0 V0 => Quotient.sound (SumOfSquares.Equiv_of_approx_eqv (fun n =>
+    poly_identity_of_normal_eq
+      (.add (.mul (.add (.var 0) (.neg (.var 1))) (.var 2))
+        (.neg (.add (.mul (.var 0) (.var 3)) (.neg (.mul (.var 1) (.var 2))))))
+      (.mul (.var 0) (.add (.var 2) (.neg (.var 3))))
+      (by decide) (fun
+        | 0 => C.approx n
+        | 1 => A.approx n
+        | 2 => U0.approx n
+        | _ => V0.approx n)))
+
+/-- The SAME shifted covariance saturates at initial first-defect times late
+response. No positive response floor is needed, including at zero responses
+or odd shifts. This is an alternative payment bound, not a survival estimate. -/
+theorem response_crossRatio_increment_le_late_defect (x : V) (L h : Nat) :
+    RCle (RCsub (RCmul (R x L) (R x (L+h+1)))
+      (RCmul (R x (L+1)) (R x (L+h))))
+      (RCmul (RCsub (R x L) (R x (L+1))) (R x (L+h))) := by
+  apply le_of_sub_nonnegative
+  rw [late_defect_gap, first_defect_pin hw0 hw1 x (L+h)]
+  have hh := mul_mono_left (response_nonnegative hw0 hw1 width x L)
+    (mixedMoment_nonnegative hw0 hw1 x (L+h) 1)
+  rw [RCmul_comm _ RCzero, mul_zero] at hh
+  exact hh
+
 private theorem spread_defect_difference (c a z : RC) :
     RCsub (RCmul c (RCsub (RCsub c a) (RCsub a z)))
       (RCsub (RCmul c z) (RCmul a a)) = RCmul (RCsub c a) (RCsub c a) := by
@@ -610,6 +641,7 @@ end Completed
 #print axioms response_convex_step
 #print axioms response_crossRatio
 #print axioms response_crossRatio_increment_le
+#print axioms response_crossRatio_increment_le_late_defect
 #print axioms warmed_response_crossRatio_increment_le
 #print axioms orbit_response_expand
 #print axioms positiveOrbit_response_crossRatio

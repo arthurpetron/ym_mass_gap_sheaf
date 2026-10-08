@@ -16,15 +16,18 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
-**Checked original temporal covariance payment (2026-10-08 UTC):**
+**Checked original temporal covariance payments (2026-10-08 UTC):**
 `BF4WilsonAllNomePositiveOrbitResponseOrder.response_crossRatio_increment_le`
 reduces long-lag covariance to h times the SAME shifted three-moment spread,
-without a norm inverse or spectral measure. Every nonnegative integer shift is retained;
-the supplied positive rational response floor only reflects order. Its
-warming corollary keeps R_x(2q)*B(x,x), not an assumed warmed-relative bound.
-Focused check 2 and independent complete-source review PASS, permitted gates
-only. Actual joint credit/spread, scaling and physical/Clay remain OPEN.
-No new module/frontier or broad audit. Evidence: adaptive-score audit.
+with an explicit positive floor. Its late-defect alternative retains
+(r0-r1)*r_h without any floor, inverse or spectral measure. Every natural
+shift and zero response is retained. Warming keeps R_x(2q)*B(x,x), not an
+assumed warmed-relative bound. Focused final leaves and independent complete
+source review PASS; actual bound uses permitted gates, new rational
+diagnostics are axiom-free. They show h*S can overcharge and E>=0 is not
+necessary for box survival; neither test is imposed as a new frontier.
+Actual complete signed family control, scaling and physical/Clay remain
+OPEN. No new module/frontier or broad audit. Evidence: adaptive-score audit.
 
 **Checked geometric cap/floor pruning (2026-10-08 UTC):**
 `BF4WilsonAllNomeAFPaddedTrajectory.afGeometricCertificate_lt_at_probe`

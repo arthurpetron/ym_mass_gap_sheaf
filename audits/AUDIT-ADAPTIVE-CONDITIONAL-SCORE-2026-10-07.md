@@ -4,6 +4,133 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Observed late-response saturation (2026-10-08 16:11 UTC)
+
+CHECKED in the existing leaves, with no new module or conditional compiler:
+
+- `lean/YMGap/Continuum/BF4WilsonAllNomePositiveOrbitResponseOrder.lean:448`,
+  `response_crossRatio_increment_le_late_defect`, proves
+  Delta_h<=(r_0-r_1)*r_h on the SAME original completion. Every natural
+  shift and h, including odd shifts, zero responses and h=0, is retained.
+  The remainder is r_0*(r_h-r_(h+1))>=0. Unlike the earlier h*S bound,
+  no positive rational response floor is required.
+- `lean/YMGap/Continuum/RationalTwoModeSurvivalObstruction.lean:240`,
+  `saturationDiagnostic_rates`, checks 0<1/5<99/100<1.
+  `saturationDiagnostic_payment:248` checks the literal N=2, p=1, h=2,
+  theta=37/40 box and the STRICT chain
+    Delta_2 = 73525221/500000000
+      < (r_0-r_1)*r_2 = 1662130001/10000000000
+      < E*Total = 168190595904875349/1000000000000000000
+      < 2*S = 617859/2500000,
+  with E>0 and actual box survival. These are abstract positive-mode
+  moments R(k)=(1/5)^k+(99/100)^k, NOT a Wilson/Yang--Mills instance.
+  `saturationDiagnostic_negativeCredit_survival:263` additionally checks
+  that the SAME box survives at theta=189/200 while E=-179849/100000000<0.
+  All three new diagnostic gates are AXIOM-FREE kernel `decide` proofs.
+
+### Decision: bound the cost without imposing an unnecessarily strong test
+
+The original h*S theorem remains correct and useful as a fallback; it is
+not a necessary survival condition or the primary required family estimate.
+The late-response bound materially improves that fallback in the checked
+diagnostic without replacing the action, carrier or normalization.
+Neither sufficient bound supplies actual changing-family credit.
+
+Independent PAPER review also retains the previously dropped tail credits:
+for a=r_1, b=r_(h+1), C=r_0, E=b-theta*a and
+Gamma_s=a*r_(s+h)-b*r_s>=0 (s>=1), exact double-box expansion gives
+  a*(N+1)^2*[R_Y(N+1)-theta*R_Y(p)]
+    = E*(C+Tail)-Delta_h+sum_(s=1..2*N) tau_s*Gamma_s.
+The Gamma signs follow from existing `response_crossRatio:263` in the
+positive-orbit leaf; this exact triangular-recoding join remains PAPER,
+not a new Lean window certificate. The negative-E diagnostic explains why
+discarding those credits can exclude valid survival. Preserve signed
+credit and residual damping; do not impose E>=0, uniform E>=gamma*C,
+or h*S payment as a mandatory frontier. In this expansion x is the RAW
+centered family and Y its existing box average, not another average of
+the already smoothed trajectory state.
+
+The concrete original-action residue is still unproduced. The finite
+`BF4DyadicWilsonSquareFilteredGainStein.paddedSquare_own_commutatorGain_source_gradient`
+at `lean/YMGap/Continuum/BF4DyadicWilsonSquareFilteredGainStein.lean:190`
+retains the full V*g_n derivative and OWN-center correction; it is not a
+favorable estimate on the warmed signed spatial family. The actual
+`normalizedFiniteGain_identity` at
+`lean/YMGap/Continuum/BF4WilsonAllNomeFilteredFiniteGainApproximation.lean:87`
+and `normalizedFiniteGain_approx` at
+`lean/YMGap/Continuum/BF4WilsonAllNomeFilteredFiniteGainLimit.lean:111`
+retain chronological normalization and only identify/approximate the
+fixed-member gain. Gauge-vertical Ward zero and the integrated angular-score
+variance certificate do not produce a horizontal temporal-residual upper
+bound. Do not build another join identity in place of that missing estimate.
+Continue actual complete signed window/cost-versus-variance control or the
+existing relative innovation, with these bounds as optional upper payments.
+
+### Exact verification boundary
+
+Actual bound final source (651 lines), SHA256
+  8dcc1509a2cd8362921b7d3af3c2838facf94df08a738f3b1b2e486b3783f193;
+focused check 2 `/private/tmp/ym-oct8-late-defect2.log`, SHA256
+  f54bebff362511b6ae7a55d729f0e63b9e566b9b5053010f7fe65880798d80f8.
+Diagnostic final source (288 lines), SHA256
+  c4a4e5072eb4ec865328835769e4c003abaae80d3cc2012f541aa7864f89ff10;
+focused check 1 `/private/tmp/ym-oct8-saturation-diagnostic1.log`, SHA256
+  cf38671e7cfa5783d92feb76a3ef4dca2ab899e4f7bfe415966d30e6438f1f1f.
+Both checks exit zero with no warnings/errors/sorryAx; all existing printed
+gates permitted, new actual-bound gate exactly {propext,Quot.sound}.
+Independent COMPLETE final-source review PASS at both hashes; root read
+both complete sources, the final repair and complete logs. Actual check 1
+rejected only binder V shadowing local notation; alpha-renaming U,V to U0,V0
+fixes it. Its error-recovery sorryAx is NOT accepted proof evidence.
+
+Exactly +32 actual-bound and +46 diagnostic lines, three focused attempts
+within budget. Every launch followed successful fresh process/memory
+preflight, one worker, 20-GiB hard cap and 12-GiB reserve; memory-pressure
+headroom 85--86%, swap zero. A sandbox-denied initial swap query prevented
+launch; read-only authorized preflight then succeeded. No lock bypass,
+user-process termination or threshold increase. No root/tree audit, baseline
+refresh, new sorry/axiom, frontier field change or broad verification claim.
+Continuum survival, physical calibration, SAME limiting OS/QFT, every group
+and Clay remain OPEN. Canonical displayed claims unchanged; no ASCII reprint.
+
+## Selected late-response saturation (2026-10-08 UTC)
+
+Previous goal turn PROGRESS: 7ee63221 checks Delta_h<=h*S, with explicit
+original-norm warming. Fresh source review confirms that the useful actual
+changing-family payment is still missing. Independent mathematical tests now
+show that h*S can overcharge even positive first-split credits, so it is a
+fallback, not a mandatory or primary analytic frontier.
+
+Selected unconditional proposition in the EXISTING positive-orbit leaf:
+  Delta_h <= (r_0-r_1)*r_h,
+with r_i=B(x,T^(L+i)x). The exact gap is
+  (r_0-r_1)*r_h-Delta_h = r_0*(r_h-r_(h+1)) >= 0.
+Available inputs are the SAME response positivity, first-defect positivity
+and quotient algebra; no rational response floor, norm inverse or spectral
+measure is required. This retains actual late decay rather than h growth.
+Consumer remains the PAPER first-split box payment for
+`BF4WilsonAllNomeShiftedWindowSurvival.PathShiftedWindowSurvival` (line 448).
+For that box calculation x is the RAW centered family; the trajectory state
+is already the smoothed Y and must not be smoothed twice.
+
+Prediction/decisive test: all shifts, h=0, zero norm and zero spread remain;
+the two strict rational modes 1/5 and 99/100, N=2, p=1, h=2,
+theta=37/40 give Delta_2 < (r_0-r_1)*r_2 < E*Total < 2*S, E>0.
+Implement an exact kernel-decided certificate in the EXISTING rational
+two-mode diagnostic leaf. This is NOT a Wilson state or a Yang--Mills
+counterexample; it tests the sufficient payment's overcharge, not survival
+of the actual changing family. No conditional compiler or new bundle.
+
+Budget: <=55 lines for the actual bound, <=70 for the diagnostic;
+<=3 root-owned focused checks, one 20-GiB worker and 12-GiB reserve with
+successful fresh dynamic process/memory preflight before EACH launch.
+Sol implementation and independent full final-source review; root inspects
+complete source and gates. Revise/prune if the claimed upper gap has the
+wrong sign or either diagnostic comparison fails. No resource-option
+increase or field change. Continue the ORIGINAL joint window credit or
+relative innovation; the actual horizontal/Stein residual estimate remains
+unproduced. Gauge-vertical Ward zero does not pay its temporal norm.
+
 ## Observed temporal covariance payment (2026-10-08 15:58 UTC)
 
 CHECKED in the EXISTING positive-orbit response leaf, not another survival

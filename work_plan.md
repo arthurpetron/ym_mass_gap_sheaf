@@ -27,20 +27,27 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
-CHECKED temporal covariance payment (2026-10-08 UTC):
+CHECKED temporal covariance and late-response payments (2026-10-08 UTC):
 `BF4WilsonAllNomePositiveOrbitResponseOrder.response_crossRatio_increment_le`
 proves Delta_h<=h*(r_0*r_2-r_1^2) on the SAME original completed source,
 at every nonnegative integer shift, with a supplied positive rational response floor.
 An unnormalized residual and induction avoid a norm inverse or spectral
 measure. `warmed_response_crossRatio_increment_le` pays it by
 h/(q+1)^2 * R_x(2q)*B(x,x), explicitly in the ORIGINAL preimage norm.
-Focused final check 2, permitted gates and independent complete-source
-review PASS. MAIN becomes the retained JOINT h*S<=(b-theta*a)*(r_0+Tail),
-or the existing relative innovation: its actual changing-family payment
-and the earlier PAPER box join remain OPEN. Do not impose separate uniform
-credit/overlap prerequisites or import measured masses. No new module or
-frontier; physical/Clay and displayed claims remain OPEN/unchanged. Exact
-source/log hashes and corrected preflight queries: adaptive-score audit.
+The new `response_crossRatio_increment_le_late_defect` instead proves
+Delta_h<=(r_0-r_1)*r_h, retaining actual late decay with NO floor premise.
+Exact kernel-decided positive-mode diagnostics show it pays where h*S
+overcharges, and that even E>=0 is not necessary for box survival.
+Both final focused leaves and independent COMPLETE source review PASS;
+new actual-bound gate permitted, three new diagnostic gates axiom-free.
+MAIN remains the ORIGINAL complete signed window/cost-versus-SAME-variance
+or relative-innovation estimate, not mandatory h*S or positive-E payment.
+Preserve the nonnegative tail credits and residual damping in the PAPER
+box join; x there is RAW and the trajectory state already smoothed.
+Actual changing-family control and the box join remain OPEN. Do not impose
+separate uniform credit/overlap prerequisites or import measured masses.
+No new module/frontier; physical/Clay and displayed claims remain OPEN.
+Exact source/log hashes and verification limits: adaptive-score audit.
 
 CHECKED geometric cap/floor pruning (2026-10-08 UTC):
 `BF4WilsonAllNomeAFPaddedTrajectory.afGeometricCertificate_lt_at_probe`

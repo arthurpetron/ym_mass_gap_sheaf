@@ -222,6 +222,49 @@ theorem eventual_macro_floor_false (kappa : Q') (hkappa : (0 : Q') < kappa)
   exact (Int.not_lt.mpr hbad)
     (half_lt _ (Q'.mul_pos hkappa (response_positive n (horizon n))))
 
+/-! A fixed rational diagnostic for the sharper late-response payment.
+These are abstract positive modes, NOT an actual Wilson/Yang--Mills source.
+The literal unnormalized three-term box retains all nine double-orbit terms.
+Its saturation payment succeeds where the linear Hankel-spread payment
+overcharges; no useful original-action survival is asserted. -/
+
+private def saturationRawResponse (k : Nat) : Q' :=
+  (Q'.mkPos 1 5 (by decide))^k + (Q'.mkPos 99 100 (by decide))^k
+
+private def saturationRawBox (k : Nat) : Q' :=
+  saturationRawResponse k + 2*saturationRawResponse (k+1) +
+    3*saturationRawResponse (k+2) + 2*saturationRawResponse (k+3) +
+    saturationRawResponse (k+4)
+
+/-- Both literal diagnostic rates lie strictly between zero and one. -/
+theorem saturationDiagnostic_rates :
+    (0 : Q') < Q'.mkPos 1 5 (by decide) ∧
+    Q'.mkPos 1 5 (by decide) < Q'.mkPos 99 100 (by decide) ∧
+    Q'.mkPos 99 100 (by decide) < (1 : Q') := by decide
+
+/-- Exact finite arithmetic: late-response saturation pays the joint box
+credit, although twice the initial spread does not. The literal box itself
+also survives with theta=37/40. This is only a positive-mode diagnostic. -/
+theorem saturationDiagnostic_payment :
+    let r0 := saturationRawResponse 1
+    let a := saturationRawResponse 2
+    let c := saturationRawResponse 3
+    let b := saturationRawResponse 4
+    let theta := Q'.mkPos 37 40 (by decide)
+    let E := b-theta*a
+    let delta := r0*b-a*c
+    (0 : Q') < E ∧ delta < (r0-a)*c ∧
+      (r0-a)*c < E*saturationRawBox 1 ∧
+      E*saturationRawBox 1 < 2*(r0*c-a*a) ∧
+      theta*saturationRawBox 1 < saturationRawBox 3 := by decide
+
+/-- Negative first-split credit does not preclude literal box survival.
+Neither positive credit nor saturation is a necessary survival condition. -/
+theorem saturationDiagnostic_negativeCredit_survival :
+    let theta := Q'.mkPos 189 200 (by decide)
+    saturationRawResponse 4-theta*saturationRawResponse 2 < (0 : Q') ∧
+      theta*saturationRawBox 1 < saturationRawBox 3 := by decide
+
 end YMGap.Continuum.RationalTwoModeSurvivalObstruction
 
 #print axioms YMGap.Continuum.RationalTwoModeSurvivalObstruction.horizon
@@ -240,3 +283,6 @@ end YMGap.Continuum.RationalTwoModeSurvivalObstruction
 #print axioms YMGap.Continuum.RationalTwoModeSurvivalObstruction.response_doubling_upper
 #print axioms YMGap.Continuum.RationalTwoModeSurvivalObstruction.failureCutoff
 #print axioms YMGap.Continuum.RationalTwoModeSurvivalObstruction.eventual_macro_floor_false
+#print axioms YMGap.Continuum.RationalTwoModeSurvivalObstruction.saturationDiagnostic_rates
+#print axioms YMGap.Continuum.RationalTwoModeSurvivalObstruction.saturationDiagnostic_payment
+#print axioms YMGap.Continuum.RationalTwoModeSurvivalObstruction.saturationDiagnostic_negativeCredit_survival

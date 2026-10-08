@@ -13,11 +13,13 @@ Mathlib-free Lean with explicit witnesses and moduli.
 **New original-transfer estimate:** long-lag temporal covariance is bounded
 by `h*(r0*r2-r1^2)` for the SAME completed source at fixed coupling/width,
 at every nonnegative integer shift with an explicit positive response floor.
-The proof uses an
-unnormalized residual, not a norm inverse or spectral measure. A warming
-corollary keeps the original source norm explicit. Focused Lean verification
-and independent source review passed; the useful changing-family relative
-payment and continuum mass gap remain open. See the
+An alternative bound `(r0-r1)*r_h` retains late decay and needs no floor.
+Exact positive-mode certificates show why the linear bound can overcharge
+and why separate positive block credit is not a necessary survival condition.
+The proofs use no norm inverse or spectral measure; a warming corollary keeps
+the original source norm explicit. Focused Lean checks and independent source
+review passed. The actual changing-family signed estimate and continuum
+mass gap remain open. See the
 [proof and next estimate](audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md).
 
 **New finite gauge-symmetry result:** the actual slice Gauss generator
