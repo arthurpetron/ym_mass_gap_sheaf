@@ -38,7 +38,13 @@ If R=H-r*G has R00<0 and det(R)<0, the symbolic vector
 NOT automatically rational filter coefficients: constructive rational
 approximations must retain an explicit positive margin. No sign decision on
 an arbitrary CReal or choice of an unlocated eigenvector is permitted.
-For fixed radius-zero original expressions with Within 0, L=2*t,
+For the following OWN substitution explicitly take
+x=centeredVector(state e he), for a fixed radius-zero original expression
+e with he:Within 0 e, and L=2*t. The SAME pairing pin is
+`lean/YMGap/Continuum/BF4WilsonAllNomeCenteredVector.lean:159`,
+`centeredVector_time_pairing`; an uncentered source retains a mean-square
+term and does NOT satisfy this substitution. Define V_t and C_t below as
+the COMPLETED limits, not same-stage finite rational quantities.
 `lean/YMGap/Continuum/BF4WilsonAllNomeOriginalRayleighLimit.lean:96`,
 `originalOwnBlockVariance_pin`, `:104`, `originalOwnBlockCost_pin`, and
 their `:130`, `originalOwnBlockVariance_converges`, `:143`,
