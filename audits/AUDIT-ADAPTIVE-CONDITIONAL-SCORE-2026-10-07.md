@@ -4,6 +4,87 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Selected fixed-power AF payment test (2026-10-08 UTC)
+
+The spatial-profile screen has a real microscopic degree advantage: the
+existing `FamilyHeatEigen.spatialSpan_fullRange` at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyHeatEigen.lean:42`
+has factor w^12 independent of family size, unlike the growing square.
+However `AFPaddedTrajectory.afBareHeatLoss_no_uniform_cap` at
+`lean/YMGap/Continuum/BF4WilsonAllNomeAFPaddedTrajectory.lean:451` already
+rules out deriving uniform rescaled H1 from that factor alone. The actual
+`FamilyVarianceTaylor.padded_family_energy_variance` at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyVarianceTaylor.lean:67`
+retains 12*(1-w)*OWN variance PLUS the unpaid signed remainder.
+
+Next mathematical test: on the ACTUAL afGap(j), construct an all-tail
+cutoff for C < side(j)*afGap(j)^p, for EVERY fixed natural p and rational C.
+The linear denominator bound gives 3*(j+1)*afGap(j)>=1; the existing
+`PolynomialGeometricDecay.polynomial_bound` at
+`lean/YMGap/Continuum/PolynomialGeometricDecay.lean:99` supplies the
+constructive exponential/polynomial comparison and explicit cutoff.
+This tests whether a selected POSITIVE scalar payment with a nonzero fixed
+coupling-power term can itself meet an O(1/side) budget, including a
+quadratic Taylor prefactor. It supplies no lower bound on an actual energy,
+moment or remainder; exact cancellation and sharper estimates remain
+possible. It is not a physical-spacing calibration or an obstruction to YM.
+
+Prediction: that scalar budget fails even at arbitrarily high FIXED power;
+degree zero must be included. Stop if the statement already exists, the
+original schedule is replaced, or the proof needs a new asymptotic premise.
+One bounded Sol leaf, independent mathematical review, root sole focused
+monitored check, one 20-GiB worker and 12-GiB reserve with fresh dynamic
+preflight. No broad build/audit, limit increase, frontier-field change or
+generic conclusion-as-input. Observations will be recorded separately.
+
+### Observed result and decision
+
+The selected statement is now kernel-checked on the unchanged schedule:
+
+- `lean/YMGap/Continuum/BF4WilsonAllNomeAFPowerBudget.lean:41`,
+  `afGap_linear_floor`: 3*(j+1)*afGap(j)>=1, including index zero.
+- `lean/YMGap/Continuum/BF4WilsonAllNomeAFPowerBudget.lean:84`,
+  `afPowerBudgetCutoff`: computed ALL-TAIL cutoff, no existential extraction.
+- `lean/YMGap/Continuum/BF4WilsonAllNomeAFPowerBudget.lean:100`,
+  `afPowerBudget_gt`: C<side(j)*afGap(j)^p at EVERY index past that cutoff,
+  for every FIXED natural p and arbitrary rational C.
+- `lean/YMGap/Continuum/BF4WilsonAllNomeAFPowerBudget.lean:156`,
+  `afPowerBudget_no_uniform_cap`: no eventual cap for a fixed p.
+- `lean/YMGap/Continuum/BF4WilsonAllNomeAFPowerBudget.lean:167`,
+  `afPowerBudget_adaptive_le_one`: side(j)*afGap(j)^j<=1 for every j.
+  This supplies no control of degree-dependent Taylor constants.
+
+Interpretation: PRUNE fixed-order positive scalar payments alone. Replacing
+power two by any other fixed power cannot by itself provide an inverse-block
+budget on this schedule. Retain signed cancellations and genuinely adaptive
+estimates; neither is refuted or produced by this leaf. In particular
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSourceTaylor.lean:151`,
+`energy_le_angular_add_quadratic`, retains (1-w)^2*sourceTaylorBudget:
+there is no supplied uniform nonzero coefficient or lower bound turning
+that actual source-dependent budget into the selected scalar payment.
+`JointQuadraticDebt` uses 1-w^(4*side), not literally 1-w; do not equate it
+with this quadratic-prefactor screen.
+
+NEXT: the actual JOINT signed cost versus SAME surviving filtered variance,
+using the existing window consumer. Any adaptive-order proposal must FIRST
+produce the actual interacting remainder with its order/source/volume
+constants; no new generic asymptotic wrapper is selected. Main scaling,
+continuum survival, physical calibration, OS/QFT, all groups and Clay OPEN.
+
+Verification: Sol's bounded leaf, independent full-source mathematical PASS,
+root full-source review, one final focused monitored check on 2026-10-08 UTC.
+Preflight found no competing compiler/runner, 87% reported available memory
+and zero swap; one worker, hard 20 GiB ceiling, 12 GiB OS reserve. The first
+check exposed only missing explicit unfolding of rational one's numerator
+and denominator in a private helper; root repaired it without statement or
+limit changes. Its failed axiom output is NOT evidence. Final log:
+`/private/tmp/ym-af-power-budget-20261008b.log`; cutoff is axiom-free and
+all four public theorem gates are exactly {propext, Quot.sound}. Source
+SHA256: `857130af1272820cfc6165b713c67cca6a065b63b4af981f2bff597a424564da`.
+Root import registered, not rebuilt. No full-root/tree build/audit/guard,
+baseline refresh, new sorry/axiom/classical/native shortcut, canonical field
+change or broad chart closure/reprint.
+
 ## Weighted chronological sign screen (2026-10-08 UTC)
 
 ### Follow-on square-completion screen (source review only)

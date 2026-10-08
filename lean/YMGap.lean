@@ -7427,6 +7427,9 @@ import YMGap.Continuum.BF4WilsonAllNomeShiftedPaddedNondegenerate
 -- dyadicNomeSchedule is NOT AF-calibrated (proved); concrete rational AF schedule
 -- 1-w_j = A/(j+(51/121)lg2 j+4); AF padded trajectory, A03 package from window survival.
 import YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory
+-- Scalar AF screen: every FIXED power exceeds any side-rescaled cap eventually;
+-- adaptive index power is bounded. No interacting remainder/scaling estimate.
+import YMGap.Continuum.BF4WilsonAllNomeAFPowerBudget
 -- NECESSARY compatibility: window survival + orbit contraction r_j force
 -- theta <= r_j^(side_j/2), side_j(1-r_j) <= 2(1-theta)/theta; proves neither branch.
 import YMGap.Continuum.BF4WilsonAllNomeWindowGapCompatibility

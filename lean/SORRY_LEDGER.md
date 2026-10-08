@@ -1,5 +1,22 @@
 # Sorry Ledger
 
+## PROVED fixed-power AF scalar obstruction, OPEN joint interacting estimate (2026-10-08 UTC)
+
+`BF4WilsonAllNomeAFPowerBudget.afGap_linear_floor` gives
+3*(j+1)*afGap(j)>=1 on the actual schedule. `afPowerBudgetCutoff` is computed
+data; `afPowerBudget_gt` proves the cap is exceeded at EVERY subsequent
+index for every fixed natural p (including zero) and arbitrary rational C.
+`afPowerBudget_no_uniform_cap` rules out an eventual scalar cap.
+`afPowerBudget_adaptive_le_one` proves side(j)*afGap(j)^j<=1, without claiming
+an adaptive Taylor estimate. Fixed-order scalar payments alone are pruned;
+actual signed cancellation, source-dependent remainder control and physical
+calibration remain OPEN. One final focused single-worker 20-GiB check:
+cutoff axiom-free, four theorem gates exactly {propext, Quot.sound};
+independent full-source review passes. A rational-one unfolding typo was
+repaired; failed-check output is not evidence. Root import registered only;
+no full-root/tree build, audit, new hole/axiom, canonical field change or
+chart closure. Evidence: the adaptive-conditional-score audit.
+
 ## PROVED finite weighted-time sign obstruction, OPEN original joint bound (2026-10-08 UTC)
 
 `RationalWeightedTemporalResidueObstruction.weighted_time_difference_positive`

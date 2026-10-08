@@ -27,6 +27,21 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED scalar decision (2026-10-08 UTC):
+`BF4WilsonAllNomeAFPowerBudget.afPowerBudgetCutoff` computes an ALL-TAIL
+cutoff beyond which side(j)*afGap(j)^p exceeds any rational cap for EVERY
+FIXED natural p, including zero. `afPowerBudget_adaptive_le_one` contrasts
+this with side(j)*afGap(j)^j<=1. PRUNE relying on any fixed-order positive
+coupling-power payment ALONE for the inverse-block budget; do not spend
+another experiment merely increasing that fixed order. This is NOT a lower
+bound on the actual energy or Taylor remainder, nor a physical calibration.
+Adaptive-order constants and the interacting signed estimate are unsupplied.
+NEXT: work on JOINT signed response versus the SAME surviving filtered
+variance, or test a concrete adaptive remainder producer if one is available;
+do not build another scalar asymptotic/conditional wrapper. One focused
+capped leaf and independent full-source review pass; no canonical chart
+claim closes or full-tree audit runs. Evidence: the adaptive audit.
+
 Source reconciliation (2026-10-08 UTC, READ-ONLY mathematical review): a
 signed spatial plaquette profile is already an actual original-algebra
 observable with a produced SAME-completion variance floor:

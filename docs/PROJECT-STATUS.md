@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Supporting fixed-power AF budget obstruction checked (2026-10-08 UTC):
+an explicit ALL-TAIL cutoff gives side(j)*afGap(j)^p>C for every fixed
+natural p and rational cap C. The adaptive power j has scalar budget <=1.
+This prunes fixed-order scalar payments alone, not signed cancellation or
+the actual interacting estimate; no adaptive Taylor producer is supplied.
+One focused capped check and independent full-source review; no full-tree
+audit. Displayed claims unchanged, no chart reprint. Evidence: the adaptive
+audit and `BF4WilsonAllNomeAFPowerBudget`.
+
 Supporting weighted-time sign shortcut pruned (2026-10-08 UTC): an exact
 two-state positive weighted transfer retains both chronological partitions,
 complete conditional noise and literal OWN centering, yet its weighted time
