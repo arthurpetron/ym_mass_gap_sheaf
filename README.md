@@ -1,6 +1,6 @@
 # Constructive Yang--Mills mass-gap formalization
 
-## Current proof boundary (2026-10-07 UTC)
+## Current proof boundary (2026-10-08 UTC)
 
 The [canonical one-page status chart](docs/PROJECT-STATUS.md) keeps fixed
 wording, layout, proof-status meanings and permanent node IDs across updates.
@@ -9,6 +9,17 @@ The Clay target remains **open**: a nontrivial continuum Yang--Mills theory on
 R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
+
+**Latest checked estimate:** a conditional square absorbs the incoming
+observable-gradient cross in the **actual finite-reciprocal Ward term**, with
+coefficient one and no noise inverse or marginal-floor penalty. The exact
+noise derivative retains the full original incoming action. The consumer
+produces its terminal window, noise positivity and literal spatial/reciprocal
+weight; both remaining signed action responses stay explicit. This is a
+finite estimate, not a scaling or physical mass gap. The next task is their
+joint control with both Taylor remainders on the filtered, OWN-centered family.
+Three focused Lean leaves pass 13 permitted axiom gates; no full-tree audit.
+See the [checked estimate and remaining input](audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md).
 
 **Latest original-action contraction (2026-10-07 local):** the signed Gram
 now bounds the **actual two-source transfer score** under the **full original

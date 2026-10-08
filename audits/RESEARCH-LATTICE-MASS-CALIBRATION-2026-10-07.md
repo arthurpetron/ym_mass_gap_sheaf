@@ -8,6 +8,11 @@ Targeted review of the user's pasted lattice-measurement note, not a routine
 math-ph listing scan. The latest cached listing scan remains 2026-09-30
 03:38 UTC. No sampling result is imported as a Lean premise.
 
+Targeted primary-source reread, 2026-10-08 UTC: the Athenodorou--Teper
+SU(3) scalar entry, Creutz's temporal-spacing limit and the official
+Jaffe--Witten target were rechecked. The corrections and existing proof-plan
+interfaces below are retained; no new analytic hypothesis or roadmap box.
+
 ## Useful distinctions, with corrections
 
 1. Keep a glueball-channel measurement separate from a theory-wide spectral

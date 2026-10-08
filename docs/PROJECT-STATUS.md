@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Supporting actual noise-derivative / ONE-cross Ward absorption checked
+(2026-10-08 UTC): complete incoming J(V*a) is transported at arbitrary-insertion
+Haar strength. A produced conditional square and terminal window pay the
+observable-gradient cross with coefficient ONE and no noise inverse/floor
+loss. The actual F=Vbar^2*N/successor-reciprocal Ward consumer produces its
+certificates and retains BOTH signed density/spatial responses. Useful joint
+control with incoming-gradient cost, reconstruction/drift and BOTH Taylor
+remainders on the filtered OWN source and scaling family remains OPEN.
+Three focused leaves/13 permitted gates; root imports registered only, no
+full-tree audit. Source-level joint IBP returns to Ward, not a new estimate.
+Every displayed physical/Clay claim is unchanged; no chart reprint. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 Supporting selected-envelope scaling screen checked (2026-10-08 UTC):
 the actual THREE-paired coefficient satisfies
 0<=3*(1-w)*prefixCurvatureCost(w)-9<=9*(1-w). It tends to NINE, not zero;

@@ -4,6 +4,146 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Observed noise derivative and ONE-cross Ward absorption (2026-10-08 UTC)
+
+Classification: VERIFIED PROGRESS for the following finite original-source
+identity/estimates; SOURCE-LEVEL REVIEW ONLY for the joint-IBP screening below.
+
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRatioNoiseDerivative.lean:171`,
+`ratioNoise_derivative_carrier`, proves the pre-registered cleared identity
+with complete g=V*a, actual K, A=Ta, b=T(a*phi), U=T(a*phi^2), N=AU-b^2
+and X=lift(A)*phi-lift(b). It preserves EVERY surviving insertion.
+`weightedNoise_derivative_carrier:243` retains arbitrary output V and J(V^2N).
+It assumes no positivity, exact ratio/inverse or stationarity.
+
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRatioNoiseGradientAbsorption.lean:195`,
+`original_ratioNoise_phiGradient_absorption_le`, produces the ACTUAL terminal
+law and its positive window. Its conditional square is
+I[K*g*(lift(JA)*X+lift(A^2)*Jphi)^2]
+=A*(N*(JA)^2+2*A*(JA)*Mphi+A^3*Ephi).
+Positive-multiplier reflection gives
+-H[R*(N*(JA)^2+2*A*(JA)*Mphi)]<=H[R*A^3*Ephi]
+for arbitrary certified R. Coefficient ONE; no N/A inverse or lower-floor
+factor in the bound. Reflection is integrated order, not division of a
+certificate. `ratioNoiseGradientMoment:68` and `ratioNoiseGradientEnergy:74`
+retain literal original incoming moments. Depth d=0 is permitted because
+the produced output window is for g_(d+1).
+
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.lean:115`,
+`original_ratioNoise_ward_absorption_le`, uses the ACTUAL successor reciprocal
+G_(k+1)(A), Vbar=spatialFringeMass, F=Vbar^2*N and R=Vbar^2*G^2. Noise,
+output certificates and the upper window are PRODUCED. The one-plane result is
+H[F*G^2*(A*J^2(A)-(JA)^2)]
+<=H[R*A^3*Ephi]-H[R*(JA)*I[K*(Jg)*X^2]]
+  -2*H[A*G^2*(JA)*Vbar*(JVbar)*N].
+`ratioNoiseDensityMoment:57` retains FULL J(V*a), and
+`noiseDerivativeIncoming_moment_pin:65` proves the exact density+2*A*Mphi
+split. Input V and output Vbar remain distinct. Incoming phi is arbitrary
+supported data; no incoming/outgoing reciprocal-degree identification.
+
+Root and independent complete-source mathematical reviews PASS. Final
+focused logs PASS, all 13 printed gates exactly {propext, Quot.sound}:
+`/private/tmp/ym-ratio-noise-derivative-20261008b.log` (seven),
+`/private/tmp/ym-ratio-noise-absorption-20261008c.log` (three),
+`/private/tmp/ym-ratio-noise-ward-20261008a.log` (three).
+Earlier checks exposed namespace, negation-support, proof-composition,
+transport-orientation and reflexivity elaboration typos; their repairs change
+no theorem statement or resource limit. Failed-check output is NOT evidence.
+Fresh preflight before EVERY launch: 87--88% free, zero swap, no competing
+Lean/Lake/pytest/runner. One 20-GiB worker/12-GiB reserve, root sole compiler.
+Root imports registered only; no root/tree build, full audit/guard or baseline
+refresh. No source sorry/new axiom/classical/native shortcut or field weakening.
+Checked-source SHA256 (Derivative / GradientAbsorption / WardAbsorption):
+`515795cba822f9e9e1d3df9ec571215089befa358bd0dc44f8bbeac2724a82d2`,
+`dd788690bf2a8d51a32e8b2c4fddeadbc15f47a28dba49e4543407b667ddf92e`,
+`bd9ebc8a0dcf9daa3e9bffee2894e4f37572f6c86d49798be76afdb3334b80d3`.
+
+### Decision / next actual estimate
+
+KEEP the coefficient-one payment and literal signed responses. REPOINT to
+action/source-specific coercivity or cancellation controlling them jointly
+with the incoming-gradient payment, reconstruction, drift and BOTH signed
+Taylor remainders on the filtered OWN-centered padded Wilson family.
+The actual aggregate input remains
+`lean/YMGap/Continuum/BF4WilsonAllNomeWindowSignedCost.lean:245`,
+`original_window_budget_macro_ratio`: an eventual normalized original-window
+cost bound against the SAME surviving variance. Its chronological partitions
+remain distinct; no universal arbitrary-source noise cap is requested.
+
+Independent source-level screening combines the two retained signed terms
+on the actual edge as -H2[K*G_y^2*D_y*X^2*(J_x+J_y)(g_x*Vbar_y^2)].
+`lean/YMGap/Continuum/SU2QuaternionProductHeatAngularForm.lean:64`,
+`productHeat_pairedAngular_carrier`, removes the simultaneous K derivative,
+not the action derivative. Joint Haar IBP then reintroduces the paid phi
+cross and returns to the existing Ward identity. This is NOT a newly checked
+bound or counterexample; PRUNE implementing that circular rearrangement.
+Fringe independence permits conditional integration, not active-link action
+derivative cancellation. OWN centering supplies a global moment constraint,
+not a sign for this innovation-weighted density term. The separate gauge
+review likewise found no symmetry-only linkwise orthogonality/cancellation.
+
+No useful initial energy fraction, complete surviving-form scaling estimate,
+continuum survival, completed OS, physical mass, SAME limiting QFT, every-group
+or Clay claim closes. Canonical displayed claims are unchanged; no chart reprint.
+The user's measurement guidance is already incorporated with primary-source
+corrections in `RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md`; numerical
+channel masses provide no premise or replacement for these analytic inputs.
+
+## Selected absorption of the incoming observable-gradient cross (2026-10-08 UTC)
+
+Bounded estimate to test after the derivative pin: with the same actual
+g=V*a, A=T(a), N, X, define M=I[K*g*X*J_in(phi)] and
+E=I[K*g*(J_in(phi))^2]. The square
+I[K*g*(lift(J(A))*X+lift(A^2)*J_in(phi))^2]
+expands to A*(N*J(A)^2+2*A*J(A)*M+A^3*E).
+For ACTUAL terminal a and its PRODUCED positive A window, reflect that
+multiplier inside Haar order to obtain, for certified R,
+-H[R*(N*J(A)^2+2*A*J(A)*M)]<=H[R*A^3*E].
+Prediction: coefficient ONE, no inverse of N or A and no lower-floor loss
+in the estimate. Existing partial-square positivity and quantitative
+positive-multiplier reflection are the intended inputs.
+
+Consumer: the favorable negative square exposed by the weighted derivative
+pin absorbs precisely its incoming observable-gradient cross. The spatial
+and COMPLETE incoming-density derivative terms remain signed and OPEN;
+no initial energy fraction, surviving-form bound or scaling result follows.
+One bounded implementation leaf with an actual terminal consumer that
+PRODUCES its window/positivity, independent source review and root serialized
+narrow 20-GiB verification. Stop or revise if the square loses a factor of A,
+the reflected weight is not produced, or a noise/source inverse is introduced.
+
+## Selected incoming noise-derivative experiment (2026-10-08 UTC)
+
+Proposition: let g=V*a on LOWER coordinates, A=T(a), b=T(a*phi),
+U=T(a*phi^2), N=A*U-b^2 and X=lift(A)*phi-lift(b). At arbitrary-insertion
+Haar-carrier strength, test the division-free identity
+A*J(N)-N*J(A)=I[K*((J_in g)*X^2+2*g*lift(A)*X*J_in(phi))].
+The input/output derivatives are distinct. The actual kinetic K and complete
+spatial action V remain. Available inputs: original product-heat angular
+commutation, exact Leibniz rules and ordered-head lifted-factor pullout.
+No positivity, marginal inverse, exact source ratio, stationarity or derivative
+sign is assumed. This is a new nonlinear noise moment, not the existing
+linear score-source pin.
+
+SAME-object consumer: `QuaternionHaarPairedHessianTrace.
+finite_reciprocal_paired_hessian_ibp_le` retains J(F), F=Vbar^2*N.
+The predicted identity rewrites A*J(F) as
+F*J(A)+2*A*Vbar*J(Vbar)*N+Vbar^2*Q, where Q is the actual incoming moment
+above. It exposes a favorable negative marginal-score square, the original
+spatial cross term and the COMPLETE signed incoming source cross term.
+These cross terms must still be controlled relative to the surviving form;
+the identity itself does not supply the missing estimate.
+
+Prediction: exact carrier identity from three transported moment jets and
+a single quadratic residual expansion. Revise if an output derivative is
+confused with an input derivative, lifted factors cannot be pulled through
+the actual head integral, or required strength is reduced to unit testing.
+One bounded Sol implementation leaf, independent mathematical/source review,
+root sole narrow compiler with fresh dynamic preflight, one 20-GiB worker
+and 12-GiB reserve. No broad build/audit/guard or field changes. Parallel
+read-only review tests genuine gauge-vertex Ward cancellation; individual
+link derivatives of V are not assumed zero.
+
 ## Observed selected coefficient / next estimate (2026-10-08 UTC)
 
 Classification: VERIFIED PROGRESS for the rational scaling screen;

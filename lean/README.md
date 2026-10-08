@@ -16,6 +16,21 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked actual noise-derivative / Ward absorption (2026-10-08 UTC):**
+`BF4ExactSlabFixedSpatialRatioNoiseDerivative.ratioNoise_derivative_carrier`
+retains J(V*a) and literal conditional moments at arbitrary-insertion strength.
+`RatioNoiseGradientAbsorption.original_ratioNoise_phiGradient_absorption_le`
+produces the actual conditional square and terminal window to pay the
+observable-gradient cross with coefficient ONE, without a noise inverse or
+floor loss. `RatioNoiseWardAbsorption.original_ratioNoise_ward_absorption_le`
+uses the literal Vbar^2*N and successor reciprocal, producing its positivity
+and upper window. Both signed J(V*a) and J(Vbar) terms remain unestimated.
+Three focused leaves/13 gates exactly {propext, Quot.sound}; root imports
+registered only. Complete signed filtered-family control, both Taylor terms
+and every physical/Clay obligation remain OPEN; no full-tree audit or broad
+chart closure. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 **Checked FULL original-action local signed Gram (2026-10-07 local):**
 The subsequent selected-envelope screen
 `SU2QuaternionPairedPrefixCostScaling.normalizedPairedPrefixCost_pin` and

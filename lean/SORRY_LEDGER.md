@@ -1,5 +1,36 @@
 # Sorry Ledger
 
+## PROVED actual noise derivative / ONE-cross Ward absorption, OPEN signed scaling (2026-10-08 UTC)
+
+- `BF4ExactSlabFixedSpatialRatioNoiseDerivative.ratioNoise_derivative_carrier`
+  transports the derivative to the COMPLETE original incoming V*a. Its
+  weighted consumer retains J(Vbar^2*N) and every surviving Haar insertion.
+  Literal pins identify the existing one-step block/last-step noise.
+- `BF4ExactSlabFixedSpatialRatioNoiseGradientAbsorption.original_ratioNoise_phiGradient_absorption_le`
+  constructs the actual conditional square and terminal windows. It proves
+  -H[R*(N*(JA)^2+2*A*(JA)*Mphi)]<=H[R*A^3*Ephi] for arbitrary certified R,
+  coefficient ONE, without dividing by noise/source/marginal or adding a
+  lower-floor penalty. Reflection removes A only in integrated Haar order.
+- `BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.original_ratioNoise_ward_absorption_le`
+  joins that estimate to the ACTUAL outgoing successor reciprocal and
+  F=Vbar^2*N. Original noise/weight positivity and upper windows are produced.
+  Both signed density J(V*a) and output spatial J(Vbar) responses remain;
+  projected spatial mass is not substituted for the incoming action.
+- OPEN: useful incoming-gradient/signed-density/spatial control jointly with
+  reconstruction, drift and BOTH Taylor remainders on the filtered OWN source
+  and justified family, in the existing aggregate window's normalized currency.
+  Initial energy fraction, independent continuum survival, all-vector scaling,
+  completed OS, physical calibration, SAME QFT, all groups and Clay remain OPEN.
+  Source-level joint IBP screening cycles back to Ward; it is not a new bound.
+- Three focused leaves/13 printed gates exactly {propext, Quot.sound}; root
+  and independent full-source reviews pass. Namespace, negation-support,
+  composition/transport-orientation typos were repaired without changing any
+  statement or limit. Failed-check output is not proof evidence. Root imports
+  registered only; no full-root/tree build, audit, guard or baseline refresh.
+  No sorry/new axiom/classical/native shortcut or canonical field weakening;
+  no broad chart closure. Evidence:
+  `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 ## PROVED selected THREE-paired cost scaling, OPEN complete signed window (2026-10-08 UTC)
 
 - `SU2QuaternionPairedPrefixCostScaling.normalizedPairedPrefixCost_pin`

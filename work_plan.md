@@ -27,6 +27,33 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+The actual matched-noise derivative and ONE-cross Ward absorption are now
+CHECKED (2026-10-08 UTC). `RatioNoiseDerivative.ratioNoise_derivative_carrier`
+retains the complete incoming g=V*a at arbitrary-insertion Haar strength:
+A*J(N)-N*J(A)=I[K*((Jg)*X^2+2*g*lift(A)*X*J(phi))].
+`RatioNoiseGradientAbsorption.original_ratioNoise_phiGradient_absorption_le`
+constructs the actual terminal window and proves
+-H[R*(N*J(A)^2+2*A*J(A)*Mphi)]<=H[R*A^3*Ephi], coefficient ONE,
+without an A/N inverse or a floor loss. The actual finite-reciprocal consumer
+`RatioNoiseWardAbsorption.original_ratioNoise_ward_absorption_le` produces
+F=Vbar^2*N, G=G_(k+1)(A), and the literal output certificate. It retains BOTH
+signed responses J(V*a) and J(Vbar), with input V and output Vbar distinct.
+Three focused leaves/13 gates exactly {propext, Quot.sound}; root and
+independent full-source reviews pass. Root imports registered, not root-built.
+
+REPOINT: estimate the retained density/spatial responses jointly with the
+incoming-gradient payment, reconstruction/drift and BOTH signed Taylor
+remainders on the filtered OWN-centered padded Wilson family. Use the actual
+aggregate consumer `WindowSignedCost.original_window_budget_macro_ratio`,
+with its distinct chronological partitions. Source-level simultaneous-edge
+IBP screening returns to the existing Ward identity and reintroduces the paid
+phi cross; it is NOT another estimate. Do not implement that cycle or replace
+the needed source-specific cancellation/coercivity by a supplied conclusion.
+The lattice-measurement note's calibrated SAME-theory/all-state requirements
+remain incorporated below; no measured mass becomes a premise. Initial useful
+energy fraction, complete signed scaling budget and all physical/Clay nodes
+remain OPEN. No full-tree audit, field weakening or chart-claim change.
+
 The FULL ORIGINAL-action local signed score Gram is now CHECKED:
 `BF4ExactSlabFixedSpatialLocalSignedGram.lastStep_local_signed_gram`.
 For arbitrary lower-supported a,c and supported frozen output u, use the
@@ -542,6 +569,9 @@ limiting Hamiltonian gap. Reuse existing SAME-rate interfaces and retain the
 all-vector, limiting-QFT and physical-clock requirements. Primary-source
 verification and corrections:
 `audits/RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md`.
+Targeted primary-source reread on 2026-10-08 UTC confirms these distinctions;
+reuse this plan and its existing exact-rate consumers, rather than expand it
+with a measurement-driven proof interface.
 
 The direct-score front now has a CHECKED original dissipation estimate:
 `Zi*score_l+H*Zi*Bout<=H*(1+xi)*Zo*Cin`, H=relativeCap^2*spatialCeiling.

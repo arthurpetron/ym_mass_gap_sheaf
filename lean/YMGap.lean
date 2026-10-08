@@ -7325,6 +7325,11 @@ import YMGap.Continuum.QuaternionHaarConditionalRegressionWitness
 -- and ORIGINAL exact-gradient join. Fixed-window moduli only; useful
 -- SAME-surviving-norm/signed-remainder control on a scaling family is open.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepRatioNoise
+-- COMPLETE incoming noise derivative and produced coefficient-one Ward
+-- absorption; signed density/spatial responses and scaling remain open.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseDerivative
+import YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseGradientAbsorption
+import YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepErrorBudget
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepRatioRefinement
 
