@@ -16,6 +16,17 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked ORIGINAL reciprocal-credit screen (2026-10-08 UTC):**
+`RatioNoiseWardAbsorption.original_ratioNoise_reciprocal_credit_tolerance`
+produces a fixed-terminal/noise all-later precision cutoff;
+`original_ratioNoise_reciprocal_credit_no_eventual_floor` rules out a
+positive eventual reserve from this credit ALONE. The cleared proof keeps
+actual windows and exact residuals, not an inverse source/noise norm.
+Incoming source and outgoing degree are independent. Both final focused
+leaves/15 permitted gates and independent final-source reviews PASS.
+Joint signed payment, changing-family and all physical/Clay goals remain
+OPEN. Evidence: adaptive-score audit; no root/tree build or audit.
+
 **Checked SAME-source signed box join (2026-10-08 UTC):**
 `BF4WilsonAllNomePositiveOrbitResponseOrder.signedOrbit_response_credit_identity`
 retains the complete signed double-orbit credit, including its negative

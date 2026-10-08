@@ -433,6 +433,106 @@ theorem original_ratioNoise_gradientPayment_weighted_pin (w : Q') (K width : Nat
   exact Q'.eqv_trans _ _ _ (Q'.eqv_symm hweighted)
     (transferStep_weighted_symmetric w K width hx hr)
 
+/-- Computed precision onset for the favorable reciprocal credit of the
+literal ORIGINAL terminal/noise weight. The source phi is held fixed as
+the outgoing reciprocal degree grows; no incoming degree is identified
+with it. This is fixed-window precision, not a changing-family bound. -/
+def originalRatioNoiseCreditCutoff {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < 1) (K width : Nat)
+    (hK : headCutoff w ≤ K) (d s i j : Nat) (phi : RatPoly)
+    (epsilon : Q') : Nat :=
+  let a := terminalMessage w K width d
+  let A := transferStep w K width a
+  let V := spatialFringeMass w K width
+  let F := polyMul (polyMul V V) (matchedNoise w K width a phi)
+  favorableCreditCutoff (N width) s i j F A
+    (blockWindowLower w K width d 1) (blockWindowUpper w K width d 1)
+    (blockWindowUpper_positive hw0 hw1 K width hK d 1) epsilon
+
+/-- The produced favorable Ward reciprocal credit vanishes with an explicit
+all-later onset on the SAME original finite law. No stationarity, noise
+inverse, source-norm floor or relative reserve is assumed. In particular,
+its nonnegative sign alone cannot supply a persistent positive reserve as
+outgoing precision increases. The absorption square and signed original
+density/spatial payments are not estimated by this theorem. -/
+theorem original_ratioNoise_reciprocal_credit_tolerance {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < 1) (K width : Nat)
+    (hK : headCutoff w ≤ K) (d s i j : Nat) (hs : s < N width)
+    (hi : i < 4) (hj : j < 4) {phi : RatPoly}
+    (hphi : SupportedQuaternionBlocks (N width) phi)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon) (k : Nat)
+    (hk : originalRatioNoiseCreditCutoff hw0 hw1 K width hK d s i j phi epsilon ≤ k) :
+    let a := terminalMessage w K width d
+    let A := transferStep w K width a
+    let V := spatialFringeMass w K width
+    let F := polyMul (polyMul V V) (matchedNoise w K width a phi)
+    let G := reciprocal A (blockWindowUpper w K width d 1)
+      (blockWindowUpper_positive hw0 hw1 K width hK d 1) (k+1)
+    let J := angularDerivative (4*s+i) (4*s+j)
+    quaternionHaar (N width) (polyMul (polyMul (polyMul F G) (J A))
+      (J (polyMul A G))) ≤ epsilon := by
+  dsimp only
+  let a := terminalMessage w K width d
+  let A := transferStep w K width a
+  let V := spatialFringeMass w K width
+  let noise := matchedNoise w K width a phi
+  let F := polyMul (polyMul V V) noise
+  have ha := terminalMessage_supported w K width d
+  have hA := transferStep_supported w K width ha
+  let PN : Certificate (N width) noise :=
+    lastStepRatioNoise_certificate hw0 hw1 K width hK d hphi
+  let PF : Certificate (N width) F :=
+    (Certificate.square V (spatialFringeMass_supported w K width)).mul PN
+  have hnext : A = terminalMessage w K width (d+1) :=
+    terminalMessage_next w K width d
+  let bands := blockWindowCertificates hw0 hw1 K width hK d 1 (by omega)
+  have hle : blockWindowLower w K width d 1 ≤ blockWindowUpper w K width d 1 :=
+    Q'.mul_le_mul_of_nonneg_right _ _ _ (kineticFloor_le_cap hw0 hw1 width)
+      (Q'.le_of_lt (terminalMessage_mass_positive hw0 hw1 K width hK (d+1-1)))
+  exact finite_reciprocal_favorable_tolerance hs hi hj
+    (blockWindowLower_positive hw0 hw1 K width hK d 1)
+    (blockWindowUpper_positive hw0 hw1 K width hK d 1) hle hA PF
+    (show Certificate (N width) (polyAdd A (polyNeg (cap (blockWindowLower w K width d 1)))) by
+      rw [hnext]; exact bands.1)
+    (show Certificate (N width) (polyAdd (cap (blockWindowUpper w K width d 1)) (polyNeg A)) by
+      rw [hnext]; exact bands.2)
+    hepsilon k hk
+
+/-- No positive eventual floor can be funded by the finite reciprocal
+credit alone at this fixed ORIGINAL terminal/source. This does not refute
+retention from the complete signed cost or a coordinated scaling family. -/
+theorem original_ratioNoise_reciprocal_credit_no_eventual_floor {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < 1) (K width : Nat)
+    (hK : headCutoff w ≤ K) (d s i j : Nat) (hs : s < N width)
+    (hi : i < 4) (hj : j < 4) {phi : RatPoly}
+    (hphi : SupportedQuaternionBlocks (N width) phi)
+    (delta : Q') (hdelta : (0 : Q') < delta) (onset : Nat) :
+    let a := terminalMessage w K width d
+    let A := transferStep w K width a
+    let V := spatialFringeMass w K width
+    let F := polyMul (polyMul V V) (matchedNoise w K width a phi)
+    let J := angularDerivative (4*s+i) (4*s+j)
+    ¬ (∀ k : Nat, onset ≤ k →
+      let G := reciprocal A (blockWindowUpper w K width d 1)
+        (blockWindowUpper_positive hw0 hw1 K width hK d 1) (k+1)
+      delta ≤ quaternionHaar (N width) (polyMul (polyMul (polyMul F G) (J A))
+        (J (polyMul A G)))) := by
+  dsimp only
+  intro hfloor
+  let epsilon := delta*HalfPow.half
+  have he : (0 : Q') < epsilon := Q'.mul_pos hdelta (by decide)
+  let cut := originalRatioNoiseCreditCutoff hw0 hw1 K width hK d s i j phi epsilon
+  let k := max onset cut
+  have hsmall := original_ratioNoise_reciprocal_credit_tolerance
+    hw0 hw1 K width hK d s i j hs hi hj hphi epsilon he k
+    (Nat.le_max_right onset cut)
+  have hstrict : epsilon < delta := YMGap.Continuum.HeatKernelRGStep.lt_of_lt_of_le
+    (Q'.mul_lt_mul_of_pos_left hdelta (by decide : HalfPow.half < (1 : Q')))
+    (Q'.le_of_eqv (Q'.mul_one_eqv delta))
+  exact (Int.lt_irrefl (delta.num*(delta.den : Int)))
+    (Q'.lt_of_le_of_lt
+      (Q'.le_trans' _ _ _ (hfloor k (Nat.le_max_left onset cut)) hsmall) hstrict)
+
 end YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption
 
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.ratioNoiseDensityMoment
@@ -441,3 +541,6 @@ end YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.original_ratioNoise_gradientPayment_unit_le
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.original_ratioNoise_ward_unitGradient_le
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.original_ratioNoise_gradientPayment_weighted_pin
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.originalRatioNoiseCreditCutoff
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.original_ratioNoise_reciprocal_credit_tolerance
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.original_ratioNoise_reciprocal_credit_no_eventual_floor

@@ -140,6 +140,25 @@ CONTINUE actual action-generated/transmitted overlap or complete signed
 credit/innovation. Exact declarations and hashes: adaptive-score audit.
 No canonical proof/expansion state changes; no chart reprint.
 
+CHECKED MAIN reserve screen (2026-10-08 UTC): the favorable ORIGINAL Ward
+reciprocal credit now has a produced degree-decaying upper bound and
+computed all-later cutoff at fixed actual terminal/source/window.
+`FiniteReciprocalHessianSign.finite_reciprocal_favorable_cleared_le`
+retains ell*credit, actual residuals and H[F*(JA)^2]; the ORIGINAL
+`RatioNoiseWardAbsorption.original_ratioNoise_reciprocal_credit_tolerance`
+produces its actual noise and terminal-window instance.
+`original_ratioNoise_reciprocal_credit_no_eventual_floor` rules out
+every positive eventual floor for that fixed-source credit. PRUNE using
+reciprocal credit ALONE for a persistent reserve, not finite-degree credit
+or coordinated changing-family estimates. CONTINUE quantitative payment
+by the actual absorption square JOINTLY with signed density/spatial terms,
+relative to OWN surviving variance and BOTH masses. Two final focused
+targets/15 permitted gates PASS; complete independent source and final-hash
+repair reviews PASS. Only parser/helper-name repairs were needed. One
+serial 20-GiB worker/12-GiB reserve after each fresh successful preflight;
+no root/tree build or audit. Exact evidence: adaptive conditional-score audit.
+No new analytic premise, canonical claim or physical/Clay closure; no chart.
+
 Targeted paper review integrated (2026-10-08 UTC, user request):
 `audits/RESEARCH-2610-09093-2026-10-08.md` records the long paper and companion
 review, exact relevant equations, SAME-original-source consumers and access

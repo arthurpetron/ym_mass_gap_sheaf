@@ -7430,3 +7430,104 @@ variance and BOTH chronological masses remains OPEN. Nontrivial continuum
 survival, physical calibration, full QFT structure, every compact simple group
 and the unchanged Clay target remain OPEN. No canonical field or displayed
 chart state changes, hence no chart reprint.
+
+## Decision test: can finite reciprocal credit fund retention? (2026-10-08)
+
+Previous turn: PROGRESS (`86964175`, independently reviewed paper selection
+and actual-source correction, pushed). The next mathematical test concerns
+the ACTUAL favorable Ward reciprocal contribution, not another reassembly.
+For fixed original terminal A, original F=Vbar^2*matchedNoise(a,phi), and
+outgoing degree k+1, prove its Haar credit tends to zero at an explicit
+onset. Incoming phi/approximation degree stays fixed independently.
+Inputs: original positive terminal window, produced favorable certificate,
+exact derivative of A*G, residual interval/cancellation and existing
+polynomial-geometric decay. Cleared target:
+
+    ell*H[F*G*(JA)*J(A*G)]
+      <= (k+1)*(1/upper)*rho^k * H[F*(JA)^2],
+    rho=1-ell/upper<1.
+
+The identity rho^k-(AG)*E_k=(rho^k-E_k)+E_k*E_(k+1)
+constructs its sign; no inverse terminal lower floor is put into a
+certificate. The lower window pays ell*credit<=A*credit. A computed
+polynomialCutoff at ell*epsilon then returns credit<=epsilon.
+Actual consumer being screened: the positive term discarded by
+`RatioNoiseWardAbsorption.original_ratioNoise_ward_absorption_le`;
+the desired relative reserve still belongs to
+`WindowSignedCost.original_window_budget_macro_ratio`.
+Prediction: PRUNE paying a nonzero outgoing-degree-uniform reserve solely
+by this finite reciprocal credit; retain finite-degree credit and joint
+absorption/density/spatial payment. This is not a refutation of original
+survival or of a justified coordinated changing-family estimate.
+Tests: zero source/cost, rho=0, k=0/1, arbitrary signed phi and depth zero;
+strict nome and actual cutoff/support/window guards remain. Budget: two
+changed focused leaves only, one monitored 20-GiB worker/12-GiB reserve,
+fresh conflict/memory preflight before each check, independent complete
+final-source review. Revise if a source/window is silently replaced or
+incoming/outgoing degrees identified; abandon generic wrapper work without
+the actual terminal instance. No new sorry, analytic premise or chart claim.
+
+### Observed: reciprocal-credit-only reserve is pruned by checked decay
+
+Both selected focused leaves now PASS, exit 0. The actual mathematical
+increment is a degree-decaying bound and computed all-later tolerance,
+NOT just the previously available nonnegative sign.
+
+- `finite_reciprocal_favorable_cleared_le`,
+  `lean/YMGap/Continuum/QuaternionHaarFiniteReciprocalHessianSign.lean:244`,
+  proves the cleared bound above from the actual gap certificate. No
+  inverse of ell is introduced. `favorableCreditCutoff` (:326) computes
+  its onset from the EXACT moment H[F*(JA)^2], and
+  `finite_reciprocal_favorable_tolerance` (:334) cancels positive ell.
+- `originalRatioNoiseCreditCutoff`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.lean:440`,
+  computes the actual terminal/noise onset. The lower/upper windows and
+  F=Vbar^2*matchedNoise are produced from the original action, not assumed.
+  `original_ratioNoise_reciprocal_credit_tolerance` (:458) instantiates
+  the bound, retaining supported signed phi and all original factors.
+- `original_ratioNoise_reciprocal_credit_no_eventual_floor` in that file
+  (:504) proves that at ANY proposed onset no positive delta can be an
+  eventual floor for this credit. It chooses max(onset,cut(delta/2))
+  constructively; no classical alternative or spectral argument is used.
+
+Incoming phi and its approximation degree remain fixed independently of
+outgoing k. Zero cost/radius, k=0 and terminal depth zero are retained;
+there is no source/noise normalization division. This does not prohibit
+finite-degree credit, coordinated changing-window precision, useful
+payment by the absorption square, or survival under the complete original
+signed estimate. No actual physical mass-gap claim is contradicted.
+
+All 15 final printed gates (6 core, 9 actual consumer) are within
+{propext, Quot.sound}; no sorryAx, compiler error or warning in final logs.
+Complete independent 373/545-line source review PASS before repairs, then
+final-hash repair review PASS. ROOT inspected the complete changed proofs
+and their existing certificate/consumer context. First core launch failed
+ONLY multiline pattern syntax in the scalar normalization; second passed.
+First actual launch passed the tolerance proof but failed two helper names
+in the no-floor contradiction; second uses existing strict transitivity
+and Int.lt_irrefl and passed. No statement or guard changed in either repair.
+
+    core source b23b51a41446937f486aea96424e21022ba3c65aa9569b8ff99f3d0d3afe3148
+    /private/tmp/ym-oct8-reciprocal-credit-decay1.log FAIL
+    SHA256 6da52286d34b83c9aa8fd9d749148ab40b4b81f1e134abb2784f2ef60f60ade3
+    /private/tmp/ym-oct8-reciprocal-credit-decay2.log PASS
+    SHA256 642e987f720c3cf8918c1af9845233d2fc63ffc9642f55ef77e3f02988875331
+
+    actual source 3cb423126e21a67761891c3d0c6731e4de8f188acaa04af9ee8a405eaaad81b5
+    /private/tmp/ym-oct8-original-reciprocal-credit1.log FAIL
+    SHA256 2f7d6c5e65179d4b2bfbb5c5b0c1bbe128390a865c47855e86ff9a795507d001
+    /private/tmp/ym-oct8-original-reciprocal-credit2.log PASS
+    SHA256 c148cdcd6169e0638abdd81c9ae660b8bc4fc151e855aeff5c1396388a05fdec
+
+Fresh successful live conflict/memory preflight before EVERY launch;
+one monitored 20-GiB worker, 12-GiB OS reserve, observed 84--85% free
+and zero swap. All processes terminal. No full build/audit, lock bypass,
+limit increase, foreign execution, new module/frontier or new analytic
+premise. Existing APIs/fields and user-owned duplicates remain unchanged.
+
+Decision: PRUNE persistent reserve from reciprocal credit ALONE at fixed
+source/window. CONTINUE the actual absorption square TOGETHER with signed
+density/spatial payment, against OWN surviving variance and BOTH masses.
+The complete changing-family signed bound, continuum survival, physical
+calibration, QFT structure, every compact simple group and Clay remain OPEN.
+Displayed canonical claims are unchanged; no ASCII chart reprint.
