@@ -4,6 +4,74 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## CHECKED joint signed prediction payment (2026-10-08 UTC)
+
+Previous turn PROGRESS: 75febcfd supplies arbitrary supported-input Schur.
+The new exact estimate uses C=W*Id-Z*T^(2*d), Z=ell(a^2), W=ell((T^d a)^2).
+It produces Z*||T^d r||^2<=S*W*||r||^2 for EVERY supported r from the actual
+terminal bracket, S=(1+comparisonEta(w,width,m-1))^2. Applying this to
+T^d r and retaining symmetry in the squared expansion yields
+
+    ||C r||^2 <= W^2*||r||^2+(S-2)*W*Z*||T^d r||^2.
+
+At the existing fixed-nome/width drift-depth cutoff for tolerance 1/4,
+S<=25/16<=2. For the ACTUAL reciprocal prediction p=a*phi and e=b-p,
+produced ||p||^2<=B, ||e||^2<=delta^2*B give, by Cauchy--Schwarz,
+
+    abs(W*ell[e*(b+p)]-Z*ell[(T^d e)*(T^d(b+p))]) <= 2*delta*W*B.
+
+This is the entire signed prediction correction in original currency;
+the old separate-cross PAPER cap was 2*delta*(1+S)*W*B. No inverse B,
+square root, stationary pin, useful norm-bound assumption or action change.
+Available inputs: arbitrary Schur leaf above; `filteredTerminalBracket` and
+`filtered_terminal_partition_lower` in FilteredVarianceComparison; actual
+weighted transfer symmetry; existing BlockConditionalDrift multiplier bound,
+BlockConditionalRatio reconstruction and explicit fixed-parameter depth
+cutoff. Root mathematical selection, Sol bounded implementation and
+independent read-only review. The <=480-line/<=3-check budget produced a
+430-line leaf passing focused check 2 and complete FINAL-source review.
+Zero source norm, d=0, arbitrary signs and possible negative spectrum of C
+remain; positivity of C is neither supplied nor assumed. The last-window
+innovation estimate and source-weighted radial/antipodal/original-deficit
+payment remain OPEN. This ordinary original spatially weighted polynomial
+norm is NOT an OS quotient or a completed/physical gap theorem.
+
+Observed declarations, all in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedPredictionPayment.lean`:
+`original_arbitrary_normalized_schur_le:172` produces the normalized
+arbitrary-input Schur bound; private `onset_factor_le_two:232` produces
+S<=2 from the EXISTING explicit fixed-nome/width cutoff at tolerance 1/4;
+`original_signed_prediction_square_le:248` proves the C-square bound;
+`blockConditionalRatio_signedPrediction_abs_le:341` pays the ACTUAL finite
+reciprocal's complete signed correction by 2*mixRate^k*W*B. Both chronology
+masses, supported signed source, m>=1 and original head cutoff stay explicit.
+No inverse norm/error rate, stationary law, source cap, replacement action
+or analytic operator-norm premise. The onset is NOT scaling-uniform.
+
+Final source SHA256
+`c127cedabddd49fb1da587c757377dc2a6d028d485a0204f466694d999cbf2c0`;
+log `/private/tmp/ym-oct8-signed-prediction2.log`, SHA256
+`5d255708e73eeca914639e6fc0123fa7eef867c46ac2b37b5ee3506181354c8e`.
+All six printed gates exactly {propext,Quot.sound}; independent COMPLETE
+FINAL-source review PASS at that hash. Check 1 failed on match layout and
+local-definition unfolding; its failed main gates were NOT accepted. Two
+local repairs, no mathematical statement or resource-option change; check 2
+PASS. One monitored worker, 20 GiB cap/12 GiB reserve, fresh process/capacity
+preflight and zero swap. Root import registered only; no root/tree audit,
+guard or legacy metric. Canonical displayed claims unchanged.
+
+Independent source screen: `original_lastStep_score_dissipation_le`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialScoreDissipation.lean:138`,
+bounds score BY loss; it must not be inverted into a noise upper bound.
+The minimum remaining cleared input is Z*ell_V[blockNoise_d(a,phi_k)]
+<=epsilon*W*B. Together with the PAPER last-window split, terminal drift
+and the CHECKED joint payment, epsilon+eta+2*q^k<=1-kappa would suffice.
+This is not a produced epsilon or survival certificate. The exact Ward
+payment at RatioNoiseWardAbsorption:384 keeps T(Vbar*Ta); its signed
+J(V*a), J(Vbar) and differentiated original-prefix deficit still need
+joint original-norm control. No additional hypothesis wrapper is selected.
+DIRECT original macro retention remains a co-primary alternative.
+
 ## Generic ORIGINAL terminal Schur: checked missing error join (2026-10-08 UTC)
 
 Previous goal turn: PROGRESS, commit d1a0690e checks the actual finite
@@ -73,7 +141,8 @@ FINAL-source static review PASS at the same hash. One monitored worker,
 20 GiB cap, 12 GiB reserve; fresh process/capacity preflight, swap zero.
 Root import registered only; no root/tree audit, guard or legacy metric.
 Interpretation: closes the arbitrary prediction-error transfer join. The
-composite last-window signed payment below remains PAPER; the actual
+joint signed prediction payment is now checked above; the full last-window
+decomposition/retention implication remains PAPER. The actual
 changing-family relative innovation and all Clay requirements remain OPEN.
 
 ### PAPER screen: source-weighted concentration is not automatic
@@ -223,13 +292,14 @@ No inverse conditional density or whole-history-noise subtraction occurs.
 at `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalComparison.lean:306`
 with s=n+u-1,r=2u,t=0 and 1<=n+u pays the drift in absolute value by
 comparisonEta(width,n+u-1)*W*ell(a^2*phi^2). No finite stationarity or
-endpoint recentering is used. The actual last-window innovation PLUS the
-signed prediction correction, relative to W*ell(b^2), remains unpaid.
+endpoint recentering is used. The actual last-window innovation relative to
+W*ell(b^2) remains unpaid; the signed prediction correction is now CHECKED
+at the explicit onset above, not at a scaling-uniform onset.
 `blockConditionalRatio_reconstruction` at
 `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockConditionalRatio.lean:281`
-produces a SAME-warmed-norm reconstruction error; this is not by itself a
-bound on its transferred signed correction. Review that quantitative join
-in parallel, rather than add a consumer which merely assumes retention.
+produces a SAME-warmed-norm reconstruction error. The new joint payment
+constructs the transferred correction from it and arbitrary-input Schur;
+do not add a consumer which merely assumes retention.
 
 The earlier sharp terminal-Schur closure applies only to a transmitted
 source: `original_block_terminal_schur_source_le` at
@@ -247,23 +317,27 @@ above; it applies directly to e. Do not derive that instance from the older
 transmitted-source specialization. No arbitrary observable/transfer preimage
 is assumed.
 
-PAPER quantitative consequence using that checked generic join: put
-B=ell(b^2), p=a*phi, and use the produced ell(p^2)<=B and
+Superseded PAPER separate-cross consequence using that checked generic join:
+put B=ell(b^2), p=a*phi, and use the produced ell(p^2)<=B and
 ell(e^2)<=delta^2*B, delta>0. With eta=comparisonEta(width,n+u-1),
 S=(1+eta)^2, the normalized terminal Schur bounds give output square caps
 S*(W/Z)*B for U*b and U*p, and S*(W/Z)*delta^2*B for U*e.
 Rational Young applied to EACH of the four signed cross terms pays their
-sum in absolute value by 2*delta*(1+S)*W*B. No square root, source cap,
-unfiltered variance or surviving-norm inverse occurs. The terminal drift
-then costs at most eta*W*B, and the remaining sufficient estimate is
+sum in absolute value by 2*delta*(1+S)*W*B. The CHECKED joint signed
+prediction theorem above replaces this cap by 2*delta*W*B when the actual
+depth meets its computed fixed-nome/width onset; delta=0 is retained.
+No square root, source cap, unfiltered variance or surviving-norm inverse.
+The terminal drift then costs at most eta*W*B, and the remaining sufficient
+estimate, with that onset, is
 
-    Z*ell(D_phi) <= [1-kappa-eta-2*delta*(1+S)]*W*B.
+    Z*ell(D_phi) <= [1-kappa-eta-2*delta]*W*B.
 
 This is an ACTUAL last-window innovation relative to the warmed norm;
 positivity alone cannot pay it. Generic closure is now CHECKED; this
 changing-family analytic estimate remains OPEN, not an assumed survival
-certificate. The composite four-cross payment is PAPER, and the full
-historical noise is not needed for this reduction.
+certificate. The composite four-cross payment is CHECKED; the full
+decomposition/retention implication remains PAPER, and full historical noise
+is not needed for this reduction.
 The actual multiplier bound is `blockConditionalRatio_surviving_square_le`
 at `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockConditionalDrift.lean:81`;
 it is not a supplied nondegeneracy hypothesis.

@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Supporting ORIGINAL joint signed prediction payment checked (2026-10-08 UTC):
+the ACTUAL reciprocal's four cross terms together cost <=2*mixRate^k*W*B,
+replacing the separate-cross PAPER cap 2*mixRate^k*(1+S)*W*B. Produced
+arbitrary-input Schur and weighted symmetry make W*Id-Z*T^(2*d) contractive
+at scale W at the computed FIXED nome/width onset; no positivity of this
+signed operator, norm inverse or analytic premise. Six permitted gates and
+complete independent FINAL-source review; focused capped check 2 only,
+root registration, no tree audit. Relative last-window innovation and its
+changing-family onset/scaling control remain OPEN. This ordinary weighted
+norm is not an OS/physical gap. Canonical displayed claims unchanged;
+no chart reprint. Evidence: adaptive conditional-score audit.
+
 Supporting ORIGINAL arbitrary-input terminal Schur checked (2026-10-08 UTC):
 the actual U^2 bound now covers every supported signed polynomial, including
 prediction errors without a transmitted preimage. Produced reciprocal

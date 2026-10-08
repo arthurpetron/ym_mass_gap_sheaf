@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## PROVED joint ORIGINAL signed prediction payment / OPEN relative innovation (2026-10-08 UTC)
+
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedPredictionPayment.lean:172`,
+`original_arbitrary_normalized_schur_le`, produces Z*||T^d*r||^2<=S*W*||r||^2
+for every supported signed input, with BOTH actual terminal masses.
+`original_signed_prediction_square_le:248` produces the square contraction
+of W*Id-Z*T^(2*d), without imposing its positivity. The EXISTING computed
+fixed-nome/width quarter-tolerance onset supplies S<=2.
+`blockConditionalRatio_signedPrediction_abs_le:341` pays the ACTUAL reciprocal
+correction by 2*mixRate^k*W*B, retaining cancellation across all four crosses.
+Produced multiplier/reconstruction bounds; zero norm/rate and d=0 remain.
+No new hole, axiom, norm inverse, stationary law, analytic premise or option
+increase. Focused capped check 2/all six gates exactly {propext,Quot.sound};
+independent COMPLETE FINAL-source review PASS. Root registration only, no
+root/tree audit. Ordinary spatially weighted L2, not an OS/gap theorem.
+The full last-window decomposition/retention implication remains PAPER;
+the actual relative innovation and source-weighted radial/antipodal/deficit
+control on a justified changing family remain OPEN. No scaling-uniform
+onset or physical/QFT/every-group/Clay closure. Exact hashes and residue:
+adaptive conditional-score audit. Canonical displayed claims unchanged.
+
 ## PROVED arbitrary ORIGINAL terminal Schur / OPEN changing-family innovation (2026-10-08 UTC)
 
 `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalSchurArbitrarySource.lean:203`,
@@ -14,7 +35,8 @@ source cap, input-norm inverse, operator-norm assumption or option increase.
 First focused capped check/all three gates exactly {propext,Quot.sound};
 independent COMPLETE final-source review PASS. Root registration only, not
 a root/tree audit. This ordinary weighted L2 result is not an OS/gap theorem.
-Composite last-window signed-error payment remains PAPER; actual relative
+Joint last-window signed-error payment is now checked above, while the full
+decomposition/retention implication remains PAPER. Actual relative
 innovation on a justified changing family, original source-weighted radial
 cross/antipodal/deficit control and all physical/QFT/every-group/Clay remain
 OPEN. No canonical displayed claim changes. Exact proof/log hashes and

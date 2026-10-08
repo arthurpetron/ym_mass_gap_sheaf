@@ -27,6 +27,39 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED signed prediction payment (2026-10-08 UTC): pay
+the FOUR last-window cross terms TOGETHER with C=W*Id-Z*T^(2*d), rather
+than their separate absolute caps. From the actual arbitrary-input terminal
+Schur comparison Z*||T^d r||^2<=S*W*||r||^2, S=(1+eta)^2<=2, symmetry
+and the same comparison on T^d r give ||C r||^2<=W^2*||r||^2.
+Thus actual reciprocal p=a*phi, e=b-p have signed correction
+abs(W*ell[e*(b+p)]-Z*ell[(T^d e)*(T^d(b+p))])<=2*delta*W*ell(b^2),
+delta=mixRate^k, using PRODUCED multiplier/reconstruction estimates.
+No state-norm inverse, square root, stationary law or useful operator-norm
+premise. Produce S<=2 at the existing FIXED nome/width terminal-depth
+cutoff with tolerance 1/4, not a scaling-uniform onset. Consumer: the
+original warmed-source last-window reduction recorded in the adaptive-score
+audit. Observed: exact signed cancellation improves the old PAPER
+2*delta*(1+S) coefficient to 2*delta; zero norm, d=0 and negative spectrum
+of C remain. The final 430-line leaf passes focused check 2 and complete
+independent FINAL-source review; all six gates exactly {propext,Quot.sound}.
+No added analytic premise or resource option. Root registration only,
+no root/tree audit. NEXT sufficient analytic input is
+Z*ell(D_phi)<=[1-kappa-eta-2*delta]*W*ell(b^2), at that explicit onset;
+the full last-window decomposition/retention implication remains PAPER.
+Relative innovation, source-weighted radial/antipodal/deficit control and
+Clay remain OPEN. DIRECT original macro retention remains co-primary.
+Exact source/log hashes and verification boundary: adaptive-score audit.
+Canonical displayed claims unchanged; no chart reprint.
+
+Attachment reconciliation (2026-10-08 UTC): the latest lattice-measurement
+note repeats the source-backed calibration audit. Retain channel versus
+every-state gap, reference-scale dependence, and the temporal-continuum
+Wilson/Kogut--Susskind distinction. No numerical mass, strong Sobolev sample
+convergence or finite-spacing Hamiltonian equality is a new premise.
+Reuse `audits/RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md`; continue
+the original interacting estimate rather than create another interface.
+
 CHECKED quantitative join (2026-10-08 UTC): the ORIGINAL
 sharp terminal Schur estimate now covers EVERY supported polynomial r, specifically
 the prediction error e=b-a*phi which is not a transmitted source. For actual
@@ -79,10 +112,11 @@ the original character cutoff; that transport remains explicit and open.
 PAPER direct-response reduction retains ONLY the last-u-window innovation,
 terminal drift and signed prediction correction. Drift and reciprocal error
 can be paid in SAME-warmed-norm currency using the generic terminal-Schur
-closure for arbitrary supported error, now checked above. The composite
-signed-error payment below is still PAPER, not a newly checked consumer.
+closure for arbitrary supported error, now checked above. The joint
+signed-error payment is now checked at the explicit fixed-parameter onset;
+the full decomposition/retention implication remains PAPER.
 The remaining analytic estimate is Z*ell(D_phi)<=
-[1-kappa-eta-2*delta*(1+(1+eta)^2)]*W*ell(b^2), not full-history noise;
+[1-kappa-eta-2*delta]*W*ell(b^2), not full-history noise;
 eta=comparisonEta(w,width,n+u-1) retains explicit nome/width dependence.
 Exact chronology, available inputs and missing joins: adaptive-score audit.
 

@@ -7783,6 +7783,9 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalSchurTest
 import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockWeightedContinuity
 import YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalSchurClosure
 import YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalSchurArbitrarySource
+-- Joint signed reciprocal correction, at a computed FIXED nome/width onset.
+-- Relative interacting innovation and physical scaling remain OPEN.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialSignedPredictionPayment
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFilteredVarianceComparison
 import YMGap.Continuum.BF4WilsonAllNomeOriginalVarianceComparison
 

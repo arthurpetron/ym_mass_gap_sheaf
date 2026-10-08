@@ -16,6 +16,18 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked ORIGINAL joint signed prediction payment (2026-10-08 UTC):**
+`BF4ExactSlabFixedSpatialSignedPredictionPayment.blockConditionalRatio_signedPrediction_abs_le`
+pays all four actual reciprocal correction crosses TOGETHER by 2*mixRate^k*W*B.
+Produced arbitrary-input Schur and symmetry supply the signed-operator square
+bound at an explicit FIXED nome/width onset. No positivity of that operator,
+norm inverse or analytic premise; all six gates exactly {propext,Quot.sound},
+independent complete FINAL-source review, focused check 2 only. Root import
+registered, no full-tree audit. The remaining useful interacting innovation
+bound on the justified changing family is OPEN; the full last-window
+decomposition/retention implication remains PAPER. This ordinary weighted
+norm is not an OS quotient/physical gap. Evidence: adaptive-score audit.
+
 **Checked actual noise-derivative / Ward absorption (2026-10-08 UTC):**
 `BF4ExactSlabFixedSpatialRatioNoiseDerivative.ratioNoise_derivative_carrier`
 retains J(V*a) and literal conditional moments at arbitrary-insertion strength.

@@ -4,6 +4,23 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## ORIGINAL signed prediction correction paid jointly (2026-10-08 UTC)
+
+`BF4ExactSlabFixedSpatialSignedPredictionPayment.blockConditionalRatio_signedPrediction_abs_le`
+proves <=2*mixRate^k*W*B for the ACTUAL reciprocal's complete signed
+correction. Normalized arbitrary-input Schur and original weighted symmetry
+produce the square bound for C=W*Id-Z*T^(2*d); C need not be positive.
+The existing fixed-nome/width quarter-tolerance onset produces S<=2.
+No norm inverse, stationary pin, extra analytic premise or action change;
+zero norm/rate and d=0 remain. Focused capped check 2/all six gates exactly
+{propext,Quot.sound}, complete independent FINAL-source review; root
+registration only, no tree audit/guard/metric. NEXT useful estimate is
+Z*ell(D_phi)<=[1-kappa-eta-2*mixRate^k]*W*B on the justified changing
+family. The full last-window decomposition/retention implication is PAPER;
+its innovation and scaling-uniform onset are OPEN. DIRECT original macro
+retention stays co-primary. Physical/QFT/every-group/Clay and canonical
+displayed claims unchanged. Exact evidence: adaptive conditional-score audit.
+
 ## ORIGINAL sharp terminal Schur for arbitrary supported inputs (2026-10-08 UTC)
 
 `BF4ExactSlabFixedSpatialTerminalSchurArbitrarySource.original_block_terminal_schur_arbitrary_source_le`
