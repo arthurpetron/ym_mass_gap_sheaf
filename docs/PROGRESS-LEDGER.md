@@ -4,6 +4,21 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## ORIGINAL positive smoothing inherits a paid raw-source reserve (2026-10-08 UTC)
+
+`PositiveOrbitResponseOrder.response_crossRatio` proves the unconditional
+cleared block-ratio order on every original completed state. Its positive
+double-orbit comparison and zero-safe retained-fraction consumer transfer
+a raw reserve without a norm-floor assumption. This supplies a proved
+sufficient route from radius-zero source estimates to smoothed retention,
+not useful raw moments or a necessary new frontier premise. Signed filters
+are excluded; signed raw sources, repeated orbit entries and zero responses
+remain. Focused check 2/nine gates within {propext,Quot.sound}, complete
+independent FINAL-source review; root registration only, no broad audit/metric.
+NEXT remains actual signed original credit/overlap or relative innovation.
+Physical/QFT/every-group/Clay and canonical displayed claims unchanged.
+Exact declarations, hashes and scope: adaptive conditional-score audit.
+
 ## ORIGINAL last-window innovation is quantitatively pinned to transfer loss (2026-10-08 UTC)
 
 `BF4ExactSlabFixedSpatialSignedPredictionPayment.blockConditionalRatio_noiseCost_abs_le`

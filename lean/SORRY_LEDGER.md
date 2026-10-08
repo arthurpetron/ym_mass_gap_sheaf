@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL positive smoothing order / OPEN raw reserve (2026-10-08 UTC)
+
+`lean/YMGap/Continuum/BF4WilsonAllNomePositiveOrbitResponseOrder.lean:257`,
+`response_crossRatio`, proves every cleared shifted block comparison.
+`positiveOrbit_response_crossRatio:305` retains the exact positive double
+orbit. `shifted_response_floor:343` and `positiveOrbit_response_retention:387`
+transfer an actual raw retained fraction without a source-norm floor, even
+at zero responses. Scalar regularization has a PRODUCED floor, then disappears
+by constructive convergence/order; actual second-defect positivity supplies
+the required convexity. No new analytic premise, norm inverse, spectral
+measure, changed carrier, hole, axiom or option increase. Arbitrary signed
+raw sources and repeated nonnegative rational orbit weights remain; signed
+filters are not covered. Raw retention is sufficient, not necessary.
+Focused check 2/nine gates within {propext,Quot.sound}, independent COMPLETE
+FINAL-source review PASS; root import registered only, no root/tree audit.
+The useful raw family credit/overlap and relative innovation remain OPEN,
+as do physical/QFT/every-group/Clay. Canonical displayed claims unchanged.
+Exact source/log hashes and next mathematical decision: adaptive-score audit.
+
 ## PROVED ORIGINAL last-window noise/cost comparison / OPEN relative innovation (2026-10-08 UTC)
 
 `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalRayleighDrift.lean:228`,

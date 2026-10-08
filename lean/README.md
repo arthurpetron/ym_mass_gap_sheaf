@@ -16,6 +16,15 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked ORIGINAL positive smoothing order (2026-10-08 UTC):**
+`BF4WilsonAllNomePositiveOrbitResponseOrder` proves cleared block-ratio order
+and transfers a paid raw-source reserve to positive rational time smoothing,
+retaining every double-orbit cross term and zero moments. No norm floor,
+inverse or new analytic premise. The raw changing-family reserve remains
+OPEN; signed filters and physical/Clay closure are not supplied. Focused
+check 2/nine permitted gates and complete independent FINAL-source review;
+root registration only, no tree audit. Evidence: adaptive-score audit.
+
 **Checked ORIGINAL last-window noise/cost comparison (2026-10-08 UTC):**
 `BF4ExactSlabFixedSpatialSignedPredictionPayment.blockConditionalRatio_noiseCost_abs_le`
 pins the actual transfer loss to Z*ell(blockNoise_d(a,phi_k)) up to

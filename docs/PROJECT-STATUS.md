@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Supporting ORIGINAL positive smoothing order checked (2026-10-08 UTC):
+cleared block ratios increase at every lag, including zero moments.
+An actual raw retained fraction transfers to positive rational time-orbit
+smoothing on the SAME completion, with every double-orbit cross term retained.
+No norm floor/inverse or useful retention premise is manufactured. This
+reduces separate analytic work on smoothed sources when a raw reserve is
+available; it does not supply that reserve or cover signed filters.
+Focused check 2 and complete independent FINAL-source review PASS; root
+registration only, no tree audit. Physical/Clay and exact displayed claims
+unchanged, so no chart reprint. Evidence: adaptive conditional-score audit.
+
 Supporting ORIGINAL last-window noise/cost comparison checked (2026-10-08 UTC):
 the ACTUAL transfer loss differs from cleared conditional innovation by
 at most (comparisonEta+2*mixRate^k)*W*B. General future-block drift and

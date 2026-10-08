@@ -27,6 +27,26 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED source-preserving positive smoothing order (2026-10-08 UTC):
+`PositiveOrbitResponseOrder.response_crossRatio` proves
+R_x(L+j)*R_x(L+h)<=R_x(L+j+h)*R_x(L), every original completed state
+and all integer lags, including zero moments. Its positive double-orbit
+comparison and zero-safe retained-fraction consumer prove that an actual
+raw-source block reserve also holds for positive time smoothing on the SAME
+carrier. No source norm floor, inverse, spectral measure or analytic premise.
+This is a sufficient route, not a necessary strengthening of the smoothed
+frontier; signed filters are not covered. The useful raw reserve remains OPEN.
+Reuse original radius-zero moments for this alternative, with their OWN-center
+and BOTH-mass pins, instead of estimating the positive double orbit anew.
+The existing `FilteredMeanResidueBound.own_meanResidue_tolerance_bound` already
+pays the odd/even mean residue at fixed parameters; do not rebuild it or
+assume finite even centering. NEXT actual signed source credit/overlap OR
+last-window relative innovation, not another ratio-propagation interface.
+Focused check 2/nine permitted gates and complete independent FINAL-source
+review PASS; root import registered only, no root/tree audit. Verification
+hashes and scope: adaptive-score audit. All physical/Clay claims and the
+canonical displayed claims remain unchanged.
+
 CHECKED quantitative ORIGINAL noise/cost join (2026-10-08 UTC):
 previous turn PROGRESS, 2f0ef648 pays the actual signed prediction correction.
 The new unconditional estimate is

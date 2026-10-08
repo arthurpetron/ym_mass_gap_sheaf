@@ -7418,6 +7418,9 @@ import YMGap.Continuum.BF4WilsonAllNomeSmoothedCoherentState
 -- Twisted one-step CS, full log-convexity, odd Jensen and (1-delta)^k compiler;
 -- family radius survival / non-degrading smoothed floor remain OPEN Props.
 import YMGap.Continuum.BF4WilsonAllNomeOddResponseJensen
+-- Zero-safe cleared response-ratio order and positive time-orbit smoothing;
+-- useful changing-family raw retention remains OPEN.
+import YMGap.Continuum.BF4WilsonAllNomePositiveOrbitResponseOrder
 -- Explicit dyadic smoothed trajectory (abstract nome schedule); A03 macro ratio
 -- from PathEpsBound + PathFamilyRadiusSurvival, both OPEN, plus named bridges.
 import YMGap.Continuum.BF4WilsonAllNomeDyadicSmoothedTrajectory

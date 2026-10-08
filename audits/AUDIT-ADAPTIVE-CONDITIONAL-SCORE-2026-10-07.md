@@ -4,6 +4,93 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Selected source-preserving smoothing comparison (2026-10-08 UTC)
+
+Previous turn PROGRESS: d1e21f87 checks the original noise/cost comparison.
+The useful source-specific relative reserve remains unproduced. Independent
+source reviews find no useful three-moment margin in the existing absolute
+radial cap: its coefficient tends to one in the AF bare-transmission probe,
+and an absolute upper bound supplies no favourable signed gain. Retain the
+OWN-mean correction in the original signed source-defect pair.
+
+Reuse its EXISTING boundary payment rather than build another centering
+wrapper: `own_centeredMeanPair_bound`, `own_meanResidue_bound` and
+`own_meanResidue_tolerance_bound` at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFilteredMeanResidueBound.lean:138`,
+`:195`, `:241` give |M|<=4*q^n*Z2 and
+|(lambda-1)*c*M|<=8*(1-lambda)*q^n*Z2, with the computed
+`meanResidueDepthCutoff:235`. This pays normalized fixed-member boundary
+error, not useful relative gain or a physical family reserve. The finite
+OWN mean centers the ODD density a*Ta, not a^2; do not assume its even
+centered first moment is zero. No new estimate is counted for this review.
+
+The next selected unconditional mathematical proposition is
+
+    R_x(L+j+h)*R_x(L) >= R_x(L+j)*R_x(L+h).
+
+For any nonnegative rational orbit weights and Y=sum_i c_i*T^i*x, the exact
+double-orbit expansion would then give
+
+    R_Y(L+h)*R_x(L) >= R_Y(L)*R_x(L+h).
+
+Actual consumer: reduce the separate smoothed-source relative retention
+estimate to a raw-source ratio on the SAME completed carrier. The raw ratio
+is NOT supplied; smoothing cannot create absent slow-mode overlap. The
+two-state positive Markov test with eigenvalue 1/2 retains a nonzero warmed
+box-filtered source but has block norm ratio 4^(-d), independently of the
+filter radius. This is a PAPER scope test, not a Yang--Mills counterexample.
+
+Available inputs: `BF4WilsonAllNomeOddResponseJensen.response_log_convex_step`
+at `lean/YMGap/Continuum/BF4WilsonAllNomeOddResponseJensen.lean:222`, actual
+second-defect positivity, and `smoothedResponse_orbit_expand` at
+`lean/YMGap/Continuum/BF4WilsonAllNomeSmoothedCoherentState.lean:326`.
+Prediction: adding a rational epsilon>0 gives produced positive floors;
+the local log-convex determinant gains epsilon times the positive second
+difference. Finite cross-ratio induction and existing constructive
+positive-factor cancellation, followed by zero-safe order closure, remove
+epsilon. No representing measure, tensor carrier, norm inverse or new
+analytic premise is selected. Test zero states, fringe time-kernel states,
+arbitrary signed raw sources, h=0, and repeated positive orbit lags.
+Stop/revise if a source floor must be assumed, an action/operator is changed,
+or the argument needs a new analytic framework. Budget: one Sol leaf <=600
+lines, <=3 root-owned focused checks, one monitored 20-GiB worker/12-GiB
+reserve with fresh dynamic-capacity checks, and independent complete-source
+review. This selection is not proof evidence or a change of chart state.
+No further innovation/conditional-survival identification wrapper is selected.
+
+### Observed: zero-safe positive smoothing order CHECKED
+
+The selected comparison is now proved in
+`lean/YMGap/Continuum/BF4WilsonAllNomePositiveOrbitResponseOrder.lean`:
+`response_crossRatio:257`, `positiveOrbit_response_crossRatio:305`,
+`shifted_response_floor:343`, and `positiveOrbit_response_retention:387`.
+An actual raw retained fraction transfers to positive rational time-orbit
+smoothing on the SAME original completion, without a source-norm floor.
+Scalar regularization supplies its own positive floor and is then removed
+by explicit convergence/order closure. Zero responses, empty orbits,
+repeated entries and arbitrary signed raw sources remain; signed filters
+are excluded. Raw retention is sufficient, not a new necessary hypothesis.
+
+Final source: 415 lines, SHA256
+`77b2f78e11550198e0fba5657827f58d786877d2aab08680bb42c8c58f022f2f`.
+Accepted focused check 2: `/private/tmp/ym-oct8-positive-orbit-order2.log`,
+SHA256 `cf1d18a3f29234d313f417ddc00cc598ebccd83d0221ca1e763c4cd3c873d75c`.
+Nine printed gates: `invSucc_converges_zero` uses only {propext}; the other
+eight use {propext,Quot.sound}. No errors, warnings or sorryAx. Check 1
+failed on notation-shadowing binders and natural-addition normalization;
+its failed downstream gates were not accepted. The repaired final source
+passed COMPLETE independent review at the stated hash. Both launches used
+ONE monitored worker, 20-GiB cap/12-GiB reserve and fresh capacity/process
+checks (87% reported headroom, zero swap). Root import registered ONLY;
+no root/tree build, broad audit, guard or metric was run. No new hole,
+axiom, classical step, resource option or analytic premise.
+
+This removes separate positive-double-orbit retention work WHEN a raw
+reserve is produced; it does not produce useful changing-family overlap,
+signed credit or relative innovation. NEXT remains their actual analytic
+estimate, not another propagation wrapper. Physical mass, continuum/QFT,
+every-group/Clay and canonical displayed claims remain unchanged.
+
 ## CHECKED quantitative last-window noise/cost join (2026-10-08 UTC)
 
 Previous goal turn PROGRESS: 2f0ef648 checks the complete signed prediction
