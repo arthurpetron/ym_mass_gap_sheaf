@@ -1,5 +1,18 @@
 # Sorry Ledger
 
+## PROVED SAME-bond ordinary-logarithm identification / OPEN physical calibration (2026-10-08 UTC)
+
+`BF4WilsonAllNomeBondOSLogarithm` constructs the literal ordinary logarithm
+partials of the EXISTING bond time-one action. `domain_logarithm_tail_bound`
+covers every quotient-domain class; `representedLogarithmCertificate`
+returns the exact existing derivative output and original output-range
+modulus for a supplied represented point. No quotient witness selection,
+inverse, new carrier or boundary-kernel deletion. Fixed nome/width only;
+physical Hamiltonian calibration, scaling, full QFT and Clay remain OPEN.
+One focused capped check/11 gates exactly {propext, Quot.sound}, independent
+complete-source review; root registration only, no root/tree audit or new
+hole/axiom. Canonical fields/chart unchanged. Evidence: parallel QFT-inputs audit.
+
 ## PROVED finite sign-reflection list obstruction / OPEN SAME-law boundary comparison (2026-10-08 UTC)
 
 `BF4ExactSlabSpatialSignReflectionObstruction` proves original spatial and

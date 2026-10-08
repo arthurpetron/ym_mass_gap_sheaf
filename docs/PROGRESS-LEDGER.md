@@ -4,6 +4,18 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## SAME-bond derivative identified with its ordinary logarithm (2026-10-08 UTC)
+
+`BondOSLogarithm.domain_logarithm_tail_bound` applies to every existing
+domain class. `representedLogarithmCertificate` returns the exact existing
+bond derivative output and its original explicit modulus, using the SAME
+original time-one transfer and literal D^(j+1)/(j+1) partial sums. No new
+analytic input, representative choice or physical calibration. One focused
+capped check/11 permitted gates and independent complete-source review;
+root import registered only. Main changing-family retention remains OPEN;
+no critical-path/chart closure or legacy guard/metric run. Evidence:
+the parallel QFT-inputs audit dated 2026-09-17.
+
 ## Retention-route decision, not an analytic closure (2026-10-08 UTC)
 
 A read-only two-mode screen separates direct macro retention from the

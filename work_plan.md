@@ -27,6 +27,18 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED independent QFT join (2026-10-08 UTC): the EXISTING bond derivative
+output is the ordinary positive-logarithm (-log P) series limit of its OWN
+original time-one transfer. `BondOSLogarithm` supplies a tail bound on every quotient-domain
+class and an explicit SAME-output modulus for supplied represented points;
+no quotient witness selection or new analytic premise. One focused capped
+check/11 permitted gates and independent complete-source review pass.
+Fixed nome/width only: physical calibration, full QFT and scaling remain
+OPEN. NEXT remains DIRECT original macro retention or sufficient JOINT
+signed-window control on a justified family. Oddness/commutator/Ward source
+review supplies no new relative estimate. Evidence: the parallel QFT-inputs
+audit. No canonical displayed claim or chart change.
+
 READ-ONLY retention decision (2026-10-08 UTC): the lattice-measurement
 note is already reconciled in its research audit; add no numerical premise
 or new interface. Keep DIRECT original macroscopic correlation retention

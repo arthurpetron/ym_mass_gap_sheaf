@@ -14,6 +14,62 @@ Yang--Mills theory on R^4 with the required same-theory QFT axioms, isolated
 vacuum and finite positive physical Hamiltonian mass gap, within the
 constructive Mathlib-free MLTT/HoTT gate. **The goal remains OPEN.**
 
+## Original bond derivative and ordinary transfer logarithm (2026-10-08 UTC)
+
+Selected independent QFT input: identify the EXISTING bond derivative output
+with the ordinary positive-logarithm series (-log P) of that SAME bond space's
+original numerical time-one action. Inputs already produced: `BondOSLinear` operations,
+`BondOSRealTime.action_value`, `PositiveRealSemigroup.realTimeAction_original`,
+`BondOSDerivative` input/output pins, and `DomainLogarithm` graph tail bound
+and represented output-range modulus. Consumer: the existing physical bond
+derivative graph now has its own literal transfer-logarithm identification,
+not just the ambient sector identification. No additional analytic premise.
+
+One bounded Sol-authored leaf, independent complete-source review, and
+root-only serialized focused verification were selected. Stop if the join
+requires quotient representative selection, an inverse, a substituted carrier,
+or deletion of the ambient boundary kernel. Fixed nome and width only; no
+physical time calibration or full QFT/continuum closure is selected.
+
+### Observed kernel-checked SAME-bond identification
+
+Complete final 157-line source review and focused Lean check PASS.
+
+| Produced result | Exact declaration |
+| --- | --- |
+| Existing numerical time-one action equals original completed time one | `lean/YMGap/Continuum/BF4WilsonAllNomeBondOSLogarithm.lean:49`, `transfer`; `:53`, `bondValue_transfer` |
+| SAME-bond D=I-P and literal D^n, including D^0=I | Same module `:60`, `defect`; `:63`, `bondValue_defect`; `:70`, `defectPower`; `:74`, `bondValue_defectPower` |
+| Exactly m ordinary-log terms D^(j+1)/(j+1), in original addition order | Same module `:85`, `logPartial`; `:91`, `bondValue_logPartial` |
+| Tail bound for EVERY existing quotient-domain class | Same module `:112`, `domain_logarithm_tail_bound` |
+| Exact represented derivative output and its original explicit modulus | Same module `:124`, `represented_logarithm_bound`; `:136`, `representedLogarithmCertificate` |
+
+The tail bound is `bondDist(L_m(input d),output d) <=
+bondInner(D^m(output d),D^m(output d))`. Quotient elimination is into Prop.
+The Type-level convergence certificate consumes a SUPPLIED original
+`SectorDerivative.DomainPoint`; its modulus is exactly `domainLogModulus p`,
+computed from that point's output-range witness. No rate/witness extraction
+from arbitrary quotient Domain is asserted. This does not alter the old
+Wilson-UNION QFT audit's scope or discharge its continuum obligations.
+
+All 11 printed gates are exactly {propext, Quot.sound}; no warning, sorryAx,
+new hole/axiom, classical/native shortcut or option increase. Fresh preflight:
+88% memory free, zero swap, no competing compiler/runner. One 20-GiB worker,
+12-GiB OS reserve, safe-build focused check with explicit olean output.
+Root import registered only; no root/tree build, audit, guard or metric.
+
+```text
+Accepted log: /private/tmp/ym-bond-os-logarithm-20261008-a.log
+SHA256 83933412920c9764993bf6d9d9aee23d3174e504a049afb01bf7c6dcf22570b0
+Checked source SHA256
+f6a051873dcfaf099b362b533ef03ceaa8a58601e4bd00b7dbc56d1d8eebd8f1
+```
+
+Decision: retain this actual fixed-parameter SAME-object join. Main DIRECT
+macro-retention or sufficient JOINT signed-window estimate on a justified
+changing family remains OPEN, as do survival, physical Hamiltonian mass,
+full SAME limiting QFT and every compact simple group. No exact canonical
+displayed claim changed; no ASCII chart reprint.
+
 ## Selected spatial sign-reflection boundary test (2026-10-08 UTC)
 
 Previous goal turn: PROGRESS, pushed `b24bc74b`. The primary JOINT signed

@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Supporting SAME-bond logarithm identification checked (2026-10-08 UTC):
+the existing derivative output is the positive-logarithm (-log P) series
+limit of its own original time-one transfer. Every quotient-domain class has the
+tail bound; supplied represented points retain their explicit output-range
+modulus. One focused capped check/11 permitted gates, independent source
+review; no root/tree audit. Fixed nome/width only, not physical calibration
+or continuum QFT. Main retention/scaling inputs remain OPEN. Canonical
+displayed claims unchanged; no chart reprint. Evidence: parallel QFT-inputs audit.
+
 Supporting finite covariance obstruction checked (2026-10-08 UTC): literal
 x0 box reflection does not permute the original spatial/temporal face
 lists. The transverse defect is a boundary layer with retained coordinates,
