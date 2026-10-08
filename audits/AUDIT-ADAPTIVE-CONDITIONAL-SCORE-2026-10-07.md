@@ -7980,3 +7980,75 @@ is required. No new interface/frontier or canonical field is introduced.
 The actual interacting ratio/relative payment, justified scaling, continuum
 survival, physical calibration, full QFT, every group and Clay remain OPEN.
 Displayed chart claims unchanged; no chart reprint.
+
+## Direct-moment selection and a rejected hemisphere adaptation (2026-10-08 21:23 UTC)
+
+Previous goal turn: PROGRESS, `90b15148`, a checked finite separation of
+sufficient criteria plus its planning correction, NOT an interacting estimate.
+Two independent read-only source screens found no new useful original
+changing-family moment producer. No compiler or numerical sweep was launched.
+
+The next DIRECT test is the actual macroscopic ratio, not an obligatory
+near-unit MICROSCOPIC ratio. With s=side(scale), let J_L/Z_L denote
+`centeredPair` with the SAME finite OWN center and the literal lag-L
+partition. Test the complete signed numerator
+
+    Z_s*J_(2s) - kappa*Z_(2s)*J_s >= 0.
+
+The quantities are those of `centeredPair`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialMovingCenterLagDifference.lean:57`;
+the fixed-member limit join is `expressionOwn_centeredPair_converges`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonOwnCenterLimit.lean:251`.
+The completed consumer is `normalizedAnchorResponse_block_floor`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicNormalizedMacroRatio.lean:132`.
+All sources, actions and chronological partitions stay unchanged. Microscopic
+ratio propagation remains a sufficient alternative when its useful rate AND
+original overlap are produced; small Hankel spread alone supplies neither.
+Neither a common depth across the scaling family nor a raw-norm floor is
+an extra prerequisite for removing the fixed-member approximation.
+
+The original plaquette FAMILY already has a produced `family_rayleigh_floor`,
+`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteFamilyBondOrbit.lean:104`;
+it must not be described as absent or substituted for the dyadic LOOP's
+changing-family reserve. Its spectator fraction is not a near-unit rate.
+The literal loop's `paddedSquare_connected_overlap_cleared`,
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareConnectedDualOverlap.lean:230`,
+still needs a useful actual overlap magnitude. Fixed-source reproduction by
+`conditionalHeat_one_endpoint`,
+`lean/YMGap/Continuum/SU2QuaternionConditionalHeatEndpoint.lean:140`,
+does not bound the complete moving original source or both partitions.
+
+### A short PAPER estimate, not a selected Lean implementation
+
+For 0<w<1, 0<=x<=1 and the EXISTING endpoint tail onset, put
+C=nearFlatCap(w), M=M1(w,x,N), V=M2(w,x,N), P=normalizedProduct(w,x,N).
+The literal `sTerm` denominator increases with x, so M>=M1(w,1,N).
+`endpoint_firstMoment_payment`,
+`lean/YMGap/Continuum/JacobiProductRadialNearFlatBound.lean:504`, gives
+M>=C-13/4; `secondMoment_le_first`,
+`lean/YMGap/Continuum/JacobiHeatNearFlatLogHessian.lean:103`, gives V<=M.
+Using the ACTUAL heat pins `heat_eval_moment_pin` and
+`heat_first_moment_pin`,
+`lean/YMGap/Continuum/JacobiHeatRadialMomentJets.lean:214` and `:226`,
+
+    h'-(C-17/4)*h ≈ P*(M*(M-(C-13/4))+(M-V)) >= 0,
+    C*h-x*h' <= ((1-x)*C+x*(17/4))*h.
+
+This sharpens the earlier PAPER band and requires no heat inverse,
+assumed heat positivity, or N>=2. P and M are produced nonnegative;
+N=0/1 remain governed by the actual tail guard. `sTerm` is at
+`lean/YMGap/Continuum/HeatKernelConv.lean:224`; computed onset/tail are at
+`lean/YMGap/Continuum/JacobiProductRadialNearFlatBound.lean:685`, `:687`.
+ROOT's algebra and an independent mathematical/source review agree.
+This composition has NOT been added to Lean or kernel-checked as a new theorem.
+
+REJECT implementation for MAIN now: a certified original-law hemisphere
+restriction/complement payment is NOT FOUND in the inspected
+`SU2QuaternionPairedFrozenHeatPrefixCurvature` and
+`BF4ExactSlabFixedSpatialTerminalLocalSignedGram` modules. Their current
+global deficit transport and `terminal_local_signed_score_bound_nearFlat`,
+the latter at `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalLocalSignedGram.lean:799`,
+do not consume this hemisphere-only upper contribution or pay the signed
+action/spatial score covariance. No localization premise is introduced.
+Continue the complete ORIGINAL macroscopic numerator or JOINT signed payment;
+no new interface, proof-node closure or chart-state change is claimed.

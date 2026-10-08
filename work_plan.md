@@ -254,6 +254,16 @@ canonical field/claim changes or chart reprint. Exact evidence: adaptive-score
 audit. One monitored 20-GiB worker/12-GiB reserve, fresh dynamic preflight;
 no root/tree audit or limit increase.
 
+Direct-route selection (2026-10-08 21:23 UTC; source review/PAPER only):
+test `Z_s*J_(2s)-kappa*Z_(2s)*J_s>=0` with the SAME OWN center and BOTH
+original chronological partitions. Do not make a near-unit microscopic
+ratio or small Hankel spread necessary. Two bounded parallel screens found
+no new interacting moment producer. A short sharper hemisphere heat band
+was derived on paper, but implementation is rejected: the current original
+law has no produced localization/complement payment that lets MAIN consume
+it. No Lean edit, compiler, new premise or canonical closure. Exact algebra,
+declaration pins and scope: final section of the adaptive-score audit.
+
 Targeted paper review integrated (2026-10-08 UTC, user request):
 `audits/RESEARCH-2610-09093-2026-10-08.md` records the long paper and companion
 review, exact relevant equations, SAME-original-source consumers and access
