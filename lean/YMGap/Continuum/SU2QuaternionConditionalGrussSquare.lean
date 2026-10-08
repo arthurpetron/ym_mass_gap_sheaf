@@ -390,6 +390,211 @@ def squaredResidualVariance_certificate (tail heads : Nat) (W phi : RatPoly) (C 
         (.mul (.var 1) (.add (.mul (.mul (.var 0) (.mul (.var 1) (.var 1))) (.mul (.var 1) (.var 2))) (.neg (.var 3))))
         (by decide) (fun | 0 => cap (4*(C*C)) | 1 => A | 2 => nu | _ => F))) Pfinal
 
+private theorem lifted_linear_moment (heads : Nat) (W p q c d : RatPoly) :
+    RatPolyCoeffEqv
+      (I heads (polyMul W (polyAdd (polyMul (liftBoundary heads c) p)
+        (polyMul (liftBoundary heads d) q))))
+      (polyAdd (polyMul c (I heads (polyMul W p)))
+        (polyMul d (I heads (polyMul W q)))) := by
+  have hex : RatPolyCoeffEqv
+      (polyMul W (polyAdd (polyMul (liftBoundary heads c) p)
+        (polyMul (liftBoundary heads d) q)))
+      (polyAdd (polyMul (polyMul W p) (liftBoundary heads c))
+        (polyMul (polyMul W q) (liftBoundary heads d))) :=
+    coeffEvalExpr_eqv_of_normalize_eq
+      (.mul (.var 0) (.add (.mul (.var 3) (.var 1)) (.mul (.var 4) (.var 2))))
+      (.add (.mul (.mul (.var 0) (.var 1)) (.var 3))
+        (.mul (.mul (.var 0) (.var 2)) (.var 4)))
+      (by decide) (fun | 0 => W | 1 => p | 2 => q | 3 => liftBoundary heads c | _ => liftBoundary heads d)
+  refine (partialHaarHeads_congr heads hex).trans ?_
+  rw [partialHaarHeads_add]
+  exact ((partialHaarHeads_mul_lift heads _ _).add
+    (partialHaarHeads_mul_lift heads _ _)).trans
+    (coeffEvalExpr_eqv_of_normalize_eq
+      (.add (.mul (.var 1) (.var 0)) (.mul (.var 3) (.var 2)))
+      (.add (.mul (.var 0) (.var 1)) (.mul (.var 2) (.var 3)))
+      (by decide) (fun | 0 => c | 1 => I heads (polyMul W p) | 2 => d | _ => I heads (polyMul W q)))
+
+/-- Mixed moment of the actual cleared residual, retaining both means. -/
+theorem residual_mixed_pin (heads : Nat) (W phi t : RatPoly) :
+    let A := I heads W
+    let b := I heads (polyMul W phi)
+    let X := polyAdd (polyMul (liftBoundary heads A) phi) (polyNeg (liftBoundary heads b))
+    RatPolyCoeffEqv (I heads (polyMul (polyMul W X) t))
+      (polyAdd (polyMul A (I heads (polyMul W (polyMul phi t))))
+        (polyNeg (polyMul b (I heads (polyMul W t))))) := by
+  dsimp only
+  let A := I heads W
+  let b := I heads (polyMul W phi)
+  have hex : RatPolyCoeffEqv
+      (polyMul (polyMul W (polyAdd (polyMul (liftBoundary heads A) phi)
+        (polyNeg (liftBoundary heads b)))) t)
+      (polyAdd (polyMul (polyMul W (polyMul phi t)) (liftBoundary heads A))
+        (polyNeg (polyMul (polyMul W t) (liftBoundary heads b)))) :=
+    coeffEvalExpr_eqv_of_normalize_eq
+      (.mul (.mul (.var 0) (.add (.mul (.var 3) (.var 1)) (.neg (.var 4)))) (.var 2))
+      (.add (.mul (.mul (.var 0) (.mul (.var 1) (.var 2))) (.var 3))
+        (.neg (.mul (.mul (.var 0) (.var 2)) (.var 4))))
+      (by decide) (fun | 0 => W | 1 => phi | 2 => t | 3 => liftBoundary heads A | _ => liftBoundary heads b)
+  refine (partialHaarHeads_congr heads hex).trans ?_
+  rw [partialHaarHeads_add]
+  exact ((partialHaarHeads_mul_lift heads _ _).add
+    ((partialHaarHeads_neg heads _).trans (RatPolyCoeffEqv.neg (partialHaarHeads_mul_lift heads _ _)))).trans
+    (coeffEvalExpr_eqv_of_normalize_eq
+      (.add (.mul (.var 1) (.var 0)) (.neg (.mul (.var 3) (.var 2))))
+      (.add (.mul (.var 0) (.var 1)) (.neg (.mul (.var 2) (.var 3))))
+      (by decide) (fun | 0 => A | 1 => I heads (polyMul W (polyMul phi t)) | 2 => b | _ => I heads (polyMul W t)))
+
+private theorem lifted_square_moment (heads : Nat) (W p q c d : RatPoly) :
+    let z := polyAdd (polyMul (liftBoundary heads c) p) (polyMul (liftBoundary heads d) q)
+    RatPolyCoeffEqv (I heads (polyMul W (polyMul z z)))
+      (polyAdd (polyAdd
+        (polyMul (polyMul c c) (I heads (polyMul W (polyMul p p))))
+        (polyMul (polyAdd (polyMul c d) (polyMul c d)) (I heads (polyMul W (polyMul p q)))))
+        (polyMul (polyMul d d) (I heads (polyMul W (polyMul q q))))) := by
+  dsimp only
+  have hex : RatPolyCoeffEqv
+      (polyMul W (polyMul
+        (polyAdd (polyMul (liftBoundary heads c) p) (polyMul (liftBoundary heads d) q))
+        (polyAdd (polyMul (liftBoundary heads c) p) (polyMul (liftBoundary heads d) q))))
+      (polyAdd (polyAdd
+        (polyMul (polyMul W (polyMul p p)) (liftBoundary heads (polyMul c c)))
+        (polyMul (polyMul W (polyMul p q)) (liftBoundary heads (polyAdd (polyMul c d) (polyMul c d)))))
+        (polyMul (polyMul W (polyMul q q)) (liftBoundary heads (polyMul d d)))) := by
+    simp only [lift_product, lift_add]
+    exact coeffEvalExpr_eqv_of_normalize_eq
+      (.mul (.var 0) (.mul (.add (.mul (.var 3) (.var 1)) (.mul (.var 4) (.var 2)))
+        (.add (.mul (.var 3) (.var 1)) (.mul (.var 4) (.var 2)))))
+      (.add (.add (.mul (.mul (.var 0) (.mul (.var 1) (.var 1))) (.mul (.var 3) (.var 3)))
+        (.mul (.mul (.var 0) (.mul (.var 1) (.var 2)))
+          (.add (.mul (.var 3) (.var 4)) (.mul (.var 3) (.var 4)))))
+        (.mul (.mul (.var 0) (.mul (.var 2) (.var 2))) (.mul (.var 4) (.var 4))))
+      (by decide) (fun | 0 => W | 1 => p | 2 => q | 3 => liftBoundary heads c | _ => liftBoundary heads d)
+  refine (partialHaarHeads_congr heads hex).trans ?_
+  rw [partialHaarHeads_add, partialHaarHeads_add]
+  exact (((partialHaarHeads_mul_lift heads _ _).add
+    (partialHaarHeads_mul_lift heads _ _)).add (partialHaarHeads_mul_lift heads _ _)).trans
+    (coeffEvalExpr_eqv_of_normalize_eq
+      (.add (.add (.mul (.var 2) (.mul (.var 0) (.var 0)))
+        (.mul (.var 3) (.add (.mul (.var 0) (.var 1)) (.mul (.var 0) (.var 1)))))
+        (.mul (.var 4) (.mul (.var 1) (.var 1))))
+      (.add (.add (.mul (.mul (.var 0) (.var 0)) (.var 2))
+        (.mul (.add (.mul (.var 0) (.var 1)) (.mul (.var 0) (.var 1))) (.var 3)))
+        (.mul (.mul (.var 1) (.var 1)) (.var 4)))
+      (by decide) (fun
+        | 0 => c
+        | 1 => d
+        | 2 => I heads (polyMul W (polyMul p p))
+        | 3 => I heads (polyMul W (polyMul p q))
+        | _ => I heads (polyMul W (polyMul q q))))
+
+/-- Exact polarization with arbitrary surviving-variable coefficients. -/
+theorem determinant_lifted_combination_pin (heads : Nat) (W p q c d : RatPoly) :
+    let A := I heads W
+    let mixed := polyAdd (polyMul A (I heads (polyMul W (polyMul p q))))
+      (polyNeg (polyMul (I heads (polyMul W p)) (I heads (polyMul W q))))
+    RatPolyCoeffEqv (determinant heads W
+      (polyAdd (polyMul (liftBoundary heads c) p) (polyMul (liftBoundary heads d) q)))
+      (polyAdd (polyAdd (polyMul (polyMul c c) (determinant heads W p))
+        (polyMul (polyAdd (polyMul c d) (polyMul c d)) mixed))
+        (polyMul (polyMul d d) (determinant heads W q))) := by
+  dsimp only
+  have hm := lifted_linear_moment heads W p q c d
+  have hpin := ((RatPolyCoeffEqv.refl (I heads W)).mul
+    (lifted_square_moment heads W p q c d)).add (RatPolyCoeffEqv.neg (hm.mul hm))
+  refine hpin.trans ?_
+  exact coeffEvalExpr_eqv_of_normalize_eq
+    (.add (.mul (.var 2)
+      (.add (.add (.mul (.mul (.var 0) (.var 0)) (.var 5))
+        (.mul (.add (.mul (.var 0) (.var 1)) (.mul (.var 0) (.var 1))) (.var 6)))
+        (.mul (.mul (.var 1) (.var 1)) (.var 7))))
+      (.neg (.mul (.add (.mul (.var 0) (.var 3)) (.mul (.var 1) (.var 4)))
+        (.add (.mul (.var 0) (.var 3)) (.mul (.var 1) (.var 4))))))
+    (.add (.add (.mul (.mul (.var 0) (.var 0))
+      (.add (.mul (.var 2) (.var 5)) (.neg (.mul (.var 3) (.var 3)))))
+      (.mul (.add (.mul (.var 0) (.var 1)) (.mul (.var 0) (.var 1)))
+        (.add (.mul (.var 2) (.var 6)) (.neg (.mul (.var 3) (.var 4))))))
+      (.mul (.mul (.var 1) (.var 1))
+        (.add (.mul (.var 2) (.var 7)) (.neg (.mul (.var 4) (.var 4))))))
+    (by decide) (fun
+      | 0 => c
+      | 1 => d
+      | 2 => I heads W
+      | 3 => I heads (polyMul W p)
+      | 4 => I heads (polyMul W q)
+      | 5 => I heads (polyMul W (polyMul p p))
+      | 6 => I heads (polyMul W (polyMul p q))
+      | _ => I heads (polyMul W (polyMul q q)))
+
+/-- The gradient and spatial derivative are paid JOINTLY by the actual
+conditional determinant. No mass cancellation, inverse or derivative cap is
+used; the signed mixed moment remains in the produced polynomial. -/
+def jointGradientAbsorption_certificate (tail heads : Nat) (W phi t D V e : RatPoly)
+    (hW : SupportedQuaternionBlocks (tail+heads) W)
+    (hphi : SupportedQuaternionBlocks (tail+heads) phi)
+    (ht : SupportedQuaternionBlocks (tail+heads) t)
+    (hD : SupportedQuaternionBlocks tail D)
+    (hV : SupportedQuaternionBlocks tail V)
+    (he : SupportedQuaternionBlocks tail e)
+    (PW : Certificate (tail+heads) W) :
+    let A := I heads W
+    let nu := determinant heads W phi
+    let M := polyAdd (polyMul A (I heads (polyMul W (polyMul phi t))))
+      (polyNeg (polyMul (I heads (polyMul W phi)) (I heads (polyMul W t))))
+    let psi := polyAdd (polyMul (liftBoundary heads V) t) (polyMul (liftBoundary heads e) phi)
+    Certificate tail (polyAdd (polyMul (polyMul A A) (determinant heads W psi))
+      (polyAdd (polyAdd (polyMul (polyMul V V) (polyMul (polyMul D D) nu))
+        (polyMul (polyMul (polyMul (polyMul (cap 2) A) (polyMul V V)) D) M))
+        (polyMul (polyMul (polyMul (polyMul (polyMul (cap 2) A) V) e) D) nu))) := by
+  dsimp only
+  let A := I heads W
+  let nu := determinant heads W phi
+  let T := determinant heads W t
+  let M := polyAdd (polyMul A (I heads (polyMul W (polyMul phi t))))
+    (polyNeg (polyMul (I heads (polyMul W phi)) (I heads (polyMul W t))))
+  let mixed := polyAdd (polyMul A (I heads (polyMul W (polyMul t phi))))
+    (polyNeg (polyMul (I heads (polyMul W t)) (I heads (polyMul W phi))))
+  let c := polyMul A V
+  let d := polyAdd (polyMul V D) (polyMul A e)
+  let z := polyAdd (polyMul (liftBoundary heads c) t) (polyMul (liftBoundary heads d) phi)
+  have hA := partialHaarHeads_supported tail heads W hW
+  have hc := supported_polyMul hA hV
+  have hd := supported_add (supported_polyMul hV hD) (supported_polyMul hA he)
+  have hz := supported_add (supported_polyMul (lift_supported hc heads) ht)
+    (supported_polyMul (lift_supported hd heads) hphi)
+  have hcross : RatPolyCoeffEqv mixed M :=
+    ((RatPolyCoeffEqv.refl A).mul (partialHaarHeads_congr heads
+      (coeffEvalExpr_eqv_of_normalize_eq (.mul (.var 0) (.mul (.var 1) (.var 2)))
+        (.mul (.var 0) (.mul (.var 2) (.var 1))) (by decide)
+        (fun | 0 => W | 1 => t | _ => phi)))).add
+      (RatPolyCoeffEqv.neg (coeffEvalExpr_eqv_of_normalize_eq
+        (.mul (.var 0) (.var 1)) (.mul (.var 1) (.var 0)) (by decide)
+        (fun | 0 => I heads (polyMul W t) | _ => I heads (polyMul W phi))))
+  have hzpin := (determinant_lifted_combination_pin heads W t phi c d).trans
+    (((RatPolyCoeffEqv.refl _).add ((RatPolyCoeffEqv.refl _).mul hcross)).add (.refl _))
+  have hpsipin := (determinant_lifted_combination_pin heads W t phi V e).trans
+    (((RatPolyCoeffEqv.refl _).add ((RatPolyCoeffEqv.refl _).mul hcross)).add (.refl _))
+  have htarget := ((RatPolyCoeffEqv.refl (polyMul A A)).mul hpsipin).add
+    (RatPolyCoeffEqv.refl (polyAdd
+      (polyAdd (polyMul (polyMul V V) (polyMul (polyMul D D) nu))
+        (polyMul (polyMul (polyMul (polyMul (cap 2) A) (polyMul V V)) D) M))
+      (polyMul (polyMul (polyMul (polyMul (polyMul (cap 2) A) V) e) D) nu)))
+  let cd : PolyExpr := .add (.mul (.var 1) (.var 2)) (.mul (.var 0) (.var 3))
+  have hring := coeffEvalExpr_eqv_of_normalize_eq
+    (.add (.mul (.mul (.var 0) (.var 0))
+      (.add (.add (.mul (.mul (.var 1) (.var 1)) (.var 6))
+        (.mul (.add (.mul (.var 1) (.var 3)) (.mul (.var 1) (.var 3))) (.var 5)))
+        (.mul (.mul (.var 3) (.var 3)) (.var 4))))
+      (.add (.add (.mul (.mul (.var 1) (.var 1)) (.mul (.mul (.var 2) (.var 2)) (.var 4)))
+        (.mul (.mul (.mul (.mul (.const 2) (.var 0)) (.mul (.var 1) (.var 1))) (.var 2)) (.var 5)))
+        (.mul (.mul (.mul (.mul (.mul (.const 2) (.var 0)) (.var 1)) (.var 3)) (.var 2)) (.var 4))))
+    (.add (.add (.mul (.mul (.mul (.var 0) (.var 1)) (.mul (.var 0) (.var 1))) (.var 6))
+      (.mul (.add (.mul (.mul (.var 0) (.var 1)) cd) (.mul (.mul (.var 0) (.var 1)) cd)) (.var 5)))
+      (.mul (.mul cd cd) (.var 4)))
+    (by decide) (fun | 0 => A | 1 => V | 2 => D | 3 => e | 4 => nu | 5 => M | _ => T)
+  exact Certificate.ofCoeff (htarget.trans (hring.trans hzpin.symm))
+    (determinant_certificate tail heads W z hW hz PW)
+
 end YMGap.Continuum.SU2QuaternionConditionalGrussSquare
 
 #print axioms YMGap.Continuum.SU2QuaternionConditionalGrussSquare.centeredRelativeCoefficient
@@ -397,3 +602,6 @@ end YMGap.Continuum.SU2QuaternionConditionalGrussSquare
 #print axioms YMGap.Continuum.SU2QuaternionConditionalGrussSquare.centeredRelativeCoefficient_certificate
 #print axioms YMGap.Continuum.SU2QuaternionConditionalGrussSquare.residual_square_pin
 #print axioms YMGap.Continuum.SU2QuaternionConditionalGrussSquare.squaredResidualVariance_certificate
+#print axioms YMGap.Continuum.SU2QuaternionConditionalGrussSquare.residual_mixed_pin
+#print axioms YMGap.Continuum.SU2QuaternionConditionalGrussSquare.determinant_lifted_combination_pin
+#print axioms YMGap.Continuum.SU2QuaternionConditionalGrussSquare.jointGradientAbsorption_certificate

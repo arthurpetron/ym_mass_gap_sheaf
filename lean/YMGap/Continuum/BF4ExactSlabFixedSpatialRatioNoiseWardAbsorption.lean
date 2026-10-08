@@ -73,6 +73,8 @@ open YMGap.Continuum.SU2QuaternionHaarCertificateExtension (certificate_extend)
 open YMGap.Continuum.SU2QuaternionProductHeatAngularCommutation
 open YMGap.Continuum.BF4ExactSlabFixedSpatialTransferPositive (transferStep_eq_productMap)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialKineticOrder (kineticCertificate)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialSpatialOrder (spatialCertificate)
+open YMGap.Continuum.SU2QuaternionMultiHeadVarianceReplica (determinant_certificate)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialEndpointRelativeBound
 open YMGap.Continuum.BF4ExactSlabFixedSpatialGroundStateEnergy (endpointSource)
 open YMGap.Continuum.QuaternionHaarHeatRelativeAngularBound
@@ -979,6 +981,257 @@ theorem original_ratioNoise_reciprocal_credit_no_eventual_floor {w : Q'}
     (Q'.lt_of_le_of_lt
       (Q'.le_trans' _ _ _ (hfloor k (Nat.le_max_left onset cut)) hsmall) hstrict)
 
+/-- Conditional variance of the SIMULTANEOUS source/fringe derivative.
+The outgoing coefficients are lifted into the incoming original law;
+this auxiliary test is not an incoming replacement physical observable. -/
+def ratioNoiseJointGradientVariance (w : Q') (K width s i j : Nat)
+    (a phi : RatPoly) : RatPoly :=
+  let V := spatialFringeMass w K width
+  let J := angularDerivative (4*s+i) (4*s+j)
+  let psi := polyAdd (polyMul (liftBoundary (N width) V) (J phi))
+    (polyMul (liftBoundary (N width) (J V)) phi)
+  determinant (N width)
+    (polyMul (kineticWeight w K width) (polyMul (spatialWeight w K width) a)) psi
+
+/-- The original gradient cross and spatial response are absorbed TOGETHER
+by an actual conditional determinant. No sign for their mixed term, cap on
+the fringe derivative, or inverse conditional mass is assumed. -/
+def original_ratioNoise_jointGradient_certificate {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) (K width : Nat)
+    (hK : headCutoff w ≤ K) (d s i j : Nat) (hs : s < N width)
+    (hi : i < 4) (hj : j < 4) {phi : RatPoly}
+    (hphi : SupportedQuaternionBlocks (N width) phi) :
+    let a := terminalMessage w K width d
+    let A := transferStep w K width a
+    let V := spatialFringeMass w K width
+    let J := angularDerivative (4*s+i) (4*s+j)
+    let D := J A
+    let noise := matchedNoise w K width a phi
+    let M := ratioNoiseGradientMoment w K width s i j a phi
+    let joint := ratioNoiseJointGradientVariance w K width s i j a phi
+    Certificate (N width) (polyAdd (polyMul (polyMul A A) joint)
+      (polyAdd (polyAdd (polyMul (polyMul V V) (polyMul (polyMul D D) noise))
+        (polyMul (polyMul (polyMul (polyMul (cap 2) A) (polyMul V V)) D) M))
+        (polyMul (polyMul (polyMul (polyMul (polyMul (cap 2) A) V) (J V)) D) noise))) := by
+  dsimp only
+  let a := terminalMessage w K width d
+  let A := transferStep w K width a
+  let V := spatialFringeMass w K width
+  let J := angularDerivative (4*s+i) (4*s+j)
+  let t := J phi
+  let W := polyMul (kineticWeight w K width) (polyMul (spatialWeight w K width) a)
+  let X := matchedNoiseResidual w K width a phi
+  let b := partialHaarHeads (N width) (polyMul W phi)
+  let X0 := polyAdd (polyMul (liftBoundary (N width) A) phi)
+    (polyNeg (liftBoundary (N width) b))
+  have ha := terminalMessage_supported w K width d
+  have hA := transferStep_supported w K width ha
+  have hV := spatialFringeMass_supported w K width
+  have ht := angularDerivative_supported_at (by omega : 4*s+i < 4*N width)
+    (by omega : 4*s+j < 4*N width) hphi
+  have hD := angularDerivative_supported_at (by omega : 4*s+i < 4*N width)
+    (by omega : 4*s+j < 4*N width) hA
+  have he := angularDerivative_supported_at (by omega : 4*s+i < 4*N width)
+    (by omega : 4*s+j < 4*N width) hV
+  have extend {p : RatPoly} (hp : SupportedQuaternionBlocks (N width) p) :
+      SupportedQuaternionBlocks (N width+N width) p := fun r hr =>
+    Nat.le_trans (hp r hr) (by omega)
+  have hW := supported_polyMul (kineticWeight_supported w K width)
+    (extend (supported_polyMul (spatialWeight_supported w K width) ha))
+  let PW := (kineticCertificate hw0 hw1 K width hK).mul
+    ((spatialCertificate hw0 hw1 K width (N width+N width) (by omega) hK).mul
+      (certificate_extend (N width) ha (terminalMessage_certificate hw0 hw1 K width hK d)))
+  have hnu : RatPolyCoeffEqv (determinant (N width) W phi) (matchedNoise w K width a phi) :=
+    ((RatPolyCoeffEqv.refl A).mul (densityMoment_input_pin w K width a (polyMul phi phi))).add
+      (RatPolyCoeffEqv.neg ((densityMoment_input_pin w K width a phi).mul
+        (densityMoment_input_pin w K width a phi)))
+  have hX : RatPolyCoeffEqv X0 X := (RatPolyCoeffEqv.refl _).add
+    (RatPolyCoeffEqv.neg (lift_coeff (N width) (densityMoment_input_pin w K width a phi)))
+  have hassoc : RatPolyCoeffEqv (polyMul (polyMul W X) t)
+      (polyMul (kineticWeight w K width) (polyMul (polyMul (polyMul (spatialWeight w K width) a) X) t)) :=
+    ((RatPolyCoeffEqv.mul_assoc (kineticWeight w K width)
+      (polyMul (spatialWeight w K width) a) X).mul_right t).trans
+      (RatPolyCoeffEqv.mul_assoc (kineticWeight w K width)
+        (polyMul (polyMul (spatialWeight w K width) a) X) t)
+  have hM := (residual_mixed_pin (N width) W phi t).symm.trans
+    ((partialHaarHeads_congr (N width) ((hX.mul_left W).mul_right t)).trans
+      (partialHaarHeads_congr (N width) hassoc))
+  let P := jointGradientAbsorption_certificate (N width) (N width) W phi t (J A) V (J V)
+    hW (extend hphi) (extend ht) hD hV he PW
+  exact Certificate.ofCoeff
+    ((RatPolyCoeffEqv.refl _).add
+      ((((hnu.mul_left _).mul_left _).add (hM.mul_left _)).add (hnu.mul_left _))).symm P
+
+private theorem haar_polyNeg (n : Nat) (p : RatPoly) :
+    quaternionHaar n (polyNeg p) ≈ -quaternionHaar n p :=
+  Q'.eqv_trans _ _ _ (haar_of_coeff (neg_smul p))
+    (Q'.eqv_trans _ _ _ (quaternionHaar_polySmul n (-1) p)
+      (Q'.eqv_trans _ _ _ (Q'.neg_mul_eqv 1 _)
+        (Q'.neg_eqv_congr _ _ (Q'.one_mul_eqv _))))
+
+/-- SAME original Ward estimate with a reciprocal-free JOINT variance
+payment. The actual centered density covariance is still signed and unpaid.
+No independent bound on J(V), scaling estimate, or surviving-norm floor is
+inserted; incoming test and outgoing reciprocal degrees stay independent. -/
+theorem original_ratioNoise_ward_unitJointGradient_le {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) (K width : Nat)
+    (hK : headCutoff w ≤ K) (d s i j : Nat) (hs : s < N width)
+    (hi : i < 4) (hj : j < 4) {phi : RatPoly}
+    (hphi : SupportedQuaternionBlocks (N width) phi) (k : Nat) :
+    let a := terminalMessage w K width d
+    let A := transferStep w K width a
+    let V := spatialFringeMass w K width
+    let noise := matchedNoise w K width a phi
+    let J := angularDerivative (4*s+i) (4*s+j)
+    let G := reciprocal A (blockWindowUpper w K width d 1)
+      (blockWindowUpper_positive hw0 hw1 K width hK d 1) (k+1)
+    let R := polyMul (polyMul V V) (polyMul G G)
+    let centered := polyAdd (ratioNoiseDensityMoment w K width s i j a phi)
+      (polyNeg (polyMul noise (J A)))
+    quaternionHaar (N width) (polyMul (polyMul R noise) (polyMul A (J (J A)))) ≤
+      quaternionHaar (N width) (ratioNoiseJointGradientVariance w K width s i j a phi) +
+        -quaternionHaar (N width) (polyMul (polyMul R (J A)) centered) := by
+  dsimp only
+  let a := terminalMessage w K width d
+  let A := transferStep w K width a
+  let V := spatialFringeMass w K width
+  let J := angularDerivative (4*s+i) (4*s+j)
+  let D := J A
+  let e := J V
+  let noise := matchedNoise w K width a phi
+  let M := ratioNoiseGradientMoment w K width s i j a phi
+  let joint := ratioNoiseJointGradientVariance w K width s i j a phi
+  let G := reciprocal A (blockWindowUpper w K width d 1)
+    (blockWindowUpper_positive hw0 hw1 K width hK d 1) (k+1)
+  let R := polyMul (polyMul V V) (polyMul G G)
+  let L0 := polyAdd (polyMul noise (polyMul D D))
+    (polyMul (polyAdd (polyMul A D) (polyMul A D)) M)
+  let spatial := polyMul (polyMul (polyMul (polyMul A (polyMul G G)) D) V) (polyMul e noise)
+  let density := polyMul (polyMul R D) (ratioNoiseDensityMoment w K width s i j a phi)
+  let reserve := polyMul R (polyMul noise (polyMul D D))
+  let pure := polyMul (polyMul R noise) (polyMul A (J (J A)))
+  let left := polyMul (polyMul (polyMul (polyMul V V) noise) (polyMul G G))
+    (polyAdd (polyMul A (J (J A))) (polyNeg (polyMul D D)))
+  let centered := polyMul (polyMul R D) (polyAdd (ratioNoiseDensityMoment w K width s i j a phi)
+    (polyNeg (polyMul noise D)))
+  have ha := terminalMessage_supported w K width d
+  have hA := transferStep_supported w K width ha
+  have hV := spatialFringeMass_supported w K width
+  have ht := angularDerivative_supported_at (by omega : 4*s+i < 4*N width)
+    (by omega : 4*s+j < 4*N width) hphi
+  have he := angularDerivative_supported_at (by omega : 4*s+i < 4*N width)
+    (by omega : 4*s+j < 4*N width) hV
+  have extend {p : RatPoly} (hp : SupportedQuaternionBlocks (N width) p) :
+      SupportedQuaternionBlocks (N width+N width) p := fun r hr => Nat.le_trans (hp r hr) (by omega)
+  let W := polyMul (kineticWeight w K width) (polyMul (spatialWeight w K width) a)
+  let psi := polyAdd (polyMul (liftBoundary (N width) V) (J phi))
+    (polyMul (liftBoundary (N width) e) phi)
+  have hW := supported_polyMul (kineticWeight_supported w K width)
+    (extend (supported_polyMul (spatialWeight_supported w K width) ha))
+  have hpsi := supported_add (supported_polyMul (lift_supported hV (N width)) (extend ht))
+    (supported_polyMul (lift_supported he (N width)) (extend hphi))
+  let PW := (kineticCertificate hw0 hw1 K width hK).mul
+    ((spatialCertificate hw0 hw1 K width (N width+N width) (by omega) hK).mul
+      (certificate_extend (N width) ha (terminalMessage_certificate hw0 hw1 K width hK d)))
+  let PN : Certificate (N width) joint := determinant_certificate (N width) (N width) W psi hW hpsi PW
+  have hG := reciprocal_supported hA (blockWindowUpper w K width d 1)
+    (blockWindowUpper_positive hw0 hw1 K width hK d 1) (k+1)
+  have hnext : A = terminalMessage w K width (d+1) := terminalMessage_next w K width d
+  let bands := blockWindowCertificates hw0 hw1 K width hK d 1 (by omega)
+  have hle : blockWindowLower w K width d 1 ≤ blockWindowUpper w K width d 1 :=
+    Q'.mul_le_mul_of_nonneg_right _ _ _ (kineticFloor_le_cap hw0 hw1 width)
+      (Q'.le_of_lt (terminalMessage_mass_positive hw0 hw1 K width hK (d+1-1)))
+  let Pcap := multiplierSquareCertificate hA
+    (blockWindowLower_positive hw0 hw1 K width hK d 1)
+    (blockWindowUpper_positive hw0 hw1 K width hK d 1) hle
+    (show Certificate (N width) (polyAdd A (polyNeg (cap (blockWindowLower w K width d 1)))) by
+      rw [hnext]; exact bands.1)
+    (show Certificate (N width) (polyAdd (cap (blockWindowUpper w K width d 1)) (polyNeg A)) by
+      rw [hnext]; exact bands.2) (k+1)
+  let PC := original_ratioNoise_jointGradient_certificate hw0 hw1 K width hK d s i j hs hi hj hphi
+  let PP := ((Certificate.square G hG).mul PC).add (PN.mul Pcap)
+  have hring : RatPolyCoeffEqv _ (polyAdd (polyAdd joint (polyMul R L0)) (polyAdd spatial spatial)) :=
+    coeffEvalExpr_eqv_of_normalize_eq
+      (.add
+        (.mul (.mul (.var 6) (.var 6))
+          (.add (.mul (.mul (.var 0) (.var 0)) (.var 7))
+            (.add (.add (.mul (.mul (.var 1) (.var 1)) (.mul (.mul (.var 2) (.var 2)) (.var 3)))
+              (.mul (.mul (.mul (.mul (.const 2) (.var 0)) (.mul (.var 1) (.var 1))) (.var 2)) (.var 4)))
+              (.mul (.mul (.mul (.mul (.mul (.const 2) (.var 0)) (.var 1)) (.var 5)) (.var 2)) (.var 3)))))
+        (.mul (.var 7) (.add (.const 1) (.neg (.mul (.mul (.var 0) (.var 6)) (.mul (.var 0) (.var 6)))))))
+      (.add (.add (.var 7)
+        (.mul (.mul (.mul (.var 1) (.var 1)) (.mul (.var 6) (.var 6)))
+          (.add (.mul (.var 3) (.mul (.var 2) (.var 2)))
+            (.mul (.add (.mul (.var 0) (.var 2)) (.mul (.var 0) (.var 2))) (.var 4)))))
+        (.add
+          (.mul (.mul (.mul (.mul (.var 0) (.mul (.var 6) (.var 6))) (.var 2)) (.var 1))
+            (.mul (.var 5) (.var 3)))
+          (.mul (.mul (.mul (.mul (.var 0) (.mul (.var 6) (.var 6))) (.var 2)) (.var 1))
+            (.mul (.var 5) (.var 3)))))
+      (by decide) (fun | 0 => A | 1 => V | 2 => D | 3 => noise | 4 => M | 5 => e | 6 => G | _ => joint)
+  have hpos := (Certificate.ofCoeff hring.symm PP).haar_nonnegative
+  have hpositive : (0 : Q') ≤
+      quaternionHaar (N width) joint + quaternionHaar (N width) (polyMul R L0) +
+        (quaternionHaar (N width) spatial+quaternionHaar (N width) spatial) :=
+    Q'.le_trans' _ _ _ hpos (Q'.le_of_eqv (Q'.eqv_trans _ _ _ (haar_add (N width) _ _)
+      (Q'.add_eqv_congr' (haar_add (N width) _ _) (haar_add (N width) _ _))))
+  have hpay : -quaternionHaar (N width) (polyMul R L0) +
+      -(quaternionHaar (N width) spatial+quaternionHaar (N width) spatial) ≤
+      quaternionHaar (N width) joint :=
+    Q'.le_of_sub_nonneg (Q'.le_trans' _ _ _ hpositive (Q'.le_of_eqv
+      (poly_identity_of_normal_eq
+        (.add (.add (.var 0) (.var 1)) (.add (.var 2) (.var 2)))
+        (.add (.var 0) (.neg (.add (.neg (.var 1)) (.neg (.add (.var 2) (.var 2))))))
+        (by decide) (fun
+          | 0 => quaternionHaar (N width) joint
+          | 1 => quaternionHaar (N width) (polyMul R L0)
+          | _ => quaternionHaar (N width) spatial))))
+  have hward := original_ratioNoise_ward_signed_le hw0 hw1 K width hK d s i j hs hi hj hphi k
+  have hraw : quaternionHaar (N width) left ≤
+      quaternionHaar (N width) joint + -quaternionHaar (N width) density := by
+    have hright := Q'.add_le_add_right _ _ (-quaternionHaar (N width) density) hpay
+    have hneg := haar_neg (N width) R L0
+    have hreorder := poly_identity_of_normal_eq
+      (.add (.add (.var 0) (.neg (.var 1))) (.neg (.add (.var 2) (.var 2))))
+      (.add (.add (.var 0) (.neg (.add (.var 2) (.var 2)))) (.neg (.var 1)))
+      (by decide) (fun
+        | 0 => -quaternionHaar (N width) (polyMul R L0)
+        | 1 => quaternionHaar (N width) density
+        | _ => quaternionHaar (N width) spatial)
+    exact Q'.le_trans' _ _ _ hward (Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (Q'.eqv_trans _ _ _
+        (Q'.add_eqv_congr_right _ _ _ (Q'.add_eqv_congr_right _ _ _ hneg)) hreorder)) hright)
+  have hpure : RatPolyCoeffEqv pure (polyAdd left reserve) :=
+    coeffEvalExpr_eqv_of_normalize_eq
+      (.mul (.mul (.mul (.mul (.var 0) (.var 0)) (.mul (.var 1) (.var 1))) (.var 2))
+        (.mul (.var 3) (.var 4)))
+      (.add (.mul (.mul (.mul (.mul (.var 0) (.var 0)) (.var 2)) (.mul (.var 1) (.var 1)))
+        (.add (.mul (.var 3) (.var 4)) (.neg (.mul (.var 5) (.var 5)))))
+        (.mul (.mul (.mul (.var 0) (.var 0)) (.mul (.var 1) (.var 1)))
+          (.mul (.var 2) (.mul (.var 5) (.var 5)))))
+      (by decide) (fun | 0 => V | 1 => G | 2 => noise | 3 => A | 4 => J (J A) | _ => D)
+  have hcenter : RatPolyCoeffEqv centered (polyAdd density (polyNeg reserve)) :=
+    coeffEvalExpr_eqv_of_normalize_eq
+      (.mul (.mul (.var 0) (.var 1)) (.add (.var 2) (.neg (.mul (.var 3) (.var 1)))))
+      (.add (.mul (.mul (.var 0) (.var 1)) (.var 2))
+        (.neg (.mul (.var 0) (.mul (.var 3) (.mul (.var 1) (.var 1))))))
+      (by decide) (fun | 0 => R | 1 => D | 2 => ratioNoiseDensityMoment w K width s i j a phi | _ => noise)
+  have hpureH := Q'.eqv_trans _ _ _ (haar_of_coeff hpure) (haar_add (N width) left reserve)
+  have hcenterH := Q'.eqv_trans _ _ _ (haar_of_coeff hcenter)
+    (Q'.eqv_trans _ _ _ (haar_add (N width) density (polyNeg reserve))
+      (Q'.add_eqv_congr_left _ _ _ (haar_polyNeg (N width) reserve)))
+  have hfinal := Q'.add_le_add_right _ _ (quaternionHaar (N width) reserve) hraw
+  have hreorder := poly_identity_of_normal_eq
+    (.add (.add (.var 0) (.neg (.var 1))) (.var 2))
+    (.add (.var 0) (.neg (.add (.var 1) (.neg (.var 2)))))
+    (by decide) (fun
+      | 0 => quaternionHaar (N width) joint
+      | 1 => quaternionHaar (N width) density
+      | _ => quaternionHaar (N width) reserve)
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hpureH) (Q'.le_trans' _ _ _ hfinal
+    (Q'.le_of_eqv (Q'.eqv_trans _ _ _ hreorder
+      (Q'.add_eqv_congr_left _ _ _ (Q'.neg_eqv_congr _ _ (Q'.eqv_symm hcenterH))))))
+
 end YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption
 
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.ratioNoiseDensityMoment
@@ -996,3 +1249,6 @@ end YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.original_ratioNoise_noiseGradientPayment_weighted_pin
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.original_ratioNoise_densityCovariance_certificate
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.ownPaddedSquareRatio_densityCovariance_certificate
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.ratioNoiseJointGradientVariance
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.original_ratioNoise_jointGradient_certificate
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.original_ratioNoise_ward_unitJointGradient_le

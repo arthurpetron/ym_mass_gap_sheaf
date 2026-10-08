@@ -7792,3 +7792,117 @@ Final process handles are terminal. No root/tree build/audit, limit increase,
 lock bypass, foreign code, new module/frontier or new analytic premise.
 Existing public APIs and user-owned duplicate files remain unchanged.
 No canonical atom or physical/scaling/Clay claim is closed; no chart reprint.
+
+## Selected joint gradient/spatial determinant experiment (2026-10-08 UTC)
+
+Selection after commit `32a04a0a`: the direct aggregate screen recovers the
+already-open ORIGINAL macro retention target, rather than a new producer.
+Reweighting W by Vbar^2 cancels its derivative in centered density covariance,
+so it does not absorb the spatial correction. A hemisphere upper heat band
+has no unconditional original-law consumer. None is selected for implementation.
+
+The selected finite estimate uses the UNCHANGED conditional law
+W=Kkin*S*a, with I=partialHaarHeads, A=I(W), nu=det_W(phi),
+t=J_in(phi), D=J_out(A), V=Vbar, e=J_out(V), and
+M=A*I(W*phi*t)-I(W*phi)*I(W*t). Every outgoing coefficient is lifted into
+the incoming variables. Define the auxiliary test psi=V*t+e*phi, not a
+replacement physical observable. Polarization gives exactly
+
+    det_W((V*D+A*e)*phi+A*V*t)
+      = V^2*D^2*nu + 2*A*V^2*D*M + 2*A*V*e*D*nu
+        + A^2*det_W(psi).
+
+The existing `SU2QuaternionMultiHeadVarianceReplica.determinant_certificate`
+constructs its positivity directly; no cancellation or inverse of A is needed.
+Together with private `original_ratioNoise_ward_signed_le` and the original
+matched moment pins in `BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.lean`,
+the predicted SAME-source consumer is
+
+    H[V^2*G^2*nu*A*J^2(A)]
+      <= H[G^2*A^2*det_W(psi)] - H[V^2*G^2*D*(Q-nu*D)].
+
+The existing reciprocal multiplier-square certificate can remove G^2*A^2
+ONLY from the positive joint-variance payment. This retains the signed mixed
+moment and needs no separate cap on J(V). Zero conditional mass/noise/V/e,
+signed phi, depth zero and i=j are decisive degeneracy checks; incoming and
+outgoing approximation degrees remain independent. The law, original action,
+terminal history and cutoff guards may not be changed.
+
+Budget: bounded additions to the existing generic determinant and original
+Ward leaves; ROOT alone runs two serialized focused checks, each after fresh
+successful live conflict/memory preflight, one 20-GiB worker/12-GiB reserve.
+Independent full final-source review; no root/tree build or new interface.
+Abandon or revise if the actual moments do not match, if a source/mass inverse
+is required, or if a new spatial-derivative cap is supplied as a premise.
+
+This is NOT uniformly stronger after discarding the determinant reserve:
+its comparison with the old spatial payment has no produced sign. Its value
+is retaining cancellation inside the ACTUAL joint conditional variance.
+A useful moving-family bound of joint variance AND centered density payment
+against OWN surviving variance and BOTH masses is still open. No canonical
+proof status, physical statement, or Clay conclusion changes by selection.
+
+### Observed result and continuation decision
+
+Both final focused checks PASS. Generic `residual_mixed_pin`,
+`determinant_lifted_combination_pin`, `jointGradientAbsorption_certificate`
+are at `lean/YMGap/Continuum/SU2QuaternionConditionalGrussSquare.lean:419`,
+`:492`, `:532`. The certificate is constructed from det_W(z), not supplied
+as a variance input; all outgoing coefficients are explicitly lifted.
+
+The original instances are `ratioNoiseJointGradientVariance`,
+`original_ratioNoise_jointGradient_certificate`,
+`original_ratioNoise_ward_unitJointGradient_le`, at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.lean:987`,
+`:999`, `:1076`. The FINAL checked consumer is the predicted estimate after
+removing the outgoing reciprocal from ONLY its positive payment:
+
+    H[V^2*G^2*nu*A*J^2(A)]
+      <= H[det_W(V*Jphi+(J V)*phi)]
+         - H[V^2*G^2*(JA)*(Q-nu*JA)].
+
+It sums G^2 times the produced joint certificate with the ACTUAL positive
+joint-noise certificate times the existing multiplier-square certificate.
+No separate J(V) cap, density-correction sign, inverse conditional mass,
+source substitution or incoming/outgoing degree identification appears.
+The exact same mean-derivative square cancels ONCE between the left-side
+Fisher term and the density center; no extra reserve is counted.
+The generic certificate admits zero W, conditional mass/noise, V or e,
+signed tests and zero head/tail extents. The original consumer preserves
+strict nome, headCutoff, supported test, selected-plane guards, depth zero,
+i=j and arbitrary successor reciprocal degree. No new analytic premise.
+
+Observed compiler repairs were ONLY multiline match-layout changes: generic
+check 1 failed in two polynomial valuation matches; Ward check 1 failed in
+one scalar valuation match, and the other two new multiline scalar matches
+were formatted consistently. ROOT caught nested coefficient/congruence
+associations before the first Ward launch. None changed the mathematical
+formula, hypothesis, old public API or actual law. Failed elaborations'
+error-induced sorryAx output is NOT an accepted axiom check.
+Generic check 2 and Ward check 2 have no error, warning, sorryAx or classical
+dependency; all TWENTY-SIX printed gates are exactly {propext, Quot.sound}.
+
+    generic source d44d58fd035b1f9ad4fb4942babd1e3055fe9697aaa2e1f58e6d6078ee231cda
+    /private/tmp/ym-oct8-joint-gradient-gruss2.log PASS
+    SHA256 f55600e109e58d2dd2947984a683e2cf948e3f9925e0015d0db4a278ef4ee9e5
+    Ward source e0a411ef9da50fed6aff952e79b9d22be1080375c3a4187e20b8089c023b9409
+    /private/tmp/ym-oct8-joint-gradient-ward2.log PASS
+    SHA256 98ed0e6c6434709b7671a839f4d80ffc8539ab982b82bb389470440e11ac9a96
+
+ROOT inspected the argument and original-law pins. Independent COMPLETE
+source review covered all 597 initial generic and 1247 initial Ward lines,
+then every local repair and final frozen hashes (607/1254 lines). A further
+parallel paper screen confirmed methodological relevance, not a foreign
+theorem import or Wilson-source Taylor zero. Fresh successful conflict and
+dynamic-memory preflights before EVERY launch; one serial 20-GiB worker,
+12-GiB reserve, observed 82--85% free and zero swap. All process handles
+are terminal. No root/tree build/audit, limit increase, new module/frontier,
+foreign code or touched user-owned duplicate file.
+
+CONTINUE the useful joint estimate: det_W(psi) together with the signed
+centered density correction versus OWN surviving variance and BOTH masses.
+No sign makes this automatically stronger than the previous separated bound;
+the opportunity is cancellation inside the actual joint conditional variance.
+This reduces the form of the finite payment, not its changing-family size.
+Continuum survival, physical mass calibration, full same-theory QFT, every
+compact simple group and Clay remain OPEN. Canonical chart unchanged.

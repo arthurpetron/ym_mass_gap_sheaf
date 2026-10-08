@@ -16,6 +16,17 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked ORIGINAL joint gradient/spatial absorption (2026-10-08 UTC):**
+The SAME conditional law now pays the gradient cross and spatial response
+together through the determinant of Vbar*Jphi+(J Vbar)*phi, with outgoing
+coefficients lifted into incoming integration. The original Ward consumer
+removes its reciprocal from ONLY that positive payment and retains signed
+centered density covariance. Both focused checks, constructive gates and
+independent complete-source reviews PASS; no source/mass inverse or new
+analytic premise is introduced. The payment is not automatically smaller.
+Useful joint scaling control versus OWN variance/BOTH masses, physical/Clay
+goals remain OPEN. Evidence: adaptive-score audit; no root/tree audit.
+
 **Checked ORIGINAL conditional density covariance (2026-10-08 UTC):**
 `ConditionalGrussSquare.squaredResidualVariance_certificate` pays the
 squared cleared residual's variance, keeping its negative noise square.

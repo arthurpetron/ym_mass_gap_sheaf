@@ -200,6 +200,28 @@ that twice as a new reserve. The explicit L=endpointRelativeCap(w) is not
 small near weak coupling; no useful changing-family payment follows yet.
 No new premise, canonical field/claim, physical closure or chart-state change.
 
+CHECKED joint gradient/spatial absorption (2026-10-08 UTC):
+`ConditionalGrussSquare.jointGradientAbsorption_certificate` constructs
+the conditional determinant paying BOTH source-gradient cross and spatial
+response under the unchanged law W=Kkin*S*a. Its exact polarization retains
+the signed mixed covariance. The ORIGINAL Ward consumer
+`RatioNoiseWardAbsorption.original_ratioNoise_ward_unitJointGradient_le`
+now gives H[Vbar^2*G^2*nu*A*J^2(A)] <=
+H[det_W(Vbar*Jphi+(J Vbar)*phi)] - H[Vbar^2*G^2*(JA)*(Q-nu*JA)].
+Outgoing coefficients are lifted into the incoming law; no separate J(Vbar)
+cap, source/mass inverse or replacement observable is added. The multiplier
+cap applies ONLY to the produced positive joint variance. The mean square
+cancels exactly once. Both final focused checks and constructive gates PASS,
+with COMPLETE independent frozen-source reviews; only match-layout repairs
+were required during compilation. One serial 20-GiB worker/12-GiB reserve,
+fresh dynamic preflights, no root/tree audit. Evidence: adaptive-score audit.
+This is a concrete cancellation-first application of the requested paper's
+estimate discipline, not an imported fermion theorem or high-order zero.
+The joint payment is not automatically smaller than the separated bound.
+CONTINUE joint variance AND signed centered density control versus OWN
+surviving variance and BOTH masses on a justified changing family. Scaling,
+physical/QFT/every-group/Clay remain OPEN; displayed canonical claims unchanged.
+
 Targeted paper review integrated (2026-10-08 UTC, user request):
 `audits/RESEARCH-2610-09093-2026-10-08.md` records the long paper and companion
 review, exact relevant equations, SAME-original-source consumers and access
