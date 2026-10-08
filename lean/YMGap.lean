@@ -5002,6 +5002,10 @@ import YMGap.Continuum.SU2QuaternionPairedHeatPrefixDeficit
 import YMGap.Continuum.QuaternionHaarCurvatureApproximation
 import YMGap.Continuum.JacobiHeatPrefixCurvaturePrecision
 import YMGap.Continuum.SU2QuaternionPairedHeatPrefixCurvature
+-- Full frozen polynomial-direction matrix on the SAME weighted finite heat.
+import YMGap.Continuum.SU2QuaternionPairedFrozenComplement
+import YMGap.Continuum.QPolyHaarFrozenChain
+import YMGap.Continuum.SU2QuaternionPairedFrozenJacobiCurvature
 import YMGap.Continuum.SU2HeatQuarticTailCutoff
 import YMGap.Continuum.QuaternionHaarHeatAngularDeficit
 import YMGap.Continuum.QuaternionHaarHeatRelativeAngularBound

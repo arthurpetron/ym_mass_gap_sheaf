@@ -1,5 +1,33 @@
 # Sorry Ledger
 
+## PROVED full frozen weighted-heat matrix / OPEN ORIGINAL-prefix matrix and conditional join (2026-10-07 local)
+
+- `SU2QuaternionPairedFrozenComplement.frozen_complement_pin` transports
+  the actual quaternion unit norm and three paired first jets before the
+  Lagrange identity. `frozen_complement_certificate` is the literal three
+  cross-product squares, for arbitrary supported polynomial coefficients.
+- `QPolyHaarFrozenChain.paired_subst_mixed` retains actual outer/inner order;
+  `frozen_subst_second` contracts all NINE actual entries without differentiating
+  the coefficients or taking a derivative of a completed value.
+- `SU2QuaternionPairedFrozenJacobiCurvature.frozenHeat_second_pin` uses
+  the existing actual scalar Hessian. `frozen_curvature_certificate` constructs
+  C*threeSquare(u)*h^2+h*frozenSecondJet(u,h)-frozenFirstJet(u,h)^2 at
+  C=radialCap(w,N)+delta, N>=1/onset/delta>0. No dimension penalty or supplied
+  curvature; no scalar-only, unit-direction or nonzero-direction restriction.
+- OPEN: full frozen matrix transport to the original prefix, arbitrary-block
+  recoding, original interacting conditional sign/score, useful scaling,
+  independent survival, completed OS/physical/volume control, SAME QFT,
+  every group and Clay. Existing six-column matrix zero padding pays SIX
+  times the entry cap; pay it in precision rather than infer a false unit cap.
+- Three focused leaves/11 printed gates within {propext, Quot.sound}.
+  No sorry/custom axiom/classical/native shortcut, field weakening or
+  baseline refresh. Independent mathematical review found no defect.
+  Fresh preflights, one 20-GiB worker/12-GiB reserve; 87--88% free and zero swap.
+  Root imports registered, not root-built; no full-root/tree audit/chart closure.
+
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+Earlier entries retain their checkpoint boundaries.
+
 ## PROVED ORIGINAL-prefix paired curvature / OPEN full matrix and interacting joins (2026-10-07 local)
 
 - `SU2QuaternionPairedHeatPrefixDeficit.prefix_split_pin`,

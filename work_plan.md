@@ -39,11 +39,23 @@ epsilon, avoiding a circular cutoff. No endpoint division, supplied
 curvature premise or inverse heat minimum in the final cost. Four focused
 leaves/37 permitted gates checked; eight printed definitions axiom-free.
 
-NEXT extend the actual local geometry to a full frozen-direction matrix
-and arbitrary-block recoding where the original conditional consumer needs
-them. A basis-direction bound alone does not give that matrix. Seek the
-mixed scalar-jet cancellation and literal cross-product square identity,
-then join the ORIGINAL interacting conditional score. A free heat marginal
+The WEIGHTED finite heat also now has a CHECKED full frozen-direction
+matrix: `SU2QuaternionPairedFrozenJacobiCurvature.frozen_curvature_certificate`
+allows arbitrary supported polynomial coefficients u, not just three basis
+directions. All nine actual mixed jets precede coefficient multiplication;
+the exact cross-product squares supply the complement. The same radial cost
+multiplies threeSquare(u), with no dimension penalty. Coefficients are frozen,
+not differentiated; this is not the square of a variable vector field.
+Three further focused leaves/11 permitted gates checked.
+
+NEXT transport the full frozen matrix to the ORIGINAL prefix. Reuse the
+value/first/mixed deficits for EVERY ordered paired entry and the existing
+polynomial matrix envelope; three-slot zero-padding in its six-column API
+pays factor SIX, not one. Absorb that conservative factor in precision/onset,
+not the final curvature cost. Do not impose global bounds on u or add a new
+matrix compiler unless it materially improves the actual consumer. Then
+prove arbitrary-block recoding as needed and join the ORIGINAL interacting
+conditional score. A free heat marginal
 does not supply its integrated log-Hessian sign; retain every original
 action factor and signed correction. No full-root/tree audit or chart closure.
 All OS/scaling/survival/physical/QFT/every-group/Clay requirements remain OPEN.

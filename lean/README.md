@@ -16,6 +16,20 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked full frozen finite-heat matrix (2026-10-07 local):**
+`SU2QuaternionPairedFrozenComplement` constructs the literal cross-product
+square complement for arbitrary supported polynomial coefficients.
+`QPolyHaarFrozenChain` computes all nine ordered paired jets BEFORE those
+coefficients are multiplied. `SU2QuaternionPairedFrozenJacobiCurvature`
+joins the actual frozen scalar Hessian, radial and log-discriminant
+certificates at the SAME radial cost, with no dimension penalty.
+This is the weighted finite heat on original blocks zero/one, not the
+original-prefix matrix or the square of a variable-coefficient vector field.
+Three focused leaves/11 permitted gates; no full-root/tree audit. Full
+original-prefix matrix transport, recoding, interacting conditional and all
+Clay-facing joins remain OPEN. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 **Checked ORIGINAL-prefix paired curvature (2026-10-07 local):**
 `SU2QuaternionPairedHeatPrefixDeficit` supplies the exact K+1 split and
 actual paired-jet intervals, including both signed cross terms in the

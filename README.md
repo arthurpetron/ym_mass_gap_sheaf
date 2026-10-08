@@ -14,8 +14,10 @@ Mathlib-free Lean with explicit witnesses and moduli.
 certificate now reaches the **original unweighted heat prefix**, with actual
 paired first/second derivatives and an explicit cutoff. Its cost is independent
 of cutoff and carrier size at each fixed coupling. The original heat floor
-pays approximation precision, not the cost. Full directional-matrix and
-interacting conditional joins remain next; no physical gap is claimed.
+pays approximation precision, not the cost. A second checked join supplies
+the full frozen polynomial-direction matrix for the weighted finite heat,
+at the same radial cost. Its original-prefix matrix transport and interacting
+conditional joins remain next; no physical gap is claimed.
 See the [exact proof boundary](audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md).
 
 **Supporting general-nome contraction (2026-10-07):** the original product

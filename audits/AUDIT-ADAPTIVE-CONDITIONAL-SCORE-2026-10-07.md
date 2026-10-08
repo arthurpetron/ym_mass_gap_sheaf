@@ -4,6 +4,87 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Observed full frozen weighted-heat matrix (2026-10-07 local; checked 2026-10-08 UTC)
+
+Classification: VERIFIED PROGRESS, beyond separate basis-direction bounds.
+Use arbitrary supported polynomial u:Fin 3->RatPoly, R=threeSquare(u),
+s=frozenFirstJet(u,X). The coefficients multiply the actual jets AFTER
+differentiation; no derivative acts on u. The existing
+`SU2QuaternionPairedFrameScalarJets.frozenScalarSecondJet_pin`
+(`lean/YMGap/Continuum/SU2QuaternionPairedFrameScalarJets.lean:211`)
+already supplies the full scalar acceleration -R*X. It is reused, not assumed.
+
+### Mathematical contraction
+
+The actual first jets and norm relation give
+
+```text
+R*(1-X^2)-s^2 = sum_i (u cross relativeVector)_i^2.
+```
+
+Each square has original finite support and constructs a Certificate.
+The mixed chain rule computes EVERY ordered JiJj before frozen contraction:
+
+```text
+frozenFirstJet(u,h) = h_x*s,
+frozenSecondJet(u,h) = h_xx*s^2-h_x*R*X.
+```
+
+Both derivatives are pinned on the literal shifted finite Jacobi heat,
+not independently assigned jets. The final coefficient contraction is
+
+```text
+C*R*h^2 + h*frozenSecondJet(u,h) - frozenFirstJet(u,h)^2
+  = R*radial_C(h) + [R*(1-X^2)-s^2]*(h_x^2-h*h_xx).
+```
+
+The two right-hand products have constructed certificates on shared
+variables. Cost C=radialCap(w,N)+delta is unchanged, with N>=1, the actual
+omitted-factor onset and delta>0. No coefficient magnitude bound, unit
+direction, positive direction norm, endpoint division or dimension penalty.
+This is a frozen quadratic form, NOT the square of a variable-coefficient
+differential operator. Scope is the WEIGHTED finite heat on original blocks
+zero/one; full original-prefix matrix transport is still OPEN.
+
+### Declaration and verification evidence
+
+| Produced declaration | Final source | Passing focused log |
+| --- | --- | --- |
+| `frozen_complement_pin`, `frozen_complement_certificate` | `lean/YMGap/Continuum/SU2QuaternionPairedFrozenComplement.lean:179`, `:216` | `/private/tmp/ym-oct7-frozen-complement2.log` |
+| `paired_subst_mixed`, `frozen_subst_first`, `frozen_subst_second` | `lean/YMGap/Continuum/QPolyHaarFrozenChain.lean:33`, `:99`, `:111` | `/private/tmp/ym-oct7-frozen-chain2.log` |
+| `frozenHeat_first_pin`, `frozenHeat_second_pin`, `frozen_curvature_certificate` | `lean/YMGap/Continuum/SU2QuaternionPairedFrozenJacobiCurvature.lean:47`, `:54`, `:83` | `/private/tmp/ym-oct7-frozen-jacobi-curvature1.log` |
+
+Three focused leaves/11 printed gates pass within {propext, Quot.sound}.
+Root read final source; independent mathematics/source review found no
+defect in ordered jets, frozen coefficient handling, normalization or the
+cost. No source sorry, custom axiom, classical/native shortcut, field
+weakening or baseline refresh. Fresh process/memory/swap preflight before
+every compiler, one 20-GiB worker and 12-GiB reserve; 87--88% free and zero
+swap observed. Final checks finished in the initial call. Root imports
+registered, not root-built; no full-root/tree audit or broad chart closure.
+
+Final checked-source SHA256:
+
+- `SU2QuaternionPairedFrozenComplement.lean`: `cc5fcdd443f84a48aae5a3da0b9d90a25c859f5487f353abf0c00e1d2a0d815d`
+- `QPolyHaarFrozenChain.lean`: `a74a8b1896bb23db28a4363c9d92d0b3c0c088f61ac867fe8b75d8ab33ee9bd7`
+- `SU2QuaternionPairedFrozenJacobiCurvature.lean`: `a40cd07ad07cec5d115a77bdd9332d898668bdaac2a3111eb5b05c972c3dde04`
+
+### Next actual consumer
+
+Transport this full matrix to the original prefix with ordered paired
+mixed deficit entries. Reuse
+`QuaternionHaarSixPolynomialMatrixEnvelope.six_polynomial_matrix_envelope_certificate`
+(`lean/YMGap/Continuum/QuaternionHaarSixPolynomialMatrixEnvelope.lean:134`).
+Its three-slot zero padding still pays SIX times the entry cap; do not infer
+entryCap*R. This conservative factor can be paid in precision/onset ONLY.
+The existing public two-column producer at :74 also permits a factor-three
+version by summing nine ordered pairs, but is not a necessary extra compiler.
+Do not cap the coefficient polynomials globally or erase the mixed signs.
+Then establish arbitrary-block recoding as needed and the ORIGINAL
+interacting conditional sign estimate. These estimates and all scaling,
+survival, OS, physical/volume, SAME QFT, every-group and Clay requirements
+remain OPEN. Broad chart claims are unchanged; no chart reprint.
+
 ## Observed ORIGINAL-prefix paired curvature (2026-10-07 local; checked 2026-10-08 UTC)
 
 Classification: VERIFIED PROGRESS. The actual weighted heat now meets the

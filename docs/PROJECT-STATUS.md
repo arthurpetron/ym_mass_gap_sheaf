@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Supporting full FROZEN weighted finite-heat matrix checked (2026-10-07 local):
+arbitrary supported polynomial coefficients retain all nine actual ordered
+paired jets. The literal cross-product square complement and scalar Hessian
+pin join radial/log-discriminant certificates at the SAME radial cost.
+No dimension penalty or coefficient differentiation. Three focused leaves/
+11 permitted gates; no full-root/tree audit. Full original-prefix matrix
+transport, arbitrary-block recoding, interacting conditional and all
+OS/scaling/survival/physical/QFT/every-group/Clay claims remain OPEN.
+Broad chart unchanged; no reprint. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 Supporting ORIGINAL-prefix paired curvature checked (2026-10-07 local):
 the exact K+1 value/first/second split meets the constructed finite heat
 certificate. Shared-variable intervals pay the signed discrepancy with one
