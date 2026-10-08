@@ -27,6 +27,29 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+The positive original Ward gradient payment now has a CHECKED reciprocal-free
+upper envelope (2026-10-08 UTC):
+`RatioNoiseWardAbsorption.original_ratioNoise_gradientPayment_unit_le`
+proves H[Vbar^2*G_k^2*A^3*Ephi]<=H[Vbar^2*A*Ephi] for every finite k,
+with produced terminal windows/positivity and coefficient ONE.
+`original_ratioNoise_ward_unitGradient_le` keeps BOTH signed successor-G
+responses unchanged. This removes a precision-dependent positive payment,
+not its source-to-surviving-variance comparison; it is not numerically sharper.
+The required filtered OWN-source aggregate bound remains OPEN.
+
+The exact-square positive-credit shortcut is now CHECKED unavailable at EVERY
+index of the literal rational AF schedule: `af_exactSquareCredit_negative`
+uses the produced all-index budget 12*side_j*(1-w_j)>=1 and the finite
+geometric-sum reverse Poincare law. PRUNE using either nonnegative-credit
+variance-payment branch on this schedule. Keep the signed heat-defect/action
+response identities; no actual energy lower bound or continuum obstruction
+is proved. NEXT remains a useful joint signed interaction estimate against
+the SAME surviving variance, with reconstruction/drift and BOTH Taylor
+remainders, consumed by `original_window_budget_macro_ratio`. Evidence:
+`audits/AUDIT-INTERACTING-RESPONSE-SHAPE-2026-10-07.md` and the adaptive audit.
+Three changed leaves pass focused capped checks; no full-tree audit, canonical
+field change or closure of a displayed physical/Clay claim.
+
 The actual matched-noise derivative and ONE-cross Ward absorption are now
 CHECKED (2026-10-08 UTC). `RatioNoiseDerivative.ratioNoise_derivative_carrier`
 retains the complete incoming g=V*a at arbitrary-insertion Haar strength:

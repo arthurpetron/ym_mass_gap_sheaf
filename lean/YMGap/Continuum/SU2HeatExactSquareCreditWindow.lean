@@ -10,6 +10,7 @@ import YMGap.Continuum.BondMovingQuadratic
 import YMGap.Continuum.HeatKernelPos
 import YMGap.Continuum.R1CornerAtoms
 import YMGap.Continuum.RingNormaliser
+import YMGap.Continuum.SU2HeatProductReversePoincare
 
 namespace YMGap.Continuum.SU2HeatExactSquareCreditWindow
 
@@ -28,6 +29,74 @@ private theorem qpow_rg (w : Q') : ∀ n : Nat,
     RingNormaliser.qpow w n = RGTransport.qpow w n
   | 0 => rfl
   | n+1 => congrArg (fun z : Q' => z*w) (qpow_rg w n)
+
+private theorem qpow_positive {w : Q'} (hw : (0 : Q') < w) :
+    ∀ n : Nat, (0 : Q') < RingNormaliser.qpow w n
+  | 0 => by change (0 : Q') < 1; decide
+  | n+1 => Q'.mul_pos (qpow_positive hw n) hw
+
+/-- The positive-credit shortcut is unavailable once side times heat loss
+crosses this explicit threshold. This is the sign of a scalar coefficient,
+not a lower bound on interacting energy or a Yang--Mills counterexample. -/
+theorem exactSquareCredit_negative_of_loss_window {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) (L : Nat)
+    (hwindow : (1 : Q') ≤ ((1 : Q')-w)*Q'.ofNat (12*L)) :
+    exactSquareCredit w L < (0 : Q') := by
+  let p := RGTransport.qpow w (12*L)
+  have hp0 : (0 : Q') ≤ p := RGTransport.qpow_nonneg w (Q'.le_of_lt hw0) _
+  have hp1 : p ≤ (1 : Q') := HeatKernelGap.qpow_le_one
+    (Q'.le_of_lt hw0) (Q'.le_of_lt hw1) _
+  have hscaled := Q'.mul_le_mul_of_nonneg_left _ _ ((1 : Q')-w)
+    (SU2HeatProductReversePoincare.casimir_power_le_mul_geomSum
+      (Q'.le_of_lt hw0) (Q'.le_of_lt hw1) (12*L))
+    (Q'.sub_nonneg_of_le (Q'.le_of_lt hw1))
+  have hright : ((1 : Q')-w)*(w*HeatKernelRGStep.geomSum w (12*L)) ≈ w*(1-p) :=
+    Q'.eqv_trans _ _ _
+      (poly_identity_of_normal_eq
+        (.mul (.var 0) (.mul (.var 1) (.var 2)))
+        (.mul (.var 1) (.mul (.var 0) (.var 2))) (by decide)
+        (fun | 0 => (1 : Q')-w | 1 => w | _ => HeatKernelRGStep.geomSum w (12*L)))
+      (Q'.mul_eqv_congr_left _ _ _
+        (Q'.eqv_symm (HeatKernelRGStep.oneSub_pow_factor w (12*L))))
+  have hreverse : (((1 : Q')-w)*Q'.ofNat (12*L))*p ≤ w*(1-p) :=
+    Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.mul_assoc_eqv _ _ _))
+      (Q'.le_trans' _ _ _ hscaled (Q'.le_of_eqv hright))
+  have hguard := Q'.mul_le_mul_of_nonneg_right _ _ p hwindow hp0
+  have hback : p ≤ (1 : Q')-p :=
+    Q'.le_trans' _ _ _ (Q'.ge_of_eqv (Q'.one_mul_eqv p))
+      (Q'.le_trans' _ _ _ hguard
+        (Q'.le_trans' _ _ _ hreverse
+          (Q'.le_trans' _ _ _
+            (Q'.mul_le_mul_of_nonneg_right _ _ (1-p) (Q'.le_of_lt hw1)
+              (Q'.sub_nonneg_of_le hp1))
+            (Q'.le_of_eqv (Q'.one_mul_eqv _)))))
+  have htwo : 2*p ≤ (1 : Q') :=
+    Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (poly_identity_of_normal_eq
+        (.mul (.const 2) (.var 0)) (.add (.var 0) (.var 0))
+        (by decide) (fun _ => p)))
+      (Q'.le_trans' _ _ _ (Q'.add_le_add_right _ _ p hback)
+        (Q'.le_of_eqv (poly_identity_of_normal_eq
+          (.add (.add (.const 1) (.neg (.var 0))) (.var 0)) (.const 1)
+          (by decide) (fun _ => p))))
+  have hbase : 2*p-1 ≤ (0 : Q') :=
+    Q'.le_trans' _ _ _ (Q'.add_le_add_right _ _ (-1) htwo)
+      (Q'.le_of_eqv (by decide : (1 : Q')-1 ≈ 0))
+  have hcredit : exactSquareCredit w L ≤ -RingNormaliser.qpow w (32*L) := by
+    unfold exactSquareCredit
+    rw [qpow_rg w (12*L)]
+    exact Q'.le_trans' _ _ _
+      (Q'.add_le_add_right _ _ (-RingNormaliser.qpow w (32*L)) hbase)
+      (Q'.le_of_eqv (poly_identity_of_normal_eq
+        (.add (.const 0) (.var 0)) (.var 0) (by decide)
+        (fun _ => -RingNormaliser.qpow w (32*L))))
+  have hnegative : -RingNormaliser.qpow w (32*L) < (0 : Q') := by
+    have hn := Q'.num_pos_of_pos (qpow_positive hw0 (32*L))
+    change -(RingNormaliser.qpow w (32*L)).num * 1 <
+      0*((-RingNormaliser.qpow w (32*L)).den : Int)
+    simp only [Int.mul_one, Int.zero_mul]
+    omega
+  exact HeatKernelGap.lt_of_le_of_lt hcredit hnegative
 
 private theorem add_nonneg (a b : Q') (ha : (0 : Q') ≤ a)
     (hb : (0 : Q') ≤ b) : (0 : Q') ≤ a+b :=
@@ -450,6 +519,7 @@ theorem exactSquareCredit_massResidual_quadratic_upper {w : Q'}
 end YMGap.Continuum.SU2HeatExactSquareCreditWindow
 
 #print axioms YMGap.Continuum.SU2HeatExactSquareCreditWindow.exactSquareCredit
+#print axioms YMGap.Continuum.SU2HeatExactSquareCreditWindow.exactSquareCredit_negative_of_loss_window
 #print axioms YMGap.Continuum.SU2HeatExactSquareCreditWindow.exactSquareCredit_nonnegative_window
 #print axioms YMGap.Continuum.SU2HeatExactSquareCreditWindow.exactSquareCredit_ge_deficit_window
 #print axioms YMGap.Continuum.SU2HeatExactSquareCreditWindow.exactSquareCredit_positive_window

@@ -4,6 +4,50 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Selected reciprocal-free positive gradient payment (2026-10-08 UTC)
+
+Bounded estimate: on ACTUAL a=g_d, A=Ta, Ephi=T(a*(Jphi)^2), Vbar and
+the existing finite G_k(A), test H[Vbar^2*G_k^2*A^3*Ephi]
+<=H[Vbar^2*A*Ephi], coefficient ONE for every finite k. Produce the A
+window, A/Ephi positivity and multiply the existing certificate
+1-(A*G_k)^2 by Vbar^2*A*Ephi. No precision onset, floor penalty, new source
+inverse, historical-noise widening or action replacement. Prediction: the
+only positive gradient payment in the actual Ward consumer loses its
+outgoing-degree dependence; both signed G_k-dependent responses remain.
+This is not smallness relative to surviving variance. Root bounded extension
+of the existing leaf, independent review, one narrow monitored 20-GiB check.
+Stop if Ephi positivity is not produced or either signed response is dropped.
+
+### Observed result / decision
+
+VERIFIED PROGRESS: the existing Ward leaf now proves
+`original_ratioNoise_gradientPayment_unit_le` at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.lean:253`.
+Actual terminal/transfer certificates produce positivity of A and Ephi and
+the actual output window, including d=0. The positive difference is certified
+as `Vbar^2*A*Ephi*(1-(A*G_k)^2)`, for EVERY k including zero.
+`original_ratioNoise_ward_unitGradient_le:323` consumes it at k+1 and retains
+BOTH signed responses verbatim. No precision onset or numerical floor loss
+remains in this positive payment. Discarding the finite multiplier is an
+upper-envelope simplification, NOT a sharper numerical bound.
+
+Final focused check: `/private/tmp/ym-ratio-noise-unit-gradient-20261008b.log`,
+all five printed gates exactly {propext, Quot.sound}. Final source SHA256:
+`f5ccbf8493173599d98038c793ef6f0af953ca7c2afcac1af247d489aea9c697`.
+Independent complete-block review PASS. Fresh preflights: 87--88% system-wide
+free, zero swap, no competing compiler; one 20-GiB worker/12-GiB reserve.
+No full-tree check, new hole/axiom, field weakening or chart-claim change.
+
+KEEP the new literal consumer. The bare positive payment is still an ORIGINAL
+interacting incoming-gradient moment, not the SAME surviving variance. The
+two signed density/spatial responses retain G_(k+1). Their useful joint
+source-specific comparison, reconstruction/drift and BOTH signed Taylor
+remainders remain the next producer for `original_window_budget_macro_ratio`.
+Independent source review found no supplied initial O(1/u) energy fraction;
+posterior mixture score variance is not removed by component log concavity,
+and the raw Wilson Casimir does not bound the reconstructed filtered ratio.
+These last route screens are source review, not new Lean estimates.
+
 ## Observed noise derivative and ONE-cross Ward absorption (2026-10-08 UTC)
 
 Classification: VERIFIED PROGRESS for the following finite original-source

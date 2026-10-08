@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Supporting reciprocal-free Ward positive payment and AF sign screen checked
+(2026-10-08 UTC): produced finite multiplier/terminal certificates give
+H[Vbar^2*G_k^2*A^3*Ephi]<=H[Vbar^2*A*Ephi], coefficient ONE for every k.
+The actual Ward consumer retains BOTH signed successor-reciprocal responses.
+This simplifies the positive upper envelope, not its surviving-norm bound.
+Separately, exactSquareCredit is negative at EVERY index of the literal AF
+nome schedule; its two positive-credit payment branches are unavailable there.
+This is not an energy lower bound or a refutation of signed survival.
+Useful joint signed scaling control and every displayed physical/Clay claim
+remain OPEN. Three focused leaf checks, permitted axiom gates, no full-tree
+audit; broad chart unchanged, no reprint. Evidence: the adaptive and
+interacting-response-shape audits dated 2026-10-07.
+
 Supporting actual noise-derivative / ONE-cross Ward absorption checked
 (2026-10-08 UTC): complete incoming J(V*a) is transported at arbitrary-insertion
 Haar strength. A produced conditional square and terminal window pay the

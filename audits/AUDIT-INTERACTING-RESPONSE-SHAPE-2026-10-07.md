@@ -6,6 +6,50 @@ a finite positive physical Hamiltonian mass gap.
 
 ## Selected mathematical increment before verification
 
+### Selected all-index exact-square-credit sign screen (2026-10-08 UTC)
+
+Test the literal coefficient `exactSquareCredit(w,L)=2*w^(12L)-1-w^(32L)`:
+`1<=12*L*(1-w)` implies it is STRICTLY NEGATIVE. The existing geometric-sum
+reverse Poincare law gives `12*L*(1-w)*w^(12L)<=w*(1-w^(12L))`;
+the guard forces `2*w^(12L)<=1`, leaving the strictly negative last power.
+On the actual rational afNomeSchedule, test the guard at EVERY index via
+`afE_j<=484*(j+1)<=484*2^j`; the explicit denominator can be cross-multiplied.
+Consumer: the positive-coefficient branches of `paddedSquare_energy_exact_variance_payment`
+and `paddedSquare_energy_exact_loss_variance_payment` cannot be used on this
+schedule. This does not refute the signed exact identities or bound actual
+energy from below. Root alone checks the two existing changed leaves with
+one monitored 20-GiB worker; no asymptotic or physical spacing premise.
+
+Observed: VERIFIED scalar route pruning, including ALL indices j=0,1,... .
+`lean/YMGap/Continuum/SU2HeatExactSquareCreditWindow.lean:41`,
+`exactSquareCredit_negative_of_loss_window`, proves the conditional sign.
+`lean/YMGap/Continuum/BF4WilsonAllNomeAFPaddedTrajectory.lean:461`,
+`af_squareLinearHeatBudget_ge_one`, produces its guard on the literal schedule;
+`af_exactSquareCredit_negative:491` proves the negative coefficient there.
+No eventual modulus is needed because the conclusion holds at every index.
+The earlier `afBareHeatProbeScale` remains a COFINAL probe, not an all-later
+modulus; the new proof uses the direct all-index denominator estimate instead.
+
+Consumers pruned on THIS schedule:
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareExactVariancePayment.lean:51`,
+`paddedSquare_energy_exact_variance_payment`, and line 136,
+`paddedSquare_energy_exact_loss_variance_payment`, require the contradicted
+nonnegative-coefficient guard. Their hypotheses/statements are unchanged.
+No lower bound on actual energy, interacting survival obstruction or physical
+AF calibration follows. Retain the signed original heat-defect route.
+
+Independent complete-block mathematical review PASS. Final focused logs:
+`/private/tmp/ym-exact-square-credit-negative-20261008b.log` and
+`/private/tmp/ym-af-square-credit-negative-20261008a.log`. All printed gates
+are within {propext, Quot.sound}. Final source SHA256 respectively:
+`8d8171c91e3b99351540f8daaeabff717ee0cbd235aa8b70cd0f08aed5f659eb`,
+`53525f55a49154acdc88d097798504bc06569aa0b02049f2318e43f0bd9c43fa`.
+The first scalar check had an unavailable zero-add lemma name, replaced by
+the existing polynomial normalizer; failed elaboration is not evidence.
+Serialized checks, 87--88% free/zero swap/no competing compiler at fresh
+preflights, one 20-GiB worker and 12-GiB reserve. No full-tree audit/guard,
+new hole/axiom, field weakening or broader chart closure.
+
 The actual response is the box-smoothed original centered covariance, not a
 bare heat correlation. The current consumer is
 `BF4WilsonAllNomeShiftedWindowSurvival.pathShiftedEpsBound_of_responseArea`.

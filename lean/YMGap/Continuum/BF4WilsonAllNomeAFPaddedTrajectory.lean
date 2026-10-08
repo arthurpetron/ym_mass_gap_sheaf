@@ -39,6 +39,7 @@ No `sorry`, no axioms.
 -/
 
 import YMGap.Continuum.BF4WilsonAllNomeShiftedPaddedNondegenerate
+import YMGap.Continuum.SU2HeatExactSquareCreditWindow
 
 namespace YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory
 
@@ -454,6 +455,46 @@ theorem afBareHeatLoss_no_uniform_cap (cap : Q') (start : Nat) :
   exact ClusteringImpliesGap.lt_irrefl' cap
     (ClusteringImpliesGap.lt_of_lt_of_le hl hu)
 
+/-- The actual AF schedule violates the positive-credit threshold at EVERY
+index. This uses its literal rational denominator, not an asymptotic guess
+or a lattice-spacing calibration. -/
+theorem af_squareLinearHeatBudget_ge_one (j : Nat) :
+    (1 : Q') ≤ ((1 : Q')-afNomeSchedule.nome j)*Q'.ofNat (12*side j) := by
+  have hE : afE j ≤ 484*(j+1) := by
+    have hlog := log2_succ_le j
+    unfold afE
+    omega
+  have hpow : j+1 ≤ 2^j := by
+    have h := Nat.lt_two_pow_self (n := j)
+    omega
+  have hbound := Nat.le_trans hE (Nat.mul_le_mul_left 484 hpow)
+  have hnat : 1000*afE j ≤ (12*2^j)*234982 := by omega
+  have hgap : (1 : Q') ≤ Q'.ofNat (12*side j)*afGap j := by
+    show (1 : Int)*((Q'.ofNat (12*side j)*afGap j).den : Int) ≤
+      (Q'.ofNat (12*side j)*afGap j).num*1
+    rw [Q'.mul_den_cast, Q'.mul_num_cast, Q'.ofNat_den_cast, afGap_den]
+    have hn : (afGap j).num = 234982 := rfl
+    rw [hn]
+    simp only [Q'.ofNat_num_cast, side, Int.one_mul, Int.mul_one]
+    have hcast := Int.ofNat_le.mpr hnat
+    simpa only [Int.natCast_mul] using hcast
+  have hpin : ((1 : Q')-afNomeSchedule.nome j)*Q'.ofNat (12*side j) ≈
+      Q'.ofNat (12*side j)*afGap j :=
+    Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_right _ _ _ (af_one_sub_one_sub (afGap j)))
+      (Q'.mul_comm_eqv _ _)
+  exact Q'.le_trans' _ _ _ hgap (Q'.ge_of_eqv hpin)
+
+/-- Neither positive-coefficient exact variance-payment branch can be
+instantiated on this AF schedule, even at the first index. The signed heat
+identity and interaction-sensitive survival route remain untouched. -/
+theorem af_exactSquareCredit_negative (j : Nat) :
+    SU2HeatExactSquareCreditWindow.exactSquareCredit (afNomeSchedule.nome j) (side j) <
+      (0 : Q') :=
+  SU2HeatExactSquareCreditWindow.exactSquareCredit_negative_of_loss_window
+    (afNomeSchedule.nome_pos j) (afNomeSchedule.nome_lt_one j) (side j)
+    (af_squareLinearHeatBudget_ge_one j)
+
 end YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory
 
 #print axioms YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory.dyadic_af_core
@@ -485,3 +526,5 @@ end YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory
 #print axioms YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory.afGap_le_bareHeatLoss
 #print axioms YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory.afBareHeatLoss_side_gt_at_probe
 #print axioms YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory.afBareHeatLoss_no_uniform_cap
+#print axioms YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory.af_squareLinearHeatBudget_ge_one
+#print axioms YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory.af_exactSquareCredit_negative
