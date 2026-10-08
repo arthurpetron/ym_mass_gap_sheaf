@@ -16,6 +16,7 @@ changing-family control, continuum excitation or physical gap is asserted.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialAntisymmetricPlaquette
 import YMGap.Continuum.BF4WilsonAllNomePlaquetteFamilyVariance
 import YMGap.Continuum.BF4WilsonJointFunctionalLaws
+import YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapCompletion
 
 namespace YMGap.Continuum.BF4WilsonAllNomeAntisymmetricPlaquette
 
@@ -26,7 +27,11 @@ open YMGap.Constructive.CReal
 open YMGap.Continuum.BF4ExactSlabFixedSpatialAntisymmetricPlaquette
 open YMGap.Continuum.BF4WilsonPlaquetteFamilySourcePin (familyState)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonIntrinsicForm (IntrinsicExpression unit)
-open YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonIntrinsicAlgebra (zero)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonIntrinsicAlgebra (zero smul)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonIntrinsicSeminorm (sum)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonPlaquette (plaquetteLoop)
+open YMGap.Continuum.BF4ExactSlabSpatialAxisSwapWilsonLoop (swapSourceLoop)
+open YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapForm (swapIntrinsic)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonPhysicalTime (advance advance_zero)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonWindow
 open YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonWindowTimeLimit (originalWindowScalar)
@@ -37,6 +42,10 @@ open YMGap.Continuum.BF4WilsonAllNomeReflectedForm (intrinsicForm intrinsicForm_
 open YMGap.Continuum.BF4WilsonAllNomeFormLaws (intrinsicForm_zero_left)
 open YMGap.Continuum.BF4WilsonAllNomeCenteredMoments (centeredTimeMoment)
 open YMGap.Continuum.BF4WilsonAllNomeCompletedInner
+open YMGap.Continuum.BF4WilsonAllNomeLinear
+open YMGap.Continuum.BF4WilsonAllNomeLinearLaws
+open YMGap.Continuum.BF4WilsonAllNomeBilinearTime
+open YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapCompletion
 open YMGap.Continuum.BF4WilsonAllNomeCompletedTime
   (completedTime completedTime_embed VacuumComplement)
 open YMGap.Continuum.BF4WilsonAllNomePlaquetteFamilyVariance (centered_norm_floor)
@@ -165,6 +174,60 @@ theorem excitation_correlator_pin (n : Nat) :
   rw [completedTime_embed, completedInner_embed]
   exact Quotient.sound (centeredMoment_uncentered hw0 hw1 hw n).symm
 
+/-- The actual nonzero two-face source is odd under the original spatial
+swap. This is a produced source pin, not an assumed symmetry of MAIN. -/
+theorem excitation_swap_odd :
+    completedSwap hw0 hw1 (excitation hw0 hw1 hw).val =
+      completedNeg hw0 hw1 (excitation hw0 hw1 hw).val := by
+  let a : IntrinsicExpression width :=
+    ⟨0, .loop 0 (plaquetteLoop face01
+      (faces_physical hw face01 (by simp [faces]))) 1, Nat.le_refl 0⟩
+  let b : IntrinsicExpression width :=
+    ⟨0, .loop 0 (plaquetteLoop face02
+      (faces_physical hw face02 (by simp [faces]))) 1, Nat.le_refl 0⟩
+  have ha : swapIntrinsic a = b := by
+    change (⟨0, .loop 0 (swapSourceLoop (plaquetteLoop face01
+      (faces_physical hw face01 (by simp [faces])))) 1, _⟩ : IntrinsicExpression width) = b
+    rw [swapSourceLoop_face01 hw]
+  have hb : swapIntrinsic b = a := by
+    change (⟨0, .loop 0 (swapSourceLoop (plaquetteLoop face02
+      (faces_physical hw face02 (by simp [faces])))) 1, _⟩ : IntrinsicExpression width) = a
+    rw [swapSourceLoop_face02 hw]
+  have hstate : state hw = sum (smul 1 a)
+      (sum (smul (-1) b) (smul 0 (unit width))) := by rfl
+  have hsource : embed hw0 hw1 (state hw) =
+      completedSub hw0 hw1 (embed hw0 hw1 a) (embed hw0 hw1 b) := by
+    rw [hstate, ← completedAdd_embed, ← completedAdd_embed,
+      ← completedSmul_embed, ← completedSmul_embed, ← completedSmul_embed,
+      completedSmul_one, completedSmul_zero, completedAdd_zero]
+    rfl
+  change completedSwap hw0 hw1 (embed hw0 hw1 (state hw)) =
+    completedNeg hw0 hw1 (embed hw0 hw1 (state hw))
+  rw [hsource, completedSwap_sub, completedSwap_embed, completedSwap_embed, ha, hb]
+  unfold completedSub completedNeg
+  rw [completedSmul_add, completedSmul_mul,
+    completedSmul_congr hw0 hw1 (by decide : (-1 : Q') * (-1) ≈ 1)
+      (embed hw0 hw1 b), completedSmul_one]
+  exact completedAdd_comm hw0 hw1 _ _
+
+/-- Original time evolution retains the produced odd sector. No lower
+bound on its positive-time norm is asserted. -/
+theorem excitation_time_swap_odd (n : Nat) :
+    completedSwap hw0 hw1 (completedTime hw0 hw1 n (excitation hw0 hw1 hw).val) =
+      completedNeg hw0 hw1 (completedTime hw0 hw1 n (excitation hw0 hw1 hw).val) := by
+  rw [completedSwap_time, excitation_swap_odd]
+  unfold completedNeg
+  rw [completedTime_smul]
+
+/-- Project only the detector, retaining the actual evolved source and
+its literal completed pairing. The dual norm contracts by `oddPart_norm_le`. -/
+theorem excitation_time_oddPart_detector (n : Nat)
+    (v : Completion hw0 hw1 width) :
+    completedInner hw0 hw1 (completedTime hw0 hw1 n (excitation hw0 hw1 hw).val)
+      (oddPart hw0 hw1 v) =
+      completedInner hw0 hw1 (completedTime hw0 hw1 n (excitation hw0 hw1 hw).val) v :=
+  oddPart_detector hw0 hw1 _ v (excitation_time_swap_odd hw0 hw1 hw n)
+
 #print axioms state
 #print axioms joint_mean_zero
 #print axioms state_mean_zero
@@ -176,5 +239,8 @@ theorem excitation_correlator_pin (n : Nat) :
 #print axioms excitation_norm_ne_zero
 #print axioms excitation_ne_zero
 #print axioms excitation_correlator_pin
+#print axioms excitation_swap_odd
+#print axioms excitation_time_swap_odd
+#print axioms excitation_time_oddPart_detector
 
 end YMGap.Continuum.BF4WilsonAllNomeAntisymmetricPlaquette

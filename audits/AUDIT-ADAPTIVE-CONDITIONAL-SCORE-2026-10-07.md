@@ -8307,3 +8307,108 @@ numerator, preserving BOTH chronological partitions. No new analytic premise
 or original relative budget is supplied by this diagnostic. Scaling survival,
 physical calibration, full QFT/every-group/Clay remain OPEN. No canonical
 displayed proof/expansion state changed; no ASCII reprint.
+
+## Direct dual selection: original symmetry-sector contraction (2026-10-08)
+
+Selection recorded 22:34 UTC, BEFORE implementation. The previous goal turn
+made a source/planning refinement, not a Yang--Mills estimate. Two read-only
+reviewers now confirm that the finite macro detector algebra is already
+available: `normalized_block_window_pin`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockWindowPin.lean:140`, plus
+`weighted_cauchySchwarz`,
+`lean/YMGap/Continuum/QuaternionHaarWeightedCauchySchwarz.lean:87`, and the
+actual `spatialCertificate`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSpatialOrder.lean:129`.
+The existing moving-OWN-center limit and direct completed macro consumer
+remain; do not implement a duplicate macro pin.
+
+**Next proposition:** on the EXISTING original Wilson completion, construct
+`P_plus(v)=(v+U v)/2` and `P_minus(v)=(v-U v)/2`, where U is the already
+constructed literal spatial-axis swap. Prove the exact norm split,
+norm contraction, original-time commutation and preservation of a detector
+against a source in the corresponding ACTUAL symmetry sector. These are
+new quantitative test improvements, not a claimed relative overlap floor.
+For a source without a proved sector pin, do not project it or assume one.
+
+Available inputs: `completedSwap_involutive`, `completedInner_swap`,
+`completedInner_swap_balance` and `completedSwap_time`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeSpatialAxisSwapCompletion.lean:61`,
+`:125`, `:131`, `:70`; literal completed linearity and form positivity.
+Actual consumer: the original macro dual Cauchy--Schwarz test can retain
+its detector with a no-larger dual denominator after this projection.
+It does not produce that detector, a uniform useful overlap or a scaling
+trajectory. No new carrier, measure, analytic hypothesis or frontier bundle.
+
+**Prediction/test:** orthogonal plus/minus sectors, including zero tests,
+give exact Pythagorean splitting; common warming cannot create a cross-sector
+detector. The produced antisymmetric two-plaquette source is an action-specific
+test candidate, with an already checked positive initial norm, not MAIN's
+padded square or a proved slow mode. An unqualified nonzero-different-dual
+inference must be rejected. Implement the short projection algebra in
+the existing swap leaf and its ACTUAL odd-sector source instance in the
+existing `BF4WilsonAllNomeAntisymmetricPlaquette.lean` leaf. ROOT owns that
+second leaf; Sol owns only the swap leaf. Check these two focused targets
+serially. Abandon if either needs an unproduced analytic premise
+or duplicates an existing projector. MAIN still needs an actual quantitative
+same-sector overlap or JOINT signed payment.
+
+**Verification budget:** Sol bounded implementation and independent read-only
+review; ROOT only serial focused checks after fresh dynamic-capacity checks,
+one 20-GiB worker with 12-GiB OS reserve. No root/tree build or audit, no
+resource-limit increase. No new `sorry`, axiom, canonical field or chart state.
+Observed verification and final source hashes will be recorded after the test.
+
+### Observed original-sector result and verification
+
+2026-10-08 22:40 UTC. Both first focused serial checks PASSED, without proof
+repairs. These are new kernel-checked algebraic/actual-source results, not
+the missing original relative estimate:
+
+- `evenPart`, `oddPart`, `sector_norm_split`, `evenPart_norm_le`,
+  `oddPart_norm_le`, `evenPart_time`, `oddPart_time`, `evenPart_detector`,
+  `oddPart_detector`, `oddPart_vacuumComplement`,
+  `evenPart_preserves_vacuumComplement`,
+  `lean/YMGap/Continuum/BF4WilsonAllNomeSpatialAxisSwapCompletion.lean:161`,
+  `:164`, `:234`, `:260`, `:268`, `:276`, `:281`, `:287`, `:296`, `:307`,
+  `:325`. Norm splitting is exact on the SAME completed pairing. The
+  detector identities require literal matching source-sector pins.
+- `excitation_swap_odd`, `excitation_time_swap_odd`,
+  `excitation_time_oddPart_detector`,
+  `lean/YMGap/Continuum/BF4WilsonAllNomeAntisymmetricPlaquette.lean:179`,
+  `:215`, `:224`. The unchanged p01-minus-p02 source supplies an ACTUAL
+  odd-sector input through the existing two oriented loop-swap equalities.
+  Its positive initial norm and exact centering remain the existing results.
+  MAIN's padded square has not been substituted or assumed to share this pin.
+
+COMPLETE independent final-source reviews PASS for frozen hashes:
+
+- Swap completion SHA-256
+  `a8c38e197fc381b22d2c8c21c8590023b91a91341a38d68345d78a7caa424736`.
+- Actual-source leaf SHA-256
+  `3dbacebed4a49a50ba821cbd025493e1fab5049798949d2a73d79859047975b0`.
+
+All fourteen new public definitions/theorems print only
+`[propext, Quot.sound]`; no new hole, axiom, classical use or analytic premise.
+Focused log paths and SHA-256:
+
+- `/private/tmp/ym-oct8-symmetry-sector-check.log`:
+  `931ba681a8238578276876d50d0b8af564d5da6ede7a232fb670ed492b9aaf49`.
+- `/private/tmp/ym-oct8-antisymmetric-sector-check.log`:
+  `ab55d2ee91b0932bda499a85e9a3c1f526a4fe850896fe72bbcaa33e7ee4322b`.
+
+Each used the safe launcher with jobs1/20-GiB hard worker/12-GiB OS reserve,
+after a fresh process and capacity preflight. No other build was running;
+reported free memory was 84% then 83%, observed swap zero. No long-running
+job, root/tree build or broad audit, resource limit increase or foreign-code
+execution occurred. No whole-repository verification is inferred.
+
+**Decision/residue:** REUSE the symmetry-matched dual projection for an
+actually pinned source; PRUNE tests in the wrong sector and unqualified
+inferences from a different nonzero dual. The finite weighted-CS macro join
+is already present, so add no duplicate compiler. Produce a useful
+action-dependent SAME-sector overlap against the transmitted source, keeping
+BOTH chronological masses, or the complete JOINT signed payment versus OWN
+variance. These theorems provide neither that overlap nor a positive-time
+source norm floor, justified changing family, continuum excitation or physical
+gap. Contraction of both norm and macro defect alone does not order their
+ratio. Clay/canonical displayed claims remain OPEN/unchanged; no chart reprint.

@@ -14,6 +14,8 @@ carrier, measure, norm, range witness or mass-gap estimate is postulated.
 
 import YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapAlgebra
 import YMGap.Continuum.BF4WilsonAllNomeDistance
+import YMGap.Continuum.BF4WilsonAllNomeCompletedPairingContinuity
+import YMGap.Continuum.RingNormaliser
 
 namespace YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapCompletion
 
@@ -30,7 +32,10 @@ open YMGap.Continuum.BF4WilsonAllNomeSeminorm (seminorm distSq distSq_refl)
 open YMGap.Continuum.BF4WilsonAllNomeCompletedInner
 open YMGap.Continuum.BF4WilsonAllNomeCompletedTime
 open YMGap.Continuum.BF4WilsonAllNomeLinear
+open YMGap.Continuum.BF4WilsonAllNomeBilinearTime
+open YMGap.Continuum.BF4WilsonAllNomeCompletedPairingContinuity
 open YMGap.Continuum.BF4WilsonAllNomeDistance (completedDist)
+open YMGap.Continuum.RingNormaliser
 open YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapForm
 open YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapAlgebra
 open YMGap.Continuum.CRealSeminormCompletion.SquaredSeminorm.NonexpansiveSemigroup
@@ -145,6 +150,187 @@ theorem completedSwap_preserves_vacuumComplement (x : V)
   rw [← completedInner_swap_balance, completedSwap_unit]
   exact hx
 
+/-! The following averages remain on the literal original completion. A
+detector is unchanged only when its source has an *actual* swap-sector pin. -/
+
+local notation "A" => completedAdd hw0 hw1
+local notation "M" => completedSmul hw0 hw1
+local notation "Sub" => completedSub hw0 hw1
+
+/-- The even average under the actual spatial involution. -/
+def evenPart (v : V) : V := M HalfPow.half (A v (U v))
+
+/-- The odd average under the actual spatial involution. -/
+def oddPart (v : V) : V := M HalfPow.half (Sub v (U v))
+
+private theorem rc_half_double (a : RC) :
+    RCscale HalfPow.half (RCadd a a) = a := by
+  refine Quotient.inductionOn a ?_
+  intro x
+  exact Quotient.sound (SumOfSquares.Equiv_of_approx_eqv (fun n =>
+    Q'.eqv_trans _ _ _
+      (Q'.mul_add_eqv HalfPow.half (x.approx n) (x.approx n))
+      (ExpNeg.two_halves (x.approx n))))
+
+private theorem rc_half_sub_neg (a : RC) :
+    RCscale HalfPow.half (RCsub a (RCscale (-1) a)) = a := by
+  refine Quotient.inductionOn a ?_
+  intro x
+  exact Quotient.sound (SumOfSquares.Equiv_of_approx_eqv (fun n =>
+    Q'.eqv_trans _ _ _
+      (poly_identity_of_normal_eq
+        (.mul (.var 1)
+          (.add (.var 0) (.neg (.mul (.const (-1)) (.var 0)))))
+        (.mul (.var 1) (.add (.var 0) (.var 0))) (by decide)
+        (fun | 0 => x.approx n | _ => HalfPow.half))
+      (Q'.eqv_trans _ _ _
+        (Q'.mul_add_eqv HalfPow.half (x.approx n) (x.approx n))
+        (ExpNeg.two_halves (x.approx n)))))
+
+private theorem rc_parity_pyth (a b : RC) :
+    RCadd
+      (RCscale HalfPow.half
+        (RCadd (RCscale HalfPow.half (RCadd a b))
+          (RCscale HalfPow.half (RCadd b a))))
+      (RCscale HalfPow.half
+        (RCsub (RCscale HalfPow.half (RCsub a b))
+          (RCscale HalfPow.half (RCsub b a)))) = a := by
+  refine Quotient.inductionOn₂ a b ?_
+  intro x y
+  exact Quotient.sound (SumOfSquares.Equiv_of_approx_eqv (fun n =>
+    Q'.eqv_trans _ _ _ (poly_identity_of_normal_eq
+      (.add
+        (.mul (.var 2)
+          (.add
+            (.mul (.var 2) (.add (.var 0) (.var 1)))
+            (.mul (.var 2) (.add (.var 1) (.var 0)))))
+        (.mul (.var 2)
+          (.add
+            (.mul (.var 2) (.add (.var 0) (.neg (.var 1))))
+            (.neg (.mul (.var 2)
+              (.add (.var 1) (.neg (.var 0))))))))
+      (.mul (.mul (.const 4) (.mul (.var 2) (.var 2))) (.var 0))
+      (by decide)
+      (fun | 0 => x.approx n | 1 => y.approx n | _ => HalfPow.half))
+      (Q'.eqv_trans _ _ _
+        (Q'.mul_eqv_congr_right
+          (Q'.ofInt 4 * (HalfPow.half * HalfPow.half)) 1
+          (x.approx n) (by decide))
+        (Q'.one_mul_eqv (x.approx n)))))
+
+private theorem rc_add_zero (a : RC) : RCadd a RCzero = a := by
+  refine Quotient.inductionOn a ?_
+  intro x
+  exact Quotient.sound (SumOfSquares.Equiv_of_approx_eqv
+    (fun n => Q'.eqv_of_eq (Q'.add_zero' (x.approx n))))
+
+private theorem rc_zero_add (a : RC) : RCadd RCzero a = a := by
+  refine Quotient.inductionOn a ?_
+  intro x
+  exact Quotient.sound (SumOfSquares.Equiv_of_approx_eqv
+    (fun n => Q'.eqv_of_eq (Q'.zero_add' (x.approx n))))
+
+/-- Exact Pythagoras for the two rational averages, with no source change. -/
+theorem sector_norm_split (v : V) :
+    RCadd (B (evenPart hw0 hw1 v) (evenPart hw0 hw1 v))
+      (B (oddPart hw0 hw1 v) (oddPart hw0 hw1 v)) = B v v := by
+  have heven : B (evenPart hw0 hw1 v) (evenPart hw0 hw1 v) =
+      RCscale HalfPow.half
+        (RCadd (RCscale HalfPow.half (RCadd (B v v) (B v (U v))))
+          (RCscale HalfPow.half (RCadd (B v (U v)) (B v v)))) := by
+    unfold evenPart
+    rw [completedInner_smul_left, completedInner_add_left,
+      completedInner_smul_right, completedInner_smul_right,
+      completedInner_add_right, completedInner_add_right,
+      completedInner_swap_balance hw0 hw1 v v,
+      completedInner_swap hw0 hw1 v v]
+  have hodd : B (oddPart hw0 hw1 v) (oddPart hw0 hw1 v) =
+      RCscale HalfPow.half
+        (RCsub (RCscale HalfPow.half (RCsub (B v v) (B v (U v))))
+          (RCscale HalfPow.half (RCsub (B v (U v)) (B v v)))) := by
+    unfold oddPart
+    rw [completedInner_smul_left, completedInner_sub_left,
+      completedInner_smul_right, completedInner_smul_right,
+      completedInner_sub_right, completedInner_sub_right,
+      completedInner_swap_balance hw0 hw1 v v,
+      completedInner_swap hw0 hw1 v v]
+  rw [heven, hodd]
+  exact rc_parity_pyth (B v v) (B v (U v))
+
+theorem evenPart_norm_le (v : V) :
+    RCle (B (evenPart hw0 hw1 v) (evenPart hw0 hw1 v)) (B v v) := by
+  have h := RCadd_le_add
+    (RCle_refl (B (evenPart hw0 hw1 v) (evenPart hw0 hw1 v)))
+    (completedInner_nonnegative hw0 hw1 (oddPart hw0 hw1 v))
+  rw [rc_add_zero, sector_norm_split hw0 hw1 v] at h
+  exact h
+
+theorem oddPart_norm_le (v : V) :
+    RCle (B (oddPart hw0 hw1 v) (oddPart hw0 hw1 v)) (B v v) := by
+  have h := RCadd_le_add
+    (completedInner_nonnegative hw0 hw1 (evenPart hw0 hw1 v))
+    (RCle_refl (B (oddPart hw0 hw1 v) (oddPart hw0 hw1 v)))
+  rw [rc_zero_add, sector_norm_split hw0 hw1 v] at h
+  exact h
+
+theorem evenPart_time (n : Nat) (v : V) :
+    evenPart hw0 hw1 (T n v) = T n (evenPart hw0 hw1 v) := by
+  unfold evenPart
+  rw [completedTime_smul, completedTime_additive, completedSwap_time]
+
+theorem oddPart_time (n : Nat) (v : V) :
+    oddPart hw0 hw1 (T n v) = T n (oddPart hw0 hw1 v) := by
+  unfold oddPart
+  rw [completedTime_smul, completedTime_sub, completedSwap_time]
+
+/-- For an actual even source, averaging the test preserves its detector. -/
+theorem evenPart_detector (x v : V) (hx : U x = x) :
+    B x (evenPart hw0 hw1 v) = B x v := by
+  have hpair : B x (U v) = B x v := by
+    rw [← completedInner_swap_balance hw0 hw1 x v, hx]
+  unfold evenPart
+  rw [completedInner_smul_right, completedInner_add_right, hpair]
+  exact rc_half_double (B x v)
+
+/-- For an actual odd source, averaging the test preserves its detector. -/
+theorem oddPart_detector (x v : V)
+    (hx : U x = completedNeg hw0 hw1 x) :
+    B x (oddPart hw0 hw1 v) = B x v := by
+  have hpair : B x (U v) = RCscale (-1) (B x v) := by
+    rw [← completedInner_swap_balance hw0 hw1 x v, hx]
+    exact completedInner_smul_left hw0 hw1 (-1) x v
+  unfold oddPart
+  rw [completedInner_smul_right, completedInner_sub_right, hpair]
+  exact rc_half_sub_neg (B x v)
+
+/-- Odd averaging of any test is orthogonal to the actual fixed unit. -/
+theorem oddPart_vacuumComplement (v : V) :
+    B (unitState hw0 hw1 width) (oddPart hw0 hw1 v) = RCzero := by
+  have hpair : B (unitState hw0 hw1 width) (U v) =
+      B (unitState hw0 hw1 width) v := by
+    rw [← completedInner_swap_balance hw0 hw1 (unitState hw0 hw1 width) v,
+      completedSwap_unit]
+  unfold oddPart
+  rw [completedInner_smul_right, completedInner_sub_right, hpair]
+  refine Quotient.inductionOn (B (unitState hw0 hw1 width) v) ?_
+  intro x
+  exact Quotient.sound (SumOfSquares.Equiv_of_approx_eqv (fun n =>
+    poly_identity_of_normal_eq
+      (.mul (.var 1)
+        (.add (.var 0) (.neg (.var 0))))
+      (.const 0) (by decide)
+      (fun | 0 => x.approx n | _ => HalfPow.half)))
+
+/-- The even average does not spoil an already centered test. -/
+theorem evenPart_preserves_vacuumComplement (v : V)
+    (hv : B (unitState hw0 hw1 width) v = RCzero) :
+    B (unitState hw0 hw1 width) (evenPart hw0 hw1 v) = RCzero := by
+  unfold evenPart
+  rw [completedInner_smul_right, completedInner_add_right, hv,
+    completedSwap_preserves_vacuumComplement hw0 hw1 v hv]
+  rw [rc_zero_add]
+  exact RCscale_RCzero HalfPow.half
+
 end YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapCompletion
 
 #print axioms YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapCompletion.completedSwap
@@ -162,3 +348,14 @@ end YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapCompletion
 #print axioms YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapCompletion.completedInner_swap_balance
 #print axioms YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapCompletion.completedDist_swap
 #print axioms YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapCompletion.completedSwap_preserves_vacuumComplement
+#print axioms YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapCompletion.evenPart
+#print axioms YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapCompletion.oddPart
+#print axioms YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapCompletion.sector_norm_split
+#print axioms YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapCompletion.evenPart_norm_le
+#print axioms YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapCompletion.oddPart_norm_le
+#print axioms YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapCompletion.evenPart_time
+#print axioms YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapCompletion.oddPart_time
+#print axioms YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapCompletion.evenPart_detector
+#print axioms YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapCompletion.oddPart_detector
+#print axioms YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapCompletion.oddPart_vacuumComplement
+#print axioms YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapCompletion.evenPart_preserves_vacuumComplement

@@ -346,6 +346,24 @@ auxiliary fermion gap, two-dimensional constant or numerical replay supplies
 it. Keep DIRECT macro retention and JOINT payment co-primary. No new
 wrapper, Lean claim, chart change or foreign-code execution is selected.
 
+DIRECT dual selection follow-through (2026-10-08 22:40 UTC): the ORIGINAL
+Wilson completion now has checked even/odd spatial-swap averages, exact
+Pythagorean norm splitting, dual norm contraction and original-time
+commutation. A detector is preserved only with its ACTUAL source-sector
+pin. The existing nonzero, exactly centered p01-minus-p02 excitation now
+has that produced odd-sector pin, also after warming; its detector can be
+projected without replacing the source or increasing the dual denominator.
+Two focused serial checks and independent COMPLETE final-source reviews
+PASS; all new gates stay within {propext, Quot.sound}. No root/tree audit.
+This sharpens a real direct test but produces no relative overlap floor,
+positive-time survival or scaling family. MAIN's padded square has not been
+assumed odd and is not projected. NEXT: produce an action-dependent useful
+same-sector overlap retaining BOTH chronological masses, or pay the complete
+JOINT signed correction versus OWN variance. Do not infer improvement of a
+defect/norm ratio merely because both quantities contract. Evidence and
+exact checked source/log hashes: the adaptive-score audit. No canonical
+displayed proof/expansion claim changed; no ASCII reprint.
+
 Requested parallel follow-up (2026-10-08 UTC): the cached paper review now
 pins MAIN's joint correction as
 `H_xy[Kkin*G^2*(J_out A)*X^2*(J_in+J_out)(spatialWeight*a*Vbar^2)]`

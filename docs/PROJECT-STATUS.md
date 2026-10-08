@@ -374,6 +374,18 @@ Two focused checks and independent source review; no full-tree audit.
 Displayed claims are unchanged; no chart reprint. Evidence:
 `audits/AUDIT-INTERACTING-RESPONSE-SHAPE-2026-10-07.md`.
 
+Supporting ORIGINAL symmetry-matched detector contraction checked
+(2026-10-08 22:40 UTC; chart unchanged): even/odd swap averages on the SAME
+Wilson completion split the norm exactly, contract the dual norm and commute
+with original time. Detector preservation requires a proved source-sector
+pin. The existing exactly centered nonzero p01-minus-p02 excitation now has
+its ACTUAL odd-sector pin, retained after warming; projecting its detector
+preserves the original pairing. MAIN's padded square is not assumed odd.
+Two focused serial checks and independent complete-source reviews PASS;
+permitted axioms only. No root/tree audit. A useful relative overlap,
+positive-time survival, scaling and all physical/Clay claims remain OPEN.
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 Supporting original Wilson-window and reflected-form spatial swap checked
 (2026-10-08 UTC): arbitrary ordered closed loops, inverse flags, offsets,
 spins and signed terms are transported on the SAME fixed-width carrier.

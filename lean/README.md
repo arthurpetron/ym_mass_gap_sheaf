@@ -16,6 +16,18 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked ORIGINAL symmetry-matched dual contraction (2026-10-08 UTC):**
+`BF4WilsonAllNomeSpatialAxisSwapCompletion` constructs even/odd averages
+on the SAME original completion, with exact norm splitting, contraction,
+original-time commutation and detector preservation under ACTUAL sector
+pins. `BF4WilsonAllNomeAntisymmetricPlaquette.excitation_swap_odd` produces
+that pin for the existing nonzero exactly centered two-face excitation;
+its warmed detector is unchanged by odd averaging of the dual. Both focused
+serial checks and independent COMPLETE source reviews PASS; new gates use
+only {propext, Quot.sound}. No root/tree audit or MAIN-sector assumption.
+Useful relative overlap, positive-time survival, scaling and Clay remain
+OPEN. Exact evidence: adaptive-score audit; chart unchanged.
+
 **Checked finite macro/window separation (2026-10-08 UTC):**
 `RationalMacroRetentionWithoutInitialEnergy.windowBudgetSeparation` returns
 an explicit horizon-eight scalar two-mode witness: quarter macro retention
