@@ -4,6 +4,128 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Selected integrated-head centered score bound (2026-10-08 UTC)
+
+Test a genuine stronger estimate, not another assumed reserve: with I the
+actual head Haar integral and J acting inside that prefix, produce
+
+    Certificate tail [C^2*det(W,f) - I((J W)*f)^2].
+
+Argument: I(J W)=0 coefficientwise; the two ACTUAL positive laws C*W+J W
+and C*W-J W have equal mass C*I(W). Half the sum of their variance
+determinants is exactly the displayed polynomial. Unlike the existing
+conditional Gruss bound, this result has no extra squared polynomial mass.
+No mass inverse, positive source floor or strict C hypothesis is necessary.
+
+Existing inputs: `SU2QuaternionMultiHeadVarianceReplica.determinant_certificate`,
+`SU2QuaternionHaarAngularIBPAt.partialHaarHeads_angularDerivative_at_zero`,
+and the ORIGINAL odd-marginal
+`BF4ExactSlabFixedSpatialMarginalRelativeBound.frameRelativeBound`.
+Actual consumer/instance: the selected active-link conditional score of
+V*g_n*g_(n+1), retaining the full spatial action, both messages and every
+shared tail variable. The cap is explicitly 6*relativeCap(w,4096)+
+2*relativeCap(w,32), independent of width and depth at fixed nome and
+sufficiently late cutoff. Use supported arbitrary signed tests, including
+the original OWN-centered source after the actual head swap. This does NOT
+yet pay last-window relative innovation or changing-family source retention.
+
+Prediction/test: preserve the negative conditional first-moment square;
+check W=0, C=0, f constant, signed f and shared tails. Stop if the result
+duplicates an existing certificate, needs division by a polynomial mass,
+changes the action, or assumes the desired estimate. Bounded experiment:
+one algebra leaf plus one actual original instance, <=600 combined lines,
+<=3 focused checks, one 20-GiB worker/12-GiB reserve and fresh preflights.
+Sol handles finite algebra; root owns verification and complete-source
+review, with independent mathematical screening in parallel. Selection
+alone is not proof evidence and changes no canonical chart field.
+
+### Verification-budget revision
+
+Core check 1 passed. Original-instance checks 1--2 exposed accidental action
+unfolding and an explicit 4*0+i versus i argument mismatch. The third
+planned check was therefore not accepted proof evidence. Revise with local
+transparency shields already used by adjacent original-action modules and
+explicit natural-index normalization on BOTH the input bound and output.
+Allow ONE additional focused attempt for that deterministic transport fix;
+no memory, heartbeat, recursion, axiom or mathematical premise is increased.
+Stop and report the unverified instance if this revised attempt fails.
+
+### Observed: centered integrated score certificate CHECKED
+
+`lean/YMGap/Continuum/SU2QuaternionIntegratedScoreVariance.lean:79`,
+`centeredSignedSquare_certificate`, constructs the half-sum bracket directly;
+`integratedAngularScore_certificate:147` produces I(J W)=0 by head IBP.
+No C positivity, conditional-mass inverse or cancellation inside the cone.
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialIntegratedScoreVariance.lean:59`,
+`original_marginal_integratedScore_certificate`, instantiates the complete
+original odd marginal; `paddedSquare_own_integratedScore_certificate:99`
+retains the literal square and chronological OWN center. The actual bound is
+
+    I((J W)*f)^2 <= C^2 [I(W)*I(W*f^2)-I(W*f)^2].
+
+Every tail coordinate remains shared, including all surrounding action
+dependence. Arbitrary supported signed tests and generic zero masses/C remain.
+The original instance has its existing strict nome, late cutoff and physical
+active-link guards, with explicit C=marginalScoreCap(w). This is an ORDINARY
+conditional Haar estimate, not an OS quotient/transfer/scaling theorem.
+
+Accepted focused checks: core attempt 1 and original-instance attempt 3.
+All FOUR public printed gates are exactly {propext,Quot.sound}; no warnings
+or sorryAx in either accepted log. Failed instance attempts 1--2 and their
+downstream error-generated sorryAx are NOT accepted evidence. Four total
+attempts, including the explicitly revised one-check budget. No resource
+increase, new sorry/axiom/Classical/native premise, field weakening or broad
+audit/guard/metric. Fresh process/memory checks before EVERY launch reported
+86--87% memory headroom, zero swap; one monitored 20-GiB worker and 12-GiB
+reserve throughout. Root inspected both complete final sources; independent
+COMPLETE final-source review PASS at the frozen hashes below. Root imports
+are registered ONLY, not root-built.
+
+```text
+Core: 166 lines, SHA256
+13486676f9a2a70e122c670708a1b88aa0de12216a8aa1f6c337683a804117ab
+/private/tmp/ym-oct8-integrated-score1.log, SHA256
+a36489475a85f000d7462b17d79f3de676e226ef6b61ed310974095d6b1696cc
+
+Original instance: 125 lines, SHA256
+968185bad03f5d76987e2113870ba6fff412aeecb70402636ed950d3ec2aae99
+/private/tmp/ym-oct8-original-integrated-score3.log, SHA256
+ab14df9506761b313d76213dcacc126345a11b02b068b70e08781843d417c5cc
+```
+
+Decision: retain the stronger actual conditional certificate; PRUNE more
+generic lower-floor/trace wrappers. NEXT remains the full ORIGINAL signed
+cost versus SAME surviving filtered variance, or actual three-moment slow
+overlap on a justified changing family. Neither an upper innovation reserve
+nor useful raw retention follows from this local result. No canonical chart
+claim changes; physical mass, continuum/QFT, every group and Clay remain OPEN.
+
+### Independent mathematical screen (not a new proof claim)
+
+The half-sum estimate is not exported by the inspected Gruss/dual-square
+modules: their centered certificates retain an extra I(W)^2. Construct the
+stronger bracket from the two determinants; do not cancel that polynomial
+inside `Certificate`. Zero masses and C=0 must remain covered.
+
+PRUNE a duplicated qualitative covariance/prediction-floor branch:
+`QuaternionHaarRelativePredictionFloor.raw_prediction_floor:107` and
+`normalized_prediction_floor:151` already give the relative-Ward floor;
+`BF4ExactSlabRelativePredictionError.raw_prediction_bound:75` and
+`finite_prediction_floor:137` produce its original-action instance.
+The posterior trace contraction is a possible sharper PAPER consequence,
+but no additional floor module is selected. Such LOWER floors do not give
+the required UPPER innovation estimate or slow-state overlap.
+
+The integrated-head estimate cannot silently replace the output-tail score.
+`BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.ratioNoiseDensityMoment:74`
+contains K*J(Va), not J(K*Va). The omitted (J K)*Va is load-bearing when
+using head IBP. Continue only with the entire signed original correction,
+not an assumed zero marginal for that partial density derivative. The
+existing `BF4ExactSlabFixedSpatialScoreCalibrationObstruction.marginalScoreCap_formula:63`
+and `gap_score_square_ge_one:83` also prevent treating the computed C^2
+envelope as the missing small weak-coupling energy coefficient. These are
+existing results, not re-proved or counted as new progress here.
+
 ## Selected source-preserving smoothing comparison (2026-10-08 UTC)
 
 Previous turn PROGRESS: d1e21f87 checks the original noise/cost comparison.

@@ -7887,6 +7887,11 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepCenteredMixedCost
 -- Useful summed/scaling control is not supplied by this finite ceiling.
 import YMGap.Continuum.SU2QuaternionConditionalGrussSquare
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepCenteredScoreNoise
+-- Integrated-head score tilts remove the extra conditional mass square.
+-- Original odd-marginal instances retain OWN centers and all shared tails;
+-- the changing-family signed-cost/innovation reserve remains open.
+import YMGap.Continuum.SU2QuaternionIntegratedScoreVariance
+import YMGap.Continuum.BF4ExactSlabFixedSpatialIntegratedScoreVariance
 -- Original windows have nonunit mass. Keep historical variance and signed
 -- reconstruction covariance separate; geometric error is not an AF margin.
 import YMGap.Continuum.SU2QuaternionUnnormalizedVarianceTower

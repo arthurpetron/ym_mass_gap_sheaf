@@ -16,6 +16,17 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked ORIGINAL integrated-link score bound (2026-10-08 UTC):**
+`SU2QuaternionIntegratedScoreVariance` produces the centered conditional
+variance certificate without the older extra squared polynomial mass.
+`BF4ExactSlabFixedSpatialIntegratedScoreVariance` supplies the actual full
+odd-marginal and OWN-centered square instances. No inverse, new analytic
+premise or discarded tail action. Both final focused targets/four permitted
+gates and COMPLETE independent final-source review; root registration only.
+Explicit nome-dependent cap, not an upper innovation/OS/scaling/gap theorem.
+The joint surviving-variance estimate and physical/Clay closure remain OPEN.
+Evidence: adaptive-score audit. No broad audit or canonical chart change.
+
 **Checked ORIGINAL positive smoothing order (2026-10-08 UTC):**
 `BF4WilsonAllNomePositiveOrbitResponseOrder` proves cleared block-ratio order
 and transfers a paid raw-source reserve to positive rational time smoothing,

@@ -27,6 +27,20 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED original integrated-link score/variance bound (2026-10-08 UTC):
+`SU2QuaternionIntegratedScoreVariance.centeredSignedSquare_certificate` constructs
+C^2*det(W,f)-I((J W)*f)^2 directly from two positive tilted laws, without
+the older extra squared conditional mass or any inverse. Its actual original
+odd-marginal and OWN-centered padded-square instances retain V*g_n*g_(n+1)
+and every tail variable. Both focused final targets/four permitted gates
+and COMPLETE independent final-source review PASS; exact hashes/attempts in
+the adaptive-score audit. Nome dependence remains explicit, no OS/scaling
+estimate follows. PRUNE duplicated qualitative floor/trace work. The density
+term K*J(Va) does NOT have the total derivative's zero head marginal: retain
+the kinetic correction. NEXT full original signed cost/variance or actual
+raw three-moment credit/overlap, not another conditional wrapper. All
+physical/Clay and canonical displayed claims remain unchanged.
+
 CHECKED source-preserving positive smoothing order (2026-10-08 UTC):
 `PositiveOrbitResponseOrder.response_crossRatio` proves
 R_x(L+j)*R_x(L+h)<=R_x(L+j+h)*R_x(L), every original completed state

@@ -4,6 +4,21 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## ORIGINAL centered integrated score without an extra mass square (2026-10-08 UTC)
+
+`SU2QuaternionIntegratedScoreVariance.centeredSignedSquare_certificate`
+directly constructs C^2*det(W,f)-I((J W)*f)^2 from actual positive tilts.
+The original odd-marginal and OWN-centered padded-square instances retain
+the complete action and every tail variable. No mass inverse/floor or
+polynomial-mass cancellation. Accepted focused core check 1/instance check
+3, four permitted gates, COMPLETE independent final-source review; root
+registration only, no broad audit/metric. The revised attempt budget and
+exact hashes are in the adaptive-score audit. PRUNE duplicated qualitative
+prediction-floor/trace work and a further correction-only wrapper.
+NEXT actual JOINT signed cost/variance or useful raw three-moment credit/
+overlap; this local estimate supplies neither. Physical/Clay and canonical
+displayed claims unchanged.
+
 ## ORIGINAL positive smoothing inherits a paid raw-source reserve (2026-10-08 UTC)
 
 `PositiveOrbitResponseOrder.response_crossRatio` proves the unconditional

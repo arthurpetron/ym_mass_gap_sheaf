@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Supporting ORIGINAL integrated-link score bound checked (2026-10-08 UTC):
+the actual original odd marginal and OWN-centered square obey the centered
+conditional variance bound with no extra squared conditional mass or inverse.
+Half the sum of two produced positive-law determinants preserves the negative
+first-moment square and every shared tail variable. Both final focused
+targets/four permitted gates and COMPLETE independent final-source review
+PASS; root registration only, no tree audit. Explicit nome-dependent cap;
+no upper innovation reserve, useful raw overlap, OS/scaling or physical gap.
+The full signed-cost estimate remains OPEN; canonical displayed claims
+unchanged, no chart reprint. Evidence: adaptive conditional-score audit.
+
 Supporting ORIGINAL positive smoothing order checked (2026-10-08 UTC):
 cleared block ratios increase at every lag, including zero moments.
 An actual raw retained fraction transfers to positive rational time-orbit

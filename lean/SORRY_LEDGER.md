@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED original integrated score / OPEN useful innovation (2026-10-08 UTC)
+
+`lean/YMGap/Continuum/SU2QuaternionIntegratedScoreVariance.lean:79`,
+`centeredSignedSquare_certificate`, constructs the half-sum certificate
+C^2*det(W,f)-I(d*f)^2 when I(d)=0. `integratedAngularScore_certificate:147`
+produces the actual integrated-head zero marginal by IBP.
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialIntegratedScoreVariance.lean:59`,
+`original_marginal_integratedScore_certificate`, retains the full original
+odd action and tails; `paddedSquare_own_integratedScore_certificate:99`
+preserves the chronological OWN center. No conditional-mass inverse,
+positivity oracle, new hole/axiom/classical premise or resource increase.
+Accepted core check 1/instance check 3, FOUR gates exactly {propext,Quot.sound},
+COMPLETE independent final-source review PASS; failed instance attempts are
+not proof evidence. Root imports registered ONLY, no root/tree audit.
+The explicitly nome-dependent local estimate is not the required UPPER
+innovation/signed-cost reserve or slow overlap, nor OS/scaling/physical
+closure. Those obligations and all QFT/every-group/Clay claims remain OPEN.
+Exact hashes, revised budget and next decision: adaptive-score audit.
+Canonical displayed claims unchanged.
+
 ## PROVED ORIGINAL positive smoothing order / OPEN raw reserve (2026-10-08 UTC)
 
 `lean/YMGap/Continuum/BF4WilsonAllNomePositiveOrbitResponseOrder.lean:257`,
