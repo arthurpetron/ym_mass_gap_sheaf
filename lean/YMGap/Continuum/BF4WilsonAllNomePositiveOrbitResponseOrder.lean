@@ -36,6 +36,10 @@ open YMGap.Continuum.BF4WilsonAllNomeOddResponseJensen
   (response_nonnegative response_log_convex_step)
 open YMGap.Continuum.Z4HalfTimeReflectionStrictJointDenseDyadicGap
   (leEv_cancel_mul_right_posEv)
+open YMGap.Continuum.ClusterCount4DProgress (Z4Plaq)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialFacePlacement (spatialFaces)
+open YMGap.Continuum.BF4WilsonAllNomePlaquetteFamilyVariance (familyExcitation)
+open YMGap.Continuum.BF4WilsonAllNomeSmoothedCoherentState (timeKernel smoothedResponse)
 
 local notation "rat" q:arg => Quotient.mk crealSetoid (ofQ' q)
 
@@ -633,6 +637,120 @@ theorem positiveOrbit_response_retention (x : V) (cs : List (Q' × Nat))
   have hh := shifted_response_floor hw0 hw1 x kappa hk1 L h (j+k) hf
   simpa only [Nat.add_assoc, Nat.add_comm, Nat.add_left_comm] using hh
 
+/-! Signed double-orbit credit: the early negative term is not discarded. -/
+
+private theorem scaled_sub_add_sub (q : Q') (a b c d : RC) :
+    RCadd (RCscale q (RCsub a b)) (RCsub c d) =
+      RCsub (RCadd (RCscale q a) c) (RCadd (RCscale q b) d) := by
+  refine Quotient.inductionOn₃ a b c ?_
+  intro A0 B0 C0
+  refine Quotient.inductionOn d ?_
+  exact fun D0 => Quotient.sound (SumOfSquares.Equiv_of_approx_eqv (fun n =>
+    poly_identity_of_normal_eq
+      (.add (.mul (.var 0) (.add (.var 1) (.neg (.var 2))))
+        (.add (.var 3) (.neg (.var 4))))
+      (.add (.add (.mul (.var 0) (.var 1)) (.var 3))
+        (.neg (.add (.mul (.var 0) (.var 2)) (.var 4))))
+      (by decide) (fun
+        | 0 => q
+        | 1 => A0.approx n
+        | 2 => B0.approx n
+        | 3 => C0.approx n
+        | _ => D0.approx n)))
+
+private theorem sum_sub (cs : List (Q' × Nat)) (f g : Nat → RC) :
+    responseSum cs (fun n => RCsub (f n) (g n)) =
+      RCsub (responseSum cs f) (responseSum cs g) := by
+  induction cs with
+  | nil => exact (sub_self RCzero).symm
+  | cons c cs ih =>
+      simp only [responseSum, ih]
+      exact scaled_sub_add_sub c.1 _ _ _ _
+
+private theorem sum_mul_left (cs : List (Q' × Nat)) (f : Nat → RC) (a : RC) :
+    RCmul a (responseSum cs f) = responseSum cs (fun n => RCmul a (f n)) := by
+  rw [RCmul_comm a (responseSum cs f), sum_mul_right]
+  exact congrArg (responseSum cs) (funext (fun n => RCmul_comm (f n) a))
+
+private theorem credit_reassemble (theta : Q') (a b c d : RC) :
+    RCmul a (RCsub c (RCscale theta d)) =
+      RCadd (RCmul (RCsub b (RCscale theta a)) d)
+        (RCsub (RCmul a c) (RCmul b d)) := by
+  refine Quotient.inductionOn₃ a b c ?_
+  intro A0 B0 C0
+  refine Quotient.inductionOn d ?_
+  exact fun D0 => Quotient.sound (SumOfSquares.Equiv_of_approx_eqv (fun n =>
+    poly_identity_of_normal_eq
+      (.mul (.var 0) (.add (.var 2) (.neg (.mul (.var 4) (.var 3)))))
+      (.add (.mul (.add (.var 1) (.neg (.mul (.var 4) (.var 0)))) (.var 3))
+        (.add (.mul (.var 0) (.var 2)) (.neg (.mul (.var 1) (.var 3)))))
+      (by decide) (fun
+        | 0 => A0.approx n
+        | 1 => B0.approx n
+        | 2 => C0.approx n
+        | 3 => D0.approx n
+        | _ => theta)))
+
+/-- Exact SAME-source double-orbit credit, for arbitrary signed filter weights
+and arbitrary rational theta. No response floor or positivity is assumed. -/
+theorem signedOrbit_response_credit_identity (x : V) (cs : List (Q' × Nat))
+    (theta : Q') (L h : Nat) :
+    let y := orbitSum hw0 hw1 x cs
+    let a := R x (L+1)
+    let b := R x (L+h+1)
+    RCmul a (RCsub (R y (L+h)) (RCscale theta (R y L))) =
+      RCadd (RCmul (RCsub b (RCscale theta a)) (R y L))
+        (responseSum cs (fun j => responseSum cs (fun k =>
+          RCsub (RCmul a (R x (L+(j+k)+h))) (RCmul b (R x (L+(j+k))))))) := by
+  dsimp only
+  rw [credit_reassemble]
+  congr 1
+  rw [orbit_response_expand hw0 hw1 x cs (L+h),
+    orbit_response_expand hw0 hw1 x cs L]
+  simp only [sum_sub, ← sum_mul_left, Nat.add_assoc, Nat.add_comm, Nat.add_left_comm]
+
+/-- Every late raw credit is nonnegative; signed orbit coefficients are NOT
+asserted to preserve this sign after summation. -/
+theorem response_credit_nonnegative (x : V) (L h s : Nat) (hs : 1 ≤ s) :
+    RCnonneg (RCsub (RCmul (R x (L+1)) (R x (L+s+h)))
+      (RCmul (R x (L+h+1)) (R x (L+s)))) := by
+  apply subnonneg_of_le
+  have hh := response_crossRatio hw0 hw1 x (L+1) (s-1) h
+  simpa only [show L+1+(s-1)=L+s by omega,
+    show L+1+h=L+h+1 by omega, RCmul_comm] using hh
+
+private theorem sub_reverse (a b : RC) : RCsub a b = RCneg (RCsub b a) := by
+  refine Quotient.inductionOn₂ a b ?_
+  exact fun A0 B0 => Quotient.sound (SumOfSquares.Equiv_of_approx_eqv (fun n =>
+    poly_identity_of_normal_eq (.add (.var 0) (.neg (.var 1)))
+      (.neg (.add (.var 1) (.neg (.var 0))))
+      (by decide) (fun | 0 => A0.approx n | _ => B0.approx n)))
+
+/-- The shift-zero credit is exactly the negative early covariance. -/
+theorem response_credit_zero (x : V) (L h : Nat) :
+    RCsub (RCmul (R x (L+1)) (R x (L+0+h)))
+      (RCmul (R x (L+h+1)) (R x (L+0))) =
+      RCneg (RCsub (RCmul (R x L) (R x (L+h+1)))
+        (RCmul (R x (L+1)) (R x (L+h)))) := by
+  simpa only [Nat.add_zero, RCmul_comm] using sub_reverse
+    (RCmul (R x (L+1)) (R x (L+h))) (RCmul (R x (L+h+1)) (R x L))
+
+/-- Literal existing box response and timeKernel, with the SAME unsmoothed
+centered family source. No second smoothing or finite-source identification. -/
+theorem smoothedResponse_credit_identity (qs : List Z4Plaq) (c : Z4Plaq → Q')
+    (hqs : ∀ p, p ∈ qs → p ∈ spatialFaces width) (M : Nat) (theta : Q') (L h : Nat) :
+    let x := (familyExcitation hw0 hw1 width qs c hqs).val
+    let a := R x (L+1)
+    let b := R x (L+h+1)
+    RCmul a (RCsub (smoothedResponse hw0 hw1 width qs c hqs M (L+h))
+      (RCscale theta (smoothedResponse hw0 hw1 width qs c hqs M L))) =
+      RCadd (RCmul (RCsub b (RCscale theta a))
+        (smoothedResponse hw0 hw1 width qs c hqs M L))
+        (responseSum (timeKernel M) (fun j => responseSum (timeKernel M) (fun k =>
+          RCsub (RCmul a (R x (L+(j+k)+h))) (RCmul b (R x (L+(j+k))))))) :=
+  signedOrbit_response_credit_identity hw0 hw1
+    (familyExcitation hw0 hw1 width qs c hqs).val (timeKernel M) theta L h
+
 end Completed
 
 #print axioms positive_chain_crossRatio
@@ -647,5 +765,14 @@ end Completed
 #print axioms positiveOrbit_response_crossRatio
 #print axioms shifted_response_floor
 #print axioms positiveOrbit_response_retention
+#print axioms scaled_sub_add_sub
+#print axioms sum_sub
+#print axioms sum_mul_left
+#print axioms credit_reassemble
+#print axioms signedOrbit_response_credit_identity
+#print axioms response_credit_nonnegative
+#print axioms sub_reverse
+#print axioms response_credit_zero
+#print axioms smoothedResponse_credit_identity
 
 end YMGap.Continuum.BF4WilsonAllNomePositiveOrbitResponseOrder

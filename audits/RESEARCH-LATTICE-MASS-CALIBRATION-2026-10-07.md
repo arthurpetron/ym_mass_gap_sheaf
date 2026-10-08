@@ -31,6 +31,14 @@ analytic work, not evidence that the numerical mass closes a proof node.
 
 ## Useful distinctions, with corrections
 
+Continuation, 2026-10-08 17:10 UTC: the attachment's SAME-source/operator/time
+distinctions are retained in a new checked finite signed double-orbit join,
+`BF4WilsonAllNomePositiveOrbitResponseOrder.smoothedResponse_credit_identity`.
+It keeps the original raw family, its existing temporal box and all signed
+credits; it imports no measured mass or continuum assertion. The quantitative
+changing-family estimate remains open. Exact source/log evidence and the
+selected next producer are in the adaptive conditional-score audit.
+
 1. Keep a glueball-channel measurement separate from a theory-wide spectral
    gap. Morningstar--Peardon, section II, describes asymptotic decay for the
    lowest state created by the chosen operator; states with zero overlap

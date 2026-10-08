@@ -27,6 +27,22 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED signed double-orbit join (2026-10-08 17:10 UTC): the EXISTING
+`BF4WilsonAllNomePositiveOrbitResponseOrder` now proves the exact signed
+credit identity and its literal `smoothedResponse`/`timeKernel` specialization.
+Every double-orbit cross term remains; late raw credits are nonnegative and
+the origin credit is exactly the negative early covariance. The identity
+allows signed weights, negative leading credit and zero responses, with no
+norm inverse or extra survival field. This closes the finite algebraic join,
+not its quantitative changing-family input. MAIN: bound the COMPLETE signed
+right-hand side for the original family, or the existing relative innovation,
+in OWN-surviving-variance units with BOTH chronological masses. Do not replace
+that task by raw geometric floors, summing local plaquette floors, E>=0 or a
+measured glueball mass. Focused check 1 PASS; nine new permitted gates and
+independent complete-final-source review PASS. No broad audit or chart change;
+physical/continuum/QFT/every-group/Clay remain OPEN. Exact evidence: adaptive
+conditional-score audit.
+
 MAIN analytic selection updated (2026-10-08 UTC; PAPER/source review only):
 the measurement attachment is already reconciled in the calibration audit;
 reuse its SAME-observable/operator/physical-time distinctions, not its numbers
@@ -73,9 +89,10 @@ Both final focused leaves and independent COMPLETE source review PASS;
 new actual-bound gate permitted, three new diagnostic gates axiom-free.
 MAIN remains the ORIGINAL complete signed window/cost-versus-SAME-variance
 or relative-innovation estimate, not mandatory h*S or positive-E payment.
-Preserve the nonnegative tail credits and residual damping in the PAPER
-box join; x there is RAW and the trajectory state already smoothed.
-Actual changing-family control and the box join remain OPEN. Do not impose
+Preserve the nonnegative tail credits and residual damping; x there is RAW
+and the trajectory state already smoothed. The signed double-kernel join is
+now checked above, without a triangular-recoding prerequisite.
+Actual changing-family control remains OPEN. Do not impose
 separate uniform credit/overlap prerequisites or import measured masses.
 No new module/frontier; physical/Clay and displayed claims remain OPEN.
 Exact source/log hashes and verification limits: adaptive-score audit.

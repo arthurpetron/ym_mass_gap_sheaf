@@ -16,6 +16,17 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked SAME-source signed box join (2026-10-08 UTC):**
+`BF4WilsonAllNomePositiveOrbitResponseOrder.signedOrbit_response_credit_identity`
+retains the complete signed double-orbit credit, including its negative
+origin covariance. `smoothedResponse_credit_identity` uses the EXISTING
+raw family and timeKernel; it does not average the trajectory state again.
+Late raw credits are nonnegative, while the identity permits negative
+leading credit, signed weights and zero responses. Focused check 1 PASS;
+nine new gates permitted and complete independent final-source review PASS.
+Useful original changing-family control and all physical/Clay goals remain
+OPEN; no new hypothesis bundle or broad audit. Evidence: adaptive-score audit.
+
 **Checked finite physical-source Gauss join (2026-10-08 UTC):**
 the EXISTING `BF4ExactSlabFixedSpatialGaussTransfer` now proves zero for
 physical signed spatial spans, literal rational OWN centering, original

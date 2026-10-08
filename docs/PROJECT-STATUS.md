@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Supporting SAME-source signed double-orbit join checked (2026-10-08 UTC):
+the existing positive-orbit leaf retains every original cross term, negative
+early covariance and nonnegative late raw credit. Its literal smoothed-family
+specialization uses the raw source/timeKernel, not a second smoothing.
+Signed weights, zero responses and negative leading credit remain in the
+identity. Focused check 1/nine new permitted gates and complete independent
+final-source review PASS. The actual moving-family estimate is still OPEN;
+no canonical field or displayed chart claim changes, so no chart reprint.
+Exact evidence: adaptive conditional-score audit.
+
 Supporting finite physical-source Gauss join checked (2026-10-08 UTC):
 the existing GaussTransfer leaf proves zero for physical signed spatial
 families, OWN rational centering, original terminal messages and actual

@@ -6,6 +6,127 @@ and a finite strictly positive physical Hamiltonian mass gap.
 
 ## Observed quantitative screens and the next joint payment (2026-10-08 UTC)
 
+### Observed signed double-orbit join (2026-10-08 17:10 UTC)
+
+The selected finite identity is now kernel-checked in the EXISTING leaf,
+without another module, hypothesis bundle or changed frontier field:
+
+- `lean/YMGap/Continuum/BF4WilsonAllNomePositiveOrbitResponseOrder.lean:696`,
+  `signedOrbit_response_credit_identity`, proves the complete signed
+  double-orbit identity below for every original completed x, arbitrary
+  signed orbit list, rational theta and natural L,h. Repeated entries,
+  empty lists, zero responses and negative E are not excluded.
+- `:714`, `response_credit_nonnegative`, produces each late raw credit's
+  sign for s>=1 from the existing cleared ratio order. Signed filter
+  coefficients do NOT automatically preserve that sign after summation.
+- `:730`, `response_credit_zero`, identifies the origin credit with
+  the negative SAME early covariance, retaining its actual debit.
+- `:740`, `smoothedResponse_credit_identity`, pins the calculation directly
+  to the EXISTING `familyExcitation`, `timeKernel` and `smoothedResponse`.
+  The trajectory source is already smoothed; no second averaging occurs.
+
+The whole original signed right-hand side is now an exact mathematical
+consumer of the existing covariance bounds and remaining late credits.
+It does not have an automatically favorable sign. In particular no useful
+changing-family lower credit or relative innovation ceiling is manufactured,
+and no cleared factor is canceled without a produced positive floor.
+For L=p=N/2 and h=N+1-p the target lag is N+1: b=R_x(N+2), or r_(h+1)
+in warmed indices. No parity restriction is needed for this identity.
+
+Independent Sol review read all 778 final-source lines and the actual
+neighboring constructors, revalidated the hash, and found no mathematical
+defect. Root inspected every addition and its actual source/response pins.
+The decisive existing negative-E two-mode example is preserved. An auxiliary
+exact-rational arithmetic screen confirms its identity, late signs and
+positive margin; 3*Gamma_2 ALONE fails to pay that example. That arithmetic
+screen is not a Yang--Mills instance, proof premise or additional Lean gate.
+
+Verification: focused check 1 PASS, exit 0, with one 20-GiB capped compiler
+and a 12-GiB reserve. The successful fresh preflight found no competing
+Lean/Lake/pytest/runner process, 87% free memory and zero swap. Every new
+printed helper/public gate (nine total) reports exactly
+{propext, Quot.sound}. No limits were raised. No sorry, axiom, classical
+input, native decision, witness erasure, broad/root/tree audit or baseline
+refresh. Exact artifacts:
+
+    /private/tmp/ym-oct8-signed-orbit-credit1.log
+    SHA256 d6c7da56f63b6d0e6147b92fe3d01cfdad5b24cf6cdb8e7e7828a9dd314abe9a
+    Final leaf SHA256 c003deeb026c595292ab6ab57e5e4401897cccd2406340a8f2421b7fe709aa97
+
+CONTINUE: seek the actual COMPLETE original-family signed credit or the
+existing relative-innovation producer, with OWN surviving variance, both
+chronological masses and a justified physical family. Do not return to an
+E>=0, local-floor sum, replica invariance or measured-mass shortcut. The
+finite algebraic join is produced; original scaling control, independent
+survival, physical mass/spacing, SAME continuum QFT, every group and Clay
+remain OPEN. Canonical displayed claims unchanged; no chart reprint.
+
+### Selected bounded experiment: retain the actual double-orbit credits
+
+Inputs: the existing original completed response, `orbitSum`, its exact
+double-response expansion, and `response_crossRatio` in
+`BF4WilsonAllNomePositiveOrbitResponseOrder.lean`. For y=orbitSum(x,cs),
+a=R_x(L+1), b=R_x(L+h+1), E=b-theta*a and
+Gamma_s=a*R_x(L+s+h)-b*R_x(L+s), prove the cleared exact identity
+
+    a*(R_y(L+h)-theta*R_y(L))
+      = E*R_y(L) + sum_(j,k) c_j*c_k*Gamma_(j+k).
+
+It holds even for signed weights, zero responses and negative E. For
+s>=1, the existing ratio order produces Gamma_s>=0; Gamma_0=-Delta_h.
+Consumer: the EXISTING smoothed-family/window-survival route, using the raw
+family with `timeKernel`, not another smoothing of the trajectory state.
+When p is the warm lag and N+1 the absolute target, h=N+1-p; the warmed
+index h+1 must not be confused with absolute index N+2.
+Prediction: a short exact finite join, with no new analytic field. The
+zero-radius, zero-response and negative-E two-mode tests must remain valid.
+Budget: one capped focused leaf and independent final-source review; no
+root/tree audit. Revise if it duplicates the existing expansion, drops a
+tail credit, requires E>=0, or cancels a response without a produced floor.
+This experiment pays no original interacting scaling estimate by itself.
+
+### Additional read-only route screens at HEAD `8e1aaedf`
+
+The existing positive transmitted-response floor is NOT absent:
+`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteFamilyBondOrbit.lean:110`,
+`family_time_geometric_floor`, gives rho^(2*t)*B(x,x) at each fixed
+member. Its actual rho is
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyBandResponse.lean:165`,
+`familyResponseFraction`, namely
+w^12*(headFloor/prefixCap)^(56*F), F=family length. Using only the raw
+variance floor in a transmitted-source entropy denominator would drop
+this time-dependent factor. The existing conservative-band obstruction is
+already proved in
+`lean/YMGap/Continuum/BF4WilsonAllNomeFamilyBandCalibrationObstruction.lean:64`,
+`familyResponseFraction_le_ceiling`; do not build it again.
+An entropy bound would additionally require an actual original local
+exponential-moment producer. The gradient-payment pin is not an OWN-law
+identification:
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.lean:384`,
+`original_ratioNoise_gradientPayment_weighted_pin`, retains V*a*T(Vbar*Ta).
+No transferred-response floor alone compares that weight with the OWN law.
+
+The bounded-interference dual in
+`lean/YMGap/Continuum/BF4ExactSlabPlaquetteBoundaryDualFamily.lean:199`,
+`family_norm_bound`, and `:376`, `family_partition_coercivity`, controls
+ordinary original-action L2/coefficient coercivity, not temporal bond Gram
+domination. PAPER false-join test: V=I and
+B=[[r,-r+delta],[-r+delta,r]], with 0<delta<r<1/2, have 0<B<I and
+individual response ratio r, but the source (1,1) has ratio delta. Sparse
+interference plus individual floors does not repair signed-family control.
+This is not a Yang--Mills counterexample. A joint ORIGINAL bond/OWN-variance
+comparison remains a genuinely missing estimate, not a sum of local floors.
+
+The fixed-carrier represented logarithm and domain-density joins are also
+already present in `lean/YMGap/Continuum/BF4WilsonAllNomeBondOSLogarithm.lean:136`,
+`representedLogarithmCertificate`, and
+`lean/YMGap/Continuum/BF4WilsonAllNomeBondOSDerivative.lean:114`,
+`densityCertificate`. Repeating their pairing supplies no changing-family
+carrier, physical clock, continuum generator or QFT producer. A PAPER
+pure temporal-prefix replica exchange leaves the squared initial source
+difference fixed; it does not reduce the relative innovation without a
+new source-weighted original seam estimate. No such estimate was produced.
+
 Read-only mathematical/source selection at HEAD `6fe2e97f`, independently
 screened by two Sol reviewers and checked against the cited source by root.
 These are PAPER arguments and decisions, not new Lean theorems. The user's
