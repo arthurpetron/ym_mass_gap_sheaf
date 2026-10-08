@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## PROVED antisymmetric ORIGINAL source and Gram-mean removal / OPEN signed survival (2026-10-08 UTC)
+
+`BF4ExactSlabFixedSpatialAntisymmetricPlaquette.original_mean_zero`,
+`endpointMean_zero`, `ownMean_zero` and `shifted_source_pin` produce exact
+centering for origin p01-minus-p02 with its complete original action.
+`BF4WilsonAllNomeAntisymmetricPlaquette.excitation` is its raw embed in the
+EXISTING vacuum complement; `excitation_norm_floor` and
+`excitation_norm_ne_zero` give squared norm >=2*varianceFloor(w)>0 for
+fixed strict nome/width>=1; `excitation_correlator_pin` keeps completedTime.
+`BF4ExactSlabFixedSpatialAntisymmetricGram.source_spatialSpan_pin` retains
+that source under exact recoding, and produced fringe independence at
+width>=2 joins the actual original energy consumer. The SEPARATE one-sided
+raw/projected means, not just the OWN odd mean, give `jump_mean_zero` and
+`sum_mean_zero`. `original_energy_response_budget` removes precisely J,M,
+retaining original energy, source-jump square and signed cross credit.
+No new analytic premise or interacting-transfer eigenidentity. A useful
+relative filtered-cost bound, changing-family/physical survival and all
+physical/Clay claims remain OPEN. Three focused capped checks, 36 permitted
+gates and independent complete-source reviews; no root/tree audit, new
+hole/axiom, limit increase, canonical field or chart closure. Exact sources
+and logs: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 ## PROVED second finite spatial generator / OPEN completed cubic and continuum covariance (2026-10-08 UTC)
 
 `BF4ExactSlabSpatialHeadSwapGeometry` realizes x0/x1 on the SAME finite slab,

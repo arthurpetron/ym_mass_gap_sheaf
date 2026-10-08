@@ -4,6 +4,124 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Selected antisymmetric ORIGINAL source (2026-10-08 UTC)
+
+Proposition: for width>=1 take the literal fundamental-character difference
+between origin faces p01 and p02, with coefficients +1,-1. The existing x1/x2
+swap exchanges these ordered loops without reversal. Prove its finite
+original chronological scalar, endpoint means and moving OWN center are
+exactly rationally equivalent to zero, at every stage/depth, and exhibit
+its nonzero state on the EXISTING completion with the existing two-face
+variance floor. Do not merely assume an odd source or a symmetry witness.
+
+Inputs: `SpatialAxisSwapWilsonWindow.originalWindowScalar_swap`, literal
+physical plaquette loops, original finite linearity and endpoint pins,
+`PlaquetteFamilySourcePin.familyExpression`, and
+`PlaquetteFamilyVariance.familyExcitation_norm_floor`. Consumer: specialize
+the new SAME-source OriginalRayleighLimit without moving-center debt, and
+remove the completed mean-product correction for this produced source.
+This is a selected-source algebraic simplification, not a slow-rate estimate.
+
+Independent source screens predict success. Decisive tests: exclude width0,
+check physical nonrepeated faces, keep all action/partition factors and source
+inverse flags, and retain coefficient-square budget 2. The quadratic signed
+costs are swap-even and do NOT vanish. Unrelated Gram-test means require their
+own invariant-weight pin; do not erase them from odd marginal mean alone.
+Budget: bounded Sol finite-source implementation, root completed/variance
+consumer, independent complete-source review, serialized root-only focused
+20-GiB checks with 12-GiB reserve and fresh dynamic-capacity preflight.
+Stop if an existing identical producer is found or an additional analytic
+premise is needed. No new norm inverse, completion, scaling input or canonical
+field change is selected. Observed proof evidence is recorded separately.
+
+Bounded follow-on decision: the actual Gram means J and M can be tested
+without a new transfer-symmetry framework. The existing product-heat jump
+and sum-test mean pins reduce them to H[q*f] and H[q*P(f)]. For this literal
+two-face family the existing full-range heat eigenidentity gives P(f)=w^12*f.
+Use the original zero mean at L=0,m=depth,n=0 and its positive chronological
+partition to prove H[q*f]=0, retaining q as the projected ORIGINAL terminal
+source. Strict padding from spatialFaces(1) requires width>=2 to supply
+the existing fringe-independence guard; width1 nondegeneracy is not survival.
+Predicted output: J=M=0 in the actual SourceVarianceGram consumer, with
+the swap-even cross credit and source-jump square UNESTIMATED. Budget: one
+bounded Sol leaf, root-only capped check, independent full-source review.
+Stop rather than assume q invariance or replace its weight/action. This
+removes actual mean corrections, not a signed scaling obligation.
+
+### Observed antisymmetric-source proof evidence (2026-10-08 UTC)
+
+All three selected leaves now pass focused kernel checks. Independent
+complete-source mathematical reviews pass; final compiler fixes changed
+only imports, namespace/notation resolution, explicit sequence annotation
+and local unfolding, not any statement or premise.
+
+| Produced result | Exact source |
+| --- | --- |
+| Physical distinct p01,p02, literal ordered loop exchange and coefficient-square budget 2 | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialAntisymmetricPlaquette.lean:50`, `face01`; `:51`, `face02`; `:57`, `faces_physical`; `:69`, `coefficient_square_budget`; `:87`, `swapSourceLoop_face01` |
+| Every finite ORIGINAL chronological mean is zero | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialAntisymmetricPlaquette.lean:126`, `original_mean_zero` |
+| Exact endpoint and moving OWN mean zero, literal centered source unchanged | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialAntisymmetricPlaquette.lean:168`, `endpointMean_zero`; `:176`, `ownMean_zero`; `:191`, `shifted_source_pin` |
+| Existing joint-limit/unit pairing zero; centered moments equal raw moments | `lean/YMGap/Continuum/BF4WilsonAllNomeAntisymmetricPlaquette.lean:60`, `joint_mean_zero`; `:72`, `state_mean_zero`; `:85`, `centeredMoment_uncentered` |
+| Raw embed in SAME vacuum complement, squared norm >=2*varianceFloor(w)>0, SAME completed time correlator | `lean/YMGap/Continuum/BF4WilsonAllNomeAntisymmetricPlaquette.lean:100`, `excitation`; `:128`, `excitation_norm_floor`; `:136`, `excitation_norm_ne_zero`; `:159`, `excitation_correlator_pin` |
+| Literal spatialSpan recoding and PRODUCED fringe independence for width>=2 | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialAntisymmetricGram.lean:82`, `source_spatialSpan_pin`; `:87`, `source_fringe_independent` |
+| Actual OWN-centered span is coefficient-pinned to original Wilson source | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialAntisymmetricGram.lean:135`, `ownMean_spatialSpan_pin`; `:141`, `oddCentered_source_pin` |
+| Separate one-sided raw mean H[V*g_depth*f]=0, then actual projected H[q*f]=0 | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialAntisymmetricGram.lean:162`, `raw_endpoint_mean_zero`; `:188`, `projected_endpoint_mean_zero` |
+| Both actual Gram means J=M=0 and simplified original energy budget | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialAntisymmetricGram.lean:203`, `projected_heat_mean_zero`; `:214`, `jump_mean_zero`; `:226`, `sum_mean_zero`; `:248`, `original_energy_response_budget` |
+
+Interpretation: width>=1 gives a nonzero exactly centered initial source;
+width>=2 supplies the stronger fringe guard needed by the finite energy
+consumer. The one-sided terminal mean is proved independently of the OWN
+odd-marginal mean: no substitution between these two densities occurs.
+The bare P(f)=w^12*f pin is used ONLY under the actual q insertion to remove
+linear means. No interacting-transfer eigenvalue is inferred. The final
+finite budget retains V=16*S-8*E+Dplus and X=H[W*r*s], giving
+4*V*E+X^2<=2*V*singleEndedCost. Neither Dplus nor X is estimated here.
+The source/nome/width stay fixed in the limit. No positive-time lower bound,
+changing-family modulus, scaling-uniform floor or physical/Clay closure.
+
+Verification: three successful serialized focused checks, 15+11+10=36
+printed gates, each empty or within {propext, Quot.sound}, no sorryAx.
+One compiler, 20-GiB cap and 12-GiB OS reserve, with fresh dynamic-capacity
+preflight before each launch; swap use remained zero. The Gram check has
+one harmless unused-section-variable warning on the private q_supported
+helper. No full-tree/root audit or regression on unchanged machinery.
+Root imports are registered only. No new hole/axiom, classical/native
+shortcut, option-limit increase, canonical field or chart change.
+
+Successful logs and SHA-256:
+
+```text
+/private/tmp/ym-antisymmetric-finite-20261008b.log
+  92b0f4a746445c5ff53e5e1d54c0c96a7a51575e036a11b08390c721f83af92d
+/private/tmp/ym-antisymmetric-completed-20261008b.log
+  bd758ada980f2f220989df46a3e0e80d875fc7331efb78c1b41e7a0a60b21227
+/private/tmp/ym-antisymmetric-gram-20261008c.log
+  46d67c47ed818e00497c846f98e216968aeada609757874dcb7299c3fb265ac2
+```
+
+Checked source SHA-256, in the same finite/completed/Gram order:
+
+```text
+d1ba1be8ee93082fd970158991acded74438c727b2cb20669ec53a9cf1e6e189
+715a12ec41c5b794fa90703fa6abdd324375fda650cc6bcce71269f1157d8098
+21bd34812ce33fcc7dac5ec83961428969955b72b7de09ee33f9178a5afdc6be
+```
+
+Decision: CONTINUE to the actual signed relative cost/reserve, not another
+mean or completion wrapper. This source removes centering terms, but a
+filtered proof must still control its SAME surviving filtered variance.
+The stronger optional initial-energy condition is not imposed as necessary.
+An independently reviewed algebraic lead, NOT a new checked declaration:
+after the center pin, r*s=jump(q^2)*jump(f^2). The existing
+`lean/YMGap/Continuum/SU2QuaternionProductHeatJumpMean.lean:72`, `jump_mean`,
+then yields X=2*(H[q^2*f^2]-H[q^2*P(f^2)]). This preserves the signed
+quadratic response and supplies no sign or useful relative estimate.
+The existing full angular/Ward/Taylor costs cannot be erased by oddness.
+
+The latest user's lattice-measurement attachment matches the cached
+`RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md` review exactly. Retain its
+channel-versus-every-state and physical-time calibration distinctions;
+do not refetch papers or import fitted masses as constructive premises.
+
 ## Bounded loop-moment compression screen (2026-10-08 UTC)
 
 Targeted primary-source research alongside the finite spatial-symmetry check;

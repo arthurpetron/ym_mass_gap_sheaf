@@ -27,6 +27,26 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED selected ORIGINAL antisymmetric source (2026-10-08 UTC): origin
+p01-minus-p02 has zero chronological, endpoint and moving OWN means, with
+the SAME complete action/partition. Its raw embed in the existing Wilson
+vacuum complement has squared norm >=2*varianceFloor(w)>0 at fixed strict
+nome and width>=1; raw and centered completed correlations agree. At
+width>=2, produced fringe independence of its exactly recoded spatialSpan
+and a SEPARATE one-sided terminal mean remove BOTH actual Gram means J,M.
+`AntisymmetricGram.original_energy_response_budget` retains V=16*S-8*E+Dplus
+and the full signed cross credit. No q-symmetry premise or interacting heat
+eigenvalue is assumed. This simplifies the chosen source, not its rate.
+NEXT: a useful JOINT signed cost/reserve versus its SAME filtered variance;
+do not build another mean/completion wrapper or infer survival from the
+fixed-nome initial floor. Direct filtered control remains eligible without
+the stronger unfiltered initial bound. Quadratic costs are swap-even.
+Three serialized focused 20-GiB checks/36 permitted gates and independent
+complete-source reviews pass. Root imports registered only; no full-tree
+audit, source-family/scaling input or canonical chart closure. Exact source
+pins, verification and residual squared-source-response derivation are in
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 CHECKED SAME-source filtered-profile join (2026-10-08 UTC): arbitrary
 radius-zero Wilson expressions now have their literal original filtered
 variance/cost pinned to the EXISTING completed centered lag-2t moment and

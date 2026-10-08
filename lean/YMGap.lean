@@ -7933,6 +7933,13 @@ import YMGap.Continuum.BF4ExactSlabSpatialHeadSwapWord
 import YMGap.Continuum.BF4ExactSlabSpatialHeadSwapHaar
 import YMGap.Continuum.BF4ExactSlabSpatialHeadSwapAction
 
+-- A nonzero exactly centered ORIGINAL antisymmetric plaquette source.
+-- The actual Gram means vanish under the produced width>=2 locality guard;
+-- signed cost, filtered survival and scaling remain open.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialAntisymmetricPlaquette
+import YMGap.Continuum.BF4WilsonAllNomeAntisymmetricPlaquette
+import YMGap.Continuum.BF4ExactSlabFixedSpatialAntisymmetricGram
+
 -- Cofinal AF reference decay forces large ORIGINAL signed cancellation
 -- for a useful initial energy fraction; it does not produce that fraction.
 import YMGap.Continuum.BF4DyadicWilsonSquareAFSignedCancellation

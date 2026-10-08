@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Supporting selected antisymmetric ORIGINAL source checked (2026-10-08 UTC):
+p01-minus-p02 has exact chronological/endpoint/OWN mean zero and a nonzero
+raw embedded state in the SAME vacuum complement, with fixed-nome squared
+norm >=2*varianceFloor(w), width>=1. At width>=2, its exact spatialSpan
+recoding and produced fringe independence remove BOTH actual Gram means.
+The original energy, source-jump square and signed cross credit remain
+unestimated. Three focused capped checks/36 permitted gates, independent
+complete-source reviews; no full-tree/root audit. No filtered survival,
+scaling or displayed-claim closure; canonical chart unchanged, no reprint.
+Evidence: the adaptive-conditional-score audit dated 2026-10-07.
+
 Supporting SAME-source filtered-profile join checked (2026-10-08 UTC):
 arbitrary radius-zero Wilson expressions retain their actual moving OWN
 mean and distinct chronological partitions. Original filtered variance and

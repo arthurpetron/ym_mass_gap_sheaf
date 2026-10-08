@@ -4,6 +4,20 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Selected source increment: exact centering and actual Gram means (2026-10-08 UTC)
+
+Origin p01-minus-p02 now has exact ORIGINAL finite/endpoint/OWN mean zero
+and a raw nonzero state on the SAME Wilson completion. Its initial squared
+norm floor is 2*varianceFloor(w) at fixed strict nome, not a scaling floor.
+At width>=2, independently produced fringe locality and a SEPARATE one-sided
+terminal mean remove J,M from the actual `SourceVarianceGram` budget. The
+full source-jump cost and signed cross credit remain. No extra symmetry or
+analytic premise; no bare-heat eigenpin is assigned to interacting transfer.
+Three focused checks/36 permitted gates, independent full-source reviews;
+no root/tree audit. Next is useful JOINT signed cost versus SAME surviving
+filtered variance, not another centering/completion wrapper. No broad chart
+node closes. Evidence: the adaptive-score audit dated 2026-10-07.
+
 ## Latest original-score increment: conditional Gruss correction (2026-10-07 UTC)
 
 - `SU2QuaternionConditionalGrussSquare.conditionalGrussSquare_certificate`
