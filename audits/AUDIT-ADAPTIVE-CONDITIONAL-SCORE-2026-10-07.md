@@ -8052,3 +8052,137 @@ do not consume this hemisphere-only upper contribution or pay the signed
 action/spatial score covariance. No localization premise is introduced.
 Continue the complete ORIGINAL macroscopic numerator or JOINT signed payment;
 no new interface, proof-node closure or chart-state change is claimed.
+
+## Trace-sign experiment and warmed-budget screen (2026-10-08 UTC)
+
+Previous goal turn: PROGRESS, `5164c1e2`, a source/PAPER selection correction,
+not a new interacting estimate. Two independent read-only mathematical
+investigations now test the next proposed joins, without a numerical sweep.
+
+Experiment: determine whether positivity, simultaneous kinetic angular
+invariance, OWN centering and the complete Haar/plane trace force a sign for
+the centered density payment retained by
+`original_ratioNoise_ward_unitJointGradient_le`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.lean:1076`.
+The existing finite Haar regression leaf is the intended certificate location;
+it is not an original BF4 action instance or a physical observable replacement.
+
+PAPER prediction, independently derived: on two unit quaternions let
+K(x,y)=1+(x dot y)/2, g(x)=1+7*x0/8, W=K*g. The actual density has floor
+1/16, and K is invariant under each simultaneous coordinate-plane rotation.
+With I=integrate the incoming quaternion, A=I(W), B=I(W*phi),
+nu=A*I(W*phi^2)-B^2, X=A*phi-B and
+Q=I(K*(J_in g)*X^2), use the actual outgoing D=J_out A. At V=1 and
+the literal upper-window-2 reciprocal of degree one, G=1/2. The complete
+six-plane outer-Haar sum of G^2*D*(Q-nu*D) is predicted to be
+
+    phi=x0-7/32:   +61103/1610612736,
+    phi=x0^2-1/4: -298655/6442450944.
+
+Both tests are OWN-centered in the SAME globally normalized W law. Opposite
+signs would reject this universal sign argument, not interacting Yang--Mills
+survival or a sign theorem using additional actual action structure.
+The quadratic test has a short PAPER factorization: with q=t*r and xi=q*y0,
+`Q-nu*D = D*((xi-4)*(xi+1)/192)`. Its bracket is strictly negative for
+|xi|<1. This sign is not a conditional Gram failure; the density is positive
+and its variance determinant remains nonnegative.
+Verification budget: one focused serialized 20-GiB Lean worker with 12-GiB
+OS reserve after fresh process/dynamic-memory checks, and independent complete
+final-source review. No root/tree audit, foreign code, new premise or axiom.
+Abandon implementation if it requires a generic analytic interface rather
+than a small exact finite certificate. Observed verification belongs below;
+the rational predictions above are PAPER until checked. The stronger second
+test replaced an earlier non-class coordinate test. BOTH final tests are
+polynomials in the conjugation-invariant scalar x0; no full local gauge or
+original-action identification is asserted.
+
+Independent DIRECT-route screen (source/PAPER): write R_n=B(x,T^n x),
+delta_n=R_n-R_(n+1), D_s=R_s-R_(2s), s>=1. Monotonicity gives
+D_s<=s*delta_s. The existing `mixedMoment_column_bound`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeTimeDefectTail.lean:91`, gives
+D_s<=s*R_0/(s+1). Paying this particular ceiling in R_s units would require
+R_0<=(1-kappa)*(s+1)*R_s/s. For R_s>0 and kappa>1/(s+1), this is incompatible
+with R_0>=R_s. It refutes the sufficiency of that absolute ceiling for a
+fixed positive large-s retention fraction, NOT the actual retention claim.
+The positive last term in `mixedMoment_time_budget`, same file `:71`, instead
+gives s*delta_s+R_s<=R_0 and hence R_(2s)>=2*R_s-R_0; its useful join still
+needs the unproduced floor R_s>=R_0/(2-kappa) when 0<kappa<1.
+
+`conditionalHeat_weighted_angular_variance`,
+`lean/YMGap/Continuum/SU2QuaternionConditionalAngularPoincare.lean:132`,
+pays conditional variance by (1-w^2) times the INPUT gradient. It cannot
+erase the actual spatial derivative in T f=P(V f):
+`transferStep_kineticMap`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialKineticContraction.lean:72`,
+and `productMap_angular_carrier`,
+`lean/YMGap/Continuum/SU2QuaternionProductHeatAngularCommutation.lean:59`,
+give J(Tf)=P(V*Jf)+P((JV)*f) under their support/angle guards.
+The complete ratio derivative additionally retains its signed density-score
+covariance. Reject another warming/Poincare propagation wrapper without
+payment against the actual warmed OWN variance. Direct macro retention and
+quantitative action-dependent joint payment remain co-primary OPEN targets.
+
+Observed finite verification, 2026-10-08 UTC: focused check3 PASS; the
+existing leaf is already imported by `lean/YMGap.lean:7337`, and no root
+registration or root/full-tree build was needed. The following declarations
+are now kernel-checked in
+`lean/YMGap/Continuum/QuaternionHaarConditionalRegressionWitness.lean`,
+namespace `QuaternionHaarConditionalRegressionWitness.ScoreSign`:
+
+- `source_mass_and_centering`:212, `moments_are_actual`:220 and
+  `score_inputs_are_actual`:236 pin the actual law, OWN centers and inputs.
+- `boundary_density`:251 and `reciprocal_one`:257 pin A and literal G.
+- `coupling_pair_invariant`:263 proves invariance on the actual two-head
+  Haar carrier, including arbitrary polynomial insertion, NOT raw exponent
+  list equality. It composes the existing
+  `scalarAt_pairedAngular_carrier_at`,
+  `lean/YMGap/Continuum/SU2QuaternionRelativeHeatAngularInvariant.lean:189`.
+- `dot_certificate`:288, `coupling_floor_certificate`:297,
+  `incoming_floor_certificate`:304 and `source_floor_certificate`:314
+  return Type-valued positivity certificates, including W>=1/16.
+- `total_phi0_exact`:327 and `total_phi1_exact`:332 prove the two opposite
+  fractions above; `bare_totals_exact`:336 retains the same signs without
+  G^2. `score_signs`:341 proves both strict inequalities directly.
+
+Every one of the fourteen new public axiom prints, and every pre-existing
+print in this focused leaf, is empty or contained in {propext, Quot.sound}.
+No literal `sorry`, new axiom, classical shortcut, trusted external
+calculation or weakened original-action obligation is introduced.
+
+Verification command, from the repository root:
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionHaarConditionalRegressionWitness.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionHaarConditionalRegressionWitness.olean --log-file /private/tmp/ym-oct8-trace-sign3.log
+
+Checks1/2 terminal FAILED before repair. Check1 found an unavailable
+`interval_cases` tactic and unpinned coordinate arguments. Check2 found
+that paired angular cancellation is false as arbitrary raw coefficient
+probe equality: differentiation preserves unequal trailing-zero list
+lengths. The final repair uses the already proved supported Haar-carrier
+cancellation, as explicitly documented in
+`derivative_self_carrier`,
+`lean/YMGap/Continuum/SU2QuaternionAngularCoordinate.lean:46`.
+Elaboration-generated `sorryAx` in those failed logs was rejected; it is
+absent from every final gate. No failed result is counted as a proof.
+An independent complete final-source reviewer PASSed the exact frozen
+final hash below after the correction. Both exact fractions were also
+derived independently before compilation.
+
+SHA256 evidence:
+
+    final Lean source: ef041d8fe04172dd88706f3b2b6c8ac1e539b1fcaac289363c1dc5d7ba05dd6f
+    /private/tmp/ym-oct8-trace-sign1.log: f938ddc2f55cc6785707e8750d74b94711f163c16814549ce5dbdd1ad6f0cc77
+    /private/tmp/ym-oct8-trace-sign2.log: 9ddcc37410b2d7309471c5be89266aa8f1739ae1faf2e03df4ae764d71578fb6
+    /private/tmp/ym-oct8-trace-sign3.log: 4d653f6d6cf8b8ffab0bbbb13bbcb90dd4f3ccdec6ca2eb86081128f3842da11
+
+Each launch followed a fresh successful live process/memory preflight;
+the last reported 83% memory free and zero swap, with no competing worker.
+Checks used one monitored 20-GiB worker, 64-MiB stack and 12-GiB OS reserve.
+The auxiliary namespace's finite-normalization settings (maxRecDepth=100000,
+maxHeartbeats=12000000) match the imported differential leaf; these are
+not raised worker/OS-memory limits. No broad build or audit was run.
+
+Conclusion: positivity, paired kinetic-coupling symmetry, OWN centering and complete trace
+do NOT determine a universal sign for this correction. A sign conclusion
+using extra actual action/source structure is not refuted. The original
+JOINT signed estimate versus surviving OWN variance, or DIRECT original
+macro ratio, remains OPEN. No canonical displayed proof claim changes.

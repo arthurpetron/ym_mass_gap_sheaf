@@ -264,6 +264,28 @@ law has no produced localization/complement payment that lets MAIN consume
 it. No Lean edit, compiler, new premise or canonical closure. Exact algebra,
 declaration pins and scope: final section of the adaptive-score audit.
 
+CHECKED finite score-sign screen (2026-10-08 UTC): the EXISTING
+`QuaternionHaarConditionalRegressionWitness.ScoreSign` now constructs a
+strictly positive two-head auxiliary SU(2) law whose kinetic coupling has
+actual paired angular invariance, with OWN centering. Its complete
+Haar/six-plane score is positive
+for the scalar source and negative for the scalar-square source under the
+SAME law; actual moments, tilt, derivative and finite reciprocal are pinned.
+PRUNE a universal favorable sign inferred only from positivity, kinetic-pair
+symmetry, class-polynomial shape or full trace. This is NOT an original BF4
+action instance, a retention counterexample or a physical gap theorem.
+Independent DIRECT-route source/PAPER review also rejects paying warmed
+variance with the existing absolute time-defect ceiling; it does not refute
+retention. CONTINUE action-dependent JOINT signed payment in OWN warmed
+variance units, or the complete original macro numerator. Do not demand a
+separately favorable sign of each correction. Focused check3/all fourteen
+new permitted gates and COMPLETE independent final-source review PASS;
+checks1/2 failed on tactic/implicit coordinates and raw trailing-zero
+coefficient equality, respectively, before repair. One 20-GiB worker,
+12-GiB reserve, fresh preflights; local finite-normalization options match
+their imported differential leaf. No root/tree audit, new premise, canonical
+closure or chart change. Exact declarations/source/log hashes: score audit.
+
 Targeted paper review integrated (2026-10-08 UTC, user request):
 `audits/RESEARCH-2610-09093-2026-10-08.md` records the long paper and companion
 review, exact relevant equations, SAME-original-source consumers and access
