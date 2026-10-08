@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Supporting ACTUAL finite SU(2) closed-character Gauss law checked
+(2026-10-08 UTC): the original all-link vertex generator telescopes each
+compatible physical ordered word and kills its scalar/every-spin character.
+Reverse/repeated occurrences and all geometry guards remain. Ten permitted
+public gates and independent complete FINAL-source review; focused capped
+check only, root import registered, no full-root/tree audit. Continuum gauge
+domain and MAIN changing-family signed retention stay OPEN. Canonical displayed
+claims unchanged, no chart reprint. Evidence: parallel QFT-inputs audit.
+
 Supporting ORIGINAL inserted H116->H32 reduction checked (2026-10-08 UTC):
 closed affine parity and actual inner insertion IDs produce inner support
 of the ORIGINAL action. Its literal heat coefficient and every insertion

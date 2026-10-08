@@ -38,6 +38,10 @@ If R=H-r*G has R00<0 and det(R)<0, the symbolic vector
 NOT automatically rational filter coefficients: constructive rational
 approximations must retain an explicit positive margin. No sign decision on
 an arbitrary CReal or choice of an unlocated eigenvector is permitted.
+For these concrete sources the available Type-valued approximation datum is
+`lean/YMGap/Continuum/BF4WilsonAllNomeCenteredMoments.lean:46`,
+`centeredTimeMomentCauchy`; it retains an explicit QCauchy.M. Do not extract
+a numerical coefficient/modulus from the Prop-valued ConvergesTo alone.
 For the following OWN substitution explicitly take
 x=centeredVector(state e he), for a fixed radius-zero original expression
 e with he:Within 0 e, and L=2*t. The SAME pairing pin is

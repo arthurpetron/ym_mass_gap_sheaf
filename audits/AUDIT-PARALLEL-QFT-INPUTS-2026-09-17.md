@@ -16,6 +16,49 @@ constructive Mathlib-free MLTT/HoTT gate. **The goal remains OPEN.**
 
 ## Selected finite vertex-Gauss source law (2026-10-08 UTC)
 
+### Observed direct closed-character consumer
+
+The ACTUAL finite source law is now produced by
+`lean/YMGap/Continuum/BF4ExactSlabVertexGaussClosedCharacter.lean`:
+raw scalar `vertexGauss_add:205`, `vertexGauss_neg:210`,
+`vertexGauss_smul:214`, `vertexGauss_mul:220`,
+`vertexGauss_zero:226`, `vertexGauss_one:231`, and raw
+`vertexGaussQuaternion_mul:321`. These lift the original L/R operators
+through the actual finite carrier sum; no source law is assumed.
+`compatibleWord_gauss_endpoint:482` inducts over the ORIGINAL right-associated
+word with physical membership and Compatibility. Interior endpoint terms
+cancel using the EXISTING quaternion associativity, not a degree-three
+whole-word normalizer. `closedScalar_gauss_zero:510` uses actual closedness
+and scalar cyclicity; `closedCharacter_gauss_zero:557` uses the literal
+Chebyshev recurrence for EVERY spin. Reversed/repeated occurrences remain
+ordered, with no word-Nodup premise. Actual derivatives are formed BEFORE
+common padding and substitution; no padded identity is differentiated.
+There is no sphere/unit or analytic hypothesis.
+
+Focused check 2 passes all TEN public axiom gates exactly {propext,Quot.sound}.
+Check 1 rejected only proof-expression .neg field lookup after Lean unfolded
+the relation to a function; explicit RatPolyCoeffEqv.neg repairs preserve
+every public statement and sign. Synthetic sorryAx in that rejected log is
+not an accepted proof or a source hole. Root read the full source and repairs;
+independent complete FINAL-source review PASS with the final hash. Both
+launches used fresh process/memory/swap preflight, one 20-GiB-capped worker,
+12-GiB OS reserve, pressure-free 88% reading and zero swap. No resource option
+increase, broad audit or full-root/tree build. Root import registered only.
+
+```text
+SOURCE lean/YMGap/Continuum/BF4ExactSlabVertexGaussClosedCharacter.lean
+SHA256 4f13ceab635d7287fd4b8d6aa7923e180cf8be274582f941f28b3bfb0ffd831c
+CHECK  /private/tmp/ym-oct8-gauss-closed-character2.log
+SHA256 3f78edb3fa75a59fb4777df0f751406e10275e24bedfe8e5cb8edb12dd36d27a
+```
+
+NEXT is the actual placed SourceLoop/WindowExpression consumer. This proof
+does not construct a continuum generator/domain or estimate physical signed
+derivatives; the Gauss/MAIN-frontier screen still applies. The independent
+main original cost/OWN surviving variance or DIRECT macro-retention input on
+a justified changing family remains OPEN and primary. Continuum/physical/
+full QFT/every-group/Clay and displayed chart claims stay OPEN.
+
 ### Observed actual all-link endpoint action
 
 The actual finite operator is now checked:

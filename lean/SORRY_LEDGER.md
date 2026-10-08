@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## PROVED actual every-spin closed Wilson Gauss annihilation / OPEN continuum gauge domain (2026-10-08 UTC)
+
+`lean/YMGap/Continuum/BF4ExactSlabVertexGaussClosedCharacter.lean`,
+`vertexGauss_add`, `vertexGauss_neg`, `vertexGauss_smul`,
+`vertexGauss_mul`, `vertexGauss_zero`, `vertexGauss_one` and
+`vertexGaussQuaternion_mul`, derive RAW rules for the actual original finite
+all-link generator. `compatibleWord_gauss_endpoint` telescopes original
+compatible physical ordered words using endpoint associativity cancellation;
+`closedScalar_gauss_zero` and `closedCharacter_gauss_zero` produce zero at
+common-padded coefficient strength for every spin. All reverse/repeated
+occurrences, physical membership, compatibility and closedness remain.
+No sphere/unit premise, differentiated padded identity or assumed source
+law. Focused capped check 2/all ten public gates exactly {propext,Quot.sound}
+and independent complete FINAL-source review pass. No new sorry, axiom,
+analytic hypothesis, classical/native shortcut or resource-option increase.
+Root import registered only; no full-root/tree build/audit. Original
+placement/window consumer is next; continuum generator/domain, MAIN changing
+family retention/cost versus OWN variance, physical mass/full QFT/every
+group/Clay remain OPEN. Exact line references/source/log hashes: parallel
+QFT-inputs audit. Canonical chart claims unchanged.
+
 ## PROVED actual physical-link Gauss endpoint action / OPEN closed-word annihilation (2026-10-08 UTC)
 
 `lean/YMGap/Continuum/BF4ExactSlabVertexGaussWilsonWord.lean:54`,

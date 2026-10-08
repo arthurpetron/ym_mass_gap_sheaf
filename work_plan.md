@@ -27,6 +27,23 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED actual finite closed-character Gauss law (2026-10-08 UTC):
+`VertexGaussClosedCharacter.compatibleWord_gauss_endpoint` proves the actual
+ordered endpoint telescope; `closedScalar_gauss_zero` and
+`closedCharacter_gauss_zero` produce zero for every character spin of an
+ORIGINAL compatible physical closed word. Actual raw scalar/quaternion
+Leibniz precedes padding; existing associativity cancels each interior
+endpoint and scalar cyclicity closes the word. All inverse/repeated entries
+and geometry guards remain; no sphere/unit premise or differentiated padded
+equivalent. Focused capped check 2/ten public gates exactly {propext,Quot.sound}
+and independent complete FINAL-source review pass; root import registered
+only, not root-built. No new analytic input, hole or option increase.
+NEXT finite consumer is original placed SourceLoop/WindowExpression, not a
+continuum operator domain. The Gauss/MAIN screen remains: zero collective
+gauge directions do not pay individual physical signed cost. MAIN changing
+family retention, continuum survival/physical mass/full QFT/every group/Clay
+stay OPEN. Exact evidence: parallel QFT-inputs audit. Chart unchanged.
+
 MAIN signed-filter screen (2026-10-08 UTC; PAPER/source review): for the
 ACTUAL four-moment pencil G,H, a STRICT rational margin in H-(1-epsilon)G
 pays both retention and its SAME filtered norm via G-H>=0. No independent
