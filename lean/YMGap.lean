@@ -7979,3 +7979,7 @@ import YMGap.Continuum.RationalWeightedTemporalResidueObstruction
 -- Actual arbitrary-coordinate angular action at common-padded coefficient
 -- strength. Finite vertex Gauss telescope and continuum domain remain open.
 import YMGap.Continuum.SU2QuaternionAngularCoordinatePadded
+
+-- Actual left/right angular link action, including reversed and distinct
+-- blocks. No finite Gauss telescope or continuum domain is inferred.
+import YMGap.Continuum.SU2QuaternionLeftRightAngularAction

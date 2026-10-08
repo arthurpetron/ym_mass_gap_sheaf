@@ -16,6 +16,106 @@ constructive Mathlib-free MLTT/HoTT gate. **The goal remains OPEN.**
 
 ## Selected finite vertex-Gauss source law (2026-10-08 UTC)
 
+### Next bounded producer: literal left/right link action
+
+Selection after the checked arbitrary-coordinate pin, not a new analytic
+premise. Exact next output: with q_b the EXISTING coordinateVariable(b)
+and e_i a literal constant imaginary quaternion, prove componentwise
+common-padded coefficient identities L_i(q_b)=e_i*q_b and
+R_i(q_b)=q_b*e_i; other-block actions are zero. For reversed entries prove
+L_i(conj(q_b))=-conj(q_b)*e_i and
+R_i(conj(q_b))=-e_i*conj(q_b), with no factor 1/2.
+Reuse `lean/YMGap/Continuum/SU2QuaternionPairedFrameAt.lean:37`,
+`pairedDerivativeAt`, for L. Define R by the opposite complementary-plane
+signs. Available producer:
+`lean/YMGap/Continuum/SU2QuaternionAngularCoordinatePadded.lean:80`,
+`angularDerivative_polyVar_padded`; actual quaternion multiplication is
+`lean/YMGap/Continuum/BF4GeometricSpinNetworkMehler.lean:138`,
+`PolyQuaternion.mul`. Existing raw angular add/scalar/Leibniz rules and
+common-padded addition/multiplication combine these identities AFTER
+differentiating the actual coordinates, never their padded surrogates.
+
+Downstream output remains the actual physical-link Gauss action summed over
+boundaryCompleteSlabLinks with each original idxOf, then the literal ordered
+word telescope. That consumer has no implementation yet; this is its missing
+non-symbolic link producer. Decisive tests are other-block zero, reversal
+swapping endpoint terms and each of the three complementary-plane signs.
+Budget: one bounded Sol leaf, independent complete FINAL-source review and
+at most three serialized root-owned single-file checks under the unchanged
+20-GiB/one-worker/12-GiB-reserve policy with fresh dynamic preflights.
+Stop/revise if a broad padded calculus, a replacement quaternion/action or
+an unproved generator-coordinate premise is required. At selection these
+link identities, full original Gauss-zero and its continuum domain are OPEN.
+The main changing-family signed-cost/OWN-variance input remains OPEN.
+
+Parallel downstream implementation is selected only against those ACTUAL
+link producers: define vertexGauss as the literal finite sum of -L at each
+link start and +R at its finish, indexed by the existing physical idxOf.
+Target the oriented physical-link endpoint identity and then the ordered
+compatible-word endpoint telescope; closedness and the character recurrence
+must produce zero for the original character. Input geometry is
+`lean/YMGap/Continuum/BF4ExactSlabTemporalGaugeLedger.lean:33`,
+`idxOf_injective_on_members`, and
+`lean/YMGap/Continuum/Z4HalfTimeReflectionGeometry.lean:480`,
+`boundaryCompleteSlabLinks_nodup`; source words/ordered endpoints are in
+`lean/YMGap/Continuum/BF4ExactSlabTemporalGaugeWilsonWord.lean:52`,
+`entryStart`, `entryFinish:55`, `Compatible:63`, `word:81` and `character:84`.
+This is no new analytic hypothesis or symbolic derivative replacement.
+One separate bounded Sol leaf may be drafted while the L/R leaf is authored;
+root checks remain SERIAL and wait for the checked parent. At most three
+root-owned focused checks for this separate finalized consumer, with the SAME
+memory/process preflight and ceilings, plus independent complete-source review.
+Stop if the required raw Leibniz/coordinate producer is unavailable; leave no
+conditional full Gauss theorem assuming the endpoint identity. Keep every
+reversed/repeated occurrence. At selection all these downstream targets are
+OPEN; none supplies an OS/continuum gauge domain or the main relative estimate.
+
+### Observed link producer: actual L/R and reversal
+
+The selected link identities are now supplied by actual formal derivatives:
+`lean/YMGap/Continuum/SU2QuaternionLeftRightAngularAction.lean:49`,
+`frameDerivativeAt`, selects existing L or literal R; `quaternionAction:53`
+acts on all four original components. `coordinate_action:164` gives the
+selected e_i*q / q*e_i action and `conjugate_coordinate_action:363` gives
+the reversed multiplication sides and minus signs. `other_coordinate_action:412`
+and `other_conjugate_coordinate_action:420` give distinct-block zero.
+`frameDerivativeAt_add:241`, `frameDerivativeAt_smul:259`,
+`frameDerivativeAt_mul:277`, `frameDerivativeAt_zero:295`,
+`frameDerivativeAt_one:299`, `frameDerivativeAt_neg:316` and
+`quaternionAction_conj:337` supply RAW Leibniz/linearity/conjugation BEFORE
+common padding. Every block guard remains explicit; no factor 1/2,
+sphere/unit equation, Haar-to-coefficient promotion or differentiated
+padded equivalent appears. The scalar normalizer checks are small symbolic
+matrix/signed-pair equalities, not a whole-word expansion or an oracle.
+
+Focused check 2 passes all 17 public printed gates within {propext,Quot.sound}.
+The literal negation/zero/imaginary-basis definitions are axiom-free; the
+three frame/action definitions print propext and all public theorems print
+only the permitted pair. Check 1 rejected only two Bool-dependent evaluator
+elaborations; case analysis AFTER producing the same normalizer identity
+repairs them without changing any statement. Its synthetic sorryAx outputs
+are not accepted proof evidence or source holes. The final arithmetic iffs
+use explicit constructive introduction, not a whole-iff tactic fallback.
+Root inspected the complete final source; independent final-source review
+PASS. Both launches had fresh process/memory checks, one 20-GiB-capped worker
+and 12-GiB reserve; pressure-free preflights 87%, swap zero. Root import
+registered only, not root-built; no full-tree build/audit or option increase.
+
+```text
+SOURCE lean/YMGap/Continuum/SU2QuaternionLeftRightAngularAction.lean
+SHA256 4c788cbfd657bfa33909443d77a53ab4be3b6b8d9b7207b144cf1209cd7a42e5
+CHECK  /private/tmp/ym-oct8-left-right-angular2.log
+SHA256 1a75dec8313e9f8316a74ae986ab81fb5a239812ca1df6bb5985d5e87a3f7bc2
+```
+
+Decision: CONTINUE the actual physical all-link sum and compatible ordered
+word telescope against these CHECKED inputs. Its parallel implementation
+remains unverified at this checkpoint. Do not infer the full source law,
+OS/continuum gauge domain or a physical signed-cost estimate from link pins.
+The independent MAIN-frontier screen in the adaptive-score audit verifies
+that collective gauge cancellation does not remove T(Vbar*Ta) or supply a
+SAME surviving-variance comparison. Canonical chart claims remain unchanged.
+
 Independent forward input for the backward gauge/QFT requirements, not a
 replacement for the main original signed-cost estimate. Selected proposition:
 the ACTUAL vertex angular derivation annihilates the literal compatible closed

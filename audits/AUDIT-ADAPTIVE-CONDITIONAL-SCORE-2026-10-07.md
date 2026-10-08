@@ -4,6 +4,66 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## What vertex Gauss cancellation can and cannot pay (2026-10-08 UTC)
+
+Root source inspection and independent read-only Sol screen while the actual
+finite Gauss link/telescope producer is being developed. Gauge cancellation
+is an independent symmetry/QFT input, not the missing quantitative estimate.
+The infinitesimal slice/terminal formulas below are PAPER consequences with
+their generator/embedding joins still to be built, not newly checked outputs.
+
+The EXISTING
+`lean/YMGap/Continuum/SU2QuaternionProductHeatAngularCommutation.lean:59`,
+`productMap_angular_carrier`, commutes every supported in-range coordinate
+plane through the literal finite product heat. It retains the full source
+and explicit bounds for every selected index, allowing repeats; it does not
+remove V from T=P*M_V. If the actual slice generator G and its original
+embedding pins produce G(V)=0, raw Leibniz and this SAME Haar-carrier
+transport would give G(T*f)=T(G*f). For invariant phi and initial constant,
+G annihilates the corresponding terminal/prediction messages a,A,b,N.
+The collective gauge-direction score, Ward correction and P0 then vanish.
+This is a ZERO-direction identity, not a bound on the remaining individual
+link/physical derivatives or a scaling-small coefficient.
+
+Finite action invariance is not itself a new face-list mismatch:
+`lean/YMGap/Continuum/BF4ExactSlabVertexGaugeAction.lean:234`,
+`heatProduct_invariant`, applies to the ORIGINAL selected chronological
+action after
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialChainGeometry.lean:80`,
+`chainIds_physical`. It still concerns the common auxiliary finite ledger,
+not an already proved infinitesimal slice generator. For fringe integration,
+`lean/YMGap/Continuum/SU2QuaternionHaarFamilyAngularContraction.lean:76`,
+`blockAngularDerivative_familyProject`, is the existing supported transport
+outside averaged blocks; averaged-block derivatives require the corresponding
+independence/zero pin. No completed OS transport is inferred.
+
+The decisive physical test is the actual spatial plaquette. Its finite
+gauge invariance is produced by
+`lean/YMGap/Continuum/BF4ExactSlabVertexGaugeAction.lean:208`,
+`character_invariant`, on the physical slab; the literal one-slice fundamental
+plaquette has full slice Casimir 12 by
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyCasimir.lean:141`,
+`plaquette_casimir`, under every supported insertion. Do not substitute
+vertex gauge cancellation for annihilation by all individual link generators.
+
+The physical payment remains EXACTLY
+
+    P0 = H[Vbar^2*A*T(a*(Jphi)^2)]
+       = ell_V[a*(Jphi)^2*T(Vbar*A)],   A=T(a),
+
+by
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.lean:384`,
+`original_ratioNoise_gradientPayment_weighted_pin`. The transferred factor
+is T(Vbar*Ta), NOT Ta or T^2a. A zero collective gauge derivative neither
+removes this factor nor produces its relative comparison with SAME OWN
+surviving variance. The retained signed interaction terms are still unpaid.
+
+Decision: CONTINUE finite Gauss as an independent actual-source symmetry
+producer; PRUNE any inference from its null directions to the missing
+physical coercivity/scaling estimate. The primary producer remains DIRECT
+original macro retention or sufficient JOINT signed cost versus SAME OWN
+variance on a justified changing family. No canonical claim changed.
+
 ## Double-commutator localization screen (2026-10-08 UTC)
 
 Root source inspection and two independent read-only Sol reviews. The

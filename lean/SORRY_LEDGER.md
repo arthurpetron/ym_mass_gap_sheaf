@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## PROVED actual left/right angular coordinate action / OPEN full vertex Gauss telescope (2026-10-08 UTC)
+
+`lean/YMGap/Continuum/SU2QuaternionLeftRightAngularAction.lean:49`,
+`frameDerivativeAt`, selects EXISTING pairedDerivativeAt for L and literal
+opposite complementary-plane signs for R. `coordinate_action:164` produces
+L_i(q)=e_i*q and R_i(q)=q*e_i, with no half factor; actual reversal is
+`conjugate_coordinate_action:363`. `other_coordinate_action:412` and
+`other_conjugate_coordinate_action:420` annihilate distinct retained blocks.
+`frameDerivativeAt_add:241`, `frameDerivativeAt_smul:259`,
+`frameDerivativeAt_mul:277`, zero/one/negation and `quaternionAction_conj:337`
+are RAW actual-derivative producers for the pending finite physical-link sum
+and ordered original-source telescope. Common-padded coordinate equality,
+explicit block bounds, no sphere/unit premise or differentiated padded input.
+Focused capped check/17 permitted public gates and independent full final-source
+review pass. No new sorry, axiom, analytic input, classical/native shortcut,
+field weakening or resource-option increase. Root import registered only;
+no full-root/tree build/audit. Full physical-link Gauss/closed-source law,
+OS/continuum gauge domain, MAIN changing-family signed cost/OWN variance or
+DIRECT macro retention, calibrated mass/full QFT/every group/Clay remain OPEN.
+Exact source/log hashes and scopes: parallel QFT-inputs audit. Chart unchanged.
+
 ## PROVED arbitrary-coordinate angular action / OPEN actual vertex Gauss telescope (2026-10-08 UTC)
 
 `lean/YMGap/Continuum/SU2QuaternionAngularCoordinatePadded.lean:54`,

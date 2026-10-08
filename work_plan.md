@@ -27,6 +27,29 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED next finite gauge producer (2026-10-08 UTC):
+`LeftRightAngularAction.coordinate_action` now gives literal e_i*q / q*e_i
+derivatives, reverse-link endpoint signs and distinct-block zero. L is the
+EXISTING pairedDerivativeAt; R has opposite complementary-plane signs.
+Raw Leibniz/linearity/conjugation rules consume actual polynomials before
+padding. No factor 1/2 or unit/sphere premise. Focused capped check and
+independent complete final-source review pass; root import registered only,
+no full-root/tree audit. NEXT: physical all-link Gauss sum and compatible
+original closed-source telescope (parallel draft, not yet verified). This
+is an independent gauge/QFT input, not a uniform Ward estimate. Exact evidence
+and bounded consumer selection: parallel QFT-inputs audit. Main ORIGINAL
+relative cost/OWN variance or DIRECT macro retention on a justified changing
+family remains the analytic priority. Canonical chart claims unchanged.
+
+Gauss/MAIN-frontier screen (2026-10-08 UTC; PAPER/source review): exact
+collective gauge cancellation would remove null gauge directions, not the
+individual physical payment. Product-heat angular transport and original
+chain finite gauge invariance are available; the actual plaquette still has
+full slice Casimir 12. Do not infer a variance reserve or remove the incoming
+T(Vbar*Ta) weight from a zero Gauss direction. Continue the independent finite
+source law, but seek a genuinely quantitative physical signed estimate for
+the MAIN frontier. Exact equations/guards: adaptive conditional-score audit.
+
 CHECKED prerequisite for independent finite gauge input (2026-10-08 UTC):
 `AngularCoordinatePadded.angularDerivative_polyVar_padded` now produces the
 literal angular coordinate action at COMMON-PADDED coefficient strength on
@@ -34,9 +57,9 @@ arbitrary blocks, including coincident-plane/other-coordinate cases. The
 trailing-zero self derivative is pinned symbolically, not through Haar or a
 sphere premise. Focused capped verification and independent complete-source
 review pass; root import registered only, no root/tree build/audit.
-This removes the coordinate prerequisite, not the full Gauss law. NEXT:
-actual L/R coordinate and reversed-link pins, then physical all-link sum and
-literal endpoint telescope, without differentiating padded surrogates.
+This removed the coordinate prerequisite, not the full Gauss law. The
+subsequent L/R/reversal producer is now checked above; the physical all-link
+sum and literal endpoint telescope remain, without differentiating padded surrogates.
 Exact source/log evidence and scope: parallel QFT-inputs audit. Main analytic
 frontier and continuum/physical/QFT/every-group/Clay remain OPEN; chart unchanged.
 
