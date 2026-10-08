@@ -4,6 +4,214 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Square losses and the exact late-endpoint join (2026-10-08 UTC)
+
+Root source inspection and independent Sol mathematical screens. The new
+calculations below are PAPER consequences, not newly kernel-checked estimates
+or original Yang--Mills moment values. No Lean file or canonical field changes.
+
+### Retaining the discarded squares does not supply a uniform gain
+
+Use the ORIGINAL V,a,g,A,b,v,D,X,N,M,G of the joint-IBP section below,
+and E=T(a*(Jphi)^2). H now denotes output Haar integration. Set
+
+    Hcal = H[v^2*G^2*N*(A*J^2A-D^2)],
+    P0   = H[v^2*A*E].
+
+The exact joint-IBP identity and the existing absorption square give
+
+    Hcal + U = P0 - Delta - Qabs - 2*Bfav,
+    Delta = H[v^2*A*E*(1-(A*G)^2)],
+    Qabs  = H[v^2*G^2*(N*D^2+2*A*D*M+A^3*E)],
+    Bfav  = H[v^2*N*G*D*J(A*G)].
+
+All three subtracted quantities are nonnegative by EXISTING producers:
+
+- `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRatioNoiseGradientAbsorption.lean:141`,
+  private `absorption_square_pin`, identifies I_x[K*g*(D*X+A^2*Jphi)^2]
+  with A*(N*D^2+2*A*D*M+A^3*E). `:195`,
+  `original_ratioNoise_phiGradient_absorption_le`, reflects the sign using
+  the actual positive terminal floor, without adding an inverse assumption.
+- `lean/YMGap/Continuum/QuaternionHaarFiniteReciprocalHessianSign.lean:95`,
+  `finite_reciprocal_favorable_certificate`, produces the sign of Bfav;
+  private `derivative_four_factor_pin:130` retains it in the exact IBP
+  expansion. `finite_reciprocal_hessian_ibp_le:179` discards only this
+  produced favorable term, not the signed derivative of the full weight.
+- `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.lean:267`,
+  `original_ratioNoise_gradientPayment_unit_le`, produces Delta's sign
+  via the multiplier-square certificate at `:305` and exact pin at `:313`.
+
+There is a genuine, but only finite-degree, improvement. At successor degree
+one G=alpha=1/upper, so Bfav=H[v^2*G^2*N*D^2]. Completing the square
+3*D*X+A^2*Jphi and reflecting its sign through the same positive A gives
+
+    Hcal + U <= (1/3)*H[v^2*G^2*A^3*E] <= (1/3)*P0.
+
+This is not a new checked declaration. For successor degree k+1, the EXACT
+derivative at
+`lean/YMGap/Continuum/QuaternionHaarFiniteReciprocalHessianSign.lean:63`,
+`reciprocal_multiplier_derivative_pin`, instead gives a relative favorable
+coefficient beta=alpha*(k+1)*r^k/G, r=1-alpha*A. This beta is square-loss
+bookkeeping, not the bare coupling. At the permitted scalar window value
+A=upper/2:
+
+    beta = (k+1)*2^(-k)/(2-2^(-k)) -> 0.
+
+The corresponding square/Young coefficient 1/(1+2*beta) returns to one.
+Thus this argument supplies no degree-uniform improvement along the
+reciprocal approximation. This scalar test is NOT an actual original-action
+counterexample: it does not construct a varying marginal and its derivative.
+Neither Qabs nor Bfav has a produced lower fraction of the SAME surviving
+OWN variance. P0 still has the exact incoming factor a*(Jphi)^2*T(v*A),
+not a*(Jphi)^2*T(a) or a*(Jphi)^2*T^2(a), by
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.lean:384`,
+`original_ratioNoise_gradientPayment_weighted_pin`. BOTH signed Taylor
+remainders still belong to the original energy in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLastStepSignedScoreEnergy.lean:170`,
+`exactScoreSignedBulk_energy_split`.
+
+Decision: PRUNE another square-completion wrapper. A short finite-degree
+gain is not the missing original-family cost/variance estimate.
+
+### Direct macro retention already pays the SAME later endpoint
+
+For R(n)=B(x,T^n*x), the EXISTING
+`lean/YMGap/Continuum/BF4WilsonAllNomeMacroRatioFilteredCost.lean:100`,
+`retained_time_budget`, and `:123`, `macro_to_filtered_budget`, prove
+
+    kappa*R(L) <= R(L+s)
+      => kappa*s*(R(L+s)-R(L+s+1)) <= (1-kappa)*R(L+s),
+
+for s>=1 and kappa>=0, without a norm inverse. `:139`,
+`dyadicUnit_macro_filtered_budget`, specializes the actual unit response
+at lags 2*t and 4*t. The later drop at 4*t has ORIGINAL block parameter
+2*t, NOT t. Do not rebuild this join or silently shift the changing-family
+index: its nome, width and source need not be unchanged.
+
+This is not shifted H1 at the EARLIER endpoint:
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1Anchor.lean:396`,
+`PathShiftedEpsBound`, and `:418`, `pathShiftedEpsBound_iff_response`,
+require s*(R(s)-R(s+1))<=c*R(s) on T^(s/2)*x. The macro-derived estimate
+controls T^s*x and the drop at 2*s. Direct macro retention already feeds
+`lean/YMGap/Continuum/BF4WilsonAllNomeGenericNormalizedAnchor.lean:256`,
+`NormalizedAnchorData.MacroRatio`, `block_floor:325`, `real_increment:416`
+and `real_floor:450`; it need not pass the stronger earlier-endpoint test.
+
+For the optional actual two-term filter z=T^t*(a*x+b*T*x), s=2*t,
+`lean/YMGap/Continuum/BF4WilsonAllNomeBilinearTime.lean:195`,
+`orbitSum_pairing`, gives the four-moment matrices
+
+    Gm = [[m_s,m_(s+1)], [m_(s+1),m_(s+2)]],
+    Hm = [[m_(s+1),m_(s+2)], [m_(s+2),m_(s+3)]],
+    m_n = B(x,T^n*x).
+
+A useful filter must produce its actual coefficients u=(a,b), a positive
+rational q<=u^T*Gm*u, and the quantitative inequality
+s*u^T*(Gm-Hm)*u<=c*u^T*Gm*u. Positivity of Gm and Hm does not supply
+that threshold or a positive norm for a signed filter. For x the CENTERED
+completion state of a fixed radius-zero WindowExpression e with Within 0 e,
+all four moments are accessible from the two OWN variance/cost pairs at block
+parameters t and t+1. The SAME completed-vector identification is
+`lean/YMGap/Continuum/BF4WilsonAllNomeCenteredVector.lean:159`,
+`centeredVector_time_pairing`; the source moment limits are
+`lean/YMGap/Continuum/BF4WilsonAllNomeOriginalRayleighLimit.lean:130`,
+`originalOwnBlockVariance_converges`, and `:143`,
+`originalOwnBlockCost_converges`, identify m_(2t)=V_t and
+m_(2t+1)=V_t-C_t in their limits. Distinct chronological masses and moving
+OWN centers stay in these producers. This two-pair claim does NOT cover an
+arbitrary completed x or an already-smoothed x. A finite smoothed source
+requires its orbit expansion and the corresponding additional source moments.
+No new useful values or quantitative four-moment threshold are produced.
+
+Decision: REUSE the exact late-endpoint and moment APIs. DIRECT original
+macro retention or sufficient JOINT whole-window cost versus SAME surviving
+variance on a justified changing family remains the unpaid analytic producer.
+The bounded selected-link Ward/Casimir test is recorded next. No displayed
+chart claim changes.
+
+## Two-time local loop equation: signed debt and action mismatch (2026-10-08 UTC)
+
+Selected experiment: combine the existing selected-link Ward identity and
+degree-one Casimir with a second-time polynomial insertion. Actual consumer
+would be the chronological OWN cost/variance or DIRECT macro retention,
+not a static expectation. Available inputs are only the full-slab Ward,
+its actual incident/complement partition and the arbitrary-insertion Casimir.
+Stop if the resulting equation leaves an unestimated signed moment or needs
+an unproved change of action. Budget: bounded source inspection and paper
+algebra by root/Sol; no compiler, new interface or numerical sweep.
+
+For THIS experiment only, A is the complete incident heat product and R
+its complete complement in the selected-link head-swap frame. These are NOT
+the terminal A and fringe v used above. Let C be supported and degree one
+in that selected in-range link, h a supported second-time insertion, and
+Gamma(p,q)=sum_(i<j<4)(D_ij p)*(D_ij q). Applying
+`lean/YMGap/Continuum/BF4ExactSlabLocalHaarWard.lean:85`,
+`fullAction_local_ward`, to h*D_ij C and summing six planes gives the PAPER
+identity
+
+    3*H[R*A*C*h] = H[R*h*Gamma(A,C)] + H[R*A*Gamma(C,h)].
+
+The eigenvalue comes from
+`lean/YMGap/Continuum/SU2QuaternionBlockLinearCasimir.lean:39`,
+`blockCasimir_linear`. Exact degree one is an essential guard; do not
+infer it for an arbitrary loop with repeated selected-link occurrences.
+For a proved link-disjoint h, Gamma(C,h)=0, leaving
+3*H[R*A*C*h]=H[R*h*Gamma(A,C)]. The right side is an UNESTIMATED SIGNED
+two-time moment, not a lower floor. For a rational OWN center c, replacing
+C by C-c adds -3*c*H[R*A*h] to the right; dropping it requires a proved
+SAME-law zero mean of h. Ordinary Cauchy--Schwarz bounds a magnitude above,
+not the required relative retention below.
+
+There is also a decisive action guard. The actual full-slab numerator pin is
+`lean/YMGap/Continuum/BF4ExactSlabLocalHaarWard.lean:55`,
+`fullAction_pair_pin`, using ALL slabPhysicalFaceEdges extent. But
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialChainAction.lean:45`,
+`originalChainAction`, uses the selected chainIds extent width start steps.
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonWindowTimeLimit.lean:117`,
+`originalWindowScalar`, retains this clipped chronological action on extent
+width+(m+(L+n)); its `originalWindowScalar_pin:123` joins that action to the
+existing windowRatio. These definitions do not identify the full-slab and
+chain face lists. The full-slab equation is therefore not an established
+current-window Ward instance. No matching public chain-Ward instance was
+found in LocalHaarWard, OriginalWardLocality, FixedSpatialChainAction or
+FixedSpatialWilsonWindowTimeLimit. This bounded search does not rule out
+using generic Ward algebra after producing the actual action/locality pins.
+
+Existing consumers retain the same debts rather than supply retention:
+`lean/YMGap/Continuum/BF4ExactSlabLocalHaarWard.lean:106`,
+`fullAction_score_identity`, includes an extra local A in its density;
+`lean/YMGap/Continuum/BF4ExactSlabOriginalWardLocality.lean:121`,
+`originalScore_pair_zero_of_local`, cancels a constructed score, not C's
+correlation. On the active marginal route,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyVarianceWard.lean:144`,
+`family_normalized_ward`, already retains the signed complete-weight residual.
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyRelativeWard.lean:215`,
+`family_angular_variance_cleared`, bounds static angular energy;
+`padded_family_energy_relative_ward:332` still retains the signed remainder.
+
+For the actual chronological finite Rayleigh test, write
+S=ell(b^2), J=ell(b*T(b)), Z0=ell(A^2), Z1=ell(A*T(A)), now using the
+ORIGINAL terminal A and source b. The defining cost is Z1*S-Z0*J:
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockRayleighSplit.lean:131`,
+`clearedRayleighCost`. With both masses positive, a relative normalized
+cost C_t<=epsilon*V_t is equivalent by ordinary rational algebra to
+Z0*J>=(1-epsilon)*Z1*S, using
+`lean/YMGap/Continuum/BF4WilsonAllNomeOriginalRayleighLimit.lean:84`,
+`originalOwnBlockVariance`, and `originalOwnBlockCost:89`. The loop equation
+above produces neither that signed threshold nor its normalization join.
+
+Observed decision: PRUNE a local-loop/chain-Ward wrapper absent quantitative
+leverage on this actual threshold. One-link SO4 rotation is not the vertex
+gauge generator. Continue with the ORIGINAL macro moments or sufficient
+JOINT whole-window signed estimate on a justified changing family. This
+source/paper screen closes no proof node and changes no canonical field.
+
+Verification boundary for these two screens: independent FINAL-source
+mathematical review PASS after the explicit radius-zero qualification was
+added. Source declarations were inspected, not recompiled. Documentation-only
+increment; no Lean file, sorry, axiom, source/action or frontier type changes,
+and no root/tree build or full audit. Existing diagram claims stay unchanged.
+
 ## Joint endpoint IBP screen: centered cancellation, no new estimate (2026-10-08 UTC)
 
 Root source inspection and independent Sol mathematical review; the formula

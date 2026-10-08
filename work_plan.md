@@ -27,6 +27,26 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+Analytic screen (2026-10-08 UTC; PAPER/source review, no new Lean closure):
+retaining all Ward square losses gives Hcal+U=P0-Delta-Qabs-2*Bfav.
+A degree-one reciprocal gives a 1/3 payment, but its favorable relative
+coefficient tends to zero with outgoing degree; this argument is not uniform
+along reciprocal approximation. PRUNE another square-completion wrapper.
+The macro-to-LATER-filtered-cost join is ALREADY proved by
+`MacroRatioFilteredCost.macro_to_filtered_budget`; do not impose earlier
+shifted H1 or rebuild that consumer. An optional two-term actual filter still
+needs useful original four moments and a positive norm, not just moment
+positivity. For a fixed centered radius-zero expression, REUSE the two OWN
+block variance/cost limit pairs; an already-smoothed source needs its larger
+orbit expansion. The selected-link Ward/Casimir test leaves an unestimated
+signed two-time moment and uses a FULL-slab action not identified with the
+active clipped chronological chain. PRUNE that wrapper absent actual action
+pins AND quantitative leverage. NEXT mathematics remains the ORIGINAL
+relative Rayleigh threshold Z0*J>=(1-epsilon)*Z1*S or DIRECT macro retention
+on a justified changing family, with BOTH OWN masses and signed cost.
+Exact equations, guards, sources and limitations: adaptive conditional-score
+audit. Continuum/physical/QFT/every-group/Clay and chart claims remain OPEN.
+
 CHECKED independent SAME-action gauge-source join (2026-10-08 UTC):
 `VertexGaugeWilsonWord.closedWord_invariant` derives the actual closed-word
 auxiliary-ledger image from physical membership and ordered endpoint
