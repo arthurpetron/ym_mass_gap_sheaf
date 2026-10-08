@@ -13,6 +13,7 @@ equivalence, continuum gauge domain, signed-response bound or gap is used.
 -/
 
 import YMGap.Continuum.BF4ExactSlabVertexGaussWilsonWord
+import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonWindow
 
 namespace YMGap.Continuum.BF4ExactSlabVertexGaussClosedCharacter
 
@@ -28,6 +29,8 @@ open YMGap.Continuum.BF4ExactCorrectedSlabHaarNetwork
 open YMGap.Continuum.BF4ExactPhysicalCenteredVacuumHaarResummation
 open YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics
 open YMGap.Continuum.BF4ExactSlabTemporalGaugeWilsonWord
+open YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonProbe
+open YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonWindow
 open YMGap.Continuum.BF4ExactSlabVertexGaussWilsonWord
 open YMGap.Continuum.SU2QuaternionPolynomialHaarCarrier
 open YMGap.Continuum.SU2QuaternionRatPolyDifferential
@@ -562,6 +565,46 @@ theorem closedCharacter_gauss_zero (extent : Nat) (v : Z4Vertex) (i : Fin 3)
       (vertexGauss extent v i (character extent edges spin)) polyZero :=
   character_zero v i _ (closedScalar_gauss_zero extent v i start edges hc hclosed hp) spin
 
+/-- The actual mapped source edges retain the two placement-room guards. -/
+theorem placedSourceLoop_gauss_zero {width time extent : Nat} (hw : width ≤ extent)
+    (ht : time ≤ extent) (loop : SourceLoop width) (v : Z4Vertex) (i : Fin 3) (spin : Nat) :
+    PaddedPolynomialCoeffEqv (SlabB extent)
+      (vertexGauss extent v i (character extent (loop.edges.map (shiftEntry time)) spin)) polyZero := by
+  let placed := placeLoop hw ht loop
+  exact closedCharacter_gauss_zero extent v i placed.start placed.edges
+    placed.compatible placed.closed placed.physical spin
+
+/-- The literal signed multi-time window is killed by the actual generator.
+Raw rules act first; only their resulting derivatives are padded and replaced by zero. -/
+theorem placedWindow_gauss_zero {width start L extent : Nat} (hw : width ≤ extent)
+    (ht : start+L ≤ extent) (v : Z4Vertex) (i : Fin 3) :
+    ∀ e : WindowExpression width, Within L e →
+      PaddedPolynomialCoeffEqv (SlabB extent)
+        (vertexGauss extent v i (placedPolynomial extent start e)) polyZero
+  | .one, _ => PaddedPolynomialCoeffEqv.of_coeff (vertexGauss_one extent v i)
+  | .loop offset value spin, h => by
+      have hoffset : offset ≤ L := h
+      exact placedSourceLoop_gauss_zero hw (by omega) value v i spin
+  | .add e f, h =>
+      (PaddedPolynomialCoeffEqv.of_coeff (vertexGauss_add extent v i _ _)).trans
+        (PaddedPolynomialCoeffEqv.add (placedWindow_gauss_zero hw ht v i e h.1)
+          (placedWindow_gauss_zero hw ht v i f h.2))
+  | .mul e f, h => by
+      have he := placedWindow_gauss_zero hw ht v i e h.1
+      have hf := placedWindow_gauss_zero hw ht v i f h.2
+      exact (PaddedPolynomialCoeffEqv.of_coeff (vertexGauss_mul extent v i _ _)).trans
+        ((PaddedPolynomialCoeffEqv.add
+          (PaddedPolynomialCoeffEqv.mul he
+            (PaddedPolynomialCoeffEqv.refl (SlabB extent) (placedPolynomial extent start f)))
+          (PaddedPolynomialCoeffEqv.mul
+            (PaddedPolynomialCoeffEqv.refl (SlabB extent) (placedPolynomial extent start e)) hf)).trans
+          (PaddedPolynomialCoeffEqv.of_coeff
+            ((RatPolyCoeffEqv.mul_zero_left _).add (RatPolyCoeffEqv.mul_zero_right _))))
+  | .smul c e, h =>
+      (PaddedPolynomialCoeffEqv.of_coeff (vertexGauss_smul extent v i c _)).trans
+        ((PaddedPolynomialCoeffEqv.smul (placedWindow_gauss_zero hw ht v i e h) c).trans
+          (PaddedPolynomialCoeffEqv.of_coeff (RatPolyCoeffEqv.smul_zero c)))
+
 end YMGap.Continuum.BF4ExactSlabVertexGaussClosedCharacter
 
 #print axioms YMGap.Continuum.BF4ExactSlabVertexGaussClosedCharacter.vertexGauss_add
@@ -574,3 +617,5 @@ end YMGap.Continuum.BF4ExactSlabVertexGaussClosedCharacter
 #print axioms YMGap.Continuum.BF4ExactSlabVertexGaussClosedCharacter.compatibleWord_gauss_endpoint
 #print axioms YMGap.Continuum.BF4ExactSlabVertexGaussClosedCharacter.closedScalar_gauss_zero
 #print axioms YMGap.Continuum.BF4ExactSlabVertexGaussClosedCharacter.closedCharacter_gauss_zero
+#print axioms YMGap.Continuum.BF4ExactSlabVertexGaussClosedCharacter.placedSourceLoop_gauss_zero
+#print axioms YMGap.Continuum.BF4ExactSlabVertexGaussClosedCharacter.placedWindow_gauss_zero

@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Supporting ACTUAL original placed signed-window Gauss law checked
+(2026-10-08 UTC): literal mapped source loops and arbitrary signed multi-time
+one/loop/add/mul/smul polynomials are annihilated by the original all-link
+generator. BOTH placement-room guards and Within remain. Final focused
+check/all twelve permitted gates and independent complete FINAL-source review;
+root import registered only, no full-root/tree audit. This completes the
+selected FINITE source law, not a completed/continuum domain or MAIN signed
+retention estimate. Canonical displayed claims unchanged, no chart reprint.
+Evidence: parallel QFT-inputs audit.
+
 Supporting ACTUAL finite SU(2) closed-character Gauss law checked
 (2026-10-08 UTC): the original all-link vertex generator telescopes each
 compatible physical ordered word and kills its scalar/every-spin character.

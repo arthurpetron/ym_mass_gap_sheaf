@@ -1,5 +1,23 @@
 # Sorry Ledger
 
+## PROVED original placed signed-window Gauss law / OPEN physical signed estimate and continuum domain (2026-10-08 UTC)
+
+`lean/YMGap/Continuum/BF4ExactSlabVertexGaussClosedCharacter.lean:569`,
+`placedSourceLoop_gauss_zero`, applies the actual all-spin source law to
+placeLoop's produced compatible, closed and physical mapped edges.
+`placedWindow_gauss_zero:579` handles the literal signed multi-time polynomial
+through actual raw one/loop/add/mul/smul differentiation BEFORE padding.
+Spatial width<=extent, start+L<=extent and Within L remain explicit; reverse,
+repeated and arbitrary signed rational data are preserved. No new premise,
+hole, axiom, classical/native shortcut or resource-option increase. Focused
+capped check 3 passes all TWELVE public gates exactly {propext,Quot.sound};
+independent complete FINAL-source review PASS. Root import registered only;
+no full-root/tree build/audit. This completes the selected FINITE original
+source law. Slice/transfer embedding, completed/continuum Gauss domain,
+MAIN changing-family signed margin or DIRECT macro retention, continuum
+survival/physical mass/full QFT/every group/Clay stay OPEN. Exact hashes and
+scope: parallel QFT-inputs audit. Canonical chart claims unchanged.
+
 ## PROVED actual every-spin closed Wilson Gauss annihilation / OPEN continuum gauge domain (2026-10-08 UTC)
 
 `lean/YMGap/Continuum/BF4ExactSlabVertexGaussClosedCharacter.lean`,

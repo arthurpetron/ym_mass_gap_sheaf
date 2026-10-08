@@ -7989,5 +7989,6 @@ import YMGap.Continuum.SU2QuaternionLeftRightAngularAction
 import YMGap.Continuum.BF4ExactSlabVertexGaussWilsonWord
 
 -- Actual finite all-link Gauss annihilation of every-spin closed Wilson
--- characters. No continuum gauge domain or quantitative rate is inferred.
+-- characters and their original signed placed windows. No continuum gauge
+-- domain or quantitative rate is inferred.
 import YMGap.Continuum.BF4ExactSlabVertexGaussClosedCharacter

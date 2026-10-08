@@ -27,6 +27,35 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED original placed signed-window Gauss consumer (2026-10-08 UTC):
+`VertexGaussClosedCharacter.placedSourceLoop_gauss_zero` and
+`placedWindow_gauss_zero` now kill the ACTUAL original shifted holonomies
+and signed one/loop/add/mul/smul expression under the all-link generator.
+BOTH carrier-room guards and Within remain; placeLoop produces physical,
+compatible and closed data. No source replacement, padded differentiation,
+analytic hypothesis or option increase. Final 621-line leaf/check 3 passes
+all twelve gates exactly {propext,Quot.sound}; independent complete FINAL-source
+review PASS. Root import registered only; no full-root/tree build/audit.
+This completes the selected FINITE source law, not a completed Gauss domain,
+slice/transfer embedding or a physical signed estimate. Return primary
+mathematics to an ACTUAL changing-family four-moment signed margin (which
+pays its OWN filtered norm) or DIRECT original macro retention. No further
+Gauss wrapper is selected merely to remove zero gauge directions. Continuum
+survival/physical mass/full QFT/every group/Clay remain OPEN. Exact evidence:
+parallel QFT-inputs audit. Canonical displayed claims unchanged.
+
+Selected final finite placement consumer (2026-10-08 UTC; unverified):
+extend the SAME checked closed-character leaf with actual placed SourceLoop
+and signed WindowExpression annihilation. Reuse placeLoop's produced physical,
+compatible and closed data with BOTH carrier-room guards; recurse through
+actual one/loop/add/mul/smul polynomials using checked raw Gauss rules before
+padding. No new derivation/carrier/source hypothesis. Final leaf <=650 lines,
+complete FINAL-source review and ONLY the remaining third root-owned focused
+check of its existing bounded budget, unchanged memory/preflight policy.
+If a broader input is needed, stop/revise without weakening guards. This is
+not a completed operator/domain or MAIN signed bound. No unverified output
+is counted; chart claims unchanged.
+
 CHECKED actual finite closed-character Gauss law (2026-10-08 UTC):
 `VertexGaussClosedCharacter.compatibleWord_gauss_endpoint` proves the actual
 ordered endpoint telescope; `closedScalar_gauss_zero` and

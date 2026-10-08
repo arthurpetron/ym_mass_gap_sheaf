@@ -16,6 +16,49 @@ constructive Mathlib-free MLTT/HoTT gate. **The goal remains OPEN.**
 
 ## Selected finite vertex-Gauss source law (2026-10-08 UTC)
 
+### Observed original placed signed-window consumer
+
+`lean/YMGap/Continuum/BF4ExactSlabVertexGaussClosedCharacter.lean:569`,
+`placedSourceLoop_gauss_zero`, consumes the checked actual closed-character
+law and placeLoop's produced compatible/closed/physical data. The exact mapped
+edges, reversal and spin remain. `placedWindow_gauss_zero:579` annihilates
+the actual placedPolynomial for every signed one/loop/add/mul/smul expression
+with width<=extent, start+L<=extent and Within L e explicit. Both placement
+guards are retained; no source law or support assumption is added. Actual raw
+Gauss rules form the derivative BEFORE padded addition/multiplication/scaling
+and substitution of previously proved zero derivatives.
+
+The same final leaf has 621 lines, below its selected 650-line bound. Check 3
+passes all TWELVE public gates exactly {propext,Quot.sound}. Previous proof
+bodies are unchanged; only the existing Window import/opens, these two
+consumers and two printed gates were added after the accepted closed-word
+checkpoint. Root read the exact diff/full prior source; independent COMPLETE
+621-line FINAL-source review PASS with hash. The final launch had fresh
+process/memory/swap preflight, one 20-GiB-capped worker, 12-GiB reserve,
+pressure-free reading and zero swap. No option increase, full-root/tree
+build/audit or additional compiler loop. Root import remains registered only.
+
+```text
+SOURCE lean/YMGap/Continuum/BF4ExactSlabVertexGaussClosedCharacter.lean
+SHA256 ddd265d5cd320abb78ce63e646af82d944d71cfb3b344acf444b09d156bd0a56
+CHECK  /private/tmp/ym-oct8-gauss-closed-character3.log
+SHA256 fabe8fcce95a1743644f47da690e60284af8dbaf697ac304e9296e49fe1b650b
+```
+
+This closes the selected FINITE original source/window law, not a completed
+Gauss generator/domain, slice/transfer embedding or continuum constraint.
+Return MAIN work to an actual original changing-family signed margin/OWN
+variance or DIRECT macro retention; zero collective gauge directions do not
+pay the individual physical derivatives. No further gauge wrapper is selected
+without an actual consumer. Continuum survival, finite positive physical
+Hamiltonian calibration, full SAME QFT, every group and Clay remain OPEN.
+Canonical displayed chart claims are unchanged and are not reprinted.
+
+Earlier sections below are checkpoints/selection records; their then-open
+finite source and placement targets are now supplied above. The following
+closed-word source/line references are at checkpoint c5922ae8, before its
+three-line import/open shift and the placed-window append.
+
 ### Observed direct closed-character consumer
 
 The ACTUAL finite source law is now produced by
@@ -58,6 +101,23 @@ derivatives; the Gauss/MAIN-frontier screen still applies. The independent
 main original cost/OWN surviving variance or DIRECT macro-retention input on
 a justified changing family remains OPEN and primary. Continuum/physical/
 full QFT/every-group/Clay and displayed chart claims stay OPEN.
+
+### Selected last finite placement consumer
+
+Extend that SAME checked leaf (not a new wrapper) with actual placed
+SourceLoop/WindowExpression Gauss zero.
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonProbe.lean:82`, `placeLoop`, produces compatible,
+closed and physical placement from width<=extent and time<=extent.
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonWindow.lean:74`,
+`placedPolynomial`, retains the literal shifted holonomies and signed
+one/loop/add/mul/smul operations; its `Within:57` and BOTH placement-room
+guards remain. Apply the checked closedCharacter_gauss_zero to the produced
+loop and recurse with actual raw scalar Gauss rules, padding ONLY after
+differentiation. At selection UNVERIFIED. Final leaf <=650 lines,
+complete FINAL-source review, no option/input increase and only its remaining
+third root-owned focused check under unchanged dynamic memory policy.
+Stop/revise on a broader gap; no completed operator/domain or MAIN estimate
+is inferred. This is the finite original observable consumer of the source law.
 
 ### Observed actual all-link endpoint action
 
