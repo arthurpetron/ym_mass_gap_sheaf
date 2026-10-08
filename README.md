@@ -10,6 +10,16 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**New original-transfer estimate:** long-lag temporal covariance is bounded
+by `h*(r0*r2-r1^2)` for the SAME completed source at fixed coupling/width,
+at every nonnegative integer shift with an explicit positive response floor.
+The proof uses an
+unnormalized residual, not a norm inverse or spectral measure. A warming
+corollary keeps the original source norm explicit. Focused Lean verification
+and independent source review passed; the useful changing-family relative
+payment and continuum mass gap remain open. See the
+[proof and next estimate](audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md).
+
 **New finite gauge-symmetry result:** the actual slice Gauss generator
 annihilates the full spatial action and intertwines the original transfer,
 preserving its gauge constraint for supported signed sources and fringe links.

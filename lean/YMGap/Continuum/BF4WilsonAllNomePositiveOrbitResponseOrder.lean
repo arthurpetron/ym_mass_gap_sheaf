@@ -14,6 +14,8 @@ the original innovation ceiling, or a continuum/physical gap.
 -/
 
 import YMGap.Continuum.BF4WilsonAllNomeOddResponseJensen
+import YMGap.Continuum.BF4WilsonAllNomeCompletedRealScalar
+import YMGap.Continuum.BF4WilsonAllNomeTimeDefectTail
 
 namespace YMGap.Continuum.BF4WilsonAllNomePositiveOrbitResponseOrder
 
@@ -25,6 +27,10 @@ open YMGap.Continuum.RingNormaliser (poly_identity_of_normal_eq)
 open YMGap.Continuum.BF4WilsonAllNomeCompletedInner
 open YMGap.Continuum.BF4WilsonAllNomeCompletedTime
 open YMGap.Continuum.BF4WilsonAllNomeBilinearTime
+open YMGap.Continuum.BF4WilsonAllNomeLinear
+open YMGap.Continuum.BF4WilsonAllNomeCompletedPairingContinuity
+  (completedInner_sub_left completedInner_sub_right)
+open YMGap.Continuum.BF4WilsonAllNomeCompletedRealScalar
 open YMGap.Continuum.BF4WilsonAllNomeTimeDefectMoments
 open YMGap.Continuum.BF4WilsonAllNomeOddResponseJensen
   (response_nonnegative response_log_convex_step)
@@ -272,6 +278,202 @@ private theorem mul_scale (q : Q') (a b : RC) :
   exact fun A0 B0 => Quotient.sound (SumOfSquares.Equiv_of_approx_eqv
     (fun n => Q'.mul_assoc_eqv q (A0.approx n) (B0.approx n)))
 
+/-! Quantitative temporal covariance, on the SAME source and arbitrary shift. -/
+
+private theorem add_comm (a b : RC) : RCadd a b = RCadd b a := by
+  refine Quotient.inductionOn₂ a b ?_
+  exact fun X Y => Quotient.sound (SumOfSquares.Equiv_of_approx_eqv
+    (fun n => Q'.add_comm_eqv (X.approx n) (Y.approx n)))
+
+private theorem sub_self (a : RC) : RCsub a a = RCzero := by
+  refine Quotient.inductionOn a ?_
+  exact fun X => Quotient.sound (SumOfSquares.Equiv_of_approx_eqv (fun n =>
+    poly_identity_of_normal_eq (.add (.var 0) (.neg (.var 0))) (.const 0)
+      (by decide) (fun _ => X.approx n)))
+
+private theorem subnonneg_of_le {a b : RC} (h : RCle a b) :
+    RCnonneg (RCsub b a) := by
+  have hh := RCadd_le_add h (RCle_refl (RCneg a))
+  change RCle (RCsub a a) (RCsub b a) at hh
+  rwa [sub_self] at hh
+
+private theorem scale_zero (a : RC) : RCscale 0 a = RCzero := by
+  refine Quotient.inductionOn a ?_
+  exact fun X => Quotient.sound (SumOfSquares.Equiv_of_approx_eqv
+    (fun n => Q'.zero_mul_eqv (X.approx n)))
+
+private theorem scale_nat_succ (n : Nat) (a : RC) :
+    RCscale (Q'.ofNat (n+1)) a = RCadd (RCscale (Q'.ofNat n) a) a := by
+  refine Quotient.inductionOn a ?_
+  exact fun X => Quotient.sound (SumOfSquares.Equiv_of_approx_eqv (fun j =>
+    Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ _ _ (Q'.ofNat_add_eqv n 1))
+      (Q'.eqv_trans _ _ _ (Q'.add_mul_eqv _ _ _)
+        (Q'.add_eqv_congr_left _ _ _
+          (Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ _ _
+            (by decide : Q'.eqv (Q'.ofNat 1) 1)) (Q'.one_mul_eqv (X.approx j)))))))
+
+private theorem mul_add_left (a b c : RC) :
+    RCmul a (RCadd b c) = RCadd (RCmul a b) (RCmul a c) := by
+  rw [RCmul_comm a (RCadd b c), mul_add, RCmul_comm b a, RCmul_comm c a]
+
+private def residualQuadratic (c a u v z : RC) : RC :=
+  RCsub (RCmul c (RCsub (RCmul c z) (RCmul a v)))
+    (RCmul a (RCsub (RCmul c v) (RCmul a u)))
+
+private theorem residualQuadratic_initial (c a z : RC) :
+    residualQuadratic c a c a z =
+      RCmul c (RCsub (RCmul c z) (RCmul a a)) := by
+  refine Quotient.inductionOn₃ c a z ?_
+  exact fun X Y Z => Quotient.sound (SumOfSquares.Equiv_of_approx_eqv (fun n =>
+    poly_identity_of_normal_eq
+      (.add (.mul (.var 0) (.add (.mul (.var 0) (.var 2))
+        (.neg (.mul (.var 1) (.var 1)))))
+        (.neg (.mul (.var 1) (.add (.mul (.var 0) (.var 1))
+          (.neg (.mul (.var 1) (.var 0)))))))
+      (.mul (.var 0) (.add (.mul (.var 0) (.var 2))
+        (.neg (.mul (.var 1) (.var 1)))))
+      (by decide) (fun | 0 => X.approx n | 1 => Y.approx n | _ => Z.approx n)))
+
+private theorem residualQuadratic_recurrence (c a u v z : RC) :
+    RCadd (RCmul a (RCsub (RCmul c v) (RCmul a u)))
+      (residualQuadratic c a u v z) = RCmul c (RCsub (RCmul c z) (RCmul a v)) := by
+  unfold residualQuadratic
+  rw [add_comm, sub_add_cancel]
+
+private theorem residual_response_pin (x : V) (c a : CReal)
+    (cc : QCauchy c.approx) (ca : QCauchy a.approx) (n : Nat) :
+    let y := completedSub hw0 hw1
+      (completedRealSmul hw0 hw1 c cc (T 1 x)) (completedRealSmul hw0 hw1 a ca x)
+    R y n = residualQuadratic (Quotient.mk crealSetoid c) (Quotient.mk crealSetoid a)
+      (R x n) (R x (n+1)) (R x (n+2)) := by
+  dsimp only
+  have h2 : B (T 1 x) (T n (T 1 x)) = R x (n+2) := by
+    rw [← completedTime_add, completedInner_time_sum, show 1+(n+1)=n+2 by omega]
+  have h10 : B (T 1 x) (T n x) = R x (n+1) := by
+    rw [completedInner_time_sum, show 1+n=n+1 by omega]
+  have h01 : B x (T n (T 1 x)) = R x (n+1) := by rw [← completedTime_add]
+  simp only [completedTime_sub, completedTime_realSmul, completedInner_sub_left,
+    completedInner_sub_right, completedInner_realSmul_left, completedInner_realSmul_right,
+    h2, h10, h01, residualQuadratic]
+
+private theorem response_increment_with_scalars (x : V) (L : Nat) (c a : CReal)
+    (cc : QCauchy c.approx) (ca : QCauchy a.approx)
+    (hc : Quotient.mk crealSetoid c = R x L)
+    (ha : Quotient.mk crealSetoid a = R x (L+1)) (epsilon : Q')
+    (he : (0 : Q') < epsilon) (hfloor : RCle (rat epsilon) (R x L)) :
+    ∀ h : Nat, RCle
+      (RCsub (RCmul (R x L) (R x (L+h+1))) (RCmul (R x (L+1)) (R x (L+h))))
+      (RCscale (Q'.ofNat h)
+        (RCsub (RCmul (R x L) (R x (L+2))) (RCmul (R x (L+1)) (R x (L+1))))) := by
+  let C := R x L
+  let A := R x (L+1)
+  let S := RCsub (RCmul C (R x (L+2))) (RCmul A A)
+  let delta := fun h => RCsub (RCmul C (R x (L+h+1))) (RCmul A (R x (L+h)))
+  let y := completedSub hw0 hw1
+    (completedRealSmul hw0 hw1 c cc (T 1 x)) (completedRealSmul hw0 hw1 a ca x)
+  have hY (n : Nat) : R y n = residualQuadratic C A (R x n) (R x (n+1)) (R x (n+2)) := by
+    simpa only [hc, ha, C, A] using residual_response_pin hw0 hw1 x c a cc ca n
+  have hS : RCnonneg S := subnonneg_of_le (response_log_convex_step hw0 hw1 width x L)
+  have hA := response_nonnegative hw0 hw1 width x (L+1)
+  have hAC : RCle A C := BF4WilsonAllNomeOddResponseJensen.response_le_of_le
+    hw0 hw1 width x (by omega : L ≤ L+1)
+  change ∀ h, RCle (delta h) (RCscale (Q'.ofNat h) S)
+  intro h
+  induction h with
+  | zero =>
+      dsimp only [delta]
+      simp only [Nat.add_zero]
+      rw [RCmul_comm C A, sub_self,
+        RCSignedPairBudget.scale_congr (by decide : Q'.eqv (Q'.ofNat 0) 0), scale_zero]
+      exact RCle_refl _
+  | succ h ih =>
+      have hy := BF4WilsonAllNomeOddResponseJensen.response_le_of_le hw0 hw1 width y
+        (by omega : L ≤ L+h)
+      rw [hY (L+h), hY L, residualQuadratic_initial] at hy
+      have hhs : RCnonneg (RCscale (Q'.ofNat h) S) := by
+        simpa only [RCscale_RCzero] using RCscale_mono (Q'.ofNat_nonneg h) hS
+      have hfirst := RCle_trans (mul_mono_left hA ih) (mul_mono_right hhs hAC)
+      have hh := RCadd_le_add hfirst hy
+      rw [residualQuadratic_recurrence, ← mul_add_left, ← scale_nat_succ] at hh
+      apply cancel_floor epsilon he hfloor
+      rw [RCmul_comm (delta (h+1)) C, RCmul_comm (RCscale (Q'.ofNat (h+1)) S) C]
+      simpa only [delta, C, A, S, Nat.add_assoc] using hh
+
+/-- Actual temporal covariance grows at most linearly in the SAME initial
+Hankel spread. The supplied positive rational floor is used only to cancel
+R_x(L); arbitrary shifts (including odd L) and zero spread are retained.
+No relative spread, overlap, window survival or physical gap is supplied. -/
+theorem response_crossRatio_increment_le (x : V) (L h : Nat) (epsilon : Q')
+    (he : (0 : Q') < epsilon) (hfloor : RCle (rat epsilon) (R x L)) :
+    RCle (RCsub (RCmul (R x L) (R x (L+h+1)))
+      (RCmul (R x (L+1)) (R x (L+h))))
+      (RCscale (Q'.ofNat h) (RCsub (RCmul (R x L) (R x (L+2)))
+        (RCmul (R x (L+1)) (R x (L+1))))) := by
+  revert hfloor
+  refine Quotient.inductionOn x ?_
+  intro X hfloor
+  let P := pairingData hw0 hw1 (width := width)
+  let c := CRealSeminormPairingCompletion.representativeInner P X
+    ((timeNonexpansive hw0 hw1 L).mapCauchy X)
+  let a := CRealSeminormPairingCompletion.representativeInner P X
+    ((timeNonexpansive hw0 hw1 (L+1)).mapCauchy X)
+  let cc := CRealSeminormPairingCompletion.representativeInnerCauchy P X
+    ((timeNonexpansive hw0 hw1 L).mapCauchy X)
+  let ca := CRealSeminormPairingCompletion.representativeInnerCauchy P X
+    ((timeNonexpansive hw0 hw1 (L+1)).mapCauchy X)
+  exact response_increment_with_scalars hw0 hw1 _ L c a cc ca
+    (by unfold completedInner completedTime; rfl)
+    (by unfold completedInner completedTime; rfl) epsilon he hfloor h
+
+private theorem spread_defect_difference (c a z : RC) :
+    RCsub (RCmul c (RCsub (RCsub c a) (RCsub a z)))
+      (RCsub (RCmul c z) (RCmul a a)) = RCmul (RCsub c a) (RCsub c a) := by
+  refine Quotient.inductionOn₃ c a z ?_
+  exact fun X Y Z => Quotient.sound (SumOfSquares.Equiv_of_approx_eqv (fun n =>
+    poly_identity_of_normal_eq
+      (.add (.mul (.var 0) (.add (.add (.var 0) (.neg (.var 1)))
+        (.neg (.add (.var 1) (.neg (.var 2))))))
+        (.neg (.add (.mul (.var 0) (.var 2)) (.neg (.mul (.var 1) (.var 1))))))
+      (.mul (.add (.var 0) (.neg (.var 1))) (.add (.var 0) (.neg (.var 1))))
+      (by decide) (fun | 0 => X.approx n | 1 => Y.approx n | _ => Z.approx n)))
+
+private theorem spread_le_second_defect (x : V) (L : Nat) :
+    RCle (RCsub (RCmul (R x L) (R x (L+2))) (RCmul (R x (L+1)) (R x (L+1))))
+      (RCmul (R x L) (mixedMoment hw0 hw1 x L 2)) := by
+  have hd : RCsub (RCsub (R x L) (R x (L+1)))
+      (RCsub (R x (L+1)) (R x (L+2))) = mixedMoment hw0 hw1 x L 2 := by
+    rw [first_defect_pin hw0 hw1 x L, show L+2=(L+1)+1 by omega,
+      first_defect_pin hw0 hw1 x (L+1)]
+    exact difference_of_split _ _ _ (mixedMoment_split hw0 hw1 x L 1)
+  apply le_of_sub_nonnegative
+  rw [← hd, spread_defect_difference, first_defect_pin hw0 hw1 x L]
+  have hn := mixedMoment_nonnegative hw0 hw1 x L 1
+  have hh := mul_mono_left hn hn
+  rw [RCmul_comm _ RCzero, mul_zero] at hh
+  exact hh
+
+/-- Warming pays the SAME source's cleared covariance in its original
+preimage norm, at inverse-square rate. This does not pay a relative overlap
+or survival floor; the rational floor on the warmed response remains explicit. -/
+theorem warmed_response_crossRatio_increment_le (x : V) (q h : Nat) (epsilon : Q')
+    (he : (0 : Q') < epsilon) (hfloor : RCle (rat epsilon) (R x (2*q))) :
+    RCle (RCsub (RCmul (R x (2*q)) (R x (2*q+h+1)))
+      (RCmul (R x (2*q+1)) (R x (2*q+h))))
+      (RCscale (Q'.ofNat h * (Q'.invSucc q * Q'.invSucc q))
+        (RCmul (R x (2*q)) (B x x))) := by
+  have hc := response_nonnegative hw0 hw1 width x (2*q)
+  have hs := RCle_trans (spread_le_second_defect hw0 hw1 x (2*q))
+    (mul_mono_left hc
+      (BF4WilsonAllNomeTimeDefectTail.mixedMoment_two_defect_bound hw0 hw1 x q))
+  have hp : RCmul (R x (2*q))
+      (RCscale (Q'.invSucc q * Q'.invSucc q) (B x x)) =
+      RCscale (Q'.invSucc q * Q'.invSucc q) (RCmul (R x (2*q)) (B x x)) := by
+    rw [RCmul_comm, mul_scale, RCmul_comm (B x x) (R x (2*q))]
+  rw [hp] at hs
+  have hh := RCle_trans (response_crossRatio_increment_le hw0 hw1 x (2*q) h epsilon he hfloor)
+    (RCscale_mono (Q'.ofNat_nonneg h) hs)
+  rwa [RCscale_RCscale] at hh
+
 private theorem sum_mul_right (cs : List (Q' × Nat)) (f : Nat → RC) (a : RC) :
     RCmul (responseSum cs f) a = responseSum cs (fun n => RCmul (f n) a) := by
   induction cs with
@@ -407,6 +609,8 @@ end Completed
 #print axioms remove_regularization
 #print axioms response_convex_step
 #print axioms response_crossRatio
+#print axioms response_crossRatio_increment_le
+#print axioms warmed_response_crossRatio_increment_le
 #print axioms orbit_response_expand
 #print axioms positiveOrbit_response_crossRatio
 #print axioms shifted_response_floor

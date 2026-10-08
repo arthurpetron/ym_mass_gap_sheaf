@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Supporting ORIGINAL temporal covariance payment checked (2026-10-08 UTC):
+the existing positive-orbit response leaf proves Delta_h<=h times the SAME
+three-moment spread at any nonnegative integer shift, using an explicit positive response
+floor. Its warming upper bound retains the ORIGINAL preimage norm; useful
+relative credit/spread and survival remain OPEN. Focused check 2 and
+independent complete-source review PASS, permitted gates only. No new module
+or frontier; exact displayed claims unchanged, so no chart reprint. Evidence:
+adaptive-score audit.
+
 Supporting geometric cap/floor obstruction checked (2026-10-08 UTC):
 the existing AF trajectory leaf constructs a cofinal scale where ANY scalar
 rate with loss >=afGap has backward-window power below a given positive

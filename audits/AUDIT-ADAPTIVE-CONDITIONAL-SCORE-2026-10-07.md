@@ -4,6 +4,142 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Observed temporal covariance payment (2026-10-08 15:58 UTC)
+
+CHECKED in the EXISTING positive-orbit response leaf, not another survival
+compiler or frontier bundle:
+
+- `lean/YMGap/Continuum/BF4WilsonAllNomePositiveOrbitResponseOrder.lean:406`,
+  `response_crossRatio_increment_le`, proves Delta_h<=h*S for
+  r_i=B(x,T^(L+i)x), S=r_0*r_2-r_1^2 and
+  Delta_h=r_0*r_(h+1)-r_1*r_h. Every nonnegative integer shift L, including odd L,
+  is retained. The actual supplied rational floor for r_0 is used ONLY
+  for order reflection, with no numerical loss in the bound.
+- `:458`, `warmed_response_crossRatio_increment_le`, produces
+  Delta_h<=h/(q+1)^2 * R_x(2q)*B(x,x). Both factors are the SAME original
+  completed source; q is the number of warming steps, not the moment shift.
+  This is an upper covariance bound in the ORIGINAL preimage norm,
+  not a relative spread or survival estimate.
+
+### Mathematical contraction and actual consumer
+
+The selected proof was generalized to arbitrary shifts without a half-time
+state. Construct CReal coefficients and their Type-level QCauchy data from
+the ACTUAL pairing representatives, using quotient induction on x; there is
+no chosen representative or extraction from CReal's propositional Cauchy field.
+For y=r_0*Tx-r_1*x the exact shifted residual satisfies
+  B(y,T^L y)=r_0*S,
+  r_0*Delta_(h+1)=r_1*Delta_h+B(y,T^(L+h)y).
+Residual response monotonicity, 0<=r_1<=r_0 and S>=0 pay the recurrence
+by induction. The warming corollary retains the favorable square through
+  r_0*d_2-S=d_1^2,
+then composes the existing actual two-defect bound. It does not identify
+an ordinary weighted marginal or finite chronological Gram with the
+completed reflected form.
+
+The box-window join below remains PAPER, as in the earlier direct-window
+section; no kernel-checked triangular-recoding or window certificate is
+claimed here. At its first split let a=r_1, c=r_h, b=r_(h+1),
+E=b-theta*a, C=r_0. The exact retained payment is
+  a*(c-theta*C)+E*Tail = E*(C+Tail)-Delta_h.
+The new checked estimate reduces a sufficient payment to
+  h*S <= E*(C+Tail).
+This JOINT actual-source inequality remains UNPRODUCED. Preserve its signs;
+do not impose a uniform E>=gamma*C or polynomial original-to-warmed overlap
+as a new mandatory frontier. Uniform positive gamma would already give raw
+retention at h+1, hence h, and the existing positive-orbit retention theorem
+would consume it directly. The preimage-norm bound offers another sufficient
+route, not a necessary overlap condition.
+
+For the actual dyadic window j>=2, L=p=N/2, q=N/4 and h=N/2+1;
+the proved coefficient specializes on PAPER to 8*(N+2)/(N+4)^2.
+Do not use q=p or invent T^(1/2) at j=1; the core theorem already covers
+that odd shift, while its warming corollary names only the even shift 2q.
+Source-specific relative S/late credit is still absent. Existing
+`lean/YMGap/Continuum/BF4WilsonAllNomeFilteredGainLimit.lean:131`,
+`gainLimit_completed_pin`, is an identity, not an upper producer;
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFilteredGainSourcePair.lean:155`,
+`commutatorGain_source_pair`, still retains the full action and OWN-center
+residue. No stationary, free, heat-bath or different-group carrier is used.
+
+### Exact verification boundary and decision
+
+Final focused check 2 exits zero, no warnings/errors/sorryAx. Both new public
+gates and the existing printed gates stay within {propext, Quot.sound}.
+Final source SHA256:
+  7fa07b290672faaa526304860d201323aea11532532ea3e71e0e0b21acb3a823
+Log: `/private/tmp/ym-oct8-temporal-covariance2.log`, SHA256:
+  b1cede9527af8c813dc0bed71c2283fb7ba51c8cd1438388f76f7a92f0e1c523
+Root inspected the complete final source; independent complete final-source
+review PASS on that exact hash. Check 1 rejected a zero-case rewrite leaving
+one L+0 occurrence; simplification of BOTH occurrences fixes it. Its printed
+sorryAx was error recovery, not accepted proof evidence or committed code.
+
+Each actual launch followed successful fresh process/memory preflight and
+used one worker, hard 20 GiB, reserve 12 GiB; pressure-free memory 86%, swap
+zero. Initial process queries matched their own shell through an unbracketed
+name; NO compiler was launched until corrected queries were empty. No user
+process killed, threshold raised or lock bypassed. No root/tree audit,
+baseline refresh, new module, sorry/axiom or canonical field change.
+
+CONTINUE the actual JOINT credit/spread or last-window innovation estimate.
+The long-lag covariance now has a proved three-moment upper payment, but
+its useful changing-family size and the PAPER box join remain open. The
+measurement attachment supplies neither. Scaling, physical mass, SAME
+limiting OS/QFT, every group and Clay remain OPEN; displayed canonical
+claims unchanged, so no ASCII reprint.
+
+## Selected temporal covariance payment (2026-10-08 UTC)
+
+Exact next proposition on the SAME completed original Wilson carrier:
+for r_i=B(z,T^i z), S=r_0*r_2-r_1^2 and
+Delta_h=r_0*r_(h+1)-r_1*r_h, prove Delta_h<=h*S whenever
+the already constructed positive rational norm floor is supplied. This is
+an upper estimate, not another conditional window-survival compiler.
+Consumer: the retained early-credit test for
+`BF4WilsonAllNomeShiftedWindowSurvival.PathShiftedWindowSurvival` at line 448.
+At the first split its exact signed payment is
+  (b-theta*a)*(r_0+Tail)-Delta_h,
+not the conservative discarded-credit payment theta*a*r_0.
+Thus the new estimate reduces a long-lag covariance to the SAME three
+initial warmed moments. The actual favorable late credit and relative
+spread/overlap estimate remain unsupplied.
+
+Available inputs inspected by root: original real-scalar action and its
+explicit Cauchy witnesses (`BF4WilsonAllNomeCompletedRealScalar` and
+`CRealSeminormPairingCompletionLimit.representativeInnerCauchy`), positive
+time contraction (`BF4WilsonAllNomeTimeDefectMoments.completedTime_form_le`),
+actual Cauchy--Schwarz, lag balance and the existing rational-floor order
+cancellation. No spectral measure, normalized Rayleigh quotient or inverse
+is required. Use the unnormalized residual y=r_0*Tz-r_1*z:
+  B(y,y)=r_0*S,
+  r_0*Delta_(h+1)=r_1*Delta_h+B(y,T^h y).
+Induction and 0<=r_1<=r_0 pay this by r_0*(h+1)*S; cancel only the
+already supplied positive floor. Independent mathematical review is pending.
+
+Also compose the ACTUAL warming estimate before interpreting its size.
+For the window r_i=R_x(p+i), p=N/2 and h=p+1. At j>=2 warm by
+q=p/2=N/4, NOT by p; then z=T^q x and r_i=R_x(2q+i).
+`BF4WilsonAllNomeTimeDefectTail.mixedMoment_two_defect_bound` (line 100)
+pays d_2 by m_0/(q+1)^2, m_0=B(x,x), hence on PAPER
+  h*S <= 8*(N+2)/(N+4)^2 * r_0*m_0.
+The earlier independent screen's doubled-time mismatch was caught and
+corrected before code. This is O(1/N) in the ORIGINAL preimage norm,
+not useful relative control in r_0^2 without an actual overlap estimate.
+For j=1, do not invent a half-time state; keep shifted mixed moments or
+handle that finite stage separately. No canonical field is weakened.
+
+Prediction/test: cleared recurrence, h=0 and h=1 must agree exactly;
+one-mode spread is zero, two-mode spread need not be relatively small.
+The positive floor belongs to the supplied state, not a universal scalar.
+Verification budget: extend the existing positive-orbit response leaf,
+one serialized 20-GiB worker and 12-GiB reserve, fresh successful dynamic
+preflight before EACH launch; at most three focused attempts before
+reassessing. No root/tree audit, new frontier or classical gate. Sol
+implementation, independent read-only review, root complete final-source
+inspection. Revise if real-scalar data or original-time identities cannot
+be constructed; abandon any replacement by a stationary/free carrier.
+
 ## Observed geometric cap/floor obstruction (2026-10-08 UTC)
 
 CHECKED in the EXISTING AF trajectory leaf:

@@ -27,6 +27,21 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED temporal covariance payment (2026-10-08 UTC):
+`BF4WilsonAllNomePositiveOrbitResponseOrder.response_crossRatio_increment_le`
+proves Delta_h<=h*(r_0*r_2-r_1^2) on the SAME original completed source,
+at every nonnegative integer shift, with a supplied positive rational response floor.
+An unnormalized residual and induction avoid a norm inverse or spectral
+measure. `warmed_response_crossRatio_increment_le` pays it by
+h/(q+1)^2 * R_x(2q)*B(x,x), explicitly in the ORIGINAL preimage norm.
+Focused final check 2, permitted gates and independent complete-source
+review PASS. MAIN becomes the retained JOINT h*S<=(b-theta*a)*(r_0+Tail),
+or the existing relative innovation: its actual changing-family payment
+and the earlier PAPER box join remain OPEN. Do not impose separate uniform
+credit/overlap prerequisites or import measured masses. No new module or
+frontier; physical/Clay and displayed claims remain OPEN/unchanged. Exact
+source/log hashes and corrected preflight queries: adaptive-score audit.
+
 CHECKED geometric cap/floor pruning (2026-10-08 UTC):
 `BF4WilsonAllNomeAFPaddedTrajectory.afGeometricCertificate_lt_at_probe`
 constructs j beyond ANY start where EVERY scalar rate with loss >=afGap(j)
