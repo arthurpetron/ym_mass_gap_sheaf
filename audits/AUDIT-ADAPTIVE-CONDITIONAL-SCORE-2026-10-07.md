@@ -8043,7 +8043,8 @@ ROOT's algebra and an independent mathematical/source review agree.
 This composition has NOT been added to Lean or kernel-checked as a new theorem.
 
 REJECT implementation for MAIN now: a certified original-law hemisphere
-restriction/complement payment is NOT FOUND in the inspected
+noise/source-weighted restriction/complement payment against surviving OWN
+variance is NOT FOUND in the inspected
 `SU2QuaternionPairedFrozenHeatPrefixCurvature` and
 `BF4ExactSlabFixedSpatialTerminalLocalSignedGram` modules. Their current
 global deficit transport and `terminal_local_signed_score_bound_nearFlat`,
@@ -8052,6 +8053,14 @@ do not consume this hemisphere-only upper contribution or pay the signed
 action/spatial score covariance. No localization premise is introduced.
 Continue the complete ORIGINAL macroscopic numerator or JOINT signed payment;
 no new interface, proof-node closure or chart-state change is claimed.
+
+Source-inventory correction, 2026-10-08: ORIGINAL edge-MASS localization
+already exists in `exact_alignment_normalized_of_cutoff`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialExactKineticAlignment.lean:95`,
+at its computed nome-dependent cutoff. It does not cover the squared
+conditional residual or pay the above MAIN variance budget. No duplicate
+alignment proof is selected. Exact source chain and prior verification
+boundary: the final section of `RESEARCH-2610-09093-2026-10-08.md`.
 
 ## Trace-sign experiment and warmed-budget screen (2026-10-08 UTC)
 

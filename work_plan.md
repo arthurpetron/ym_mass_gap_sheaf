@@ -260,8 +260,9 @@ original chronological partitions. Do not make a near-unit microscopic
 ratio or small Hankel spread necessary. Two bounded parallel screens found
 no new interacting moment producer. A short sharper hemisphere heat band
 was derived on paper, but implementation is rejected: the current original
-law has no produced localization/complement payment that lets MAIN consume
-it. No Lean edit, compiler, new premise or canonical closure. Exact algebra,
+law has no produced noise/source-weighted complement payment against OWN
+surviving variance that lets MAIN consume it. No Lean edit, compiler, new
+premise or canonical closure. Exact algebra,
 declaration pins and scope: final section of the adaptive-score audit.
 
 CHECKED finite score-sign screen (2026-10-08 UTC): the EXISTING
@@ -285,6 +286,21 @@ coefficient equality, respectively, before repair. One 20-GiB worker,
 12-GiB reserve, fresh preflights; local finite-normalization options match
 their imported differential leaf. No root/tree audit, new premise, canonical
 closure or chart change. Exact declarations/source/log hashes: score audit.
+
+Source reconciliation after the targeted paper review (2026-10-08 UTC):
+the proposed fusion-based ORIGINAL edge-mass localization is ALREADY checked,
+not a new frontier. `ExactKineticAlignment.exact_alignment_normalized_of_cutoff`
+uses the SAME `spatialWeight*terminalMessage`, complete kinetic product and
+positive `oddMass`; its computable onset and coefficient are width/depth
+independent, but nome-dependent. The equivalent PAPER reading is
+E_original[1-X_i]<=1-w^3. Reuse this existing input; do not implement another
+coefficient or alignment wrapper. It does NOT pay the squared conditional
+residual or signed density/spatial corrections against warmed OWN variance.
+For signed endpoint sources, the displacement insertion is not proved PSD;
+do not infer its Cauchy--Schwarz inequality. CONTINUE the complete ORIGINAL
+macro numerator or JOINT signed payment. Source pins and the existing
+September verification boundary are recorded in the targeted research report.
+This is a corrected input inventory, not a new proof or chart-state change.
 
 Targeted paper review integrated (2026-10-08 UTC, user request):
 `audits/RESEARCH-2610-09093-2026-10-08.md` records the long paper and companion
