@@ -16,6 +16,18 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked ORIGINAL conditional density covariance (2026-10-08 UTC):**
+`ConditionalGrussSquare.squaredResidualVariance_certificate` pays the
+squared cleared residual's variance, keeping its negative noise square.
+The SAME original-law Ward instance retains both corrected factors and
+produces the literal OWN-centered padded-square cap17 instance. No mass,
+noise or source inverse/new premise is introduced. BOTH final focused
+targets/20 permitted gates and independent COMPLETE final-source reviews
+PASS, after namespace/rewrite-only repairs. Centering does not create extra
+mean-square credit: its matching Ward term cancels exactly. Complete joint
+signed cost versus OWN variance/BOTH masses, changing-family and all
+physical/Clay goals remain OPEN. Evidence: adaptive-score audit; no tree audit.
+
 **Checked ORIGINAL centered gradient payment (2026-10-08 UTC):**
 `RatioNoiseGradientAbsorption.original_ratioNoise_phiGradient_noise_absorption_le`
 centers the actual conditional square and pays only the noise of Jphi,

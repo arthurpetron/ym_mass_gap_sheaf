@@ -12,6 +12,8 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseGradientAbsorption
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFringeProjection
 import YMGap.Continuum.BF4ExactSlabFixedSpatialTransferSymmetry
 import YMGap.Continuum.QuaternionHaarFiniteReciprocalHessianSign
+import YMGap.Continuum.SU2QuaternionConditionalGrussSquare
+import YMGap.Continuum.BF4ExactSlabFixedSpatialEndpointRelativeBound
 
 namespace YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption
 
@@ -25,7 +27,7 @@ open YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics
 open YMGap.Continuum.BF4ExactPhysicalCenteredVacuumTransmittedMarginal (partialHaarHeads)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialSliceCarrier (baseLinks)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialSliceHeat (spatialWeight spatialWeight_supported)
-open YMGap.Continuum.BF4ExactSlabFixedSpatialKineticHeat (kineticWeight)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialKineticHeat (kineticWeight kineticWeight_supported)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialKineticMarginals
   (activeBlocks activeBlocks_lt kineticWeight_eq_indexedProduct)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialTransferStep
@@ -65,6 +67,17 @@ open YMGap.Continuum.QuaternionHaarAngularCarrier (neg_smul)
 open YMGap.Continuum.QuaternionHaarPolynomialSquareBound (cap)
 open YMGap.Continuum.QuaternionHaarPositiveWindowInverse
 open YMGap.Continuum.QuaternionHaarFiniteReciprocalHessianSign
+open YMGap.Continuum.SU2QuaternionConditionalGrussSquare
+open YMGap.Continuum.SU2QuaternionMultiHeadVarianceReplica (determinant)
+open YMGap.Continuum.SU2QuaternionHaarCertificateExtension (certificate_extend)
+open YMGap.Continuum.SU2QuaternionProductHeatAngularCommutation
+open YMGap.Continuum.BF4ExactSlabFixedSpatialTransferPositive (transferStep_eq_productMap)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialKineticOrder (kineticCertificate)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialEndpointRelativeBound
+open YMGap.Continuum.BF4ExactSlabFixedSpatialGroundStateEnergy (endpointSource)
+open YMGap.Continuum.QuaternionHaarHeatRelativeAngularBound
+  (relativeCap_positive headCutoff_le_relativeCutoff)
+open YMGap.Continuum.QuaternionHaarPolynomialSquareBound (SquareBound)
 
 local notation:max "N" width:arg => List.length (baseLinks width)
 local infix:50 " ≈ " => Q'.eqv
@@ -653,6 +666,219 @@ theorem original_ratioNoise_noiseGradientPayment_weighted_pin (w : Q') (K width 
       (Q'.add_eqv_congr'
         (original_ratioNoise_gradientPayment_weighted_pin w K width d s i j hs hi hj hphi) hneg))
 
+private theorem densityMoment_input_pin (w : Q') (K width : Nat) (a p : RatPoly) :
+    RatPolyCoeffEqv (partialHaarHeads (N width)
+      (polyMul (polyMul (kineticWeight w K width) (polyMul (spatialWeight w K width) a)) p))
+      (transferStep w K width (polyMul a p)) :=
+  partialHaarHeads_congr (N width)
+    ((RatPolyCoeffEqv.mul_assoc (kineticWeight w K width)
+      (polyMul (spatialWeight w K width) a) p).trans
+      ((RatPolyCoeffEqv.mul_assoc (spatialWeight w K width) a p).mul_left _))
+
+private theorem densityMoment_mean_carrier (w : Q') (K width s i j : Nat)
+    (hs : s < N width) (hi : i < 4) (hj : j < 4) {a : RatPoly}
+    (ha : SupportedQuaternionBlocks (N width) a) :
+    HaarCarrierEqv (N width)
+      (angularDerivative (4*s+i) (4*s+j) (transferStep w K width a))
+      (partialHaarHeads (N width) (polyMul (kineticWeight w K width)
+        (angularDerivative (4*s+i) (4*s+j) (polyMul (spatialWeight w K width) a)))) := by
+  rw [transferStep_eq_productMap, kineticWeight_eq_indexedProduct]
+  exact productMap_angular_carrier (N width) s i j hs hi hj w K
+    (activeBlocks width) (activeBlocks_lt width) _
+    (supported_polyMul (spatialWeight_supported w K width) ha)
+
+/-- The ACTUAL density correction has a produced centered-covariance square
+budget. Both the mean-derivative square and the residual-noise square are
+retained. The explicit nome-dependent local cutoff covers an active physical
+link, not an arbitrary fringe direction. No mass/noise inverse or conditional
+variance premise is used; the bound alone is not a changing-family payment. -/
+def original_ratioNoise_densityCovariance_certificate {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) (K width : Nat)
+    (hK : endpointRelativeCutoff w ≤ K) (d : Nat)
+    (selected : ClusterCount4DProgress.Z4Link) (hl : selected ∈ baseLinks width)
+    (hs : (baseLinks width).idxOf selected ∈ activeBlocks width)
+    {i j : Nat} (hi : i < 4) (hj : j < 4) {phi : RatPoly} {C : Q'}
+    (hphi : SupportedQuaternionBlocks (N width) phi)
+    (Pphi : Certificate (N width) (polyAdd (cap (C*C)) (polyNeg (polyMul phi phi)))) :
+    let s := (baseLinks width).idxOf selected
+    let a := terminalMessage w K width d
+    let A := transferStep w K width a
+    let noise := matchedNoise w K width a phi
+    let D := angularDerivative (4*s+i) (4*s+j) A
+    let Q := ratioNoiseDensityMoment w K width s i j a phi
+    let centered := polyAdd Q (polyNeg (polyMul noise D))
+    let L := endpointRelativeCap w
+    let coefficient := polyAdd (polyMul (cap (L*L)) (polyMul A A))
+      (polyNeg (polyMul D D))
+    let fourth := polyAdd
+      (polyMul (polyMul (cap (4*(C*C))) (polyMul (polyMul A A) (polyMul A A))) noise)
+      (polyNeg (polyMul (polyMul A A) (polyMul noise noise)))
+    Certificate (N width) (polyAdd (polyMul coefficient fourth)
+      (polyNeg (polyMul (polyMul A A) (polyMul centered centered)))) := by
+  dsimp only
+  let s := (baseLinks width).idxOf selected
+  let a := terminalMessage w K width d
+  let A := transferStep w K width a
+  let g := polyMul (spatialWeight w K width) a
+  let P := kineticWeight w K width
+  let W := polyMul P g
+  let J := angularDerivative (4*s+i) (4*s+j)
+  let tilt := polyMul P (J g)
+  let D0 := partialHaarHeads (N width) tilt
+  let X := matchedNoiseResidual w K width a phi
+  let noise := matchedNoise w K width a phi
+  let L := endpointRelativeCap w
+  let coefficient := centeredRelativeCoefficient (N width) W tilt L
+  let fourth := polyAdd
+    (polyMul (polyMul (cap (4*(C*C))) (polyMul (polyMul A A) (polyMul A A))) noise)
+    (polyNeg (polyMul (polyMul A A) (polyMul noise noise)))
+  let Q := ratioNoiseDensityMoment w K width s i j a phi
+  let centered := polyAdd Q (polyNeg (polyMul noise D0))
+  have hidx : s < N width := List.idxOf_lt_length_of_mem hl
+  have hhead : headCutoff w ≤ K := Nat.le_trans
+    (Nat.le_trans (headCutoff_le_relativeCutoff w 4096) (Nat.le_max_left _ _)) hK
+  have ha := terminalMessage_supported w K width d
+  have hg := supported_polyMul (spatialWeight_supported w K width) ha
+  have hJg := angularDerivative_supported_at
+    (by omega : 4*s+i < 4*N width) (by omega : 4*s+j < 4*N width) hg
+  have extend {p : RatPoly} (hp : SupportedQuaternionBlocks (N width) p) :
+      SupportedQuaternionBlocks (N width+N width) p := fun t ht =>
+    Nat.le_trans (hp t ht) (by omega)
+  have support_neg {blocks : Nat} {p : RatPoly} (hp : SupportedQuaternionBlocks blocks p) :
+      SupportedQuaternionBlocks blocks (polyNeg p) := by
+    intro t ht
+    obtain ⟨r, hr, rfl⟩ := List.mem_map.mp ht
+    exact hp r hr
+  have hW := supported_polyMul (kineticWeight_supported w K width) (extend hg)
+  have htilt := supported_polyMul (kineticWeight_supported w K width) (extend hJg)
+  have hA := transferStep_supported w K width ha
+  have hb := transferStep_supported w K width (supported_polyMul ha hphi)
+  have hX := supported_add (supported_polyMul (lift_supported hA (N width)) (extend hphi))
+    (support_neg (lift_supported hb (N width)))
+  let relative := endpointSourceRelativeBound hw0 hw1 K width hK d selected hl hs hi hj
+  let PK := kineticCertificate hw0 hw1 K width hhead
+  let PW := PK.mul (certificate_extend (N width) hg relative.positive)
+  have hplus := supported_add (supported_polyMul (SquareBound.constant (N width) L).support hg) hJg
+  have hminus := supported_add (supported_polyMul (SquareBound.constant (N width) L).support hg)
+    (support_neg hJg)
+  let Pplus : Certificate (N width+N width) (polyAdd (polyMul (cap L) W) tilt) :=
+    Certificate.ofCoeff
+      (coeffEvalExpr_eqv_of_normalize_eq
+        (.add (.mul (.var 0) (.mul (.var 1) (.var 2))) (.mul (.var 1) (.var 3)))
+        (.mul (.var 1) (.add (.mul (.var 0) (.var 2)) (.var 3)))
+        (by decide) (fun | 0 => cap L | 1 => P | 2 => g | _ => J g))
+      (PK.mul (certificate_extend (N width) hplus relative.lower))
+  let Pminus : Certificate (N width+N width) (polyAdd (polyMul (cap L) W) (polyNeg tilt)) :=
+    Certificate.ofCoeff
+      (coeffEvalExpr_eqv_of_normalize_eq
+        (.add (.mul (.var 0) (.mul (.var 1) (.var 2))) (.neg (.mul (.var 1) (.var 3))))
+        (.mul (.var 1) (.add (.mul (.var 0) (.var 2)) (.neg (.var 3))))
+        (by decide) (fun | 0 => cap L | 1 => P | 2 => g | _ => J g))
+      (PK.mul (certificate_extend (N width) hminus relative.upper))
+  have hL : (0 : Q') < L := Q'.pos_of_lt_of_le
+    (Q'.mul_pos (by decide : (0 : Q') < 6)
+      (relativeCap_positive hw0 (by decide : (0 : Q') ≤ 4096)))
+    (Q'.add_le_self_of_nonneg _ _
+      (Q'.le_of_lt (relativeCap_positive hw0 (by decide : (0 : Q') ≤ 32))))
+  have hcap := supported_add (SquareBound.constant (N width) (C*C)).support
+    (support_neg (supported_polyMul hphi hphi))
+  let Pcap := certificate_extend (N width) hcap Pphi
+  let nu := determinant (N width) W phi
+  let X0 := polyAdd (polyMul (liftBoundary (N width) A) phi)
+    (polyNeg (liftBoundary (N width) (partialHaarHeads (N width) (polyMul W phi))))
+  have hnu : RatPolyCoeffEqv nu noise :=
+    ((RatPolyCoeffEqv.refl A).mul (densityMoment_input_pin w K width a (polyMul phi phi))).add
+      (RatPolyCoeffEqv.neg ((densityMoment_input_pin w K width a phi).mul
+        (densityMoment_input_pin w K width a phi)))
+  have hX0 : RatPolyCoeffEqv X0 X := (RatPolyCoeffEqv.refl _).add
+    (RatPolyCoeffEqv.neg (lift_coeff (N width) (densityMoment_input_pin w K width a phi)))
+  have hXX := hX0.mul hX0
+  have hmoment := partialHaarHeads_congr (N width) (hXX.mul_left W)
+  have hmean : RatPolyCoeffEqv (partialHaarHeads (N width) (polyMul W (polyMul X X)))
+      (polyMul A noise) := hmoment.symm.trans
+    ((residual_square_pin (N width) W phi).trans (hnu.mul_left A))
+  have hdet : RatPolyCoeffEqv (determinant (N width) W (polyMul X0 X0))
+      (determinant (N width) W (polyMul X X)) :=
+    ((RatPolyCoeffEqv.refl A).mul (partialHaarHeads_congr (N width)
+      ((hXX.mul hXX).mul_left W))).add (RatPolyCoeffEqv.neg (hmoment.mul hmoment))
+  let Pvariance := squaredResidualVariance_certificate (N width) (N width) W phi C
+    hW (extend hphi) PW Pcap
+  have hvariance : RatPolyCoeffEqv
+      (polyAdd
+        (polyAdd (polyMul (polyMul (cap (4*(C*C))) (polyMul (polyMul A A) (polyMul A A))) nu)
+          (polyNeg (polyMul (polyMul A A) (polyMul nu nu))))
+        (polyNeg (determinant (N width) W (polyMul X0 X0))))
+      (polyAdd fourth (polyNeg (determinant (N width) W (polyMul X X)))) :=
+    (((hnu.mul_left _).add (RatPolyCoeffEqv.neg ((hnu.mul hnu).mul_left _))).add
+      (RatPolyCoeffEqv.neg hdet))
+  let PV := Certificate.ofCoeff hvariance.symm Pvariance
+  let PC := centeredRelativeCoefficient_certificate (N width) (N width) W tilt L Pplus Pminus
+  let PG := conditionalGrussSquare_certificate (N width) (N width) W tilt (polyMul X X)
+    L hL hW htilt (supported_polyMul hX hX) Pplus Pminus
+  have hQ : RatPolyCoeffEqv (partialHaarHeads (N width) (polyMul tilt (polyMul X X))) Q :=
+    partialHaarHeads_congr (N width) (RatPolyCoeffEqv.mul_assoc P (J g) (polyMul X X))
+  have hscore : RatPolyCoeffEqv
+      (polyAdd (polyMul A (partialHaarHeads (N width) (polyMul tilt (polyMul X X)))) (polyNeg
+        (polyMul (partialHaarHeads (N width) (polyMul W (polyMul X X))) D0)))
+      (polyMul A centered) :=
+    ((hQ.mul_left A).add (RatPolyCoeffEqv.neg (hmean.mul_right D0))).trans
+      (coeffEvalExpr_eqv_of_normalize_eq
+        (.add (.mul (.var 0) (.var 1)) (.neg (.mul (.mul (.var 0) (.var 2)) (.var 3))))
+        (.mul (.var 0) (.add (.var 1) (.neg (.mul (.var 2) (.var 3)))))
+        (by decide) (fun | 0 => A | 1 => Q | 2 => noise | _ => D0))
+  have hpaid : RatPolyCoeffEqv
+      (polyAdd
+        (polyMul coefficient (polyAdd fourth (polyNeg (determinant (N width) W (polyMul X X)))))
+        (polyAdd (polyMul coefficient (determinant (N width) W (polyMul X X)))
+          (polyNeg (polyMul (polyMul A centered) (polyMul A centered)))))
+      (polyAdd (polyMul coefficient fourth)
+        (polyNeg (polyMul (polyMul A A) (polyMul centered centered)))) :=
+    coeffEvalExpr_eqv_of_normalize_eq
+      (.add (.mul (.var 0) (.add (.var 1) (.neg (.var 2))))
+        (.add (.mul (.var 0) (.var 2)) (.neg (.mul (.mul (.var 3) (.var 4)) (.mul (.var 3) (.var 4))))))
+      (.add (.mul (.var 0) (.var 1)) (.neg (.mul (.mul (.var 3) (.var 3)) (.mul (.var 4) (.var 4)))))
+      (by decide) (fun
+        | 0 => coefficient
+        | 1 => fourth
+        | 2 => determinant (N width) W (polyMul X X)
+        | 3 => A
+        | _ => centered)
+  let Pcentered := Certificate.ofCoeff hpaid.symm
+    ((PC.mul PV).add (Certificate.ofCoeff
+      ((RatPolyCoeffEqv.refl _).add (RatPolyCoeffEqv.neg (hscore.mul hscore))).symm PG))
+  have hD : HaarCarrierEqv (N width) D0 (J A) :=
+    (densityMoment_mean_carrier w K width s i j hidx hi hj ha).symm
+  have hcoefficient : HaarCarrierEqv (N width) coefficient
+      (polyAdd (polyMul (cap (L*L)) (polyMul A A)) (polyNeg (polyMul (J A) (J A)))) :=
+    HaarCarrierEqv.add (HaarCarrierEqv.refl _ _)
+      (HaarCarrierEqv.neg (HaarCarrierEqv.mul hD hD))
+  have hcentered : HaarCarrierEqv (N width) centered
+      (polyAdd Q (polyNeg (polyMul noise (J A)))) :=
+    HaarCarrierEqv.add (HaarCarrierEqv.refl _ _)
+      (HaarCarrierEqv.neg (HaarCarrierEqv.mul (HaarCarrierEqv.refl _ _) hD))
+  exact Certificate.transport
+    (HaarCarrierEqv.add (HaarCarrierEqv.mul hcoefficient (HaarCarrierEqv.refl _ _))
+      (HaarCarrierEqv.neg (HaarCarrierEqv.mul (HaarCarrierEqv.refl _ _)
+        (HaarCarrierEqv.mul hcentered hcentered)))).symm Pcentered
+
+/-- Literal OWN-centered padded-square conditional source. Its cap17,
+support, full original signed tilts and both subtracted squares are produced;
+incoming precision is arbitrary, independent of the Ward reciprocal degree. -/
+def ownPaddedSquareRatio_densityCovariance_certificate {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) (K width : Nat)
+    (hK : endpointRelativeCutoff w ≤ K) (n t scale : Nat)
+    (hdepth : 1 ≤ n+t) (hwidth : BF4DyadicWilsonSquare.side scale < width)
+    (selected : ClusterCount4DProgress.Z4Link) (hl : selected ∈ baseLinks width)
+    (hs : (baseLinks width).idxOf selected ∈ activeBlocks width)
+    {i j : Nat} (hi : i < 4) (hj : j < 4) (k : Nat) :=
+  let hhead := Nat.le_trans
+    (Nat.le_trans (headCutoff_le_relativeCutoff w 4096) (Nat.le_max_left _ _)) hK
+  original_ratioNoise_densityCovariance_certificate hw0 hw1 K width hK (n+t)
+    selected hl hs hi hj
+    (blockConditionalRatio_supported hw0 hw1 K width hhead n t
+      (ownPaddedSquareInterval hw0 hw1 K width hhead n scale hwidth).support k)
+    (ownPaddedSquareRatio_squareCertificate hw0 hw1 K width hhead n t scale hdepth hwidth k)
+
 /-- Computed precision onset for the favorable reciprocal credit of the
 literal ORIGINAL terminal/noise weight. The source phi is held fixed as
 the outgoing reciprocal degree grows; no incoming degree is identified
@@ -768,3 +994,5 @@ end YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.original_ratioNoise_noiseGradientPayment_unit_le
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.original_ratioNoise_ward_unitNoiseGradient_le
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.original_ratioNoise_noiseGradientPayment_weighted_pin
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.original_ratioNoise_densityCovariance_certificate
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.ownPaddedSquareRatio_densityCovariance_certificate

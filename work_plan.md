@@ -177,6 +177,29 @@ review PASS. One serial 20-GiB worker/12-GiB reserve after each fresh live
 preflight, zero swap; no root/tree build or audit. Exact evidence: adaptive
 conditional-score audit. No new premise, canonical closure or chart state.
 
+CHECKED MAIN conditional density-covariance producer (2026-10-08 UTC):
+`ConditionalGrussSquare.squaredResidualVariance_certificate` constructs
+det_W(X^2)<=4*C^2*A^4*nu-A^2*nu^2 from the actual source cap, without
+inverting a conditional mass or requiring positive cap/noise.
+`RatioNoiseWardAbsorption.original_ratioNoise_densityCovariance_certificate`
+passes it through the FULL original W=Kkin*S*a and actual signed tilt,
+producing A^2*(Q-nu*JA)^2 <=
+(L^2*A^2-(JA)^2)*(4*C^2*A^4*nu-A^2*nu^2).
+Its literal OWN-padded-square instance constructs cap17 and retains its
+own center, active-link/local-cutoff guards and independent incoming degree.
+The mean derivative is replaced only through supported Haar-carrier equality,
+not a false raw polynomial identity. BOTH final focused targets/20 permitted
+gates and independent COMPLETE frozen-source plus repair reviews PASS;
+generic check3 and Ward check2 needed only namespace/rewrite repairs.
+One serial 20-GiB worker/12-GiB reserve after every fresh live preflight;
+no root/tree audit. Exact scope, source/log hashes: adaptive-score audit.
+CONTINUE complete JOINT signed density/spatial/gradient payment against OWN
+surviving variance and BOTH masses. Centering Q subtracts nu*JA, whose
+Ward mean square cancels the already-present left-side square; do NOT count
+that twice as a new reserve. The explicit L=endpointRelativeCap(w) is not
+small near weak coupling; no useful changing-family payment follows yet.
+No new premise, canonical field/claim, physical closure or chart-state change.
+
 Targeted paper review integrated (2026-10-08 UTC, user request):
 `audits/RESEARCH-2610-09093-2026-10-08.md` records the long paper and companion
 review, exact relevant equations, SAME-original-source consumers and access

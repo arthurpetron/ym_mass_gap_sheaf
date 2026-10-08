@@ -7640,3 +7640,155 @@ complete changing-family cost against OWN surviving variance and BOTH
 chronological masses. That estimate, continuum survival, physical mass
 calibration, full QFT structure, all compact simple groups and Clay remain
 OPEN. Displayed chart claims are unchanged; no chart reprint.
+
+### Selected experiment: squared-residual variance under the SAME conditional law
+
+2026-10-08 UTC. Previous goal turn: PROGRESS in targeted paper selection
+and authoritative plan, not a new mathematical closure. Return to the
+existing signed-payment consumer rather than add a literature branch.
+
+Exact proposition: for W=Kkin*S*a, A=I(W), b=I(W*phi),
+X=lift(A)*phi-lift(b) and nu=A*I(W*phi^2)-b^2, produce the certificate
+
+    det_W(X^2) <= 4*C^2*A^4*nu - A^2*nu^2.
+
+Available inputs: original positive W, finite head integration and its
+variance certificate; `blockConditionalRatio_squareCertificate`
+(`BF4ExactSlabFixedSpatialBlockConditionalRatio.lean:233`) supplies
+C^2-phi^2, and its literal OWN-padded-square instance (:368) supplies C=17.
+The short inverse-free identity is
+
+    4*C^2*A^2-X^2
+      = 2*A^2*(C^2-phi^2) + 2*(C^2*A^2-b^2) + (A*phi+b)^2.
+
+Conditional positivity produces the second cap, rather than assuming it.
+Multiplying by W*X^2 and integrating preserves the negative nu^2 term.
+Actual algebra consumer: `conditionalGrussSquare_certificate`,
+`SU2QuaternionConditionalGrussSquare.lean:76`, with test X^2. It must
+retain L^2*A^2-I(d)^2 and the centered signed moment for d=Kkin*J(S*a).
+The available `endpointSourceRelativeBound`
+(`BF4ExactSlabFixedSpatialEndpointRelativeBound.lean:80`) controls S*a
+under its explicit nome-dependent cutoff, including depth zero; multiply
+its actual signed tilts by the same positive kinetic factor. Do not
+substitute the different odd-marginal integrated-score instance.
+
+Predicted useful output: an actual conditional density-covariance square
+bound for supported signed bounded phi, with explicit nome cost and actual
+OWN-padded instance, not an assumed variance bound. Ultimate consumer stays
+`original_ratioNoise_ward_unitNoiseGradient_le` (WardAbsorption :515),
+then `original_window_budget_macro_ratio` (WindowSignedCost :245).
+Cutoff compatibility and useful changing-family payment remain to be proved.
+Test zero heads/tail/source/noise, zero cap and all degree/depth values;
+incoming and outgoing reciprocal degrees remain independent. Verification
+budget: two narrow leaves, one serial monitored 20-GiB worker/12-GiB reserve
+after fresh successful dynamic preflights; independent complete source review.
+Revise if an original factor/support guard is lost or a mass/noise inverse
+appears. Do not treat a divergent fixed-nome score cap as scaling control.
+No new assumption structure, canonical field change or physical closure.
+
+### Squared-residual producer and original centered-correction screen
+
+2026-10-08 UTC. BOTH focused final targets PASS. The generic producer and
+literal original-density/OWN-padded-square instances are kernel-checked,
+with independent COMPLETE frozen-source review and final-repair refreshes.
+
+Actual generic declarations:
+
+- `centeredRelativeCoefficient_certificate`,
+  `lean/YMGap/Continuum/SU2QuaternionConditionalGrussSquare.lean:201`,
+  constructs the nonnegative coefficient from the TWO actual signed tilts.
+- `residual_square_pin`, same file `:228`, proves `I(W*X^2)=A*nu`.
+- `squaredResidualVariance_certificate`, same file `:268`, produces
+  `det_W(X^2)<=4*C^2*A^4*nu-A^2*nu^2` from the actual source square cap.
+
+These are Type-valued polynomial Haar certificates, not assumed pointwise
+variance bounds. Cap zero, conditional mass zero, zero heads/tail and signed
+sources remain allowed. No conditional mass, source, noise or cap inverse is
+introduced. The pre-existing Gruss calculation inverts only its explicitly
+positive auxiliary `L`.
+
+`original_ratioNoise_densityCovariance_certificate`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.lean:695`,
+retains W=Kkin*S*a and dtilt=Kkin*J(S*a).
+It first constructs D0=I(dtilt); the passage D0 -> JA is ONLY supported
+Haar-carrier equality, with arbitrary surviving insertions retained. Its
+CHECKED output, writing Q=`ratioNoiseDensityMoment`, is
+
+    A^2*(Q-nu*JA)^2
+      <= (L^2*A^2-(JA)^2)*(4*C^2*A^4*nu-A^2*nu^2).
+
+The exact full terminal history, spatial and kinetic factors, strict nome,
+active physical-link and `endpointRelativeCutoff` guards remain. Terminal
+depth zero and i=j are included by the generic original-source statement.
+`ownPaddedSquareRatio_densityCovariance_certificate`, same file `:867`,
+constructs the literal OWN-padded-square instance with C=17 from
+`ownPaddedSquareRatio_squareCertificate`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockConditionalRatio.lean:368`;
+its inherited depth/width guards are not removed. Incoming approximation
+degree is arbitrary and is not identified with an outgoing reciprocal degree.
+
+The OWN source really matches the backward consumer:
+`BF4WilsonAllNomeWindowSignedCost.lean:188` defines its original section,
+and `original_window_budget_macro_ratio`, same file `:245`, consumes the
+actual dyadic-unit original cost and variance. The finite schedule and OWN
+center are literal at
+`BF4WilsonAllNomeDyadicOriginalRayleighLimit.lean:74`; `mean_pin`,
+`BF4ExactSlabFixedSpatialWilsonMeanRadial.lean:104`, identifies the computed
+center with that SAME middle ratio. This is not an identification with the
+different signed spatial-plaquette span. At fixed nome the existing schedule
+K=headCutoff(w)+stage eventually satisfies the additional local cutoff;
+this read-only arithmetic observation is not a new Lean onset declaration
+or a changing-family estimate.
+
+Independent read-only centering screen (PAPER consequence of the actual
+statement, not a new Lean theorem): in
+`original_ratioNoise_ward_unitNoiseGradient_le`,
+`BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.lean:515`, put
+D=JA, R=Vbar^2*G^2 and Cden=Q-nu*D. Substitution gives EXACTLY
+
+    H[R*nu*A*J^2(A)]
+      <= H[Vbar^2*matchedNoise(a,Jphi)]
+         - H[R*D*Cden] - 2*H[spatial].
+
+The mean square cancels between the original Ward left side and density
+correction. It is NOT an additional reserve and must not be counted twice.
+The new covariance control supplies neither a sign for D*Cden nor payment
+of the spatial correction. Its retained determinant terms cannot be called
+a bound on the complete original signed-window cost.
+
+The explicit nome cap is still `endpointRelativeCap`:
+`BF4ExactSlabFixedSpatialEndpointRelativeBound.lean:59`. Its already-proved
+`endpointRelativeCap_formula`,
+`BF4ExactSlabFixedSpatialEndpointTailCalibrationObstruction.lean:42`, pins
+L=24608*JacobiShiftedRelativeSlope.budget(w)+7. This allowance is not a
+small changing-family payment. Continue JOINT control of signed density,
+spatial and conditional-gradient contributions, relative to OWN surviving
+variance and BOTH masses; no per-term absolute-bound branch is required.
+Complete family payment, continuum survival, physical calibration, full QFT,
+every compact simple group and Clay remain OPEN. Canonical chart unchanged.
+
+Observed verification: generic check 3 PASS; Ward check 2 PASS. The earlier
+generic failures required namespace opens and an explicit rewrite target;
+Ward check 1 required opening the EXISTING `kineticWeight_supported`
+(`BF4ExactSlabFixedSpatialKineticHeat.lean:193`). No mathematical statement,
+public type, support/cutoff guard or analytic premise changed in the repairs.
+Error-induced `sorryAx` output in failed elaborations is NOT accepted as a
+gate. All TWENTY final printed gates (5 generic, 15 Ward) are exactly
+{propext, Quot.sound}; no error, warning or sorryAx in either final log.
+Root reviewed the changed argument and exact original-law pins; independent
+COMPLETE reviews covered all 399 generic/998 Ward lines across the frozen
+review plus namespace-only final-hash refreshes.
+
+    generic source d212645070908da508a69b0f0343b3f32813b9346ef0ed96d8a77721abc07c8f
+    /private/tmp/ym-oct8-squared-residual-gruss3.log PASS
+    SHA256 d7bcbc58e90da0e47faea0ea9593991e31cb669ad88a6f8b40a7eac81363a3e6
+    Ward source 7d3ac527ffbae9c8f2c07c8c7b5c17df2601d6152ec57b92860e1c43fae60e81
+    /private/tmp/ym-oct8-density-covariance-ward2.log PASS
+    SHA256 e15f47c9e640603ecf2275c4f314add80685a2c63ba0b56f69f52d0e15d2c1cc
+
+Fresh successful conflict/memory preflight before EVERY launch, one serial
+20-GiB worker/12-GiB reserve; observed preflights 81--85% free, zero swap.
+Final process handles are terminal. No root/tree build/audit, limit increase,
+lock bypass, foreign code, new module/frontier or new analytic premise.
+Existing public APIs and user-owned duplicate files remain unchanged.
+No canonical atom or physical/scaling/Clay claim is closed; no chart reprint.
