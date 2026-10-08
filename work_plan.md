@@ -27,6 +27,35 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED ORIGINAL inserted degree/location budget (2026-10-08 UTC):
+`CutoffOneInsertedQuarticBudget.affine_selected_degree_le_three` produces the
+actual inner24 selected-action incidence cap 3 on all 116 raw links.
+`inserted_integrand_blockDegree` pins the SAME original weighted polynomial;
+`inserted_total_degree_cases` gives {0,2,4} for one/two inner insertion
+occurrences with closed affine parity. Every actual degree-four block lies
+on an insertion boundary; the distinct list has length <=8, or <=4 for
+repeated [p,p]. Repeated polynomial factors and original coefficients remain.
+One accepted focused capped check/26 permitted gates and independent complete
+FINAL-source review; no new premise, hole, axiom or resource-option increase.
+Root import registered only, not root-built. Exact evidence: pilot audit.
+
+Decision: PARK the general charged tensor contractor unless a named finite
+diagnostic can decisively test a specific proposed original-family estimate.
+The fixed 72-face, cutoff-one, small-nome pilot has no produced join to the
+growing-window/scaling consumer. Input-degree and quartic-location bounds do
+not supply intermediate contraction-size bounds, charged values or retention.
+NEXT primary mathematics: DIRECT original macroscopic response retention or
+the sufficient JOINT whole-window signed-cost versus SAME surviving variance
+estimate on a justified changing family. The existing
+`BF4WilsonAllNomeWindowSignedCost.original_window_budget_macro_ratio:245`
+requires its eventual inequality at EVERY depth stage, with OWN centers and
+partitions; a fixed-regulator charged value cannot replace that premise.
+Keep physical time/all-state calibration and SAME limiting QFT backward
+requirements in view. The repeated lattice-measurement attachment is already
+reconciled in `audits/RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md`; it adds
+no new analytic input or interface. Scaling, continuum survival, calibrated
+physical mass, QFT/every-group and Clay remain OPEN. Chart claims unchanged.
+
 CHECKED ORIGINAL inserted H116->H32 carrier reduction (2026-10-08 UTC):
 `CutoffOneInsertedActiveCarrier.affine_action_inner_support` produces ORIGINAL
 action inner support from closed affine membership and actual inner insertion
@@ -38,11 +67,11 @@ permutation/trim. Arbitrary Q' nome and insertion-list length; outer insertions
 do not qualify. One accepted focused capped check/12 permitted gates and
 independent complete FINAL-source review; no new assumption/hole/axiom or
 resource-option increase. Root import registered only, not root-built.
-NEXT: produce the actual inner24 incidence cap and resulting {0,2,4} degree
-bound for one/two insertions; then a signed contraction/evaluator with its
-verified original-integrand pin and adequate size bound. The parallel
-source screen is recorded in the pilot feasibility audit, NOT a proof of
-quartic count/runtime. Charged values and useful retention are still OPEN.
+At this checkpoint the next input was the inner24 incidence cap and {0,2,4}
+degree/location bound, subsequently checked above. A signed evaluator with
+its original-integrand pin and adequate intermediate-size bound is still
+absent; general compiler investment is now parked pending a decisive use.
+Charged values and useful retention are still OPEN.
 DIRECT macro retention or sufficient JOINT original-family signed estimate,
 changing-family control, continuum survival, calibrated physical mass,
 QFT/every-group and Clay remain OPEN. Displayed chart claims unchanged.

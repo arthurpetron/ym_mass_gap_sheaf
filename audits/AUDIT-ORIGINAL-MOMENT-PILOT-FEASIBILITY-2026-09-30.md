@@ -734,6 +734,34 @@ claimed here. DIRECT macroscopic retention or sufficient JOINT original-
 family estimate, continuum survival, physical mass/QFT/every-group and Clay
 remain OPEN. No canonical displayed claim changed; no chart reprint.
 
+## Selected actual inserted degree/location budget (2026-10-08 UTC)
+
+Previous goal increment: PROGRESS, cb7a91a7 checks the SAME inserted H116->H32
+reduction. Next exact proposition: for cutoff-one labels, at most two actual
+inner-face insertion occurrences and affine membership in the existing 128,
+every actual link's total degree belongs to {0,2,4}; degree4 can occur only
+on insertion edges. Produce an explicit finite quartic-location carrier
+with length at most8 (at most4 for two equal insertions). This bound is not
+yet a declaration; it supplies the next signed contraction's input-degree
+and location budget, NOT intermediate tensor size or favorable values.
+
+Use produced action inner support, actual per-face 0/1 incidence and
+every-link even parity. A small literal geometry certificate bounds the
+inner24 contribution by3. Then selected action<=3, insertion<=2, even total
+<=5 implies <=4; without insertion incidence, total<=3/even implies <=2.
+Keep the original heat coefficient and all repeated factors. Source count
+or filtered carrier proofs must refer to actual slab blocks, not compact
+rows without their interpretation theorem.
+
+Prediction: a finite certificate and list/degree algebra suffice, no new
+analytic premise/permutation/evaluator. Tests: empty, one, unequal/repeated
+two insertions; outer insertions excluded; cutoff action mask not required
+closed. Budget: one bounded Sol leaf, complete independent source review,
+one serialized focused 20-GiB check with 12-GiB reserve/fresh dynamic
+preflight. Revise if finite geometry cost is unexpectedly large or the
+claimed location cardinality lacks an actual carrier proof. No large
+moment calculation, root/tree build, audit, guard or metric.
+
 ## Selected ORIGINAL inserted active-carrier join (2026-10-08 UTC)
 
 Previous goal increment: PROGRESS, accepted accuracy and constructive affine
@@ -824,3 +852,61 @@ are supplied; charged values, original positive reserve, DIRECT macroscopic
 retention or sufficient JOINT changing-family estimate remain unsupplied.
 Continuum survival, calibrated physical gap, SAME QFT/every-group and Clay
 remain OPEN. No canonical displayed claim changed; no chart reprint.
+
+## Observed ORIGINAL inserted degree/location budget and route decision (2026-10-08 UTC)
+
+The preceding missing-incidence screen is superseded by this actual proof,
+not by a contraction-size or runtime claim. In
+`lean/YMGap/Continuum/BF4ExactCutoffOneInsertedQuarticBudget.lean`:
+
+- `innerFaceCeiling_degree_check:43` checks the literal inner24 ceiling on
+  all 116 ORIGINAL raw links; `affine_selected_degree_le_three:76` produces
+  ORIGINAL action domination from affine closure and actual inner IDs.
+- `inserted_integrand_blockDegree:117` keeps the SAME heat-weighted
+  polynomial, arbitrary Q' nome and every repeated insertion occurrence.
+- `inserted_total_degree_cases:127` combines selected degree <=3,
+  insertion degree <=2 and even actual parity to yield {0,2,4}.
+- `quarticBlocks_subset_insertionCarrier:219` confines degree-four blocks
+  to actual insertion boundaries. `quarticBlocks_length_le_eight:282` and
+  `repeated_quarticBlocks_length_le_four:295` count the DISTINCT raw blocks,
+  without deleting repeated polynomial factors. The explicit carrier retains
+  all boundary occurrences and need not itself be duplicate-free.
+
+Accepted focused check d: exit 0, all 26 public/helper gates within
+{propext, Quot.sound}; no choice/sorryAx/error/warning. Independent complete
+FINAL-source review passes. Preliminary a failed elaboration; b/c compiled
+but their final counting gates retained choice and are NOT accepted evidence.
+Replacing only the generic counting proof did not remove it; the final proof
+also replaces the generic range distinctness premise by a literal kernel
+decision. The local Nat deletion/counting gates are separately checked.
+No native computation, new input/hole/axiom/quarantine, public weakening or
+resource-option increase. Each launch used fresh capacity/process checks,
+one 20-GiB worker and a 12-GiB OS reserve; zero swap. Root import is registered
+only. No root/tree build/audit/guard/metric or large charged calculation.
+
+```text
+Accepted log /private/tmp/ym-cutoff-one-inserted-quartic-20261008-d.log
+SHA256 ae4eaaaf9a4fe51e250fc75330db3790a6bb1c3d4db133a56ddccdd1a7fbea45
+Checked final source SHA256
+1b7c4d8c343ff782377bee82908f8ccd5b466171e68c0d8a086796fbe10f5eb7
+```
+
+Decision: PARK general charged contraction/evaluation pending a named finite
+diagnostic with a decisive source-estimate test. Parallel read-only review
+and root source inspection identify the actual changing-family consumer:
+`lean/YMGap/Continuum/BF4WilsonAllNomeWindowSignedCost.lean:245`,
+`original_window_budget_macro_ratio`, requires eventually at EVERY depth stage
+`2*originalWindowCost <= (1-kappa)*originalOwnBlockVariance`, retaining SAME
+centers and OWN partitions. Fixed 72-face one/two-insertion cutoff-one values
+do not produce its growing-window quantities or changing-width/nome control;
+the supplied small-nome accuracy does not cover an AF w->1 family. A literal
+quartic local identity is legitimate finite groundwork, not a reason by itself
+to fund a general tensor compiler. DIRECT macroscopic retention or sufficient
+JOINT original-family signed control remains the primary analytic selection.
+
+The repeated cf965d8e lattice-measurement attachment already has its exact
+reconciliation and corrected physical-clock/all-state requirements in
+`audits/RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md:16`. No new literature
+fetch, measured-mass premise, Sobolev assumption or interface is warranted.
+Continuum survival, calibrated physical gap, SAME QFT/every-group and Clay
+remain OPEN. Displayed chart claims unchanged; no chart reprint.

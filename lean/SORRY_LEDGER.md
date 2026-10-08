@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## PROVED original inserted degree/location budget / OPEN changing-family retention (2026-10-08 UTC)
+
+`lean/YMGap/Continuum/BF4ExactCutoffOneInsertedQuarticBudget.lean:43`,
+`innerFaceCeiling_degree_check`, certifies the actual inner24 incidence cap 3.
+`affine_selected_degree_le_three:76` produces original selected-action
+domination; `inserted_integrand_blockDegree:117` pins the SAME weighted
+polynomial. `inserted_total_degree_cases:127` gives {0,2,4} at at most two
+actual inner insertion occurrences and closed affine parity.
+`quarticBlocks_subset_insertionCarrier:219` and the actual distinct-list
+counts `quarticBlocks_length_le_eight:282` and
+`repeated_quarticBlocks_length_le_four:295` retain repeated factors/weights.
+Accepted focused capped check/26 permitted gates; independent full final-source
+review. The generic range/count proof route's rejected classical dependency
+is bypassed by a literal kernel-decided carrier and constructive Nat deletion.
+No new premise/hole/axiom/quarantine/option increase. Root import registered
+only; no root/tree audit. This is not an intermediate-size/runtime or charged
+value certificate. General tensor compilation is parked pending a named
+decisive diagnostic; DIRECT macro retention or sufficient JOINT changing-family
+cost/variance control, physical calibration and all continuum/Clay obligations
+remain OPEN. Exact source/log hashes and selection decision: pilot audit.
+
 ## PROVED ORIGINAL inserted active-carrier reduction / OPEN charged contractions (2026-10-08 UTC)
 
 `lean/YMGap/Continuum/BF4ExactCutoffOneInsertedActiveCarrier.lean:59`,
