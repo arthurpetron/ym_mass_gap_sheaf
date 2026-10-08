@@ -27,6 +27,21 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+READ-ONLY retention decision (2026-10-08 UTC): the lattice-measurement
+note is already reconciled in its research audit; add no numerical premise
+or new interface. Keep DIRECT original macroscopic correlation retention
+co-primary with the signed-window producer. A strict-gap two-mode diagnostic
+has macro reserve >=1/4 at EVERY window length but a NEGATIVE factor-two
+window reserve; the latter is sufficient, not a necessary intermediate.
+Do not impose it on the direct `normalizedAnchorResponse_block_floor`
+route, or add an absolute unfiltered survival prerequisite to that route.
+Endpoint-error wrappers require a floor already consumed more directly by
+existing log-convexity/block propagation. Exact Haar bucket elimination is
+eligible, but arbitrary-cutoff intermediate-size and actual moment producers
+are NOT supplied; no large pilot without those bounds. No Lean edit/check,
+analytic closure or chart change. Decisions and tiny rational tests:
+the adaptive-score and original-moment-feasibility audits.
+
 CHECKED parallel covariance decision (2026-10-08 UTC): literal x0 box
 reflection does NOT permute the original spatial or temporal face lists
 at ANY positive width. `SpatialSignReflectionObstruction` locates the

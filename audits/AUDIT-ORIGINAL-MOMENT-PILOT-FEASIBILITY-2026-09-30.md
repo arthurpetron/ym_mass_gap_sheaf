@@ -144,3 +144,53 @@ targeted primary-source scope check. Next work remains the useful averaged
 signed estimate on the original action, or a genuinely bounded compressed
 calculation with its same-action pin; no further conditional compiler is
 warranted by the present screen.
+
+## Exact compression ingredients and their boundary (2026-10-08 UTC)
+
+Independent read-only review and root source verification. No Lean edit,
+compiler run or original moment evaluation. A Cartesian assignment list is
+NOT mandatory, but no feasible arbitrary-cutoff evaluator is certified here.
+
+Exact local bucket elimination has genuine existing inputs:
+`lean/YMGap/Continuum/SU2QuaternionHaarBlockConditionalAlgebra.lean:64`,
+`project_mul_of_independent`, and `:79`, `project_mul_right_of_independent`,
+pull ONLY link-independent factors through a selected Haar projection.
+`lean/YMGap/Continuum/SU2QuaternionHaarBlockProjection.lean:132`,
+`project_comm`, gives coefficientwise commutation; `:204`, `project_mean`,
+preserves the original Haar functional.
+`lean/YMGap/Continuum/SU2QuaternionSparseCoefficientCollector.lean:126`,
+`collect_coeff`, permits exact coalescing after each local elimination.
+Integrating a bucket can nevertheless couple its entire remaining boundary;
+these equalities give no intermediate-size bound.
+
+The actual two-link reduction
+`lean/YMGap/Continuum/BF4ExactSlabTwoLinkFeatureMoments.lean:102`,
+`full_marginal_feature_pin`, retains exterior `neitherHeat` exactly once.
+Its feature index is the expanded shared polynomial, not a proved small
+rank. The arbitrary-spin original ordered-word input exists:
+`lean/YMGap/Continuum/BF4ExactSlabSymmetricPowerHaarTrace.lean:134`,
+`slabPlaquette_trace_haar_character`. In contrast,
+`lean/YMGap/Continuum/SU2QuaternionCutoffOneLinkBucketHaarNetwork.lean:336`,
+`finiteProductHaarComplex_cutoffOneOrientedFaceTraceProductAt_eq_linkBucketKernelProduct`,
+handles cutoff ONE and named environments. Expanding each spin n<=K into
+fundamental occurrences permits up to 6K occurrences per bare physical
+link, plus insertions; the six-occurrence dispatcher does not cover it.
+This is a scope comparison, not a new proved occurrence/runtime bound.
+
+Already-collected chronological iteration
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCollectedFamilyMargin.lean:68`,
+`iterate`, evaluates `step` before collection. Its stored output bounds,
+from `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyJointDegree.lean:109`,
+`terminalMessage_degree`, and `:314`, `margin_numerators_monomials`, are
+not bounds on those intermediate products or their evaluation cost.
+
+Missing in these inspected modules: an ORIGINAL action factor-list/tensor
+evaluator with a partial-integration invariant, together with a verified
+contraction order and adequate intermediate/separator-size bound. Both
+endpoint messages, OWN centers, distinct masses and signed insertions must
+pass through that SAME evaluator. No large pilot is selected without those
+bounds. A frozen vacuum-plus-fundamental algebra cannot repair closure:
+`lean/YMGap/Continuum/SU2PeterWeylPlaquetteAlgebraClosureFence.lean:134`,
+`no_fiveCoordinate_classCompatible_product`, and `:158`,
+`fundamental_square_exposes_spinTwo`, explicitly expose the missing channel.
+None of this produces a favorable relative estimate or scaling theorem.

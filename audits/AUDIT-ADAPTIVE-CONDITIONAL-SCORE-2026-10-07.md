@@ -4,6 +4,72 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Direct retention need not pay the sufficient window test (2026-10-08 UTC)
+
+Root calculation and independent mathematical review; NO Lean edits,
+compiler run, new YM moment, analytic producer or canonical closure.
+The user lattice-measurement note was already reconciled in
+`RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md`; use its SAME-theory
+correlation/clock distinction, not its fitted numerical mass as a premise.
+
+Decision experiment: test whether a DIRECT macroscopic response floor can
+be made to pass the factor-two signed-window budget using positivity alone.
+The existing consumer is
+`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicNormalizedMacroRatio.lean:132`,
+`normalizedAnchorResponse_block_floor`; it accepts the direct ratio without
+the budget in `lean/YMGap/Continuum/BF4WilsonAllNomeWindowSignedCost.lean:181`,
+`aggregate_window_macro_ratio`. Reject any proposed mandatory budget join
+if a strictly gapped vacuum-complement example separates the two. Budget:
+hand algebra plus three tiny exact rational tests, no Haar expansion/build.
+
+For EVERY integer u>=1 take lambda=1/100, mu=1-1/(4u),
+T=diag(1,mu,lambda), vacuum=e0 and x=(0,lambda^u,mu^u). Its ordinary
+Euclidean pairing gives
+
+    R(n)=lambda^(2u)*mu^n + mu^(2u)*lambda^n,
+    R(2u)=2*(lambda*mu)^(2u)>0,
+    R(4u)/R(2u)=(mu^(2u)+lambda^(2u))/2 >= 1/4.
+
+Here 0<lambda<mu<1: even the vacuum complement is strictly gapped at
+each u. Bernoulli gives mu^(2u)>=1/2. With C the SAME response's even-lag
+drop sum over t=u,...,2u-1, elementary geometric summation yields
+
+    2*C/R(2u)
+      = (1-mu^(2u))/(1+mu) + (1-lambda^(2u))/(1+lambda).
+
+The first term is (1-mu)*sum_{j<u}mu^(2j), at least
+u*(1-mu)*mu^(2u-2)>=1/8. The second is at least its first summand
+1-lambda=99/100. Therefore the factor-two window reserve
+1-2*C/R(2u)<=-23/200: it fails even kappa=0 while the direct macro
+reserve is >=1/4. `computations/window_reserve_two_mode_screen.py` checks
+these exact identities/bounds at u=1,8,64; finite Fraction assertions are
+NOT kernel proofs. The all-u argument above is not newly formalized.
+This is NOT a BF4 counterexample or continuum survival: indeed
+R(2u)/R(0)<=2*lambda^(2u) tends to zero. No lower/upper physical-gap
+claim for the original theory is inferred.
+
+Endpoint-error review supplies no alternative analytic payment. Writing
+delta_n=R(n)-R(n+1), mixed-moment telescoping gives
+sum_{t=u}^{2u-1}m(2t,2)<=delta_(2u)-delta_(4u) and
+2u*delta_(2u)<=R(0)-R(2u). The latter is a direct specialization of
+`lean/YMGap/Continuum/BF4WilsonAllNomeTimeDefectTail.lean:71`,
+`mixedMoment_time_budget`. An absolute same-source floor R(2u)>=eta*R(0)
+would control that error, but
+`lean/YMGap/Continuum/BF4WilsonAllNomeCompletedLogConvexity.lean:133`,
+`macro_ratio_of_survival_floor`, already consumes the floor more directly.
+Likewise the earlier SAME-source block floor is already consumed by
+`lean/YMGap/Continuum/BF4WilsonAllNomeBlockResponseLower.lean:104`,
+`response_shifted_block_step_lower`. Add neither endpoint wrapper nor an
+unnecessary absolute-norm prerequisite to the normalized-anchor route.
+
+Decision: retain DIRECT original macro moments as a co-primary analytic
+producer; the signed-window sufficient estimate remains eligible, not
+mandatory. Either route must still produce its actual original bound on a
+justified changing family with its OWN centers and chronological masses.
+Feasible exact-moment evaluation remains unpaid; the compression source map
+is appended to `AUDIT-ORIGINAL-MOMENT-PILOT-FEASIBILITY-2026-09-30.md`.
+No interface, hypothesis, frontier field or chart statement changes.
+
 ## Scalar/symmetric retention decision after the filter reduction (2026-10-08 UTC)
 
 Root source inspection and two independent read-only mathematical screens.

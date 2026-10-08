@@ -4,6 +4,17 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Retention-route decision, not an analytic closure (2026-10-08 UTC)
+
+A read-only two-mode screen separates direct macro retention from the
+stronger factor-two window budget even on a strictly gapped vacuum
+complement. Keep the existing direct-ratio consumer co-primary; add no
+endpoint-error wrapper. Exact original Haar compression ingredients exist,
+but feasible arbitrary-cutoff intermediate bounds and actual moments remain
+unpaid. Three tiny exact rational diagnostics pass; no Lean edit/check,
+critical-path theorem or chart change. Evidence: the adaptive-score and
+original-moment-feasibility audits. Legacy guard/metric not run.
+
 ## Exact finite sign-reflection shortcut pruned (2026-10-08 UTC)
 
 `BF4ExactSlabSpatialSignReflectionObstruction.spatialFaces_no_perm` and
