@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## PROVED selected THREE-paired cost scaling, OPEN complete signed window (2026-10-08 UTC)
+
+- `SU2QuaternionPairedPrefixCostScaling.normalizedPairedPrefixCost_pin`
+  gives the exact literal coefficient H=9+3*(1-w)*(2*w+3)/(1+w).
+  `normalizedPairedPrefixCost_excess_bounds` gives 0<=H-9<=9*(1-w);
+  `normalizedPairedPrefixCost_lower` gives 9<=H. No limit oracle or
+  hidden beta dependence: the nome is explicit in every statement.
+- This prunes ONLY smallness from the nome prefactor on the chosen global
+  envelope. It supplies no noise/score/energy lower bound, does not refute
+  a sharper adaptive certificate, and leaves signed cancellation OPEN.
+  The literal padded-source initial energy fraction and complete original
+  window budget are still unsupplied; no universal noise cap is assumed.
+- One focused single-worker 20-GiB check passes: data definition axiom-free,
+  four theorem gates exactly {propext, Quot.sound}. Root complete-source and
+  independent mathematical reviews passed. One implicit-argument typo was
+  repaired without limits increase; failed-check output is not evidence.
+  Root import registered only; no full-root/tree build, audit, guard or
+  baseline refresh. No sorry/new axiom/classical/native shortcut, weakened
+  canonical field, broad chart closure or physical/continuum/Clay claim.
+  Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 ## PROVED paired Hessian / finite Ward trace join, OPEN useful filtered-family bound (2026-10-08 UTC)
 
 - `QuaternionHaarPairedHessianTrace.paired_gradient_mixed_pin` and

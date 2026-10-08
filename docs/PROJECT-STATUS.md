@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Supporting selected-envelope scaling screen checked (2026-10-08 UTC):
+the actual THREE-paired coefficient satisfies
+0<=3*(1-w)*prefixCurvatureCost(w)-9<=9*(1-w). It tends to NINE, not zero;
+nome prefactor alone does not supply smallness. This is not a score/noise/
+energy lower bound and does not refute adaptive costs or signed cancellation.
+Complete filtered-family scaling and every physical/Clay chart claim remain
+OPEN. One focused check; broad chart unchanged, no reprint. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 Supporting matched-terminal signed Gram and finite reciprocal Ward bound
 checked (2026-10-08 UTC): the produced lower density q*a has marginal A=Ta,
 and its actual frozen first/all nine ordered second jets supply the signed

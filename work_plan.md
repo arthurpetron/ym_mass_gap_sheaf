@@ -91,6 +91,24 @@ composed screen statements are not yet a Lean theorem; neither supplies
 a counterexample to the later filtered growing-window route. Existing
 Rayleigh persistence consumes an INITIAL floor, it does not produce one.
 No canonical field is weakened or initial energy bound assumed as solved.
+The chosen constant-only weak-nome shortcut is now CHECKED to be insufficient:
+`SU2QuaternionPairedPrefixCostScaling.normalizedPairedPrefixCost_pin` gives
+H=3*(1-w)*prefixCurvatureCost(w)=9+3*(1-w)*(2*w+3)/(1+w), and
+`normalizedPairedPrefixCost_excess_bounds` gives 0<=H-9<=9*(1-w).
+Thus this selected coefficient tends to NINE, not zero. This is not a lower
+bound on noise, score, energy or complete signed cost; sharper adaptive
+certificates and signed cancellations are not refuted. Do not spend cutoff
+precision work expecting the nome prefactor alone to supply smallness.
+Parallel source reviews found no produced initial O(1/u) energy fraction
+for the literal padded Wilson source, and no exact identification of the
+PREVIOUS-step matched noise with NEXT-edge Taylor energy. Keep incoming
+reconstruction, Gram slack, boundary drift and BOTH signed Taylor terms.
+Work backward from the actual aggregate `original_window_budget_macro_ratio`
+input; next-edge energy is useful only through the existing exact cleared-cost
+split and its constructed reconstruction/drift onsets, not by identification
+of mismatched transitions. These review conclusions are source-level, not
+new Lean theorems. One focused cost-scaling check passes permitted gates;
+no broad chart closure, full-tree audit or change of the goal.
 The signed surviving-form producer remains OPEN; evidence and exact
 consumer scopes are in the adaptive audit.
 The generic sign-dropping shortcut is now independently REFUTED by

@@ -17,6 +17,14 @@ t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
 **Checked FULL original-action local signed Gram (2026-10-07 local):**
+The subsequent selected-envelope screen
+`SU2QuaternionPairedPrefixCostScaling.normalizedPairedPrefixCost_pin` and
+`normalizedPairedPrefixCost_excess_bounds` proves
+0<=3*(1-w)*prefixCurvatureCost(w)-9<=9*(1-w). Weak nome alone does not
+make that coefficient small. This is not a bound on the full signed cost
+or a refutation of adaptive certificates/cancellation; filtered-family
+control remains OPEN. One focused leaf checked; no full-tree audit.
+
 `BF4ExactSlabFixedSpatialLocalSignedGram.lastStep_local_signed_gram` joins
 the actual zero-mean paired residual to its ORIGINAL transfer score, for
 arbitrary lower-supported a,c and frozen output coefficients. The produced

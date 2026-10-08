@@ -4,6 +4,118 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Observed selected coefficient / next estimate (2026-10-08 UTC)
+
+Classification: VERIFIED PROGRESS for the rational scaling screen;
+SOURCE-LEVEL MATHEMATICAL REVIEW ONLY for the alternative-route analysis.
+
+`lean/YMGap/Continuum/SU2QuaternionPairedPrefixCostScaling.lean`:
+`normalizedPairedPrefixCost:29` defines the literal H=3*(1-w)*C(w).
+`normalizedPairedPrefixCost_excess_cleared_pin:70` gives
+(1+w)*(H-9)=3*(1-w)*(2*w+3).
+`normalizedPairedPrefixCost_pin:100` gives the exact divided formula,
+`normalizedPairedPrefixCost_excess_bounds:138` gives 0<=H-9<=9*(1-w),
+and `normalizedPairedPrefixCost_lower:170` gives 9<=H.
+The explicit rational error bound permits any prescribed tolerance epsilon
+once 9*(1-w)<=epsilon; no CReal limit oracle or trajectory is assumed.
+
+Final focused log `/private/tmp/ym-paired-prefix-cost-scaling-20261008b.log`
+PASS: data definition axiom-free, four gates exactly {propext, Quot.sound}.
+Root read the complete source and independently checked the formula/order;
+parallel complete-source review found no substantive defect. The first check
+failed on an extra explicit argument to eqv_symm; the one-line repair changed
+no statement or limits. Failed-check sorryAx output is not proof evidence.
+Checked-source SHA256:
+`c690d452522a7cdd04c6239fabf87f4f66f27a61daf34f1be60659f492a08733`.
+Fresh process/memory/swap preflight before both launches: 87--88% free,
+zero swap, no competing Lean/Lake/pytest/runner. One 20-GiB worker,
+12-GiB reserve. Root import registered, not root-built; no full-tree build,
+audit/guard or baseline refresh. Canonical chart claims remain OPEN.
+
+Decision: PRUNE smallness from the nome prefactor alone on THIS chosen
+coefficient. Its bound is not a lower bound on a noise moment, actual score,
+energy or signed bulk. The existing sharper adaptive cost remains available:
+`lean/YMGap/Continuum/SU2QuaternionPairedFrozenHeatPrefixCurvature.lean:88`,
+`prefix_frozen_curvature_adaptive_certificate`, retains radialCap(w,K+1)+2.
+Do not advertise nine as an inherent obstruction to SU(2), the route, or YM.
+Keep the signed terms and test the actual aggregate consumer instead.
+
+### Parallel route reviews and exact normalization guard
+
+No concrete useful initial padded-Wilson energy producer was found in the
+inspected LocalEnergyTransport, SourceRayleighPersistence, SourceTaylor,
+FiniteReferenceMargin, WidthOneSource, FringeFaceTransfer and
+NoiseSurvivalObstruction modules. The conditional producers are not weakened:
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLocalEnergyTransport.lean:224`,
+`original_block_cost_le_initial_energy`, consumes its INITIAL fraction;
+`lean/YMGap/Continuum/BF4WilsonAllNomeFiniteReferenceMargin.lean:317`,
+`Certificate.reference_ratio`, consumes accepted finite reference data.
+The existing width-one inactive Wilson face has a null transmitted centered
+source (`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialNoiseSurvivalObstruction.lean:133`,
+`origin_transmitted_pair_zero`). It cannot supply a near-unit Rayleigh floor
+merely from large nome. It is not the strictly padded active source required
+by the actual window; no selected-family counterexample was established.
+
+The already checked exact cancellation is
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLastStepSignedScoreEnergy.lean:170`,
+`exactScoreSignedBulk_energy_split`: BOTH signed Taylor terms reassemble to
+the NEXT-edge energy plus the signed finite reciprocal debt. The matched
+noise is instead a PREVIOUS-step variance:
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockConditionalNoise.lean:138`,
+`blockNoise_variance_loss`, pins its distinct chronological square.
+Incoming k and outgoing l are independent in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalSignedScorePayment.lean:235`,
+`exactScoreAngularBudget_terminal_signed_payment_le`.
+At incoming k=0 the reciprocal/ratio definitions give zero reconstructed
+source/noise, without making outgoing l's actual score/Taylor terms zero
+(`lean/YMGap/Continuum/QuaternionHaarPositiveWindowInverse.lean:162`,
+`reciprocal`; `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockConditionalRatio.lean:213`,
+`blockConditionalRatio`). Thus reconstruction and Gram slack cannot be
+silently removed from a putative exact cancellation. This is a source-level
+scope test, not a new checked counterexample.
+
+NEXT: the aggregate actual normalized cost remains the required estimate,
+`lean/YMGap/Continuum/BF4WilsonAllNomeWindowSignedCost.lean:245`,
+`original_window_budget_macro_ratio`. A direct NEXT-edge route must retain
+the exact split in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockRayleighSplit.lean:214`,
+`clearedRayleighCost_split`:
+D=Z0*E(A,phi)+boundaryDrift+signedMultiplicationCost.
+With `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialDirichletForm.lean:267`,
+`energy_identity`, the resulting PAPER reduction is
+2*Cost=H_edge[edgeDensity(A)*jump(phi)^2]/Z1
+        +2*(boundaryDrift+signedMultiplicationCost)/(Z0*Z1).
+Every t has its OWN distinct Z0,Z1. The reconstructed phi, its support,
+finite reconstruction onset and boundary drift stay explicit; no finite
+stationarity or exact b/A is assumed. Controlling the aggregate of this
+complete expression, or the original signed Gram expression, on the
+literal OWN-centered padded scaling family remains OPEN. No new interface,
+unsupplied conclusion-as-input or universal noise cap was introduced.
+
+## Selected weak-nome cost screen (2026-10-08 UTC)
+
+Proposition to check: for the EXISTING selected cost C=prefixCurvatureCost(w),
+the THREE-paired coefficient H=3*(1-w)*C satisfies
+H-9=3*(1-w)*(2*w+3)/(1+w), hence 9<=H<=9+9*(1-w) at each strict nome.
+Consumer: the three constant-basis terms in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalSignedScorePayment.lean:127`,
+`terminalSignedGramPayment`, followed by the actual (1-w) Taylor prefactor in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLastStepExactScoreCost.lean:218`,
+`exactScoreSignedBulk`. Inputs: the literal geometric definitions of the
+existing transverse and cutoff-independent radial envelopes. This tests
+whether weak nome alone makes that chosen leading coefficient small; it
+does NOT test the complete signed payment, actual noise scaling, a sharper
+curvature certificate, or the Yang--Mills mass-gap claim.
+
+Predicted outcome: a nonzero limiting coefficient, with an explicit rational
+error bound. Abandon or revise the prediction if the actual definitions differ.
+One bounded Sol leaf, root full mathematical review, one narrow monitored
+20-GiB-worker check with fresh capacity preflight and a 12-GiB reserve;
+no broad build/audit/guard. The separate parallel reviews test an ACTUAL
+padded-Wilson initial-energy producer and exact Ward/Taylor cancellation,
+before adding any more conditional interfaces. Results below will distinguish
+new checked evidence from source-level arguments.
+
 ## Observed paired Ward trace / filtered-family scope (2026-10-08 UTC)
 
 Classification: VERIFIED PROGRESS for the trace; SOURCE-LEVEL MATHEMATICAL

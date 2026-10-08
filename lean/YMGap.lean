@@ -5002,6 +5002,8 @@ import YMGap.Continuum.SU2QuaternionPairedHeatPrefixDeficit
 import YMGap.Continuum.QuaternionHaarCurvatureApproximation
 import YMGap.Continuum.JacobiHeatPrefixCurvaturePrecision
 import YMGap.Continuum.SU2QuaternionPairedHeatPrefixCurvature
+-- Selected THREE-paired cost has a nonzero weak-nome coefficient, not smallness.
+import YMGap.Continuum.SU2QuaternionPairedPrefixCostScaling
 -- Full frozen polynomial-direction matrix on the SAME weighted finite heat.
 import YMGap.Continuum.SU2QuaternionPairedFrozenComplement
 import YMGap.Continuum.QPolyHaarFrozenChain
