@@ -4,13 +4,27 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## ORIGINAL normalized one-face early-cutoff error produced (2026-10-08 UTC)
+
+`BF4ExactSlabSmallNomeOneFaceCutoffStability.original_background_normalized`
+constructs error <=2*c*(81/1055)*(1/72)^(K-1) at NAMED 0<=w<=1/2,K>=1.
+Its actual omitted-character interval, mixed spectator positivity and strict
+Haar mass are produced. BOTH OWN partitions cancel before any full-volume
+inverse floor; repeated faces/shared links remain. No canonical guard change,
+global telescope or scaling claim. One accepted focused 20-GiB check/11 gates
+within {propext, Quot.sound}, independent complete-source review; root import
+registered only. NEXT: actual list telescope and charged contraction, then
+useful original moments; DIRECT retention and physical/Clay claims stay OPEN.
+No root/tree audit, guard, metric or chart change. Exact evidence:
+the original-moment-pilot feasibility audit dated 2026-09-30.
+
 ## ORIGINAL early-cutoff Haar positivity produced (2026-10-08 UTC)
 
 `QuaternionHaarSmallNomeHeatCertificate.prefixFloorCertificate` and
 `faceFloorCertificate` construct the actual floor 1055/2272 for every K>=1
 and NAMED 0<=w<=1/2. This removes a finite-pilot positivity bottleneck, not
 the guarded completed consumer or scaling estimate. The vacuum 128-surface
-calculation already exists; charged contractions and normalized cutoff
+calculation already exists; charged contractions and GLOBAL normalized cutoff
 payment remain unpaid. One focused capped check/seven permitted gates and
 independent complete-source review; root registration only, no broad audit,
 legacy guard/metric or canonical chart closure. Evidence: original-moment

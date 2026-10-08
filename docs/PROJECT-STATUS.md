@@ -1,10 +1,20 @@
 # Canonical one-page project status
 
+Supporting ORIGINAL normalized early-cutoff payment checked (2026-10-08 UTC):
+ONE face change has error <=2*c*(81/1055)*(1/72)^(K-1), at NAMED
+0<=w<=1/2 and K>=1. Actual shifted-tail Haar certificates and mixed-cutoff
+spectator positivity/strict mass are produced; shared links, multiplicities
+and BOTH OWN partitions remain. Old canonical guards unchanged. One accepted
+focused capped check/11 permitted gates, independent full-source review;
+root registration only, no root/tree audit. Global list telescope, charged
+moments and changing-family retention stay OPEN. Displayed claims unchanged,
+no chart reprint. Evidence: original-moment-pilot feasibility audit.
+
 Supporting ORIGINAL early-cutoff Haar positivity checked (2026-10-08 UTC):
 heat-factor floor 1055/2272 is certified for every K>=1 at NAMED 0<=w<=1/2,
 including literal slab faces/shared links. No action/canonical cutoff change
 or w->1 estimate. Existing vacuum 128-surface contraction is reusable; charged
-moments, normalized cutoff payment and changing-family retention stay OPEN.
+moments, GLOBAL normalized cutoff payment and changing-family retention stay OPEN.
 One focused capped check/seven permitted gates, independent full-source
 review; no root/tree audit. Displayed claims unchanged, no chart reprint.
 Evidence: original-moment-pilot feasibility audit dated 2026-09-30.

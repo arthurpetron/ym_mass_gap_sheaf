@@ -93,6 +93,23 @@ The genuine interacting-energy estimate, independent AF survival, actual
 all-vector comparison, physical/volume control and SAME limiting QFT remain
 the work. No chart claim changes from this research review.
 
+### Existing operator join now produced (2026-10-08 UTC)
+
+Do not retain the fixed-carrier logarithm as an unsupplied prerequisite:
+`lean/YMGap/Continuum/BF4WilsonAllNomeBondOSLogarithm.lean:53`,
+`bondValue_transfer`, pins its time-one action to the ORIGINAL completed
+transfer; `:112`, `domain_logarithm_tail_bound`, proves the ordinary-logarithm
+tail bound on every existing quotient-domain class; `:136`,
+`representedLogarithmCertificate`, returns the SAME output and explicit
+modulus for a supplied represented domain point. This previous focused
+kernel-checked increment is recorded in the parallel QFT-inputs audit;
+it is not recompiled or counted again in this attachment reconciliation.
+Physical time/spacing calibration, the continuous-time Kogut--Susskind
+comparison, the limiting-theory spectral pin and the continuum QFT remain
+separate OPEN obligations. Continue forward with the actual original
+moment/cutoff estimates and backward with these SAME-theory requirements;
+add no measurement-driven hypothesis or duplicate logarithm interface.
+
 ## Concrete source-family lead: spatial-only smearing (2026-10-08 UTC)
 
 Targeted primary-source screen, not a new listing scan. Sakai--Sasaki,

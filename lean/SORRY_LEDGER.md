@@ -1,5 +1,20 @@
 # Sorry Ledger
 
+## PROVED normalized early one-face cutoff estimate / OPEN global moment and scaling estimates (2026-10-08 UTC)
+
+`BF4ExactSlabSmallNomeOneFaceCutoffStability.lean:252`,
+`original_background_normalized`, proves error <=2*c*(81/1055)*(1/72)^(K-1)
+for the SAME original factor at NAMED 0<=w<=1/2,K>=1. Actual shifted-tail
+intervals and mixed-cutoff spectator positivity/strict mass are constructed.
+Both OWN partitions, repeated faces and shared links remain; no analytic
+positivity/error premise, old guard weakening or different physical kernel.
+Global list telescope, charged contractions/actual moments, changing-family
+retention and physical/Clay obligations remain OPEN. One accepted focused
+capped check/11 permitted gates and independent complete-source review;
+earlier failed elaboration is not evidence. No new hole/axiom, classical/native
+shortcut, option increase, root/tree audit or canonical chart change.
+Exact accepted log/source hashes: original-moment-pilot feasibility audit.
+
 ## PROVED ORIGINAL early-cutoff Haar floor / OPEN charged moment and scaling estimates (2026-10-08 UTC)
 
 `QuaternionHaarSmallNomeHeatCertificate` produces an actual positive
@@ -8,7 +23,7 @@ floor 1055/2272 for every inclusive K>=1 at NAMED 0<=w<=1/2.
 `faceFloorCertificate` pins to literal original slab faces with produced
 support/Haar-unit norm. No scalar positivity inference, action substitution
 or canonical headCutoff guard weakening. Charged original moments, useful
-normalized cutoff error, changing-family retention and physical/Clay inputs
+GLOBAL normalized cutoff error, changing-family retention and physical/Clay inputs
 remain OPEN. Final focused check/seven permitted gates, independent source
 review; root registration only, no new hole/axiom or full-tree audit.
 Exact sources/logs/hashes: original-moment-pilot feasibility audit.

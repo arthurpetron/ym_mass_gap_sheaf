@@ -27,6 +27,23 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED normalized early-cutoff estimate (2026-10-08 UTC):
+`SmallNomeOneFaceCutoffStability.original_background_normalized` produces
+ONE-face original moment error <=2*c*(81/1055)*(1/72)^(K-1), at NAMED
+0<=w<=1/2 and inclusive K>=1. Its actual tail interval has cap
+(81/2272)*(1/72)^(K-1). Shared links, multiplicities and BOTH original
+partitions remain; mixed-cutoff spectator positivity/strict mass are produced.
+Existing determinant/cancellation algebra is reused; old headCutoff guards
+stay unchanged. NEXT: the actual finite-list normalized telescope and charged
+H116->H32 insertion reduction/evaluation. Neither is supplied by this local
+estimate. One accepted focused capped check/11 permitted gates and independent
+complete-source review; root import registered only, no root/tree audit.
+This is finite-pilot payment, not volume-uniform or w->1 control. DIRECT
+macroscopic retention and all physical/Clay claims remain OPEN; displayed
+chart claims unchanged. Exact evidence: the original-moment feasibility audit.
+The repeated measurement attachment stays incorporated through its existing
+research audit; no new numerical/Sobolev/Kogut--Susskind premise is added.
+
 CHECKED finite-pilot positivity repair (2026-10-08 UTC): actual ORIGINAL
 Haar certificates give heat-factor floor 1055/2272 for every inclusive K>=1
 at NAMED 0<=w<=1/2, including literal slab faces and shared links. No action,

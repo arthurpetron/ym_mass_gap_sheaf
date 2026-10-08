@@ -302,3 +302,118 @@ pieces are charged original-observable contraction, a feasible evaluator,
 and quantitative normalized cutoff payment. No favourable interacting
 moment, source survival, changing-family retention, physical calibration,
 QFT or Clay closure follows; canonical displayed claims stay unchanged.
+
+## Selected normalized early-cutoff payment (2026-10-08 UTC)
+
+Exact next proposition: for NAMED 0<=w<=1/2 and inclusive K>=1, construct
+the actual omitted-character Haar interval with cap
+t_K=(81/2272)*(1/72)^(K-1), then bound the normalized change of ONE original
+face occurrence from K to K+L by 2*c*eta_K,
+eta_K=(81/1055)*(1/72)^(K-1). The observable carries its actual Haar interval
+cap c. All shared-link spectator factors, multiplicities and BOTH different
+partitions remain. Produce positivity for actual original mixed-cutoff
+backgrounds; do not leave that specialization as a new analytic premise.
+
+Available inputs: `SU2AllLabelPointwiseHeatCorridor.lean:217`,
+`pointwiseHeatMajorant_succ_le`, and `:304`, `labelTwo_majorant_le`;
+`Constructive/CharacterTail.lean:45`, `geom_dom`, and `:73`, `geom_series_le`;
+the early actual Haar floor above and the existing `termInterval` compiler.
+The normalized consumer is already proved in
+`BF4ExactSlabOneFaceCutoffStability.lean:139`, `normalized_difference_bound`,
+but its public original instance requires `relativeCutoff/headCutoff`.
+Reuse its definitions and the existing relative determinant/partition
+cancellation algebra; construct the early estimate without weakening that
+guard. Continuum paths in this paragraph are under `lean/YMGap/Continuum/`.
+
+Prediction: local normalization cancels both partitions BEFORE an absolute
+volume-dependent reciprocal bound, so the one-occurrence coefficient is
+2*c*eta_K, not an exponential product-floor loss. Sequential replacement
+of F occurrences would cost a face-count factor F; neither that global
+telescope nor a volume-uniform cutoff theorem is supplied by this selection.
+The canonical `originalWindowScalar` stage schedule stays unchanged.
+
+Decisive tests: K=1, empty tail L=0, w=0, repeated/shared-link spectator
+occurrences and independently varying spectator cutoffs >=1. Stop if a
+different action, spectator independence, an assumed normalized error,
+or an old cutoff-guard weakening is needed. Verification budget: one bounded
+Sol implementation, root and independent complete-source review, serialized
+focused 20-GiB check with 12-GiB reserve and fresh dynamic preflight. This
+selection is not checked evidence. Charged contraction, useful signed
+moments, changing-family retention and every physical/Clay claim stay OPEN.
+
+### Next charged-moment reduction: source-backed argument, not a proof
+
+Independent read-only review and root source inspection select the literal
+H116[O*rho72]=H32[O_cube*rho24] reduction for ONE/TWO fundamental inner-cube
+face insertions, with repetitions retained. The missing degree/parity pin
+is D_b=selected-action incidence_b+sum(inserted-face incidence_b), whose
+parity is the incidence of actionMask XOR insertionParityMask. The existing
+`BF4ExactCutoffOneTransmittedDegree.lean:225`,
+`exactCorrectedSlabWeightedIntegrand_cutoffOne_blockDegree`, and `:133`,
+`correctedSlabPlaquetteScalar_blockDegree`, supply homogeneity; `:251`,
+`quaternionHaar_116_eq_zero_of_odd_blockDegree`, removes odd totals. The
+128-mask completeness theorem above then restricts surviving action masks
+to the 24 inner-cube faces, because the insertion parity mask is also inner.
+None of the inserted parity/finite-expansion joins is proved by this review.
+
+Reuse the actual carrier machinery:
+`BF4ExactCutoffOneSurfaceActiveCarrier.lean:369`,
+`reindexBF4SurfaceActiveCarrier_haar`; `:602`,
+`reindexBF4SurfaceActiveSpinFactor_tailZero`; and `:258`,
+`quaternionHaar_trim_inactive`. Produce the inserted product's full-length
+and tail-zero pins before deleting exactly 84 normalized inactive blocks.
+All module paths in this paragraph are under `lean/YMGap/Continuum/`.
+
+Decisive multiplicity test: [p,p] has insertion parity zero but degree TWO
+on each edge of p; it must not be replaced by a vacuum/bivalent integrand.
+For each parity-selected summand, cube incidence <=3 and at most two
+insertions give even surviving degree <=4; degree-four links lie in the
+insertion-edge union, of size <=8 (<=4 for equal insertions). This is the
+proposed contraction-size argument, not a new Lean certificate or a small-
+runtime evaluator. The charged contractions and normalized actual moment
+values remain missing. Differentiating a face coefficient removes its
+action factor and misses the genuine fundamental-square/spin-two channel;
+it is not a shortcut to these unchanged-action inserted moments.
+
+### Observed normalized early-cutoff estimate and next action
+
+Final complete 280-line source inspection, independent complete-source
+semantic review and the repaired focused Lean check PASS. No analytic error
+or positivity input is assumed: the actual tail certificates and original
+mixed-cutoff spectator positivity/strict mass are constructed. Shared links,
+repeated face occurrences, w=0, K=1 and L=0 remain in the displayed scope.
+
+| Produced result | Exact declaration |
+| --- | --- |
+| Explicit t_K=(81/2272)*(1/72)^(K-1), eta_K=(81/1055)*(1/72)^(K-1) | `lean/YMGap/Continuum/BF4ExactSlabSmallNomeOneFaceCutoffStability.lean:59`, `tailCap`; `:62`, `relativeTailCap` |
+| Exact shifted scalar-majorant bound from existing ratio/head inputs | Same module `:84`, `shifted_majorant_bound` |
+| Actual Type-valued two-sided Haar tail and literal face instance | Same module `:121`, `tailInterval`; `:129`, `faceTailInterval_early` |
+| Actual mixed-cutoff spectator product certificate and strict mass | Same module `:141`, `backgroundCertificate`; `:151`, `background_mass_positive` |
+| Original one-face OWN-normalized error <=2*c*eta_K | Same module `:252`, `original_background_normalized` |
+
+Eleven printed gates: both cap definitions axiom-free; cap nonnegativity
+uses propext only; the other eight declarations depend exactly on
+{propext, Quot.sound}. No warning, error, sorryAx, new hole/axiom,
+classical/native shortcut or option increase in the accepted check. The
+first failed parser/lambda elaboration is NOT acceptance evidence. Repairs
+use List.length notation and explicit lambda application goals, without
+changing a statement or guard. Accepted focused check completes in 0.92s;
+one 20-GiB worker, 12-GiB reserve, fresh preflight with 88% free memory,
+zero swap and no competing compiler/runner. Root import registered only;
+no root/tree build, audit, guard, metric or large moment expansion.
+
+```text
+Accepted log: /private/tmp/ym-small-nome-normalized-cutoff-20261008-b.log
+SHA256 4afd31177d36035816106628e0bac2419d42e36da598f125f2121885ae5e8281
+Checked source SHA256
+c5d32d2b75e8a91f18063ced7c771306d073bc879d2dbd8649b50991a77c8e10
+```
+
+Decision: CONTINUE. Next mathematical joins are the ACTUAL finite-list
+normalized telescope and the repeated-insertion H116->H32 reduction, then
+charged contraction values. The local coefficient has no background size
+or inverse full-partition factor; it is NOT a volume-uniform bound on a full
+list change. The canonical original-window stage schedule is unchanged.
+No favourable signed interacting moment, changing-family retention,
+physical calibration, continuum QFT or Clay closure is supplied. No
+canonical displayed claim changes, so no chart reprint is warranted.
