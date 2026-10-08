@@ -1,5 +1,19 @@
 # Sorry Ledger
 
+## PROVED FULL finite action Gauss/Ward law / OPEN continuum join (2026-10-08 UTC)
+
+`lean/YMGap/Continuum/BF4ExactSlabVertexGaussHeatAction.lean:203`,
+`fullHeatProduct_gauss_zero`, retains every original spatial/temporal face.
+`lean/YMGap/Continuum/BF4ExactSlabVertexGaussWardIdentity.lean:129`,
+`original_action_ward_zero`, proves H[W*G(p)]=0 for every supported signed p.
+No positivity/nome range, inverse, assumed invariance, new hole/axiom,
+classical input or limits increase. Both focused final targets/six gates
+exactly {propext,Quot.sound} and COMPLETE independent final-source review
+PASS; root registration only, no root/tree audit. Fixed-slice transfer,
+completed gauge domains, continuum/QFT transport, horizontal signed cost
+and all physical/Clay closure remain OPEN. Exact hashes and repaired
+four-attempt budget: research-pipeline TasteVal audit. Chart unchanged.
+
 ## PROVED original integrated score / OPEN useful innovation (2026-10-08 UTC)
 
 `lean/YMGap/Continuum/SU2QuaternionIntegratedScoreVariance.lean:79`,

@@ -8014,3 +8014,9 @@ import YMGap.Continuum.BF4ExactSlabVertexGaussWilsonWord
 -- characters and their original signed placed windows. No continuum gauge
 -- domain or quantitative rate is inferred.
 import YMGap.Continuum.BF4ExactSlabVertexGaussClosedCharacter
+
+-- Full ORIGINAL finite spatial/temporal heat-action Gauss invariance and
+-- arbitrary signed-test Ward identity. No fixed-slice/completed/continuum
+-- gauge transport, horizontal signed-cost estimate or mass gap follows.
+import YMGap.Continuum.BF4ExactSlabVertexGaussHeatAction
+import YMGap.Continuum.BF4ExactSlabVertexGaussWardIdentity

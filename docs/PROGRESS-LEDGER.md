@@ -4,6 +4,18 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## FULL original finite action Gauss/Ward law (2026-10-08 UTC)
+
+`VertexGaussHeatAction.fullHeatProduct_gauss_zero` proves the full original
+spatial/temporal action is killed by the actual all-link generator.
+`VertexGaussWardIdentity.original_action_ward_zero` gives H[W*G(p)]=0 for
+every supported signed test. Six permitted gates, both focused final targets
+and complete independent FINAL-source review PASS; no tree audit/metric.
+Finite vertical gauge symmetry is supplied, not horizontal energy or
+fixed-slice/continuum transport. Main changing-family cost/variance and
+credit/overlap remain OPEN; canonical displayed claims unchanged.
+Exact four-attempt budget/hashes: research-pipeline TasteVal audit.
+
 ## ORIGINAL centered integrated score without an extra mass square (2026-10-08 UTC)
 
 `SU2QuaternionIntegratedScoreVariance.centeredSignedSquare_certificate`

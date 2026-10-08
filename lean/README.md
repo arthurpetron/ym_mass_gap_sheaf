@@ -16,6 +16,16 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked FULL original finite action Gauss/Ward law (2026-10-08 UTC):**
+`BF4ExactSlabVertexGaussHeatAction` kills every original plaquette heat
+factor and the full action with the actual all-link generator.
+`BF4ExactSlabVertexGaussWardIdentity` proves H[W*G(p)]=0 for every supported
+signed test, without positivity/nome guards, inverse or assumed invariance.
+Both focused final targets/six permitted gates and complete independent
+FINAL-source review PASS; root registration only. Fixed-slice/completed/
+continuum gauge transport and the main changing-family margin remain OPEN.
+Exact evidence: research-pipeline TasteVal audit. No canonical chart change.
+
 **Checked ORIGINAL integrated-link score bound (2026-10-08 UTC):**
 `SU2QuaternionIntegratedScoreVariance` produces the centered conditional
 variance certificate without the older extra squared polynomial mass.

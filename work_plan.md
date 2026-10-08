@@ -27,6 +27,20 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED independent finite QFT input (2026-10-08 UTC): the actual all-link
+vertex Gauss generator annihilates the FULL original heat action, and
+H[W*G(p)]=0 for every supported signed insertion. Raw coefficient pins are
+differentiated before padding; every spatial/temporal plaquette remains.
+No positivity, nome range, inverse, gauge fixing or assumed invariance.
+Both final focused targets/six permitted gates and COMPLETE independent
+final-source review PASS; root registration only. This does not replace
+the main changing-family signed cost/variance or raw credit/overlap frontier.
+The local response producer cannot improve the bare reference rate; prune
+another character-positivity transport. Fixed-slice transfer Gauss transport,
+completed gauge domains and SAME continuum QFT remain OPEN. Decision,
+revised four-attempt budget, exact hashes and next join:
+`audits/AUDIT-RESEARCH-PIPELINE-TASTEVAL-2026-10-07.md`.
+
 CHECKED original integrated-link score/variance bound (2026-10-08 UTC):
 `SU2QuaternionIntegratedScoreVariance.centeredSignedSquare_certificate` constructs
 C^2*det(W,f)-I((J W)*f)^2 directly from two positive tilted laws, without

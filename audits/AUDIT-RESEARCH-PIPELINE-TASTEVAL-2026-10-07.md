@@ -142,3 +142,85 @@ Sobolev gauge-action regularity claim, Tannaka reconstruction implementation,
 or new functor across groups is inferred from the user's note. Preserve all
 interacting curvature configurations, compact Haar/action data, SAME-theory
 time/generator identification, nontriviality and physical scaling.
+
+## Bounded finite Gauss/Ward input (2026-10-08 UTC, selected)
+
+Main retention screen: the actual `localResponseFloor_le_window` gives
+rho=a*(l/u)^2/[4*(1+5*a)], a=w^12, hence cannot improve the bare
+reference even before endpoint losses. Character-product positivity does
+not order the full centered commutator against the interacting source.
+No useful original three-moment credit/overlap producer was found by the
+bounded read-only review; stop that proposed positivity shortcut.
+
+Independent backward QFT input selected: prove the ACTUAL all-link vertex
+Gauss generator annihilates `fullHeatProduct` at every finite cutoff and
+odd extent; then prove H[W*G(p)]=0 for every supported signed insertion p.
+Inputs are `VertexGaussClosedCharacter.closedCharacter_gauss_zero`, its
+raw Leibniz rules, `FixedSpatialWilsonPlaquette.character_plaquette`, and
+arbitrary-block Haar angular integration by parts. Every original spatial
+and temporal plaquette heat factor remains. No positivity, nome range,
+normalizer inverse, gauge fixing or static restriction is needed.
+
+Consumer: the finite gauge-invariance input for SAME-theory QFT structure,
+currently with no implemented all-action Gauss/Ward declaration. This does
+NOT produce the horizontal signed cost estimate, continuum gauge symmetry,
+or fixed-slice transfer Gauss preservation. The latter still needs the
+literal fixed-slice action law plus a derivative/placement join (or a direct
+four-edge proof); padded placement pins cannot simply be differentiated.
+
+Predicted outcome: exact finite action invariance and signed Ward identity,
+not a norm estimate. Decisive tests: K=0, arbitrary rational nome, boundary
+vertices, reversed temporal edges, arbitrary signed insertions. Differentiate
+only raw coefficient equalities; pad only AFTER forming derivatives.
+Root owns action proof/source review; Sol owns the bounded Ward consumer;
+independent Sol final-source review. Budget: two new finite leaves and at
+most three serialized focused checks, one 20-GiB worker and fresh dynamic
+preflight each time. Stop/revise if an original factor or unproved gauge
+premise is needed; do not expand to a general differential embedding library.
+Canonical chart and all Clay claims remain unchanged.
+
+Verification-budget revision: action check 1 failed missing namespace opens;
+action check 2 PASS. Ward check 1 failed local notation quotation syntax and
+one support namespace, not a mathematical premise. Repair those explicitly
+and allow ONE final Ward check (four total attempts). No limits are raised;
+failed elaboration output is not axiom/proof evidence.
+
+Observed outcome: PROGRESS on the finite QFT gauge-law input. The actual
+action generator vanishes at common-padded coefficient strength. Raw Haar
+IBP plus raw Leibniz yields H[W*G(p)]=0 for arbitrary supported signed p.
+Every finite cutoff, arbitrary rational nome and all original boundary,
+spatial and temporal factors remain. No horizontal-energy estimate or
+continuum gauge domain follows; the main useful retention margin stays OPEN.
+
+Exact source pins:
+
+- `lean/YMGap/Continuum/BF4ExactSlabVertexGaussHeatAction.lean:87`,
+  `vertexGauss_congr`; `:132`, `vertexGauss_supported`; `:177`,
+  `faceHeatPolynomial_gauss_zero`; `:203`, `fullHeatProduct_gauss_zero`.
+- `lean/YMGap/Continuum/BF4ExactSlabVertexGaussWardIdentity.lean:123`,
+  `vertexGauss_haar_zero`; `:129`, `original_action_ward_zero`.
+
+Final source SHA-256 (root full review and independent complete final-source
+review PASS at these hashes):
+
+- Action: `45cfd7c0dffe38df8bb94e5859b920b12ae9dc925804105100fe2847d7520603`.
+- Ward: `f798cbd67d2ee26e6bdeb849e2640d15ff44b33b028de50b7e502ceddd7c2d53`.
+
+Accepted focused logs and SHA-256:
+
+- `/private/tmp/ym-oct8-vertex-gauss-action2.log`:
+  `198e78d8459956d2447539e164c0f7ab06036f99ac6a726f633e15bf59bedb03`.
+- `/private/tmp/ym-oct8-vertex-gauss-ward2.log`:
+  `55d1c6722406ffe53b592103e18603067c487f972b416111a2c413d84881e5b3`.
+
+Six public gates exactly {propext,Quot.sound}; no accepted warnings or
+sorryAx. Four attempts as revised above, all monitored/serialized with
+one 20-GiB worker, 12-GiB reserve, fresh capacity checks and zero swap.
+Root imports registered only; no whole-root/tree build/audit/guard/metric.
+
+Next mathematical decision: return to actual joint signed cost versus
+surviving variance (or useful raw credit/overlap) on a justified changing
+family. Finite vertical cancellation cannot pay individual angular squares.
+For an independent gauge-law continuation, prove the actual fixed-slice
+four-edge action law before using product-heat angular commutation; do not
+assume a differential embedding or continuum domain from the above result.

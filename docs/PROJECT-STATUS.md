@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Supporting FULL original finite action Gauss/Ward law checked (2026-10-08 UTC):
+the actual all-link generator annihilates every retained plaquette heat
+factor and the full action; H[W*G(p)]=0 for every supported signed test.
+Both final focused targets/six permitted gates and complete independent
+FINAL-source review PASS. No positivity/nome guard, inverse or static
+restriction; root registration only, no tree audit. Fixed-slice transfer,
+completed/continuum gauge transport and horizontal signed cost remain OPEN.
+Canonical displayed claims unchanged; no chart reprint. Exact evidence:
+research-pipeline TasteVal audit.
+
 Supporting ORIGINAL integrated-link score bound checked (2026-10-08 UTC):
 the actual original odd marginal and OWN-centered square obey the centered
 conditional variance bound with no extra squared conditional mass or inverse.
