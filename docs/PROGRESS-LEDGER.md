@@ -21,7 +21,20 @@ new angle). Run `bash computations/progress_metric.sh` each iteration.
   closure remain OPEN. No broad chart node changes. Evidence:
   `audits/AUDIT-CONDITIONAL-GRUSS-AND-ORIGINAL-SCORE-2026-10-07.md`.
 
-## Latest proved increment: R1 commit 38, normalised-covariance torus ratio with a volume-uniform constant (2026-10-07 PT)
+## Latest audit increment: R1 commit 39, ledger row F (C5 TraceSandwich) on a real carrier: no two-sided interval; one-sided real bound recorded (2026-10-07 PT)
+
+- Row F is still "model interval only" for a two-sided interval: `[1/9, 13/100]` at w = 1/2, on the closed-form `excitedCharModel`.
+- Real-carrier entry (operator form, not `specMax`): `0 ≤ ‖T₁|vac⊥‖ ≤ timeRate` (≈ 1/4) at w = 1/1024 for every width. This is the existing `existingNome_allNome_strongCoupling`, a cluster bound that avoids the Doeblin floor/cap; mixRate ≥ 1 − 2^-15 at width 1.
+- Blockers:
+  - No `SpectralModel` or spectral decomposition exists on the real carrier.
+  - Trace sandwich: only the full `Z(N_t)` is available (vacuum included), it is infeasible to compute exactly, and there is no spectral theorem.
+  - Perron/Collatz–Wielandt controls only Λ₀.
+  - The cluster ratio route is observable-specific and one-sided.
+  - The lower end needs an explicit-amplitude lower bound on a lag-1 connected correlator, which does not exist.
+- Evidence: `audits/AUDIT-C5-TRACESANDWICH-REAL-CARRIER-2026-10-07.md`.
+- Scope: SU(2) heat-kernel slab (BF4 all-nome carrier), finite width with the time limit completed, strong coupling. Not gap evidence. No Lean changes.
+
+## Earlier proved increment: R1 commit 38, normalised-covariance torus ratio with a volume-uniform constant (2026-10-07 PT)
 
 - `SU2TorusNormalizedRatio.normalized_torus_ratio` (PROVED): `Ê(k+1)^e·Ê(k) ≤ (Cw·λ)·(λ²)^(k+e)·Ê(k)^e`, with `Ê(k) = cov(2k) = E(k)/Z`, for k+e ≤ X. It is obtained from `actual_torus_ratio` and `hcov` by cancelling `Z^(e+1) > 0`; the e = 0 case comes from `cov_decay`. The constant `Cw·λ` (λ = 6/7) contains no Z.
 - Carried: only 2X+1 ≤ M, an in-box root (b, c, d < 2M) and a spatial plane. hsup, hshift and hcov are discharged upstream by `SU2TorusCenteredPositiveSupport`, `SU2TorusCenteredPairShift` and `SU2TorusCenteredCovarianceRP`.
