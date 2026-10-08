@@ -177,6 +177,78 @@ theorem coefficientUpper_precision_bound (j : Nat) :
   Q'.le_trans' _ _ _ (Q'.runningMin_le upper (precisionIndex j))
     (AFLeadingCoefficient.upper_le_lower_add (precisionIndex j))
 
+private theorem half_pow_num : ∀ n : Nat, (HalfPow.half^n).num = 1
+  | 0 => rfl
+  | n+1 => by
+      show HalfPow.half.num * (HalfPow.half^n).num = 1
+      rw [half_pow_num n]; rfl
+
+private theorem half_pow_den : ∀ n : Nat, ((HalfPow.half^n).den : Int) = (2^n : Nat)
+  | 0 => rfl
+  | n+1 => by
+      show ((HalfPow.half * HalfPow.half^n).den : Int) = (2^(n+1) : Nat)
+      rw [Q'.mul_den_cast, half_pow_den n, Nat.pow_succ]
+      have : (HalfPow.half.den : Int) = 2 := rfl
+      rw [this]; omega
+
+/-- The actual logarithmic precision pays an inverse-scale error, including j=0. -/
+theorem geometric_precision_lt_invSucc (j : Nat) :
+    110 * HalfPow.half ^ precisionIndex j <
+      Q'.mkPos 55 256 (by decide) * Q'.invSucc j := by
+  have hlog := Nat.lt_log2_self (n := j+1)
+  rw [Nat.pow_succ] at hlog
+  have hlogInt := Int.ofNat_lt.mpr hlog
+  rw [Int.natCast_mul] at hlogInt
+  show (110 * HalfPow.half ^ precisionIndex j).num *
+      ((Q'.mkPos 55 256 (by decide) * Q'.invSucc j).den : Int) <
+    (Q'.mkPos 55 256 (by decide) * Q'.invSucc j).num *
+      ((110 * HalfPow.half ^ precisionIndex j).den : Int)
+  simp only [Q'.mul_num_cast, Q'.mul_den_cast, half_pow_num, half_pow_den,
+    Q'.invSucc_num, Q'.invSucc_den]
+  change 110 * (256 * ((j+1 : Nat) : Int)) < 55 * (1 * ((2 ^ precisionIndex j : Nat) : Int))
+  unfold precisionIndex
+  rw [Nat.pow_add, Int.natCast_mul]
+  change 110 * (256 * ((j+1 : Nat) : Int)) <
+    55 * (1 * (1024 * ((2 ^ Nat.log2 (j+1) : Nat) : Int)))
+  omega
+
+theorem interval_width_lt_invSucc (j : Nat) :
+    upper (precisionIndex j) - lower (precisionIndex j) <
+      Q'.mkPos 55 256 (by decide) * Q'.invSucc j :=
+  Q'.lt_of_le_of_lt (AFLeadingCoefficient.enclosure_width_le (precisionIndex j))
+    (geometric_precision_lt_invSucc j)
+
+theorem coefficientUpper_width_lt_invSucc (j : Nat) :
+    coefficientUpper j - lower (precisionIndex j) <
+      Q'.mkPos 55 256 (by decide) * Q'.invSucc j :=
+  Q'.lt_of_le_of_lt (Q'.sub_le_of_le_add (coefficientUpper_precision_bound j))
+    (geometric_precision_lt_invSucc j)
+
+/-- The SAME existing denominator grows at most four times the scale index. -/
+theorem denominator_le_four_succ (j : Nat) :
+    denominator j ≤ 4 * Q'.ofNat (j+1) := by
+  have hlog : Nat.log2 (j+1) ≤ j := by
+    have h := (Nat.log2_lt (n := j+1) (k := j+1) (by omega)).mpr Nat.lt_two_pow_self
+    omega
+  change (afE j : Int) * 1 ≤ (4 * ((j+1 : Nat) : Int)) * 121
+  unfold afE
+  simp only [Int.natCast_add, Int.natCast_mul]
+  have hlogInt := Int.ofNat_le.mpr hlog
+  omega
+
+/-- Multiplying the actual enclosure width by its consumer clock keeps a fixed budget. -/
+theorem denominator_precision_lt (j : Nat) :
+    denominator j * (upper (precisionIndex j) - lower (precisionIndex j)) <
+      Q'.mkPos 55 64 (by decide) := by
+  have hD := denominator_le_four_succ j
+  change (afE j : Int) * 1 ≤ (4 * ((j+1 : Nat) : Int)) * 121 at hD
+  have hpay : denominator j * (Q'.mkPos 55 256 (by decide) * Q'.invSucc j) ≤
+      Q'.mkPos 55 64 (by decide) := by
+    change ((afE j : Int) * (55 * 1)) * 64 ≤ 55 * (121 * (256 * ((j+1 : Nat) : Int)))
+    omega
+  exact ClusteringImpliesGap.lt_of_lt_of_le
+    (Q'.mul_lt_mul_of_pos_left (denominator_positive j) (interval_width_lt_invSucc j)) hpay
+
 end YMGap.Continuum.AFPrecisionNomeSchedule
 
 #print axioms YMGap.Continuum.AFPrecisionNomeSchedule.precisionIndex
@@ -200,3 +272,8 @@ end YMGap.Continuum.AFPrecisionNomeSchedule
 #print axioms YMGap.Continuum.AFPrecisionNomeSchedule.precisionNomeSchedule
 #print axioms YMGap.Continuum.AFPrecisionNomeSchedule.value_leRat_coefficientUpper
 #print axioms YMGap.Continuum.AFPrecisionNomeSchedule.coefficientUpper_precision_bound
+#print axioms YMGap.Continuum.AFPrecisionNomeSchedule.geometric_precision_lt_invSucc
+#print axioms YMGap.Continuum.AFPrecisionNomeSchedule.interval_width_lt_invSucc
+#print axioms YMGap.Continuum.AFPrecisionNomeSchedule.coefficientUpper_width_lt_invSucc
+#print axioms YMGap.Continuum.AFPrecisionNomeSchedule.denominator_le_four_succ
+#print axioms YMGap.Continuum.AFPrecisionNomeSchedule.denominator_precision_lt

@@ -176,9 +176,38 @@ increase. Semantic root import registration is not a current root build.
     /private/tmp/ym-oct8-af-precision-nome2.log
     log SHA256 29a136d602c294d7baa8db342e43d8182ac4e7ac48a36c4af7fa5b5f096da73f
 
-NEXT, PAPER only: at n_j=10+floorLog2(j+1), the interval width is
-<55/(256*(j+1)); the clock D_j<=4*(j+1) then gives denominator-amplified
-error <55/64. Neither j-relative bound is yet a Lean theorem in this leaf.
+## Consumer-clock precision budget produced (2026-10-08 UTC)
+
+The same leaf now proves the previously PAPER-only j-relative bounds:
+
+- `lean/YMGap/Continuum/AFPrecisionNomeSchedule.lean:195`,
+  `geometric_precision_lt_invSucc`: at n_j=10+floorLog2(j+1),
+  110*half^n_j < (55/256)*invSucc j. The exact half-power denominator and
+  j+1<2^(floorLog2(j+1)+1) give this strict bound, including j=0.
+- `:215`, `interval_width_lt_invSucc`, and `:221`,
+  `coefficientUpper_width_lt_invSucc`: the actual endpoint width and the
+  folded upper minus the current lower inherit the same inverse-j bound.
+- `:228`, `denominator_le_four_succ`: D_j=afE_j/121<=4*(j+1), using
+  floorLog2(j+1)<=j and the unchanged clock 121*j+51*floorLog2(j+1)+484.
+- `:240`, `denominator_precision_lt`: multiplying the actual width by
+  that positive clock gives D_j*(upper(n_j)-lower(n_j))<55/64.
+
+Observed verification: focused clock check 1 PASS (exit 0); all 26 public
+printed gates permitted. Three data definitions remain axiom-free; all
+others use only {propext, Quot.sound}. Independent COMPLETE 279-line frozen
+final-source mathematical review PASS, including actual called APIs and the
+zero-index test. The launch used fresh successful process/memory preflight,
+one 20-GiB worker, 12-GiB reserve and zero swap. No root/full-tree build or
+audit. No new sorry, analytic premise, module or calibration field.
+
+    extended schedule source SHA256 bf927b5a03ca18be0b24b7aebd90bb5b3cf795a18231698634d805852f9a6b8b
+    /private/tmp/ym-oct8-af-clock1.log
+    log SHA256 532c4b827e86f6e3e77e669ca3aeea35c087065ca4985b08b42d170c6f51343b
+
+Decision: the numerical error budget is produced, not assumed; multiplying
+it by the existing clock no longer introduces secular uncertainty. The
+actual coefficient pin and NomeSchedule are unchanged. Return to the main
+original signed-family estimate instead of adding a duplicate scalar wrapper.
 No old rounded/pinned trajectory is replaced, physical a(w) supplied, or
 physical calibration predicate discharged. MAIN's original changing-family
 signed payment, continuum survival, full QFT, every group and Clay remain OPEN.

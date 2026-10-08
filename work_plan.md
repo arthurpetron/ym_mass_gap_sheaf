@@ -42,16 +42,23 @@ BOTH masses. Gauge symmetry alone supplies no horizontal high-order zero;
 an admissible-background estimate needs an original-measure complement budget
 before it can be consumed. These are selection tests, not new proved inputs.
 
-Next bounded scalar test of that error discipline: from the now constructed
-coefficient endpoints and precisionNomeSchedule, prove
+CHECKED bounded scalar test of that error discipline (2026-10-08 UTC):
+the existing `AFPrecisionNomeSchedule` now proves
 `110*half^(10+floorLog2(j+1)) < (55/256)*invSucc j` and
 `D_j*(upper(n_j)-lower(n_j)) < 55/64`, using D_j<=4*(j+1).
-Return the bounds for the SAME actual series and existing denominator, not
-an assumed precision interface. Check j=0 and preserve all earlier folded
-endpoints. Budget: extend the existing precision leaf only, serialized narrow
-20-GiB checks with fresh dynamic preflight and independent final review.
-Stop/revise if the proof requires physical spacing or replaces the old pinned
-family. This is numerical accuracy control, NOT an a(w) or survival theorem.
+The actual interval and folded-upper error both inherit the inverse-j bound.
+These are produced bounds for the SAME actual series and existing denominator,
+including j=0 and all earlier folded endpoints, not a supplied precision
+interface. Focused clock check 1 PASS; all 26 printed gates permitted;
+independent COMPLETE frozen final-source mathematical review PASS.
+One 20-GiB worker, 12-GiB reserve and fresh successful dynamic preflight;
+no root/tree build or audit. Exact declarations and source/log hashes are in
+the AF-padded-trajectory audit. This removes growing-clock amplification of
+coefficient uncertainty, NOT physical a(w), nonperturbative calibration or
+survival. No existing rounded/pinned family or canonical field is replaced.
+Resume MAIN's complete original signed credit/relative innovation, in OWN
+surviving-variance units with BOTH chronological masses, rather than extend
+the scalar branch without an actual downstream consumer. Chart unchanged.
 The independent proposed collective-tail credit simplifies to the ALREADY
 recorded PAPER early-box bound (adaptive-score audit, lines 916--941); do not
 build a duplicate compiler or claim a newly paid signed scalar.
@@ -84,7 +91,7 @@ COMPLETE frozen final-source mathematical review PASS. The first rejected
 attempt had an induction-context error, corrected without changing the claim.
 Consumer: the existing generic NomeSchedule, NOT the rational-A calibration
 predicate or a physical spacing field. The sharper j-relative precision bound
-and physical calibration are still OPEN. No actual changing-family rate has
+is now checked above; physical calibration remains OPEN. No actual changing-family rate has
 been produced; MAIN remains the complete signed credit/relative innovation
 in OWN variance units with BOTH chronological masses. Exact evidence and
 hashes: AF-padded-trajectory audit. No canonical chart state change.
@@ -100,7 +107,7 @@ No new premise, module, frontier weakening or root/tree audit.
 The coefficient/value-pin task selected after these inputs is now checked
 above; its direct product-limit proof needs no separate real reciprocal.
 The decreasing running-min upper sequence and its actual NomeSchedule are
-now checked above. NEXT scalar task: prove the j-relative precision bound;
+now checked above, as is the j-relative precision bound;
 physical scale-setting is a separate missing producer. Do not silently retune
 the existing rounded trajectory.
 An accurate two-loop seed still supplies neither a physical a(w) nor MAIN's
