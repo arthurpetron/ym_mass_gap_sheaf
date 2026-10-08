@@ -155,6 +155,26 @@ BOTH masses. Gauge symmetry alone supplies no horizontal high-order zero;
 an admissible-background estimate needs an original-measure complement budget
 before it can be consumed. These are selection tests, not new proved inputs.
 
+Requested parallel follow-up (2026-10-08 UTC): the cached paper review now
+pins MAIN's joint correction as
+`H_xy[Kkin*G^2*(J_out A)*X^2*(J_in+J_out)(spatialWeight*a*Vbar^2)]`
+(PAPER reassembly of source identities, not a new Lean theorem).
+The simultaneous derivative kills the kinetic factor, NOT the complete
+original density; another integration by parts regenerates the Ward terms.
+Before a Taylor/refinement adaptation, test a low-order cancellation or
+favorable sign of the COMPLETE signed payment, including the absorption
+square and reciprocal correction. Retain actual original-link/frame
+derivatives, all outputs, OWN variance and BOTH masses. The scalar allowance
+alone is not small after nome scaling:
+`3*(1-w)*(4+1/(1-w^2)) -> 3/2`. A direct signed-window estimate remains
+an alternative to high-order cancellation. The backward consumer stays
+`WindowSignedCost.original_window_budget_macro_ratio`; the forward original
+terminal certificate is already produced. Actual outgoing upper windows
+agree after index arithmetic; no new mass-identification premise is needed.
+No interpolation wrapper, foreign proof, Lean edit or proof-status change
+is selected. Source pins and refreshed archive-access limits are in the
+existing targeted audit.
+
 CHECKED bounded scalar test of that error discipline (2026-10-08 UTC):
 the existing `AFPrecisionNomeSchedule` now proves
 `110*half^(10+floorLog2(j+1)) < (55/256)*invSucc j` and
