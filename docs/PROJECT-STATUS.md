@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Supporting direct ORIGINAL cubic response lower bound checked
+(2026-10-08 UTC): four mixed time/defect moments give
+R_x(N)>=d0-N*d1+C(N,2)*d2-C(N,3)*d3 on the SAME completion, without
+a filtered norm or spectral measure. Every state/lag remains. Focused
+check/both permitted gates and independent complete FINAL-source review;
+root registration only, no tree audit. Its actual changing-family relative
+margin is OPEN. PAPER precision/slope screens keep this optional, not a
+stronger prerequisite replacing DIRECT retention or signed filtering.
+Canonical displayed claims unchanged, no chart reprint. Evidence:
+adaptive conditional-score audit.
+
 Supporting MAIN source-preserving signed affine filter bound checked
 (2026-10-08 UTC): every response of a*x+b*T*x is <=max(a^2,(a+b)^2)
 times the SAME original response at that lag, by three positive chord

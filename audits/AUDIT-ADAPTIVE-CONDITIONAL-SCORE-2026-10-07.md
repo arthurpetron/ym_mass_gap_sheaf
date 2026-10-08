@@ -4,6 +4,133 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Direct cubic ORIGINAL-response estimate: checked output and scope (2026-10-08 UTC)
+
+Previous goal turn: PROGRESS, commit `7604b6b2` supplies the actual signed
+affine endpoint cap. The changing-family relative margin is still OPEN.
+Before another filter consumer, select an unconditional estimate on the
+ORIGINAL response itself. Put d_l=mixedMoment(x,0,l), R_x(N)=B(x,T^N*x):
+
+    B_N = d_0 - N*d_1 + C(N,2)*d_2 - C(N,3)*d_3 <= R_x(N).
+
+Available inputs: `lean/YMGap/Continuum/BF4WilsonAllNomeTimeDefectMoments.lean:343`,
+`mixedMoment_nonnegative`, and `:349`, `mixedMoment_split`; existing exact
+Pascal coefficients are `lean/YMGap/Continuum/PNPaths.lean:120`, `choose`.
+The PAPER proof is simultaneous induction in N of the zeroth upper, first
+lower, second upper and third lower bounds, at every defect order l.
+R_(N+1,l)=R_(N,l)-R_(N,l+1); the alternating Pascal truncations have the
+same recurrence, with the preceding truncation at l+1. The fourth-defect
+remainder is positive. An equivalent nested sum ranges over
+0<=i3<i2<i1<i0<N and is empty for N<4; do not use an inclusive range
+0..(N-4) with truncated natural subtraction at small N.
+
+Consumer: for z=T^t*x, a supplied actual bound kappa*R_z(0)<=B_N yields
+the ORIGINAL kappa*R_x(2*t)<=R_x(2*t+N) by
+`lean/YMGap/Continuum/BF4WilsonAllNomeCompletedTime.lean:158`,
+`completedInner_time_sum`. At 2*t=N=side this feeds the direct macro route,
+`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicNormalizedMacroRatio.lean:132`,
+`normalizedAnchorResponse_block_floor`, with its original state/guards.
+No filtered norm or changed observable is required. The quantitative
+changing-family cubic margin is NOT an available input.
+
+Decisive diagnostic, exact rational arithmetic only, NOT actual YM moments:
+on the strict two-mode vacuum complement diag(31/32,7/8), source weights
+1/2, N=8, (d0,d1,d2,d3)=(1,5/64,17/2048,65/65536). The cubic is
+4521/8192, while the existing first-moment Jensen floor is (59/64)^8;
+their exact positive difference is 8509939557407/281474976710656.
+Every endpoint-cap-one affine LINEAR telescope has floor <=3/8 here:
+the faster mode's factor 1-N*(1-lambda) vanishes, and the slower mode
+contributes at most (1/2)*(3/4). This demonstrates a stronger certificate
+in a nondegenerate case; it is NOT uniform dominance over other filters,
+a Yang--Mills counterexample, or a produced original margin. A pure slow
+mode already has a useful existing Jensen floor, so it is not evidence
+that the cubic alone opens a previously unavailable survival route.
+
+Precision guard: at N>=3 the ordinary adjacent-moment coefficients of B_N
+are (1-N+C2-C3, N-2*C2+3*C3, C2-3*C3, C3). For 0<kappa<=1, their
+test B_N-kappa*m0 has exact coefficient-L1
+kappa-1+2*N-4*C2+8*C3, of order N^3. An actual four-moment error <=epsilon
+therefore needs strict excess above that coefficient times epsilon.
+Dividing the test by N^3 also divides its margin; it does not remove the
+precision requirement. Prefer actual scaled deficit estimates if available.
+Complete monotonicity alone does NOT pay d2/d3's relative scale or B_N's
+positive margin; fast components can make this cubic negative.
+
+Independent PAPER limitation, using an ACTUAL polynomial square: for N>=3,
+C3>0, alpha=C2/(2*C3), y=(I-T)z-alpha*z, positivity of mixedMoment(y,0,1)
+gives C3*d3-C2*d2+(C2^2/(4*C3))*d1>=0. Hence
+
+    B_N <= m0 - [N-C2^2/(4*C3)]*d1
+         = m0 - N*(5*N-13)/(8*(N-2))*d1.
+
+Any cubic certificate B_N>=kappa*m0 therefore necessarily requires
+N*d1<=8*(N-2)/(5*N-13)*(1-kappa)*m0. It cannot manufacture a surviving
+slow scale from complete monotonicity. This is a constraint on THIS cubic
+certificate, not a necessary condition for DIRECT macro retention: retained
+slow weight can coexist with a large fast-component one-step cost. Keep
+DIRECT macro retention and signed filtering co-primary; do not promote
+the cubic's slope requirement to a stronger mandatory frontier field.
+
+Decisive PAPER separation, for every N>=5: the abstract strict two-mode
+response R(n)=((1/100)^n+(1-1/(4*N))^n)/2 has R(N)>=3/8 by Bernoulli,
+but d1>=99/200 and the preceding slope coefficient is >=5/2, so
+B_N<=-19/80. The SAME source admits y=-z/99+(100/99)*T*z, computed
+endpoint cap one, killing the fast mode. Its slow-mode multiplier is
+>=94/99, so the existing linear telescope (or Jensen) and checked affine
+cap give R_z(N)>1/3. Both eigenvalues are strict and the two-moment Gram
+determinant is positive. These are exact abstract diagnostic calculations,
+NOT actual BF4 moments or a Yang--Mills counterexample. They prohibit
+replacing the weaker DIRECT/filter route with the cubic's slope condition.
+Do not extend Taylor orders without an actual useful moment estimate.
+
+Actual OWN currency for a fixed centered radius-zero expression, z=T^t*x:
+the existing variance/cost pins and limits below give
+
+    B_N = (1-C2+2*C3)*V_t + (-N+2*C2-3*C3)*C_t
+          +(C2-2*C3)*V_(t+1) - C3*C_(t+1).
+
+This is a signed combination of the TWO original chronological variance/cost
+pairs, not a common finite-filter Gram matrix. A finite-stage test uses
+their literal rational values with their OWN moving center and distinct
+Z0,Z1 masses; a strict finite excess needs its actual joint/center error
+certificate before passing to the completion. An already-smoothed family
+still needs its full double orbit, not this two-pair substitution. Merely
+computing the large signed coefficients does not estimate their cancellation.
+
+Decision/budget: one bounded Sol leaf, <=300 lines (revise at >350), complete
+independent FINAL-source review, at most three serialized root-owned focused
+checks under the unchanged one-worker/20-GiB/12-GiB-reserve policy and fresh
+process/memory/swap preflights. No root/tree build/audit, option increase,
+spectral measure, source inverse, new analytic premise or frontier change.
+Abandon/revise if a broad missing foundation or source replacement is needed.
+The selection above was not kernel evidence. NEXT remains an actual ORIGINAL
+relative estimate on a justified changing family, not conditional wrappers.
+Canonical displayed claims unchanged.
+
+Observed verification: `lean/YMGap/Continuum/BF4WilsonAllNomeCubicResponseLower.lean:207`,
+`cubicLower`, and `:213`, `cubic_response_lower`, now supply the selected
+unconditional ORIGINAL cubic lower bound. FINAL 222-line source was completely
+reread by root and independently by Sol; complete FINAL-source review PASS.
+Only this leaf was checked, with one worker, hard 20 GiB, 12-GiB OS reserve,
+and fresh process/memory/swap preflight at EACH launch. No competing worker,
+reported memory headroom 87%, swap zero; existing automatic telemetry retained.
+Successful check 3 completed in its initial call (exit zero), log
+`/private/tmp/ym-oct8-cubic-response3.log`, SHA256
+`70f5007e6e681ebe8db2900d710ef2a2356e33b2cbd6fffe78e78d2ec3ddea12`.
+FINAL source SHA256
+`b69b64f8ef7f4988648b756e97f2c19027758f1240ff741144e362809ce833d5`.
+BOTH public gates exactly {propext,Quot.sound}. Checks 1--2 were local
+elaboration diagnostics (missing direct scalar import, case indentation,
+explicit zero/one coefficient recoding), NOT proof evidence; their generated
+sorryAx was not introduced into source. No new hole/axiom, source substitution,
+resource-option increase or conditional analytic input. Root import registered
+only; no root/full-tree build/audit/guard/metric. The quantitative margin,
+PAPER limitation/separation and changing-family joins are not thereby proved.
+Decision: retain this finite four-moment tool, return MAIN work to the actual
+signed relative estimate or DIRECT retention; do not build another Taylor or
+conditional-norm wrapper. Continuum/physical/QFT/every-group/Clay stay OPEN.
+No canonical displayed claim changed; no chart reprint.
+
 ## Signed affine filters as witnesses for the ORIGINAL source (2026-10-08 UTC)
 
 New unconditional bound KERNEL-CHECKED in the focused second check;

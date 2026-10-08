@@ -7971,6 +7971,10 @@ import YMGap.Continuum.BF4WilsonAllNomeOriginPlaquetteKrylovReduction
 -- A quantitative changing-family signed margin is still not supplied.
 import YMGap.Continuum.BF4WilsonAllNomeSignedAffineFilterBound
 
+-- Direct signed cubic lower bound for the ORIGINAL completed response.
+-- Positive changing-family margin remains open; no filtered norm is assumed.
+import YMGap.Continuum.BF4WilsonAllNomeCubicResponseLower
+
 -- Cofinal AF reference decay forces large ORIGINAL signed cancellation
 -- for a useful initial energy fraction; it does not produce that fraction.
 import YMGap.Continuum.BF4DyadicWilsonSquareAFSignedCancellation

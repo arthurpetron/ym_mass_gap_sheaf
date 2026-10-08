@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## PROVED direct ORIGINAL cubic response lower bound / OPEN relative scaling margin (2026-10-08 UTC)
+
+`lean/YMGap/Continuum/BF4WilsonAllNomeCubicResponseLower.lean:207`,
+`cubicLower`, retains d0-N*d1+C(N,2)*d2-C(N,3)*d3 for the ACTUAL
+mixed time/defect moments. `cubic_response_lower:213` proves this is below
+the ORIGINAL completed response at EVERY integer lag and state, including
+small lags and vacuum/time-kernel components. Simultaneous alternating
+Pascal induction; no spectral measure, filter, norm inverse, analytic
+premise, new hole or option increase. Focused capped check 3/both public
+gates exactly {propext,Quot.sound}; independent complete FINAL-source review
+PASS. Root import registered only, no root/tree build/audit. Actual relative
+margin on a justified changing family remains OPEN. PAPER screens expose
+O(N^3) moment precision and a necessary O(1/N) first-defect condition for
+THIS certificate, not for DIRECT retention. Keep signed filtering/direct
+macro retention co-primary; no higher Taylor layer selected without actual
+moment evidence. Exact source/log hashes, consumer and abstract diagnostics:
+adaptive-score audit. Continuum/physical/QFT/every-group/Clay and displayed
+chart claims remain OPEN/unchanged.
+
 ## PROVED sharp signed-filter ORIGINAL response cap / OPEN changing-family relative margin (2026-10-08 UTC)
 
 `lean/YMGap/Continuum/BF4WilsonAllNomeSignedAffineFilterBound.lean:60`,

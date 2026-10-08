@@ -27,6 +27,23 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED direct ORIGINAL cubic response estimate (2026-10-08 UTC):
+`CubicResponseLower.cubic_response_lower` proves
+R_x(N)>=d0-N*d1+C(N,2)*d2-C(N,3)*d3 from the EXISTING positive mixed
+moments by simultaneous alternating Pascal induction. No filtered norm,
+spectral measure or analytic premise. Final 222-line leaf/focused check 3,
+both public gates exactly {propext,Quot.sound}, complete independent FINAL-source
+review PASS; root registration only, no root/tree audit. PAPER diagnostics
+show genuine four-moment benefit, but also O(N^3) precision and a necessary
+O(1/N) first-defect bound for THIS certificate. Direct retention/signed
+filtering can succeed where it fails. Keep it OPTIONAL; do not strengthen
+the frontier or extend Taylor layers without actual moment evidence.
+NEXT remains an actual ORIGINAL changing-family relative margin OR DIRECT
+macro retention, preserving OWN centers, BOTH chronological masses, and the
+full double orbit for smoothed sources. No further wrapper selected. Exact
+proof/log hashes, original currency and limitations: adaptive-score audit.
+Continuum/physical/QFT/every-group/Clay and canonical chart unchanged.
+
 CHECKED MAIN source-preserving signed affine filter bound (2026-10-08 UTC):
 `SignedAffineFilterBound.affine_response_le_endpointMax` proves
 R_(a*x+b*T*x)(n)<=max(a^2,(a+b)^2)*R_x(n) at EVERY lag on the ORIGINAL
