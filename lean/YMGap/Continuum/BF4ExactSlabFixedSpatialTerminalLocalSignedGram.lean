@@ -11,6 +11,7 @@ inequality, not a signed-Fisher scaling estimate.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLocalMarginalJets
 import YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalBracket
 import YMGap.Continuum.SU2QuaternionHaarCertificateExtension
+import YMGap.Continuum.SU2QuaternionConditionalFisherOrder
 
 namespace YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalLocalSignedGram
 
@@ -831,6 +832,90 @@ theorem terminal_local_signed_score_bound_nearFlat {w : Q'}
     (heatAt_frozen_curvature_nearFlat_certificate (by omega) ⟨N width+s,hout⟩ ⟨s,by omega⟩
       (by simp only; omega) hw0 hw1 K hK _ (fun i => lift_supported (hu i) (N width)))
 
+/-- Integration preserves the produced lower frozen log-Hessian of the SAME
+original terminal marginal, under every certified outgoing insertion. The
+negative marginal-gradient square is retained without an observable-noise
+multiplier. This is integrated order, not a polynomial certificate, an upper
+innovation estimate, a variance floor or a scaling/physical gap assertion. -/
+theorem terminal_marginal_curvature_nonnegative_nearFlat {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K width s n r : Nat) (hs : s ∈ activeBlocks width)
+    (hK : nearFlatPrefixFrozenCurvatureCutoff w ≤ K)
+    (u : Fin 3 → RatPoly)
+    (hu : ∀ i, SupportedQuaternionBlocks (N width) (u i))
+    {R : RatPoly} (PR : Certificate (N width) R) :
+    let a := terminalMessage w K width (n+r)
+    let A := transferStep w K width a
+    let DA := sourceMarginalFirst w K width s a u
+    let DDA := sourceMarginalSecond w K width s a u
+    (0 : Q') ≤ quaternionHaar (N width) (polyMul R
+      (polyAdd
+        (polyMul A (polyAdd DDA
+          (polyMul (polyMul (cap (nearFlatPrefixCurvatureCost w)) (threeSquare u)) A)))
+        (polyNeg (polyMul DA DA)))) := by
+  dsimp only
+  let a := terminalMessage w K width (n+r)
+  let q := terminalDensity w K width s n r
+  let P := localPrefix w K width s
+  let d := localFrozenFirst w K width s u
+  let cost := nearFlatPrefixCurvatureCost w
+  let dd := sourceFrozenAugmentedSecondAt w cost K width s u
+  let v := fun i => liftBoundary (N width) (u i)
+  have ha := terminalMessage_supported w K width (n+r)
+  have hslot := activeBlocks_lt width s hs
+  have hout : N width+s < N width+N width := by omega
+  have hhead : headCutoff w ≤ K := by
+    unfold nearFlatPrefixFrozenCurvatureCutoff at hK
+    omega
+  have hv : ∀ i, SupportedQuaternionBlocks (N width+N width) (v i) :=
+    fun i => lift_supported (hu i) (N width)
+  have hp := heatInterval hout (by omega : s < N width+N width) hw0 hw1 K
+  have hd : SupportedQuaternionBlocks (N width+N width) d :=
+    three_supported (fun i =>
+      supported_polyMul (hv i) (pairedDerivativeAt_supported hout i hp.support))
+  have hsecond : SupportedQuaternionBlocks (N width+N width)
+      (quadraticForm v (fun i j => pairedDerivativeAt (N width+s) i
+        (pairedDerivativeAt (N width+s) j P))) :=
+    three_supported (fun i => three_supported (fun j =>
+      supported_polyMul (supported_polyMul (hv i) (hv j))
+        (pairedDerivativeAt_supported hout i
+          (pairedDerivativeAt_supported hout j hp.support))))
+  have hnorm := three_supported (fun i => supported_polyMul (hv i) (hv i))
+  have hdd : SupportedQuaternionBlocks (N width+N width) dd :=
+    supported_add hsecond (supported_polyMul
+      (supported_polyMul (polySmul_supported (supported_one _) cost) hnorm) hp.support)
+  have hclear : RatPolyCoeffEqv
+      (polyAdd (polyMul P dd) (polyNeg (polyMul d d)))
+      (frozenCurvatureAt (N width+s) cost P v) :=
+    coeffEvalExpr_eqv_of_normalize_eq
+      (.add (.mul (.var 0) (.add (.var 2) (.mul (.mul (.var 3) (.var 4)) (.var 0))))
+        (.neg (.mul (.var 1) (.var 1))))
+      (.add (.mul (.var 3) (.mul (.var 4) (.mul (.var 0) (.var 0))))
+        (.add (.mul (.var 0) (.var 2)) (.neg (.mul (.var 1) (.var 1)))))
+      (by decide) (fun
+        | 0 => P | 1 => d
+        | 2 => quadraticForm v (fun i j => pairedDerivativeAt (N width+s) i
+            (pairedDerivativeAt (N width+s) j P))
+        | 3 => cap cost | _ => threeSquare v)
+  let C := Certificate.ofCoeff hclear
+    (heatAt_frozen_curvature_nearFlat_certificate (by omega)
+      ⟨N width+s,hout⟩ ⟨s,by omega⟩ (by simp only; omega) hw0 hw1 K hK v
+      (fun i => lift_supported (hu i) (N width)))
+  have hm := headFloor_positive hw0 hw1
+  have hle : headFloor w ≤ prefixCap w+headFloor w :=
+    Q'.le_trans' _ _ _ (Q'.add_le_self_of_nonneg (headFloor w) _ hp.nonnegative)
+      (Q'.le_of_eqv (Q'.add_comm_eqv _ _))
+  have hupper := Q'.pos_of_lt_of_le hm hle
+  have h := SU2QuaternionConditionalFisherOrder.conditional_fisher_nonnegative
+    (N width) (N width) q P d dd R
+    (terminalDensity_supported w K width s n r) hp.support hd hdd
+    (terminalDensity_certificate hw0 hw1 K width s n r hhead) C PR
+    hm hupper hle
+    (heatAt_floorCertificate hout (by omega : s < N width+N width) hw0 hw1 K hhead)
+    (hp.raise (headFloor w) (Q'.le_of_lt hm)).upper
+  exact Q'.le_trans' _ _ _ h (Q'.le_of_eqv
+    (haar_of_coeff ((source_fisher_pin w cost K width s hs ha u).mul_left R)))
+
 end YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalLocalSignedGram
 
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalLocalSignedGram.terminalDensity_supported
@@ -844,6 +929,7 @@ end YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalLocalSignedGram
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalLocalSignedGram.source_score_pin
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalLocalSignedGram.terminal_local_signed_score_bound
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalLocalSignedGram.terminal_local_signed_score_bound_nearFlat
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalLocalSignedGram.terminal_marginal_curvature_nonnegative_nearFlat
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalLocalSignedGram.sourceFrozenAugmentedSecondAt
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalLocalSignedGram.source_momentG_at_pin
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalLocalSignedGram.source_fisher_pin

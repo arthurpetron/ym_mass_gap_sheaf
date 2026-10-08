@@ -8654,3 +8654,118 @@ witness can pay approximation/normalization errors; it does not replace
 transmitted-response floors, physical time, scaling survival, SAME continuum
 QFT or every-group inputs. Clay and canonical displayed claims remain OPEN;
 no ASCII reprint.
+
+## Selected geometric step: lossless terminal marginal curvature (2026-10-08)
+
+Selection before implementation, 23:34 UTC. The previous scalar-floor algebra
+cannot improve its C^-4 exponent without new geometric input. The stronger
+candidate is the actual lower log-Hessian of the ORIGINAL terminal marginal.
+Its source pins already exist in `TerminalLocalSignedGram.source_momentD_pin`
+and private `source_fisher_pin`; its nonnegativity without an observable-noise
+multiplier was NOT found. No new frontier bundle or changed field is proposed.
+
+For positive kernel P with certified P*dd-d*d>=0 and original positive
+spectator/source q, form A=I(qP), D=I(qd), G=I(qdd). Two independent head
+copies sharing the SAME tail give
+
+    2*(A*G-D*D) = I(q1*q2*(P1*dd2+P2*dd1-2*d1*d2)).
+
+Multiplication by the positive P1*P2 turns the last integrand into
+
+    P2^2*(P1*dd1-d1^2) + P1^2*(P2*dd2-d2^2)
+      + (P2*d1-P1*d2)^2.
+
+Existing copy/Fubini, positive-window and integrated order-reflection APIs
+can therefore remove P1*P2 without an inverse-floor cost in the conclusion.
+Planned consumer: retain the actual q=all other kinetic factors*S*g_depth
+and produced near-flat prefix curvature, obtaining nonnegative ORIGINAL
+`A*(DDA+C*|u|^2*A)-DA^2` under every certified outgoing insertion.
+All nine actual jets, arbitrary supported frozen direction u, width/depth,
+strict nome and computed common cutoff remain. A generic proof alone is not
+enough: its ORIGINAL terminal consumer must also be checked.
+
+Predicted scope is integrated curvature order, NOT a polynomial positivity
+certificate, complete marginal S*g_n*g_(n+1) curvature, source-specific
+signed payment, variance improvement or macro retention. The later PAPER
+weighted-Bochner variance route still needs spatial-word curvature transport
+and the sharp weighted identity; neither is supplied as an assumption here.
+Abandon if a required actual source/jet pin fails or this order already exists.
+Verification budget: two focused serialized targets, one 20-GiB worker,
+12-GiB OS reserve, fresh dynamic preflight each launch, independent frozen
+source review; no full-tree build/audit or limit increase.
+
+### Checked original terminal curvature and exact next geometry input
+
+2026-10-08 23:39 UTC. The selected two-copy proof and its ORIGINAL terminal
+consumer now both pass focused Lean verification.
+
+- `conditional_fisher_nonnegative`,
+  `lean/YMGap/Continuum/SU2QuaternionConditionalFisherOrder.lean:102`,
+  constructs the cleared square certificate, positive product window,
+  lossless integrated reflection and the exact factor-two moment pin.
+  It admits zero heads/tail and vanishing q. Only the local P has strict
+  positive windows; no original marginal, noise or source is inverted.
+- `terminal_marginal_curvature_nonnegative_nearFlat`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalLocalSignedGram.lean:840`,
+  instantiates that order with actual q=localOutputDensity*g_(n+r), selected
+  original heat P, and all nine precomputed frozen second jets. Existing
+  `source_fisher_pin` at `:497` identifies A=T(g_(n+r)), DA and DDA.
+  The conclusion retains `A*(DDA+C*threeSquare(u)*A)-DA*DA`, under EVERY
+  certified outgoing insertion R. C=4+1/(1-w*w) is explicit, nome-dependent,
+  and independent of width/depth after the produced common cutoff. No
+  non-abelian continuum or beta-uniform spectral claim follows.
+
+Final source hashes:
+
+    ConditionalFisherOrder (203 lines):
+    dabeb337d8e07503deae51eb34bfc5cd57b34a5ed0c25b20902f7e4d8eb83513
+    TerminalLocalSignedGram (936 lines):
+    2e47b268fa344a597a403d01fdf397c5263e20a4c8bf4311d0d85daeb48421da
+
+ROOT's serialized checks used the safe launcher, jobs=1, 20-GiB worker cap
+and 12-GiB reserve. Each launch had a fresh memory/process preflight:
+83% free reported, zero swap and no competing Lean/Lake/runner worker.
+Generic check1 failed only multiline fun-pattern indentation; the three
+syntax repairs did not change its mathematical statement. Generic check2
+and original check1 completed with exit 0. Their hashes/logs are:
+
+    /private/tmp/ym-oct8-conditional-fisher-order2.log
+    b329c2e150587ea8b003697c927df87000471b41de86d44362300844ff883581
+    /private/tmp/ym-oct8-original-terminal-curvature1.log
+    0fa65a158e85438e5b4f299265468c24220d40dbeced3e078d3225c1bca34eed
+
+The generic new gate and all 16 original/private gates report dependencies
+within {propext, Quot.sound}; no sorryAx or Classical.choice. COMPLETE
+independent final-source static review of both exact hashes PASS: two-copy
+sign/factors, positive multiplier cancellation, original source factorization,
+actual marginal pins and frozen coefficients checked. No full-tree build or
+axiom audit, limit increase, foreign proof/code import, new hypothesis bundle
+or existing public-type change. This uses the paper follow-through's
+original-output/cancellation discipline, not a fermion theorem as a YM input.
+
+The parallel NEXT-input review identifies an actual missing geometry pin:
+for the literal selected-link spatial plaquette scalar X, prove its frozen
+Hessian `sum_ij u_i*u_j*J_i*J_j X = -X*sum_i u_i^2` with arbitrary Haar
+insertions. `frozenScalarSecondJet_pin`,
+`lean/YMGap/Continuum/SU2QuaternionPairedFrameScalarJets.lean:212`, currently
+provides this for the relative scalar, not the original plaquette word.
+Available inputs to reuse, not rebuild:
+
+- `oriented_fourWord_first_angularSquare_of_exposure`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteAngularSquare.lean:238`,
+  gives the selected word's first-gradient identity with arbitrary insertion.
+- `spatialIncidentFaces_length_le_six`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLocalRelativeBound.lean:70`,
+  counts the literal incident factors.
+- `polynomialJet_product_curvature_certificate`,
+  `lean/YMGap/Continuum/QuaternionHaarPolynomialJetCurvature.lean:49`,
+  retains frozen jets, mixed product terms and polynomial costs exactly.
+
+Actual spatial-word radial-curvature transport, integrated product-order
+closure for the two terminal factors and sharp weighted paired-Bochner
+control remain to be constructed. Existing certificate tensorization cannot
+silently consume the new integrated order as a polynomial certificate.
+The PAPER kappa^-2 variance route is not yet proved, and even a stronger
+finite floor does not itself pay the relative time-loss budget. No main
+macro-retention, scaling survival, physical mass, continuum QFT, every-group
+or Clay closure; canonical displayed claims remain OPEN and unchanged.

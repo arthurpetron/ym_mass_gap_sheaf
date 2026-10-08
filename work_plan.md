@@ -27,6 +27,34 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED original terminal curvature (2026-10-08 23:39 UTC): the new
+`ConditionalFisherOrder.conditional_fisher_nonnegative` uses two actual
+head copies and positive-window order reflection, without an inverse-floor
+factor in its conclusion. Its ORIGINAL consumer
+`TerminalLocalSignedGram.terminal_marginal_curvature_nonnegative_nearFlat`
+produces integrated nonnegativity of
+`A*(DDA+C*|u|^2*A)-DA^2`, with A=T(g_depth), all nine actual ordered jets,
+frozen supported u and C=`nearFlatPrefixCurvatureCost(w)`. Strict nome,
+selected active link, actual spectator density and computed cutoff remain;
+width/depth incur no additional curvature cost. Generic check2 and original
+check1 PASS, all printed gates permitted, COMPLETE final-source independent
+review PASS. This is integrated order, NOT a polynomial certificate,
+innovation ceiling, improved variance floor or scaling survival. Two serial
+focused targets only; no full-tree audit or resource-limit increase.
+
+Next geometric input (source review, NOT proved): the literal selected-link
+plaquette scalar X needs its frozen all-nine-jet identity
+`sum_ij u_i*u_j*J_i*J_j X = -X*sum_i u_i^2` at arbitrary-insertion Haar
+carrier strength. Its first-gradient identity, six-incident-face count and
+polynomial-cost product tensorization already exist; do not rebuild them
+or mistake block relocation for plaquette-word transport. Only after actual
+spatial-weight curvature and integrated product order are produced can the
+PAPER sharp weighted-Bochner variance route be tested. A stronger norm
+floor alone still does not pay the current absolute temporal-loss ceiling.
+Complete SAME-action relative signed payment/direct macro retention remain
+co-primary and OPEN. Evidence and exact source pins: adaptive-score audit.
+Canonical displayed claims unchanged; no ASCII reprint.
+
 CHECKED supporting ORIGINAL variance estimate (2026-10-08 UTC): the EXISTING
 `GeneralizedLinearWard.original_score_variance_floor` produces
 4/(7+10*C^2+4*C^4), with C=`marginalScoreCap(w)`. The literal dyadic-square
