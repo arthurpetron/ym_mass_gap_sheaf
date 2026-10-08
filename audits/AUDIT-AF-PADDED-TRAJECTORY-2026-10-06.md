@@ -89,7 +89,7 @@ Frozen source/log evidence:
 
 The subsequent coefficient enclosure and SAME-value pin are now CHECKED
 below. Direct exact-product limits avoid constructing a separate real
-reciprocal. The decreasing running-min schedule still needs implementation;
+reciprocal. The decreasing running-min schedule is also now checked below;
 no choice from `CReal.cauchy` is permitted. This is a scalar two-loop precision
 construction, not a concrete physical a(w), justified RG family or gap.
 The original rounded schedule, endpoints and canonical fields are unchanged.
@@ -133,13 +133,55 @@ raised or frontier-field change. Serialized one-worker checks retained the
     /private/tmp/ym-oct8-af-coefficient2.log
     log SHA256 e071d42e68cab84f5e385a9d861abddcee15ac1a495a1f0ce435c1046e83e83d
 
-NEXT: logarithmic precision `n_j=10+floorLog2(j+1)`, the decreasing rational
+The subsequently checked schedule uses logarithmic precision
+`n_j=10+floorLog2(j+1)`, the decreasing rational
 upper `runningMin upper n_j` (folding precision indices, not all j), and an
-actual existing NomeSchedule. These are not yet checked producers. The
+actual existing NomeSchedule, as recorded below. The
 existing `NomeScheduleAFCalibrated` takes a rational A, so it is not a
 literal consumer for this CReal coefficient. The old rounded family stays
 unchanged. Actual a(w), MAIN's complete signed original-family payment,
 continuum survival, physical mass, full QFT, every group and Clay stay OPEN.
+
+## Actual improving-precision NomeSchedule produced (2026-10-08 UTC)
+
+`lean/YMGap/Continuum/AFPrecisionNomeSchedule.lean:25`, `precisionIndex`, and
+`coefficientUpper:28` implement the logarithmic-precision fold. The shared
+later quotient sample proves the finite lower bound across ALL upper indices,
+including zero. `coefficientUpper_floor:35`, `coefficientUpper_positive:38`,
+`coefficientUpper_lt_two:43` and `coefficientUpper_antitone:65` prove the
+actual positive decreasing upper sequence. `denominator:69` is afE_j/121,
+the unchanged existing clock. `gap:89`, `gap_le_half:94` and `gap_antitone:104`
+give the positive decreasing gap, including j=0.
+
+`limitModulus:114` returns `epsilon -> 2*epsilon.den` as data;
+`gap_le_of_modulus:116` proves its bound. `precisionNomeSchedule:148` inhabits
+the EXISTING NomeSchedule without a supplied limit witness or physical input.
+`value_leRat_coefficientUpper:165` pins each folded upper to the SAME
+constructed coefficient. `coefficientUpper_precision_bound:175` retains
+the actual bound by lower(n_j)+110*half^n_j.
+This is not merely an interface assuming a coefficient or enclosure.
+
+Observed verification: focused schedule check 2 PASS, all 21 printed gates
+permitted (three data definitions axiom-free; others {propext, Quot.sound}).
+Independent COMPLETE 202-line frozen final-source mathematical review PASS,
+including actual min/order, coefficient, denominator and NomeSchedule APIs.
+The first draft's induction generalized a retained Nat inequality into the
+induction hypothesis; clearing that unused assumption fixed the elaboration.
+Rejected check 1 is not accepted proof evidence and adds no source hole.
+Both launches used fresh successful process/memory preflight, one capped
+20-GiB worker, 12-GiB reserve and zero swap. No broad build/audit or limit
+increase. Semantic root import registration is not a current root build.
+
+    schedule source SHA256 f5a0f0d7bfcb0b4757540a3234976be128fa70c13e9080e2c3e82750b22faae1
+    /private/tmp/ym-oct8-af-precision-nome2.log
+    log SHA256 29a136d602c294d7baa8db342e43d8182ac4e7ac48a36c4af7fa5b5f096da73f
+
+NEXT, PAPER only: at n_j=10+floorLog2(j+1), the interval width is
+<55/(256*(j+1)); the clock D_j<=4*(j+1) then gives denominator-amplified
+error <55/64. Neither j-relative bound is yet a Lean theorem in this leaf.
+No old rounded/pinned trajectory is replaced, physical a(w) supplied, or
+physical calibration predicate discharged. MAIN's original changing-family
+signed payment, continuum survival, full QFT, every group and Clay remain OPEN.
 
 ## 1. The dyadic schedule is not AF-calibrated (PROVED)
 

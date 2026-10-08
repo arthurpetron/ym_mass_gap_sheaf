@@ -7444,6 +7444,7 @@ import YMGap.Continuum.BF4WilsonAllNomeShiftedPaddedNondegenerate
 -- 1-w_j = A/(j+(51/121)lg2 j+4); AF padded trajectory, A03 package from window survival.
 import YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory
 import YMGap.Continuum.AFLeadingCoefficient
+import YMGap.Continuum.AFPrecisionNomeSchedule
 -- Scalar AF screen: every FIXED power exceeds any side-rescaled cap eventually;
 -- adaptive index power is bounded. No interacting remainder/scaling estimate.
 import YMGap.Continuum.BF4WilsonAllNomeAFPowerBudget
