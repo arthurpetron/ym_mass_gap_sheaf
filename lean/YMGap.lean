@@ -5029,6 +5029,8 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepPairedScorePin
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLocalOutputDensity
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLocalPairedScorePin
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLocalSignedGram
+-- Actual frozen T1 jets instantiate the SAME original signed Gram.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLocalMarginalJets
 import YMGap.Continuum.SU2HeatQuarticTailCutoff
 import YMGap.Continuum.QuaternionHaarHeatAngularDeficit
 import YMGap.Continuum.QuaternionHaarHeatRelativeAngularBound

@@ -24,8 +24,14 @@
   mean zero is proved, not a premise. Arbitrary supported incoming a,c and
   frozen output u are allowed; R needs only its certificate. No division,
   positivity of a/c, strict noise or nonpositive Hessian is assumed.
-- OPEN: G/D's frozen differential identification with T1, useful signed
-  Fisher/noise control with width/cutoff/scaling budgets, original source/error
+- `BF4ExactSlabFixedSpatialLocalMarginalJets.local_momentD_pin` and
+  `local_momentG_pin` now identify D/G with the ORIGINAL T1's frozen first
+  and all nine ordered second paired jets. `localSignedFisher_marginal_pin`
+  retains the cost C*threeSquare(u)*T1^2 and negative first-jet square;
+  `lastStep_local_differential_gram` consumes the identities with unchanged
+  original action/noise and hypotheses. No derivative of u is taken.
+- OPEN: useful signed Fisher/noise control with width/cutoff/scaling budgets,
+  original source/error
   joins as actually required, independent continuum survival, completed OS,
   physical time/volume, SAME limiting QFT, every compact simple group and Clay.
   The marginal is T1, NOT Ta. The current estimate is finite, not a gap.
@@ -34,7 +40,8 @@
   Independent mathematical review found no substantive defect. Fresh dynamic
   preflight at every launch; one 20-GiB worker/12-GiB reserve, 87--88% free,
   zero swap. Root imports registered, not root-built; no full-tree audit or
-  broad chart closure. No baselines refreshed.
+  broad chart closure. No baselines refreshed. The additional marginal-jet
+  focused check passes six permitted gates; no heartbeat/memory limit raised.
 
 Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
 

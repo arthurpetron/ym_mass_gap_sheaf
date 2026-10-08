@@ -16,9 +16,11 @@ one-step action**. The zero-mean residual gives
 `H(R*T1*score²) <= H(R*residual_variance*(T1*G-D²))` without a source quotient
 or an extra marginal multiplier. Local curvature is produced at the output
 block; all other kinetic factors, spatial interaction and lifted unit remain
-in the produced certified density. The signed Fisher term is still a jet
-moment: its marginal-derivative pin and useful scaling control remain next.
-Seven focused targets/22 permitted gates; no full-tree audit or physical gap.
+in the produced certified density. Its signed Fisher is now pinned to the
+actual frozen first/all nine ordered second derivatives of `T1`, with the
+negative first-jet square retained. The differential Gram consumer is checked;
+useful signed scaling control remains open. Seven prior focused targets plus
+one marginal-jet target; no full-tree audit or physical gap.
 See the [exact checked result and next producer](audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md).
 
 **Supporting mathematical contraction (2026-10-07 local):** the signed conditional

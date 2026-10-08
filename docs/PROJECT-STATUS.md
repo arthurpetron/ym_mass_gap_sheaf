@@ -5,9 +5,11 @@ the actual two-source transfer score and proved zero-mean residual meet
 produced output-endpoint curvature, windows and certified spectator density.
 Every other kinetic factor, spatial weight and lifted unit remains.
 H(R*T1*score^2)<=H(R*I(W*X^2)*(T1*G-D^2)), without a source quotient or extra
-marginal multiplier. G/D remain precomputed local jet moments, not yet pinned
-to frozen T1 derivatives. Useful signed scaling control and every physical/
-Clay chart claim remain OPEN. Seven focused targets/22 permitted gates;
+marginal multiplier. G/D now have exact frozen T1 derivative pins, with all
+nine ordered second jets and no derivatives of u. The differential Gram
+consumer is checked. Useful signed scaling control and every physical/
+Clay chart claim remain OPEN. Seven prior focused targets/22 gates plus one
+marginal-jet target/six permitted gates;
 no full-tree audit. The broad chart is unchanged and is not reprinted.
 Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
 

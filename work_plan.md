@@ -41,14 +41,24 @@ No c=a*phi, source positivity, marginal inverse, extra marginal multiplier,
 dimension/volume cost penalty or Hessian-sign assumption. Seven focused
 targets/22 permitted gates; no full-root/tree audit or broad chart closure.
 
-NEXT pin D/G to the frozen first/ordered-second differential jets of T1
-by q's proved output independence, twice the existing head-derivative
-commutation and lifted-coefficient pull-through. This is a finite algebraic
-join with available inputs, NOT an ordinary variable-coefficient vector-field
-square. Then seek useful control of the SAME signed Fisher/noise expression
-in the existing exact-score budget with width/cutoff/scaling parameters;
-that analytic control is not supplied by the Gram. The marginal here is
-T1, not Ta. Independent survival, completed OS, physical time/volume control,
+D/G are now pinned to the actual frozen first/all nine ordered second jets
+of T1, and `LocalMarginalJets.lastStep_local_differential_gram` consumes them
+with unchanged noise/action/hypotheses. One focused target/six permitted
+gates. This is NOT an ordinary variable-coefficient vector-field square.
+
+NEXT match the marginal used by the actual reciprocal weight: the current
+Gram uses T1, but the exact-score budget uses the reciprocal of A=Ta.
+Retain the produced positive terminal a in q*a and the existing incoming
+reciprocal-error payment; do not require positivity for arbitrary signed a.
+For matched A, weighted IBP cancels the tempting negative-square bonus
+against the inverse-square derivative. Preserve the combined derivatives
+of actual spatial/noise weights and u, and the finite multiplier defect
+A*G-1, together with BOTH signed Taylor remainders. Seek a useful bound in
+the SAME surviving form on a justified width/cutoff/scaling family; no
+positivity/window or automatic Hessian-sign shortcut supplies it. Source
+review and exact proposed calculation are in the adaptive audit, not a
+claim that the new analytic estimate is already proved.
+Independent survival, completed OS, physical time/volume control,
 SAME limiting QFT, every-group and Clay remain OPEN. The measurement note
 already incorporated below supplies no numerical premise for these joins.
 Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.

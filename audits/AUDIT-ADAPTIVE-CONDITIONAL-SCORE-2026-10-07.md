@@ -4,6 +4,102 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Observed actual original marginal jets (2026-10-08 UTC)
+
+Classification: VERIFIED PROGRESS. For T1=I(W), the SAME-action local
+moments now satisfy coefficient-exact identities
+
+```text
+D = firstJet(u,J(T1));
+G = quadraticForm(u,J_i(J_j(T1))) + C*threeSquare(u)*T1;
+T1*G-D^2 = T1*frozenDD(T1) + C*threeSquare(u)*T1^2 - frozenD(T1)^2.
+```
+
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLocalMarginalJets.lean`:
+`frozenMarginalFirst:70`, `frozenMarginalSecond:74`,
+`local_momentD_pin:464`, `local_momentG_pin:473`,
+`localSignedFisher_marginal_pin:497`, `lastStep_local_differential_gram:516`.
+All nine ordered jets remain, u is not differentiated, and q's independence
+and original action factor pin are produced. The final differential Gram
+uses the unchanged hypotheses and literal original residual/noise. No
+analytic upper bound on its right side has been asserted.
+
+Final focused log `/private/tmp/ym-local-marginal-jets-20261008d.log` PASS;
+six printed gates exactly {propext, Quot.sound}. Checked-source SHA256:
+`089d1d16ae040fd44354a86eb9aa6eb5153f76108a6ba717c29d8850f2a9b0c4`.
+Independent read-only review found no substantive defect in the ordered
+commutations, factor orientation or cost pull-through; root inspected the
+complete source and direct Gram consumer. Initial namespace/coefficient
+type errors and one deterministic implicit-inference timeout were repaired
+with explicit typed intermediates, not increased limits. Failed-check
+sorryAx output is not evidence; the final source introduces no sorry/axiom.
+Every launch used a fresh dynamic preflight, one 20-GiB worker and a 12-GiB
+reserve; 87--88% free memory and zero swap. Root import registered only;
+no full-root/tree build, audit, guard or baseline refresh.
+
+Decision: CONTINUE to the marginal/weight alignment and combined signed
+estimate described below. Scaling/survival/completed OS/physical/QFT/
+every-group/Clay remain OPEN. Broad chart unchanged, no reprint.
+
+## Selected finite join: actual original marginal jets (2026-10-08 UTC)
+
+Proposition: identify the produced local D/G with frozen first and all nine
+ordered second paired derivatives of the ORIGINAL T1. Consumer:
+`BF4ExactSlabFixedSpatialLocalSignedGram.lastStep_local_signed_gram`; its
+signed Fisher is then an actual differential expression, not unrelated jet
+data. Inputs: produced localOutputDensity independence and q*P=W, original
+action integral pin, twice head-derivative commutation, and lifted-coefficient
+pull-through. No new analytic hypothesis is needed for these identities.
+
+Prediction/tests: D=firstJet(u,J(T1)); G=quadraticForm(u,J_i(J_j(T1)))+
+C*threeSquare(u)*T1, including zero/constant u and every ordered i,j. Revise
+if u is differentiated, a jet is symmetrized or T1 is replaced by Ta/free
+heat. Sol owns one leaf; root inspects it and serializes a focused check with
+one 20-GiB worker, 12-GiB reserve and a fresh dynamic preflight; independent
+read-only mathematical review runs in parallel. No broad build/audit.
+
+Next analytic decision: weighted Haar IBP retains a negative square but
+also derivatives of the literal spatial/reciprocal/noise weights and u.
+Positivity/windows alone do not permit dropping that remainder. Control of
+the complete SAME signed expression remains OPEN; no integrated Hessian sign
+or automatic Taylor cancellation is adopted as a premise.
+
+## Selected sign screen and marginal-alignment review (2026-10-08 UTC)
+
+Decisive finite test: on one quaternion take T=1+x0/2, the paired J01+J23,
+and Q=(1-x0)^2. Literal Haar evaluation predicts
+H[Q*(T*J(J(T))-J(T)^2)]=1/12>0. The target diagnostic certifies Q as a
+square and T's strict half-unit floor if available from the existing
+coordinate API. This tests ONLY the proposed generic sign-dropping step:
+it does not assert that these polynomials are the original T1/weight.
+One small diagnostic leaf, kernel arithmetic, no external numerical oracle,
+no broad test run. Abandon the generic sign step if this check succeeds.
+
+Parallel source review narrows the next analytic consumer. The actual score
+weight uses the reciprocal of A=Ta, not T1. A positive terminal a can be
+retained in the density q*a; its positivity is produced by
+`BF4ExactSlabFixedSpatialTerminalBracket.terminalMessage_certificate:126`.
+This is a PROPOSED marginal-alignment producer, not a checked declaration.
+An incoming polynomial reciprocal still needs its actual error payment:
+`BF4ExactSlabFixedSpatialIncomingScoreRelativePayment.original_lastStep_incomingRatio_relative_score_le:305`
+retains width/nome caps, not uniform scaling control.
+
+The exact matched-reciprocal calculation to preserve (not yet a new Lean
+theorem) is, for frozen u and full remaining weight F,
+
+```text
+H[F*G^2*(A*DD_u(A)-D_u(A)^2)]
+ = -sum_ij H[A*G^2*(J_j A)*J_i(F*u_i*u_j)]
+   -2*sum_ij H[F*u_i*u_j*G*(J_j A)*J_i(A*G)].
+```
+
+The derivative of G^2 cancels the tempting negative-square bonus. The
+finite multiplier A*G is not one; its derivative must remain. Existing
+`QuaternionHaarConditionalScoreGradient.reciprocal_score_cleared_derivative:95`
+retains this correction. A useful combined bound in the SAME surviving
+form is missing. Retain actual spatial/noise/u derivatives and both signed
+Taylor remainders; aligning the marginal alone does not pay that budget.
+
 ## Observed next experiment: FULL original-action local signed Gram
 
 Classification: VERIFIED PROGRESS (2026-10-08 UTC). The selected local

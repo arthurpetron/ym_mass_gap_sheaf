@@ -24,9 +24,13 @@ local curvature is recoded to the output endpoint; the produced spectator
 density retains every other kinetic factor, spatial action and literal lifted
 unit. The output is H(R*T1*score^2)<=H(R*I(W*X^2)*(T1*G-D^2)), with no source
 quotient, marginal inverse, extra marginal multiplier or Hessian-sign premise.
-G/D remain precomputed local jet moments; their frozen T1 derivative pins and
-useful signed scaling control remain NEXT. Seven focused targets/22 printed
-permitted gates; root imports registered, not root-built; no full-tree audit.
+`BF4ExactSlabFixedSpatialLocalMarginalJets.local_momentD_pin`,
+`local_momentG_pin` and `lastStep_local_differential_gram` now identify G/D
+with actual frozen T1 derivatives and instantiate the same Gram. All nine
+ordered jets remain; u is not differentiated. Useful signed scaling control
+remains NEXT. Seven prior focused targets/22 gates plus one marginal-jet
+target/six permitted gates; root imports registered, not root-built; no
+full-tree audit.
 All completed OS/physical/scaling/survival/QFT/every-group/Clay claims remain
 OPEN. Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
 
