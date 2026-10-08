@@ -27,6 +27,36 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED actual coefficient producer (2026-10-08 UTC):
+`AFLeadingCoefficient.stream` computes
+`3*pi.approx(n+1)^2/(22*log2.approx(n+1))`. Its actual rational endpoints
+enclose EVERY later sample with width <=110*half^n; `streamQCauchy` and
+`valueQCauchy` retain explicit modulus data. `value_product_pin` proves
+`22*log2*A = 3*pi*pi` for the SAME existing series values, by exact rational
+products and product-limit continuity. No supplied coefficient/enclosure,
+real reciprocal or physical premise is used. The log floor uses the explicit
+index shift; the finite index-one interval is strictly inside (1,2).
+Focused coefficient checks 1 (rational part) and 2 (complete value pin) PASS;
+all 30 public printed gates permitted; independent COMPLETE frozen
+final-source mathematical review PASS. This is a numerical producer, not physical
+a(w), nonperturbative RG or MAIN's signed retention estimate.
+
+Selected schedule experiment (2026-10-08 UTC): use
+`n_j=10+Nat.log2(j+1)` and `a_j=runningMin upper n_j`, folding over PRECISION
+indices, then produce the existing NomeSchedule with
+`1-w_j=a_j/(j+(51/121)*floorLog2(j+1)+4)`. Keep the old rounded trajectory
+unchanged. Inputs are the actual checked coefficient endpoints, finite (1,2)
+bounds, running-min order, and the existing rational denominator. Prediction:
+positive decreasing gaps with an explicit limit modulus; the logarithmic
+precision also makes coefficient error O(1/(j+1)), but that bound is still
+PAPER until checked. Consumer: the existing generic NomeSchedule, NOT the
+rational-A calibration predicate or a physical spacing field. Tests: j=0,
+all precision indices, positivity and monotonicity. Budget: one producer leaf,
+serialized focused 20-GiB checks with fresh preflights and independent review.
+Stop/revise if the construction adds a physical premise or retunes a pinned
+family. In parallel, review MAIN's actual signed timeKernel credit, retaining
+OWN variance and BOTH chronological masses; no rate input has been produced.
+
 CHECKED numerical precision inputs (2026-10-08 UTC): the existing
 `Constructive/Pi` and `Constructive/CRealLog` leaves now produce rational
 enclosures of their ACTUAL series values, bounding every later approximation
@@ -35,11 +65,10 @@ tail is retained; n=0 is allowed, but the log denominator floor requires
 n>=1. Pi focused check 1 and log2 focused check 2 PASS; all 17 new gates
 permitted; independent COMPLETE frozen final-source review PASS for both.
 No new premise, module, frontier weakening or root/tree audit.
-NEXT scalar calibration task: instantiate the existing positive-stream
-reciprocal on the shifted log stream, prove the actual coefficient interval
-for 3*pi^2/(22*log2), and form its decreasing running-min upper sequence.
-The independent PAPER quotient-width bound is <=110*half^n, not yet a Lean
-coefficient theorem. Do not silently retune the existing rounded trajectory.
+The coefficient/value-pin task selected after these inputs is now checked
+above; its direct product-limit proof needs no separate real reciprocal.
+NEXT scalar calibration task: form the decreasing running-min upper sequence
+and its actual NomeSchedule. Do not silently retune the existing rounded trajectory.
 An accurate two-loop seed still supplies neither a physical a(w) nor MAIN's
 original signed-family estimate. The repeated measurement attachment is
 reconciled with the existing primary-source audit; the historical measurement

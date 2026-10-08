@@ -87,19 +87,59 @@ Frozen source/log evidence:
     /private/tmp/ym-oct8-log2-enclosure2.log
     log SHA256 355bd56f337094c6a04dbd68decc4b57aa0f17319fc1234ed70f598076069eee
 
-NEXT, not yet a Lean theorem: for positive pi lower endpoint P, upper Q<=8,
-and 2/3<=l<=u for log2, the rational coefficient interval
-`[3*P^2/(22*u), 3*Q^2/(22*l)]` has width <=110*half^n.
-The bounded PAPER quotient calculation was independently checked, but its
-actual CReal reciprocal/limit pin, coefficient enclosure and decreasing
-running-min producer still need implementation. Existing
-`PositiveRationalCauchyReciprocal.reciprocalCauchy` / `mul_value` accept
-the shifted actual log stream with its EXPLICIT QCauchy data and 2/3 floor;
+The subsequent coefficient enclosure and SAME-value pin are now CHECKED
+below. Direct exact-product limits avoid constructing a separate real
+reciprocal. The decreasing running-min schedule still needs implementation;
 no choice from `CReal.cauchy` is permitted. This is a scalar two-loop precision
 construction, not a concrete physical a(w), justified RG family or gap.
 The original rounded schedule, endpoints and canonical fields are unchanged.
 Original signed-family payment, continuum/QFT/every-group/Clay remain OPEN;
 the canonical chart's displayed claims are unchanged.
+
+## Actual coefficient produced (2026-10-08 UTC)
+
+`lean/YMGap/Continuum/AFLeadingCoefficient.lean:85`, `stream`, is the literal
+shifted Machin/artanh quotient, with protected positive denominator.
+Its `lower:90` and `upper:94` use the actual series endpoints, not supplied
+intervals. `stream_enclosure:113` bounds EVERY later sample; squaring uses
+the positive pi lower endpoint and the denominator floor is 22*(2/3).
+`upper_le_lower_add:172` and `enclosure_width_le:230` prove width<=110*half^n.
+The exact payment is bounded by
+960*(3/44)+192*(3/44)^2*(99/2)=1206/11<110.
+
+`precisionModulus:235` is computed data:
+`epsilon -> ((1/110)*epsilon).den`; its bound is `:237`.
+`streamQCauchy:253` returns the stream's Type-level modulus.
+`upper_one_lt_two:268` and `one_lt_lower_one:271` are literal finite
+kernel-decided rational bounds, not measurements or evaluator axioms.
+`value:276` constructs the CReal from this stream;
+`valueQCauchy:279` also retains modulus data for the returned representative.
+`value_geRat_lower:286` and `value_leRat_upper:293` bound that SAME value.
+`stream_product_pin:300` cancels the rational denominator exactly;
+`value_product_pin:310` passes the SAME products to the limit and proves
+`22*log2*A = 3*pi*pi` using the existing pi and log2 objects. No real inverse,
+opaque coefficient, assumed enclosure, physical scale or RG law is added.
+
+Observed verification: coefficient focused check 1 (rational portion) PASS;
+focused check 2 (complete leaf) PASS, with all 30 printed gates permitted
+(precisionModulus axiom-free; others {propext, Quot.sound}). The complete
+357-line final-source independent mathematical review PASS at the recorded
+hash, including the actual imported modulus and limit APIs. No broad
+build/audit, new sorry/custom axiom, classical input, native decision, limits
+raised or frontier-field change. Serialized one-worker checks retained the
+20-GiB ceiling and 12-GiB OS reserve, each with fresh capacity/process preflight.
+
+    coefficient source SHA256 e759dcc9880d010363c8a66409e29252e177ab1d2bb5a450b50fd3b11e978cdd
+    /private/tmp/ym-oct8-af-coefficient2.log
+    log SHA256 e071d42e68cab84f5e385a9d861abddcee15ac1a495a1f0ce435c1046e83e83d
+
+NEXT: logarithmic precision `n_j=10+floorLog2(j+1)`, the decreasing rational
+upper `runningMin upper n_j` (folding precision indices, not all j), and an
+actual existing NomeSchedule. These are not yet checked producers. The
+existing `NomeScheduleAFCalibrated` takes a rational A, so it is not a
+literal consumer for this CReal coefficient. The old rounded family stays
+unchanged. Actual a(w), MAIN's complete signed original-family payment,
+continuum survival, physical mass, full QFT, every group and Clay stay OPEN.
 
 ## 1. The dyadic schedule is not AF-calibrated (PROVED)
 
