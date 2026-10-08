@@ -38,7 +38,16 @@ a focused regression. No norm inverse, replacement limit or analytic
 smallness premise is supplied. NEXT: the JOINT signed profile cost versus
 this SAME surviving filtered variance, using the actual original block
 split; not another representation/completion wrapper or a bare Casimir-12
-substitution for b/A. Nome, width, expression and lag stay fixed in these
+substitution for b/A. Mathematical screen, 2026-10-08 UTC (NOT a new checked
+theorem): do not implement the redundant shared-link 8/8 coefficient bound;
+the existing FULL adjacent/coherent identities retain the other link costs.
+Direct filtering/positive initial norm also cannot produce relative survival
+by itself. Seek a selected-source slow-rate/reserve or controlled slow-mode
+overlap on the ORIGINAL interacting transfer, using the existing propagation
+and window consumers. The optional unfiltered profile route needs negative
+leading-order signed response; do not impose that stronger initial criterion
+on a direct filtered proof. Exact derivations: the adaptive-score audit.
+Nome, width, expression and lag stay fixed in these
 limits; changing-family control and physical survival remain OPEN. Three
 focused capped checks and independent complete-source review pass;
 root import registered only, no root/tree audit or broad chart closure.

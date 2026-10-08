@@ -13,6 +13,12 @@ SU(3) scalar entry, Creutz's temporal-spacing limit and the official
 Jaffe--Witten target were rechecked. The corrections and existing proof-plan
 interfaces below are retained; no new analytic hypothesis or roadmap box.
 
+Attachment reconciliation, 2026-10-08 05:31 UTC: the newly supplied
+`cf965d8e-085c-42c2-a303-16f0ae70d860/Pasted text.txt` repeats the chain already
+reviewed here. Reuse these corrections; no new literature fetch or numerical
+premise. Continue with the actual SAME-source relative response budget; the
+new full-cost/filtering screen is recorded in the adaptive-score audit.
+
 ## Useful distinctions, with corrections
 
 1. Keep a glueball-channel measurement separate from a theory-wide spectral

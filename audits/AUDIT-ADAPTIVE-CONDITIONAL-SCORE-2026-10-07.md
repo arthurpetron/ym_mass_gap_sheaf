@@ -4,6 +4,84 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Full-cost and filtered-reserve screen (2026-10-08 UTC)
+
+Root source inspection and two independent bounded read-only reviews; these
+are mathematical DERIVATIONS, NOT newly kernel-checked declarations. No
+compiler run, Lean edit, literature fetch or canonical proof-node closure.
+The repeated lattice-measurement attachment is already covered by the
+corrections in `RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md`.
+
+**Shared-link branch.** The proposed certified-W inequality
+H[W Gamma_shared(a*f+b*g)] <= 8*a^2 H[W(2-d)]+8*(a-b)^2 H[W] is valid,
+but it supplies no new cancellation or smallness. For the actual neighboring
+faces at width>=2, the existing FULL arbitrary-signed identity at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialAdjacentFullAngular.lean:425`,
+`adjacent_full_angular`, with `cross_local:266` and `shared_squares:357`, gives
+
+    Gamma_full(a*f+b*g)
+      = 3*a^2*(4-f^2)+3*b^2*(4-g^2)+Gamma_shared(a*f+b*g).
+
+Thus shared-link cancellation leaves THREE nonshared contributions per face.
+Under the SAME certified W they are nonnegative, not uniformly strictly
+positive: zero W/coefficients and small weighted deficits remain allowed.
+`adjacent_full_angular_paid:451` already retains the equal-weight difference
+square. The whole-family version already reaches the COMPLETE original
+channel energy, with BOTH Taylor debts, at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyCoherentEnergy.lean:263`,
+`family_coherent_energy_retained_square` (full angular identity at :163,
+`family_coherent_full_angular`). PRUNE implementing the redundant shared-block
+8/8 estimate. This does not rule out a useful whole-profile interacting bound.
+
+**Filtering branch.** The consumer remains
+`lean/YMGap/Continuum/BF4WilsonAllNomeWindowSignedCost.lean:181`,
+`aggregate_window_macro_ratio`, with finite square specialization
+`original_window_budget_macro_ratio:245`. For a scalar eigenmode T*x=rho*x,
+0<rho<1, x nonzero, R(n)=||x||^2*rho^n gives
+
+    2*sum_{j<u}(R(2*u+2*j)-R(2*u+2*j+1))/R(2*u)
+      = 2*(1-rho^(2*u))/(1+rho).
+
+This exceeds one when rho^(2*u)<(1-rho)/2. A finite polynomial or Cesaro
+filter either kills this eigenvector or only multiplies it; its surviving
+relative cost does not improve. This screens a generic inference, NOT an
+exhibited YM eigenvector or an actual YM-source counterexample.
+`lean/YMGap/Continuum/BF4WilsonAllNomeTimeDefectTail.lean:122`,
+`timeDefect_bound`, pays absolute decay against the PREIMAGE norm.
+`lean/YMGap/Continuum/BF4WilsonAllNomeMacroRatioFilteredCost.lean:100`,
+`retained_time_budget`, retains the earlier response; `macro_to_filtered_budget:123`
+requires the missing macro survival ratio. Conversely,
+`lean/YMGap/Continuum/BF4WilsonAllNomeResponseLower.lean:102`,
+`response_step_lower`, and `response_geometric_lower:117` propagate a supplied
+selected-source Rayleigh floor, but do not produce a sufficiently slow rate.
+NEXT is that ORIGINAL interacting source-specific reserve, or quantitative
+slow-mode overlap, not another absolute-smoothing/completion wrapper. Keep
+complete signed cost and SAME filtered OWN variance; a DIRECT filtered proof
+remains eligible without a stronger unfiltered initial floor.
+
+**Optional unfiltered profile route.** Bare full heat acts by w^12 on every
+signed profile (`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyHeatEigen.lean:42`,
+`spatialSpan_fullRange`), independent of coefficient smoothness. This is NOT
+an interacting-transfer eigenvalue. The original interacting identity is
+E=12*(1-w)*V+R at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyVarianceTaylor.lean:67`,
+`padded_family_energy_variance`; R is the COMPLETE signed `varianceRemainder:42`.
+Put s=side(j), delta=afGap(j)=1-afNomeSchedule.nome(j), V>=0. If s*E<=c*V
+and c<=6*s*delta, rearrangement gives R<=-6*delta*V, without inverting V.
+The second condition holds after the computed
+`lean/YMGap/Continuum/BF4WilsonAllNomeAFPowerBudget.lean:84`,
+`afPowerBudgetCutoff`, with p=1, cap=c/6, by `afPowerBudget_gt:100`.
+The schedule pin is
+`lean/YMGap/Continuum/BF4WilsonAllNomeAFPaddedTrajectory.lean:274`, `afNomeSchedule`.
+This locates the needed negative leading-order response, but produces no bound
+on R, energy lower bound or physical calibration. Do NOT apply Casimir 12 to
+filtered b/A or make this optional stronger criterion necessary for that route.
+
+Decision: retain the complete signed interacting estimate as the producer;
+neither local coefficient smoothing nor generic time filtering replaces it.
+No useful scaling budget or continuum survival is proved by this screen.
+Whole Clay target remains OPEN; no chart reprint.
+
 ## Selected SAME-source filtered-profile join (2026-10-08 UTC)
 
 Proposition: for any ORIGINAL radius-zero Wilson expression e, let
