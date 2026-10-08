@@ -4,6 +4,26 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Second spatial generator joins the actual Wilson reflected forms (2026-10-08 UTC)
+
+`HeadSwapWilsonLoop`, `HeadSwapWilsonWindow` and `SpatialHeadSwapForm`
+produce the concrete x0/x1 ordered-source transport and SAME original
+window/joint/common/intrinsic/odd bond invariance. No supplied symmetry,
+replacement pairing or changed chronological reciprocal. Three focused
+checks/30 permitted gates and independent full-source review; no root/tree
+audit. Second completed operator/full cubic and continuum covariance stay
+OPEN; no canonical chart claim closes. Exact sources/logs are in the
+parallel QFT-inputs audit dated 2026-09-17.
+
+Separately, a read-only mathematical screen shows the remaining actual
+Gram inequality is precisely Cauchy--Schwarz. Its constant-source algebraic
+test saturates, and antisymmetry cannot cancel even quadratic costs.
+Original time-decimation retains exterior messages; row normalization does
+not automatically preserve chronological iteration or produce an OS map.
+These are source-backed derivations/route decisions, NOT new kernel-checked
+estimates. The actual JOINT signed cost versus SAME surviving filtered
+variance remains NEXT. Evidence: the adaptive-score audit dated 2026-10-07.
+
 ## Selected source increment: exact centering and actual Gram means (2026-10-08 UTC)
 
 Origin p01-minus-p02 now has exact ORIGINAL finite/endpoint/OWN mean zero

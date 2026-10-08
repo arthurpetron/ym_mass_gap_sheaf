@@ -7926,12 +7926,15 @@ import YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapCompletion
 import YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapTimeSector
 
 -- Second finite spatial generator x0/x1, with literal braid geometry
--- and SAME original-action Haar invariance. Its p01 word reverses.
+-- and SAME original-action/window/reflected-form invariance. Its p01 word reverses.
 -- No completed S3 action or continuum covariance is asserted.
 import YMGap.Continuum.BF4ExactSlabSpatialHeadSwapGeometry
 import YMGap.Continuum.BF4ExactSlabSpatialHeadSwapWord
 import YMGap.Continuum.BF4ExactSlabSpatialHeadSwapHaar
 import YMGap.Continuum.BF4ExactSlabSpatialHeadSwapAction
+import YMGap.Continuum.BF4ExactSlabSpatialHeadSwapWilsonLoop
+import YMGap.Continuum.BF4ExactSlabSpatialHeadSwapWilsonWindow
+import YMGap.Continuum.BF4WilsonAllNomeSpatialHeadSwapForm
 
 -- A nonzero exactly centered ORIGINAL antisymmetric plaquette source.
 -- The actual Gram means vanish under the produced width>=2 locality guard;

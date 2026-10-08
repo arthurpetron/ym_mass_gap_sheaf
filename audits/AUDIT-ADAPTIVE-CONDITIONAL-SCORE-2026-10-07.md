@@ -4,6 +4,137 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Remaining Gram-credit screen and route decision (2026-10-08 UTC)
+
+Root source inspection and independent bounded mathematical reviews. The
+following are algebraic DERIVATIONS from the cited declarations, not newly
+kernel-checked theorems. They close no canonical proof node.
+
+Keep the actual unfiltered source q, the literal antisymmetric f and the
+full bare product heat P. Write
+
+    lambda = w^12
+    S = H[q*f^2*Pq]                 (original q*Pq marginal)
+    E = S - H[q*f*P(q*f)]
+    A = H[q^2*f^2]
+    B = H[q^2*P(f^2)]
+    C = singleEndedCost(q,f)
+    I = sourceIncrementCost(q,f)
+    V = 16*S - 8*E + Dplus
+    X = H[W*jump(q)*jump(f)*sum(q)*sum(f)].
+
+Both Gram means are already produced zero in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialAntisymmetricGram.lean:214`,
+`jump_mean_zero`, and `:226`, `sum_mean_zero`. The bare eigenpin is
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyHeatEigen.lean:42`,
+`spatialSpan_fullRange`; it is NOT an interacting-transfer eigenpin.
+
+The scalar product of the two tests is jump(q^2)*jump(f^2). Applying
+`lean/YMGap/Continuum/SU2QuaternionProductHeatJumpMean.lean:72`,
+`jump_mean`, with squared inputs, and
+`lean/YMGap/Continuum/SU2QuaternionProductHeatSourceYoungMoments.lean:92`,
+`singleEndedCost_eq_moments`, gives
+
+    X = 2*(A-B),
+    C = 2*(1-lambda)*A - X/2.
+
+`lean/YMGap/Continuum/SU2QuaternionProductHeatSourceYoung.lean:203`,
+`four_mul_sourceEnergy_add_increment_eq_two_singleEnded`, gives
+
+    4*E + I = 2*C,
+    I = 4*(1-lambda)*A - X - 4*E.
+
+The denominator identity is
+`lean/YMGap/Continuum/SU2QuaternionProductHeatSumNorm.lean:256`,
+`sumTest_norm_energy_pin`. Consequently the checked budget at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialAntisymmetricGram.lean:248`,
+`original_energy_response_budget`,
+
+    4*V*E + X^2 <= 2*V*C,
+
+is exactly X^2<=V*I: Cauchy--Schwarz for the actual two tests. Cancellation
+uses the displayed identity, not division by V or a source norm. It supplies
+no new relative rate without a quantitative interacting-source estimate.
+
+Decisive algebraic test: for q=1 and the centered bare eigenfunction,
+A=B=S, X=I=Dplus=0, E=(1-lambda)*S, V=8*(1+lambda)*S. The budget saturates.
+For the zero source every displayed quantity is zero. These are tests of
+the generic inference, NOT actual BF4 terminal-source instances or a
+Yang--Mills counterexample. The actual q retains spatial action and terminal
+messages. In particular A uses q^2 while S uses q*Pq; they are not identified.
+
+The one-face square image already exists at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSourceEvenCancellation.lean:77`,
+`square_heat_moment`. It still retains an unrestricted signed q^2-weighted
+spin-two moment. A shared-link image for the two-face square would compress
+X into further loop moments, not estimate their sign or size. No such image
+is implemented here solely to replace the missing estimate by another list.
+
+**Decision: REVISE the Gram branch to an interacting producer, not another
+CS/square-moment wrapper.** The next required output is the JOINT signed
+filtered cost versus its SAME surviving variance, or an actual original
+blocking comparison that produces it. The existing consumers are
+`lean/YMGap/Continuum/BF4WilsonAllNomeWindowSignedCost.lean:181`,
+`aggregate_window_macro_ratio`, and the actual profile identification in
+`lean/YMGap/Continuum/BF4WilsonAllNomeOriginalRayleighLimit.lean:130`,
+`originalOwnBlockVariance_converges`, and `:143`,
+`originalOwnBlockCost_converges`. Direct filtered control remains eligible;
+the stronger initial unfiltered Rayleigh floor is not imposed as necessary.
+
+### Even-cost and original time-decimation checks
+
+Antisymmetry reverses b=T^t(g*f), u=A*f and b-u. Both factors of
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockRayleighSplit.lean:144`,
+`signedMultiplicationCost`, reverse, so their pairing is EVEN. Energy,
+surviving variance and `boundaryDrift:136` are even as well. No useful
+quadratic sign follows from the zero means. The actual source is not
+energy-null: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteFamilyEnergy.lean:174`,
+`family_energy_floor`, with coefficient budget 2, gives
+2*lower(w)<=600*upper(w)*normalizedEnergy. This is a finite energy lower
+bound, not an upper estimate on filtered cost.
+
+At arbitrary cutoff, original time-decimation gives
+
+    L2(x,z) = integral K(x,y)*V(y)*K(y,z) dy,
+    endpoint law = V(x)*L2(x,z)*V(z)/Z2.
+
+Exact source: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTwoLayerGluing.lean:61`,
+`middleIntegrand`; `:73`, `gluedMiddle`; `:188`, `original_twoLayer_gluing`.
+Its compression is the actual polynomial at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBoundaryCarrier.lean:173`,
+`kernel`, with reconstruction `kernel_reconstructs:182`. Middle V occurs
+once; neither endpoint V is erased. The bare L2 row is T1, not an asserted
+unit row, by `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialGluedEndpointMarginal.lean:105`,
+`chronological_middle_pairing`, and `glued_lower_endpoint_pairing:169`.
+Including the upper V yields row T^2(1), with the original partition at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialMiddlePairing.lean:102`,
+`chain_partition_pairing`.
+
+Where the positive conditional ratios are defined, let g_d=T^d(1).
+The two-step row normalization would be P2(f)=T^2(f)/g_2. Its repetition
+inserts T^2(T^2(f)/g_2)/g_2, NOT the chronological four-step ratio T^4(f)/g_4
+without an additional identity. In a longer unchanged original chain the
+endpoint law instead retains V(x)*g_d(x)*L2(x,z)*V(z)*g_e(z)/Z_(d+e+2);
+its forward conditional is T^2(g_e*f)/g_(e+2). These are derived normalized
+expressions, not new polynomial operators or checked stationarity claims.
+Original iteration and exterior-message pins:
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialOriginalIteration.lean:182`,
+`original_chain_iteration`; `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialMiddlePairing.lean:63`,
+`terminalPair_total`.
+
+The existing actual conditional projection is on ORDINARY weighted state
+GNS: `lean/YMGap/Continuum/BF4ExactSlabBlockConditionalProjection.lean:90`,
+`conditionalProjection`; `:158`, `conditionalProjection_norm`. A theorem
+identifying it with a map on the all-nome reflected OS carrier is NOT FOUND
+in that module or the cited original gluing/marginal modules. Do not infer
+an OS gap or the relative RG comparison from its norm-one bound.
+Non-strict same-carrier time contraction is already available at
+`lean/YMGap/Continuum/BF4WilsonAllNomeCompletedTime.lean:191`,
+`completedInner_time_contraction`; it supplies no useful new scaling margin.
+
+No compiler was used for these screens. No new hypothesis, stationarity
+premise, canonical field, continuum claim or chart change is introduced.
+
 ## Selected antisymmetric ORIGINAL source (2026-10-08 UTC)
 
 Proposition: for width>=1 take the literal fundamental-character difference

@@ -1,5 +1,22 @@
 # Sorry Ledger
 
+## PROVED second spatial-generator Wilson/reflected join / OPEN completed cubic covariance (2026-10-08 UTC)
+
+`BF4ExactSlabSpatialHeadSwapWilsonLoop.swapSourceLoop`, `word_swap` and
+`character_swap` transport actual ordered closed physical paths without
+changing inverse flags or commuting factors. `HeadSwapWilsonWindow` proves
+`placedPolynomial_swap`, `original_window_numerator_swap` and
+`originalWindowScalar_swap` with the SAME complete chronological action
+and reciprocal. `BF4WilsonAllNomeSpatialHeadSwapForm.originalJointLimit_swap`,
+`commonForm_swap`, `intrinsicForm_swap` and `bondForm_swap` retain the
+existing limit, time/radius tags and distinct intrinsic/odd bond pairings.
+The second generator's completed spatial operator, full completed cubic
+and continuum covariance are OPEN; no signed scaling estimate, state
+survival or physical/Clay closure follows. Three focused capped checks,
+30 permitted gates and independent complete-source review; no root/tree
+audit, new hole/axiom, limit increase, canonical field or chart closure.
+Exact sources/logs: the parallel QFT-inputs audit dated 2026-09-17.
+
 ## PROVED antisymmetric ORIGINAL source and Gram-mean removal / OPEN signed survival (2026-10-08 UTC)
 
 `BF4ExactSlabFixedSpatialAntisymmetricPlaquette.original_mean_zero`,
@@ -32,9 +49,11 @@ and proves the five literal braid identities with the existing x1/x2 map.
 `SpatialHeadSwapAction.originalChainAction_weighted_haar_swap` proves full
 ORIGINAL action-weighted Haar invariance for supported insertions, retaining
 every heat coefficient/spin, chronological factor and terminal spatial slice.
-No supplied symmetry/isometry or new analytic premise. The new generator's
-Wilson/reflected/completed action and full cubic/continuum covariance are
-OPEN; joint signed scaling and all physical/Clay obligations remain OPEN.
+No supplied symmetry/isometry or new analytic premise. At this earlier
+checkpoint the new generator's Wilson/reflected/completed joins were OPEN;
+the subsequent source/reflected-form proof is recorded above. Its completed
+operator and full cubic/continuum covariance remain OPEN, as do joint signed
+scaling and all physical/Clay obligations.
 Four focused one-worker 20-GiB checks and independent final-source review
 pass; all 64 printed gates are empty or within {propext, Quot.sound}.
 Root imports registered only; no root/tree audit, new hole/axiom, classical/

@@ -14,6 +14,80 @@ Yang--Mills theory on R^4 with the required same-theory QFT axioms, isolated
 vacuum and finite positive physical Hamiltonian mass gap, within the
 constructive Mathlib-free MLTT/HoTT gate. **The goal remains OPEN.**
 
+## Second spatial generator: selected Wilson/reflected-form join (2026-10-08 UTC)
+
+Proposition: transport arbitrary ordered SourceLoop/WindowExpression data by
+the produced literal x0/x1 swap, then prove invariance of the SAME original
+normalized window, existing joint limit and common/intrinsic/odd bond forms.
+Consumer: the fixed-width reflected/completed spatial-symmetry route; not the
+primary signed scaling estimate or continuum Euclidean covariance.
+
+Inputs already produced: `BF4ExactSlabSpatialHeadSwapGeometry`,
+`BF4ExactSlabSpatialHeadSwapHaar.link_swap` and
+`BF4ExactSlabSpatialHeadSwapAction.originalChainAction_weighted_haar_swap`,
+plus the existing original Wilson-window and diagonal-limit APIs. Predicted
+output is an unconditional actual-source/form pin, not a supplied isometry.
+Decisive tests: x3 remains physical time; p01 canonical order reverses but
+ordered source words keep their traversal order and reverse flags; the SAME
+chronological partition/terminal slice, radius and odd one-sided time advance
+must remain. Abandon if an analytic premise or surrogate pairing is required.
+Budget: bounded Sol implementation, independent complete-source review,
+root-only serialized focused checks at 20 GiB with 12-GiB OS reserve and fresh
+dynamic-capacity preflight. No completion/operator, full cubic/continuous
+covariance or scaling closure is asserted by this selected increment.
+Observed verification is recorded separately below.
+
+### Observed second-generator source/form proof evidence
+
+All three new leaves pass focused kernel checks; root and independent
+complete-source reviews pass. Arbitrary source paths retain their order and
+reverse flags, not a canonically reordered p01 loop. Original action factors
+use the existing conjugate-character pin for canonical p01 reversal. The
+original normalized window and diagonal limit keep the SAME action and
+reciprocal. Intrinsic CReal and odd bond RC pairings remain distinct.
+
+| Produced result | Exact source |
+| --- | --- |
+| Ordered edge/start/finish/path transport and actual physical closed SourceLoop | `lean/YMGap/Continuum/BF4ExactSlabSpatialHeadSwapWilsonLoop.lean:40`, `swapEntry`; `:51`, `swapEntry_start`; `:56`, `swapEntry_finish`; `:78`, `swapSourceLoop` |
+| Literal original ordered word and every spin, including inverse flags and empty loop | `lean/YMGap/Continuum/BF4ExactSlabSpatialHeadSwapWilsonLoop.lean:117`, `word_swap`; `:140`, `character_swap` |
+| SAME placed Wilson expression, temporal offsets and mirror | `lean/YMGap/Continuum/BF4ExactSlabSpatialHeadSwapWilsonWindow.lean:46`, `swapExpression`; `:62`, `swap_mapOffsets`; `:88`, `placedPolynomial_swap` |
+| Complete original chronological action numerator and unchanged normalized window | `lean/YMGap/Continuum/BF4ExactSlabSpatialHeadSwapWilsonWindow.lean:119`, `original_window_numerator_swap`; `:145`, `originalWindowScalar_swap` |
+| Existing original joint limit with actual Within witness | `lean/YMGap/Continuum/BF4WilsonAllNomeSpatialHeadSwapForm.lean:36`, `originalJointLimit_swap` |
+| SAME common/intrinsic reflected form, preserving radius/chart/time | `lean/YMGap/Continuum/BF4WilsonAllNomeSpatialHeadSwapForm.lean:70`, `commonForm_swap`; `:81`, `intrinsicForm_swap`; `:66`, `swap_advance` |
+| SAME odd source and bond pairing, retaining advance 1 y and 2R+1 window | `lean/YMGap/Continuum/BF4WilsonAllNomeSpatialHeadSwapForm.lean:95`, `swap_crossOdd`; `:109`, `bondForm_swap` |
+
+Verification: three serialized focused 20-GiB one-worker checks with 12-GiB
+OS reserve and fresh capacity preflight before each. All 13+7+10=30 printed
+gates are empty or within {propext, Quot.sound}; no sorryAx. The loop check
+reports two unused simp-argument warnings only. Swap use was zero in all
+preflights. Root imports registered only; no root/full-tree audit. No new
+hole/axiom, classical/native shortcut, option increase, canonical field or
+displayed-claim/chart change.
+
+Successful logs and SHA-256:
+
+```text
+/private/tmp/ym-headswap-wilson-loop-20261008.log
+  3bf82fa8e196ac8d163e614ae60e0c981f09d20058a18dcc0ecd55a0ddd7d8fd
+/private/tmp/ym-headswap-wilson-window-20261008.log
+  464469088ed8c394f8bdf656b8a78bfd9ddea97eaef04625c7234ac78e459319
+/private/tmp/ym-headswap-reflected-form-20261008.log
+  f0f719733fcc34361f51e7fe2845456b5fec92141687189e5a7fede8b198ef4d
+```
+
+Checked source SHA-256, in the same loop/window/form order:
+
+```text
+521d4f68971335bb7f2cbf11ed48af7f393a6dc03048de5a711becbecadf3bad
+539ffed4e3e96ed1e17377b3d1853e8c68ca2a9030e9bd63bca676dbe49ae2ab
+4e48b377ee438e5241625a8213baf72afda9cc7d157609faefb480abab1e5f58
+```
+
+Decision: this independent finite QFT input is produced. The second
+generator's actual completed spatial operator and full completed cubic action
+are still OPEN here, as are continuous/continuum covariance, signed scaling
+control and every physical/Clay obligation. No state-family survival follows.
+
 ## Answer: which inputs are already known?
 
 Several forward inputs are constructed on the current Wilson spatial union.

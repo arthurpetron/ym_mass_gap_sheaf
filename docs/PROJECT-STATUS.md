@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Supporting second ORIGINAL spatial generator source/form join checked
+(2026-10-08 UTC): literal x0/x1 transports arbitrary ordered Wilson paths
+with inverse flags/time offsets intact, preserves the SAME normalized
+chronological window/partition, and preserves its existing joint, common,
+intrinsic and odd bond forms. Three focused capped checks/30 permitted
+gates and independent complete-source review; no root/tree audit. The
+second completed spatial operator, full cubic/continuous covariance and
+every scaling/physical claim remain OPEN. Canonical chart unchanged,
+no reprint. Evidence: the parallel QFT-inputs audit dated 2026-09-17.
+
 Supporting selected antisymmetric ORIGINAL source checked (2026-10-08 UTC):
 p01-minus-p02 has exact chronological/endpoint/OWN mean zero and a nonzero
 raw embedded state in the SAME vacuum complement, with fixed-nome squared

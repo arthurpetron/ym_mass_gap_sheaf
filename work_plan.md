@@ -37,6 +37,19 @@ and a SEPARATE one-sided terminal mean remove BOTH actual Gram means J,M.
 `AntisymmetricGram.original_energy_response_budget` retains V=16*S-8*E+Dplus
 and the full signed cross credit. No q-symmetry premise or interacting heat
 eigenvalue is assumed. This simplifies the chosen source, not its rate.
+READ-ONLY mathematical decision (2026-10-08 UTC): the remaining Gram budget
+is EXACTLY X^2<=V*I, with I the actual source/observable jump-square cost.
+The bare constant-source test saturates it; square-spectrum compression and
+oddness supply no interacting relative improvement. Raw q^2 moments are not
+the original q*Pq variance law. REVISE toward an actual source-specific
+quadratic/filtered estimate or original blocking comparison; do not implement
+another CS/square-moment wrapper solely to restate the residue. Time-decimated
+conditional kernels must retain exterior messages: repeating a row-normalized
+two-step kernel does not automatically give the chronological four-step
+conditional or the original OS transfer. An ordinary conditional projection's
+norm-one bound is not the missing OS comparison. These are source-backed
+derivations, not new checked closures. Exact tests and citations: the adaptive
+audit below.
 NEXT: a useful JOINT signed cost/reserve versus its SAME filtered variance;
 do not build another mean/completion wrapper or infer survival from the
 fixed-nome initial floor. Direct filtered control remains eligible without
@@ -89,9 +102,17 @@ is fixed; p01 reverses by quaternion conjugation, not factor commutation.
 with the existing x1/x2 generator. `SpatialHeadSwapAction.originalChainAction_weighted_haar_swap`
 retains the SAME partition and explicit insertion support. The finite
 generator/action input is produced without a symmetry premise; its actual
-Wilson-source, reflected/completed action and full cubic joins remain OPEN.
+Wilson-source and reflected-form joins are now also CHECKED:
+`HeadSwapWilsonLoop` transports arbitrary ordered physical closed loops,
+`HeadSwapWilsonWindow.originalWindowScalar_swap` retains the literal complete
+action/reciprocal, and `SpatialHeadSwapForm.intrinsicForm_swap` and
+`bondForm_swap` preserve the distinct existing pairings and time/radius tags.
+Three further serialized focused 20-GiB checks/30 permitted gates and
+independent complete-source review pass. The second generator's completed
+operator, full completed cubic and continuum covariance joins remain OPEN.
 Four serialized focused 20-GiB checks and independent complete-source review
-pass. Root imports registered only; no full-tree audit or canonical chart
+pass for the earlier geometry/word/Haar/action checkpoint. Root imports
+registered only; no full-tree audit or canonical chart
 closure. This bounded lane supplies no signed scaling estimate. Evidence:
 `audits/AUDIT-PARALLEL-QFT-INPUTS-2026-09-17.md`.
 
