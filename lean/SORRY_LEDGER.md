@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## PROVED original three-face response restriction / OPEN signed scaling estimate (2026-10-08 UTC)
+
+`BF4WilsonAllNomeOriginPlaquetteOrbitResponse.head_sourceCharacter` and
+`axis_sourceCharacter` handle literal ordered faces, including conjugate
+reversal. `head_faceVector`, `axis_faceVector` and `x_antisymmetric` descend
+to the EXISTING original completion and existing antisymmetric excitation.
+`mixed_response`, `diagonal_response` and `trial_response` prove the exact
+response factor a*a-a*b+b*b for every natural lag and signed rational a,b.
+`common_time_filter_response` and `common_time_filter_cleared_ratio` retain
+it after one COMMON completed time filter, including zero/null cases.
+No time-invariant local span, slow rate, independent-filter restriction,
+physical survival or continuum gap follows. The actual interacting JOINT
+signed estimate and all physical/Clay obligations remain OPEN. One final
+focused capped check/29 permitted gates and independent complete-source
+review pass. Two earlier elaboration failures are not proof evidence.
+Root import registered only; no root/tree audit, new hole/axiom, classical/
+native shortcut, limit increase, canonical field or chart closure. Exact
+declarations, logs and hashes: the adaptive-score audit dated 2026-10-07.
+
 ## PROVED second completed spatial generator and permutation braid / OPEN continuum covariance (2026-10-08 UTC)
 
 `BF4WilsonAllNomeSpatialHeadSwapCompletion.completedSwap` is the actual

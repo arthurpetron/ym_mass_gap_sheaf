@@ -4,6 +4,101 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Selected actual three-face orbit response test (2026-10-08 UTC)
+
+Proposition: on the EXISTING original Wilson completion at strict nome and
+width>=1, set x=chi01-chi02 and y=chi02-chi12 for the three literal origin
+spatial fundamental plaquettes. Prove, for every actual completed lag n,
+
+    B(y,T^n y) = B(x,T^n x),
+    2*B(x,T^n y) = -B(x,T^n x),
+    B(a*x+b*y,T^n(a*x+b*y)) = (a^2-a*b+b^2)*B(x,T^n x).
+
+Predicted consequence: no coefficient optimization in this TWO-dimensional
+zero-sum origin-face orbit improves its normalized temporal response, including after
+the SAME common actual time filter T^u. Independently filtered basis vectors,
+other sites and higher spins are not excluded. The division-free identity covers degenerate/null
+filtered directions; no norm inverse or transfer-invariance of this local
+span is needed. This is an obstruction to a specific variational search,
+not a bound on the response or a refutation of larger spatial profiles.
+
+Available inputs: the actual U01/U12 pairing-preserving completed swaps and
+their completed-time commutation, in
+`lean/YMGap/Continuum/BF4WilsonAllNomeSpatialHeadSwapCompletion.lean:176`,
+`completedSwap_time`, and `:231`, `completedInner_swap`, and
+`lean/YMGap/Continuum/BF4WilsonAllNomeSpatialAxisSwapCompletion.lean:70`,
+`completedSwap_time`, and `:125`, `completedInner_swap`. Ordered reversed
+face characters must be pinned by quaternion conjugation, not factor
+commutation. Produce the literal source relations before using bilinearity:
+U12*x=-x, U12*y=x+y, U01*x=x+y, U01*y=-y.
+
+Consumer: the filtered Galerkin screen below. A matrix formed only from this
+orbit with a common filter cannot produce a better chosen-source retention
+via a maximum Ritz direction. Selected derivative/action insertions do not satisfy these pins
+without transformation of their own indices and weights. Keep their full
+signed costs; do not erase them by oddness.
+
+Decisive tests: width0 excluded; width1/null directions permitted where the
+stated type allows; arbitrary signed a,b, n=0 and changing coefficients;
+all three literal ordered faces, physical x3 time and SAME normalization.
+Budget: one bounded Sol leaf, independent complete-source review, root-only
+20-GiB focused check after fresh dynamic preflight, 12-GiB OS reserve. Stop if
+an assumed symmetry, new carrier or missing analytic input is required.
+No new matrix interface or scaling hypothesis is selected. Observed results
+will be recorded separately; this selection itself is not a checked proof.
+
+### Observed original three-face response proof (2026-10-08 UTC)
+
+The selected proposition is now kernel-checked on the actual original
+completion; independent final complete-source mathematical review PASS.
+Write R_x(n)=B(x,T^n x). All statements below name strict nome, width>=1,
+and the existing physical completed time. No symmetry, analytic-smallness
+or survival premise is supplied.
+
+| Produced result | Exact source |
+| --- | --- |
+| Ordered source characters, including reversed faces by scalar conjugation | `lean/YMGap/Continuum/BF4WilsonAllNomeOriginPlaquetteOrbitResponse.lean:110`, `head_sourceCharacter`; `:119`, `axis_sourceCharacter` |
+| Concrete face embeds transported on SAME completion | `lean/YMGap/Continuum/BF4WilsonAllNomeOriginPlaquetteOrbitResponse.lean:156`, `head_faceVector`; `:176`, `axis_faceVector` |
+| Actual U12*x=-x, U12*y=x+y, U01*x=x+y, U01*y=-y | `lean/YMGap/Continuum/BF4WilsonAllNomeOriginPlaquetteOrbitResponse.lean:214`, `axis_x`; `:220`, `axis_y`; `:227`, `head_x`; `:234`, `head_y` |
+| Literal x joins EXISTING antisymmetric source, including terminal zero-fold syntax | `lean/YMGap/Continuum/BF4WilsonAllNomeOriginPlaquetteOrbitResponse.lean:241`, `x_antisymmetric` |
+| Every-lag 2*B(x,T^n y)=-R_x(n), R_y(n)=R_x(n) | `lean/YMGap/Continuum/BF4WilsonAllNomeOriginPlaquetteOrbitResponse.lean:331`, `mixed_response`; `:340`, `diagonal_response`; `:354`, `mixed_response_half` |
+| Arbitrary signed rational a,b: R_(a*x+b*y)(n)=(a*a-a*b+b*b)*R_x(n) | `lean/YMGap/Continuum/BF4WilsonAllNomeOriginPlaquetteOrbitResponse.lean:400`, `trial_response` |
+| SAME factor after COMMON T^u; cleared response-ratio equality, including null cases | `lean/YMGap/Continuum/BF4WilsonAllNomeOriginPlaquetteOrbitResponse.lean:413`, `common_time_filter_response`; `:435`, `common_time_filter_cleared_ratio` |
+
+Decision: PRUNE coefficient-only optimization in this zero-sum origin-face
+orbit under a common time filter as an improvement to normalized retention.
+This does NOT show that the local span is time-invariant, produce a slow
+rate, or exclude independent filters, other spatial sites, higher spins or
+the centered symmetric combination. The common-filter assumption is
+load-bearing. Selected derivative/action insertions still require their own
+transformed indices and weights; oddness does not remove quadratic costs.
+The NEXT estimate remains actual JOINT signed filtered cost/reserve versus
+the SAME surviving interacting variance on a justified scaling family.
+
+Verification: final focused check PASS, 29 printed gates (four axiom-free,
+25 exactly {propext, Quot.sound}), no sorryAx or warning. One compiler,
+20-GiB worker cap and 12-GiB host reserve, fresh capacity preflight before
+each launch. The first two checks failed on bounded expression elaboration
+and scalar syntax/distribution; their generated sorryAx output is NOT
+evidence. Final repairs changed no proposition or premise and raised no
+limits. Root read the final source; independent review passes. Root import
+registered only; no full-root/tree build, guard, new hole/axiom, classical/
+native shortcut, canonical field or chart change. The legacy progress metric
+was not run because it invokes an unauthorized guard build.
+
+Accepted log and SHA-256:
+
+```text
+/private/tmp/ym-origin-orbit-response-20261008c.log
+  2f8a60bac4bc14f187b77b4897fa4d307229a1692369d0014371a338695de521
+```
+
+Checked source SHA-256:
+
+```text
+27bb668b2548a7105f89138dbd39ba08b3c244b7d963f41b6897108db6d2a785
+```
+
 ## Curvature orientation and filtered variational screen (2026-10-08 UTC)
 
 Root inspection and independent read-only mathematical review. These are

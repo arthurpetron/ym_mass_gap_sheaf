@@ -7945,6 +7945,10 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialAntisymmetricPlaquette
 import YMGap.Continuum.BF4WilsonAllNomeAntisymmetricPlaquette
 import YMGap.Continuum.BF4ExactSlabFixedSpatialAntisymmetricGram
 
+-- Actual three-origin-face zero-sum orbit: coefficients only rescale
+-- every completed response under a COMMON time filter. No slow-rate bound.
+import YMGap.Continuum.BF4WilsonAllNomeOriginPlaquetteOrbitResponse
+
 -- Cofinal AF reference decay forces large ORIGINAL signed cancellation
 -- for a useful initial energy fraction; it does not produce that fraction.
 import YMGap.Continuum.BF4DyadicWilsonSquareAFSignedCancellation

@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Supporting ORIGINAL origin-face response restriction checked (2026-10-08
+UTC): every zero-sum combination of the three fundamental origin spatial
+faces has response (a*a-a*b+b*b)*R_x at every completed lag. A COMMON time
+filter retains this exact factor and division-free response ratio. This
+prunes coefficient-only optimization in that local orbit; independent
+filter lags, other sites/spins and the centered symmetric sector are not
+excluded. One focused capped check/29 permitted gates and independent final
+complete-source review; no root/tree audit. The JOINT signed interacting
+estimate and all scaling/physical claims remain OPEN. Canonical displayed
+claims unchanged; no chart reprint. Exact evidence: the adaptive-score audit
+dated 2026-10-07.
+
 Supporting second ORIGINAL completed spatial generator and coherence checked
 (2026-10-08 UTC): literal x0/x1 now acts on the EXISTING Wilson completion,
 preserving pairing/distance, unit, vacuum complement and completed x3 time;

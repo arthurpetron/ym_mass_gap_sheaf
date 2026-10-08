@@ -27,6 +27,24 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED variational-search restriction (2026-10-08 UTC): on the SAME original
+Wilson completion, x=chi01-chi02 and y=chi02-chi12 have equal responses at
+every completed lag, with mixed response -R_x/2. Arbitrary signed rational
+a,b give R_(a*x+b*y)(n)=(a*a-a*b+b*b)*R_x(n). The actual ordered source
+pins join x to the existing antisymmetric excitation. A COMMON time filter
+retains this factor; the cleared ratio identity includes null cases.
+PRUNE coefficient optimization in this local zero-sum orbit as a source of
+better normalized retention. No time-invariant local span or slow rate is
+asserted. Different sites, higher spins, the centered symmetric sector and
+independent filter lags are NOT excluded, but require actual ORIGINAL
+interacting moments and overlap. NEXT remains the JOINT signed filtered
+cost/reserve versus SAME surviving variance; do not replace it with an
+orbit-only Ritz search or another conditional interface. One successful
+serialized focused 20-GiB check/29 permitted gates and independent final
+complete-source review pass. Root import registered only; no root/tree
+audit, canonical chart closure or new analytic premise. Exact evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 READ-ONLY route revision (2026-10-08 UTC): hemisphere log-concavity supplies
 the wrong curvature orientation and no marginal covariance payment; do not
 implement that wrapper. Exact second-defect credit removes slack in the

@@ -4,6 +4,23 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Actual origin-face variational search pruned (2026-10-08 UTC)
+
+`BF4WilsonAllNomeOriginPlaquetteOrbitResponse.trial_response` proves that
+every lag of a*x+b*y is (a*a-a*b+b*b) times the response of the existing
+antisymmetric source, x=chi01-chi02, y=chi02-chi12. The actual ordered-word
+and completed-swap pins supply this result, not a symmetry hypothesis.
+`common_time_filter_cleared_ratio` retains the normalized response under
+one COMMON filter, without division or a nonzero-norm premise. This prunes
+coefficient-only optimization in that local zero-sum orbit, not independent
+filters, other sites/spins, or the centered symmetric sector. No slow rate,
+survival or scaling closure. One successful focused capped check/29 permitted
+gates and independent final-source review; no root/tree audit or chart change.
+The JOINT interacting signed cost versus SAME surviving variance remains
+OPEN. Evidence: the adaptive-score audit dated 2026-10-07. The legacy metric
+script was not run: it invokes a guard build, not authorized for this narrow
+verification. No critical-path discharge count is inferred.
+
 ## Completed spatial permutation coherence (2026-10-08 UTC)
 
 `SpatialHeadSwapCompletion` produces the actual second involutive linear
