@@ -6,6 +6,59 @@ and a finite strictly positive physical Hamiltonian mass gap.
 
 ## Selected reciprocal-free positive gradient payment (2026-10-08 UTC)
 
+### Selected exact incoming-density trace (2026-10-08 UTC)
+
+Next bounded identity: `H[Vbar^2*A*T(a*(Jphi)^2)]`
+`=ell_V[a*(Jphi)^2*T(Vbar*A)]`, with a=g_d and A=Ta. Produce fringe
+independence of the transferred gradient square, apply actual fringe Fubini
+and ORIGINAL weighted transfer symmetry. No sign or nome/cutoff positivity
+is needed. Consumer: the checked unit-gradient Ward payment can be expressed
+in original incoming coordinates without identifying it with another density.
+Prediction: BOTH the active Vbar factor and the additional temporal step
+remain. Actual marginalAngular uses a*Ta, not a*T(Vbar*Ta). Thus a direct
+coefficient-one marginal-energy/variance join is unavailable. Stop if the
+pin drops Vbar, identifies T(Vbar*A) with A/TA, or silently uses raw-family
+gradient control for the filtered reconstructed ratio. One existing changed
+leaf, independent review, root-only monitored 20-GiB check; no new interface.
+
+Observed: VERIFIED exact incoming-density identity. In
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.lean:384`,
+`original_ratioNoise_gradientPayment_weighted_pin` proves the displayed pin
+for arbitrary rational nome/cutoff and supported phi. Phi need NOT be fringe
+independent: independence of Ephi is produced by the actual transfer image.
+Both the original spatial weight V and the literal T(Vbar*A) survive.
+Final focused check `/private/tmp/ym-ratio-noise-incoming-density-20261008a.log`
+passes all six printed gates exactly {propext, Quot.sound}; source SHA256
+`272d9b089299597e99bf2f9b87b6c4f46b574be346c3d9b0ddb07020f0428512`.
+Independent full-block review PASS. Preflight: 87% system-wide free, zero swap,
+no competing compiler; one 20-GiB worker/12-GiB reserve. No full-tree audit,
+new hypothesis bundle, hole, axiom or canonical field/diagram closure.
+
+Decision: PRUNE the direct coefficient-one identification with marginalAngular
+or normalizedEnergy. This is not a refutation of a possible joint signed
+bound. The actual incoming marginal angular density is V*a*Ta:
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialAngularMarginal.lean:51`,
+`marginalAngular`; `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialDirichletWindow.lean:130`,
+`marginal_middleRatio`, pins its original chronological law. Even an ordinary
+spatial cap first gives T(Vbar*A)<=C*T(A)=C*T^2a, so a further terminal
+comparison is needed; neither factor is coefficient one or a useful scaling
+estimate. Do NOT implement that coarse ceiling as another claimed producer.
+
+Existing Taylor rebasing does not supply the missing cancellation (SOURCE
+REVIEW, not an impossibility theorem). `AngularMarginal.angular_weight_identity:104`
+converts q_d^2*Gamma(f) to q_d*P(q_d)*Gamma(f) for the SAME source and f.
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialMarginalTaylor.lean:64`,
+`signedRemainder`, retains that defect; `energy_taylor_marginal:71` performs
+that rebasing, not a removal of Vbar inside a subsequent transfer.
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalSignedScorePayment.lean:235`,
+`exactScoreAngularBudget_terminal_signed_payment_le`, uses incoming phi at n,r;
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLastStepExactScoreCost.lean:218`,
+`exactScoreSignedBulk`, retains outgoing phi at n,r+1 and its own numerator,
+reciprocal degree and BOTH Taylor terms. Those observables are not equal.
+CONTINUE only with action/source-specific JOINT control across these literal
+transitions, or an independent actual signed response credit. No supplied
+conclusion, raw Wilson Casimir substitution or changing-family survival claim.
+
 Bounded estimate: on ACTUAL a=g_d, A=Ta, Ephi=T(a*(Jphi)^2), Vbar and
 the existing finite G_k(A), test H[Vbar^2*G_k^2*A^3*Ephi]
 <=H[Vbar^2*A*Ephi], coefficient ONE for every finite k. Produce the A

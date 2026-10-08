@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Supporting exact incoming Ward density pin checked (2026-10-08 UTC):
+H[Vbar^2*A*T(a*(Jphi)^2)]=ell_V[a*(Jphi)^2*T(Vbar*A)]. No fringe independence
+of phi is assumed; it is produced for its transfer image. The extra spatial
+insertion/time step is retained, not mistaken for marginal a*Ta or jump
+energy. Existing same-source Taylor rebasing supplies no cross-transition
+cancellation. Useful joint signed comparison remains OPEN. One focused
+permitted-gate check, no full-tree audit; displayed chart unchanged/no reprint.
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 Supporting reciprocal-free Ward positive payment and AF sign screen checked
 (2026-10-08 UTC): produced finite multiplier/terminal certificates give
 H[Vbar^2*G_k^2*A^3*Ephi]<=H[Vbar^2*A*Ephi], coefficient ONE for every k.

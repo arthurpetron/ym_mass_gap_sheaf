@@ -27,6 +27,18 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+The positive Ward payment now has a CHECKED ORIGINAL incoming-density pin
+(2026-10-08 UTC): `original_ratioNoise_gradientPayment_weighted_pin`
+gives H[Vbar^2*A*T(a*(Jphi)^2)]=ell_V[a*(Jphi)^2*T(Vbar*A)]. The literal
+extra spatial insertion and temporal step remain; this is NOT the incoming
+marginal a*Ta or a normalized-energy bound. PRUNE identifying them with
+coefficient one, or adding a global spatial cap as a useful scaling producer.
+Existing angular Taylor rebasing changes only the SAME-source weight; it
+does not supply this cross-transition cancellation between incoming/outgoing
+filtered ratios. One focused check/independent review passes. NEXT remains
+coupled original action/source control, not more completion/input wrappers.
+Exact densities and source-level cancellation screen: the adaptive audit.
+
 The positive original Ward gradient payment now has a CHECKED reciprocal-free
 upper envelope (2026-10-08 UTC):
 `RatioNoiseWardAbsorption.original_ratioNoise_gradientPayment_unit_le`

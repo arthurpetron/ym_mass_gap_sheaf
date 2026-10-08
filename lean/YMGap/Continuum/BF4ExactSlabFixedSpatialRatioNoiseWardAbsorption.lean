@@ -10,6 +10,7 @@ This is not their sign/smallness estimate, a surviving-norm bound or scaling.
 
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseGradientAbsorption
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFringeProjection
+import YMGap.Continuum.BF4ExactSlabFixedSpatialTransferSymmetry
 import YMGap.Continuum.QuaternionHaarFiniteReciprocalHessianSign
 
 namespace YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption
@@ -23,11 +24,15 @@ open YMGap.Continuum.BF4GeometricHaarMehlerProjection
 open YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics
 open YMGap.Continuum.BF4ExactPhysicalCenteredVacuumTransmittedMarginal (partialHaarHeads)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialSliceCarrier (baseLinks)
-open YMGap.Continuum.BF4ExactSlabFixedSpatialSliceHeat (spatialWeight)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialSliceHeat (spatialWeight spatialWeight_supported)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialKineticHeat (kineticWeight)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialKineticMarginals
+  (activeBlocks activeBlocks_lt kineticWeight_eq_indexedProduct)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialTransferStep
 open YMGap.Continuum.BF4ExactSlabFixedSpatialTransferOrder (transferStep_certificate)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialTransferMixingRate (kineticFloor_le_cap)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialTransferSandwich (weightedMass)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialTransferSymmetry (transferStep_weighted_symmetric)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalBracket
 open YMGap.Continuum.BF4ExactSlabFixedSpatialDirichletWindow (terminalMessage_next)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalRatio
@@ -35,6 +40,8 @@ open YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepRatioNoise
 open YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseDerivative
 open YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseGradientAbsorption
 open YMGap.Continuum.BF4ExactSlabFixedSpatialFringeProjection
+open YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyFlow
+  (fringeBlocks fringeBlocks_lt fringeBlocks_mem_iff)
 open YMGap.Continuum.BF4ExactSlabRetainedHeatHeadComparison (headCutoff)
 open YMGap.Continuum.SU2QuaternionPolynomialHaarCarrier
 open YMGap.Continuum.SU2QuaternionRatPolyDifferential
@@ -42,6 +49,13 @@ open YMGap.Continuum.SU2QuaternionArbitraryHaarRadialPositivity
 open YMGap.Continuum.SU2QuaternionPartialFactorizedHaar (liftBoundary)
 open YMGap.Continuum.SU2QuaternionAuxiliaryLiftAlgebra
 open YMGap.Continuum.SU2QuaternionHeadChainComposition
+open YMGap.Continuum.SU2QuaternionHaarKernelBound (kernelMap)
+open YMGap.Continuum.SU2QuaternionProductHeatMarginals
+  (productMap productMap_independent_of_not_mem)
+open YMGap.Continuum.SU2QuaternionOneLinkFundamentalSchurSpectatorFubini
+  (QuaternionBlockIndependent quaternionBlockIndependent_polyMul)
+open YMGap.Continuum.SU2QuaternionHaarFamilyProjection
+  (familyProject_mean familyProject_mul_of_independent)
 open YMGap.Continuum.SU2QuaternionHaarTailDerivative (partialHaarHeads_add)
 open YMGap.Continuum.SU2QuaternionAngularDerivative
 open YMGap.Continuum.SU2QuaternionAngularSupport
@@ -349,6 +363,76 @@ theorem original_ratioNoise_ward_unitGradient_le {w : Q'}
       (original_ratioNoise_gradientPayment_unit_le hw0 hw1 K width hK d s i j
         hs hi hj hphi (k+1))))
 
+private theorem transfer_fringe_independent (w : Q') (K width : Nat) {p : RatPoly}
+    (hp : SupportedQuaternionBlocks (N width) p) (b : Nat)
+    (hb : b ∈ fringeBlocks width) :
+    QuaternionBlockIndependent b (transferStep w K width p) := by
+  have hproduct : transferStep w K width p = productMap (N width) w K (activeBlocks width)
+      (polyMul (spatialWeight w K width) p) := by
+    unfold transferStep step productMap kernelMap
+    rw [kineticWeight_eq_indexedProduct]
+    rfl
+  rw [hproduct]
+  exact productMap_independent_of_not_mem (N width) w K (activeBlocks width)
+    (activeBlocks_lt width) b (fringeBlocks_lt width b hb)
+    (((fringeBlocks_mem_iff width b).mp hb).2) _
+    (supported_polyMul (spatialWeight_supported w K width) hp)
+
+/-- Exact pullback of the positive Ward payment to ORIGINAL incoming
+coordinates. The transferred factor is T(Vbar*Ta), NOT Ta or T^2a.
+This pin does not equate an angular square with finite-step jump energy. -/
+theorem original_ratioNoise_gradientPayment_weighted_pin (w : Q') (K width : Nat)
+    (d s i j : Nat) (hs : s < N width) (hi : i < 4) (hj : j < 4)
+    {phi : RatPoly} (hphi : SupportedQuaternionBlocks (N width) phi) :
+    let a := terminalMessage w K width d
+    let A := transferStep w K width a
+    let V := spatialFringeMass w K width
+    let t := angularDerivative (4*s+i) (4*s+j) phi
+    quaternionHaar (N width) (polyMul (polyMul V V)
+      (polyMul A (ratioNoiseGradientEnergy w K width s i j a phi))) ≈
+      weightedMass w K width (polyMul (polyMul a (polyMul t t))
+        (transferStep w K width (polyMul V A))) := by
+  dsimp only
+  let a := terminalMessage w K width d
+  let A := transferStep w K width a
+  let V := spatialFringeMass w K width
+  let t := angularDerivative (4*s+i) (4*s+j) phi
+  let x := polyMul a (polyMul t t)
+  let E := transferStep w K width x
+  let r := polyMul V A
+  let p := polyMul r E
+  have ha := terminalMessage_supported w K width d
+  have hA := transferStep_supported w K width ha
+  have ht := angularDerivative_supported_at (by omega : 4*s+i < 4*N width)
+    (by omega : 4*s+j < 4*N width) hphi
+  have hx := supported_polyMul ha (supported_polyMul ht ht)
+  have hr := supported_polyMul (spatialFringeMass_supported w K width) hA
+  have hind : ∀ b, b ∈ fringeBlocks width → QuaternionBlockIndependent b p := by
+    intro b hb
+    have hAI : QuaternionBlockIndependent b A := by
+      rw [show A = terminalMessage w K width (d+1) from terminalMessage_next w K width d]
+      exact terminal_fringe_independent w K width (d+1) b hb
+    exact quaternionBlockIndependent_polyMul
+      (quaternionBlockIndependent_polyMul (spatialFringeMass_independent w K width b hb) hAI)
+      (transfer_fringe_independent w K width hx b hb)
+  have hproject := familyProject_mul_of_independent (fringeBlocks width) p
+    (spatialWeight w K width) hind
+  have hmean := familyProject_mean (N width) (fringeBlocks width)
+    (fringeBlocks_lt width) (polyMul p (spatialWeight w K width))
+  have hring : RatPolyCoeffEqv (polyMul p V)
+      (polyMul (polyMul V V) (polyMul A E)) :=
+    coeffEvalExpr_eqv_of_normalize_eq
+      (.mul (.mul (.mul (.var 0) (.var 1)) (.var 2)) (.var 0))
+      (.mul (.mul (.var 0) (.var 0)) (.mul (.var 1) (.var 2)))
+      (by decide) (fun | 0 => V | 1 => A | _ => E)
+  have hweighted : weightedMass w K width p ≈
+      quaternionHaar (N width) (polyMul (polyMul V V) (polyMul A E)) :=
+    Q'.eqv_trans _ _ _ (haar_of_coeff (RatPolyCoeffEqv.mul_comm _ p))
+      (Q'.eqv_trans _ _ _ (Q'.eqv_symm hmean)
+        (Q'.eqv_trans _ _ _ (haar_of_coeff hproject) (haar_of_coeff hring)))
+  exact Q'.eqv_trans _ _ _ (Q'.eqv_symm hweighted)
+    (transferStep_weighted_symmetric w K width hx hr)
+
 end YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption
 
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.ratioNoiseDensityMoment
@@ -356,3 +440,4 @@ end YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.original_ratioNoise_ward_absorption_le
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.original_ratioNoise_gradientPayment_unit_le
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.original_ratioNoise_ward_unitGradient_le
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.original_ratioNoise_gradientPayment_weighted_pin
