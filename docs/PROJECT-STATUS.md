@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Supporting ORIGINAL arbitrary-input terminal Schur checked (2026-10-08 UTC):
+the actual U^2 bound now covers every supported signed polynomial, including
+prediction errors without a transmitted preimage. Produced reciprocal
+contraction/reconstruction and rational order closure remove the coarse
+continuity cap; zero norms and d=0 remain. One focused capped check/three
+permitted gates and complete independent FINAL-source review; root
+registration only, no tree audit. The actual changing-family innovation
+estimate remains OPEN, as do OS/scaling/physical/QFT/every-group/Clay.
+Canonical displayed claims unchanged; no chart reprint. Evidence:
+adaptive conditional-score audit.
+
 Supporting finite Jacobi LOWER log-Hessian checked (2026-10-08 UTC): actual
 formal heat jets and produced moment ceilings give C_T*h^2+h*h''-(h')^2>=0
 for every prefix and x>=0. Explicit nome-dependent C_T; no heat inverse or

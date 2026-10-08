@@ -4,6 +4,24 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## ORIGINAL sharp terminal Schur for arbitrary supported inputs (2026-10-08 UTC)
+
+`BF4ExactSlabFixedSpatialTerminalSchurArbitrarySource.original_block_terminal_schur_arbitrary_source_le`
+extends the original U^2 estimate to every supported signed polynomial r,
+including the prediction error without a transmitted preimage. Actual
+terminal-window reciprocal contraction and reconstruction are produced;
+the coarse continuity cap pays only a vanishing error and disappears.
+Strict nome, m>=1 and the actual upper certificate remain; zero norms and
+d=0 need no extra premise. No source cap, normalized norm inverse, useful
+operator-norm assumption, OS/continuum/scaling conclusion or new hole.
+One focused 20-GiB check/three permitted gates and complete independent
+final-source review; root registration only, no tree audit/guard/metric.
+NEXT: actual last-window relative innovation on the justified changing
+family. A parallel PAPER screen rejects universal bounded-insertion
+concentration, not the selected YM family. Canonical chart unchanged;
+all physical/QFT/every-group/Clay requirements remain OPEN. Exact evidence:
+the adaptive conditional-score audit dated 2026-10-07.
+
 ## ORIGINAL inserted H116->H32 carrier reduction (2026-10-08 UTC)
 
 Actual closed-affine support plus inner insertion IDs produce ORIGINAL

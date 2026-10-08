@@ -589,6 +589,13 @@ and continuum/Clay target remain OPEN. Evidence:
 `audits/AUDIT-EXACT-GROUND-ENERGY-OBSTRUCTION-2026-10-03.md`.
 
 **CURRENT checked ORIGINAL finite variance comparison (2026-10-03 UTC):**
+The 2026-10-08 arbitrary-source extension,
+`BF4ExactSlabFixedSpatialTerminalSchurArbitrarySource`, now gives the sharp
+U^2 bound for EVERY supported signed polynomial, including prediction errors.
+Produced reciprocal contraction and reconstruction remove the coarse cap;
+no transmitted preimage, source cap or positive input norm is assumed.
+One focused check/three permitted gates and complete independent final-source
+review. This ordinary weighted L2 bound does not close an OS/scaling gap.
 Actual two-copy positivity and weighted symmetry give the terminal Schur
 bound U^2. Constructed reciprocal reconstruction extends it to the actual
 filtered signed source without retaining the coarse continuity coefficient.

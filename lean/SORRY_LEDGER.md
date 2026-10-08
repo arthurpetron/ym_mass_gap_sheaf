@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED arbitrary ORIGINAL terminal Schur / OPEN changing-family innovation (2026-10-08 UTC)
+
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalSchurArbitrarySource.lean:203`,
+`original_block_terminal_schur_arbitrary_source_le`, proves the sharp U^2
+bound for every supported signed r, including the prediction error without
+a transmitted preimage. `reciprocal_square_le:105` and
+`reciprocal_reconstruction:140` produce multiplier contraction and relative
+error in the SAME spatially weighted norm. Two rational order closures remove
+the coarse transfer cap. Actual terminal upper certificate, m>=1 and strict
+nome remain; zero norm and d=0 require no extra premise. No new hole, axiom,
+source cap, input-norm inverse, operator-norm assumption or option increase.
+First focused capped check/all three gates exactly {propext,Quot.sound};
+independent COMPLETE final-source review PASS. Root registration only, not
+a root/tree audit. This ordinary weighted L2 result is not an OS/gap theorem.
+Composite last-window signed-error payment remains PAPER; actual relative
+innovation on a justified changing family, original source-weighted radial
+cross/antipodal/deficit control and all physical/QFT/every-group/Clay remain
+OPEN. No canonical displayed claim changes. Exact proof/log hashes and
+parallel concentration screen: adaptive conditional-score audit.
+
 ## PROVED finite Jacobi lower log-Hessian / OPEN original source-weighted comparison (2026-10-08 UTC)
 
 `lean/YMGap/Continuum/JacobiHeatNearFlatLogHessian.lean:142`,
@@ -16,8 +36,8 @@ character-cutoff polynomial or a full-Haar hemisphere certificate. PAPER
 paired geometry gives a (1-w)-rescaled transverse error <=2*(1-X)*R*h^2;
 original-prefix transport, negative-X payment, SAME-source concentration,
 physical clock/curl and the changing-family signed margin remain OPEN.
-The independent last-window noise reduction/generic Schur error payment
-remain PAPER, not checked declarations. Exact proof/log hashes and consumers:
+The independent composite last-window noise reduction remains PAPER; the
+generic arbitrary-input Schur prerequisite is now checked above. Exact proof/log hashes and consumers:
 adaptive-score audit. Continuum/physical/QFT/every-group/Clay and chart unchanged.
 
 ## PROVED direct ORIGINAL cubic response lower bound / OPEN relative scaling margin (2026-10-08 UTC)

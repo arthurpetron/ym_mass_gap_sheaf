@@ -27,6 +27,30 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED quantitative join (2026-10-08 UTC): the ORIGINAL
+sharp terminal Schur estimate now covers EVERY supported polynomial r, specifically
+the prediction error e=b-a*phi which is not a transmitted source. For actual
+a=g_m, m>=1, and a terminal upper certificate U*a-T^d*a>=0, it proves
+ell((T^d*r)^2)<=U^2*ell(r^2). The upper bracket is already constructed by
+TerminalComparison; do not replace it by an assumed useful operator norm.
+Finite reciprocal approximation gives p_k=a*G_k*r with ell(p_k^2)<=ell(r^2)
+and ell((r-p_k)^2)<=mixRate^(2k)*ell(r^2). Schur on p_k, coarse transfer
+continuity ONLY on the vanishing error, and rational order closure remove
+the coarse cap entirely. No source cap, exact polynomial ratio/preimage,
+surviving-norm inverse, stationary law or new analytic premise.
+Consumer: the SAME warmed-source last-window identity's signed prediction
+correction; it currently cannot use the transmitted-source specialization.
+The final 296-line leaf passes focused check 1 and complete independent
+FINAL-source review; all three gates exactly {propext,Quot.sound}. Root
+registration only, no root/tree audit. No extra resource option or analytic
+premise. Parallel PAPER analysis rejects universal near-flat concentration
+for arbitrary bounded gradient-square insertions, not the selected Yang--Mills
+source family. NEXT: the actual last-window relative innovation, with its
+joint source-weighted radial cross, antipodal and original-prefix deficit
+payments. No vacuum/Gaussian concentration substitution. That changing-family
+estimate and all physical/Clay requirements remain OPEN. Exact evidence:
+the adaptive-score audit; canonical displayed claims unchanged.
+
 CHECKED actual Jacobi heat estimate (2026-10-08 UTC):
 `JacobiHeatNearFlatLogHessian.heat_logHessian_lower` proves the missing
 LOWER log-Hessian bound for the actual finite normalized Jacobi heat
@@ -54,10 +78,12 @@ The heat here is the finite weighted Jacobi derivative approximation, NOT
 the original character cutoff; that transport remains explicit and open.
 PAPER direct-response reduction retains ONLY the last-u-window innovation,
 terminal drift and signed prediction correction. Drift and reciprocal error
-can be paid in SAME-warmed-norm currency AFTER a generic terminal-Schur
-closure for arbitrary supported error; that closure is not yet checked.
+can be paid in SAME-warmed-norm currency using the generic terminal-Schur
+closure for arbitrary supported error, now checked above. The composite
+signed-error payment below is still PAPER, not a newly checked consumer.
 The remaining analytic estimate is Z*ell(D_phi)<=
-[1-kappa-eta-2*delta*(1+(1+eta)^2)]*W*ell(b^2), not full-history noise.
+[1-kappa-eta-2*delta*(1+(1+eta)^2)]*W*ell(b^2), not full-history noise;
+eta=comparisonEta(w,width,n+u-1) retains explicit nome/width dependence.
 Exact chronology, available inputs and missing joins: adaptive-score audit.
 
 CHECKED direct ORIGINAL cubic response estimate (2026-10-08 UTC):

@@ -4,6 +4,125 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Generic ORIGINAL terminal Schur: checked missing error join (2026-10-08 UTC)
+
+Previous goal turn: PROGRESS, commit d1a0690e checks the actual finite
+Jacobi lower log-Hessian. Its scope/remaining source-weighted joins are
+recorded below; it is not a changing-family gap proof.
+
+Exact selected proposition, now CHECKED: for every supported r, actual a=g_m with m>=1,
+and the existing terminal upper certificate U*a-T^d*a>=0, prove
+
+    ell((T^d*r)^2) <= U^2*ell(r^2).
+
+The missing instance is r=e=b-a*phi in the last-window noise identity.
+The current `original_block_terminal_schur_source_le` at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalSchurClosure.lean:109`
+accepts only a transmitted source. No original polynomial preimage for e
+is supplied or assumed. The terminal bracket itself is PRODUCED by
+`terminalComparison` in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalComparison.lean`; the
+generic estimate must not assume a useful operator norm instead.
+
+Available proof inputs: `original_block_terminal_schur_square_le` at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalSchurTest.lean:84`;
+`multiplierSquareCertificate` at
+`lean/YMGap/Continuum/QuaternionHaarPositiveWindowInverse.lean:186`;
+`reciprocal_weighted_error_le` at
+`lean/YMGap/Continuum/QuaternionHaarReciprocalWeightedError.lean:60`;
+and `originalBlockTransfer_weighted_square_le` at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockWeightedContinuity.lean:98`.
+The actual terminal window at n=m,t=0 supplies its lower/upper certificates
+and `blockWindow_radius_pin` at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockConditionalRatio.lean:250`.
+Take G_k to be that finite reciprocal and p_k=a*G_k*r. Its square is <=the
+SAME input square, and its reconstruction error is <=mixRate^(2k) times
+that square, without a source interval/cap. Polynomial Schur pays p_k;
+the coarse continuity cap only pays the vanishing remainder. Existing
+rational Young/order closure removes it from the conclusion.
+
+Prediction: the precise existing closure argument works for arbitrary r
+once these two approximation estimates are instantiated generically.
+Decisive edges: zero input/norm, d=0 and all signs, with no division by norm;
+the m>=1 guard stays because the terminal window is the actual input.
+Verification budget: one leaf <=360 lines, no resource-option increase,
+at most three focused root-owned checks and complete independent final
+source review. Abandon/revise if the direct generic estimates need another
+analytic framework. Do not add a normalized/retention/Schur-hypothesis
+consumer instead of this missing inequality. The actual last-window
+innovation, SAME incoming-weight concentration and physical scaling remain
+unproved. No chart node changes from selecting this task.
+
+Observed output: `original_block_terminal_schur_arbitrary_source_le` at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalSchurArbitrarySource.lean:203`
+proves exactly the selected arbitrary-input estimate. Its generic multiplier
+and reconstruction proofs are `reciprocal_square_le` at :105 and
+`reciprocal_reconstruction` at :140 in the SAME file. Both rational order
+closures remove the coarse continuity cap; no positive input-norm premise,
+transmitted preimage, source cap, stationary law or analytic operator-norm
+input is added. m>=1, strict nome and the actual terminal certificate remain.
+Zero norms and d=0 are retained. This is ordinary original spatially weighted
+L2, not an OS-quotient or physical/continuum gap theorem.
+
+Verification: first focused check PASS, final 296-line source SHA256
+`5a6535e8c14542c87e0addffe7e39aa68fbc818e2b02e58bbf1c9ba21048dd9f`.
+Log `/private/tmp/ym-oct8-arbitrary-schur1.log`, SHA256
+`3c01f2825923127a220d1b3adb364b5fc3f9aaf189ce66835c5f93557f1d5b42`.
+All three axiom gates exactly {propext,Quot.sound}; independent COMPLETE
+FINAL-source static review PASS at the same hash. One monitored worker,
+20 GiB cap, 12 GiB reserve; fresh process/capacity preflight, swap zero.
+Root import registered only; no root/tree audit, guard or legacy metric.
+Interpretation: closes the arbitrary prediction-error transfer join. The
+composite last-window signed payment below remains PAPER; the actual
+changing-family relative innovation and all Clay requirements remain OPEN.
+
+### PAPER screen: source-weighted concentration is not automatic
+
+Independent read-only analysis, not a new Lean theorem. With unit relative
+scalar X, delta=1-X, and YF=sum_i (J_i X)J_i F, actual angular IBP and scalar
+jets give the paper identity
+
+    H[F*(3*X*h-(1-X^2)*h')] = H[h*YF].
+
+Inputs: `angular_pair_at`,
+`lean/YMGap/Continuum/SU2QuaternionHaarAngularIBPAt.lean:120`;
+`relativeScalar_second_jet`,
+`lean/YMGap/Continuum/SU2QuaternionPairedFrameScalarJets.lean:129`;
+`paired_first_jet` and `relativeWord_unit`,
+`lean/YMGap/Continuum/SU2QuaternionPairedScalarSquare.lean:57` and :69.
+For a nonnegative endpoint slope floor gamma, the resulting estimate retains
+the signed derivative debt -H[h*YF] AND the antipodal term
+gamma*H[h*F*delta^2]; the latter cannot be absorbed at X=-1.
+
+A decisive PAPER test uses F_k=delta^k and g=delta^n, n>=1:
+
+    (k+3)*H[(1+X)*F_k] = 3*H[F_k],
+    G=sum_i (J_i g)^2 = n^2*(1+X)*delta^(2n-1),
+    (2*n+3)*H[(1+X)*G] = 5*H[G].
+
+For any fixed background m with literal bounds 0<L<=m<=U,
+
+    L*(2*n+3)*H[m*G*delta]
+      >= [2*L*(2*n+3)-5*U]*H[m*G].
+
+Amplitude rescaling g by 2^n keeps |g|<=1 without changing this ratio.
+Thus arbitrary bounded gradient-square insertions can concentrate near the
+antipode even under a fixed positively bounded background. This prunes an
+insertion-only universal concentration shortcut, NOT the actual selected
+filtered source: no realization of these tests as that source is proved.
+It is not a Yang--Mills counterexample.
+
+The literal payment remains `original_ratioNoise_gradientPayment_weighted_pin`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.lean:384`:
+H[V*a*(J phi)^2*T(Vbar*T a)]. An endpoint-kernel expansion must retain
+the transferred factor, the derivatives of V*a and of J phi. Moreover
+`prefix_split_pin`,
+`lean/YMGap/Continuum/SU2QuaternionPairedHeatPrefixDeficit.lean:203`, and
+`prefix_first_split_pin` at :209 retain the original character cutoff's
+deficit from the weighted Jacobi derivative heat. NEXT is joint control of
+these actual radial cross, antipodal and deficit contributions, not a
+vacuum concentration theorem or another scalar-clock wrapper.
+
 ## Near-flat Jacobi-heat comparison: checked finite estimate (2026-10-08 UTC)
 
 Status: finite scalar estimate CHECKED; paired and last-window consumers
@@ -112,7 +231,7 @@ produces a SAME-warmed-norm reconstruction error; this is not by itself a
 bound on its transferred signed correction. Review that quantitative join
 in parallel, rather than add a consumer which merely assumes retention.
 
-The sharp terminal-Schur closure currently applies only to a transmitted
+The earlier sharp terminal-Schur closure applies only to a transmitted
 source: `original_block_terminal_schur_source_le` at
 `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalSchurClosure.lean:109`.
 PAPER extension to arbitrary supported r (including e) is possible with the
@@ -123,11 +242,12 @@ Generic inputs are `reciprocal_weighted_error_le` at
 `lean/YMGap/Continuum/QuaternionHaarReciprocalWeightedError.lean:60`, and
 the polynomial Schur square at
 `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalSchurTest.lean:84`.
-The GENERIC declaration is not yet proved; do not claim the transferred
-error payment is kernel-checked for e from the transmitted-source
-specialization. No arbitrary observable/transfer preimage is assumed.
+The GENERIC declaration is now proved in the arbitrary-source leaf recorded
+above; it applies directly to e. Do not derive that instance from the older
+transmitted-source specialization. No arbitrary observable/transfer preimage
+is assumed.
 
-PAPER quantitative consequence AFTER proving that generic join: put
+PAPER quantitative consequence using that checked generic join: put
 B=ell(b^2), p=a*phi, and use the produced ell(p^2)<=B and
 ell(e^2)<=delta^2*B, delta>0. With eta=comparisonEta(width,n+u-1),
 S=(1+eta)^2, the normalized terminal Schur bounds give output square caps
@@ -140,9 +260,10 @@ then costs at most eta*W*B, and the remaining sufficient estimate is
     Z*ell(D_phi) <= [1-kappa-eta-2*delta*(1+S)]*W*B.
 
 This is an ACTUAL last-window innovation relative to the warmed norm;
-positivity alone cannot pay it. Generic closure and this changing-family
-analytic estimate are separate unpaid steps, not another assumed survival
-certificate. The full historical noise is not needed for this reduction.
+positivity alone cannot pay it. Generic closure is now CHECKED; this
+changing-family analytic estimate remains OPEN, not an assumed survival
+certificate. The composite four-cross payment is PAPER, and the full
+historical noise is not needed for this reduction.
 The actual multiplier bound is `blockConditionalRatio_surviving_square_le`
 at `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockConditionalDrift.lean:81`;
 it is not a supplied nondegeneracy hypothesis.
