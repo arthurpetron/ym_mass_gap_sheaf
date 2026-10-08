@@ -64,6 +64,41 @@ Positivity/windows alone do not permit dropping that remainder. Control of
 the complete SAME signed expression remains OPEN; no integrated Hessian sign
 or automatic Taylor cancellation is adopted as a premise.
 
+## Observed weighted-Hessian sign screen (2026-10-08 UTC)
+
+Classification: VERIFIED PRUNING. The literal one-quaternion witness
+T=1+x0/2, Q=(1-x0)^2, J=D01+D23 has constructed certificates for Q and
+the strict T windows 1/2 and 3/2, but
+H[Q*(T*J(J(T))-J(T)^2)]=1/12>0. Therefore positivity/windows alone do
+not justify the proposed generic nonpositive integrated-Hessian shortcut.
+This is NOT a realization by the original T1 or weight, and does not refute
+the complete original signed estimate, a Yang--Mills theory or Clay.
+
+Checked declarations in
+`lean/YMGap/Continuum/SU2QuaternionWeightedHessianSignObstruction.lean`:
+`witnessWeight_certificate:53`, `witnessTerminal_floor_certificate:59`,
+`witnessTerminal_floor_positive:69`, `witnessTerminal_upper_certificate:72`,
+`witnessTerminal_first_pin:83`, `witnessTerminal_second_pin:90`,
+`weightedHessian_eq_twelfth:101`, `weightedHessian_positive:108`.
+
+Final focused log `/private/tmp/ym-weighted-hessian-obstruction-20261008d.log`
+PASS; eight printed gates permitted, the floor's rational positivity gate
+axiom-free. Checked-source SHA256:
+`bc869bcda43f306acd136935925f71dabc6dbe219f33d8190e73f6a5b2ce7209`.
+Root inspected the full source and independently verified the sphere-moment
+calculation. Initial namespace/reduction errors and a false raw unpadding
+claim were repaired, not used as evidence. Coefficient probes distinguish
+[1,0] from [1]: the checked second jet retains its literal trailing zero,
+and the Haar congruence then computes the exact compact expression. No
+recursion/heartbeat/memory limit, axiom, sorry or trusted oracle was added.
+Each check used one monitored 20-GiB worker, 12-GiB reserve and a fresh
+process/memory/swap preflight; 87--88% free and zero swap. Root import is
+registered, not root-built; no full-tree build/audit/guard or chart closure.
+
+Decision: PRUNE generic sign-dropping; CONTINUE the matched-marginal,
+complete signed-weight/error calculation and its still-missing useful
+scaling bound. The prior selected experiment/review is retained below.
+
 ## Selected sign screen and marginal-alignment review (2026-10-08 UTC)
 
 Decisive finite test: on one quaternion take T=1+x0/2, the paired J01+J23,

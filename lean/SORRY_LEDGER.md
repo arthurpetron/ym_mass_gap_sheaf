@@ -45,6 +45,22 @@
 
 Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
 
+## PROVED generic weighted-Hessian sign obstruction / OPEN original signed bound (2026-10-08 UTC)
+
+- `SU2QuaternionWeightedHessianSignObstruction` constructs a supported
+  square Q=(1-x0)^2 and actual 1/2 <= T=1+x0/2 <= 3/2 certificates.
+  `weightedHessian_eq_twelfth` and `weightedHessian_positive` give
+  H[Q*(T*J(J(T))-J(T)^2)]=1/12>0 for J=D01+D23.
+- This refutes ONLY generic nonpositive weighted-Hessian inference from
+  positivity/windows. It does not realize the original T1/weight or refute
+  the complete original signed estimate or Yang--Mills mass gap.
+- One focused target/eight permitted printed gates; one axiom-free gate.
+  Literal padding retained, no source sorry/axiom/classical/native shortcut
+  or limit increase. One capped worker/12-GiB reserve, fresh preflights,
+  zero swap; no full-root/tree audit or broad chart closure.
+
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 ## PROVED shared-tail conditional ORIGINAL-prefix jet Gram / OPEN full interacting score (2026-10-08 UTC)
 
 - `QuaternionHaarClearedThreeGram.cleared_replica_certificate` constructs

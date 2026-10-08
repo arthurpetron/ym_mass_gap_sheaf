@@ -5031,6 +5031,8 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialLocalPairedScorePin
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLocalSignedGram
 -- Actual frozen T1 jets instantiate the SAME original signed Gram.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLocalMarginalJets
+-- Strict windows do NOT justify generic weighted-Hessian sign dropping.
+import YMGap.Continuum.SU2QuaternionWeightedHessianSignObstruction
 import YMGap.Continuum.SU2HeatQuarticTailCutoff
 import YMGap.Continuum.QuaternionHaarHeatAngularDeficit
 import YMGap.Continuum.QuaternionHaarHeatRelativeAngularBound

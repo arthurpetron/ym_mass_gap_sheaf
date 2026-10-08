@@ -58,6 +58,10 @@ the SAME surviving form on a justified width/cutoff/scaling family; no
 positivity/window or automatic Hessian-sign shortcut supplies it. Source
 review and exact proposed calculation are in the adaptive audit, not a
 claim that the new analytic estimate is already proved.
+The generic sign-dropping shortcut is now independently REFUTED by
+`SU2QuaternionWeightedHessianSignObstruction.weightedHessian_positive`:
+an actual square weight and strict marginal windows give correction 1/12>0.
+This does not realize the original T1/weight or refute its signed bound.
 Independent survival, completed OS, physical time/volume control,
 SAME limiting QFT, every-group and Clay remain OPEN. The measurement note
 already incorporated below supplies no numerical premise for these joins.

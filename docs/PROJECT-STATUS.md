@@ -11,6 +11,9 @@ consumer is checked. Useful signed scaling control and every physical/
 Clay chart claim remain OPEN. Seven prior focused targets/22 gates plus one
 marginal-jet target/six permitted gates;
 no full-tree audit. The broad chart is unchanged and is not reprinted.
+The additional checked finite sign diagnostic has correction 1/12>0 under
+strict marginal windows and a square weight. It prunes ONLY the generic
+Hessian-sign shortcut, not the original signed estimate or a Clay chart node.
 Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
 
 Supporting shared-tail conditional ORIGINAL-prefix JET Gram checked
