@@ -4,6 +4,99 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Observed ORIGINAL-prefix paired curvature (2026-10-07 local; checked 2026-10-08 UTC)
+
+Classification: VERIFIED PROGRESS. The actual weighted heat now meets the
+ORIGINAL unweighted prefix through produced value and paired-jet errors.
+The user lattice-measurement note remains context only, with the corrections
+in `audits/RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md`. No measured channel
+mass, finite-spacing Hamiltonian identification or continuum regularity is
+assumed. Earlier sections below retain their checkpoint-time boundaries.
+
+### Mathematical contraction
+
+Let p be the original heat prefix, f the literal K+1 weighted heat, and e=p-f.
+All first/second jets below are the ACTUAL paired derivatives. The proved
+coefficient identity is
+
+```text
+curv_C(p)-curv_C(f)
+  = C*(2*p*e-e^2) + p*dde + e*ddp - e*dde - 2*dp*de + de^2.
+```
+
+Original jet caps U0,U1,U2 and deficit caps a,b,c yield the constructed
+shared-variable interval cap
+
+```text
+E = C*(2*(U0*a)+a*a) + ((U0*c+a*U2)+a*c) + (2*(U1*b)+b*b).
+```
+
+Set a=epsilon, b=2*epsilon, c=4*epsilon. First fix
+Cbar=C_T(w)+geoTailBase(4,w*w,0)+1, which dominates C=radialCap(w,K+1)+1
+at EVERY cutoff. Set B=Cbar*(2*U0+1)+4*U0+U2+4*U1+8 and
+epsilon=divPos(m*m,B+1+m*m), m=headFloor(w). Positive denominator,
+positive epsilon, epsilon<=1 and epsilon*B<=m*m are proved. The retained
+nonnegative identity
+
+```text
+epsilon*B-E
+  = (Cbar-C)*epsilon*(2*U0+epsilon)
+      + (Cbar+8)*epsilon*(1-epsilon)
+```
+
+pays the full discrepancy. The actual original floor certificate gives p-m;
+p+m=(p-m)+2m and
+p*p-E=(p-m)*(p+m)+(m*m-E) construct its square payment. Add weighted
+curvature, the discrepancy lower certificate and this payment to obtain
+original curvature at C+1, then raise it to the fixed cost Cbar+1.
+The floor is in epsilon/cutoff ONLY, not an upper-cost denominator.
+
+`prefixCurvatureCutoff(w)` is the max of the original head floor cutoff,
+radial onset and actual value/first/mixed deficit cutoffs. The split retains
+N=K+1 exactly; the second derivative keeps all four ordered plane terms,
+including A*A-A*B-B*A+B*B in the middle paired direction. No invented jet,
+weighted-prefix substitution, endpoint division or caller curvature premise.
+
+### Declaration and verification evidence
+
+| Produced declaration | Final source | Passing focused log |
+| --- | --- | --- |
+| `prefix_split_pin`, `prefix_first_split_pin`, `prefix_second_split_pin` | `lean/YMGap/Continuum/SU2QuaternionPairedHeatPrefixDeficit.lean:203`, `:209`, `:215` | `/private/tmp/ym-oct7-paired-prefix-deficit2.log` |
+| `deficit_value_interval`, `deficit_first_interval`, `deficit_second_interval` | `lean/YMGap/Continuum/SU2QuaternionPairedHeatPrefixDeficit.lean:222`, `:229`, `:241` | `/private/tmp/ym-oct7-paired-prefix-deficit2.log` |
+| `curvature_difference_pin`, `error_interval`, `floor_square_payment`, `curvature_approximation_certificate` | `lean/YMGap/Continuum/QuaternionHaarCurvatureApproximation.lean:72`, `:109`, `:122`, `:151` | `/private/tmp/ym-oct7-curvature-approximation3.log` |
+| `curvatureCap`, `errorTolerance`, `error_budget` | `lean/YMGap/Continuum/JacobiHeatPrefixCurvaturePrecision.lean:29`, `:81`, `:175` | `/private/tmp/ym-oct7-curvature-precision1.log` |
+| `prefixCurvatureCost`, `prefixCurvatureCutoff`, `prefix_curvature_adaptive_certificate`, `prefix_curvature_certificate` | `lean/YMGap/Continuum/SU2QuaternionPairedHeatPrefixCurvature.lean:44`, `:52`, `:67`, `:101` | `/private/tmp/ym-oct7-paired-prefix-curvature1.log` |
+
+Four focused leaves/37 printed gates pass within {propext, Quot.sound};
+eight printed definitions are axiom-free. Root read final source and an
+independent read-only review found no material sign, normalization,
+same-object, certificate, cutoff or scope defect. No source sorry, custom
+axiom, classical/native shortcut, field weakening or baseline refresh.
+Every compiler had fresh dynamic process/memory/swap checks, one 20-GiB
+worker and a 12-GiB reserve; 87--88% free and zero swap observed. All final
+checks finished in the initial call. No concurrent compiler or full-root/
+tree audit. Root imports registered, not root-built.
+
+Final checked-source SHA256:
+
+- `SU2QuaternionPairedHeatPrefixDeficit.lean`: `cd4c1fa91c923c8da7c4d73e6d6c04592975baa78ffdb6f11b4ff40ad0e38c13`
+- `QuaternionHaarCurvatureApproximation.lean`: `2d24a4dea02bb7364797edda27c6ec3009d47d7040dd86aa8ccbb14e813b042f`
+- `JacobiHeatPrefixCurvaturePrecision.lean`: `a4c3e9f0dc153c64a067d75ccff4449f7e882c899a9638c3a6ee5539ab41d686`
+- `SU2QuaternionPairedHeatPrefixCurvature.lean`: `9f022be674784a0035e797843e6f49c45839b73c7263eea6bac44dec318b6a66`
+
+### Next actual consumer and unchanged physical boundary
+
+Produce the full frozen-direction matrix and arbitrary-block recoding
+where required by the original conditional consumer. The three separate
+paired-direction certificates do not bound mixed Hessian terms. Then join
+the ORIGINAL interacting conditional score, retaining every action factor
+and proving the actual integrated log-Hessian sign, not a free heat identity.
+All-vector OS/scaling control, independent continuum survival, physical
+calibration/volume/spacing control, SAME QFT, every group and Clay remain
+OPEN. The nome is explicit and the cost is NOT uniform as nome approaches
+one; 1-w is not an identified physical clock. Broad chart claims remain
+unchanged; no chart reprint.
+
 ## Observed actual paired-heat curvature join (2026-10-07 local; checked 2026-10-08 UTC)
 
 Classification: VERIFIED PROGRESS on the SAME finite weighted heat.

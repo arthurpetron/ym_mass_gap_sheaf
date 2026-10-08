@@ -27,26 +27,25 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
-The ACTUAL paired-direction curvature join is now CHECKED:
-`SU2QuaternionPairedJacobiCurvature.paired_curvature_certificate` constructs
-C*h^2+h*J_i^2(h)-(J_i h)^2 for the literal finite weighted heat, at
-C=C_T+tail_N+delta. Actual Horner first/second jets precede the join;
-positive product discriminants prove heat log-concavity, and the SAME
-quaternion norm yields the other-two-square complement. No endpoint
-division, supplied cone/curvature identity or inverse floor in the cost.
+The ORIGINAL unweighted-prefix paired curvature join is now CHECKED:
+`SU2QuaternionPairedHeatPrefixCurvature.prefix_curvature_certificate`
+constructs C*p^2+p*J_i^2(p)-(J_i p)^2 for the actual prefix, past its explicit
+`prefixCurvatureCutoff(w)`, at fixed `prefixCurvatureCost(w)` independent
+of cutoff/carrier size. Exact N=K+1 value/first/second pins retain ALL FOUR
+ordered terms. The signed discrepancy has constructed shared-variable
+interval bounds; the actual original floor pays it through p^2-errorCap.
+A cutoff-independent weighted-cost envelope is fixed BEFORE choosing
+epsilon, avoiding a circular cutoff. No endpoint division, supplied
+curvature premise or inverse heat minimum in the final cost. Four focused
+leaves/37 permitted gates checked; eight printed definitions axiom-free.
 
-NEXT transfer THIS curvature to the ORIGINAL prefix, preserving N=K+1
-through the existing weighted/prefix coefficient pins. Reuse value/first/
-mixed deficit moduli, retaining ALL FOUR ordered mixed terms in J_i^2.
-Pay the literal curvature discrepancy by slack and the ORIGINAL prefix
-floor, with that floor in precision/onset ONLY. Establish a cutoff-
-independent upper cap before selecting one cutoff; never assume the final
-curvature or replace the original action. In parallel, a full frozen-
-direction matrix and arbitrary-block recoding may extend the exact local
-geometry. A basis-direction bound alone does not give that matrix.
-Then join the ORIGINAL interacting conditional score; a free heat marginal
-does not supply the required integrated log-Hessian sign. Five focused
-leaves/25 permitted gates checked; no full-root/tree audit or chart closure.
+NEXT extend the actual local geometry to a full frozen-direction matrix
+and arbitrary-block recoding where the original conditional consumer needs
+them. A basis-direction bound alone does not give that matrix. Seek the
+mixed scalar-jet cancellation and literal cross-product square identity,
+then join the ORIGINAL interacting conditional score. A free heat marginal
+does not supply its integrated log-Hessian sign; retain every original
+action factor and signed correction. No full-root/tree audit or chart closure.
 All OS/scaling/survival/physical/QFT/every-group/Clay requirements remain OPEN.
 Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
 

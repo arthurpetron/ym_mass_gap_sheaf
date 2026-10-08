@@ -10,11 +10,11 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Latest mathematical contraction (2026-10-07):** a constructed curvature
-certificate now bounds the actual finite heat derivatives in each original
-paired quaternion direction. The proof joins radial curvature, actual heat
-log-concavity and a literal two-square complement, without endpoint division
-or an inverse heat floor in the cost. The original unweighted-prefix and
+**Latest mathematical contraction (2026-10-07 local):** the curvature
+certificate now reaches the **original unweighted heat prefix**, with actual
+paired first/second derivatives and an explicit cutoff. Its cost is independent
+of cutoff and carrier size at each fixed coupling. The original heat floor
+pays approximation precision, not the cost. Full directional-matrix and
 interacting conditional joins remain next; no physical gap is claimed.
 See the [exact proof boundary](audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md).
 

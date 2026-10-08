@@ -4997,6 +4997,11 @@ import YMGap.Continuum.JacobiHeatLogConcavity
 import YMGap.Continuum.SU2QuaternionPairedScalarSquare
 import YMGap.Continuum.JacobiHeatRadialSubstitutionPin
 import YMGap.Continuum.SU2QuaternionPairedJacobiCurvature
+-- Actual ORIGINAL-prefix curvature; the floor pays precision, never the cost.
+import YMGap.Continuum.SU2QuaternionPairedHeatPrefixDeficit
+import YMGap.Continuum.QuaternionHaarCurvatureApproximation
+import YMGap.Continuum.JacobiHeatPrefixCurvaturePrecision
+import YMGap.Continuum.SU2QuaternionPairedHeatPrefixCurvature
 import YMGap.Continuum.SU2HeatQuarticTailCutoff
 import YMGap.Continuum.QuaternionHaarHeatAngularDeficit
 import YMGap.Continuum.QuaternionHaarHeatRelativeAngularBound

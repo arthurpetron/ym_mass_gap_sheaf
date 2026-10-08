@@ -1,5 +1,36 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL-prefix paired curvature / OPEN full matrix and interacting joins (2026-10-07 local)
+
+- `SU2QuaternionPairedHeatPrefixDeficit.prefix_split_pin`,
+  `prefix_first_split_pin`, `prefix_second_split_pin` preserve the exact
+  K+1 weighted heat and actual deficit. Constructed deficit caps are
+  epsilon, 2*epsilon, 4*epsilon; original jet caps are cutoff-independent.
+  Both signed cross terms of the paired second derivative remain present.
+- `QuaternionHaarCurvatureApproximation.curvature_difference_pin` retains
+  the full signed discrepancy. `error_interval` uses shared-variable products;
+  `floor_square_payment` constructs p^2-errorCap from p-m and p+m.
+- `JacobiHeatPrefixCurvaturePrecision.radialCap_le_curvatureCap` fixes
+  the cost envelope before selecting epsilon; `error_budget` pays the actual
+  discrepancy by m^2, with explicit positive tolerance and no circular cutoff.
+- `SU2QuaternionPairedHeatPrefixCurvature.prefix_curvature_certificate`
+  constructs the literal original curvature at fixed `prefixCurvatureCost(w)`,
+  beyond `prefixCurvatureCutoff(w)`. The floor affects precision/onset ONLY.
+  No caller-supplied curvature hypothesis, endpoint division or inverse-floor
+  multiplier in the cost. Cutoff/carrier independence is at fixed strict nome.
+- OPEN: full frozen-direction matrix, arbitrary-block recoding, original
+  interacting conditional score, scaling-family signed estimate, independent
+  survival, completed OS/physical/volume control, SAME QFT, every group, Clay.
+- Four focused leaves/37 gates within {propext, Quot.sound}; eight printed
+  definitions axiom-free. No sorry/custom axiom/classical/native shortcut,
+  weakened field or baseline refresh. One 20-GiB worker, 12-GiB reserve,
+  dynamic preflights, 87--88% free and zero swap. Independent source review
+  found no material defect. Root imports registered, not root-built;
+  no full-root/tree audit or broad chart closure.
+
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+Earlier entries retain their verification-time boundaries.
+
 ## PROVED actual paired finite-heat curvature / OPEN original-prefix and interacting joins (2026-10-07)
 
 - `QPolyHaarAngularChain.paired_subst_second` supplies the literal finite

@@ -16,6 +16,23 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked ORIGINAL-prefix paired curvature (2026-10-07 local):**
+`SU2QuaternionPairedHeatPrefixDeficit` supplies the exact K+1 split and
+actual paired-jet intervals, including both signed cross terms in the
+second derivative. `QuaternionHaarCurvatureApproximation` bounds the signed
+curvature discrepancy and constructs its floor-square payment.
+`JacobiHeatPrefixCurvaturePrecision` fixes a cutoff-independent cost before
+choosing the explicit tolerance. `SU2QuaternionPairedHeatPrefixCurvature`
+joins these producers into the original prefix certificate at a fixed-nome
+cost independent of cutoff/carrier size. The floor occurs in precision only.
+Four focused leaves/37 permitted gates; eight printed definitions axiom-free.
+Full frozen matrix, arbitrary-block recoding, original interacting conditional
+score and all OS/scaling/survival/physical/QFT/every-group/Clay claims remain
+OPEN. Root imports registered, not root-built; no full-tree audit/chart closure.
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
+The supporting checkpoints below retain their verification-time boundaries.
+
 **Checked actual paired finite-heat curvature (2026-10-07):**
 `QPolyHaarAngularChain` proves the literal first/second paired jets.
 `JacobiHeatLogConcavity` constructs h'^2-h*h'' by positive affine-product

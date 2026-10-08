@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Supporting ORIGINAL-prefix paired curvature checked (2026-10-07 local):
+the exact K+1 value/first/second split meets the constructed finite heat
+certificate. Shared-variable intervals pay the signed discrepancy with one
+extra original heat square. A fixed cost envelope precedes tolerance/cutoff
+selection; the original floor enters precision only, never the final cost.
+Cost and cutoff are independent of carrier size at each strict nome.
+Four focused leaves/37 permitted gates; no full-root/tree audit. Full frozen
+matrix, arbitrary-block recoding, interacting conditional score and all
+OS/scaling/survival/physical/QFT/every-group/Clay claims remain OPEN.
+Broad chart claims remain unchanged; no chart reprint. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+The supporting entries below retain their historical checkpoint boundaries.
+
 Supporting ACTUAL paired finite-heat curvature checked (2026-10-07):
 actual Horner jets meet the radial certificate, heat log-concavity and
 the literal two-square quaternion complement. Each original paired
