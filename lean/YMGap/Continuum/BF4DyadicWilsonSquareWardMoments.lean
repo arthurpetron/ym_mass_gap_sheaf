@@ -7,14 +7,19 @@ original odd marginal, its OWN mean and partition therefore give
 Var=1+m2-m1^2, Angular=L*(3-m2), Ward=L*(4*m2-3*m1^2).
 Here m2 is the label-two CHARACTER moment, not the second scalar moment.
 
-These are exact identities, not a favorable-sign or scaling estimate.
-The complete Taylor remainder is retained; no physical trajectory follows.
+The produced relative scores also give a positive nome-dependent OWN
+variance floor, uniform in square size, width and depth after the explicit
+cutoff. Its limit is the SAME original completed centered norm. The complete
+Taylor remainder is retained; no response survival or physical trajectory follows.
 -/
 
 import YMGap.Continuum.SU2QuaternionIndependentTailAngularSquare
 import YMGap.Continuum.BF4DyadicWilsonSquareVarianceTaylor
 import YMGap.Continuum.QuaternionHaarNormalizedMomentLinear
 import YMGap.Continuum.SU2QuaternionProductHeatWilsonSpinTwo
+import YMGap.Continuum.QuaternionHaarGeneralizedLinearWard
+import YMGap.Continuum.BF4ExactSlabFixedSpatialRelativeWardBound
+import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteAngularSquare
 
 namespace YMGap.Continuum.BF4DyadicWilsonSquareWardMoments
 
@@ -30,6 +35,7 @@ open YMGap.Continuum.BF4GeometricSpinNetworkMehler
 open YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics
 open YMGap.Continuum.BF4ExactSlabSymmetricPowerHaarTrace
 open YMGap.Continuum.SU2QuaternionPolynomialHaarCarrier
+open YMGap.Continuum.SU2QuaternionArbitraryHaarRadialPositivity
 open YMGap.Continuum.SU2QuaternionSolidZonalCharacter
 open YMGap.Continuum.SU2QuaternionRatPolyDifferential
 open YMGap.Continuum.SU2QuaternionAngularDerivative
@@ -44,11 +50,11 @@ open YMGap.Continuum.SU2QuaternionSpinTwoConditionalHaar
   (orientedCoordinateQuaternion orientedCoordinateQuaternion_blockDegree)
 open YMGap.Continuum.SU2QuaternionProductHeatWilsonWord (wordAt word_independent)
 open YMGap.Continuum.QuaternionHaarWordDifference (word_unit)
-open YMGap.Continuum.QuaternionHaarLinearAngularEnergy (six)
+open YMGap.Continuum.QuaternionHaarLinearAngularEnergy (six angularSquare)
 open YMGap.Continuum.QuaternionHaarDensityVariance
 open YMGap.Continuum.QuaternionHaarFamilySquare (haar_weighted_sum_indexed)
 open YMGap.Continuum.QuaternionHaarNormalizedMomentLinear
-open YMGap.Continuum.QuaternionHaarSquareCertificate (haar_of_coeff)
+open YMGap.Continuum.QuaternionHaarSquareCertificate (haar_of_coeff supported_add supported_one)
 open YMGap.Continuum.QuaternionHaarPolynomialSquareBound (cap)
 open YMGap.Continuum.QuaternionHaarAngularCarrier (neg_smul)
 open YMGap.Continuum.SU2QuaternionProductHeatPlaquetteSquare (first_character_square)
@@ -68,6 +74,16 @@ open YMGap.Continuum.BF4DyadicWilsonSquare
 open YMGap.Continuum.BF4DyadicWilsonSquareNodup
 open YMGap.Continuum.BF4DyadicWilsonSquareChannelPartition
 open YMGap.Continuum.BF4DyadicWilsonSquareVarianceTaylor (paddedSquare_normalized_ward)
+open YMGap.Continuum.SU2QuaternionHaarHeadFubini
+open YMGap.Continuum.SU2QuaternionArbitraryHaarBlockReflection
+open YMGap.Continuum.SU2QuaternionHaarCertificateReindex
+open YMGap.Continuum.QuaternionHaarAngularCarrier (carrierOfPrefix)
+open YMGap.Continuum.QuaternionHaarGeneralizedLinearWard
+open YMGap.Continuum.BF4ExactSlabFixedSpatialCenteredWard
+open YMGap.Continuum.BF4ExactSlabFixedSpatialRelativeWardBound
+open YMGap.Continuum.BF4ExactSlabFixedSpatialMarginalRelativeBound (frameRelativeBound)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialEndpointRelativeBound (endpointRelativeCutoff)
+open YMGap.Continuum.BF4ExactSlabSelectedFaceFold (blockDegree_reindex)
 
 local infix:50 " ≈ " => Q'.eqv
 local infixl:70 " ⋄ " => PolyQuaternion.mul
@@ -222,6 +238,119 @@ theorem paddedSquare_block_gamma (scale width : Nat) (hwidth : side scale < widt
   rw [wordAt_sourceWord width es (paddedSquare scale width hwidth).physical] at hout
   exact hout
 
+attribute [local irreducible] terminalMessage spatialWeight sourceWord sourceCharacter
+  marginalWeight oddMass oddVariance
+  BF4WilsonAllNomeMarginalVarianceLimit.varianceCauchy
+  BF4WilsonAllNomeMarginalVarianceLimit.varianceLimit
+
+private theorem gap_supported {blocks : Nat} {p : RatPoly}
+    (hp : SupportedQuaternionBlocks blocks p) :
+    SupportedQuaternionBlocks blocks (polyAdd (cap 4) (polyNeg (polyMul p p))) := by
+  apply supported_add
+  · intro t ht
+    obtain ⟨r,hr,rfl⟩ := List.mem_map.mp ht
+    exact supported_one blocks r hr
+  · intro t ht
+    obtain ⟨r,hr,rfl⟩ := List.mem_map.mp ht
+    exact supported_polyMul hp hp r hr
+
+/-- Selected-link transport at the full carrier level, permitting every
+original density insertion. Unweighted Haar equality alone would not suffice. -/
+theorem paddedSquare_head_gamma (scale width : Nat) (hwidth : side scale < width)
+    (block : Nat) (hb : block ∈ observableBlocks scale width hwidth) :
+    let swap := headSwapBlockInvolution (N width) block
+      (observableBlocks_lt scale width hwidth block hb)
+    let f := reindexQuaternionPolynomial swap
+      (sourceCharacter width (paddedSquare scale width hwidth).edges 1)
+    HaarCarrierEqv (N width) (angularSquare f)
+      (polyAdd (cap 4) (polyNeg (polyMul f f))) := by
+  dsimp only
+  let p := sourceCharacter width (paddedSquare scale width hwidth).edges 1
+  let swap := headSwapBlockInvolution (N width) block
+    (observableBlocks_lt scale width hwidth block hb)
+  have hp := BF4ExactSlabFixedSpatialWilsonProbe.sourceCharacter_supported width
+    (paddedSquare scale width hwidth).edges 1
+  have h0 : 0 < N width := Nat.lt_of_le_of_lt (Nat.zero_le block)
+    (observableBlocks_lt scale width hwidth block hb)
+  have hmap : swap.map 0 = block := headSwapBlockInvolution_map_zero _ _ _
+  have hd := BF4ExactSlabFixedSpatialPlaquetteAngularSquare.reindex_blockAngularSquare_carrier
+    swap h0 p hp
+  rw [hmap] at hd
+  have hg := reindex_carrier swap
+    (blockAngularSquare_supported (observableBlocks_lt scale width hwidth block hb) hp)
+    (gap_supported hp) (paddedSquare_block_gamma scale width hwidth block hb)
+  have hone : QuaternionPrefixPolynomialEqv (N width)
+      (reindexQuaternionPolynomial swap polyOne) polyOne := by
+    change QuaternionPrefixPolynomialEqv (N width)
+      [(reindexQuaternionExponents swap [], 1)] [([], 1)]
+    apply QuaternionPrefixPolynomialEqv.cons
+    · constructor
+      · exact Q'.eqv_refl 1
+      · intro coordinate hc
+        rw [exponentAt_reindexQuaternionExponents swap [] hc]
+        simp [exponentAt]
+    · exact .nil
+  have hgap : QuaternionPrefixPolynomialEqv (N width)
+      (reindexQuaternionPolynomial swap (polyAdd (cap 4) (polyNeg (polyMul p p))))
+      (polyAdd (cap 4) (polyNeg (polyMul (reindexQuaternionPolynomial swap p)
+        (reindexQuaternionPolynomial swap p)))) := by
+    unfold cap
+    rw [reindexQuaternionPolynomial_add, reindexQuaternionPolynomial_neg,
+      reindexQuaternionPolynomial_mul, reindexQuaternionPolynomial_smul]
+    exact (hone.smul 4).append (.refl _ _)
+  have hc := carrierOfPrefix (reindex_supported swap _)
+    (gap_supported (reindex_supported swap p)) hgap
+  simpa only [blockAngularSquare, blockAngularDerivative, Nat.mul_zero, Nat.zero_add,
+    angularSquare] using hd.symm.trans (hg.trans hc)
+
+private theorem selected_variance_score_floor {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < 1)
+    (K width n scale : Nat) (hK : endpointRelativeCutoff w ≤ K)
+    (hwidth : side scale < width) (block : Nat)
+    (hb : block ∈ observableBlocks scale width hwidth) :
+    let hhead := Nat.le_trans (headCutoff_le_endpointRelativeCutoff w) hK
+    scoreVarianceFloor (marginalScoreCap w) ≤
+      oddVariance hw0 hw1 K width hhead n
+        (sourceCharacter width (paddedSquare scale width hwidth).edges 1) := by
+  dsimp only
+  let p := sourceCharacter width (paddedSquare scale width hwidth).edges 1
+  have hp := BF4ExactSlabFixedSpatialWilsonProbe.sourceCharacter_supported width
+    (paddedSquare scale width hwidth).edges 1
+  have hidx := observableBlocks_lt scale width hwidth block hb
+  have h0 : 0 < N width := Nat.lt_of_le_of_lt (Nat.zero_le block) hidx
+  have hlen : N width-1+1 = N width := Nat.sub_add_cancel h0
+  let swap := headSwapBlockInvolution (N width) block hidx
+  let hhead := Nat.le_trans (headCutoff_le_endpointRelativeCutoff w) hK
+  let W := frameWeight w K width n swap
+  have hmem := of_decide_eq_true (List.mem_filter.mp hb).2
+  obtain ⟨edge,he,hblock⟩ := List.mem_map.mp hmem
+  have hl := (paddedSquare scale width hwidth).physical edge he
+  have hactive : (baseLinks width).idxOf edge.link ∈
+      BF4ExactSlabFixedSpatialKineticMarginals.activeBlocks width := by
+    apply BF4ExactSlabFixedSpatialWilsonActivePadding.source_edges_active_after_padding
+      hwidth (square scale) edge
+    rw [← paddedSquare_edges scale width hwidth]
+    exact he
+  have hrel (i j : Nat) (hi : i < 4) (hj : j < 4) :
+      QuaternionHaarRelativeAngularBound.RelativeBound (N width-1+1) i j W
+        (marginalScoreCap w) := by
+    rw [hlen]
+    simpa only [marginalScoreCap, W, swap, hblock] using
+      frameRelativeBound hw0 hw1 K width n hK edge.link hl hactive hi hj
+  have hlinear : HasQuaternionBlockDegree 0 1 (reindexQuaternionPolynomial swap p) :=
+    blockDegree_reindex swap h0 (headSwapBlockInvolution_map_zero _ _ _)
+      (BF4DyadicWilsonSquareVarianceTaylor.paddedSquare_character_degree
+        scale width hwidth block hb)
+  have hfloor := original_score_variance_floor (tail := N width-1)
+    (marginalScoreCap_positive hw0) hrel
+    (by rw [hlen]; exact reindex_supported swap p)
+    hlinear (by rw [hlen]; exact paddedSquare_head_gamma scale width hwidth block hb)
+    (by rw [hlen]; exact frameMass_positive hw0 hw1 K width hhead n swap)
+  simp only [hlen] at hfloor
+  exact Q'.le_trans' _ _ _ hfloor (Q'.le_of_eqv
+    (by simpa only [oddVariance] using
+      (frameVariance_pin hw0 hw1 K width hhead n swap p hp)))
+
 private theorem gamma_perm (p q : RatPoly) {first second : List Nat} (h : first.Perm second) :
     RatPolyCoeffEqv (activeGamma first p q) (activeGamma second p q) := by
   unfold activeGamma
@@ -276,6 +405,73 @@ private theorem observable_length (scale width : Nat) (hwidth : side scale < wid
           List.idxOf_lt_length_of_mem ((paddedSquare scale width hwidth).physical e he)), by simp [hi]⟩)
   exact hp.length_eq.trans (loopSlots_length scale width hwidth)
 
+/-- Literal amplitude-four original OWN variance floor. The selected active
+link is produced from the nonempty square, not an additional geometry input. -/
+theorem paddedSquare_variance_score_floor {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < 1)
+    (K width n scale : Nat) (hK : endpointRelativeCutoff w ≤ K)
+    (hwidth : side scale < width) :
+    let hhead := Nat.le_trans (headCutoff_le_endpointRelativeCutoff w) hK
+    scoreVarianceFloor (marginalScoreCap w) ≤
+      oddVariance hw0 hw1 K width hhead n
+        (sourceCharacter width (paddedSquare scale width hwidth).edges 1) := by
+  cases hs : observableBlocks scale width hwidth with
+  | nil =>
+      have h := observable_length scale width hwidth
+      rw [hs] at h
+      have hp := side_positive scale
+      simp only [List.length_nil] at h
+      omega
+  | cons block rest =>
+      exact selected_variance_score_floor hw0 hw1 K width n scale hK hwidth block
+        (by rw [hs]; exact List.mem_cons_self)
+
+/-- The finite odd-marginal floor passes through its existing variance
+modulus to the SAME completed time-zero centered norm. No odd/even finite
+partition equality or changing-family convergence is assumed. -/
+theorem paddedSquare_centeredNorm_score_floor {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < 1)
+    (scale width : Nat) (hwidth : side scale < width) :
+    CReal.leEv (CReal.ofQ' (scoreVarianceFloor (marginalScoreCap w)))
+      (BF4WilsonAllNomeCenteredMoments.centeredTimeMoment hw0 hw1 0
+        (BF4WilsonAllNomeLoopTimePin.loopState (paddedSquare scale width hwidth))
+        (BF4WilsonAllNomeLoopTimePin.loopState (paddedSquare scale width hwidth))) := by
+  let e : BF4ExactSlabFixedSpatialWilsonWindow.WindowExpression width :=
+    .loop 0 (paddedSquare scale width hwidth) 1
+  let he : BF4ExactSlabFixedSpatialWilsonWindow.Within 0 e := Nat.le_refl 0
+  let L := BF4WilsonAllNomeMarginalVarianceLimit.varianceLimit hw0 hw1 e he
+  have hlimit : CReal.leEv (CReal.ofQ' (scoreVarianceFloor (marginalScoreCap w))) L := by
+    intro epsilon hepsilon
+    refine ⟨(BF4WilsonAllNomeMarginalVarianceLimit.varianceCauchy hw0 hw1 e he).M
+      epsilon, ?_⟩
+    intro p hp
+    let k := max
+      (BF4WilsonAllNomeMarginalVarianceLimit.varianceCutoffThreshold hw0 hw1 e he epsilon)
+      (endpointRelativeCutoff w)
+    let t := BF4WilsonAllNomeMarginalVarianceLimit.varianceTimeThreshold hw0 hw1 e he epsilon
+    have hK : endpointRelativeCutoff w ≤ headCutoff w+k :=
+      Nat.le_trans (Nat.le_max_right _ _) (Nat.le_add_left _ _)
+    have hfloor := paddedSquare_variance_score_floor hw0 hw1 (headCutoff w+k)
+      width t scale hK hwidth
+    have hclose := (BF4WilsonAllNomeMarginalVarianceLimit.varianceLimit_approx
+      hw0 hw1 e he epsilon hepsilon k t p (Nat.le_max_left _ _) (Nat.le_refl _) hp).1
+    have hfinite : scoreVarianceFloor (marginalScoreCap w) ≤
+        BF4WilsonAllNomeMarginalVarianceLimit.finiteVariance hw0 hw1 e k t := by
+      simpa only [BF4WilsonAllNomeMarginalVarianceLimit.finiteVariance,
+        BF4ExactSlabFixedSpatialWilsonWindow.sourcePolynomial, e, Nat.zero_mul,
+        SU2QuaternionPartialFactorizedHaar.liftBoundary] using hfloor
+    exact Q'.le_trans' _ _ _ hfinite hclose
+  have hpin := BF4WilsonAllNomeMarginalVarianceLimit.varianceLimit_completed_pin
+    hw0 hw1 e he
+  have heq : CReal.Equiv L
+      (BF4WilsonAllNomeCenteredMoments.centeredTimeMoment hw0 hw1 0
+        (BF4WilsonAllNomeLoopTimePin.loopState (paddedSquare scale width hwidth))
+        (BF4WilsonAllNomeLoopTimePin.loopState (paddedSquare scale width hwidth))) :=
+    Quotient.exact (hpin.trans
+      (BF4WilsonAllNomeCenteredVector.centeredVector_diagonal hw0 hw1
+        (BF4WilsonAllNomeCenteredTransferBondLimit.singleSlice e he)))
+  exact CReal.leEv_trans hlimit (CReal.leEv_of_equiv heq)
+
 /-- Full ORIGINAL slice curvature, retaining every spectator insertion. -/
 theorem paddedSquare_gamma (scale width : Nat) (hwidth : side scale < width) :
     let f := sourceCharacter width (paddedSquare scale width hwidth).edges 1
@@ -302,9 +498,6 @@ theorem paddedSquare_gamma (scale width : Nat) (hwidth : side scale < width) :
   exact (RatPolyCoeffEqv.haarCarrier (hperm.trans (happ.trans
     ((hp.add (RatPolyCoeffEqv.refl _)).trans (RatPolyCoeffEqv.zero_add _))))).trans
       (ha.trans (RatPolyCoeffEqv.haarCarrier (RatPolyCoeffEqv.smul_coefficient hc gap)))
-
-attribute [local irreducible] terminalMessage spatialWeight sourceWord sourceCharacter
-  marginalWeight oddMass oddVariance
 
 /-- Actual original odd-marginal character moment. Every parameter remains explicit. -/
 def squareMoment {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
@@ -417,6 +610,9 @@ theorem paddedSquare_varianceRemainder : varianceRemainder hw0 hw1 K width hK n 
       (paddedSquare_ward hw0 hw1 K width hK n scale hwidth)))
 
 #print axioms paddedSquare_block_gamma
+#print axioms paddedSquare_head_gamma
+#print axioms paddedSquare_variance_score_floor
+#print axioms paddedSquare_centeredNorm_score_floor
 #print axioms paddedSquare_gamma
 #print axioms squareMoment
 #print axioms paddedSquare_variance

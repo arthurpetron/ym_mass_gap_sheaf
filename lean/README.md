@@ -16,6 +16,17 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked ORIGINAL variance floor (2026-10-08 UTC):** the literal padded
+dyadic Wilson square now has floor 4/(7+10*C^2+4*C^4), C=marginalScoreCap(w),
+independent of loop size, width and depth after the computed score cutoff.
+The full-carrier amplitude and original OWN center are retained; the EXISTING
+variance limit passes this floor to the SAME completed time-zero norm.
+Both final focused targets and COMPLETE independent source reviews PASS;
+only the permitted axioms, one capped serial worker, no full-tree audit.
+The floor remains nome-dependent and does not pay the current absolute
+time-loss budget. Relative survival and all physical/Clay claims remain OPEN.
+Evidence: adaptive-score audit; canonical chart unchanged.
+
 **Checked ACTUAL odd-excitation boundary screen (2026-10-08 UTC):**
 `BF4WilsonAllNomeFringeTimeKernel.antisymmetric_excitation_time_positive_zero`
 annihilates the existing positive-norm p01-minus-p02 source at every positive

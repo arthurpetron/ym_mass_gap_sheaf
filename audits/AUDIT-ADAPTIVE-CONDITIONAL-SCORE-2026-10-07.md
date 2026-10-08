@@ -8586,3 +8586,71 @@ those are not yet verified by this generic check. Existing prediction-floor
 algebra is preserved; the new floor is an additional explicit bound, not the
 first same-weight coercivity result. Scaling survival, physical mass, SAME
 continuum QFT, every group and Clay remain OPEN. No chart-state change.
+
+### Observed literal-source and completed-norm contraction (2026-10-08 UTC)
+
+The actual join is now kernel-checked in the EXISTING
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareWardMoments.lean`:
+
+- `paddedSquare_head_gamma:259` transports the amplitude-four identity at
+  full Haar-carrier level, using the existing
+  `reindex_blockAngularSquare_carrier`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteAngularSquare.lean:97`.
+  It can be inserted under the full original density, unlike a bare-Haar
+  integral equality.
+- `paddedSquare_variance_score_floor:410` produces the actual loop's active
+  selected link and original relative score certificates. Its only guards
+  are strict nome, strict spatial padding and
+  `endpointRelativeCutoff(w)<=K`; terminal depth is arbitrary. The bound is
+  independent of square size, width, depth and every later cutoff at EACH
+  fixed nome. The action, OWN mean and actual odd partition are unchanged.
+- `paddedSquare_centeredNorm_score_floor:432` retains this floor in the
+  actual original completion's time-zero centered norm. It uses
+  `varianceLimit_approx` and `varianceLimit_completed_pin`,
+  `lean/YMGap/Continuum/BF4WilsonAllNomeMarginalVarianceLimit.lean:191`, `:236`,
+  with explicit cutoff/time/representation thresholds, then
+  `centeredVector_diagonal`,
+  `lean/YMGap/Continuum/BF4WilsonAllNomeCenteredVector.lean:167`.
+  This is precisely the moment defining the existing `dyadicOriginalNorm`,
+  `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicUnitExcitation.lean:57`;
+  no new limit, finite odd/even partition equality or carrier substitution.
+
+Original focused check 3 PASS, exit 0, all three new and seven retained
+printed gates exactly {propext, Quot.sound}. Check1 exposed missing namespace
+opens and expensive unfolding; check2 required explicit definitional pins.
+Repairs added correct opens, kept heavy produced objects locally opaque,
+explicitly unfolded the finite variance/time-zero source, and moved a
+duplicate local opacity annotation. No theorem type, premise, existing
+public API or compiler limit was changed. No source sorry/axiom/classical
+input was added; failed elaborations were not accepted as evidence.
+Independent COMPLETE frozen final-source review PASS. Successful fresh
+preflight: no competing compiler/runner, 84% free memory, zero swap; one
+20-GiB worker, 12-GiB reserve, no root/full-tree audit.
+
+    /private/tmp/ym-oct8-score-variance-original3.log
+    SHA256 0491f9ce98cbedcd3b95e92ad32a83b541cea3d5d87c0f8cb790ebd8de5690ca
+    Final source SHA256 cdbac998d384e5add16bbae625f786f4e9bc107946fba9e959260fa87191ef03
+
+**Next-frontier quantitative screen (PAPER inference, not a new Lean gate):**
+write h=1-w and s=side(scale). The already checked
+`gap_score_square_ge_one`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialScoreCalibrationObstruction.lean:82`,
+gives h*C^2>=1 for 1/2<=w<1. The new explicit formula therefore gives
+floor<=h^2. The original absolute loss ceiling in
+`centered_dyadic_loss_bound`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeCenteredVector.lean:207`, is
+384*s^3*h; the existing relative-energy consumer
+`dyadic_relative_energy_of_loss_budget`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicRelativeSurvival.lean:140`,
+needs that budget paid by 2*delta times the SAME norm, with delta<=1 to
+retain a positive fraction. Using THIS floor as its rational payment would
+require 384*s^3*h<=2*delta*floor, which these certificates cannot supply:
+their bound-to-bound ratio is at least 192*s^3/h. This says nothing about
+the TRUE norm or TRUE energy. Do not turn it into a Yang--Mills obstruction.
+
+CONTINUE the actual action-specific RELATIVE innovation/complete signed
+payment, or direct original macro retention. The stronger fixed-nome norm
+witness can pay approximation/normalization errors; it does not replace
+transmitted-response floors, physical time, scaling survival, SAME continuum
+QFT or every-group inputs. Clay and canonical displayed claims remain OPEN;
+no ASCII reprint.

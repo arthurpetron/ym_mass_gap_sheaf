@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**New original-source variance floor:** the literal dyadic Wilson square has
+an explicit positive variance bound, independent of loop size and width at
+each fixed coupling. It reaches the SAME completed centered norm through
+the existing constructive limit. Focused kernel checks and independent source
+reviews passed. The bound remains coupling-dependent; it does not establish
+continuum survival or pay the current temporal-loss budget. See the
+[checked estimate and next frontier](audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md).
+
 **New original-transfer estimate:** long-lag temporal covariance is bounded
 by `h*(r0*r2-r1^2)` for the SAME completed source at fixed coupling/width,
 at every nonnegative integer shift with an explicit positive response floor.
