@@ -49,13 +49,31 @@ quaternion factors; its scalar and EVERY spin character agree coefficientwise.
 Sol implemented geometry; root implemented the word pin and alone checked
 both leaves. Independent complete-source review passes; 32 printed gates
 stay within {propext, Quot.sound}. No canonical field or chart closure.
-NEXT derive the actual full link-coordinate reindex, original heat/action and
-partition invariance, finite original-window scalar invariance, then SAME
-reflected-form isometry. Existing Haar reindex and completion APIs are inputs,
-not a supplied isometry premise. Stop if an action factor or p12 orientation
-is dropped. No translated-width isometry, surrogate action, continuous
-rotation or continuum QFT claim. Signed scaling remains the primary frontier.
+The actual link-coordinate/Haar and ORIGINAL action joins are now also CHECKED:
+`SpatialAxisSwapHaar` constructs the literal complete-link block involution;
+all directions, including x3, transport without signs. Common padding stays
+explicit and Haar invariance requires actual support. `SpatialAxisSwapAction`
+preserves every chronological heat factor and terminal spatial slice, proving
+H[action*swap(p)]=H[action*p] for every supported insertion on a contained
+window, with arbitrary rational nome/cutoff. The SAME partition is retained;
+no positivity or normalized-law replacement is assumed. Two focused leaves,
+20 permitted gates and independent complete-source review; no proof-limit
+increase, new analytic premise or root/tree audit.
+NEXT transport actual SourceLoop/WindowExpression syntax, retaining edge
+order, inverse flags, time offsets and spins, then derive the existing finite
+original-window scalar pin and SAME reflected-form isometry. Stop if an action
+factor, source path or p12 orientation is dropped. No translated-width
+isometry, surrogate action, continuous rotation or continuum QFT claim.
+Signed scaling remains the primary frontier.
 Evidence and exact focused logs: `audits/AUDIT-PARALLEL-QFT-INPUTS-2026-09-17.md`.
+
+Independent operator-view screen (2026-10-08 UTC): the existing division-free
+edge energy and original prediction-residual pins do not compare consecutive
+source measures a*Ta and Ta*T^2a. Do not turn frozen-source reversibility into
+the missing chronological surviving-norm estimate or add another Doob wrapper.
+The actual initial-energy consumer already exists; a useful family-uniform
+initial fraction is still an unsupplied input. Continue JOINT signed
+action/source control. Evidence: the adaptive audit.
 
 The positive original Ward gradient payment now has a CHECKED reciprocal-free
 upper envelope (2026-10-08 UTC):

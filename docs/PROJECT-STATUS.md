@@ -1,12 +1,25 @@
 # Canonical one-page project status
 
+Supporting ORIGINAL action-weighted spatial-swap identity checked
+(2026-10-08 UTC): the literal complete-link coordinate involution preserves
+H[action*swap(p)]=H[action*p] for every supported insertion. All original
+heat coefficients/spins, time links and the terminal spatial slice remain.
+Common padding is removed only with produced action/image support and
+explicit insertion support; no positivity is assumed. Two focused leaves,
+20 permitted gates, independent complete-source review; no root/tree audit.
+NEXT actual Wilson-loop/window syntax transport and existing normalized
+window pin, then reflected-form isometry. Signed scaling, changing-family
+survival and every continuum/physical/Clay claim remain OPEN. Chart unchanged,
+no reprint. Evidence: `audits/AUDIT-PARALLEL-QFT-INPUTS-2026-09-17.md`.
+
 Supporting SAME-slab spatial swap and original oriented-word pins checked
 (2026-10-08 UTC): literal x1/x2 exchange fixes physical time x3, permutes ALL
 original slab/spatial/temporal/base-link families and commutes with temporal
 reflection/placement. The p12 reversed boundary is proved to be the conjugate
 word, preserving scalar and every spin character without commuting factors.
-Actual Haar-coordinate/action/partition invariance, reflected-form isometry
-and full QFT covariance remain OPEN. Two focused leaves/32 permitted gates,
+At this initial geometry/word checkpoint the actual Haar/action join was
+still OPEN; its subsequent checked advance is recorded above. Reflected-form
+isometry and full QFT covariance remain OPEN. Two focused leaves/32 permitted gates,
 independent full-source review; no root/tree audit. Signed scaling remains
 the primary frontier. Displayed chart unchanged, no reprint. Evidence:
 `audits/AUDIT-PARALLEL-QFT-INPUTS-2026-09-17.md`.

@@ -59,6 +59,20 @@ CONTINUE only with action/source-specific JOINT control across these literal
 transitions, or an independent actual signed response credit. No supplied
 conclusion, raw Wilson Casimir substitution or changing-family survival claim.
 
+Independent frozen-source operator-view screen (2026-10-08 UTC, source review
+only): `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialDirichletForm.lean:267`,
+`energy_identity`, already pins twice the original energy to the division-free
+edge jump form. `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLastStepPredictionEnergy.lean:201`,
+`lastStepPredictionResidual_energy_pin`, retains the original diagonal V*a*Ta.
+Neither statement compares that measure with the next V*Ta*T^2a or bounds
+the unpaid coupled Ward/Taylor expression in the next surviving norm.
+Do not re-export these identities as a new scaling producer. The alternate
+initial-energy consumer already exists at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLocalEnergyTransport.lean:224`,
+`original_block_cost_le_initial_energy`; its literal `hlocal` input remains
+to be produced with a useful changing-family fraction. No new Doob wrapper,
+conditional frontier field or proof claim is added by this screen.
+
 Bounded estimate: on ACTUAL a=g_d, A=Ta, Ephi=T(a*(Jphi)^2), Vbar and
 the existing finite G_k(A), test H[Vbar^2*G_k^2*A^3*Ephi]
 <=H[Vbar^2*A*Ephi], coefficient ONE for every finite k. Produce the A

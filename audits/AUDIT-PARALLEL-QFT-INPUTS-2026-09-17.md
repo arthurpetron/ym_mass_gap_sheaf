@@ -180,3 +180,47 @@ Those joins remain OPEN. These leaves do not establish a width-changing
 isometry, continuous rotations, continuum Euclidean covariance, physical
 mass calibration, a uniform scaling estimate or any Clay conclusion.
 No displayed chart claim changed; no chart reprint.
+
+### Subsequent 2026-10-08 UTC: actual coordinates and ORIGINAL action
+
+The previous finite geometry/word checkpoint's open Haar/action join is now
+proved, not assumed. Normalized Wilson-window source transport, SAME
+reflected-form isometry and full continuum covariance are still OPEN.
+
+| Declaration | Source, relative to `lean/YMGap/Continuum/` | Exact checked scope |
+| --- | --- | --- |
+| `swapBlock`, `swapBlock_physical`, `linkAt_swapBlock`, `swapBlock_involutive` | `BF4ExactSlabSpatialAxisSwapHaar.lean:47`, `:51`, `:57`, `:64` | Actual idxOf of the swapped complete-slab link; bounds/involution proved using the literal list, not an abstract supplied permutation. |
+| `swapQuaternionBlockInvolution`, `swapPolynomial_haar` | `BF4ExactSlabSpatialAxisSwapHaar.lean:73`, `:102` | Produced full coordinate involution and original Haar invariance for explicitly supported polynomials. |
+| `link_swap_prefix`, `link_swap` | `BF4ExactSlabSpatialAxisSwapHaar.lean:121`, `:144` | All four original coordinates, all link directions including x3, with no signs. Off-list identity fallback is also preserved. |
+| `plaquette_scalar_swap`, `plaquette_character_swap` | `BF4ExactSlabSpatialAxisSwapHaar.lean:174`, `:193` | Actual reindexed plaquette scalar and EVERY spin character, using the conjugate p12 word and explicit common padding. |
+| `swap_originalChainFaces_perm` | `BF4ExactSlabSpatialAxisSwapAction.lean:69` | Every original selected face, including the terminal spatial slice, on a contained chronological window. |
+| `heatAtFace`, `heatAtFace_support`, `heatAtFace_swap` | `BF4ExactSlabSpatialAxisSwapAction.lean:79`, `:96`, `:108` | Recoding of actual faceHeatPolynomial to raw faces retains literal coeffAt(heatKernelPacket K w) and full range(K+1); support and swap pin are produced. |
+| `originalChainAction_support`, `originalChainAction_swap` | `BF4ExactSlabSpatialAxisSwapAction.lean:144`, `:151` | SAME originalChainAction, arbitrary rational w/K, with width<=extent+1 and start+steps<=extent; every factor and endpoint unchanged. |
+| `originalChainAction_weighted_haar_swap` | `BF4ExactSlabSpatialAxisSwapAction.lean:169` | H[action*swap(p)]~=H[action*p] for every supported insertion. SAME action/partition, no positivity premise; image/action support is produced before common padding is removed. |
+
+Sol authored the initial Haar leaf; root repaired namespace opens and made
+the quaternion-scalar/common-padding conversion explicit. This eliminated
+the deterministic reduction timeout without increasing any proof option.
+Root authored the action leaf, read both final complete sources and alone
+performed their serialized narrow checks. Independent initial and final
+complete-source reviews pass, including all coefficients, inverse flags,
+time links, support premises and terminal-slice retention. No `sorry`, axiom,
+classical/native decision, new analytic premise or canonical field change.
+
+Passing focused logs: Haar has 13 and action seven printed gates, all exactly
+{propext, Quot.sound}. One worker, hard 20 GiB ceiling, 12 GiB reserve; each
+fresh preflight found no competing compiler/runner, 88% system-wide free
+memory and zero swap. No full-tree/root build or audit:
+
+- `/private/tmp/ym-spatial-axis-swap-haar-20261008d.log`, SHA256
+  `19be6ae7875687f257882c433b00e1fe302d54ebfe0ddbe845962f6763949b4d`.
+- `/private/tmp/ym-spatial-axis-swap-action-20261008c.log`, SHA256
+  `cae7124daabb7529b870f6ce19af84ca8cfab3813565e05f2e99ea11de93f57c`.
+
+NEXT actual ordered SourceLoop transport and the original WindowExpression
+source/placement pin. Keep every reverse flag and word order (unlike the
+canonical face comparison, an arbitrary mapped loop is not reordered), then
+retain the SAME finite normalization before passing to the actual reflected
+form. No completion wrapper or freely supplied isometry is a substitute.
+Signed scaling and every displayed physical/Clay claim remain OPEN; no chart
+claim changed or was reprinted.
