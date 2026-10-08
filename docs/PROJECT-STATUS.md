@@ -1,5 +1,13 @@
 # Canonical one-page project status
 
+Supporting weighted-time sign shortcut pruned (2026-10-08 UTC): an exact
+two-state positive weighted transfer retains both chronological partitions,
+complete conditional noise and literal OWN centering, yet its weighted time
+difference is 3045/9248>0. This is not an SU(2) or full Ward/Taylor
+counterexample. Actual JOINT signed scaling control stays OPEN. One focused
+check and independent source review; no full-tree audit. Displayed claims
+unchanged, no chart reprint. Evidence: the adaptive-conditional-score audit.
+
 Supporting SAME-OWN Gram contraction checked (2026-10-08 UTC): the actual
 denominator is V=16*S-8*E+Dplus-M^2, preserving original energy, OWN variance,
 the literal nonnegative source-response square and mean correction. The

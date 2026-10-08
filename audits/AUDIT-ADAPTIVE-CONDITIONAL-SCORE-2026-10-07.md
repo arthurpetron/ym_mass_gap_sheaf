@@ -4,6 +4,77 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Weighted chronological sign screen (2026-10-08 UTC)
+
+Selected proposition: test whether original-form positive weighted transfer,
+chronological partitions and OWN centering alone sign the additional weighted
+time residue. Its source consumer is the proposed adjacent-stage cancellation
+of the positive incoming Ward payment, not a new physical frontier bundle.
+
+Source-level algebra (NOT a new Lean theorem) from
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTransferSymmetry.lean:97`,
+`transferStep_weighted_symmetric`, generalizes
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLastStepNoiseDissipation.lean:86`,
+`lastStepNoise_endpoint_pin`. With A=Ta, b=T(a*phi), N=A*T(a*phi^2)-b^2,
+z=ell_V(a^2), v=ell_V(A^2), the cleared weighted difference equals
+
+```text
+z*(ell_V[Theta_out*N]+ell_V[Theta_out*b^2])
+  -v*ell_V[Theta_in*(a*phi)^2]
+ = ell_V[a*phi^2*(z*T(Theta_out*A)-v*Theta_in*a)].
+```
+
+Setting BOTH Theta weights to Vbar retains
+`z*(T(Vbar*A)-Vbar*T(A))+Vbar*(z*T(A)-v*a)`.
+Neither the spatial transfer commutator nor the chronological vacuum defect
+is removed by partition multiplication. The incoming Ward density genuinely
+contains T(Vbar*A): `RatioNoiseWardAbsorption.original_ratioNoise_gradientPayment_weighted_pin`
+at `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.lean:384`.
+The complete derivative also retains J(V):
+`LastStepSourceDerivative.lastStepSourceDerivative_expansion` at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLastStepSourceDerivative.lean:80`.
+
+NEW CHECKED diagnostic in
+`lean/YMGap/Continuum/RationalWeightedTemporalResidueObstruction.lean`:
+
+- `heat_kernel_pin:60`, `transfer_symmetric:75` and `transfer_positive:112`
+  certify the actual two-state K=[[3/4,1/4],[1/4,3/4]], V=(2,3), T=K*M_V.
+  Weighted symmetry and positivity hold for ALL rational probes, not just
+  the counterexample. K has positive entries and unit row mass.
+- `chronological_pins:126` computes A=(9/4,11/4), z=5/2 and v=525/32
+  from the literal a=1. `own_mean_pin:144` centers f=(1,0) in the actual
+  VaA edge law: mass=51/8, mean=6/17. `own_variance_positive:149`
+  rules out a degenerate excitation. `noise_pin:163` gives N=(9/8,9/8).
+- `centered_residue_pin:154` gives the positive integral 3045/9248.
+  `weighted_time_difference_pin:173` retains the extra spatial insertion,
+  BOTH computed partitions and complete noise; `weighted_time_difference_positive:174`
+  proves that exact difference is positive. No inverse approximation or
+  stationary source is substituted.
+
+Decision: PRUNE ONLY automatic nonpositive weighted-telescope residue from
+those generic inputs. This d=0 two-state diagnostic is not an SU(2) action,
+a positive-filter-depth BF4 counterexample or a refutation of the full two
+signed Ward responses plus BOTH Taylor terms. It pays no actual scaling cost.
+NEXT remains a source/action-specific JOINT estimate against the SAME surviving
+variance, consumed by `lean/YMGap/Continuum/BF4WilsonAllNomeWindowSignedCost.lean:245`,
+`original_window_budget_macro_ratio`. The parallel projected-q^2 Ward screen
+also supplied no favorable sign or useful joint inequality; no raw-q^2
+standalone cap is promoted to a necessary hypothesis.
+
+Root complete-source and independent complete-source mathematical reviews PASS.
+One focused monitored check passes; all 17 printed gates are permitted (13
+axiom-free, four exactly {propext, Quot.sound}). Final log:
+
+```text
+/private/tmp/ym-weighted-temporal-residue-20261008a.log
+SHA256 4de38b69e80606ee038d574dd6f547c611a4a3d24044a9b95869f7bd00c64396
+```
+
+Fresh preflight: no competing compiler, 87% system-wide free and zero swap.
+One worker, hard 20-GiB ceiling and 12-GiB reserve. Root import registered only;
+no root/full-tree build, audit, guard, baseline refresh, hole, axiom or canonical
+field change. Broad chart claims unchanged; no reprint.
+
 ## Live source reconciliation and checked SAME-OWN contraction (2026-10-08 UTC)
 
 Historical NEXT entries in this audit do not override the current source.

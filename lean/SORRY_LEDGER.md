@@ -1,5 +1,16 @@
 # Sorry Ledger
 
+## PROVED finite weighted-time sign obstruction, OPEN original joint bound (2026-10-08 UTC)
+
+`RationalWeightedTemporalResidueObstruction.weighted_time_difference_positive`
+certifies the strictly positive weighted residue with an actual positive
+weighted transfer, BOTH chronological partitions, conditional noise and OWN
+center/positive variance. It prunes a generic nonpositive-telescope inference,
+not the full SU(2) Ward/Taylor combination or the positive-depth BF4 family.
+Actual joint signed scaling remains OPEN. One focused check/all gates permitted,
+independent full-source review; no new hole/axiom, canonical field change or
+full-tree audit. Evidence: the adaptive-conditional-score audit.
+
 ## PROVED SAME-OWN denominator contraction, OPEN joint response credit (2026-10-08 UTC)
 
 `SU2QuaternionProductHeatSumNorm.sumTest_norm_energy_pin` contracts the

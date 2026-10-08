@@ -7924,3 +7924,8 @@ import YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapTimeSector
 -- Cofinal AF reference decay forces large ORIGINAL signed cancellation
 -- for a useful initial energy fraction; it does not produce that fraction.
 import YMGap.Continuum.BF4DyadicWilsonSquareAFSignedCancellation
+
+-- Finite chronological sign diagnostic, NOT a BF4/SU(2) instance.
+-- Positive weighted transfer and literal OWN centering alone cannot sign
+-- the extra spatially weighted temporal residue.
+import YMGap.Continuum.RationalWeightedTemporalResidueObstruction

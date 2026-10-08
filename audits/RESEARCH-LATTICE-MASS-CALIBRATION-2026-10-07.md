@@ -86,3 +86,47 @@ finite-spacing Kogut--Susskind equality is added to a hypothesis bundle.
 The genuine interacting-energy estimate, independent AF survival, actual
 all-vector comparison, physical/volume control and SAME limiting QFT remain
 the work. No chart claim changes from this research review.
+
+## Concrete source-family lead: spatial-only smearing (2026-10-08 UTC)
+
+Targeted primary-source screen, not a new listing scan. Sakai--Sasaki,
+sections II.A--B, explains that four-dimensional flow mixes temporal support;
+equations (3)--(4) instead evolve only spatial links using spatial plaquettes.
+This is a numerical spectroscopy method, not a constructive continuum
+existence or nonzero-overlap theorem. Lohmayer--Neuberger, section 6, likewise
+distinguishes spatial-only Hamiltonian smearing from spacetime smearing;
+section 4 discusses the regulated perimeter term. We do NOT import its
+four-dimensional finiteness assertions as a proved spatial-flow input.
+[Sakai--Sasaki, sections II.A--B](https://arxiv.org/html/2211.15176).
+[Lohmayer--Neuberger, sections 4 and 6](https://arxiv.org/html/1110.3522).
+
+Independent read-only source map found a usable EXISTING carrier, not a
+smearing producer:
+
+- `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonProbe.lean:44`,
+  `SourceLoop`, certifies ordered, compatible, closed SAME-base-link paths.
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonWindow.lean:49`,
+  `WindowExpression`, accepts signed finite sums/products. Offset zero and
+  `source_supported:124` give one-slice polynomial support;
+  `expression_pin:172` and `placed_ledger_invariant:232` join the actual
+  slab placement, not a new action.
+- `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonWindowTimeLimit.lean:123`,
+  `originalWindowScalar_pin`, retains original normalization/transfer.
+  `lean/YMGap/Continuum/BF4WilsonAllNomeCenteredVector.lean:152`,
+  `centeredExcitation`, constructs its actual completed centered vector;
+  `centeredVector_time_pairing:159` and `centeredVector_diagonal:167`
+  pin its responses and norm.
+- `lean/YMGap/Continuum/BF4WilsonAllNomeExprAnchorTrajectory.lean:235`,
+  `ExprAnchorTrajectory`, accepts an explicit scale-dependent expression.
+  `ExprHVar:267`, `ExprHRay:273`, and `ExprShiftedWindowSurvival:291`
+  are OPEN inputs for the new source. Its radius is temporal box smoothing,
+  not spatial link flow. The smoothed-loop comment at line 40 constructs
+  nothing; no such constructor was found in these modules.
+
+Plan use: investigate spatial-only original-algebra approximants only when
+actual paths/weights and approximation moduli can be supplied, followed by
+their OWN completed norm/Rayleigh and window bounds. A finite Wilson mixture
+is not automatically a flowed link; unitary nonlinear projection or flow
+requires its own certified approximation. Do not reuse square-source floors
+for a changed source, change the original action, or claim continuum survival
+from operator smearing. The signed interacting estimate remains primary.

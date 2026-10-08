@@ -27,6 +27,29 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+The adjacent-stage sign shortcut is now PRUNED by a CHECKED finite diagnostic
+(2026-10-08 UTC). `RationalWeightedTemporalResidueObstruction` retains
+T=K*M_V, the V-weighted form, a=T^0*1, BOTH chronological partitions,
+the actual conditional noise and literal OWN centering. Its weighted time
+difference is 3045/9248>0 despite positive symmetric transfer. This is not
+an SU(2) action or a test of the full Ward/Taylor combination. Do not discard
+the spatial commutator or chronological vacuum defect by symmetry/centering.
+NEXT: control them JOINTLY with the signed original responses in the existing
+`WindowSignedCost.original_window_budget_macro_ratio` currency; do not build
+another equivalent Ward consumer. One focused check and independent full-source
+review pass. Evidence: the adaptive-conditional-score audit.
+
+The user's lattice-measurement note also motivates a bounded SAME-carrier
+source-family screen, not a measured mass premise. Spatial-only smearing is
+the relevant candidate; temporal box smoothing is already available but is
+not spatial link smearing. The existing `ExprAnchorTrajectory` accepts an
+explicit source, but produces neither a spatial-smearing construction nor
+that source's completed variance/Rayleigh floors and window survival. Require
+those joins before selecting a new family; do not silently substitute it for
+the square or import four-dimensional flow finiteness into spatial flow.
+Primary-source checks and the exact existing interfaces are recorded in
+`audits/RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md`.
+
 The actual connected-Gram denominator now has a CHECKED contraction
 (2026-10-08 UTC): `SourceVarianceGram.centered_denominator_energy_pin`
 gives V=16*S-8*E+Dplus-M^2, S=Z*OWN variance, with the actual original
