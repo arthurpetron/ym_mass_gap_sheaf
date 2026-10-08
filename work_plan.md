@@ -27,6 +27,31 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED MAIN route screen (2026-10-08 UTC):
+`DyadicWilsonSquareHeatImage.paddedSquare_fundamental_family_haar_zero`
+proves zero bare-Haar overlap of the original signed spatial plaquette
+span with a padded distinct-edge dyadic Wilson square of side>1. Existing
+`FamilyHeatEigen.spatialSpan_fullRange`,
+`DyadicWilsonSquareHeatImage.paddedSquare_fundamental_fullRange` and
+`ProductHeatDualForm.kineticPair_symm` supply the short proof: the two heat
+eigenvalues differ. This tests the proposed geometry-only long-loop reserve
+join, not survival under the original interacting law. Actual consumer being
+screened: `DyadicWilsonSquareLoopModeReserve.paddedSquare_transfer_loop_mode_floor`,
+whose tested overlap includes the action and transmitted source and still
+needs comparison with OWN variance and BOTH masses. Side=1 is deliberately
+excluded; arbitrary signs, repetitions and zero profiles are retained.
+Observed: 74-line addition to the EXISTING heat-image leaf; focused check 1
+PASS, all four public gates permitted; independent COMPLETE frozen 239-line
+final-source review PASS. Fresh successful dynamic preflight, one 20-GiB
+worker and 12-GiB reserve; no root/full-tree build or audit. The fixed reference
+w=2,K=1 is algebraic only, allowed by the actual eigenimage/symmetry APIs;
+it is not a physical nome or the original interacting transfer. No physical
+premise, assumption bundle or source substitution was introduced.
+PRUNE the bare-geometry overlap join, not the interacting survival route.
+CONTINUE actual action-generated/transmitted overlap or complete signed
+credit/innovation. Exact declarations and hashes: adaptive-score audit.
+No canonical proof/expansion state changes; no chart reprint.
+
 Targeted paper review integrated (2026-10-08 UTC, user request):
 `audits/RESEARCH-2610-09093-2026-10-08.md` records the long paper and companion
 review, exact relevant equations, SAME-original-source consumers and access

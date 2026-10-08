@@ -6973,3 +6973,79 @@ join, scaling/signed-cost estimates, independent survival, completed OS
 comparison, physical/volume control, SAME limiting QFT, every group and Clay
 remain OPEN. The displayed canonical claims have not changed, so no chart
 reprint is warranted.
+
+## Exact bare-Haar family/long-loop obstruction (2026-10-08 UTC)
+
+The bounded MAIN screen recorded in `work_plan.md` now has kernel evidence.
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareHeatImage.lean:187`,
+`paddedSquare_fundamental_family_haar_zero`, proves
+
+    H[spatialSpan(width,c,qs) * fundamental(paddedSquare(scale,width))] = 0
+
+as rational equivalence, assuming only strict physical padding,
+`1 < side scale`, and membership of every literal family face in
+`spatialFaces width`. Arbitrary signs, repeated faces, empty families and
+zero coefficients are allowed. The side-one equal-eigenvalue case is
+deliberately excluded. No interacting measure appears in this statement.
+
+The proof uses the ACTUAL eigenimages
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyHeatEigen.lean:42`,
+`spatialSpan_fullRange`, and the existing square theorem in
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareHeatImage.lean:108`,
+`paddedSquare_fundamental_fullRange`. Symmetry is
+`lean/YMGap/Continuum/SU2QuaternionProductHeatDualForm.lean:44`,
+`kineticPair_symm`. Each API is algebraic for arbitrary rational reference
+nome. Choosing reference w=2,K=1 yields
+
+    [2^(12*side scale)-2^12] * H[f*F] = 0.
+
+Exact numerator/denominator induction and strict natural-power comparison
+make the bracket positive. The constructive cancellation is
+`lean/YMGap/Constructive/CauchyConv.lean:56`, `Q'.mul_eqv_zero_of_pos`.
+The reference w=2 is NOT a physical nome or a replacement original action.
+No division by an unknown state norm or spectral measure is used.
+
+Observed verification: focused overlap check 1 PASS, exit 0; all four public
+printed gates use only {propext, Quot.sound}. Root read the entire changed
+source and actual called APIs; independent COMPLETE frozen 239-line source
+mathematical review PASS. The launch followed a fresh successful conflict/
+memory preflight, one capped 20-GiB worker, 12-GiB reserve and zero swap.
+No root/full-tree build or axiom audit; no new sorry, analytic input, module,
+frontier weakening or scorecard closure.
+
+    source SHA256 2df0970448548c753a6f57ace9fb5a0b3848650bf5428b1159a888b377ca95e7
+    /private/tmp/ym-oct8-family-loop-orthogonal1.log
+    log SHA256 179a70afce55d2023a53248bda43b6f14c51c55bb134fe7c08222dc8d4ac303e
+
+### Decision and actual consumer
+
+PRUNE only the geometry-only bare-Haar overlap join. Spatial coefficient
+averaging does not change the whole family's bare w^12 eigenimage, and its
+bare overlap with the proposed larger square trial is exactly zero.
+
+The ORIGINAL trial bound
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareLoopModeReserve.lean:159`,
+`paddedSquare_transfer_loop_mode_floor`, still applies to arbitrary supported
+signed h, but its moments are weightedMass(h) and weightedMass(h*F).
+`weightedMass` retains the full original spatial action; an actual family
+source additionally retains its terminal message and original transmission.
+The checked zero above cannot be substituted for either weighted moment.
+The OWN-centered loop-cost specialization at `:217`,
+`paddedSquare_own_block_cost_loop_reserve`, uses its OWN long-loop source,
+not the current plaquette family's centered source. That source is not
+silently substituted here. A useful family reserve still needs actual
+action-generated/transmitted overlap relative to its OWN surviving variance
+and BOTH chronological masses.
+
+The direct alternative remains
+`lean/YMGap/Continuum/BF4WilsonAllNomePositiveOrbitResponseOrder.lean:696`,
+`signedOrbit_response_credit_identity`: pay its COMPLETE original signed
+right-hand side, including negative early covariance, rather than infer
+survival from late-credit positivity or from bare geometric trials.
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedPredictionPayment.lean:505`,
+`blockConditionalRatio_noiseCost_abs_le`, still provides the actual cost/noise
+approximation, not the missing relative innovation ceiling.
+CONTINUE these action-specific producers; no extra overlap assumption bundle
+or conditional compiler is added. Interacting survival, rate control,
+physical calibration, continuum/QFT, every group and Clay remain OPEN.
+Canonical displayed proof/expansion claims are unchanged; no chart reprint.

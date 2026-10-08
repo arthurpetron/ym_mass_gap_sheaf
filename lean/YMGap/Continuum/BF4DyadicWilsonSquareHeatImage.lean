@@ -12,6 +12,9 @@ eigenmode or supplies the label-two square channel.
 import YMGap.Continuum.BF4DyadicWilsonSquareNodup
 import YMGap.Continuum.SU2QuaternionProductHeatWilsonWord
 import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonActivePadding
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyHeatEigen
+import YMGap.Continuum.SU2QuaternionProductHeatDualForm
+import YMGap.Constructive.CauchyConv
 
 namespace YMGap.Continuum.BF4DyadicWilsonSquareHeatImage
 
@@ -19,7 +22,11 @@ set_option autoImplicit false
 
 open YMGap.Constructive
 open YMGap.Continuum.BF4CompactActionCPOrder
-open YMGap.Continuum.RingNormaliser (qpow)
+open YMGap.Continuum.RingNormaliser (qpow poly_identity_of_normal_eq)
+open YMGap.Continuum.ClusterCount4DProgress (Z4Plaq)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialFacePlacement (spatialFaces)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteFamilySchedule
+  (spatialSpan spatialSpan_supported)
 open YMGap.Continuum.BF4GeometricSpinNetworkMehler
 open YMGap.Continuum.BF4GeometricHaarMehlerProjection
 open YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics
@@ -160,8 +167,73 @@ theorem paddedSquare_fundamental_mixed_moment
     (Q'.eqv_trans _ _ _ hsmul
       (Q'.mul_eqv_congr_left _ _ _ hassoc))
 
+private theorem qpow_two_num : ∀ n : Nat, (qpow 2 n).num = (2^n : Nat)
+  | 0 => rfl
+  | n+1 => by
+      show (qpow 2 n).num * 2 = (2^(n+1) : Nat)
+      rw [qpow_two_num n, Nat.pow_succ, Int.natCast_mul]; rfl
+
+private theorem qpow_two_den : ∀ n : Nat, ((qpow 2 n).den : Int) = 1
+  | 0 => rfl
+  | n+1 => by
+      rw [RingNormaliser.qpow_succ, Q'.mul_den_cast, qpow_two_den n]
+      rfl
+
+/-- Bare Haar orthogonality to every signed spatial plaquette span, with
+repeated faces and zero coefficients allowed. The side-one square has the
+same heat eigenvalue as a plaquette and is deliberately excluded. The
+reference w=2 is only algebraic; this does not assert orthogonality under
+the ORIGINAL interacting action or pay its transmitted-source overlap. -/
+theorem paddedSquare_fundamental_family_haar_zero
+    (scale width : Nat) (hwidth : side scale < width) (hside : 1 < side scale)
+    (c : Z4Plaq → Q') (qs : List Z4Plaq)
+    (hqs : ∀ p, p ∈ qs → p ∈ spatialFaces width) :
+    H width (polyMul (spatialSpan width c qs)
+      (sourceCharacter width (paddedSquare scale width hwidth).edges 1)) ≈ 0 := by
+  let f := spatialSpan width c qs
+  let F := sourceCharacter width (paddedSquare scale width hwidth).edges 1
+  let m := H width (polyMul f F)
+  let a := qpow 2 (12*side scale)
+  let b := qpow 2 12
+  have hf := spatialSpan_supported width c qs
+  have hF := sourceCharacter_supported width (paddedSquare scale width hwidth).edges 1
+  have hleft : SU2QuaternionProductHeatDualForm.kineticPair (N width) 2 1
+      (List.range (N width)) f F ≈ a*m :=
+    Q'.eqv_trans _ _ _
+      (paddedSquare_fundamental_fullRange scale width hwidth 2 1 (Nat.le_refl 1) f hf)
+      (quaternionHaar_polyMul_smul_right (N width) a f F)
+  have hright : SU2QuaternionProductHeatDualForm.kineticPair (N width) 2 1
+      (List.range (N width)) F f ≈ b*m :=
+    Q'.eqv_trans _ _ _
+      (BF4ExactSlabFixedSpatialFamilyHeatEigen.spatialSpan_fullRange width c qs hqs
+        2 1 (Nat.le_refl 1) F hF)
+      (Q'.eqv_trans _ _ _ (quaternionHaar_polyMul_smul_right (N width) b F f)
+        (Q'.mul_eqv_congr_left _ _ _ (haar_of_coeff (RatPolyCoeffEqv.mul_comm F f))))
+  have hab : a*m ≈ b*m := Q'.eqv_trans _ _ _ hleft.symm
+    (Q'.eqv_trans _ _ _
+      (SU2QuaternionProductHeatDualForm.kineticPair_symm (N width) 2 1
+        (List.range (N width)) (fun i hi => List.mem_range.mp hi) f F hf hF) hright)
+  have hpos : (0 : Q') < a + -b := by
+    have hp := Int.ofNat_lt.mpr (Nat.pow_lt_pow_of_lt (by decide : 1 < 2)
+      (show 12 < 12*side scale by omega))
+    show (0 : Int) * ((a + -b).den : Int) < (a + -b).num * 1
+    simp only [Q'.add_num_cast, Q'.neg_den, Int.zero_mul]
+    change 0 < ((qpow 2 (12*side scale)).num * ((qpow 2 12).den : Int) +
+      -(qpow 2 12).num * ((qpow 2 (12*side scale)).den : Int)) * 1
+    rw [qpow_two_num, qpow_two_num, qpow_two_den, qpow_two_den]
+    omega
+  apply Q'.mul_eqv_zero_of_pos hpos
+  exact Q'.eqv_trans _ _ _
+    (poly_identity_of_normal_eq
+      (.mul (.add (.var 0) (.neg (.var 1))) (.var 2))
+      (.add (.mul (.var 0) (.var 2)) (.neg (.mul (.var 1) (.var 2))))
+      (by decide) (fun | 0 => a | 1 => b | _ => m))
+    (Q'.eqv_trans _ _ _ (Q'.add_eqv_congr' hab (Q'.eqv_refl _))
+      (Q'.add_neg_self_eqv (b*m)))
+
 #print axioms paddedSquare_fringe_independent
 #print axioms paddedSquare_fundamental_fullRange
 #print axioms paddedSquare_fundamental_mixed_moment
+#print axioms paddedSquare_fundamental_family_haar_zero
 
 end YMGap.Continuum.BF4DyadicWilsonSquareHeatImage
