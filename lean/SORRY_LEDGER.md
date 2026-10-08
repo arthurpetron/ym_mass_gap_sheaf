@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## PROVED second finite spatial generator / OPEN completed cubic and continuum covariance (2026-10-08 UTC)
+
+`BF4ExactSlabSpatialHeadSwapGeometry` realizes x0/x1 on the SAME finite slab,
+fixes physical time x3, preserves complete carrier/boundary multiplicities
+and proves the five literal braid identities with the existing x1/x2 map.
+`SpatialHeadSwapWord.swappedFaceWord_scalar` handles p01 by conjugate reversal;
+`SpatialHeadSwapHaar` constructs the actual coordinate-index involution.
+`SpatialHeadSwapAction.originalChainAction_weighted_haar_swap` proves full
+ORIGINAL action-weighted Haar invariance for supported insertions, retaining
+every heat coefficient/spin, chronological factor and terminal spatial slice.
+No supplied symmetry/isometry or new analytic premise. The new generator's
+Wilson/reflected/completed action and full cubic/continuum covariance are
+OPEN; joint signed scaling and all physical/Clay obligations remain OPEN.
+Four focused one-worker 20-GiB checks and independent final-source review
+pass; all 64 printed gates are empty or within {propext, Quot.sound}.
+Root imports registered only; no root/tree audit, new hole/axiom, classical/
+native shortcut, limit increase, canonical field or chart closure. Evidence
+and exact logs/source hashes: the parallel QFT-inputs audit dated 2026-09-17.
+
 ## PROVED fixed-member filtered-profile join, OPEN signed scaling budget (2026-10-08 UTC)
 
 `BF4ExactSlabFixedSpatialWilsonOwnCenterLimit` now handles arbitrary

@@ -7925,6 +7925,14 @@ import YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapAlgebra
 import YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapCompletion
 import YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapTimeSector
 
+-- Second finite spatial generator x0/x1, with literal braid geometry
+-- and SAME original-action Haar invariance. Its p01 word reverses.
+-- No completed S3 action or continuum covariance is asserted.
+import YMGap.Continuum.BF4ExactSlabSpatialHeadSwapGeometry
+import YMGap.Continuum.BF4ExactSlabSpatialHeadSwapWord
+import YMGap.Continuum.BF4ExactSlabSpatialHeadSwapHaar
+import YMGap.Continuum.BF4ExactSlabSpatialHeadSwapAction
+
 -- Cofinal AF reference decay forces large ORIGINAL signed cancellation
 -- for a useful initial energy fraction; it does not produce that fraction.
 import YMGap.Continuum.BF4DyadicWilsonSquareAFSignedCancellation

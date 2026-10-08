@@ -4,6 +4,56 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Bounded loop-moment compression screen (2026-10-08 UTC)
+
+Targeted primary-source research alongside the finite spatial-symmetry check;
+not a routine arXiv listing scan and not a new proved scaling estimate.
+Kazakov--Zheng's finite-N bootstrap uses SU(2) trace identities to close
+Wilson-action loop equations on single traces. Its sections 3 and 4.2 use
+Hermitian/reflection positive moment matrices and a Schwinger--Dyson-generated
+finite hierarchy. Section 4.3 reports plaquette bounds and qualitative string
+tension estimates; section 5 retains the local-region/large-loop bottleneck
+and does not supply our scaling survival theorem. The action in equation (20)
+is the exponential Wilson action, not the current finite heat-prefix action.
+Do not import its loop equations unchanged.
+[Primary paper, equations (1), (20), (76), sections 4.3 and 5](https://arxiv.org/html/2404.16925v2).
+
+Root inspection and a bounded Sol read-only review locate existing original
+constraints. `lean/YMGap/Continuum/BF4ExactSlabLocalHaarWard.lean:51`,
+`fullAction_pair_pin`, retains every incident AND complementary heat factor;
+`fullAction_local_ward:85` gives H[R*((DA)*f+A*(Df))]=0 with proved DR=0.
+`fullAction_score_identity:106` is already present. There is no reason to
+build that Ward interface again. From the literal `PolyQuaternion.conj:130`
+and `PolyQuaternion.mul:138` in
+`lean/YMGap/Continuum/BF4GeometricSpinNetworkMehler.lean`, scalar-component
+algebra gives 2*sc(U)*sc(V)=sc(UV)+sc(U*conj(V)). This is a DERIVATION, not
+a newly checked named trace-reduction declaration. Interpreting both terms
+as actual source loops also requires compatible basepoints; conjugate is
+inverse only with the unit relation. Full-action dependence cannot be
+discarded under an independent-tail fusion hypothesis.
+
+Critical normalization test: write S=ell(b*b), J=ell(b*T(b)). The existing
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockRayleighSplit.lean:131`,
+`clearedRayleighCost`, gives C=Z1*S-Z0*J. The actual definitions
+`lean/YMGap/Continuum/BF4WilsonAllNomeOriginalRayleighLimit.lean:84`,
+`originalOwnBlockVariance`, and `originalOwnBlockCost:89` give v=S/Z0,
+e=C/(Z0*Z1). Algebraically, Z0*Z1*(c*v-e)=(c-1)*Z1*S+Z0*J.
+Thus the normalized comparison is not an affine objective in unspecified
+moments of ONE marginal: both chronological masses and OWN center must be
+certified. Each lag retains its own Z0,Z1. A single stationary Wilson-action
+moment matrix does not identify them or the current full heat transfer.
+
+Decision: retain loop/SOS compression as an unimplemented candidate for an
+exact finite certificate, only after its actual source basis, SAME-law Ward/
+positivity constraints, normalization and omitted-mode error are supplied.
+Rust may propose rational data; Lean must independently check it. Do not
+launch an SDP, add a conditional certificate framework, or impose separate
+per-lag positivity as a necessary condition for the signed aggregate.
+The consumer is still `WindowSignedCost.aggregate_window_macro_ratio:181`
+in `lean/YMGap/Continuum/BF4WilsonAllNomeWindowSignedCost.lean`; its complete
+joint relative budget remains OPEN. No new mathematical proof or chart
+closure results from this research screen.
+
 ## Full-cost and filtered-reserve screen (2026-10-08 UTC)
 
 Root source inspection and two independent bounded read-only reviews; these

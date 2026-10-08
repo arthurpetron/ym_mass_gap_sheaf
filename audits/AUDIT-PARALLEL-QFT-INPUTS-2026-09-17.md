@@ -130,6 +130,24 @@ a weaker unrelated structure.
 
 ## 2026-10-08 UTC: bounded SAME-slab spatial-swap input
 
+Selected next finite input, 2026-10-08 UTC: construct the SECOND spatial
+transposition x0/x1, alongside the existing x1/x2 map, and prove literal
+complete-slab Haar/ORIGINAL-action invariance. Physical time x3 and all
+chronological endpoint factors stay fixed; p01 reverses its canonical word.
+Inputs are the existing finite face/link membership, quaternion reversal,
+coordinate reindex and action-product APIs. Consumer: the missing generator
+of a full finite spatial permutation action, before any continuum-covariance
+claim. Geometry must also prove the braid relation with the existing swap.
+Budget: bounded Sol geometry/word implementation; root actual Haar/action
+joins; independent complete-source review; root sole focused checks, one
+20-GiB worker/12-GiB reserve with fresh capacity preflight. Stop if a current
+second-generator realization already exists or a supplied symmetry/norm
+hypothesis is needed. No new conditional symmetry interface, full-tree build,
+analytic premise or closure of the continuum QFT/covariance box is selected.
+The analytic signed-cost lane remains active; this is independent work from
+the backward QFT requirement with available forward inputs. Results below
+must distinguish this selection from subsequent checked evidence.
+
 This independent finite geometry/word increment supplies no analytic
 hypothesis and does not modify the historical or canonical QFT fields.
 The primary signed scaling frontier is unchanged. The user's lattice-mass
@@ -330,3 +348,49 @@ bond-completion map, spatial/spacing control, continuous rotations and
 continuum covariance remain OPEN. Primary coupled signed response/scaling,
 independent survival, physical calibration, full QFT and every-group/Clay
 obligations remain OPEN. No displayed chart claim changed; no chart reprint.
+
+### Subsequent 2026-10-08 UTC: second spatial generator and literal braid
+
+The bounded selection above now has checked evidence: x0/x1 joins the
+existing x1/x2 generator on the SAME finite slab. This is not yet a completed
+S3 representation, a full cubic action or continuum covariance. Paths below
+are relative to `lean/YMGap/Continuum/`.
+
+| Declaration | Source | Exact checked scope |
+| --- | --- | --- |
+| `swapVertex`, `swapDir`, `swapPlane`, `swapLink`, `swapPlaquette` | `BF4ExactSlabSpatialHeadSwapGeometry.lean:32`, `:35`, `:41`, `:49`, `:51` | Literal x0/x1 exchange, with x2 and physical time x3 fixed; p01 is unoriented-fixed and p02/p12, p03/p13 exchanged. |
+| `swap_edgesOf_perm`, `swap_boxLinks_perm`, `swap_completeSlabLinks_perm` | `BF4ExactSlabSpatialHeadSwapGeometry.lean:80`, `:134`, `:176` | Actual boundary occurrences retain multiplicities; the literal deduplicated complete carrier is also permuted. |
+| `swapVertex_braid`, `swapDir_braid`, `swapPlane_braid`, `swapLink_braid`, `swapPlaquette_braid` | `BF4ExactSlabSpatialHeadSwapGeometry.lean:271`, `:278`, `:284`, `:290`, `:297` | Both concrete adjacent spatial swaps satisfy sts=tst on the actual vertices, directions, unoriented planes, links and faces. These are not yet completed-operator identities. |
+| `swappedFaceWord_scalar`, `swappedFaceWord_character`, `correctedSlab_swappedWord_character` | `BF4ExactSlabSpatialHeadSwapWord.lean:45`, `:54`, `:61` | Only p01 reverses: mapped A,B,C,D are target D,C,B,A. Existing quaternion anti-homomorphism proves scalar invariance, without commuting factors or assuming unit norm. Every spin and original corrected-slab target remain. |
+| `swapBlock`, `swapBlock_involutive`, `swapPolynomial_haar`, `link_swap_prefix`, `plaquette_character_swap` | `BF4ExactSlabSpatialHeadSwapHaar.lean:47`, `:64`, `:102`, `:121`, `:193` | Actual slab idxOf involution, supported original Haar pin, all four link coordinates including spatially moved x3 links, off-list identity fallback, and every plaquette spin. |
+| `swap_originalChainFaces_perm`, `originalChainAction_swap`, `originalChainAction_weighted_haar_swap` | `BF4ExactSlabSpatialHeadSwapAction.lean:69`, `:151`, `:169` | SAME finite action/partition at arbitrary rational nome and cutoff, with width<=extent+1 and start+steps<=extent. Full spin prefix, all temporal factors and final spatial slice retained; supported insertion is explicit. |
+
+Sol authored geometry/word; root authored the actual Haar/action consumers,
+read all four complete sources and alone ran the checks. Independent final
+complete-source mathematical review passed orientation, carrier/index,
+braid, support, coefficient and endpoint checks. No sorry, new axiom,
+classical/native decision, noncomputable extraction, proof-limit increase,
+supplied symmetry, analytic premise or canonical field weakening.
+
+All four focused checks passed on their first runs, with 39+5+13+7 printed
+gates empty or within {propext, Quot.sound}. The five braid proofs are
+axiom-free. Verification was serialized under the monitored lock: one
+compiler, hard 20 GiB cap, 12 GiB OS reserve. Each fresh preflight found no
+competing compiler/runner, 87--88% system-wide memory free and zero swap.
+No root/full-tree build, audit, guard or baseline refresh was run.
+
+| Leaf | Source SHA256 | Passing focused log and SHA256 |
+| --- | --- | --- |
+| Geometry | `16ef102dcd6dd296421dc88f5e6ff012de936c5e79aae38042eb249bb1722ea3` | `/private/tmp/ym-head-swap-geometry-20261008a.log`; `4450bef7eb4aa254ec64f44836217feae8dce4e4a4cd5a27dd4a9e99557c85ca` |
+| Word | `44b96c90041d5abf14ac65a2dce0c94faec169209ddc11d47b6db91f50d7efe4` | `/private/tmp/ym-head-swap-word-20261008a.log`; `0d52210c82f31f9c585994f0ee4cfe802434c687d58565a61a995351de236136` |
+| Haar | `2096cbd4589e77e6ce15e686f9d8830fa147fcb194db54846a96694403864202` | `/private/tmp/ym-head-swap-haar-20261008a.log`; `ff8aced5bb34f817f2559534ef75399906b76331b0213df694df6d0d9910da0a` |
+| Action | `c81fe4b993f44a367c727b5623c8e8ea285425b0c45999eaf40c0df662acd6f5` | `/private/tmp/ym-head-swap-action-20261008a.log`; `04341f55e899cc7e095fa6882c282cc39a0d937dbcb9acd09447ef981d392e67` |
+
+Imports are registered only. The actual second-generator Wilson-source,
+normalized-window/reflected-form and completed-operator joins remain OPEN;
+do not infer them from the geometry braid or first-generator proof alone.
+Decision: stop this bounded increment at the actual finite Haar/action
+consumer. Continue the joint signed interacting estimate; finite symmetry
+does not supply its slow-rate, variance-survival or scaling input. Full QFT,
+physical calibration, every group and the whole Clay target remain OPEN.
+No displayed chart claim changed, so no chart reprint.

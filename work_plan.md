@@ -47,6 +47,11 @@ overlap on the ORIGINAL interacting transfer, using the existing propagation
 and window consumers. The optional unfiltered profile route needs negative
 leading-order signed response; do not impose that stronger initial criterion
 on a direct filtered proof. Exact derivations: the adaptive-score audit.
+The bounded loop-bootstrap screen retains moment/SOS compression only as
+an unimplemented finite-certificate candidate: use the ORIGINAL heat-action
+Ward constraints and certify both chronological masses/OWN center. Wilson
+exponential-action equations or one stationary moment matrix do not meet
+this consumer. No SDP or new conditional framework is selected.
 Nome, width, expression and lag stay fixed in these
 limits; changing-family control and physical survival remain OPEN. Three
 focused capped checks and independent complete-source review pass;
@@ -55,6 +60,20 @@ Evidence and exact sources/logs: the adaptive-conditional-score audit.
 The lattice-measurement note remains in the calibrated backward plan via
 the existing lattice-mass research audit: numerical channel fits supply no
 limiting Hamiltonian, every-state gap or constructive survival premise.
+
+Independent CHECKED QFT input (2026-10-08 UTC): the second finite spatial
+transposition x0/x1 now preserves the literal complete-slab Haar and ORIGINAL
+chronological action, including its terminal spatial slice. Physical time x3
+is fixed; p01 reverses by quaternion conjugation, not factor commutation.
+`BF4ExactSlabSpatialHeadSwapGeometry` proves five concrete braid identities
+with the existing x1/x2 generator. `SpatialHeadSwapAction.originalChainAction_weighted_haar_swap`
+retains the SAME partition and explicit insertion support. The finite
+generator/action input is produced without a symmetry premise; its actual
+Wilson-source, reflected/completed action and full cubic joins remain OPEN.
+Four serialized focused 20-GiB checks and independent complete-source review
+pass. Root imports registered only; no full-tree audit or canonical chart
+closure. This bounded lane supplies no signed scaling estimate. Evidence:
+`audits/AUDIT-PARALLEL-QFT-INPUTS-2026-09-17.md`.
 
 CHECKED scalar decision (2026-10-08 UTC):
 `BF4WilsonAllNomeAFPowerBudget.afPowerBudgetCutoff` computes an ALL-TAIL
