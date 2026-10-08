@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Supporting MAIN source-preserving signed affine filter bound checked
+(2026-10-08 UTC): every response of a*x+b*T*x is <=max(a^2,(a+b)^2)
+times the SAME original response at that lag, by three positive chord
+payments. Arbitrary signs, vacuum, n=0 and time-kernel states remain.
+Final focused check/four permitted theorem gates plus axiom-free cap and
+independent complete FINAL-source review; root registration only, no tree
+audit. A paid relative signed margin can now serve as a witness for ORIGINAL
+source retention; the actual changing-family margin and all physical/Clay
+claims remain OPEN. Canonical displayed claims unchanged, no chart reprint.
+Evidence: adaptive conditional-score audit.
+
 Supporting ACTUAL original placed signed-window Gauss law checked
 (2026-10-08 UTC): literal mapped source loops and arbitrary signed multi-time
 one/loop/add/mul/smul polynomials are annihilated by the original all-link

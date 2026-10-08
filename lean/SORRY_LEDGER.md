@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## PROVED sharp signed-filter ORIGINAL response cap / OPEN changing-family relative margin (2026-10-08 UTC)
+
+`lean/YMGap/Continuum/BF4WilsonAllNomeSignedAffineFilterBound.lean:60`,
+`affine_response_expand`, and `:95`, `affine_chord_remainder`, retain the
+literal signed cross term on the EXISTING Wilson completion. `:143`,
+`affine_response_le`, and `:162`, `affine_response_le_endpointMax`, prove
+EVERY-lag response domination by the computed rational endpoint maximum
+`:159`, `affineEndpointCap`. Arbitrary signed/zero coefficients, n=0,
+vacuum and time-kernel states remain; no source floor, inverse, spectral
+measure, changed carrier or supplied analytic estimate. Focused capped
+check 2/all four theorem gates exactly {propext,Quot.sound}, cap axiom-free,
+independent complete FINAL-source review PASS. Root registration only;
+no root/tree audit. PAPER use of a paid signed margin reaches ORIGINAL
+warmed-source retention, not a replacement normalized observable; that
+changing-family relative margin/error estimate remains OPEN. No new hole,
+axiom or resource increase. Exact source/log hashes and bounded next test:
+adaptive-score audit. Continuum survival/physical mass/full QFT/every group/
+Clay and canonical displayed claims remain OPEN/unchanged.
+
 ## PROVED original placed signed-window Gauss law / OPEN physical signed estimate and continuum domain (2026-10-08 UTC)
 
 `lean/YMGap/Continuum/BF4ExactSlabVertexGaussClosedCharacter.lean:569`,

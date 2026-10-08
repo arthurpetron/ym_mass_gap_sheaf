@@ -27,6 +27,30 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED MAIN source-preserving signed affine filter bound (2026-10-08 UTC):
+`SignedAffineFilterBound.affine_response_le_endpointMax` proves
+R_(a*x+b*T*x)(n)<=max(a^2,(a+b)^2)*R_x(n) at EVERY lag on the ORIGINAL
+completion. Its exact chord remainder pays three nonnegative original
+moments, retaining the signed cross term; no floor, spectral measure or
+changed carrier. Final 173-line leaf/focused check 2 and complete independent
+FINAL-source review pass: four theorem gates exactly {propext,Quot.sound},
+computed cap axiom-free. Root import registered only; no root/tree audit.
+PAPER consumer: a strict margin delta<=R_y(1)-r*R_y(0) gives
+r^N*delta<=(1-r)*K*R_x(N). A relative margin therefore certifies the
+ORIGINAL warmed-source ratio, not a replacement normalized observable.
+NEXT actual mathematics: that relative four-moment margin with explicit
+approximation errors on the justified changing family, or DIRECT original
+macro retention. Endpoint normalization reduces the optional signed affine
+search to two scalar edge quadratics; for rational moment approximations,
+only endpoints and feasible concave stationary points need testing (at most
+six listed candidates). Retain BOTH OWN masses/moving centers and the full
+double orbit for an already-smoothed source; no finite/common-Gram or uniform
+limit substitution. Reuse fixed Bernoulli block floors instead of enormous
+rational powers at growing horizons. No determinant/assumption wrapper or
+unjustified moment computation is selected. Exact evidence and unpaid test:
+adaptive-score audit. Continuum/physical/QFT/every-group/Clay remain OPEN;
+canonical displayed claims unchanged.
+
 CHECKED original placed signed-window Gauss consumer (2026-10-08 UTC):
 `VertexGaussClosedCharacter.placedSourceLoop_gauss_zero` and
 `placedWindow_gauss_zero` now kill the ACTUAL original shifted holonomies

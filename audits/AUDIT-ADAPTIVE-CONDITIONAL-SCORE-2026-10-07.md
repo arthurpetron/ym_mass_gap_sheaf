@@ -4,6 +4,116 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Signed affine filters as witnesses for the ORIGINAL source (2026-10-08 UTC)
+
+New unconditional bound KERNEL-CHECKED in the focused second check;
+complete independent FINAL-source review PASS. On the ACTUAL completed
+carrier put y=a*z+b*T*z and R_z(n)=B(z,T^n*z). The exact identity is
+
+    K*R_z(n)-R_y(n)
+      = (K-a^2)*(R_z(n)-R_z(n+1))
+        +(K-(a+b)^2)*R_z(n+1)
+        +b^2*(R_z(n+1)-R_z(n+2)).
+
+Thus the literal computed K=max(a^2,(a+b)^2) pays EVERY-lag domination,
+including n=0, vacuum and time-kernel components. No spectral measure,
+source inverse or absolute cross-term bound is used. Checked declarations:
+`lean/YMGap/Continuum/BF4WilsonAllNomeSignedAffineFilterBound.lean:60`,
+`affine_response_expand`; `:95`, `affine_chord_remainder`; `:143`,
+`affine_response_le`; `:159`, `affineEndpointCap`; `:162`,
+`affine_response_le_endpointMax`. The three signs are supplied by
+`lean/YMGap/Continuum/BF4WilsonAllNomeTimeDefectMoments.lean:343`,
+`mixedMoment_nonnegative`.
+
+PAPER consumer, independently screened; no new conditional compiler selected:
+write Q=R_y(0), H=R_y(1), 0<r<1. If a rational delta>0 satisfies
+delta<=H-r*Q, then Q>=delta/(1-r) and r*Q<=H. The existing
+`lean/YMGap/Continuum/BF4WilsonAllNomeOddResponseJensen.lean:272`,
+`response_odd_jensen`, and the selected domination give
+
+    r^N*delta <= (1-r)*K*R_z(N).
+
+Consequently the quantitative relative margin
+r^N*delta>=(1-r)*K*kappa*R_z(0) suffices for the ORIGINAL ratio
+kappa*R_z(0)<=R_z(N). It is NOT supplied by a positive filtered norm alone.
+For z=T^t*x this is exactly kappa*R_x(2*t)<=R_x(2*t+N), by
+`lean/YMGap/Continuum/BF4WilsonAllNomeCompletedTime.lean:158`,
+`completedInner_time_sum`; 2*t=N=side gives the original macro target.
+No different observable, earlier-source overlap or continuum limit is inferred.
+
+For growing N, do not compute an enormous rational power merely to set the
+search threshold. If N=L*k and L*(1-r)<=d<1, the EXISTING
+`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicSmoothedTrajectory.lean:153`,
+`block_bernoulli_pow`, gives nu=(1-d)^k<=r^N. The sufficient test may use
+nu*delta>=(1-r)*K*kappa*R_z(0) with fixed k instead. This is a lower-bound
+substitution, not a rate or physical-clock identification.
+
+PAPER bounded search: normalize rational filter endpoints u=a, v=a+b to
+|u|,|v|<=1, so K<=1. For m_i=R_z(i) the signed margin is
+
+    S00*u^2+2*S01*u*v+S11*v^2,
+    S00=m3-(2+r)*m2+(1+2*r)*m1-r*m0,
+    S01=(1+r)*m2-m3-r*m1,
+    S11=m3-r*m2.
+
+A supplied positive rational-coefficient candidate can be scaled to an
+endpoint boundary; simultaneous sign reversal leaves its margin unchanged.
+Thus search the TWO edge quadratics (u,v)=(1,q),(q,1), -1<=q<=1,
+not an unlocated eigenvector. Once four RATIONAL moment approximations are
+supplied, each edge's maximum occurs at q=+/-1 or its feasible stationary
+point when its quadratic coefficient is negative: -S01/S11 for the first
+edge, -S01/S00 for the second, using the rational approximated S entries.
+At most SIX listed candidates (duplicates harmless), no grid or CReal sign
+decision. These are rational signed-coefficient choices, not source inverses.
+Rational approximation must retain a strict
+quantitative excess above the relative target, not merely a determinant sign.
+For moment error <=epsilon, 0<r<1 and 0<kappa<=1, the normalized test
+r^N*(H-r*Q)-(1-r)*kappa*m0 has error <=19*epsilon. This PAPER bound
+is coefficient arithmetic, not a proved tolerance for any actual computed
+moment. Reuse Type-valued `centeredTimeMomentCauchy:46` below; do not extract
+data from Prop-valued convergence or infer changing-family uniformity.
+
+For a fixed CENTERED radius-zero expression the existing two OWN variance/
+cost limit pairs below supply the four m_i at 2*t. Their same-stage rational
+values retain DISTINCT chronological masses; they are not asserted to be
+the norm of a common finite filter. An already box-smoothed trajectory
+instead retains the entire double orbit expansion from
+`lean/YMGap/Continuum/BF4WilsonAllNomeSmoothedCoherentState.lean:341`,
+`smoothedResponse_pin`, not just two unfiltered OWN pairs. The changing-family
+relative signed margin remains OPEN. This bound is a source-preserving
+quantitative tool, not a new spectral/physical/continuum/Clay closure.
+
+For same-stage OWN scalars V=V_(stage,t), C=C_(stage,t), W=V_(stage,t+1),
+D=C_(stage,t+1), the PAPER candidate test with endpoint cap one is
+
+    nu*[a^2*((1-r)*V-C)+2*a*b*(W-r*V+r*C)
+          +b^2*((1-r)*W-D)]-(1-r)*kappa*V.
+
+Strict positivity at one finite stage is NOT enough: a supplied error
+certificate must transfer its excess to the completed four-moment test.
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonOwnCenterLimit.lean:158`,
+`expressionEndpointMeanThreshold`, and `:164`, `expressionEndpointMean_approx`,
+retain the moving-center control in addition to the raw joint modulus.
+The available completed QCauchy datum does not automatically certify
+arbitrary finite OWN-stage errors. No actual accepted candidate is produced.
+
+Verification boundary: ONLY
+`lean/YMGap/Continuum/BF4WilsonAllNomeSignedAffineFilterBound.lean`, 173 lines,
+via `scripts/safe_lean_build.py --jobs 1 --reserve-gib 12
+--check-worker-limit-gib 20 --check ... --check-output ...` with fresh
+process/memory/swap preflights, no competing worker and zero swap. Successful
+log `/private/tmp/ym-oct8-signed-affine-filter2.log`, SHA256
+`77b809378265a96f6e44775d12a618242933d4fd70019f5f4ad48a1f1f691ca6`;
+FINAL source SHA256
+`dcb015f9c70f698e15414a4e3ec631f3e96328cc7dbb7ef33e6ab0d32e7b2492`.
+Four printed theorem gates exactly {propext,Quot.sound}; the computed cap
+has no axioms. Check 1's scalar-parenthesization error was repaired locally;
+its failed log is diagnostic, not proof evidence. Root import registered
+only; no full-root/tree build/audit/guard/metrics. No new hole, axiom,
+analytic premise or resource-option increase. PAPER optimization/consumer
+review also PASS; it is not a formalized or paid changing-family margin.
+Canonical displayed claims unchanged; no chart reprint.
+
 ## Small signed-filter pencil: one strict margin pays its OWN norm (2026-10-08 UTC)
 
 PAPER algebra, independently screened and root source-checked; no new Lean

@@ -7967,6 +7967,10 @@ import YMGap.Continuum.BF4WilsonAllNomeOriginPlaquetteOrbitResponse
 -- response and forward cost to two scalar filters of x. No rate is supplied.
 import YMGap.Continuum.BF4WilsonAllNomeOriginPlaquetteKrylovReduction
 
+-- Sharp signed affine-filter response domination on the ORIGINAL carrier.
+-- A quantitative changing-family signed margin is still not supplied.
+import YMGap.Continuum.BF4WilsonAllNomeSignedAffineFilterBound
+
 -- Cofinal AF reference decay forces large ORIGINAL signed cancellation
 -- for a useful initial energy fraction; it does not produce that fraction.
 import YMGap.Continuum.BF4DyadicWilsonSquareAFSignedCancellation
