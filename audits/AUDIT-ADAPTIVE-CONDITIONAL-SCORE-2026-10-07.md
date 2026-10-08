@@ -4,6 +4,147 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Observed matched marginal and finite Ward estimate (2026-10-08 UTC)
+
+Classification: VERIFIED PROGRESS, no broad chart closure. The actual
+positive terminal density is q*a on LOWER coordinates, not q*lift(a).
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalLocalSignedGram.lean`
+now constructs its certificate, output independence and full-action pin;
+`terminal_momentD_pin:455`, `terminal_momentG_pin:465` and
+`terminal_local_signed_score_bound:649` retain the actual A=Ta first/all
+nine ordered second jets. The final inequality is exactly the selected
+matched Gram below, for supported lower phi and frozen output u.
+
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLastStepRatioRefinement.lean`:
+`original_lastStep_incomingRatio_score_reconstruction_le:282` now keeps
+(1+eta)*H[W*S0^2] with S0=score(A,T(a*phi_k)); its original finite incoming
+error payment is unchanged. The old `original_lastStep_incomingRatio_score_square_le:357`
+retains its statement and follows by the coarse noise cap applied separately.
+This supplies a signed-preserving leading consumer, unlike using the old
+already-capped theorem as though its leading Hessian survived.
+
+`lean/YMGap/Continuum/QuaternionHaarFiniteReciprocalHessianSign.lean`:
+`reciprocal_multiplier_derivative_pin:63`,
+`finite_reciprocal_favorable_certificate:95`,
+`finite_reciprocal_hessian_ibp_le:179` prove the exact successor slope,
+constructed favorable correction and weighted Hessian upper bound in one
+fixed angular plane. Root and independent reviewer verified remainder
+sign, successor index, factor TWO and k=0/constant-A tests. The retained
+J(F) is literal, not bounded or discarded.
+
+Final focused logs (only these scopes are claimed):
+
+| Target | Final log | Printed gates |
+| --- | --- | --- |
+| LocalMarginalJets helper exports and old proofs | `/private/tmp/ym-local-marginal-api-20261008a.log` | 15 |
+| TerminalLocalSignedGram | `/private/tmp/ym-terminal-local-gram-20261008c.log` | 10 |
+| LastStepRatioRefinement, including old consumers | `/private/tmp/ym-score-reconstruction-retained-20261008b.log` | 8 |
+| FiniteReciprocalHessianSign | `/private/tmp/ym-finite-reciprocal-hessian-20261008b.log` | 3 |
+
+All printed dependencies are exactly {propext, Quot.sound}; no source
+sorry, new axiom, classical/native shortcut or frontier-field weakening.
+Initial namespace/definitional-inference and syntax errors were repaired,
+not used as evidence; no option/limit was increased. Full-source root
+review and independent mathematical reviews found no substantive defect.
+Each compiler launch had a fresh process/memory/swap preflight, one
+20-GiB worker and 12-GiB reserve, 87--88% free and zero swap. All checks
+finished in their initial tool calls; no competing compiler process was
+observed. Root imports registered only, no full build/audit/guard or baseline
+refresh.
+
+Checked-source SHA256, in the target order above:
+
+```text
+0f3422675902cbc5c36c01936e960284af094ec5860fe57e358b7f8ae3f02898
+71b90d324aeef1e16914ffb2b095d98ba1c00400333ba197af96a74fb2bbfded
+49ce0dc704023d9a4869f00f12761df0a92ea2f79417f27e7feee7e95e8a8975
+3943cea591aec2756fd71cd6f1acd7f1629a6886b51b61e6fa295cc75807c97f
+```
+
+Decision: CONTINUE through actual SIX-plane reconstruction / THREE paired
+Gram assembly and the Ward trace join. Then the analytic residue is the
+signed derivative of the ACTUAL F=Vbar^2*N, incoming approximation errors
+and BOTH signed Taylor remainders relative to SAME surviving form on a
+justified scaling family. No noise-to-surviving-square bound is adopted.
+The matched Gram and one-plane Ward estimate do not supply that residue.
+All scaling, survival, completed OS, physical time/volume, full SAME QFT,
+every compact simple group and Clay claims remain OPEN. Canonical chart
+unchanged, no reprint.
+
+The latest pasted lattice-measurement note has been re-read and independently
+reconciled with the existing calibration audit/work-plan guard; no additional
+correction or usable theorem input was found. No repeated literature scan,
+paper list, numerical mass premise or stronger quantum Sobolev assumption.
+
+## Selected estimate: favorable finite reciprocal correction (2026-10-08 UTC)
+
+Proposition: for the ACTUAL finite reciprocal G=G_(k+1)(A), M=A*G,
+and a certified weight F, the exact slope is
+J(M)=scale(upper)*(k+1)*residual(remainder(A),k)*J(A).
+The upper-window certificate produces G>=0 and residual>=0, so
+F*G*J(A)*J(M) has a square certificate. In the weighted Haar identity
+
+```text
+H[F*G^2*(A*J^2(A)-J(A)^2)]
+ = -H[A*G^2*J(A)*J(F)] - 2*H[F*G*J(A)*J(M)],
+```
+
+only the LAST term may therefore be discarded in an upper bound.
+The actual Gram consumer uses F=Vbar^2*N. J(F) remains signed and
+unbounded; this is not the refuted generic weighted-Hessian sign claim.
+For three constant paired directions the leading cost occurs THREE times.
+No variable-direction derivative is silently omitted.
+
+Available inputs: literal reciprocal cancellation, successor residual
+derivative, produced upper-window reciprocal/residual certificates and
+angular Haar IBP on the same carrier. Test k=0 (G=scale), constant A,
+F=0 and the sign convention remainder=scale*A-1. Abandon if the sign
+requires an exact inverse, a Hessian premise or noise bounded by the
+surviving square. The implementation starts with one fixed angular plane;
+paired-direction consumption needs its own exact join.
+
+Independent reviewer owns one bounded leaf; root reviews full source and
+alone runs a narrow monitored check, one 20-GiB worker, 12-GiB reserve,
+fresh capacity preflight. No broad build/audit/guard. Useful control of
+J(Vbar^2*N), incoming errors and both Taylor remainders on the SAME
+scaling trajectory remains OPEN.
+
+## Selected next experiment: matched positive terminal law (2026-10-08 UTC)
+
+Proposition: keep the produced positive LOWER terminal a in q_a=q*a,
+so I(q_a*P)=A=T(a), with P the unchanged selected original output heat
+packet. For a supported lower polynomial phi put b=T(a*phi),
+N=A*T(a*phi^2)-b^2. Produce
+
+```text
+H[R*firstJet(u,pairedScorePlus(A,b))^2]
+ <= H[R*N*(C*threeSquare(u)*A^2 + A*frozenDD_u(A)-frozenD_u(A)^2)].
+```
+
+Consumer: the literal incoming-ratio score payment and its exact outgoing
+Vbar^2*G_A^2 weight, not a T1-based reciprocal. Inputs: existing terminal
+certificate/support, local q/action/output-independence, original heat
+curvature/windows, head differential commutation, conditional_signed_score_bound,
+and actual transfer integration. Minimal algebraic API exports may avoid
+duplicating the T1 proof; preserve all existing public statements. No new
+analytic positivity, derivative, inverse or sign premise is allowed.
+
+Prediction/tests: phi=0 or constant gives N=score=0; u=0; every ordered
+second jet; selected output versus lower a; identical original action and
+partitions. Actual arbitrary c still needs its supplied finite reciprocal
+approximation/error payment, NOT an exact c/a assertion. Revise if the law
+silently puts a on the output, drops an action factor, requires stronger
+analytic inputs, or merely returns an unrelated Gram.
+
+Sol owns bounded implementation and minimal reused-helper exports;
+independent read-only review studies complete signed noise/spatial derivatives
+and finite multiplier A*G_A-1. Root inspects full sources and alone compiles
+serialized narrow targets, one 20-GiB worker and 12-GiB reserve with fresh
+dynamic preflights. No broad build/audit/guard, limit rise, numerical oracle
+or routine literature scan. The useful combined bound in SAME surviving
+form/scaling units remains a separate analytic producer, not promised by
+this selected finite join.
+
 ## Observed actual original marginal jets (2026-10-08 UTC)
 
 Classification: VERIFIED PROGRESS. For T1=I(W), the SAME-action local

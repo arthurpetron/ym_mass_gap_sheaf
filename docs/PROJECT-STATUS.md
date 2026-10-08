@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Supporting matched-terminal signed Gram and finite reciprocal Ward bound
+checked (2026-10-08 UTC): the produced lower density q*a has marginal A=Ta,
+and its actual frozen first/all nine ordered second jets supply the signed
+Gram for b=T(a*phi). The reconstructed leading score now remains uncapped;
+its original finite incoming error payment is unchanged. For each angular
+plane the ACTUAL finite reciprocal produces a favorable correction, so the
+signed Hessian is bounded by the retained spatial/noise-weight derivative.
+This does not assert that derivative is small or nonpositive. Pair-trace
+assembly, useful signed scaling control and every physical/Clay chart claim
+remain OPEN. Focused checks only; no full-tree audit. Broad chart unchanged,
+no reprint. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 Supporting FULL original-action local signed Gram checked (2026-10-08 UTC):
 the actual two-source transfer score and proved zero-mean residual meet
 produced output-endpoint curvature, windows and certified spectator density.

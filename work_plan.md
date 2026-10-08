@@ -46,18 +46,32 @@ of T1, and `LocalMarginalJets.lastStep_local_differential_gram` consumes them
 with unchanged noise/action/hypotheses. One focused target/six permitted
 gates. This is NOT an ordinary variable-coefficient vector-field square.
 
-NEXT match the marginal used by the actual reciprocal weight: the current
-Gram uses T1, but the exact-score budget uses the reciprocal of A=Ta.
-Retain the produced positive terminal a in q*a and the existing incoming
-reciprocal-error payment; do not require positivity for arbitrary signed a.
-For matched A, weighted IBP cancels the tempting negative-square bonus
-against the inverse-square derivative. Preserve the combined derivatives
-of actual spatial/noise weights and u, and the finite multiplier defect
-A*G-1, together with BOTH signed Taylor remainders. Seek a useful bound in
-the SAME surviving form on a justified width/cutoff/scaling family; no
-positivity/window or automatic Hessian-sign shortcut supplies it. Source
-review and exact proposed calculation are in the adaptive audit, not a
-claim that the new analytic estimate is already proved.
+The reciprocal-facing marginal is now MATCHED and CHECKED:
+`TerminalLocalSignedGram.terminal_local_signed_score_bound` uses produced
+q*a on LOWER coordinates, A=Ta, b=T(a*phi), N=A*T(a*phi^2)-b^2 and all
+nine ordered jets of A. It proves H[R*S_u^2]<=H[R*N*(C*|u|^2*A^2+
+A*frozenDD_u(A)-frozenD_u(A)^2)]. No arbitrary exact c/a is assumed.
+`LastStepRatioRefinement.original_lastStep_incomingRatio_score_reconstruction_le`
+retains this actual reconstructed leading score with the existing finite
+incoming error payment; the old coarse cap follows separately by composition.
+
+`QuaternionHaarFiniteReciprocalHessianSign.finite_reciprocal_hessian_ibp_le`
+now proves a useful finite signed estimate in EACH angular plane: for actual
+G=G_(k+1)(A), certified F and a produced upper window,
+H[F*G^2*(A*J^2(A)-J(A)^2)]<=-H[A*G^2*J(A)*J(F)]. The discarded term
+F*G*J(A)*J(A*G) has a constructed positive certificate, because the
+finite multiplier derivative is a nonnegative residual times J(A).
+This does NOT discard the signed spatial/noise derivative or assume an
+exact inverse. Four focused targets, permitted gates only; no full-tree audit.
+
+NEXT compose the retained SIX-plane reconstruction with THREE constant
+paired Gram directions, then join their Hessian trace to the finite Ward
+estimate at the ACTUAL weight F=Vbar^2*N. Keep the leading cost multiplicity
+THREE, incoming errors and BOTH signed Taylor remainders. The derivative
+J(Vbar^2*N) still needs useful control in the SAME surviving form on a
+justified width/cutoff/scaling family. No positivity/window or automatic
+Hessian-sign shortcut supplies that missing analytic bound. Evidence and
+exact remaining consumer are in the adaptive audit.
 The generic sign-dropping shortcut is now independently REFUTED by
 `SU2QuaternionWeightedHessianSignObstruction.weightedHessian_positive`:
 an actual square weight and strict marginal windows give correction 1/12>0.

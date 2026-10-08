@@ -5031,6 +5031,8 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialLocalPairedScorePin
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLocalSignedGram
 -- Actual frozen T1 jets instantiate the SAME original signed Gram.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLocalMarginalJets
+-- Positive LOWER terminal law matches the actual reciprocal-facing Ta jets.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalLocalSignedGram
 -- Strict windows do NOT justify generic weighted-Hessian sign dropping.
 import YMGap.Continuum.SU2QuaternionWeightedHessianSignObstruction
 import YMGap.Continuum.SU2HeatQuarticTailCutoff
@@ -7301,6 +7303,8 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalScoreGradient
 -- COMPLETE original signed-cost ceiling. Cross terms, projected weights,
 -- negative diagonal Taylor remainder and drift remain; family bound is open.
 import YMGap.Continuum.QuaternionHaarReciprocalScoreCorrection
+-- Produced finite reciprocal sign; the actual weight derivative remains.
+import YMGap.Continuum.QuaternionHaarFiniteReciprocalHessianSign
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepScoreVariance
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepConditionalEnergy
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepSignedCost

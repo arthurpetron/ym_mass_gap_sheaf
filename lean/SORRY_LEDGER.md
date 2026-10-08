@@ -1,5 +1,39 @@
 # Sorry Ledger
 
+## PROVED matched terminal signed Gram and finite reciprocal sign / OPEN signed scaling budget (2026-10-08 UTC)
+
+- `BF4ExactSlabFixedSpatialTerminalLocalSignedGram.terminalDensity_certificate`,
+  `terminalDensity_independent` and `terminalDensity_action_pin` produce the
+  actual lower terminal law q*a, retaining every original action factor.
+  `terminal_momentD_pin` and `terminal_momentG_pin` identify its moments
+  with the frozen first and all nine ordered second derivatives of A=Ta.
+  `terminal_local_signed_score_bound` proves the actual score bound with
+  N=A*T(a*phi^2)-T(a*phi)^2 and signed Fisher; no exact arbitrary c/a,
+  marginal inverse, Hessian sign or derivative of frozen u is assumed.
+- `BF4ExactSlabFixedSpatialLastStepRatioRefinement.original_lastStep_incomingRatio_score_reconstruction_le`
+  keeps the literal reconstructed leading score, with the unchanged original
+  incoming correction. The previous public coarse-noise result follows by
+  composition; its statement and outgoing gradient consumers are preserved.
+- `QuaternionHaarFiniteReciprocalHessianSign.reciprocal_multiplier_derivative_pin`
+  and `finite_reciprocal_favorable_certificate` produce the exact nonnegative
+  finite-reciprocal correction at successor degree. Its
+  `finite_reciprocal_hessian_ibp_le` bounds the weighted signed Hessian in
+  one angular plane by the literal signed weight derivative. Upper-window
+  and certified-weight inputs suffice; no lower-floor inverse or noise cap.
+- OPEN: combine SIX-plane reconstruction and THREE paired Gram directions,
+  prove their Ward trace join, control the actual spatial/noise derivative,
+  both signed Taylor remainders and errors relative to SAME surviving form
+  along a justified scaling family. All completed OS, independent survival,
+  physical time/volume, SAME QFT, every-group and Clay claims remain OPEN.
+- Four focused targets passed with permitted printed axiom dependencies;
+  nine existing algebra helpers merely exported to reuse their proofs.
+  No source sorry/new axiom/classical/native shortcut or limit increase.
+  Fresh preflight before each launch, one 20-GiB worker/12-GiB reserve,
+  87--88% free and zero swap. Root imports registered, not root-built;
+  no broad build/audit/guard, baseline refresh or chart closure.
+
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 ## PROVED original-action local signed score Gram / OPEN useful signed scaling control (2026-10-08 UTC)
 
 - `SU2QuaternionPairedFrameAt.chain_pairedDerivativeAt` and

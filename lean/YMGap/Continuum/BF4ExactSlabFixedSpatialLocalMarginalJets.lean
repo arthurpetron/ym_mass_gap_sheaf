@@ -75,7 +75,7 @@ def frozenMarginalSecond (w : Q') (K width s : Nat) (u : Fin 3 → RatPoly) : Ra
   quadraticForm u (fun i j => pairedDerivativeAt s i
     (pairedDerivativeAt s j (transferStep w K width polyOne)))
 
-private theorem paired_congr (block : Nat) (i : Fin 3) {P Q : RatPoly}
+theorem paired_congr (block : Nat) (i : Fin 3) {P Q : RatPoly}
     (h : RatPolyCoeffEqv P Q) :
     RatPolyCoeffEqv (pairedDerivativeAt block i P) (pairedDerivativeAt block i Q) := by
   by_cases h0 : i.val=0
@@ -94,7 +94,7 @@ private theorem paired_congr (block : Nat) (i : Fin 3) {P Q : RatPoly}
       subst i
       exact (angularDerivative_congr _ _ h).add (angularDerivative_congr _ _ h)
 
-private theorem paired_partial (heads s : Nat) (i : Fin 3) (F : RatPoly) :
+theorem paired_partial (heads s : Nat) (i : Fin 3) (F : RatPoly) :
     RatPolyCoeffEqv
       (pairedDerivativeAt s i (partialHaarHeads heads F))
       (partialHaarHeads heads (pairedDerivativeAt (heads+s) i F)) := by
@@ -160,7 +160,7 @@ private theorem plane_product (block j k : Nat) (hj : j < 4) (hk : k < 4)
       (RatPolyCoeffEqv.refl _)).trans (RatPolyCoeffEqv.zero_add _)
   exact (angularDerivative_mul _ _ q P).trans hrest
 
-private theorem paired_product (block : Nat) (i : Fin 3) (q P : RatPoly)
+theorem paired_product (block : Nat) (i : Fin 3) (q P : RatPoly)
     (hq : QuaternionBlockIndependent block q) :
     RatPolyCoeffEqv (pairedDerivativeAt block i (polyMul q P))
       (polyMul q (pairedDerivativeAt block i P)) := by
@@ -197,7 +197,7 @@ private theorem action_mass_pin (w : Q') (K width : Nat) :
     (RatPolyCoeffEqv.mul_one (lastStepAction w K width)).symm).trans
       (action_integral_pin w K width polyOne))
 
-private theorem local_factor_pin (w : Q') (K width s : Nat)
+theorem local_factor_pin (w : Q') (K width s : Nat)
     (hs : s ∈ activeBlocks width) :
     RatPolyCoeffEqv
       (polyMul (localOutputDensity w K width s) (localPrefix w K width s))
@@ -264,20 +264,20 @@ private theorem second_unweighted_pin (w : Q') (K width s : Nat)
     (hpartial.symm.trans (paired_congr s i
       (paired_congr s j (action_mass_pin w K width))))
 
-private theorem integrate_threeSum (heads : Nat) (f : Fin 3 → RatPoly) :
+theorem integrate_threeSum (heads : Nat) (f : Fin 3 → RatPoly) :
     RatPolyCoeffEqv (partialHaarHeads heads (threeSum f))
       (threeSum (fun i => partialHaarHeads heads (f i))) := by
   unfold threeSum
   rw [partialHaarHeads_add, partialHaarHeads_add]
   exact RatPolyCoeffEqv.refl _
 
-private theorem integrate_add (heads : Nat) (p q : RatPoly) :
+theorem integrate_add (heads : Nat) (p q : RatPoly) :
     RatPolyCoeffEqv (partialHaarHeads heads (polyAdd p q))
       (polyAdd (partialHaarHeads heads p) (partialHaarHeads heads q)) := by
   rw [partialHaarHeads_add]
   exact RatPolyCoeffEqv.refl _
 
-private theorem integrate_quadratic (heads : Nat) (f : Fin 3 → Fin 3 → RatPoly) :
+theorem integrate_quadratic (heads : Nat) (f : Fin 3 → Fin 3 → RatPoly) :
     RatPolyCoeffEqv
       (partialHaarHeads heads (threeSum (fun i => threeSum (f i))))
       (threeSum (fun i => threeSum (fun j => partialHaarHeads heads (f i j)))) :=
@@ -285,7 +285,7 @@ private theorem integrate_quadratic (heads : Nat) (f : Fin 3 → Fin 3 → RatPo
     ((integrate_threeSum heads (f 0)).add
       ((integrate_threeSum heads (f 1)).add (integrate_threeSum heads (f 2))))
 
-private theorem pull_coefficient (heads : Nat) (u F : RatPoly) :
+theorem pull_coefficient (heads : Nat) (u F : RatPoly) :
     RatPolyCoeffEqv
       (partialHaarHeads heads (polyMul (liftBoundary heads u) F))
       (polyMul u (partialHaarHeads heads F)) := by
@@ -407,7 +407,7 @@ private theorem second_sum_pin (w : Q') (K width s : Nat)
             ((second_term_pin w K width s hs 2 1 (u 2) (u 1)).add
               (second_term_pin w K width s hs 2 2 (u 2) (u 2)))))))
 
-private theorem lift_threeSquare (heads : Nat) (u : Fin 3 → RatPoly) :
+theorem lift_threeSquare (heads : Nat) (u : Fin 3 → RatPoly) :
     liftBoundary heads (threeSquare u) =
       threeSquare (fun i => liftBoundary heads (u i)) := by
   simp only [threeSquare, lift_add, lift_product]
@@ -545,6 +545,15 @@ end YMGap.Continuum.BF4ExactSlabFixedSpatialLocalMarginalJets
 
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialLocalMarginalJets.frozenMarginalFirst
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialLocalMarginalJets.frozenMarginalSecond
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialLocalMarginalJets.paired_congr
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialLocalMarginalJets.paired_partial
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialLocalMarginalJets.paired_product
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialLocalMarginalJets.local_factor_pin
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialLocalMarginalJets.integrate_threeSum
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialLocalMarginalJets.integrate_add
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialLocalMarginalJets.integrate_quadratic
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialLocalMarginalJets.pull_coefficient
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialLocalMarginalJets.lift_threeSquare
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialLocalMarginalJets.local_momentD_pin
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialLocalMarginalJets.local_momentG_pin
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialLocalMarginalJets.localSignedFisher_marginal_pin

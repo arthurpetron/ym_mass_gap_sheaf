@@ -277,8 +277,9 @@ def incomingScoreErrorCoefficient (w : Q') (K width n r : Nat) (psi W : RatPoly)
     quaternionHaar (N width) (polyMul W (incomingErrorEnvelope w K width n r psi))
 
 /-- ORIGINAL score = incoming-ratio score + transferred reconstruction score.
-The last-step conditional noise is the leading term, not accumulated noise. -/
-theorem original_lastStep_incomingRatio_score_square_le {w : Q'}
+Keep the literal reconstructed leading score: no relative heat cap or noise
+estimate replaces it. The transferred reconstruction payment is unchanged. -/
+theorem original_lastStep_incomingRatio_score_reconstruction_le {w : Q'}
     (hw0 : (0 : Q') < w) (hw1 : w < 1) (K width : Nat) (hK : relativeCutoff w 32 ≤ K)
     (n r : Nat) (hdepth : 1 ≤ n+r) (s : Nat) (hs : s ∈ activeBlocks width)
     {i j : Nat} (hi : i < 4) (hj : j < 4) {psi W : RatPoly}
@@ -290,9 +291,10 @@ theorem original_lastStep_incomingRatio_score_square_le {w : Q'}
     let b := transferStep w K width (incomingNumerator w K width n r psi)
     let phi := blockConditionalRatio hw0 hw1 K width hhead n r psi k
     let S := conditionalScore (4*s+i) (4*s+j) A b
+    let S0 := conditionalScore (4*s+i) (4*s+j) A
+      (transferStep w K width (polyMul a phi))
     quaternionHaar (N width) (polyMul W (polyMul S S)) ≤
-      (1+eta)*((relativeCap w 32*relativeCap w 32)*quaternionHaar (N width)
-        (polyMul W (polyMul (polyMul A A) (lastStepRatioNoise w K width (n+r) phi)))) +
+      (1+eta)*quaternionHaar (N width) (polyMul W (polyMul S0 S0)) +
       (mixRate hw0 hw1 width)^(2*k)*incomingScoreErrorCoefficient w K width n r psi W eta heta := by
   dsimp only
   let hhead := Nat.le_trans (headCutoff_le_relativeCutoff w 32) hK
@@ -319,8 +321,7 @@ theorem original_lastStep_incomingRatio_score_square_le {w : Q'}
       (support_neg (supported_polyMul hb (angularDerivative_supported_at hix hjx hA)))
   have hS0 := score_support (transferStep_supported w K width (supported_polyMul ha hp))
   have hS1 := score_support (transferStep_supported w K width he)
-  have h0 := weighted_certificate_le MW
-    (lastStepRatioNoise_score_certificate hw0 hw1 K width hK (n+r) s hs hi hj hp)
+  have h0 := Q'.le_refl' (quaternionHaar (N width) (polyMul W (polyMul S0 S0)))
   have hjerr := weighted_certificate_le MW
     (incomingRatioError_budget_certificate hw0 hw1 K width hhead n r hdepth hpsi k)
   have h1 := Q'.le_trans' _ _ _
@@ -336,12 +337,10 @@ theorem original_lastStep_incomingRatio_score_square_le {w : Q'}
       (score_add (4*s+i) (4*s+j) A b0 b1)
   have ht := weighted_square_add_bound eta heta MW hS0 hS1 h0 h1
   have hright :
-      (1+eta)*(L*quaternionHaar (N width)
-        (polyMul W (polyMul (polyMul A A) (lastStepRatioNoise w K width (n+r) phi)))) +
+      (1+eta)*quaternionHaar (N width) (polyMul W (polyMul S0 S0)) +
       (1+Q'.recipPos eta heta)*(L*((mixRate hw0 hw1 width)^(2*k)*
         quaternionHaar (N width) (polyMul W (incomingErrorEnvelope w K width n r psi)))) ≈
-      (1+eta)*(L*quaternionHaar (N width)
-        (polyMul W (polyMul (polyMul A A) (lastStepRatioNoise w K width (n+r) phi)))) +
+      (1+eta)*quaternionHaar (N width) (polyMul W (polyMul S0 S0)) +
       (mixRate hw0 hw1 width)^(2*k)*incomingScoreErrorCoefficient w K width n r psi W eta heta :=
     Q'.add_eqv_congr' (Q'.eqv_refl _)
       (poly_identity_of_normal_eq
@@ -352,6 +351,37 @@ theorem original_lastStep_incomingRatio_score_square_le {w : Q'}
           | _ => quaternionHaar (N width) (polyMul W (incomingErrorEnvelope w K width n r psi))))
   exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (haar_of_coeff ((hS.mul hS).mul_left W)))
     (Q'.le_trans' _ _ _ ht (Q'.le_of_eqv hright))
+
+/-- The existing last-step noise bound follows by capping only the retained
+leading score. It concerns last-step conditional noise, not accumulated noise. -/
+theorem original_lastStep_incomingRatio_score_square_le {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < 1) (K width : Nat) (hK : relativeCutoff w 32 ≤ K)
+    (n r : Nat) (hdepth : 1 ≤ n+r) (s : Nat) (hs : s ∈ activeBlocks width)
+    {i j : Nat} (hi : i < 4) (hj : j < 4) {psi W : RatPoly}
+    (hpsi : SupportedQuaternionBlocks (N width) psi) (MW : Certificate (N width) W)
+    (eta : Q') (heta : (0 : Q') < eta) (k : Nat) :
+    let hhead := Nat.le_trans (headCutoff_le_relativeCutoff w 32) hK
+    let a := terminalMessage w K width (n+r)
+    let A := transferStep w K width a
+    let b := transferStep w K width (incomingNumerator w K width n r psi)
+    let phi := blockConditionalRatio hw0 hw1 K width hhead n r psi k
+    let S := conditionalScore (4*s+i) (4*s+j) A b
+    quaternionHaar (N width) (polyMul W (polyMul S S)) ≤
+      (1+eta)*((relativeCap w 32*relativeCap w 32)*quaternionHaar (N width)
+        (polyMul W (polyMul (polyMul A A) (lastStepRatioNoise w K width (n+r) phi)))) +
+      (mixRate hw0 hw1 width)^(2*k)*incomingScoreErrorCoefficient w K width n r psi W eta heta := by
+  dsimp only
+  let hhead := Nat.le_trans (headCutoff_le_relativeCutoff w 32) hK
+  let phi := blockConditionalRatio hw0 hw1 K width hhead n r psi k
+  have hp := blockConditionalRatio_supported hw0 hw1 K width hhead n r hpsi k
+  have hlead := weighted_certificate_le MW
+    (lastStepRatioNoise_score_certificate hw0 hw1 K width hK (n+r) s hs hi hj hp)
+  have hscale := Q'.mul_le_mul_of_nonneg_left _ _ (1+eta) hlead
+    (Q'.zero_le_add 1 eta Q'.zero_le_one (Q'.le_of_lt heta))
+  exact Q'.le_trans' _ _ _
+    (original_lastStep_incomingRatio_score_reconstruction_le hw0 hw1 K width hK
+      n r hdepth s hs hi hj hpsi MW eta heta k)
+    (Q'.add_le_add hscale (Q'.le_of_eqv (Q'.eqv_refl _)))
 
 /-- The ACTUAL outgoing reciprocal cancels the leading A^2 by a constructed
 multiplier certificate, not by division. Its degree l is independent of k.
@@ -521,6 +551,7 @@ end YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepRatioRefinement
 
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepRatioRefinement.incomingRatioError_square_certificate
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepRatioRefinement.incomingRatioError_budget_certificate
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepRatioRefinement.original_lastStep_incomingRatio_score_reconstruction_le
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepRatioRefinement.original_lastStep_incomingRatio_score_square_le
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepRatioRefinement.original_lastStep_incomingRatio_reciprocal_score_le
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepRatioRefinement.original_lastStep_incomingRatio_gradient_le

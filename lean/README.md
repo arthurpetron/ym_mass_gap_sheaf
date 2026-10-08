@@ -27,8 +27,17 @@ quotient, marginal inverse, extra marginal multiplier or Hessian-sign premise.
 `BF4ExactSlabFixedSpatialLocalMarginalJets.local_momentD_pin`,
 `local_momentG_pin` and `lastStep_local_differential_gram` now identify G/D
 with actual frozen T1 derivatives and instantiate the same Gram. All nine
-ordered jets remain; u is not differentiated. Useful signed scaling control
-remains NEXT. Seven prior focused targets/22 gates plus one marginal-jet
+ordered jets remain; u is not differentiated. The additional
+`BF4ExactSlabFixedSpatialTerminalLocalSignedGram.terminal_local_signed_score_bound`
+now matches the positive terminal law q*a and A=Ta used by the reciprocal
+budget, with arbitrary supported phi and all nine ordered A jets.
+`LastStepRatioRefinement.original_lastStep_incomingRatio_score_reconstruction_le`
+retains the actual reconstructed leading score and unchanged error payment.
+`QuaternionHaarFiniteReciprocalHessianSign.finite_reciprocal_hessian_ibp_le`
+discards ONLY the produced favorable finite-reciprocal correction in one
+angular plane, retaining the actual weight derivative. Pair-trace assembly
+and useful signed spatial/noise scaling control remain NEXT. Seven prior
+focused targets/22 gates plus one marginal-jet
 target/six permitted gates; root imports registered, not root-built; no
 full-tree audit.
 All completed OS/physical/scaling/survival/QFT/every-group/Clay claims remain
