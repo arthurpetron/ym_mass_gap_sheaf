@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Supporting INDEPENDENT signed-filter reduction checked (2026-10-08 UTC):
+the two local origin-face difference orientations reduce at every lag to
+two scalar-filter responses of the SAME source x, with exact coefficients
+4/1/3. Forward costs retain this split. This extends the common-filter
+restriction, not a ban on scalar filtering or an interacting rate estimate.
+Different sites and the centered symmetric sector still supply genuinely
+new moment candidates. One final focused capped check/four permitted gates
+and independent final-source review; no root/tree audit. The JOINT signed
+estimate and all scaling/physical claims stay OPEN. Canonical displayed
+claims unchanged; no chart reprint. Evidence: the adaptive-score audit.
+
 Supporting ORIGINAL origin-face response restriction checked (2026-10-08
 UTC): every zero-sum combination of the three fundamental origin spatial
 faces has response (a*a-a*b+b*b)*R_x at every completed lag. A COMMON time

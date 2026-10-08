@@ -1,5 +1,23 @@
 # Sorry Ledger
 
+## PROVED independent-filter origin-sector reduction / OPEN interacting moment estimate (2026-10-08 UTC)
+
+`BF4WilsonAllNomeOriginPlaquetteKrylovReduction.filtered_diagonal_response`
+and `filtered_mixed_response` transport the actual original every-lag
+identities through arbitrary signed finite filters. No new filter/carrier
+or symmetry premise. `independent_filters_response` proves the integer-
+cleared 4/1/3 scalar-response decomposition; `independent_filters_forward_cost`
+proves its exact forward-difference counterpart. Empty, repeated and null
+filters, n=0 and width1 remain in scope. No nonzero guard, norm inverse,
+local-span invariance, spectral theorem or slow rate is used. No claim that
+scalar filters cannot improve retention. The useful SAME-variance signed
+budget, changing-family control and all physical/Clay obligations remain OPEN.
+One final focused capped check/four gates exactly {propext, Quot.sound},
+independent final-source review; root import registered only. One prior
+scalar-distribution rewrite failure is not proof evidence. No root/tree
+audit, new hole/axiom, classical/native shortcut, resource increase,
+canonical field or chart closure. Evidence: the adaptive-score audit.
+
 ## PROVED original three-face response restriction / OPEN signed scaling estimate (2026-10-08 UTC)
 
 `BF4WilsonAllNomeOriginPlaquetteOrbitResponse.head_sourceCharacter` and

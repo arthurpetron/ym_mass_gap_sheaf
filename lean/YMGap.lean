@@ -7949,6 +7949,10 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialAntisymmetricGram
 -- every completed response under a COMMON time filter. No slow-rate bound.
 import YMGap.Continuum.BF4WilsonAllNomeOriginPlaquetteOrbitResponse
 
+-- Independent signed filters in this same local difference sector reduce
+-- response and forward cost to two scalar filters of x. No rate is supplied.
+import YMGap.Continuum.BF4WilsonAllNomeOriginPlaquetteKrylovReduction
+
 -- Cofinal AF reference decay forces large ORIGINAL signed cancellation
 -- for a useful initial energy fraction; it does not produce that fraction.
 import YMGap.Continuum.BF4DyadicWilsonSquareAFSignedCancellation

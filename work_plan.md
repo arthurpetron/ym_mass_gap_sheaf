@@ -27,6 +27,24 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED stronger variational reduction (2026-10-08 UTC): arbitrary INDEPENDENT
+finite signed time filters P,Q of the two local origin-face differences now
+satisfy 4*R_(P(x)+Q(y))=R_(2P(x)-Q(x))+3*R_(Q(x)) at every lag on the SAME
+original completion. The identical decomposition holds for forward costs.
+`OriginPlaquetteKrylovReduction` reduces the two-orientation calculation to
+the SAME scalar Hankel moments of x; it supplies no retention rate or norm
+inverse. Scalar filtering remains eligible, but orientation mixing within
+this sector supplies no new moment sequence. NEXT: actual signed scalar
+filtered moments, or new interacting moments from different sites/the
+centered symmetric sector. Spatial cancellation needs field-dependent
+quaternion-tail correlations, not coefficient smoothness alone. Keep D,
+Z0,Z1 and SAME surviving variance intact; no unconditional coefficient-
+gradient, extra Ward-cancellation or conditional matrix wrapper is selected.
+One final serialized capped check/four permitted gates and independent
+final-source review pass. Root import registered only; no root/tree audit,
+new analytic premise or canonical chart closure. Exact proof and read-only
+spatial screen: the adaptive-score audit dated 2026-10-07.
+
 CHECKED variational-search restriction (2026-10-08 UTC): on the SAME original
 Wilson completion, x=chi01-chi02 and y=chi02-chi12 have equal responses at
 every completed lag, with mixed response -R_x/2. Arbitrary signed rational

@@ -4,6 +4,23 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Independent orientation filters reduced to scalar moments (2026-10-08 UTC)
+
+`BF4WilsonAllNomeOriginPlaquetteKrylovReduction.independent_filters_response`
+proves 4*R_(P(x)+Q(y))=R_(2P(x)-Q(x))+3*R_(Q(x)) for arbitrary finite signed
+independent filters and every lag on the SAME original completion.
+`independent_filters_forward_cost` gives the identical forward-cost split.
+This strictly extends the preceding common-filter restriction: the two-
+orientation calculation needs only the scalar Hankel sequence of x. Scalar
+filters may improve retention, but no such interacting estimate is produced.
+Different sites and the centered symmetric sector remain genuine new-moment
+candidates. A source-backed spatial screen rejects per-row coefficient-only
+cancellation, not estimates under the actual interacting law. One final
+focused capped check/four permitted gates; independent final-source review.
+No root/tree audit, critical-path discharge or canonical chart change.
+The legacy metric was not run because it invokes an unauthorized guard.
+Evidence and exact scope: the adaptive-score audit dated 2026-10-07.
+
 ## Actual origin-face variational search pruned (2026-10-08 UTC)
 
 `BF4WilsonAllNomeOriginPlaquetteOrbitResponse.trial_response` proves that

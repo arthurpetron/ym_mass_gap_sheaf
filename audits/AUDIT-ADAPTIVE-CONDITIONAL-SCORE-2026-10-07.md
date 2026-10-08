@@ -4,6 +4,145 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Selected independent-filter reduction and spatial-profile decision (2026-10-08 UTC)
+
+Previous goal turn: PROGRESS, commit `81dbc973` supplies the actual common-
+filter orbit identity. The remaining independent-filter branch is screened
+by a stronger exact consequence, not by a new spectral or survival premise.
+
+Write P(x)=orbitSum(x,cs), Q(x)=orbitSum(x,ds), for arbitrary finite signed
+rational coefficients and natural time lags. On the EXISTING original
+Wilson completion, strict nome and width>=1, select the proposition
+
+    4*R_(P(x)+Q(y))(n) = R_(2P(x)-Q(x))(n) + 3*R_(Q(x))(n).
+
+The SAME equality is sought for each forward lag difference R(n)-R(n+1).
+Predicted outcome: the two-orientation finite Hankel/Krylov calculation
+reduces to two scalar-filter responses of x; no additional orientation
+overlap or independent temporal moment sequence is obtained. This does NOT
+say scalar filtering cannot improve retention or produce a slow rate.
+The elementary argument uses z=x+2y: every-lag B(x,T^n z)=0 and R_z=3R_x.
+No norm inverse, nonzero filter, time-invariant local span or spectral
+existence assertion is needed.
+
+Inputs: `lean/YMGap/Continuum/BF4WilsonAllNomeOriginPlaquetteOrbitResponse.lean:331`,
+`mixed_response`, and `:340`, `diagonal_response`;
+`lean/YMGap/Continuum/BF4WilsonAllNomeBilinearTime.lean:166`, `orbitSum`,
+and `:195`, `orbitSum_pairing`. The existing original-cost limits remain
+`lean/YMGap/Continuum/BF4WilsonAllNomeOriginalRayleighLimit.lean:130`,
+`originalOwnBlockVariance_converges`, and `:143`,
+`originalOwnBlockCost_converges`. Consumer: the actual filtered variational
+screen, ultimately the signed relative budget at
+`lean/YMGap/Continuum/BF4WilsonAllNomeWindowSignedCost.lean:181`,
+`aggregate_window_macro_ratio`. This reduction supplies no such budget.
+
+Decisive tests: unequal filter lists and lags, arbitrary negative and zero
+coefficients, empty filters, n=0 and width1 time-kernel components. Budget:
+one bounded Sol leaf, independent final-source review, one serialized
+20-GiB focused check with fresh dynamic preflight and 12-GiB host reserve.
+Revise/stop if a new symmetry, analytic bound, carrier or spectral theorem
+is required. Selection is not yet a kernel-checked result.
+
+### Observed independent-filter proof (2026-10-08 UTC)
+
+The selected response and cost-difference identities now PASS one final
+focused Lean check; independent final complete-source mathematical review
+passes. Arbitrary independent signed filter lists, repeated or empty lists,
+zero/null directions, n=0 and width1 remain in scope. All objects are the
+EXISTING original Wilson completion and its actual completed time.
+
+| Produced result | Exact source |
+| --- | --- |
+| Every mixed lag of two independently filtered y directions equals its x counterpart | `lean/YMGap/Continuum/BF4WilsonAllNomeOriginPlaquetteKrylovReduction.lean:77`, `filtered_diagonal_response` |
+| Signed mixed-filter response, with factor TWO cleared before the finite sums | `lean/YMGap/Continuum/BF4WilsonAllNomeOriginPlaquetteKrylovReduction.lean:89`, `filtered_mixed_response` |
+| 4*R_(P(x)+Q(y))=R_(2P(x)-Q(x))+3*R_(Q(x)) at every lag | `lean/YMGap/Continuum/BF4WilsonAllNomeOriginPlaquetteKrylovReduction.lean:159`, `independent_filters_response` |
+| Identical 4/1/3 decomposition of forward lag differences | `lean/YMGap/Continuum/BF4WilsonAllNomeOriginPlaquetteKrylovReduction.lean:210`, `independent_filters_forward_cost` |
+
+Decision: reduce this two-orientation finite-filter search to the SAME
+scalar moments R_x(n+i+j). Scalar filtering remains eligible and may change
+retention; no useful moments, slow rate or overlap bound is produced here.
+Different sites and the centered symmetric sector are NOT reduced to x.
+The completed cost identity does not identify distinct finite chronological
+partitions or authorize iterating a row-normalized finite transfer. Any
+finite moment certificate must still retain its original window, OWN mean
+and both masses; the radius-zero original-cost API is not asserted to be a
+general finite mixed-filter realization. No new carrier/filter/interface,
+variance inverse, nonzero premise or spectral theorem is introduced.
+
+Verification: all four printed gates exactly {propext, Quot.sound}, no
+sorryAx or warning in the final log. One serialized 20-GiB worker, 12-GiB
+host reserve, fresh dynamic-capacity preflight before each launch. The first
+check's one scalar-distribution rewrite error and its generated sorryAx
+output are NOT evidence. The only repair distributes two explicit scales
+using the existing RCscale_RCadd; no proposition or limit changed. Root
+read the complete final source. Root import registered only; no root/tree
+audit, guard, new hole/axiom, classical/native shortcut, canonical field or
+chart closure. The whole Clay target and actual signed scaling input remain
+OPEN. No broad discharge count is inferred.
+
+Accepted log and SHA-256:
+
+```text
+/private/tmp/ym-origin-krylov-reduction-20261008b.log
+  e4c5d82e78888236c1cfacf896691cbcb2b07a059ee653a787801dbb866961a0
+```
+
+Checked source SHA-256:
+
+```text
+81561d7aba782e486105a4f19f1cc82d75f4531bdf036469baa69498a73bfb49
+```
+
+### Spatial coefficient cancellation: source-backed screen, NOT a new proof
+
+Root inspected the cited declarations; independent mathematical review
+agrees. Actual rows use quaternion-tail correlations:
+
+    Gamma_l(F) = 4*||sum_(p incident l) c_p*tau_lp||^2 - F_l^2.
+
+Source: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyCoherentTail.lean:183`,
+`actual_face_tail_recode`, and `:383`, `family_coherent_row`. The complete
+original energy already retains these squares and BOTH Taylor debts in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyCoherentEnergy.lean:263`,
+`family_coherent_energy_retained_square`. A scalar coefficient difference
+does not identify the difference of these field-dependent ordered tails.
+
+Exact paper test on actual adjacent words, not a new checked witness:
+width>=2, shared link ((1,0,0,0),x1)=1; links ((0,0,0,0),x0)=i and
+((1,0,0,0),x0)=-i; every other link=1. All values are rational unit
+quaternions. With variable shared U, the two traces are chi(U*i)=-2U_i and
+chi((-i)*U^-1)=-2U_i. At U=1, equal coefficients have shared angular square
+16 and complete angular square 40, while opposite coefficients have shared
+square 0 and complete square 24. Replacing -i by +i exchanges these cases.
+Sources: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialAdjacentAngularCancellation.lean:184`,
+`original_adjacent_trace_pins`; and
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialAdjacentFullAngular.lean:425`,
+`adjacent_full_angular`. This rejects a universal PER-SHARED-ROW
+coefficient-difference-only bound; it does not refute a global estimate with
+separately paid true boundary rows or an estimate under the interacting law.
+At this boundary row the incident spatial action remains
+V_nonincident*h(-U_i)^2*h(U_0), h=the original heat prefix. The terminal
+messages and all remaining action factors still belong to the original law.
+No action or interacting moment is replaced by this pointwise paper test.
+
+First-order source derivatives already cancel in
+`lean/YMGap/Continuum/SU2QuaternionProductHeatAngularTaylor.lean:91`,
+`sourceFirstOrder_eq_weightedAngularEnergy`; the higher signed terms remain.
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyVarianceTaylor.lean:67`,
+`padded_family_energy_variance`, retains 12*(1-w)*OWN variance plus the
+complete signed correction, not an extra power from coefficient smoothness.
+The concrete filtered target remains D<=epsilon*Z1*ell_V(b^2), with
+D=Z0*E(A,phi)+boundaryDrift+signedMultiplicationCost and BOTH actual
+chronological partitions. Its identity, not its estimate, is proved at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockRayleighSplit.lean:214`,
+`clearedRayleighCost_split`.
+
+Decision: retain different sites and the centered symmetric sector as
+genuine sources of NEW interacting moments; do not implement another
+coefficient-gradient, Ward-cancellation or conditional matrix wrapper.
+Work still requires an actual interacting correlation/signed-response
+estimate and justified changing-family control. No broad chart claim closes.
+
 ## Selected actual three-face orbit response test (2026-10-08 UTC)
 
 Proposition: on the EXISTING original Wilson completion at strict nome and
