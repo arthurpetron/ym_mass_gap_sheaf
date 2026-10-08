@@ -4418,6 +4418,7 @@ import YMGap.Continuum.BF4ExactSlabAuxiliaryVertexGauge
 import YMGap.Continuum.BF4ExactSlabBulkScalarVertexImage
 import YMGap.Continuum.SU2QuaternionAuxiliaryLiftAlgebra
 import YMGap.Continuum.BF4ExactSlabVertexGaugeAction
+import YMGap.Continuum.BF4ExactSlabVertexGaugeWilsonWord
 import YMGap.Continuum.BF4ExactSlabBulkScalarInteractingIdentity
 import YMGap.Continuum.BF4ExactSlabBulkScalarPlaquettePairing
 import YMGap.Continuum.BF4ExactSlabSiteHaarFactorization
@@ -6241,6 +6242,7 @@ import YMGap.Continuum.BF4ExactSlabGaugeConditionalApproximation
 import YMGap.Continuum.GNSRepresentedSector
 import YMGap.Continuum.GNSRepresentedSectorRecurrence
 import YMGap.Continuum.BF4ExactSlabGaugeRepresentedCompletion
+import YMGap.Continuum.BF4ExactSlabGaugeWilsonCompletion
 import YMGap.Continuum.BF4ExactSlabBlockSingletonProjection
 import YMGap.Continuum.BF4ExactSlabGaugeSweep
 import YMGap.Continuum.BF4ExactSlabGaugeCenteredWitness

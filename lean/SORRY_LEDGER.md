@@ -1,5 +1,30 @@
 # Sorry Ledger
 
+## PROVED literal Wilson gauge-source completion / OPEN OS/scaling and signed estimate (2026-10-08 UTC)
+
+`lean/YMGap/Continuum/BF4ExactSlabVertexGaugeWilsonWord.lean:174`,
+`closedWord_invariant`, produces the actual physical ordered-word ledger
+image and its sphere/Haar cancellation. `placedSourceLoop_invariant:210`
+and `placedWindow_invariant:219` retain physical room/window guards,
+inverse flags, repeats, signed operations and all three SHARED auxiliary
+coordinates. No gauge invariance is assumed. The source law concerns the
+EXISTING common-auxiliary ledger, not independent gauges at every vertex.
+`lean/YMGap/Continuum/BF4ExactSlabGaugeWilsonCompletion.lean:39`,
+`windowPolynomial`, retains the actual placed polynomial;
+`window_gaugePolynomial:46` produces the existing property.
+`windowRepresentative:54` and `blockWindowRepresentative:62` return
+Type-valued witnesses in the SAME existing full-action completion and its
+actual conditional-projection image. Strict nome and `headCutoff w <= K`
+remain explicit and unchanged. Two accepted focused capped checks/eight
+gates exactly {propext,Quot.sound}; independent full final-source review.
+No sorry, new axiom, analytic premise, classical/native shortcut, field
+weakening or resource-option increase. Root imports registered only;
+no full-root/tree build/audit. This weighted finite GNS carrier is not
+identified here with the all-nome OS completion. Infinitesimal Gauss law,
+JOINT signed retention estimate, justified changing family, continuum
+survival/physical mass, full QFT, every group and Clay remain OPEN.
+Exact evidence/source/log hashes: parallel QFT-inputs audit. Chart unchanged.
+
 ## PROVED original inserted degree/location budget / OPEN changing-family retention (2026-10-08 UTC)
 
 `lean/YMGap/Continuum/BF4ExactCutoffOneInsertedQuarticBudget.lean:43`,

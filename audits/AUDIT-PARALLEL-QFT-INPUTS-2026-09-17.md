@@ -14,6 +14,83 @@ Yang--Mills theory on R^4 with the required same-theory QFT axioms, isolated
 vacuum and finite positive physical Hamiltonian mass gap, within the
 constructive Mathlib-free MLTT/HoTT gate. **The goal remains OPEN.**
 
+## Selected literal Wilson vertex-gauge input (2026-10-08 UTC)
+
+The supplied lattice-measurement attachment is already reconciled in
+`RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md`; it adds no new estimate.
+Independent source review instead identified one missing physical-source
+property with an existing finite consumer: the literal closed Wilson word
+and its guarded signed window must satisfy the existing
+`BF4ExactSlabVertexGaugeAction.Invariant` for every common auxiliary tag map.
+Plaquette invariance and the narrower temporal ledger do not alone assert
+this property for arbitrary closed words.
+
+Selected argument: `BF4ExactSlabAuxiliaryVertexGauge.slabGauge_link`
+(`lean/YMGap/Continuum/BF4ExactSlabAuxiliaryVertexGauge.lean:93`) pins each
+actual physical link's ledger image; ordered endpoint compatibility and
+`SU2QuaternionHaarGaugeWord.closed_character`
+(`lean/YMGap/Continuum/SU2QuaternionHaarGaugeWord.lean:104`) cancel the
+unit auxiliary gauges in the sphere/Haar ideal. Retain inverse orientations,
+repeated occurrences, the three auxiliary blocks, supported spectators and
+both placement guards. Then instantiate the existing same-carrier
+`BF4ExactSlabGaugeRepresentedCompletion.ofPolynomial`
+(`lean/YMGap/Continuum/BF4ExactSlabGaugeRepresentedCompletion.lean:52`)
+on the literal placed window, with the unchanged
+`fullData` hypothesis `headCutoff w <= K`. This is an explicit represented
+dense point, not a new completion or a supplied gauge-invariance premise.
+
+Scope: tags take values in three SHARED auxiliary quaternions or identity;
+no independently realized gauge at every vertex, infinitesimal Gauss
+generator, rowwise SO4 Ward cancellation, OS/scaling identification or
+continuum QFT closure is selected. Stop if the join requires any new
+analytic premise, inverse, representative selection or changed action.
+One Sol-authored source leaf, an independent complete-source review and
+root-owned serialized capped verification are selected. At selection the
+227-line draft had passed mathematical review but was not yet compiled;
+the final checked source and its concrete consumer are recorded below.
+Main DIRECT macroscopic retention / JOINT signed relative cost stays OPEN.
+
+### Observed literal source and SAME-completion consumer
+
+Both complete FINAL sources pass independent semantic review and root-owned
+focused Lean verification. Paths below are relative to `lean/YMGap/Continuum/`.
+
+| Produced result | Exact declaration and checked scope |
+| --- | --- |
+| Physical closed word satisfies the existing auxiliary vertex invariant | `BF4ExactSlabVertexGaugeWilsonWord.lean:174`, `closedWord_invariant`; actual ledger substitution, compatible ordered path, physical membership and closed terminal are used. |
+| Literal placed SourceLoop and signed window inherit that property | Same module `:210`, `placedSourceLoop_invariant`; `:219`, `placedWindow_invariant`; both room guards, every spin, offset, inverse and repeated occurrence remain. |
+| Original supported dense polynomial and produced gauge predicate | `BF4ExactSlabGaugeWilsonCompletion.lean:39`, `windowPolynomial`; `:42`, `windowPolynomial_val`; `:46`, `window_gaugePolynomial`; no invariance premise. |
+| Explicit represented point and actual block-projection image | Same module `:54`, `windowRepresentative`; `:62`, `blockWindowRepresentative`; Type-valued representatives/moduli in the EXISTING `fullData` completion, strict nome and unchanged `headCutoff w <= K`. |
+
+Sol authored the source cancellation leaf; root repaired namespace/typed
+coefficient-relation/Within elaboration and authored the concrete completion
+consumer. Root read both full final sources. Independent full-source review
+passes ordered/reversed endpoints, physical placement, support/padding,
+arbitrary supported spectators, literal insertion and represented projection.
+No new sorry/axiom, classical/native shortcut, new analytic premise,
+noncomputable extraction, field weakening or resource-limit increase.
+
+All eight printed gates are exactly {propext, Quot.sound}; accepted logs
+contain no error or warning. Checks were serialized through the safe launcher,
+one 20-GiB worker, 12-GiB OS reserve. Each launch's fresh preflight found no
+competing compiler/runner, 86--87% system-wide free memory and zero swap.
+The first two source checks had elaboration errors, not mathematical evidence;
+only the final checked source is accepted.
+
+| Leaf | Final source SHA256 | Accepted focused log and SHA256 |
+| --- | --- | --- |
+| Vertex word | `34e800bee3134d69453658ec423818ac0dcaa5b57dc946a5e9b9f622fa955d34` | `/private/tmp/ym-vertex-gauge-wilson-word-20261008-c.log`; `085e0ce259c5a9b192d5ea39a0b2093ed112142482e08c80c59b54bfc3bc2177` |
+| Completion consumer | `01a8c06b710c111e400638bd65bb9539d175773eebac819ed5241e04f7d666bf` | `/private/tmp/ym-gauge-wilson-completion-20261008-a.log`; `eb6c18e5d9fc72465532592d5b84730b2239bd5923d3919c5f426f974f8c3784` |
+
+Root imports registered only: no root/full-tree build, audit, guard or metric.
+Stop this independent increment at the actual finite weighted completion
+consumer. All-nome OS/scaling identification, infinitesimal Gauss law,
+joint signed cost/variance control, continuum survival/physical calibration,
+full QFT and every-group/Clay remain OPEN. Three shared auxiliary tags are
+not arbitrary independently realized vertex gauges. The rowwise kinetic
+SO4 Ward generator is different; this source property does not erase its
+interaction response. No displayed canonical chart claim changed.
+
 ## Original bond derivative and ordinary transfer logarithm (2026-10-08 UTC)
 
 Selected independent QFT input: identify the EXISTING bond derivative output

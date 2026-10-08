@@ -27,6 +27,36 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED independent SAME-action gauge-source join (2026-10-08 UTC):
+`VertexGaugeWilsonWord.closedWord_invariant` derives the actual closed-word
+auxiliary-ledger image from physical membership and ordered endpoint
+cancellation. `placedSourceLoop_invariant` and `placedWindow_invariant`
+retain both placement guards, all inverse/repeated occurrences and signed
+operations. `GaugeWilsonCompletion.windowRepresentative` constructs a
+Type-valued constant Cauchy witness for the literal window in the EXISTING
+full-action completion; `blockWindowRepresentative` witnesses its actual
+completed conditional-projection image. All three SHARED auxiliary gauge
+coordinates remain. This is not an independently realized gauge at every
+vertex, an infinitesimal Gauss law, the all-nome OS join or full QFT.
+Two focused capped checks/eight permitted gates and independent complete
+FINAL-source review pass. Root imports registered only; no root/tree audit.
+Exact source/log hashes and scopes: parallel QFT-inputs audit.
+
+Analytic decision: retain the two signed Ward responses JOINTLY. Source
+review shows that diagonal kinetic rotation plus joint Haar IBP regenerates
+the existing correction in `RatioNoiseWardAbsorption`, rather than producing
+a new sign or relative bound. Centering does cancel the pure output-score
+term, already accounted for in the matched-noise algebra. The positive
+gradient payment still pulls back to `T(Vbar*Ta)`, NOT `Ta` or `T^2a`.
+Do not add another joint-identity wrapper or infer this rowwise SO4
+cancellation from the finite gauge-source law. DIRECT macro response
+retention or sufficient JOINT cost versus SAME surviving variance on a
+justified changing family remains the primary frontier. Existing local
+all-nome curvature and ORIGINAL-prefix transport are available, not new
+blockers to rebuild. Evidence: adaptive conditional-score audit.
+Scaling, continuum survival, calibrated physical mass, QFT/every-group
+and Clay remain OPEN. No displayed chart claim changed.
+
 CHECKED ORIGINAL inserted degree/location budget (2026-10-08 UTC):
 `CutoffOneInsertedQuarticBudget.affine_selected_degree_le_three` produces the
 actual inner24 selected-action incidence cap 3 on all 116 raw links.

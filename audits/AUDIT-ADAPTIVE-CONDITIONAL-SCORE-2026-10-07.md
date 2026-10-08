@@ -4,6 +4,67 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Joint endpoint IBP screen: centered cancellation, no new estimate (2026-10-08 UTC)
+
+Root source inspection and independent Sol mathematical review; the formula
+below is a PAPER derivation using existing producers, not a new checked
+declaration or signed relative bound. Selected experiment: combine the two
+retained Ward responses before estimating either absolutely. Stop if the
+result is exactly an already available correction rather than a smaller
+analytic input.
+
+Let V be the ORIGINAL spatial weight, a its actual terminal message,
+g=V*a, A=T(a), b=T(a*phi), v the ORIGINAL spatial fringe mass, D=JA,
+X=A(y)*phi(x)-b(y), N the matched noise, and
+M=I_x[K*g*X*Jphi]. G is the actual successor polynomial reciprocal, not
+an assumed exact inverse. All output factors are lifted to the second
+endpoint. Write L=J_x+J_y, and H for joint Haar integration. The two retained
+responses combine as
+
+    U = density + 2*spatial
+      = H[K*G(y)^2*D(y)*X^2 * L(g(x)*v(y)^2)]
+      = -H[K*g(x)*v(y)^2 * L(G(y)^2*D(y)*X^2)].
+
+The actual kinetic identity L(K)=0 is ALREADY supplied by
+`lean/YMGap/Continuum/SU2QuaternionProductHeatAngularForm.lean:64`,
+`productHeat_pairedAngular_carrier`, including every selected factor and
+repeated index. `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialKineticMarginals.lean:118`,
+`kineticWeight_eq_indexedProduct`, pins literal K. Signed joint IBP uses
+`lean/YMGap/Continuum/SU2QuaternionHaarAngularIBPAt.lean:120`,
+`angular_pair_at`; both endpoint indices remain in range.
+
+There IS a genuine centered cancellation: I_x[K*g*X]=0 removes the pure
+output score term. Equivalently use LX=D*phi+A*Jphi-Jb directly;
+I_x[K*g*X^2]=A*N and I_x[K*g*X*phi]=N. Expansion gives
+
+    U = -H_y[v^2 * (
+          A*G^2*N*J^2A + 2*G^2*N*D^2
+          + 2*A*G*(JG)*D*N + 2*A*G^2*D*M)].
+
+These are precisely the terms in the EXISTING combined Ward correction,
+not a new sign-producing join. See
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.lean:74`,
+`ratioNoiseDensityMoment`, and private `hcorr:238` inside
+`original_ratioNoise_ward_absorption_le:132`. In particular, centering
+removes the pure score, but leaves the mixed gradient, reciprocal derivative
+and marginal Hessian together; no useful sign or scaling smallness follows
+from kinetic invariance alone.
+
+The positive gradient pullback STILL has incoming weight
+V*a*T(v*T(a)), not V*a*T(a) or V*a*T^2(a): same module `:384`,
+`original_ratioNoise_gradientPayment_weighted_pin`. Constant/zero phi gives
+X=N=U=0; constant a does not remove J(V*a). The finite closed-Wilson
+vertex-gauge property in the parallel QFT audit is not this one-link paired
+SO4 generator and does not supply a collective Gauss-Ward estimate.
+
+Decision: PRUNE another joint-identity leaf; retain U as a combined signed
+debt in the existing consumer. DIRECT original macroscopic response
+retention or sufficient JOINT whole-window cost/OWN-variance control on a
+justified changing family remains unpaid. Sharper local all-nome curvature
+and its original-prefix transport are already available; do not rebuild
+them or present a selected positive cap as a lower bound on actual signed
+cost. No canonical field, source/action, frontier claim or chart changes.
+
 ## Direct retention need not pay the sufficient window test (2026-10-08 UTC)
 
 Root calculation and independent mathematical review; NO Lean edits,
