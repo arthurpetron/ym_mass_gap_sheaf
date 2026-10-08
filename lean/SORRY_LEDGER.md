@@ -1,5 +1,18 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL early-cutoff Haar floor / OPEN charged moment and scaling estimates (2026-10-08 UTC)
+
+`QuaternionHaarSmallNomeHeatCertificate` produces an actual positive
+floor 1055/2272 for every inclusive K>=1 at NAMED 0<=w<=1/2.
+`prefixFloorCertificate` uses actual sharp character-tail certificates;
+`faceFloorCertificate` pins to literal original slab faces with produced
+support/Haar-unit norm. No scalar positivity inference, action substitution
+or canonical headCutoff guard weakening. Charged original moments, useful
+normalized cutoff error, changing-family retention and physical/Clay inputs
+remain OPEN. Final focused check/seven permitted gates, independent source
+review; root registration only, no new hole/axiom or full-tree audit.
+Exact sources/logs/hashes: original-moment-pilot feasibility audit.
+
 ## PROVED SAME-bond ordinary-logarithm identification / OPEN physical calibration (2026-10-08 UTC)
 
 `BF4WilsonAllNomeBondOSLogarithm` constructs the literal ordinary logarithm

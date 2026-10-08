@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Supporting ORIGINAL early-cutoff Haar positivity checked (2026-10-08 UTC):
+heat-factor floor 1055/2272 is certified for every K>=1 at NAMED 0<=w<=1/2,
+including literal slab faces/shared links. No action/canonical cutoff change
+or w->1 estimate. Existing vacuum 128-surface contraction is reusable; charged
+moments, normalized cutoff payment and changing-family retention stay OPEN.
+One focused capped check/seven permitted gates, independent full-source
+review; no root/tree audit. Displayed claims unchanged, no chart reprint.
+Evidence: original-moment-pilot feasibility audit dated 2026-09-30.
+
 Supporting SAME-bond logarithm identification checked (2026-10-08 UTC):
 the existing derivative output is the positive-logarithm (-log P) series
 limit of its own original time-one transfer. Every quotient-domain class has the

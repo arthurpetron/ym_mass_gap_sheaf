@@ -1,10 +1,13 @@
 # Original six-moment pilot: quantitative feasibility screen
 
-Source review, exact scalar arithmetic and a small geometry diagnostic.
-This feasibility screen involved no Lean edits or theorem checks, and no
+Initial source review, exact scalar arithmetic and a small geometry diagnostic.
+That feasibility screen involved no Lean edits or theorem checks, and no
 Haar moment or auxiliary-state margin was evaluated. Subsequent scalar
 proof work is recorded separately in
-`AUDIT-ORIGINAL-CHEBYSHEV-SQRT-RATE-2026-09-30.md`. The scaling estimate
+`AUDIT-ORIGINAL-CHEBYSHEV-SQRT-RATE-2026-09-30.md`. The early-cutoff ORIGINAL
+Haar positivity join checked on 2026-10-08 is recorded below; the old canonical
+cutoff is not a necessary positivity threshold. No charged moment is produced.
+The scaling estimate
 and same-theory continuum/Clay target remain open.
 
 ## Why this check changes the next action
@@ -194,3 +197,108 @@ bounds. A frozen vacuum-plus-fundamental algebra cannot repair closure:
 `no_fiveCoordinate_classCompatible_product`, and `:158`,
 `fundamental_square_exposes_spinTwo`, explicitly expose the missing channel.
 None of this produces a favorable relative estimate or scaling theorem.
+
+## Selected early-cutoff ORIGINAL Haar positivity join (2026-10-08 UTC)
+
+The canonical K>=627 lower bound at w=1/2 above is a bound on that particular
+computed schedule, not a necessary threshold for positivity. Existing
+`SU2AllLabelPointwiseHeatCorridor.pointwiseHeatMajorant_tail_le` proves the
+entire label>=2 scalar majorant tail <=81/2272 for 0<=w<=1/2. The first
+nonconstant label has cap <=1/2. Their sum is <=1217/2272<1, leaving the
+explicit floor 1055/2272 for every inclusive prefix K>=1. The scalar
+pointwise floor is already proved; do NOT count its reexport as new work.
+
+Selected proposition: construct a `QuaternionHaarSquareCertificate.Certificate`
+for the ORIGINAL `heatPrefix w K x -1055/2272`, using the actual
+`SquareBound blocks x 1` and existing sharp `termInterval`, finite polynomial
+sum and interval operations. Consumer: positivity of the same finite original
+heat factors under arbitrary Haar insertions, enabling early-cutoff raw
+moment diagnostics without a Cartesian expansion at the canonical cutoff.
+No such diagnostic or favourable interacting moment is claimed yet. Do not
+change `headCutoff`, weaken its consumers, change the action or infer a Haar
+certificate solely from scalar pointwise positivity.
+
+Prediction: a short positive-character-tail certificate pays this join with
+no new analytic hypothesis. Test cutoff one, zero nome, shared-link factors
+and all later prefix lengths. Budget: one bounded Sol leaf, independent
+complete-source review, root-only serialized focused 20-GiB verification with
+12-GiB reserve and fresh capacity preflight. Stop if the construction needs
+pointwise-to-Haar inference, spectator independence or a changed law. Global
+normalized cutoff errors, feasible contraction order, actual signed moments,
+changing-family retention and the whole Clay target remain OPEN. Selection
+is not a checked result and changes no canonical displayed claim.
+
+### Reused cutoff-one contraction evidence, not new moment production
+
+Parallel read-only review and root source inspection locate more than the
+old incidence diagnostic. `BF4CutoffOneBinarySurfaceEmbedding.lean:646`,
+`slabSurfaceIsClosed_iff_mem_embeddedBinarySurfaceMasks`, proves completeness
+for bounded literal 72-face masks. `BF4ExactCutoffOneSurfaceCharacterReindex.lean:528`,
+`cutoffOneFullDualSum_eq_embeddedSurfaceDualSum`, removes actual odd-link
+zero terms from the original sum. `BF4ExactCutoffOneSurfaceForestGaugeBridge.lean:305`,
+`actualBF4HaarFiveSurfaceBridge`, evaluates the remaining 128 contractions.
+All paths in this paragraph are under `lean/YMGap/Continuum/`.
+
+`BF4ExactCutoffOneHaarFiveClosure.lean:65`,
+`exactConstantQuadraticMoment_cutoffOne_actual`, therefore supplies the
+existing unconditional exact constant-moment polynomial
+1+32w^18+96w^30+224w^36+192w^42+3w^48. Its header explicitly excludes
+identification with the separately normalized positive physical kernel.
+Reuse this vacuum calculation; do not count/rebuild its 128-mask rank as
+new evidence or treat it as a charged-observable contraction.
+
+Remaining inserted-moment requirements: original inserted odd-degree
+annihilation, literal words/multiplicities, affine charged-mask completeness,
+and actual charged Haar contractions. Insertions can repeat a face; the
+nonrepeated-support guard of
+`SU2QuaternionCutoffOneLinkBucketHaarNetwork.lean:336`,
+`finiteProductHaarComplex_cutoffOneOrientedFaceTraceProductAt_eq_linkBucketKernelProduct`,
+does not directly cover that case. The general dispatcher
+`SU2QuaternionAtMostSixBlockWordFubini.lean:531`,
+`finiteProductHaarComplex_atMostSixDistinctBlockWords`, is an available
+structural ingredient, not a cheap global evaluation algorithm. No new
+inserted moment, normalized tail bound or retention rate is evaluated here.
+The existing `ChebyshevFiniteTest` still requires its canonical late cutoff;
+early-prefix positivity does not discharge that guard.
+
+### Observed early-cutoff Haar certificate and next action
+
+Final complete 184-line source inspection, independent complete-source
+semantic review and root-controlled focused Lean check PASS. The actual
+positive floor is uniform over the NAMED range 0<=w<=1/2, all inclusive
+K>=1 and supplied Haar-unit scalar carriers. It is not a weak-coupling
+w->1 bound. Literal original slab-face instances have produced support
+and Haar-unit norm witnesses; shared links and all original coefficients
+are retained. No scalar pointwise-to-Haar inference occurs.
+
+| Produced result | Exact declaration |
+| --- | --- |
+| Explicit positive floor 1055/2272 | `lean/YMGap/Continuum/QuaternionHaarSmallNomeHeatCertificate.lean:53`, `floor`; `:55`, `floor_positive` |
+| Actual labels 2..count+1 interval, including empty tail | Same module `:69`, `higherLabelInterval` |
+| Original inclusive prefix minus that floor has a Haar certificate | Same module `:111`, `prefixFloorCertificate` |
+| Actual original prefix positivity, using existing lower-window producer | Same module `:150`, `prefixCertificate` |
+| Literal original slab-face floor and positivity | Same module `:157`, `faceFloorCertificate`; `:168`, `faceCertificate` |
+
+Seven printed gates: floor and its positivity are axiom-free; all five
+certificate producers depend exactly on {propext, Quot.sound}. No warning,
+sorryAx, new hole/axiom, classical/native shortcut or option increase.
+The rational-cap type error was corrected during static review BEFORE
+compilation; that earlier source is not evidence. One final focused check,
+one 20-GiB worker, 12-GiB reserve, fresh preflight with 88% memory free,
+zero swap and no competing compiler/runner. Root import registered only;
+no root/tree build, audit, guard, metric or large moment expansion.
+
+```text
+Accepted log: /private/tmp/ym-small-nome-early-haar-20261008-a.log
+SHA256 4ca0eabbd4c316508b9f98d53317593fab6ea9afcde695f4c494823c4c715e95
+Checked source SHA256
+9ee8e58c331205cc65a04de933a38157b5f6c3527742ce64f163733a5905cdce
+```
+
+Decision: CONTINUE the bounded original raw-moment path with actual early
+Haar positivity and REUSE the existing vacuum 128-surface contraction.
+Do not call the old guarded `ChebyshevFiniteTest` at K=1. Next missing
+pieces are charged original-observable contraction, a feasible evaluator,
+and quantitative normalized cutoff payment. No favourable interacting
+moment, source survival, changing-family retention, physical calibration,
+QFT or Clay closure follows; canonical displayed claims stay unchanged.

@@ -27,6 +27,17 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED finite-pilot positivity repair (2026-10-08 UTC): actual ORIGINAL
+Haar certificates give heat-factor floor 1055/2272 for every inclusive K>=1
+at NAMED 0<=w<=1/2, including literal slab faces and shared links. No action,
+headCutoff or guarded completed consumer changed. This permits early-cutoff
+raw-moment positivity, not a w->1 scaling estimate. Reuse the existing actual
+vacuum 128-surface evaluation; charged insertions, feasible contraction and
+normalized cutoff payment remain unpaid. One focused capped check/seven
+permitted gates and independent complete-source review pass. Main DIRECT
+macro retention or sufficient JOINT window bound on a justified family
+remains OPEN. Evidence: the original-moment-pilot feasibility audit.
+
 CHECKED independent QFT join (2026-10-08 UTC): the EXISTING bond derivative
 output is the ordinary positive-logarithm (-log P) series limit of its OWN
 original time-one transfer. `BondOSLogarithm` supplies a tail bound on every quotient-domain

@@ -4,6 +4,18 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## ORIGINAL early-cutoff Haar positivity produced (2026-10-08 UTC)
+
+`QuaternionHaarSmallNomeHeatCertificate.prefixFloorCertificate` and
+`faceFloorCertificate` construct the actual floor 1055/2272 for every K>=1
+and NAMED 0<=w<=1/2. This removes a finite-pilot positivity bottleneck, not
+the guarded completed consumer or scaling estimate. The vacuum 128-surface
+calculation already exists; charged contractions and normalized cutoff
+payment remain unpaid. One focused capped check/seven permitted gates and
+independent complete-source review; root registration only, no broad audit,
+legacy guard/metric or canonical chart closure. Evidence: original-moment
+pilot feasibility audit dated 2026-09-30.
+
 ## SAME-bond derivative identified with its ordinary logarithm (2026-10-08 UTC)
 
 `BondOSLogarithm.domain_logarithm_tail_bound` applies to every existing
