@@ -4,6 +4,131 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Observed SAME-slice Gauss/ORIGINAL-transfer join (2026-10-08 UTC)
+
+The selected finite join is now CHECKED, not an assumed invariance interface.
+`lean/YMGap/Continuum/SU2QuaternionHaarBlockEmbeddingAngular.lean:116`,
+`BlockEmbedding.polynomial_ratDerivative_exact`, transports the actual raw
+partial derivative through an injective block placement. Its
+`polynomial_blockAngularDerivative:136`, `ratDerivative_offImage_zero:159`,
+`blockAngularDerivative_offImage_zero:192` and
+`polynomial_supportedHaar_reflect:207` retain support/sentinel guards and
+reflect equality on the SAME supported source. No padded identity is
+differentiated.
+
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialGaussTransfer.lean:50`,
+`sliceGauss`, sums the actual minus-left outgoing/plus-right incoming
+generator on every literal baseLinks entry, including fringe. Its
+`sliceGauss_supported:98` preserves the source. Per-face original action
+invariance, the full spatialIds product and supported Haar reflection produce
+`spatialWeight_gauss_zero:281`; zero of a subset is NOT inferred from zero
+of the full action. `transferStep_gauss_intertwining:391` proves G(Tp)=T(Gp)
+at arbitrary-insertion Haar strength for every supported signed p, with
+T=P(V*p) the ORIGINAL transfer and V the full spatial weight.
+`transferStep_gauss_zero:406` preserves an actual supplied Gauss-zero source.
+Arbitrary nome, K=0 and width zero remain; no positivity, stationary vacuum,
+gauge fixing, inverse or omitted action factor is used.
+
+Root inspected complete final sources and all repaired joins. Independent
+COMPLETE FINAL-source mathematical review PASS at the hashes below. Accepted
+focused core check 2 and instance check 3 exit zero: SIX core gates exactly
+{propext,Quot.sound}; the instance definition uses only propext and FOUR theorem
+gates exactly {propext,Quot.sound}. The instance has two harmless lint warnings
+(unused private support parameter; simpa instead of simp). Rejected logs are
+not proof evidence; their synthetic sorryAx/failed constants are not accepted
+axioms or source holes. The recorded single revision to five checks total
+was exhausted, not exceeded. Final sources are 228+422=650 lines. No resource
+option increase, new hole/axiom/classical input, tree build/audit, guard or
+progress metric. Every launch had fresh approved process/memory/swap
+preflight, one 20-GiB-capped worker and 12-GiB reserve; final memory-free
+reading 87%, zero swap. Root imports are registered ONLY.
+
+```text
+SOURCE lean/YMGap/Continuum/SU2QuaternionHaarBlockEmbeddingAngular.lean
+SHA256 ee71adb14ac0e68485ec1786c582ea1a106c93cafe8ca8d9a46e133f7ee9cb11
+CHECK  /private/tmp/ym-oct8-block-embedding-angular2.log
+SHA256 a4d0ed06848e13f1900b5a2506c12ba5dc355b5a5fa1ac13fce83743543d502e
+SOURCE lean/YMGap/Continuum/BF4ExactSlabFixedSpatialGaussTransfer.lean
+SHA256 ab5c613eb5aadfb9123415b9fa4de3a146e324238395983460106167b474ce5b
+CHECK  /private/tmp/ym-oct8-slice-gauss-transfer3.log
+SHA256 caba608c6e34300c5ef1814d312494bdcf2eca882905562909654e53261ddad1
+```
+
+Decision: close the selected FINITE gauge/transfer join; do not extend its
+generator to every completed state without an actual domain/control theorem.
+Return MAIN work to the changing-family signed moving-moment credit/payment
+or original relative-innovation ceiling. Collective gauge cancellation does
+not pay horizontal energy. The attachment's mass/spectral-limit distinctions
+remain incorporated in the calibration audit; no measurement-driven premise
+is added. Completed/continuum gauge transport, survival, physical mass, full
+QFT, every group and Clay remain OPEN. Canonical displayed claims are
+unchanged; no chart reprint.
+
+## Selected independent finite Gauss/transfer join (2026-10-08 UTC)
+
+The measurement attachment is already incorporated in the calibration audit;
+no measured mass, Sobolev regularity or finite-spacing Hamiltonian identity is
+adopted as a proof premise. Three bounded read-only reviews found no producer
+of the useful moving-window credit or original relative-innovation ceiling.
+In particular the existing cap/floor strategy requires epsilon>=48*(1-w):
+`FamilyKineticUpper.family_energy_nome_normalized` has cap 192*(1-w)*C,
+whereas `FamilyRayleighFloor.family_oddVariance_coefficient_cap` gives the
+matching OWN variance <=4*C. This obstructs THAT certification strategy,
+not the actual energy. The joint density/Hessian IBP square still leaves
+the actual weighted ratio-Hessian energy unpaid. Do not build another
+propagation or curvature rearrangement as if either estimate were produced.
+
+Root source reconciliation makes that cap diagnostic sharper on the ACTUAL
+rational AF schedule, still a PAPER deduction: with C>0, the cap/floor test
+forces N*epsilon>=4 at EVERY index, since
+`lean/YMGap/Continuum/BF4WilsonAllNomeAFPaddedTrajectory.lean:462`,
+`af_squareLinearHeatBudget_ge_one`, already proves 12*N*(1-w)>=1.
+Thus its elementary 1-N*epsilon retained-fraction estimate is nonpositive;
+no asymptotic guess or new parameter sweep is needed. The cap is the literal
+2*normalizedEnergy<=384*(1-w)*C at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyKineticUpper.lean:266`,
+`family_energy_nome_normalized`; the variance cap is at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyRayleighFloor.lean:104`,
+`family_oddVariance_coefficient_cap`. No lower bound on the actual energy,
+failure of the weaker moving-window test, or Yang--Mills counterexample is
+inferred. Sharper JOINT signed estimates remain eligible.
+
+Independent finite QFT proposition selected: the actual incoming/outgoing
+left/right Gauss sum on `baseLinks width` kills `spatialWeight w K width`
+and intertwines the ORIGINAL `transferStep`. Its consumer is fixed-slice
+gauge preservation before completed physical-domain/continuum transport,
+not the horizontal energy or changing-family margin. Existing inputs are
+the per-face original Gauss-zero law, raw closed-word/plaquette pins,
+injective block embedding and `productMap_angular_carrier`.
+
+Produce actual angular differentiation under that injective embedding
+first; do not differentiate a padded equality or infer subset invariance
+from the full-product law. Then transport the slice generator and reflect
+the zero law on the same supported source. Test empty/zero-width slice,
+off-image blocks, both frames, arbitrary nome and K=0. Predicted outcome:
+an exact finite all-parameter identity, no analytic premise. Budget: two
+bounded leaves, <=650 combined lines, <=4 focused checks, serialized
+20-GiB worker/12-GiB reserve with fresh dynamic preflight each time.
+Abandon/revise if a raw derivative pin is missing, support reflection is
+unavailable, or the construction only assumes spatial gauge invariance.
+Static author budget refinement: allow the actual instance up to 430 lines
+for frame support, the full/filtered link-sum join and kinetic null propagation;
+the combined 650-line/four-check/resource budget is unchanged. The optional
+terminal-message consequence must not displace actual transfer preservation.
+Selection is not proof evidence; the canonical chart and Clay status stay
+unchanged. The main signed moving-moment/innovation estimate remains OPEN.
+
+Observed implementation budget, before the next launch: core check 2 passed;
+both instance checks rejected. Independent complete-source mathematical review
+still finds no missing premise, but the second log isolates wasteful six-way
+frame candidate search/unfolding, a missing namespace, one untyped tail sum
+and a mis-parenthesized padded composition. Revise ONCE to five focused checks
+total: one final instance attempt after six direct frame cases with a local
+polynomial transparency shield and explicit typed compositions. Keep 650
+combined source lines, all statements and 20-GiB/12-GiB safety limits unchanged.
+If this last check fails, retain only the checked core in the Lean import tree
+and record the unfinished transfer join, rather than continue a compiler loop.
+
 ## PAPER direct smoothed-window screen: pay the early box, not a raw reserve
 
 2026-10-08 UTC, source review through `ef6f6120`; root mathematics and three

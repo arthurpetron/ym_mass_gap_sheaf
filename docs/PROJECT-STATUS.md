@@ -1,12 +1,22 @@
 # Canonical one-page project status
 
+Supporting SAME-slice ORIGINAL-transfer gauge preservation checked
+(2026-10-08 UTC): the actual slice Gauss generator kills the full spatial
+weight and intertwines T=P(V*·) at arbitrary-insertion Haar strength.
+Supported signed sources, fringe links and zero cases remain. Actual raw
+embedding differentiation and supported equality reflection are produced.
+Both final focused checks/eleven permitted gates and COMPLETE independent
+final-source review PASS; root registration only. Completed/continuum gauge
+domains and MAIN changing-family estimate remain OPEN. Exact displayed
+claims unchanged; no chart reprint. Evidence: adaptive-score audit.
+
 Supporting FULL original finite action Gauss/Ward law checked (2026-10-08 UTC):
 the actual all-link generator annihilates every retained plaquette heat
 factor and the full action; H[W*G(p)]=0 for every supported signed test.
 Both final focused targets/six permitted gates and complete independent
 FINAL-source review PASS. No positivity/nome guard, inverse or static
-restriction; root registration only, no tree audit. Fixed-slice transfer,
-completed/continuum gauge transport and horizontal signed cost remain OPEN.
+restriction; root registration only, no tree audit. Fixed-slice transport is
+now produced above; completed/continuum transport and horizontal cost remain OPEN.
 Canonical displayed claims unchanged; no chart reprint. Exact evidence:
 research-pipeline TasteVal audit.
 

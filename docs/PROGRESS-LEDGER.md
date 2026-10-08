@@ -4,6 +4,19 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## SAME-slice Gauss symmetry of the ORIGINAL transfer (2026-10-08 UTC)
+
+Actual injective-coordinate derivatives and supported Haar reflection join
+per-face gauge invariance to the full source-slice spatial action. The new
+`FixedSpatialGaussTransfer.transferStep_gauss_intertwining` proves G(Tp)=T(Gp),
+and `transferStep_gauss_zero` preserves the actual constraint, retaining
+all spatial factors/fringe links and supported signed sources. Both final
+focused checks/eleven permitted gates and COMPLETE independent final review
+PASS; root registration only, no broad audit/metric. This removes the named
+FINITE slice/transfer seam, not horizontal energy or completed/continuum
+domains. MAIN signed credit/payment and physical/Clay remain OPEN.
+Exact evidence/one bounded revision: adaptive-score audit. Chart unchanged.
+
 ## FULL original finite action Gauss/Ward law (2026-10-08 UTC)
 
 `VertexGaussHeatAction.fullHeatProduct_gauss_zero` proves the full original
@@ -11,9 +24,9 @@ spatial/temporal action is killed by the actual all-link generator.
 `VertexGaussWardIdentity.original_action_ward_zero` gives H[W*G(p)]=0 for
 every supported signed test. Six permitted gates, both focused final targets
 and complete independent FINAL-source review PASS; no tree audit/metric.
-Finite vertical gauge symmetry is supplied, not horizontal energy or
-fixed-slice/continuum transport. Main changing-family cost/variance and
-credit/overlap remain OPEN; canonical displayed claims unchanged.
+Finite vertical gauge symmetry is supplied, not horizontal energy. The
+fixed-slice transfer join is now produced above; continuum transport,
+main cost/variance and credit/overlap remain OPEN; chart unchanged.
 Exact four-attempt budget/hashes: research-pipeline TasteVal audit.
 
 ## ORIGINAL centered integrated score without an extra mass square (2026-10-08 UTC)

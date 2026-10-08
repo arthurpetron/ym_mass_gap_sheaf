@@ -10,7 +10,16 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Latest checked estimate:** a conditional square absorbs the incoming
+**New finite gauge-symmetry result:** the actual slice Gauss generator
+annihilates the full spatial action and intertwines the original transfer,
+preserving its gauge constraint for supported signed sources and fringe links.
+Actual coordinate differentiation and supported Haar reflection supply the
+join; no action factor is removed. Both focused checks passed the constructive
+axiom gate. Completed gauge domains, the changing-family signed estimate and
+the continuum mass gap remain open. See the
+[proof and remaining obligations](audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md).
+
+**Checked signed-cost input:** a conditional square absorbs the incoming
 observable-gradient cross in the **actual finite-reciprocal Ward term**, with
 coefficient one and no noise inverse or marginal-floor penalty. The exact
 noise derivative retains the full original incoming action. The consumer

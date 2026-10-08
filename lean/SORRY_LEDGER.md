@@ -1,5 +1,21 @@
 # Sorry Ledger
 
+## PROVED SAME-slice Gauss/transfer join / OPEN completed domain (2026-10-08 UTC)
+
+`lean/YMGap/Continuum/SU2QuaternionHaarBlockEmbeddingAngular.lean:116`,
+`polynomial_ratDerivative_exact`, and `polynomial_supportedHaar_reflect:207`
+produce actual coordinate differentiation and source equality reflection.
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialGaussTransfer.lean:281`,
+`spatialWeight_gauss_zero`, retains every spatial face;
+`transferStep_gauss_intertwining:391` and `transferStep_gauss_zero:406` preserve
+the actual ORIGINAL-transfer Gauss constraint at arbitrary-insertion strength.
+Both final focused checks/eleven permitted gates and COMPLETE independent
+final-source review PASS; no new sorry/axiom/classical input or resource raise.
+Root registration only, no root/tree audit. Completed/continuum generator
+domains, horizontal signed cost, survival, physical mass, full QFT/all groups
+and Clay remain OPEN. Exact hashes/one bounded revision: adaptive-score audit.
+Canonical displayed claims unchanged.
+
 ## PROVED FULL finite action Gauss/Ward law / OPEN continuum join (2026-10-08 UTC)
 
 `lean/YMGap/Continuum/BF4ExactSlabVertexGaussHeatAction.lean:203`,
@@ -9,8 +25,8 @@
 No positivity/nome range, inverse, assumed invariance, new hole/axiom,
 classical input or limits increase. Both focused final targets/six gates
 exactly {propext,Quot.sound} and COMPLETE independent final-source review
-PASS; root registration only, no root/tree audit. Fixed-slice transfer,
-completed gauge domains, continuum/QFT transport, horizontal signed cost
+PASS; root registration only, no root/tree audit. Fixed-slice transport is now
+produced above; completed gauge domains, continuum/QFT transport, horizontal signed cost
 and all physical/Clay closure remain OPEN. Exact hashes and repaired
 four-attempt budget: research-pipeline TasteVal audit. Chart unchanged.
 

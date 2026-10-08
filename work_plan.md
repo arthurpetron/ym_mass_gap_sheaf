@@ -27,6 +27,20 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED independent SAME-slice gauge/transfer join (2026-10-08 UTC):
+`BF4ExactSlabFixedSpatialGaussTransfer.spatialWeight_gauss_zero` retains every
+original spatial face; `transferStep_gauss_intertwining` and
+`transferStep_gauss_zero` preserve the actual Gauss constraint under the
+ORIGINAL T=P(V*·), for supported signed sources including fringe/zero cases.
+Raw injective-coordinate differentiation and supported Haar reflection are
+produced, not assumed. Both focused final targets/eleven permitted gates and
+COMPLETE independent final-source review PASS; root registration only.
+The selected FINITE join is closed. Completed generator/domain and continuum
+QFT transport remain OPEN; do not add an unproved completion extension.
+MAIN remains actual changing-family signed credit/payment or relative
+innovation, not a new gauge wrapper. Exact evidence/bounded revision:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 PAPER direct-window refinement (2026-10-08 UTC; NOT a new Lean proof):
 keep the ACTUAL box-smoothed backward-window target primary. A useful raw
 short-time ratio is sufficient, not necessary. Splitting its triangular
@@ -59,8 +73,8 @@ Both final focused targets/six permitted gates and COMPLETE independent
 final-source review PASS; root registration only. This does not replace
 the main changing-family signed cost/variance or raw credit/overlap frontier.
 The local response producer cannot improve the bare reference rate; prune
-another character-positivity transport. Fixed-slice transfer Gauss transport,
-completed gauge domains and SAME continuum QFT remain OPEN. Decision,
+another character-positivity transport. Fixed-slice Gauss/transfer transport is
+now produced above; completed gauge domains and SAME continuum QFT remain OPEN. Decision,
 revised four-attempt budget, exact hashes and next join:
 `audits/AUDIT-RESEARCH-PIPELINE-TASTEVAL-2026-10-07.md`.
 

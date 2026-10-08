@@ -8020,3 +8020,9 @@ import YMGap.Continuum.BF4ExactSlabVertexGaussClosedCharacter
 -- gauge transport, horizontal signed-cost estimate or mass gap follows.
 import YMGap.Continuum.BF4ExactSlabVertexGaussHeatAction
 import YMGap.Continuum.BF4ExactSlabVertexGaussWardIdentity
+
+-- Actual injective-coordinate derivative transport and SAME-slice Gauss
+-- intertwining/preservation for the ORIGINAL finite transfer. No completed
+-- gauge domain, horizontal signed-energy estimate or physical gap follows.
+import YMGap.Continuum.SU2QuaternionHaarBlockEmbeddingAngular
+import YMGap.Continuum.BF4ExactSlabFixedSpatialGaussTransfer

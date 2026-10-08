@@ -16,14 +16,24 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked SAME-slice original Gauss/transfer join (2026-10-08 UTC):**
+`SU2QuaternionHaarBlockEmbeddingAngular` transports actual derivatives and
+reflects supported Haar equality. `BF4ExactSlabFixedSpatialGaussTransfer`
+produces full spatial-action Gauss zero and ORIGINAL-transfer intertwining/
+constraint preservation, retaining fringe links and all action factors.
+Supported signed sources, arbitrary nome, K=0 and width zero remain. Both
+focused final checks/eleven permitted gates and independent complete final
+review PASS; root registration only. Completed gauge domains, MAIN signed
+estimate and continuum/physical/Clay remain OPEN. Evidence: adaptive-score audit.
+
 **Checked FULL original finite action Gauss/Ward law (2026-10-08 UTC):**
 `BF4ExactSlabVertexGaussHeatAction` kills every original plaquette heat
 factor and the full action with the actual all-link generator.
 `BF4ExactSlabVertexGaussWardIdentity` proves H[W*G(p)]=0 for every supported
 signed test, without positivity/nome guards, inverse or assumed invariance.
 Both focused final targets/six permitted gates and complete independent
-FINAL-source review PASS; root registration only. Fixed-slice/completed/
-continuum gauge transport and the main changing-family margin remain OPEN.
+FINAL-source review PASS; root registration only. Fixed-slice transport is now
+produced above; completed/continuum gauge transport and the main margin are OPEN.
 Exact evidence: research-pipeline TasteVal audit. No canonical chart change.
 
 **Checked ORIGINAL integrated-link score bound (2026-10-08 UTC):**
