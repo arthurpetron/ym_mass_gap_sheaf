@@ -27,6 +27,35 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+Targeted paper review integrated (2026-10-08 UTC, user request):
+`audits/RESEARCH-2610-09093-2026-10-08.md` records the long paper and companion
+review, exact relevant equations, SAME-original-source consumers and access
+limits. The auxiliary fermion comparison gap is not our OS/Hamiltonian gap;
+the published formalization permits Classical.choice. No foreign proof,
+admissibility restriction or new analytic premise is imported.
+Adopt the useful estimate discipline: establish the ACTUAL signed cancellation
+order before paying site counts, retain every operator output and original-link
+derivative, and charge approximation errors to the growing consumer factors.
+For MAIN this still means paying the complete original Ward density/spatial/
+gradient debt or signed window cost, relative to OWN surviving variance and
+BOTH masses. Gauge symmetry alone supplies no horizontal high-order zero;
+an admissible-background estimate needs an original-measure complement budget
+before it can be consumed. These are selection tests, not new proved inputs.
+
+Next bounded scalar test of that error discipline: from the now constructed
+coefficient endpoints and precisionNomeSchedule, prove
+`110*half^(10+floorLog2(j+1)) < (55/256)*invSucc j` and
+`D_j*(upper(n_j)-lower(n_j)) < 55/64`, using D_j<=4*(j+1).
+Return the bounds for the SAME actual series and existing denominator, not
+an assumed precision interface. Check j=0 and preserve all earlier folded
+endpoints. Budget: extend the existing precision leaf only, serialized narrow
+20-GiB checks with fresh dynamic preflight and independent final review.
+Stop/revise if the proof requires physical spacing or replaces the old pinned
+family. This is numerical accuracy control, NOT an a(w) or survival theorem.
+The independent proposed collective-tail credit simplifies to the ALREADY
+recorded PAPER early-box bound (adaptive-score audit, lines 916--941); do not
+build a duplicate compiler or claim a newly paid signed scalar.
+
 CHECKED actual coefficient producer (2026-10-08 UTC):
 `AFLeadingCoefficient.stream` computes
 `3*pi.approx(n+1)^2/(22*log2.approx(n+1))`. Its actual rational endpoints
