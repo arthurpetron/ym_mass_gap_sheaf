@@ -27,6 +27,49 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED MAIN endpoint screen (2026-10-08 UTC): the EXISTING scalar leaves
+now produce h'<=C_T*h on X>=0 and
+6*h^2<=3*(1-w)*(C_prefix*h^2-h*h') at X=1, for actual finite normalized
+Jacobi heat, including N=0/1 and without a heat inverse. This screens
+`TerminalLocalSignedGram.terminal_local_signed_score_bound`'s selected
+global `prefixCurvatureCost`; it does NOT supply the interacting marginal's
+Hessian or refute improved local certificates. PRUNE payment of THIS global
+allowance by kinetic endpoint cancellation alone; retain complete signed
+payment and tighter local allowance. Slope check 1 and endpoint check 2 PASS;
+independent COMPLETE frozen final-source reviews PASS. Exact evidence and
+the sole parser correction are in the adaptive-score audit.
+
+CHECKED smaller finite-product producer (2026-10-08 UTC):
+`JacobiProductRadialNearFlatBound.productRadialCost_le_nearFlatCap` proves
+D_N<=C_local:=1+1/(1-w^2) on 0<=X<=1, for EVERY N and strict 0<w<1.
+The literal factors c_i=w^(2*i+1), H_i=X*r_i+(1-X^2)*r_i^2 telescope
+through the computed potential F(c)=2*c*(c+X)/(1+2*X*c+c^2):
+(1-w^2)*H_(i+1)<=F(c_i)-F(c_(i+1)). The cleared remainder is explicitly
+nonnegative. No telescope, cost ceiling, inverse density or analytic premise
+is supplied. Product check 2 and final direct-consumer check 3 PASS; ten final
+printed gates permitted, COMPLETE 359-line independent source review PASS.
+Its consumer is the EXISTING `heat_radial_nonnegative_of_productCost`;
+`heat_radial_nonnegative_nearFlat` supplies the produced ceiling itself.
+One serialized 20-GiB worker, 12-GiB reserve, fresh successful dynamic
+preflights; no limits raised or root/full-tree audit. Original character-prefix
+local certificate/deficit transport, source-weighted complement, complete
+signed cost versus OWN surviving variance and BOTH masses remain OPEN.
+
+CONTINUE bounded cancellation test (PAPER, independently derived): at X=1,
+the actual tail c_N=w^(2*N+1)<=1-w predicts
+C_local*h-h'<=(15/4)*h, with no heat inverse. A second elementary telescope
+gives M1(1)>=w^2/(1-w^2)*(2*w/(1+w)-2*c_N/(1+c_N)); M2(1)<=M1(1)/2.
+Existing `HKConvGen.powBaseCutoff` and its proved tail/monotonicity APIs supply
+a witnessed sufficient N(w); no tail premise needs to become an opaque input.
+Decisive tests: N=0/1, all strict nomes and w approaching one. Consumer:
+the new C_local heat-curvature payment, before original local certificate
+and marginal transport. Abandon a redundant wrapper or any attempted kinetic
+to interacting-marginal substitution. Budget the smallest changed leaf check
+and independent complete review. The broader positive-hemisphere PAPER bound
+is C_local*h-X*h'<=[17/4+(1-X)*C_local]*h. Neither PAPER inequality is
+reported as Lean proved; neither pays the actual source-weighted complement.
+No canonical field or displayed chart claim changes; no chart reprint.
+
 CHECKED MAIN route screen (2026-10-08 UTC):
 `DyadicWilsonSquareHeatImage.paddedSquare_fundamental_family_haar_zero`
 proves zero bare-Haar overlap of the original signed spatial plaquette

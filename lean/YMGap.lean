@@ -4957,6 +4957,8 @@ import YMGap.Continuum.JacobiHeatRadialMomentJets
 import YMGap.Continuum.JacobiHeatNearFlatLogHessian
 -- Actual signed cost, explicit convergence data and finite-tail transport; no analytic ceiling.
 import YMGap.Continuum.JacobiProductRadialSignedTail
+-- Produced finite positive-hemisphere ceiling and actual heat-jet consumer; no Haar promotion.
+import YMGap.Continuum.JacobiProductRadialNearFlatBound
 import YMGap.Continuum.JacobiProductRadialLimit
 -- Endpoint producer and finite convolution ingredients; completed addition remains open.
 import YMGap.Continuum.JacobiProductRadialEndpoint

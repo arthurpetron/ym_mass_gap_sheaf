@@ -7049,3 +7049,147 @@ CONTINUE these action-specific producers; no extra overlap assumption bundle
 or conditional compiler is added. Interacting survival, rate control,
 physical calibration, continuum/QFT, every group and Clay remain OPEN.
 Canonical displayed proof/expansion claims are unchanged; no chart reprint.
+
+## Sharper finite near-flat curvature and endpoint route screen (2026-10-08 UTC)
+
+This is a mathematical estimate and a screen of a particular allowance,
+not another conditional frontier interface. The normalized finite Jacobi
+heat is retained literally; it is not the original unweighted character
+prefix or the interacting terminal marginal.
+
+### Produced estimates
+
+`lean/YMGap/Continuum/JacobiHeatNearFlatLogHessian.lean:115`,
+`heat_first_le_cap`, proves h'<=C_T*h on X>=0 for every finite prefix,
+including N=0/1, with C_T=2*w/(1-w*w) and strict 0<w<1. Actual heat value
+and first-jet moment pins are used; no heat inverse is formed.
+
+`lean/YMGap/Continuum/SU2QuaternionPairedPrefixCostScaling.lean:182`,
+`normalizedPairedPrefixCost_transverseResidual_lower`, gives
+
+    6 <= 3*(1-w)*(C_prefix-C_T).
+
+Its `jacobi_identity_curvatureResidual_lower` at :208 gives the stronger
+screen with the actual finite heat value and derivative at relative X=1:
+
+    6*h^2 <= 3*(1-w)*(C_prefix*h^2-h*h').
+
+The paired angular contribution at that endpoint is -h*h'. Thus even its
+maximum produced cancellation cannot pay THIS selected global envelope.
+The actual consumer being screened is
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalLocalSignedGram.lean:649`,
+`terminal_local_signed_score_bound`. Its source-marginal Hessian is NOT
+identified with the kinetic heat Hessian by this estimate. Tighter local
+allowances, signed Ward payment and Yang--Mills are not refuted.
+
+The new `lean/YMGap/Continuum/JacobiProductRadialNearFlatBound.lean` instead
+produces a smaller positive-hemisphere cost. With c_i=w^(2*i+1),
+r_i=2*c_i/(1+2*X*c_i+c_i^2), and
+
+    H_i = X*r_i+(1-X^2)*r_i^2,
+    F(c,X) = 2*c*(c+X)/(1+2*X*c+c^2),
+
+its `radialSummand_telescope` (:118) proves
+
+    (1-w^2)*H_(i+1) <= F(c_i,X)-F(c_(i+1),X).
+
+For r=w^2, the positive cleared numerator is
+
+    2*(1-r)^2*c *
+      [c*(1+2*r-r^2*c^2)+X*(1+r*(r+2)*c^2)+2*X^2*r^2*c^3].
+
+The exact multiplier is D(c,X)*D(r*c,X)^2, strictly positive under the
+stated guards. Finite summation retains the terminal potential; H_0<=1
+and 0<=F<=1 supply the explicit endpoint budget. No telescope or recurrence
+is assumed. `productRadialCost_cleared_le` (:260) and
+`productRadialCost_le_nearFlatCap` (:308) prove, on 0<=X<=1,
+
+    (1-w^2)*D_N(X) <= 2-w^2,
+    D_N(X) <= C_local := 1+1/(1-w^2),
+
+for EVERY N, including zero. `nearFlatCap` (:303) is computed Type-level
+rational data, not an existential or opaque constant. The cost is uniform
+in finite N on this hemisphere; its dependence on w remains EXPLICIT.
+
+`heat_radial_nonnegative_nearFlat` (:336) directly fills the existing
+`lean/YMGap/Continuum/JacobiHeatRadialMomentJets.lean:305`,
+`heat_radial_nonnegative_of_productCost`, with this produced ceiling:
+
+    C_local*h^2+(1-X^2)*(h*h''-h'^2)-X*h*h' >= 0.
+
+All three jets belong to the SAME inverse-nome/half-normalized finite
+Jacobi heat evaluated at 1+X. No product-ceiling hypothesis is left in the
+new consumer; no Haar/original-prefix/interacting certificate is asserted.
+
+### Verification evidence
+
+Final slope check 1 and global-envelope endpoint check 2 PASS, exit 0.
+All six/seven printed gates respectively remain within {propext, Quot.sound};
+the gated computational definition is axiom-free. Complete frozen independent
+source reviews PASS for both. Original cost check 1 failed only at a
+multiline match layout; the corrected final source is the checked version.
+
+    slope source SHA256 dd2a890eca126f7b9ed68c66d36f922bd1f1d254c351a86a2878f557760d811d
+    /private/tmp/ym-oct8-nearflat-slope1.log
+    log SHA256 8fc6c146e2a287eb4827f07838af0dcac455deee3ea2bd64808acebd791535d6
+
+    global-screen source SHA256 819cbfe98b051f1ede5dbab69e1e02a9a8ade9745a093ff19350b50387746c56
+    /private/tmp/ym-oct8-endpoint-allowance2.log
+    log SHA256 f55d4d27ba4a1a4c14207cc3b45f5d2890290cfbc1429facfdf86d3634cc6bcd
+
+Finite product check 2 PASS, exit 0; eight gates permitted. Check 1 exposed
+only a default-depth issue for the closed reflected polynomial identity and
+missing type ascriptions on four closed constant positivity proofs. The final
+identity uses `decide +kernel` (Lean 4.29.1 kernel proof construction), NOT
+native evaluation; no recursion/heartbeat/memory limit was raised. Root also
+reproduced the exact integer polynomial identity diagnostically; only the
+Lean proof is certification. Final 359-line source includes the direct
+heat-jet consumer, has COMPLETE independent source review PASS, and its
+focused check 3 PASS, exit 0, with all ten gates permitted. Both computed
+potentials/caps are axiom-free; proofs use at most {propext, Quot.sound}.
+
+    final local source SHA256 fd1de04e7af49b522e56deedb49a39dbaae6a6ccc2a575027c8ae1d3de7c1231
+    /private/tmp/ym-oct8-local-product-curvature3.log
+    log SHA256 98fb2bc4d82e9a415a96b716f30886835b923fe537dd89109735546ac3915501
+
+Every launch had a fresh SUCCESSFUL live conflict/memory preflight, one
+20-GiB worker and 12-GiB reserve; observed swap was zero. An initially denied
+sandbox process inspection was retried read-only with approval BEFORE any
+launch. No new sorry, axiom, Classical premise, native proof, frontier
+weakening, or limits increase. Root registration only; no root/full-tree
+build, guard sweep or axiom audit. Three user-owned duplicate Lean files
+remain untouched and outside the checkpoint.
+
+### Continue / prune and the smaller unpaid step
+
+PRUNE kinetic endpoint payment of the selected GLOBAL envelope alone.
+CONTINUE the genuinely sharper local telescope and its actual heat jets.
+
+The next bounded PAPER proposition (independently derived by root and two
+reviewers, NOT yet Lean proved) is
+
+    C_local*h-h' <= (15/4)*h at X=1,
+    provided w^(2*N+1) <= 1-w.
+
+At X=1, F(c)=2*c/(1+c); a second elementary finite difference gives
+M1(1)>=w^2/(1-w^2)*(F(w)-F(w^(2*N+1))). The diagonal estimate is
+M2(1)<=M1(1)/2. These yield the stated no-inverse target, including zero
+and constant heat prefixes. The actual tail can be produced with
+`lean/YMGap/Continuum/HeatKernelConvGen.lean:266`, `powBaseCutoff`,
+`:275`, `pow_base_le_cutoff`, and :229, `pow_base_antitone`; an existing
+application pattern is `JacobiHeatRadialProducedBound.radialOnset_small_factor`
+at `lean/YMGap/Continuum/JacobiHeatRadialProducedBound.lean:34`.
+The growing cutoff as w approaches one is explicit, not hidden uniformity.
+
+For 0<=X<=1, summand monotonicity and the already checked M2<=M1 predict
+the PAPER band bound C_local*h-X*h'<=[17/4+(1-X)*C_local]*h. This does
+not control the radial log-Hessian term or the interacting marginal by
+itself. Neither PAPER inequality is counted as a checked proof.
+
+Still OPEN: an ORIGINAL local curvature certificate and finite-prefix
+deficit transport, the original-source weighted complement/concentration,
+and complete signed payment relative to OWN surviving variance and BOTH
+chronological masses. A scalar near-identity cancellation does not pay
+posterior score variance or silently supply the missing interacting input.
+The whole-project continuum/QFT/physical-mass/every-group target remains
+OPEN. Canonical displayed claims are unchanged; no chart reprint.

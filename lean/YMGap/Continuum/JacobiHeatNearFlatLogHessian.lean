@@ -11,6 +11,8 @@ This is the LOWER scalar half, on the nonnegative half-line (hence also
 existing inverse-nome/half-normalized Jacobi heat, not an original character
 cutoff. No intrinsic angular/Haar certificate, paired-generator identity,
 interacting normalization, continuum estimate or physical gap is asserted.
+The same finite moments also bound its first derivative by transverseCap
+times the heat itself, including the zero and constant prefixes.
 -/
 
 import YMGap.Continuum.JacobiHeatRadialMomentJets
@@ -108,6 +110,36 @@ theorem secondMoment_le_first {w x : Q'} (hw0 : (0 : Q') < w)
       (HKConv.sTerm_nonneg hw0 hw1 hx i))
     (Q'.le_of_eqv (Q'.one_mul_eqv _))) N
 
+/-- Actual first heat derivative bounded without dividing by the heat.
+Valid on x >= 0 for every finite prefix, including N=0 and N=1. -/
+theorem heat_first_le_cap {w x : Q'} (hw0 : (0 : Q') < w)
+    (hw1 : w < (1 : Q')) (hx0 : (0 : Q') ≤ x) (N : Nat) :
+    QPoly.eval (pderiv (heat w N)) (1+x) ≤
+      transverseCap w * QPoly.eval (heat w N) (1+x) := by
+  have hx : (-1 : Q') ≤ x := Q'.le_trans' _ _ _ (by decide) hx0
+  have hP : (0 : Q') ≤ normalizedProduct w x N :=
+    Q'.mul_nonneg _ _
+      (Q'.mul_nonneg _ _ (SU2PointwiseHeatPositiveCompletion.inverseNome_nonnegative w)
+        HalfPow.half_nonneg) (ThetaConv.Ppart_nonneg hw0 hw1 hx N)
+  have hM := M1_nonneg (HKConv.sTerm w x) N
+    (fun i _ => HKConv.sTerm_nonneg hw0 hw1 hx i)
+  have hneg : -(secondMoment w x N) ≤ (0 : Q') :=
+    Q'.neg_le_neg (M2_nonneg (HKConv.sTerm w x) N)
+  have hdrop := Q'.add_le_add_left
+    (firstMoment w x N*firstMoment w x N) _ _ hneg
+  rw [Q'.add_zero'] at hdrop
+  have hbound := Q'.le_trans' _ _ _ hdrop
+    (Q'.mul_le_mul_of_nonneg_right _ _ _ (firstMoment_le_cap hw0 hw1 hx0 N) hM)
+  have hreorder : normalizedProduct w x N * (transverseCap w * firstMoment w x N) ≈
+      transverseCap w * (normalizedProduct w x N * firstMoment w x N) :=
+    poly_identity_of_normal_eq (.mul (.var 0) (.mul (.var 1) (.var 2)))
+      (.mul (.var 1) (.mul (.var 0) (.var 2))) (by decide)
+      (fun | 0 => normalizedProduct w x N | 1 => transverseCap w | _ => firstMoment w x N)
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (heat_first_moment_pin hw0 hw1 hx N))
+    (Q'.le_trans' _ _ _ (Q'.mul_le_mul_of_nonneg_left _ _ _ hbound hP)
+      (Q'.le_of_eqv (Q'.eqv_trans _ _ _ hreorder
+        (Q'.mul_eqv_congr_left _ _ _ (Q'.eqv_symm (heat_eval_moment_pin hw0 hw1 hx N))))))
+
 private theorem moment_payment {w x : Q'} (hw0 : (0 : Q') < w)
     (hw1 : w < (1 : Q')) (hx0 : (0 : Q') ≤ x) (N : Nat) :
     (0 : Q') ≤ (transverseCap w + -(secondMoment w x N)) *
@@ -178,6 +210,7 @@ theorem heat_logHessian_lower {w x : Q'} (hw0 : (0 : Q') < w)
 #print axioms sTerm_le_transverseRate
 #print axioms firstMoment_le_cap
 #print axioms secondMoment_le_first
+#print axioms heat_first_le_cap
 #print axioms heat_logHessian_lower
 
 end YMGap.Continuum.JacobiHeatNearFlatLogHessian

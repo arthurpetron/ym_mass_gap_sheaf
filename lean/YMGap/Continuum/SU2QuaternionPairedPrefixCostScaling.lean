@@ -8,9 +8,14 @@ at most 9*(1-w), with an exact rational formula below.
 This screens THIS fixed envelope, not the sharper adaptive certificate,
 the complete signed score payment, its noise/weight derivatives or Taylor
 remainders. It does not refute improved certificates, scaling or Yang--Mills.
+The actual Jacobi heat's identity Hessian cannot pay this whole envelope:
+even after its maximal transverse cancellation, the scaled residue is at
+least six times its own squared heat value. This is not a statement about
+the Hessian of the original interacting terminal marginal.
 -/
 
 import YMGap.Continuum.SU2QuaternionPairedHeatPrefixCurvature
+import YMGap.Continuum.JacobiHeatNearFlatLogHessian
 
 namespace YMGap.Continuum.SU2QuaternionPairedPrefixCostScaling
 
@@ -170,7 +175,83 @@ theorem normalizedPairedPrefixCost_excess_bounds {w : Q'}
 theorem normalizedPairedPrefixCost_lower {w : Q'}
     (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) :
     (9 : Q') ≤ normalizedPairedPrefixCost w :=
-  Q'.le_of_sub_nonneg (normalizedPairedPrefixCost_excess_bounds hw0 hw1).1
+    Q'.le_of_sub_nonneg (normalizedPairedPrefixCost_excess_bounds hw0 hw1).1
+
+/-- Even the maximum produced transverse cancellation leaves six in THIS
+selected global envelope. No source-weighted Hessian sign is assumed. -/
+theorem normalizedPairedPrefixCost_transverseResidual_lower {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) :
+    (6 : Q') ≤ 3*(1 + -w)*(prefixCurvatureCost w + -(transverseCap w)) := by
+  have ht : 3*((1 + -w)*transverseCap w) ≤ (3 : Q') :=
+    Q'.le_trans' _ _ _
+      (Q'.mul_le_mul_of_nonneg_left _ _ 3
+        (JacobiHeatTransverseCurvature.transverseCap_nome_defect_le_one hw0 hw1)
+        (by decide : (0 : Q') ≤ 3))
+      (Q'.le_of_eqv (Q'.mul_one_eqv 3))
+  have hsum := Q'.add_le_add (normalizedPairedPrefixCost_lower hw0 hw1)
+    (Q'.neg_le_neg ht)
+  have hpin : normalizedPairedPrefixCost w + -(3*((1 + -w)*transverseCap w)) ≈
+      3*(1 + -w)*(prefixCurvatureCost w + -(transverseCap w)) :=
+    poly_identity_of_normal_eq
+      (.add (.mul (.mul (.const 3) (.add (.const 1) (.neg (.var 0)))) (.var 1))
+        (.neg (.mul (.const 3) (.mul (.add (.const 1) (.neg (.var 0))) (.var 2)))))
+      (.mul (.mul (.const 3) (.add (.const 1) (.neg (.var 0))))
+        (.add (.var 1) (.neg (.var 2))))
+      (by decide) (fun | 0 => w | 1 => prefixCurvatureCost w | _ => transverseCap w)
+  exact Q'.le_trans' _ _ _ (by decide : (6 : Q') ≤ 9 + -3)
+    (Q'.le_trans' _ _ _ hsum (Q'.le_of_eqv hpin))
+
+/-- Denominator-cleared endpoint screen with the ACTUAL finite Jacobi heat
+and its ACTUAL first formal derivative. At relative scalar X=1 the paired
+angular curvature contribution is -h*h1. Zero/constant prefixes are retained;
+there is no heat inverse or substitution of an interacting marginal. -/
+theorem jacobi_identity_curvatureResidual_lower {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) (N : Nat) :
+    let h := QPoly.eval (JacobiShiftedPositiveCoefficients.heat w N) (1+1)
+    let h1 := QPoly.eval (QPolyFormalDerivative.pderiv
+      (JacobiShiftedPositiveCoefficients.heat w N)) (1+1)
+    6*(h*h) ≤ 3*(1 + -w)*(prefixCurvatureCost w*(h*h) + -(h*h1)) := by
+  dsimp only
+  let h := QPoly.eval (JacobiShiftedPositiveCoefficients.heat w N) (1+1)
+  let h1 := QPoly.eval (QPolyFormalDerivative.pderiv
+    (JacobiShiftedPositiveCoefficients.heat w N)) (1+1)
+  have hP : (0 : Q') ≤ JacobiHeatRadialMomentJets.normalizedProduct w 1 N :=
+    Q'.mul_nonneg _ _
+      (Q'.mul_nonneg _ _ (SU2PointwiseHeatPositiveCompletion.inverseNome_nonnegative w)
+        HalfPow.half_nonneg) (ThetaConv.Ppart_nonneg hw0 hw1 (by decide) N)
+  have hM := JacobiHeatRadialMixtureCancellation.M1_nonneg (HKConv.sTerm w 1) N
+    (fun i _ => HKConv.sTerm_nonneg hw0 hw1 (by decide) i)
+  have hh : (0 : Q') ≤ h := Q'.le_trans' _ _ _ (Q'.mul_nonneg _ _ hP hM)
+    (Q'.ge_of_eqv (JacobiHeatRadialMomentJets.heat_eval_moment_pin hw0 hw1 (by decide) N))
+  have hbound := JacobiHeatNearFlatLogHessian.heat_first_le_cap hw0 hw1
+    (by decide : (0 : Q') ≤ 1) N
+  have hmul : h*h1 ≤ transverseCap w*(h*h) := Q'.le_trans' _ _ _
+    (Q'.mul_le_mul_of_nonneg_left _ _ h hbound hh)
+    (Q'.le_of_eqv (poly_identity_of_normal_eq
+      (.mul (.var 0) (.mul (.var 1) (.var 0)))
+      (.mul (.var 1) (.mul (.var 0) (.var 0)))
+      (by decide) (fun | 0 => h | _ => transverseCap w)))
+  have hdelta : (0 : Q') ≤ 3*(1 + -w) :=
+    Q'.mul_nonneg _ _ (by decide) (Q'.le_of_lt (HKPos.one_sub_pos hw1))
+  have horder := Q'.mul_le_mul_of_nonneg_left _ _ (3*(1 + -w))
+    (Q'.add_le_add_left (prefixCurvatureCost w*(h*h)) _ _ (Q'.neg_le_neg hmul)) hdelta
+  have hfloor := Q'.mul_le_mul_of_nonneg_right _ _ (h*h)
+    (normalizedPairedPrefixCost_transverseResidual_lower hw0 hw1)
+    (SumOfSquares.q_mul_self_nonneg h)
+  have hpin : (3*(1 + -w)*(prefixCurvatureCost w + -(transverseCap w)))*(h*h) ≈
+      3*(1 + -w)*(prefixCurvatureCost w*(h*h) + -(transverseCap w*(h*h))) :=
+    poly_identity_of_normal_eq
+      (.mul (.mul (.mul (.const 3) (.add (.const 1) (.neg (.var 0))))
+        (.add (.var 1) (.neg (.var 2)))) (.mul (.var 3) (.var 3)))
+      (.mul (.mul (.const 3) (.add (.const 1) (.neg (.var 0))))
+        (.add (.mul (.var 1) (.mul (.var 3) (.var 3)))
+          (.neg (.mul (.var 2) (.mul (.var 3) (.var 3))))))
+      (by decide) (fun
+        | 0 => w
+        | 1 => prefixCurvatureCost w
+        | 2 => transverseCap w
+        | _ => h)
+  exact Q'.le_trans' _ _ _ hfloor (Q'.le_trans' _ _ _ (Q'.le_of_eqv hpin) horder)
 
 end YMGap.Continuum.SU2QuaternionPairedPrefixCostScaling
 
@@ -179,3 +260,5 @@ end YMGap.Continuum.SU2QuaternionPairedPrefixCostScaling
 #print axioms YMGap.Continuum.SU2QuaternionPairedPrefixCostScaling.normalizedPairedPrefixCost_pin
 #print axioms YMGap.Continuum.SU2QuaternionPairedPrefixCostScaling.normalizedPairedPrefixCost_excess_bounds
 #print axioms YMGap.Continuum.SU2QuaternionPairedPrefixCostScaling.normalizedPairedPrefixCost_lower
+#print axioms YMGap.Continuum.SU2QuaternionPairedPrefixCostScaling.normalizedPairedPrefixCost_transverseResidual_lower
+#print axioms YMGap.Continuum.SU2QuaternionPairedPrefixCostScaling.jacobi_identity_curvatureResidual_lower
