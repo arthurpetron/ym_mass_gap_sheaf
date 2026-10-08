@@ -880,6 +880,99 @@ theorem log2_geRat :
     ExpPos.geRat log2 (term (yOf (2 : Q') (by decide)) 0 + term (yOf (2 : Q') (by decide)) 0) :=
   logRat_geRat_of_arg_nonneg (2 : Q') (by decide) yOf_two_window yOf_two_nonneg
 
+/-! ### Explicit rational enclosures of the actual `log2` series
+
+These are numerical-series certificates, not a physical scale-setting law.
+The endpoints and precision modulus are data; no modulus is selected from
+the legacy existential `CReal.cauchy` field. Index zero is permitted. -/
+
+/-- Rational lower endpoint: the actual doubled artanh partial sum. -/
+def log2Lower (n : Nat) : Q' := log2.approx n
+
+/-- Geometric enclosure width, with an explicit rational coefficient. -/
+def log2Tail (n : Nat) : Q' := Q'.mkPos 9 4 (by decide) * half ^ n
+
+/-- Rational upper endpoint of the same series, not an assumed enclosure. -/
+def log2Upper (n : Nat) : Q' := log2Lower n + log2Tail n
+
+private theorem log2_artanh_block_bound (n d : Nat) :
+    blockAbs (yOf (2 : Q') (by decide)) n d
+      ≤ Q'.mkPos 9 8 (by decide) * half ^ n := by
+  let c : Q' := Q'.mkPos 9 8 (by decide)
+  let p : Q' := half ^ n
+  have hp : (0 : Q') ≤ p := pow_nonneg half half_nonneg n
+  apply blockAbs_le _ yOf_two_window (c * p) n (Q'.mul_nonneg _ _ (by decide) hp)
+  have ht : termAbs (yOf (2 : Q') (by decide)) n ≤ p :=
+    termAbs_le_halfPow _ yOf_two_window n
+  refine Q'.le_trans' _ _ _ (Q'.add_le_add_right _ _ _ ht) ?_
+  have e : (p + oneNinth * (c * p)).eqv (c * p) := by
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr' (Q'.eqv_symm (Q'.one_mul_eqv p))
+        (Q'.eqv_symm (Q'.mul_assoc_eqv oneNinth c p))) ?_
+    refine Q'.eqv_trans _ _ _ (Q'.eqv_symm (ExpNeg.add_mul_eqv 1 (oneNinth * c) p)) ?_
+    exact Q'.mul_eqv_congr_right _ c p (by decide)
+  exact Q'.le_of_eqv e
+
+/-- Every later actual approximation lies above the lower endpoint. -/
+theorem log2Lower_le_approx (n m : Nat) (hnm : n ≤ m) :
+    log2Lower n ≤ log2.approx m := by
+  obtain ⟨d, rfl⟩ := Nat.exists_eq_add_of_le hnm
+  have h := partialSum_mono_of_nonneg _ yOf_two_nonneg n d
+  exact Q'.add_le_add h h
+
+/-- Every later actual approximation lies below the constructed upper endpoint. -/
+theorem log2_approx_le_upper (n m : Nat) (hnm : n ≤ m) :
+    log2.approx m ≤ log2Upper n := by
+  obtain ⟨d, rfl⟩ := Nat.exists_eq_add_of_le hnm
+  let s : Q' := partialSum (yOf (2 : Q') (by decide)) n
+  let H : Q' := Q'.mkPos 9 8 (by decide) * half ^ n
+  have h : partialSum (yOf (2 : Q') (by decide)) (n + d) ≤ s + H :=
+    Q'.le_trans' _ _ _ (block_upper _ n d)
+      (Q'.add_le_add_left _ _ _ (log2_artanh_block_bound n d))
+  refine Q'.le_trans' _ _ _ (Q'.add_le_add h h) ?_
+  have e : ((s + H) + (s + H)).eqv ((s + s) + log2Tail n) := by
+    refine Q'.eqv_trans _ _ _ (Q'.add_swap_inner s H s H) ?_
+    apply Q'.add_eqv_congr_left
+    refine Q'.eqv_trans _ _ _
+      (Q'.eqv_symm (ExpNeg.add_mul_eqv (Q'.mkPos 9 8 (by decide))
+        (Q'.mkPos 9 8 (by decide)) (half ^ n))) ?_
+    exact Q'.mul_eqv_congr_right _ (Q'.mkPos 9 4 (by decide)) (half ^ n) (by decide)
+  exact Q'.le_of_eqv e
+
+theorem log2_geRat_lower (n : Nat) : ExpPos.geRat log2 (log2Lower n) :=
+  ExpPos.geRat_of_eventually ⟨n, fun m hnm => log2Lower_le_approx n m hnm⟩
+
+theorem log2_leRat_upper (n : Nat) : CReal.leRat log2 (log2Upper n) :=
+  CReal.leRat_of_eventually ⟨n, fun m hnm => log2_approx_le_upper n m hnm⟩
+
+/-- The positive denominator floor needed by a later coefficient quotient. -/
+theorem twoThirds_le_log2Lower (n : Nat) (hn : 1 ≤ n) :
+    Q'.mkPos 2 3 (by decide) ≤ log2Lower n :=
+  Q'.le_trans' _ _ _ (by decide : Q'.mkPos 2 3 (by decide) ≤ log2Lower 1)
+    (log2Lower_le_approx 1 n hn)
+
+/-- Precision index supplied as data, for every rational tolerance. -/
+def log2EnclosureModulus (eps : Q') : Nat :=
+  (Q'.mkPos 4 9 (by decide) * eps).den
+
+/-- The actual enclosure width is at most the requested positive tolerance. -/
+theorem log2Tail_le_of_modulus (eps : Q') (heps : (0 : Q') < eps)
+    (n : Nat) (hn : log2EnclosureModulus eps ≤ n) : log2Tail n ≤ eps := by
+  let delta : Q' := Q'.mkPos 4 9 (by decide) * eps
+  have hd : (0 : Q') < delta := Q'.mul_pos (by decide) heps
+  obtain ⟨d, rfl⟩ := Nat.exists_eq_add_of_le hn
+  have hp : half ^ (log2EnclosureModulus eps + d) ≤ delta :=
+    Q'.le_trans' _ _ _ (pow_half_antitone delta.den d) (pow_half_le delta hd)
+  refine Q'.le_trans' _ _ _
+    (Q'.mul_le_mul_of_nonneg_left _ _ (Q'.mkPos 9 4 (by decide)) hp (by decide)) ?_
+  have e : (Q'.mkPos 9 4 (by decide) * delta).eqv eps := by
+    refine Q'.eqv_trans _ _ _
+      (Q'.eqv_symm (Q'.mul_assoc_eqv (Q'.mkPos 9 4 (by decide))
+        (Q'.mkPos 4 9 (by decide)) eps)) ?_
+    refine Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ 1 eps (by decide)) ?_
+    exact Q'.one_mul_eqv eps
+  exact Q'.le_of_eqv e
+
 /-! ## D3. The general positive-`CReal` logarithm — named range-reduction residual
 
 A general `CReal.log : (x : CReal) → x.IsPositive → CReal` requires, for an arbitrary
@@ -946,4 +1039,11 @@ no `native_decide`, no `sorry`. -/
 #print axioms YMGap.Constructive.CRealLog.logRat_leRat_of_arg_nonpos
 #print axioms YMGap.Constructive.CRealLog.log2
 #print axioms YMGap.Constructive.CRealLog.log2_geRat
+#print axioms YMGap.Constructive.CRealLog.log2_artanh_block_bound
+#print axioms YMGap.Constructive.CRealLog.log2Lower_le_approx
+#print axioms YMGap.Constructive.CRealLog.log2_approx_le_upper
+#print axioms YMGap.Constructive.CRealLog.log2_geRat_lower
+#print axioms YMGap.Constructive.CRealLog.log2_leRat_upper
+#print axioms YMGap.Constructive.CRealLog.twoThirds_le_log2Lower
+#print axioms YMGap.Constructive.CRealLog.log2Tail_le_of_modulus
 #print axioms YMGap.Constructive.CRealLog.CReal.log

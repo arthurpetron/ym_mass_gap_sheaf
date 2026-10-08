@@ -1147,6 +1147,177 @@ theorem twoOverPi_mul_pi : CReal.Equiv (CReal.mul twoOverPi pi) (CReal.ofQ' (2 :
     refine Q'.le_trans' _ _ _ (Q'.le_of_eqv hdist) ?_
     exact Q'.add_le_add_left _ _ ε hδmul_le
 
+/-! ## Explicit rational Machin enclosures
+
+The two tails have opposite signs in Machin's formula.  These data bound
+every later approximation, including when the enclosure starts at index zero.
+-/
+
+/-- Computed upper tail for the positive Machin term. -/
+def piTail5 (n : Nat) : Q' :=
+  (ratio 5 (by decide)) ^ n * Q'.mkPos 1 4 (by decide)
+
+/-- Computed upper tail for the arctangent subtracted in Machin's formula. -/
+def piTail239 (n : Nat) : Q' :=
+  (ratio 239 (by decide)) ^ n * Q'.mkPos 1 238 (by decide)
+
+/-- Rational lower enclosure: the negative Machin tail is paid here. -/
+def piLower (n : Nat) : Q' := pi.approx n + -((4 : Q') * piTail239 n)
+
+/-- Rational upper enclosure: only the positive Machin tail is paid here. -/
+def piUpper (n : Nat) : Q' := pi.approx n + (16 : Q') * piTail5 n
+
+private theorem atan5_later (n m : Nat) (hnm : n ≤ m) :
+    at5.approx n ≤ at5.approx m ∧
+      at5.approx m ≤ at5.approx n + piTail5 n := by
+  rw [at5_approx, at5_approx]
+  constructor
+  · exact cPart_mono 5 (by decide) hnm
+  · obtain ⟨d, rfl⟩ := Nat.exists_eq_add_of_le hnm
+    exact cPart_block (by decide) (Q'.mkPos 1 4 (by decide))
+      (by decide) (by decide) n d
+
+private theorem atan239_later (n m : Nat) (hnm : n ≤ m) :
+    at239.approx n ≤ at239.approx m ∧
+      at239.approx m ≤ at239.approx n + piTail239 n := by
+  rw [at239_approx, at239_approx]
+  constructor
+  · exact cPart_mono 239 (by decide) hnm
+  · obtain ⟨d, rfl⟩ := Nat.exists_eq_add_of_le hnm
+    exact cPart_block (by decide) (Q'.mkPos 1 238 (by decide))
+      (by decide) (by decide) n d
+
+private theorem add_three_swap (a b c : Q') :
+    ((a + b) + c).eqv ((a + c) + b) :=
+  Q'.eqv_trans _ _ _ (Q'.add_assoc_eqv a b c)
+    (Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_left a _ _ (Q'.add_comm_eqv b c))
+      (Q'.eqv_symm (Q'.add_assoc_eqv a c b)))
+
+/-- Actual rational enclosure of every later approximation; no limit pin is an input. -/
+theorem pi_approx_enclosure (n m : Nat) (hnm : n ≤ m) :
+    piLower n ≤ pi.approx m ∧ pi.approx m ≤ piUpper n := by
+  have h5 := atan5_later n m hnm
+  have h239 := atan239_later n m hnm
+  have hl : (16 : Q') * at5.approx n + -((4 : Q') *
+      (at239.approx n + piTail239 n)) ≤ pi.approx m := by
+    rw [pi_approx]
+    exact Q'.le_trans' _ _ _
+      (Q'.add_le_add_right _ _ _
+        (Q'.mul_le_mul_of_nonneg_left _ _ _ h5.1 (by decide)))
+      (Q'.add_le_add_left _ _ _ (Q'.neg_le_neg
+        (Q'.mul_le_mul_of_nonneg_left _ _ _ h239.2 (by decide))))
+  have hlpin : ((16 : Q') * at5.approx n + -((4 : Q') *
+      (at239.approx n + piTail239 n))).eqv (piLower n) := by
+    unfold piLower
+    rw [pi_approx]
+    exact Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_left _ _ _
+        (Q'.neg_eqv_congr _ _ (Q'.mul_add_eqv _ _ _)))
+      (Q'.eqv_trans _ _ _
+        (Q'.add_eqv_congr_left _ _ _ (Q'.neg_add_eqv _ _))
+        (Q'.eqv_symm (Q'.add_assoc_eqv _ _ _)))
+  have hu : pi.approx m ≤ (16 : Q') * (at5.approx n + piTail5 n) +
+      -((4 : Q') * at239.approx n) := by
+    rw [pi_approx]
+    exact Q'.le_trans' _ _ _
+      (Q'.add_le_add_right _ _ _
+        (Q'.mul_le_mul_of_nonneg_left _ _ _ h5.2 (by decide)))
+      (Q'.add_le_add_left _ _ _ (Q'.neg_le_neg
+        (Q'.mul_le_mul_of_nonneg_left _ _ _ h239.1 (by decide))))
+  have hupin : ((16 : Q') * (at5.approx n + piTail5 n) +
+      -((4 : Q') * at239.approx n)).eqv (piUpper n) := by
+    unfold piUpper
+    rw [pi_approx]
+    exact Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_right _ _ _ (Q'.mul_add_eqv _ _ _))
+      (add_three_swap _ _ _)
+  exact ⟨Q'.le_trans' _ _ _ (Q'.ge_of_eqv hlpin) hl,
+    Q'.le_trans' _ _ _ hu (Q'.le_of_eqv hupin)⟩
+
+/-- The computed lower enclosure bounds the same constructive Machin real. -/
+theorem pi_geRat_lower (n : Nat) : ExpPos.geRat pi (piLower n) :=
+  ExpPos.geRat_of_eventually ⟨n, fun m hm => (pi_approx_enclosure n m hm).1⟩
+
+/-- The computed upper enclosure bounds the same constructive Machin real. -/
+theorem pi_leRat_upper (n : Nat) : CReal.leRat pi (piUpper n) :=
+  CReal.leRat_of_eventually ⟨n, fun m hm => (pi_approx_enclosure n m hm).2⟩
+
+private theorem enclosure_width (p a b : Q') :
+    ((p + a) + -(p + -b)).eqv (a + b) := by
+  have h1 := Q'.add_eqv_congr_left (p + a) _ _ (Q'.neg_add_eqv p (-b))
+  have h2 := Q'.add_eqv_congr_left (p + a) _ _
+    (Q'.add_eqv_congr_left (-p) _ _ (Q'.neg_neg_eqv b))
+  have h3 := Q'.add_swap_inner p a (-p) b
+  have h4 := Q'.add_eqv_congr_right _ _ (a + b) (Q'.add_neg_self_eqv p)
+  rw [Q'.zero_add'] at h4
+  exact Q'.eqv_trans _ _ _ h1 (Q'.eqv_trans _ _ _ h2
+    (Q'.eqv_trans _ _ _ h3 h4))
+
+private theorem tail_half_bound {k : Nat} (hk : 2 ≤ k) (H : Q')
+    (hH0 : (0 : Q') ≤ H) (hH1 : H ≤ 1) (n : Nat) :
+    (ratio k (Nat.lt_of_lt_of_le Nat.zero_lt_two hk)) ^ n * H ≤ HalfPow.half ^ n :=
+  Q'.le_trans' _ _ _
+    (Q'.mul_le_mul_of_nonneg_right _ _ _ (ratio_pow_antitone_half hk n) hH0)
+    (Q'.le_trans' _ _ _
+      (Q'.mul_le_mul_of_nonneg_left _ _ _ hH1
+        (Q'.pow_nonneg _ HalfPow.half_nonneg n))
+      (Q'.le_of_eqv (Q'.mul_one_eqv _)))
+
+/-- The actual Machin enclosure width has an explicit geometric bound. -/
+theorem pi_enclosure_width_le (n : Nat) :
+    piUpper n + -(piLower n) ≤ (20 : Q') * HalfPow.half ^ n := by
+  have h5 : piTail5 n ≤ HalfPow.half ^ n :=
+    tail_half_bound (by decide) (Q'.mkPos 1 4 (by decide)) (by decide) (by decide) n
+  have h239 : piTail239 n ≤ HalfPow.half ^ n :=
+    tail_half_bound (by decide) (Q'.mkPos 1 238 (by decide)) (by decide) (by decide) n
+  have hsum : (16 : Q') * piTail5 n + (4 : Q') * piTail239 n ≤
+      (16 : Q') * HalfPow.half ^ n + (4 : Q') * HalfPow.half ^ n :=
+    Q'.le_trans' _ _ _
+      (Q'.add_le_add_right _ _ _
+        (Q'.mul_le_mul_of_nonneg_left _ _ _ h5 (by decide)))
+      (Q'.add_le_add_left _ _ _
+        (Q'.mul_le_mul_of_nonneg_left _ _ _ h239 (by decide)))
+  have hcollect : ((16 : Q') * HalfPow.half ^ n +
+      (4 : Q') * HalfPow.half ^ n).eqv ((20 : Q') * HalfPow.half ^ n) :=
+    Q'.eqv_trans _ _ _ (Q'.eqv_symm (Q'.add_mul_eqv _ _ _))
+      (Q'.mul_eqv_congr_right _ _ _ (by decide : ((16 : Q') + 4).eqv 20))
+  exact Q'.le_trans' _ _ _
+    (Q'.le_of_eqv (enclosure_width (pi.approx n)
+      ((16 : Q') * piTail5 n) ((4 : Q') * piTail239 n)))
+    (Q'.le_trans' _ _ _ hsum (Q'.le_of_eqv hcollect))
+
+/-- Type-level precision data, computed from the rational tolerance alone. -/
+def piEnclosureModulus (epsilon : Q') : Nat :=
+  (Q'.mkPos 1 20 (by decide) * epsilon).den
+
+/-- Every enclosure past the computed precision modulus has width at most the tolerance. -/
+theorem pi_enclosure_width_le_of_modulus (epsilon : Q')
+    (hepsilon : (0 : Q') < epsilon) (n : Nat)
+    (hn : piEnclosureModulus epsilon ≤ n) :
+    piUpper n + -(piLower n) ≤ epsilon := by
+  let delta : Q' := Q'.mkPos 1 20 (by decide) * epsilon
+  have hd : (0 : Q') < delta := by
+    have hnum : (0 : Int) < epsilon.num := by
+      change (0 : Int) * (epsilon.den : Int) < epsilon.num * 1 at hepsilon
+      simpa only [Int.zero_mul, Int.mul_one] using hepsilon
+    change (0 : Int) * (delta.den : Int) < (1 * epsilon.num) * 1
+    simpa only [Int.zero_mul, Int.one_mul, Int.mul_one] using hnum
+  have hhalf : HalfPow.half ^ n ≤ delta := by
+    obtain ⟨d, hdindex⟩ := Nat.exists_eq_add_of_le hn
+    rw [hdindex]
+    exact Q'.le_trans' _ _ _ (ExpNeg.pow_half_antitone _ d)
+      (HalfPow.pow_half_le delta hd)
+  have hcancel : ((20 : Q') * delta).eqv epsilon :=
+    Q'.eqv_trans _ _ _ (Q'.eqv_symm (Q'.mul_assoc_eqv _ _ _))
+      (Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ _ _
+        (by decide : ((20 : Q') * Q'.mkPos 1 20 (by decide)).eqv 1))
+        (Q'.one_mul_eqv epsilon))
+  exact Q'.le_trans' _ _ _ (pi_enclosure_width_le n)
+    (Q'.le_trans' _ _ _
+      (Q'.mul_le_mul_of_nonneg_left _ _ _ hhalf (by decide))
+      (Q'.le_of_eqv hcancel))
+
 end YMGap.Constructive.Pi
 
 /-! ## Axiom-dependency gates -/
@@ -1165,3 +1336,13 @@ end YMGap.Constructive.Pi
 #print axioms YMGap.Constructive.Pi.twoOverPi_pos
 #print axioms YMGap.Constructive.Pi.recipDir
 #print axioms YMGap.Constructive.Pi.twoOverPi_cauchy
+#print axioms YMGap.Constructive.Pi.piTail5
+#print axioms YMGap.Constructive.Pi.piTail239
+#print axioms YMGap.Constructive.Pi.piLower
+#print axioms YMGap.Constructive.Pi.piUpper
+#print axioms YMGap.Constructive.Pi.pi_approx_enclosure
+#print axioms YMGap.Constructive.Pi.pi_geRat_lower
+#print axioms YMGap.Constructive.Pi.pi_leRat_upper
+#print axioms YMGap.Constructive.Pi.pi_enclosure_width_le
+#print axioms YMGap.Constructive.Pi.piEnclosureModulus
+#print axioms YMGap.Constructive.Pi.pi_enclosure_width_le_of_modulus

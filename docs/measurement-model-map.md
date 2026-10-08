@@ -1,5 +1,22 @@
 # The measurement-model map — how the Lean structure mirrors the real-world
-# measurement of the mass gap (living document; refine every session)
+# measurement of the mass gap (historical heuristic map)
+
+> Current scope correction (2026-10-08): the July narrative below is not a
+> proof-status ledger. Its claims that antiscreening proves continuum
+> persistence, that there is "no missing third ingredient", and that matching
+> is the sole open stage are superseded. Original-family signed retention,
+> physical time/spacing and volume control, and SAME-theory continuum,
+> QFT and Hamiltonian identification remain open. Use the
+> [work plan](../work_plan.md) and [status map](PROJECT-STATUS.md) for current
+> status. No numerical mass is a proof premise.
+>
+> A chosen loop correlator detects only states with nonzero overlap; its fitted
+> decay does not bound every vacuum-complement state. At finite temporal
+> spacing, a constructed transfer logarithm is not automatically the
+> Kogut--Susskind Hamiltonian, which requires the temporal-continuum comparison.
+> No quantum sample-connection Sobolev convergence is assumed. Primary-source
+> corrections and actual Lean consumers are recorded in the
+> [measurement audit](../audits/RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md).
 
 **Status: v2 (2026-07-09).** v2 adds §0 (why the gap exists — the model's
 two reality-facts) and CORRECTS §6: the matching stage is a DERIVATION,
@@ -30,8 +47,9 @@ input):
 
 Model of the thing (Wilson measure) + model of the measurement (the
 correlator pipeline, §§1–5) + these two facts ⟹ the gap, constructively.
-The whole Clay problem is that the SECOND fact must be made uniform-in-
-scale as a theorem. There is no missing third ingredient.
+The historical proposal treated making the SECOND fact uniform-in-scale as
+the whole Clay problem. That reduction was not proved; the current scope
+correction above records additional independent obligations.
 
 The purpose of this document is to keep the
 formal development honest about WHAT PHYSICAL PROCEDURE each Lean object
@@ -125,7 +143,7 @@ proof-side analogue of "you cannot bound a signed systematic by termwise
 absolute values"; the corrected one-sided interface
 (`TMDefectCertificateOS`) carries the honest residual.
 
-## 6. The one open field = the matching computation
+## 6. Historical proposed matching field (not the sole current obligation)
 
 Real measurement: MCRG/Swendsen blocking matches effective actions between
 lattice spacings; the item-9 Python scouting MEASURED the fused channel
@@ -144,14 +162,13 @@ us which scheme and truncation to build the derivation around, and its
 numbers never enter the proof. The reason we know the derivation is
 there to be found is §0's second fact.
 
-## The model in one sentence
+## The historical model in one sentence (not a proved reduction)
 
-The development replaces each stage of a lattice measurement —
-spectroscopy, vacuum subtraction, spectral positivity, continuum
-extrapolation, error budget, RG matching — by a machine-checked theorem
-with exact rational data, and the whole Clay problem is now the single
-stage a numericist calls "the matching": proving the measured per-blocking
-defect amplitudes bound the true interacting defect.
+The proposal sought to replace spectroscopy, vacuum subtraction, spectral
+positivity, continuum extrapolation, error budgets and RG matching by
+machine-checked theorems. It did not prove that matching alone suffices:
+the historical objects include finite/scalar surrogates, and the SAME-theory
+continuum/QFT/physical-spectrum joins remain independent proof obligations.
 
 ## Refinement queue (update each session)
 

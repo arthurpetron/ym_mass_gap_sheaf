@@ -43,6 +43,64 @@ The existing `paddedZeroMomentumTrajectory` (dyadic schedule) is kept unchanged.
 >   standard `g² = 2t = −8 log w`. This was done after approval, with a monitored
 >   4-module rebuild; see "Convention pass" below.
 
+## Concrete precision inputs produced (2026-10-08 UTC)
+
+The fixed-rounding caveat above remains valid. Its next constructive remedy
+now has actual rational-series inputs rather than an assumed enclosure:
+
+- `lean/YMGap/Constructive/Pi.lean:1198`, `pi_approx_enclosure`, bounds every
+  later actual Machin approximation between `piLower n` and `piUpper n`.
+  The positive arctan tail enters the upper endpoint and the SUBTRACTED
+  arctan tail enters the lower endpoint; n=0 is included.
+  `:1268`, `pi_enclosure_width_le`, bounds the width by 20*half^n;
+  `:1295`, `pi_enclosure_width_le_of_modulus`, uses the explicit data
+  `piEnclosureModulus eps := ((1/20)*eps).den`.
+- `lean/YMGap/Constructive/CRealLog.lean:917`, `log2Lower_le_approx`, and
+  `:924`, `log2_approx_le_upper`, bound every later ACTUAL doubled-artanh
+  approximation. The width data are `(9/4)*half^n`, with explicit
+  `log2EnclosureModulus eps := ((4/9)*eps).den` and its theorem `:959`,
+  `log2Tail_le_of_modulus`. `:949`, `twoThirds_le_log2Lower`, supplies the
+  denominator floor for n>=1; the zero-index lower endpoint is zero and
+  must NOT be inverted. Both leaves also prove limit-order corollaries
+  for the SAME `Pi.pi` / `CRealLog.log2`.
+
+Observed verification: Pi focused check 1 PASS; log2 focused check 2 PASS.
+Independent review read BOTH complete frozen final sources (1348 Pi lines,
+1049 log2 lines), revalidated their source/log hashes, and found no defect
+in the new mathematics or scope. Root inspected every addition and actual
+series/monotonicity/precision input. The separate measurement-map review
+also PASSes its historical-scope correction; no measured premise is added.
+The first log2 attempt had a local `Q'.mul_pos` argument-arity error, then
+the corrected complete leaf passed. All 17 new printed gates are permitted
+(three Pi data definitions axiom-free; the log2 modulus bound uses only
+propext). One compiler at a time, 20-GiB ceiling, 12-GiB reserve, fresh
+successful preflight before each launch; zero swap and 85--87% reported
+free memory. No limits raised, new premise, sorry, custom axiom, classical
+input, native decision, root build, full-tree audit or baseline refresh.
+
+Frozen source/log evidence:
+
+    Pi source SHA256 b053a366d83ff827c8fd183f59607246c329ea1aca02422fbfcb5c6addf6ab08
+    /private/tmp/ym-oct8-pi-enclosure1.log
+    log SHA256 e753374b33a0cc9e841d33854a37a05097ca6b5bdd3a219689908f2db6947a24
+    log2 source SHA256 6dcfeb881654a61f2927f5f5dc4d9eda19af501967f71b4ceee1d0fc385f8d94
+    /private/tmp/ym-oct8-log2-enclosure2.log
+    log SHA256 355bd56f337094c6a04dbd68decc4b57aa0f17319fc1234ed70f598076069eee
+
+NEXT, not yet a Lean theorem: for positive pi lower endpoint P, upper Q<=8,
+and 2/3<=l<=u for log2, the rational coefficient interval
+`[3*P^2/(22*u), 3*Q^2/(22*l)]` has width <=110*half^n.
+The bounded PAPER quotient calculation was independently checked, but its
+actual CReal reciprocal/limit pin, coefficient enclosure and decreasing
+running-min producer still need implementation. Existing
+`PositiveRationalCauchyReciprocal.reciprocalCauchy` / `mul_value` accept
+the shifted actual log stream with its EXPLICIT QCauchy data and 2/3 floor;
+no choice from `CReal.cauchy` is permitted. This is a scalar two-loop precision
+construction, not a concrete physical a(w), justified RG family or gap.
+The original rounded schedule, endpoints and canonical fields are unchanged.
+Original signed-family payment, continuum/QFT/every-group/Clay remain OPEN;
+the canonical chart's displayed claims are unchanged.
+
 ## 1. The dyadic schedule is not AF-calibrated (PROVED)
 
 ```lean
@@ -213,4 +271,3 @@ Lean project, not on the Mac. Forbidden-token scan: 0 hits.
 - **Follow-up checks.** Single-file checks of the three edited files printed axioms
   {propext, Quot.sound} or {propext} or none, with no warnings. The forbidden-token scan
   found 0 hits.
-

@@ -27,6 +27,43 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED numerical precision inputs (2026-10-08 UTC): the existing
+`Constructive/Pi` and `Constructive/CRealLog` leaves now produce rational
+enclosures of their ACTUAL series values, bounding every later approximation
+with geometric widths and explicit precision moduli. Machin's subtracted
+tail is retained; n=0 is allowed, but the log denominator floor requires
+n>=1. Pi focused check 1 and log2 focused check 2 PASS; all 17 new gates
+permitted; independent COMPLETE frozen final-source review PASS for both.
+No new premise, module, frontier weakening or root/tree audit.
+NEXT scalar calibration task: instantiate the existing positive-stream
+reciprocal on the shifted log stream, prove the actual coefficient interval
+for 3*pi^2/(22*log2), and form its decreasing running-min upper sequence.
+The independent PAPER quotient-width bound is <=110*half^n, not yet a Lean
+coefficient theorem. Do not silently retune the existing rounded trajectory.
+An accurate two-loop seed still supplies neither a physical a(w) nor MAIN's
+original signed-family estimate. The repeated measurement attachment is
+reconciled with the existing primary-source audit; the historical measurement
+map now explicitly disclaims its old single-matching-stage reduction.
+Exact evidence: AF-padded-trajectory audit. Canonical chart unchanged.
+
+Selected precision experiment (2026-10-08 UTC; not a physical calibration):
+produce rational lower/upper enclosures of the ACTUAL `Pi.pi` and
+`CRealLog.log2`, with geometric widths and explicit precision moduli, from
+their existing paired-arctan/artanh series. These are the missing concrete
+inputs to an improving-precision seed for 3*pi^2/(22*log2), rather than another
+assumed enclosure interface. The proposed seed consumer is the existing
+`DyadicSmoothedTrajectory.NomeSchedule`; the old rounded schedule and all
+canonical fields stay unchanged. Prediction: actual series tails suffice
+without choice, a new analytic premise, or measured constants. Test the
+zero approximation and the subtraction sign in Machin's formula; each
+enclosure must bound every later approximation, not merely a numerical fit.
+Budget: two focused leaf targets at 1 worker/20 GiB, serialized with
+fresh dynamic preflights and independent final-source review. Revise if
+the construction needs an unavailable physical scale function or if it
+only repackages a supplied enclosure. The subsequent quotient estimate,
+running-min nome schedule, actual a(w), original signed-family payment,
+continuum and Clay conclusions remain OPEN until separately produced.
+
 CHECKED signed double-orbit join (2026-10-08 17:10 UTC): the EXISTING
 `BF4WilsonAllNomePositiveOrbitResponseOrder` now proves the exact signed
 credit identity and its literal `smoothedResponse`/`timeKernel` specialization.
