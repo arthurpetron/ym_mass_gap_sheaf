@@ -7531,3 +7531,112 @@ density/spatial payment, against OWN surviving variance and BOTH masses.
 The complete changing-family signed bound, continuum survival, physical
 calibration, QFT structure, every compact simple group and Clay remain OPEN.
 Displayed canonical claims are unchanged; no ASCII chart reprint.
+
+## Decision test: center the actual absorption square (2026-10-08)
+
+Previous goal turn: PROGRESS (`2f314b38`, checked original reciprocal-credit
+decay and no eventual floor, pushed). Test a genuinely smaller positive
+payment, not another integration-by-parts reassembly. With the ORIGINAL
+W=Kkin*S*a, A=T(a), B=T(a*phi), X=A*phi-B, t=Jphi,
+m=T(a*t), E=T(a*t^2), D=JA and nu=A*T(a*phi^2)-B^2, put
+Y=D*X+A^2*t. Actual conditional integration gives I[W*X]=0 and
+I[W*Y]=A^2*m. The centered square should produce
+
+    I[W*(Y-A*m)^2] = A*[nu*D^2+2*A*D*M+A^2*(A*E-m^2)],
+    M=I[W*X*t].
+
+Positive-window reflection can therefore replace A^3*E by
+A^2*matchedNoise(a,Jphi) in the ORIGINAL absorption bound. Its actual
+consumer is `RatioNoiseWardAbsorption.original_ratioNoise_ward_absorption_le`;
+the produced multiplier-square cap should then leave only
+H[Vbar^2*matchedNoise(a,Jphi)] in the positive payment, not
+H[Vbar^2*A*T(a*(Jphi)^2)]. Keep signed density and spatial corrections.
+Predicted outcome: a smaller actual cost, NOT a paid changing-family reserve.
+Test constant/zero signed phi, d=0, arbitrary outgoing degree including zero
+for the cap and independent incoming degree. No inverse or supplied score
+variance, stationary law or cross-mass equality. Budget: two existing focused
+leaves, one monitored 20-GiB worker/12-GiB OS reserve after each successful
+live preflight, independent complete final-source review. Revise if any
+original factor is lost; stop if the result only restates the old second
+moment or assumes the needed subtraction. OWN variance/BOTH masses and all
+physical/Clay frontiers remain OPEN; no new analytic premise or chart claim.
+
+### Observed: the ORIGINAL positive payment is gradient noise, not full energy
+
+2026-10-08 19:35 UTC. Two focused checks PASS on their FIRST launches,
+exit 0, and independent COMPLETE final-source mathematical review PASS.
+The centered-square identity above is now checked, not merely PAPER.
+
+- `residual_mean_pin`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRatioNoiseGradientAbsorption.lean:195`,
+  produces the literal zero incoming residual mean. Its private
+  `centered_absorption_square_pin` (:222) retains every W factor and
+  subtracts A*m, not an independently chosen center.
+- `original_ratioNoise_phiGradient_noise_absorption_le` in that file
+  (:371) produces the smaller A^2*matchedNoise(a,Jphi) payment under every
+  certified output insertion. The actual terminal window cancels only one
+  positive A in Haar order; no density/noise inverse or new premise is used.
+- `original_ratioNoise_ward_noiseGradient_le`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.lean:304`,
+  feeds this estimate into the SAME outgoing reciprocal Ward calculation.
+  The shared private signed calculation preserves the old public Ward type.
+- `original_ratioNoise_noiseGradientPayment_unit_le` (:449) uses the
+  produced noise and multiplier-square certificates to remove (A*G)^2
+  ONLY from the positive payment. `original_ratioNoise_ward_unitNoiseGradient_le`
+  (:515) therefore leaves H[Vbar^2*matchedNoise(a,Jphi)], while both signed
+  density and twice-spatial corrections keep their exact successor G.
+- `original_ratioNoise_noiseGradientPayment_weighted_pin` (:616) proves
+  the actual original-law pullback
+
+      H[Vbar^2*matchedNoise(a,Jphi)]
+        = weightedMass[a*(Jphi)^2*T(Vbar*A)]
+          - H[Vbar^2*(T(a*Jphi))^2].
+
+Thus a real predictable-gradient square is no longer overpaid. This is a
+smaller positive cost, not a sign or useful relative bound for the complete
+signed expression. Arbitrary supported signed phi, d=0, zero source/noise
+and all output precision are retained; cap degree zero is included, while
+Ward still uses a successor. Incoming phi/degree and outgoing degree are
+independent. All old public statements/guards remain unchanged.
+
+Independent reviewer read the COMPLETE 516-line producer and 770-line
+Ward consumer, including the original-law pullback and shared calculation.
+Two match layouts were repaired BEFORE compilation without changing the
+mathematics or statements. ROOT inspected all changed proofs and context.
+All 17 final printed gates (4 producer, 13 Ward) are exactly
+{propext, Quot.sound}; no sorryAx, error or warning in either final log.
+
+    producer source aa4345799740c70606528c918d36806b9511bec056730ca561960563e9267589
+    /private/tmp/ym-oct8-centered-gradient-absorption1.log PASS
+    SHA256 467f1eb0223da0ee21e7fae4cf03f50029686216cada40ee62f077c4173c5060
+    Ward source bb522669a63584a08f6a86758060a60e92fc2cbde68075c2bdc0597cf627ca22
+    /private/tmp/ym-oct8-centered-gradient-ward1.log PASS
+    SHA256 a4071f507568223ef56a4fcac73048b11b13da99a9faf2c9abb51057a5dd6a5a
+
+Fresh successful conflict/memory preflight before EACH launch; one serial
+20-GiB worker/12-GiB OS reserve, observed 85--86% free and zero swap.
+Both process handles are terminal. No root/tree build/audit, limit increase,
+lock bypass, new module/frontier, foreign code or new analytic premise.
+User-owned duplicate files are untouched. No canonical atom is closed.
+
+Parallel scoped screens did NOT supply an additional uniform estimate:
+the original integrated-score instance has weight S*g_n*g_(n+1), whereas
+this square uses the full doubled Kkin*S*a. Applying the generic centered
+score bound to X^2 would require its fourth-moment determinant, not just
+the existing noise (see `integratedAngularScore_certificate`,
+`lean/YMGap/Continuum/SU2QuaternionIntegratedScoreVariance.lean:147`, and
+`original_marginal_integratedScore_certificate`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialIntegratedScoreVariance.lean:59`).
+The qualitative all-plane zero-square screen gave no quantitatively new
+original-law bound beyond global fixed-volume min/max; it was not selected
+for implementation. Neither screen becomes a new prerequisite.
+
+Decision: CONTINUE from the centered gradient-noise payment, keeping its
+negative transmitted square JOINTLY with signed original density/spatial
+corrections. The backward consumer remains
+`original_window_budget_macro_ratio`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeWindowSignedCost.lean:245`:
+complete changing-family cost against OWN surviving variance and BOTH
+chronological masses. That estimate, continuum survival, physical mass
+calibration, full QFT structure, all compact simple groups and Clay remain
+OPEN. Displayed chart claims are unchanged; no chart reprint.

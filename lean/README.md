@@ -16,6 +16,16 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked ORIGINAL centered gradient payment (2026-10-08 UTC):**
+`RatioNoiseGradientAbsorption.original_ratioNoise_phiGradient_noise_absorption_le`
+centers the actual conditional square and pays only the noise of Jphi,
+not its full second moment. The SAME Ward consumer retains the negative
+transmitted-gradient square and actual T(Vbar*Ta) pullback, without a noise
+inverse or discarded signed correction. Both focused first checks/17
+permitted gates and independent COMPLETE final-source review PASS.
+Complete signed payment against OWN variance/BOTH masses, scaling and all
+physical/Clay goals remain OPEN. Evidence: adaptive-score audit; no tree audit.
+
 **Checked ORIGINAL reciprocal-credit screen (2026-10-08 UTC):**
 `RatioNoiseWardAbsorption.original_ratioNoise_reciprocal_credit_tolerance`
 produces a fixed-terminal/noise all-later precision cutoff;

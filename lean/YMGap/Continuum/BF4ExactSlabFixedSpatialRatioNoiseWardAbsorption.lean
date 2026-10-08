@@ -126,10 +126,9 @@ private theorem haar_neg (n : Nat) (r p : RatPoly) :
     (Q'.eqv_trans _ _ _ (quaternionHaar_polyMul_smul_right n (-1) r p)
       (Q'.eqv_trans _ _ _ (Q'.neg_mul_eqv 1 _) (Q'.neg_eqv_congr _ _ (Q'.one_mul_eqv _))))
 
-/-- SAME original one-plane Ward bound. The source-gradient cross is paid,
-but neither signed spatial/density response is discarded or assigned a sign.
-The outgoing reciprocal degree is the arbitrary successor k+1. -/
-theorem original_ratioNoise_ward_absorption_le {w : Q'}
+/-- Shared original Ward calculation BEFORE selecting an absorption payment.
+The literal mixed source moment and both signed corrections are retained. -/
+private theorem original_ratioNoise_ward_signed_le {w : Q'}
     (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) (K width : Nat)
     (hK : headCutoff w ≤ K) (d s i j : Nat) (hs : s < N width)
     (hi : i < 4) (hj : j < 4) {phi : RatPoly}
@@ -148,8 +147,11 @@ theorem original_ratioNoise_ward_absorption_le {w : Q'}
       (polyMul (J V) noise)
     quaternionHaar (N width) (polyMul (polyMul F (polyMul G G))
       (polyAdd (polyMul A (J (J A))) (polyNeg (polyMul (J A) (J A))))) ≤
-      (quaternionHaar (N width) (polyMul R (polyMul (polyMul (polyMul A A) A)
-        (ratioNoiseGradientEnergy w K width s i j a phi))) + -quaternionHaar (N width) density) +
+      (quaternionHaar (N width) (polyMul R (polyNeg (polyAdd
+        (polyMul noise (polyMul (J A) (J A)))
+        (polyMul (polyAdd (polyMul A (J A)) (polyMul A (J A)))
+          (ratioNoiseGradientMoment w K width s i j a phi))))) +
+        -quaternionHaar (N width) density) +
       -(quaternionHaar (N width) spatial+quaternionHaar (N width) spatial) := by
   dsimp only
   let a := terminalMessage w K width d
@@ -172,19 +174,14 @@ theorem original_ratioNoise_ward_absorption_le {w : Q'}
   have ha := terminalMessage_supported w K width d
   have hA := transferStep_supported w K width ha
   have hV := spatialFringeMass_supported w K width
-  have hG := reciprocal_supported hA (blockWindowUpper w K width d 1)
-    (blockWindowUpper_positive hw0 hw1 K width hK d 1) (k+1)
   let PN : Certificate (N width) noise := lastStepRatioNoise_certificate hw0 hw1 K width hK d hphi
   let PF := (Certificate.square V hV).mul PN
-  let PR := (Certificate.square V hV).mul (Certificate.square G hG)
   have hnext : A = terminalMessage w K width (d+1) := terminalMessage_next w K width d
   have PU : Certificate (N width) (polyAdd (cap (blockWindowUpper w K width d 1)) (polyNeg A)) := by
     rw [hnext]
     exact (blockWindowCertificates hw0 hw1 K width hK d 1 (by omega)).2
   have hward := finite_reciprocal_hessian_ibp_le hs hi hj
     (blockWindowUpper_positive hw0 hw1 K width hK d 1) hA PF PU k
-  have habs := original_ratioNoise_phiGradient_absorption_le hw0 hw1 K width hK d s i j
-    hs hi hj hphi PR
   have hder := weightedNoise_derivative_carrier w K width s i j hs hi hj ha hphi V
   have hsplit := noiseDerivativeIncoming_moment_pin w K width s i j a phi
   have hraw : RatPolyCoeffEqv correction (polyMul (polyMul (polyMul G G) D) (polyMul A (J F))) :=
@@ -257,9 +254,91 @@ theorem original_ratioNoise_ward_absorption_le {w : Q'}
           | _ => quaternionHaar (N width) spatial))
         (Q'.add_eqv_congr_right _ _ _
           (Q'.add_eqv_congr_right _ _ _ (Q'.eqv_symm (haar_neg (N width) R L0)))))
-  exact Q'.le_trans' _ _ _ hward
-    (Q'.le_trans' _ _ _ (Q'.le_of_eqv hcorrNeg)
-      (Q'.add_le_add_right _ _ _ (Q'.add_le_add_right _ _ _ habs)))
+  exact Q'.le_trans' _ _ _ hward (Q'.le_of_eqv hcorrNeg)
+
+/-- SAME original one-plane Ward bound. The source-gradient cross is paid,
+but neither signed spatial/density response is discarded or assigned a sign.
+The outgoing reciprocal degree is the arbitrary successor k+1. -/
+theorem original_ratioNoise_ward_absorption_le {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) (K width : Nat)
+    (hK : headCutoff w ≤ K) (d s i j : Nat) (hs : s < N width)
+    (hi : i < 4) (hj : j < 4) {phi : RatPoly}
+    (hphi : SupportedQuaternionBlocks (N width) phi) (k : Nat) :
+    let a := terminalMessage w K width d
+    let A := transferStep w K width a
+    let V := spatialFringeMass w K width
+    let noise := matchedNoise w K width a phi
+    let F := polyMul (polyMul V V) noise
+    let G := reciprocal A (blockWindowUpper w K width d 1)
+      (blockWindowUpper_positive hw0 hw1 K width hK d 1) (k+1)
+    let J := angularDerivative (4*s+i) (4*s+j)
+    let R := polyMul (polyMul V V) (polyMul G G)
+    let density := polyMul (polyMul R (J A)) (ratioNoiseDensityMoment w K width s i j a phi)
+    let spatial := polyMul (polyMul (polyMul (polyMul A (polyMul G G)) (J A)) V)
+      (polyMul (J V) noise)
+    quaternionHaar (N width) (polyMul (polyMul F (polyMul G G))
+      (polyAdd (polyMul A (J (J A))) (polyNeg (polyMul (J A) (J A))))) ≤
+      (quaternionHaar (N width) (polyMul R (polyMul (polyMul (polyMul A A) A)
+        (ratioNoiseGradientEnergy w K width s i j a phi))) + -quaternionHaar (N width) density) +
+      -(quaternionHaar (N width) spatial+quaternionHaar (N width) spatial) := by
+  dsimp only
+  let a := terminalMessage w K width d
+  let A := transferStep w K width a
+  let V := spatialFringeMass w K width
+  let G := reciprocal A (blockWindowUpper w K width d 1)
+    (blockWindowUpper_positive hw0 hw1 K width hK d 1) (k+1)
+  have hA := transferStep_supported w K width (terminalMessage_supported w K width d)
+  have hG := reciprocal_supported hA (blockWindowUpper w K width d 1)
+    (blockWindowUpper_positive hw0 hw1 K width hK d 1) (k+1)
+  let PR := (Certificate.square V (spatialFringeMass_supported w K width)).mul
+    (Certificate.square G hG)
+  exact Q'.le_trans' _ _ _
+    (original_ratioNoise_ward_signed_le hw0 hw1 K width hK d s i j hs hi hj hphi k)
+    (Q'.add_le_add_right _ _ _ (Q'.add_le_add_right _ _ _
+      (original_ratioNoise_phiGradient_absorption_le hw0 hw1 K width hK d s i j
+        hs hi hj hphi PR)))
+
+/-- Centering the ACTUAL absorption square removes the predictable incoming
+gradient. The positive payment is its conditional NOISE, not its full second
+moment. Both signed original density/spatial corrections keep every factor. -/
+theorem original_ratioNoise_ward_noiseGradient_le {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) (K width : Nat)
+    (hK : headCutoff w ≤ K) (d s i j : Nat) (hs : s < N width)
+    (hi : i < 4) (hj : j < 4) {phi : RatPoly}
+    (hphi : SupportedQuaternionBlocks (N width) phi) (k : Nat) :
+    let a := terminalMessage w K width d
+    let A := transferStep w K width a
+    let V := spatialFringeMass w K width
+    let noise := matchedNoise w K width a phi
+    let F := polyMul (polyMul V V) noise
+    let G := reciprocal A (blockWindowUpper w K width d 1)
+      (blockWindowUpper_positive hw0 hw1 K width hK d 1) (k+1)
+    let J := angularDerivative (4*s+i) (4*s+j)
+    let R := polyMul (polyMul V V) (polyMul G G)
+    let density := polyMul (polyMul R (J A)) (ratioNoiseDensityMoment w K width s i j a phi)
+    let spatial := polyMul (polyMul (polyMul (polyMul A (polyMul G G)) (J A)) V)
+      (polyMul (J V) noise)
+    quaternionHaar (N width) (polyMul (polyMul F (polyMul G G))
+      (polyAdd (polyMul A (J (J A))) (polyNeg (polyMul (J A) (J A))))) ≤
+      (quaternionHaar (N width) (polyMul R (polyMul (polyMul A A)
+        (matchedNoise w K width a (J phi)))) + -quaternionHaar (N width) density) +
+      -(quaternionHaar (N width) spatial+quaternionHaar (N width) spatial) := by
+  dsimp only
+  let a := terminalMessage w K width d
+  let A := transferStep w K width a
+  let V := spatialFringeMass w K width
+  let G := reciprocal A (blockWindowUpper w K width d 1)
+    (blockWindowUpper_positive hw0 hw1 K width hK d 1) (k+1)
+  have hA := transferStep_supported w K width (terminalMessage_supported w K width d)
+  have hG := reciprocal_supported hA (blockWindowUpper w K width d 1)
+    (blockWindowUpper_positive hw0 hw1 K width hK d 1) (k+1)
+  let PR := (Certificate.square V (spatialFringeMass_supported w K width)).mul
+    (Certificate.square G hG)
+  exact Q'.le_trans' _ _ _
+    (original_ratioNoise_ward_signed_le hw0 hw1 K width hK d s i j hs hi hj hphi k)
+    (Q'.add_le_add_right _ _ _ (Q'.add_le_add_right _ _ _
+      (original_ratioNoise_phiGradient_noise_absorption_le hw0 hw1 K width hK d s i j
+        hs hi hj hphi PR)))
 
 /-- The produced finite multiplier cap removes G only from the POSITIVE
 gradient payment, with coefficient one for every degree and no floor loss.
@@ -363,6 +442,104 @@ theorem original_ratioNoise_ward_unitGradient_le {w : Q'}
       (original_ratioNoise_gradientPayment_unit_le hw0 hw1 K width hK d s i j
         hs hi hj hphi (k+1))))
 
+/-- The produced multiplier-square cap removes the outgoing reciprocal from
+the centered gradient payment. Positivity is the ACTUAL conditional noise
+certificate, not an assumed sign for either original correction. Degree zero
+and zero source/noise are retained. -/
+theorem original_ratioNoise_noiseGradientPayment_unit_le {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) (K width : Nat)
+    (hK : headCutoff w ≤ K) (d s i j : Nat) (hs : s < N width)
+    (hi : i < 4) (hj : j < 4) {phi : RatPoly}
+    (hphi : SupportedQuaternionBlocks (N width) phi) (k : Nat) :
+    let a := terminalMessage w K width d
+    let A := transferStep w K width a
+    let V := spatialFringeMass w K width
+    let G := reciprocal A (blockWindowUpper w K width d 1)
+      (blockWindowUpper_positive hw0 hw1 K width hK d 1) k
+    let t := angularDerivative (4*s+i) (4*s+j) phi
+    quaternionHaar (N width) (polyMul (polyMul (polyMul V V) (polyMul G G))
+      (polyMul (polyMul A A) (matchedNoise w K width a t))) ≤
+      quaternionHaar (N width) (polyMul (polyMul V V) (matchedNoise w K width a t)) := by
+  dsimp only
+  let a := terminalMessage w K width d
+  let A := transferStep w K width a
+  let V := spatialFringeMass w K width
+  let G := reciprocal A (blockWindowUpper w K width d 1)
+    (blockWindowUpper_positive hw0 hw1 K width hK d 1) k
+  let t := angularDerivative (4*s+i) (4*s+j) phi
+  let noise := matchedNoise w K width a t
+  let bare := polyMul (polyMul V V) noise
+  let payment := polyMul (polyMul (polyMul V V) (polyMul G G))
+    (polyMul (polyMul A A) noise)
+  have ha := terminalMessage_supported w K width d
+  have hA := transferStep_supported w K width ha
+  have ht := angularDerivative_supported_at (by omega : 4*s+i < 4*N width)
+    (by omega : 4*s+j < 4*N width) hphi
+  let PN : Certificate (N width) noise := lastStepRatioNoise_certificate hw0 hw1 K width hK d ht
+  have hnext : A = terminalMessage w K width (d+1) := terminalMessage_next w K width d
+  let bands := blockWindowCertificates hw0 hw1 K width hK d 1 (by omega)
+  have hle : blockWindowLower w K width d 1 ≤ blockWindowUpper w K width d 1 :=
+    Q'.mul_le_mul_of_nonneg_right _ _ _ (kineticFloor_le_cap hw0 hw1 width)
+      (Q'.le_of_lt (terminalMessage_mass_positive hw0 hw1 K width hK (d+1-1)))
+  let Pcap := multiplierSquareCertificate hA
+    (blockWindowLower_positive hw0 hw1 K width hK d 1)
+    (blockWindowUpper_positive hw0 hw1 K width hK d 1) hle
+    (show Certificate (N width) (polyAdd A (polyNeg (cap (blockWindowLower w K width d 1)))) by
+      rw [hnext]; exact bands.1)
+    (show Certificate (N width) (polyAdd (cap (blockWindowUpper w K width d 1)) (polyNeg A)) by
+      rw [hnext]; exact bands.2) k
+  let Pbase := (Certificate.square V (spatialFringeMass_supported w K width)).mul PN
+  have hgap : RatPolyCoeffEqv (polyAdd bare (polyNeg payment))
+      (polyMul bare (polyAdd polyOne (polyNeg (polyMul (polyMul A G) (polyMul A G))))) :=
+    coeffEvalExpr_eqv_of_normalize_eq
+      (.add (.mul (.mul (.var 0) (.var 0)) (.var 2))
+        (.neg (.mul (.mul (.mul (.var 0) (.var 0)) (.mul (.var 3) (.var 3)))
+          (.mul (.mul (.var 1) (.var 1)) (.var 2)))))
+      (.mul (.mul (.mul (.var 0) (.var 0)) (.var 2))
+        (.add (.const 1) (.neg (.mul (.mul (.var 1) (.var 3)) (.mul (.var 1) (.var 3))))))
+      (by decide) (fun | 0 => V | 1 => A | 2 => noise | _ => G)
+  have hpos := (Certificate.ofCoeff hgap (Pbase.mul Pcap)).haar_nonnegative
+  have hneg : quaternionHaar (N width) (polyNeg payment) ≈
+      -quaternionHaar (N width) payment :=
+    Q'.eqv_trans _ _ _ (haar_of_coeff (neg_smul payment))
+      (Q'.eqv_trans _ _ _ (quaternionHaar_polySmul (N width) (-1) payment)
+        (Q'.eqv_trans _ _ _ (Q'.neg_mul_eqv 1 _)
+          (Q'.neg_eqv_congr _ _ (Q'.one_mul_eqv _))))
+  exact Q'.le_of_sub_nonneg (Q'.le_trans' _ _ _ hpos
+    (Q'.le_of_eqv (Q'.eqv_trans _ _ _ (haar_add (N width) bare (polyNeg payment))
+      (Q'.add_eqv_congr' (Q'.eqv_refl _) hneg))))
+
+/-- Reciprocal-free positive payment is now only the original conditional
+variance of Jphi. The SAME signed density and spatial corrections remain;
+this is not a relative bound on their sum or a changing-family estimate. -/
+theorem original_ratioNoise_ward_unitNoiseGradient_le {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) (K width : Nat)
+    (hK : headCutoff w ≤ K) (d s i j : Nat) (hs : s < N width)
+    (hi : i < 4) (hj : j < 4) {phi : RatPoly}
+    (hphi : SupportedQuaternionBlocks (N width) phi) (k : Nat) :
+    let a := terminalMessage w K width d
+    let A := transferStep w K width a
+    let V := spatialFringeMass w K width
+    let noise := matchedNoise w K width a phi
+    let F := polyMul (polyMul V V) noise
+    let G := reciprocal A (blockWindowUpper w K width d 1)
+      (blockWindowUpper_positive hw0 hw1 K width hK d 1) (k+1)
+    let J := angularDerivative (4*s+i) (4*s+j)
+    let R := polyMul (polyMul V V) (polyMul G G)
+    let density := polyMul (polyMul R (J A)) (ratioNoiseDensityMoment w K width s i j a phi)
+    let spatial := polyMul (polyMul (polyMul (polyMul A (polyMul G G)) (J A)) V)
+      (polyMul (J V) noise)
+    quaternionHaar (N width) (polyMul (polyMul F (polyMul G G))
+      (polyAdd (polyMul A (J (J A))) (polyNeg (polyMul (J A) (J A))))) ≤
+      (quaternionHaar (N width) (polyMul (polyMul V V)
+        (matchedNoise w K width a (J phi))) + -quaternionHaar (N width) density) +
+      -(quaternionHaar (N width) spatial+quaternionHaar (N width) spatial) := by
+  exact Q'.le_trans' _ _ _
+    (original_ratioNoise_ward_noiseGradient_le hw0 hw1 K width hK d s i j hs hi hj hphi k)
+    (Q'.add_le_add_right _ _ _ (Q'.add_le_add_right _ _ _
+      (original_ratioNoise_noiseGradientPayment_unit_le hw0 hw1 K width hK d s i j
+        hs hi hj hphi (k+1))))
+
 private theorem transfer_fringe_independent (w : Q') (K width : Nat) {p : RatPoly}
     (hp : SupportedQuaternionBlocks (N width) p) (b : Nat)
     (hb : b ∈ fringeBlocks width) :
@@ -432,6 +609,49 @@ theorem original_ratioNoise_gradientPayment_weighted_pin (w : Q') (K width : Nat
         (Q'.eqv_trans _ _ _ (haar_of_coeff hproject) (haar_of_coeff hring)))
   exact Q'.eqv_trans _ _ _ (Q'.eqv_symm hweighted)
     (transferStep_weighted_symmetric w K width hx hr)
+
+/-- Exact original-law pullback of the smaller payment. It subtracts the
+ACTUAL transmitted incoming-gradient square and still keeps T(Vbar*Ta).
+No stationary measure, independent gradient mean or spectral pin is used. -/
+theorem original_ratioNoise_noiseGradientPayment_weighted_pin (w : Q') (K width : Nat)
+    (d s i j : Nat) (hs : s < N width) (hi : i < 4) (hj : j < 4)
+    {phi : RatPoly} (hphi : SupportedQuaternionBlocks (N width) phi) :
+    let a := terminalMessage w K width d
+    let A := transferStep w K width a
+    let V := spatialFringeMass w K width
+    let t := angularDerivative (4*s+i) (4*s+j) phi
+    let m := transferStep w K width (polyMul a t)
+    quaternionHaar (N width) (polyMul (polyMul V V) (matchedNoise w K width a t)) ≈
+      weightedMass w K width (polyMul (polyMul a (polyMul t t))
+        (transferStep w K width (polyMul V A))) +
+      -quaternionHaar (N width) (polyMul (polyMul V V) (polyMul m m)) := by
+  dsimp only
+  let a := terminalMessage w K width d
+  let A := transferStep w K width a
+  let V := spatialFringeMass w K width
+  let t := angularDerivative (4*s+i) (4*s+j) phi
+  let E := ratioNoiseGradientEnergy w K width s i j a phi
+  let m := transferStep w K width (polyMul a t)
+  let predicted := polyMul (polyMul V V) (polyMul m m)
+  have hpoly : RatPolyCoeffEqv
+      (polyMul (polyMul V V) (matchedNoise w K width a t))
+      (polyAdd (polyMul (polyMul V V) (polyMul A E)) (polyNeg predicted)) :=
+    coeffEvalExpr_eqv_of_normalize_eq
+      (.mul (.mul (.var 0) (.var 0))
+        (.add (.mul (.var 1) (.var 2)) (.neg (.mul (.var 3) (.var 3)))))
+      (.add (.mul (.mul (.var 0) (.var 0)) (.mul (.var 1) (.var 2)))
+        (.neg (.mul (.mul (.var 0) (.var 0)) (.mul (.var 3) (.var 3)))))
+      (by decide) (fun | 0 => V | 1 => A | 2 => E | _ => m)
+  have hneg : quaternionHaar (N width) (polyNeg predicted) ≈
+      -quaternionHaar (N width) predicted :=
+    Q'.eqv_trans _ _ _ (haar_of_coeff (neg_smul predicted))
+      (Q'.eqv_trans _ _ _ (quaternionHaar_polySmul (N width) (-1) predicted)
+        (Q'.eqv_trans _ _ _ (Q'.neg_mul_eqv 1 _)
+          (Q'.neg_eqv_congr _ _ (Q'.one_mul_eqv _))))
+  exact Q'.eqv_trans _ _ _ (haar_of_coeff hpoly)
+    (Q'.eqv_trans _ _ _ (haar_add (N width) _ _)
+      (Q'.add_eqv_congr'
+        (original_ratioNoise_gradientPayment_weighted_pin w K width d s i j hs hi hj hphi) hneg))
 
 /-- Computed precision onset for the favorable reciprocal credit of the
 literal ORIGINAL terminal/noise weight. The source phi is held fixed as
@@ -544,3 +764,7 @@ end YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.originalRatioNoiseCreditCutoff
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.original_ratioNoise_reciprocal_credit_tolerance
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.original_ratioNoise_reciprocal_credit_no_eventual_floor
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.original_ratioNoise_ward_noiseGradient_le
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.original_ratioNoise_noiseGradientPayment_unit_le
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.original_ratioNoise_ward_unitNoiseGradient_le
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.original_ratioNoise_noiseGradientPayment_weighted_pin

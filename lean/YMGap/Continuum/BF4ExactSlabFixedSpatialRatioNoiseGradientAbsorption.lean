@@ -4,6 +4,8 @@
 A single actual conditional square pays the phi-gradient cross term by
 A^3*T(a*(J phi)^2). The terminal window cancels its positive A multiplier
 only in Haar order, with every certified output insertion retained.
+Centering that same square removes its predictable gradient and sharpens
+the payment to A^2*matchedNoise(a,J phi).
 No noise inverse, source quotient, density replacement or N positivity
 premise is used. Spatial-action derivatives and the full signed/scaling
 budget remain unestimated.
@@ -190,6 +192,72 @@ private theorem absorption_square_pin (heads : Nat) (W X t A D N0 : RatPoly)
             | 3 => partialHaarHeads heads (polyMul W (polyMul X t))
             | _ => partialHaarHeads heads (polyMul W (polyMul t t))))))
 
+private theorem residual_mean_pin (heads : Nat) (W phi A b : RatPoly)
+    (hA : RatPolyCoeffEqv (partialHaarHeads heads W) A)
+    (hb : RatPolyCoeffEqv (partialHaarHeads heads (polyMul W phi)) b) :
+    let X := polyAdd (polyMul (liftBoundary heads A) phi) (polyNeg (liftBoundary heads b))
+    RatPolyCoeffEqv (partialHaarHeads heads (polyMul W X))
+      (cap 0) := by
+  dsimp only
+  have hex : RatPolyCoeffEqv
+      (polyMul W (polyAdd (polyMul (liftBoundary heads A) phi) (polyNeg (liftBoundary heads b))))
+      (polyAdd (polyMul (polyMul W phi) (liftBoundary heads A))
+        (polyMul W (liftBoundary heads (polyNeg b)))) := by
+    simp only [lift_neg]
+    exact coeffEvalExpr_eqv_of_normalize_eq
+      (.mul (.var 0) (.add (.mul (.var 2) (.var 1)) (.neg (.var 3))))
+      (.add (.mul (.mul (.var 0) (.var 1)) (.var 2)) (.mul (.var 0) (.neg (.var 3))))
+      (by decide) (fun | 0 => W | 1 => phi | 2 => liftBoundary heads A | _ => liftBoundary heads b)
+  refine (partialHaarHeads_congr heads hex).trans ?_
+  rw [partialHaarHeads_add]
+  exact (((partialHaarHeads_mul_lift heads _ A).trans (hb.mul_right A)).add
+    ((partialHaarHeads_mul_lift heads W (polyNeg b)).trans
+      ((hA.mul_right _).trans (coeffEvalExpr_eqv_of_normalize_eq
+        (.mul (.var 0) (.neg (.var 1))) (.neg (.mul (.var 0) (.var 1)))
+        (by decide) (fun | 0 => A | _ => b))))).trans
+    (coeffEvalExpr_eqv_of_normalize_eq
+      (.add (.mul (.var 1) (.var 0)) (.neg (.mul (.var 0) (.var 1))))
+      (.const 0) (by decide) (fun | 0 => A | _ => b))
+
+private theorem centered_absorption_square_pin (heads : Nat) (W Y A m L E : RatPoly)
+    (hA : RatPolyCoeffEqv (partialHaarHeads heads W) A)
+    (hmean : RatPolyCoeffEqv (partialHaarHeads heads (polyMul W Y)) (polyMul (polyMul A A) m))
+    (hsquare : RatPolyCoeffEqv (partialHaarHeads heads (polyMul W (polyMul Y Y)))
+      (polyMul A (polyAdd L (polyMul (polyMul (polyMul A A) A) E)))) :
+    let Y0 := polyAdd Y (polyNeg (liftBoundary heads (polyMul A m)))
+    RatPolyCoeffEqv (partialHaarHeads heads (polyMul W (polyMul Y0 Y0)))
+      (polyMul A (polyAdd L (polyMul (polyMul A A)
+        (polyAdd (polyMul A E) (polyNeg (polyMul m m)))))) := by
+  dsimp only
+  have hex : RatPolyCoeffEqv
+      (polyMul W (polyMul (polyAdd Y (polyNeg (liftBoundary heads (polyMul A m))))
+        (polyAdd Y (polyNeg (liftBoundary heads (polyMul A m))))))
+      (polyAdd (polyAdd (polyMul W (polyMul Y Y))
+        (polyMul (polyMul W Y) (liftBoundary heads
+          (polyNeg (polyAdd (polyMul A m) (polyMul A m))))))
+        (polyMul W (liftBoundary heads (polyMul (polyMul A m) (polyMul A m))))) := by
+    simp only [lift_product, lift_neg, lift_add]
+    exact coeffEvalExpr_eqv_of_normalize_eq
+      (.mul (.var 0) (.mul (.add (.var 1) (.neg (.mul (.var 2) (.var 3))))
+        (.add (.var 1) (.neg (.mul (.var 2) (.var 3))))))
+      (.add (.add (.mul (.var 0) (.mul (.var 1) (.var 1)))
+        (.mul (.mul (.var 0) (.var 1))
+          (.neg (.add (.mul (.var 2) (.var 3)) (.mul (.var 2) (.var 3))))))
+        (.mul (.var 0) (.mul (.mul (.var 2) (.var 3)) (.mul (.var 2) (.var 3)))))
+      (by decide) (fun | 0 => W | 1 => Y | 2 => liftBoundary heads A | _ => liftBoundary heads m)
+  refine (partialHaarHeads_congr heads hex).trans ?_
+  rw [partialHaarHeads_add, partialHaarHeads_add]
+  exact ((hsquare.add ((partialHaarHeads_mul_lift heads _ _).trans (hmean.mul_right _))).add
+    ((partialHaarHeads_mul_lift heads _ _).trans (hA.mul_right _))).trans
+    (coeffEvalExpr_eqv_of_normalize_eq
+      (.add (.add (.mul (.var 0) (.add (.var 2) (.mul (.mul (.mul (.var 0) (.var 0)) (.var 0)) (.var 3))))
+        (.mul (.mul (.mul (.var 0) (.var 0)) (.var 1))
+          (.neg (.add (.mul (.var 0) (.var 1)) (.mul (.var 0) (.var 1))))))
+        (.mul (.var 0) (.mul (.mul (.var 0) (.var 1)) (.mul (.var 0) (.var 1)))))
+      (.mul (.var 0) (.add (.var 2) (.mul (.mul (.var 0) (.var 0))
+        (.add (.mul (.var 0) (.var 3)) (.neg (.mul (.var 1) (.var 1)))))))
+      (by decide) (fun | 0 => A | 1 => m | 2 => L | _ => E))
+
 /-- Actual terminal source; the favorable noise square absorbs ONLY the
 phi-gradient cross with coefficient one, at every certified output insertion. -/
 theorem original_ratioNoise_phiGradient_absorption_le {w : Q'}
@@ -297,8 +365,151 @@ theorem original_ratioNoise_phiGradient_absorption_le {w : Q'}
       (haar_neg (N width) R L0)))
     (Q'.le_trans' _ _ _ hneg (Q'.ge_of_eqv (haar_of_coeff ((he.mul_left _).mul_left R))))
 
+/-- Centering the actual conditional square removes the predictable Jphi
+gradient. Only its matched noise is paid; the signed density/spatial corrections
+and the original OWN-variance/scaling budget are not estimated here. -/
+theorem original_ratioNoise_phiGradient_noise_absorption_le {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) (K width : Nat)
+    (hK : headCutoff w ≤ K) (d s i j : Nat) (hs : s < N width)
+    (hi : i < 4) (hj : j < 4) {phi R : RatPoly}
+    (hphi : SupportedQuaternionBlocks (N width) phi) (PR : Certificate (N width) R) :
+    let a := terminalMessage w K width d
+    let A := transferStep w K width a
+    let D := angularDerivative (4*s+i) (4*s+j) A
+    let N0 := matchedNoise w K width a phi
+    let M := ratioNoiseGradientMoment w K width s i j a phi
+    let t := angularDerivative (4*s+i) (4*s+j) phi
+    quaternionHaar (N width) (polyMul R (polyNeg (polyAdd
+      (polyMul N0 (polyMul D D)) (polyMul (polyAdd (polyMul A D) (polyMul A D)) M)))) ≤
+      quaternionHaar (N width) (polyMul R (polyMul (polyMul A A) (matchedNoise w K width a t))) := by
+  dsimp only
+  let a := terminalMessage w K width d
+  let A := transferStep w K width a
+  let b := transferStep w K width (polyMul a phi)
+  let U := transferStep w K width (polyMul a (polyMul phi phi))
+  let D := angularDerivative (4*s+i) (4*s+j) A
+  let t := angularDerivative (4*s+i) (4*s+j) phi
+  let W := polyMul (kineticWeight w K width) (polyMul (spatialWeight w K width) a)
+  let X := matchedNoiseResidual w K width a phi
+  let M := partialHaarHeads (N width) (polyMul W (polyMul X t))
+  let E := partialHaarHeads (N width) (polyMul W (polyMul t t))
+  let m := partialHaarHeads (N width) (polyMul W t)
+  let L0 := polyAdd (polyMul (matchedNoise w K width a phi) (polyMul D D))
+    (polyMul (polyAdd (polyMul A D) (polyMul A D)) M)
+  let Nt := polyAdd (polyMul A E) (polyNeg (polyMul m m))
+  let B0 := polyMul (polyMul A A) Nt
+  have ha := terminalMessage_supported w K width d
+  have hA := transferStep_supported w K width ha
+  have hb := transferStep_supported w K width (supported_polyMul ha hphi)
+  have hU := transferStep_supported w K width (supported_polyMul ha (supported_polyMul hphi hphi))
+  have ht := angularDerivative_supported_at (by omega : 4*s+i < 4*N width)
+    (by omega : 4*s+j < 4*N width) hphi
+  have hD := angularDerivative_supported_at (by omega : 4*s+i < 4*N width)
+    (by omega : 4*s+j < 4*N width) hA
+  have extend {p : RatPoly} (hp : SupportedQuaternionBlocks (N width) p) :
+      SupportedQuaternionBlocks (N width+N width) p := fun v hv =>
+    Nat.le_trans (hp v hv) (by omega)
+  have hW := supported_polyMul (kineticWeight_supported w K width)
+    (supported_polyMul (extend (spatialWeight_supported w K width)) (extend ha))
+  have hX := supported_add (supported_polyMul (lift_supported hA (N width)) (extend hphi))
+    (supported_neg (lift_supported hb (N width)))
+  have hM := partialHaarHeads_supported (N width) (N width) _
+    (supported_polyMul hW (supported_polyMul hX (extend ht)))
+  have hE := partialHaarHeads_supported (N width) (N width) _
+    (supported_polyMul hW (supported_polyMul (extend ht) (extend ht)))
+  have hmSupport := partialHaarHeads_supported (N width) (N width) _
+    (supported_polyMul hW (extend ht))
+  have mean_pin (f : RatPoly) : RatPolyCoeffEqv
+      (partialHaarHeads (N width) (polyMul W f)) (transferStep w K width (polyMul a f)) :=
+    partialHaarHeads_congr (N width)
+      ((RatPolyCoeffEqv.mul_assoc _ _ _).trans
+        ((RatPolyCoeffEqv.mul_assoc _ _ _).mul_left (kineticWeight w K width)))
+  have hres := residual_square_pin (N width) W phi A b U (.refl _) (mean_pin phi)
+    (mean_pin (polyMul phi phi))
+  have hmeanX := residual_mean_pin (N width) W phi A b (.refl _) (mean_pin phi)
+  let Y := polyAdd (polyMul (liftBoundary (N width) D) X)
+    (polyMul (liftBoundary (N width) (polyMul A A)) t)
+  have hmeanY : RatPolyCoeffEqv (partialHaarHeads (N width) (polyMul W Y))
+      (polyMul (polyMul A A) m) := by
+    have hex : RatPolyCoeffEqv (polyMul W Y)
+        (polyAdd (polyMul (polyMul W X) (liftBoundary (N width) D))
+          (polyMul (polyMul W t) (liftBoundary (N width) (polyMul A A)))) :=
+      coeffEvalExpr_eqv_of_normalize_eq
+        (.mul (.var 0) (.add (.mul (.var 3) (.var 1)) (.mul (.var 4) (.var 2))))
+        (.add (.mul (.mul (.var 0) (.var 1)) (.var 3))
+          (.mul (.mul (.var 0) (.var 2)) (.var 4)))
+        (by decide) (fun
+          | 0 => W
+          | 1 => X
+          | 2 => t
+          | 3 => liftBoundary (N width) D
+          | _ => liftBoundary (N width) (polyMul A A))
+    refine (partialHaarHeads_congr (N width) hex).trans ?_
+    rw [partialHaarHeads_add]
+    exact (((partialHaarHeads_mul_lift (N width) _ D).trans (hmeanX.mul_right D)).add
+      (partialHaarHeads_mul_lift (N width) _ _)).trans
+      (coeffEvalExpr_eqv_of_normalize_eq
+        (.add (.mul (.const 0) (.var 2))
+          (.mul (.var 3) (.mul (.var 0) (.var 0))))
+        (.mul (.mul (.var 0) (.var 0)) (.var 3))
+        (by decide) (fun | 0 => A | 1 => b | 2 => D | _ => m))
+  have hpin := centered_absorption_square_pin (N width) W Y A m L0 E (.refl _) hmeanY
+    (absorption_square_pin (N width) W X t A D (matchedNoise w K width a phi) hres)
+  let Y0 := polyAdd Y (polyNeg (liftBoundary (N width) (polyMul A m)))
+  have hY := supported_add (supported_polyMul (lift_supported hD (N width)) hX)
+    (supported_polyMul (lift_supported (supported_polyMul hA hA) (N width)) (extend ht))
+  have hY0 := supported_add hY (supported_neg (lift_supported (supported_polyMul hA hmSupport) (N width)))
+  let PW : Certificate (N width+N width) W := Certificate.ofCoeff
+    (RatPolyCoeffEqv.mul_assoc _ _ _).symm ((stepWeightCertificate hw0 hw1 K width hK).mul
+      (certificate_extend (N width) ha (terminalMessage_certificate hw0 hw1 K width hK d)))
+  let PS := partialHaarHeads_certificate (N width) (N width) (PW.mul (Certificate.square Y0 hY0))
+  let PAQ : Certificate (N width) (polyMul A (polyAdd L0 B0)) := Certificate.ofCoeff hpin.symm PS
+  have hN := supported_add (supported_polyMul hA hU) (supported_neg (supported_polyMul hb hb))
+  have hNt := supported_add (supported_polyMul hA hE) (supported_neg (supported_polyMul hmSupport hmSupport))
+  have hQ := supported_add (supported_add (supported_polyMul hN (supported_polyMul hD hD))
+    (supported_polyMul (supported_add (supported_polyMul hA hD) (supported_polyMul hA hD)) hM))
+    (supported_polyMul (supported_polyMul hA hA) hNt)
+  have hnext : A = terminalMessage w K width (d+1) := terminalMessage_next w K width d
+  let bands := blockWindowCertificates hw0 hw1 K width hK d 1 (by omega)
+  have hle : blockWindowLower w K width d 1 ≤ blockWindowUpper w K width d 1 :=
+    Q'.mul_le_mul_of_nonneg_right _ _ _ (kineticFloor_le_cap hw0 hw1 width)
+      (Q'.le_of_lt (terminalMessage_mass_positive hw0 hw1 K width hK (d+1-1)))
+  have hn := haar_nonnegative_of_positive_multiplier hA hQ
+    (blockWindowLower_positive hw0 hw1 K width hK d 1)
+    (blockWindowUpper_positive hw0 hw1 K width hK d 1) hle
+    (show Certificate (N width) (polyAdd A (polyNeg (cap (blockWindowLower w K width d 1)))) by
+      rw [hnext]; exact bands.1)
+    (show Certificate (N width) (polyAdd (cap (blockWindowUpper w K width d 1)) (polyNeg A)) by
+      rw [hnext]; exact bands.2) PR PAQ
+  have hout : (0 : Q') ≤ quaternionHaar (N width) (polyMul R L0)+
+      quaternionHaar (N width) (polyMul R B0) :=
+    Q'.le_trans' _ _ _ hn (Q'.le_of_eqv (Q'.eqv_trans _ _ _
+      (haar_of_coeff (RatPolyCoeffEqv.mul_add_right _ _ _)) (quaternionHaar_append (N width) _ _)))
+  have hneg := Q'.le_of_sub_nonneg (Q'.le_trans' _ _ _ hout
+    (Q'.le_of_eqv (poly_identity_of_normal_eq
+      (.add (.var 0) (.var 1)) (.add (.var 1) (.neg (.neg (.var 0))))
+      (by decide) (fun
+        | 0 => quaternionHaar (N width) (polyMul R L0)
+        | _ => quaternionHaar (N width) (polyMul R B0)))))
+  have hm : RatPolyCoeffEqv (ratioNoiseGradientMoment w K width s i j a phi) M :=
+    partialHaarHeads_congr (N width)
+      (((RatPolyCoeffEqv.mul_assoc (polyMul (spatialWeight w K width) a) X t).mul_left
+        (kineticWeight w K width)).trans
+        (RatPolyCoeffEqv.mul_assoc (kineticWeight w K width)
+          (polyMul (spatialWeight w K width) a) (polyMul X t)).symm)
+  have hnoise : RatPolyCoeffEqv (matchedNoise w K width a t) Nt :=
+    ((mean_pin (polyMul t t)).symm.mul_left A).add
+      (RatPolyCoeffEqv.neg ((mean_pin t).symm.mul (mean_pin t).symm))
+  exact Q'.le_trans' _ _ _
+    (Q'.le_of_eqv (Q'.eqv_trans _ _ _
+      (haar_of_coeff ((RatPolyCoeffEqv.neg
+        ((RatPolyCoeffEqv.refl _).add (hm.mul_left _))).mul_left R))
+      (haar_neg (N width) R L0)))
+    (Q'.le_trans' _ _ _ hneg (Q'.ge_of_eqv (haar_of_coeff ((hnoise.mul_left _).mul_left R))))
+
 end YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseGradientAbsorption
 
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseGradientAbsorption.ratioNoiseGradientMoment
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseGradientAbsorption.ratioNoiseGradientEnergy
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseGradientAbsorption.original_ratioNoise_phiGradient_absorption_le
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialRatioNoiseGradientAbsorption.original_ratioNoise_phiGradient_noise_absorption_le

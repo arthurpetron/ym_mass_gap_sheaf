@@ -159,6 +159,24 @@ serial 20-GiB worker/12-GiB reserve after each fresh successful preflight;
 no root/tree build or audit. Exact evidence: adaptive conditional-score audit.
 No new analytic premise, canonical claim or physical/Clay closure; no chart.
 
+CHECKED MAIN centered-payment refinement (2026-10-08 UTC): the actual
+absorption square now keeps its own conditional center. With W=Kkin*S*a,
+Y=(JA)*X+A^2*Jphi and m=T(a*Jphi), the produced square is (Y-A*m)^2.
+`RatioNoiseGradientAbsorption.original_ratioNoise_phiGradient_noise_absorption_le`
+replaces full A^3*T(a*(Jphi)^2) by A^2*matchedNoise(a,Jphi).
+`RatioNoiseWardAbsorption.original_ratioNoise_ward_unitNoiseGradient_le`
+passes the smaller payment into the SAME original Ward bound and removes
+the outgoing reciprocal ONLY from that positive conditional variance.
+Its exact weighted pin subtracts H[Vbar^2*(T(a*Jphi))^2] and retains the
+actual T(Vbar*A) pullback. Both signed density/spatial corrections remain.
+CONTINUE their complete joint payment, including this new negative square,
+relative to OWN surviving variance and BOTH masses; no useful family-relative
+bound is supplied yet. Old public types/guards stay unchanged. Both focused
+first launches/17 permitted gates and independent COMPLETE final-source
+review PASS. One serial 20-GiB worker/12-GiB reserve after each fresh live
+preflight, zero swap; no root/tree build or audit. Exact evidence: adaptive
+conditional-score audit. No new premise, canonical closure or chart state.
+
 Targeted paper review integrated (2026-10-08 UTC, user request):
 `audits/RESEARCH-2610-09093-2026-10-08.md` records the long paper and companion
 review, exact relevant equations, SAME-original-source consumers and access
