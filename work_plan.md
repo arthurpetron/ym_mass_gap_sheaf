@@ -212,6 +212,18 @@ No interpolation wrapper, foreign proof, Lean edit or proof-status change
 is selected. Source pins and refreshed archive-access limits are in the
 existing targeted audit.
 
+Additional parallel paper review (2026-10-08 UTC): (E.2)/(E.14) bounds
+polynomial smoothing in a norm already summing original-link derivative
+locations; do not multiply by their support count again. Section F.3 passes
+COMPLETE-current Taylor zeros to retained local supports through the omitted
+tail, not termwise zeros. Use either mechanism only after producing its actual
+SAME-source summed/locality bound and, for the latter, complete cancellation.
+These are optional estimate designs, not extra prerequisites or new wrappers.
+The actual MAIN consumer remains `original_window_budget_macro_ratio`; retain
+the new conditional-gradient-noise subtraction and both signed corrections.
+No fermion gap, smooth-background limit or foreign classical proof closes it.
+Exact source coverage and current declaration pins: the targeted paper audit.
+
 CHECKED bounded scalar test of that error discipline (2026-10-08 UTC):
 the existing `AFPrecisionNomeSchedule` now proves
 `110*half^(10+floorLog2(j+1)) < (55/256)*invSucc j` and
