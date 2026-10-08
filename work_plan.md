@@ -27,6 +27,30 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+The FULL frozen-direction ORIGINAL-prefix matrix is now CHECKED:
+`SU2QuaternionPairedFrozenHeatPrefixCurvature.prefix_frozen_curvature_certificate`
+uses all nine actual ordered mixed jets, including both literal signed
+cross terms in every discrepancy entry. Supported polynomial u is frozen,
+never differentiated or magnitude-bounded. The actual N=K+1 weighted heat
+meets original value/first/mixed errors. Existing six-column zero padding
+pays factor SIX; tolerance at headFloor/4 gives 6*errorCap<=headFloor^2.
+The original positive floor pays this homogeneous error. The fixed cost
+`prefixCurvatureCost(w)` has no direction, cutoff, carrier-size, dimension
+or inverse-floor penalty. Precision/onset is explicit at each strict nome.
+Four focused leaves/16 permitted gates; three printed definitions axiom-free.
+
+NEXT arbitrary-block/product recoding as actually needed by the ORIGINAL
+interacting conditional score, then its signed Gram/Hessian estimate. A
+free heat marginal does not supply the integrated second-jet sign required
+by `QuaternionHaarCurvatureDualBound.curvature_dual_bound`. Retain the SAME
+original action, all positive factors and every signed correction; do not
+add another assumed-estimate wrapper. All useful scaling, independent
+survival, completed OS, physical/volume, SAME QFT, every-group and Clay
+requirements remain OPEN. No full-root/tree audit or broad chart closure.
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
+The following supporting checkpoints retain their verification-time boundaries.
+
 The ORIGINAL unweighted-prefix paired curvature join is now CHECKED:
 `SU2QuaternionPairedHeatPrefixCurvature.prefix_curvature_certificate`
 constructs C*p^2+p*J_i^2(p)-(J_i p)^2 for the actual prefix, past its explicit

@@ -1,5 +1,36 @@
 # Sorry Ledger
 
+## PROVED full ORIGINAL-prefix frozen matrix / OPEN original conditional join (2026-10-07 local)
+
+- `SU2QuaternionPairedHeatPrefixMixedDeficit.prefix_mixed_split_pin`,
+  `deficit_mixed_interval`, `prefix_mixed_interval` retain ALL nine ordered
+  paired mixed jets, each with four raw signed terms. Original N=K+1 and
+  existing paired cutoff/caps remain literal.
+- `QuaternionHaarThreePolynomialMatrixEnvelope.three_polynomial_matrix_envelope_certificate`
+  only zero-pads into the existing six-column compiler: cap SIX*E*R.
+  Arbitrary supported polynomial directions, no symmetry/magnitude cap.
+- `QuaternionHaarFrozenCurvatureApproximation.curvature_difference_pin`
+  retains BOTH literal crosses -p_i*e_j-e_i*p_j per ordered entry.
+  `error_interval` constructs shared-variable entry intervals; the PLUS
+  envelope and original floor-square payment transport the full form.
+- `SU2QuaternionPairedFrozenHeatPrefixCurvature.prefix_frozen_curvature_certificate`
+  constructs the full original prefix at fixed `prefixCurvatureCost(w)`,
+  past `prefixFrozenCurvatureCutoff(w)`. The quarter-floor tolerance pays
+  factor six in precision/onset ONLY. Coefficients are frozen, not differentiated.
+- OPEN: arbitrary-block/product recoding, ORIGINAL interacting conditional
+  sign/score, useful scaling, independent survival, completed OS/physical/
+  volume control, SAME QFT, every group and Clay. Free Haar cancellation
+  does not supply an interacting integrated second-jet sign.
+- Four focused leaves/16 gates within {propext, Quot.sound}; three printed
+  definitions axiom-free. No source sorry/custom axiom/classical/native
+  shortcut, weakened field or baseline refresh. Independent source review
+  found no material defect. One 20-GiB worker, 12-GiB reserve, fresh dynamic
+  preflights, 87--88% free and zero swap. Root imports registered, not
+  root-built; no full-root/tree audit or broad chart closure.
+
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+Earlier entries retain their verification-time boundaries.
+
 ## PROVED full frozen weighted-heat matrix / OPEN ORIGINAL-prefix matrix and conditional join (2026-10-07 local)
 
 - `SU2QuaternionPairedFrozenComplement.frozen_complement_pin` transports

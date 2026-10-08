@@ -16,6 +16,24 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked full ORIGINAL-prefix frozen matrix (2026-10-07 local):**
+`SU2QuaternionPairedHeatPrefixMixedDeficit` supplies every actual ordered
+mixed-jet split/cap. `QuaternionHaarThreePolynomialMatrixEnvelope` is a thin
+zero-padding adapter retaining the six-column factor SIX.
+`QuaternionHaarFrozenCurvatureApproximation` retains both literal signed
+cross terms per entry and constructs homogeneous full-matrix transport.
+`SU2QuaternionPairedFrozenHeatPrefixCurvature.prefix_frozen_curvature_certificate`
+produces the SAME original prefix at `prefixCurvatureCost(w)`, past its
+explicit `prefixFrozenCurvatureCutoff(w)`. Arbitrary supported polynomial
+coefficients are frozen, not differentiated or magnitude-bounded. The
+quarter-floor tolerance pays factor six; neither enters the cost.
+Four focused leaves/16 permitted gates; three printed data definitions
+axiom-free. Root imports registered, not root-built; no full-tree audit.
+Arbitrary-block recoding, original interacting conditional sign/score and
+all OS/scaling/survival/physical/QFT/every-group/Clay claims remain OPEN.
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+The following checkpoints retain their verification-time boundaries.
+
 **Checked full frozen finite-heat matrix (2026-10-07 local):**
 `SU2QuaternionPairedFrozenComplement` constructs the literal cross-product
 square complement for arbitrary supported polynomial coefficients.

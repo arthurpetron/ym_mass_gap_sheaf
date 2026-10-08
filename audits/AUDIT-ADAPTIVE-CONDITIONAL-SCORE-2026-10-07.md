@@ -4,6 +4,83 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Observed full ORIGINAL-prefix frozen matrix (2026-10-07 local; checked 2026-10-08 UTC)
+
+Classification: VERIFIED PROGRESS, beyond the weighted finite matrix.
+The user lattice-measurement note remains research context only, with the
+corrections in `audits/RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md`.
+No channel measurement or finite-spacing Hamiltonian equality is a premise.
+
+### Mathematical contraction
+
+Write p for the ORIGINAL K-th prefix, f for the literal K+1 weighted heat,
+e for its K+1 deficit and R=sum_i u_i^2. EVERY first/mixed jet is actually
+differentiated before multiplying the supported polynomial coefficients u.
+No derivative acts on u. The literal signed entry discrepancy is
+
+```text
+M_ij = delta_ij*C*(2*p*e-e^2)
+       + p*e_ij + e*p_ij - e*e_ij
+       - p_i*e_j - e_i*p_j + e_i*e_j.
+curv_C(p,u)-curv_C(f,u) = sum_ij u_i*u_j*M_ij.
+```
+
+Both cross terms are retained individually, not replaced entrywise by a
+symmetrized expression. No Hessian symmetry is assumed. Actual caps
+U0,U1,U2 and epsilon,2*epsilon,4*epsilon construct intervals for every M_ij
+with the existing scalar errorCap E. A thin three-slot adapter zero-pads
+the coefficient vector into the existing six-column envelope, yielding
+the PLUS certificate 6*E*R+sum_ij u_i*u_j*M_ij. Dummy matrix cells reuse
+M_00; their coefficientwise-zero rows/columns contribute nothing.
+
+Fix Cbar and the original caps BEFORE choosing epsilon. Use the existing
+`errorTolerance` at precision floor m/4, m=headFloor(w). Its proved budget
+gives E<=(m/4)^2, hence 6*E<=3*m^2/8<=m^2. The actual original floor
+constructs p^2-6*E. Multiplication by the supported-square certificate for
+R and addition to weighted curvature plus discrepancy yields curv_(C+1)(p,u).
+Raising C to its fixed-nome Cbar gives cost `prefixCurvatureCost(w)`.
+Factor six and the floor affect precision/onset, not this cost. No global
+coefficient bound, endpoint division, inverse-floor multiplier, direction,
+cutoff or carrier-size penalty. Nome dependence remains explicit.
+
+### Declaration and verification evidence
+
+| Produced declaration | Final source | Passing focused log |
+| --- | --- | --- |
+| `paired_mixed_expansion`, `mixedInterval`, `prefix_mixed_split_pin`, `deficit_mixed_interval`, `prefix_mixed_interval` | `lean/YMGap/Continuum/SU2QuaternionPairedHeatPrefixMixedDeficit.lean:101`, `:121`, `:136`, `:144`, `:161` | `/private/tmp/ym-oct7-mixed-prefix1.log` |
+| `three_polynomial_matrix_envelope_certificate` | `lean/YMGap/Continuum/QuaternionHaarThreePolynomialMatrixEnvelope.lean:142` | `/private/tmp/ym-oct7-three-matrix4.log` |
+| `curvature_difference_pin`, `error_interval`, `curvature_approximation_certificate` | `lean/YMGap/Continuum/QuaternionHaarFrozenCurvatureApproximation.lean:113`, `:141`, `:180` | `/private/tmp/ym-oct7-frozen-approx2.log` |
+| `prefixFrozenCurvatureTolerance`, `prefixFrozenCurvatureCutoff`, `prefix_frozen_curvature_adaptive_certificate`, `prefix_frozen_curvature_certificate` | `lean/YMGap/Continuum/SU2QuaternionPairedFrozenHeatPrefixCurvature.lean:48`, `:53`, `:88`, `:127` | `/private/tmp/ym-oct7-original-frozen-curvature2.log` |
+
+Four focused leaves/16 printed gates within {propext, Quot.sound}; three
+printed data definitions axiom-free. Root inspected the final sources;
+independent read-only review found no material defect in the exact K+1
+objects, mixed order/signs, homogeneous payment or noncircular cost.
+No source sorry, custom axiom, classical/native shortcut, field weakening
+or baseline refresh. One capped 20-GiB worker, 12-GiB OS reserve, fresh
+dynamic preflight before every compiler; 87--88% free, zero swap. Checks
+finished in their initial calls. Root imports registered, not root-built;
+no full-root/tree audit or broad chart closure.
+
+Final checked-source SHA256:
+
+- `SU2QuaternionPairedHeatPrefixMixedDeficit.lean`: `5bee092980f1de35693465eb6a03bc080ed9503b23ca080cc4c403e401f8baa6`
+- `QuaternionHaarThreePolynomialMatrixEnvelope.lean`: `579a7a143de8f47dfa6990d47da1a2b167772eba3d60d23c54500ee5a15070ef`
+- `QuaternionHaarFrozenCurvatureApproximation.lean`: `def545b6282a980dd1664e106dd71a2f5b55f452919b861f48f99df737363c87`
+- `SU2QuaternionPairedFrozenHeatPrefixCurvature.lean`: `b278fc6c7170c4d2e402857ed28ff9305e1eeb6590eacaf73b2c12f5c449bc25`
+
+### Next actual consumer
+
+Establish arbitrary-block/product recoding as needed, then the ORIGINAL
+interacting conditional signed Gram/Hessian join. The actual integrated
+second-jet sign required by `curvature_dual_bound`
+(`lean/YMGap/Continuum/QuaternionHaarCurvatureDualBound.lean:148`) is not
+supplied by a free heat marginal or positivity alone. Keep every original
+action factor and signed correction. No new assumed-estimate wrapper.
+Useful scaling, independent survival, completed OS, physical/volume control,
+SAME QFT, every compact simple group and Clay remain OPEN. Broad chart
+unchanged; no reprint. Earlier sections retain their checkpoint boundaries.
+
 ## Observed full frozen weighted-heat matrix (2026-10-07 local; checked 2026-10-08 UTC)
 
 Classification: VERIFIED PROGRESS, beyond separate basis-direction bounds.

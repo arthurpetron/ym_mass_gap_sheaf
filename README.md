@@ -10,14 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Latest mathematical contraction (2026-10-07 local):** the curvature
-certificate now reaches the **original unweighted heat prefix**, with actual
-paired first/second derivatives and an explicit cutoff. Its cost is independent
-of cutoff and carrier size at each fixed coupling. The original heat floor
-pays approximation precision, not the cost. A second checked join supplies
-the full frozen polynomial-direction matrix for the weighted finite heat,
-at the same radial cost. Its original-prefix matrix transport and interacting
-conditional joins remain next; no physical gap is claimed.
+**Latest mathematical contraction (2026-10-07 local):** the **full frozen
+polynomial-direction matrix** now reaches the **original unweighted heat
+prefix**, with all nine actual ordered mixed jets and an explicit cutoff.
+Its cost is independent of cutoff, carrier size and direction at each fixed
+strict nome. The original heat floor and conservative matrix factor six
+pay approximation precision, not the cost. Arbitrary-block recoding and
+the original interacting conditional sign/score remain next; no physical
+gap or scaling-uniform estimate is claimed.
 See the [exact proof boundary](audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md).
 
 **Supporting general-nome contraction (2026-10-07):** the original product

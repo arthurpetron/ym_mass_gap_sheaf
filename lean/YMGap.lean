@@ -5006,6 +5006,11 @@ import YMGap.Continuum.SU2QuaternionPairedHeatPrefixCurvature
 import YMGap.Continuum.SU2QuaternionPairedFrozenComplement
 import YMGap.Continuum.QPolyHaarFrozenChain
 import YMGap.Continuum.SU2QuaternionPairedFrozenJacobiCurvature
+-- Full ORIGINAL-prefix frozen matrix; factor six is paid only in precision.
+import YMGap.Continuum.SU2QuaternionPairedHeatPrefixMixedDeficit
+import YMGap.Continuum.QuaternionHaarThreePolynomialMatrixEnvelope
+import YMGap.Continuum.QuaternionHaarFrozenCurvatureApproximation
+import YMGap.Continuum.SU2QuaternionPairedFrozenHeatPrefixCurvature
 import YMGap.Continuum.SU2HeatQuarticTailCutoff
 import YMGap.Continuum.QuaternionHaarHeatAngularDeficit
 import YMGap.Continuum.QuaternionHaarHeatRelativeAngularBound

@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Supporting full ORIGINAL-prefix FROZEN matrix checked (2026-10-07 local):
+all nine actual ordered mixed jets meet N=K+1 weighted heat and its signed
+deficits. Arbitrary supported polynomial coefficients are not differentiated
+or magnitude-bounded. Six-column padding retains factor SIX; quarter-floor
+precision pays it, not the final fixed-nome cost. Four focused leaves/
+16 permitted gates; three printed definitions axiom-free. Arbitrary-block/
+product recoding, original interacting conditional sign/score and all
+OS/scaling/survival/physical/QFT/every-group/Clay claims remain OPEN.
+No full-root/tree audit; broad chart unchanged, no reprint. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+The following supporting entries retain their historical checkpoint boundaries.
+
 Supporting full FROZEN weighted finite-heat matrix checked (2026-10-07 local):
 arbitrary supported polynomial coefficients retain all nine actual ordered
 paired jets. The literal cross-product square complement and scalar Hessian
