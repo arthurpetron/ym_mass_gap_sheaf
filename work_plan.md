@@ -27,6 +27,39 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+The SAME actual product/radial-cost join, completed addition square and
+GENERAL-NOME whole-interval ceiling are now CHECKED. Actual product angular
+jets have a direct completion with an explicit comparison/prefix cutoff.
+`ThetaProductRadialCompletedPin.frequencyNumerator_eq_productCost` proves
+Q=2*P^2*D on the original constructed completions. Actual odd boundaries and
+the separately completed endpoint determinant contract into
+`ThetaCompletedAdditionSquare.cleared_addition_square`:
+P(1)^2*((D(1)-D(x))*P(x)^2)=2*w*(1-x)*A(x)^2*A(1)^2.
+The original positive floor cancels only the normalization, not the upper
+budget. `ThetaProductRadialCeiling.productRadialCostCReal_le_cap` produces
+D(x)<=2*w/(1-w*w) for every strict nome and rational x in [-1,1]. Signed
+finite tails give (1-w)*D_N(x)<=3/2 once w^(2*N+1)<=1/8.
+`JacobiHeatRadialProducedBound` constructs an explicit onset and supplies
+the existing actual heat radial consumer, without an assumed cost ceiling.
+`JacobiHeatRadialHaarCertificate.radialCertificate` now constructs the actual
+substituted radial Haar witness with paid positive slack, using the existing
+strict Bernstein compiler and actual finite heat floor for N>=1. Reuse
+EXISTING value/first/mixed angular deficit producers, specifically
+`QuaternionHaarHeatMixedAngularDeficit.mixedAngularDeficitInterval` and the
+original-prefix transport pattern in
+`QuaternionHaarHeatMixedRelativeAngularBound.heatPrefixMixedRelativeBoundAt`.
+NEXT assemble the sharper intrinsic/angular curvature on the SAME finite
+heat and transfer it to the ORIGINAL prefix, then the original interacting
+conditional score. Do not duplicate the mixed deficit or confuse it with an
+ordinary scalar second-derivative bound. A Jacobi weighted heat is not a
+finite original prefix; radial curvature alone is not a full intrinsic matrix.
+All scaling/survival/OS/physical/QFT/every-group/Clay obligations remain OPEN.
+Six focused leaves checked; no full-root/tree audit or broad chart change.
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
+Earlier supporting checkpoints below describe their verification-time
+frontiers; the current producers and next missing inputs are those above.
+
 The ACTUAL signed frequency numerator and completed parity/SAME-series
 joins are now CHECKED. `ThetaJointFrequencyNumerator.frequency_box_numerator_pin`
 proves Q_N=2*((1-x*x)*(F_N')^2-F_N*L(F_N)) on the ORIGINAL signed box,

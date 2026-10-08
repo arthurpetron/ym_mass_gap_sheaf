@@ -1,5 +1,41 @@
 # Sorry Ledger
 
+## PROVED general-nome SAME-product radial ceiling / OPEN original Haar-prefix curvature join (2026-10-07)
+
+- `ThetaProductAngularCompletion` constructs the actual product angular
+  CReal with literal approximants and epsilon/3 comparison/prefix cutoff.
+  `ThetaProductRadialCompletedPin.frequencyNumerator_eq_productCost` joins
+  the actual signed numerator to 2*P^2*D; the original first jet is UNHALVED.
+- `ThetaCompletedAdditionSquare.cleared_addition_square` gives the actual
+  P(1)^2*((D(1)-D(x))*P(x)^2)=2*w*(1-x)*A(x)^2*A(1)^2. The factor four is
+  supplied by completed odd-boundary pins, not finite prefix substitution.
+- `ThetaProductRadialCeiling.productRadialCostCReal_le_cap` produces the
+  whole-interval bound 2*w/(1-w*w), for every strict nome. The floor^4 is
+  used only to cancel normalization. Original signed finite tails are paid;
+  the nome-defect budget is <=3/2 after the explicit small-factor onset.
+- `JacobiHeatRadialProducedBound.heat_radial_nonnegative_at_onset` supplies
+  the existing actual heat radial consumer, with constructed onset data.
+  No product-cost bound is assumed.
+- `JacobiHeatRadialHaarCertificate.radialCertificate` constructs the actual
+  substituted radial Haar witness at C_T+tail_N+delta, N>=1 and delta>0.
+  The floor enters the Bernstein margin, not the upper cost. This is the
+  finite weighted Jacobi heat, not the finite original character prefix.
+- Existing `QuaternionHaarAllNomeHeatCertificate.deficitInterval`,
+  `QuaternionHaarHeatAngularDeficit.angularDeficitInterval` and
+  `QuaternionHaarHeatMixedAngularDeficit.mixedAngularDeficitInterval`
+  supply value/first/mixed deficits with explicit cutoffs. Reuse them.
+- OPEN: sharp intrinsic angular and SAME original-prefix curvature join;
+  original conditional join; useful interacting/scaling bound, independent survival,
+  completed OS comparison, physical/volume control, SAME QFT, every group, Clay.
+- Six focused checks/37 printed gates within {propext, Quot.sound}; seven
+  computational definitions axiom-free. No sorry, custom axiom, classical
+  shortcut, native_decide, canonical-field weakening or baseline refresh.
+  One 20-GiB worker, 12-GiB reserve, fresh dynamic preflights; zero swap.
+  Root imports registered, not root-built; no full-tree audit/chart closure.
+
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+Earlier entries below retain their checkpoint-time OPEN inputs.
+
 ## PROVED actual signed numerator and completed parity-series join / OPEN SAME product-cost join (2026-10-07)
 
 - `ThetaJointAngularPin.joint_angular_frequency_pin` proves the negative

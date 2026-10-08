@@ -10,13 +10,16 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Latest same-series scalar join (2026-10-07):** the original signed
-frequency numerator is proved and completed from independently constructed
-value/first/angular series. Actual completed parity rectangles now equal
-the original theta square and signed numerator, paying the odd boundary
-and N+1/N offset. Focused constructive checks passed. The Jacobi radial-cost
-join, useful curvature ceiling and all physical/scaling obligations remain
-open. See the [exact proof boundary](audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md).
+**Latest mathematical contraction (2026-10-07):** the original product
+and signed theta numerator now meet in a proved completed addition square.
+It produces the whole-interval radial-cost ceiling `D(x) <= 2w/(1-w²)`
+for every strict nome, with signed finite tails retained. This supplies
+the actual finite heat radial inequality and a constructed substituted Haar
+certificate with positive slack, not a physical spectral gap. Existing
+value/first/mixed angular deficits will be reused for the next sharper
+original-prefix/intrinsic/conditional joins; all physical/scaling obligations
+remain open.
+See the [exact proof boundary](audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md).
 
 **Current analytic frontier:** on the original all-nome Wilson carrier,
 AF window survival and a changing-scale, all-vector gap estimate remain open.

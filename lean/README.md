@@ -16,6 +16,27 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked general-nome SAME-product radial ceiling (2026-10-07):**
+`ThetaProductAngularCompletion` retains literal product angular jets and
+constructs their cutoff. `ThetaProductRadialCompletedPin` joins Q=2*P^2*D
+on the actual product/bare/radial completions. `ThetaCompletedAdditionSquare`
+contracts the actual parity rectangles and independently completed
+determinants to the cleared square. `ThetaProductRadialCeiling` cancels
+the original positive normalization and produces D(x)<=2*w/(1-w*w).
+Signed finite tails give (1-w)*D_N<=3/2 at the explicit omitted-factor
+onset. `JacobiHeatRadialProducedBound` constructs that onset and proves
+the actual normalized finite heat radial inequality.
+`JacobiHeatRadialHaarCertificate.radialCertificate` constructs the literal
+substituted Haar witness at cost C_T+tail_N+delta, with N>=1 and delta>0.
+The floor affects the Bernstein construction, not the upper cost. Six
+focused checks, 37 printed permitted gates, seven computational definitions
+axiom-free; no full-root/tree audit. Existing value/first/mixed angular
+deficits are available; the sharp original-prefix/intrinsic/conditional joins
+remain OPEN, as do all Clay-facing obligations.
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
+The supporting entries below record earlier verification-time boundaries.
+
 **Checked ACTUAL signed numerator and parity/SAME-series joins (2026-10-07):**
 `ThetaJointFrequencyNumerator` proves Q_N=2*((1-x*x)*(F_N')^2-F_N*L(F_N))
 on the ORIGINAL box for all rational inputs, including N=0. Literal angular

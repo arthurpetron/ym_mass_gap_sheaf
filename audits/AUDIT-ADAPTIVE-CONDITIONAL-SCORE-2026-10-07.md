@@ -4,6 +4,134 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Observed general-nome product addition and radial ceiling (2026-10-07 local; checked 2026-10-08 UTC)
+
+Classification: VERIFIED PROGRESS. Continue the actual original-object route.
+The user's measured-mass note remains context only; no channel mass,
+finite-spacing Hamiltonian identification or continuum regularity assumption
+has been adopted. The earlier checkpoints below retain historical boundaries.
+
+### Mathematical contraction and actual consumer
+
+The product angular jets now have a direct CReal with EXACT original N-th
+approximants and `productAngularCutoff(w,epsilon)`, the max of the existing
+derivative/prefix cutoffs at epsilon/3. The first completion is the original
+UNHALVED `Rproduct`; its actual finite formal first jet equals 2*dPartial
+in the limit, at the existing named derivative cutoff. The separately proved
+actual value/first/angular comparisons yield
+
+```text
+Q = 2*P(x)^2*D(x),
+P(1)^2*((D(1)-D(x))*P(x)^2) = 2*w*(1-x)*A(x)^2*A(1)^2.
+```
+
+P is the ORIGINAL completed Jacobi product and D is the EXISTING completion
+of the literal product radial costs. No finite P_N=F_N substitution, limit
+differentiation or supplied analytic identity. Completed odd boundary pins,
+not a finite normalization shortcut, supply factor four. The determinant
+polynomial is checked pointwise; separately completed endpoint frequencies
+supply the endpoint determinant. Only rational factor two is cancelled in
+the equality.
+
+On [-1,1] the right side is nonnegative. The actual product floor gives
+P(1)^2*P(x)^2>=floor(w)^4 at EVERY approximation; existing constructive
+positive-factor cancellation gives D(x)<=D(1). Its actual endpoint ceiling
+therefore produces D(x)<=C_T(w)=2*w/(1-w*w) for EVERY strict 0<w<1 and rational
+x in [-1,1], not just the named-nome regression cases.
+
+The original signed finite-tail theorem then gives
+
+```text
+D_N(x) <= C_T(w) + 4*w^(2*N+1)/(1-w*w),
+(1-w)*D_N(x) <= 3/2,  when w^(2*N+1)<=1/8.
+```
+
+Negative omitted terms are paid; no monotonicity of the signed costs is
+asserted. `radialOnset(w)=powBaseCutoff(w,1/8)` is explicit Nat data, independent
+of x. It is a sufficient onset, not a claimed sharp cutoff. These actual
+costs now supply the existing finite normalized heat consumer, producing
+C*h^2+(1-x*x)*(h*hxx-hx*hx)-x*h*hx>=0 at C=C_T+tail_N, with original formal
+heat jets and inverse-nome/half normalization. The positive floor enters
+cancellation/construction only, NEVER the upper-budget coefficient.
+
+The ACTUAL radial class polynomial now has a constructed Type-valued Haar
+certificate after adding delta>0 to C, for N>=1 at the same small-factor
+onset. Its literal formal jets are pinned for all rational arguments,
+including both endpoints. Positive shifted heat coefficients and the actual
+heat constant prove h>=floor(w); the produced strict margin is
+delta*floor(w)^2. The existing strict Bernstein compiler and unit-coordinate
+certificates construct the substituted witness. The floor affects the
+Bernstein row, not C_T+tail_N+delta. N=0 heat is zero, so no strict margin is
+claimed there. Polynomial equalities hold under arbitrary Haar insertions;
+positivity is retained only for certified positive/square insertions.
+
+### Declaration and verification evidence
+
+| Produced declaration | Final source | Passing focused log |
+| --- | --- | --- |
+| `productAngularCutoff`, `productAngularCReal`, `productAngularCReal_eq_bare` | `lean/YMGap/Continuum/ThetaProductAngularCompletion.lean:42`, `:114`, `:138` | `/private/tmp/ym-oct7-product-angular-completion1.log` |
+| `productFirstCReal_formal_pin`, `frequencyNumerator_eq_productCost` | `lean/YMGap/Continuum/ThetaProductRadialCompletedPin.lean:49`, `:136` | `/private/tmp/ym-oct7-product-radial-completed1.log` |
+| `cleared_addition_square` | `lean/YMGap/Continuum/ThetaCompletedAdditionSquare.lean:179` | `/private/tmp/ym-oct7-completed-addition-square2.log` |
+| `productRadialCostCReal_le_cap`, `productRadialCost_nome_defect_le_three_halves` | `lean/YMGap/Continuum/ThetaProductRadialCeiling.lean:100`, `:121` | `/private/tmp/ym-oct7-product-radial-ceiling3.log` |
+| `radialOnset`, `heat_radial_nonnegative_at_onset` | `lean/YMGap/Continuum/JacobiHeatRadialProducedBound.lean:32`, `:77` | `/private/tmp/ym-oct7-heat-radial-produced1.log` |
+| `radialHeat_floor`, `radialPolynomial_eval`, `radialPolynomial_strict_margin`, `radialCertificate` | `lean/YMGap/Continuum/JacobiHeatRadialHaarCertificate.lean:76`, `:111`, `:153`, `:182` | `/private/tmp/ym-oct7-heat-radial-haar2.log` |
+
+Six focused leaves/37 printed gates pass within {propext, Quot.sound}; seven
+printed computational definitions are axiom-free. Root read all final source;
+independent review confirms same-object normalization, cutoff dependence and
+positive-floor cancellation. No source sorry/custom axiom/classical shortcut,
+native_decide, canonical-field weakening or axiom-baseline refresh. Earlier
+failed elaborations are not proof evidence. One local composition uses an
+800000-heartbeat elaboration allowance; no memory ceiling was raised. Every
+launch used a fresh dynamic process/capacity check, one 20-GiB worker and a
+12-GiB reserve; preflights observed 87--88% free memory and zero swap. One
+yielded check was observed again about five minutes later while independent
+mathematics/source work proceeded. No concurrent compiler or broad test suite,
+full-root/tree build or audit. Root imports registered, not root-built.
+
+Final checked-source SHA256:
+
+- `ThetaProductAngularCompletion.lean`: `ce72636a37989e217a11fa83331d0dee9edb1e2442e1552e65565a75cdef8ac0`
+- `ThetaProductRadialCompletedPin.lean`: `abf56b2dff2b5a37c7411ab1d6a32778b37e581c7527b60b5e26e5faef492a16`
+- `ThetaCompletedAdditionSquare.lean`: `6a76bdccb2ec94e994ff7cd4fd7fb6fea7a32465caf4b138cc4349ac3d025221`
+- `ThetaProductRadialCeiling.lean`: `8f6ab2baf419cc22a187b2ea0adbe0219195ca543f8e32de949aa7c71a211acc`
+- `JacobiHeatRadialProducedBound.lean`: `290078f75d0e86fee595c3d027b4c1f362b0bb2ef50b089273aff2b6916430a1`
+
+Additional final checked-source SHA256:
+
+- `JacobiHeatRadialHaarCertificate.lean`: `6a4ef9d652a21feda8cb2a157e48e3a48848badcf00938702243ebce43af773e`
+
+### Next real producers and boundary
+
+NEXT sharp intrinsic/angular curvature on the actual weighted finite heat,
+then transfer to the SAME original prefix and original conditional score.
+Reuse EXISTING value/first/mixed angular deficits, not a new tail engine:
+
+- `QuaternionHaarAllNomeHeatCertificate.deficitInterval`,
+  `lean/YMGap/Continuum/QuaternionHaarAllNomeHeatCertificate.lean:91`;
+- `QuaternionHaarHeatAngularDeficit.angularDeficitInterval`,
+  `lean/YMGap/Continuum/QuaternionHaarHeatAngularDeficit.lean:142`;
+- `QuaternionHaarHeatMixedAngularDeficit.mixedAngularDeficitInterval`,
+  `lean/YMGap/Continuum/QuaternionHaarHeatMixedAngularDeficit.lean:302`;
+- the existing original-prefix transport pattern
+  `QuaternionHaarHeatMixedRelativeAngularBound.heatPrefixMixedRelativeBoundAt`,
+  `lean/YMGap/Continuum/QuaternionHaarHeatMixedRelativeAngularBound.lean:136`.
+
+These existing declarations were source-inspected, not recompiled in this
+checkpoint. The old relative cap is not the new sharp curvature cap. The
+mixed deficit is an actual ordered ANGULAR derivative estimate, not an
+ordinary scalar pderiv^2 estimate. Radial/transverse class bounds do not
+automatically furnish a full intrinsic matrix or an interacting marginal.
+
+The ceiling depends explicitly on w and is uniform only in the scalar
+coordinate. The normalized bound uses 1-w, NOT an identified physical clock.
+Final completed arithmetic Equiv does not expose a new combined
+coordinate-uniform Type-valued modulus. The radial Haar certificate is
+constructed above; no original interacting score,
+all-vector OS estimate, nontrivial continuum survival, volume/spacing control,
+physical mass calibration, SAME QFT, every-group construction or Clay closure
+is claimed. Broad chart claims stay OPEN and unchanged; no chart reprint.
+
 ## Observed signed numerator and completed parity-series join (2026-10-07 local; checked 2026-10-08 UTC)
 
 The previous checkpoint's literal signed-frequency numerator and actual

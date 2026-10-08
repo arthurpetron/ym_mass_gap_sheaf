@@ -4982,6 +4982,15 @@ import YMGap.Continuum.ThetaOddSeriesCompletion
 import YMGap.Continuum.ThetaBareAngularCompletion
 import YMGap.Continuum.ThetaJointFrequencyCompletion
 import YMGap.Continuum.ThetaJointRectangleCompletion
+-- Actual product jets and SAME radial-cost pin; completed cleared addition square.
+import YMGap.Continuum.ThetaProductAngularCompletion
+import YMGap.Continuum.ThetaProductRadialCompletedPin
+import YMGap.Continuum.ThetaCompletedAdditionSquare
+-- Produced general-nome scalar ceiling and actual finite heat radial inequality.
+import YMGap.Continuum.ThetaProductRadialCeiling
+import YMGap.Continuum.JacobiHeatRadialProducedBound
+-- Actual substituted radial Haar witness; positive slack is paid in the cost.
+import YMGap.Continuum.JacobiHeatRadialHaarCertificate
 import YMGap.Continuum.SU2HeatQuarticTailCutoff
 import YMGap.Continuum.QuaternionHaarHeatAngularDeficit
 import YMGap.Continuum.QuaternionHaarHeatRelativeAngularBound

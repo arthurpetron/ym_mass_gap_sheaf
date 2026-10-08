@@ -1,5 +1,20 @@
 # Canonical one-page project status
 
+Supporting GENERAL-NOME addition square and SAME product radial ceiling
+checked (2026-10-07): Q=2*P^2*D meets the actual parity/determinant completions.
+The positive normalization cancels to D(x)<=2*w/(1-w*w) on the full scalar
+interval. Signed finite tails give (1-w)*D_N<=3/2 after an explicit onset,
+which supplies the actual finite heat radial inequality. No floor reciprocal
+enters the upper cost. The actual substituted radial Haar certificate is
+constructed with paid positive slack at nonempty prefixes. Existing
+value/first/mixed angular deficits are available; the sharp original-prefix/
+intrinsic/conditional joins and all interacting/scaling/survival/OS/physical/
+QFT/every-group/Clay obligations remain OPEN. Six focused checks; no full-root/
+tree audit. These supporting producers leave displayed claims OPEN;
+the canonical chart is unchanged and is not reprinted. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+The supporting entries below retain their historical checkpoint boundaries.
+
 Supporting ACTUAL signed numerator and parity/SAME-series joins checked
 (2026-10-07): Q_N=2*((1-x*x)*(F_N')^2-F_N*L(F_N)) is proved on the original
 box, including N=0. The literal angular series and unbalanced odd value/
