@@ -417,3 +417,163 @@ list change. The canonical original-window stage schedule is unchanged.
 No favourable signed interacting moment, changing-family retention,
 physical calibration, continuum QFT or Clay closure is supplied. No
 canonical displayed claim changes, so no chart reprint is warranted.
+
+## Selected full finite-action cutoff payment (2026-10-08 UTC)
+
+Exact next proposition: replace ALL F=ids.length original heat-factor
+occurrences from inclusive K>=1 to K+L at NAMED 0<=w<=1/2, with normalized
+observable error <=2*c*ofNat(F)*relativeTailCap(K). Freeze actual mixed-cutoff
+spectators during induction; retain repeated faces/shared links and both
+OWN masses. Actual local input is the checked `original_background_normalized`
+above. Product-list recoding and normalized-moment congruence identify each
+step; triangle inequality sums its cost. No coefficient-L1 product envelope,
+absolute inverse partition floor, independence or new error premise is used.
+
+Actual downstream consumer: compare a supplied early rational cutoff value
+to the EXISTING original face-set expectation in
+`lean/YMGap/Continuum/BF4ExactSlabAllNomeFaceSetExpectation.lean:72`,
+`expectation`. Its `finiteValue` uses headCutoff(w)+n, not the early schedule.
+Use its explicit convergence and an actual common/later cutoff comparison;
+do not construct a replacement limit or weaken the headCutoff guard. The
+finite theorem admits zero nome; this strict-nome CReal consumer does not.
+
+Prediction: normalized sequential comparison pays the LINEAR face count F,
+not an exponential product-floor inverse. That count is explicit and is
+NOT a thermodynamic-uniform estimate. Decisive tests: empty action list,
+repeated occurrences, shared links, empty tail, K=1 and distinct early versus
+canonical later cutoffs. Stop if recoding erases occurrences, changes the
+physical action/normalization, or the limit join needs an unavailable input.
+Budget: one bounded Sol leaf, root/independent complete-source review and
+serialized focused 20-GiB verification with 12-GiB reserve/fresh preflight.
+Selection is not checked evidence; charged moment values, changing-family
+retention and every physical/Clay claim remain OPEN.
+
+### Parallel selected inserted-degree producer
+
+Exact next proposition: the literal product of fundamental physical-face
+insertions, with factor TWO and repetitions retained, has the sum of its
+occurrence block degrees. Multiplying by the original cutoff-one weighted
+action summand adds the selected-action degree; an odd computed total gives
+an actual 116-link Haar zero with support produced from physical-face guards.
+This fills the inserted homogeneity/odd-vanishing pin named above; it is not
+a charged-mask completeness theorem or an evaluated nonzero moment.
+
+Available action/face homogeneity and odd-Haar compiler are the cited
+TransmittedDegree declarations. Consumer is the proposed repeated-insertion
+H116->H32 reduction, followed by charged contractions. Decisive test [p,p]:
+degree TWO per face edge must remain although insertion parity vanishes.
+Stop if this producer already exists or requires assuming support/Haar zero
+instead of producing them from literal data. One bounded separate agent leaf;
+root/independent source review and a later SERIALIZED focused check under the
+same 20-GiB/12-GiB policy. No full-tree run or large evaluation is authorized.
+Selection is not proof evidence; affine mask/reindex/evaluator joins and the
+entire physical/scaling target remain OPEN.
+
+### Charged-contraction route screen: retain signed quartic channels
+
+Read-only source selection, not a new check or runtime certificate:
+`lean/YMGap/Continuum/SU2FundamentalHaarCheckpoint.lean:62`, `fourthValue`,
+is the exact coefficient (1/6) times the THREE epsilon-pairing products,
+with local row identities `fourth_row_0000` through `fourth_row_1111`.
+`second_entries` supplies the bivalent coefficient 1/2. The three tensors
+are overcomplete (rank two), not three independent positive channels.
+The alternative balanced projector retains four signed inverse-Gram terms;
+its negative coefficients must not be replaced by a multiplicity.
+
+Orientation/spectator tools already exist:
+`lean/YMGap/Continuum/SU2QuaternionFundamentalSelfDuality.lean:150`,
+`fundamentalOccurrenceCoefficient_eq_dual`, retains complemented TRANSPOSED
+indices and signs; `SU2QuaternionGenericBlockOrientedEvenWordNormalization.lean:682`,
+`genericBlock_orientedFourFundamentalWord_projector_with_complex_spectator`,
+and the at-most-six multiblock dispatcher above retain actual integration.
+The latter path is relative to `lean/YMGap/Continuum/`.
+
+If the proposed <=8 exceptional quartic links and affine 128-mask pins are
+proved, THREE-pairing expansion would have at most 128*3^8=839808 diagrams
+(one insertion: 128*3^4=10368). These are proposed DIAGRAM counts, not
+verified runtimes or an implemented original-moment evaluator. Missing:
+generic-block arbitrary-oriented transport of the three-term formula and
+exact signed delta/epsilon cycle contraction, pinned to the actual repeated
+trace sum without a Boolean-environment expansion. The symbolic Boolean
+contraction-plan module explicitly does not compile a concrete graph or
+evaluate these loops. No vacuum topological amplitude is substituted for
+a quartic/charged contraction; no large pilot is selected.
+
+## Observed full-list cutoff payment and inserted degree (2026-10-08 UTC)
+
+CHECKED actual full-list normalized estimate, not a supplied error premise:
+
+- `lean/YMGap/Continuum/BF4ExactSlabSmallNomeCutoffStability.lean:150`,
+  `original_mixed_cutoff_bound`, freezes literal mixed-cutoff spectators and
+  changes each occurrence by the checked one-face cancellation estimate.
+  Every intermediate OWN mass is produced positive. Repeats/shared links
+  need no independence or distinct-face premise.
+- `BF4ExactSlabSmallNomeCutoffStability.lean:248`, `original_cutoff_bound`,
+  specializes to the ORIGINAL uniform-cutoff product with error
+  2*c*ofNat(ids.length)*(81/1055)*(1/72)^(K-1), at NAMED 0<=w<=1/2,K>=1.
+  Both normalizations remain; no exponential full-partition inverse appears.
+- `BF4ExactSlabSmallNomeCutoffStability.lean:268`, `commonValue_cutoff_pin`,
+  identifies the unchanged canonical stream with actual later raw moments.
+  `expectation_cutoff_bound:299` reaches the EXISTING
+  `AllNomeFaceSetExpectation.expectation`, using its convergence/modulus,
+  not a replacement limit. This last join requires strict 0<w<=1/2.
+
+The last two paths are relative to `lean/YMGap/Continuum/`. The constant c is
+the supplied ACTUAL observable interval cap, not a computed useful retention
+margin. Empty action lists and empty tails are included; the list induction
+counts repeated occurrences, and K=1 is permitted. Face count is explicit,
+so this is NOT volume-uniform or a w->1 estimate. In particular an exact
+cutoff-one charged value alone is NOT certified accurate for the limit:
+the uniform K=1 full-list cap may be too loose for that downstream decision.
+
+CHECKED parallel actual inserted-degree producer:
+
+- `lean/YMGap/Continuum/BF4ExactCutoffOneInsertedDegree.lean:40`,
+  `fundamentalFaceFactor_eq_two_scalar`, retains the fundamental factor TWO;
+  `insertedFundamentalProduct:45` is the literal occurrence-list product.
+- `exactCutoffOneInsertedIntegrand_blockDegree:101` retains the COMPLETE
+  original weighted 72-face summand and adds existing occurrence-counted
+  `slabFacesBlockDegree` to the original selected-action degree.
+- `exactCutoffOneInsertedHaar_eq_zero_of_odd_degree:117` invokes actual odd
+  homogeneous Haar annihilation with produced 116-block support. No supplied
+  support/Haar-zero premise replaces the producer.
+- `repeatedFace_degree_and_parity:137` retains degree twice for [p,p],
+  although the parity is zero. This does not replace its product by vacuum.
+
+These inserted declarations are all in the same cited module. Support holds
+even for literal fallback face factors; physical membership remains explicit
+where needed for actual incidence homogeneity. No charged completeness,
+H116->H32 pin or nonzero charged contraction value is proved by this leaf.
+
+Verification: two SERIALIZED focused checks complete in 1.11s and 1.24s.
+The telescope's eight gates have `atCutoff` axiom-free and seven exactly
+{propext, Quot.sound}; all nine inserted gates have exactly the permitted
+pair. Both accepted logs have no warning/error/sorryAx. No new hole/axiom,
+native/classical shortcut or option increase. Independent complete-source
+review passes both FINAL source hashes. The first telescope check failed
+implicit-cutoff/dependent-rewrite elaboration and is NOT acceptance evidence;
+explicit late-cutoff guard annotations and Nat-addition simp transport fix
+it without changing any statement. Each launch followed fresh 88%-free,
+zero-swap/no-competing-process preflight, one 20-GiB worker/12-GiB reserve.
+Root imports registered only; no root/tree build, audit, guard, metric or
+large original-moment expansion.
+
+```text
+Accepted telescope log: /private/tmp/ym-small-nome-full-cutoff-20261008-b.log
+SHA256 a1dc3dbf534d009bc94b0717d035d8122ba58b0a6c45ca464a21f0239ab78e55
+Final checked telescope source SHA256
+e5cee3a75547b898ccb35e1e60f8159adb1acb9da6e0af8af68ede6299e8a7bd
+Accepted inserted log: /private/tmp/ym-cutoff-one-inserted-degree-20261008-a.log
+SHA256 7a371d1d602e67e7cdf0a49051aeccacd57498c8736309787ae07b3e5f367b40
+Final checked inserted source SHA256
+eba87bd243842213e5d6525e0216b179019cc63a5a03260d57ab680bfaf5b513
+```
+
+Decision: CONTINUE toward actual charged parity completeness/active reindex
+and signed contraction, while keeping useful accuracy as a separate unpaid
+consumer requirement. The two produced joins remove the FULL finite-list
+cutoff-payment and inserted-degree gaps named in earlier checkpoints above;
+they do not supply favourable interacting moments, DIRECT original macro
+retention, justified changing-family estimates, physical calibration,
+continuum QFT/every-group or Clay closure. Canonical displayed claims remain
+unchanged, so no chart reprint.

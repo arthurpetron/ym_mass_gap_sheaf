@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## PROVED full finite-list normalized cutoff payment and actual inserted degree / OPEN charged values and scaling (2026-10-08 UTC)
+
+`BF4ExactSlabSmallNomeCutoffStability.lean:248`, `original_cutoff_bound`,
+produces error <=2*c*ofNat(ids.length)*(81/1055)*(1/72)^(K-1), at NAMED
+0<=w<=1/2,K>=1. `original_mixed_cutoff_bound:150` constructs intermediate
+mixed-cutoff laws; repeats/shared links and BOTH OWN partitions remain.
+`expectation_cutoff_bound:299` reaches the SAME existing expectation with
+unchanged headCutoff/modulus, at strict nome. No new analytic input/limit.
+`BF4ExactCutoffOneInsertedDegree.lean:101`,
+`exactCutoffOneInsertedIntegrand_blockDegree`, adds occurrence incidence to
+the actual original action degree. Support is produced, and
+`exactCutoffOneInsertedHaar_eq_zero_of_odd_degree:117` proves actual Haar zero.
+`repeatedFace_degree_and_parity:137` retains degree twice despite zero parity.
+Affine charged-mask completeness, H116->H32 reduction, charged contraction
+values/useful accuracy, changing-family retention and physical/Clay inputs
+remain OPEN. Two accepted focused checks/17 permitted gates and independent
+final-source reviews; no new hole/axiom, native/classical shortcut, option
+increase or root/tree audit. Failed initial telescope elaboration is not
+evidence. Root imports registered only. Exact log/source hashes and residual
+scope: original-moment-pilot feasibility audit. Older entries are historical
+checkpoints; the finite-list cutoff payment in this corridor is now produced.
+
 ## PROVED normalized early one-face cutoff estimate / OPEN global moment and scaling estimates (2026-10-08 UTC)
 
 `BF4ExactSlabSmallNomeOneFaceCutoffStability.lean:252`,

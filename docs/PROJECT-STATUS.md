@@ -1,5 +1,20 @@
 # Canonical one-page project status
 
+Supporting ORIGINAL full-list normalized cutoff payment and literal
+inserted degree checked (2026-10-08 UTC): error
+<=2*c*ofNat(ids.length)*(81/1055)*(1/72)^(K-1) at NAMED 0<=w<=1/2,K>=1,
+with mixed spectators/repeated occurrences and BOTH OWN partitions. The
+same bound reaches the EXISTING original expectation at strict nome; no
+headCutoff/limit change. Actual inserted 116-block homogeneity/odd-Haar zero
+retains factor TWO, repetitions and every original action factor. Affine
+mask/reindex/charged values and useful accuracy stay OPEN; no w->1,
+volume-uniform, changing-family retention or physical/Clay result.
+Two focused capped checks/17 permitted gates and independent final-source
+reviews; root registration only, no root/tree audit. Displayed claims
+unchanged, no chart reprint. Evidence: original-moment-pilot feasibility
+audit. Earlier supporting entries are dated checkpoints; their then-open
+finite-list cutoff payment is now supplied in this explicit corridor.
+
 Supporting ORIGINAL normalized early-cutoff payment checked (2026-10-08 UTC):
 ONE face change has error <=2*c*(81/1055)*(1/72)^(K-1), at NAMED
 0<=w<=1/2 and K>=1. Actual shifted-tail Haar certificates and mixed-cutoff

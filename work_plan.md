@@ -27,6 +27,31 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED full ORIGINAL finite-list cutoff payment and inserted degree
+(2026-10-08 UTC): `SmallNomeCutoffStability.original_cutoff_bound` bounds
+the actual normalized change K->K+L by
+2*c*ofNat(ids.length)*(81/1055)*(1/72)^(K-1), at NAMED 0<=w<=1/2,K>=1.
+The mixed-spectator induction retains repetitions/shared links and produces
+every intermediate mass; BOTH OWN partitions remain. Its
+`expectation_cutoff_bound` reaches the SAME existing all-nome expectation
+through the unchanged common-cutoff stream, at strict nome. No exponential
+inverse full-partition loss, new limit or old headCutoff weakening.
+In parallel, `CutoffOneInsertedDegree.exactCutoffOneInsertedIntegrand_blockDegree`
+adds literal fundamental insertion OCCURRENCES to the actual selected-action
+degree, retaining factor TWO and every original action factor. Produced
+116-block support gives actual odd-degree Haar zero. Repeated [p,p] retains
+degree twice even though its parity vanishes. Two serialized focused capped
+checks/17 permitted gates, independent final complete-source reviews; root
+imports registered only, no root/tree audit. NEXT: actual affine-mask parity
+completeness and inserted H116->H32 reduction, then signed charged contractions.
+These values and their useful accuracy are NOT supplied: the uniform K=1
+full-list cap may be too loose. Face count remains explicit; neither result
+is volume-uniform, w->1, OS-norm or changing-family retention. DIRECT macro
+retention, physical calibration, continuum QFT/every-group/Clay remain OPEN.
+Exact evidence: original-moment-pilot feasibility audit. Canonical displayed
+claims unchanged; no chart reprint. Earlier entries below are checkpoints,
+not a reassertion that this now-produced finite-list payment remains missing.
+
 CHECKED normalized early-cutoff estimate (2026-10-08 UTC):
 `SmallNomeOneFaceCutoffStability.original_background_normalized` produces
 ONE-face original moment error <=2*c*(81/1055)*(1/72)^(K-1), at NAMED

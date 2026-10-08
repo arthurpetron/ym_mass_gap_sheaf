@@ -4,6 +4,25 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## ORIGINAL full-list cutoff error reaches its existing limit; inserted degree produced (2026-10-08 UTC)
+
+`BF4ExactSlabSmallNomeCutoffStability.original_cutoff_bound` pays a LINEAR
+occurrence count, 2*c*ofNat(ids.length)*(81/1055)*(1/72)^(K-1), at NAMED
+0<=w<=1/2,K>=1. Mixed spectators, repeated faces/shared links and BOTH OWN
+partitions remain; intermediate masses are produced. Its
+`expectation_cutoff_bound` reaches the unchanged original all-nome expectation
+at strict nome, not a replacement limit. The face-count dependence is NOT
+a volume-uniform estimate. `BF4ExactCutoffOneInsertedDegree` independently
+supplies actual fundamental insertion homogeneity and odd-Haar vanishing on
+116 blocks, with factor TWO, repetitions and all original action factors.
+NEXT: affine-mask completeness, inserted active-carrier reduction and signed
+charged contractions; useful limit accuracy is also unpaid. No direct
+retention, w->1, OS/scaling/physical/Clay or canonical chart closure.
+Two serialized focused 20-GiB checks/17 gates within {propext, Quot.sound},
+independent final complete-source reviews; root imports registered only.
+No root/tree audit, guard, metric or large moment expansion. Exact evidence:
+the original-moment-pilot feasibility audit dated 2026-09-30.
+
 ## ORIGINAL normalized one-face early-cutoff error produced (2026-10-08 UTC)
 
 `BF4ExactSlabSmallNomeOneFaceCutoffStability.original_background_normalized`
