@@ -52,6 +52,15 @@ Exact evidence: original-moment-pilot feasibility audit. Canonical displayed
 claims unchanged; no chart reprint. Earlier entries below are checkpoints,
 not a reassertion that this now-produced finite-list payment remains missing.
 
+Next-route screen: REUSE the existing action-mask/incidence pin and 128-mask
+completeness; the missing charged join is total occurrence-degree parity for
+action mask XOR insertion mask. Do not rebuild GF(2) elimination or replace
+repeated insertions by vacuum. At 72 faces the current uniform K=1 error cap
+is (11664/1055)*c, worse than the trivial 2*c comparison. Before a large
+charged evaluation, obtain useful nome-sensitive accuracy or a feasible
+higher-cutoff evaluator; exact cutoff-one values alone do not pay it.
+Source-backed read-only selection is recorded in the same feasibility audit.
+
 CHECKED normalized early-cutoff estimate (2026-10-08 UTC):
 `SmallNomeOneFaceCutoffStability.original_background_normalized` produces
 ONE-face original moment error <=2*c*(81/1055)*(1/72)^(K-1), at NAMED

@@ -577,3 +577,30 @@ they do not supply favourable interacting moments, DIRECT original macro
 retention, justified changing-family estimates, physical calibration,
 continuum QFT/every-group or Clay closure. Canonical displayed claims remain
 unchanged, so no chart reprint.
+
+### Next-route screen after the accepted proofs (read-only)
+
+REUSE, do not rebuild, the existing action-incidence bridge:
+`lean/YMGap/Continuum/BF4ExactCutoffOneSurfaceCharacterReindex.lean:201`,
+`cutoffOneSlabSelectedBlockDegree_eq_maskIntersectionCount`, and its
+`slabFaceBlockDegree_eq_incidenceBit:129`. Existing completeness is
+`lean/YMGap/Continuum/BF4CutoffOneBinarySurfaceEmbedding.lean:646`,
+`slabSurfaceIsClosed_iff_mem_embeddedBinarySurfaceMasks`.
+The missing next parity pin identifies total insertion/action degree modulo
+two with the incidence of action-mask XOR insertion-mask. A repeated pair
+has zero insertion mask, not an absent polynomial. Actual action heat weights
+must follow the resulting ACTION mask, not the shifted closed mask.
+Reduction to the inner carrier also needs literal insertion face IDs in
+`activeHypercubeSlabFaceIds`; mere physical-slab membership is insufficient.
+These are proposed missing joins, not checked completeness or reductions.
+
+REVISE the accuracy gate before a large cutoff-one computation: substituting
+F=72,K=1 into the proved corridor budget gives (11664/1055)*c, already larger
+than 2*c. Do not call this useful limit accuracy. A nome-sensitive first-tail
+payment or a feasible higher-cutoff evaluator is still needed. Existing
+`lean/YMGap/Continuum/SU2AllLabelPointwiseHeatCorridor.lean:217`,
+`pointwiseHeatMajorant_succ_le`, provides the 1/72 ratio, while its
+`labelTwo_majorant_le:304` replaces the actual nome-dependent head by the
+worst-case half-nome head. Retaining the actual head is an eligible bounded
+next estimate, not yet a produced interval/telescope certificate. No large
+moment evaluation, new Lean check or displayed chart change in this screen.
