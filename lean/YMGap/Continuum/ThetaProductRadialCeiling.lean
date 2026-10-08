@@ -10,11 +10,15 @@ then pay the original finite costs, including their negative omitted terms.
 The scaled estimate is in the scalar nome defect 1-w, not a physical clock.
 No coupling/spacing calibration, Haar certificate, original conditional form,
 OS operator bound or continuum gap is asserted.
+The sharper finite endpoint telescope also passes through the SAME completed
+addition comparison, giving 1+1/(1-w*w) globally with the explicit finite tail.
+No hemisphere support of the original interacting law is assumed.
 -/
 
 import YMGap.Continuum.ThetaCompletedAdditionSquare
 import YMGap.Continuum.ThetaProductStrictFloor
 import YMGap.Continuum.JacobiProductRadialEndpoint
+import YMGap.Continuum.JacobiProductRadialNearFlatBound
 import YMGap.Continuum.RCBilinearDifference
 import YMGap.Continuum.RateMatchFloor
 
@@ -131,6 +135,42 @@ theorem productRadialCost_nome_defect_le_three_halves {w x : Q'}
       (Q'.add_le_add (transverseCap_nome_defect_le_one hw0 hw1)
         (radialTailPayment_nome_defect_le_half hw0 hw1 N hN)))
 
+/-- The produced finite endpoint ceiling passes to its SAME constructed
+limit; every actual approximant is bounded, including the empty one. -/
+theorem productRadialCostCReal_at_one_le_nearFlatCap {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) :
+    CReal.leRat (productRadialCostCReal (x := 1) hw0 hw1 (by decide) (Q'.le_refl' 1))
+      (JacobiProductRadialNearFlatBound.nearFlatCap w) :=
+  CReal.leRat_of_eventually ⟨0, fun N _ =>
+    JacobiProductRadialNearFlatBound.productRadialCost_le_nearFlatCap hw0 hw1
+      (by decide) (Q'.le_refl' 1) N⟩
+
+/-- Global sharper bound via the EXISTING completed addition square, not
+via hemisphere support, a southern-region premise or a PDE theorem. -/
+theorem productRadialCostCReal_le_nearFlatCap {w x : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (hx0 : (-1 : Q') ≤ x) (hx1 : x ≤ (1 : Q')) :
+    CReal.leRat (productRadialCostCReal hw0 hw1 hx0 hx1)
+      (JacobiProductRadialNearFlatBound.nearFlatCap w) := by
+  change CReal.leEv (productRadialCostCReal hw0 hw1 hx0 hx1)
+    (CReal.ofQ' (JacobiProductRadialNearFlatBound.nearFlatCap w))
+  exact CReal.leEv_trans
+    (y := productRadialCostCReal (x := 1) hw0 hw1 (by decide) (Q'.le_refl' 1))
+    (productRadialCostCReal_le_endpoint hw0 hw1 hx0 hx1)
+    (productRadialCostCReal_at_one_le_nearFlatCap hw0 hw1)
+
+/-- Actual finite cost globally, with its signed-tail payment retained.
+The nome and cutoff dependence are explicit; no original-action gap follows. -/
+theorem productRadialCost_le_nearFlatCap_add_tail {w x : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (hx0 : (-1 : Q') ≤ x) (hx1 : x ≤ (1 : Q'))
+    (N : Nat) (hN : HKPos.geoAmp w N ≤ eighth) :
+    productRadialCost (HKConv.sTerm w x) N x ≤
+      JacobiProductRadialNearFlatBound.nearFlatCap w + radialTailPayment w N :=
+  productRadialCost_le_limit_ceiling hw0 hw1 hx0 hx1
+    (JacobiProductRadialNearFlatBound.nearFlatCap w)
+    (productRadialCostCReal_le_nearFlatCap hw0 hw1 hx0 hx1) N hN
+
 end YMGap.Continuum.ThetaProductRadialCeiling
 
 #print axioms YMGap.Continuum.ThetaProductRadialCeiling.normalizationFloor
@@ -139,3 +179,6 @@ end YMGap.Continuum.ThetaProductRadialCeiling
 #print axioms YMGap.Continuum.ThetaProductRadialCeiling.productRadialCostCReal_le_cap
 #print axioms YMGap.Continuum.ThetaProductRadialCeiling.productRadialCost_le_cap_add_tail
 #print axioms YMGap.Continuum.ThetaProductRadialCeiling.productRadialCost_nome_defect_le_three_halves
+#print axioms YMGap.Continuum.ThetaProductRadialCeiling.productRadialCostCReal_at_one_le_nearFlatCap
+#print axioms YMGap.Continuum.ThetaProductRadialCeiling.productRadialCostCReal_le_nearFlatCap
+#print axioms YMGap.Continuum.ThetaProductRadialCeiling.productRadialCost_le_nearFlatCap_add_tail

@@ -27,6 +27,36 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED next MAIN contraction (2026-10-08 UTC): the existing SAME completed
+addition-square comparison passes the new finite endpoint ceiling to ALL
+of [-1,1]. `ThetaProductRadialCeiling.productRadialCost_le_nearFlatCap_add_tail`
+produces D_N(X)<=C_local+radialTailPayment(w,N), retaining c_N<=1/8.
+`JacobiHeatRadialProducedBound.heat_radial_nonnegative_nearFlat` fills the
+actual heat-jet consumer, and `JacobiHeatRadialHaarCertificate.nearFlatRadialCertificate`
+returns its Type-valued radial Haar certificate at that cost plus positive
+slack, using actual heat-floor/strict-margin/Bernstein witnesses. The cost is
+weak-coupling-sharper, not necessarily smaller at every nome. No hemisphere
+support or southern-complement premise is needed for THIS product/radial
+certificate step. The independent endpoint cancellation
+`heat_endpoint_cancellation_at_onset` now proves C_local*h-h'<=(15/4)*h
+with a computed nome-dependent cutoff. Four focused checks ALL PASS on their
+first launches, every printed gate permitted; COMPLETE frozen final-source
+independent reviews PASS. One serialized 20-GiB worker/12-GiB reserve after
+each fresh successful live preflight; no root/full-tree build or audit.
+No new analytic premise, canonical field or physical/scaling statement.
+Exact source/log hashes and the narrowed southern-support warning: adaptive
+conditional-score audit. Displayed canonical claims unchanged; no chart.
+
+CONTINUE the sharper ORIGINAL join: reuse the existing full frozen-direction
+reconstruction with this produced radial certificate, then pay the literal
+original-character value/first/mixed-jet deficits at an explicit cutoff.
+The existing Bernstein/compiler construction is no longer the missing radial
+input. Do not condition the original law or replace its marginal by kinetic
+heat; `TerminalLocalSignedGram.terminal_local_signed_score_bound` still uses
+the actual source density and OWN center. Complete signed cost versus OWN
+surviving variance and BOTH masses, physical/scaling/QFT/every-group/Clay
+remain OPEN. A global curvature ceiling is not the missing innovation bound.
+
 CHECKED MAIN endpoint screen (2026-10-08 UTC): the EXISTING scalar leaves
 now produce h'<=C_T*h on X>=0 and
 6*h^2<=3*(1-w)*(C_prefix*h^2-h*h') at X=1, for actual finite normalized
@@ -55,20 +85,18 @@ preflights; no limits raised or root/full-tree audit. Original character-prefix
 local certificate/deficit transport, source-weighted complement, complete
 signed cost versus OWN surviving variance and BOTH masses remain OPEN.
 
-CONTINUE bounded cancellation test (PAPER, independently derived): at X=1,
-the actual tail c_N=w^(2*N+1)<=1-w predicts
-C_local*h-h'<=(15/4)*h, with no heat inverse. A second elementary telescope
-gives M1(1)>=w^2/(1-w^2)*(2*w/(1+w)-2*c_N/(1+c_N)); M2(1)<=M1(1)/2.
-Existing `HKConvGen.powBaseCutoff` and its proved tail/monotonicity APIs supply
-a witnessed sufficient N(w); no tail premise needs to become an opaque input.
-Decisive tests: N=0/1, all strict nomes and w approaching one. Consumer:
-the new C_local heat-curvature payment, before original local certificate
-and marginal transport. Abandon a redundant wrapper or any attempted kinetic
-to interacting-marginal substitution. Budget the smallest changed leaf check
-and independent complete review. The broader positive-hemisphere PAPER bound
-is C_local*h-X*h'<=[17/4+(1-X)*C_local]*h. Neither PAPER inequality is
-reported as Lean proved; neither pays the actual source-weighted complement.
-No canonical field or displayed chart claim changes; no chart reprint.
+CHECKED endpoint cancellation (2026-10-08 UTC): at X=1 the actual finite
+heat now satisfies C_local*h-h'<=(15/4)*h under c_N<=1-w, with no heat
+or moment inverse. A second exact finite telescope and 2*M2<=M1 produce
+the fully cleared first-moment payment 4*C_local<=4*M1+13. The positive
+slack polynomial is (1-w)^2*(8*w^2+15*w+5). `endpointCancellationOnset`
+computes N(w)=HKConvGen.powBaseCutoff w (1-w), and its actual tail theorem
+supplies the onset consumer; no cutoff or tail is supplied opaquely.
+N=0/1 remain guarded rather than excluded. The broader positive-hemisphere
+band C_local*h-X*h'<=[17/4+(1-X)*C_local]*h remains PAPER; do not add
+localization as a prerequisite for the global scalar/Haar route now proved
+above. Endpoint cancellation is not cancellation of the interacting
+marginal or payment against its surviving variance. No chart-state change.
 
 CHECKED MAIN route screen (2026-10-08 UTC):
 `DyadicWilsonSquareHeatImage.paddedSquare_fundamental_family_haar_zero`

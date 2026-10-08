@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Supporting sharper finite heat curvature checked (2026-10-08 UTC):
+the actual endpoint telescope and SAME completed addition square produce
+a whole-interval cost `1+1/(1-w*w)+radialTailPayment`, and its actual
+radial Haar certificate with constructed Bernstein witness. Endpoint heat
+cancellation has fixed slack 15/4 at a computed cutoff. Four focused leaves
+and COMPLETE independent final-source reviews PASS. This removes a southern
+support prerequisite for the scalar/radial-certificate step, not the ORIGINAL
+character-prefix/marginal or OWN-variance signed payment. Physical/Clay and
+exact displayed chart claims remain OPEN/unchanged; no chart reprint.
+Evidence: adaptive conditional-score audit.
+
 Supporting SAME-source signed double-orbit join checked (2026-10-08 UTC):
 the existing positive-orbit leaf retains every original cross term, negative
 early covariance and nonnegative late raw credit. Its literal smoothed-family

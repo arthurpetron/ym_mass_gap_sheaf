@@ -28,6 +28,11 @@ open YMGap.Continuum.RingNormaliser (poly_identity_of_normal_eq)
 /-- Actual finite radial cost, with the negative omitted-tail payment retained. -/
 def radialCap (w : Q') (N : Nat) : Q' := transverseCap w + radialTailPayment w N
 
+/-- Sharper whole-interval allowance from the produced endpoint telescope
+and SAME completed addition square; finite cutoff dependence stays explicit. -/
+def nearFlatRadialCap (w : Q') (N : Nat) : Q' :=
+  JacobiProductRadialNearFlatBound.nearFlatCap w + radialTailPayment w N
+
 /-- Explicit sufficient cutoff for the omitted-factor onset; depends on w only. -/
 def radialOnset (w : Q') : Nat := HKConvGen.powBaseCutoff w eighth
 
@@ -81,6 +86,27 @@ theorem heat_radial_nonnegative_at_onset {w x : Q'}
     (0 : Q') ≤ heatRadialExpression w x (radialCap w N) N :=
   heat_radial_nonnegative hw0 hw1 hx0 hx1 N (radialOnset_small_factor hw0 hw1 N hN)
 
+/-- Computed sharper allowance is nonnegative, without a supplied bound. -/
+theorem nearFlatRadialCap_nonnegative {w : Q'} (hw0 : (0 : Q') < w) (N : Nat) :
+    (0 : Q') ≤ nearFlatRadialCap w N :=
+  Q'.zero_le_add _ _ (JacobiProductRadialNearFlatBound.nearFlatCap_nonnegative w)
+    (HKConvGen.geoTailBase_nonneg
+      (Q'.mul_nonneg _ _ (by decide : (0 : Q') ≤ 4)
+        (Q'.pow_nonneg w (Q'.le_of_lt hw0) _))
+      (SumOfSquares.q_mul_self_nonneg w) 0)
+
+/-- Actual finite normalized heat jets on ALL of [-1,1], at the sharper
+produced cost plus signed-tail payment. No hemisphere or PDE input is used. -/
+theorem heat_radial_nonnegative_nearFlat {w x : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (hx0 : (-1 : Q') ≤ x) (hx1 : x ≤ (1 : Q'))
+    (N : Nat) (hN : HKPos.geoAmp w N ≤ eighth) :
+    (0 : Q') ≤ heatRadialExpression w x (nearFlatRadialCap w N) N :=
+  heat_radial_nonnegative_of_productCost hw0 hw1 hx0 (nearFlatRadialCap w N) N
+    (nearFlatRadialCap_nonnegative hw0 N) (square_le_one hx0 hx1)
+    (ThetaProductRadialCeiling.productRadialCost_le_nearFlatCap_add_tail
+      hw0 hw1 hx0 hx1 N hN)
+
 end YMGap.Continuum.JacobiHeatRadialProducedBound
 
 #print axioms YMGap.Continuum.JacobiHeatRadialProducedBound.radialCap
@@ -89,3 +115,6 @@ end YMGap.Continuum.JacobiHeatRadialProducedBound
 #print axioms YMGap.Continuum.JacobiHeatRadialProducedBound.radialCap_nonnegative
 #print axioms YMGap.Continuum.JacobiHeatRadialProducedBound.heat_radial_nonnegative
 #print axioms YMGap.Continuum.JacobiHeatRadialProducedBound.heat_radial_nonnegative_at_onset
+#print axioms YMGap.Continuum.JacobiHeatRadialProducedBound.nearFlatRadialCap
+#print axioms YMGap.Continuum.JacobiHeatRadialProducedBound.nearFlatRadialCap_nonnegative
+#print axioms YMGap.Continuum.JacobiHeatRadialProducedBound.heat_radial_nonnegative_nearFlat

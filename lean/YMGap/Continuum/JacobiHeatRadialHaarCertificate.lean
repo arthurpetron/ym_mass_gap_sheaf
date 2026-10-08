@@ -7,6 +7,8 @@ The existing constructive Bernstein-row compiler transports that actual
 polynomial to any original certified unit-square coordinate. The heat
 floor affects the row construction only; delta remains in the curvature
 cost. No margin, reconstruction identity or Haar inequality is supplied.
+The sharper global SAME-product cost also returns its actual certificate,
+retaining the signed finite-tail payment and the same strict-margin compiler.
 
 These are the original shifted Jacobi heat jets, NOT an identification
 with a finite unweighted character prefix. Angular curvature, conditional
@@ -28,7 +30,8 @@ open YMGap.Constructive.QPolyFormalDerivative (pderiv)
 open YMGap.Continuum
 open YMGap.Continuum.JacobiShiftedPositiveCoefficients (heat heat_nonnegative floor_le_heat_constant)
 open YMGap.Continuum.JacobiHeatRadialMomentJets (heatRadialExpression)
-open YMGap.Continuum.JacobiHeatRadialProducedBound (radialCap heat_radial_nonnegative)
+open YMGap.Continuum.JacobiHeatRadialProducedBound
+  (radialCap heat_radial_nonnegative nearFlatRadialCap heat_radial_nonnegative_nearFlat)
 open YMGap.Continuum.JacobiProductRadialSignedTail (eighth)
 open YMGap.Continuum.QPolyRatPolySubstitutionAlgebra (compose eval_compose)
 open YMGap.Continuum.QPolyHaarPositiveSubstitution (subst)
@@ -209,6 +212,62 @@ def radialCertificate {blocks : Nat} {X : RatPoly} {w delta : Q'}
     (unitArgument_certificate P) (oneMinusUnitArgument_certificate P)
   exact Certificate.ofCoeff (unitArgument_unshift X p).symm C
 
+/-- Produced global strict margin at the sharper SAME-product cost, with
+the actual omitted-tail payment retained. No scalar ceiling is supplied. -/
+theorem radialPolynomial_nearFlat_strict_margin {w x delta : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (hx0 : (-1 : Q') ≤ x) (hx1 : x ≤ (1 : Q'))
+    (N : Nat) (hN1 : 1 ≤ N) (hsmall : HKPos.geoAmp w N ≤ eighth)
+    (hdelta : (0 : Q') < delta) :
+    delta*(SU2PointwiseHeatStrictFloor.floor w*SU2PointwiseHeatStrictFloor.floor w) ≤
+      eval (radialPolynomial w N (nearFlatRadialCap w N+delta)) x := by
+  have hf := SU2PointwiseHeatStrictFloor.floor_pos hw0 hw1
+  have hfloor := radialHeat_floor hw0 hw1 hx0 N hN1
+  have hsq := HKConv.mul_le_mul' (Q'.le_of_lt hf)
+    (Q'.le_trans' _ _ _ (Q'.le_of_lt hf) hfloor) hfloor hfloor
+  have hbase := heat_radial_nonnegative_nearFlat hw0 hw1 hx0 hx1 N hsmall
+  have hpaid := Q'.le_trans' _ _ _
+    (Q'.mul_le_mul_of_nonneg_left _ _ delta hsq (Q'.le_of_lt hdelta))
+    (Q'.le_trans' _ _ _ (Q'.add_le_self_of_nonneg _ _ hbase)
+      (Q'.le_of_eqv (Q'.add_comm_eqv _ _)))
+  exact Q'.le_trans' _ _ _ hpaid
+    (Q'.le_trans' _ _ _ (Q'.ge_of_eqv (raise_cost w x (nearFlatRadialCap w N) delta N))
+      (Q'.ge_of_eqv (radialPolynomial_eval w x (nearFlatRadialCap w N+delta) N)))
+
+/-- Actual Type-valued Haar certificate for the sharper global radial cost.
+The literal heat jets, strict margin and Bernstein rows are produced. This
+does not identify the heat with an original finite character cutoff or pay
+an original interacting marginal against its surviving variance. -/
+def nearFlatRadialCertificate {blocks : Nat} {X : RatPoly} {w delta : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) (P : SquareBound blocks X 1)
+    (N : Nat) (hN1 : 1 ≤ N) (hsmall : HKPos.geoAmp w N ≤ eighth)
+    (hdelta : (0 : Q') < delta) :
+    Certificate blocks (subst X (radialPolynomial w N (nearFlatRadialCap w N+delta))) := by
+  let f := SU2PointwiseHeatStrictFloor.floor w
+  let eta := delta*(f*f)
+  have heta : (0 : Q') < eta :=
+    Q'.mul_pos hdelta (Q'.mul_pos (SU2PointwiseHeatStrictFloor.floor_pos hw0 hw1)
+      (SU2PointwiseHeatStrictFloor.floor_pos hw0 hw1))
+  let p := radialPolynomial w N (nearFlatRadialCap w N+delta)
+  have margin : ∀ y : Q', (0 : Q') ≤ y → y ≤ (1 : Q') →
+      eta ≤ eval (compose [-1,2] p) y := by
+    intro y hy0 hy1
+    have hlo : (-1 : Q') ≤ -1+2*y :=
+      Q'.add_le_self_of_nonneg _ _ (Q'.mul_nonneg _ _ (by decide : (0 : Q') ≤ 2) hy0)
+    have hhi : -1+2*y ≤ (1 : Q') := Q'.le_trans' _ _ _
+      (Q'.add_le_add_left (-1) _ _
+        (Q'.mul_le_mul_of_nonneg_left _ _ 2 hy1 (by decide : (0 : Q') ≤ 2)))
+      (Q'.le_of_eqv (by decide : (-1 : Q')+2*1 ≈ 1))
+    have he := Q'.eqv_trans _ _ _ (eval_compose [-1,2] y p)
+      (eval_arg_congr (eval_inverse_coordinate y) p)
+    exact Q'.le_trans' _ _ _
+      (radialPolynomial_nearFlat_strict_margin hw0 hw1 hlo hhi N hN1 hsmall hdelta)
+      (Q'.ge_of_eqv he)
+  let C := QuaternionHaarBernsteinRowCertificate.strictPolynomialCertificate
+    (unitArgument X) (compose [-1,2] p) eta heta margin
+    (unitArgument_certificate P) (oneMinusUnitArgument_certificate P)
+  exact Certificate.ofCoeff (unitArgument_unshift X p).symm C
+
 end YMGap.Continuum.JacobiHeatRadialHaarCertificate
 
 #print axioms YMGap.Continuum.JacobiHeatRadialHaarCertificate.radialHeat_floor
@@ -216,3 +275,5 @@ end YMGap.Continuum.JacobiHeatRadialHaarCertificate
 #print axioms YMGap.Continuum.JacobiHeatRadialHaarCertificate.radialPolynomial_eval
 #print axioms YMGap.Continuum.JacobiHeatRadialHaarCertificate.radialPolynomial_strict_margin
 #print axioms YMGap.Continuum.JacobiHeatRadialHaarCertificate.radialCertificate
+#print axioms YMGap.Continuum.JacobiHeatRadialHaarCertificate.radialPolynomial_nearFlat_strict_margin
+#print axioms YMGap.Continuum.JacobiHeatRadialHaarCertificate.nearFlatRadialCertificate

@@ -7193,3 +7193,123 @@ chronological masses. A scalar near-identity cancellation does not pay
 posterior score variance or silently supply the missing interacting input.
 The whole-project continuum/QFT/physical-mass/every-group target remains
 OPEN. Canonical displayed claims are unchanged; no chart reprint.
+
+## Checked endpoint cancellation and global sharper radial certificate (2026-10-08 UTC)
+
+Previous goal turn: PROGRESS (`007c8b78`, actual finite telescope/heat consumer
+and global-envelope obstruction, pushed). This turn completes the bounded
+endpoint test and a shorter global comparison, not a restated inventory.
+
+### Exact mathematical contraction
+
+`lean/YMGap/Continuum/JacobiProductRadialNearFlatBound.lean:381`,
+`endpoint_sTerm_telescope`, proves
+
+    w^2*[F(c_i)-F(c_(i+1))] <= (1-w^2)*r_i,
+    F(c)=2*c/(1+c), c_i=w^(2*i+1), r_i=2*c_i/(1+c_i)^2.
+
+The positive cleared remainder is 2*c_i*(1-w^2)^2. The actual finite
+moment telescope retains F(c_N). With c_N<=1-w, the explicit positive
+slack (1-w)^2*(8*w^2+15*w+5) gives `endpoint_firstMoment_payment` (:504),
+4*C_local<=4*M1+13. `endpoint_secondMoment_twice_le_first` (:602) proves
+2*M2<=M1 from the literal factor bound. Actual nonnegative normalized
+product/heat pins, WITHOUT inverting either heat or M1, then yield
+
+    C_local*h-h' <= (15/4)*h at X=1.
+
+This is `heat_endpoint_cancellation` (:619), not an interacting marginal
+identity. `endpointCancellationOnset` (:685) computes
+HKConvGen.powBaseCutoff w (1-w); its tail theorem (:687) fills
+`heat_endpoint_cancellation_at_onset` (:697). N=0/1 are retained when
+their stated guards hold. Strict 0<w<1 and the cutoff dependence remain
+explicit; no beta/spacing-uniform gap is asserted.
+
+The existing `lean/YMGap/Continuum/ThetaProductRadialCeiling.lean:49`,
+`productRadialCostCReal_le_endpoint`, ALREADY bounds the SAME completed
+cost everywhere on [-1,1] by its endpoint cost. The new finite endpoint
+ceiling applies to every actual CReal approximant; `productRadialCostCReal_at_one_le_nearFlatCap`
+(:140) passes it to the constructed limit. `productRadialCostCReal_le_nearFlatCap`
+(:150) composes the existing global comparison, and
+`productRadialCost_le_nearFlatCap_add_tail` (:164) returns
+
+    D_N(X) <= C_local + radialTailPayment(w,N),   -1<=X<=1,
+    C_local=1+1/(1-w^2),   c_N<=1/8.
+
+Both scalar endpoints and the signed finite tail remain. This is
+weak-coupling-sharper; it need not improve the old cap at every nome.
+It needs NO hemisphere support or southern-complement estimate for this
+PRODUCT step. That narrows the earlier backward warning: the original law
+still has no hemisphere-support producer, but none is required here.
+
+`lean/YMGap/Continuum/JacobiHeatRadialProducedBound.lean:100`,
+`heat_radial_nonnegative_nearFlat`, feeds this produced cost into the
+actual three-heat-jet consumer on the WHOLE interval. Its computed cost is
+`nearFlatRadialCap` (:33), not an assumed scalar ceiling.
+
+`lean/YMGap/Continuum/JacobiHeatRadialHaarCertificate.lean:217`,
+`radialPolynomial_nearFlat_strict_margin`, adds positive slack delta and
+uses the SAME actual nonempty-prefix heat floor to produce delta*floor(w)^2.
+`nearFlatRadialCertificate` (:241) computes Bernstein rows and returns the
+actual Type-valued Certificate of the literal substituted radialPolynomial,
+for any supplied certified unit-square coordinate. No margin/reconstruction
+or target-positivity premise is assumed. Its 1<=N, c_N<=1/8, delta>0 and
+strict-nome guards are retained. The floor affects construction precision,
+not an inverse multiplier in the curvature cost.
+
+### Observed verification, not predicted status
+
+Four final focused checks ALL PASS on first launches, exit 0, with 21/9/9/7
+printed gates respectively. All reported axioms lie in {propext, Quot.sound};
+the gated computational caps/potentials/onsets are axiom-free. Root inspected
+all changed source and actual APIs; independent COMPLETE frozen final-source
+mathematical reviews PASS at every hash below.
+
+    endpoint source SHA256 00c507ddd43879bea5a3f7195973f7d4261ebeb81097c09f5cc486f389cf9ff5
+    /private/tmp/ym-oct8-endpoint-cancellation1.log
+    log SHA256 9edfcf4eebefae79111ae60f00c1100767de143cc166c16d9239e64215a90ae1
+
+    global ceiling source SHA256 6709c54a96e11b4d6d8337daefc83ec53f6e74fd4927632e7c967f190fa1ca9a
+    /private/tmp/ym-oct8-global-nearflat-ceiling1.log
+    log SHA256 723c32abcdcbd86a0ebbd207c0022ebb85d497ec092819d8ab81ddb2d24e171c
+
+    actual heat source SHA256 35eb345944e89051876b33b36e56357dee6a15f6be2cd8600184df13f878ed80
+    /private/tmp/ym-oct8-global-nearflat-heat1.log
+    log SHA256 b24893653a5c112bfe569e6f83b4b7d812474f1c8dc273b4c59deae04ba61243
+
+    radial Haar source SHA256 4a75c95fec1e0ee2a22abfcab1c4f92a669255725dd7a6b2e1538d62a4f0d3b1
+    /private/tmp/ym-oct8-global-nearflat-haar1.log
+    log SHA256 6fbbfd5310c2509b92f0fcfa177e2a8068d9e7655d30e2372754a0e07489bc60
+
+One compiler at a time, one 20-GiB worker and 12-GiB reserve after EACH
+fresh successful live conflict/memory preflight; observed swap zero.
+No new resource-option increase, sorry, axiom, Classical/native proof,
+frontier weakening or original-object substitution. The older local heartbeat
+annotation in the unchanged theta theorem was not raised. No root/full-tree
+build, guard sweep or axiom audit. Existing public statements are unchanged;
+no new module or frontier enumeration. User-owned duplicate files untouched.
+
+### Decision and primary-source benchmark
+
+CONTINUE the actual original join: reuse the existing full frozen-direction
+reconstruction, then original character-prefix value/first/mixed-jet deficit
+transport and explicit precision. The new radial Haar witness is produced,
+not an open analytic input. Complete original signed innovation/window cost
+relative to OWN surviving variance and BOTH chronological masses remains
+OPEN. A global scalar curvature allowance is not that joint payment.
+The broader 17/4 local-band slope statement remains PAPER; its hypothetical
+localization is not made a prerequisite for the now-checked global route.
+
+A parallel targeted PRIMARY-source check found Hamilton's Corollary 4.4,
+p.125, [A matrix Harnack estimate for the heat equation (1993)](https://intlpress.com/site/pub/files/_fulltext/journals/cag/1993/0001/0001/CAG-1993-0001-0001-a006.pdf).
+It gives a global lower log-Hessian bound on a compact manifold with
+nonnegative sectional curvature and parallel Ricci, for a positive heat
+solution. The publisher-indexed original text was inspected; direct PDF
+fetch returned 403. With the unit-S3 normalization in
+`docs/CONVENTIONS-COUPLING.md`, its time is s=t_carrier/4=-log(w), and
+its coefficient is 1/(2*s), NOT 1/(2*t_carrier). It is a benchmark for the
+completed kernel, not a theorem about finite prefixes or our interacting
+marginal. No PDE theorem or classical proof was imported or assumed: the
+actual constructive global comparison already present in this repository
+made that detour unnecessary for this bound. Continuum/QFT, physical mass,
+every compact simple group and the unchanged Clay goal remain OPEN.
+Canonical displayed claims are unchanged; no chart reprint.
