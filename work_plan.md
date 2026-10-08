@@ -27,6 +27,29 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+PAPER direct-window refinement (2026-10-08 UTC; NOT a new Lean proof):
+keep the ACTUAL box-smoothed backward-window target primary. A useful raw
+short-time ratio is sufficient, not necessary. Splitting its triangular
+double-orbit weights exposes a later block credit with an explicit earlier
+mass payment. At N=side(j), p=N/2, h=N+1-p, let r_s=R_x(p+s), a=r_1,
+b=r_(1+h). For 0<theta<=1, the four-ORIGINAL-moment test
+  b>=theta*a,
+  (b-theta*a)*N*(N+2)*r_(2*N)>=theta*a*r_0
+suffice on PAPER for theta*R_Y(p)<=R_Y(N+1), using the already proved
+cleared cross-ratio order and the actual positive floor for a. The sharper
+joint test retains early numerator credit; do not replace it by four separate
+absolute bounds. Neither credit/payment is produced for the changing family.
+NEXT analytic screen: these SAME-source moving moments or the existing
+last-window innovation ceiling, not a near-unit raw R(2)/R(1) prerequisite
+or another conditional compiler. The source-weighted Ward alternative still
+owes the full density derivative, ratio Hessian, antipodal and original-prefix
+payments. Exact derivation, source pins, rational diagnostic and stop rule:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+The supplied lattice-measurement note is already incorporated in the existing
+calibration audit; no numerical, finite-spacing Hamiltonian or Sobolev premise
+is added. No Lean edit/check, canonical chart change or Clay closure follows
+from this planning/mathematical review.
+
 CHECKED independent finite QFT input (2026-10-08 UTC): the actual all-link
 vertex Gauss generator annihilates the FULL original heat action, and
 H[W*G(p)]=0 for every supported signed insertion. Raw coefficient pins are

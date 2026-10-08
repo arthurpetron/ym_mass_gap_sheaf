@@ -4,6 +4,153 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## PAPER direct smoothed-window screen: pay the early box, not a raw reserve
+
+2026-10-08 UTC, source review through `ef6f6120`; root mathematics and three
+bounded independent read-only Sol reviews. No Lean edit, compiler run, new
+`sorry`/axiom or new proof claim. The repeated lattice-measurement attachment
+is already incorporated in `RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md`;
+its numerical result supplies neither the following moments nor a physical
+operator identification. This section changes the analytic search criterion,
+not a canonical frontier type or displayed proof state.
+
+### Actual consumer and available inputs
+
+- `lean/YMGap/Continuum/BF4WilsonAllNomeShiftedWindowSurvival.lean:448`,
+  `PathShiftedWindowSurvival`, asks for theta*R_Y(N/2)<=R_Y(N+1).
+  `:467`, `pathShiftedEpsBound_of_windowSurvival`, consumes precisely that
+  backward window. The stronger raw-source short-time ratio is NOT its type.
+- `lean/YMGap/Continuum/BF4WilsonAllNomeAFPaddedTrajectory.lean:305`,
+  `afPaddedZeroMomentumTrajectory`, keeps M=N=side(j), the original signed
+  spatial family, its actual nome and its width. Its rational two-loop-shaped
+  schedule is not a produced physical RG/spacing identification.
+- `lean/YMGap/Continuum/BF4WilsonAllNomeSmoothedCoherentState.lean:326`,
+  `smoothedResponse_orbit_expand`, and `:341`, `smoothedResponse_pin`, retain
+  every double-orbit term and pin it to ORIGINAL centered family moments.
+- `lean/YMGap/Continuum/BF4WilsonAllNomePositiveOrbitResponseOrder.lean:257`,
+  `response_crossRatio`, proves the cleared block-ratio order without a
+  nonzero-response premise.
+  `lean/YMGap/Continuum/BF4WilsonAllNomeOddResponseJensen.lean:242`,
+  `response_le_of_le`, supplies
+  lag monotonicity on this SAME completed vector/operator.
+- `lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteFamilyBondOrbit.lean:110`,
+  `family_time_geometric_floor`, and
+  `lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteFamilyVariance.lean:151`,
+  `familyExcitation_norm_floor`, give a positive rational floor for each
+  moving response of a padded, nonzero coefficient family. The actual
+  nonzero unit-coefficient family is constructed by
+  `lean/YMGap/Continuum/BF4WilsonAllNomeShiftedPaddedNondegenerate.lean:251`,
+  `paddedZeroMomentumTrajectory`. These are parameter-dependent floors,
+  not the useful relative credit required below.
+
+### Root-checked mathematical deduction, still PAPER
+
+Fix ONE family member first. Write R_x(k)=B(x,T^k x), N=side(j), M=N,
+p=N/2 and h=N+1-p. Thus p+h=N+1 without a rounding assumption.
+For j>=1, N is even and h=N/2+1. Set r_s=R_x(p+s), and
+
+    tau_s = s+1                 (0<=s<=N),
+            2*N+1-s             (N<s<=2*N).
+    (N+1)^2 R_Y(p) = sum_(s=0..2*N) tau_s*r_s.
+
+The triangular recoding here is a PAPER counting identity derived from the
+checked double sum; no new Lean declaration for it is claimed. Split at
+0<=ell<=2*N+1 and set
+
+    E=sum_(s<ell) tau_s*r_s,       F=sum_(s<ell) tau_s*r_(s+h),
+    Tail=sum_(s>=ell) tau_s*r_s,   a=r_ell, b=r_(ell+h).
+
+For each s>=ell, `response_crossRatio` with L=p+ell and j=s-ell gives
+a*r_(s+h)>=b*r_s. Multiply by the nonnegative tau_s and sum. Exact expansion
+then yields the unconditional PAPER lower bound
+
+    a*(N+1)^2*[R_Y(N+1)-theta*R_Y(p)]
+      >= a*(F-theta*E)+(b-theta*a)*Tail.
+
+Consequently payment of this JOINT signed right side suffices, using the
+already available positive rational floor for a to reflect scalar order.
+No inverse of a completed-state norm or choice of a spectral measure is
+required. If a=0, this cleared bound alone proves no survival; positivity is
+an explicitly supplied existing family fact, not silently cancelled.
+The identically zero coefficient family requires a separate trivial branch;
+signed TIME filters are not covered by this positive-box argument. Individual
+zero spatial coefficients are allowed when their squared sum is positive.
+The original signed spatial coefficients are retained in x.
+
+A conservative four-moving-moment screen follows for ell<=N+1 and theta>=0.
+Let e=ell*(ell+1)/2 and t=(N+1)^2-e. Monotonicity gives E<=e*r_0 and
+Tail>=t*r_(2*N), while F>=0. Therefore
+
+    b>=theta*a,
+    (b-theta*a)*t*r_(2*N)>=theta*a*e*r_0
+
+are sufficient. Do not assert this test is necessary; keeping F may improve
+it. The cheapest first split is ell=1: e=1, t=N*(N+2), and only the original
+moments at lags p, p+1, N+2 and p+2*N occur. Every mean, normalization,
+nome, width and source remains that of the fixed original family member.
+Odd/even lags retain their distinct already checked scalar pins; no finite
+stationary center or identification of separate chronological masses is used.
+The actual changing-family credit b-theta*a and its early-mass payment are
+NOT supplied by any inspected declaration.
+
+### Cheap decisive test and decision
+
+Exact BigInt rational arithmetic, NOT a Lean certificate/Yang--Mills instance:
+take R(k)=(1/2)^k+N^(-2)*(1-1/(4*N))^k. For N=16,32,64 and theta=1/2,
+the ell=1 four-moving-moment test and the literal double-box survival both
+pass, whereas R(2)<=3*R(1)/5 in each case. The raw two-moment rate is far
+from one; the later-window test can still work. A single fast mode R(k)=(1/2)^k
+fails the late credit for h>=2, so positivity/smoothing alone has not been
+turned into survival. These finite diagnostics select a weaker search
+criterion; they are not original interacting moment bounds or proof evidence.
+Independent read-only mathematical review PASS; all diagnostic inequalities
+were independently reproduced with exact rational arithmetic, not Lean.
+
+Continue the ORIGINAL later-window credit/early-mass analysis in parallel
+with the already pinned last-window relative innovation. Do not make useful
+raw R(2)/R(1) an additional mandatory premise. No new conditional compiler
+is selected: before formalizing this reduction, derive a useful actual
+changing-family credit/payment or show that the sharper joint test materially
+reduces a produced estimate. Stop a wrapper-only branch with no such input.
+All scaling, physical mass, continuum/QFT, every-group and Clay requirements
+remain OPEN; canonical chart claims are unchanged.
+
+### Other reviewed routes: preserve their actual residue
+
+The original Ward payment is pinned by
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.lean:384`,
+`original_ratioNoise_gradientPayment_weighted_pin`, to the density
+m=V*a*T(Vbar*Ta), not a vacuum weight or a^2. For F=m*sum_r(J_r phi_k)^2,
+the concentration identity's signed derivative contains BOTH
+
+    YF=sum_i(J_i X)*[(J_i m)*sum_r(J_r phi_k)^2
+                       +2*m*sum_r(J_r phi_k)*(J_i J_r phi_k)].
+
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRatioNoiseDerivative.lean:157`,
+private `derivative_transfer`, keeps J(V*p) inside the actual kinetic map.
+Time smoothing does not delete JV, the ratio Hessian or the antipodal term.
+No inspected source producer pays these jointly in the SAME warmed variance.
+The arbitrary-gradient antipodal diagnostic below neither proves nor refutes
+the selected filtered family's estimate. No additional curvature-only leaf
+is selected. Historical omitted-theta-cell instructions later in this audit
+are superseded:
+`lean/YMGap/Continuum/ThetaParityDiamondTail.lean:445`,
+`frequency_box_factored_error_close`, already supplies the actual omitted-cell
+join; `lean/YMGap/Continuum/ThetaProductRadialCeiling.lean:100`,
+`productRadialCostCReal_le_cap`, and
+`lean/YMGap/Continuum/SU2QuaternionPairedFrozenJacobiCurvature.lean:83`,
+`frozen_curvature_certificate`, already supply the radial ceiling and full
+frozen-direction witness. Do not rebuild these completed prerequisites.
+
+The independent finite fixed-slice Gauss/transfer route is feasible but NOT
+closed by the full-slab Ward result. Plane commutation exists at
+`lean/YMGap/Continuum/SU2QuaternionProductHeatAngularCommutation.lean:56`,
+`productMap_angular_carrier`; the slice still needs its actual spatial-action
+Gauss-zero law, signed-frame/sum transport and Haar-null input propagation.
+The expected G*T=P*G(V·) identity cannot silently assume G(V)=0 or differentiate
+the existing padded slab-to-slice placement pins. This independent QFT input
+is parked, not presented as a horizontal energy bound or a new proved node.
+
 ## Selected integrated-head centered score bound (2026-10-08 UTC)
 
 Test a genuine stronger estimate, not another assumed reserve: with I the
