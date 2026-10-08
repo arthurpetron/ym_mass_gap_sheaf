@@ -15,9 +15,11 @@ polynomial-direction matrix** now reaches the **original unweighted heat
 prefix**, with all nine actual ordered mixed jets and an explicit cutoff.
 Its cost is independent of cutoff, carrier size and direction at each fixed
 strict nome. The original heat floor and conservative matrix factor six
-pay approximation precision, not the cost. Arbitrary-block recoding and
-the original interacting conditional sign/score remain next; no physical
-gap or scaling-uniform estimate is claimed.
+pay approximation precision, not the cost. Its checked signed integrated
+Gram consumer retains the Hessian correction and polynomial direction norm
+inside the SAME Haar integral, without assuming a Hessian sign. Arbitrary-block
+recoding and original conditional normalization/centered-score assembly
+remain next; no physical gap or scaling-uniform estimate is claimed.
 See the [exact proof boundary](audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md).
 
 **Supporting general-nome contraction (2026-10-07):** the original product

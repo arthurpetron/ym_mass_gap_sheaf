@@ -1,5 +1,29 @@
 # Sorry Ledger
 
+## PROVED signed integrated ORIGINAL-prefix Gram / OPEN normalized conditional assembly (2026-10-07 local)
+
+- `QuaternionHaarCurvatureDualBound.curvature_signed_dual_bound` retains
+  H(background*dd) instead of requiring it nonpositive. The unchanged
+  `curvature_dual_bound` still has its explicit sign hypothesis.
+- `SU2QuaternionPairedFrozenHeatPrefixSignedGram.prefix_augmented_curvature_pin`
+  reassembles the actual full ORIGINAL-prefix form with lambda=0 and
+  ddAug=dd+C*threeSquare(u)*p. `prefix_signed_gram_bound` constructs its
+  windows and consumes the produced curvature certificate, not an assumed
+  curvature bound. Polynomial u and its norm remain INSIDE the same full
+  Haar integral. Certified background and supported test remain explicit.
+- OPEN: actual full conditional-action instantiation, arbitrary-pair/product
+  recoding, SAME partial conditional normalization/centered score, source
+  factorization/error and positive-marginal reflection. Retain the signed
+  Hessian and negative score-mean square; do not assume the missing sign.
+  All useful scaling/survival/OS/physical/QFT/every-group/Clay remain OPEN.
+- Two further focused checks/four printed gates within {propext, Quot.sound},
+  including the unchanged dual theorem. No sorry/new axiom/classical/native
+  shortcut or field weakening. Independent source/scope review found no
+  material defect. Fresh dynamic preflights, one capped worker, zero swap.
+  Root imports registered, not root-built; no full-root/tree audit or chart closure.
+
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 ## PROVED full ORIGINAL-prefix frozen matrix / OPEN original conditional join (2026-10-07 local)
 
 - `SU2QuaternionPairedHeatPrefixMixedDeficit.prefix_mixed_split_pin`,

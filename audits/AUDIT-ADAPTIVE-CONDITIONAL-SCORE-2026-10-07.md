@@ -4,6 +4,57 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Observed signed integrated ORIGINAL-prefix Gram (2026-10-07 local; checked 2026-10-08 UTC)
+
+Classification: VERIFIED PROGRESS, without asserting an integrated Hessian sign.
+The existing positive-window order reflection completes the square on the
+SAME kernel/background, removes its actual positive kernel multiplier, and
+retains the second-jet correction in the discriminant. The unchanged
+sign-dependent theorem remains intact; its stronger signed precursor is now
+public and consumed by the produced full original-prefix curvature.
+
+For p=pairedPrefix(w,K), d=sum_i u_i*Ji(p), dd=sum_ij u_i*u_j*JiJj(p),
+R=sum_i u_i^2 and C=prefixCurvatureCost(w), the ACTUAL consumer proves
+
+```text
+H(background*d*f)^2 <= H(background*p*f^2) * H(background*(dd+C*R*p)).
+```
+
+For polynomial u, R is kept INSIDE integration, never pulled out as a scalar.
+Coefficients are frozen; all nine mixed jets remain actual. The actual
+prefix floor gives lower window m, and the produced interval enlarged to
+prefixValueCap+m gives the upper window. Its positivity/order is proved.
+The exact zero-lambda curvature pin consumes the checked prefix certificate.
+No curvature or nonpositive-Hessian premise is supplied by the caller.
+The background certificate and supported test ARE explicit premises.
+This is full Haar, not a construction of the original normalized partial
+conditional law or an instantiation of its complete interacting action.
+
+| Produced declaration | Final source | Passing focused log |
+| --- | --- | --- |
+| `curvature_signed_dual_bound` (plus unchanged `curvature_dual_bound` regression gate) | `lean/YMGap/Continuum/QuaternionHaarCurvatureDualBound.lean:180`, `:148` | `/private/tmp/ym-oct7-signed-curvature-dual1.log` |
+| `prefix_augmented_curvature_pin`, `prefix_signed_gram_bound` | `lean/YMGap/Continuum/SU2QuaternionPairedFrozenHeatPrefixSignedGram.lean:60`, `:89` | `/private/tmp/ym-oct7-original-frozen-signed-gram2.log` |
+
+Two further focused checks/four printed gates within {propext, Quot.sound},
+including the unchanged dual theorem. Root inspected the final source;
+independent read-only scope review found no material defect. No source
+sorry/new axiom/classical/native shortcut, field weakening or baseline
+refresh. Fresh dynamic preflights, one 20-GiB worker, 12-GiB reserve,
+87% free and zero swap. Root import registered, not root-built; no full-root/
+tree audit or broad chart change. Final checked-source SHA256:
+
+- `QuaternionHaarCurvatureDualBound.lean`: `a2f1b05a20a2b636c3d14787b532024f5496548e3da96da9e595dbb86cadab49`
+- `SU2QuaternionPairedFrozenHeatPrefixSignedGram.lean`: `f58a4ff26e09716c0ed1192841d728ea43aac8f104e62e1fd3746011b058e8d6`
+
+NEXT recode actual pairs/products as needed and assemble the original
+conditional centered Gram, retaining A*F2(A)-F1(A)^2 rather than demanding
+F2(A)<=0. The genuine source law/error join, coefficients pulling through
+head integration and cancellation of the ACTUAL positive marginal are
+still required. For arbitrary c, no silent phi=c/a. A permutation alone
+also does not expose a four-link plaquette word as a two-block scalar.
+All useful scaling, independent survival, completed OS, physical/volume,
+SAME QFT, every group and Clay remain OPEN. No chart reprint.
+
 ## Observed full ORIGINAL-prefix frozen matrix (2026-10-07 local; checked 2026-10-08 UTC)
 
 Classification: VERIFIED PROGRESS, beyond the weighted finite matrix.

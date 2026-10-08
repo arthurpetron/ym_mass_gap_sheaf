@@ -174,6 +174,32 @@ theorem curvature_dual_bound
     (Q'.add_le_add_left _ _ _ (Q'.mul_le_mul_of_nonneg_left _ _ _ hD
       (SumOfSquares.q_mul_self_nonneg t)))
 
+/-- Retain the actual signed integrated Hessian instead of assuming its sign.
+The SAME kernel/background/normalization enter both sides. With lambda=0,
+dd may include a polynomial homogeneous cost, retained INSIDE integration. -/
+theorem curvature_signed_dual_bound
+    {blocks : Nat} {background W d dd f : RatPoly} {ell u lambda : Q'}
+    (hW : SupportedQuaternionBlocks blocks W) (hd : SupportedQuaternionBlocks blocks d)
+    (hdd : SupportedQuaternionBlocks blocks dd) (hf : SupportedQuaternionBlocks blocks f)
+    (hell : (0 : Q') < ell) (hu : (0 : Q') < u) (hle : ell ≤ u)
+    (L : Certificate blocks (polyAdd W (polyNeg (cap ell))))
+    (U : Certificate blocks (polyAdd (cap u) (polyNeg W)))
+    (B : Certificate blocks background)
+    (C : Certificate blocks (polyAdd (polyMul (cap lambda) (polyMul W W))
+      (polyAdd (polyMul W dd) (polyNeg (polyMul d d))))) :
+    quaternionHaar blocks (polyMul background (polyMul d f)) *
+        quaternionHaar blocks (polyMul background (polyMul d f)) ≤
+      quaternionHaar blocks (polyMul background (polyMul W (polyMul f f))) *
+        (quaternionHaar blocks (polyMul background dd) +
+          lambda*quaternionHaar blocks (polyMul background W)) := by
+  apply nonnegative_quadratic_discriminant
+  intro s t
+  have h := haar_nonnegative_of_positive_multiplier hW
+    (tilt_support hW hd hdd hf lambda s t) hell hu hle L U B
+    (clearedTiltCertificate hW hd hf lambda s t C)
+  exact Q'.le_trans' _ _ _ h (Q'.le_of_eqv (haar_tilt blocks background W d dd f lambda s t))
+
 end YMGap.Continuum.QuaternionHaarCurvatureDualBound
 
 #print axioms YMGap.Continuum.QuaternionHaarCurvatureDualBound.curvature_dual_bound
+#print axioms YMGap.Continuum.QuaternionHaarCurvatureDualBound.curvature_signed_dual_bound

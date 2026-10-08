@@ -5011,6 +5011,8 @@ import YMGap.Continuum.SU2QuaternionPairedHeatPrefixMixedDeficit
 import YMGap.Continuum.QuaternionHaarThreePolynomialMatrixEnvelope
 import YMGap.Continuum.QuaternionHaarFrozenCurvatureApproximation
 import YMGap.Continuum.SU2QuaternionPairedFrozenHeatPrefixCurvature
+-- SAME-prefix signed integrated Gram precursor; no Hessian-sign assumption.
+import YMGap.Continuum.SU2QuaternionPairedFrozenHeatPrefixSignedGram
 import YMGap.Continuum.SU2HeatQuarticTailCutoff
 import YMGap.Continuum.QuaternionHaarHeatAngularDeficit
 import YMGap.Continuum.QuaternionHaarHeatRelativeAngularBound

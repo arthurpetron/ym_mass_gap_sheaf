@@ -16,6 +16,20 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked signed integrated ORIGINAL-prefix Gram precursor (2026-10-07 local):**
+`QuaternionHaarCurvatureDualBound.curvature_signed_dual_bound` retains the
+actual integrated Hessian rather than requiring it nonpositive.
+`SU2QuaternionPairedFrozenHeatPrefixSignedGram.prefix_signed_gram_bound`
+consumes the PRODUCED full original-prefix curvature, with polynomial
+direction norm INSIDE the same full-Haar integral. Actual floor/windows
+are constructed; the certified background remains an explicit premise.
+Two further focused checks/four printed permitted gates, including the
+unchanged dual bound. No normalized partial conditional law, actual full
+conditional-action instantiation or physical/scaling conclusion is claimed.
+The next consumer retains the centered negative score-mean square and
+requires the original source factorization/error and positive-marginal joins.
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 **Checked full ORIGINAL-prefix frozen matrix (2026-10-07 local):**
 `SU2QuaternionPairedHeatPrefixMixedDeficit` supplies every actual ordered
 mixed-jet split/cap. `QuaternionHaarThreePolynomialMatrixEnvelope` is a thin

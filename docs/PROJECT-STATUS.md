@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Supporting signed integrated ORIGINAL-prefix Gram checked (2026-10-07 local):
+the produced full prefix curvature supplies the SAME full-Haar bound with
+the signed Hessian and polynomial direction norm INSIDE integration. No
+nonpositive-Hessian premise. Background certification remains explicit;
+actual full conditional-action/normalization/centered-score assembly is OPEN.
+Two further focused checks/four permitted printed gates, including unchanged
+dual theorem; no full-root/tree audit. All physical/scaling/Clay claims and
+the broad chart are unchanged; no reprint. Evidence:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 Supporting full ORIGINAL-prefix FROZEN matrix checked (2026-10-07 local):
 all nine actual ordered mixed jets meet N=K+1 weighted heat and its signed
 deficits. Arbitrary supported polynomial coefficients are not differentiated

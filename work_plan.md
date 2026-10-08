@@ -39,12 +39,24 @@ The original positive floor pays this homogeneous error. The fixed cost
 or inverse-floor penalty. Precision/onset is explicit at each strict nome.
 Four focused leaves/16 permitted gates; three printed definitions axiom-free.
 
+The SAME original prefix now has a CHECKED signed integrated Gram precursor:
+`SU2QuaternionPairedFrozenHeatPrefixSignedGram.prefix_signed_gram_bound`.
+It consumes the produced curvature and actual windows, with certified
+background explicit and polynomial R INSIDE integration. No Hessian sign
+is assumed. Two further focused checks/four printed permitted gates,
+including the unchanged dual bound. This is full Haar, not a constructed
+normalized partial conditional law or full original-action instance.
+
 NEXT arbitrary-block/product recoding as actually needed by the ORIGINAL
-interacting conditional score, then its signed Gram/Hessian estimate. A
-free heat marginal does not supply the integrated second-jet sign required
-by `QuaternionHaarCurvatureDualBound.curvature_dual_bound`. Retain the SAME
-original action, all positive factors and every signed correction; do not
-add another assumed-estimate wrapper. All useful scaling, independent
+conditional score; retain the integrated Hessian and negative score-mean
+square in its signed Gram, rather than demand a nonpositive Hessian.
+For a justified source law the target is S^2<=Noise*(C*R*A^2+A*F2(A)-F1(A)^2).
+Coefficients must pull through the SAME head integration; positive-marginal
+reflection/cancellation must be constructed. For arbitrary c, do not silently
+write phi=c/a: retain the existing reconstruction/error join. A free heat
+marginal supplies neither the missing sign nor these identifications.
+Retain every original action factor and signed correction; no assumed-bound
+wrapper. All useful scaling, independent
 survival, completed OS, physical/volume, SAME QFT, every-group and Clay
 requirements remain OPEN. No full-root/tree audit or broad chart closure.
 Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
