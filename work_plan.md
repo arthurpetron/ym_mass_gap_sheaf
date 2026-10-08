@@ -27,6 +27,22 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+MAIN analytic selection updated (2026-10-08 UTC; PAPER/source review only):
+the measurement attachment is already reconciled in the calibration audit;
+reuse its SAME-observable/operator/physical-time distinctions, not its numbers
+or unproved continuum assertions. Two bounded parallel screens produce no
+innovation upper bound from local curvature or replica positivity. Keeping
+the TWO tilted determinants separately retains a signed source-squared
+response and a negative mean-derivative square, but the ACTUAL Ward consumer
+still owes the kinetic correction, outgoing spatial response and original
+gradient payment TOGETHER. Signed spatial profiles remain eligible; neither
+zero coefficient sum nor vertical Gauss zero removes their full Casimir or
+signed interacting remainder. NEXT: a useful complete signed-window payment
+or relative innovation in BOTH original-mass/OWN-surviving-variance units,
+not another curvature, interpolation or profile interface. Detailed formulas,
+source pins and stop tests: adaptive-score audit. No Lean edit/check, new
+axiom/hypothesis, canonical chart change or physical/Clay closure.
+
 CHECKED finite physical-source Gauss join (2026-10-08 UTC): in the EXISTING
 `BF4ExactSlabFixedSpatialGaussTransfer` leaf, `spatialSpan_gauss_zero`,
 `shifted_gauss_zero`, `iterateStep_gauss_zero`, `terminalMessage_gauss_zero`

@@ -4,6 +4,143 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Observed quantitative screens and the next joint payment (2026-10-08 UTC)
+
+Read-only mathematical/source selection at HEAD `6fe2e97f`, independently
+screened by two Sol reviewers and checked against the cited source by root.
+These are PAPER arguments and decisions, not new Lean theorems. The user's
+`cf965d8e-085c-42c2-a303-16f0ae70d860/Pasted text.txt` attachment is already
+reconciled in `RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md`. Its useful
+backward pin is the SAME physical source/transfer/time, not a numerical mass,
+finite-spacing Kogut--Susskind identity, Sobolev sample convergence or an
+area-law-to-gap theorem. Reuse that review; no duplicate literature scan.
+
+### Direction test: curvature/Gram positivity is not an innovation ceiling
+
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLocalSignedGram.lean:114`,
+`lastStep_local_signed_gram`, upper-bounds a score square by noise times its
+Fisher payment. It does not upper-bound noise. The checked lower log-Hessian
+in `lean/YMGap/Continuum/JacobiHeatNearFlatLogHessian.lean:142`,
+`heat_logHessian_lower`, is for the weighted Jacobi heat on x>=0; it is not
+the complete original conditional density or its surviving variance.
+A PAPER 5/4 hemisphere curvature refinement still leaves the original-prefix,
+antipodal and source-weighted payments. Do not build it merely to improve a
+local constant without a useful innovation consumer.
+
+The actual missing target remains
+  Z*ell(blockNoise_d(a,phi_k)) <= epsilon_N*W*ell(b^2),
+with a=g_(n+t), b=T^t(g_n*psi), phi_k the EXISTING reciprocal approximation,
+Z=ell(a^2), W=ell((T^d*a)^2), and the literal OWN-centered source psi.
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedPredictionPayment.lean:505`,
+`blockConditionalRatio_noiseCost_abs_le`, already pays the difference from
+the original transfer loss by eta+2*mixRate^k. This target, not an upper
+bound on a different local score or marginal, is the quantitative consumer.
+
+### Unsummed tilts: retain the signed response, then track its kinetic term
+
+The existing two positive laws in
+`lean/YMGap/Continuum/SU2QuaternionIntegratedScoreVariance.lean:79`,
+`centeredSignedSquare_certificate`, imply more on PAPER than their average.
+For I(d)=0, A=I(Q), b=I(Q*f), e=I(d*f), H=I(Q*f^2), J=I(d*f^2),
+  det(C*Q +/- d,f) = C^2*(A*H-b^2)-e^2 +/- C*(A*J-2*b*e).
+Each determinant is nonnegative when its corresponding positive-law
+certificate is supplied. Averaging cancels the signed linear response;
+it therefore cannot establish its favorable sign. For an affine full-density
+perturbation Q_t=Q+t*d, Z_t*Var_t' equals
+I[d*(f-mu_t)^2]-I(d)*Var_t. This derivative identity is PAPER, not a
+constructed interpolation of the Yang--Mills action.
+
+Here K=kineticWeight, V=spatialWeight and Vbar=spatialFringeMass. For the
+ACTUAL incoming density Q=K*V*a, take the
+cleared conditional residual X=A*phi-I(Q*phi). Its algebra gives
+I(Q*X)=0 and I(Q*X^2)=A*noise. The latter is the existing private
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRatioNoiseGradientAbsorption.lean:96`,
+`residual_square_pin`; the actual source-gradient absorption is
+`original_ratioNoise_phiGradient_absorption_le:195` there. The full incoming
+angular derivative d=J_in(Q) has zero head marginal by Haar IBP. The two
+unsummed determinants consequently give on PAPER, PROVIDED both full-Q
+positive-tilt certificates at the stated C are available,
+  +/- C*A*I(d*X^2) <= C^2*A^2*noise-I(d*X)^2.
+This display supplies neither a useful full-Q cap nor its scaling estimate.
+All derivatives here are incoming; the outgoing A and conditional mean are
+held fixed. Full IBP retains
+  I(d*X^2)=Qdensity+Qkinetic=-2*A*M,
+  I(d*X)=-A*I(Q*J_in(phi)),
+where Qdensity=I[K*J_in(V*a)*X^2],
+Qkinetic=I[(J_in(K))*V*a*X^2], and M=I[Q*X*J_in(phi)].
+The retained negative square is a MEAN-derivative square, not M^2; it may
+vanish without the mixed moment or gradient energy vanishing.
+
+The actual Qdensity is
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.lean:74`,
+`ratioNoiseDensityMoment`, not a zero-marginal total derivative. In
+`original_ratioNoise_ward_unitGradient_le:337` there, writing R=Vbar^2*G^2
+and P for the original positive gradient payment, the right-hand side is
+  P-H[R*(J_out A)*Qdensity]-2*H[spatial].
+Substitution gives the PAPER joint expression
+  P+2*H[R*A*(J_out A)*M]
+    +H[R*(J_out A)*Qkinetic]-2*H[spatial].
+The kinetic and outgoing spatial responses have no produced favorable sign.
+The exact `original_ratioNoise_gradientPayment_weighted_pin:384` uses the
+incoming weight spatialWeight*a*T(spatialFringeMass*Ta), not the OWN-centering
+law. Neither conditional centering nor the unsummed determinants identifies
+its gradient payment with the required surviving variance.
+
+DECISION: retain this joint signed expression and its negative square;
+do NOT implement another tilt/interpolation certificate yet. Dropping the
+square gives only an absolute relative-score cap, not a useful moving-family
+payment. Even a fixed positive coefficient times (1-w) is insufficient for
+an O(1/N) reserve on the selected AF family: the checked
+`lean/YMGap/Continuum/BF4WilsonAllNomeAFPaddedTrajectory.lean:376`,
+`afGap_side_gt_at_probe`, makes N*(1-w) cofinally unbounded. This screens
+the cap-based argument, not the actual interacting innovation or survival.
+
+### Source selection remains flexible, but mean cancellation is not energy control
+
+`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteFamilyVariance.lean:151`,
+`familyExcitation_norm_floor`, and `familyExcitation_correlator_pin:187`
+already admit explicit signed profiles with physical/Nodup guards and
+positive sum(c_p^2). No extra source constructor is needed. Yet EVERY
+physical profile, including zero-sum coefficients, retains Casimir 12 by
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyCasimir.lean:294`,
+`spatialSpan_casimir`. The actual normalized raw energy is
+  12*(1-w)*OWN_variance+varianceRemainder,
+by `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyVarianceTaylor.lean:67`,
+`padded_family_energy_variance`; its remainder retains BOTH Taylor debts
+and the full density response. This raw identity is not a Casimir pin for
+the filtered conditional ratio.
+
+The explicit antisymmetric profile already removes its OWN/Gram means,
+but `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialAntisymmetricGram.lean:248`,
+`original_energy_response_budget`, still requires the actual even source-jump
+cost and signed cross credit. The full adjacent identity in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialAdjacentFullAngular.lean:451`,
+`adjacent_full_angular_paid`, retains the six nonshared-link
+contributions and transported-loop deficit. Vertical Gauss zero or a
+coefficient incidence identity does not remove those horizontal quantities.
+This does NOT prune action-dependent signed cancellation or spatial profiles;
+it prunes another mean-zero/profile interface as a substitute for the estimate.
+
+### Continue/revise test
+
+NEXT is an ORIGINAL complete signed moving-window estimate or useful relative
+innovation, with BOTH chronological masses and OWN surviving variance. For
+the Ward alternative, compare the kinetic/spatial/mixed contributions JOINTLY;
+do not require separate small absolute bounds. The one-plane expression
+above alone is not the multi-plane, multi-step block estimate. Keep the
+direct box-survival route co-primary, including its nonnegative tail credits;
+a useful raw near-unit ratio is sufficient, not a mandatory prerequisite.
+Source-profile changes need their actual family pins, not measured overlap.
+
+Decisive tests before implementation: zero/constant sources, constant terminal
+input with nonzero J(V), full incoming versus frozen jets, antipodal region,
+changing OWN centers, and w->1 with N*(1-w) unbounded. Abandon/revise if the
+proposed estimate only relocates one signed term, uses the wrong gradient
+weight, reverses a Gram inequality, or pays a global absolute score cap.
+This checkpoint launches ZERO Lean checks and adds no Lean file, hypothesis,
+axiom, frontier field or proof-status change. Continuum survival, calibration,
+limiting OS/QFT, every group and Clay remain OPEN; no ASCII reprint.
+
 ## Selected finite physical-source Gauss join (2026-10-08 UTC)
 
 OBSERVED (2026-10-08 16:30 UTC): the selected finite join is now CHECKED.
