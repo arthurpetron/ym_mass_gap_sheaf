@@ -27,6 +27,23 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+The ORIGINAL AF square route now has a CHECKED quantitative necessity
+(2026-10-08 UTC): `afSquareTransmission_lt_at_probe` constructs, beyond
+every supplied start, a scale with bare transmission a=w^(12*side)<eta
+for every positive rational eta. `AFSignedCancellation.af_signedCredit_necessary_at_probe`
+uses the actual identity E=(1-a)*S-D, S=Z*OWN variance, to prove that an
+initial fraction E<=c*S requires D>=(1-eta-c)*S. With S>0, simultaneous
+small-credit and small-energy caps are incompatible below eta+c+delta=1.
+PRUNE treating the needed initial bound as a small perturbation of bare heat
+on this square schedule. These are COFINAL probes, not an eventual all-index
+modulus; no actual energy fraction, filtered failure or physical-spacing
+calibration follows. NEXT remains a genuinely large JOINT signed response,
+or a justified different source family. The existing optional initial-energy
+consumer uses depth s+1; retain that SAME source/norm when applying it.
+Two focused checks and independent complete-source review; no full-tree
+audit, field change or broad chart closure. Evidence:
+`audits/AUDIT-INTERACTING-RESPONSE-SHAPE-2026-10-07.md`.
+
 The positive Ward payment now has a CHECKED ORIGINAL incoming-density pin
 (2026-10-08 UTC): `original_ratioNoise_gradientPayment_weighted_pin`
 gives H[Vbar^2*A*T(a*(Jphi)^2)]=ell_V[a*(Jphi)^2*T(Vbar*A)]. The literal

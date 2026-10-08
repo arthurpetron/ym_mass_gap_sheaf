@@ -6,6 +6,70 @@ a finite positive physical Hamiltonian mass gap.
 
 ## Selected mathematical increment before verification
 
+### Observed cofinal ORIGINAL cancellation necessity (2026-10-08 UTC)
+
+Selected proposition/consumer: quantify the signed credit needed by the
+OPTIONAL initial-energy route, not assume a useful initial fraction. Available
+inputs are the actual AF rational denominator, the existing cofinal side-loss
+probe, reciprocal Bernoulli, and SAME-action E=(1-a)*S-D. Test zero S, arbitrary
+positive eta, all supported depths/cutoffs and actual padded square guards.
+Budget: two serialized narrow capped checks, no scalar numerical sweep,
+physical-spacing premise or fresh analytic interface. Stop if a source,
+mean or norm is replaced.
+
+Observed VERIFIED PROGRESS:
+
+- `lean/YMGap/Continuum/BF4WilsonAllNomeAFPaddedTrajectory.lean:501`,
+  `afSquareTransmissionProbeScale`, returns explicit natural data from eta
+  and start. `afSquareTransmissionProbeScale_ge_start:504` proves cofinality.
+  `afSquareTransmission_lt_at_probe:511` proves a=w_j^(12*side_j)<eta for
+  eta>0. The proof uses the literal positive numerator of eta to get
+  1<=eta*ofNat(eta.den), then the existing side-loss probe and
+  `bare_transmission_floor_necessary`. It is COFINAL, not all j beyond a cutoff.
+- `lean/YMGap/Continuum/BF4DyadicWilsonSquareAFSignedCancellation.lean:102`,
+  `paddedSquare_signedCredit_necessary`, proves
+  `(1-eta-c)*S<=D` from the actual E<=c*S and bare-reference ceiling.
+  S=oddMass*OWN oddVariance is produced nonnegative from the actual original
+  marginal certificate and centered square; no variance is inverted.
+  `af_signedCredit_necessary_at_probe:121` supplies the reference ceiling on
+  the actual AF probes. Original K/head guard, width/padding, arbitrary depth,
+  spatial weight, endpoint source and actual mean are unchanged.
+- `paddedSquare_smallCredit_incompatible:156` rules out E<=c*S AND D<=delta*S
+  if S>0 and eta+c+delta<1. The strictly-positive guard is explicit; S=0 was
+  included by the necessity theorem, not erased.
+
+Consumer and interpretation: the initial input at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLocalEnergyTransport.lean:224`,
+`original_block_cost_le_initial_energy`, still needs a produced useful initial
+fraction. Its initial depth is s+1; use that depth and its literal OWN-centered
+source square, never substitute a filtered norm. At the cofinal AF square
+probes, such a fraction demands order-S signed cancellation (positive whenever
+eta+c<1), approaching the full S payment as both coefficients become small.
+PRUNE a small signed perturbative credit as its producer. This does NOT refute
+the fraction itself, interacting filtered survival, another justified source
+family, or Yang--Mills. A useful JOINT original interaction estimate remains
+the primary missing producer; no physical a(w) calibration is proved.
+
+The implementer/root split retained the actual consumer: Sol built the scalar
+probe, root the original-action consequence; independent complete-source
+mathematical review PASS. Root checked both final leaves. New probe data are
+axiom-free; public proofs use only {propext, Quot.sound}. Final focused logs:
+
+```text
+/private/tmp/ym-af-square-transmission-20261008c.log
+SHA256 b0b8470ebac39f556f2c3e5dd324e34adc27128802097e6f45daa4b6455a08d7
+
+/private/tmp/ym-af-signed-cancellation-20261008b.log
+SHA256 9c413bf6b6007afd58ea6347d87a1e74135c2eeef234b4859860ef49740e2a36
+```
+
+Fresh preflights: no competing compiler/runner, 87--88% system-wide free,
+zero swap; one 20-GiB worker and 12-GiB reserve. No limits raised. Initial
+elaboration errors were integer one-multiplication normalization and unavailable
+zero-add/right-cancellation names; existing lemmas repaired them. Failed logs
+are not proof evidence. Root import registered only; no full-tree build/audit,
+baseline refresh, new sorry/axiom, canonical field change or chart closure.
+
 ### Selected all-index exact-square-credit sign screen (2026-10-08 UTC)
 
 Test the literal coefficient `exactSquareCredit(w,L)=2*w^(12L)-1-w^(32L)`:

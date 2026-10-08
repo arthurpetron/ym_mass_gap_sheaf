@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Supporting ORIGINAL AF cancellation necessity checked (2026-10-08 UTC):
+explicit cofinal probes have bare square transmission below every positive
+rational eta. An initial actual E<=c*S forces signed credit D>=(1-eta-c)*S,
+S=Z*OWN variance, with no variance inverse. Positive S rules out concurrent
+small credit when eta+c+delta<1. This prunes the perturbative shortcut, not
+filtered survival or Yang--Mills; actual initial/scaling bounds remain OPEN.
+Two focused checks and independent source review; no full-tree audit.
+Displayed claims are unchanged; no chart reprint. Evidence:
+`audits/AUDIT-INTERACTING-RESPONSE-SHAPE-2026-10-07.md`.
+
 Supporting original Wilson-window and reflected-form spatial swap checked
 (2026-10-08 UTC): arbitrary ordered closed loops, inverse flags, offsets,
 spins and signed terms are transported on the SAME fixed-width carrier.

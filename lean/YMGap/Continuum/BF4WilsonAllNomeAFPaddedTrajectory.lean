@@ -40,6 +40,7 @@ No `sorry`, no axioms.
 
 import YMGap.Continuum.BF4WilsonAllNomeShiftedPaddedNondegenerate
 import YMGap.Continuum.SU2HeatExactSquareCreditWindow
+import YMGap.Continuum.BF4DyadicWilsonSquareBareTransmissionNecessary
 
 namespace YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory
 
@@ -495,6 +496,72 @@ theorem af_exactSquareCredit_negative (j : Nat) :
     (afNomeSchedule.nome_pos j) (afNomeSchedule.nome_lt_one j) (side j)
     (af_squareLinearHeatBudget_ge_one j)
 
+/-- An explicit cofinal probe for small BARE square-reference transmission.
+This is data, not an interacting-transfer or continuum calibration modulus. -/
+def afSquareTransmissionProbeScale (eta : Q') (start : Nat) : Nat :=
+  afBareHeatProbeScale (Q'.ofNat eta.den) start
+
+theorem afSquareTransmissionProbeScale_ge_start (eta : Q') (start : Nat) :
+    start ≤ afSquareTransmissionProbeScale eta start :=
+  afBareHeatProbeScale_ge_start (Q'.ofNat eta.den) start
+
+/-- The actual AF nome has arbitrarily small BARE square-reference power at
+a constructed index beyond any start. No bound on the interacting Wilson
+transfer, surviving response, or physical mass is asserted. -/
+theorem afSquareTransmission_lt_at_probe {eta : Q'}
+    (heta : (0 : Q') < eta) (start : Nat) :
+    RingNormaliser.qpow
+      (afNomeSchedule.nome (afSquareTransmissionProbeScale eta start))
+      (12 * side (afSquareTransmissionProbeScale eta start)) < eta := by
+  let j := afSquareTransmissionProbeScale eta start
+  let loss := Q'.ofNat (12*side j)*afGap j
+  have hnum : (1 : Int) ≤ eta.num := by
+    have h := Q'.num_pos_of_pos heta
+    omega
+  have hden : (1 : Q') ≤ eta*Q'.ofNat eta.den := by
+    show (1 : Int)*((eta*Q'.ofNat eta.den).den : Int) ≤
+      (eta*Q'.ofNat eta.den).num*1
+    rw [Q'.mul_den_cast, Q'.mul_num_cast, Q'.ofNat_den_cast,
+      Q'.ofNat_num_cast]
+    simp only [Int.mul_one, Int.one_mul]
+    simpa only [Int.one_mul] using
+      Int.mul_le_mul_of_nonneg_right hnum (Int.natCast_nonneg eta.den)
+  have hside : Q'.ofNat (side j) ≤ Q'.ofNat (12*side j) := by
+    change (side j : Int)*1 ≤ ((12*side j : Nat) : Int)*1
+    simp only [Int.mul_one, Int.natCast_mul]
+    omega
+  have hsmall : Q'.ofNat eta.den < loss :=
+    ClusteringImpliesGap.lt_of_lt_of_le
+      (afGap_side_gt_at_probe (Q'.ofNat eta.den) start)
+      (Q'.mul_le_mul_of_nonneg_right _ _ _ hside (Q'.le_of_lt (afGap_pos j)))
+  have hsum : loss ≤ (1 : Q')+loss :=
+    Q'.le_trans' _ _ _ (Q'.ge_of_eqv (Q'.eqv_of_eq (Q'.zero_add' loss)))
+      (Q'.add_le_add_right 0 1 loss (by decide))
+  have hlarge : (1 : Q') < eta*(1+loss) :=
+    Q'.lt_of_le_of_lt hden
+      (Q'.mul_lt_mul_of_pos_left heta
+        (ClusteringImpliesGap.lt_of_lt_of_le hsmall hsum))
+  have hpin : (1 : Q')+Q'.ofNat (12*side j)*(1-afNomeSchedule.nome j) ≈
+      (1 : Q')+loss :=
+    Q'.add_eqv_congr_left 1 _ _
+      (Q'.mul_eqv_congr_left _ _ _ (af_one_sub_one_sub (afGap j)))
+  by_cases hfloor : eta ≤ RingNormaliser.qpow (afNomeSchedule.nome j) (12*side j)
+  · have hnecessary :=
+      BF4DyadicWilsonSquareBareTransmissionNecessary.bare_transmission_floor_necessary
+        (afNomeSchedule.nome_pos j) (afNomeSchedule.nome_lt_one j) heta (side j) hfloor
+    have hu : eta*(1+loss) ≤ (1 : Q') := Q'.le_trans' _ _ _
+      (Q'.ge_of_eqv (Q'.mul_eqv_congr_left _ _ _ hpin)) hnecessary
+    exact False.elim (ClusteringImpliesGap.lt_irrefl' 1
+      (ClusteringImpliesGap.lt_of_lt_of_le hlarge hu))
+  · change (RingNormaliser.qpow (afNomeSchedule.nome j) (12*side j)).num *
+      (eta.den : Int) < eta.num *
+        ((RingNormaliser.qpow (afNomeSchedule.nome j) (12*side j)).den : Int)
+    change ¬ eta.num *
+      ((RingNormaliser.qpow (afNomeSchedule.nome j) (12*side j)).den : Int) ≤
+        (RingNormaliser.qpow (afNomeSchedule.nome j) (12*side j)).num *
+          (eta.den : Int) at hfloor
+    omega
+
 end YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory
 
 #print axioms YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory.dyadic_af_core
@@ -528,3 +595,6 @@ end YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory
 #print axioms YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory.afBareHeatLoss_no_uniform_cap
 #print axioms YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory.af_squareLinearHeatBudget_ge_one
 #print axioms YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory.af_exactSquareCredit_negative
+#print axioms YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory.afSquareTransmissionProbeScale
+#print axioms YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory.afSquareTransmissionProbeScale_ge_start
+#print axioms YMGap.Continuum.BF4WilsonAllNomeAFPaddedTrajectory.afSquareTransmission_lt_at_probe

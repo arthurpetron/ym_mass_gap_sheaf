@@ -1,5 +1,18 @@
 # Sorry Ledger
 
+## PROVED cofinal ORIGINAL AF cancellation necessity, OPEN initial fraction (2026-10-08 UTC)
+
+`BF4WilsonAllNomeAFPaddedTrajectory.afSquareTransmission_lt_at_probe`
+produces arbitrarily small bare square-reference transmission at explicit
+cofinal scales. `BF4DyadicWilsonSquareAFSignedCancellation.af_signedCredit_necessary_at_probe`
+then proves E<=c*S requires D>=(1-eta-c)*S for the SAME original source,
+partition and OWN-centered S. `paddedSquare_smallCredit_incompatible`
+prunes simultaneous small-energy/small-credit caps only with explicit S>0
+and eta+c+delta<1. No useful initial fraction, filtered survival, physical
+calibration or canonical atom is discharged. Two focused capped checks,
+permitted gates and independent complete-source review; no full-tree audit,
+new hole/axiom or field change. Evidence: the interacting-response-shape audit.
+
 ## PROVED actual noise derivative / ONE-cross Ward absorption, OPEN signed scaling (2026-10-08 UTC)
 
 - `BF4ExactSlabFixedSpatialRatioNoiseDerivative.ratioNoise_derivative_carrier`
