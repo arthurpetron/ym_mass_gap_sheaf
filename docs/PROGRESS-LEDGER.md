@@ -4,6 +4,20 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## ORIGINAL inserted affine-mask selection (2026-10-08 UTC)
+
+Produced literal degree/parity identity, physical face guard and 72-bit
+charge bound. Every-link even degree iff action XOR charge belongs to the
+existing 128 closed masks. The actual inserted 116-link Haar summand
+vanishes for a nonclosed affine mask. Repeated factors and original heat
+weights survive unchanged. Accepted focused check/19 permitted gates and
+independent full final-source review; no root/tree audit or chart closure.
+A localized classical tactic fallback was rejected and removed by explicitly
+proving both directions of a decidable arithmetic iff. No new hole/input.
+NEXT: actual inner-carrier reduction, then signed charged values with useful
+original cutoff accuracy. Changing-family/physical/Clay obligations stay OPEN.
+Exact evidence: original-moment-pilot feasibility audit.
+
 ## ORIGINAL cutoff accuracy retains nome dependence (2026-10-08 UTC)
 
 Actual tail intervals retain 9*w^8, giving full normalized error
@@ -14,7 +28,7 @@ OLD public statements/guards, BOTH OWN partitions and repeated/shared factors
 remain; cancellation/telescope/limit machinery is reused rather than cloned.
 Two accepted focused capped checks/31 permitted gates, independent final
 source review; no root/tree audit, guard, metric or chart closure. Affine
-selection remains under constructive axiom-gate repair. Charged values,
+selection was subsequently accepted above. Charged values,
 active reduction and all changing-family/physical/Clay claims stay OPEN.
 Exact evidence: original-moment-pilot feasibility audit dated 2026-09-30.
 

@@ -678,7 +678,7 @@ Checked Full source SHA256
 
 Decision: CONTINUE. Chosen small-nome accuracy is now supplied; no need to
 force a higher-cutoff evaluator solely to pay this corridor error. Charged
-values/active reduction remain unpaid. The parallel affine-mask draft is
+values/active reduction remain unpaid. At this checkpoint the parallel affine-mask draft is
 NOT accepted yet: its successful elaboration still reports Classical.choice
 in count_singleton and downstream parity declarations; focused diagnostic
 gates locate it, and a constructive repair is underway. No classical
@@ -686,3 +686,49 @@ quarantine or frontier weakening is authorized or used. DIRECT retention,
 justified changing-family/physical calibration, QFT/every-group and Clay
 remain OPEN. No displayed chart claim changes. Earlier line citations refer
 to their recorded checkpoint source hashes; new citations above are current.
+
+## Observed constructive ORIGINAL inserted affine selection (2026-10-08 UTC)
+
+Accepted leaf `lean/YMGap/Continuum/BF4ExactCutoffOneInsertedMask.lean`:
+
+- `insertionMask:35` is occurrence-list XOR; `insertedFaces:40` preserves
+  every literal face occurrence; `affineMask:46` is original action XOR charge,
+  NOT an integrand action replacement.
+- `inserted_degree_parity:148` and `inserted_totalDegree_parity:172` pin
+  parity of the actual action-plus-insertion degree at every one of 116 links.
+- `inserted_parity_allowed_iff_mem:189` joins actual every-link parity to the
+  existing 128 embedded closed masks, using produced physicality/mask bounds.
+- `exactCutoffOneInsertedHaar_eq_zero_of_affine_not_closed:232` proves literal
+  inserted Haar zero for nonclosed affine masks. This is necessary parity
+  selection, NOT nonzero sufficiency. Repeated [p,p] remains a squared
+  insertion even though its XOR charge is zero. Original heat weights remain.
+
+The first compiling draft was correctly rejected: its private singleton
+bit-count helper depended on Classical.choice. Local gates and a printed
+proof term isolated an arithmetic tactic's fallback while proving an entire
+iff. Explicit decidable equality cases, constrained Boolean simplification
+and introduction of both iff directions remove it. The accepted final
+source uses no classical quarantine, new premise, hole or resource option.
+Preliminary a--f logs are NOT accepted evidence; d was an elaboration repair
+and b/c/e/f exposed the classical dependency. Final g check: exit 0, 0.88s,
+19 gates ALL within {propext,Quot.sound}, no error/warning/sorryAx/choice.
+Complete independent FINAL-source semantic review passes. One 20-GiB worker,
+12-GiB reserve, fresh 88%-free/zero-swap/exclusion preflight. Root import is
+registered only; no root/tree build, audit, guard, metric or large evaluator.
+
+```text
+Accepted log /private/tmp/ym-cutoff-one-inserted-mask-20261008-g.log
+SHA256 e86079fec6d175a1eadf00f1cfa4398a9b511950fbe83be74d51881aa4079672
+Checked final source SHA256
+518a93a9653f88874626fa657a3b5e7eadd7339cce7825251af56418c442a29d
+```
+
+Decision: CONTINUE. Useful fixed-small-nome accuracy and necessary charged
+selection now meet. NEXT is literal inserted H116->H32 reduction for the
+actual inner insertion faces, then signed contractions of the surviving
+action candidates. A closed affine mask z corresponds to action z XOR charge;
+do NOT replace its original popcount/heat weight by that of z. No charged
+value, active reduction, positive response reserve or scaling retention is
+claimed here. DIRECT macroscopic retention or sufficient JOINT original-
+family estimate, continuum survival, physical mass/QFT/every-group and Clay
+remain OPEN. No canonical displayed claim changed; no chart reprint.

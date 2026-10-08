@@ -1,5 +1,22 @@
 # Sorry Ledger
 
+## PROVED original inserted affine-mask selection / OPEN active reduction and charged values (2026-10-08 UTC)
+
+`lean/YMGap/Continuum/BF4ExactCutoffOneInsertedMask.lean:148`,
+`inserted_degree_parity`, and `inserted_totalDegree_parity:172` identify
+actual 116-link total-degree parity with action-mask XOR insertion charge.
+`inserted_parity_allowed_iff_mem:189` reuses the existing 128-mask completeness;
+`exactCutoffOneInsertedHaar_eq_zero_of_affine_not_closed:232` proves actual
+inserted Haar zero outside the criterion. Physicality and mask bounds are
+produced; repeated insertions retain their full degree and polynomial.
+Original heat weights/action factors remain. Accepted focused capped check,
+all 19 public/helper/API gates within {propext,Quot.sound}, independent full
+final-source review. No new hole/axiom/input; root import registered only,
+not built. A rejected classical arithmetic-tactic fallback was removed,
+without quarantine or statement weakening. Active 32-link reduction and
+charged values remain OPEN, as do changing-family retention and physical/
+Clay obligations. Exact evidence/source/log hashes: pilot feasibility audit.
+
 ## PROVED nome-sensitive ORIGINAL cutoff accuracy / OPEN charged values and scaling (2026-10-08 UTC)
 
 `lean/YMGap/Continuum/BF4ExactSlabSmallNomeOneFaceCutoffStability.lean:227`,
@@ -13,9 +30,9 @@ retains BOTH OWN masses and all occurrences; old public statements and
 canonical guards are unchanged. Concrete tail intervals supply every generic
 helper premise; no new analytic input/hole/axiom is introduced. Two accepted
 focused checks/31 permitted gates and independent final-source review; no
-root/tree audit or broad physical claim. The affine-mask leaf is NOT yet
-accepted: its compiled draft contains a prohibited classical dependency
-being repaired. Charged values, active reduction, changing-family retention
+root/tree audit or broad physical claim. At the accuracy checkpoint the
+affine-mask leaf was not accepted; the subsequent constructive repair and
+accepted gates are recorded above. Charged values, active reduction, changing-family retention
 and physical/Clay obligations remain OPEN. Evidence/hashes: pilot audit.
 
 ## PROVED full finite-list normalized cutoff payment and actual inserted degree / OPEN charged values and scaling (2026-10-08 UTC)

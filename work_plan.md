@@ -27,6 +27,26 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED constructive ORIGINAL inserted affine-mask selection (2026-10-08 UTC):
+`CutoffOneInsertedMask.inserted_totalDegree_parity` pins the literal
+selected-action plus insertion OCCURRENCE degree to action-mask XOR charge.
+`inserted_parity_allowed_iff_mem` uses the existing 128 closed masks;
+`exactCutoffOneInsertedHaar_eq_zero_of_affine_not_closed` annihilates the
+actual inserted 116-link Haar summand outside that criterion. Actual face
+physicality and the 72-bit mask bound are produced. Repeated [p,p] cancels
+only in parity, never in its polynomial or degree. All original action
+factors/weights remain. One accepted focused capped check/19 permitted
+public, helper and imported-API gates; independent full final-source review.
+No new axiom, hole, analytic premise, quarantine or resource option.
+NEXT missing proposition: for insertions on the actual inner 24 faces,
+reduce the literal inserted 116-link integrand to the SAME 32-link active
+carrier, including translated action candidates z XOR charge and their
+original weights. No charged H32 value or active reduction is proved here.
+This bounded pilot supports the still-OPEN DIRECT macroscopic retention or
+sufficient JOINT original-family signed-cost/variance estimate; continuum
+survival, calibrated physical gap, QFT/every-group and Clay remain OPEN.
+Exact check/hash evidence: original-moment-pilot feasibility audit.
+
 CHECKED useful nome-sensitive ORIGINAL cutoff accuracy (2026-10-08 UTC):
 `SmallNomeOneFaceCutoffStability.nomeFaceTailInterval` keeps the actual
 9*w^8 head, producing cap (648/71)*w^8*(1/72)^(K-1) at NAMED
@@ -40,10 +60,9 @@ actual observable interval; zero nome gives zero and half nome recovers the
 old cap exactly. This removes the chosen small-nome accuracy bottleneck,
 not the charged values, active reduction or changing-family retention.
 Two serialized focused capped checks/31 permitted gates and independent
-final-source review pass; no root/tree audit or chart closure. The parallel
-affine-mask proof is still under axiom-gate repair, not accepted. NEXT:
-constructive charged selection, actual inner-carrier reduction and signed
-contraction with its original weights. DIRECT macro retention, scaling,
+final-source review pass; no root/tree audit or chart closure. The subsequent
+affine-mask selection is accepted above. NEXT: actual inner-carrier reduction
+and signed contraction with its original weights. DIRECT macro retention, scaling,
 physical calibration, QFT/every-group and Clay remain OPEN. Exact evidence:
 original-moment-pilot feasibility audit. Earlier entries are checkpoints.
 
