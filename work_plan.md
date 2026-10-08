@@ -44,6 +44,18 @@ cannot pay the existing absolute cubic loss budget. This is normalization
 currency, not scaling survival or a physical mass gap. Exact evidence and
 bounded quantitative screen: adaptive-score audit. Canonical claims unchanged.
 
+Selection refinement (2026-10-08 23:26 UTC, PAPER/source review): do not
+rebuild the original quartic concentration chain; its pointwise profile,
+Haar certificate, all-later cutoff and OWN-centered signed insertion already
+exist. Higher even moments have no current complete-loss consumer and do
+not pay its surviving quadratic radial-minus-drift term. Likewise the
+produced scalar Ward inequalities alone cannot improve the variance floor
+from order C^-4 to C^-2. Require a new SAME-action signed cancellation or
+direct macro-retention estimate, rather than further normalization algebra.
+Exact source pins and the rational moment obstruction:
+`audits/RESEARCH-2610-09093-2026-10-08.md`, final selection section.
+No new Lean proof, analytic premise or displayed claim results.
+
 CHECKED MAIN original-source contraction (2026-10-08 UTC): the sharper radial
 certificate now reaches the literal ORIGINAL prefix, any selected output
 pair and the full terminal signed Gram. The computed fixed-nome cost is
