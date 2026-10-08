@@ -7307,6 +7307,8 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalScoreGradient
 import YMGap.Continuum.QuaternionHaarReciprocalScoreCorrection
 -- Produced finite reciprocal sign; the actual weight derivative remains.
 import YMGap.Continuum.QuaternionHaarFiniteReciprocalHessianSign
+-- Exact paired trace and finite Ward consumer; signed weight derivatives remain.
+import YMGap.Continuum.QuaternionHaarPairedHessianTrace
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepScoreVariance
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepConditionalEnergy
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepSignedCost

@@ -4,6 +4,122 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Observed paired Ward trace / filtered-family scope (2026-10-08 UTC)
+
+Classification: VERIFIED PROGRESS for the trace; SOURCE-LEVEL MATHEMATICAL
+REVIEW ONLY for the newly composed null-source screen below.
+
+`lean/YMGap/Continuum/QuaternionHaarPairedHessianTrace.lean`:
+`paired_gradient_mixed_pin:80`, `paired_gradient_square_pin:113` are raw
+coefficient identities for two wedges sharing the SAME coordinate vector.
+`paired_second_trace_carrier:172` uses arbitrary-insertion Haar IBP and
+stays at carrier strength; `paired_hessian_trace_carrier:220` therefore
+retains the full signed trace. `finite_reciprocal_paired_hessian_ibp_le:260`
+consumes the ACTUAL successor reciprocal and yields the selected literal
+negative SIX-plane derivative sum. Leading THREE-basis curvature payment
+is not replaced by SIX. No radius identity, inverse or Hessian-sign premise.
+
+Final focused log `/private/tmp/ym-paired-hessian-trace-20261008c.log` PASS;
+five gates exactly {propext, Quot.sound}. Root read the full final source;
+independent mathematical review found no substantive defect. Initial implicit
+trace inference timeout was repaired by explicitly typed intermediate moments
+and explicit carrier parameters, not a limit increase. Failed-check kernel/
+axiom output is not evidence. Checked-source SHA256:
+`e7ccf9b26b6daf0b13f427ef7af66bf29076258975d3babc72112e81ebabf1b1`.
+Fresh capacity preflight before every launch, one 20-GiB worker/12-GiB
+reserve, 87--88% free and zero swap. Root import registered only;
+no broad build/audit/guard or baseline refresh. Broad chart unchanged.
+
+### Null-source review and the actual required quantifiers
+
+This is a PAPER DERIVATION from the cited APIs, not a newly checked theorem.
+For width one, n=1,r=0 and incoming/outgoing degrees ONE, source review
+predicts Vbar equivalent to 1 and A equivalent to 1 under supported Haar
+tests, while the FULL spatial V remains unchanged. The finite incoming
+phi_1 is alpha_in*originSource on that carrier, alpha_in>0. Thus its matched
+noise is alpha_in^2 times the old noise; angular A derivatives vanish and
+the Ward correction is zero. The remaining three C*noise upper payments
+are positive although the actual score and complete signed bulk are zero.
+This prevents inferring an arbitrary-source surviving cap from the new upper
+bound; it does NOT refute the bound itself.
+
+Source pins checked by read-only review:
+
+- `lean/YMGap/Continuum/BF4ExactSlabWidthOneGeometry.lean:75`,
+  `activeSpatialFaces_one`;
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialActiveSpatialWeight.lean:140`,
+  `spatialFringeMass_haar_active`;
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialActiveTransfer.lean:87`,
+  `original_transfer_haar_active`;
+  `lean/YMGap/Continuum/SU2QuaternionProductHeatConstant.lean:59`,
+  `productMap_one`.
+- `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFringeFaceTransfer.lean:133`,
+  `spatial_fringe_face_moment`, and
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyVarianceWard.lean:64`,
+  `marginalMoment_pin`, supply the OWN-center identification in the review.
+- `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialNoiseSurvivalObstruction.lean:253`,
+  `origin_weighted_noise_positive`, and
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLastStepNullScore.lean:198`,
+  `origin_exactScoreAngularBudget_zero`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLastStepNullScore.lean:208`,
+  `origin_exactScoreSignedBulk_zero`, are the existing positive-noise and
+  zero-ACTUAL-score/bulk facts. These are not themselves the new phi_1 pin.
+
+The scope check changes the next target, not a canonical field:
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLastStepNullScore.lean:181`,
+`origin_transmitted_null`, annihilates this
+particular incoming source after one transfer. Further filtering r>=1 then
+annihilates its incoming numerator, finite phi_k and matched noise on the
+carrier; that propagation is part of the paper review, not a new proof.
+Do not confuse the historical accumulated blockNoise with this matched
+reconstructed noise. No counterexample on the filtered range is established.
+
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSourceRayleighPersistence.lean:266`,
+`sourceRayleigh_floor_persists`, CONSUMES an initial floor (it produces
+neither a positive floor nor a positive initial norm).
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLocalEnergyTransport.lean:224`,
+`original_block_cost_le_initial_energy`, similarly consumes its useful
+initial-energy fraction. Both allow zero filter length in their statements.
+The actual backward consumer is
+`lean/YMGap/Continuum/BF4WilsonAllNomeWindowSignedCost.lean:245`,
+`original_window_budget_macro_ratio`: its hbudget concerns the eventual
+literal original window, not a universal arbitrary-source noise cap.
+
+Decision: target the literal filtered, OWN-centered padded source and complete
+signed cost along its justified family, preserving initial floor/energy
+obligations as OPEN. Do not reinstate the refuted universal cap, extrapolate
+the r=0 witness to later filters, or treat the source-specific producer as
+supplied. The actual spatial/noise Ward derivative, incoming errors and BOTH
+Taylor remainders still need their useful combined estimate. All physical/
+continuum/OS/full QFT/every-group/Clay claims remain OPEN; no chart reprint.
+
+## Selected trace join and decisive null-source screen (2026-10-08 UTC)
+
+Trace proposition: the mixed paired-gradient product is the SIX-plane
+product at raw coefficient strength, by bilinear polarization of two
+decomposable wedges sharing the SAME coordinate vector. Haar IBP under
+arbitrary insertions then identifies the THREE paired second trace with
+the SIX-plane second trace at carrier strength. Together these identify
+the entire signed Hessian trace. Consumer: the current matched THREE-row
+Gram payment and the checked one-plane finite reciprocal Ward estimate;
+leading curvature cost stays THREE, not SIX. No radius premise or
+self-coordinate padding collapse. A bounded reviewer leaf is inspected in
+full by root and checked with fresh capacity preflight, one 20-GiB worker,
+12-GiB reserve; no broad build or options increase.
+
+Decisive screen selected in parallel: re-use the ACTUAL width-one null
+source, but first pin the finite reconstructed phi rather than substituting
+the older noise witness. A valid signed upper estimate need not be a useful
+surviving-norm cap. Check the original incoming k=1 and outgoing l=1,
+and retain full spatial V (not Vbar) in original marginal/OWN-center pins.
+No sign/relative bound is claimed before those identities are verified.
+
+Bounded consumer extension: apply the signed trace equality at literal
+F*G^2, distribute the SIX-plane signed trace coefficientwise and sum the
+already proved one-plane Ward inequalities. The new paired upper bound
+retains the NEGATIVE SIX-value sum of H[A*G^2*Dij(A)*Dij(F)]. No new
+analytic premise, radius identity or lower-floor inverse is used.
+
 ## Observed SAME global exact-score consumer (2026-10-08 UTC)
 
 Classification: VERIFIED PROGRESS, no broad chart closure. In

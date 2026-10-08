@@ -72,13 +72,27 @@ feeds the existing global budget with the PRODUCED literal W=Vbar^2*Gout_l^2,
 matching both original output/source pins and keeping incoming k/outgoing l
 independent. Every active signed row remains; no active-count ceiling replaces it.
 
-NEXT join this paired Hessian trace to the finite Ward estimate at the
-ACTUAL weight F=Vbar^2*N. Keep the leading cost multiplicity
-THREE, incoming errors and BOTH signed Taylor remainders. The derivative
-J(Vbar^2*N) still needs useful control in the SAME surviving form on a
-justified width/cutoff/scaling family. No positivity/window or automatic
-Hessian-sign shortcut supplies that missing analytic bound. Evidence and
-exact remaining consumer are in the adaptive audit.
+The paired-to-SIX-plane Ward trace is now CHECKED:
+`QuaternionHaarPairedHessianTrace.paired_gradient_mixed_pin` is the raw
+shared-coordinate wedge polarization. `paired_second_trace_carrier` and
+`paired_hessian_trace_carrier` retain arbitrary-insertion Haar strength;
+`finite_reciprocal_paired_hessian_ibp_le` bounds the actual reciprocal
+paired trace by the literal NEGATIVE six-plane derivative sum. No radius
+premise, exact inverse, sixfold curvature cost or missing sign is assumed.
+
+NEXT control the complete signed cost on the literal filtered, OWN-centered
+source and justified scaling family: keep THREE leading curvature payments,
+the actual J(Vbar^2*N), incoming errors and BOTH signed Taylor remainders.
+Do not require a universal arbitrary-source noise/surviving cap. Parallel
+source-level screening finds the width-one null witness at unfiltered r=0
+can still leave a positive Gram/Ward upper payment, while r>=1 filtering
+annihilates that particular incoming source and matched noise. Those newly
+composed screen statements are not yet a Lean theorem; neither supplies
+a counterexample to the later filtered growing-window route. Existing
+Rayleigh persistence consumes an INITIAL floor, it does not produce one.
+No canonical field is weakened or initial energy bound assumed as solved.
+The signed surviving-form producer remains OPEN; evidence and exact
+consumer scopes are in the adaptive audit.
 The generic sign-dropping shortcut is now independently REFUTED by
 `SU2QuaternionWeightedHessianSignObstruction.weightedHessian_positive`:
 an actual square weight and strict marginal windows give correction 1/12>0.

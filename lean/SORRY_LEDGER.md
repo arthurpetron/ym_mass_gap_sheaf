@@ -1,5 +1,34 @@
 # Sorry Ledger
 
+## PROVED paired Hessian / finite Ward trace join, OPEN useful filtered-family bound (2026-10-08 UTC)
+
+- `QuaternionHaarPairedHessianTrace.paired_gradient_mixed_pin` and
+  `paired_gradient_square_pin` prove the exact shared-coordinate wedge
+  polarization at coefficient strength. `paired_second_trace_carrier`
+  uses arbitrary-insertion Haar IBP; the result stays at carrier strength,
+  not a false raw padding identity. `paired_hessian_trace_carrier` joins
+  the entire signed paired trace to the SIX original angular planes.
+- `finite_reciprocal_paired_hessian_ibp_le` consumes the actual successor
+  reciprocal and its produced favorable correction, retaining the NEGATIVE
+  SIX-value sum of literal H[A*G^2*Dij(A)*Dij(F)]. No lower-floor inverse,
+  radius premise, sign hypothesis, F support or sixfold curvature cost.
+- OPEN: useful complete signed-cost/surviving-form estimate on the literal
+  filtered, OWN-centered source and justified scaling family. Three leading
+  curvature payments, actual spatial/noise derivatives, incoming corrections
+  and BOTH Taylor remainders remain. Source-level null screening is not a
+  newly checked counterexample; do not demand an unnecessary universal cap
+  or infer failure on later filtered windows. Initial Rayleigh/energy inputs
+  remain inputs. All physical/continuum/OS/QFT/every-group/Clay claims OPEN.
+- Final focused target passes five gates exactly {propext, Quot.sound};
+  root and independent complete-source review find no substantive defect.
+  One implicit trace-inference timeout was repaired with explicit types,
+  not options/limit increases. No source sorry/new axiom/classical/native
+  shortcut or canonical field weakening. Fresh preflights, one 20-GiB
+  worker/12-GiB reserve, 87--88% free and zero swap. Root import registered
+  only; no full build/audit/guard, baseline refresh or broad chart closure.
+
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 ## PROVED matched signed payment into ORIGINAL global score budget / OPEN Ward and surviving-form bound (2026-10-08 UTC)
 
 - `BF4ExactSlabFixedSpatialTerminalSignedScorePayment.original_lastStep_terminal_signed_score_payment_le`

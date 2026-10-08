@@ -40,8 +40,11 @@ angular plane, retaining the actual weight derivative.
 now supplies the literal global budget with three paired signed payments
 per active row and six original reconstruction errors, at PRODUCED
 Vbar^2*Gout_l^2 weight; incoming k/outgoing l remain independent.
-The paired Ward trace join and useful signed spatial/noise scaling control
-remain NEXT. Seven prior
+`QuaternionHaarPairedHessianTrace.finite_reciprocal_paired_hessian_ibp_le`
+now joins the THREE paired Hessian trace to that signed SIX-plane Ward
+sum at arbitrary literal Haar insertions, without a sphere premise or
+sixfold curvature cost. Useful complete signed-cost control on the actual
+filtered/scaling family remains NEXT. Seven prior
 focused targets/22 gates plus one marginal-jet
 target/six permitted gates; root imports registered, not root-built; no
 full-tree audit.
