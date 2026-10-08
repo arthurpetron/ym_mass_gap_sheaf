@@ -10,7 +10,18 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Latest mathematical contraction (2026-10-07 local):** the signed conditional
+**Latest original-action contraction (2026-10-07 local):** the signed Gram
+now bounds the **actual two-source transfer score** under the **full original
+one-step action**. The zero-mean residual gives
+`H(R*T1*score²) <= H(R*residual_variance*(T1*G-D²))` without a source quotient
+or an extra marginal multiplier. Local curvature is produced at the output
+block; all other kinetic factors, spatial interaction and lifted unit remain
+in the produced certified density. The signed Fisher term is still a jet
+moment: its marginal-derivative pin and useful scaling control remain next.
+Seven focused targets/22 permitted gates; no full-tree audit or physical gap.
+See the [exact checked result and next producer](audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md).
+
+**Supporting mathematical contraction (2026-10-07 local):** the signed conditional
 jet Gram now reaches the **original heat prefix** with one shared surviving
 tail. A three-replica square identity, exact moment integration and produced
 positive kernel windows give `H(R*S^2) <= H(R*N*(A*G-D^2))`, retaining the

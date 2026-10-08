@@ -16,7 +16,21 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
-**Checked conditional ORIGINAL-prefix jet Gram (2026-10-07 local):**
+**Checked FULL original-action local signed Gram (2026-10-07 local):**
+`BF4ExactSlabFixedSpatialLocalSignedGram.lastStep_local_signed_gram` joins
+the actual zero-mean paired residual to its ORIGINAL transfer score, for
+arbitrary lower-supported a,c and frozen output coefficients. The produced
+local curvature is recoded to the output endpoint; the produced spectator
+density retains every other kinetic factor, spatial action and literal lifted
+unit. The output is H(R*T1*score^2)<=H(R*I(W*X^2)*(T1*G-D^2)), with no source
+quotient, marginal inverse, extra marginal multiplier or Hessian-sign premise.
+G/D remain precomputed local jet moments; their frozen T1 derivative pins and
+useful signed scaling control remain NEXT. Seven focused targets/22 printed
+permitted gates; root imports registered, not root-built; no full-tree audit.
+All completed OS/physical/scaling/survival/QFT/every-group/Clay claims remain
+OPEN. Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
+**Supporting checked conditional ORIGINAL-prefix jet Gram (2026-10-07 local):**
 `SU2QuaternionConditionalSignedGramOrder.conditional_signed_score_bound`
 retains the signed second-jet moment and negative score-mean square after
 exact shared-tail three-replica integration and actual kernel-window reflection.

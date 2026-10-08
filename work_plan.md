@@ -27,6 +27,34 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+The FULL ORIGINAL-action local signed score Gram is now CHECKED:
+`BF4ExactSlabFixedSpatialLocalSignedGram.lastStep_local_signed_gram`.
+For arbitrary lower-supported a,c and supported frozen output u, use the
+existing actual paired residual X=lift(Ta)*c-lift(Tc)*a. Its mean zero is
+produced. At each selected active output block the result is
+H(R*T1*score^2)<=H(R*I(W*X^2)*(T1*G-D^2)). Curvature/windows are produced
+on the local ORIGINAL heat packet; the produced density q retains every
+other kinetic factor, the spatial action and literal lifted unit. Its selected
+output independence and q*P=W are proved, not analytic premises. All nine
+ordered jets and coefficients use the same supported chart/inverse.
+No c=a*phi, source positivity, marginal inverse, extra marginal multiplier,
+dimension/volume cost penalty or Hessian-sign assumption. Seven focused
+targets/22 permitted gates; no full-root/tree audit or broad chart closure.
+
+NEXT pin D/G to the frozen first/ordered-second differential jets of T1
+by q's proved output independence, twice the existing head-derivative
+commutation and lifted-coefficient pull-through. This is a finite algebraic
+join with available inputs, NOT an ordinary variable-coefficient vector-field
+square. Then seek useful control of the SAME signed Fisher/noise expression
+in the existing exact-score budget with width/cutoff/scaling parameters;
+that analytic control is not supplied by the Gram. The marginal here is
+T1, not Ta. Independent survival, completed OS, physical time/volume control,
+SAME limiting QFT, every-group and Clay remain OPEN. The measurement note
+already incorporated below supplies no numerical premise for these joins.
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
+The supporting checkpoints below retain their earlier verification boundaries.
+
 The FULL frozen-direction ORIGINAL-prefix matrix is now CHECKED:
 `SU2QuaternionPairedFrozenHeatPrefixCurvature.prefix_frozen_curvature_certificate`
 uses all nine actual ordered mixed jets, including both literal signed
@@ -61,21 +89,12 @@ independence premise. Actual prefix curvature/windows are PRODUCED, not
 assumed. Eight focused targets/35 permitted gates, including eight existing
 regressions. This concerns PRECOMPUTED jets, not yet derivatives of A.
 
-NEXT arbitrary-block/product recoding as actually needed by the ORIGINAL
-conditional score; retain the integrated Hessian and negative score-mean
-square in its signed Gram, rather than demand a nonpositive Hessian.
-For a justified source law the target is S^2<=Noise*(C*R*A^2+A*F2(A)-F1(A)^2).
-Coefficients and actual source derivatives must pull through the SAME head
-integration. The integrated kernel reflection and marginal-spectator Gram
-are now constructed; the full interacting action and marginal-derivative
-identifications are not. For arbitrary c, do not silently
-write phi=c/a: retain the existing reconstruction/error join. A free heat
-marginal supplies neither the missing sign nor these identifications.
-Retain every original action factor and signed correction; no assumed-bound
-wrapper. All useful scaling, independent
-survival, completed OS, physical/volume, SAME QFT, every-group and Clay
-requirements remain OPEN. No full-root/tree audit or broad chart closure.
-Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+The subsequent local residual experiment is now checked as reported above.
+It avoids c=a*phi and whole-product tensorization for THIS local bound, not
+every later source/error comparison. Retain the negative score-mean square
+and integrated Hessian rather than requiring a nonpositive Hessian. A free
+heat marginal cannot replace T1. The current next producer and genuine
+analytic residue are specified at the top, not in these historical checkpoints.
 
 The user lattice-measurement note is reconciled in
 `audits/RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md`. It guides physical
@@ -107,7 +126,8 @@ multiplies threeSquare(u), with no dimension penalty. Coefficients are frozen,
 not differentiated; this is not the square of a variable vector field.
 Three further focused leaves/11 permitted gates checked.
 
-NEXT transport the full frozen matrix to the ORIGINAL prefix. Reuse the
+The planned next step at that earlier checkpoint was transport of the full
+frozen matrix to the ORIGINAL prefix (now checked above). Reuse the
 value/first/mixed deficits for EVERY ordered paired entry and the existing
 polynomial matrix envelope; three-slot zero-padding in its six-column API
 pays factor SIX, not one. Absorb that conservative factor in precision/onset,

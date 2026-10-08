@@ -1,5 +1,43 @@
 # Sorry Ledger
 
+## PROVED original-action local signed score Gram / OPEN useful signed scaling control (2026-10-08 UTC)
+
+- `SU2QuaternionPairedFrameAt.chain_pairedDerivativeAt` and
+  `chain_pairedSecondAt` transport the same literal paired first/all nine
+  ordered second generators in the supported Haar carrier.
+- `SU2QuaternionPairedHeatAtFrozenCurvature.heatAt_frozen_curvature_certificate`
+  produces the original heat packet's full frozen curvature at any distinct
+  selected pair's FIRST endpoint, with the unchanged fixed-nome cost/onset.
+  The entire polynomial direction is charted, never differentiated.
+- `BF4ExactSlabFixedSpatialLocalOutputDensity.localOutputDensity_certificate`,
+  `localOutputDensity_independent`, `localOutputDensity_action_pin` produce
+  positivity, selected-output independence and coefficient-exact full-action
+  reconstruction. Every other kinetic factor, spatial weight and lifted unit
+  remains. No assumed spectator-independence or supplied curvature input.
+- `BF4ExactSlabFixedSpatialLastStepPairedScorePin.paired_score_integral_pin`
+  and `BF4ExactSlabFixedSpatialLocalPairedScorePin.local_frozen_score_integral_pin`
+  identify the actual original two-source score, without c=a*phi.
+- `SU2QuaternionConditionalZeroMeanSignedGram.conditional_zero_mean_signed_score_bound`
+  specializes the determinant without the extra marginal multiplier.
+- `BF4ExactSlabFixedSpatialLocalSignedGram.lastStep_local_signed_gram` joins
+  these producers to H(R*T1*score^2)<=H(R*I(W*X^2)*(T1*G-D^2)). Original
+  mean zero is proved, not a premise. Arbitrary supported incoming a,c and
+  frozen output u are allowed; R needs only its certificate. No division,
+  positivity of a/c, strict noise or nonpositive Hessian is assumed.
+- OPEN: G/D's frozen differential identification with T1, useful signed
+  Fisher/noise control with width/cutoff/scaling budgets, original source/error
+  joins as actually required, independent continuum survival, completed OS,
+  physical time/volume, SAME limiting QFT, every compact simple group and Clay.
+  The marginal is T1, NOT Ta. The current estimate is finite, not a gap.
+- Seven final focused targets/22 printed gates in {propext, Quot.sound}.
+  No source sorry/custom axiom/classical/native shortcut or field weakening.
+  Independent mathematical review found no substantive defect. Fresh dynamic
+  preflight at every launch; one 20-GiB worker/12-GiB reserve, 87--88% free,
+  zero swap. Root imports registered, not root-built; no full-tree audit or
+  broad chart closure. No baselines refreshed.
+
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 ## PROVED shared-tail conditional ORIGINAL-prefix jet Gram / OPEN full interacting score (2026-10-08 UTC)
 
 - `QuaternionHaarClearedThreeGram.cleared_replica_certificate` constructs

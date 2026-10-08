@@ -4,6 +4,141 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Observed next experiment: FULL original-action local signed Gram
+
+Classification: VERIFIED PROGRESS (2026-10-08 UTC). The selected local
+residual route below now supplies an actual original-action instance, not
+only a generic conditional consumer. Put I=partialHaarHeads N, W the literal
+halfOpenAction 1, A0=T1, A=Ta, b=Tc, X=lift(A)*c-lift(b)*a. At a selected
+active output slot s, use the paired frame at N+s and frozen lifted output
+coefficients u. Then
+
+```text
+P=heatAt(N+s,s), q=remaining kinetic factors*(spatialWeight*liftN(1));
+q*P = W, I(W*X)=0;
+d=sum_i liftN(u_i)*J_i(P);
+ddAug=sum_ij liftN(u_i)*liftN(u_j)*J_i(J_j(P)) + C*|liftN(u)|^2*P;
+D=I(q*d), G=I(q*ddAug), V=I(W*X^2);
+score=sum_i u_i*(A*J_i(b)-b*J_i(A));
+H_N(R*A0*score^2) <= H_N(R*V*(A0*G-D^2)).
+```
+
+The selected packet is reversed ONLY by the checked coefficient symmetry.
+The entire direction, all first and all nine ordered second jets travel
+through the same explicit pair chart. The reverse certificate uses supported
+Haar-carrier inverse transport, not raw coefficient equality of padded caps.
+The same `prefixCurvatureCost(w)` and `prefixFrozenCurvatureCutoff(w)` are
+retained. No dimension, volume, direction or inverse-floor loss enters the
+cost; its nome dependence is explicit, NOT a near-one/scaling-uniform claim.
+
+The full density is produced positive at the original head cutoff. Its
+selected-output independence uses the original active-list nodup, and its
+coefficient-exact reconstruction preserves every other kinetic factor, the
+complete spatial weight and lifted unit. Arbitrary lower-supported a,c need
+no positivity or quotient representation. The existing actual mean-zero pin
+supplies the determinant specialization, without an extra marginal multiplier.
+R has only its certificate, no support/independence premise. Zero and
+proportional sources are admitted; no strict noise hypothesis is used.
+
+### Exact checked declarations and verification boundary
+
+| Produced declaration | Final source | Passing focused log |
+| --- | --- | --- |
+| `pairedDerivativeAt_supported/carrier`, `chain_pairedDerivativeAt`, `chain_pairedSecondAt` | `lean/YMGap/Continuum/SU2QuaternionPairedFrameAt.lean:59`, `:71`, `:105`, `:126` | `/private/tmp/ym-paired-frame-at-20261008c.log` |
+| `frozenCurvatureAt_supported`, `chain_frozenCurvatureAt`, `heatAt_frozen_curvature_certificate` | `lean/YMGap/Continuum/SU2QuaternionPairedHeatAtFrozenCurvature.lean:72`, `:116`, `:170` | `/private/tmp/ym-paired-heat-at-curvature-20261008b.log` |
+| `zero_mean_momentDeterminant_pin`, `conditional_zero_mean_signed_score_bound` | `lean/YMGap/Continuum/SU2QuaternionConditionalZeroMeanSignedGram.lean:39`, `:96` | `/private/tmp/ym-zero-mean-gram-20261008.log` |
+| `lastStepAction`, `action_integral_pin`, `plane_score_integral_pin`, `paired_score_integral_pin` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLastStepPairedScorePin.lean:54`, `:58`, `:122`, `:159` | `/private/tmp/ym-last-step-paired-score-20261008c.log` |
+| `localOutputDensity_supported/certificate/independent/action_pin` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLocalOutputDensity.lean:69`, `:79`, `:89`, `:102` | `/private/tmp/ym-local-output-density-20261008.log` |
+| `local_paired_score_integral_pin`, `local_frozen_score_integral_pin` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLocalPairedScorePin.lean:139`, `:196` | `/private/tmp/ym-local-paired-score-20261008b.log` |
+| `lastStep_local_signed_gram` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLocalSignedGram.lean:114` | `/private/tmp/ym-local-signed-gram-20261008c.log` |
+
+Seven final focused targets/22 printed gates, all within {propext, Quot.sound}.
+Root inspected complete final sources; independent mathematical review found
+no substantive defect. No source sorry/custom axiom/classical/native shortcut,
+frontier weakening or baseline refresh. Early checks failed missing namespace
+opens, an incompletely rewritten chart product, a misassociated transitivity
+chain and unfolding of large action definitions. Local irreducibility of the
+existing action factors resolved the deterministic heartbeat timeout without
+raising memory or heartbeat limits. Failed-check outputs are not evidence.
+
+Every launch had a fresh dynamic process/memory/swap preflight. One capped
+20-GiB worker, 12-GiB reserve, 87--88% free and zero swap; all checks finished
+in their initial calls. Root imports are registered, NOT root-built. No
+full-tree audit/build/guard or broad chart closure was run/claimed.
+
+Final checked-source SHA256:
+
+- `SU2QuaternionPairedFrameAt.lean`: `bde06a8062e1b83ce367b36d02a4afad40e8b54e9f0c9f1a15c7b40d15e24b8f`
+- `SU2QuaternionPairedHeatAtFrozenCurvature.lean`: `c58f0c2e3fb2d3203d210b1ef30a71e8354cb9c1c4f0e8b944bf1623e5307e92`
+- `SU2QuaternionConditionalZeroMeanSignedGram.lean`: `5bbc4b3d0e922f579d3f88ce8a697167ce8c891cba32b6088ddecb3aec5abcfb`
+- `BF4ExactSlabFixedSpatialLastStepPairedScorePin.lean`: `dcb128c072a64a483df6c2d513ff0bb2f26cf3187d5cd186dadd57d84fde42e6`
+- `BF4ExactSlabFixedSpatialLocalOutputDensity.lean`: `4dbb76ac287d19004b88385357fd7b02015566397a85b4d46639175a7371b217`
+- `BF4ExactSlabFixedSpatialLocalPairedScorePin.lean`: `ee0b8127fb300b2203cb3f2611b5723be34f5e7e1e32384636836ebfa3668317`
+- `BF4ExactSlabFixedSpatialLocalSignedGram.lean`: `b834092ba717df62aeecc11b3eef87568069b14f4292bb107fa6771b86a19925`
+
+### Decision: continue, with a smaller finite residue and an OPEN analytic one
+
+The action, source score and arbitrary-block curvature join selected below
+is now constructed. D/G remain PRECOMPUTED local jet moments; no declaration
+in this increment pins them to frozen derivatives of T1. The next finite
+producer should prove D=firstJet(u,J(T1)) and
+G=quadraticForm(u,J_i(J_j(T1)))+C*threeSquare(u)*T1. Existing output
+independence, exact action pin, head-derivative commutation (twice) and
+lifted-coefficient pull-through supply the inputs. This is NOT the square of
+a variable-coefficient vector field, which would differentiate u.
+
+Then the genuinely missing estimate is useful control of the SAME signed
+Fisher/noise expression in the existing exact-score budget, with its actual
+source/error, width, cutoff and scaling parameters. The Gram does not
+produce that control or an every-state gap. The marginal is T1, NOT Ta.
+Independent survival, completed OS, physical time/volume, SAME limiting QFT,
+every compact simple group and Clay remain OPEN. The canonical displayed
+claims did not change, so there is no chart reprint.
+
+## Selected next experiment: original centered residual, local output frame
+
+Decision (2026-10-08 UTC): use the already constructed paired residual
+X=lift(Ta)*c-lift(Tc)*a under the FULL one-step action W, rather than
+requiring a representation c=a*phi. Its existing head-integral mean is zero.
+The three-moment determinant therefore predicts the sharper cleared bound
+
+```text
+T1*S^2 <= I(W*X^2) * (T1*G-D^2),
+T1=I(W), D=I(frozen first output jet of W),
+G=I(frozen second output jet of W + C*threeSquare(u)*W).
+```
+
+The mean-zero specialization uses `conditional_determinant_nonnegative`,
+not the centered-score consumer that would add another marginal multiplier.
+The existing mean and square pins are in
+`BF4ExactSlabFixedSpatialLastStepScoreVariance`; its local mixed score pin
+is to be exposed for the actual paired output frame. This preserves arbitrary
+lower-supported a,c, with no positivity or quotient premise on either source.
+
+Root's remaining experiment is to expose heatAt(s,N+s) as a local factor,
+recode the produced original-prefix curvature to OUTPUT block N+s, and
+retain all other kinetic factors, the spatial action, and the literal lifted
+unit in q. Existing factor selection, certificates and output independence
+are available; no whole-product tensorization is required for this local
+bound. Frozen coefficients stay outside differentiation. The signed Hessian
+is that of T1, NOT Ta, and stays an integrated correction rather than an
+assumed nonpositive input.
+
+Decisive tests: a=0 or c=0; proportional sources; constant frozen direction;
+all nine ordered jets; unique selected active factor; correct output block;
+literal halfOpenAction normalization. Revise if q still depends on that
+output block, if a derivative acts on frozen coefficients, or if the action
+or its unit padding is silently replaced. Verify only focused leaves with
+one capped 20-GiB worker and a fresh dynamic preflight at each launch.
+Sol implements the two bounded algebra/score pins in parallel; root retains
+source review and serialized compilation. This is a selected finite
+experiment, NOT a proved full-action bound or OS/scaling/Clay closure.
+
+The user's lattice-measurement note is already reconciled in
+`RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md` and the live plan. No new
+numerical premise or research branch is needed: the local estimate must still
+meet SAME-operator OS reconstruction, physical time and all-state control.
+
 ## Observed three-replica signed conditional jet Gram (2026-10-08 UTC)
 
 Decision: pursue the polynomial-valued conditional join directly. A rational
