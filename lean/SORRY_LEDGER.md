@@ -1,21 +1,44 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL last-window noise/cost comparison / OPEN relative innovation (2026-10-08 UTC)
+
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalRayleighDrift.lean:228`,
+`futureBlockDrift_bounds`, and `futureBlockDrift_abs_le:297` pay the actual
+boundary drift for arbitrary future block r and supported signed test.
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedPredictionPayment.lean:505`,
+`blockConditionalRatio_noiseCost_abs_le`, proves
+abs(original block loss-Z*ell(blockNoise_d(a,phi_k))) <=(eta+2*mixRate^k)*W*B.
+Both chronological masses, original spatial weight, OWN stage center,
+zero norms/rates and d=0 remain. Exact variance/symmetry/difference split;
+no new analytic premise, norm inverse, stationary law, module, hole, axiom
+or option increase. Focused drift check 2/first combined check PASS; six
+and ten printed gates exactly {propext,Quot.sound}, independent COMPLETE
+FINAL-source reviews PASS. Existing root imports unchanged, no root/tree
+build/audit. The finite comparison is checked; the useful relative innovation
+ceiling and completed-retention consequence remain OPEN/PAPER, respectively.
+Source review permits member-dependent explicit approximation depths before
+scaling; this is not a supplied family reserve or physical rate. Original
+radial/antipodal/deficit control and all physical/QFT/every-group/Clay remain
+OPEN. Exact hashes and next mathematical test: adaptive-score audit.
+Canonical displayed claims unchanged.
+
 ## PROVED joint ORIGINAL signed prediction payment / OPEN relative innovation (2026-10-08 UTC)
 
-`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedPredictionPayment.lean:172`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedPredictionPayment.lean:180`,
 `original_arbitrary_normalized_schur_le`, produces Z*||T^d*r||^2<=S*W*||r||^2
 for every supported signed input, with BOTH actual terminal masses.
-`original_signed_prediction_square_le:248` produces the square contraction
+`original_signed_prediction_square_le:256` produces the square contraction
 of W*Id-Z*T^(2*d), without imposing its positivity. The EXISTING computed
 fixed-nome/width quarter-tolerance onset supplies S<=2.
-`blockConditionalRatio_signedPrediction_abs_le:341` pays the ACTUAL reciprocal
+`blockConditionalRatio_signedPrediction_abs_le:349` pays the ACTUAL reciprocal
 correction by 2*mixRate^k*W*B, retaining cancellation across all four crosses.
 Produced multiplier/reconstruction bounds; zero norm/rate and d=0 remain.
 No new hole, axiom, norm inverse, stationary law, analytic premise or option
 increase. Focused capped check 2/all six gates exactly {propext,Quot.sound};
 independent COMPLETE FINAL-source review PASS. Root registration only, no
 root/tree audit. Ordinary spatially weighted L2, not an OS/gap theorem.
-The full last-window decomposition/retention implication remains PAPER;
+The finite cost/noise join is now checked above; its completed retention
+consequence remains PAPER;
 the actual relative innovation and source-weighted radial/antipodal/deficit
 control on a justified changing family remain OPEN. No scaling-uniform
 onset or physical/QFT/every-group/Clay closure. Exact hashes and residue:
@@ -36,7 +59,8 @@ First focused capped check/all three gates exactly {propext,Quot.sound};
 independent COMPLETE final-source review PASS. Root registration only, not
 a root/tree audit. This ordinary weighted L2 result is not an OS/gap theorem.
 Joint last-window signed-error payment is now checked above, while the full
-decomposition/retention implication remains PAPER. Actual relative
+cost/noise comparison is now checked above; its completed retention
+consequence remains PAPER. Actual relative
 innovation on a justified changing family, original source-weighted radial
 cross/antipodal/deficit control and all physical/QFT/every-group/Clay remain
 OPEN. No canonical displayed claim changes. Exact proof/log hashes and
@@ -58,7 +82,8 @@ character-cutoff polynomial or a full-Haar hemisphere certificate. PAPER
 paired geometry gives a (1-w)-rescaled transverse error <=2*(1-X)*R*h^2;
 original-prefix transport, negative-X payment, SAME-source concentration,
 physical clock/curl and the changing-family signed margin remain OPEN.
-The independent composite last-window noise reduction remains PAPER; the
+The finite last-window noise/cost comparison is now checked above; its
+completed retention consequence remains PAPER. The
 generic arbitrary-input Schur prerequisite is now checked above. Exact proof/log hashes and consumers:
 adaptive-score audit. Continuum/physical/QFT/every-group/Clay and chart unchanged.
 

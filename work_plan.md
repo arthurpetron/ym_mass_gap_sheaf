@@ -27,6 +27,49 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED quantitative ORIGINAL noise/cost join (2026-10-08 UTC):
+previous turn PROGRESS, 2f0ef648 pays the actual signed prediction correction.
+The new unconditional estimate is
+abs(W*ell(b^2)-Z*ell((T^d b)^2)-Z*ell(blockNoise_d(a,phi_k)))
+  <=[eta+2*mixRate^k]*W*ell(b^2),
+a=g_(n+t), b=T^t(g_n*psi), with BOTH actual masses and the existing onset.
+The PRODUCED terminal drift now covers arbitrary future blocks; exact
+weighted symmetry composes it with the checked joint prediction payment.
+No assumed useful innovation/retention estimate, stationary pin or norm
+inverse. Consumer: the actual warmed-source last-window analytic reduction,
+previously PAPER. Observed outcome: turns that surrogate-looking noise
+target into a quantitatively pinned original transfer loss. Zero norm,
+d=0, arbitrary signed sources and changing OWN stage centers remain.
+The +261 lines across the TWO existing leaves are verified by focused
+serialized 20-GiB checks: repaired drift check 2 and first combined check
+PASS; the earlier drift check failed parser layout only. Three attempts
+within budget. All printed gates exactly {propext,Quot.sound};
+complete independent FINAL-source review PASS at both frozen hashes.
+No added analytic premise, new module, root rebuild or scorecard.
+NEXT is an actual relative innovation ceiling, including its signed
+source-weighted radial/antipodal/original-deficit payments, OR actual
+three-moment ratio/overlap evidence for DIRECT retention. No further
+identification or conditional-survival wrapper is selected. Completed
+retention consequence remains PAPER; all Clay requirements remain OPEN.
+Exact declarations, source/log hashes and verification: adaptive-score audit.
+Canonical displayed claims unchanged; no chart reprint.
+
+Limit-order correction from actual source review: fix each nome, width,
+radius-zero expression and finite observation lengths FIRST, then complete
+the original regulator/boundary approximation.
+`originalOwnBlockVariance_converges` and `originalOwnBlockCost_converges`
+preserve its OWN center. Boundary and
+reciprocal moduli may depend on that member; no common depth across the
+scaling family is needed to remove eta and mixRate^k. The innovation reserve
+and physical rate still need justified family control. Exact declarations
+and the weaker eventual-in-stage analytic target: adaptive-score audit.
+For DIRECT retention, reuse the existing shifted-ratio propagation: at
+start=1 only R(0),R(1),R(2) plus a paid ORIGINAL overlap are needed.
+Do not build another Jensen/Bernoulli leaf or require the optional cubic
+precision before testing these three actual moments. Their useful changing
+family inequalities remain unproduced. Already-smoothed sources retain
+their full double-orbit/OWN-center obligations, not a source substitution.
+
 CHECKED signed prediction payment (2026-10-08 UTC): pay
 the FOUR last-window cross terms TOGETHER with C=W*Id-Z*T^(2*d), rather
 than their separate absolute caps. From the actual arbitrary-input terminal
@@ -46,7 +89,8 @@ independent FINAL-source review; all six gates exactly {propext,Quot.sound}.
 No added analytic premise or resource option. Root registration only,
 no root/tree audit. NEXT sufficient analytic input is
 Z*ell(D_phi)<=[1-kappa-eta-2*delta]*W*ell(b^2), at that explicit onset;
-the full last-window decomposition/retention implication remains PAPER.
+the finite cost/noise join is now checked above; its completed retention
+consequence remains PAPER.
 Relative innovation, source-weighted radial/antipodal/deficit control and
 Clay remain OPEN. DIRECT original macro retention remains co-primary.
 Exact source/log hashes and verification boundary: adaptive-score audit.
@@ -114,7 +158,8 @@ terminal drift and signed prediction correction. Drift and reciprocal error
 can be paid in SAME-warmed-norm currency using the generic terminal-Schur
 closure for arbitrary supported error, now checked above. The joint
 signed-error payment is now checked at the explicit fixed-parameter onset;
-the full decomposition/retention implication remains PAPER.
+the finite cost/noise join is now checked above; its completed retention
+consequence remains PAPER.
 The remaining analytic estimate is Z*ell(D_phi)<=
 [1-kappa-eta-2*delta]*W*ell(b^2), not full-history noise;
 eta=comparisonEta(w,width,n+u-1) retains explicit nome/width dependence.

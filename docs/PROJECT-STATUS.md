@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Supporting ORIGINAL last-window noise/cost comparison checked (2026-10-08 UTC):
+the ACTUAL transfer loss differs from cleared conditional innovation by
+at most (comparisonEta+2*mixRate^k)*W*B. General future-block drift and
+the checked signed prediction correction produce this unconditional bound,
+retaining both masses, arbitrary signs/OWN stage center, zero norm and d=0.
+Two focused final checks and complete independent FINAL-source reviews;
+all printed gates permitted, no root/tree audit. The useful relative
+innovation ceiling is OPEN. Source review removes an unnecessary common
+approximation-depth demand: complete each fixed member using its explicit
+moduli, then compare the physical family. This is not a proved family reserve,
+completed-retention limit or OS/physical gap. Canonical displayed claims
+unchanged; no chart reprint. Evidence: adaptive conditional-score audit.
+
 Supporting ORIGINAL joint signed prediction payment checked (2026-10-08 UTC):
 the ACTUAL reciprocal's four cross terms together cost <=2*mixRate^k*W*B,
 replacing the separate-cross PAPER cap 2*mixRate^k*(1+S)*W*B. Produced
@@ -8,7 +21,8 @@ at scale W at the computed FIXED nome/width onset; no positivity of this
 signed operator, norm inverse or analytic premise. Six permitted gates and
 complete independent FINAL-source review; focused capped check 2 only,
 root registration, no tree audit. Relative last-window innovation and its
-changing-family onset/scaling control remain OPEN. This ordinary weighted
+changing-family innovation/scaling control remain OPEN. A common auxiliary
+onset is not required for the fixed-member passage reviewed above. This weighted
 norm is not an OS/physical gap. Canonical displayed claims unchanged;
 no chart reprint. Evidence: adaptive conditional-score audit.
 

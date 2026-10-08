@@ -17,6 +17,8 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalSchurArbitrarySource
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFilteredVarianceComparison
 import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalDrift
 import YMGap.Continuum.BF4ExactSlabFixedSpatialTransferWeightedBound
+import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalNoise
+import YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalRayleighDrift
 import YMGap.Continuum.QuaternionHaarWeightedSquareTriangle
 import YMGap.Constructive.CRealAbs
 
@@ -42,6 +44,11 @@ open YMGap.Continuum.BF4ExactSlabFixedSpatialFilteredVarianceComparison
 open YMGap.Continuum.BF4ExactSlabFixedSpatialBlockMultiplicationDefect (originalBlockTransfer)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalRatio
 open YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalDrift
+open YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalNoise (blockNoise blockNoise_variance_loss)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalRayleighDrift (futureBlockDrift_abs_le)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialTransferStep (transferStep)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialTransferBound (transferStep_add transferStep_smul)
+open YMGap.Continuum.BF4ExactPhysicalCenteredVacuumTransmittedMarginal (partialHaarHeads)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialTransferMixingRate (mixRate mixRate_nonnegative mixRate_lt_one)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialTransferSymmetry (iterateStep_weighted_symmetric)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialMiddlePairing (iterateStep_add)
@@ -51,6 +58,7 @@ open YMGap.Continuum.SU2QuaternionPolynomialHaarCarrier
 open YMGap.Continuum.SU2QuaternionRatPolyDifferential
 open YMGap.Continuum.SU2QuaternionArbitraryHaarRadialPositivity
 open YMGap.Continuum.SU2QuaternionHeadChainComposition (iterateStep_supported)
+open YMGap.Continuum.SU2QuaternionHeadChainComposition (partialHaarHeads_congr)
 open YMGap.Continuum.QuaternionHaarSquareCertificate
 open YMGap.Continuum.QuaternionHaarWeightedSquareTriangle (weighted_square_add_le)
 open YMGap.Continuum.QuaternionHaarAngularCarrier (neg_smul)
@@ -420,6 +428,173 @@ theorem blockConditionalRatio_signedPrediction_abs_le {w : Q'}
         (Q'.mul_eqv_congr_left _ _ _ (block_pair w K width d he hs)) (Q'.neg_mul_eqv _ _)))
   exact Q'.le_trans' _ _ _ (Q'.ge_of_eqv (Q'.abs_eqv_congr hpin)) hab
 
+private theorem block_congr (w : Q') (K width : Nat) :
+    (d : Nat) → {p q : RatPoly} → RatPolyCoeffEqv p q →
+      RatPolyCoeffEqv (originalBlockTransfer w K width d p) (originalBlockTransfer w K width d q)
+  | 0, _, _, h => h
+  | d+1, p, q, h => by
+      change RatPolyCoeffEqv (originalBlockTransfer w K width d (transferStep w K width p))
+        (originalBlockTransfer w K width d (transferStep w K width q))
+      exact block_congr w K width d (partialHaarHeads_congr (N width)
+        ((h.mul_left (spatialWeight w K width)).mul_left (kineticWeight w K width)))
+
+private theorem block_signed_sum (w : Q') (K width : Nat) :
+    (d : Nat) → (p q : RatPoly) → (c : Q') →
+      RatPolyCoeffEqv (originalBlockTransfer w K width d (polyAdd p (polySmul c q)))
+        (polyAdd (originalBlockTransfer w K width d p) (polySmul c (originalBlockTransfer w K width d q)))
+  | 0, _, _, _ => RatPolyCoeffEqv.refl _
+  | d+1, p, q, c => by
+      change RatPolyCoeffEqv (originalBlockTransfer w K width d (transferStep w K width (polyAdd p (polySmul c q))))
+        (polyAdd (originalBlockTransfer w K width d (transferStep w K width p))
+          (polySmul c (originalBlockTransfer w K width d (transferStep w K width q))))
+      exact (block_congr w K width d ((transferStep_add w K width _ _).trans
+        ((RatPolyCoeffEqv.refl _).add (transferStep_smul w K width c q)))).trans
+        (block_signed_sum w K width d (transferStep w K width p) (transferStep w K width q) c)
+
+private theorem pair_difference (w : Q') (K width : Nat) (b p : RatPoly) :
+    pair w K width (polyAdd b (polySmul (-1) p)) (polyAdd b p) ≈
+      pair w K width b b + -(pair w K width p p) := by
+  have hpoly : RatPolyCoeffEqv (polyMul (polyAdd b (polySmul (-1) p)) (polyAdd b p))
+      (polyAdd (polyMul b b) (polyNeg (polyMul p p))) :=
+    (((RatPolyCoeffEqv.refl _).add (neg_smul p).symm).mul (RatPolyCoeffEqv.refl _)).trans
+      (coeffEvalExpr_eqv_of_normalize_eq
+        (.mul (.add (.var 0) (.neg (.var 1))) (.add (.var 0) (.var 1)))
+        (.add (.mul (.var 0) (.var 0)) (.neg (.mul (.var 1) (.var 1))))
+        (by decide) (fun | 0 => b | _ => p))
+  exact Q'.eqv_trans _ _ _ (weightedMass_congr w K width hpoly)
+    (Q'.eqv_trans _ _ _ (weightedMass_add w K width _ _)
+      (Q'.add_eqv_congr_left _ _ _ (Q'.eqv_trans _ _ _
+        (weightedMass_congr w K width (neg_smul _))
+        (Q'.eqv_trans _ _ _ (weightedMass_smul w K width (-1) _)
+          (poly_identity_of_normal_eq (.mul (.const (-1)) (.var 0)) (.neg (.var 0))
+            (by decide) (fun _ => pair w K width p p))))))
+
+private theorem block_difference_pair (w : Q') (K width d : Nat) (b p : RatPoly) :
+    pair w K width (originalBlockTransfer w K width d (polyAdd b (polySmul (-1) p)))
+      (originalBlockTransfer w K width d (polyAdd b p)) ≈
+      pair w K width (originalBlockTransfer w K width d b) (originalBlockTransfer w K width d b) +
+        -(pair w K width (originalBlockTransfer w K width d p) (originalBlockTransfer w K width d p)) := by
+  have hsum : RatPolyCoeffEqv (originalBlockTransfer w K width d (polyAdd b p))
+      (polyAdd (originalBlockTransfer w K width d b) (originalBlockTransfer w K width d p)) :=
+    (block_congr w K width d ((RatPolyCoeffEqv.refl _).add (RatPolyCoeffEqv.one_smul p).symm)).trans
+      ((block_signed_sum w K width d b p 1).trans
+        ((RatPolyCoeffEqv.refl _).add (RatPolyCoeffEqv.one_smul _)))
+  exact Q'.eqv_trans _ _ _
+    (weightedMass_congr w K width ((block_signed_sum w K width d b p (-1)).mul hsum))
+    (pair_difference w K width _ _)
+
+private theorem noise_endpoint_pin (w : Q') (K width d : Nat) {a phi : RatPoly}
+    (ha : SupportedQuaternionBlocks (N width) a) (hphi : SupportedQuaternionBlocks (N width) phi) :
+    weightedMass w K width (blockNoise w K width d a phi) ≈
+      weightedMass w K width (polyMul (polyMul a (originalBlockTransfer w K width (2*d) a)) (polyMul phi phi)) +
+        -(pair w K width (originalBlockTransfer w K width d (polyMul a phi))
+          (originalBlockTransfer w K width d (polyMul a phi))) := by
+  have hsym := iterateStep_weighted_symmetric w K width (2*d)
+    (supported_polyMul ha (supported_polyMul hphi hphi)) ha
+  have hfirst := Q'.eqv_trans _ _ _ hsym
+    (weightedMass_congr w K width (coeffEvalExpr_eqv_of_normalize_eq
+      (.mul (.mul (.var 0) (.mul (.var 1) (.var 1))) (.var 2))
+      (.mul (.mul (.var 0) (.var 2)) (.mul (.var 1) (.var 1)))
+      (by decide) (fun | 0 => a | 1 => phi | _ => originalBlockTransfer w K width (2*d) a)))
+  exact Q'.eqv_trans _ _ _ (blockNoise_variance_loss w K width d ha hphi)
+    (Q'.add_eqv_congr_right _ _ _ hfirst)
+
+/-- Quantitative ORIGINAL block-noise/cost pin for the actual reciprocal.
+The remaining innovation ceiling is NOT assumed or proved by this estimate.
+Both chronological masses, arbitrary signed psi, d=0 and zero norms remain. -/
+theorem blockConditionalRatio_noiseCost_abs_le {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < 1) (K width : Nat) (hK : headCutoff w ≤ K)
+    (n t d : Nat) (hdepth : 1 ≤ n+t)
+    (honset : blockConditionalDriftDepthCutoff hw0 hw1 width (⟨1, 3⟩ : Q') ≤ n+t-1)
+    {psi : RatPoly} (hp : SupportedQuaternionBlocks (N width) psi) (k : Nat) :
+    let a := terminalMessage w K width (n+t)
+    let A := terminalMessage w K width (n+t+d)
+    let b := originalBlockTransfer w K width t (polyMul (terminalMessage w K width n) psi)
+    let phi := blockConditionalRatio hw0 hw1 K width hK n t psi k
+    let Z := pair w K width a a
+    let W := pair w K width A A
+    Q'.abs (W*pair w K width b b +
+      -(Z*pair w K width (originalBlockTransfer w K width d b) (originalBlockTransfer w K width d b)) +
+      -(Z*weightedMass w K width (blockNoise w K width d a phi))) ≤
+      (comparisonEta hw0 hw1 width (n+t-1) + 2*(mixRate hw0 hw1 width)^k) * W * pair w K width b b := by
+  dsimp only
+  let a := terminalMessage w K width (n+t)
+  let A := terminalMessage w K width (n+t+d)
+  let F := terminalMessage w K width (n+t+2*d)
+  let b := originalBlockTransfer w K width t (polyMul (terminalMessage w K width n) psi)
+  let phi := blockConditionalRatio hw0 hw1 K width hK n t psi k
+  let p := polyMul a phi
+  let e := polyAdd b (polySmul (-1) p)
+  let s := polyAdd b p
+  let Z := pair w K width a a
+  let W := pair w K width A A
+  let J := pair w K width a F
+  let B := pair w K width b b
+  let D := pair w K width (originalBlockTransfer w K width d b) (originalBlockTransfer w K width d b)
+  let P := pair w K width p p
+  let Q := pair w K width (originalBlockTransfer w K width d p) (originalBlockTransfer w K width d p)
+  let M := weightedMass w K width (polyMul (polyMul a F) (polyMul phi phi))
+  let eta := comparisonEta hw0 hw1 width (n+t-1)
+  let delta := (mixRate hw0 hw1 width)^k
+  let correction := W*pair w K width e s +
+    -(Z*pair w K width (originalBlockTransfer w K width d e) (originalBlockTransfer w K width d s))
+  have ha := terminalMessage_supported w K width (n+t)
+  have hphi := blockConditionalRatio_supported hw0 hw1 K width hK n t hp k
+  have hW : (0 : Q') ≤ W := Q'.le_of_lt (terminalPair_positive hw0 hw1 K width hK (n+t+d) (n+t+d))
+  have heta := comparisonEta_nonnegative hw0 hw1 width (n+t-1)
+  have hJ : J ≈ W := by
+    simpa only [terminal_block] using block_pair w K width d ha ha
+  have hpn : P ≤ B := Q'.le_trans' _ _ _ (Q'.le_of_eqv
+    (weightedMass_congr w K width (coeffEvalExpr_eqv_of_normalize_eq
+      (.mul (.mul (.var 0) (.var 1)) (.mul (.var 0) (.var 1)))
+      (.mul (.mul (.var 0) (.var 0)) (.mul (.var 1) (.var 1))) (by decide)
+      (fun | 0 => a | _ => phi))))
+    (blockConditionalRatio_surviving_square_le hw0 hw1 K width hK n t hdepth hp k)
+  have hdraw : Q'.abs (J*P + -(Z*M)) ≤ eta*J*P := by
+    have h := futureBlockDrift_abs_le hw0 hw1 K width hK (n+t-1) (2*d) hphi
+    dsimp only at h
+    rw [show n+t-1+1 = n+t by omega] at h
+    exact h
+  have hdrift : Q'.abs (W*P + -(Z*M)) ≤ eta*W*B := by
+    have hpin := Q'.add_eqv_congr_right _ _ (-(Z*M)) (Q'.mul_eqv_congr_right _ _ P hJ)
+    have hpaid := Q'.mul_eqv_congr_right _ _ P (Q'.mul_eqv_congr_left eta _ _ hJ)
+    exact Q'.le_trans' _ _ _ (Q'.ge_of_eqv (Q'.abs_eqv_congr hpin))
+      (Q'.le_trans' _ _ _ hdraw (Q'.le_trans' _ _ _ (Q'.le_of_eqv hpaid)
+        (Q'.mul_le_mul_of_nonneg_left _ _ (eta*W) hpn (Q'.mul_nonneg _ _ heta hW))))
+  have hcorrection : Q'.abs correction ≤ 2*delta*W*B :=
+    blockConditionalRatio_signedPrediction_abs_le hw0 hw1 K width hK n t d hdepth honset hp k
+  have hnoise : weightedMass w K width (blockNoise w K width d a phi) ≈ M + -Q := by
+    simpa only [terminal_block] using noise_endpoint_pin w K width d ha hphi
+  have hsign : correction ≈ W*(B + -P) + -(Z*(D + -Q)) :=
+    Q'.add_eqv_congr'
+      (Q'.mul_eqv_congr_left W _ _ (pair_difference w K width b p))
+      (Q'.neg_eqv_congr _ _ (Q'.mul_eqv_congr_left Z _ _ (block_difference_pair w K width d b p)))
+  have hsplit : W*B + -(Z*D) + -(Z*weightedMass w K width (blockNoise w K width d a phi)) ≈
+      (W*P + -(Z*M)) + correction := by
+    exact Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_left _ _ _ (Q'.neg_eqv_congr _ _ (Q'.mul_eqv_congr_left Z _ _ hnoise)))
+      (Q'.eqv_trans _ _ _ (poly_identity_of_normal_eq
+        (.add (.add (.mul (.var 0) (.var 2)) (.neg (.mul (.var 1) (.var 3))))
+          (.neg (.mul (.var 1) (.add (.var 4) (.neg (.var 5))))))
+        (.add (.add (.mul (.var 0) (.var 6)) (.neg (.mul (.var 1) (.var 4))))
+          (.add (.mul (.var 0) (.add (.var 2) (.neg (.var 6))))
+            (.neg (.mul (.var 1) (.add (.var 3) (.neg (.var 5)))))))
+        (by decide) (fun
+          | 0 => W | 1 => Z | 2 => B | 3 => D | 4 => M | 5 => Q | _ => P))
+        (Q'.add_eqv_congr_left _ _ _ (Q'.eqv_symm hsign)))
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.abs_eqv_congr hsplit))
+    (Q'.le_trans' _ _ _ (ExpNeg.abs_add_le _ _)
+      (Q'.le_trans' _ _ _ (Q'.add_le_add hdrift hcorrection)
+        (Q'.le_of_eqv (poly_identity_of_normal_eq
+          (.add (.mul (.mul (.var 0) (.var 2)) (.var 3))
+            (.mul (.mul (.mul (.const 2) (.var 1)) (.var 2)) (.var 3)))
+          (.mul (.mul (.add (.var 0) (.mul (.const 2) (.var 1))) (.var 2)) (.var 3))
+          (by decide) (fun | 0 => eta | 1 => delta | 2 => W | _ => B)))))
+
+#print axioms pair_difference
+#print axioms block_difference_pair
+#print axioms noise_endpoint_pin
+#print axioms blockConditionalRatio_noiseCost_abs_le
 #print axioms original_arbitrary_normalized_schur_le
 #print axioms square_linear
 #print axioms onset_factor_le_two

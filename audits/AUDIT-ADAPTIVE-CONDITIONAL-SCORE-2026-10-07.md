@@ -4,6 +4,129 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## CHECKED quantitative last-window noise/cost join (2026-10-08 UTC)
+
+Previous goal turn PROGRESS: 2f0ef648 checks the complete signed prediction
+payment. The new UNCONDITIONAL comparison of the actual original cost L
+and cleared last-window innovation Z*ell(N_k):
+
+    abs(L-Z*ell(N_k)) <= (eta+2*q^k)*W*B.
+
+Here a=g_(n+t), b=T^t(g_n*psi), U=T^d, Z=ell(a^2), W=ell((Ua)^2),
+B=ell(b^2), L=W*B-Z*ell((Ub)^2), and N_k=blockNoise_d(a,phi_k).
+The exact split below, original block-noise variance law and checked joint
+prediction supply all algebraic inputs. The finite drift join is
+the original TerminalRayleighDrift argument with terminalComparison(s,2d,0),
+not a new analytic assumption. That bound is now produced on the existing source.
+Retain zero norms, d=0, arbitrary signs and BOTH masses. <=360 added lines
+across the two EXISTING leaves, <=3 root-owned focused capped checks and
+complete final-source review. Observed output: +261 lines, three focused
+attempts within budget, both final checks and COMPLETE independent reviews
+PASS. The useful noise is pinned to the ORIGINAL transfer cost, without
+paying its unknown relative bound or adding an analytic premise.
+
+Exact new public declarations:
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalRayleighDrift.lean:228`,
+`futureBlockDrift_bounds`, and `futureBlockDrift_abs_le:297` supply both
+signed/absolute orders at every future block r, including r=0. At r=2d,
+weighted symmetry pins its mixed mass ell(a*T^(2d)a) to W=ell((T^d a)^2).
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedPredictionPayment.lean:505`,
+`blockConditionalRatio_noiseCost_abs_le`, proves the displayed discrepancy
+bound for the ACTUAL reciprocal, arbitrary supported signed psi and degree k.
+Its checked noise endpoint/difference-of-squares split retains every original
+spatial factor and both chronological masses. Zero norms/rates, d=0 and any
+unchanged rational OWN stage center remain; no inverse norm, stationary pin,
+source overlap, noise ceiling or retention estimate is assumed.
+
+Final drift source (317 lines), SHA256
+`dfa1048c6b2b28b70e0823f89fa03c7d3103f9e4f6f564eee93fe3a5bf9316c5`;
+log `/private/tmp/ym-oct8-future-block-drift2.log`, SHA256
+`9f2aa669516d46c95af1b8b87d0a10912ea5902ddf6d59de6dddb1a16cc127f9`.
+Final combined source (605 lines), SHA256
+`4546e22e6336763f66c16d29940fa1f22f20d4ad9b2c32a99f1864b2810940fc`;
+log `/private/tmp/ym-oct8-noise-cost-pin1.log`, SHA256
+`d39a46e3df8d362093dcc67cb33f1b20552a9eed23aef6da82c299b0167db161`.
+Six drift-file and ten combined-file gates exactly {propext,Quot.sound};
+COMPLETE independent FINAL-source review PASS at both hashes. The earlier
+drift check failed only a leading-negation conjunction parser layout; its
+failed new gates were not accepted. Root parenthesized the statement without
+changing its mathematics; repaired drift and first combined check PASS.
+ONE monitored worker, 20 GiB cap/12 GiB reserve, fresh capacity/process checks,
+87% reported memory headroom and zero swap. Existing root imports unchanged;
+no root/tree build/audit, guard or metric. No new module/hole/axiom/resource
+option. The finite cost/noise join is now CHECKED; completed retention from
+an eventual relative innovation reserve remains PAPER, not an inhabited
+producer. NEXT actual innovation/control OR original three-moment ratio and
+overlap; no further identification/conditional-survival wrapper selected.
+Continuum/physical/QFT/every-group/Clay and canonical displayed claims unchanged.
+
+### Reviewed limit order: approximation onsets need not be family-uniform
+
+Independent read-only source review, not a new Lean closure. Fix nome,
+width, radius-zero expression and finite t,d before completing each member.
+The actual diagonal K=headCutoff(w)+stage and boundary depth stage are controlled by
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialOriginalJointCauchy.lean:57`,
+`jointModulus`, and `originalJoint_diagonal_converges:128`.
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialOriginalJointLimits.lean:79`,
+`originalCutoffExpectation_converges`, and `boundaryTimeLimit_converges_joint:118`
+identify the fixed-member iterated orders with its SAME joint limit.
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonOwnCenterLimit.lean:158`,
+`expressionEndpointMeanThreshold`, is explicit data;
+`expressionOwnMean_converges:225` and `expressionOwn_centeredPair_converges:251`
+keep the moving OWN center. `lean/YMGap/Continuum/BF4WilsonAllNomeOriginalRayleighLimit.lean:130`,
+`originalOwnBlockVariance_converges`, and `originalOwnBlockCost_converges:143`
+reach its completed moments and lag differences.
+
+Consequently eta_stage and q^k may be paid by member-dependent explicit
+depth/reciprocal cutoffs BEFORE the changing-family comparison. A common
+bound on these auxiliary depths is not necessary for THIS passage.
+No limit of phi_k or N_k is needed if only the original cost/variance
+inequality is passed. A sufficient PAPER analytic input is: for every
+rational epsilon>0, eventually in stage, SOME k with 2*q^k<=epsilon has
+
+    Z_stage*ell(N_(stage,k)) <= (1-kappa+epsilon)*W_stage*B_stage.
+
+With eta_stage<=epsilon, the finite reserve is kappa-3*epsilon. Its two
+variance quantities are independent of k; their existing convergence plus
+arbitrary-epsilon order closure would give completed retention. This late
+stage relative innovation bound is NOT produced; neither uniform positive
+kappa, physical rate calibration nor changing-source convergence follows.
+This removes an unnecessary approximation-onset demand, not a Clay field.
+The cited OWN-expression pins carry Within 0. Already-smoothed sources
+retain their full double-orbit/OWN-center joins; they are not silently
+identified with a new radius-zero source.
+The finite cost/noise join is now checked above; the completed retention
+consequence remains PAPER.
+
+### Direct alternative: reuse the three-moment shifted-ratio test
+
+Independent source review: `lean/YMGap/Continuum/BF4WilsonAllNomeResponseLower.lean:117`,
+`response_geometric_lower`, already propagates rho*R(0)<=R(1) without
+a norm inverse or positive floor. More usefully,
+`lean/YMGap/Continuum/BF4WilsonAllNomeBlockResponseLower.lean:129`,
+`response_shifted_block_geometric_lower`, propagates a ratio at ANY start.
+For start=1,step=1, test just the cleared inequalities
+
+    rho*R(1)<=R(2),   alpha*R(0)<=R(1),
+    kappa<=alpha*rho^(N-1),   N>=1, rho,alpha>=0.
+
+They suffice for ORIGINAL source retention R(N)>=kappa*R(0), not retention
+of a replacement normalized state. These are only three ORIGINAL moments;
+the overlap alpha is not free and must be produced. Prefer the existing
+block-Bernoulli consumers to huge rational powers at growing horizons.
+No new Jensen/Bernoulli or moment-wrapper leaf is needed. The useful actual
+changing-family ratio and overlap remain unproduced.
+
+Exact-rational PAPER diagnostic, not a YM instance or Lean certificate:
+two modes with eigenvalues 0 and r=1-1/N and equal weights give
+R(0)=1,R(1)=r/2,R(2)=r^2/2. At N=4,8,16,64, Python Fraction verifies
+the shifted ratio rho=r, overlap alpha=r/2 and macro reserve >=1/8;
+the raw lag-one geometric floor is <1/8 and the cubic truncation is negative.
+This shows why slow-component overlap must be paid separately and why the
+three-moment screen can succeed where raw/cubic certificates fail. It does
+not produce those moments for the original interacting action. The original
+innovation/curvature route remains co-primary; no field is strengthened.
+
 ## CHECKED joint signed prediction payment (2026-10-08 UTC)
 
 Previous turn PROGRESS: 75febcfd supplies arbitrary supported-input Schur.
@@ -38,11 +161,11 @@ norm is NOT an OS quotient or a completed/physical gap theorem.
 
 Observed declarations, all in
 `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedPredictionPayment.lean`:
-`original_arbitrary_normalized_schur_le:172` produces the normalized
-arbitrary-input Schur bound; private `onset_factor_le_two:232` produces
+`original_arbitrary_normalized_schur_le:180` produces the normalized
+arbitrary-input Schur bound; private `onset_factor_le_two:240` produces
 S<=2 from the EXISTING explicit fixed-nome/width cutoff at tolerance 1/4;
-`original_signed_prediction_square_le:248` proves the C-square bound;
-`blockConditionalRatio_signedPrediction_abs_le:341` pays the ACTUAL finite
+`original_signed_prediction_square_le:256` proves the C-square bound;
+`blockConditionalRatio_signedPrediction_abs_le:349` pays the ACTUAL finite
 reciprocal's complete signed correction by 2*mixRate^k*W*B. Both chronology
 masses, supported signed source, m>=1 and original head cutoff stay explicit.
 No inverse norm/error rate, stationary law, source cap, replacement action
@@ -142,7 +265,8 @@ FINAL-source static review PASS at the same hash. One monitored worker,
 Root import registered only; no root/tree audit, guard or legacy metric.
 Interpretation: closes the arbitrary prediction-error transfer join. The
 joint signed prediction payment is now checked above; the full last-window
-decomposition/retention implication remains PAPER. The actual
+cost/noise comparison is now CHECKED above; its completed retention
+consequence remains PAPER. The actual
 changing-family relative innovation and all Clay requirements remain OPEN.
 
 ### PAPER screen: source-weighted concentration is not automatic
@@ -335,8 +459,8 @@ estimate, with that onset, is
 This is an ACTUAL last-window innovation relative to the warmed norm;
 positivity alone cannot pay it. Generic closure is now CHECKED; this
 changing-family analytic estimate remains OPEN, not an assumed survival
-certificate. The composite four-cross payment is CHECKED; the full
-decomposition/retention implication remains PAPER, and full historical noise
+certificate. The composite four-cross payment is CHECKED; the
+completed retention consequence remains PAPER, and full historical noise
 is not needed for this reduction.
 The actual multiplier bound is `blockConditionalRatio_surviving_square_le`
 at `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockConditionalDrift.lean:81`;

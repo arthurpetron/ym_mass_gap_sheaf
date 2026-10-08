@@ -16,6 +16,18 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked ORIGINAL last-window noise/cost comparison (2026-10-08 UTC):**
+`BF4ExactSlabFixedSpatialSignedPredictionPayment.blockConditionalRatio_noiseCost_abs_le`
+pins the actual transfer loss to Z*ell(blockNoise_d(a,phi_k)) up to
+(comparisonEta+2*mixRate^k)*W*B. `TerminalRayleighDrift.futureBlockDrift_abs_le`
+pays arbitrary future blocks. Both masses, all signed/OWN-centered supported
+sources, zero norm and d=0; no assumed innovation or retention bound.
+Two focused final checks/all permitted gates and complete independent
+FINAL-source reviews, no root/tree audit. The relative innovation reserve
+itself remains OPEN. Fixed-member approximation moduli may depend on nome
+and width; a common auxiliary depth is not needed before scaling. Evidence:
+adaptive-score audit. No physical/continuum/Clay closure is asserted.
+
 **Checked ORIGINAL joint signed prediction payment (2026-10-08 UTC):**
 `BF4ExactSlabFixedSpatialSignedPredictionPayment.blockConditionalRatio_signedPrediction_abs_le`
 pays all four actual reciprocal correction crosses TOGETHER by 2*mixRate^k*W*B.
@@ -25,7 +37,8 @@ norm inverse or analytic premise; all six gates exactly {propext,Quot.sound},
 independent complete FINAL-source review, focused check 2 only. Root import
 registered, no full-tree audit. The remaining useful interacting innovation
 bound on the justified changing family is OPEN; the full last-window
-decomposition/retention implication remains PAPER. This ordinary weighted
+cost/noise comparison is now checked above; its completed retention
+consequence remains PAPER. This ordinary weighted
 norm is not an OS quotient/physical gap. Evidence: adaptive-score audit.
 
 **Checked actual noise-derivative / Ward absorption (2026-10-08 UTC):**

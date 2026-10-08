@@ -223,6 +223,92 @@ theorem clearedDrift_abs_le {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < 1)
   Q'.abs_le (clearedDrift_bounds hw0 hw1 K width hK s hpsi).1
     (clearedDrift_bounds hw0 hw1 K width hK s hpsi).2
 
+/-- General future-block terminal drift, with the SAME original weighted
+mass on both endpoint pairings. No inverse, stationarity or sign of phi. -/
+theorem futureBlockDrift_bounds {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < 1)
+    (K width : Nat) (hK : headCutoff w ≤ K) (s r : Nat) {phi : RatPoly}
+    (hphi : SupportedQuaternionBlocks (N width) phi) :
+    let a := terminalMessage w K width (s+1)
+    let F := terminalMessage w K width (s+1+r)
+    let Z := weightedMass w K width (polyMul a a)
+    let W := weightedMass w K width (polyMul a F)
+    let E := weightedMass w K width (polyMul (polyMul a phi) (polyMul a phi))
+    let M := weightedMass w K width (polyMul (polyMul a F) (polyMul phi phi))
+    let paid := comparisonEta hw0 hw1 width s * W * E
+    (-paid ≤ W*E + -(Z*M) ∧ W*E + -(Z*M) ≤ paid) := by
+  dsimp only
+  let a := terminalMessage w K width (s+1)
+  let F := terminalMessage w K width (s+1+r)
+  let Z := weightedMass w K width (polyMul a a)
+  let W := weightedMass w K width (polyMul a F)
+  let E := weightedMass w K width (polyMul (polyMul a phi) (polyMul a phi))
+  let M := weightedMass w K width (polyMul (polyMul a F) (polyMul phi phi))
+  let eta := comparisonEta hw0 hw1 width s
+  let B := terminalComparison hw0 hw1 K width hK s r 0
+  let CA := terminalMessage_certificate hw0 hw1 K width hK (s+1)
+  let S := Certificate.square phi hphi
+  have hZ : (0 : Q') ≤ Z := Q'.le_of_lt
+    (terminalPair_positive hw0 hw1 K width hK (s+1) (s+1))
+  have hE : (0 : Q') ≤ E := weightedMass_nonnegative hw0 hw1 K width hK
+    (Certificate.square (polyMul a phi) (supported_polyMul (terminalMessage_supported w K width (s+1)) hphi))
+  have hW := bracket_mass hw0 hw1 K width hK (multiplyBracket B CA)
+  have hME := bracket_mass hw0 hw1 K width hK (multiplyBracket B (CA.mul S))
+  have hMpin : weightedMass w K width (polyMul (polyMul a (polyMul phi phi)) F) ≈ M :=
+    weightedMass_congr w K width (coeffEvalExpr_eqv_of_normalize_eq
+      (.mul (.mul (.var 0) (.mul (.var 1) (.var 1))) (.var 2))
+      (.mul (.mul (.var 0) (.var 2)) (.mul (.var 1) (.var 1)))
+      (by decide) (fun | 0 => a | 1 => phi | _ => F))
+  have hEpin : weightedMass w K width (polyMul (polyMul a (polyMul phi phi)) a) ≈ E :=
+    weightedMass_congr w K width (coeffEvalExpr_eqv_of_normalize_eq
+      (.mul (.mul (.var 0) (.mul (.var 1) (.var 1))) (.var 0))
+      (.mul (.mul (.var 0) (.var 1)) (.mul (.var 0) (.var 1)))
+      (by decide) (fun | 0 => a | _ => phi))
+  have hlM : B.lower*E ≤ M := Q'.le_trans' _ _ _
+    (Q'.ge_of_eqv (Q'.mul_eqv_congr_left B.lower _ _ hEpin))
+    (Q'.le_trans' _ _ _ hME.1 (Q'.le_of_eqv hMpin))
+  have huM : M ≤ B.upper*E := Q'.le_trans' _ _ _ (Q'.ge_of_eqv hMpin)
+    (Q'.le_trans' _ _ _ hME.2 (Q'.le_of_eqv (Q'.mul_eqv_congr_left B.upper _ _ hEpin)))
+  have hwidth : B.upper + -B.lower ≤ eta*B.lower :=
+    terminalComparison_relative_width hw0 hw1 K width hK s r 0
+  have heta := comparisonEta_nonnegative hw0 hw1 width s
+  have hpay : ((B.upper + -B.lower)*Z)*E ≤ eta*W*E := by
+    have h1 := Q'.mul_le_mul_of_nonneg_right _ _ Z hwidth hZ
+    have h2 := Q'.mul_le_mul_of_nonneg_left _ _ eta hW.1 heta
+    exact Q'.mul_le_mul_of_nonneg_right _ _ E
+      (Q'.le_trans' _ _ _ h1 (Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.mul_assoc_eqv _ _ _)) h2)) hE
+  have hu := Q'.le_trans' _ _ _
+    (difference_upper Z E W M B.lower B.upper hZ hE hW.2 hlM) hpay
+  have hn0 := difference_upper E Z M W B.lower B.upper hE hZ huM hW.1
+  have hn : -(W*E + -(Z*M)) ≤ eta*W*E := by
+    have hleft : -(W*E + -(Z*M)) ≈ M*Z + -(E*W) :=
+      poly_identity_of_normal_eq
+        (.neg (.add (.mul (.var 2) (.var 1)) (.neg (.mul (.var 0) (.var 3)))))
+        (.add (.mul (.var 3) (.var 0)) (.neg (.mul (.var 1) (.var 2))))
+        (by decide) (fun | 0 => Z | 1 => E | 2 => W | _ => M)
+    have hright : ((B.upper + -B.lower)*E)*Z ≈ ((B.upper + -B.lower)*Z)*E :=
+      poly_identity_of_normal_eq (.mul (.mul (.var 0) (.var 1)) (.var 2))
+        (.mul (.mul (.var 0) (.var 2)) (.var 1))
+        (by decide) (fun | 0 => B.upper + -B.lower | 1 => E | _ => Z)
+    exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hleft)
+      (Q'.le_trans' _ _ _ hn0 (Q'.le_trans' _ _ _ (Q'.le_of_eqv hright) hpay))
+  exact ⟨Q'.le_trans' _ _ _ (Q'.neg_le_neg hn) (Q'.le_of_eqv (Q'.neg_neg_eqv _)), hu⟩
+
+/-- Absolute general future-block drift, including r=0 and zero test norm. -/
+theorem futureBlockDrift_abs_le {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < 1)
+    (K width : Nat) (hK : headCutoff w ≤ K) (s r : Nat) {phi : RatPoly}
+    (hphi : SupportedQuaternionBlocks (N width) phi) :
+    let a := terminalMessage w K width (s+1)
+    let F := terminalMessage w K width (s+1+r)
+    let Z := weightedMass w K width (polyMul a a)
+    let W := weightedMass w K width (polyMul a F)
+    let E := weightedMass w K width (polyMul (polyMul a phi) (polyMul a phi))
+    let M := weightedMass w K width (polyMul (polyMul a F) (polyMul phi phi))
+    Q'.abs (W*E + -(Z*M)) ≤ comparisonEta hw0 hw1 width s * W * E :=
+  Q'.abs_le (futureBlockDrift_bounds hw0 hw1 K width hK s r hphi).1
+    (futureBlockDrift_bounds hw0 hw1 K width hK s r hphi).2
+
+#print axioms futureBlockDrift_bounds
+#print axioms futureBlockDrift_abs_le
 #print axioms clearedDrift
 #print axioms clearedDrift_pin
 #print axioms clearedDrift_bounds

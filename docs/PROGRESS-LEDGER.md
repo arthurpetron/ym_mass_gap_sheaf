@@ -4,6 +4,25 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## ORIGINAL last-window innovation is quantitatively pinned to transfer loss (2026-10-08 UTC)
+
+`BF4ExactSlabFixedSpatialSignedPredictionPayment.blockConditionalRatio_noiseCost_abs_le`
+proves abs(original block loss-Z*ell(blockNoise)) <=(eta+2*mixRate^k)*W*B.
+The generalized `TerminalRayleighDrift.futureBlockDrift_abs_le` supplies the
+missing arbitrary-future-block boundary bound; both actual masses and the
+full signed correction remain. Arbitrary supported signed/OWN-centered source,
+zero norms/rates and d=0; no assumed innovation ceiling or retention estimate.
+Focused repaired drift check 2/first combined check PASS, all printed gates
+exactly {propext,Quot.sound}; complete independent FINAL-source reviews.
+No root/tree audit, guard or metric. The finite surrogate-identification
+debt is removed, but the useful relative innovation bound remains OPEN.
+Review also removes a common auxiliary-onset demand: fixed-member completion
+uses member-dependent explicit moduli before scaling. DIRECT retention may
+use the existing three-moment shifted-ratio/paid-overlap screen instead of
+requiring cubic precision; its actual input inequalities are OPEN.
+No additional wrapper selected. Physical/QFT/every-group/Clay and canonical
+displayed claims unchanged. Exact evidence: adaptive conditional-score audit.
+
 ## ORIGINAL signed prediction correction paid jointly (2026-10-08 UTC)
 
 `BF4ExactSlabFixedSpatialSignedPredictionPayment.blockConditionalRatio_signedPrediction_abs_le`
@@ -16,8 +35,10 @@ zero norm/rate and d=0 remain. Focused capped check 2/all six gates exactly
 {propext,Quot.sound}, complete independent FINAL-source review; root
 registration only, no tree audit/guard/metric. NEXT useful estimate is
 Z*ell(D_phi)<=[1-kappa-eta-2*mixRate^k]*W*B on the justified changing
-family. The full last-window decomposition/retention implication is PAPER;
-its innovation and scaling-uniform onset are OPEN. DIRECT original macro
+family. The finite cost/noise join is now checked above; its completed
+retention consequence remains PAPER. The useful innovation reserve is OPEN;
+a common auxiliary onset is not required for fixed-member completion.
+DIRECT original macro
 retention stays co-primary. Physical/QFT/every-group/Clay and canonical
 displayed claims unchanged. Exact evidence: adaptive conditional-score audit.
 
