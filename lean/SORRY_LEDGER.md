@@ -1,5 +1,18 @@
 # Sorry Ledger
 
+## PROVED finite sign-reflection list obstruction / OPEN SAME-law boundary comparison (2026-10-08 UTC)
+
+`BF4ExactSlabSpatialSignReflectionObstruction` proves original spatial and
+temporal face-list nonclosure/no-permutation at every width>=1. The retained
+p12 edge pin and transverse membership iff a>0 isolate a boundary defect,
+not a bulk failure. No action/form inequality, completed-parity impossibility
+or continuum failure is asserted. The naive exact face-permutation lift is
+pruned; normalized lateral-boundary control, full covariance and all physical
+Clay inputs remain OPEN. Final focused check: 17 gates, all permitted;
+independent final-source review PASS. First failed direction-test elaboration
+is not evidence. No new hole/axiom or canonical field change. Root import
+registered only; no root/tree audit. Evidence: parallel QFT-inputs audit.
+
 ## PROVED independent-filter origin-sector reduction / OPEN interacting moment estimate (2026-10-08 UTC)
 
 `BF4WilsonAllNomeOriginPlaquetteKrylovReduction.filtered_diagonal_response`

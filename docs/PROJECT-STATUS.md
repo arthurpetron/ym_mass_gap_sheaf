@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Supporting finite covariance obstruction checked (2026-10-08 UTC): literal
+x0 box reflection does not permute the original spatial/temporal face
+lists. The transverse defect is a boundary layer with retained coordinates,
+not a bulk loss or completed/continuum parity refutation. PRUNE the naive
+exact finite lift; normalized SAME-law lateral-boundary comparison and the
+primary JOINT signed scaling estimate remain OPEN. Final focused check/17
+permitted gates, independent final-source review; no root/tree audit.
+Canonical displayed claims unchanged; no chart reprint. Evidence: the
+parallel QFT-inputs audit dated 2026-09-17.
+
 Supporting INDEPENDENT signed-filter reduction checked (2026-10-08 UTC):
 the two local origin-face difference orientations reduce at every lag to
 two scalar-filter responses of the SAME source x, with exact coefficients

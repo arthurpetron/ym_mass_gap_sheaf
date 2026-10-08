@@ -27,6 +27,23 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED parallel covariance decision (2026-10-08 UTC): literal x0 box
+reflection does NOT permute the original spatial or temporal face lists
+at ANY positive width. `SpatialSignReflectionObstruction` locates the
+transverse p12 loss exactly on the lower boundary layer; all reflected
+edges remain in the original inclusive carrier. Incident p01/p02 survive.
+PRUNE the naive exact finite signed-cubic face-permutation lift; no action,
+functional or completed-parity inequality is asserted. The source-level
+boundary-product screen retains p12 on EVERY spatial slice incl terminal
+and p13/p23 on EVERY temporal layer. A SAME-law lateral boundary comparison
+is unpaid; temporal mixing alone does not pay it. No action/canonical field
+change. One final focused capped check/17 permitted gates and independent
+complete-source review pass; no root/tree audit or chart closure. Primary
+work remains DIRECT whole-window signed retention on justified changing
+families, not another symmetry wrapper or the stronger one-slope seed.
+Symmetric-source/coarse-band and sufficient-seed tests: adaptive audit.
+Covariance evidence: the parallel QFT-inputs audit dated 2026-09-17.
+
 CHECKED stronger variational reduction (2026-10-08 UTC): arbitrary INDEPENDENT
 finite signed time filters P,Q of the two local origin-face differences now
 satisfy 4*R_(P(x)+Q(y))=R_(2P(x)-Q(x))+3*R_(Q(x)) at every lag on the SAME

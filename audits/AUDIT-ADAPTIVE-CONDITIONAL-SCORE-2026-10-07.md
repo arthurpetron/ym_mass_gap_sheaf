@@ -4,6 +4,63 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Scalar/symmetric retention decision after the filter reduction (2026-10-08 UTC)
+
+Root source inspection and two independent read-only mathematical screens.
+This section supplies NO new interacting estimate or kernel-checked survival
+theorem. The parallel boundary-list certificate is recorded in the QFT-inputs
+audit; it does not pay the signed cost below.
+
+For the OWN-centered symmetric origin sum S=chi01+chi02+chi12, existing
+`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteFamilyVariance.lean:151`,
+`familyExcitation_norm_floor`, gives R_S(0)>=3*varianceFloor(w) at fixed
+strict nome and positive width. Its moments are not determined by the
+antisymmetric x: source-level permutation algebra gives R_S(n)=3D_n+6O_n
+and R_x(n)=2D_n-2O_n, where D/O are centered diagonal/off-diagonal face
+responses. S keeps its moving OWN mean; do not impose the odd source's zero
+mean on it. A sharper symmetric moment estimate remains NOT PRODUCED.
+
+At padded width>=2, an ACTUAL existing Rayleigh floor is available:
+`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteFamilyBondOrbit.lean:104`,
+`family_rayleigh_floor`, using
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyBandResponse.lean:165`,
+`familyResponseFraction`, and `:243`, `padded_family_energy_band`.
+For three faces rho3=w^12*localLower(w,12)^2/localUpper(w,12)^2, with the
+positive reciprocal explicitly constructed in that declaration. But
+`lean/YMGap/Continuum/BF4WilsonAllNomeFamilyBandCalibrationObstruction.lean:64`,
+`familyResponseFraction_le_ceiling`, bounds THIS supplied floor by 2^(-840).
+Its corresponding cost coefficient is therefore >=1-2^(-840), independent
+of how close nome is to one. This is a limitation of the existing bound,
+NOT a bound above on the actual Rayleigh quotient. Do not increase family
+size merely to reuse this band. Width one is an actual fringe test:
+`lean/YMGap/Continuum/BF4ExactSlabWidthOneGeometry.lean:75`,
+`activeSpatialFaces_one`, and
+`lean/YMGap/Continuum/BF4WilsonAllNomeFringeTimeKernel.lean:59`,
+`inactive_face_time_one_zero`, kill each centered origin face. Bilinearity
+therefore gives R_S(1)=0 for their sum (source-level consequence, NOT a new
+symmetric-source theorem). This rules out that width, not padded sources.
+
+The optional single filtered-slope seed
+2*u*(R_x(2u)-R_x(2u+1))<=theta*R_x(2u), theta<1, would suffice for
+`lean/YMGap/Continuum/BF4WilsonAllNomeWindowSignedCost.lean:181`,
+`aggregate_window_macro_ratio`, by decreasing response drops. It is NOT
+minimal or necessary. Exact scalar test, not a YM moment/eigenvector:
+u=8, rho=7/8, R(n)=rho^n. Then the seed's left/right relative factor is 2,
+but the aggregate window leaves positive margin
+
+    (16*rho^16-1)/15 = 250251912402960/4222124650659840 > 0.
+
+Thus a direct whole-window certificate can succeed where that convenient
+one-slope prerequisite fails. Keep DIRECT aggregate/block retention as the
+weaker main target; no new slope interface or stronger initial criterion.
+Actual original finite ingredients remain
+`lean/YMGap/Continuum/BF4WilsonAllNomeOriginalRayleighLimit.lean:96`,
+`originalOwnBlockVariance_pin`, and `:104`, `originalOwnBlockCost_pin`:
+distinct Z0,Z1, moving OWN center and the COMPLETE signed cost. Neither
+scalar-filter monotonicity nor a symmetric-source floor estimates these
+quantities on a justified changing family. NEXT remains their original
+interacting producer, not another source/symmetry/conditional wrapper.
+
 ## Selected independent-filter reduction and spatial-profile decision (2026-10-08 UTC)
 
 Previous goal turn: PROGRESS, commit `81dbc973` supplies the actual common-

@@ -14,6 +14,92 @@ Yang--Mills theory on R^4 with the required same-theory QFT axioms, isolated
 vacuum and finite positive physical Hamiltonian mass gap, within the
 constructive Mathlib-free MLTT/HoTT gate. **The goal remains OPEN.**
 
+## Selected spatial sign-reflection boundary test (2026-10-08 UTC)
+
+Previous goal turn: PROGRESS, pushed `b24bc74b`. The primary JOINT signed
+filtered-cost input remains unpaid. Parallel source review tests the next
+finite symmetry generator before attempting its Haar/action/completion lift.
+
+Proposition: geometric x0 reflection about width/2 does NOT close the literal
+`spatialFaces width` or `temporalFaces width` lists at any positive width.
+The origin transverse p12 face maps to base x0=width, excluded by the strict
+base cutoff, although every reflected spatial edge remains in `baseLinks`.
+The analogous temporal p13/p23 faces are also excluded. Available inputs:
+`BF4ExactSlabFixedSpatialFacePlacement.spatialFaces_mem_iff` and
+`temporalFaces_mem_iff`, `SliceCarrier.baseLinks_mem_iff`, and
+`TwoLayerBoundary.SliceLink`. Consumer: the prospective face-permutation step
+for a SAME-action finite signed-cubic generator; no existing declaration
+supplies that new generator. Predicted decision: PRUNE its naive exact lift;
+keep continuum covariance and boundary comparison OPEN, without changing the
+action, carrier or any canonical field. A face-list obstruction alone is not
+a theorem about inequality of limiting reflected functionals.
+
+Decisive tests: every width>=1, transverse versus incident reflection planes,
+and inclusive retained coordinates versus absent action factors. Budget: one
+bounded Sol geometry leaf, independent complete-source review, root-only
+serialized focused 20-GiB check/12-GiB reserve after fresh capacity preflight.
+Stop rather than assume an invariant cell selection or change the law.
+Selection is not yet a new kernel-checked result.
+
+### Observed boundary certificate and route decision
+
+Final focused check PASS; root inspected the complete final source and
+independent complete-source mathematical review PASS. Every positive width
+is covered. This certifies ONLY geometry/list nonclosure, not inequality of
+action values or reflected functionals, impossibility of completed parity,
+or failure of continuum Euclidean covariance.
+
+| Checked claim | Exact source |
+| --- | --- |
+| Explicit geometric positive-face reflection, physical x3 time fixed | `lean/YMGap/Continuum/BF4ExactSlabSpatialSignReflectionObstruction.lean:31`, `reflectPositiveFace` |
+| Original origin p12/p13 membership, reflected face absence | Same module `:50`, `origin12_spatial`; `:56`, `reflected_origin12_not_spatial`; `:75`, `origin13_temporal`; `:81`, `reflected_origin13_not_temporal` |
+| All four reflected p12 edges are SAME retained coordinates | Same module `:64`, `reflected_origin12_edges_in_baseLinks` |
+| Transverse p12 reflection remains included EXACTLY for a>0; incident origins survive | Same module `:89`, `transverse12_reflected_mem_iff`; `:102`, `incident_origin01_reflected_spatial`; `:108`, `incident_origin02_reflected_spatial` |
+| Neither actual face list is permuted at any width>=1 | Same module `:123`, `spatialFaces_no_perm`; `:130`, `temporalFaces_no_perm` |
+
+The two final finite-direction tests explicitly reduce to x1!=x3/x2!=x3
+before kernel `decide`. The earlier failed elaboration log and its generated
+sorryAx are NOT proof evidence. Final 17 printed gates: three axiom-free,
+two {propext}, twelve {propext, Quot.sound}. No warning, sorryAx, new hole,
+axiom, classical/native shortcut, option increase or canonical field change.
+Each launch had a fresh no-competing-process preflight, 88% pressure-free
+memory, zero swap, one 20-GiB worker and 12-GiB OS reserve. Root import
+registered only; no root/full-tree build, audit, guard or metric run.
+
+Accepted log SHA-256:
+
+```text
+/private/tmp/ym-spatial-sign-boundary-20261008b.log
+  2ac3893af862444dd6506a9b95f22704c3ba9dabe902694c1d286e684d514552
+```
+
+Checked source SHA-256:
+
+```text
+34321c2c5b37639180c3dcd07c803fe6afa9053c8ff98caa7667ffc089a466fb
+```
+
+SOURCE-LEVEL product screen, NOT a new checked action/Haar pin: for a
+contained chain of m steps, write the common face product C and the two
+transverse sheets B0,Bw. The original/reflected products have the shape
+C*B0 and C*Bw. p12 sheets occur on ALL m+1 spatial slices, including the
+terminal slice; p13/p23 sheets occur on ALL m temporal layers. Keep these
+factors rather than discard retained Haar coordinates. Inputs:
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFacePlacement.lean:97`,
+`spatialFaces_mem_iff`, and `:105`, `temporalFaces_mem_iff`;
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSliceHeat.lean:70`, `spatialWeight`.
+No global reflected-link bijection, oriented-word transport or normalized
+boundary estimate is supplied by this product screen.
+
+Decision: PRUNE the naive exact face-permutation lift, without changing
+the original action or canonical obligations. Future SAME-theory parity
+needs a normalized lateral-boundary comparison (or another valid argument),
+not just the existing temporal Perron/terminal-depth control. This is an
+additional boundary requirement to coordinate with the main interacting
+scaling lane, not a proved reduction of that requirement to its signed cost.
+Full QFT covariance and the whole Clay target remain OPEN. No canonical
+displayed claim changed; no chart reprint.
+
 ## Selected completed spatial coherence increment (2026-10-08 UTC)
 
 Proposition: extend the produced x0/x1 source isometry to the EXISTING

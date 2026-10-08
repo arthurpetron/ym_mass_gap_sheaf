@@ -4,6 +4,21 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Exact finite sign-reflection shortcut pruned (2026-10-08 UTC)
+
+`BF4ExactSlabSpatialSignReflectionObstruction.spatialFaces_no_perm` and
+`temporalFaces_no_perm` reject the literal x0 reflection face-permutation
+step at every positive width. `transverse12_reflected_mem_iff` locates the
+defect on one boundary layer, while all reflected p12 edges remain on the
+original carrier. This rules out a prospective exact finite covariance
+proof path, NOT completed parity or continuum covariance. The boundary
+product screen retains all temporal layers and terminal spatial factors;
+useful normalized lateral-boundary comparison is OPEN. Primary signed
+scaling control remains OPEN. One final focused check/17 permitted gates
+and independent complete-source review; no root/tree audit or chart change.
+Legacy metric not run: it invokes an unauthorized guard. Exact evidence:
+the parallel QFT-inputs audit dated 2026-09-17.
+
 ## Independent orientation filters reduced to scalar moments (2026-10-08 UTC)
 
 `BF4WilsonAllNomeOriginPlaquetteKrylovReduction.independent_filters_response`

@@ -7938,6 +7938,10 @@ import YMGap.Continuum.BF4WilsonAllNomeSpatialHeadSwapForm
 import YMGap.Continuum.BF4WilsonAllNomeSpatialHeadSwapCompletion
 import YMGap.Continuum.BF4WilsonAllNomeSpatialSwapBraid
 
+-- Literal spatial sign reflection does NOT permute the original face lists.
+-- Boundary-only geometric obstruction, not action/form inequality or continuum failure.
+import YMGap.Continuum.BF4ExactSlabSpatialSignReflectionObstruction
+
 -- A nonzero exactly centered ORIGINAL antisymmetric plaquette source.
 -- The actual Gram means vanish under the produced width>=2 locality guard;
 -- signed cost, filtered survival and scaling remain open.
