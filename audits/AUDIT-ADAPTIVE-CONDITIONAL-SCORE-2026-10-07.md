@@ -4,6 +4,150 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Selected SAME-source filtered-profile join (2026-10-08 UTC)
+
+Proposition: for any ORIGINAL radius-zero Wilson expression e, let
+f=sourcePolynomial(e), K=headCutoff(w)+stage, c_stage its actual odd mean,
+A=g_(stage+t), b=T^t(g_stage*(f-c_stage)). Prove that ell(b^2)/Z0 converges
+to the EXISTING centeredTimeMoment(2t,state(e),state(e)); prove that the
+literal clearedRayleighCost(A,b)/(Z0*Z1) converges to that moment minus the
+moment at 2t+1. Z0=ell(A^2) and Z1=ell(A*T(A)) remain distinct. No inverse
+norm, new action, completion or analytic smallness premise is needed.
+
+Consumer: the actual filtered signed-profile cost in the generic completed
+`lean/YMGap/Continuum/BF4WilsonAllNomeWindowSignedCost.lean:181`,
+`aggregate_window_macro_ratio`. The published finite original window
+specialization is still square-specific at `original_window_budget_macro_ratio:245`.
+This selected increment constructs the finite numerator/denominator join,
+not another conditional macro-ratio theorem or the analytic window budget.
+
+Available inputs: arbitrary supported finite pins
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockWindowPin.lean:140`,
+`normalized_block_window_pin`, and
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockRayleighWindow.lean:89`,
+`clearedRayleighCost_window_pin`; the already generic completed pairing
+`lean/YMGap/Continuum/BF4WilsonAllNomeZeroRadiusIncrement.lean:168`,
+`time_pairing_lag`. Independent duplicate screening found that moving OWN
+center convergence is still loop-specific. The old loop API must be retained;
+extend it minimally and expose the computed mean threshold as data.
+
+Reason for selecting this join: the actual family's Casimir-12 identity
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyVarianceTaylor.lean:67`,
+`padded_family_energy_variance`, concerns the unfiltered spatialSpan.
+It cannot simply be applied to the later filtered ratio b/A. Direct filtered
+analysis must use the actual block cost/variance, not substitute a different
+endpoint variance. Stop if a generic moving-center diagonal limit already
+exists, a new analytic premise is needed, or old public statements change.
+
+Predicted outcome: the fixed-member join is constructible from existing
+original mixing/mean control. Mean cutoffs must be named computed data;
+all limits fix w, width, e and t. Empty/constant/zero sources remain allowed;
+no positive norm or changing-family conclusion is inferred. Budget: bounded
+Sol implementation in two files, independent complete-source review, root
+sole focused monitored checks with fresh memory/swap preflight, one worker,
+20-GiB ceiling and 12-GiB reserve. No full-tree build/audit or chart closure.
+Results are recorded separately below after verification.
+
+### Observed source join and next mathematical decision
+
+The selected fixed-member join is now kernel-checked:
+
+- `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonOwnCenterLimit.lean:104`,
+  `expressionRaw_original_pin`, transports the complete source polynomial
+  through its actual padded chronological window. At :128,
+  `expressionCenteredTimeMoment_chronological_pin` identifies the EXISTING
+  completed centered moment, not a replacement functional.
+- The named computed cutoff at :158, `expressionEndpointMeanThreshold`,
+  combines the original singleton joint modulus with a geometric cutoff.
+  `expressionEndpointMean_approx:164` gives both approximation inequalities;
+  `expressionOwnMean_converges:225` retains the actual odd-window mean.
+  `expressionOwn_centeredPair_converges:251` expands this moving center
+  before taking the fixed-expression limit.
+- `lean/YMGap/Continuum/BF4WilsonAllNomeOriginalRayleighLimit.lean:84`,
+  `originalOwnBlockVariance`, and :89, `originalOwnBlockCost`, construct
+  exactly the quantities selected above. Their finite pins are
+  `originalOwnBlockVariance_pin:96` and `originalOwnBlockCost_pin:104`.
+  `originalOwnBlockVariance_converges:130` and
+  `originalOwnBlockCost_converges:143` give precisely the SAME lag-2t
+  centered moment and its lag-(2t+1) difference. Only positive chronological
+  vacuum partitions are inverted; no observable norm is inverted.
+- The three old single-loop APIs at OwnCenterLimit :305/:314/:323 remain
+  specializations. The unchanged
+  `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicOriginalRayleighLimit.lean`
+  also passes a focused consumer regression against the generalized API.
+
+Independent complete-source review passes, including the final technical
+repairs. Root alone ran the serialized checks, each with one worker,
+a hard 20-GiB ceiling, 12-GiB reserve and fresh process/memory/swap preflight:
+
+| Final focused check | Log | Printed axiom gates |
+| --- | --- | --- |
+| WilsonOwnCenterLimit | `/private/tmp/ym-expression-own-center-20261008d.log` | 12, all exactly `{propext, Quot.sound}` |
+| OriginalRayleighLimit | `/private/tmp/ym-expression-original-rayleigh-20261008b.log` | 6, all exactly `{propext, Quot.sound}` |
+| unchanged square consumer | `/private/tmp/ym-expression-square-regression-20261008a.log` | 4, all exactly `{propext, Quot.sound}` |
+
+Initial checks caught omitted proof-only section binders, doc/include order,
+opaque raw-pair elaboration and an implicit convergence sequence. Those
+were repaired without mathematical statement changes. Failed-check
+`sorryAx` output is NOT proof evidence; every final gate is clean.
+Source SHA-256 values, in the same order as the table:
+
+```
+79d5aeb211903d306396430a2f0c16a81d2b58e2ebc9abb9622d6c0d763d79f7
+ec1ad9e7fd2dd28bf2cce0655686b2fd8497a922a99b401bf224614ac9229c5c
+cc4e387b51929dfd2e29cdc408cd1fcb8d70fae38bf1b8444973090ca9cb0957
+```
+
+Decision: continue the JOINT signed-profile cost estimate against this
+SAME filtered variance. No more source/limit wrapper is needed for a fixed
+radius-zero member. The existing literal split at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockRayleighSplit.lean:244`,
+`original_block_rayleigh_split`, retains energy, terminal drift and signed
+multiplication cost together. Its :283, `terminal_clearedRayleighCost_le`,
+pays the boundary term but leaves the energy and signed commutator unpaid.
+The initial-source `FamilyMarginPencil.pencil_contract:278` is not a
+filtered-cost estimate. None of these facts justifies substituting the bare
+family Casimir identity for the later ratio b/A.
+
+No new analytic premise, hole, axiom, proof limit, canonical field or broad
+chart status changed. Nome, spatial width, expression and lag remain FIXED;
+changing-family/spacing control, macro survival, nontrivial continuum,
+physical mass, QFT axioms and every-group Clay closure remain OPEN.
+The root import is registered only; no root/tree build or audit was run.
+The user's lattice-measurement note remains incorporated with the primary
+source corrections in `audits/RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md`;
+no measured mass, finite-spacing Hamiltonian identification or area-law
+inference is imported as an analytic premise.
+
+### Parallel source screening retained in this decision
+
+No adaptive-order interacting remainder producer was found in the inspected
+source. The strongest relevant produced source error is cubic Sobolev plus
+the omitted heat tail:
+`lean/YMGap/Continuum/SU2QuaternionCyclicSobolevProjection.lean:89`,
+`sourceError_le_sobolev`. It retains actual derivatives of q, q*f and q*f^2,
+q=projectedEndpointSource(V*g_depth), not just bare family degree 12.
+`completeRemainder_le_sobolev_completedSquare:138` already retains the
+negative commutator square; do not rebuild that cancellation.
+
+Global sum(c_p)=0 does not remove the quadratic Ward matrix. From
+`lean/YMGap/Continuum/SU2QuaternionWeightedCasimirWard.lean:45`,
+`blockResidual`, the residual of F=sum c_p*f_p is a sum of
+c_p*c_q*H[(f_p-mu_p)*(JW)*(Jf_q)]. Even granting equal means, coefficients
+(1,-1) leave W_pp+W_qq-W_pq-W_qp. The existing coherent row sum only uses
+incident faces (`FamilyCoherentTail.aggregateCoherentTail:92`); disjoint
+opposite coefficients do not cancel singleton link rows. No new zero-sum
+or summation-by-parts smallness premise is adopted.
+
+No produced blocking estimate fills the AF original filtered budget:
+`lean/YMGap/Continuum/CompactDualCutoffOnePhysicalPushforward.lean:290`,
+`physicalRemainderL1_le_two`, is only a cutoff-one cap of TWO;
+`lean/YMGap/Continuum/Z4DyadicSpinFourFineCouplingNormalizedBalancedBridge.lean:371`,
+`centeredCylinderRemainder_abs_le_of_balanced_and_margin`, explicitly takes
+the missing balanced and margin estimates. The scale-five fusion prefix
+does not produce the original action/fusion-power pins. These are dated
+source checks, not fresh compilation or a nonperturbative error bound.
+
 ## Selected fixed-power AF payment test (2026-10-08 UTC)
 
 The spatial-profile screen has a real microscopic degree advantage: the

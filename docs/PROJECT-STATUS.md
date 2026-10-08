@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Supporting SAME-source filtered-profile join checked (2026-10-08 UTC):
+arbitrary radius-zero Wilson expressions retain their actual moving OWN
+mean and distinct chronological partitions. Original filtered variance and
+cleared cost reach the existing centered lag-2t moment and its lag-(2t+1)
+difference. A computed mean threshold is exposed; old loop APIs and the
+unchanged square consumer pass focused checks. This fills identification,
+not the signed relative estimate, changing-family control or survival.
+Three capped focused checks and independent complete-source review;
+no root/tree audit. Displayed claims unchanged, no chart reprint.
+Evidence: the adaptive audit and `BF4WilsonAllNomeOriginalRayleighLimit`.
+
 Supporting fixed-power AF budget obstruction checked (2026-10-08 UTC):
 an explicit ALL-TAIL cutoff gives side(j)*afGap(j)^p>C for every fixed
 natural p and rational cap C. The adaptive power j has scalar budget <=1.

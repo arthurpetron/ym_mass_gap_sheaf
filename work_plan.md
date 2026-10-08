@@ -27,6 +27,26 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+CHECKED SAME-source filtered-profile join (2026-10-08 UTC): arbitrary
+radius-zero Wilson expressions now have their literal original filtered
+variance/cost pinned to the EXISTING completed centered lag-2t moment and
+its lag-(2t+1) difference. `BF4WilsonAllNomeOriginalRayleighLimit` keeps the
+computed moving OWN mean and DISTINCT Z0,Z1. The generalized
+`WilsonOwnCenterLimit.expressionEndpointMeanThreshold` is computed data;
+all three old loop APIs remain, and the unchanged square consumer passes
+a focused regression. No norm inverse, replacement limit or analytic
+smallness premise is supplied. NEXT: the JOINT signed profile cost versus
+this SAME surviving filtered variance, using the actual original block
+split; not another representation/completion wrapper or a bare Casimir-12
+substitution for b/A. Nome, width, expression and lag stay fixed in these
+limits; changing-family control and physical survival remain OPEN. Three
+focused capped checks and independent complete-source review pass;
+root import registered only, no root/tree audit or broad chart closure.
+Evidence and exact sources/logs: the adaptive-conditional-score audit.
+The lattice-measurement note remains in the calibrated backward plan via
+the existing lattice-mass research audit: numerical channel fits supply no
+limiting Hamiltonian, every-state gap or constructive survival premise.
+
 CHECKED scalar decision (2026-10-08 UTC):
 `BF4WilsonAllNomeAFPowerBudget.afPowerBudgetCutoff` computes an ALL-TAIL
 cutoff beyond which side(j)*afGap(j)^p exceeds any rational cap for EVERY

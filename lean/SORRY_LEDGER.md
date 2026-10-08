@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED fixed-member filtered-profile join, OPEN signed scaling budget (2026-10-08 UTC)
+
+`BF4ExactSlabFixedSpatialWilsonOwnCenterLimit` now handles arbitrary
+radius-zero expressions, retaining the actual moving odd mean, named
+computed `expressionEndpointMeanThreshold` and existing centered moments.
+The three loop APIs remain exact specializations.
+`BF4WilsonAllNomeOriginalRayleighLimit.originalOwnBlockVariance_converges`
+and `originalOwnBlockCost_converges` identify the literal original
+half-filtered variance and cleared cost with the SAME lag-2t centered
+moment and its lag-(2t+1) difference. Both chronological masses remain;
+no source norm inverse, new completion or estimate assumption is used.
+Nome, width, expression and lag are fixed. Useful signed relative budget,
+changing-family survival and all physical/Clay obligations remain OPEN.
+Two final focused leaf checks and one unchanged square-consumer regression
+pass, with every printed gate exactly {propext, Quot.sound}; independent
+final-source review passes. Root import registered only, no root/tree audit,
+new hole/axiom, proof-limit increase, canonical field or chart closure.
+Failed technical checks are not evidence. Exact logs and source hashes:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 ## PROVED fixed-power AF scalar obstruction, OPEN joint interacting estimate (2026-10-08 UTC)
 
 `BF4WilsonAllNomeAFPowerBudget.afGap_linear_floor` gives
