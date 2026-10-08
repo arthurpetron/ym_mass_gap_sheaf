@@ -127,3 +127,56 @@ Searched `lean/YMGap/Continuum/BF4Wilson*.lean`,
 joins named above. **NOT FOUND** is scoped to that inspection; it does not
 assert mathematical impossibility or authorize filling a missing join with
 a weaker unrelated structure.
+
+## 2026-10-08 UTC: bounded SAME-slab spatial-swap input
+
+This independent finite geometry/word increment supplies no analytic
+hypothesis and does not modify the historical or canonical QFT fields.
+The primary signed scaling frontier is unchanged. The user's lattice-mass
+note remains reconciled in `RESEARCH-LATTICE-MASS-CALIBRATION-2026-10-07.md`;
+no measured mass, Sobolev regularity or Kogut--Susskind identity is assumed.
+
+All paths below are relative to `lean/YMGap/Continuum/`.
+
+| Declaration | Source | Checked mathematical content |
+| --- | --- | --- |
+| `swapVertex`, `swapDir`, `swapPlane`, `swapLink`, `swapPlaquette` | `BF4ExactSlabSpatialAxisSwapGeometry.lean:31`, `:34`, `:40`, `:48`, `:50` | Concrete x1/x2 exchange, with x0 and physical time x3 fixed. |
+| `swapLink_involutive`, `swapPlaquette_involutive`, `swapVertex_addE` | `BF4ExactSlabSpatialAxisSwapGeometry.lean:66`, `:71`, `:77` | Actual involutions and compatible edge endpoints. |
+| `swap_edgesOf_perm` | `BF4ExactSlabSpatialAxisSwapGeometry.lean:83` | Complete positive-link incidence; not oriented-word equality. |
+| `swap_completeSlabPlaquettes_perm`, `swap_completeSlabLinks_perm` | `BF4ExactSlabSpatialAxisSwapGeometry.lean:130`, `:154` | Every original boundary-complete face and link retained, including fringe. |
+| `swap_spatialFaces_perm`, `swap_temporalFaces_perm`, `swap_baseLinks_perm` | `BF4ExactSlabSpatialAxisSwapGeometry.lean:191`, `:196`, `:214` | Both original action families and the inclusive width-only slice carrier retained. |
+| `swapLink_timeReflect_commute`, `swapPlaquette_timeReflect_commute` | `BF4ExactSlabSpatialAxisSwapGeometry.lean:224`, `:229` | Literal SAME-extent temporal reflection commutes. |
+| `swapLink_timeShift_commute`, `swapPlaquette_timeShift_commute` | `BF4ExactSlabSpatialAxisSwapGeometry.lean:235`, `:240` | Temporal placement commutes at every time. |
+| `reverse_word_conjugate`, `reverse_word_scalar` | `BF4ExactSlabSpatialAxisSwapWord.lean:43`, `:61` | d c bar(b) bar(a) is the conjugate of a b bar(c) bar(d), by anti-homomorphism and associativity only; their scalars agree. |
+| `swappedFaceWord_scalar`, `swappedFaceWord_character` | `BF4ExactSlabSpatialAxisSwapWord.lean:77`, `:86` | Only p12 reverses canonical direction order; every spin character is coefficientwise invariant for arbitrary link assignments. |
+| `correctedSlab_swappedWord_character` | `BF4ExactSlabSpatialAxisSwapWord.lean:93` | Target pinned to the literal corrected-slab plaquette with its initial-unit fold retained. Source still names the swapped physical links. |
+
+Sol authored the 274-line geometry leaf; root authored the 110-line word
+leaf. Root read both complete sources. An independent reviewer checked
+orientation, full boundary/fringe retention, time convention and source pins.
+The initially missing word namespace opens were repaired before its passing
+check. No `sorry`, new axiom, classical/native decision, new analytic premise,
+or option-limit increase was introduced.
+
+Root alone ran serialized focused checks, with one worker, hard 20 GiB
+worker ceiling and 12 GiB OS reserve. Each fresh preflight found no competing
+compiler/runner, 88% system memory free and zero swap. Geometry's 27 and
+word's five printed gates all stay within {propext, Quot.sound}; several
+geometry identities are axiom-free. Exact passing logs:
+
+- `/private/tmp/ym-spatial-axis-swap-20261008a.log`, SHA256
+  `28528573d45a06c56f9f53c0eefaccfe476336d72928141d0a6de656c425e171`.
+- `/private/tmp/ym-spatial-axis-swap-word-20261008b.log`, SHA256
+  `1181b347422d70ab153ae0a32aba4fa9f951eac28405bc5f77397764748f8263`.
+
+Imports are registered in `lean/YMGap.lean`; the root/full tree was NOT built
+or audited. Actual next consumer: full link-coordinate reindex, transport
+of each original `BF4ExactSlabAllExtentObservableHaarForm.faceHeatPolynomial`,
+and the complete original face permutation using
+`BF4ExactSlabAllExtentWeightedFactorization.polynomialProduct_perm`.
+Then retain the SAME partition and Wilson source to prove finite
+original-window scalar invariance and eventually SAME reflected-form isometry.
+Those joins remain OPEN. These leaves do not establish a width-changing
+isometry, continuous rotations, continuum Euclidean covariance, physical
+mass calibration, a uniform scaling estimate or any Clay conclusion.
+No displayed chart claim changed; no chart reprint.

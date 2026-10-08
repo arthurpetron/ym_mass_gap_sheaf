@@ -45,6 +45,13 @@ interfaces below are retained; no new analytic hypothesis or roadmap box.
    3D Euclidean Yang--Mills measure. It does not supply the note's claimed
    general 2+1D continuum Hamiltonian with a gap. No such input is adopted.
    [Primary state-space paper](https://doi.org/10.1007/s00220-023-04870-y).
+   A targeted primary-source check on 2026-10-08 UTC also inspected
+   Chandra--Chevyrev--Hairer--Shen, *Stochastic quantisation of Yang--Mills--Higgs
+   in 3D* (Invent. Math. 237, 2024), accepted manuscript section 1.2, printed
+   pages 7--8: whether its constructed process admits an invariant measure
+   remains an explicitly open problem. Its local renormalized dynamics do
+   not justify importing a general 2+1D gapped OS/Hamiltonian construction.
+   [Accepted primary manuscript, section 1.2](https://www.pure.ed.ac.uk/ws/portalfiles/portal/435998276/YangMills.pdf).
 4. The limiting gap must refer to the Hamiltonian of the constructed limiting
    theory. We do not define it to be liminf of finite-volume fitted masses,
    or use an area law as the missing spectral-limit theorem. These are

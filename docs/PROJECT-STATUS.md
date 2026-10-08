@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Supporting SAME-slab spatial swap and original oriented-word pins checked
+(2026-10-08 UTC): literal x1/x2 exchange fixes physical time x3, permutes ALL
+original slab/spatial/temporal/base-link families and commutes with temporal
+reflection/placement. The p12 reversed boundary is proved to be the conjugate
+word, preserving scalar and every spin character without commuting factors.
+Actual Haar-coordinate/action/partition invariance, reflected-form isometry
+and full QFT covariance remain OPEN. Two focused leaves/32 permitted gates,
+independent full-source review; no root/tree audit. Signed scaling remains
+the primary frontier. Displayed chart unchanged, no reprint. Evidence:
+`audits/AUDIT-PARALLEL-QFT-INPUTS-2026-09-17.md`.
+
 Supporting exact incoming Ward density pin checked (2026-10-08 UTC):
 H[Vbar^2*A*T(a*(Jphi)^2)]=ell_V[a*(Jphi)^2*T(Vbar*A)]. No fringe independence
 of phi is assumed; it is produced for its transfer image. The extra spatial

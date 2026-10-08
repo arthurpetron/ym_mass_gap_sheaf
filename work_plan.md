@@ -39,6 +39,24 @@ filtered ratios. One focused check/independent review passes. NEXT remains
 coupled original action/source control, not more completion/input wrappers.
 Exact densities and source-level cancellation screen: the adaptive audit.
 
+Parallel bounded QFT-covariance input now CHECKED (2026-10-08 UTC):
+`SpatialAxisSwapGeometry` constructs the literal x1/x2 swap on the SAME finite
+slab, fixing physical time x3. Involutions, edge incidence, reflection/placement
+commutation and permutations of COMPLETE slab/spatial/temporal/base-link
+families are proved. `SpatialAxisSwapWord.correctedSlab_swappedWord_character`
+retains the p12 reversed boundary: it is the conjugate word, not commuted
+quaternion factors; its scalar and EVERY spin character agree coefficientwise.
+Sol implemented geometry; root implemented the word pin and alone checked
+both leaves. Independent complete-source review passes; 32 printed gates
+stay within {propext, Quot.sound}. No canonical field or chart closure.
+NEXT derive the actual full link-coordinate reindex, original heat/action and
+partition invariance, finite original-window scalar invariance, then SAME
+reflected-form isometry. Existing Haar reindex and completion APIs are inputs,
+not a supplied isometry premise. Stop if an action factor or p12 orientation
+is dropped. No translated-width isometry, surrogate action, continuous
+rotation or continuum QFT claim. Signed scaling remains the primary frontier.
+Evidence and exact focused logs: `audits/AUDIT-PARALLEL-QFT-INPUTS-2026-09-17.md`.
+
 The positive original Ward gradient payment now has a CHECKED reciprocal-free
 upper envelope (2026-10-08 UTC):
 `RatioNoiseWardAbsorption.original_ratioNoise_gradientPayment_unit_le`
