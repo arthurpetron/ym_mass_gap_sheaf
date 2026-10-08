@@ -120,6 +120,20 @@ all-vector completed OS comparison, physical/volume control, SAME limiting
 QFT, every compact simple group and Clay remain OPEN. The canonical broad
 chart is unchanged; no reprint.
 
+### Conflict-free remote integration
+
+The push encountered newer R1 commits through `d5291102`. They were fetched
+and merged without a force push; both additions to root imports/status were
+preserved and the nine checked leaf hashes above are unchanged. Incoming
+R1 declarations `theta_ceiling_half` and `theta_ceiling_ff` in
+`lean/YMGap/Continuum/ThetaCeilingNamedNomes.lean:70` and
+`lean/YMGap/Continuum/ThetaCeilingNamedNomes.lean:75` target this SAME
+radial-cost limit, but only w=1/2 and w=4/5 with rational x in [-1,1]. The
+general-nome addition route remains open. Those incoming files were inspected,
+not recompiled or axiom-audited here; no broader verification is inferred
+from the merge. The existing scope report remains authoritative for R1:
+`audits/SCOPE-THETA-CEILING-NAMED-NOMES-2026-10-07.md`.
+
 ## Prior endpoint-jet and SAME-series checkpoint (2026-10-07; residue superseded above)
 
 The actual completed alternating value and endpoint determinant squares

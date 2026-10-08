@@ -53,6 +53,15 @@ completed OS comparison, physical/volume control, SAME QFT, every group and
 Clay remain OPEN. Focused checks only; broad chart claims unchanged.
 Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
 
+Concurrent main work (R1, merged without overwriting either branch) carries
+`ThetaCeilingNamedNomes.theta_ceiling_half` and `theta_ceiling_ff`, per-nome
+interval certificates for the SAME radial-cost CReal at w=1/2 and w=4/5,
+for rational x in [-1,1]. Reuse these as scoped checks of the general-nome
+route; they do not supply its addition identity, near-one scaling family,
+Haar/OS join or physical gap. Their incoming files were source-inspected,
+not recompiled in this checkpoint. See
+`audits/SCOPE-THETA-CEILING-NAMED-NOMES-2026-10-07.md`.
+
 The ACTUAL completed alternating determinant squares are now CHECKED.
 `ThetaAlternatingCompletedPin.completed_alternating_square_pin` joins
 K(x)=(x-1)*A(x)^2 on the literal E/H/A CReal completions;
