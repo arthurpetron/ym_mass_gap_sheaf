@@ -5033,6 +5033,8 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialLocalSignedGram
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLocalMarginalJets
 -- Positive LOWER terminal law matches the actual reciprocal-facing Ta jets.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalLocalSignedGram
+-- SIX original scores meet THREE signed paired payments in the actual budget.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalSignedScorePayment
 -- Strict windows do NOT justify generic weighted-Hessian sign dropping.
 import YMGap.Continuum.SU2QuaternionWeightedHessianSignObstruction
 import YMGap.Continuum.SU2HeatQuarticTailCutoff

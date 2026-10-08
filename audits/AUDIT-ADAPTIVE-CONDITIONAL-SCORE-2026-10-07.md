@@ -4,6 +4,69 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Observed SAME global exact-score consumer (2026-10-08 UTC)
+
+Classification: VERIFIED PROGRESS, no broad chart closure. In
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalSignedScorePayment.lean`,
+`constantPairedBasis:62`, `terminalSignedGramTerm:110`,
+`terminalSignedGramPayment:127` and
+`original_lastStep_terminal_signed_score_payment_le:162` compose the
+SIX original reconstructed plane scores with THREE literal paired Gram
+payments and SIX unchanged incoming error payments. No factor two or
+leading coarse cap enters. Basis directions are constant and frozen.
+
+`exactScoreAngularBudget_terminal_signed_payment_le:235` produces the
+literal W=Vbar^2*Gout_l^2 certificate, pins the actual outgoing source and
+terminal at r+1, and feeds every active row of the existing global budget.
+Incoming k/outgoing l are independent. Sigma>=0 gives its nonnegative
+1+sigma multiplier. No active-count ceiling replaces the signed payment.
+
+Final focused log `/private/tmp/ym-terminal-signed-payment-20261008c.log`
+PASS, five printed gates: constant basis axiom-free, four other gates exactly
+{propext, Quot.sound}. Root read the full final source; independent review
+found no substantive defect in both row and global consumers. One let-bound
+rewrite error in the appended global consumer was repaired by explicit
+`dsimp only`, not a limit increase; failed-check output is not evidence.
+Source SHA256:
+`4ba4e141330bb13952845855f0e9ac62e00d83aca8fa9bfe824b755f051664db`.
+Fresh preflight before each check, one 20-GiB worker/12-GiB reserve,
+87% free and zero swap. Root import registered only; no full build/audit/
+guard or baseline refresh.
+
+Decision: CONTINUE through the paired-to-six-plane Ward trace, then seek
+a useful estimate for the combined actual spatial/noise derivative, incoming
+errors and BOTH signed Taylor remainders relative to SAME surviving form.
+No noise-to-surviving-square hypothesis is adopted. This global consumer
+does not bound its signed payment by that surviving form. Scaling,
+independent survival, completed OS, physical time/volume, SAME full QFT,
+every-group and Clay remain OPEN. Broad chart unchanged, no reprint.
+
+## Selected composition: actual SIX scores / THREE signed payments (2026-10-08 UTC)
+
+Proposition: for the SAME original incoming source and arbitrary certified
+output W, retain SIX reconstructed angular score squares, and pay their
+leading sum by THREE constant paired-direction matched Gram terms, plus
+SIX copies of the existing incoming error. Consumer: the existing original
+angular/exact-score budget with literal outgoing reciprocal weight.
+Inputs are now checked: retained leading reconstruction, matched terminal
+Gram and coefficient-exact paired-square/six-square identity. No new
+analytic input. Test cost multiplicity THREE, error multiplicity SIX,
+constant basis (not polynomial vector-field derivatives), actual c and
+finite phi_k reconstruction, arbitrary W and unchanged original action.
+Abandon if a factor two, noise cap or different action/weight is smuggled
+in. One bounded Sol leaf, full root review, narrow monitored check with
+fresh capacity preflight, one 20-GiB worker/12-GiB reserve. The Ward trace
+join and useful signed derivative/scaling estimate remain separate.
+
+Actual consumer extension: choose the produced square weight
+W=Vbar^2*Gout_l^2 and transport the last transfer outputs to the exact
+existing `exactScoreAngularBudget`. Preserve every active signed row in
+the finite sum, rather than replacing it by an active-count ceiling.
+Incoming k and outgoing l remain independent; the existing scalar
+(1+sigma)>=0 is the only additional guard. This is a direct SAME-action
+consumer, not a new analytic budget assumption. Root reviews the appended
+transport/sum proof and rechecks this same leaf narrowly.
+
 ## Observed matched marginal and finite Ward estimate (2026-10-08 UTC)
 
 Classification: VERIFIED PROGRESS, no broad chart closure. The actual

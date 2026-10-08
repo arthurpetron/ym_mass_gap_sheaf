@@ -64,9 +64,16 @@ finite multiplier derivative is a nonnegative residual times J(A).
 This does NOT discard the signed spatial/noise derivative or assume an
 exact inverse. Four focused targets, permitted gates only; no full-tree audit.
 
-NEXT compose the retained SIX-plane reconstruction with THREE constant
-paired Gram directions, then join their Hessian trace to the finite Ward
-estimate at the ACTUAL weight F=Vbar^2*N. Keep the leading cost multiplicity
+The SIX-plane / THREE-paired composition is now CHECKED:
+`TerminalSignedScorePayment.original_lastStep_terminal_signed_score_payment_le`
+retains three signed Gram terms and SIX reconstruction-error payments,
+with no factor-two loss. Its `exactScoreAngularBudget_terminal_signed_payment_le`
+feeds the existing global budget with the PRODUCED literal W=Vbar^2*Gout_l^2,
+matching both original output/source pins and keeping incoming k/outgoing l
+independent. Every active signed row remains; no active-count ceiling replaces it.
+
+NEXT join this paired Hessian trace to the finite Ward estimate at the
+ACTUAL weight F=Vbar^2*N. Keep the leading cost multiplicity
 THREE, incoming errors and BOTH signed Taylor remainders. The derivative
 J(Vbar^2*N) still needs useful control in the SAME surviving form on a
 justified width/cutoff/scaling family. No positivity/window or automatic

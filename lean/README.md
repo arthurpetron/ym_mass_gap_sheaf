@@ -35,8 +35,13 @@ budget, with arbitrary supported phi and all nine ordered A jets.
 retains the actual reconstructed leading score and unchanged error payment.
 `QuaternionHaarFiniteReciprocalHessianSign.finite_reciprocal_hessian_ibp_le`
 discards ONLY the produced favorable finite-reciprocal correction in one
-angular plane, retaining the actual weight derivative. Pair-trace assembly
-and useful signed spatial/noise scaling control remain NEXT. Seven prior
+angular plane, retaining the actual weight derivative.
+`TerminalSignedScorePayment.exactScoreAngularBudget_terminal_signed_payment_le`
+now supplies the literal global budget with three paired signed payments
+per active row and six original reconstruction errors, at PRODUCED
+Vbar^2*Gout_l^2 weight; incoming k/outgoing l remain independent.
+The paired Ward trace join and useful signed spatial/noise scaling control
+remain NEXT. Seven prior
 focused targets/22 gates plus one marginal-jet
 target/six permitted gates; root imports registered, not root-built; no
 full-tree audit.

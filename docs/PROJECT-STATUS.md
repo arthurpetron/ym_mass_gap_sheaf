@@ -7,8 +7,11 @@ Gram for b=T(a*phi). The reconstructed leading score now remains uncapped;
 its original finite incoming error payment is unchanged. For each angular
 plane the ACTUAL finite reciprocal produces a favorable correction, so the
 signed Hessian is bounded by the retained spatial/noise-weight derivative.
-This does not assert that derivative is small or nonpositive. Pair-trace
-assembly, useful signed scaling control and every physical/Clay chart claim
+The SIX-plane/THREE-paired score payment now feeds the literal existing
+global exact-score budget at produced Vbar^2*Gout_l^2 weight; incoming k
+and outgoing l remain independent, and every active signed row is retained.
+This does not assert that the derivative is small or nonpositive. Ward
+trace joining, useful signed scaling control and every physical/Clay chart claim
 remain OPEN. Focused checks only; no full-tree audit. Broad chart unchanged,
 no reprint. Evidence:
 `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.

@@ -1,5 +1,30 @@
 # Sorry Ledger
 
+## PROVED matched signed payment into ORIGINAL global score budget / OPEN Ward and surviving-form bound (2026-10-08 UTC)
+
+- `BF4ExactSlabFixedSpatialTerminalSignedScorePayment.original_lastStep_terminal_signed_score_payment_le`
+  pays the SIX original reconstructed planes with THREE matched signed
+  paired Gram terms plus SIX unchanged incoming correction payments.
+  The coefficient-exact paired-square identity adds no factor two.
+- `exactScoreAngularBudget_terminal_signed_payment_le` constructs the
+  literal W=Vbar^2*Gout_l^2 certificate, pins the actual outgoing terminal
+  and transmitted source, and sums every active row of the EXISTING global
+  budget. Incoming degree k and outgoing l remain independent; no signed
+  term is replaced by an active-count ceiling or leading relative heat cap.
+- OPEN: paired Ward trace join and useful complete signed expression
+  relative to SAME surviving form on a justified scaling family. The
+  spatial/noise derivative, incoming corrections and BOTH Taylor remainders
+  remain. Completed OS, independent survival, physical time/volume, SAME
+  limiting QFT, every compact simple group and Clay remain OPEN.
+- Final focused leaf check passes five gates (constant basis axiom-free;
+  others {propext, Quot.sound}); root and independent full-source review
+  find no substantive defect. No sorry/axiom/classical/native shortcut,
+  field weakening or limit increase. Fresh capacity preflights, one 20-GiB
+  worker/12-GiB reserve, 87% free and zero swap. Root import registered only;
+  no full build/audit/guard, baseline refresh or broad chart closure.
+
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 ## PROVED matched terminal signed Gram and finite reciprocal sign / OPEN signed scaling budget (2026-10-08 UTC)
 
 - `BF4ExactSlabFixedSpatialTerminalLocalSignedGram.terminalDensity_certificate`,
