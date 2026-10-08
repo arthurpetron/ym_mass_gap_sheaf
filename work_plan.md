@@ -59,11 +59,25 @@ window, with arbitrary rational nome/cutoff. The SAME partition is retained;
 no positivity or normalized-law replacement is assumed. Two focused leaves,
 20 permitted gates and independent complete-source review; no proof-limit
 increase, new analytic premise or root/tree audit.
-NEXT transport actual SourceLoop/WindowExpression syntax, retaining edge
-order, inverse flags, time offsets and spins, then derive the existing finite
-original-window scalar pin and SAME reflected-form isometry. Stop if an action
-factor, source path or p12 orientation is dropped. No translated-width
-isometry, surrogate action, continuous rotation or continuum QFT claim.
+The actual ordered SourceLoop/WindowExpression and normalized original
+window joins are now CHECKED (2026-10-08 UTC): `SpatialAxisSwapWilsonLoop`
+constructs compatible closed loops on the SAME base-link list, keeping edge
+order/inverse flags. `SpatialAxisSwapWilsonWindow.originalWindowScalar_swap`
+preserves offsets, spins, signed terms and the literal finite reciprocal.
+The finite fallback identity needs no window guard; physical placement and
+the joint limit retain explicit `Within`. `AllNomeSpatialAxisSwapForm`
+passes this to the existing originalJointLimit and proves common/intrinsic
+reflected-form and literal odd bondForm preservation. Radius tags and time
+advance commute exactly; no new limit or physical pairing is introduced.
+Three focused leaves, 28 permitted gates, independent complete-source
+reviews; root imports registered only, no root/tree audit or field closure.
+NEXT produce signed-linear/difference and involution laws for this actual
+source map, then its SAME-carrier nonexpansiveness for the existing
+`CRealSeminormCompletion.SquaredSeminorm.Nonexpansive.completionMap` consumer.
+The completed spatial operator and its physical bond/time-sector join are
+still OPEN. Stop if an action factor, source path or p12 orientation is
+dropped. No translated-width isometry, surrogate action, continuous rotation
+or continuum QFT claim.
 Signed scaling remains the primary frontier.
 Evidence and exact focused logs: `audits/AUDIT-PARALLEL-QFT-INPUTS-2026-09-17.md`.
 

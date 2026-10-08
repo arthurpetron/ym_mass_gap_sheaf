@@ -7908,8 +7908,12 @@ import YMGap.Continuum.SU2TorusRPKCauchy
 import YMGap.Continuum.SU2TorusRPKClosed
 -- Literal SAME-slab spatial symmetry input. The p12 word reverses, never
 -- commutes quaternion factors. The actual Haar/action joins are checked;
--- original-window syntax and completed isometry joins remain open.
+-- actual original-window syntax/normalization is transported; no continuum
+-- covariance or width-changing isometry follows.
 import YMGap.Continuum.BF4ExactSlabSpatialAxisSwapGeometry
 import YMGap.Continuum.BF4ExactSlabSpatialAxisSwapWord
 import YMGap.Continuum.BF4ExactSlabSpatialAxisSwapHaar
 import YMGap.Continuum.BF4ExactSlabSpatialAxisSwapAction
+import YMGap.Continuum.BF4ExactSlabSpatialAxisSwapWilsonLoop
+import YMGap.Continuum.BF4ExactSlabSpatialAxisSwapWilsonWindow
+import YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapForm

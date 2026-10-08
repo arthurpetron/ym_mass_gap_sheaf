@@ -224,3 +224,56 @@ retain the SAME finite normalization before passing to the actual reflected
 form. No completion wrapper or freely supplied isometry is a substitute.
 Signed scaling and every displayed physical/Clay claim remain OPEN; no chart
 claim changed or was reprinted.
+
+### Subsequent 2026-10-08 UTC: original Wilson windows and reflected forms
+
+The actual source/normalization and dense reflected-form joins above are
+now proved. All source paths below are relative to `lean/YMGap/Continuum/`.
+
+| Declaration | Source | Exact checked scope |
+| --- | --- | --- |
+| `swapEntry`, `pathFinish_swap`, `compatible_swap`, `swapSourceLoop` | `BF4ExactSlabSpatialAxisSwapWilsonLoop.lean:40`, `:61`, `:69`, `:78` | Actual endpoint-compatible closed source loop on SAME baseLinks; preserves edge order and every inverse flag. |
+| `swapEntry_shift_commute`, `word_swap`, `character_swap` | `BF4ExactSlabSpatialAxisSwapWilsonLoop.lean:93`, `:117`, `:140` | Literal time placement commutes; arbitrary ordered original words and EVERY spin transport with common padding. No face-only substitution or reordered path. |
+| `swapExpression`, `within_swap`, `swap_mirror`, `placedPolynomial_swap` | `BF4ExactSlabSpatialAxisSwapWilsonWindow.lean:46`, `:53`, `:78`, `:88` | Every offset/spin/signed operation retained; same window guard, temporal mirror and actual placed insertion. |
+| `original_window_numerator_swap`, `originalWindowScalar_swap` | `BF4ExactSlabSpatialAxisSwapWilsonWindow.lean:119`, `:145` | SAME full chronological action-weighted numerator and literal finite normalization; original reciprocal unchanged. Both supports are produced before padded Haar removal. |
+| `originalJointLimit_swap` | `BF4WilsonAllNomeSpatialAxisSwapForm.lean:36` | SAME existing joint heat/time diagonal and constructive limit, with explicit Within and produced transported Within. |
+| `swapIntrinsic`, `swap_chart`, `swap_advance` | `BF4WilsonAllNomeSpatialAxisSwapForm.lean:49`, `:62`, `:66` | Retains witnessed radius; exact temporal-chart and advance commutation, no width map. |
+| `commonForm_swap`, `intrinsicForm_swap`, `swap_crossOdd`, `bondForm_swap` | `BF4WilsonAllNomeSpatialAxisSwapForm.lean:70`, `:81`, `:95`, `:109` | Existing all-nome site and actual odd bond forms preserved at SAME width/nome. Odd source retains R+1 charts, one-sided advance and L=2R+1. |
+
+The finite originalWindowScalar identity does not require Within: the
+original off-list identity fallback is itself preserved. Physical-window
+and limit interpretations DO require the existing guard; the checked joint
+consumer retains it. Quotient.sound is used only to transport the existing
+CReal equivalence into the existing bondForm real quotient.
+
+Sol authored the loop leaf; root authored its signed-window/normalization
+consumer; the parallel reviewer authored the joint/reflected-form consumer.
+Root read all complete final sources. Independent complete-source reviews
+checked order/inverse flags, support removal, original action/reciprocal,
+explicit limit guards and odd-source geometry. No sorry, new axiom,
+classical/native decision, analytic premise, proof-limit increase or
+canonical field weakening. No canonical frontier atom is closed.
+
+Root alone checked the three leaves serially, each launch after fresh process/
+memory/swap preflight: no competing compiler/runner, 87--88% system-wide
+memory free and zero swap. One worker, hard 20 GiB ceiling, 12 GiB reserve.
+All 28 printed gates stay within {propext, Quot.sound}; two loop identities
+are axiom-free. Exact passing logs:
+
+- `/private/tmp/ym-spatial-swap-wilson-loop-20261008a.log`, SHA256
+  `e2487a5858219b188e5cb7e4f84bd2d317a47e13f5b3afc0cf39d98bae886a53`.
+- `/private/tmp/ym-spatial-swap-wilson-window-20261008c.log`, SHA256
+  `c87e6a56931be1ef160fe6edbdfa6e47ca1efe0ac32415693286ec146528cce7`.
+- `/private/tmp/ym-spatial-swap-reflected-form-20261008b.log`, SHA256
+  `3ca48cb77e1ef0dc74e5b49852834be8fda03fe2b5c16ba93eca2f3876ebeac4`.
+
+Imports are registered, but root/full tree was NOT built or audited.
+NEXT actual source involution and signed-difference laws, then distance
+preservation/nonexpansiveness consumed by
+`CRealSeminormCompletion.lean:323`, `Nonexpansive.completionMap`, on the
+already chosen carrier. Completed spatial operator, physical bond/time-sector
+join, continuous rotations, continuum covariance and changing-family
+survival remain OPEN. The primary coupled signed interaction estimate is
+still OPEN; the independent harmonic-response screen is recorded in the
+adaptive audit and supplies no replacement estimate. No displayed physical/
+Clay chart claim changed; no chart reprint.

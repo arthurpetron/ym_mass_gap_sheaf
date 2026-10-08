@@ -73,6 +73,35 @@ initial-energy consumer already exists at
 to be produced with a useful changing-family fraction. No new Doob wrapper,
 conditional frontier field or proof claim is added by this screen.
 
+Independent SU(2)-harmonic response screen (2026-10-08 UTC, source review
+only): `lean/YMGap/Continuum/SU2QuaternionProductHeatWilsonWord.lean:248`,
+`productMap_fundamental_word`, pins the bare ordered fundamental word, not
+the interacting product q*F. The literal source in
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareSignedHeatDefect.lean:60`,
+`squareHeatMultiplicationDefect`, retains q=V*terminalMessage;
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSliceHeat.lean:70`,
+`spatialWeight`, and `BF4ExactSlabFixedSpatialTransferStep.lean:51`,
+`transferStep`, reinsert the full spatial action before heat smoothing.
+No bounded-spin hypothesis for q or reconstructed filtered ratios is produced.
+The exact unpaid response is retained by
+`BF4DyadicWilsonSquareSignedHeatDefect.lean:129`,
+`paddedSquare_energy_signedHeatDefect_identity`:
+E=(1-w^(12*side))*S-signedGain, with S=oddMass*OWN oddVariance.
+The existing all-index AF loss budget
+`BF4WilsonAllNomeAFPaddedTrajectory.lean:461`,
+`af_squareLinearHeatBudget_ge_one`, and
+`BF4DyadicWilsonSquareBareTransmissionNecessary.lean:74`,
+`bare_transmission_floor_necessary`, imply on paper that this bare
+transmission is at most 1/2. Thus a useful E<=c*S requires a positive
+interaction gain at least (1/2-c)*S, not just a small absolute remainder.
+This consequence is a source-level mathematical screen, NOT a newly checked
+Lean theorem, energy lower bound or obstruction to Yang--Mills itself.
+`BF4DyadicWilsonSquareWardMoments.lean:385`, `paddedSquare_ward`, computes
+the literal Ward moments but supplies neither their useful joint sign nor
+their complete remainder estimate. Do not import the bare eigenpin into the
+different incoming weight V*a*T(Vbar*Ta). CONTINUE action-specific JOINT
+response/Taylor control; no new harmonic-response wrapper is justified.
+
 Bounded estimate: on ACTUAL a=g_d, A=Ta, Ephi=T(a*(Jphi)^2), Vbar and
 the existing finite G_k(A), test H[Vbar^2*G_k^2*A^3*Ephi]
 <=H[Vbar^2*A*Ephi], coefficient ONE for every finite k. Produce the A
