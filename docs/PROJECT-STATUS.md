@@ -1,5 +1,13 @@
 # Canonical one-page project status
 
+Supporting SAME-OWN Gram contraction checked (2026-10-08 UTC): the actual
+denominator is V=16*S-8*E+Dplus-M^2, preserving original energy, OWN variance,
+the literal nonnegative source-response square and mean correction. The
+existing energy budget consumes it with BOTH original means unchanged.
+No positive joint credit or scaling estimate is produced. Two focused
+checks and independent source review; no full-tree audit or broad chart
+change/reprint. Evidence: the adaptive-conditional-score audit dated 2026-10-07.
+
 Supporting ORIGINAL AF cancellation necessity checked (2026-10-08 UTC):
 explicit cofinal probes have bare square transmission below every positive
 rational eta. An initial actual E<=c*S forces signed credit D>=(1-eta-c)*S,

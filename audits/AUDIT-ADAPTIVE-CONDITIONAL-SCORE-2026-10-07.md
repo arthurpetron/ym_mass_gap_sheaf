@@ -4,6 +4,91 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Live source reconciliation and checked SAME-OWN contraction (2026-10-08 UTC)
+
+Historical NEXT entries in this audit do not override the current source.
+Current-source independent reviews find the scalar addition-square, radial
+ceiling and their original-prefix Haar/frozen joins already constructed:
+`lean/YMGap/Continuum/ThetaCompletedAdditionSquare.lean:179`,
+`cleared_addition_square`;
+`lean/YMGap/Continuum/ThetaProductRadialCeiling.lean:112`,
+`productRadialCost_le_cap_add_tail`;
+`lean/YMGap/Continuum/JacobiHeatRadialHaarCertificate.lean:182`,
+`radialCertificate`; and
+`lean/YMGap/Continuum/SU2QuaternionPairedFrozenHeatPrefixCurvature.lean:88`,
+`prefix_frozen_curvature_adaptive_certificate`.
+Those are existing producers, not new checks in this checkpoint. Do not build
+another tail/addition/strict-floor wrapper. The actual missing quantitative
+input remains joint original action/source response control, including the
+retained density/spatial derivatives, reconstruction/drift and BOTH Taylor
+remainders against the SAME surviving filtered variance. The concrete consumer
+is `lean/YMGap/Continuum/BF4WilsonAllNomeWindowSignedCost.lean:245`,
+`original_window_budget_macro_ratio`.
+
+Selected mathematical increment: contract the existing connected-Gram raw
+mixed moment, rather than require a standalone raw-to-OWN ceiling. Available
+inputs: the literal symmetric sum test, SAME product heat pairing/symmetry,
+original projected-source energy and OWN centered-square pins. Pointwise,
+
+```text
+(q+q')^2*(psi+psi')^2
+  = (q-q')^2*(psi+psi')^2 + 4*q*q'*(psi+psi')^2.
+```
+
+The second integral equals 8*S+8*B=16*S-8*E. No source positivity,
+stationary eigenpin, normalized-law substitution, source/variance inverse or
+new analytic premise is needed. Test arbitrary supported sources, zero
+denominators/depth zero, actual observable fringe guards and BOTH mean
+corrections. Verification budget: two serialized narrow 20-GiB checks, root
+sole compiler, independent complete-source review. Stop on a source/energy
+substitution or a claimed positive credit from Gram positivity alone.
+
+Observed VERIFIED PROGRESS:
+
+- `lean/YMGap/Continuum/SU2QuaternionProductHeatSumNorm.lean:229`,
+  `sourceSumIncrementCost`, defines literal Dplus=H[K*(jump q)^2*(sum psi)^2].
+  `sourceSumIncrementCost_nonnegative:235` produces Dplus>=0 from the actual
+  product-heat certificate; `sumTest_norm_energy_pin:256` proves the exact
+  16*S-8*E+Dplus norm. The heat list and every supported factor remain.
+- `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSourceVarianceGram.lean:292`,
+  `centered_sourceSumIncrement_nonnegative`, instantiates that residue on the
+  actual projected endpoint and OWN center. `centered_norm_energy_pin:308`
+  supplies S=oddMass*OWN oddVariance and the ORIGINAL energy. Explicit
+  observable fringe independence is retained; no raw-q^2 mean is substituted.
+  `centered_denominator_energy_pin:350` keeps the actual -M^2, giving
+  V=16*S-8*E+Dplus-M^2. `original_centered_energy_response_budget:370`
+  consumes it in the existing 4*V*E+V*J^2+X^2<=2*V*C inequality, with
+  unchanged J, M and X=Cov(r,s). Degenerate V remains covered; no division.
+
+Decision: CONTINUE joint response control. Dplus>=0 is not an upper estimate
+for V, so this identity alone pays no useful fraction. It removes the need to
+express the residue as an independently bounded raw mixed moment; it does
+not make that moment comparison automatic. A joint credit may retain
+X^2-(Dplus-M^2)*Var(r); no lower bound on it is proved here. No initial-energy,
+filtered-survival, scaling or completed physical/Clay node is closed. The
+separate cofinal AF necessity shows why a useful initial fraction on the
+unfiltered square schedule needs large original cancellation; see the
+interacting-response-shape audit. Keep unfiltered and filtered norms distinct.
+
+Root inspected the complete final sources; independent complete-source
+mathematical review PASS. Both final focused checks pass, all seven new
+printed declarations stay within {propext, Quot.sound}. Unlike the AF probe,
+the sourceSumIncrementCost definition has permitted dependencies; it is not
+reported axiom-free. Logs:
+
+```text
+/private/tmp/ym-source-sum-energy-pin-20261008a.log
+SHA256 be05611ef4fdd5ca36288750118b7497e06a5ddcf43db2d7639787acc60481a7
+
+/private/tmp/ym-own-source-response-denominator-20261008a.log
+SHA256 53481cb7f24b793e70e92ea22bc20cd2c852bb4ffb69af904478b39bf6abed94
+```
+
+Fresh preflights found no competing compiler/runner, 88% system-wide free
+and zero swap. One worker, hard 20-GiB ceiling and 12-GiB reserve; no limit
+increase. No new imports in the two leaves, no full-root/tree build/audit,
+baseline refresh, sorry/axiom, canonical field change or chart reprint.
+
 ## Selected reciprocal-free positive gradient payment (2026-10-08 UTC)
 
 ### Selected exact incoming-density trace (2026-10-08 UTC)

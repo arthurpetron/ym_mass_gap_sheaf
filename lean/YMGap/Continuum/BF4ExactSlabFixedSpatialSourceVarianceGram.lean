@@ -8,8 +8,11 @@ raw q^2 mean. The symmetric product-heat test norm is exactly
 
 The source-increment cost D is unchanged by this centering. The resulting
 joint Gram energy inequality retains the original energy, source and odd
-partition. The mixed raw-source moment still has no useful upper bound
-relative to Z*Var_odd; no survival or scaling conclusion is asserted.
+partition. Its exact contraction is 16*Z*Var_odd - 8*energy + Dplus,
+where Dplus is the nonnegative source-jump/observable-sum square. The
+centered denominator retains the actual test-mean subtraction. No useful
+relative bound or positive joint response credit is supplied, and no
+survival or scaling conclusion is asserted.
 -/
 
 import YMGap.Continuum.SU2QuaternionProductHeatSumNorm
@@ -35,14 +38,17 @@ open YMGap.Continuum.SU2QuaternionProductHeatMarginals
 open YMGap.Continuum.SU2QuaternionProductHeatContraction (productHeatCertificate)
 open YMGap.Continuum.SU2QuaternionProductHeatJumpMean (productHeat_mass_one)
 open YMGap.Continuum.SU2QuaternionProductHeatSumTest (sumTest sumTest_supported)
-open YMGap.Continuum.SU2QuaternionProductHeatSumNorm (sumTest_norm_pin)
+open YMGap.Continuum.SU2QuaternionProductHeatSumNorm
+  (sumTest_norm_pin sourceSumIncrementCost sourceSumIncrementCost_nonnegative
+    sumTest_norm_energy_pin)
 open YMGap.Continuum.SU2QuaternionProductHeatSourceCentering (sourceIncrementCost_shifted)
 open YMGap.Continuum.SU2QuaternionProductHeatSourceYoung
-open YMGap.Continuum.SU2QuaternionProductHeatProjectedSourceEnergy (sourceMoment)
+open YMGap.Continuum.SU2QuaternionProductHeatProjectedSourceEnergy (sourceMoment sourceEnergy)
 open YMGap.Continuum.SU2QuaternionWeightedProductDualEnergy (jump jump_supported)
 open YMGap.Continuum.SU2QuaternionHaarFamilyProjection (familyProject_supported)
 open YMGap.Continuum.QuaternionHaarDensityVariance
 open YMGap.Continuum.QuaternionHaarSquareCertificate (supported_one)
+open YMGap.Continuum.RingNormaliser (poly_identity_of_normal_eq)
 open YMGap.Continuum.QuaternionHaarWeightedCauchySchwarz (weightedPair weightedGNSData)
 open YMGap.Continuum.GNSUnitCenteredGram (centered_nonnegative joint_energy_budget)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialSliceCarrier (baseLinks)
@@ -254,6 +260,158 @@ theorem original_centered_energy_budget {w : Q'}
     (singleEndedCost n w K (List.range n) q f)
     (Q'.le_of_eqv (centered_sum_norm hw0 hw1 K width hK depth hf hind)) he
 
+-- The public downstream energy-shift theorem imports this module. Keep the
+-- minimal actual-edge jump argument here rather than introduce a cycle.
+private theorem energy_shifted_pin (w : Q') (K width : Nat) {g f : RatPoly}
+    (hg : SupportedQuaternionBlocks (N width) g)
+    (hf : SupportedQuaternionBlocks (N width) f) (c : Q') :
+    energy w K width g (shifted f c) ≈ energy w K width g f := by
+  have hs := shifted_supported hf c
+  have hj := SU2QuaternionProductHeatSourceCentering.jump_shifted (N width) f c
+  have hboth := hj.mul hj
+  have hhaar := hboth.haar_insert
+    (supported_polyMul (jump_supported hs) (jump_supported hs))
+    (supported_polyMul (jump_supported hf) (jump_supported hf))
+    (BF4ExactSlabFixedSpatialDirichletForm.edgeDensity w K width g)
+    (BF4ExactSlabFixedSpatialDirichletForm.edgeDensity_supported w K width hg)
+  have h2 : (2 : Q')*energy w K width g (shifted f c) ≈
+      (2 : Q')*energy w K width g f :=
+    Q'.eqv_trans _ _ _ (BF4ExactSlabFixedSpatialDirichletForm.energy_identity w K width hg hs)
+      (Q'.eqv_trans _ _ _ hhaar
+        (Q'.eqv_symm (BF4ExactSlabFixedSpatialDirichletForm.energy_identity w K width hg hf)))
+  let half := Q'.mkPos 1 2 (by decide)
+  have hhalf : half*(2 : Q') ≈ 1 := by decide
+  have half_two (a : Q') : half*((2 : Q')*a) ≈ a :=
+    Q'.eqv_trans _ _ _ (Q'.eqv_symm (Q'.mul_assoc_eqv half 2 a))
+      (Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ _ a hhalf) (Q'.one_mul_eqv a))
+  exact Q'.eqv_trans _ _ _ (Q'.eqv_symm (half_two _))
+    (Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_left half _ _ h2) (half_two _))
+
+/-- The constructed source-response residue is nonnegative for the SAME
+original projected endpoint and OWN center. No relative estimate is assumed. -/
+theorem centered_sourceSumIncrement_nonnegative {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K width : Nat) (hK : headCutoff w ≤ K) (depth : Nat) {f : RatPoly}
+    (hf : SupportedQuaternionBlocks (N width) f) :
+    let q := projectedEndpointSource w K width (terminalMessage w K width depth)
+    let psi := oddCentered hw0 hw1 K width hK depth f
+    (0 : Q') ≤ sourceSumIncrementCost (N width) w K (List.range (N width)) q psi := by
+  dsimp only
+  exact sourceSumIncrementCost_nonnegative (N width) hw0 hw1 K hK
+    (List.range (N width)) (fun _ hi => List.mem_range.mp hi)
+    (familyProject_supported _ (supported_polyMul (spatialWeight_supported w K width)
+      (terminalMessage_supported w K width depth)))
+    (oddCentered_supported hw0 hw1 K width hK depth hf)
+
+/-- Exact SAME-OWN contraction of the original test norm. The negative
+energy term and the entire nonnegative source-response square remain literal. -/
+theorem centered_norm_energy_pin {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K width : Nat) (hK : headCutoff w ≤ K) (depth : Nat) {f : RatPoly}
+    (hf : SupportedQuaternionBlocks (N width) f)
+    (hind : ∀ i, i ∈ fringeBlocks width → QuaternionBlockIndependent i f) :
+    let q := projectedEndpointSource w K width (terminalMessage w K width depth)
+    let psi := oddCentered hw0 hw1 K width hK depth f
+    centeredNormExpression hw0 hw1 K width hK depth f ≈
+      16*(oddMass w K width depth*oddVariance hw0 hw1 K width hK depth f) +
+        -(8*energy w K width (terminalMessage w K width depth) f) +
+        sourceSumIncrementCost (N width) w K (List.range (N width)) q psi := by
+  dsimp only
+  let q := projectedEndpointSource w K width (terminalMessage w K width depth)
+  let psi := oddCentered hw0 hw1 K width hK depth f
+  have hq : SupportedQuaternionBlocks (N width) q :=
+    familyProject_supported _ (supported_polyMul (spatialWeight_supported w K width)
+      (terminalMessage_supported w K width depth))
+  have hp := oddCentered_supported hw0 hw1 K width hK depth hf
+  have hind' : ∀ i, i ∈ fringeBlocks width → QuaternionBlockIndependent i psi :=
+    fun i hi => oddCentered_independent hw0 hw1 K width hK depth i (hind i hi)
+  have he : sourceEnergy (N width) w K (List.range (N width)) q psi ≈
+      energy w K width (terminalMessage w K width depth) f :=
+    Q'.eqv_trans _ _ _
+      (Q'.eqv_symm (energy_projected_source w K width
+        (terminalMessage w K width depth) psi
+        (terminalMessage_supported w K width depth) hp hind'))
+      (energy_shifted_pin w K width (terminalMessage_supported w K width depth) hf
+        (normalizedMoment (N width) (marginalWeight w K width depth) f
+          (marginalMass_positive hw0 hw1 K width hK depth)))
+  exact Q'.eqv_trans _ _ _ (Q'.eqv_symm
+    (centered_sum_norm hw0 hw1 K width hK depth hf hind))
+    (Q'.eqv_trans _ _ _ (sumTest_norm_energy_pin (N width) w K (List.range (N width))
+      (fun _ hi => List.mem_range.mp hi) hq hp)
+      (Q'.add_eqv_congr'
+        (Q'.add_eqv_congr'
+          (Q'.mul_eqv_congr_left 16 _ _
+            (centered_source_square hw0 hw1 K width hK depth hf hind))
+          (Q'.neg_eqv_congr _ _ (Q'.mul_eqv_congr_left 8 _ _ he)))
+        (Q'.eqv_refl _)))
+
+/-- The exact centered denominator contracts to OWN variance, original
+energy, source response and the actual mean square, with no sign loss. -/
+theorem centered_denominator_energy_pin {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K width : Nat) (hK : headCutoff w ≤ K) (depth : Nat) {f : RatPoly}
+    (hf : SupportedQuaternionBlocks (N width) f)
+    (hind : ∀ i, i ∈ fringeBlocks width → QuaternionBlockIndependent i f) :
+    let n := N width
+    let q := projectedEndpointSource w K width (terminalMessage w K width depth)
+    let psi := oddCentered hw0 hw1 K width hK depth f
+    let M := weightedPair (n+n) (productHeat n w K (List.range n)) (sumTest n q psi) polyOne
+    centeredNormExpression hw0 hw1 K width hK depth f-M*M ≈
+      16*(oddMass w K width depth*oddVariance hw0 hw1 K width hK depth f) +
+        -(8*energy w K width (terminalMessage w K width depth) f) +
+        sourceSumIncrementCost n w K (List.range n) q psi-M*M := by
+  dsimp only
+  exact Q'.add_eqv_congr' (centered_norm_energy_pin hw0 hw1 K width hK depth hf hind)
+    (Q'.eqv_refl _)
+
+/-- The existing joint energy budget with its contracted denominator.
+The source-response residue and BOTH actual mean corrections remain; this
+does not assert that the joint response credit is positive or scaling-small. -/
+theorem original_centered_energy_response_budget {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K width : Nat) (hK : headCutoff w ≤ K) (depth : Nat) {f : RatPoly}
+    (hf : SupportedQuaternionBlocks (N width) f)
+    (hind : ∀ i, i ∈ fringeBlocks width → QuaternionBlockIndependent i f) :
+    let n := N width
+    let q := projectedEndpointSource w K width (terminalMessage w K width depth)
+    let psi := oddCentered hw0 hw1 K width hK depth f
+    let W := productHeat n w K (List.range n)
+    let r := polyMul (jump n q) (jump n f)
+    let s := sumTest n q psi
+    let J := weightedPair (n+n) W r polyOne
+    let M := weightedPair (n+n) W s polyOne
+    let V := 16*(oddMass w K width depth*oddVariance hw0 hw1 K width hK depth f) +
+      -(8*energy w K width (terminalMessage w K width depth) f) +
+      sourceSumIncrementCost n w K (List.range n) q psi-M*M
+    let X := weightedPair (n+n) W r s-J*M
+    4*V*energy w K width (terminalMessage w K width depth) f +
+      V*(J*J)+X*X ≤ 2*V*singleEndedCost n w K (List.range n) q f := by
+  dsimp only
+  let n := N width
+  let q := projectedEndpointSource w K width (terminalMessage w K width depth)
+  let psi := oddCentered hw0 hw1 K width hK depth f
+  let W := productHeat n w K (List.range n)
+  let r := polyMul (jump n q) (jump n f)
+  let s := sumTest n q psi
+  let J := weightedPair (n+n) W r polyOne
+  let M := weightedPair (n+n) W s polyOne
+  let X := weightedPair (n+n) W r s-J*M
+  let E := energy w K width (terminalMessage w K width depth) f
+  let C := singleEndedCost n w K (List.range n) q f
+  let oldV := centeredNormExpression hw0 hw1 K width hK depth f-M*M
+  let newV := 16*(oddMass w K width depth*oddVariance hw0 hw1 K width hK depth f) +
+    -(8*E)+sourceSumIncrementCost n w K (List.range n) q psi-M*M
+  have hV : oldV ≈ newV := centered_denominator_energy_pin hw0 hw1 K width hK depth hf hind
+  have hleft : 4*oldV*E+oldV*(J*J)+X*X ≈ 4*newV*E+newV*(J*J)+X*X :=
+    Q'.add_eqv_congr' (Q'.add_eqv_congr'
+      (Q'.mul_eqv_congr_right _ _ _ (Q'.mul_eqv_congr_left 4 _ _ hV))
+      (Q'.mul_eqv_congr_right _ _ _ hV)) (Q'.eqv_refl _)
+  have hright : 2*oldV*C ≈ 2*newV*C :=
+    Q'.mul_eqv_congr_right _ _ _ (Q'.mul_eqv_congr_left 2 _ _ hV)
+  exact Q'.le_trans' _ _ _ (Q'.ge_of_eqv hleft)
+    (Q'.le_trans' _ _ _ (original_centered_energy_budget hw0 hw1 K width hK depth hf hind)
+      (Q'.le_of_eqv hright))
+
 #print axioms oddCentered
 #print axioms oddCentered_supported
 #print axioms oddCentered_independent
@@ -263,5 +421,9 @@ theorem original_centered_energy_budget {w : Q'}
 #print axioms centered_sum_norm
 #print axioms centered_denominator_nonnegative
 #print axioms original_centered_energy_budget
+#print axioms centered_sourceSumIncrement_nonnegative
+#print axioms centered_norm_energy_pin
+#print axioms centered_denominator_energy_pin
+#print axioms original_centered_energy_response_budget
 
 end YMGap.Continuum.BF4ExactSlabFixedSpatialSourceVarianceGram

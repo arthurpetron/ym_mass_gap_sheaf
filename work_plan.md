@@ -27,6 +27,22 @@ formal statement would not solve the mathematical problem.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+The actual connected-Gram denominator now has a CHECKED contraction
+(2026-10-08 UTC): `SourceVarianceGram.centered_denominator_energy_pin`
+gives V=16*S-8*E+Dplus-M^2, S=Z*OWN variance, with the actual original
+projected source and its mean correction retained. Dplus is the PRODUCED
+nonnegative source-jump/observable-sum square, not a relative bound.
+`original_centered_energy_response_budget` consumes this denominator with
+unchanged cross covariance and both means. Do not impose a separate raw-q^2
+moment cap as a necessary prerequisite: seek joint response credit that
+retains the source square, negative energy term and mean corrections.
+No useful credit, initial fraction or scaling estimate is produced yet.
+Two focused checks and independent complete-source review pass. Scalar theta
+addition/ceiling and their original-prefix Haar/frozen joins already exist;
+historical NEXT entries below are not a reason to rebuild them. NEXT remains
+the actual coupled signed estimate, not another scalar/completion wrapper.
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+
 The ORIGINAL AF square route now has a CHECKED quantitative necessity
 (2026-10-08 UTC): `afSquareTransmission_lt_at_probe` constructs, beyond
 every supplied start, a scale with bare transmission a=w^(12*side)<eta

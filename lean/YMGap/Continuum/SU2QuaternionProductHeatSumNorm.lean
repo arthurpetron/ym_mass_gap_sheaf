@@ -24,11 +24,13 @@ open YMGap.Continuum.SU2QuaternionArbitraryHaarRadialPositivity
 open YMGap.Continuum.SU2QuaternionPartialFactorizedHaar (liftBoundary)
 open YMGap.Continuum.SU2QuaternionAuxiliaryLiftAlgebra (lift_product)
 open YMGap.Continuum.SU2QuaternionProductHeatMarginals
-open YMGap.Continuum.SU2QuaternionProductHeatSumTest (sumCopy sumTest)
+open YMGap.Continuum.SU2QuaternionProductHeatSumTest (sumCopy sumTest sumCopy_supported)
 open YMGap.Continuum.SU2QuaternionProductHeatDualForm (kineticPair_symm)
-open YMGap.Continuum.SU2QuaternionProductHeatProjectedSourceEnergy (sourceMoment)
+open YMGap.Continuum.SU2QuaternionProductHeatProjectedSourceEnergy (sourceMoment sourceEnergy)
 open YMGap.Continuum.SU2QuaternionProductHeatSourceYoung (sourceIncrementCost)
-open YMGap.Continuum.SU2QuaternionWeightedProductDualEnergy (jump)
+open YMGap.Continuum.SU2QuaternionWeightedProductDualEnergy (jump jump_supported)
+open YMGap.Continuum.SU2QuaternionProductHeatContraction (productHeatCertificate)
+open YMGap.Continuum.BF4ExactSlabRetainedHeatHeadComparison (headCutoff)
 open YMGap.Continuum.QuaternionHaarPolynomialSquareBound (cap cap_mul_left)
 open YMGap.Continuum.QuaternionHaarSquareCertificate (haar_of_coeff)
 open YMGap.Continuum.QuaternionHaarWeightedCauchySchwarz (weightedPair)
@@ -222,6 +224,116 @@ theorem sumTest_norm_pin (n : Nat) (w : Q') (K : Nat) (ids : List Nat)
                    (polyMul f (productMap n w K ids f)))
                | _ => V))))
 
+/-- The literal source-jump square with the SUM of the observable copies.
+It retains the same heat list and is not assumed small relative to a variance. -/
+def sourceSumIncrementCost (n : Nat) (w : Q') (K : Nat) (ids : List Nat)
+    (q f : RatPoly) : Q' :=
+  H (n+n) (polyMul (productHeat n w K ids)
+    (polyMul (polyMul (jump n q) (jump n q))
+      (polyMul (sumCopy n f) (sumCopy n f))))
+
+theorem sourceSumIncrementCost_nonnegative (n : Nat) {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : headCutoff w ≤ K) (ids : List Nat)
+    (hids : ∀ i, i ∈ ids → i < n) {q f : RatPoly}
+    (hq : SupportedQuaternionBlocks n q) (hf : SupportedQuaternionBlocks n f) :
+    (0 : Q') ≤ sourceSumIncrementCost n w K ids q f := by
+  let W := productHeat n w K ids
+  let r := polyMul (jump n q) (sumCopy n f)
+  have hr := supported_polyMul (jump_supported hq) (sumCopy_supported hf)
+  have hn := (productHeatCertificate n hw0 hw1 K hK ids hids).square_insertion_nonnegative r hr
+  have hp : RatPolyCoeffEqv (polyMul (polyMul r r) W)
+      (polyMul W (polyMul (polyMul (jump n q) (jump n q))
+        (polyMul (sumCopy n f) (sumCopy n f)))) :=
+    coeffEvalExpr_eqv_of_normalize_eq
+      (.mul (.mul (.mul (.var 0) (.var 1)) (.mul (.var 0) (.var 1))) (.var 2))
+      (.mul (.var 2) (.mul (.mul (.var 0) (.var 0)) (.mul (.var 1) (.var 1))))
+      (by decide) (fun | 0 => jump n q | 1 => sumCopy n f | _ => W)
+  exact Q'.le_trans' _ _ _ hn (Q'.le_of_eqv (haar_of_coeff hp))
+
+/-- Exact contraction of the raw mixed moment into source energy and the
+nonnegative source-response residue. No normalization or source window is used. -/
+theorem sumTest_norm_energy_pin (n : Nat) (w : Q') (K : Nat) (ids : List Nat)
+    (hids : ∀ i, i ∈ ids → i < n) {q f : RatPoly}
+    (hq : SupportedQuaternionBlocks n q) (hf : SupportedQuaternionBlocks n f) :
+    weightedPair (n+n) (productHeat n w K ids) (sumTest n q f) (sumTest n q f) ≈
+      16*sourceMoment n w K ids q (polyMul f f) +
+        -(8*sourceEnergy n w K ids q f) + sourceSumIncrementCost n w K ids q f := by
+  let W := productHeat n w K ids
+  let qf := polyMul q f
+  let qf2 := polyMul q (polyMul f f)
+  let S := sourceMoment n w K ids q (polyMul f f)
+  let B := H n (polyMul qf (productMap n w K ids qf))
+  let D := polyMul (polyMul (jump n q) (jump n q))
+    (polyMul (sumCopy n f) (sumCopy n f))
+  let t1 := polyMul (polyMul q (liftBoundary n q)) (polyMul f f)
+  let t2 := polyMul qf (liftBoundary n qf)
+  let t3 := polyMul (polyMul q (liftBoundary n q))
+    (polyMul (liftBoundary n f) (liftBoundary n f))
+  let T := polyAdd (polyAdd t1 (polyMul (cap 2) t2)) t3
+  have h1 : H (n+n) (polyMul W t1) ≈ S := by
+    have hp : RatPolyCoeffEqv t1 (polyMul qf2 (liftBoundary n q)) :=
+      coeffEvalExpr_eqv_of_normalize_eq
+        (.mul (.mul (.var 0) (.var 1)) (.mul (.var 2) (.var 2)))
+        (.mul (.mul (.var 0) (.mul (.var 2) (.var 2))) (.var 1))
+        (by decide) (fun | 0 => q | 1 => liftBoundary n q | _ => f)
+    exact Q'.eqv_trans _ _ _ (haar_of_coeff ((RatPolyCoeffEqv.refl W).mul hp))
+      (Q'.eqv_trans _ _ _ (cross_pin n w K ids qf2 q)
+        (kineticPair_symm n w K ids hids q qf2 hq
+          (supported_polyMul hq (supported_polyMul hf hf))))
+  have h2 : H (n+n) (polyMul W t2) ≈ B := cross_pin n w K ids qf qf
+  have h3 : H (n+n) (polyMul W t3) ≈ S := by
+    have hp : RatPolyCoeffEqv t3 (polyMul q (liftBoundary n qf2)) := by
+      unfold t3 qf2
+      rw [lift_product, lift_product]
+      exact coeffEvalExpr_eqv_of_normalize_eq
+        (.mul (.mul (.var 0) (.var 1)) (.mul (.var 2) (.var 2)))
+        (.mul (.var 0) (.mul (.var 1) (.mul (.var 2) (.var 2))))
+        (by decide) (fun | 0 => q | 1 => liftBoundary n q | _ => liftBoundary n f)
+    exact Q'.eqv_trans _ _ _ (haar_of_coeff ((RatPolyCoeffEqv.refl W).mul hp))
+      (cross_pin n w K ids q qf2)
+  have hcap (c : Q') (p : RatPoly) :
+      H (n+n) (polyMul W (polyMul (cap c) p)) ≈ c*H (n+n) (polyMul W p) :=
+    Q'.eqv_trans _ _ _ (haar_of_coeff ((RatPolyCoeffEqv.refl W).mul (cap_mul_left c p)))
+      (quaternionHaar_polyMul_smul_right (n+n) c W p)
+  have hT : H (n+n) (polyMul W T) ≈ (S+2*B)+S :=
+    Q'.eqv_trans _ _ _ (quaternionHaar_polyMul_add_right (n+n) W _ t3)
+      (Q'.add_eqv_congr'
+        (Q'.eqv_trans _ _ _ (quaternionHaar_polyMul_add_right (n+n) W t1 _)
+          (Q'.add_eqv_congr' h1
+            (Q'.eqv_trans _ _ _ (hcap 2 t2) (Q'.mul_eqv_congr_left 2 _ _ h2)))) h3)
+  have hp : RatPolyCoeffEqv (polyMul (sumTest n q f) (sumTest n q f))
+      (polyAdd D (polyMul (cap 4) T)) := by
+    unfold sumTest sumCopy D T t1 t2 t3 qf jump
+    rw [lift_product]
+    exact coeffEvalExpr_eqv_of_normalize_eq
+      (.mul (.mul (.add (.var 0) (.var 1)) (.add (.var 2) (.var 3)))
+        (.mul (.add (.var 0) (.var 1)) (.add (.var 2) (.var 3))))
+      (.add
+        (.mul (.mul (.add (.var 0) (.neg (.var 1))) (.add (.var 0) (.neg (.var 1))))
+          (.mul (.add (.var 2) (.var 3)) (.add (.var 2) (.var 3))))
+        (.mul (.const 4)
+          (.add
+            (.add (.mul (.mul (.var 0) (.var 1)) (.mul (.var 2) (.var 2)))
+              (.mul (.const 2) (.mul (.mul (.var 0) (.var 2)) (.mul (.var 1) (.var 3)))))
+            (.mul (.mul (.var 0) (.var 1)) (.mul (.var 3) (.var 3))))))
+      (by decide) (fun | 0 => q | 1 => liftBoundary n q | 2 => f | _ => liftBoundary n f)
+  have hraw : weightedPair (n+n) W (sumTest n q f) (sumTest n q f) ≈
+      sourceSumIncrementCost n w K ids q f + 4*((S+2*B)+S) :=
+    Q'.eqv_trans _ _ _ (haar_of_coeff ((hp.mul_right W).trans (RatPolyCoeffEqv.mul_comm _ W)))
+      (Q'.eqv_trans _ _ _ (quaternionHaar_polyMul_add_right (n+n) W D _)
+        (Q'.add_eqv_congr' (Q'.eqv_refl _)
+          (Q'.eqv_trans _ _ _ (hcap 4 T) (Q'.mul_eqv_congr_left 4 _ _ hT))))
+  exact Q'.eqv_trans _ _ _ hraw
+    (poly_identity_of_normal_eq
+      (.add (.var 2) (.mul (.const 4) (.add (.add (.var 0) (.mul (.const 2) (.var 1))) (.var 0))))
+      (.add (.add (.mul (.const 16) (.var 0))
+        (.neg (.mul (.const 8) (.add (.var 0) (.neg (.var 1)))))) (.var 2))
+      (by decide) (fun | 0 => S | 1 => B | _ => sourceSumIncrementCost n w K ids q f))
+
 #print axioms sumTest_norm_pin
+#print axioms sourceSumIncrementCost
+#print axioms sourceSumIncrementCost_nonnegative
+#print axioms sumTest_norm_energy_pin
 
 end YMGap.Continuum.SU2QuaternionProductHeatSumNorm

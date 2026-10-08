@@ -1,5 +1,18 @@
 # Sorry Ledger
 
+## PROVED SAME-OWN denominator contraction, OPEN joint response credit (2026-10-08 UTC)
+
+`SU2QuaternionProductHeatSumNorm.sumTest_norm_energy_pin` contracts the
+literal test norm into 16*S-8*E+Dplus; Dplus nonnegativity is produced on
+the SAME product heat. `BF4ExactSlabFixedSpatialSourceVarianceGram.centered_denominator_energy_pin`
+keeps original E, S=Z*OWN variance, actual projected endpoint/fringe guards,
+and -M^2. `original_centered_energy_response_budget` transports the existing
+joint budget with BOTH mean corrections. No positive joint credit, useful
+initial fraction or filtered/scaling bound is supplied. Two focused checks
+and independent complete-source review; permitted gates only. No new
+hole/axiom, canonical field change or full-tree audit. Evidence: the
+adaptive-conditional-score audit dated 2026-10-07.
+
 ## PROVED cofinal ORIGINAL AF cancellation necessity, OPEN initial fraction (2026-10-08 UTC)
 
 `BF4WilsonAllNomeAFPaddedTrajectory.afSquareTransmission_lt_at_probe`
