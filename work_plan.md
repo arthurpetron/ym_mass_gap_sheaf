@@ -590,6 +590,21 @@ smallness, not absence of all source/mass transport. Source table and precise
 remaining consumer:
 `audits/RESEARCH-2610-09093-2026-10-08.md`, current-consumer reconciliation.
 
+Requested long-paper reconciliation (2026-10-09 19:07 UTC; read-only review):
+the one-step positive-edge reconstruction is already paid by
+`BlockConditionalRelativeEnergy.blockConditionalRatio_energy_error_relative_tolerance`
+(:264) and `BlockConditionalDrift.blockConditionalRatio_boundaryDrift_abs_le`
+(:126), with cleared error at most `(epsilon+eta)*Z1*B`.
+`DirichletForm.energy_identity` (:267) retains the full original edge density;
+`LocalEnergyTransport.original_block_ratio_energy_le_initial_energy` (:313)
+already consumes the reconstruction and drift. These are the corresponding `BF4ExactSlabFixedSpatial*.lean`
+modules under `lean/YMGap/Continuum/`; exact paths are in the paper audit.
+Do not rebuild this representation. NEXT is useful source-specific smallness
+relative to the SAME OWN warmed variance, including the full window budget,
+or direct two-mass macro retention. The paper's fermion cancellation and
+auxiliary Wilson gap do not supply that estimate. No new Lean proof, premise,
+resource increase or canonical chart claim results from this reconciliation.
+
 CHECKED supporting ORIGINAL variance estimate (2026-10-08 UTC): the EXISTING
 `GeneralizedLinearWard.original_score_variance_floor` produces
 4/(7+10*C^2+4*C^4), with C=`marginalScoreCap(w)`. The literal dyadic-square
