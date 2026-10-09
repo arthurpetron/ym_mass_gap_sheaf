@@ -4,6 +4,162 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## CHECKED original common-frame first jets and own-vector synthesis (2026-10-09)
+
+Previous goal turn was PROGRESS: the all-degree original polynomial-kernel
+normalizer and concentration identities were checked and pushed as bca66e60.
+Those J04 inputs do not pay MAIN signed cost. This turn produced the initial-
+source common-frame derivative required by the exterior-pair reduction below.
+
+The bounded MAIN producer now passes: on the actual fixed spatial face,
+write q0=U0, q1=U1, q2=conj(U2), q3=conj(U3), P=q0*q1*q2*q3. The physical
+LEFT derivative at slot r has common prefix F0=1, F1=q0, F2=q0*q1*q2,
+F3=P and sign +,+,-,-. `original_paired_first_jet`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteCommonFrame.lean:528`,
+produces arbitrary-insertion HaarCarrierEqv between
+the actual paired scalar derivative and scalar[(sign*F*e_i*conj(F))*P],
+including the original plaquette/physical-index join. The analytic mixed-link
+Hessian consumer does NOT yet exist; its immediate consumer is the recorded
+PAPER own/exterior cancellation, not an assumed weighted estimate.
+
+The next contraction is also CHECKED: `ownVector_exact`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteOwnVector.lean:273`,
+synthesizes the three ACTUAL paired scalar derivatives against their signed
+common-frame vectors to -Im(the ORIGINAL plaquette), at EVERY physical slot.
+Its `conjugated_basis_contraction_cleared:197` first proves the coefficient
+identity for arbitrary f,P with norm(f)^2 retained. Three explicit conjugated
+basis rows and their nine quartic Gram identities replace one large expansion.
+`prefix_unit`, CommonFrame `:162`, is used twice to remove that norm square.
+No unit-P premise, assumed adjoint orthogonality or analytic interface is added.
+Scalar X has normalization one; chi_1=2X gives gradient factor TWO, whereas
+a bracket containing TWO such velocities gives factor FOUR. The full mixed-link
+Hessian and source-specific weighted payment are still OPEN.
+
+Available inputs: LeftRightAngularAction.coordinate_action:164,
+conjugate_coordinate_action:363, frameDerivativeAt_mul:277,
+other_coordinate_action:412; FaceSelection.plaquette_fourWord:61; actual
+physical index injectivity; PairedFrameAt.pairedDerivativeAt_carrier:71;
+and arbitrary-insertion sphere radius. All are in lean/YMGap/Continuum/.
+An independent reader confirms the inverse-prefix convention. Actual derivatives
+are formed before coefficient/carrier promotion; unit-prefix cancellation is
+produced, not a raw padded coefficient identity or a derivative of a carrier
+equality. Two bounded Sol leaves and complete ROOT/independent final-source/log
+reviews PASS. Root-only serial capped checks followed fresh dynamic memory,
+swap and filtered compiler/test/runner inspection EACH time. No foreign host
+process was stopped; no full-tree audit, guard or resource-limit increase.
+MAIN warmed/weighted payment, scaling and Clay remain OPEN.
+
+Final evidence:
+
+- CommonFrame check3: terminal exit 0, 2.59 seconds; all five printed gates
+  exactly {propext,Quot.sound}. Source SHA-256
+  `b9b5b282d469dcf8a902d1e70e8fdb6b573079614a611bf285e6e34484c25fb2`;
+  `/private/tmp/ym-oct9-plaquette-common-frame3.log` SHA-256
+  `a3ff57e17c9e23a7cae37da35c860ca795e9145725325a60b87c7041b04f63ef`.
+- OwnVector check2: terminal exit 0, 2.33 seconds; both printed gates exactly
+  {propext,Quot.sound}. Source SHA-256
+  `6821b4c320b023c14c886442ef794cac9975c53f1b87407af6476d2782df1845`;
+  `/private/tmp/ym-oct9-plaquette-own-vector2.log` SHA-256
+  `12ba2ccaf7f8027d84e37fe557f865b413558ffd77a524dfb9375ce6a20bc362`.
+
+Exact commands (repository root):
+
+```sh
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteCommonFrame.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteCommonFrame.olean --log-file /private/tmp/ym-oct9-plaquette-common-frame3.log
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteOwnVector.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteOwnVector.olean --log-file /private/tmp/ym-oct9-plaquette-own-vector2.log
+```
+
+CommonFrame's first two checks failed elaboration (reserved name, dotted
+identifiers, oversized reassociation certificate); OwnVector's first check
+failed six coefficient-transport argument orders. Their repaired final checks
+supersede that error output; it is not proof evidence. No `sorry`, new axiom,
+classical construction or premise was added. NEXT is the genuine signed weighted
+three-face/payment estimate, retaining full W, both messages, OWN warmed variance
+and both chronological masses, or direct SAME-source macro retention. The parity
+and summed-face PAPER screens below prune two automatic cancellation shortcuts.
+Root imports are registered, not root/tree audited. Canonical displayed claims
+unchanged: no chart reprint or physical/Clay closure.
+
+### PAPER parity screen: retain the odd density response
+
+ROOT and an independent reader checked a different pairing from physical
+word reversal. Let iota conjugate EVERY physical link, and define
+W_+=(W+W o iota)/2, W_-=(W-W o iota)/2, and similarly B_+, B_-.
+Iterated original Haar invariance gives
+
+    H[W*B] = H[W_+*B_+] + H[W_-*B_-].
+
+The source input is `quaternionHaar_conjugateQuaternionBlock`,
+`lean/YMGap/Continuum/SU2QuaternionSelectedHaarTranslation.lean:441`;
+`conjugateQuaternionBlockPolynomial_supported:431` retains actual support.
+No new parity theorem or ORIGINAL mixed-link bracket declaration is claimed.
+On the cubic fixture recorded below, the PAPER calculation gives
+B_+=-lambda*c*s^4*(1+2*c^2) and
+B_-=-lambda*c^2*s^3*(c^2-s^2). Only the even-density summand loses its
+cubic part; the odd-density--odd-bracket moment is not eliminated.
+
+The original spatial density is NOT invariant under iota. At one literal
+face put U0=c+s*i, U1=c+s*j, U2=c+s*k, U3=1, c^2+s^2=1.
+The +,+,-,- word has scalar c^3+s^3, whereas all-link conjugation gives
+c^3-s^3. For the actual K=1 heat prefix 1+4*w^3*X, the ORIGINAL minus
+conjugated value is 8*w^3*s^3.
+At w=1/4 the HEAT PREFIX has the strictly positive floor 15/16 on unit
+scalars; positivity does not repair the symmetry. This is an early-prefix test, NOT a
+headCutoff-admissible or original full odd-marginal counterinstance.
+Distinct-face overlap already proved below means every other face meets at
+most one of the three changed links; with remaining links one, its scalar
+is unchanged. Literal original definitions: `plaquette:66` and
+`spatialWeight:70`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSliceHeat.lean`;
+`heatPrefix:31`, `lean/YMGap/Continuum/QuaternionHaarHeatCertificate.lean`.
+
+For the REQUIRED W=V*a*b, a=g_n and b=g_(n+1), its odd part retains
+V_-*a_+*b_+ + V_+*a_-*b_+ + V_+*a_+*b_- + V_-*a_-*b_-.
+Both chronological message responses remain. The existing gauge laws
+`plaquette_gauge_character`,
+`lean/YMGap/Continuum/SU2QuaternionHaarGaugeCancellation.lean:139`, and
+`terminalMessage_gauss_zero`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialGaussTransfer.lean:585`,
+do not bound these odd parts. A useful extra-order claim still needs a
+produced local-gauge/action-message and bad-region payment relative to OWN
+variance; no such bound or warmed-source locality was found. Prune automatic
+oddness cancellation, retain this lossless pairing only with its residual.
+
+### PAPER summed-face screen: no automatic cyclic cancellation
+
+ROOT and the independent reader also tested the FULL spatial action-face
+bracket sum, not only one target face. In the shifted-k fixture below,
+the only nonidentity spatial faces for base >=2 are
+p01(0), p02(0), p12(0), p01(e0), p12(e0). Give these scalar source
+coefficients alpha,beta,gamma,delta,epsilon. At leading order the added
+two source faces change the physical velocities at U1(e0), U2(e0) to
+s*[alpha*i-(alpha+delta+epsilon)*k] and s*[beta*j+epsilon*k].
+The five coefficients of s^3 in v_p dot B_p are respectively
+
+    (delta+epsilon)*(beta+gamma)-beta*gamma,
+    epsilon*(alpha+gamma)-alpha*gamma,
+    -alpha*beta, 0, -alpha*beta.
+
+All coefficients one give +2*s^3+O(s^4); the literal fundamental-character
+source multiplies this by four. Every other face has identity holonomy
+and zero scalar angular gradient at this unit field. Therefore this is
+also a test of the uniform ALL-spatial-face INITIAL source, with required
+ambient padding, not just three coefficients matched to part of the action.
+Common-prefix corrections are O(s^2) in each velocity and cannot change
+the cubic term. A common smooth radial action derivative with endpoint
+value C multiplies that term by C since X_p-1=O(s^2).
+
+These are independently checked PAPER common-frame calculations, not a new
+Lean differentiated instance or a sign of the full Hessian/weighted integral.
+The actual incidence and generator pins are `faceCoherentTail`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyCoherentTail.lean:75`,
+and `coordinate_action:164`/`conjugate_coordinate_action:363`,
+`lean/YMGap/Continuum/SU2QuaternionLeftRightAngularAction.lean`.
+Prune automatic pointwise zero of the action-summed bracket by cyclic/Jacobi/
+Bianchi reasoning; retain curl credits, full W, both chronological messages,
+OWN variance and the missing signed weighted payment. No warmed-source or
+scaling conclusion follows.
+
 ## Selected source-specific bracket reduction and independent kernel input (2026-10-09)
 
 Previous turn was PROGRESS: exact finite unit-word commutator formulas and
@@ -73,8 +229,10 @@ The actual coherent-tail word recoding is `actual_face_tail_recode`,
 `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyCoherentTail.lean:183`;
 the selected-link scalar square is `plaquette_paired_gradient_square`,
 `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteGradient.lean:85`.
-Neither currently supplies the required common-frame vector pin or cross-link
-Hessian. Gauss equality is arbitrary-insertion HaarCarrierEqv, not just a
+Neither supplied the required common-frame vector pin or cross-link Hessian
+at this earlier screen. The first-jet and own-vector pin is NOW supplied by
+CommonFrame/OwnVector above; the cross-link Hessian remains OPEN.
+Gauss equality is arbitrary-insertion HaarCarrierEqv, not just a
 single unweighted integral; derivative compatibility cannot be dismissed.
 It still does not identify a horizontal mixed-link payment.
 
@@ -96,13 +254,14 @@ components for the actual two-link relative word. The general independent-tail
 `lean/YMGap/Continuum/SU2QuaternionIndependentTailAngularSquare.lean` are PRIVATE;
 their public outputs package square sums.
 
-The missing original common-prefix pin is
+The original common-prefix pin selected at this earlier screen was
 J_(l,i) X_p = -v_p dot[epsilon_l*Ad(F_l)*e_i], with the actual positive/inverse
 slot, supported physical prefix and arbitrary original Haar insertion retained.
 `chain_pairedDerivativeAt`,
 `lean/YMGap/Continuum/SU2QuaternionPairedFrameAt.lean:105`, moves block labels;
 it is not this field-dependent prefix transport. Reuse the existing finite
-derivation before building a new bridge. No new Lean proof or weighted estimate
+derivation before building a new bridge. The finite pin is now CHECKED above;
+the weighted estimate is still OPEN. No new Lean proof or weighted estimate
 is claimed by this source screen.
 
 Selected MAIN geometric input: prove that two DISTINCT common boundary edges

@@ -16,6 +16,18 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked original common-frame gradient (2026-10-09 UTC):**
+`Continuum/BF4ExactSlabFixedSpatialPlaquetteCommonFrame.original_paired_first_jet`
+pins every physical slot and imaginary direction to the ORIGINAL plaquette,
+with the actual +,+,-,- signs and produced unit prefixes.
+`Continuum/BF4ExactSlabFixedSpatialPlaquetteOwnVector.ownVector_exact`
+synthesizes its three ACTUAL scalar jets to -Im(P), using a cleared basis-Gram
+identity; no unit-P premise or assumed adjoint orthogonality. Both final narrow
+checks and COMPLETE independent final-source/log reviews PASS; seven gates exactly
+{propext,Quot.sound}. This supplies the finite vector pin, not a mixed-link
+Hessian, original weighted three-face payment, warmed-source locality or physical
+gap. MAIN scaling retention and Clay remain OPEN; root registration, no tree audit.
+
 **Checked finite polynomial-kernel concentration (2026-10-09 UTC):**
 `Continuum/SU2QuaternionPolynomialKernelConcentration.kernelMoment_recurrence`
 proves the exact moment recurrence at EVERY natural degree for the original

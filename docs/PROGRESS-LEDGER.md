@@ -4,6 +4,21 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## ORIGINAL four-slot jets and own-gradient common-frame synthesis (2026-10-09 UTC)
+
+`PlaquetteCommonFrame.original_paired_first_jet` produces the actual +,+,-,-
+physical generators in a Haar-unit common prefix, forming raw derivatives
+before promotion. `PlaquetteOwnVector.ownVector_exact` contracts all three
+actual scalar jets to -Im(the ORIGINAL plaquette), at every boundary slot.
+Small explicit basis-Gram identities retain norm(prefix)^2 until the produced
+unit law removes it; no unit-P or analytic premise. Both final narrow checks,
+seven permitted gates and COMPLETE independent final-source/log reviews PASS.
+No new hole, broad audit, metric or resource increase. The original mixed-link
+Hessian and weighted three-face payment remain OPEN; two independently reviewed
+PAPER screens reject automatic parity and cyclic cancellation, not Yang--Mills.
+Exact hashes/commands and next signed-payment target: adaptive-score audit.
+Canonical chart claims, physical calibration and Clay remain OPEN/unchanged.
+
 ## Fixed rational multiplier preserves every one-link polynomial Haar moment (2026-10-09 UTC)
 
 `SU2QuaternionFixedRationalHaarTranslation.fixedTranslatedPolynomial_haar`

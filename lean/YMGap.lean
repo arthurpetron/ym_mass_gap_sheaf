@@ -5050,6 +5050,9 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteFrozenHessian
 -- Literal spatial plaquette jets and radial-to-ORIGINAL-prefix curvature.
 import YMGap.Continuum.QPolyHaarPairedAtFrozenChain
 import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteGradient
+-- Actual four-slot common-prefix jets and original own-gradient synthesis.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteCommonFrame
+import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteOwnVector
 import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteJetInterval
 import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteRadialCurvature
 import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteHeatPrefixJets

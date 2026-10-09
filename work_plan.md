@@ -38,8 +38,9 @@ the first remaining term couples TWO exterior faces touching different edges.
 The focused check1 and independent complete source/log review PASS; all three
 gates use only {propext,Quot.sound}. This is Nat-coordinate geometry, not a
 periodic-lattice statement or new analytic Hessian/weighted estimate. The
-common-frame vector pin and complete ORIGINAL weighted three-face payment
-are not yet Lean declarations. Repeated/signed faces, terminal mixed jets,
+common-frame vector pin is now CHECKED below; the complete ORIGINAL weighted
+three-face payment is not yet a Lean declaration. Repeated/signed faces,
+terminal mixed jets,
 retained favorable credits, OWN warmed variance and BOTH chronological masses
 remain. No locality theorem for warmed b is asserted.
 
@@ -47,10 +48,19 @@ Reuse rather than rederive the existing `LeftRightAngularAction.coordinate_actio
 `conjugate_coordinate_action` and `frameDerivativeAt_mul`: the three original
 paired generators already are literal LEFT imaginary multiplication, including
 the inverse sign, in all four components. Individual two-link first jets also
-exist as `PairedScalarSquare.paired_first_jet`. The missing original-word bridge
-is field-dependent common-prefix transport, not a new coordinate-frame module
-or the existing block-label swap. Source pins and private general-tail helpers:
-adaptive-score audit. Its consumer is still the PAPER exterior-pair reduction,
+exist as `PairedScalarSquare.paired_first_jet`. CHECKED new actual-source bridge:
+`PlaquetteCommonFrame.original_paired_first_jet` transports every literal
+physical slot into its produced Haar-unit common prefix, with +,+,-,- signs.
+`PlaquetteOwnVector.ownVector_exact` then synthesizes its three ACTUAL scalar
+jets into -Im(the ORIGINAL plaquette), with no unit-P premise. Explicit
+conjugated basis rows and a small Gram calculation produce the cleared identity;
+the inverse signs cancel twice, and prefix_unit supplies the only unit input.
+This is field-dependent common-prefix transport, not a new coordinate-frame
+module or the existing block-label swap. Both final focused checks and COMPLETE
+independent final-source/log reviews PASS; seven gates exactly {propext,Quot.sound}.
+No new analytic premise, source/action substitute or resource increase. Source
+hashes, exact commands, normalization and private general-tail helpers:
+adaptive-score audit. The consumer is still the PAPER exterior-pair reduction,
 not an already existing full original-weighted Hessian estimate.
 
 The actual inversion symmetry does not make the bracket insertion odd:
@@ -61,7 +71,11 @@ flatness. The first is quartic; adding a shifted link unused by the source
 gives a CUBIC leading term. Thus arbitrary-velocity obstruction alone cannot
 rule out improved source-specific estimates, but neither can the first
 fixture justify a universal fourth-order allowance. These are component
-tests, not full-Hessian or weighted-expectation claims. Exact algebra and
+tests, not full-Hessian or weighted-expectation claims. A FULL all-spatial-face
+INITIAL source test also has a nonzero cubic bracket sum, so cyclic/Jacobi
+pointwise cancellation is not automatic. All-link conjugation retains the
+odd-density--odd-bracket moment; the original spatial action is not invariant
+under that operation. Both terminal odd responses must remain. Exact algebra and
 source pins: adaptive-score audit. MAIN stays complete signed original-law
 payment or direct SAME-source macro retention; no new analytic interface.
 

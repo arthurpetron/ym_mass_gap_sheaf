@@ -10,12 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Latest finite inputs:** distinct canonical nonperiodic plaquettes now have a
+**Latest finite inputs:** the original plaquette's four physical-slot derivatives
+now have a checked common-frame identity, and their own-gradient sum is exactly
+`-Im(P)` on the same carrier. Distinct canonical nonperiodic plaquettes have a
 checked one-edge overlap bound. Original quaternion polynomial kernels also
 have a constructed positive normalizer and exact squared-chord moment
 `6/(m+3)` at every degree. Focused kernel checks and independent reviews passed.
-The initial-source calculation narrows its signed bracket to a three-face
-interaction, but is still a paper argument; its original weighted
+These finite identities support the paper reduction of each selected-face
+initial-source bracket to two exterior faces; the full Hessian and original weighted
 bound, warmed-source transport and continuum closure remain open. See the
 [proofs and updated next frontier](audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md).
 
