@@ -62516,6 +62516,29 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+## 2026-10-09 — Supplied regular special-unitary matrix inverse constructed
+
+`RepTheory/RationalQuaternionRepresentedMatrixInverse.standard_pattern`
+(:143) DERIVES the full quaternion matrix pattern from actual unitarity
+and determinant one, by two division-free polynomial identities.
+`first_norm` (:198) constructs the semantic first-row four-square equation;
+`preimageRow` (:210) and `preimage` (:217) retain supplied Type-valued
+first-row rates and construct the actual SAME Point. Whole-matrix recovery
+(:241), uniqueness (:261), rate/semantic congruence (:268/:275), original
+supplied-row round trip (:301), other unitarity (:308) and rational/sign/
+equator tests (:318/:324/:330/:336) are proved.
+
+Final narrow safe check2 PASS, 19 printed gates within {propext, Quot.sound},
+with firstRegularity axiom-free; COMPLETE independent final-source/log
+review PASS. Exact hashes, command and fresh capacity checks are in
+`work_plan.md`, observed represented matrix inverse. Check1 found a dependent
+Fin-pattern elaboration defect; explicit four cases repair it. Final log has
+no diagnostics. No sorry introduced/discharged, new axiom, analytic premise,
+classical choice, resource or heartbeat increase. No choice of arbitrary RC
+representatives/rates, compactness/Haar extension, every-group construction,
+MAIN interacting retention or Clay closure follows. Root import registered,
+not root/tree audited; no exact canonical chart claim changes.
+
 ## 2026-10-09 — Faithful SAME-Point fundamental matrix representation constructed
 
 `RepTheory/RationalQuaternionCompletedMatrix.representation` (:65) constructs

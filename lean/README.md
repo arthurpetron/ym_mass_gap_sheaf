@@ -16,6 +16,17 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked represented matrix inverse (2026-10-09 UTC):**
+`RepTheory/RationalQuaternionRepresentedMatrixInverse.preimage` constructs
+the SAME Point from a SUPPLIED CReal-complex matrix with explicit first-row
+rates. Actual unitarity and determinant one DERIVE the second-row pattern;
+`preimage_recovers` proves whole-matrix recovery, with uniqueness, changed
+rates and supplied-row round trips. Both signs and the equator are covered.
+Final narrow safe check2 PASS, 19 permitted gates and COMPLETE independent
+final-source/log review PASS. No arbitrary-RC representative choice,
+compactness/Haar, every-group or physical-gap claim follows. J04, MAIN
+interacting retention and Clay remain OPEN; root import registered, not audited.
+
 **Checked faithful quaternion matrix representation (2026-10-09 UTC):**
 `RepTheory/RationalQuaternionCompletedMatrix.representation` maps the EXISTING
 Point group to actual two-by-two complex RC matrices. Multiplication, identity

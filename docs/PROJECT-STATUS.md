@@ -6463,6 +6463,23 @@ RC unitary matrix or a compact-group/Haar identification. Those joins, every
 group, J04, the MAIN signed warmed estimate and Clay remain OPEN. No canonical
 chart claim changes or root/tree audit follows.
 
+Checked J04 represented matrix inverse input (2026-10-09):
+`lean/YMGap/RepTheory/RationalQuaternionRepresentedMatrixInverse.lean:143`
+(`standard_pattern`) derives c=-conj(b), d=conj(a) from the ACTUAL
+matrix equations M*M-adjoint=I and det(M)=1, by division-free identities.
+For SUPPLIED CReal entries with Type-valued first-row rates, `first_norm`
+(:198) feeds `preimageRow` (:210) and `preimage` (:217) on the SAME Point
+carrier. `preimage_recovers` (:241) recovers the WHOLE matrix; uniqueness
+(:261), rate independence (:268), semantic congruence (:275), supplied-row
+round trip (:301), other unitarity (:308) and rational/sign/equator tests
+(:318/:324/:330/:336) are proved. Final narrow safe check2 and COMPLETE
+independent final-source/log review PASS; all 19 gates are permitted and
+the supplied-rate function is axiom-free. Exact hashes/commands are in
+`work_plan.md`. This does NOT choose representatives or rates for arbitrary
+RC entries, establish compactness/Haar, or close every-group J04 or MAIN
+interacting retention. Clay remains OPEN; the displayed chart's proof states
+are unchanged, and no root/tree audit is implied.
+
 Verification context: `audits/AUDIT-FOUR-LINK-SQUARE-YOUNG-2026-09-24.md`,
 `audits/AUDIT-SURVIVAL-QUANTIFIERS-2026-09-24.md`, and the complex-time
 checkpoint in `work_plan.md`. These record targeted checks, not a fresh

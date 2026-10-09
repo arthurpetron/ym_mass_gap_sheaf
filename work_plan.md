@@ -664,6 +664,83 @@ This is an available finite inverse problem, not a chosen representative
 or rate for arbitrary RC matrix entries. Implement/check it as a separate
 bounded consumer; do not claim full compact SU(2) or Haar from it.
 
+SELECTED represented matrix inverse (2026-10-09 19:40 UTC): independent
+read-only mathematical screen PASS. Input is a SUPPLIED CReal-complex
+matrix M, Type-valued regularity of its four first-row components, and the
+ACTUAL equations M*M-adjoint=I and det(M)=1 after lifting entries to RC.
+Use the lower-left rowCross c*conj(a)+d*conj(b), not its opposite entry.
+The two division-free identities above derive the entire second-row pattern;
+the first-row sum of squares then supplies CoordinateCompletion.realization.
+Output is an actual Point and equality of its faithful representation to
+the WHOLE supplied matrix, with uniqueness and SAME supplied-row round trip.
+No inverse denominator, sign decision, chosen RC representative or extracted
+Prop modulus is needed. Existing input declarations are representation,
+pointCoordinate_realization and representation_injective; no completed
+matrix inverse declaration was found. Consumer is the represented matrix
+realization leg of J04; compactness/Haar and all groups remain separate OPEN
+inputs. Predict unconditional recovery from these algebraic/rate inputs;
+test both central signs and the equator, and independence of supplied rates.
+Sol implements one bounded leaf; ROOT inspects and checks serially with one
+worker/20 GiB/12 GiB reserve and fresh capacity per launch. Independent full
+source/log review precedes completion. Revise on a missing semantic premise,
+quotient witness extraction or a resource-limit increase. No canonical field
+changes; MAIN SAME-action signed warmed estimate and Clay remain OPEN.
+
+OBSERVED represented matrix inverse (2026-10-09 19:45 UTC):
+`lean/YMGap/RepTheory/RationalQuaternionRepresentedMatrixInverse.lean:143`
+(`standard_pattern`) DERIVES c=-conj(b), d=conj(a) from ACTUAL M*M-adjoint=I
+and det(M)=1, using the two division-free identities, with no row-pattern
+premise. `first_norm` (:198) needs unitarity alone and supplies the four-square
+equation to `preimageRow` (:210) and `preimage` (:217). First-row rates are
+supplied Type data. Whole-matrix recovery (:241), uniqueness (:261), rate
+independence (:268), semantic matrix congruence (:275), original supplied-row
+round trip (:301), opposite unitarity (:308) and rational/both-sign/equator
+tests (:318/:324/:330/:336) are proved on the SAME Point carrier.
+Source SHA-256:
+db71a8c57bacdc08586ee8c801b17d2650f5c51f983c48759a7fc813e4d4ee08.
+Final narrow safe check2 PASS, all 19 gates within {propext, Quot.sound},
+firstRegularity axiom-free and no diagnostics. COMPLETE independent full
+final-source/log review PASS. Final log
+`/private/tmp/ym-oct9-quaternion-represented-matrix-inverse2.log`, SHA-256:
+d35b61c4a006daf8f541083ce61260d45b62922d800071d6ce6dcce84dec028e.
+Exact final command from repository root:
+
+```sh
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 \
+  --check lean/YMGap/RepTheory/RationalQuaternionRepresentedMatrixInverse.lean \
+  --check-output lean/.lake/build/lib/lean/YMGap/RepTheory/RationalQuaternionRepresentedMatrixInverse.olean \
+  --log-file /private/tmp/ym-oct9-quaternion-represented-matrix-inverse2.log
+```
+
+Both serial launches had fresh successful capacity checks, no competing
+compiler and zero swap. Check1 found only a dependent Fin-pattern elaboration
+defect; ROOT repaired it with explicit four cases and Nat.not_lt_of_ge, not
+choice or a limit increase. No sorry, axiom or analytic premise was added.
+Root import registered, NOT root/tree audited. This proves the inverse for
+SUPPLIED regular entries, NOT representative/rate choice for arbitrary RC
+matrices or compactness/Haar. J04, MAIN interacting retention and Clay remain
+OPEN. No exact canonical chart claim changes; no chart reprint.
+
+NEXT polynomial Haar producer, independent read-only mathematical screen:
+`SU2QuaternionTranslationHaarMoments.translatedHeadMonomial_haar_closed`,
+`lean/YMGap/Continuum/SU2QuaternionTranslationHaarMoments.lean:72`, proves
+the head integral COEFFICIENTWISE as its original moment times a power of
+the retained multiplier radius, in both Hamilton orders at every degree.
+`SU2QuaternionTailEvaluation.partialHaarHead_evaluate`,
+`lean/YMGap/Continuum/SU2QuaternionTailEvaluation.lean:134`, permits specializing
+that multiplier to an actual supplied rational UnitNorm g; its norm-one
+proof is the field in `RepTheory/RationalQuaternionAlgebra.lean:125`.
+Unlike merely averaged two-block invariance, these inputs permit an all-degree
+fixed-g proof: specialize the radius power to one, induct over supported
+one-block polynomials, and pin evaluation to the actual action p(g*x)/p(x*g).
+The assembled fixed-g theorem and the radius/evaluation bridges are NOT yet
+proved. Consumer is the existing polynomial PolyLinkHaar invariance leg,
+currently only three fixed degree-two checks. No new Haar axiom or arbitrary
+Point-family completeness is needed for this finite producer. It does not
+establish Haar on all functions or compactness; no analytic branch/field is
+weakened. MAIN complete signed warmed payment/direct two-mass macro retention
+remains the separate OPEN priority, not a consequence of group geometry.
+
 PAPER smoothing screen (2026-10-09): the actual
 `H1FixedScale.smoothedEnergy_le_familyNorm` already pays the unconditional
 energy bound, but relative to the INITIAL norm, not the warmed denominator.
