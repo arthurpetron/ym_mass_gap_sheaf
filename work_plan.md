@@ -103,14 +103,32 @@ Four final focused checks, COMPLETE independent frozen-source reviews, and
 analytic premise/hole or full-tree audit; one capped serial worker. This
 fixed-nome cost is width/depth/cutoff independent, NOT near-one uniform.
 
-NEXT: join this produced Fisher dual to the literal source's OWN mean and
-selected-frame energy. For variance, produce the actual ordered double-IBP
-source pin, keeping the reversed `J_j J_i` order and all paired commutator
-terms. The backward screen finds a shorter split-Cauchy route using
-`K_f=sum_ij J_j J_i((J_i f)(J_j f))`; its proposed amplitude-two identity
-`K_f=48-16*Gamma(f)` remains PAPER. No zero-mean or weighted Poincare
-assumption is allowed. A stronger norm floor alone still does not pay the
-current absolute temporal-loss ceiling.
+CHECKED OWN-mean and ordered-source joins (2026-10-09 UTC):
+`FisherMean.marginal_paired_own_mean_square_bound` now proves
+`m^2 <= (C(w)/3)*e`, with OWN original odd mean and selected paired energy.
+The literal character-one plaquette consumer supplies its exact block degree;
+the generic degree-one theorem retains arbitrary spectator coefficients.
+The raw paired Ward identity uses the actual block Casimir, not a zero mean.
+`DyadicWilsonSquareDoubleIBP.paddedSquare_doubleIBPSource_48` now proves
+`K_f=48-16*Gamma(f)` for the ACTUAL head-swapped padded Wilson-square source,
+under every Haar insertion. Both ordered Hessians remain through the amplitude
+derivative and symmetric contraction; no commutation or extra bracket theorem
+is assumed. K is signed, not positive. `FisherVector` also produces
+`H[DA*h]^2 <= H[W*h^2]*(H[H2]+C(w)*H[W*|u|^2])` on the complete ORIGINAL W.
+H[H2] remains signed and unbounded in that theorem. Four final focused checks,
+COMPLETE independent frozen-source reviews and 20 permitted gates PASS; no
+new hole/analytic premise or limit raise. These are finite supporting estimates,
+not a new variance floor or scaling result.
+
+NEXT: perform the actual ordered double Haar IBP for u_i=J_i f and transport
+the produced source K to the SAME complete original marginal, giving
+`H[H2]=48*H[W]-16*H[W*Gamma(f)]`. Consume it in the vector dual at the actual
+OWN-centered signed test, then join the exact centered Ward identity, amplitude
+four and produced OWN-mean/energy constraint. The sharper inverse-square
+curvature variance floor remains PAPER until that SAME-object join and scalar
+elimination are checked. No zero-mean or weighted Poincare assumption is
+allowed. A stronger norm floor alone still does not pay the current absolute
+temporal-loss ceiling.
 Complete SAME-action relative signed payment/direct macro retention remain
 co-primary and OPEN. Evidence and exact source pins: adaptive-score audit.
 Canonical displayed claims unchanged; no ASCII reprint.

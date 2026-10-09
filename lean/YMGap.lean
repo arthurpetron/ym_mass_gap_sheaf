@@ -5057,6 +5057,12 @@ import YMGap.Continuum.QuaternionHaarIntegratedPositiveWindowOrderReflection
 import YMGap.Continuum.QPolyHaarPairedAtFrozenBasis
 import YMGap.Continuum.QuaternionHaarCurvatureDualBound
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFisherDual
+-- OWN original odd mean/energy and signed vector dual, not variance closure.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFisherMean
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFisherVector
+-- Exact ordered source pin on the ACTUAL padded Wilson square; K is signed.
+import YMGap.Continuum.QuaternionHaarPairedLinearDoubleIBP
+import YMGap.Continuum.BF4DyadicWilsonSquareDoubleIBP
 import YMGap.Continuum.SU2QuaternionPairedHeatAtFrozenCurvature
 import YMGap.Continuum.SU2QuaternionConditionalZeroMeanSignedGram
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepPairedScorePin

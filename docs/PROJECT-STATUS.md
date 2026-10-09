@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Supporting OWN-mean and ordered-source joins checked (2026-10-09 UTC):
+`m^2 <= (C(w)/3)*e` uses the OWN original odd mean, selected paired energy
+and actual degree-one Casimir. The ACTUAL padded Wilson-square source has
+`K=48-16*Gamma`, retaining reversed ordered derivatives and arbitrary Haar
+insertions. This signed identity is not a positivity certificate. The produced
+full-vector original score dual also retains its signed Hessian expectation.
+Four final focused checks/20 permitted gates and COMPLETE independent final-
+source reviews PASS. Same-original-weight double IBP, OWN-centered variance
+and MAIN relative loss/macro retention remain OPEN. No exact displayed chart
+claim changes; no chart reprint. Evidence: adaptive-score audit.
+
 Supporting lossless ORIGINAL Fisher dual checked (2026-10-09 UTC): the literal
 `W=V*g_n*g_(n+1)` satisfies `H[(J_i W)h]^2 <= C(w)*H[W]*H[W*h^2]` for every
 supported signed test at an actual active physical link. Constructive integrated

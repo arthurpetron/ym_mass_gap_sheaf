@@ -16,6 +16,17 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked OWN-mean and ordered-source joins (2026-10-09 UTC):** on the SAME
+original odd marginal, exact degree-one sources satisfy `m^2 <= (C(w)/3)*e`,
+with OWN mean and actual selected paired energy. The literal plaquette
+character supplies its source degree. The actual padded Wilson-square source
+now has the exact ordered double-IBP pin `K=48-16*Gamma`; K is signed, not a
+positivity certificate. The full-vector original score dual retains H[H2]
+as a signed term. Four final focused checks/20 permitted gates and COMPLETE
+independent frozen-source reviews PASS. Same-weight double IBP and the
+OWN-centered variance join remain next; no new variance floor, scaling
+survival or physical/Clay claim. No limit raise or full-tree audit.
+
 **Checked lossless ORIGINAL Fisher dual (2026-10-09 UTC):** for the literal
 odd marginal `W=V*g_n*g_(n+1)`, every supported signed test h satisfies
 `H[(J_i W)h]^2 <= marginalCurvatureCost(w)*H[W]*H[W*h^2]` at an actual active

@@ -9241,3 +9241,112 @@ a stronger norm floor alone cannot pay the present absolute temporal-loss
 ceiling. Nontrivial continuum survival, physical calibration, full QFT,
 every compact simple group and Clay remain OPEN. No exact displayed chart
 claim changed; no chart reprint.
+
+## Selection: SAME-original mean/energy and ordered source join
+
+2026-10-09 15:42 UTC. Prior turn PROGRESS, a9a07a5d committed/pushed.
+Selected next proposition: `3*H[W*f]^2 <= C(w)*H[W]*H[W*Gamma_s(f)]`
+for an actual active selected block and supported exact block-degree-one
+source f, with W still V*g_n*g_(n+1). Consumer: OWN mean/energy constraint
+used with the amplitude-four identity in the sharper variance join. Existing
+inputs are the checked per-direction Fisher dual, actual At paired product
+rule and Haar zero, block-degree-one Casimir, and the paired/six-plane trace
+pin. No head reindexing of W or new analytic premise is necessary.
+
+Parallel bounded Sol task: produce the ordered source double-IBP carrier
+K_f=sum_ij J_j J_i((J_i f)(J_j f))=12*f^2-4*Gamma(f), retaining an explicit
+selected-independent amplitude pin. Differentiate the exact amplitude pin,
+and retain BOTH mixed orders through the symmetric Hessian contraction;
+do not assume that paired derivatives commute. The literal amplitude-four
+source then gives K_f=48-16*Gamma(f). Independent read-only reviews screen
+both the source algebra and actual original mean/variance consumer.
+
+Predicted outcome is a fixed-nome mean bound and source identity, not a
+spacing-uniform gap. Decisive checks: constant/zero signed tests, nonconstant
+spectator coefficients, inactive-link exclusion, own odd partition, and
+bare-Haar K having integral zero. Revise if the actual Casimir/derivative
+stability or amplitude pin is absent; no weighted-Poincare field will be
+added. Narrow serial checks only, one 20-GiB worker/12-GiB reserve, fresh
+dynamic preflight each launch. MAIN signed retention and Clay remain OPEN.
+
+2026-10-09 15:51 UTC refinement: OWN mean and the generic ordered source pin
+are now checked. To join them without a log-score object, select the actual
+frozen-vector dual on the SAME original W: with DA=D_u W and H2=D_u^2 W,
+prove `H[DA*h]^2 <= H[W*h^2]*H[H2+C*W*|u|^2]` for every supported signed h.
+Use the produced full integrated curvature with dd=H2+C*W*|u|^2, lambda=0
+in the checked signed dual theorem. No sign of H2 is assumed. Support and the
+existing actual positive window are the only additional produced inputs.
+Consumer is the full signed OWN-centered residual; the source double-IBP
+pin will later bound H[H2]. No variance or scaling claim is selected now.
+
+## Observed progress: original mean, vector dual and ordered Wilson source
+
+2026-10-09 UTC. Four final focused checks PASS. The original weight remains
+W=V*g_n*g_(n+1), with the actual active physical link and both chronological
+messages. `paired_linear_mean_ward` proves the exact degree-one identity
+sum_i H[(J_i W)(J_i f)]=3*H[W*f], using actual paired Leibniz/Haar zero and
+the block Casimir. Combining the previously checked directional Fisher dual
+with three-direction scalar Cauchy gives F^2 <= E*((C(w)/3)*Z). The OWN
+normalization uses the SAME positive original odd partition Z=H[W]; it yields
+m^2 <= (C(w)/3)*e. Arbitrary spectator coefficients are retained. The literal
+character-one plaquette consumer supplies its actual support and block degree;
+the active-link guard is not silently removed.
+
+The source algebra separately preserves the ordered sum
+K_f=sum_ij J_j J_i((J_i f)(J_j f)). Differentiating the exact amplitude
+f^2+Gamma=A and retaining BOTH mixed derivative orders gives
+K_f=12*f^2-4*Gamma=12*A-16*Gamma. No commutation assumption or new Lie-bracket
+premise is used. The ACTUAL head-swapped padded Wilson-square character has
+A=4 under every Haar insertion, hence K_f=48-16*Gamma. This is signed, not
+a positivity Certificate or an integrated bound on the original marginal.
+
+The original vector dual retains all nine ordered jets. For supported frozen
+u and supported signed h, with DA=sum_i u_i*J_i W,
+H2=sum_ij u_i*u_j*J_i*J_j W and G=sum_i u_i^2, it proves
+
+    H[DA*h]^2 <= H[W*h^2]*(H[H2]+C(w)*H[W*G]).
+
+This follows from the actual full integrated curvature and the checked signed
+dual with dd=H2+C(w)*W*G and lambda=0. The actual positive window is produced.
+H[H2] is NOT assumed nonpositive or discarded. No logarithmic score, inverse
+observable, inverse-floor cost or weighted-Poincare hypothesis is introduced.
+
+### Frozen verification evidence
+
+ROOT read the complete sources and owned each serial narrow compilation.
+A bounded Sol implementation agent produced the ordered source algebra and
+actual padded consumer. An independent read-only Sol reviewer attested
+COMPLETE final-frozen-source PASS for all four hashes. Twenty printed gates
+admit only {propext, Quot.sound}; `third` is axiom-free. No new sorry, axiom,
+analytic premise, classical step, foreign code or limit increase.
+
+| Declarations | Source path:line | Frozen SHA-256 | Passing log / SHA-256 |
+|---|---|---|---|
+| paired_linear_mean_ward; marginal_paired_mean_square_bound; marginal_paired_own_mean_square_bound; plaquette_character_mean_square_bound | lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFisherMean.lean:113; :156; :217; :243 | 072d642c45bda208db342c8d998f7fc51f8c25bef526bbc929250c9ebc4b71a9 | /private/tmp/ym-oct9-original-fisher-mean6.log / 6e6960dd4a6931496600d4db4a61fd2aec7b2c7d8616591694a09aa6ecd9dc22 |
+| ordered_reverse_contraction; doubleIBPSource_pin; doubleIBPSource_amplitude_pin | lean/YMGap/Continuum/QuaternionHaarPairedLinearDoubleIBP.lean:217; :332; :396 | bf7506ba56fb79243a1427fe64a107b40073d3fd89576a9add10d61c8194a058 | /private/tmp/ym-oct9-paired-double-ibp2.log / 21776a1ff8b917a9a6afc13debddcce687d5d61872d23e8ba26ec9a87a24f760 |
+| paddedSquare_doubleIBPSource_amplitude; paddedSquare_doubleIBPSource_48 | lean/YMGap/Continuum/BF4DyadicWilsonSquareDoubleIBP.lean:44; :86 | 86716b182153abb36741b498fcfedb82ebd4abdcbe8cb07ae2a7417e0d7d8a67 | /private/tmp/ym-oct9-wilson-square-double-ibp1.log / 7e3885e7b12faaa603e340d81aa1bed223dd0af51f88cd006ef60658d007c0af |
+| marginal_frozen_score_signed_dual_bound | lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFisherVector.lean:70 | 8dfdbf8254603a674aa85b9c16e95c4adc11c882d3f3d48c230aa0c55b0cb9c5 | /private/tmp/ym-oct9-original-fisher-vector2.log / 62043e3fd27259fea3c6f563c14fce64e275a5077427149a073964195273f046 |
+
+Fresh dynamic pressure/swap/full-process preflight preceded EACH launch:
+85--86 percent free, zero swap and no competing compiler/runner. One monitored
+20-GiB worker and a 12-GiB OS reserve. Repairs were missing namespaces/support
+APIs, fractional constants represented by variables in the existing integer
+ring normalizer, and preventing unnecessary paired-derivative unfolding with
+an explicit gradient function. An intermediate default whnf timeout was
+resolved without raising limits. Temporary diagnostics were removed before
+the final check. Final frozen hashes were rechecked without recompilation.
+Root imports are registered; no root/full-tree build or audit is inferred.
+
+### Exact next join and remaining boundary
+
+Next produce the ordered double Haar IBP and the actual coordinate transport
+from the head-swapped source to the SAME complete original weight:
+H[H2]=H[W*K_f]=48*H[W]-16*H[W*Gamma]. Then consume the vector dual at the
+OWN-centered signed test, using the exact centered Ward identity, amplitude
+four and the produced mean/energy bound. The proposed inverse-square-curvature
+variance floor remains PAPER until this SAME-object join and scalar elimination
+are checked. A norm floor alone still cannot pay the present absolute cubic
+temporal-loss ceiling. SAME-action relative signed payment/direct macro
+retention remain co-primary and OPEN; nontrivial continuum survival, physical
+calibration, full QFT, every compact simple group and Clay remain OPEN.
+No exact canonical displayed claim changed; no ASCII chart reprint.
