@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## PROVED original signed-energy cutoff consumer and exact shift cancellation / OPEN remaining relative payment (2026-10-09 UTC)
+
+`sourceEnergy_signed_channel_payment`,
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareSignedEnergyPayment.lean:169`,
+composes the retained-Casimir inequality on each ACTUAL signed passive source.
+`energy_signed_channel_remainder:270` keeps the ORIGINAL projected endpoint
+and OWN center at depth n+1. `normalizedEnergy_signed_cutoff_payment:299`
+joins the proved cutoff payment to SAME oddMass, giving
+`normalizedEnergy<=signedEnergyDebt/Z+delta*OWNVariance`. The remaining
+debt (`signedEnergyDebt:95`) includes angular, signed cubic, negative curvature
+and literal Casimir-square terms; no bound on that debt is assumed or proved.
+`sourceCubic_shifted`,
+`lean/YMGap/Continuum/SU2QuaternionCyclicSourceShift.lean:122`, and
+`sourceOmitted_shifted:147` prove exact constant-shift cancellation on the
+existing supported signed carrier. These eliminate mean corrections, not
+the variance-payment obligation. Final energy check6/shift check1 and COMPLETE
+independent source/log reviews PASS; seven gates exactly {propext,Quot.sound},
+no final warnings/errors. Earlier failed elaboration logs are superseded,
+not evidence. No new source hole, axiom, analytic premise or canonical-field
+change. Root registration only; no root/tree audit. Warmed/BOTH-mass joins,
+changing-family scaling, continuum survival, finite positive physical mass,
+full SAME-theory QFT, every group and Clay remain OPEN. Evidence: score audit.
+
 ## PROVED signed original omitted-component payment / OPEN full signed debt (2026-10-09 UTC)
 
 `neg_sourceOmitted_le_squareBound`,
@@ -20,8 +43,9 @@ PASS; fourteen permitted gates, no final warnings/errors. Check1 elaboration
 failures are superseded, not evidence. No new hole, axiom, analytic premise,
 canonical-field change or resource increase; root registration only, no
 root/tree audit. This does not bound the old absolute leaf error budget or
-apply Wilson cap16 to an arbitrary family. Exact-energy reassembly, remaining
-cubic/curvature payment, warmed/BOTH-mass and changing-family scaling joins,
+apply Wilson cap16 to an arbitrary family. Exact-energy reassembly is now
+checked in the entry above; remaining cubic/curvature payment, warmed/BOTH-mass
+and changing-family scaling joins,
 physical/QFT/every-group and Clay remain OPEN. Evidence: adaptive-score audit.
 
 ## PROVED finite polynomial-kernel concentration / OPEN continuous Haar (2026-10-09 UTC)

@@ -16,6 +16,21 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked signed-energy join and shift cancellation (2026-10-09 UTC):**
+`Continuum/BF4DyadicWilsonSquareSignedEnergyPayment.normalizedEnergy_signed_cutoff_payment`
+consumes the signed omitted estimate on ORIGINAL energy, proving
+`normalizedEnergy<=signedEnergyDebt/Z+delta*OWNVariance` at its computed
+cutoff for every positive depth and permitted square perimeter. Remaining
+angular/cubic/curvature/literal Casimir-square debt is explicit and UNPAID.
+`Continuum/SU2QuaternionCyclicSourceShift.sourceCubic_shifted` and
+`sourceOmitted_shifted` prove exact cancellation of arbitrary constant shifts
+for supported signed sources; no centered eigenfunction claim is used.
+Final energy check6/shift check1 and COMPLETE independent final-source/log
+reviews PASS; seven permitted gates, no final warnings/errors. No new hole,
+analytic input or canonical closure. MAIN relative payment, scaling and Clay
+remain OPEN. Root imports are registration only; no full root/tree check.
+Evidence and next actual moment/cubic comparison: adaptive-score audit.
+
 **Checked signed omitted-cutoff payment (2026-10-09 UTC):**
 `Continuum/SU2QuaternionCyclicComplementaryOmitted.neg_sourceOmitted_le_squareBound`
 constructs the positive complement of the actual omitted form and preserves

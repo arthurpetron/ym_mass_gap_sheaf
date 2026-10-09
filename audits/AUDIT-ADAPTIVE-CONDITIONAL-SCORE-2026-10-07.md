@@ -11174,3 +11174,155 @@ absolute-leaf ceiling. Useful remaining signed payment, OWN warmed variance,
 BOTH chronological masses, changing-family/scaling, nontrivial continuum
 survival, finite positive physical mass, full SAME-theory QFT, every group
 and Clay remain OPEN. The goal is unchanged and ACTIVE.
+
+## Selected exact signed-energy consumer (2026-10-09)
+
+Previous checkpoint: PROGRESS, `47d972be` pays the actual signed omitted
+component, not the older absolute error budget. Selected consumer: join the
+exact second-order source identity, general retained Casimir inequality and
+literal passive-channel energy decomposition to ORIGINAL energy. Keep
+the signed cubic plus retained curvature/square debt together. At the
+already computed omitted cutoff, the predicted conclusion is
+
+    normalizedEnergy <= remainingSignedDebt/Z + delta*OWNVariance.
+
+Inputs are `sourceEnergy_secondOrder`,
+`sourceSecondMoment_le_retainedCasimir`,
+`sourceEnergy_projected_channels`, `energy_projected_source`, `energy_shifted`
+and `signedChannelOmitted_le_variance`. Every term uses the SAME projected
+endpoint, OWN center, actual channel weights and original odd mass. The
+centered observable is NOT a Casimir eigenfunction; retained square is
+literally the square of its Casimir polynomial. No premise bounding the
+remaining debt is added. This is the consuming energy join of the new
+estimate, not a producer of the missing full relative estimate.
+
+Tests/guards: zero source/observable and arbitrary centering must retain the
+signed identity; positive depth is n+1 exactly ONCE; a retained quadratic
+UPPER bound is composed as an inequality, not substituted into an equality.
+Signed/repeated channels remain intact. Budget: one bounded Sol consumer
+leaf, independent read-only joint-operator math review, ROOT-only serialized
+20GiB/12GiB-reserve checks with fresh pressure/swap/process preflights.
+Revise or prune if a required original pin is absent; do not add a new
+analytic field, strengthen an input or substitute a different density.
+Whole-debt payment, chronological/warming/scaling and Clay remain OPEN.
+
+### Selected exact shift-cancellation producer
+
+The backward consumer needs an estimate of the signed debt at the OWN
+center, whereas literal raw Wilson moment/eigen identities act on f. The
+finite PAPER identity J_B(q,f-c)=J_B(q,f), where
+J_B=B(q,q*f^2)-B(q*f,q*f), follows by symmetry and bilinearity: both
+linear and quadratic terms in c cancel. Existing `cubicGNSData` and
+`omittedGNSData` construct those forms on the SAME supported carrier.
+Selected bounded leaf: prove exact `sourceCubic_shifted` and
+`sourceOmitted_shifted`, for arbitrary center c and signed supported q/f.
+No extra eigenpin, source positivity or division is allowed. These exact
+identities, unlike separate diagonal envelopes, eliminate mean-correction
+cost from the signed terms; they do not pay the original variance.
+Tests: c=0, constant f and zero q, arbitrary negative c and zero modes.
+Two exact finite gates, one serial monitored check; abandon if the actual
+ragged-tree form cannot be recoded through its already constructed GNSData.
+This note records the supplementary mathematical selection before checking;
+the initial bounded implementation is not yet accepted evidence.
+
+### Observed result: signed-energy consumer and exact shifts CHECKED
+
+2026-10-09 23:17 UTC. CONTINUE: the consuming original-energy join and
+the supplementary constant-shift cancellation producer are kernel-checked.
+The source-specific second-order identity first receives the retained
+Casimir UPPER inequality on each signed source, then the actual passive
+channel sum. The literal original energy is centered at OWN mean and
+identified with the fringe-PROJECTED terminal source at depth n+1. Dividing
+by the SAME positive oddMass and consuming the checked omitted modulus gives
+
+    normalizedEnergy <= signedEnergyDebt/Z + delta*OWNVariance.
+
+No favorable sign or relative estimate is supplied for signedEnergyDebt.
+That debt includes (h+t)*actualAngular, signed cubic and
+t*(-actualCurvature-(1/3)*actualCasimirSquare), with all original channels.
+The old two absolute omitted leaf sums are not paid. A private helper keeps
+its explicit strict-nome guard; its nonnegative-nome argument is unnecessary
+for the quadratic inequality, but actual channel positivity still uses it.
+
+The generic shift producer uses only coefficient recodings and existing
+symmetric bilinear GNSData: q(f-c)=qf-cq and
+q(f-c)^2=qf^2-2c*qf+c^2*q. Mixed-minus-diagonal linear/quadratic terms in c
+cancel exactly. The negative cubic-form orientation is retained. Supported
+signed sources, arbitrary constants and zero cases remain; no inverse norm
+or centered-eigenfunction assumption. The identities supply an exact input
+for raw Wilson moment analysis, not another assumed variance-payment field.
+
+Frozen accepted sources/declarations:
+
+- `sourceCubic_shifted:122`, `sourceOmitted_shifted:147`,
+  `lean/YMGap/Continuum/SU2QuaternionCyclicSourceShift.lean`, 171 lines,
+  SHA256 `5694fb347bed2ae19aa27ad4a1558061483a0e0c7c4812a9c4bd63c296179e1d`.
+- `signedEnergyDebt:95`, `sourceEnergy_signed_channel_payment:169`,
+  `energy_signed_channel_remainder:270`,
+  `normalizedEnergy_signed_cutoff_payment:299`,
+  `lean/YMGap/Continuum/BF4DyadicWilsonSquareSignedEnergyPayment.lean`, 329 lines,
+  SHA256 `90fbf4e6bd1d0a2f777a92ad800f42564bee444fdf053bb082ec544f1cc53299`.
+
+Accepted ROOT-only serial commands:
+
+```sh
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/SU2QuaternionCyclicSourceShift.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/SU2QuaternionCyclicSourceShift.olean --log-file /private/tmp/ym-oct9-cyclic-source-shift1.log
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/BF4DyadicWilsonSquareSignedEnergyPayment.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/BF4DyadicWilsonSquareSignedEnergyPayment.olean --log-file /private/tmp/ym-oct9-signed-energy-payment6.log
+```
+
+Accepted log hashes, respectively:
+`79093861ebd4cef8855de6c055b89f79135da7c0d2eadc94dc6a649abe6ac0e7`,
+`8c00efe25dba8c1887d7e3fea783d9818c9ef1b2332d82469f354855b2207710`.
+Both exit zero without warnings/errors; all SEVEN printed gates are exactly
+{propext,Quot.sound}. ROOT read COMPLETE final sources/logs; independent
+COMPLETE final-source/log reviews PASS for each, with stable hashes.
+The initial implementation incorrectly used the retained inequality as a
+ring equality, duplicated n+1 and omitted a source-square factor; static
+review repaired these before checking. Energy check1 failed on the leading
+module-comment/import placement; checks2--4 failed on missing namespaces
+and induced elaboration timeouts. Check5 passed with one unused-variable
+warning; check6 renames only that private argument. Earlier failed logs and
+their compiler placeholders/sorryAx are NOT accepted proof evidence. The
+shift check passed on its first launch after static namespace repair.
+
+Every SEVEN launch had fresh pressure/swap/vm_stat/process preflight;
+85--86% pressure-free capacity, zero swap, no competing Lean/Lake/pytest/
+Runner process. One 20GiB worker and 12GiB OS reserve throughout. All jobs
+ended during initial calls; no live polling or safety stop, process mutation,
+lock removal, tree/root audit, CI or limit change. Two root imports are
+registration only. The three user-owned duplicate Lean files are untouched.
+No new sorry discharged/introduced, analytic premise, canonical-field change
+or foreign code. Updated live plan/research reconciliation/README/ledger/
+supporting status; no canonical displayed claim changes or ASCII reprint.
+
+### Independent joint-operator screen: useful identity, missing actual comparison
+
+PAPER, not a new Lean theorem: with h=1-w and t=h^2/2,
+
+    t*(nu^2-nu)+cubicRemainder(w,nu)=w^nu-1+h*nu=:r_nu,
+    0<=r_nu<=h*nu.
+
+The regrouping is already represented by `SU2QuaternionExactRemainderForm`;
+its linear-Casimir ceiling reduces differential order of diagonal envelopes,
+but r_nu is unbounded with nu at fixed strict nome. It does not give a
+degree-independent Haar cap or the channel/OWN-variance comparison. The
+mixed-minus-diagonal source correction is not automatically nonpositive:
+for generic one-block heat, q=1/4+3*x^2, f=x, w=1/2 and K>=3,
+
+    E=7/16+(15/32)*w^8-(49/64)*w^3-(9/64)*w^15,
+    H[q^2*Gamma(f,f)]=21/32,
+    E-h*H[q^2*Gamma(f,f)]=32503/2097152>0.
+
+These finite PAPER character/Haar calculations were independently reviewed
+and ROOT recomputed the displayed coefficients. No Lean certificate or
+ACTUAL BF4 terminal source is claimed; this is not a Yang--Mills or survival
+counterexample. PRUNE the unsupported universal favorable-sign shortcut.
+
+NEXT: use the new exact shifts with existing `ChannelMomentBalance` raw M/F
+identities to retain (h+t)*P*(4M-F)+t*P^2*(5F-8M)+actual signed cubic, and
+produce a useful bound against SAME oddMass*oddVariance. Do not substitute
+the joint marginal density for bare channel squares or add another wrapper
+assuming the missing estimate. Full relative payment, warmed/BOTH chronological
+mass joins, justified changing-family/scaling, nontrivial continuum survival,
+finite positive physical mass, full SAME-theory QFT, every group and Clay
+remain OPEN. The unchanged goal remains ACTIVE.

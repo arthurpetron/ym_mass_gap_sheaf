@@ -86,13 +86,34 @@ PASS; fourteen gates within {propext,Quot.sound}, one axiom-free definition,
 no final warnings/errors. Exact hashes/commands: complementary-operator
 section of the adaptive-score audit. Root registration only, no tree audit.
 
-NEXT mathematical producer: reassemble the literal ORIGINAL signed energy
-using `sourceEnergy_secondOrder`, `sourceEnergy_projected_channels` and
-`energy_projected_source`, retaining actual cubic and curvature/negative-square
-terms together and paying ONLY the signed omitted component with the new
-modulus. Produce useful payment of the remaining whole expression against
-SAME `oddMass*oddVariance`; do not pretend the old absolute-leaf error budget
-has been bounded. For general signed spatialSpan the existing
+CHECKED exact ORIGINAL signed-energy join:
+`BF4DyadicWilsonSquareSignedEnergyPayment.normalizedEnergy_signed_cutoff_payment`
+now proves `normalizedEnergy <= signedEnergyDebt/Z + delta*OWNVariance`
+at the computed cutoff, every positive depth and permitted square perimeter.
+The debt retains actual angular, signed cubic, negative curvature and literal
+Casimir-square terms. The retained-Casimir UPPER inequality is composed, not
+substituted into an equality. SAME endpoint, OWN center, channel weights and
+partition remain. `SU2QuaternionCyclicSourceShift.sourceCubic_shifted` and
+`sourceOmitted_shifted` additionally prove exact cancellation of arbitrary
+constant observable shifts on supported signed sources. This eliminates mean
+corrections from the signed terms, not their variance payment. Final narrow
+energy check6/shift check1 and COMPLETE independent source/log reviews PASS;
+seven gates within {propext,Quot.sound}, no final warnings/errors. No new
+analytic input, hole or canonical closure; exact evidence: score audit.
+
+NEXT mathematical producer: pay `signedEnergyDebt` against SAME
+`oddMass*oddVariance`. Use the checked exact shift cancellation with the
+existing literal `ChannelMomentBalance` identities to keep raw Wilson
+channel mass M, square moment F and signed cubic together:
+`(h+t)*P*(4*M-F) + t*P^2*(5*F-8*M) + sum(actualSignedCubic)`.
+The actual source remains Pi_fringe(V*g_depth); bare M/F are not OWN
+variance. Do not absolutize cubic or assume the whole joined correction is
+nonpositive: the independent generic heat screen gives a positive correction
+even for a positive low-degree source. That screen is PAPER, not an actual
+BF4 terminal-source counterexample. A first-Casimir norm ceiling on the
+joined scalar remainder does not give its missing channel/OWN-variance
+comparison. Do not pretend the old absolute-leaf error budget has been
+bounded. For general signed spatialSpan the existing
 `familyChannelErrorBudget-t*(20*familyChannelGradient+familyChannelPairRemainder)`
 consumer remains OPEN; its own produced cap and variance comparison are
 required, not the Wilson constant. Keep favorable gradient and signed cross

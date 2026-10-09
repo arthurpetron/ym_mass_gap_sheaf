@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Supporting ORIGINAL signed-energy join and exact mean cancellation checked
+(2026-10-09 UTC): normalizedEnergy<=signedEnergyDebt/Z+delta*OWNVariance at
+the existing computed cutoff, every positive depth/permitted perimeter.
+SAME endpoint, OWN center, passive channels and odd partition remain; only
+signed omitted loss is paid. Exact sourceCubic/sourceOmitted constant-shift
+identities remove mean-correction costs, not remaining relative debt.
+Final energy check6/shift check1 and COMPLETE independent source/log reviews
+PASS; seven permitted gates, no final warnings/errors. No new analytic input
+or hole. Relative angular/cubic/curvature payment, scaling and physical/Clay
+goals OPEN. No exact displayed claim changes or chart reprint. Evidence:
+adaptive-score audit.
+
 Supporting signed ORIGINAL omitted component checked (2026-10-09 UTC): the
 constructed positive complementary form retains mixed-minus-diagonal
 cancellation and gives M*rho*H[q^2]. The literal OWN-centered Wilson-square

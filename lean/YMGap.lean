@@ -5473,6 +5473,12 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialRawSourceMassBound
 -- Signed complementary omitted loss versus OWN variance on actual Wilson channels;
 -- computed full-width cutoff, not complete cubic/curvature or scaling payment.
 import YMGap.Continuum.BF4DyadicWilsonSquareSignedChannelOmittedPayment
+-- Exact cubic/omitted source debts cancel constant observable shifts;
+-- no favorable debt sign or interacting variance estimate is implied.
+import YMGap.Continuum.SU2QuaternionCyclicSourceShift
+-- The signed cutoff payment feeds the ORIGINAL energy and SAME partition;
+-- remaining cubic/curvature/angular debt is explicit and unpaid.
+import YMGap.Continuum.BF4DyadicWilsonSquareSignedEnergyPayment
 -- Integrated original Ward residual transport, not a weight/derivative identity.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialProjectedWard
 -- The displayed majorant retains a quadratic floor; not a true-moment lower bound.
