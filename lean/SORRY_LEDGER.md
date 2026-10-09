@@ -1,5 +1,20 @@
 # Sorry Ledger
 
+## PROVED canonical face overlap / OPEN source-specific weighted bracket (2026-10-09 UTC)
+
+`two_boundary_links_determine_face`,
+`lean/YMGap/Continuum/Z4DistinctPlaquetteIntersection.lean:24`, proves uniqueness
+of a canonical nonperiodic Nat-coordinate plaquette from two distinct boundary
+links. `common_boundary_links_equal_of_faces_ne:52` gives the distinct-face
+overlap bound. Final focused check1 and COMPLETE independent source/log review
+PASS; three gates exactly {propext,Quot.sound}. No new premise, hole, axiom,
+frontier change or resource increase; root registration only, no root/tree audit.
+Common-frame own-gradient cancellation and near-flat three-face fixtures remain
+PAPER; the full original weighted bracket, terminal jets, OWN warmed variance,
+BOTH chronological masses and scaling/physical/Clay joins remain OPEN. The
+geometry does not assert periodic identifications or warmed-source locality.
+Exact hashes, command and mathematical selection: adaptive-score audit.
+
 ## PROVED finite nonabelian word residual / OPEN original weighted payment (2026-10-09 UTC)
 
 `actualDefect_cleared`,

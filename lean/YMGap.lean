@@ -752,6 +752,7 @@ import YMGap.Continuum.MultiComponentKPProgress
 import YMGap.Continuum.PartitionBeyondTree
 import YMGap.Continuum.SixJRecouplingCutoffFence
 import YMGap.Continuum.ClusterCount4DProgress
+import YMGap.Continuum.Z4DistinctPlaquetteIntersection
 import YMGap.Continuum.Z4FiniteBoxExhaustion
 import YMGap.Continuum.Z4FiniteBoxTrivalentResolution
 import YMGap.Continuum.Z4FiniteBoxPacketState

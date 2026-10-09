@@ -16,6 +16,15 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked canonical face overlap (2026-10-09 UTC):**
+`Continuum/Z4DistinctPlaquetteIntersection.common_boundary_links_equal_of_faces_ne`
+proves that two distinct canonical nonperiodic Nat-coordinate plaquettes cannot
+share two distinct boundary links. Final focused check1 and independent complete
+source/log review PASS; three gates use only {propext,Quot.sound}. It supports
+the PAPER initial-source exterior-pair reduction, not a vector-gradient pin,
+mixed-link Hessian, original weighted payment or periodic-lattice theorem.
+MAIN scaling retention and Clay remain OPEN; root registration, no tree audit.
+
 **Checked finite nonabelian commutator residual (2026-10-09 UTC):**
 `RepTheory/RationalQuaternionCommutatorDefect.actualDefect_cleared` proves
 the exact rational trace defect for actual stereographic unit factors;

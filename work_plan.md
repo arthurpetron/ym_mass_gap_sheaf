@@ -27,6 +27,34 @@ formal statement would not solve the mathematical problem.
 
 ### Latest MAIN selection (2026-10-09 UTC)
 
+New independently reviewed PAPER source-specific reduction: for the INITIAL,
+unwarmed signed `spatialSpan`, the own plaquette gradient transports to a
+multiple of its own curvature vector at every boundary slot. Therefore its
+own-own and own-exterior bracket terms vanish. CHECKED finite geometry:
+`Z4DistinctPlaquetteIntersection.common_boundary_links_equal_of_faces_ne`
+proves distinct canonical nonperiodic faces share at most one boundary edge.
+That eliminates each exterior face's self-pair in the PAPER calculation;
+the first remaining term couples TWO exterior faces touching different edges.
+The focused check1 and independent complete source/log review PASS; all three
+gates use only {propext,Quot.sound}. This is Nat-coordinate geometry, not a
+periodic-lattice statement or new analytic Hessian/weighted estimate. The
+common-frame vector pin and complete ORIGINAL weighted three-face payment
+are not yet Lean declarations. Repeated/signed faces, terminal mixed jets,
+retained favorable credits, OWN warmed variance and BOTH chronological masses
+remain. No locality theorem for warmed b is asserted.
+
+The actual inversion symmetry does not make the bracket insertion odd:
+both curvature and correctly transported/reversed bracket change sign, so
+their scalar product is invariant. Two initial-source PAPER fixtures retain
+the physical inverse-prefix convention and give either bracket sign near
+flatness. The first is quartic; adding a shifted link unused by the source
+gives a CUBIC leading term. Thus arbitrary-velocity obstruction alone cannot
+rule out improved source-specific estimates, but neither can the first
+fixture justify a universal fourth-order allowance. These are component
+tests, not full-Hessian or weighted-expectation claims. Exact algebra and
+source pins: adaptive-score audit. MAIN stays complete signed original-law
+payment or direct SAME-source macro retention; no new analytic interface.
+
 CHECKED exact nonabelian commutator residual:
 `RationalQuaternionCommutatorDefect.actualDefect_cleared` retains actual
 stereographic unit rotations and the genuine four-link plaquette word.

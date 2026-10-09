@@ -4,6 +4,123 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Selected source-specific bracket reduction and independent kernel input (2026-10-09)
+
+Previous turn was PROGRESS: exact finite unit-word commutator formulas and
+the opposite-sign fixture were checked and pushed; the original weighted
+mixed-link estimate remained OPEN. This turn returns to that estimate rather
+than treating arbitrary frozen directions as the actual observable gradient.
+
+New PAPER reduction, independently reviewed: for the actual word
+P_p=Q_0*Q_1*Q_2*Q_3=(X_p,v_p), physical left velocities transport as
+L_r=epsilon_r*Ad(F_r), with F_r the preceding word for positive links and
+the preceding word INCLUDING Q_r for inverse links. The gradient of the
+own scalar source c_p*X_p has transported velocity -c_p*v_p at every slot.
+Therefore v_p dot sum_(r<s)(a_r cross a_s) contains no own-own or own-exterior
+term. Exterior contributions alone remain. If each distinct other face shares
+at most one edge with p, its self-pair also vanishes: the first possible term
+uses TWO exterior faces touching DIFFERENT edges of p. This is not the scalar
+same-link `shared_cross` in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialAdjacentFullAngular.lean:370`.
+
+Scope: this locality argument concerns the INITIAL, unwarmed `spatialSpan`
+gradient. It does not establish locality of the transmitted/warmed source b.
+Repeated faces and signed coefficients remain; identical face contributions
+must be combined without dropping their occurrences. The full original density
+W=V*g_n*g_(n+1), OWN variance and BOTH chronological masses remain unpaid.
+
+### Two source-specific tests (PAPER, not new Lean differentiation)
+
+The existing word reversal is `reverse_word_conjugate`,
+`lean/YMGap/Continuum/BF4ExactSlabSpatialAxisSwapWord.lean:43`; actual weighted
+Haar swap is `originalChainAction_weighted_haar_swap`,
+`lean/YMGap/Continuum/BF4ExactSlabSpatialAxisSwapAction.lean:169`. They do not
+cancel the bracket by oddness. Under inversion the correctly reversed physical
+velocities are a_bar_r=-Ad(P^-1)*a_(3-r), so b_bar=-Ad(P^-1)*b and v_bar=-v.
+Since Ad(P^-1) fixes v, v_bar dot b_bar=v dot b. Reversing only an isolated
+trace while leaving the source gradients and weight fixed is not this symmetry.
+
+An independently checked PAPER fixture uses spatial p01,q02,r12 at the origin
+(time is x3). Set outgoing U0=1, U1=c+s*i, U2=c+s*j, all other links 1,
+with c^2+s^2=1. The initial scalar source F=X_q+lambda*X_r gives physical
+xi0=s*j and xi1=lambda*(-c*s*i+c*s*j+s^2*k). For p, a0=s*j and the inverse
+slot has a3=-Ad(P_p)*xi1=lambda*(c*s*i-c*s*j+s^2*k). The other slots vanish.
+Thus v_p dot(a0 cross a3)=-lambda*s^4, or -4*lambda*s^4 for the literal
+fundamental-character source. Rational stereographic c,s produce arbitrarily
+near-flat instances of both signs. OWN scalar centering leaves gradients
+unchanged. This is a bracket component, not the complete Hessian or an
+original integrated-sign claim. Its fourth order is a property of this fixture,
+not a proved order for all source families. The arbitrary-velocity first-order
+obstruction does not by itself exclude improved source-specific error budgets.
+
+A second independently reviewed PAPER fixture tests that degeneracy. Change
+only the shifted p-slot U1(e0) to c+s*k; it belongs to neither q02 nor r12, so
+the physical source gradients are unchanged and its own source velocity is zero.
+Now P_p=(c^2,-c*s,-s^2,c*s), and the same correct inverse-prefix transport gives
+
+    v_p dot(a0 cross a3)
+      = -lambda*c*s^3*[c*(c^2-s^2)+s*(1+2*c^2)].
+
+For c approaching 1 and s approaching 0 the leading order is cubic, not
+quartic (again four times this for the fundamental source). Thus the preceding
+quartic fixture cannot justify a universal fourth-order allowance. Both tests
+retain literal initial closed-loop gradients, but neither proves the original
+weighted expectation, the full Hessian sign, a warmed-source law or a scaling
+bound. The source-specific cancellation still reduces the first possible
+bracket to a three-face interaction; its signed weighted payment remains OPEN.
+
+The actual coherent-tail word recoding is `actual_face_tail_recode`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyCoherentTail.lean:183`;
+the selected-link scalar square is `plaquette_paired_gradient_square`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteGradient.lean:85`.
+Neither currently supplies the required common-frame vector pin or cross-link
+Hessian. Gauss equality is arbitrary-insertion HaarCarrierEqv, not just a
+single unweighted integral; derivative compatibility cannot be dismissed.
+It still does not identify a horizontal mixed-link payment.
+
+Selected MAIN geometric input: prove that two DISTINCT common boundary edges
+determine one canonical Z4 plaquette. The existing `edgesOf` and `edge_complete`,
+`lean/YMGap/Continuum/ClusterCount4DProgress.lean:147` and `:207`, and
+`edgesOf_nodup`, `lean/YMGap/Continuum/Z4UnitCubeIncidenceParity.lean:25`,
+supply the literal nonperiodic geometry. Expected output: for distinct p,q,
+any two common edges are equal; no overlap premise is to be assumed. Downstream
+use is the source-specific exterior-pair reduction, whose full analytic consumer
+does NOT yet exist. Proof plan: canonical plane/direction cases and exact natural-coordinate
+offset equations. One bounded geometry leaf, no action/rate/frontier change;
+revise if the stated canonical geometry admits a counterexample. No torus
+or periodic-identification theorem is asserted.
+
+Observed geometry producer: `two_boundary_links_determine_face`,
+`lean/YMGap/Continuum/Z4DistinctPlaquetteIntersection.lean:24`, and
+`common_boundary_links_equal_of_faces_ne:52` now prove the exact overlap input.
+Focused check1 terminal exit 0; all three gates exactly {propext,Quot.sound},
+no diagnostics/sorryAx. ROOT and independent reviewer read COMPLETE frozen
+source and accepted log; independent review PASS. Source SHA-256
+`2f551fb559239dec42e0b746a9bbf1a8f06471f2e909a219f6702a2cff7d0031`;
+accepted `/private/tmp/ym-oct9-plaquette-intersection1.log` SHA-256
+`dc9ece76fee40c29014b4d6021babdf2022c532f5a10859fe8d2685f3ef52fbf`.
+Exact command:
+
+```sh
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/Z4DistinctPlaquetteIntersection.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/Z4DistinctPlaquetteIntersection.olean --log-file /private/tmp/ym-oct9-plaquette-intersection1.log
+```
+
+Fresh launch preflight: 86% free, zero swap and no competing compiler/test/runner.
+One capped serial worker and unchanged reserve/thresholds; root registration
+only, no root/tree audit. This pays only canonical face overlap, not the PAPER
+vector pin or signed original-law estimate. Canonical chart claims stay OPEN;
+no ASCII reprint.
+
+Selected parallel J04 input: prove the recorded polynomial-kernel recurrence,
+positive normalizer and squared-chord payment 6/(m+3) for all natural m, from
+actual one-block Haar, angular IBP and the arbitrary-insertion sphere relation.
+Test m=0 separately and m=1,2 against literal moments. One leaf, no continuous
+Haar premise, source/normalizer substitution or assumed recurrence. Stop if
+those finite inputs do not suffice. ROOT handles capped serial checks after
+complete frozen-source review and fresh dynamic capacity; no concurrent compiler,
+full-tree audit or resource increase. Both selected outputs are finite inputs,
+not continuum survival, physical calibration, QFT, every-group or Clay closure.
+
 ## Checked finite commutator test / PAPER mixed-link budget (2026-10-09)
 
 MAIN mathematical question: can a global mixed-link curvature estimate replace
