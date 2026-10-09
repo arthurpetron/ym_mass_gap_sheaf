@@ -533,6 +533,40 @@ No new necessary Clay condition or kernel-checked theorem is asserted.
 Decision: no depth-schedule wrapper; retain the actual family signed warmed
 aggregate/direct retention producer and both chronological masses.
 
+PAPER family-row Hessian test (2026-10-09, parallel source review):
+`FamilyCoherentTail.family_coherent_row`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyCoherentTail.lean:383`)
+identifies Gamma_b(f) with 4*||T_b||^2-r_b^2 exactly on the
+Haar/unit-quaternion carrier, with r_b the INCIDENT span, not the full
+spatial family plus its link-independent spectator. The existing
+`QuaternionHaarPairedLinearDoubleIBP.doubleIBPSource_amplitude_pin`
+(`lean/YMGap/Continuum/QuaternionHaarPairedLinearDoubleIBP.lean:399`)
+would give K_b=48*||T_b||^2-16*Gamma_b(f) after actual degree/amplitude
+and paired/six-plane/source transport. That family pin is NOT yet a declared
+theorem. Its algebraic expression is 16*(r_b^2-||T_b||^2), with both signs:
+for T_b=(1,0,0,0), unit links (0,1,0,0) and (1,0,0,0) give -16 and 48.
+These are algebraic test cases, not integrated signs. The checked full
+angular identity (:163 in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyCoherentEnergy.lean`)
+rewrites the candidate sum 12*P-16*F as 16*R-4*P exactly
+on that SAME Haar/unit-quaternion carrier, where P=4*sum||T_b||^2,
+R=sum r_b^2 and F=sum Gamma_b. This supplies neither a sign under the
+actual source weight nor comparison with the warmed OWN variance.
+Moreover its coherent channel retains projected V*g_depth; the complete
+square chronological split (:157 in
+`lean/YMGap/Continuum/BF4WilsonAllNomeChronologicalExactChannelCost.lean`)
+retains warmed b and BOTH Z0/Z1, and the AF source is a smoothed ALL-face
+family. No source/weight identification is supplied by the row formula.
+The center-invariant Duhamel recurrence is already declared as
+`blockMultiplicationDefect_succ`/:107 and `blockMultiplicationDefect_shifted`/:154
+in `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockMultiplicationDefect.lean`.
+Decision: do not prioritize a row-Hessian or recurrence wrapper alone.
+The useful next producer must jointly pay the retained coherent term, signed
+Taylor debts, boundary drift and multiplication correction against the
+SAME warmed family variance, or directly prove SAME-source macro retention.
+This is a mathematical selection screen, not a new checked theorem,
+analytic hypothesis or physical/Clay closure.
+
 Consumer reconciliation (2026-10-09, two independent read-only reviews):
 at a common admissible cutoff and d=stage+t, the local Fisher density
 V*g_d*g_(d+1) matches only the window's Z1 weight, up to the established
