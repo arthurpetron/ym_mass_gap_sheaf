@@ -86,6 +86,7 @@ import YMGap.RepTheory.QuaternionSign
 import YMGap.RepTheory.RationalQuaternionAlgebra
 import YMGap.RepTheory.RationalQuaternionUnitNormGroup
 import YMGap.RepTheory.RationalQuaternionSphereNets
+import YMGap.RepTheory.RationalQuaternionCommutatorDefect
 import YMGap.RepTheory.RationalQuaternionCauchyGroup
 import YMGap.RepTheory.RationalQuaternionCompletedDistance
 import YMGap.RepTheory.RationalQuaternionNormRepair

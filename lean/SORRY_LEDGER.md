@@ -1,5 +1,22 @@
 # Sorry Ledger
 
+## PROVED finite nonabelian word residual / OPEN original weighted payment (2026-10-09 UTC)
+
+`actualDefect_cleared`,
+`lean/YMGap/RepTheory/RationalQuaternionCommutatorDefect.lean:262`,
+proves the exact cleared rational trace residual for BOTH commutator orders
+on actual stereographic UnitNorm factors. `plaquetteWord_pin:202` and
+`rotatedPlaquette_pin:226` retain four genuine unit links; `tenth_opposite_signs:280`
+is a computed opposite-sign witness at t=q=1/10. No new analytic premise,
+sorry or axiom. Final narrow check2 PASS, 13 gates exactly {propext,Quot.sound},
+COMPLETE independent final-source/log review PASS. Check1's elaboration failure
+is superseded, not accepted; root registration only, no root/tree audit.
+The analytic balanced-velocity interpretation remains PAPER. No original
+BF4 RatPoly/action identification, weighted expectation, global Hessian,
+scaling survival or physical-gap theorem follows. Those joins, J04,
+every-group and Clay closure remain OPEN; no canonical field/claim changes.
+Exact hashes, repairs and verification scope: adaptive-score audit.
+
 ## PROVED finite completed-Point polynomial moments / OPEN Haar extension (2026-10-09 UTC)
 
 `completedTranslatedHaar_invariant`,

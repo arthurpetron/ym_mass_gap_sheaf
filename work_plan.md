@@ -25,6 +25,45 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Latest MAIN selection (2026-10-09 UTC)
+
+CHECKED exact nonabelian commutator residual:
+`RationalQuaternionCommutatorDefect.actualDefect_cleared` retains actual
+stereographic unit rotations and the genuine four-link plaquette word.
+Swapping their order reverses the quadratic trace contribution at a noncentral
+base; a rational opposite-sign fixture is checked. Final focused check2,
+COMPLETE independent final-source/log review and 13 permitted gates PASS.
+This is a finite rational identity, not analytic mixed-link differentiation
+or an ORIGINAL BF4 action/observable pin. The PAPER balanced-velocity test
+rules out discarding the bracket in a proposed curl-only global-curvature
+replacement. Its required linear defect order is not an absolute squared-
+defect allowance. Exact formula, checked scope and PAPER budget are in the
+adaptive-score audit; no new analytic interface is selected.
+
+The requested parallel paper recheck adds a consistent parameter warning:
+Lemma A.1, Eq. (A.32), of arXiv:2610.09093 does NOT retain the admissibility
+smallness factor in positive-order original-link derivatives. Do not turn
+small raw curvature into a small differentiated bracket term. Source and
+the actual consumer comparison: targeted paper review. NEXT remains complete
+signed original-law payment, including bracket/retained-square/OWN-center
+credits and BOTH chronological masses, or direct SAME-source macro retention.
+Any geometric adaptation must produce its source-weighted error and bad-region
+budget on the changing family before an analytic compiler is expanded.
+No continuum/QFT/mass/every-group/Clay node or canonical chart claim closes;
+no chart reprint, full-tree audit or resource-limit increase.
+
+Optional parallel J04 producer from the requested paper screen, still PAPER:
+for the ORIGINAL one-block polynomial Haar, b=(1+x0)/2 and Z_m=H[b^m],
+derive `(2*m+6)*Z_(m+1)=(2*m+3)*Z_m`, positivity of Z_m and the normalized
+squared-chord moment `6/(m+3)`. Existing angular IBP and the actual sphere
+relation supply the candidate finite argument; completed-Point polynomial
+translation can move its center. This would pay polynomial-kernel
+concentration without presupposing continuous Haar. Stop if those exact
+finite identities/nonzero normalizer cannot be produced; do not assume them
+in a new interface. Independent approximation/extension for arbitrary
+continuous functions remains a separate missing join. Details and scope:
+targeted paper review. This is not a MAIN survival or Clay closure claim.
+
 ### Current priorities after the recent-commit review (2026-10-07)
 
 CHECKED original terminal curvature (2026-10-08 23:39 UTC): the new

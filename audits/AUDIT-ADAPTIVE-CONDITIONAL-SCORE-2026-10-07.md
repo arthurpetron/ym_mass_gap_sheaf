@@ -4,6 +4,140 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Checked finite commutator test / PAPER mixed-link budget (2026-10-09)
+
+MAIN mathematical question: can a global mixed-link curvature estimate replace
+the local nome-dependent allowance using only the squared summed transported
+directions? No such cross-link consumer exists in the current source; the
+existing `plaquette_frozen_hessian`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteFrozenHessian.lean:238`,
+is a single-selected-link identity and retains the individual direction squares.
+This test must not be used to rewrite that checked theorem or infer a new
+interacting estimate.
+
+Available inputs: actual Hamilton multiplication/conjugation in
+`lean/YMGap/RepTheory/RationalQuaternionUnitNormGroup.lean`, the unit stereographic
+constructor in `lean/YMGap/RepTheory/RationalQuaternionSphereNets.lean:153`, and reflected
+rational polynomial identities. For the unit rotations r_i=(c,s*i),
+r_j=(c,s*j), c=(1-t^2)/(1+t^2), s=2*t/(1+t^2), ROOT and an independent reviewer
+derive the commutator coordinates
+(1-2*s^4, 2*c*s^3, -2*c*s^3, 2*c^2*s^2). For a unit base
+P=(p0,0,0,p3), its fundamental trace defect is exactly
+
+    (1+t^2)^4 * (2*scalar(K*P)-2*p0)
+      = -64*p0*t^4 - 16*p3*t^2*(1-t^2)^2.
+
+Swapping i,j reverses the latter sign. The literal four unit links
+(r_i,r_j,r_i,conj(P)*r_j) give K*P in the +,+,-,- plaquette order.
+Although the transported first-order axes sum to zero, a bracket/curvature
+term survives at order two whenever p3 is nonzero. Predicted finite test:
+q=t=1/10, P=stereographic(0,0,q), gives opposite strict signs in the two
+orders. The derivative interpretation +/-32*p3 is PAPER only; the selected
+Lean output is the exact rational defect and actual unit-word pin, not a
+formal analytic Hessian theorem or an original-weighted expectation.
+
+Decision before verification: exclude a curl-only replacement if this exact
+test passes; retain the nonabelian bracket term in any global-curvature route.
+Keep MAIN complete signed payment/direct multi-step retention co-primary.
+One small algebraic leaf, root-only narrow capped serial check, independent
+complete source review; no new analytic interface, premise, sorry or raised
+limits. Revise/stop on a missing genuine unit-word pin, not a surrogate proof.
+
+### Observed finite certificate and verification boundary
+
+`axisCommutator_closed`,
+`lean/YMGap/RepTheory/RationalQuaternionCommutatorDefect.lean:86`,
+proves the symbolic raw Hamilton coordinates, retaining the radius defect
+before unit normalization. `trace_defect_unit:125` uses the explicit unit
+relation; `plaquetteWord_pin:202` and `rotatedPlaquette_pin:226` identify the
+genuine four-link unit word. `actualDefect_formula:235` and
+`actualDefect_cleared:262` prove the exact rational formulas above for BOTH
+orders and arbitrary rational t,q; `tenth_opposite_signs:280` proves the
+predicted strict signs by kernel computation. ROOT read the COMPLETE final
+297-line source; the independent COMPLETE final-source/log review passed.
+
+Before compilation, both source readers caught and repaired a missing second
+(1-t^2) factor in the private false-branch polynomial expression. Check1 then
+failed on an unavailable addition-congruence name and positivity-dependent
+denominator rewriting. The repairs compose the available congruences and
+transport the whole reciprocal by equality elimination, with no changed
+mathematical statement. Check1's diagnostics/sorryAx output are NOT accepted
+proof evidence. Check2 completed exit 0 in its initial call; all 13 public
+gates report exactly {propext,Quot.sound}, with no diagnostics/sorryAx.
+
+Final source SHA-256:
+`ee86c570ba11f8f7157de1879805b95b6a58857cd19215cffd996c6c181dcf88`.
+Accepted `/private/tmp/ym-oct9-quaternion-commutator2.log` SHA-256:
+`d769b46c0a11477d3374d662514d8c0655b4dcc95892cf788842d5b5b59b0231`.
+Superseded check1 log SHA-256:
+`03a8003881931ae77dcfb66a2663e28be649dab0a1ffce0b2529f6130dacccee`.
+Exact accepted command:
+
+```sh
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/RepTheory/RationalQuaternionCommutatorDefect.lean --check-output lean/.lake/build/lib/lean/YMGap/RepTheory/RationalQuaternionCommutatorDefect.olean --log-file /private/tmp/ym-oct9-quaternion-commutator2.log
+```
+
+Fresh preflight before check2: 86% free, zero swap, no compiler/test/runner;
+one capped worker, existing reserve/thresholds, no concurrent build or limit
+increase. Root import is registered, not root/tree audited. No original BF4
+RatPoly/action pin, heat-weighted expectation, analytic Hessian, derivative
+or scaling theorem is established. Interpretation: retain the bracket in
+the PAPER global-curvature candidate; the actual weighted payment remains
+OPEN. Canonical chart claims unchanged, so no ASCII reprint.
+
+### What a valid mixed-link replacement would still have to pay (PAPER)
+
+For FROZEN transported pure-imaginary velocities a_0,...,a_3, the path convention
+is P(t)=exp(t*a_0)*...*exp(t*a_3)*P. Write s=sum a_r and
+b=sum_(r<v)(a_r cross a_v), with P=(X,pv). Direct Hamilton algebra gives
+
+    X' = -pv dot s,
+    X'' = -X*|s|^2 - 2*pv dot b.
+
+Thus for L=log h the formal chain Hessian is
+L''*(pv dot s)^2 - X*L'*|s|^2 - 2*L'*(pv dot b).
+If L''<=0 and the scalar radial cost satisfies
+X*L'-(1-X^2)*L''<=C_radial, the lower budget is
+
+    -C_radial*|s|^2 - 3*|L'|*sqrt(1-X^2)*sum_r |a_r|^2.
+
+The factor three uses sum_(r<v)|a_r|*|a_v|<=3/2*sum_r|a_r|^2.
+On X>=delta>0, with L'>=0, its bracket coefficient is at most
+3*C_radial*sqrt(1-X^2)/delta. This is a DEFECT-WEIGHTED cost, not a zero
+cost for balanced directions or a scaling bound. ROOT and an independent
+reviewer agree on the algebra and variation convention; no analytic
+exponential, derivative or mixed-link theorem is certified by this screen.
+
+The existing scalar producer is `heatRadialExpression`,
+`lean/YMGap/Continuum/JacobiHeatRadialMomentJets.lean:258`, with
+`heat_radial_nonnegative_nearFlat`,
+`lean/YMGap/Continuum/JacobiHeatRadialProducedBound.lean:100`, on ALL of [-1,1]
+at its finite-prefix guard. `heat_logConcavity_certificate`,
+`lean/YMGap/Continuum/JacobiHeatLogConcavity.lean:372`, certifies the Jacobi
+discriminant. These are not original character-prefix logarithmic derivatives.
+The existing original-prefix curvature certificate,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteHeatPrefixCurvature.lean:104`,
+covers all nine ordered jets WITHIN one selected link, not cross-link jets.
+
+Missing joins: actual mixed physical-link jets; frozen-path/frame transport
+without differentiating frozen coefficients; original prefix jet/sign or
+absolute-slope error control; both terminal messages and complete original
+density; and an original source-weighted bracket-defect estimate including
+the non-near-flat region. An unweighted one-face heat moment cannot pay the
+velocity-weighted bracket term automatically. Do not add a global-curvature
+interface until its quantitative payment on the changing source is supplied.
+
+An additional independently reviewed PAPER test fixes the required defect
+order. The cleared trace numerator's quadratic coefficient has magnitude
+16*p3, whereas the squared holonomy-vector defect is p3^2. For ANY rational
+C>=0, the computed q_N=1/(N*(1+C)), N>=1, gives
+p3=2*q_N/(1+q_N^2)>0 and C*p3<2<16, hence 16*p3>C*p3^2.
+Taking N large makes these bases arbitrarily near the identity. Thus a
+pointwise absolute quadratic-defect payment cannot replace the linear bracket
+term. This coefficient argument is not kernel-checked derivative calculus
+or an original heat expectation; improving its order would require an actual
+signed weighted cancellation, not dropping the nonabelian term.
+
 ## Checked finite completed-Point Haar translation (2026-10-09 UTC)
 
 The parallel J04 producer now removes the fixed-RATIONAL-multiplier

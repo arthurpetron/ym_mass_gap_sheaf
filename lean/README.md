@@ -16,6 +16,16 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked finite nonabelian commutator residual (2026-10-09 UTC):**
+`RepTheory/RationalQuaternionCommutatorDefect.actualDefect_cleared` proves
+the exact rational trace defect for actual stereographic unit factors;
+`rotatedPlaquette_pin` retains the genuine four-link word, and
+`tenth_opposite_signs` supplies opposite strict signs for the two orders.
+Final narrow check2 and COMPLETE independent final-source/log review PASS;
+all 13 gates use only {propext,Quot.sound}. This is not an analytic Hessian
+theorem or an original BF4 action/observable pin. The weighted bracket payment,
+MAIN scaling retention and Clay remain OPEN; root registration, no tree audit.
+
 **Checked completed-Point polynomial Haar moments (2026-10-09 UTC):**
 `Continuum/SU2QuaternionPointPolynomialHaarTranslation.completedTranslatedHaar_invariant`
 now covers every actual completed quaternion Point, every supported one-block
