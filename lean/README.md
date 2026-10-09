@@ -16,6 +16,17 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked SAME-original centered Fisher/Ward join (2026-10-09 UTC):** the
+literal padded Wilson-square source now yields H[H2]=48Z-16E on the complete
+original W. Ordered twofold Haar IBP and simultaneous weight/source transport
+retain all nine jets. At the OWN center, `(3Zv-E)^2 <= Zv*(48Z+(C(w)-16)E)`
+is proved, with the actual positive odd mass and active selected link produced.
+Four focused checks/15 permitted gates and COMPLETE independent frozen-source
+reviews PASS. No sharper scalar floor, relative time-loss or scaling survival
+is claimed. The proposed inverse-square floor still cannot pay the existing
+absolute loss budget; prioritize COMPLETE relative signed payment/direct macro
+retention. No full-tree audit, changed action or resource-limit increase.
+
 **Checked OWN-mean and ordered-source joins (2026-10-09 UTC):** on the SAME
 original odd marginal, exact degree-one sources satisfy `m^2 <= (C(w)/3)*e`,
 with OWN mean and actual selected paired energy. The literal plaquette

@@ -5063,6 +5063,11 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialFisherVector
 -- Exact ordered source pin on the ACTUAL padded Wilson square; K is signed.
 import YMGap.Continuum.QuaternionHaarPairedLinearDoubleIBP
 import YMGap.Continuum.BF4DyadicWilsonSquareDoubleIBP
+-- SAME-weight ordered Haar and OWN-centered signed residual, not survival.
+import YMGap.Continuum.QPolyHaarPairedAtOrderedDoubleIBP
+import YMGap.Continuum.BF4DyadicWilsonSquareFisherHessian
+import YMGap.Continuum.QPolyHaarPairedAtCenteredWard
+import YMGap.Continuum.BF4DyadicWilsonSquareFisherWard
 import YMGap.Continuum.SU2QuaternionPairedHeatAtFrozenCurvature
 import YMGap.Continuum.SU2QuaternionConditionalZeroMeanSignedGram
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepPairedScorePin

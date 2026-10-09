@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Supporting SAME-original centered Fisher/Ward join checked (2026-10-09 UTC):
+H[H2]=48Z-16E and `(3Zv-E)^2 <= Zv*(48Z+(C(w)-16)E)` now retain the original
+weight, OWN variance and both terminal messages. Four focused checks/15
+permitted gates and COMPLETE independent frozen-source reviews PASS. The
+ordered-IBP and centered residual joins are discharged at this finite scope;
+sharper scalar floor, relative signed loss and macro/scaling retention remain
+OPEN. The next substantive target is the complete relative signed estimate,
+not an insufficient normalization exercise. Canonical chart claims unchanged.
+
 Supporting OWN-mean and ordered-source joins checked (2026-10-09 UTC):
 `m^2 <= (C(w)/3)*e` uses the OWN original odd mean, selected paired energy
 and actual degree-one Casimir. The ACTUAL padded Wilson-square source has

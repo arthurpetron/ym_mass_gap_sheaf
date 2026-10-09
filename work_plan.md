@@ -120,18 +120,32 @@ COMPLETE independent frozen-source reviews and 20 permitted gates PASS; no
 new hole/analytic premise or limit raise. These are finite supporting estimates,
 not a new variance floor or scaling result.
 
-NEXT: perform the actual ordered double Haar IBP for u_i=J_i f and transport
-the produced source K to the SAME complete original marginal, giving
-`H[H2]=48*H[W]-16*H[W*Gamma(f)]`. Consume it in the vector dual at the actual
-OWN-centered signed test, then join the exact centered Ward identity, amplitude
-four and produced OWN-mean/energy constraint. The sharper inverse-square
-curvature variance floor remains PAPER until that SAME-object join and scalar
-elimination are checked. No zero-mean or weighted Poincare assumption is
-allowed. A stronger norm floor alone still does not pay the current absolute
-temporal-loss ceiling.
-Complete SAME-action relative signed payment/direct macro retention remain
+CHECKED SAME-original ordered Haar/Fisher/Ward join (2026-10-09 UTC):
+`DyadicWilsonSquareFisherHessian.paddedSquare_original_frozen_hessian_haar`
+now gives `H[H2]=48*Z-16*E`, Z=H[W], E=H[W*Gamma_s(f)]. The explicit head
+swap moves BOTH W and f and then returns to the original selected carrier;
+the proof does not identify swapped and unswapped weights. Generic twofold
+Haar IBP reverses ordered JiJj to JjJi with positive sign, retaining all nine
+jets. `DyadicWilsonSquareFisherWard.paddedSquare_original_own_variance_fisher_ward`
+now proves `(3*(Z*v)-E)^2 <= (Z*v)*(48*Z+(C(w)-16)*E)`, with v the OWN
+normalized variance of the SAME W=V*g_n*g_(n+1). The literal padded source's
+degree and active link are produced, and its OWN mean bound is also instantiated.
+No zero-mean, commutation, Hessian sign or Poincare premise is added.
+Four final focused checks/15 permitted gates and COMPLETE independent frozen-
+source reviews PASS; no limit increase or full-tree audit. This is a finite
+signed residual inequality, not a checked sharper scalar variance floor.
+
+NEXT substantive frontier: complete SAME-action relative signed payment or
+direct macro retention on the changing original family. The inverse-square
+scalar floor remains PAPER and optional: the bounded quantitative screen
+finds it still cannot pay the existing absolute cubic temporal-loss ceiling.
+Do not expand normalization algebra without a quantitatively useful consumer.
+Test any use of the new local dual against the COMPLETE original signed cost,
+including favorable absorption, reciprocal correction, OWN transmitted
+variance and BOTH chronological masses; their actual connection must itself
+be proved. Complete relative signed payment/direct macro retention remain
 co-primary and OPEN. Evidence and exact source pins: adaptive-score audit.
-Canonical displayed claims unchanged; no ASCII reprint.
+No canonical displayed claim changed; no ASCII reprint.
 
 CHECKED supporting ORIGINAL variance estimate (2026-10-08 UTC): the EXISTING
 `GeneralizedLinearWard.original_score_variance_floor` produces

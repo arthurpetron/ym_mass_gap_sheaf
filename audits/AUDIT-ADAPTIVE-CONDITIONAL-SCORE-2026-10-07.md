@@ -9350,3 +9350,136 @@ temporal-loss ceiling. SAME-action relative signed payment/direct macro
 retention remain co-primary and OPEN; nontrivial continuum survival, physical
 calibration, full QFT, every compact simple group and Clay remain OPEN.
 No exact canonical displayed claim changed; no ASCII chart reprint.
+
+## Selection: ordered Haar join on the unchanged original carrier
+
+2026-10-09 UTC. Previous goal turn PROGRESS; 5143a310 committed/pushed.
+Next proposition: for u_i=J_i f at the actual selected padded-square link,
+H[frozenSecondAt s u W]=48*H[W]-16*H[W*sum_i u_i^2], with W still the
+complete original odd marginal. Consumer: the CHECKED original signed-vector
+Fisher dual, at the source's OWN-centered test. Inputs: paired Haar zero and
+Leibniz, the actual nine ordered frozen jets, the checked literal head source
+K=48-16*Gamma, supported paired coordinate transport and product-Haar
+invariance. The head swap must move BOTH W and f; it does not identify W with
+its reindexing. No commutation, Hessian sign, zero-mean or Poincare premise.
+
+Bounded Sol implements the generic ordered At Haar identity; ROOT owns the
+original selected-link consumer and all compilation. Independent read-only
+review screens order/transport and the backward centered variance/scalar join.
+Predicted outcome: an exact SAME-weight signed Hessian expectation, followed
+if the produced inputs suffice by the centered residual inequality. Decisive
+tests: constants have zero differentiated source; bare Haar gives zero mean
+for K; spectator dependence and signed middle frame must be retained; width,
+cutoff, both depths and nome must remain explicit. Revise if transport only
+offers unweighted equality. Narrow serial 20-GiB worker/12-GiB reserve with
+fresh capacity preflight; no full-tree audit or foreign code. An improved
+variance floor alone does not pay the MAIN absolute temporal-loss ceiling;
+relative signed payment/direct macro retention and Clay remain OPEN.
+
+## Observed progress: SAME-original signed Hessian and centered residual
+
+2026-10-09 UTC. The selected ordered Haar join and its OWN-centered consumer
+are now checked. For the ACTUAL padded Wilson-square character f and a selected
+observable block s, put u_i=J_s,i f, W=V*g_n*g_(n+1), Z=H[W], E=H[W*Gamma_s(f)].
+The generic identity has no support, positivity or commutation premise:
+
+    H[sum_ij u_i*u_j*J_i*J_j W]
+      = H[W*sum_j J_j(sum_i J_i(u_i*u_j))].
+
+The first IBP moves i, the second j; only the finite summation axes are
+transposed. The actual source transport retains all coefficient derivatives
+and the middle negative paired direction at supported Haar-carrier strength.
+The explicit head swap moves BOTH the weight and source, then product-Haar
+invariance returns to the original carrier. It never asserts W'=W or raw
+coefficient equality for padded reindexed derivatives. The literal source
+therefore gives H[H2]=48Z-16E for ANY supported W, including the complete
+original marginal at every w,K,n. This is an exact signed identity.
+
+At the computed curvature cutoff and strict nome, the actual vector dual now
+has its Hessian term produced, not assumed: for every supported signed h,
+
+    H[(D_u W)*h]^2 <= H[W*h^2]*(48Z+(C(w)-16)E).
+
+The physical active link is constructed from actual padded-loop membership
+and strict spatial padding. The literal source degree also produces its
+OWN-mean bound m^2<=(C(w)/3)*e. With h=f-m, m the SAME W-normalized mean,
+the generic paired Ward identity gives E+b=3H[W*h*f]. Existing normalized
+cross and squared-center pins, the actual W certificate and positive SAME
+odd partition give H[W*h*f]=H[W*h^2]=Z*v. Thus the NEW original consumer proves
+
+    (3*(Z*v)-E)^2 <= (Z*v)*(48*Z+(C(w)-16)*E).
+
+Here v is the OWN normalized variance, not an even-chain variance, bare-Haar
+variance or another source's norm. Both terminal factors remain, including
+n=0. The negative -16E correction is retained. No sign of H2 or C-16, no
+zero mean, inverse observable, weighted Poincare, analytic premise or physical
+time identification is assumed. Scalar normalization/elimination into a
+sharper positive variance floor is not a newly checked claim.
+
+### Final frozen checks and independent reviews
+
+Four final focused checks exited zero. Fifteen printed public gates use only
+{propext, Quot.sound}; `orderedSourceAt` uses only propext. ROOT read complete
+sources and owned compilation and the actual original consumers. Bounded Sol
+implemented the two generic Haar/Ward leaves; an independent read-only Sol
+reviewer attested COMPLETE final-frozen-source PASS on all four exact hashes.
+
+| Declarations | Source path:line | Frozen SHA-256 | Passing log / SHA-256 |
+|---|---|---|---|
+| pairedAt_haar_ordered_pair; frozenSecondAt_haar_ordered_source; orderedSourceAt_head | lean/YMGap/Continuum/QPolyHaarPairedAtOrderedDoubleIBP.lean:56; :127; :161 | cddae4542a098515a2b657099c8c7c76312b3d3d59816b91a82f742afa44b662 | /private/tmp/ym-oct9-ordered-at-ibp3.log / 33f65cb14662cf1b6b1a1a556fba143e494b6749d49ef5f4ac36b053d9784b49 |
+| ordered_source_head_transport; paddedSquare_frozen_hessian_haar; paddedSquare_original_frozen_hessian_haar | lean/YMGap/Continuum/BF4DyadicWilsonSquareFisherHessian.lean:91; :167; :219 | c4d8e52f8aceb429a67580a67ac3ea8a90693bee75337c03633071f23f76a75b | /private/tmp/ym-oct9-original-wilson-hessian3.log / 4fb3fdae8e9a2b91865f87b80091016fe96b9f77c13607a23e2374bfd56ccef2 |
+| pairedAt_centered; frozenFirstAt_centered_gradient; pairedAt_centered_ward | lean/YMGap/Continuum/QPolyHaarPairedAtCenteredWard.lean:39; :53; :72 | 7add95c6dbb3c1bcc5fd7081779356aeb0cde40bea8fadcf5404276b0b65d60a | /private/tmp/ym-oct9-centered-paired-ward2.log / c5fe226e7a1b9b9250bd3bbb09c63dc4a991a16a95482d783af256599d7ea34f |
+| paddedSquare_original_signed_vector_dual; paddedSquare_original_own_mean_square_bound; paddedSquare_original_own_variance_fisher_ward | lean/YMGap/Continuum/BF4DyadicWilsonSquareFisherWard.lean:76; :129; :205 | 9e2240887478d9671e94d98de08c83dbb4347d4f6e849ada137b5d351c6d7516 | /private/tmp/ym-oct9-original-fisher-ward2.log / 7074752b7329aa1c00209e4ebe747f0f41fe03835268fde2c2d0a766c585b179 |
+
+Fresh dynamic preflight before EACH launch: 84--86 percent free, zero swap,
+no competing compiler/runner. One monitored 20-GiB worker/12-GiB reserve.
+Repairs were missing namespace opens, an explicit typed intermediate source
+sum/head derivative, explicit HaarCarrierEqv.add for the function alias, and
+multi-case environment indentation. No proof statement, action or resource
+limit changed. No new sorry/axiom/classical/foreign code; no root/full-tree
+build or audit is inferred from registering the new imports.
+
+### Backward quantitative screen and next selection
+
+Read-only source/mathematical review, not a new Lean theorem: normalize by
+the SAME Z to obtain (3v-e)^2<=v*(48+(C-16)e). With the mean bound and literal
+amplitude four this admits an inverse-square-curvature scalar floor; proposed
+27/(340*C^2) remains PAPER. The cost is explicitly nome-dependent, not
+near-one uniform: `marginalCurvatureCost`,
+lean/YMGap/Continuum/BF4ExactSlabFixedSpatialMarginalCurvature.lean:142,
+charges six plaquette costs and two terminal costs. The radial term
+`nearFlatCap`, lean/YMGap/Continuum/JacobiProductRadialNearFlatBound.lean:303,
+contains 1/(1-w^2); `nearFlatCurvatureCap`,
+lean/YMGap/Continuum/JacobiHeatPrefixCurvaturePrecision.lean:65, adds two,
+and `plaquetteCurvatureCost`,
+lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteHeatPrefixCurvature.lean:66,
+and `nearFlatPrefixCurvatureCost`,
+lean/YMGap/Continuum/SU2QuaternionPairedFrozenHeatPrefixCurvature.lean:181,
+add one. The source-level algebra gives
+C=32+8/(1-w^2), so the proposed floor is at most 1-w for strict nome.
+
+That screen invokes an EXISTING checked obstruction only conditionally on
+the displayed floor comparison: `no_rational_loss_budget`,
+lean/YMGap/Continuum/BF4WilsonAllNomeDyadicRationalBudgetObstruction.lean:46,
+rules out paying the absolute `dyadicLossBound`,
+lean/YMGap/Continuum/BF4WilsonAllNomeDyadicRelativeSurvival.lean:47,
+384*L^3*(1-w) from such a floor with nonnegative fractions summing at most one.
+It is an obstruction to THAT certificate, not to the actual signed time loss
+or Yang--Mills theory. No new scalar comparison is represented as checked.
+
+Decision: CONTINUE the COMPLETE SAME-action relative signed payment/direct
+macro-retention frontier; do not expand standalone normalization without a
+quantitatively useful consumer. The original window consumer
+`original_window_budget_macro_ratio`,
+lean/YMGap/Continuum/BF4WilsonAllNomeWindowSignedCost.lean:245, still needs
+the actual aggregate cost relative to its OWN block variance. The existing
+`blockConditionalRatio_noiseCost_abs_le`,
+lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedPredictionPayment.lean:505,
+retains original innovation and both chronological masses; neither new local
+identity bounds that innovation. Direct signed orbit credit remains an
+alternative via `signedOrbit_response_credit_identity`,
+lean/YMGap/Continuum/BF4WilsonAllNomePositiveOrbitResponseOrder.lean:696.
+The new local dual's connection to a complete time-loss estimate must be
+proved, not inferred. Nontrivial continuum survival, physical calibration,
+full QFT, every compact simple group and Clay remain OPEN. No exact canonical
+chart claim changed; no ASCII reprint.
