@@ -62516,6 +62516,30 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+## 2026-10-09 — Faithful SAME-Point fundamental matrix representation constructed
+
+`RepTheory/RationalQuaternionCompletedMatrix.representation` (:65) constructs
+an actual RC-complex two-by-two matrix from the EXISTING Point coordinates.
+`representedMatrixRegularity` (:78) retains the supplied row's entry moduli;
+the approximation/rational-entry pins (:86/:97) use the ORIGINAL raw
+fundamental convention. Completed multiplication (:107), identity (:127)
+and inverse=adjoint (:133) follow from the checked rowwise Hamilton laws.
+Both unitarity equations (:153/:157), determinant one (:180), injectivity
+(:189), distinct signs (:223) and the equatorial square=-identity (:248)
+are proved, without assumed matrix laws or a surrogate image group.
+
+Final narrow safe check2 PASS; all 19 printed gates within
+{propext, Quot.sound}; COMPLETE independent final-source/log review PASS.
+Exact source/log hashes, command and dynamic-capacity checks are in
+`work_plan.md`, observed SAME-point fundamental matrix join. The first
+check exposed a hidden Classical.choice dependency in an impossible-case
+tactic; explicit natural-number contradiction removes it. The final log has
+no diagnostics. No sorry introduced/discharged, new analytic premise, axiom,
+classical choice or limit increase. Root import registered, not root/tree
+audited. Surjectivity onto arbitrary RC unitary matrices, compactness/Haar,
+every-group construction, J04, MAIN interacting retention and physical/Clay
+closure remain OPEN. No exact displayed canonical chart claim changes.
+
 ## 2026-10-09 — Actual quaternion coordinate realization constructed
 
 `RepTheory/RationalQuaternionNormRepair.repair_error_identity` (:287)

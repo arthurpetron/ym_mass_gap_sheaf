@@ -6446,6 +6446,23 @@ compactness, completed matrix SU(2), Haar extension or every-group theorem
 follows. J04 and the MAIN signed warmed estimate remain OPEN; no exact
 canonical chart claim changes or root/tree audit follows.
 
+Checked J04 faithful matrix input (2026-10-09):
+`lean/YMGap/RepTheory/RationalQuaternionCompletedMatrix.lean:65`
+(`representation`) constructs the standard RC-complex fundamental matrix of
+the SAME Point group. Supplied original rows have entry regularity (:78)
+and literal approximation/rational pins (:86/:97). Completed multiplication
+(:107), identity (:127), inverse=adjoint (:133), both unitarities (:153/:157),
+determinant one (:180) and injectivity (:189) are proved. Both central signs
+remain distinct (:223); the equatorial matrix squares to negative identity
+(:248). Final narrow safe check2 and COMPLETE independent final-source/log
+review PASS; all 19 gates are permitted. The first axiom check caught a
+hidden classical tactic dependency; an explicit finite contradiction removes
+it in the final source. Exact hashes/commands are in `work_plan.md`.
+This is a faithful realized matrix map, not surjectivity onto every abstract
+RC unitary matrix or a compact-group/Haar identification. Those joins, every
+group, J04, the MAIN signed warmed estimate and Clay remain OPEN. No canonical
+chart claim changes or root/tree audit follows.
+
 Verification context: `audits/AUDIT-FOUR-LINK-SQUARE-YOUNG-2026-09-24.md`,
 `audits/AUDIT-SURVIVAL-QUANTIFIERS-2026-09-24.md`, and the complex-time
 checkpoint in `work_plan.md`. These record targeted checks, not a fresh

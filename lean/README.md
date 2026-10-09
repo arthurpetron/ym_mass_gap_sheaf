@@ -16,6 +16,18 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked faithful quaternion matrix representation (2026-10-09 UTC):**
+`RepTheory/RationalQuaternionCompletedMatrix.representation` maps the EXISTING
+Point group to actual two-by-two complex RC matrices. Multiplication, identity
+and inverse=adjoint are pinned to the original Hamilton rows and rational
+fundamental entries. Determinant one, both unitarity identities and injectivity
+are proved. Supplied rows retain entry regularity; both central signs and the
+equatorial square=-identity are checked. Final narrow safe check2 PASS,
+19 permitted gates and COMPLETE independent final-source/log review PASS.
+No surjectivity onto arbitrary RC unitary matrices, compactness, Haar extension
+or mass-gap claim follows. Full group identification, J04, MAIN interacting
+retention and Clay remain OPEN; root import registered, not root/tree audited.
+
 **Checked quaternion coordinate-realization join (2026-10-09 UTC):**
 `RepTheory/RationalQuaternionCoordinateCompletion.realizationRow` constructs
 an actual rational-unit Cauchy row from four SUPPLIED CReal coordinates with

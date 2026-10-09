@@ -582,6 +582,88 @@ SAME group. The coordinate producer is now available for represented
 unit-sphere inputs. Compactness/Haar and every-group realization must remain
 separate OPEN obligations; no transfer estimate is imported from this geometry.
 
+SELECTED SAME-point fundamental matrix join (2026-10-09 UTC):
+construct the standard Bool-indexed 2x2 RC-complex matrix of the EXISTING
+`RationalQuaternionCauchyGroup.Point`, from its four `pointCoordinate`s.
+Existing raw producers are `SU2QuaternionFundamentalMatrixSemantics`'s
+`fundamentalMatrixValue_mul` and `fundamentalMatrixValue_conj`; completed
+operations are the original rowwise Hamilton multiplication/conjugation.
+No existing completed matrix representation was found. The J04 consumer
+is a faithful realized matrix/group input, NOT compactness or Haar.
+Prove rational-entry pins, multiplication, identity, inverse=adjoint,
+both unitarity equations, determinant one and faithfulness. Pointwise raw
+identities plus existing RC arithmetic and quotient induction suffice;
+top-row entries recover all four coordinates. Predict an unconditional
+representation, with no analytic premise. Test both central signs and
+rational equatorial elements. Do not demand surjectivity onto arbitrary RC
+unitary matrices: their supplied regular representatives are NOT available.
+Sol implements a bounded leaf after independent mathematical screening;
+ROOT fully inspects/checks serially at one worker/20 GiB/12 GiB reserve,
+fresh capacity per launch. No sorry/axiom/choice, limit increase or frontier
+field change. Stop/revise on an unsupplied premise or quotient representative
+extraction. Compactness/Haar, every group, MAIN interacting retention and
+Clay remain OPEN. A parallel read-only MAIN task seeks paired-remainder
+cancellation on the original two-mass objects, not another bare-heat reading.
+
+OBSERVED SAME-point fundamental matrix join (2026-10-09 19:33 UTC):
+`lean/YMGap/RepTheory/RationalQuaternionCompletedMatrix.lean:65`
+(`representation`) constructs the actual standard RC-complex matrix from
+the four coordinates of the EXISTING Point group. `representedMatrixRegularity`
+(:78), `representedMatrix_approx` (:86) and `rational_entry_pin` (:97)
+retain supplied-row moduli and the ORIGINAL rational fundamental convention.
+`representation_mul` (:107) and `representation_inv` (:133) transport the
+actual pointwise Hamilton matrix identities; identity (:127), both unitary
+equations (:153/:157), determinant one (:180) and injectivity (:189) are
+proved. Both central signs remain distinct (:223), and the equatorial
+matrix squares to negative identity (:248). No matrix law is assumed.
+Source SHA-256:
+eaa827d825ae16398818b2d195e945ed3fd775d17387aa9a38552ca5fd5e3b10.
+Final narrow safe check2 PASS, all 19 gates within {propext, Quot.sound},
+COMPLETE independent final-source/log review PASS. Final log
+`/private/tmp/ym-oct9-quaternion-completed-matrix2.log`, SHA-256:
+24b67df5b7c530f93759ce6bd6c46416408e9adfb02b17df37f1ca0d490ed60d.
+Exact final command, from repository root:
+
+```sh
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 \
+  --check lean/YMGap/RepTheory/RationalQuaternionCompletedMatrix.lean \
+  --check-output lean/.lake/build/lib/lean/YMGap/RepTheory/RationalQuaternionCompletedMatrix.olean \
+  --log-file /private/tmp/ym-oct9-quaternion-completed-matrix2.log
+```
+
+Both serial launches had fresh successful dynamic-capacity checks, no
+competing compiler and zero swap. The first check found an IsUnitNorm
+predicate needing explicit unfolding for `decide`, and the axiom gate
+caught Classical.choice in the impossible Fin case's `omega`. ROOT replaced
+that tactic by explicit Nat.not_lt_of_ge and unfolded the rational predicate.
+The final log has no diagnostics; no sorry, axiom, analytic premise, choice
+or resource/heartbeat increase. Root import registered, NOT root/tree audited.
+This closes the selected faithful matrix map, NOT surjectivity onto arbitrary
+RC unitary matrices, compactness or Haar. Every-group/J04 and physical/Clay
+closure remain OPEN. No exact displayed chart claim changes.
+
+The parallel MAIN source screen supplied no new estimate: conditional-noise
+dissipation uses an even-time outgoing mass, while the required one-step
+Rayleigh cost has the distinct odd-time mass. The actual theorem
+`BF4ExactSlabFixedSpatialLastStepOriginalDissipation.original_lastStep_noise_variance_loss_le`
+(:106) explicitly retains this difference and comparison overhead. No
+free martingale telescope or source-specific small loss follows. This was
+read-only mathematical selection, not a new Lean obstruction theorem.
+The padded-square `originalWindowCost` is NOT the AF all-face family;
+MAIN still needs complete SAME-source signed payment/direct macro retention.
+
+NEXT represented matrix inverse: for SUPPLIED CReal-complex 2x2 entries
+whose first-row four components carry Type-valued regularity, use actual
+unitarity and determinant-one equations to derive d=conj(a), c=-conj(b).
+The division-free identities d*rowNorm-b*rowCross=det*conj(a) and
+c*rowNorm-a*rowCross=-det*conj(b), with rowNorm=1 and rowCross=0,
+give the standard pattern without an inverse denominator. The norm-one
+first row then feeds the CHECKED coordinate realization to construct a
+Point whose faithful representation equals the WHOLE supplied matrix.
+This is an available finite inverse problem, not a chosen representative
+or rate for arbitrary RC matrix entries. Implement/check it as a separate
+bounded consumer; do not claim full compact SU(2) or Haar from it.
+
 PAPER smoothing screen (2026-10-09): the actual
 `H1FixedScale.smoothedEnergy_le_familyNorm` already pays the unconditional
 energy bound, but relative to the INITIAL norm, not the warmed denominator.
