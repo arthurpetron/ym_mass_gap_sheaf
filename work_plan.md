@@ -215,6 +215,25 @@ or source-specific direct multi-step retention, not a sign/iteration wrapper.
 Exact evidence and scope: adaptive-score audit. Physical/Clay claims OPEN;
 canonical chart unchanged, no reprint, no full-tree audit or limit increase.
 
+PAPER mathematical selection (2026-10-09 17:25 UTC): the actual connected
+Schur residual J satisfies S*D0-a*Z*U^2=E*D0+J. Small J alone leaves the
+missing energy term; perfect alignment in the bare eigenmode model still
+has reserve fraction a. PRUNE that residual-only shortcut, not connected
+duals with an independently produced source-specific energy estimate.
+A true shared-link two-plaquette calculation with local heat-prefix action
+factors has favorable signed debt in bounded exact tests, yet the correctly
+OWN-centered odd-law energy fraction is 0.999771... in the pointwise-positive
+w=1/2,K=1 case. This is not a full BF4 endpoint or a head-cutoff-admissible
+instance. Favorable sign by itself is not a useful relative retention bound.
+The actual passive channel sources contain signed representation columns;
+positive endpoint/Gram weights do not sign their remainders. NEXT mathematics:
+control original curvature+error jointly with the retained coherent square,
+or produce the actual direct two-mass multi-step margin. No new conditional
+wrapper or restricted-example Lean branch selected. Exact formulas, source
+pins and the caught ordinary-Haar/odd-law normalization error are recorded in
+the targeted paper review's final mathematical-selection section. No Lean
+edit/check or canonical chart change; physical/Clay endpoints remain OPEN.
+
 Consumer reconciliation (2026-10-09, two independent read-only reviews):
 at a common admissible cutoff and d=stage+t, the local Fisher density
 V*g_d*g_(d+1) matches only the window's Z1 weight, up to the established
