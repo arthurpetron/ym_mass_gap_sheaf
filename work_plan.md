@@ -193,6 +193,28 @@ verification evidence: adaptive-score audit and targeted paper review.
 Nontrivial continuum survival, physical calibration, QFT, every-group and
 Clay claims remain OPEN. No canonical chart claim changed; no ASCII reprint.
 
+CHECKED Fisher-coefficient pruning (2026-10-09 17:09 UTC):
+`FisherCalibrationObstruction.marginalCurvatureCost_nome_defect_lower`
+proves 4<=(1-w)*marginalCurvatureCost(w) for EVERY strict nome; the actual
+cost is exactly 32+8/(1-w*w). Thus replacing the crude squared score cap
+by this curvature coefficient ALONE cannot pay a target below four.
+This is an obstruction for THIS computed upper-bound constant, not a
+lower bound on actual energy. Final focused check2/four permitted gates
+and COMPLETE independent frozen-source review PASS. Stop that coefficient-
+only branch before expanding the missing family Hessian interface.
+
+A bounded independent SU(2) one-link PAPER calculation also gives both
+signs for the exact mixed-minus-diagonal Taylor debt, even with a strictly
+positive source and positive heat weights. Bernoulli multipliers alone
+cannot justify discarding it. This is not an original BF4 endpoint instance
+or a new kernel-checked debt theorem. Existing positive-orbit/log-convex
+machinery already consumes an unsupplied response floor; it cannot produce
+slow-source overlap from positivity alone. NEXT mathematics therefore
+remains the combined signed original-law payment with its retained credits,
+or source-specific direct multi-step retention, not a sign/iteration wrapper.
+Exact evidence and scope: adaptive-score audit. Physical/Clay claims OPEN;
+canonical chart unchanged, no reprint, no full-tree audit or limit increase.
+
 Consumer reconciliation (2026-10-09, two independent read-only reviews):
 at a common admissible cutoff and d=stage+t, the local Fisher density
 V*g_d*g_(d+1) matches only the window's Z1 weight, up to the established

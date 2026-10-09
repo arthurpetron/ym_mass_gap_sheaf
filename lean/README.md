@@ -16,6 +16,14 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked coefficient-only obstruction (2026-10-09 UTC):** the ACTUAL
+Fisher curvature cost satisfies `(1-w)*marginalCurvatureCost(w) >= 4`
+for every strict nome. This computed upper-bound constant alone cannot
+certify a small first-order loss; no lower bound on true energy follows.
+Final focused check2/four permitted gates and COMPLETE independent source
+review PASS. Retain joint signed cancellation/direct macro retention as
+the frontier. No physical/Clay closure or full-tree audit.
+
 **Checked ORIGINAL transferred cost (2026-10-09 UTC):** the linear collar
 coefficient now bounds the EXISTING originalOwnBlockCost by
 `(1-linearBandFraction+comparisonEta)*originalOwnBlockVariance` for every

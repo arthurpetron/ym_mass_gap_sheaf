@@ -5060,6 +5060,9 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialFisherDual
 -- OWN original odd mean/energy and signed vector dual, not variance closure.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFisherMean
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFisherVector
+-- THIS computed curvature constant alone cannot pay a small first-order
+-- temporal budget. No lower bound for the actual operator cost is inferred.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFisherCalibrationObstruction
 -- Exact ordered source pin on the ACTUAL padded Wilson square; K is signed.
 import YMGap.Continuum.QuaternionHaarPairedLinearDoubleIBP
 import YMGap.Continuum.BF4DyadicWilsonSquareDoubleIBP

@@ -9802,3 +9802,151 @@ machinery as a substitute for the missing estimate.
 Continuum survival, physical calibration, QFT, every compact simple group
 and Clay remain OPEN. No canonical displayed claim changed; no ASCII
 reprint. No foreign code or repeat paper/literature fetch was used.
+
+## Next selection: test the Fisher coefficient before expanding Ward (2026-10-09 17:03 UTC)
+
+Previous goal turn: PROGRESS, commit `6657795b`; the sharper local energy
+now bounds the actual transferred cost at its OWN center with BOTH masses.
+Two new bounded read-only Sol screens, with no compilation or literature
+fetch, tested alternatives to repeating that weak coefficient.
+
+The direct moment/orbit route supplies no source-specific lower reserve.
+`macro_ratio_of_survival_floor`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeCompletedLogConvexity.lean:133`,
+already consumes a supplied half-horizon survival floor. Positive-orbit
+retention likewise consumes a raw floor; signed orbit credit keeps its
+negative early covariance. A single scalar contraction mode with rate half
+satisfies moment positivity/log-convexity but has doubled-window ratio
+half^(2s). Any finite time polynomial which is nonzero on that mode only
+rescales its moments; it cannot alter the ratio. This is PAPER selection
+algebra, not an original-action counterexample or a new Lean theorem.
+No duplicate moment/iteration scaffold is selected.
+
+The lossless Fisher route also has an exact bottleneck. The integrated
+score-functional bound in `marginal_paired_score_dual_bound`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFisherDual.lean:72`, is not the
+local score-square premise of `active_residual_lower`,
+`lean/YMGap/Continuum/QuaternionHaarLocalRelativeWard.lean:148`.
+Using the full vector instead retains the actual ordered Hessian in
+`marginal_frozen_score_signed_dual_bound`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFisherVector.lean:70`.
+That Hessian and the complete signed Taylor remainder must be controlled,
+not omitted. No currently supplied arbitrary-signed-family comparison
+was found by the reviewer.
+
+Before implementing such a difficult comparison, test its coefficient.
+The ACTUAL marginalCurvatureCost is assembled from six spatial and two
+terminal costs; unfolding gives C=32+8/(1-w*w) at strict nome. Even the
+optimistic replacement angularEnergy<=C*OWNVariance would give the
+first-order temporal coefficient (1-w)*C. Its scalar lower bound is FOUR,
+not a small quantity near one. Proposed exact proposition:
+
+    4 <= (1-w)*marginalCurvatureCost(w),       0<w<1.
+
+Consequently this computed coefficient cannot pay a target below four.
+This is a barrier for THIS certificate, not a lower bound on the true
+energy, a variance theorem, a no-go theorem for cancellations or a
+Yang--Mills counterexample. Its existing analytic consumer is
+`padded_family_energy_relative_ward`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyRelativeWard.lean:332`,
+which still retains normalizedRemainder. It justifies pruning a plan that
+only replaces the old squared score cap by C and ignores the remainder.
+
+Inputs: exact computed curvature definitions, positive 1-w and 1-w*w,
+their factorization, and rational reciprocal/order algebra. Prediction:
+PASS with explicit strict-nome guards and no analytic input. Decisive
+test: do not confuse a computed UPPER-bound coefficient with a lower
+bound on the actual operator cost; near-one behavior must not vanish.
+Abandon any extension needing a physical/scaling premise or new wrapper.
+Budget: one small scalar leaf, one focused serial check plus local repairs,
+COMPLETE independent final-source review; fresh dynamic preflight, one
+20-GiB worker/12-GiB reserve. No full-tree build or limit increase.
+Selection is PAPER until final evidence is recorded. Return afterwards to
+joint signed absorption/direct source-specific multi-step retention.
+
+## Observed result: Fisher coefficient-only branch pruned (2026-10-09 17:09 UTC)
+
+The ACTUAL computed cost formula, denominator pin, strict-nome lower bound
+4<=(1-w)*C(w), and exclusion of a target below four are now KERNEL-CHECKED.
+This proves insufficiency of THIS coefficient for that scalar budget, not
+a lower bound on the actual energy, a false-sign theorem for the original
+remainder or a Yang--Mills/continuum obstruction. No family Hessian estimate
+is claimed. The decision is PRUNE the coefficient-only replacement, and
+CONTINUE combined signed payment/direct source-specific multi-step retention.
+
+Final source:
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFisherCalibrationObstruction.lean`,
+129 lines, SHA-256
+`ebe8d8bcb89e67fe4794b48f666800fef9b8f7f34fa9385555512f2351cb4794`.
+Public declarations:
+
+- `marginalCurvatureCost_formula`, :24;
+- `marginalCurvatureCost_denominator_pin`, :48;
+- `marginalCurvatureCost_nome_defect_lower`, :76;
+- `marginalCurvatureCost_not_below_target`, :114.
+
+Focused check2 exited zero; all four printed gates use only
+{propext, Quot.sound}. Passing log `/private/tmp/ym-oct9-fisher-calibration2.log`,
+SHA-256 `9b566d3325ff867cb4dc33ee9eb599ec1f72c0d6148fb10fe990e926b4a4c884`.
+ROOT read the complete final source and axiom output; independent read-only
+Sol reread ALL 129 hash-matched lines: PASS. Two serial narrow launches;
+check1 found only a factor-order mismatch at positive cancellation. An
+explicit setoid multiplication-commutativity step repaired it, with no
+statement or limit change and no sorry introduced. Error-recovery axioms
+from check1 are not counted as verification.
+
+```sh
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFisherCalibrationObstruction.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFisherCalibrationObstruction.olean --log-file /private/tmp/ym-oct9-fisher-calibration2.log
+```
+
+Successful fresh host preflights before both launches showed 86/85 percent
+free, zero swap and no competing Lean/Lake/pytest/runner. The monitored
+checks used one 20-GiB worker and 12-GiB OS reserve; neither stayed live
+beyond the initial call. No tree audit, foreign code, resource-limit raise
+or routine literature scan. Root import registration only.
+
+### Independent signed-debt screen while checking: actual SU(2) heat algebra
+
+The original channel debt is a signed DIFFERENCE, not a sum of nonnegative
+diagonals: `familyChannelTaylorDebt`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyChannelTaylorVariance.lean:107`,
+is sum_z weight_z*(R(a_z,a_z*f^2)-R(a_z*f,a_z*f)), with the SAME channel
+source a_z. Its exact energy identity at :119 retains that difference.
+Bernoulli attenuation positivity does not assign its sign.
+
+PAPER finite sign test, independently checked by ROOT and read-only Sol,
+not a new Lean theorem or an original BF4 endpoint instance: on ONE SU(2)
+Haar link, choose w=1/2, K>=4, f=chi_1 and a=1+(3/4)*chi_2.
+Since chi_2=4*x0^2-1, a=1/4+3*x0^2 is strictly positive. Character fusion
+gives a*f=(7/4)*chi_1+(3/4)*chi_3 and
+a*f^2=(7/4)*chi_0+(5/2)*chi_2+(3/4)*chi_4. With normalized Haar character
+pairings and r_n=w^(n*(n+2))-1+(1-w)*n*(n+2), the actual remainder values
+are r_1=5/8, r_2=769/256 and r_3=212993/32768. Therefore
+
+    R(a,a*f^2)-R(a*f,a*f)
+      = (15/8)*r_2-(49/16)*r_1-(9/16)*r_3
+      = 32503/524288 > 0.
+
+For a=1 and the same f the debt is -r_1=-5/8<0. The two signs refute a
+generic sign inference from positive source/weights and Bernoulli mode
+multipliers, NOT any original BF4 source-specific sign theorem. Current
+source pins: `first_character_square`,
+`lean/YMGap/Continuum/SU2QuaternionProductHeatPlaquetteSquare.lean:32`;
+private `first_mul_succ` and `square_mul_two`,
+`lean/YMGap/Continuum/SU2QuaternionPlaquetteQuarticHaar.lean:44` and :67;
+`productRemainder`,
+`lean/YMGap/Continuum/SU2HeatProductTaylorRemainder.lean:33`;
+`pairRemainder`,
+`lean/YMGap/Continuum/SU2QuaternionCyclicModeTaylor.lean:263`.
+The narrow review did not find a single public one-link all-spin Haar
+orthonormality theorem; this finite pairing calculation uses the explicit
+character polynomials and normalized Haar moments and remains PAPER here.
+
+Keep the original coherent square and the full signed debt TOGETHER in
+`family_coherent_energy_retained_square`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyCoherentEnergy.lean:263`.
+An estimate for that combined quantity or an independent original-source
+late-horizon reserve is still missing. Do not replace it by an unproved
+debt sign or by an orbit/log-convexity wrapper consuming the same reserve.
+All physical, continuum, QFT, every-group and Clay endpoints remain OPEN;
+no canonical displayed claim changed and no ASCII chart is reprinted.

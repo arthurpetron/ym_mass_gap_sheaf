@@ -1,5 +1,13 @@
 # Canonical one-page project status
 
+Supporting coefficient-only route pruned (2026-10-09 UTC): the ACTUAL
+Fisher cost C=32+8/(1-w*w) obeys (1-w)*C>=4 at every strict nome.
+Focused check2/four permitted gates and COMPLETE independent frozen-source
+review PASS. This rules out paying a small temporal budget by that constant
+alone, not the true cost or joint signed cancellation. Relative signed
+payment/direct source-specific multi-step retention remains OPEN. No exact
+chart claim changes or reprint. Evidence: adaptive-score audit.
+
 Supporting actual ORIGINAL transferred cost checked (2026-10-09 UTC):
 the EXISTING originalOwnBlockCost is at most
 `(1-linearBandFraction+comparisonEta)*originalOwnBlockVariance` for every
