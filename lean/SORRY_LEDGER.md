@@ -1,5 +1,21 @@
 # Sorry Ledger
 
+## PROVED exact SAME-channel raw moment debt / OPEN moving-family relative payment (2026-10-09 UTC)
+
+`signedEnergyDebt_eq_rawMoments`,
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareSignedEnergyMoments.lean:178`,
+joins exact shift cancellation and raw Wilson geometry on ACTUAL channels,
+at every depth including zero. `normalizedEnergy_raw_moment_cutoff:220`
+consumes it at the existing cutoff and positive depth n+1 with SAME partition
+and delta*OWN variance. Final focused check2 and COMPLETE independent final-
+source/log review PASS; five gates exactly {propext,Quot.sound}, no final
+warnings/errors. The raw M/F plus signed cubic debt is UNPAID, not identified
+with OWN variance. No new hole, assumption or canonical-field change. The
+square is an optional probe; the AF candidate uses smoothed ALL-face families.
+Complete signed moving-family cost, BOTH chronological masses, scaling,
+continuum survival/physical mass/full QFT/every group and Clay remain OPEN.
+Root registration only; no root/tree audit. Exact evidence: adaptive-score audit.
+
 ## PROVED original signed-energy cutoff consumer and exact shift cancellation / OPEN remaining relative payment (2026-10-09 UTC)
 
 `sourceEnergy_signed_channel_payment`,

@@ -12,6 +12,16 @@ or hole. Relative angular/cubic/curvature payment, scaling and physical/Clay
 goals OPEN. No exact displayed claim changes or chart reprint. Evidence:
 adaptive-score audit.
 
+The subsequent SAME-channel raw-moment equality and original cutoff consumer
+are checked in `BF4DyadicWilsonSquareSignedEnergyMoments`: five permitted
+gates and COMPLETE independent final-source/log review PASS. Raw M/F plus
+signed cubic is still UNPAID. This is an optional square probe, not the
+temporally smoothed ALL-face AF candidate or a required continuum shape.
+The requested paper follow-up adds faithful-realization/descent and exact
+operator-identification checks to the work plan. No exact displayed claim
+changes, canonical field changes or chart reprint. Evidence: adaptive-score
+audit and `audits/RESEARCH-2610-09093-2026-10-08.md`.
+
 Supporting signed ORIGINAL omitted component checked (2026-10-09 UTC): the
 constructed positive complementary form retains mixed-minus-diagonal
 cancellation and gives M*rho*H[q^2]. The literal OWN-centered Wilson-square

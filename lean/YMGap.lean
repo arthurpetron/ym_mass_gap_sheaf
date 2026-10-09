@@ -5479,6 +5479,9 @@ import YMGap.Continuum.SU2QuaternionCyclicSourceShift
 -- The signed cutoff payment feeds the ORIGINAL energy and SAME partition;
 -- remaining cubic/curvature/angular debt is explicit and unpaid.
 import YMGap.Continuum.BF4DyadicWilsonSquareSignedEnergyPayment
+-- Exact raw M/F plus signed cubic debt on the SAME optional Wilson probe;
+-- omitted payment is consumed, but full relative/scaling payment stays open.
+import YMGap.Continuum.BF4DyadicWilsonSquareSignedEnergyMoments
 -- Integrated original Ward residual transport, not a weight/derivative identity.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialProjectedWard
 -- The displayed majorant retains a quadratic floor; not a true-moment lower bound.

@@ -101,10 +101,20 @@ energy check6/shift check1 and COMPLETE independent source/log reviews PASS;
 seven gates within {propext,Quot.sound}, no final warnings/errors. No new
 analytic input, hole or canonical closure; exact evidence: score audit.
 
-NEXT mathematical producer: pay `signedEnergyDebt` against SAME
-`oddMass*oddVariance`. Use the checked exact shift cancellation with the
-existing literal `ChannelMomentBalance` identities to keep raw Wilson
-channel mass M, square moment F and signed cubic together:
+CHECKED exact raw-moment reduction on the SAME optional Wilson-square probe:
+`BF4DyadicWilsonSquareSignedEnergyMoments.signedEnergyDebt_eq_rawMoments`
+removes differentiated insertions and mean-correction cost at every depth,
+including zero. `normalizedEnergy_raw_moment_cutoff` consumes it at every
+positive depth and the EXISTING computed omitted-payment cutoff. Both keep
+the projected source, actual passive weights, SAME oddMass and OWN variance.
+Final focused check2 and COMPLETE independent final-source/log review PASS;
+five gates exactly {propext,Quot.sound}, no final warnings/errors. The raw debt
+is explicitly UNPAID; no analytic input or canonical claim is closed.
+Exact source/log hashes and accepted command: adaptive-score audit.
+
+NEXT mathematical producer is a useful COMPLETE signed cost versus the SAME
+interacting variance on a justified moving family, or direct original macro
+retention. For the optional Wilson square, the newly checked debt is exactly
 `(h+t)*P*(4*M-F) + t*P^2*(5*F-8*M) + sum(actualSignedCubic)`.
 The actual source remains Pi_fringe(V*g_depth); bare M/F are not OWN
 variance. Do not absolutize cubic or assume the whole joined correction is
@@ -123,12 +133,45 @@ source without a producer. Chronological mass conversion, changing-family/
 scaling control, physical/QFT/every-group and Clay remain OPEN. No new analytic
 interface or canonical chart closure is selected.
 
+Backward selection correction: the canonical `PositiveTimeOSRoot` requires
+a normalized vacuum-orthogonal positive-time probe and strict nonzero
+Rayleigh response, NOT a growing bare Wilson square
+(`lean/YMGap/Continuum/CanonicalOSRoot.lean:318`). The existing AF candidate
+is the ALL-spatial-face family with temporal box smoothing,
+`afPaddedZeroMomentumTrajectory`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeAFPaddedTrajectory.lean:305`.
+Keep its full signed-family/chronological payment central; the square is an
+optional sufficient-probe test, not a prerequisite. Existing signed family
+vectors and arbitrary original slab-expression trajectories also remain
+available (`familyExcitation_norm_floor`,
+`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteFamilyVariance.lean:151`;
+`ExprAnchorTrajectory`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeExprAnchorTrajectory.lean:235`).
+Temporal smoothing is not spatial link flow. Select no new flowed/renormalized
+observable interface without an actual approximation/support/error producer.
+
 The requested parallel paper reconciliation reused the cached review of
 arXiv:2610.09093; it supplied no missing Yang--Mills variance estimate. Its
 cancellation-first/full-output discipline informs the independently derived
 complement argument above, not an import of a fermion theorem or auxiliary
 gap. Scope and current-consumer decision:
 `audits/RESEARCH-2610-09093-2026-10-08.md`, latest reconciliation.
+
+Requested parallel paper follow-up (2026-10-09): add two EVERY-group
+selection checks, not an imported analytic branch. Separate faithful group
+realization/admissibility from representation descent: the existing
+`SO3DoubledSpinDescends:432` and `so3DoubledSpin_descends_iff_even:437`
+in `lean/YMGap/RepTheory/CompactSimpleGlobalForm.lean` are code-level only.
+Keep descent parity distinct from the paper's fermion-multiplicity condition.
+Before using group restriction, prove precisely which ORIGINAL operator,
+functional and normalization are preserved. A fermion projector identification
+is not a gauge-action/Haar/OS-transfer/time identification; our stage consumer
+still requires `ReferenceWeightStageFamily.functionalPinned`,
+`lean/YMGap/Continuum/CanonicalOSRoot.lean:88`, plus actual group/action
+realization. The paper's sections 10--11 illustrate these checks, not an
+every-compact-simple-group Yang--Mills theorem. Exact paper equations and
+bounded review scope: the targeted report's requested group/naturality section.
+No new Lean assumption, frontier bundle or routine arXiv scan is selected.
 
 New backward-consumer screen: a proposed full-density directional-flux
 bound was independently correct on PAPER but PRUNED before Lean edits.

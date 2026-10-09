@@ -31,6 +31,14 @@ analytic input or canonical closure. MAIN relative payment, scaling and Clay
 remain OPEN. Root imports are registration only; no full root/tree check.
 Evidence and next actual moment/cubic comparison: adaptive-score audit.
 
+The subsequent `Continuum/BF4DyadicWilsonSquareSignedEnergyMoments` exactly
+reduces this unpaid debt to raw channel M/F plus SIGNED cubic, including depth
+zero; its cutoff consumer keeps SAME oddMass/OWN variance at positive depth.
+Final focused check2 and COMPLETE independent source/log review PASS; five
+permitted gates, no final warnings/errors. Relative payment remains OPEN.
+This square is an optional probe; the AF candidate uses temporally smoothed
+ALL-spatial-face families. No new assumption or root/tree audit.
+
 **Checked signed omitted-cutoff payment (2026-10-09 UTC):**
 `Continuum/SU2QuaternionCyclicComplementaryOmitted.neg_sourceOmitted_le_squareBound`
 constructs the positive complement of the actual omitted form and preserves

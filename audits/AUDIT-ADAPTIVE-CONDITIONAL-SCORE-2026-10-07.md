@@ -11326,3 +11326,79 @@ assuming the missing estimate. Full relative payment, warmed/BOTH chronological
 mass joins, justified changing-family/scaling, nontrivial continuum survival,
 finite positive physical mass, full SAME-theory QFT, every group and Clay
 remain OPEN. The unchanged goal remains ACTIVE.
+
+## Selected SAME-channel raw-moment reduction (2026-10-09)
+
+Previous turn: PROGRESS, `d9f432a9` consumes actual signed cutoff payment
+in original normalized energy and proves exact constant-shift cancellation.
+Available literal Wilson geometry already gives angular P*(4M-F) and
+retained quadratic P^2*(5F-8M) on the ACTUAL channels at arbitrary center.
+Selected exact consumer: combine them with `sourceCubic_shifted` to express
+the complete unpaid `signedEnergyDebt` as those two RAW moments plus the
+SIGNED cubic of raw f, then feed the original normalized-energy consumer.
+No source-square/odd-law identification or new analytic premise is allowed.
+This removes differentiated insertions and OWN-mean cost from the debt;
+the quantitative bound of the resulting expression against OWN variance
+is the genuinely missing producer, not filled by this exact reduction.
+
+Inputs: `SignedEnergyPayment.normalizedEnergy_signed_cutoff_payment`,
+`CyclicSourceShift.sourceCubic_shifted`,
+`ChannelMomentBalance.paddedSquare_channelAngular_moments` and
+`paddedSquare_channel_secondOrder_balance`. Preserve q=Pi_fringe(V*g_depth),
+full passive Gram weights, P=4*side, C f=3P*f (NOT 3P*(f-mean)), both signs
+and the SAME positive odd partition. No Bessel/raw-norm enlargement.
+Predicted result: exact debt identity plus unconditional paid-cutoff energy
+bound, not a full relative estimate or chart closure. Tests: depth0 identity
+versus positive-depth payment, zero channels, arbitrary center, P factors,
+no favorable sign inferred from F<=4M. One bounded Sol leaf, ROOT completion
+if necessary, independent read-only actual-relative and scaling-feasibility
+screens; ROOT-only serialized narrow 20GiB/12GiB-reserve verification.
+Revise/prune if an actual input pin is missing; no wrapper assuming payment,
+canonical-field changes, new hole, broad audit or resource increase.
+
+### Observed exact raw-moment result: PASS (2026-10-09 23:28 UTC)
+
+`signedChannelCubic_center_eq_raw`,
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareSignedEnergyMoments.lean:92`,
+proves exact constant-shift cancellation on ACTUAL signed passive channels,
+using their produced support and the OWN odd mean, at every depth including
+zero. `rawChannelCubic:156` and `rawMomentDebt:165` are literal definitions,
+not assumed relative estimates. `signedEnergyDebt_eq_rawMoments:178` gives
+the selected exact equality. `normalizedEnergy_raw_moment_cutoff:220`
+unconditionally consumes it at the EXISTING cutoff for depth n+1, preserving
+SAME oddMass reciprocal, OWN variance and the delta payment. No Bessel
+enlargement, raw-square/odd-law identification or centered eigenfunction pin.
+
+Accepted focused command (exit 0):
+
+```text
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/BF4DyadicWilsonSquareSignedEnergyMoments.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/BF4DyadicWilsonSquareSignedEnergyMoments.olean --log-file /private/tmp/ym-oct9-signed-energy-moments2.log
+```
+
+Source SHA256 `0f86877a1b379413d647a3f50443b5d0b95b64a7efbdbdc032e5046c2ce5c89c`.
+Accepted log SHA256 `b9748e5e758f4762fdf3339aa5f7c540cc052bef57a00c0f3195d2b50f4575de`.
+ROOT and the independent READ-ONLY Sol reviewer read the COMPLETE final
+246-line source and 8-line accepted log: PASS. All five printed gates are
+exactly {propext,Quot.sound}; no final warnings/errors, hole or analytic
+premise. Earlier inference failure is superseded, not proof evidence.
+Fresh preflight before the accepted launch: 86% free memory pressure reading,
+zero swap, no competing Lean/Lake/pytest/runner. One 20GiB worker and 12GiB
+OS reserve; no resource increase, root/tree build, broad audit or CI run.
+
+Backward selection correction: the existing AF candidate is ALL spatial
+faces with temporal smoothing (`afPaddedZeroMomentumTrajectory`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeAFPaddedTrajectory.lean:305`), not
+a literal growing square. The canonical probe fields
+(`PositiveTimeOSRoot`, `lean/YMGap/Continuum/CanonicalOSRoot.lean:318`)
+prescribe nonzero normalized reflected response, not this shape.
+The checked square debt remains an optional sufficient-probe test.
+NEXT is useful complete signed-family/chronological payment against SAME
+interacting variance or direct original macro retention. Raw M/F are not
+OWN variance; PSD does not sign a mixed source term. The existing computed
+band-credit ceiling (`linearCredit_geometric_ceiling`,
+`lean/YMGap/Continuum/BF4OriginalChannelLinearCreditCollapse.lean:45`)
+rejects that coarse coefficient as a uniform growing-footprint reserve,
+NOT actual interacting responses. No new mathematical bound is claimed by
+these read-only screens. Full relative payment, warmed/BOTH-mass conversion,
+justified scaling, continuum survival, physical mass/QFT/every-group and
+Clay remain OPEN. Canonical displayed claims unchanged; no chart reprint.
