@@ -4,6 +4,27 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## ORIGINAL full shared-face pair Casimir (2026-10-09 UTC)
+
+`QuaternionHaarExclusiveMixedCasimir` produces distinct-slot raw degree
+preservation, supported mixed Gamma, exclusive Casimir three, and outside
+coefficient zero. `FullSharedFaceCurvature.distinct_pair_full_gamma_casimir`
+then proves `C Gamma(fp,fq)=20*Gamma(fp,fq)-6*fp*fq` on the SAME full
+original slice, for distinct actual faces with a common physical link and
+arbitrary Haar insertions. Each actual four-link row is counted; a single
+shared-index correction gives `3*4+3*4-4=20`. No extra decomposition, unit-tail
+or analytic premise. Generic focused check1 and physical focused check2 PASS;
+six gates exactly {propext,Quot.sound}, with complete independent final-source/log
+reviews PASS. Physical check1 failed on alias/Boolean
+simplification and proof-layout errors; its elaboration `sorryAx` is not
+accepted evidence. Check2 retains one unused-pattern warning.
+NEXT: coefficient-level ORDERED signed-family expansion, preserving repeated
+faces, then the actual channel curvature-plus-48-square comparison. Structural
+pair algebra supplies no favorable sign of weighted cross moments. MAIN
+scaling, physical/QFT/every-group and Clay remain OPEN; canonical chart claims
+unchanged. Exact source/log hashes and verification scope: score audit.
+No broad audit/metric, new hole, resource increase or CI change.
+
 ## ORIGINAL local pair curvature and physical-link localization (2026-10-09 UTC)
 
 `QuaternionHaarMixedLinearCasimir.blockGamma_linear_casimir` produces

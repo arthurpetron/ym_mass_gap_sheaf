@@ -10796,3 +10796,121 @@ This is our calculation, not a theorem imported from the fermion paper.
 Main chronological retention, changing-family survival, physical mass,
 continuum/QFT, every-group and Clay remain OPEN. No canonical chart claim
 changed, so no unchanged ASCII chart is reprinted.
+
+## Selected full original shared-face Casimir join (2026-10-09)
+
+Previous goal turn: PROGRESS, checked and pushed `93257639`. The active
+goal and all continuum/Clay requirements are unchanged. ROOT and the
+independent reader again checked the full-pair formula on PAPER:
+
+    C Gamma(fp,fq) = 20*Gamma(fp,fq)-6*fp*fq.
+
+Scope: distinct actual spatial faces in the SAME nonperiodic physical
+slice, with a supplied common boundary link; actual active C and Gamma
+on range(N width), arbitrary Haar insertions. No nome/cutoff/depth or
+tail-unit premise belongs in this structural identity. Available inputs:
+`incident_pair_gamma_casimir` and `distinct_pair_activeGamma_localizes`
+in `BF4ExactSlabFixedSpatialSharedFaceCurvature`; actual incident degree,
+off-row independence, and the four-slot length in `ChannelActiveMoments`.
+
+Predicted short argument: a raw angular derivative in another block
+preserves selected-block degree. Thus each exclusive link contributes
+3*Gamma_s to C_b(Gamma_s), and an outside link contributes zero. The
+shared contribution is already 2*Gamma_s-6*fp*fq. A row-count assembly
+can count each face's four links instead of adding a new seven-link
+enumeration: 3*(4+4)-4=20, with the shared product term retained.
+The exclusive-block Gamma_b itself vanishes; it is NOT the quantity
+being differentiated in that contribution.
+
+Actual backward consumer remains `familyChannelCurvature`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyChannelRetainedSquare.lean:133`,
+and the SUBTRACTED combined curvature-plus-48-square at :357. Root and
+the independent reader explicitly checked a decisive sign degeneracy:
+at the unit field, one-overlap faces with F=fp-fq have F=Gamma(F,F)=0,
+but the PAPER combined expression C Gamma(F,F)+48F^2=-720. Equal-face
+branches contribute -384, the two signed overlap products -336. This
+refutes automatic pointwise nonnegativity, NOT an original weighted
+Haar estimate, Yang--Mills theory or scaling trajectory. Do not drop
+signed channel cross moments after the exact assembly.
+
+Budget: one generic exclusive-degree/Casimir leaf and one original
+full-pair assembly leaf, with bounded parallel implementation and
+independent read-only mathematical/source review. All compilation is
+serial via the monitored launcher, 20-GiB worker/12-GiB reserve and a
+fresh dynamic preflight each launch. No full-tree audit, resource raise,
+new hole, assumed analytic interface or unrelated refactor. Stop/revise
+if a unit-tail/action replacement or unbounded geometric enumeration is
+needed. Selection is PAPER until exact kernel evidence is recorded;
+the signed weighted comparison and chronological/scaling join remain OPEN.
+
+### Observed exclusive/outside-slot producer
+
+`QuaternionHaarExclusiveMixedCasimir.blockGamma_degree_of_ne`,
+`lean/YMGap/Continuum/QuaternionHaarExclusiveMixedCasimir.lean:111`,
+proves raw selected-block degree preservation away from the differentiated
+block, including zero-coefficient derivative terms. Its supported mixed
+gradient producer (:126), exclusive positive-Casimir-three identity (:148)
+and outside coefficient-zero identity (:166) use the SAME polynomials and
+carrier. No spectator-unit, sign, decomposition or analytic premise is added.
+The exclusive contribution differentiates the SHARED Gamma, not the zero
+exclusive Gamma itself. ROOT read the complete 180-line source; independent
+complete final-source/log review PASS.
+
+Accepted focused check1:
+
+```text
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionHaarExclusiveMixedCasimir.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionHaarExclusiveMixedCasimir.olean --log-file /private/tmp/ym-oct9-exclusive-mixed-casimir1.log
+source SHA256 b0c8e4c610e754dc1381461a648b164594439b09feb7e6c56a1660c9d797d61d
+log SHA256    75eafc0b266688e23ef2060d1b1e3b672ece1c13b68ff09021c11ab74da300c4
+```
+
+All four printed gates are exactly {propext,Quot.sound}; no warnings/errors.
+This is a finite actual producer, not full pair/family or weighted payment.
+Full original physical assembly check1 failed on local-let/Boolean
+simplification and a permutation-proof layout; its printed `sorryAx`
+comes from elaboration errors and is NOT accepted proof evidence. No source
+`sorry`, axiom or weakened field was introduced. Repair remains bounded to
+the selected physical leaf; accepted final evidence will be recorded separately.
+
+### Observed full ORIGINAL pair join: CONTINUE
+
+`distinct_pair_sharedGamma_full_casimir`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFullSharedFaceCurvature.lean:289`,
+and `distinct_pair_full_gamma_casimir` (:326) now prove the full
+`C Gamma(fp,fq)=20*Gamma(fp,fq)-6*fp*fq` identity. Scope: distinct canonical
+spatial faces with a supplied common physical link, full original-slice
+active C/Gamma and arbitrary Haar insertions. The actual incidence counts
+are produced as 12G+12G, then exactly one correction -4G-6fp*fq. No
+seven-slot premise, unit-tail assumption, periodic claim or weight substitution.
+Full-Gamma transport uses the existing in-range Haar-carrier Casimir theorem,
+not raw differentiation of an arbitrary Haar-carrier equality.
+
+ROOT read the COMPLETE final 344-line source and accepted log; independent
+complete final-source/log review PASS with matching hashes. Accepted check2:
+
+```text
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFullSharedFaceCurvature.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFullSharedFaceCurvature.olean --log-file /private/tmp/ym-oct9-full-shared-face-curvature2.log
+source SHA256 009e49b27d46fc27d8062685496ce93ef544e24ed50465853fcefb20cbf9ed7f
+log SHA256    49025e344ebea3a5060b706056ac84c82a5a2cd7cd99a0326b63321da566df4c
+```
+
+Both gates exactly {propext,Quot.sound}; no errors or `sorryAx` in the
+accepted log. One harmless unused-pattern variable warning at :194 remains.
+Check1's local-let/Boolean/layout failures are superseded, not accepted
+evidence. Each physical launch had a fresh live pressure/swap/process
+preflight: pressure-free capacity 86%, zero swap, no competing compiler/test
+or Runner job found. Both finished during their initial calls; no live long
+job or repeated polling. Root imports are registration only, NOT root checking.
+
+NEXT consumer-directed join: the literal occurrence fold `spatialSpan`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteFamilySchedule.lean:61`,
+must expand Gamma in both arguments into ORDERED coefficient-level pairs.
+Public `activeGamma_symm` (:344 of `SU2QuaternionActiveCasimirProduct.lean`)
+and `activeCasimir_add`/`activeCasimir_smul` (:242/:263 of
+`BF4ExactSlabFixedSpatialFamilyCasimir.lean`) are available; the additive Gamma
+and fold helpers found by the read-only inventory are currently private.
+Use existing equal-face and disjoint branches, retaining signed coefficients
+and repeated geometric faces. The family identity remains PAPER; actual
+weighted lower control/joint debt, OWN warmed variance, BOTH chronological
+masses, justified scaling, physical/QFT/every-group and Clay remain OPEN.
+No new analytic wrapper or canonical chart claim is selected or closed.

@@ -38,18 +38,29 @@ independent final-source/log reviews PASS; four gates exactly
 {propext,Quot.sound}. Core `List.nodup_range` unexpectedly carried choice;
 reuse of `CayleyParentInj.range_nodup` repaired it without weakening the gate.
 
-NEXT bounded join: prove the six exclusive-link contributions to the
-Casimir of the SHARED mixed Gamma, each equal to `3*Gamma_s`; do not
-confuse these with the vanishing exclusive-block Gamma itself. Actual
-degree/independence, distinct-block angular transport and produced support
-are the inputs. The full `20*Gamma-6*fp*fq` identity remains PAPER, not
-checked. Reuse the existing equal-face curvature theorem and preserve
-duplicate occurrence pairs and signed coefficients in later family assembly.
-Keep actual `channelSource` squared insertions; remaining cross moments
-are not automatically OWN marginal covariances. Favorable weighted payment
-and its chronological/physical/scaling join remain OPEN; no new analytic
-interface or canonical chart closure. Exact source/log hashes and residual:
-adaptive-score audit. Root registration only, no tree audit or limit increase.
+CHECKED full ORIGINAL pair join:
+`FullSharedFaceCurvature.distinct_pair_full_gamma_casimir` now proves
+`C Gamma(fp,fq)=20*Gamma(fp,fq)-6*fp*fq` for distinct actual spatial
+faces sharing a physical link, with full-slice C/Gamma and arbitrary Haar
+insertions. `QuaternionHaarExclusiveMixedCasimir` supplies degree/support,
+exclusive Casimir-three and outside-zero producers. Counting each actual
+four-link row and correcting the shared link gives `3*4+3*4-4=20`;
+no seven-link decomposition or extra incidence/unit premise is assumed.
+Generic check1 and original check2 and complete independent final-source/log
+reviews PASS; six gates exactly {propext,Quot.sound}. The original check has
+one unused-pattern warning;
+earlier elaboration errors are not accepted evidence. Root registration
+only, no tree audit, new hole or resource increase. Exact hashes: score audit.
+
+NEXT bounded mathematical join: expand `spatialSpan` into ORDERED occurrence
+pairs, retaining arbitrary signed coefficients and repeated geometric faces.
+Use the existing equal-face and disjoint branches plus the checked shared-face
+law; first produce coefficient-level bilinear fold identities, not a guessed
+raw equality from Haar-carrier equality. Preserve actual `channelSource`
+squared insertions in the curvature-plus-48-square consumer. The remaining
+cross moments are not automatically OWN marginal covariances. Favorable
+weighted payment and its chronological/physical/scaling join remain OPEN;
+no new analytic interface or canonical chart closure is claimed.
 
 New backward-consumer screen: a proposed full-density directional-flux
 bound was independently correct on PAPER but PRUNED before Lean edits.
