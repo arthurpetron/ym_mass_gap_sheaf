@@ -6392,8 +6392,8 @@ computed net index and squared chord error `12/N^2` for N>0. `net` (:597),
 Narrow safe check2/18 permitted gates and complete independent final-source
 review PASS; exact hashes/command boundary are in `work_plan.md`. Rational
 points are not asserted compact/complete. Point-completion identification,
-completed distance, Haar compatibility and J04 remain OPEN; group operations
-on the point-Cauchy quotient are now checked below. No canonical chart state
+Haar compatibility and J04 remain OPEN; group operations and actual completed
+distance on the point-Cauchy quotient are now checked below. No canonical chart state
 changes or root/tree audit follow.
 
 Checked J04 point-group input (2026-10-09):
@@ -6409,6 +6409,22 @@ algebra on the quotient, not a completed-distance/completeness theorem,
 compact SU(2) identification, Haar extension, all-groups construction or
 physical gap. J04 and the MAIN signed warmed estimate remain OPEN; no
 exact displayed chart claim changes, so no chart reprint.
+
+Checked J04 completed-distance input (2026-10-09):
+`RepTheory/RationalQuaternionCompletedDistance.distanceData` (:372) fills
+the EXISTING quantitative distance interface on the SAME point quotient.
+`representativeDist` (:253) is the original scalar chord row; its retained
+`InnerRegularity` (:258) uses the computed two-row rate at epsilon^2/16.
+Convergence, representative independence, nonnegativity, symmetry, the
+factor-two squared triangle and separation (:356) are proved. Rational
+distance pins (:382), central-sign distance four (:386), group left/right
+and inverse isometries (:393/:400/:407), supplied-row approximation (:422)
+and the completed 48/N^2 cover (:428) are actual consumers. Narrow safe
+check1/29 permitted gates and COMPLETE independent frozen-source review
+PASS; exact source/log hashes and scope are in `work_plan.md`. No arbitrary
+quotient-family completeness, compact SU(2) identification, Haar extension,
+every-group construction or physical gap is asserted. J04 and the MAIN
+signed warmed estimate remain OPEN; canonical chart claims unchanged.
 
 Verification context: `audits/AUDIT-FOUR-LINK-SQUARE-YOUNG-2026-09-24.md`,
 `audits/AUDIT-SURVIVAL-QUANTIFIERS-2026-09-24.md`, and the complex-time

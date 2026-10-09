@@ -16,6 +16,18 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked quaternion completed-distance join (2026-10-09 UTC):**
+`RepTheory/RationalQuaternionCompletedDistance.distanceData` constructs the
+actual separated RC-valued squared chord on the EXISTING point quotient,
+represented by the original CReal rows with regularity at `epsilon^2/16`.
+The factor-two triangle, rational embedding, distinct-sign distance four,
+group bi-isometry/inversion, represented approximation and completed
+`48/N^2` supplied-row cover are proved. Narrow safe check1 and COMPLETE
+independent frozen-source review PASS; all 29 printed gates are permitted.
+No arbitrary quotient-family completeness, compact SU(2) identification,
+Haar extension or physical gap follows. MAIN interacting retention and
+Clay remain OPEN; root import registered, not root/tree audited.
+
 **Checked parallel quaternion point-group join (2026-10-09 UTC):**
 `RepTheory/RationalQuaternionCauchyGroup.completedGroup` constructs the
 group on the actual explicit-modulus point-Cauchy quotient. Its rational
@@ -23,8 +35,9 @@ embedding reflects semantic coordinate equality; the two central signs
 remain distinct. Computed net indices cover each SUPPLIED Cauchy row tail
 with squared chord at most `48/N^2`. Final narrow safe check2 and complete
 independent frozen-source review PASS; all 33 printed gates are permitted.
-No completed distance, arbitrary quotient-sequence completeness, compact
-SU(2), Haar extension or physical gap follows. Main interacting retention
+The group leaf alone supplies no completed distance; the checked join above
+now does. Arbitrary quotient-sequence completeness, compact SU(2), Haar
+extension and physical gap remain OPEN. Main interacting retention
 and Clay remain OPEN; root import registered, not root/tree audited.
 
 **Checked parallel rational-sphere geometry (2026-10-09 UTC):**

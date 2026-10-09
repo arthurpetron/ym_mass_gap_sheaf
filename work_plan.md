@@ -420,6 +420,65 @@ scalar SOS bound (A.r+B.r)^2<=2*(A.r^2+B.r^2) pays 16*delta. This avoids
 a separate four-dimensional Cauchy--Schwarz proof. Private dot/subtraction
 helpers require local finite identities, not a new analytic premise.
 
+SELECTED actual completed-chord join (2026-10-09, after point-group check):
+construct `CRealSeminormCompletedApproximation.DistanceData chordSeminorm`
+on the SAME `RationalQuaternionCauchyGroup.Point`, not a new carrier or a
+structure assuming its distance. The raw distance row is
+n |-> chord(X.seq n,Y.seq n); the independently screened Hamilton/scalar
+16*delta proof gives its Type-level regularity rate at epsilon^2/16.
+Required endpoints: raw-row convergence, representative independence,
+nonnegative/symmetric/factor-two triangle, zero distance iff quotient equality,
+dense rational-distance pin, and the actual completed 48/N^2 supplied-row
+net cover. Group bi-isometry/inversion should pass through this SAME scalar
+limit; no Hilbert/GNS substitution. Existing consumers are `approximationData`
+and `CRealSeminormCauchyRows` represented diagonal limits; use them rather
+than another completion interface. Test coincident points, distinct central
+signs (squared chord 4), changing row moduli and null rows. Predict an
+unconditional geometric instance with no analytic input. One new leaf;
+root alone checks narrow targets serially at 20 GiB/one worker after fresh
+capacity checks and full source review. No sorry/axiom/choice/resource
+increase. Stop/revise if a required field needs an unsupplied premise or
+Prop-to-Type cutoff extraction; do not substitute a conditional bundle.
+This does not prove arbitrary quotient-family completeness, compactness,
+matrix SU(2), Haar extension or J04/physical closure. MAIN remains the
+original interacting signed warmed estimate/direct macro retention.
+
+OBSERVED completed-distance result (2026-10-09):
+`RepTheory/RationalQuaternionCompletedDistance.representativeDist` (:253)
+is literally the original scalar row. `representativeDistRegularity` (:258)
+retains a computed Type-valued rate at epsilon^2/16; `distanceData` (:372)
+fills every existing field on the SAME Point quotient. Raw convergence,
+representative independence, nonnegative/symmetric/factor-two triangle and
+separation (:356) are proved. `closeOfZero` (:328) computes its modulus from
+the scalar rate; the semantic-zero later stage is used only inside Prop,
+not extracted into data. Rational-distance pin (:382), distinct-sign distance
+four (:386), left/right/inverse group isometries (:393/:400/:407), changing-
+modulus consistency (:414), actual represented approximation (:422) and
+completed 48/N^2 supplied-row cover (:428) are checked consumers.
+Narrow safe check1 PASS and COMPLETE independent frozen-source review PASS;
+all 29 reported gates use only {propext, Quot.sound}. Source SHA-256:
+15657810076e0b0564852300424947967279f62645dbd492a79c1f95ccc209b0.
+Final log `/private/tmp/ym-oct9-quaternion-completed-distance1.log`, SHA-256:
+40a71914dbeafa3faae57fec2bd58a487c894d0ff5b65f40f308d446dd7dce2f.
+Exact command, from the repository root:
+
+```sh
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 \
+  --check lean/YMGap/RepTheory/RationalQuaternionCompletedDistance.lean \
+  --check-output lean/.lake/build/lib/lean/YMGap/RepTheory/RationalQuaternionCompletedDistance.olean \
+  --log-file /private/tmp/ym-oct9-quaternion-completed-distance1.log
+```
+
+The single launch had fresh successful dynamic-capacity checks, no competing
+compiler and zero swap. No repair, sorry, new premise/axiom/choice or resource
+increase. Root import registered, not root/tree audited. This supplies the
+actual geometric instance for existing represented-Cauchy-row consumers;
+arbitrary quotient-family representative selection/completeness, compact
+SU(2)/matrix identification, Haar extension and J04 remain OPEN. The squared
+chord has a factor-two triangle, not a Lawvere additive metric. MAIN stays
+the original interacting signed warmed aggregate/direct macro retention;
+no physical/Clay or exact canonical chart claim closes.
+
 PAPER smoothing screen (2026-10-09): the actual
 `H1FixedScale.smoothedEnergy_le_familyNorm` already pays the unconditional
 energy bound, but relative to the INITIAL norm, not the warmed denominator.
@@ -447,6 +506,32 @@ of the averaging amplitude, so no positive uniform fraction follows from
 these abstract laws. This is a PAPER diagnostic, not a BF4 counterexample or
 a new checked Lean result. Prune automatic smoothing-to-retention; keep the
 actual source-specific relative signed estimate. No new prerequisite field.
+
+PAPER deeper-stage test (2026-10-09, source-reviewed): the ACTUAL single-
+square `LinearBandTransport.paddedSquare_linearBand_originalOwnBlockCost`
+(`lean/YMGap/Continuum/BF4DyadicWilsonSquareLinearBandTransport.lean:225`)
+uses c=1-delta+comparisonEta, delta=linearBandFraction. The produced band
+credit is at most 4^(-side) by
+`OriginalChannelLinearCreditCollapse.linearCredit_geometric_ceiling`
+(`lean/YMGap/Continuum/BF4OriginalChannelLinearCreditCollapse.lean:45`),
+and the additional bare qpow factor is at most one. Thus c>=3/4 at every
+strict nome, square scale and boundary stage. `comparisonEta_small`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalEnergyComparison.lean:371`)
+can reduce the nonnegative eta with a computed stage, but cannot change delta.
+The `WindowSignedCost.original_window_budget_macro_ratio` consumer
+(`lean/YMGap/Continuum/BF4WilsonAllNomeWindowSignedCost.lean:245`) demands
+2*sum_(t=u..2u-1) C_t <= (1-kappa)*V_u. Even the first term's supplied
+ceiling has coefficient 2*c>=3/2 at positive V_u; adding other nonnegative
+scalar upper ceilings does not repair this bound. This is NOT a lower bound
+on C_t, and does not rule out regrouping with a new signed identity.
+Also do not substitute this ONE-square source for the actual AF smoothed
+all-face family (`afPaddedZeroMomentumTrajectory`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeAFPaddedTrajectory.lean:305`). The
+EXISTING anchor consumer uses fixed c0 and 2*(1-theta)<=c0*theta, hence
+theta>=2/(c0+2); a vanishing theta_j is not an instance of that consumer.
+No new necessary Clay condition or kernel-checked theorem is asserted.
+Decision: no depth-schedule wrapper; retain the actual family signed warmed
+aggregate/direct retention producer and both chronological masses.
 
 Consumer reconciliation (2026-10-09, two independent read-only reviews):
 at a common admissible cutoff and d=stage+t, the local Fisher density

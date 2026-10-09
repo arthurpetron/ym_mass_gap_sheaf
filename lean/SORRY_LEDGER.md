@@ -62516,6 +62516,30 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+## 2026-10-09 — Actual separated quaternion completed distance constructed
+
+`RepTheory/RationalQuaternionCompletedDistance.representativeDist` (:253)
+uses the ORIGINAL scalar chord row, with Type-valued regularity (:258)
+computed from both supplied moduli at epsilon^2/16. `distanceData` (:372)
+fills every EXISTING completed-distance field on the SAME point quotient:
+raw-row convergence, representative independence, nonnegativity, symmetry,
+factor-two squared triangle and zero iff point equality (:356). Separation
+computes its Close modulus from the retained scalar rate; a semantic-zero
+cutoff is used only inside a Prop proof, not extracted into data.
+Rational pins (:382), central-sign distance four (:386), all group
+isometries (:393/:400/:407), changing-modulus consistency (:414), represented
+approximation (:422) and completed 48/N^2 supplied-row cover (:428) are proved.
+
+Narrow safe check1 PASS, all 29 printed gates within {propext, Quot.sound},
+COMPLETE independent frozen-source review PASS. Source/log hashes, exact
+command and fresh dynamic-capacity boundary are recorded in `work_plan.md`,
+observed completed-distance result. No sorry introduced/discharged, new
+analytic premise, custom axiom, classical choice or resource increase.
+Root import registered, not root/tree audited. Arbitrary quotient-family
+completeness, compact SU(2)/matrix identification, Haar extension, J04,
+the original interacting signed warmed estimate and physical/Clay closure
+remain OPEN. No exact displayed canonical chart claim changes.
+
 ## 2026-10-09 — Quaternion point-Cauchy group and faithful embedding constructed
 
 `RepTheory/RationalQuaternionCauchyGroup.chordSeminorm` (:310) instantiates
@@ -62534,8 +62558,9 @@ Final focused safe check2 PASS, all 33 printed gates within
 Source/log hashes and both capped serial launches are recorded in
 `work_plan.md`, observed point-group result. No sorry introduced/discharged,
 new analytic premise, custom axiom or resource increase. Root import
-registered, NOT root/tree audited. Completed distance, arbitrary
-quotient-sequence completeness, compact SU(2)/Haar identification, J04,
+registered, NOT root/tree audited. The checked join above now constructs
+the completed distance; arbitrary quotient-sequence completeness,
+compact SU(2)/Haar identification, J04,
 main interacting retention and physical/Clay closure remain OPEN.
 
 ## 2026-10-09 — Rational unit-sphere effective finite covers constructed
