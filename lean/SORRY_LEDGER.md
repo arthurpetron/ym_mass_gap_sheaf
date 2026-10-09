@@ -1,5 +1,21 @@
 # Sorry Ledger
 
+## PROVED finite completed-Point polynomial moments / OPEN Haar extension (2026-10-09 UTC)
+
+`completedTranslatedHaar_invariant`,
+`lean/YMGap/Continuum/SU2QuaternionPointPolynomialHaarTranslation.lean:207`,
+extends the finite moment identity to every actual Point multiplier, all
+supported one-block RatPoly and both Hamilton orders. `completedTranslatedEval_action`
+(:292) pins actual completedMul; `evalRC_coeffEqv_supplied` (:128) and
+`pointEval_coeffEqv` (:171) preserve finite coefficient equivalence. No quotient
+representative is selected and no analytic premise, sorry or axiom is added.
+Final narrow check2 PASS; four gates exactly {propext,Quot.sound}; COMPLETE
+independent final-source/log review PASS. Root registration only, no tree audit.
+This is partial-head Haar followed by RC tail evaluation, not integration on
+arbitrary completed functions. Compactness, continuous Haar, J04, SAME-action
+scaling retention and every-group physical/Clay closure remain OPEN. Exact
+hashes and verification boundary: adaptive-score audit. Chart unchanged.
+
 ## PROVED finite physical-source Gauss join / OPEN horizontal and continuum estimates (2026-10-08 UTC)
 
 `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialGaussTransfer.lean:551`,

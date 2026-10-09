@@ -806,16 +806,33 @@ NOT root/tree audited. This supplies a polynomial Haar producer, not Haar on
 all completed Point-functions, compactness, an interacting gap or Clay closure.
 J04 and MAIN remain OPEN; exact displayed chart claims are unchanged.
 
-NEXT-consumer screen, independent read-only source review (2026-10-09):
-no existing Haar-on-`RationalQuaternionCauchyGroup.Point` consumer was found.
+CHECKED finite completed-Point polynomial Haar translation (2026-10-09 UTC):
+`SU2QuaternionPointPolynomialHaarTranslation.completedTranslatedHaar_invariant`
+(:207) evaluates exact partial head Haar at EVERY actual Point multiplier,
+for all supported one-block polynomials and both Hamilton orders. The finite
+RC evaluator respects coefficient equivalence without selecting quotient
+representatives; `completedTranslatedEval_action` (:292) separately pins the
+unintegrated polynomial to ACTUAL completedMul g*x/x*g. Its proof applies the
+checked rational producer to every entry of a supplied row and descends by
+quotient induction. No additional analytic premise or continuous-Haar input.
+Final focused check2 PASS, all four gates exactly {propext,Quot.sound}, COMPLETE
+independent final-source/log review PASS. Check1 required four definitional
+bridges, not changed mathematics or raised limits. Final successful preflight:
+87% free memory, zero swap, no competing Lean/Lake/pytest/runner process.
+One 20-GiB worker/12-GiB reserve; root import registered, not root/tree audited.
+Exact source/log hashes and scope: adaptive-score audit. J04 and Clay OPEN;
+no canonical displayed claim changed, so no ASCII reprint.
+
+NEXT-consumer residue after this finite join:
+no continuous-function Haar-on-`RationalQuaternionCauchyGroup.Point` consumer
+was found.
 `HaarClassIntegral.AngleCosineIntegral` (:111) is a different conditional
 class-angle primitive. The actual consumers remain `quaternionPolyLinkHaar`
 (`SU2PolyLinkHaar.lean:69`) and `torusPolyPartition`
-(`SU2TorusMultiLinkPolyGibbs.lean:133`). A future finite Point-multiplier
-identity may evaluate the retained coefficient-level radius identity in RC
-at actual `pointCoordinate` (:426), using `rowCoordinate_norm` (:413) and
-the SAME matrix multiplication pin (:107); that finite algebraic extension
-is NOT yet proved. No Point-continuous-function carrier, certified uniform
+(`SU2TorusMultiLinkPolyGibbs.lean:133`). Irrational multipliers do not turn a
+translated function into a rational-coefficient RatPoly. The new finite
+partial-head/RC-tail moment pin is NOT an extension of these Q'-valued APIs
+to arbitrary functions. No Point-continuous-function carrier, certified uniform
 polynomial approximation or sup-norm bounded Haar extension was located.
 Do not add an assumed-Haar interface or ordinary-GNS completion wrapper.
 The requested paper follow-up adds a no-circularity guard: Appendix E.2,
@@ -840,6 +857,18 @@ variance, BOTH masses and the actual T(Vbar*Ta) pullback. No mandatory
 filtered/raw norm fraction is added. Exact source citations and scope are
 in the adaptive-score audit's MAIN mixed-test reconciliation. No new Lean
 theorem/check, analytic field or chart change; Clay remains OPEN.
+
+PAPER MAIN axis-odd profile screen (2026-10-09): the ORIGINAL signed cube
+p01-minus-p02 family has flat interior tails (0,2,-2), not zero in every
+direction. For constant plane coefficients (a,b,c), the summed bulk amplitude
+is 16*(a^2+b^2+c^2+(a+b+c)^2); no nonzero profile kills it. ROOT independently
+checked the odd-profile boundary count 32*B^3-8*B. For B>=2, at an interior x1 link U=i,
+with all other links one, its actual incident span gives Gamma=16. These are
+PAPER geometry tests, not interacting expectation or scaling bounds; flat
+gradients themselves vanish. Do not pursue complete bulk-amplitude cancellation
+from a signed plane profile alone or replace the canonical AF source. A useful
+alternative requires the large-cube odd-sector pin and actual source-weighted
+chronological estimate. Exact source references: adaptive-score audit.
 
 PAPER MAIN endpoint-band screen (2026-10-09): ROOT and an independent
 read-only reviewer inspected the ACTUAL `smoothedResponse_pin`

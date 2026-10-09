@@ -16,6 +16,18 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked completed-Point polynomial Haar moments (2026-10-09 UTC):**
+`Continuum/SU2QuaternionPointPolynomialHaarTranslation.completedTranslatedHaar_invariant`
+now covers every actual completed quaternion Point, every supported one-block
+polynomial and both Hamilton orders. Exact partial head Haar is followed by
+finite RC tail evaluation; no quotient representatives are chosen.
+`completedTranslatedEval_action` pins the unintegrated expression to the SAME
+completed multiplication. Final focused check2 and COMPLETE independent
+final-source/log review PASS; all four gates use {propext,Quot.sound}.
+The existing Q'-valued polynomial Haar APIs remain unchanged. Continuous-function
+Haar extension, compactness, J04 and MAIN scaling retention remain OPEN.
+Root import registered, not root/tree audited; no physical-gap claim.
+
 **Checked fixed-element polynomial Haar invariance (2026-10-09 UTC):**
 `Continuum/SU2QuaternionFixedRationalHaarTranslation.fixedTranslatedPolynomial_haar`
 preserves the ORIGINAL one-link Haar moment at every polynomial degree for

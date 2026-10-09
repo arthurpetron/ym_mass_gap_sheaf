@@ -4,6 +4,87 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Checked finite completed-Point Haar translation (2026-10-09 UTC)
+
+The parallel J04 producer now removes the fixed-RATIONAL-multiplier
+restriction for finite polynomial moments on the SAME completed group:
+
+- `evalRC_coeffEqv_supplied`,
+  `lean/YMGap/Continuum/SU2QuaternionPointPolynomialHaarTranslation.lean:128`,
+  evaluates finite multivariate coefficient equalities through supplied CReal
+  rows without choosing representatives.
+- `pointEval_coeffEqv` (:171) descends through the existing Point coordinates.
+- `completedTranslatedHaar_invariant` (:207) proves that exact head Haar of
+  the translated polynomial, evaluated at ANY actual Point multiplier,
+  equals the RC embedding of the ORIGINAL one-block rational Haar moment.
+  Every degree and both Hamilton orders are covered, with the necessary
+  `SupportedQuaternionBlocks 1 p` guard retained.
+- `completedTranslatedEval_action` (:292) identifies the unintegrated two-Point
+  evaluation with pointEval at ACTUAL completedMul g*x or x*g. It uses
+  `completionMap_mk`, the actual multiplication.mapCauchy and existing rational
+  Hamilton identities. No new group law, norm or integration law is substituted.
+
+The short proof uses quotient induction, applying the checked rational theorem
+at each supplied unit-quaternion row entry. RC evaluation is finite algebra,
+not an arbitrary continuous-function integral. Irrational translated coefficients
+cannot be passed to the unchanged `quaternionPolyLinkHaar.h : RatPoly -> Q'`.
+No assumed Haar field or extra analytic premise is introduced. Existing rational
+central-sign, equatorial and nonunit regression declarations are retained.
+
+Final source: 338 lines, SHA-256
+`278fdf4394a56ad90d22fa6e9384248582db692ae8ced90477e727c421caab35`.
+Final check2 log: `/private/tmp/ym-oct9-point-polynomial-haar2.log`, SHA-256
+`07d8823cb9b57ee9716aeac04917dc22c9044988b382308a4535721efa7e2e78`.
+The monitored launcher returned exit 0; all four printed gates are exactly
+{propext,Quot.sound}, with no diagnostics or sorryAx. COMPLETE independent
+final-source/log review PASS and ROOT inspected the full source and repairs.
+Check1 failed at four definitional bridges: two closing evaluation reductions
+and exposing the completedMul representative in both orders. No limits or
+mathematical hypotheses changed. The final successful host preflight found
+87% free memory, zero swap and no competing compiler/test/runner. One serialized
+20-GiB check worker, 12-GiB reserve; no full/root/tree audit or baseline refresh.
+Root import registered. Continuous Haar, compactness, J04 and physical/Clay
+closure remain OPEN; no canonical chart claim changes.
+
+## MAIN signed-plane profile screen (2026-10-09, PAPER only)
+
+ROOT and an independent reviewer tested an alternative ORIGINAL family, not a
+replacement for `afPaddedZeroMomentumTrajectory`. For the cube of base points
+0<=a_i<B, B<width, take coefficients +1 on p01, -1 on p02 and zero on p12.
+At the all-one field, every incident `faceCoherentTail` is one, so interior
+aggregate tails are (0,2,-2) in directions x0,x1,x2. For general constant
+plane coefficients (a,b,c), their summed amplitude is
+
+    16*((a+b)^2+(a+c)^2+(b+c)^2)
+      = 16*(a^2+b^2+c^2+(a+b+c)^2).
+
+No nonzero constant profile kills all three directions. The zero-sum plane
+sector reduces this amplitude/coefficient-square ratio by four versus equal
+coefficients, but the odd-profile FULL count is still 32*B^3-8*B. ROOT checked
+the boundary count: x1/x2 tail-square sums are each (4*B-2)*B^2; x0 contributes
+(4*B-2)*B, and amplitude is four times their sum. These are PAPER consequences
+of `aggregateCoherentTail` (:92) and `family_coherent_row` (:383),
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyCoherentTail.lean`, not new
+kernel-checked geometry or interacting moments. Flat gradients vanish; amplitude
+is not gradient energy. For B>=2, at one interior x1 link U=i with every other link one,
+the two incident p01 characters give incidentSpan=4*x0, tail=2 and Gamma=16.
+
+The actual signed family carrier is `familyState` and `source_family_span`,
+`lean/YMGap/Continuum/BF4WilsonPlaquetteFamilySourcePin.lean:69` and `:92`.
+The existing `excitation_swap_odd`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeAntisymmetricPlaquette.lean:179`, is the
+origin two-face source, not this large-cube profile's produced symmetry pin.
+`swap_spatialFaces_perm`,
+`lean/YMGap/Continuum/BF4ExactSlabSpatialAxisSwapGeometry.lean:191`, supplies
+finite geometry, not the missing source-weighted chronological estimate.
+Decision: do not implement a profile-cancellation shortcut or replace the
+canonical AF source. Useful alternative retention still needs its actual
+large-profile symmetry/source join AND a quantitative interacting bound.
+The complete coherent energy at `family_coherent_energy_retained_square`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyCoherentEnergy.lean:263`,
+retains the signed debt; no expectation, variance or macro floor is
+supplied by this test. MAIN remains the complete signed/direct retention input.
+
 ## MAIN mixed-test reconciliation (2026-10-09 20:10 UTC)
 
 Read-only mathematical selection after `42a2b2e7`, not a new Lean proof or
