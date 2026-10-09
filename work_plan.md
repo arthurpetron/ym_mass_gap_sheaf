@@ -71,15 +71,30 @@ PASS, all new gates within {propext, Quot.sound}; no new analytic premise,
 hole, limit increase, changed action or full-tree audit. Exact source/log
 evidence: adaptive-score audit. This is our finite proof, not a fermion theorem.
 
-NEXT: compose the complete spatial weight using the existing six-incident-face
-count and polynomial-cost tensorization, then prove the actual LOWER-link
-conditional integration/curvature join. The existing terminal order selects
-an UPPER kinetic block; its spectator independence cannot be reindexed to
-the lower spatial link. Positivity alone cannot drop that signed Hessian.
-Do not consume integrated order as a polynomial certificate.
-Only after those joins can the PAPER sharp weighted-Bochner variance route
-be tested. A stronger norm floor alone still does not pay the current absolute
-temporal-loss ceiling.
+CHECKED complete ORIGINAL spatial/odd-marginal curvature (2026-10-09 15:17 UTC):
+`SpatialCurvature.spatialWeight_frozen_curvature_nearFlat_certificate` retains
+every original spatial factor and charges at most six incident faces. The
+actual first/all-nine ordered product jets yield exact square tensorization,
+with no incident-factor independence.
+`MarginalCurvature.marginalWeight_frozen_curvature_nonnegative_nearFlat` then proves integrated
+order for the literal `W=V*g_n*g_(n+1)` under EVERY certified insertion, at
+cost `6*C_face(w)+2*C_terminal(w)` and the maximum of two computed cutoffs.
+Both terminal depths, g_0=1, active selected index and all original factors
+remain. Correction to the preceding NEXT statement: the terminal theorem's
+`sourceMarginalFirst/Second` already ARE actual LOWER-output jets of T(a),
+although its proof integrates an upper head. No new lower-input spectator
+assumption is needed. Five final focused checks and COMPLETE independent
+frozen-source reviews PASS; all 22 printed gates permitted, no new hole,
+analytic premise, resource-limit increase or tree audit. These costs are
+width/depth/cutoff independent at FIXED strict nome, NOT near-one uniform.
+The marginal result is integrated order, NOT a polynomial Certificate for W.
+
+NEXT: justify the reciprocal passage on this SAME W and prove selected-frame
+weighted Fisher/Bochner identities with the literal source's full ordered
+second derivatives. The backward variance candidate uses OWN mean and energy,
+not an assumed zero mean or weighted Poincare. It remains PAPER until these
+identities and errors are produced. A stronger norm floor alone still does
+not pay the current absolute temporal-loss ceiling.
 Complete SAME-action relative signed payment/direct macro retention remain
 co-primary and OPEN. Evidence and exact source pins: adaptive-score audit.
 Canonical displayed claims unchanged; no ASCII reprint.

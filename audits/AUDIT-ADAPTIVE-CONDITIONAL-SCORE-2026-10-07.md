@@ -9021,3 +9021,122 @@ terminal/square insertion alone. Do not infer polynomial positivity from
 integrated order, or move that upper-block theorem to a lower block.
 After the finite spatial product, require actual LOWER-link density/jet/
 integration pins or retain and quantitatively pay the signed term.
+
+## Selected complete spatial and ORIGINAL odd-marginal curvature product
+
+2026-10-09 15:03 UTC, selection BEFORE product implementation. Previous goal
+turn is PROGRESS: the actual plaquette prefix curvature was checked, committed
+as 9626b7d6 and pushed to main. The next finite proposition is a full frozen
+curvature certificate for the literal spatialWeight at cost `6*C_face(w)`.
+Use raw first/all-nine product rules, original nonincident-face zero jets,
+the actual incident count and existing polynomial-cost square tensorization.
+No width-extensive cost or independence of incident factors is needed.
+
+Correction/refinement to the preceding block audit: the upper-head proof
+does not itself license a lower-input derivative. But its already checked
+`sourceMarginalFirst` and `sourceMarginalSecond`, TerminalLocalSignedGram
+`:111`, `:117`, ARE the actual lower-output jets of T(a), and its theorem
+at `:840` quantifies over EVERY certified outgoing insertion R. The same-
+action partial-Haar pins therefore already license the needed lower-output
+square insertions. A new generic spectator-independence hypothesis is not
+required. Reuse these pins; do not silently reindex an upper-input theorem.
+
+The next integrated proposition is lower frozen log-curvature for the exact
+odd marginal `W=V*g_n*g_(n+1)` at active s, cost `6*C_face(w)+2*C_terminal(w)`.
+Multiply each actual terminal order by the opposite original factors'
+supported squares and the given certified R; combine with the spatial
+certificate using the exact frozen product identity. Include n=0/g_0=1.
+This gives integrated Haar order only, NOT a polynomial Certificate for W,
+an upper Hessian sign, weighted Poincare, sharp variance or scaling survival.
+
+Available inputs: prior original plaquette certificate; pairedAt_mul and
+three-sum algebra; FaceIndependence.heatProduct_supported/independent;
+LocalRelativeBound.spatialIncidentFaces_length_le_six; actual terminal
+next-step and source-marginal pins; arbitrary certified R in the terminal
+order. One bounded Sol raw-product implementation, independent read-only
+insertion/variance-consumer reviews, ROOT original product construction.
+Predict fixed-nome width/depth-independent cost only. Tests: zero direction,
+empty incident product, n=0, mixed ordered signs, original V and BOTH distinct
+terminal depths. Revise if a source pin or arbitrary-insertion quantifier
+is missing; never infer the required sign from positivity alone. Verify narrow
+targets serially with fresh host telemetry, one 20-GiB worker and 12-GiB
+reserve, no limit increase or full-tree audit. MAIN signed retention and Clay
+remain OPEN; canonical displayed claims unchanged.
+
+## Checked complete spatial and ORIGINAL odd-marginal curvature
+
+2026-10-09 15:17 UTC. Observed finite proof outcome, not a paper theorem or
+scaling conclusion. The preceding block-warning's claimed absence of lower
+output jets is superseded: actual sourceMarginalFirst/Second and arbitrary-R
+terminal order DO support this product. No reindexing of an unsupported
+lower-input derivative, terminal spectator assumption or sign-dropping was used.
+
+Write FC_s(C,p,u)=C*|u|^2*p^2+p*D^2_u p-(D_u p)^2, with all nine actual
+ordered JiJj p taken before multiplying frozen u. The exact raw identity is
+FC_s(C+D,pq,u)=q^2*FC_s(C,p,u)+p^2*FC_s(D,q,u). It holds for dependent factors;
+the cross terms cancel only after all nine contractions. Certificates square-
+multiply on the SAME Haar carrier. Nonincident original factors remain in V.
+The literal incident/complement partition and count <=6 give a Certificate
+for FC_s(6*C_face,V,u), independently of width at fixed strict nome.
+
+The actual terminal theorem is recast to FC_s(C_terminal,g_m,u) for EVERY
+terminal depth m, including g_0=1, on active selected lower-output indices.
+Its arbitrary certified insertion allows the opposite original factors'
+supported squares. Applying the exact product identity twice gives
+H_N[R*FC_s(6*C_face+2*C_terminal,V*g_n*g_(n+1),u)]>=0 for EVERY certified R.
+The result remains INTEGRATED order; no Certificate for full W is inferred.
+Cost/cutoff are explicit functions of w. No uniformity as w tends to one,
+weighted Poincare, variance, useful time survival, physical mass or Clay closure.
+
+### Frozen source and focused verification
+
+All five final narrow checks exited zero with no diagnostics. Twenty-two
+printed gates use only {propext, Quot.sound}, including two axiom-free cost/
+cutoff definitions. One monitored 20-GiB worker, 12-GiB reserve, fresh
+pressure/swap/process checks before EACH launch; telemetry remained 86 percent
+free, zero swap, no competing jobs. No full-tree/root audit or limit increase.
+Intermediate repairs were parentheses, namespaces, explicit carrier inference
+and the actual zero-depth definitional pin, not altered mathematics.
+
+| Declaration | Source path:line | Frozen SHA-256 | Passing log / SHA-256 |
+|---|---|---|---|
+| pairedAt_mul_mixed; frozenSecondAt_mul | lean/YMGap/Continuum/QPolyHaarPairedAtFrozenProduct.lean:111; :127 | 9f8a56a5631cc18c017d9dcd8e9f0f1f811ca4cff0196f25a73d1e8648eb8b20 | /private/tmp/ym-oct9-paired-at-frozen-product2.log / 594314b58aec612d9ca1783a4190dc53c6567ea2b99d600282d0b1f29ed404d5 |
+| pairedAt_independent_zero; frozenSecondAt_independent_zero | lean/YMGap/Continuum/QPolyHaarPairedAtFrozenZero.lean:37; :64 | 1981230f7c8a53415854b4a8ba821090339e9bdeddf276dd3cede06c07e0e818 | /private/tmp/ym-oct9-paired-at-frozen-zero1.log / 15afc54ff844d98f761bd6a25bfbae1d93a61d87c958829f2a1588e9cb3f1f18 |
+| frozenCurvatureAt_product_pin; frozen_product_curvature_certificate | lean/YMGap/Continuum/QuaternionHaarPairedAtFrozenCurvatureProduct.lean:60; :98 | 749abc00c096c3a57abd5b887f5767659cbc1b5fe78459a4daf7f72838d8dc68 | /private/tmp/ym-oct9-paired-at-curvature-product2.log / 0aeccfca42e8990177a385120228162c57ffcc06aacf3ba78da93cc2242d869f |
+| spatialWeight_frozen_curvature_nearFlat_certificate | lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSpatialCurvature.lean:117 | 9eba92e2052ef6da4afb3d6e22172bb48c71c5c9658784bc813a6658451b93d7 | /private/tmp/ym-oct9-spatial-curvature3.log / fd3c222a09082f4dd39f9b7150adec276ded82d5bc4b6cfedf189a53a8f2c46c |
+| terminalMessage_frozen_curvature_nonnegative_nearFlat; marginalWeight_frozen_curvature_nonnegative_nearFlat | lean/YMGap/Continuum/BF4ExactSlabFixedSpatialMarginalCurvature.lean:88; :152 | df9577743ed178250d0daa71d7d655a1e393e5c83d6c7d2568b1b29c09c4a182 | /private/tmp/ym-oct9-marginal-curvature4.log / 0a73445bafe6a27e3c6239a7ba3a922442906b2d17b816b8e243d9ffb13a7209 |
+
+COMPLETE independent final-frozen-source review PASS on all five exact hashes
+by plaquette_hessian_review; ROOT separately read every complete source and
+owns compilation. Bounded Sol raw-product/zero and spatial implementations;
+no agent compiler or foreign-code execution. The reviewer verified actual
+index/measure, both chronological depths, n=0, ordered signs, certificate vs
+integrated-order distinction and no differentiated u.
+
+### Exact next mathematical join (PAPER, not a new premise)
+
+For SAME normalized W, set e=mu_W Gamma(f), v=OWN variance, m=OWN mean.
+The current linear-source amplitude identity is e+v+m^2=4; the odd marginal
+does NOT imply m=0. A candidate sharper lower variance proof uses:
+
+1. A constructive reciprocal test R_k tending to 1/W on the EXISTING actual
+   positive window, with errors paid against all cleared curvature factors.
+   Choosing spectator squares alone does not remove the extra factor of W.
+2. Selected-frame Fisher IBP from full-W lower log-Hessian, potentially
+   I_W<=3B and m^2<=(B/3)e, with the actual paired normalization proved.
+3. The drifted weighted Bochner identity and selected source ordered-square
+   bound, potentially e^2<=v*(12+B*e). The number 12 is a PAPER candidate,
+   not currently produced. The symmetric frozen-Hessian identity alone
+   does not control ordered Hessian squares or their commutator terms.
+
+This candidate may remove the two squared-score Young losses behind the
+existing C^-4 floor. It is not a new Poincare field or an inhabited sharp
+variance claim. Existing six-field unweighted Bochner and paired gradient
+pins do not already supply the weighted generator identity. Any amplitude
+depending on the selected block must be differentiated literally; a spectator
+amplitude may be pulled through only under actual independence.
+
+Decision: CONTINUE the same-W reciprocal/Fisher/Bochner join, retaining MAIN
+relative signed payment/direct macro retention as co-primary. Even a sharper
+variance floor alone does not pay the existing absolute temporal-loss ceiling.
+No canonical displayed claim or scorecard field changed, hence no chart print.

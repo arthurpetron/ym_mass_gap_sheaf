@@ -16,6 +16,17 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked complete ORIGINAL curvature (2026-10-09 UTC):** the literal spatial
+weight has cost `6*C_face(w)` at a selected physical link; the exact odd
+marginal `V*g_n*g_(n+1)` has integrated lower frozen curvature under every
+certified insertion at cost `6*C_face(w)+2*C_terminal(w)`. All original factors,
+both chronological depths and all nine ordered jets remain. Cost is independent
+of width/depth/cutoff at fixed strict nome, not near-one uniform. Five final
+focused checks and COMPLETE independent frozen-source reviews PASS; all 22
+gates permitted. No marginal polynomial Certificate, reciprocal/weighted
+Bochner passage, sharp variance, scaling survival or Clay closure is claimed.
+Evidence: adaptive-score audit; no full-tree audit or chart-marker change.
+
 **Checked ORIGINAL variance floor (2026-10-08 UTC):** the literal padded
 dyadic Wilson square now has floor 4/(7+10*C^2+4*C^4), C=marginalScoreCap(w),
 independent of loop size, width and depth after the computed score cutoff.

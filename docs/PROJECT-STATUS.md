@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Supporting complete ORIGINAL spatial/odd-marginal curvature checked
+(2026-10-09 UTC): the spatial certificate retains all factors and charges
+only at most six incident faces. Exact ordered-jet square tensorization then
+gives integrated lower frozen curvature of literal `V*g_n*g_(n+1)`, under
+every certified insertion, including n=0, at `6*C_face(w)+2*C_terminal(w)`.
+Active selected links, computed cutoffs and strict nome remain. Cost is
+width/depth/cutoff independent at fixed nome, not uniform near one. Five final
+focused checks/22 permitted gates and COMPLETE independent frozen-source
+reviews PASS. Reciprocal/weighted Bochner passage, sharp variance and MAIN
+relative loss/macro retention remain OPEN. No physical/Clay or exact displayed
+chart claim changes; no chart reprint. Evidence: adaptive-score audit.
+
 Supporting literal ORIGINAL spatial plaquette curvature checked
 (2026-10-09 UTC): the actual selected physical edge, oriented face and ALL
 nine frozen jets now have a produced character-prefix curvature certificate
@@ -8,8 +20,8 @@ face, cutoff and frozen supported direction; no near-one uniformity is claimed.
 The actual radial/Lagrange argument and complete value/first/mixed deficit
 budget preserve the original action carrier. Seven final focused checks and
 COMPLETE independent final-source reviews PASS; all new gates permitted.
-Complete spatial-weight/terminal product order, sharp weighted variance and
-MAIN relative loss/macro retention remain OPEN. No physical/Clay or exact
+Complete spatial-weight/terminal product order is now checked above; sharp
+weighted variance and MAIN relative loss/macro retention remain OPEN. No physical/Clay or exact
 displayed chart claim changes; no chart reprint. Evidence: adaptive-score audit.
 
 Supporting sharper ORIGINAL terminal signed Gram checked (2026-10-08 UTC):
