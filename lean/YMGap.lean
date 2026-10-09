@@ -7850,6 +7850,11 @@ import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyWilsonWordTangen
 -- changing-family alignment/survival estimate remains open.
 import YMGap.Continuum.GNSOrthogonalDualProjection
 import YMGap.Continuum.BF4DyadicWilsonSquareConnectedDualOverlap
+-- Actual upper overlap produces a non-null connected denominator. The SAME
+-- complete energy then has the linear collar fraction a*l/u, not a*(l/u)^2.
+-- Fixed nome/loop scale only; transmitted-family and physical joins remain open.
+import YMGap.Continuum.BF4DyadicWilsonSquareConnectedDualGain
+import YMGap.Continuum.BF4DyadicWilsonSquareLinearBandGain
 import YMGap.Continuum.SU2TorusRPRelabel
 import YMGap.Continuum.SU2TorusRPSwap
 import YMGap.Continuum.SU2TorusRPTorusZ

@@ -9483,3 +9483,143 @@ The new local dual's connection to a complete time-loss estimate must be
 proved, not inferred. Nontrivial continuum survival, physical calibration,
 full QFT, every compact simple group and Clay remain OPEN. No exact canonical
 chart claim changed; no ASCII reprint.
+
+## Selected experiment: non-null ORIGINAL connected dual (2026-10-09)
+
+Previous goal turn: PROGRESS, `065150f9`, a reviewed source/mass consumer
+correction, not a new analytic estimate. The direct-route rate screen found
+the bare-transmission necessity and AF geometric-certificate obstruction
+ALREADY proved; those tests will not be rebuilt.
+
+New exact proposition: for the actual padded square, predecessor n,
+q=V*g_(n+1), R=squareSpectator, PR=P R, OWN-centered psi and
+S=Z*oddVariance, prove S<=u*U, U=H[q*PR*psi^2],
+u=localUpper(w,4*side)>0. Transport the existing upper endpoint
+Certificate q<=uR through positive P, multiply by the actual positive q,
+and insert psi^2. The existing centered source-moment pin supplies S.
+The existing original odd variance floor gives S>0 at headCutoff<=K;
+no stronger Fisher cutoff, lower collar band or new analytic input is
+needed. The connected Schur inequality a*Z*U^2<=(G+a*S)*D0, a=w^(12*side),
+and original nonnegative energy give (G+a*S)<=S, hence the quantitative
+cleared floor a*Z*S<=(u*u)*D0 is predicted. Produce D0>0 and the actual
+connected energy reserve energy+a*Z*U^2/D0<=S. D0 is computed rational
+data, so its reciprocal can then be constructed, not assumed.
+
+SAME-object consumer: `paddedSquare_energy_connected_overlap_cleared`,
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareConnectedDualOverlap.lean:284`.
+Available producers: `endpoint_localUpperCertificate`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialUniformLocalBand.lean:203`;
+positive product heat and coefficient/Haar order; `paddedSquare_oddVariance_floor`,
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareOddVarianceFloor.lean:121`;
+`paddedSquare_connected_overlap_cleared`, ConnectedDualOverlap at :230,
+and its nonnegative connected moment at :217. Preserve the complete
+exterior, source, OWN mean and odd partition, including n=0 and strict
+padding. No equality of different chronological masses is used.
+
+Prediction: PASS, with an explicit finite positive connected reserve;
+no useful near-one or AF-uniform reserve is predicted. Decisive checks:
+do not cancel D0 before proving positivity; do not replace q, PR or the
+OWN center; verify that every inequality direction survives signed G.
+Abandon/revise if positivity requires assuming a nonzero overlap or the
+unproduced scaling conclusion. Verification budget: one new focused leaf
+and, only if needed, one narrow dependency check, single 20-GiB worker,
+12-GiB reserve, fresh live memory/process preflight before each launch.
+Bounded Sol implementation and independent complete final-source review;
+ROOT owns compilation. No full-tree audit or resource-limit increase.
+This selection is PAPER until the final checks recorded below.
+
+Independent algebra also found a quantitatively sharper consumer for that
+non-null proof: the lower endpoint certificate gives l*F<=U for
+F=H[R*PR*psi^2], and spectator zero first moment gives D<=F when a<=1.
+Since D0<=Z*D, l*D0<=Z*U. Combine this with the connected energy inequality,
+and cancel the now-PRODUCED positive D0, to get energy+a*l*U<=S.
+The upper-only S<=u*U then gives the NEW cleared linear-collar bound
+u*energy+a*l*S<=u*S, or energy<=(1-a*l/u)*S. Its fraction improves the
+existing squared collar a*l^2/u^2 without discarding the OWN mean or signed
+defect. Bare q=R=1,l=u=1 saturates energy=1-a; this is the decisive test.
+The coefficients remain fixed-nome/scale and may vanish along AF, so no
+macro survival is predicted. Selected follow-through: a second bounded
+actual-source leaf, not a new analytic interface; two focused serial checks
+total, plus a narrow dependency only if its olean is missing. Both final
+sources require independent complete read-only review. This refinement
+is PAPER until verified and must not alter canonical gap/continuum claims.
+
+## Observed result: ORIGINAL connected gain and linear collar (2026-10-09 16:41 UTC)
+
+The selected estimate is now KERNEL-CHECKED at its stated finite scope.
+Use the original objects and notation of the selection above. The following
+are proved, not newly assumed analytic inputs:
+
+1. Upper endpoint comparison, positive product heat and OWN centered insertion
+   give S<=uU. The existing original variance floor supplies S>0, hence U>0.
+2. E>=0 and D0>=0 retain the complete connected inequality to give
+   aZU^2<=S D0. Thus D0>0, with the cleared quantitative floor aZS<=u^2 D0.
+3. The computed reciprocal now yields E+aZU^2/D0<=S and E<S.
+4. The original lower comparison gives lF<=U. Spectator zero first moment and
+   a<=1 yield D<=F, preserving the full affine a*mu^2 term; D0<=ZD then gives
+   lD0<=ZU. Multiplying by aU and cancelling the PRODUCED positive D0 gives
+   E+a*l*U<=S. Together with S<=uU this gives uE+a*l*S<=uS.
+5. Reciprocal of the explicit positive u and the SAME positive odd partition
+   gives normalizedEnergy<=(1-linearBandFraction)*oddVariance, with the
+   computed linearBandFraction=a*l/u>0.
+
+The old `squareResponseFraction` is a*l^2/u^2,
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareSpectatorResponse.lean:220`.
+The new energy theorem has one factor l/u rather than its square. The
+comparison of these scalar formulas uses the existing headFloor<=1/32 and
+prefixCap>=1 in `BF4ExactSlabFixedSpatialUniformLocalBand`; no new comparison
+theorem is advertised. The generic bare q=R=1, l=u=1 saturation test is a
+PAPER algebra check, not a newly compiled physical instance.
+
+### Exact verification boundary and independent review
+
+| Public outputs | Source path:line | Final frozen SHA-256 | Passing log / SHA-256 |
+|---|---|---|---|
+| upper overlap; centered mass/overlap positivity; connected mass comparison; D0 positivity/floor; reciprocal gain; strict E<S | lean/YMGap/Continuum/BF4DyadicWilsonSquareConnectedDualGain.lean:167; :229; :236; :244; :263; :278; :327; :366 | ce6037c8a09ffaa64a19a8d97f33d11a9c6e4306e8e7bf82dd351012ff283247 | /private/tmp/ym-oct9-connected-dual-gain3.log / 3b1f1aea4a01b384d5be054c775e247587dd04b1983a9ecc96e9274b1dd0a1bb |
+| lower overlap; dual<=centered exterior; linear D0 comparison; energy reserve; cleared linear band; fraction/positivity; raw/normalized energy bounds | lean/YMGap/Continuum/BF4DyadicWilsonSquareLinearBandGain.lean:105; :142; :177; :200; :236; :260; :266; :275; :310 | cc6a4e17b59020758e3a61b7678e9020b3fb6741cc6d2c8146ecc2c77c9ce75b | /private/tmp/ym-oct9-linear-band-gain2.log / fefc14cb4e4a017daa584ecc32fd4ca3b4a7ecb662ec78a9b080a1be172fb7f7 |
+
+Both final focused checks exited zero. ROOT read complete sources, inspected
+all 17 printed gates (only {propext, Quot.sound}), and owned serialized
+compilation. Bounded Sol implemented the leaves. Independent read-only Sol
+re-read COMPLETE final sources and matched both exact hashes: PASS. The
+review checked actual q/Pq/PR, OWN center, affine mean term, signed D0,
+positivity before reciprocals, and n=0 predecessor coverage.
+
+Commands, each following a fresh successful dynamic/process preflight:
+
+```sh
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/BF4DyadicWilsonSquareConnectedDualGain.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/BF4DyadicWilsonSquareConnectedDualGain.olean --log-file /private/tmp/ym-oct9-connected-dual-gain3.log
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/BF4DyadicWilsonSquareLinearBandGain.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/BF4DyadicWilsonSquareLinearBandGain.olean --log-file /private/tmp/ym-oct9-linear-band-gain2.log
+```
+
+Five narrow launches total, not five mathematical experiments: baseline
+check1 failed on local-notation quotation projection and missing namespace
+opens; check2 left only the missing productMap_neg open; check3 passed.
+Linear check1 exposed giant-moment whnf unfolding and an untyped positivity
+intermediate; local irreducible attributes and an explicit type/exponent
+fixed these, and check2 passed. No heartbeat/memory limit raise or mathematical
+statement change. Failed checks and their reported error-recovery `sorryAx`
+are NOT counted as verification; no sorry was introduced into source. Live
+preflights showed 85--86 percent free, zero swap and no competing compiler or
+runner. One monitored 20-GiB worker, 12-GiB reserve throughout. Root import
+registration only; no root/full-tree build or audit is implied.
+
+### Decision and residue
+
+PROGRESS: the previously computed possibly-null connected denominator now
+has produced strict positivity and an explicit floor; this enables the new
+linear collar estimate on the complete SAME original energy. The actual
+finite consumer, `paddedSquare_energy_connected_overlap_cleared`, is used
+without an alignment hypothesis or discarded connected/mean correction.
+
+CONTINUE the COMPLETE original relative signed payment/direct macro-retention
+route. This literal-loop estimate is NOT the warmed source b=T^t(g_stage*psi),
+its odd partition is NOT both Z0 and Z1, and no repeated-window retention
+follows by substituting these objects. The coefficient remains nome/loop-size
+dependent; no useful changing-family lower reserve is proved. The next useful
+producer must estimate that actual transferred source with both chronological
+masses, or its direct cleared two-mass margin. Do not expand scalar
+normalization or a geometric-iteration wrapper as a substitute for that join.
+Continuum survival, physical calibration, full QFT, every compact simple group
+and Clay remain OPEN. No canonical field/exact chart claim changed; no ASCII
+reprint. No foreign proof or repeat literature fetch was used.

@@ -147,6 +147,25 @@ be proved. Complete relative signed payment/direct macro retention remain
 co-primary and OPEN. Evidence and exact source pins: adaptive-score audit.
 No canonical displayed claim changed; no ASCII reprint.
 
+CHECKED ORIGINAL connected reserve and linear collar (2026-10-09 16:41 UTC):
+`DyadicWilsonSquareConnectedDualGain.paddedSquare_original_upper_overlap`
+produces S<=uU with the actual endpoint q, retained exterior PR and OWN center.
+The existing original variance floor gives S>0, hence U>0 and computed D0>0;
+its quantitative floor is a*Z*S<=(u*u)*D0. The legitimate reciprocal bound
+is E+a*Z*U^2/D0<=S. `DyadicWilsonSquareLinearBandGain` then retains the affine
+mean correction to prove l*D0<=Z*U and E+a*l*U<=S. Consequently the SAME
+complete normalized energy is at most (1-a*l/u) times OWN odd variance,
+replacing the old squared collar fraction a*(l/u)^2. The fraction is explicit
+in strict nome and loop scale, independent of admissible finite cutoff, width
+and terminal depth. Both final focused checks/17 permitted gates and COMPLETE
+independent frozen-source reviews PASS. No new analytic premise, hole or limit
+increase. These are our finite proofs, not imported fermion theorems.
+The local literal source still is NOT the warmed source b, and its odd mass
+still is NOT both Z0 and Z1. Do not iterate this fraction as if it supplied
+useful macro retention on the changing AF family. Continue the actual
+transmitted-source/two-mass estimate below; no canonical chart claim changes.
+Exact source, check and review evidence: adaptive-score audit.
+
 Consumer reconciliation (2026-10-09, two independent read-only reviews):
 at a common admissible cutoff and d=stage+t, the local Fisher density
 V*g_d*g_(d+1) matches only the window's Z1 weight, up to the established

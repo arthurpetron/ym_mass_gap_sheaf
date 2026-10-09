@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Supporting ORIGINAL connected reserve and linear collar checked
+(2026-10-09 UTC): S<=uU and the OWN variance floor produce D0>0 and
+a*Z*S<=u^2*D0. The retained exterior and affine mean correction then give
+E+a*l*U<=S, hence normalizedEnergy<=(1-a*l/u)*oddVariance instead of the
+old squared collar fraction. Both final focused checks/17 permitted gates
+and COMPLETE independent frozen-source reviews PASS. Explicit fixed-nome,
+loop-scale fraction; no changed action, analytic premise or hole. The warmed
+source and BOTH chronological masses remain a missing analytic join;
+macro/scaling retention and physical/Clay goals remain OPEN. Exact chart
+claims unchanged; no chart reprint. Evidence: adaptive-score audit.
+
 Supporting SAME-original centered Fisher/Ward join checked (2026-10-09 UTC):
 H[H2]=48Z-16E and `(3Zv-E)^2 <= Zv*(48Z+(C(w)-16)E)` now retain the original
 weight, OWN variance and both terminal messages. Four focused checks/15

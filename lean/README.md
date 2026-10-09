@@ -16,6 +16,19 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked ORIGINAL connected gain (2026-10-09 UTC):** the actual upper
+collar certificate and OWN variance floor now produce a strictly positive
+connected denominator, its cleared quantitative floor, and a legitimate
+reciprocal energy reserve. Retaining the exterior and affine OWN-mean term
+then gives `normalizedEnergy <= (1-a*l/u)*oddVariance`, improving the previous
+`a*(l/u)^2` fraction. The fraction depends only on strict nome and loop scale;
+all admissible finite cutoffs, widths and terminal depths, including predecessor
+zero, remain covered. Both final focused checks/17 permitted gates and COMPLETE
+independent frozen-source reviews PASS. No new premise, hole or limit increase.
+The literal-loop estimate is NOT the warmed source/two-mass window estimate;
+scaling survival and physical/Clay goals remain OPEN. Evidence: adaptive-score
+audit and targeted paper review. No root/full-tree build or audit.
+
 **Checked SAME-original centered Fisher/Ward join (2026-10-09 UTC):** the
 literal padded Wilson-square source now yields H[H2]=48Z-16E on the complete
 original W. Ordered twofold Haar IBP and simultaneous weight/source transport
