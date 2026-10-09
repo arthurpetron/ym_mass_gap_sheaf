@@ -249,6 +249,25 @@ variance result. Main relative signed-payment/direct-retention frontier and
 physical/Clay goals remain OPEN. Exact source/hash/log evidence is in the
 targeted paper review. Canonical chart claims unchanged; no reprint.
 
+PAPER cutoff/consumer reconciliation (2026-10-09 17:48 UTC): existing
+`omitted_rawSourceMass_bound` and `paddedSquare_oddVariance_floor` pay the
+UNSPLIT raw term against OWN variance at fixed nome/width and positive depth,
+by setting the cutoff tolerance to epsilon*starRatio(w). This is a scalar
+join of existing inputs, not a new checked theorem or scaling-uniform modulus.
+It does NOT pay `familyChannelErrorBudget`, whose absolute leaf sums use
+signed channel sources and an arbitrary spatial family. A local reverse
+channel-square comparison is a plausible separate PAPER estimate; an existing
+one-sided Haar-square contraction already controls the signed omitted term
+with a FULL-width raw modulus. Neither bounds the old absolute leaf budget or
+the complete retained debt. Do not reopen the
+paid raw tail or prioritize a tail-only implementation while the larger joint
+estimate remains unpaid. MAIN stays complete original signed payment with
+retained square/centering/Ward/projection credits, or direct original two-mass
+multi-step retention. Exact source pins and the paper's full-current versus
+truncated-current distinction are in the targeted review's cutoff reconciliation.
+Two bounded independent source reviews; no Lean edit/check, new hypothesis,
+foreign proof import or chart change. Physical/Clay endpoints remain OPEN.
+
 Consumer reconciliation (2026-10-09, two independent read-only reviews):
 at a common admissible cutoff and d=stage+t, the local Fisher density
 V*g_d*g_(d+1) matches only the window's Z1 weight, up to the established
