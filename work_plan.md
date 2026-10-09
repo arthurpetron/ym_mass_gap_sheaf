@@ -818,6 +818,10 @@ the SAME matrix multiplication pin (:107); that finite algebraic extension
 is NOT yet proved. No Point-continuous-function carrier, certified uniform
 polynomial approximation or sup-norm bounded Haar extension was located.
 Do not add an assumed-Haar interface or ordinary-GNS completion wrapper.
+The requested paper follow-up adds a no-circularity guard: Appendix E.2,
+Eqs. (E.6)--(E.7), already uses Haar integration of nonpolynomial functions.
+Its polynomial smoothing therefore cannot construct this missing extension
+from our polynomial moments without an independent SAME-carrier argument.
 Return MAIN attention to actual changing-family signed payment/direct macro
 retention; the endpoint-band screen below is paper math, not a new bound.
 
@@ -1321,6 +1325,12 @@ gradient debt or signed window cost, relative to OWN surviving variance and
 BOTH masses. Gauge symmetry alone supplies no horizontal high-order zero;
 an admissible-background estimate needs an original-measure complement budget
 before it can be consumed. These are selection tests, not new proved inputs.
+Independent requested follow-up (2026-10-09): Eq. (9.16)'s cylinder constant
+may depend on original spacing and finite volume; its refinement/cylinder
+uniformity is not a varying-spacing/volume estimate. Comparison (5.4) supplies no
+source-norm lower bound. Do not select a transgression wrapper as a retention
+producer; it must first yield the existing ORIGINAL relative window/macro
+estimate. Exact new dependency checks are at the top of the same report.
 
 Supplement follow-through (2026-10-08 22:28 UTC): the requested parallel
 review adds complete parameter covers and sensitive nonzero controls to
