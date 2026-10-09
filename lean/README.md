@@ -16,6 +16,19 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked ORIGINAL transferred cost (2026-10-09 UTC):** the linear collar
+coefficient now bounds the EXISTING originalOwnBlockCost by
+`(1-linearBandFraction+comparisonEta)*originalOwnBlockVariance` for every
+transfer length, at cutoff headCutoff(w)+(n+1) and initial stage n+1.
+The original INITIAL OWN center and both distinct positive chronological
+masses are retained. The existing Rayleigh persistence theorem performs the
+transport; no source-norm inverse, mass equality or new premise is needed.
+Final focused check4/five gates and COMPLETE independent final-source review
+PASS; only {propext, Quot.sound}. This coefficient is still inadequate for
+the changing-family macro budget. Useful signed smallness/direct multi-step
+retention and physical/Clay claims remain OPEN. Evidence: adaptive-score
+audit and targeted paper review. Root import registered, not root/tree audited.
+
 **Checked ORIGINAL connected gain (2026-10-09 UTC):** the actual upper
 collar certificate and OWN variance floor now produce a strictly positive
 connected denominator, its cleared quantitative floor, and a legitimate
@@ -25,8 +38,9 @@ then gives `normalizedEnergy <= (1-a*l/u)*oddVariance`, improving the previous
 all admissible finite cutoffs, widths and terminal depths, including predecessor
 zero, remain covered. Both final focused checks/17 permitted gates and COMPLETE
 independent frozen-source reviews PASS. No new premise, hole or limit increase.
-The literal-loop estimate is NOT the warmed source/two-mass window estimate;
-scaling survival and physical/Clay goals remain OPEN. Evidence: adaptive-score
+The literal-loop estimate is NOT itself the warmed source/two-mass estimate;
+the checked transport above now supplies that comparison, but not useful
+macro/scaling retention. Physical/Clay goals remain OPEN. Evidence: adaptive-score
 audit and targeted paper review. No root/full-tree build or audit.
 
 **Checked SAME-original centered Fisher/Ward join (2026-10-09 UTC):** the

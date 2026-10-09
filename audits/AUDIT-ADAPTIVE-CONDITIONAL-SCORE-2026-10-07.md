@@ -9623,3 +9623,182 @@ normalization or a geometric-iteration wrapper as a substitute for that join.
 Continuum survival, physical calibration, full QFT, every compact simple group
 and Clay remain OPEN. No canonical field/exact chart claim changed; no ASCII
 reprint. No foreign proof or repeat literature fetch was used.
+
+## Selected actual-source follow-through: linear initial-energy transport (2026-10-09)
+
+Previous goal turn: PROGRESS, commit `57a1f4d7`, with the non-null connected
+reserve and linear collar estimate kernel-checked. Two new bounded read-only
+source/mathematical reviews found an EXISTING bridge that the preceding
+consumer reconciliation had not included:
+`original_block_cost_le_initial_energy`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLocalEnergyTransport.lean:224`.
+It propagates an initial local energy coefficient through the actual positive
+symmetric transfer to b=T^t(g_stage*psi), with BOTH distinct masses and no
+per-filter accumulation. This does not identify the local literal source with
+b; it proves the required transport using Rayleigh-floor persistence and a
+fixed terminal envelope.
+
+Exact selected proposition: with stage=n+1, the ACTUAL chronological OWN
+center c=middleRatio(stage+1,stage,f), A=g_(stage+t),
+b=T^t(g_stage*(f-c)), prove
+
+    clearedRayleighCost(A,b)
+      <= (1-linearBandFraction+comparisonEta(n))*Z1*H[V*b^2].
+
+Then divide by the produced SAME positive Z0*Z1 to reach the EXISTING
+originalOwnBlockCost/originalOwnBlockVariance definitions, rather than invent
+a new source or completion. Available inputs: the last turn's raw linear
+energy theorem; `marginalMoment_pin`, FamilyVarianceWard at :64, identifies
+the INITIAL local own center with c at that SAME initial stage; the existing
+`energy_shifted` and `centered_unprojected_square` in FamilyBandResponse; and
+the local-energy transport theorem. Positivity of original energy and the
+produced original centered mass give 0<=1-linearBandFraction. No arbitrary-
+center generalization or degree-one assumption on b is needed.
+
+Prediction: PASS for all t and admissible finite cutoffs, fixed strict nome,
+width and padded loop. This is a real sharper estimate on the actual warmed
+source, not a useful macro-window coefficient: 1-linearBandFraction can be
+close to one, while the aggregate window needs substantially smaller loss
+or a direct multi-step estimate. The inverse-ratio gradient route also has
+EXISTING reconstruction/derivative/drift APIs; no new wrapper is selected
+there without a small leading-energy estimate.
+
+Decisive tests: retain INITIAL center under every transfer; use center setoid
+equality, not recenter at stage+t; keep Z0 and Z1 distinct; allow zero b norms;
+do not infer physical/scaling retention by iterating this fixed coefficient.
+Abandon/revise if a new survival premise, derivative-degree assumption, or
+mass equality is required. Verification budget: one new small actual-source
+leaf, one focused serial check plus only required repairs; COMPLETE independent
+final-source review, 20-GiB worker/12-GiB reserve, fresh dynamic preflight. No
+full-tree build, paper refetch, resource-limit increase or canonical field
+change. Selection is PAPER until its final checks are recorded below.
+
+### Independent quantitative screen while the adapter is implemented
+
+PAPER algebra/source review, not a new comparison theorem: the definitions
+`linearBandFraction`,
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareLinearBandGain.lean:260`, and
+`channelObservableSquareLinearVarianceCredit`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyChannelSquareCredit.lean:370`,
+identify delta with a times the existing channel credit at size=side(scale),
+up to rational multiplication associativity. The existing
+`linearCredit_geometric_ceiling`,
+`lean/YMGap/Continuum/BF4OriginalChannelLinearCreditCollapse.lean:45`,
+and a<=1 therefore bound THIS coefficient by (1/4)^side<=1/4; d=1-delta>=3/4.
+This is a ceiling on a computed certificate, NOT on the actual response.
+
+Consequently, even granting decreasing warmed variances, summing the new
+per-lag ceiling over u lags gives only the coefficient 2u(d+eta), at least
+3/2 for u>=1. The actual window consumer requires 1-kappa<1 for positive
+kappa. This proves no failure of the actual window; it shows why that coarse
+summation cannot fund it. The old qualitative geometric response propagation
+already exists in `dyadicExcitation_time_geometric_fraction`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicSpectatorResponse.lean:173`.
+Do not rebuild a geometric-iteration consumer or advertise a new qualitative
+survival phenomenon. Retain the quantitative actual-b improvement, then
+return to action-specific relative smallness or direct multi-step retention.
+
+## Observed result: actual ORIGINAL linear-band transport (2026-10-09 16:57 UTC)
+
+The selected actual-source estimate is now KERNEL-CHECKED at its exact
+finite scope. With stage=n+1, K=headCutoff(w)+(n+1), the literal padded
+Wilson-square character f, INITIAL chronological OWN center c,
+A=g_(stage+t), b=T^t(g_stage*(f-c)), and distinct masses
+Z0=H[V*A^2], Z1=H[V*A*T A], the new leaf proves for every t:
+
+    clearedRayleighCost(A,b) <= (1-delta+eta)*Z1*H[V*b^2],
+    originalOwnBlockCost <= (1-delta+eta)*originalOwnBlockVariance.
+
+Here delta=linearBandFraction(hw,scale) and eta=comparisonEta(hw,width,n).
+Strict nome and side(scale)<width remain. This statement uses the displayed
+diagonal cutoff, not a newly proved claim about all arbitrary cutoffs.
+No degree/eigenvalue premise on b, norm inverse, final-time recentering,
+source substitution or equality Z0=Z1 is assumed.
+
+### Mathematical join
+
+The original raw bound E<=d*S and produced S>0, together with E>=0, give
+d=1-delta>=0; delta>0 gives d<=1. `marginalMoment_pin` identifies the INITIAL
+local OWN mean with c by Haar/setoid equality. Coefficient congruence retains
+the shifted source. `energy_shifted`, `oddMoment_unprojected_source` and
+`centered_unprojected_square` then give the exact initial centered-energy
+input. The EXISTING `original_block_cost_le_initial_energy`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLocalEnergyTransport.lean:224`,
+transports it through the actual positive symmetric transfer for every t.
+Its Rayleigh persistence bridge was absent from the preceding source/mass
+reconciliation; this follow-through instantiates it rather than creating
+another analytic assumption.
+
+Positive Z0 and Z1 supply reciprocals r0 and r01. The proof retains
+(Z0*Z1)*r01=1 and Z0*r0=1, producing Z1*r01=r0 by explicit algebra;
+normalizing therefore lands in the EXISTING definitions at
+`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicOriginalRayleighLimit.lean:93`
+(`originalOwnBlockVariance`) and :98 (`originalOwnBlockCost`). A possibly
+zero transferred norm remains allowed.
+
+### Exact verification boundary
+
+Final source:
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareLinearBandTransport.lean`, 290 lines,
+SHA-256 `aaa403fcca2923ad8e605954d885e94b3d361813b905d929d591a25b4b7857b2`.
+Public declarations and lines:
+
+- `linearBandResidual_nonnegative`, :80;
+- `linearBandResidual_le_one`, :104;
+- `paddedSquare_initial_centered_energy`, :120;
+- `paddedSquare_linearBand_original_block_cost`, :191;
+- `paddedSquare_linearBand_originalOwnBlockCost`, :224.
+
+Passing log `/private/tmp/ym-oct9-linear-band-transport4.log`, SHA-256
+`2867252e252d67b93cc4c8bd779f34d71ba63594719b0ed6d31f7de383be524d`.
+Final focused check4 exited zero; all five printed gates use only
+{propext, Quot.sound}. ROOT inspected the complete final source and log.
+Independent read-only Sol reread ALL 290 hash-matched lines: PASS for the
+initial center, actual b, both distinct masses, zero norms and stated scope.
+
+```sh
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/BF4DyadicWilsonSquareLinearBandTransport.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/BF4DyadicWilsonSquareLinearBandTransport.olean --log-file /private/tmp/ym-oct9-linear-band-transport4.log
+```
+
+Four serial focused launches total. Check1 failed on namespace/parser/local
+unfolding details; check2 passed the first four outputs. Check3 after adding
+the normalized output left only the local Z1 let-expression rewrite; its
+explicit change to the actual terminal pair made check4 pass. Failed-check
+error-recovery axioms are not verification and no sorry was added to source.
+No mathematical statement, heartbeat or memory limit was relaxed. Fresh
+live preflights before every launch showed 85--86 percent free, zero swap
+and no competing compiler/runner. One monitored 20-GiB worker and 12-GiB
+OS reserve. The root import is registered; no root/full-tree build or audit
+is implied.
+
+### Decision: preserve the improvement; pursue useful smallness
+
+PROGRESS: the sharper initial original-energy estimate now controls the
+actual transferred cost with both masses and its OWN transmitted variance.
+This is a genuine SAME-object comparison, not a mass/source identification.
+The remaining frontier is quantitatively useful complete relative signed
+payment or direct multi-step retention on the changing original family.
+The preceding PAPER coefficient screen rules out coarse summation as a
+useful consumer of THIS ceiling, not the actual survival proposition.
+
+Independent read-only alternative-source review found the signed plaquette
+family's footprint-independent w^12 kinetic factor ALREADY proved in
+`spatialSpan_fullRange`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyHeatEigen.lean:42`, and
+`family_spectator_kinetic`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyLocalBand.lean:259`.
+The existing collar certificate is quantitatively insufficient:
+`familyResponseFraction_le_ceiling` and
+`transported_family_band_linear_budget_false`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeFamilyBandCalibrationObstruction.lean:64`
+and :151. The SAME-law sharper route retains its complete signed remainder
+in `padded_family_energy_relative_ward`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyRelativeWard.lean:332`.
+No new useful bound was found there. Preserve all signed family cross terms;
+do not call this scalar-character family a continuum field-strength state.
+Do not rebuild family, qualitative geometric propagation or normalization
+machinery as a substitute for the missing estimate.
+
+Continuum survival, physical calibration, QFT, every compact simple group
+and Clay remain OPEN. No canonical displayed claim changed; no ASCII
+reprint. No foreign code or repeat paper/literature fetch was used.

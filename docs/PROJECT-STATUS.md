@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Supporting actual ORIGINAL transferred cost checked (2026-10-09 UTC):
+the EXISTING originalOwnBlockCost is at most
+`(1-linearBandFraction+comparisonEta)*originalOwnBlockVariance` for every
+transfer length, at the specified cutoff headCutoff(w)+(n+1).
+The INITIAL OWN center, actual transferred source and BOTH distinct positive
+chronological masses remain. Existing Rayleigh persistence performs the
+transport; no mass identification or norm inverse is used. Final focused
+check4/five permitted gates and COMPLETE independent frozen-source review
+PASS. The source/mass comparison is now instantiated, but its coefficient
+does not pay the changing-family macro budget. Relative signed smallness,
+direct macro retention and physical/Clay goals remain OPEN. Exact chart
+claims unchanged; no chart reprint. Evidence: adaptive-score audit.
+
 Supporting ORIGINAL connected reserve and linear collar checked
 (2026-10-09 UTC): S<=uU and the OWN variance floor produce D0>0 and
 a*Z*S<=u^2*D0. The retained exterior and affine mean correction then give
@@ -7,8 +20,9 @@ E+a*l*U<=S, hence normalizedEnergy<=(1-a*l/u)*oddVariance instead of the
 old squared collar fraction. Both final focused checks/17 permitted gates
 and COMPLETE independent frozen-source reviews PASS. Explicit fixed-nome,
 loop-scale fraction; no changed action, analytic premise or hole. The warmed
-source and BOTH chronological masses remain a missing analytic join;
-macro/scaling retention and physical/Clay goals remain OPEN. Exact chart
+source and BOTH chronological masses are compared by the checked transport
+above, not identified. Useful macro/scaling retention and physical/Clay
+goals remain OPEN. Exact chart
 claims unchanged; no chart reprint. Evidence: adaptive-score audit.
 
 Supporting SAME-original centered Fisher/Ward join checked (2026-10-09 UTC):

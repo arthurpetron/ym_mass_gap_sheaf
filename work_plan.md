@@ -161,10 +161,37 @@ and terminal depth. Both final focused checks/17 permitted gates and COMPLETE
 independent frozen-source reviews PASS. No new analytic premise, hole or limit
 increase. These are our finite proofs, not imported fermion theorems.
 The local literal source still is NOT the warmed source b, and its odd mass
-still is NOT both Z0 and Z1. Do not iterate this fraction as if it supplied
-useful macro retention on the changing AF family. Continue the actual
-transmitted-source/two-mass estimate below; no canonical chart claim changes.
+still is NOT both Z0 and Z1. The checked transport below now proves their
+needed cost comparison without identifying them. Do not iterate this
+fraction as if it supplied useful macro retention on the changing AF family;
+no canonical chart claim changes.
 Exact source, check and review evidence: adaptive-score audit.
+
+CHECKED actual transmitted-source/two-mass estimate (2026-10-09 16:57 UTC):
+`DyadicWilsonSquareLinearBandTransport.paddedSquare_linearBand_originalOwnBlockCost`
+proves the EXISTING originalOwnBlockCost <= (1-delta+eta)*originalOwnBlockVariance,
+delta=linearBandFraction, eta=comparisonEta. For every n,t and strict padded
+width, the finite cutoff is exactly headCutoff(w)+(n+1). The INITIAL original
+OWN center is preserved in b=T^t(g_(n+1)*(f-c)); the proof does not recenter b,
+assume its degree, invert its norm or equate Z0=H[V*A^2] and Z1=H[V*A*T A].
+The existing initial-energy/Rayleigh persistence theorem supplies the actual
+transport. The new coefficient bounds and initial centered-energy pin are
+proved, not assumed. Final focused check4/five permitted gates and COMPLETE
+independent final-source review PASS. One capped serial worker; no new hole,
+analytic premise, resource-limit increase or full-tree audit.
+
+NEXT: quantitatively useful COMPLETE relative signed payment or direct
+multi-step retention on the changing original family, not more propagation
+wrappers. The PAPER scalar screen gives delta<=1/4 for this certificate,
+so its per-lag ceiling cannot by coarse summation pay the macro-window
+budget. This is not a bound on the true response or a Yang--Mills refutation.
+The signed plaquette-family alternative already has footprint-independent
+kinetic eigenvalue w^12, but its available original-law collar bound is also
+inadequate; the signed Ward remainder remains unpaid. No new geometric
+iteration or renamed family scaffold is selected. Exact source pins and
+verification evidence: adaptive-score audit and targeted paper review.
+Nontrivial continuum survival, physical calibration, QFT, every-group and
+Clay claims remain OPEN. No canonical chart claim changed; no ASCII reprint.
 
 Consumer reconciliation (2026-10-09, two independent read-only reviews):
 at a common admissible cutoff and d=stage+t, the local Fisher density
@@ -181,7 +208,12 @@ Select a quantitative estimate of the COMPLETE signed cost against this
 warmed variance, or the direct cleared two-mass margin already specified
 in the paper review. This is a mathematical source/mass join, not a
 missing normalization wrapper; no new mandatory intermediate premise is
-introduced. Source table and precise remaining consumer:
+introduced. Correction after the new transport: the existing
+`original_block_cost_le_initial_energy` was absent from this earlier
+reconciliation and has now been instantiated above with the improved
+coefficient. The remaining analytic join is sufficient quantitative
+smallness, not absence of all source/mass transport. Source table and precise
+remaining consumer:
 `audits/RESEARCH-2610-09093-2026-10-08.md`, current-consumer reconciliation.
 
 CHECKED supporting ORIGINAL variance estimate (2026-10-08 UTC): the EXISTING

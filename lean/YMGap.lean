@@ -7855,6 +7855,9 @@ import YMGap.Continuum.BF4DyadicWilsonSquareConnectedDualOverlap
 -- Fixed nome/loop scale only; transmitted-family and physical joins remain open.
 import YMGap.Continuum.BF4DyadicWilsonSquareConnectedDualGain
 import YMGap.Continuum.BF4DyadicWilsonSquareLinearBandGain
+-- Preserve the initial OWN center through every original transfer length and
+-- normalize using both distinct chronological masses. Macro smallness is open.
+import YMGap.Continuum.BF4DyadicWilsonSquareLinearBandTransport
 import YMGap.Continuum.SU2TorusRPRelabel
 import YMGap.Continuum.SU2TorusRPSwap
 import YMGap.Continuum.SU2TorusRPTorusZ
