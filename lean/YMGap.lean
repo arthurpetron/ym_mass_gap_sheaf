@@ -7574,6 +7574,7 @@ import YMGap.Continuum.SU2TorusPolyGibbs
 import YMGap.Continuum.SpectralHalvingStrongCouplingCarrier
 import YMGap.Continuum.SU2QuaternionFixedRationalHaarTranslation
 import YMGap.Continuum.SU2QuaternionPointPolynomialHaarTranslation
+import YMGap.Continuum.SU2QuaternionPolynomialKernelConcentration
 import YMGap.Continuum.SU2PolyLinkHaarInvariance
 import YMGap.Continuum.SU2TorusMultiLinkPolyGibbs
 import YMGap.Continuum.SU2MultiLinkHaarFactorization

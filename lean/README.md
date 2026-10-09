@@ -16,6 +16,17 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked finite polynomial-kernel concentration (2026-10-09 UTC):**
+`Continuum/SU2QuaternionPolynomialKernelConcentration.kernelMoment_recurrence`
+proves the exact moment recurrence at EVERY natural degree for the original
+one-block Haar. Its normalizer is a computed positive finite product;
+`normalizedChordMoment_exact` gives squared-chord moment `6/(m+3)`, with
+m=0,1,2 regressions. Final focused check3 and COMPLETE independent final-
+source/log review PASS; 13 gates exactly {propext,Quot.sound}. This is our
+finite angular-IBP/sphere argument, not imported fermion code or integration
+of arbitrary continuous functions. Continuous Haar, J04, MAIN scaling
+retention and Clay remain OPEN; root registration only, no root/tree audit.
+
 **Checked canonical face overlap (2026-10-09 UTC):**
 `Continuum/Z4DistinctPlaquetteIntersection.common_boundary_links_equal_of_faces_ne`
 proves that two distinct canonical nonperiodic Nat-coordinate plaquettes cannot

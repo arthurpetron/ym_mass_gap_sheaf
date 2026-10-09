@@ -1,6 +1,6 @@
 # Constructive Yang--Mills mass-gap formalization
 
-## Current proof boundary (2026-10-08 UTC)
+## Current proof boundary (2026-10-09 UTC)
 
 The [canonical one-page status chart](docs/PROJECT-STATUS.md) keeps fixed
 wording, layout, proof-status meanings and permanent node IDs across updates.
@@ -9,6 +9,15 @@ The Clay target remains **open**: a nontrivial continuum Yang--Mills theory on
 R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
+
+**Latest finite inputs:** distinct canonical nonperiodic plaquettes now have a
+checked one-edge overlap bound. Original quaternion polynomial kernels also
+have a constructed positive normalizer and exact squared-chord moment
+`6/(m+3)` at every degree. Focused kernel checks and independent reviews passed.
+The initial-source calculation narrows its signed bracket to a three-face
+interaction, but is still a paper argument; its original weighted
+bound, warmed-source transport and continuum closure remain open. See the
+[proofs and updated next frontier](audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md).
 
 **New original-source variance floor:** the literal dyadic Wilson square has
 an explicit positive variance bound, independent of loop size and width at

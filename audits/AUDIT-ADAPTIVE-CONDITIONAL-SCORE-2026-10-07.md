@@ -78,6 +78,33 @@ Hessian. Gauss equality is arbitrary-insertion HaarCarrierEqv, not just a
 single unweighted integral; derivative compatibility cannot be dismissed.
 It still does not identify a horizontal mixed-link payment.
 
+Source-only next-producer screen (ROOT and independent reader): do NOT rederive
+the coordinate frame. `coordinate_action`,
+`lean/YMGap/Continuum/SU2QuaternionLeftRightAngularAction.lean:164`, already pins
+ALL FOUR original components to J_i U=e_i U when right=false, with no factor
+one-half or unit assumption. `conjugate_coordinate_action:363` pins
+J_i conj(U)=-conj(U)*e_i, and `frameDerivativeAt_mul:277` is actual Leibniz.
+These are common-padded coefficient identities, not a license to differentiate
+arbitrary padded equalities. `angular_coordinate_carrier`,
+`lean/YMGap/Continuum/SU2QuaternionAngularCoordinate.lean:73`, and
+`angularDerivative_blockIndependent_zero`,
+`lean/YMGap/Continuum/SU2QuaternionHaarTailDerivative.lean:235`, supply actual
+coordinate and independent-tail first jets. The public `paired_first_jet`,
+`lean/YMGap/Continuum/SU2QuaternionPairedScalarSquare.lean:57`, gives individual
+components for the actual two-link relative word. The general independent-tail
+`linear_derivative:178` and `fundamental_derivative:227` in
+`lean/YMGap/Continuum/SU2QuaternionIndependentTailAngularSquare.lean` are PRIVATE;
+their public outputs package square sums.
+
+The missing original common-prefix pin is
+J_(l,i) X_p = -v_p dot[epsilon_l*Ad(F_l)*e_i], with the actual positive/inverse
+slot, supported physical prefix and arbitrary original Haar insertion retained.
+`chain_pairedDerivativeAt`,
+`lean/YMGap/Continuum/SU2QuaternionPairedFrameAt.lean:105`, moves block labels;
+it is not this field-dependent prefix transport. Reuse the existing finite
+derivation before building a new bridge. No new Lean proof or weighted estimate
+is claimed by this source screen.
+
 Selected MAIN geometric input: prove that two DISTINCT common boundary edges
 determine one canonical Z4 plaquette. The existing `edgesOf` and `edge_complete`,
 `lean/YMGap/Continuum/ClusterCount4DProgress.lean:147` and `:207`, and
@@ -120,6 +147,53 @@ those finite inputs do not suffice. ROOT handles capped serial checks after
 complete frozen-source review and fresh dynamic capacity; no concurrent compiler,
 full-tree audit or resource increase. Both selected outputs are finite inputs,
 not continuum survival, physical calibration, QFT, every-group or Clay closure.
+
+### Observed all-degree polynomial-kernel concentration
+
+`kernelMoment_recurrence`,
+`lean/YMGap/Continuum/SU2QuaternionPolynomialKernelConcentration.lean:316`,
+proves the exact recurrence for EVERY natural exponent, including m=0.
+`kernelPower_certificate:72` constructs each actual kernel's positivity
+certificate; no pointwise positivity field or continuous Haar is assumed.
+`normalizer:400` is the finite product of computed ratios, strictly positive
+by `normalizer_positive:404`; `kernelMoment_normalizer:408` and
+`kernelMoment_positive:430` identify and prove positivity of the ORIGINAL Z_m.
+`chordMoment_exact:472` and `normalizedChordMoment_exact:504` prove the
+exact squared-chord moment `6/(m+3)` with that SAME normalizer.
+`small_m_regressions:510` checks actual moments at m=0,1,2.
+
+Final focused check3 terminal exit 0 in its initial call; all 13 public gates
+exactly {propext,Quot.sound}, no diagnostics/sorryAx. ROOT read the COMPLETE
+final 529-line source and log; independent COMPLETE source/log review PASS.
+Check1 failed on namespace resolution, explicit coefficient transports,
+unresolved polynomial arguments and raw Int.ofNat arithmetic; check2 retained
+six ambiguous carrier field-notation sites. Explicit namespaces, carrier
+operations, supplied reciprocal positivity and Nat-to-Int coercions repair
+only elaboration, not the mathematical statements or assumptions. Failed
+check1/check2 sorryAx output is NOT accepted evidence.
+
+Final source SHA-256:
+`0736ff551074eb1c8001408a84222b98c39f63ea800425bd98b23eedcb0dc764`.
+Accepted `/private/tmp/ym-oct9-polynomial-kernel3.log` SHA-256:
+`3105b146cc85120bf135ab38e4eb4258e670f7cc0cc04a9456dcd7337be48816`.
+Superseded check1/check2 log hashes respectively:
+`c8cc7aed045c29162d38be7f236a3380774ad0a6dd77538ecabc26ff1652b823`,
+`cc1a5e2f57e3a10cee8c991af843c89b04b5dc6403ea3e93c08f85f2a14ad7ac`.
+Exact accepted command:
+
+```sh
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/SU2QuaternionPolynomialKernelConcentration.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/SU2QuaternionPolynomialKernelConcentration.olean --log-file /private/tmp/ym-oct9-polynomial-kernel3.log
+```
+
+Each fresh preflight showed 86% free, zero swap and no competing compiler/test/
+runner. Checks were serial with one 20-GiB worker, unchanged reserve/thresholds;
+no resource increase, foreign code, new hole or analytic premise. Root import
+is registered, not root/tree audited. This is an independent finite input for
+the J04 Haar/approximation route, not an assumed continuous-Haar argument or
+MAIN signed retention. Approximation/extension for arbitrary continuous
+Point-functions, full compact-group realization, scaling/physical/QFT/all-
+groups and Clay closure remain OPEN. No canonical chart claim changes or
+ASCII reprint.
 
 ## Checked finite commutator test / PAPER mixed-link budget (2026-10-09)
 

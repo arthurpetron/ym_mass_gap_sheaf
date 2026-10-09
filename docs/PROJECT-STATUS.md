@@ -6494,6 +6494,20 @@ Exact hashes/commands are in `work_plan.md`. This is not Haar on arbitrary
 completed Point-functions, compactness, every-group J04 or MAIN retention.
 Clay remains OPEN; exact displayed chart claims unchanged, no root/tree audit.
 
+Checked J04 finite polynomial-kernel input (2026-10-09):
+`lean/YMGap/Continuum/SU2QuaternionPolynomialKernelConcentration.lean:316`
+(`kernelMoment_recurrence`) proves the exact all-degree original moment
+recurrence. `normalizer` (:400) is a computed positive finite product
+identified with the actual Haar moment (:404/:408/:430).
+`normalizedChordMoment_exact` (:504) gives squared-chord moment `6/(m+3)`;
+m=0,1,2 regressions are checked (:510). Final focused check3 and COMPLETE
+independent source/log review PASS; all 13 gates exactly {propext,Quot.sound}.
+Exact evidence is in the adaptive-score audit. This is a finite polynomial
+input, not continuous Haar, full compact-group realization, every-group
+J04, MAIN retention or physical gap. No canonical displayed claim changes;
+the chart block is unchanged and is not reprinted. Root registration only,
+no root/tree audit.
+
 Verification context: `audits/AUDIT-FOUR-LINK-SQUARE-YOUNG-2026-09-24.md`,
 `audits/AUDIT-SURVIVAL-QUANTIFIERS-2026-09-24.md`, and the complex-time
 checkpoint in `work_plan.md`. These record targeted checks, not a fresh

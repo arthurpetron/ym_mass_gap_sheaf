@@ -1,5 +1,23 @@
 # Sorry Ledger
 
+## PROVED finite polynomial-kernel concentration / OPEN continuous Haar (2026-10-09 UTC)
+
+`kernelMoment_recurrence`,
+`lean/YMGap/Continuum/SU2QuaternionPolynomialKernelConcentration.lean:316`,
+proves `(2*m+6)*Z_(m+1)=(2*m+3)*Z_m` on the ORIGINAL one-block polynomial
+Haar for EVERY natural m. `normalizer:400`, `normalizer_positive:404`,
+`kernelMoment_normalizer:408` and `kernelMoment_positive:430` construct the
+positive actual moment; it is not an assumed integration/positivity field.
+`chordMoment_exact:472`, `normalizedChordMoment_exact:504` and
+`small_m_regressions:510` prove exact squared-chord payment `6/(m+3)` and
+m=0,1,2 tests. Final focused check3 and COMPLETE independent source/log review
+PASS; all 13 gates exactly {propext,Quot.sound}. Earlier failed checks are
+superseded, not accepted. No new hole, analytic premise, axiom or resource
+increase; root registration only, no root/tree audit. Approximation/extension
+for arbitrary continuous Point-functions, compact Haar, every-group J04,
+MAIN signed retention, scaling/physical/QFT and Clay closure remain OPEN.
+Exact hashes, commands and paper-inspired scope: adaptive-score audit.
+
 ## PROVED canonical face overlap / OPEN source-specific weighted bracket (2026-10-09 UTC)
 
 `two_boundary_links_determine_face`,

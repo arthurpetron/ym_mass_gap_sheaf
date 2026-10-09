@@ -43,6 +43,16 @@ are not yet Lean declarations. Repeated/signed faces, terminal mixed jets,
 retained favorable credits, OWN warmed variance and BOTH chronological masses
 remain. No locality theorem for warmed b is asserted.
 
+Reuse rather than rederive the existing `LeftRightAngularAction.coordinate_action`,
+`conjugate_coordinate_action` and `frameDerivativeAt_mul`: the three original
+paired generators already are literal LEFT imaginary multiplication, including
+the inverse sign, in all four components. Individual two-link first jets also
+exist as `PairedScalarSquare.paired_first_jet`. The missing original-word bridge
+is field-dependent common-prefix transport, not a new coordinate-frame module
+or the existing block-label swap. Source pins and private general-tail helpers:
+adaptive-score audit. Its consumer is still the PAPER exterior-pair reduction,
+not an already existing full original-weighted Hessian estimate.
+
 The actual inversion symmetry does not make the bracket insertion odd:
 both curvature and correctly transported/reversed bracket change sign, so
 their scalar product is invariant. Two initial-source PAPER fixtures retain
@@ -80,17 +90,24 @@ budget on the changing family before an analytic compiler is expanded.
 No continuum/QFT/mass/every-group/Clay node or canonical chart claim closes;
 no chart reprint, full-tree audit or resource-limit increase.
 
-Optional parallel J04 producer from the requested paper screen, still PAPER:
-for the ORIGINAL one-block polynomial Haar, b=(1+x0)/2 and Z_m=H[b^m],
-derive `(2*m+6)*Z_(m+1)=(2*m+3)*Z_m`, positivity of Z_m and the normalized
-squared-chord moment `6/(m+3)`. Existing angular IBP and the actual sphere
-relation supply the candidate finite argument; completed-Point polynomial
-translation can move its center. This would pay polynomial-kernel
-concentration without presupposing continuous Haar. Stop if those exact
-finite identities/nonzero normalizer cannot be produced; do not assume them
-in a new interface. Independent approximation/extension for arbitrary
-continuous functions remains a separate missing join. Details and scope:
-targeted paper review. This is not a MAIN survival or Clay closure claim.
+CHECKED independent J04 input from the requested paper screen:
+`SU2QuaternionPolynomialKernelConcentration.kernelMoment_recurrence` proves
+`(2*m+6)*Z_(m+1)=(2*m+3)*Z_m` for EVERY natural m on the ORIGINAL one-block
+polynomial Haar, b=(1+x0)/2 and Z_m=H[b^m]. Its finite-product `normalizer`
+is computable, proved strictly positive and identified with the actual Z_m.
+`normalizedChordMoment_exact` proves the exact squared-chord moment `6/(m+3)`;
+support, positive kernel certificates and m=0,1,2 regressions are produced.
+Actual angular IBP and the arbitrary-insertion sphere relation supply this
+finite argument; no continuous Haar or recurrence/positivity premise is added.
+Final focused check3 and COMPLETE independent final-source/log review PASS;
+all 13 gates exactly {propext,Quot.sound}. Earlier elaboration failures are
+superseded, not proof evidence. Existing completed-Point polynomial translation
+can move the center; no new all-continuous-function translation join is claimed.
+Independent approximation/continuous-functional extension remains OPEN: do not
+use integration of an unavailable continuous f to prove it. No further assumed-
+input compiler is selected. Exact hashes/command/scope: adaptive-score audit
+and targeted paper review. No MAIN survival, J04 or Clay closure; root
+registration only, no root/tree audit or resource increase.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
