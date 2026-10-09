@@ -62516,6 +62516,28 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+## 2026-10-09 — SU(2) realized all-spin TWO-link norm premise supplied
+
+`Continuum/SU2QuaternionRelativeCharacterNorm.relativeCharacter_square_norm`
+(:144) proves H2[relativeCharacter(s)^2]≈1 for every label by harmonic
+reproduction with both physical links retained, fixed diagonal polynomial
+pins, the one-block sphere relation and positive-dimension cancellation.
+`RepTheory/SU2RealizedRow.selfPairing_all` (:287), `selfPairing_nonzero`
+(:291) and `realizedCasimir_welldefined` (:296) supply the actual norm premise
+of the existing eigen-reading uniqueness theorem at every s. This fills
+that finite basis input; it introduces/discharges no sorry and closes no
+canonical compact-group or Clay atom. The existing small-label APIs remain.
+
+Final norm check1 and row check2 PASS; all four new public gates use only
+{propext, Quot.sound}. COMPLETE independent frozen-source review PASS.
+Commands, source/log hashes and scope are recorded in
+`audits/RESEARCH-2610-09093-2026-10-08.md`, observed foundation result.
+Three capped serial narrow launches; final row recheck followed documentation
+corrections only. No new analytic hypothesis, foreign proof, classical axiom,
+resource-limit increase or full-tree audit. Main original relative retention,
+compact-group/Haar/action realization, scaling, QFT and physical gap remain
+OPEN.
+
 #### Compile the signed endpoint correction budget (2026-09-22)
 
 - **milestone**: explicit finite consumer for the signed endpoint defect

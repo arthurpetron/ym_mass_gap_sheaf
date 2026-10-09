@@ -234,6 +234,21 @@ pins and the caught ordinary-Haar/odd-law normalization error are recorded in
 the targeted paper review's final mathematical-selection section. No Lean
 edit/check or canonical chart change; physical/Clay endpoints remain OPEN.
 
+CHECKED parallel SU(2) basis input (2026-10-09 17:36 UTC):
+`RelativeCharacterNorm.relativeCharacter_square_norm` proves the literal
+TWO-link Haar norm H2[chi_s^2]=1 for EVERY label. The actual realized-row
+`selfPairing_all` and `realizedCasimir_welldefined` now remove the previously
+external nonzero-norm premise at arbitrary s. Both physical links remain;
+harmonic reproduction, recomputed diagonal scalar/radius pins and positive
+dimension cancellation give a symbolic proof, not a label sweep or packet
+substitute. Final norm check1/row check2 and COMPLETE independent frozen-source
+review PASS; four new gates permitted. No analytic premise, hole or limit
+increase; no root/full-tree audit. This is an independent paid-input J04
+foundation join, NOT compact SU(2)/every-group realization or an interacting
+variance result. Main relative signed-payment/direct-retention frontier and
+physical/Clay goals remain OPEN. Exact source/hash/log evidence is in the
+targeted paper review. Canonical chart claims unchanged; no reprint.
+
 Consumer reconciliation (2026-10-09, two independent read-only reviews):
 at a common admissible cutoff and d=stage+t, the local Fisher density
 V*g_d*g_(d+1) matches only the window's Z1 weight, up to the established

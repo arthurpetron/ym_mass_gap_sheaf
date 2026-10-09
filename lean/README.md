@@ -16,6 +16,14 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked parallel SU(2) basis input (2026-10-09 UTC):** every literal
+two-link relative character has Haar norm one, supplying Casimir-reading
+uniqueness at every label in `RepTheory/SU2RealizedRow`. Final two focused
+targets/four new permitted gates and COMPLETE independent source review PASS.
+No compact-group realization, interacting variance or continuum gap follows;
+main signed retention and Clay goals remain OPEN. Evidence: targeted paper
+review; no full-tree audit or chart change.
+
 **Checked coefficient-only obstruction (2026-10-09 UTC):** the ACTUAL
 Fisher curvature cost satisfies `(1-w)*marginalCurvatureCost(w) >= 4`
 for every strict nome. This computed upper-bound constant alone cannot

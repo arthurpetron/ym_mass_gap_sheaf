@@ -11,7 +11,8 @@ the dimensions `s+1`) from objects that already exist in the repository:
   evaluated as a class function of the real part (Chebyshev-`U`);
 * the exact normalized `S³` Haar functional
   `BF4GeometricHaarMehlerProjection.quaternionHaar`, against which the spin-½
-  character is shown to be normalized and mean-zero;
+  character is shown to be mean-zero and EVERY two-link relative character
+  has squared norm one;
 * the proved angular-Laplacian eigenvalue of the ordinary relative character
   (`SU2QuaternionRelativeCharacterCasimir.relativeCharacter_angularCasimir`,
   part of the `SU2QuaternionConditionalHeat*` import tree), which gives the
@@ -30,7 +31,10 @@ the dimensions `s+1`) from objects that already exist in the repository:
 * The Casimir value is read (`casimirReading`, `realizedCasimir`) from the
   proved Laplacian eigen-identity for `relativeCharacter s`, and
   `relativeCharacter_eq_spinCharacter` proves that polynomial evaluates to
-  `spinCharacter s (g₀ g₁⁻¹)` at every rational environment.
+  `spinCharacter s (g₀ · conj g₁)` at every rational environment; on the
+  unit-norm carrier conjugation is inversion. The exact original
+  two-link norm proves uniqueness of the reading at every label; this does
+  not construct a compact group or its completed representation theory.
 * The conversion `C₂ = (eigenvalue of −Δ_{S³}) / 4` is a normalization
   convention (the one making `A₁` fundamental `3/4`), not a derived fact.
 * Only `C2_fund`, `C2_adj` are derived.  `g_sq`, `conv`, `rho_sf`, `eta_max`,
@@ -46,6 +50,7 @@ import YMGap.RepTheory.SU2
 import YMGap.RepTheory.RationalQuaternionSignQuotient
 import YMGap.Continuum.BF4GeometricHaarMehlerProjection
 import YMGap.Continuum.SU2QuaternionRelativeCharacterCasimir
+import YMGap.Continuum.SU2QuaternionRelativeCharacterNorm
 import YMGap.Continuum.SU2QuaternionConditionalHeatGenerator
 import YMGap.Continuum.ChebyshevBound
 import YMGap.Continuum.BF4CompactActionCPOrder
@@ -127,12 +132,13 @@ theorem realizedCasimir_source (s : SU2.Spin) :
   relativeCharacter_angularCasimir 2 s (by decide)
 
 
-/-! ## (a) The relative character IS the spin character of `g₀ g₁⁻¹`
+/-! ## (a) The relative character IS the spin character of `g₀ · conj g₁`
 
 `relativeCharacter s = characterPolynomial relativeScalar s`, where
 `relativeScalar` is the scalar part of the polynomial word `x₀ · conj x₁`.
 We show that at every rational environment `ρ` its value is
 `spinCharacter s (x₀(ρ) · conj x₁(ρ))` computed in `RationalQuaternion`.
+This product is `g₀ g₁⁻¹` only on the unit-norm carrier.
 No trigonometric identity is needed: both sides are the same Chebyshev-`U`
 recursion (`Cheb.U` = `chebU`, proved below), and the only content is the
 Hamilton-product evaluation of the polynomial word. -/
@@ -146,7 +152,8 @@ open YMGap.Continuum.RingNormaliser
 def quatAt (rho : Nat → Q') (c : Nat) : RationalQuaternion :=
   ⟨rho (4 * c), rho (4 * c + 1), rho (4 * c + 2), rho (4 * c + 3)⟩
 
-/-- The rational relative element `g₀ · g₁⁻¹ = x₀ · conj x₁`. -/
+/-- The rational relative product `x₀ · conj x₁`; on the unit-norm carrier
+this is `g₀ · g₁⁻¹`. -/
 def relativeElement (rho : Nat → Q') : RationalQuaternion :=
   RationalQuaternion.mul (quatAt rho 0) (RationalQuaternion.conj (quatAt rho 1))
 
@@ -196,7 +203,7 @@ theorem eval_relativeScalar (rho : Nat → Q') :
     (Q'.neg_eqv_congr _ _ (Q'.add_eqv_congr' (qmul (v 1) (n 5))
       (Q'.add_eqv_congr' (qmul (v 2) (n 6)) (qmul (v 3) (n 7)))))
 
-/-- **(a)** `relativeCharacter s` evaluates to `spinCharacter s (g₀ g₁⁻¹)` at
+/-- **(a)** `relativeCharacter s` evaluates to `spinCharacter s (g₀ · conj g₁)` at
 every rational environment. -/
 theorem relativeCharacter_eq_spinCharacter (rho : Nat → Q') (s : SU2.Spin) :
     (evalRatPoly rho (relativeCharacter s)).eqv (spinCharacter s (relativeElement rho)) := by
@@ -220,8 +227,8 @@ def casimirReading (s : SU2.Spin) : CasimirReading s :=
 
 /-- Realized Casimir: `−lam/4` of the eigen-reading (`1/4` = normalization
 convention making `A₁` fundamental `3/4`).  Uniqueness of `lam` holds whenever
-`∫ χ_s² ≉ 0` (`casimirReading_unique` below); it is proved for `s = 1, 2`
-(`realizedCasimir_one_welldefined`, `realizedCasimir_two_welldefined`). -/
+`∫ χ_s² ≉ 0` (`casimirReading_unique` below); the constructed norm one
+supplies this premise for every label (`realizedCasimir_welldefined`). -/
 def realizedCasimir (s : SU2.Spin) : Q' :=
   (-(casimirReading s).lam) * Q'.mkPos 1 4 (by decide)
 
@@ -229,11 +236,11 @@ def realizedCasimir (s : SU2.Spin) : Q' :=
 /-! ### Uniqueness of the eigen-reading (well-definedness of `realizedCasimir`)
 
 Pairing the eigen-identity with `χ_s` itself gives `lam · N_s ≈ lam' · N_s`,
-`N_s = ∫ χ_s · χ_s` on the two-block Haar carrier.  So the reading is unique
-whenever `N_s ≉ 0`.  We prove `N_1 ≈ 1` and `N_2 ≈ 1` by exact evaluation, which
-makes `realizedCasimir 1` and `realizedCasimir 2` (the ones used by the row)
-well-defined.  The general `N_s ≈ 1` (Schur orthonormality for all `s`) is
-not proved here. -/
+`N_s = ∫ χ_s · χ_s` on the two-block Haar carrier. The original harmonic
+reproducing identity now proves `N_s ≈ 1` for EVERY label, supplying the
+nonzero premise of uniqueness without a separate hypothesis. The historical
+small-label evaluation lemmas remain available. This is an exact polynomial
+Haar result, not a compact-group realization or an interacting norm pin. -/
 
 /-- Self-pairing of the relative character. -/
 def selfPairing (s : SU2.Spin) : Q' :=
@@ -275,6 +282,20 @@ theorem casimirReading_unique {s : SU2.Spin} (hN : ¬ (selfPairing s).eqv 0)
     Q'.eqv_trans _ _ _ (Q'.eqv_symm h1)
       (Q'.eqv_trans _ _ _ (Q'.eqv_symm e) (Q'.eqv_trans _ _ _ e' h2))
   exact cancel_right hN k
+
+/-- Every relative-character label has norm one on the original two-link Haar carrier. -/
+theorem selfPairing_all (s : SU2.Spin) : (selfPairing s).eqv 1 :=
+  YMGap.Continuum.SU2QuaternionRelativeCharacterNorm.relativeCharacter_square_norm s
+
+/-- The nonzero premise of eigen-reading uniqueness is constructed at every label. -/
+theorem selfPairing_nonzero (s : SU2.Spin) : ¬ (selfPairing s).eqv 0 := by
+  intro h
+  exact absurd (Q'.eqv_trans _ _ _ (Q'.eqv_symm (selfPairing_all s)) h) (by decide)
+
+/-- Every realized Casimir eigen-reading agrees with the constructed reading. -/
+theorem realizedCasimir_welldefined (s : SU2.Spin) (r : CasimirReading s) :
+    r.lam.eqv (casimirReading s).lam :=
+  casimirReading_unique (selfPairing_nonzero s) r _
 
 /-- `N_1 ≈ 1` (exact evaluation). -/
 theorem selfPairing_one : (selfPairing 1).eqv 1 := by decide
@@ -319,6 +340,9 @@ end YMGap.RepTheory.SU2Realized
 #print axioms YMGap.RepTheory.SU2Realized.relativeCharacter_eq_spinCharacter
 #print axioms YMGap.RepTheory.SU2Realized.eval_relativeScalar
 #print axioms YMGap.RepTheory.SU2Realized.casimirReading_unique
+#print axioms YMGap.RepTheory.SU2Realized.selfPairing_all
+#print axioms YMGap.RepTheory.SU2Realized.selfPairing_nonzero
+#print axioms YMGap.RepTheory.SU2Realized.realizedCasimir_welldefined
 #print axioms YMGap.RepTheory.SU2Realized.selfPairing_one
 #print axioms YMGap.RepTheory.SU2Realized.realizedCasimir_one_welldefined
 #print axioms YMGap.RepTheory.SU2Realized.realizedCasimir_two_welldefined
