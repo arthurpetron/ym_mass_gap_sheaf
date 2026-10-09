@@ -332,6 +332,122 @@ families. Point-metric/group-operation descent, completion identification and
 Haar compatibility are still separate unpaid joins; the ordinary polynomial
 Haar GNS completion does not complete the point carrier.
 
+SELECTED parallel point-group join (2026-10-09): instantiate the existing
+`CRealSeminormCompletion.SquaredSeminorm` with rational UnitNorm squared
+chord, prove null distance iff semantic coordinate equality, unit product
+bi-isometry and inverse isometry, then construct `ConstructiveGroup` on the
+existing explicit-modulus point-Cauchy quotient. Exact rational embedding,
+noncollapse and represented approximation are required endpoints, not fields
+assumed of an arbitrary group. The actual consumers are the existing
+`BinaryQuadraticLipschitz`/`Nonexpansive` descent and `ConstructiveGroup` APIs;
+the canonical compact-group/Haar interface remains unimplemented. Inputs:
+`RationalQuaternion.normSq_mul`, `UnitNorm.group`, reflected rational
+identities and the generic choice-free completion. Two independent math
+screens find no missing analytic premise. Finite nets are NOT needed for
+algebraic descent; they will enter later total-boundedness transfer. Test
+identity/inverses, both chart signs and rational-point separation; never choose
+quotient representatives. This endpoint is a group ON a point-Cauchy
+completion carrier, NOT a completed-distance/completeness theorem, compact
+SU(2), matrix identification, Haar extension or a physical gap. One new leaf,
+no new premise/sorry/axiom or limit increase; root alone runs narrow capped
+serial checks after fresh capacity checks and full frozen-source review.
+Stop/revise if full group laws or noncollapse require an unprovided premise.
+MAIN remains original signed warmed-cost/multi-step retention; no substitute
+source or center, and no canonical chart change.
+
+SELECTED represented-net join (2026-10-09, independently screened): in the
+same point-group leaf, for positive N and a SUPPLIED Cauchy row X, compute
+delta=12/N^2, n=X.modulus(delta), and i=netIndex N (X.seq n). The rational
+net cover and squared triangle give tail squared chord at most 48/N^2 for
+every k>=n. The index and stage are actual data from X, not a choice of a
+quotient representative; rational-constant order reflection is elementary.
+This connects the existing finite nets to represented approximation, without
+assuming or constructing a completed distance. Predicted outcome: this exact
+tail cover, with the same leaf/check budget and no new premise. An arbitrary
+quotient-point selector, complete metric, compactness and Haar remain outside
+the claim. Do not substitute those stronger endpoints or add a new interface.
+
+OBSERVED point-group result (2026-10-09):
+`RepTheory/RationalQuaternionCauchyGroup.chordSeminorm` (:310) and
+`null_iff_semantic` (:331) supply the actual separated rational chord.
+Genuine Hamilton bi-isometry/inverse isometry and the existing quantitative
+operation descent construct `completedGroup` (:389), with all quotient
+group laws. `rationalEmbedding` (:414), `embed_eq_iff` (:435) and distinct
+signs (:455) prove semantic noncollapse. The computed supplied-row net
+stage/index/point and `rowNet_tail_bound` (:505) give literal 48/N^2 tail
+coverage. Final capped safe check2 PASS and COMPLETE independent final-
+source review PASS; all 33 reported gates use only {propext, Quot.sound}.
+Check1 had local elaboration timeouts; explicit typed intermediates and a
+constant 2+2 CReal-bound helper repair them, with no statement/premise or
+limit change. Source SHA-256:
+20d1c7ec86fc6d4a1ce3069ddcf36510fb87f0170464fe46d0d4d5632ad6c85a.
+Final log `/private/tmp/ym-oct9-quaternion-cauchy-group2.log`, SHA-256:
+c6c0ed319ae7751f69f09723eb4fbb7b4753b1e299395536375bb0f6a5c866bc.
+Exact final command, from the repository root:
+
+```sh
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 \
+  --check lean/YMGap/RepTheory/RationalQuaternionCauchyGroup.lean \
+  --check-output lean/.lake/build/lib/lean/YMGap/RepTheory/RationalQuaternionCauchyGroup.olean \
+  --log-file /private/tmp/ym-oct9-quaternion-cauchy-group2.log
+```
+
+Both serialized launches had successful fresh dynamic-capacity checks; no
+competing compiler, swap, hole, new axiom or resource increase. Root import
+registered, not root/tree audited. Decision: continue the actual completed-
+distance geometric join screened below, not another assumed-distance
+interface; MAIN remains the original source-specific signed warmed estimate.
+Metric completeness/compactness, SU(2)/Haar identification, J04 and every
+physical/Clay endpoint remain OPEN. Canonical chart claims unchanged.
+
+PAPER next-distance screen (2026-10-09): the existing `DistanceData` consumer
+requires convergence of the ORIGINAL scalar squared-chord sequence. The
+direct scalar route is shorter than four separately completed coordinates:
+unit endpoints moving by squared distance <=delta give squared variation
+of their squared chord <=16*delta. At delta=epsilon^2/16 the two supplied
+row moduli therefore give an explicit scalar rate. Construct the raw `CReal`
+with those approximations and retain `InnerRegularity`; no monotonicity of
+the input moduli is supplied or needed. A zero-limit proof can use a later
+Prop-level stage INSIDE its inequality proof while computing `Close.modulus`
+from the scalar rate, without extracting choice into data. This is independently
+screened mathematics only, NOT an implemented distance, selected new leaf,
+compactness or sphere identification. Finish/check the current group join first.
+Short finite proof, independently checked: with e=x-x', f=y-y', take
+A=e*conj(y), B=x'*conj(f). Hamilton norm multiplicativity gives norms
+equal to the endpoint squared chords; their scalar sum is the dot-product
+difference. Unit norms give distance difference -2*(A.r+B.r), and the
+scalar SOS bound (A.r+B.r)^2<=2*(A.r^2+B.r^2) pays 16*delta. This avoids
+a separate four-dimensional Cauchy--Schwarz proof. Private dot/subtraction
+helpers require local finite identities, not a new analytic premise.
+
+PAPER smoothing screen (2026-10-09): the actual
+`H1FixedScale.smoothedEnergy_le_familyNorm` already pays the unconditional
+energy bound, but relative to the INITIAL norm, not the warmed denominator.
+Existing floor consumers already handle a supplied filtered/initial norm
+fraction. A uniform such fraction is only sufficient and can be too strong
+for UV-dominated local sources; do NOT make it a new prerequisite. No new
+conditional wrapper is selected. The source-specific missing quantity is the
+same-center Fejer-weighted aggregate of original moment drops from
+m+k+s/2 to m+k+s+1, relative to the lag-s/2 aggregate. Existing
+`SmoothedCoherentState.smoothedResponse_pin` identifies these moments and
+`ShiftedWindowSurvival.PathShiftedWindowSurvival` consumes their retention.
+Absolute variance floors, Casimir and conservative one-step family floors
+do not supply that relative aggregate estimate. No new producer or theorem
+is claimed by this source screen.
+
+PAPER decisive smoothing test (2026-10-09, independent review): a diagonal
+positive symmetric contraction T=diag(1,1/2), vacuum e0 and centered source
+x=e1 obey the relevant positivity, monotonicity, convexity and log-convexity
+moment laws. At radius s=2, the
+literal average is Y=(1+T+T^2)x/3=(7/12)e1; R_Y(1)=49/288,
+R_Y(3)=49/1152 and 3*E(Y)=49/96<||x||^2. Thus the paid energy bound
+does not produce even theta=1/2 backward-window retention. At fixed lambda
+in (0,1), the exact ratio at any radius s is lambda^(s-s/2+1), independently
+of the averaging amplitude, so no positive uniform fraction follows from
+these abstract laws. This is a PAPER diagnostic, not a BF4 counterexample or
+a new checked Lean result. Prune automatic smoothing-to-retention; keep the
+actual source-specific relative signed estimate. No new prerequisite field.
+
 Consumer reconciliation (2026-10-09, two independent read-only reviews):
 at a common admissible cutoff and d=stage+t, the local Fisher density
 V*g_d*g_(d+1) matches only the window's Z1 weight, up to the established

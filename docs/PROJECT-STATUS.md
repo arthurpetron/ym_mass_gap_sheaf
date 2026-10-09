@@ -6392,8 +6392,23 @@ computed net index and squared chord error `12/N^2` for N>0. `net` (:597),
 Narrow safe check2/18 permitted gates and complete independent final-source
 review PASS; exact hashes/command boundary are in `work_plan.md`. Rational
 points are not asserted compact/complete. Point-completion identification,
-completed group operations, Haar compatibility and J04 remain OPEN; no
-canonical chart state changes or root/tree audit follow.
+completed distance, Haar compatibility and J04 remain OPEN; group operations
+on the point-Cauchy quotient are now checked below. No canonical chart state
+changes or root/tree audit follow.
+
+Checked J04 point-group input (2026-10-09):
+`RepTheory/RationalQuaternionCauchyGroup.completedGroup` (:389) constructs
+the group on the actual explicit-modulus point-Cauchy quotient, from genuine
+Hamilton bi-isometry and conjugation isometry. `rationalEmbedding` (:414)
+and `embed_eq_iff` (:435) give faithful SEMANTIC rational inclusion, with
+both signs distinct (:455). `rowNet_tail_bound` (:505) gives computed
+supplied-row tail coverage at squared chord 48/N^2. Final narrow safe check2,
+33 permitted gates and COMPLETE independent frozen-source review PASS;
+source/log hashes and exact scope are in `work_plan.md`. This is group
+algebra on the quotient, not a completed-distance/completeness theorem,
+compact SU(2) identification, Haar extension, all-groups construction or
+physical gap. J04 and the MAIN signed warmed estimate remain OPEN; no
+exact displayed chart claim changes, so no chart reprint.
 
 Verification context: `audits/AUDIT-FOUR-LINK-SQUARE-YOUNG-2026-09-24.md`,
 `audits/AUDIT-SURVIVAL-QUANTIFIERS-2026-09-24.md`, and the complex-time

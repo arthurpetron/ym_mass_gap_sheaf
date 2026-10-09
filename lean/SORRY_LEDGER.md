@@ -62516,6 +62516,28 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+## 2026-10-09 — Quaternion point-Cauchy group and faithful embedding constructed
+
+`RepTheory/RationalQuaternionCauchyGroup.chordSeminorm` (:310) instantiates
+the actual rational four-coordinate squared chord; `null_iff_semantic`
+(:331) proves its null relation is coordinatewise semantic equality.
+`chord_mul_left/right` (:255/:264) and `chord_inverse` (:273) supply genuine
+Hamilton isometries. `completedGroup` (:389) proves all group laws on the
+explicit-modulus point-Cauchy quotient; `rationalEmbedding` (:414),
+`embed_eq_iff` (:435) and `embedded_signs_distinct` (:455) preserve rational
+geometry and both central signs. `rowNet_tail_bound` (:505) computes the
+stage and covering index from each SUPPLIED row, with literal squared chord
+at most 48/N^2 for positive N. No arbitrary quotient representative is chosen.
+
+Final focused safe check2 PASS, all 33 printed gates within
+{propext, Quot.sound}, COMPLETE independent final-source review PASS.
+Source/log hashes and both capped serial launches are recorded in
+`work_plan.md`, observed point-group result. No sorry introduced/discharged,
+new analytic premise, custom axiom or resource increase. Root import
+registered, NOT root/tree audited. Completed distance, arbitrary
+quotient-sequence completeness, compact SU(2)/Haar identification, J04,
+main interacting retention and physical/Clay closure remain OPEN.
+
 ## 2026-10-09 — Rational unit-sphere effective finite covers constructed
 
 `RepTheory/RationalQuaternionSphereNets.netPoint` (:506), `netIndex` (:510)
