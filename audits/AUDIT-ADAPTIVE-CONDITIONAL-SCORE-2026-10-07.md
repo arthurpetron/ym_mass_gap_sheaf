@@ -10590,3 +10590,83 @@ late-horizon reserve is still missing. Do not replace it by an unproved
 debt sign or by an orbit/log-convexity wrapper consuming the same reserve.
 All physical, continuum, QFT, every-group and Clay endpoints remain OPEN;
 no canonical displayed claim changed and no ASCII chart is reprinted.
+
+## Selected finite test: full-density directional flux versus OWN variance (2026-10-09)
+
+ROOT's new calculation, independently checked before implementation, keeps
+the INITIAL spatial family F and its produced Casimir-12 pin. Write
+G=Gamma(F,F), W=V*g_n*g_(n+1), Z=H(W), and, for any rational alpha,
+A=Gamma(W,F)-alpha*W*G. This DEFINES a residual; no score-alignment premise
+or exponential replacement of the original weight is introduced. Put
+I=H[W*Gamma(F,G)] and R=Z*H[G*A]-H[W*G]*H[A].
+For det_W(f)=Z*H[W*f^2]-H[W*f]^2, the predicted exact identity is
+
+    det_W(12*F-2*alpha*G)
+      = 144*det_W(F)-4*alpha*Z*I-4*alpha*R.
+
+An existing positive weight certificate should therefore PRODUCE
+4*alpha*Z*I+4*alpha*R <= 144*det_W(F), without inverses, a mass floor,
+an alpha sign, or dropping the OWN mean correction. Use the actual six-plane
+angular Gamma, not an unproved paired-frame or covariant-Hessian identification.
+The original instance must build the eigenpin and W certificate from
+`spatialSpan_casimir`, FamilyCasimir:294, and `marginalCertificate`,
+ActualMarginalDual:89; `casimir_pair_gamma`, SecondOrderCancellation:153,
+and `activeGamma_mul_right`, ActiveCasimirProduct:307, supply the IBP.
+
+Proposed consumer (subsequently REJECTED below): source-specific combined
+signed directional-flux payment in the finite spatial-family route.
+No existing time-window budget theorem
+consumes I and R directly; the source/transfer join remains missing. This is
+NOT warmed-source locality, a bound on R alone, a heat-curvature sign, a
+survival theorem or a spacing-uniform estimate. Both terminal-message and
+spatial responses must remain in A. A zero mass/zero family is allowed.
+
+Budget: one small proof leaf including the literal original instance, one
+focused serial check plus local repairs and COMPLETE independent source/log
+review. Fresh dynamic host preflight, one 20-GiB worker/12-GiB OS reserve;
+no tree audit or limit increase. Stop/revise if an additional analytic
+premise, source replacement, unmatched angular normalization or duplicate
+already-produced estimate is needed. Selection remains PAPER until checked.
+
+### Observed decision: PRUNE before Lean implementation
+
+ROOT and two independent readers checked the algebra above on paper. It is
+correct, including arbitrary signed alpha and zero mass; det_W(F) is
+Z^2 times the OWN normalized variance when Z>0, not Z times that variance.
+But the actual backward consumer rejects this selection for TWO reasons:
+
+- `familyChannelCurvature`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyChannelRetainedSquare.lean:133`,
+  uses sum_channel H[b^2*C*Gamma(F,F)], with the ACTUAL `channelSource` b.
+  It is not the marginalWeight insertion W above. No equality of those
+  weights was produced by the inspected declarations.
+- `padded_family_energy_le_retainedChannelVariance`, the same file :357,
+  enters that curvature with a MINUS sign. Even under hypothetical score
+  alignment, the proposed upper bound on alpha*I is the WRONG direction
+  for paying the negative-curvature debt. No bound/sign for R was produced.
+
+No current compensating +I consumer was found in the inspected family
+Taylor, coherent-energy, retained-square and paid-square modules. The
+estimate is covariance Cauchy--Schwarz specialized through the real initial
+Casimir pin, not a new action-response smallness estimate. Implementation
+was halted before any Lean file was created; no check ran, no hole changed,
+and no theorem is advertised as kernel-checked. Preserve the calculation
+as a PAPER diagnostic, not a selected producer or an analytic interface.
+
+The actual next frontend is the COMBINED quantity
+
+    familyChannelErrorBudget
+      - (1/2)*(1-w)^2*(familyChannelCurvature
+                       +48*familyChannelObservableSquare)
+
+from :357--370, compared against the SAME original
+oddMass*oddVariance. Retain the favorable 48-square and actual channel
+weights. A lower-curvature estimate or exact signed cancellation must be
+proved on those objects; the opposite inequality and the other density do
+not meet this consumer. The full time-window/chronological-mass join and
+changing-family physical/scaling conclusions remain OPEN.
+
+Execution change: validate inequality DIRECTION and literal weight equality
+against the backward consumer BEFORE selecting even a small implementation.
+This prunes a route, not a Yang--Mills theory or the Clay target. No canonical
+displayed claim changes; no unchanged chart, full audit or compiler is run.

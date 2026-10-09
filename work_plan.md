@@ -27,6 +27,22 @@ formal statement would not solve the mathematical problem.
 
 ### Latest MAIN selection (2026-10-09 UTC)
 
+New backward-consumer screen: a proposed full-density directional-flux
+bound was independently correct on PAPER but PRUNED before Lean edits.
+It bounded a joint flux/response from ABOVE under the original marginal
+W=V*g_n*g_(n+1). The actual `familyChannelCurvature` uses channelSource b^2,
+and `padded_family_energy_le_retainedChannelVariance` SUBTRACTS it. Payment
+therefore requires a lower-curvature/joint-debt estimate on the actual
+channel weights, not the upper estimate or a different density. Neither
+residual sign nor density equality was proved. Exact source pins and
+calculation: the final selected-test/observed-decision section of
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
+NEXT remains the literal combined error minus
+`(1/2)*(1-w)^2*(familyChannelCurvature+48*familyChannelObservableSquare)`
+against SAME `oddMass*oddVariance`, retaining its favorable square, or
+direct SAME-source macro retention. No new assumption/interface, compiler,
+Lean theorem, warmed locality or canonical chart closure is claimed.
+
 New independently reviewed PAPER source-specific reduction: for the INITIAL,
 unwarmed signed `spatialSpan`, the own plaquette gradient transports to a
 multiple of its own curvature vector at every boundary slot. Therefore its
@@ -22845,7 +22861,10 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
     verification budget, and a condition for abandoning or revising the branch.
     Separate mathematical selection from implementation; assign bounded
     implementation to Sol/Luna when appropriate and independent read-only
-    review to consequential joins. Keep full source inspection: these are
+    review to consequential joins. Before selecting implementation, verify
+    the consumer's inequality direction and literal density/channel weights;
+    a correct bound in the opposite direction or on another weight is not
+    payment. Keep full source inspection: these are
     working roles, not a blind reporting barrier. The implementer must flag
     missing inputs rather than substitute an action, norm or stronger premise.
     While the single capped compiler runs, advance an independent mathematical
