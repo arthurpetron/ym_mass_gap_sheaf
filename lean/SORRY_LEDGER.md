@@ -1,5 +1,23 @@
 # Sorry Ledger
 
+## PROVED exact ORIGINAL signed-family energy / OPEN SAME-variance payment (2026-10-09 UTC)
+
+`signedFamilyRetainedSlack_nonnegative`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedFamilyEnergy.lean:140`,
+produces the actual commutator/Gram certificate slack B>=0 for nonnegative
+nome. `familyChannelTaylorDebt_signed_exact:265` and
+`padded_family_energy_signed_exact:489` retain it as -t*B in the EXACT
+original energy `(h-19*t)*G+C-t*R-O-t*B`. Equality allows every rational nome;
+physical padding, signed/repeated faces, full actual channels, all cutoffs
+and depths remain. The weaker signed upper bound is also checked, not
+required as a stronger analytic prerequisite. Final focused check5 and
+COMPLETE independent final-source/log review PASS; eight gates exactly
+{propext,Quot.sound}, no final warnings/errors. No new hole, axiom, analytic
+premise or canonical-field change. SAME interacting-variance payment,
+warmed/BOTH chronological mass conversion, changing-family scaling,
+continuum survival/physical mass/full QFT/every group and Clay remain OPEN.
+Root registration only; no root/tree audit. Exact evidence: score audit.
+
 ## PROVED exact SAME-channel raw moment debt / OPEN moving-family relative payment (2026-10-09 UTC)
 
 `signedEnergyDebt_eq_rawMoments`,

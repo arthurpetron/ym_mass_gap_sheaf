@@ -16,6 +16,16 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked exact ORIGINAL signed-family energy (2026-10-09 UTC):**
+`Continuum/BF4ExactSlabFixedSpatialSignedFamilyEnergy.padded_family_energy_signed_exact`
+retains the literal commutator/Gram slack (nonnegative for nonnegative nome) in
+`E=(h-19*t)*G+C-t*R-O-t*B`, on SAME projected source and actual channels.
+Signed/repeated physical faces and every cutoff/depth remain. Final focused
+check5 and COMPLETE independent source/log review PASS; eight permitted gates,
+no final warnings/errors. SAME-variance payment, warmed/BOTH-mass transport,
+scaling and Clay remain OPEN; no new analytic premise or hole. Exact evidence:
+adaptive-score audit. Root registration only; no full root/tree check.
+
 **Checked signed-energy join and shift cancellation (2026-10-09 UTC):**
 `Continuum/BF4DyadicWilsonSquareSignedEnergyPayment.normalizedEnergy_signed_cutoff_payment`
 consumes the signed omitted estimate on ORIGINAL energy, proving

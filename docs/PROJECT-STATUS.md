@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Supporting complete SIGNED ORIGINAL family energy checked (2026-10-09 UTC):
+`BF4ExactSlabFixedSpatialSignedFamilyEnergy` proves the exact
+`E=(h-19*t)*G+C-t*R-O-t*B`, retaining the actual certificate
+slack B (nonnegative for nonnegative nome). All physical signed/repeated families,
+cutoffs and depths remain on SAME channels. Final focused check5 and COMPLETE
+independent source/log review PASS; eight permitted gates, no final warnings/
+errors. Complete relative payment, warmed/chronological and scaling joins,
+physical/QFT/every-group and Clay remain OPEN. Exact displayed claims unchanged;
+no chart reprint. Evidence: adaptive-score audit.
+
 Supporting ORIGINAL signed-energy join and exact mean cancellation checked
 (2026-10-09 UTC): normalizedEnergy<=signedEnergyDebt/Z+delta*OWNVariance at
 the existing computed cutoff, every positive depth/permitted perimeter.

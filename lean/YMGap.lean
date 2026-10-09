@@ -5164,6 +5164,7 @@ import YMGap.Continuum.QuaternionHaarExclusiveMixedCasimir
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFullSharedFaceCurvature
 import YMGap.Continuum.QuaternionHaarGammaFiniteSum
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSignedFamilyCurvature
+import YMGap.Continuum.BF4ExactSlabFixedSpatialSignedFamilyEnergy
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyRetainedSquare
 -- Actual terminal first order versus the SAME variance, with joint signed debt.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalSourceBounds

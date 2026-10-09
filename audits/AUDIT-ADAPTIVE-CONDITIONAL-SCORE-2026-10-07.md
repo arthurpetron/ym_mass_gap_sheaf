@@ -11402,3 +11402,103 @@ NOT actual interacting responses. No new mathematical bound is claimed by
 these read-only screens. Full relative payment, warmed/BOTH-mass conversion,
 justified scaling, continuum survival, physical mass/QFT/every-group and
 Clay remain OPEN. Canonical displayed claims unchanged; no chart reprint.
+
+## Selected complete SIGNED spatial-family energy join (2026-10-09)
+
+Previous goal turn: PROGRESS, pushed `6ac887a0`. Backward selection retains
+the actual ALL-face temporally smoothed AF family, with the literal square
+only an optional probe. Selected finite proposition, not a new analytic
+interface: for F=spatialSpan with signed/repeated physical face occurrences,
+the ORIGINAL unfiltered energy is at most
+`(h-19*t)*familyChannelGradient + signedFamilyCubic - t*familyChannelPairRemainder - signedFamilyOmitted`,
+h=1-w, t=h^2/2, on q=Pi_fringe(V*g_depth) and ACTUAL Gram channels.
+
+Inputs: `padded_family_channel_energy_taylor`,
+`sourceRemainder_secondOrder`, `sourceSecondMoment_le_retainedSquare`,
+the produced `spatialSpan_casimir` pin and
+`familyChannel_curvature_remainder`. Their contraction is
+h+t-20t=h-19t, not a sign assertion for any residual. The exact source
+remainder replaces the older absolute `familyChannelErrorBudget`; its
+payment is NOT assumed. This supplies the initial-family signed expression
+needed before SAME-variance/chronological estimation; it does not prove that
+estimate or transport the initial curvature identity to a warmed observable.
+
+Predicted checks: every depth including zero, empty/repeated faces, arbitrary
+signed coefficients, nonnegative nome, correct coefficient and ALL channel
+weights. No positivity of the cubic/O/pair remainder or variance inversion.
+ROOT completes the finite fold if needed; independent readers test genuine
+relative smallness and the available general-family omitted-cap/variance
+inputs. One narrow ROOT compiler, 20GiB worker/12GiB reserve and fresh dynamic
+preflight; no full-tree build/audit, new hole or resource increase. Prune if
+an actual source/physical-padding pin is missing, not merely because the
+required new finite fold has not yet been named in the library.
+
+### Observed exact signed-family result and revised selection (2026-10-09 UTC)
+
+KERNEL-CHECKED, with COMPLETE independent frozen-source/log review PASS:
+`padded_family_energy_signed_exact`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedFamilyEnergy.lean:489`,
+proves EXACT original energy
+
+    E = (h-19*t)*G + C - t*R - O - t*B,  h=1-w, t=h^2/2.
+
+B is the ACTUAL channel sum of
+H[comm(b,F)^2+2*Gamma(b,b)*Gamma(F,F)-48*(bF)^2].
+`signedFamilyRetainedSlack_nonnegative`, same file :140, produces B>=0
+from the existing retainedSquareCertificate for nonnegative nome; it is not
+merely the 48-square credit. Equality itself allows every rational nome.
+`familyChannelTaylorDebt_signed_exact:265` supplies the exact finite fold.
+`padded_family_energy_le_signed:434` also proves the selected weaker upper
+bound, but dropping -t*B makes its payment strictly stronger than estimating
+the original energy. **REVISE: retain -t*B in the MAIN relative estimate.**
+No new analytic interface, channel-source positivity, inverse norm, coefficient
+sign or Casimir pin on a warmed observable is assumed. Physical padding,
+arbitrary signed/repeated face occurrences, every cutoff and depth including
+zero remain. The nome-sign condition is for channel positivity, not a
+beta-uniform physical gap.
+
+Source: 560 lines, SHA-256
+`957323be3a97ec9f25d5839e2870ca52ddc3c4d250aba6f07a2041cbfe025649`.
+Accepted final check5 log SHA-256
+`71913afa3ed3673c9fdf2c17f9165b7fb77ddd075b34e1b1cd0132e4d5e1af10`.
+All EIGHT printed gates exactly {propext,Quot.sound}; no final warnings/errors.
+ROOT read the complete final source/log and the independent reviewer matched
+both hashes. Check1's namespace/reduction errors and check3's implicit-fold
+timeout are superseded, not accepted evidence. Check2 passed the weaker bound;
+check4 passed the exact identity with one unused-binder warning; check5 removes
+that binder only. No statement was weakened or mathematical premise added.
+
+```sh
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedFamilyEnergy.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedFamilyEnergy.olean --log-file /private/tmp/ym-oct9-signed-family-energy5.log
+```
+
+Fresh dynamic capacity checks preceded EACH of five serial narrow launches:
+86 percent system memory free, zero swap, no competing compiler/runner.
+One 20GiB worker/12GiB OS reserve; no limit increase or full root/tree audit.
+The root import is registration only. Three user-owned duplicate files remain
+untouched. No new sorry, axiom, classical input or canonical field change.
+
+Parallel input screen: general signed-family caps can be constructed from
+`plaquetteSquareBound`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteDefect.lean:55`,
+and `sumSquareBound`,
+`lean/YMGap/Continuum/QuaternionHaarFiniteSquareBudget.lean:71`.
+`family_variance_bare_floor`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilySourceVarianceBound.lean:215`,
+and `rawSourceMass_le_capSquare`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRawSourceMassBound.lean:113`,
+retain the SAME predecessor-mass square. These inputs are not an already
+constructed all-face cutoff-to-OWN-variance payment: a produced bare-family
+positive norm and the actual signed-channel join are still needed. The
+Wilson cap16/starRatio must not be substituted. Empty/all-zero families cannot
+have an unconditional positive floor.
+
+The requested paper's cancellation/full-output method motivates this selection;
+OUR finite algebra, not its fermion gap or anomaly-cancellation theorem,
+discharges the displayed identity. Targeted parallel source reconciliation
+found no missing Yang--Mills analytic producer in the reviewed passages.
+NEXT: bound the COMPLETE initial expression against SAME interacting variance,
+or produce direct original macro retention, then justify warmed/BOTH-mass and
+moving-family/scaling joins. Those estimates, continuum survival, physical mass,
+full QFT/every-group and Clay remain OPEN. Exact canonical displayed claims
+unchanged; no ASCII reprint.

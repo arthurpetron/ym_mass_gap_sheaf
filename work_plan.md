@@ -112,9 +112,28 @@ five gates exactly {propext,Quot.sound}, no final warnings/errors. The raw debt
 is explicitly UNPAID; no analytic input or canonical claim is closed.
 Exact source/log hashes and accepted command: adaptive-score audit.
 
+CHECKED complete SIGNED ORIGINAL spatial-family energy (2026-10-09 UTC):
+`BF4ExactSlabFixedSpatialSignedFamilyEnergy.padded_family_energy_signed_exact`
+proves `E=(h-19*t)*G+C-t*R-O-t*B`, h=1-w, t=h^2/2, on the ACTUAL
+projected terminal source and passive Gram channels. B is the literal
+commutator/Gram certificate slack, NOT just the 48-square credit;
+`signedFamilyRetainedSlack_nonnegative` constructs B>=0 for nonnegative nome.
+The equality keeps signed/repeated physical faces, every cutoff and depth
+including zero; no norm inverse, source sign or new analytic premise.
+Final focused check5 and COMPLETE independent final-source/log review PASS;
+eight gates exactly {propext,Quot.sound}, no final warnings/errors.
+This is an initial-family identity, not a warmed or relative estimate.
+Root registration only; no root/tree audit. Exact evidence: score audit.
+
 NEXT mathematical producer is a useful COMPLETE signed cost versus the SAME
 interacting variance on a justified moving family, or direct original macro
-retention. For the optional Wilson square, the newly checked debt is exactly
+retention. For the MAIN signed spatial family, target the exact expression
+`(h-19*t)*familyChannelGradient+signedFamilyCubic-t*familyChannelPairRemainder-signedFamilyOmitted-t*signedFamilyRetainedSlack`
+against SAME `oddMass*oddVariance`. Keep the last negative term: dropping it
+requires a strictly stronger payment than estimating the actual energy.
+The weaker checked signed upper bound and older absolute error consumer
+remain available, but neither is a necessary extra analytic prerequisite.
+For the optional Wilson square, the newly checked debt is exactly
 `(h+t)*P*(4*M-F) + t*P^2*(5*F-8*M) + sum(actualSignedCubic)`.
 The actual source remains Pi_fringe(V*g_depth); bare M/F are not OWN
 variance. Do not absolutize cubic or assume the whole joined correction is
@@ -123,11 +142,11 @@ even for a positive low-degree source. That screen is PAPER, not an actual
 BF4 terminal-source counterexample. A first-Casimir norm ceiling on the
 joined scalar remainder does not give its missing channel/OWN-variance
 comparison. Do not pretend the old absolute-leaf error budget has been
-bounded. For general signed spatialSpan the existing
-`familyChannelErrorBudget-t*(20*familyChannelGradient+familyChannelPairRemainder)`
-consumer remains OPEN; its own produced cap and variance comparison are
-required, not the Wilson constant. Keep favorable gradient and signed cross
-credits. Do not substitute the different joint marginal W=V*g_n*g_(n+1),
+bounded. A general family's omitted payment needs its OWN produced cap and
+bare-norm/variance comparison, not Wilson cap16/starRatio. Existing finite
+sum caps and the actual `family_variance_bare_floor` are inputs, not an
+already joined all-face cutoff payment. Keep favorable gradient and signed
+cross credits. Do not substitute the different joint marginal W=V*g_n*g_(n+1),
 absolutize all pair terms, or apply the initial curvature identity to a warmed
 source without a producer. Chronological mass conversion, changing-family/
 scaling control, physical/QFT/every-group and Clay remain OPEN. No new analytic
@@ -183,11 +202,10 @@ channel weights, not the upper estimate or a different density. Neither
 residual sign nor density equality was proved. Exact source pins and
 calculation: the final selected-test/observed-decision section of
 `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
-The rejected upper-bound candidate supplies no payment. NEXT remains the
-literal combined error minus
-`(1/2)*(1-w)^2*(familyChannelCurvature+48*familyChannelObservableSquare)`
-against SAME `oddMass*oddVariance`, now with the checked exact signed-family
-channel assembly above, or direct SAME-source macro retention. The pruned
+The rejected upper-bound candidate supplies no payment. NEXT uses the
+complete SIGNED exact energy above, including its negative certificate slack,
+against SAME `oddMass*oddVariance`, or direct SAME-source macro retention.
+The earlier absolute error consumer is a weaker optional bound. The pruned
 candidate introduced no assumption/interface or Lean theorem. Warmed
 locality and canonical chart claims remain unchanged.
 

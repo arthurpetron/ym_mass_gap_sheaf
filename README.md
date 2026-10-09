@@ -10,14 +10,16 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**New signed-family curvature identity:** for the original spatial face family,
-Lean now proves `C Gamma(F,F)+48 F^2 = 20 Gamma(F,F)+R(F)` with signed
-coefficients and repeated faces retained. Its exact join uses the actual
-projected terminal source and spectator Gram channels of the variance estimate.
-Only the assembled gradient term is nonnegative; the explicit signed remainder
-still needs payment against the SAME interacting variance. Two focused checks
-and independent complete source/log reviews passed the constructive axiom gate.
-No scaling or physical mass gap follows. See the
+**New exact original-family energy identity:** Lean now proves
+`E=(h-19*t)*G+C-t*R-O-t*B`, where `h=1-w`, `t=h^2/2` and B is a
+produced nonnegative commutator/Gram slack for nonnegative nome. It retains
+signed coefficients, repeated physical faces, the actual projected terminal
+source and all passive channels, at every cutoff and depth including zero.
+The proof uses the checked `C Gamma(F,F)+48 F^2=20 Gamma(F,F)+R(F)`
+identity without absolutizing its signed remainder. A focused kernel check
+and independent complete source/log review passed the constructive axiom gate.
+The full expression still needs payment against the SAME interacting variance;
+no scaling or physical mass gap follows. See the
 [proof and next estimate](audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md).
 
 **Earlier finite inputs:** the original plaquette's four physical-slot derivatives
