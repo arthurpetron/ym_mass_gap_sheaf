@@ -10914,3 +10914,125 @@ and repeated geometric faces. The family identity remains PAPER; actual
 weighted lower control/joint debt, OWN warmed variance, BOTH chronological
 masses, justified scaling, physical/QFT/every-group and Clay remain OPEN.
 No new analytic wrapper or canonical chart claim is selected or closed.
+
+## Selected ordered ORIGINAL signed-family curvature assembly (2026-10-09)
+
+Previous goal turn: PROGRESS, checked and pushed `82b2cde0`. The next
+structural target is on the SAME original full slice, not a new action:
+
+    C Gamma(F,F)+48 F^2 = 20 Gamma(F,F)+R(F),
+    F = spatialSpan width c qs.
+
+R is a sum over ORDERED occurrence pairs in qs x qs. Each pair retains
+c(p)*c(q), including repeated geometric faces and arbitrary signs. Its
+geometric remainder is -192*1 for equal faces, 42*fp*fq for distinct faces
+sharing a link, and 48*fp*fq for disjoint faces. The actual Boolean overlap
+test uses the finite boundary edges; no hidden classical case split or
+assumed partition is selected. Available forward inputs: the checked full
+shared-face law, `PlaquetteCurvature.plaquette_gamma` and
+`plaquette_gamma_casimir`, and `DisjointFaceEnergy.blockGamma_zero` (:104).
+Coefficient-level bilinear/ordered folds must be produced before lifting
+them through Haar-carrier equality; repeated occurrences are not deduplicated.
+
+Actual consumer: `familyChannelCurvature` plus
+48*`familyChannelObservableSquare`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyChannelRetainedSquare.lean:133/:145`,
+SUBTRACTED by `padded_family_energy_le_retainedChannelVariance` (:357).
+Preserve each actual channelSource b_z and nonnegative channel weight. The
+predicted exact channel join separates the positive 20*Gamma moment from
+the SIGNED remainder; only the former may be discarded to give a lower
+bound. R still needs action-dependent payment relative to OWN variance
+and BOTH chronological masses. The unit-field F=fp-fq test gives -720 on
+PAPER, so neither pointwise nor weighted sign is assumed.
+
+Budget: one generic finite-fold leaf and one original classified-pair/family
+consumer leaf; bounded parallel implementation and read-only math/source
+reviews, all checks ROOT-only and serial20GiB/12GiBreserve after fresh live
+preflights. No new hypothesis/interface, sorry, axioms, resource increase,
+tree audit, metric or routine paper scan. Revise if coefficient congruence,
+actual channel identity or constructive finite classification cannot be
+produced within this scope; do not replace them by premises. This selection
+is PAPER until accepted final checks/reviews are recorded. Weighted payment,
+justified scaling, physical/QFT/every-group and Clay remain OPEN.
+
+### Observed ordered-family decision and accepted evidence (2026-10-09)
+
+**PROGRESS, not scaling closure.** The selected ORIGINAL ordered-family
+identity and actual channel join are now kernel-checked. The generic
+`lean/YMGap/Continuum/QuaternionHaarGammaFiniteSum.lean` expands bilinear Gamma
+(:162, `activeGamma_finitePolySum_pair`), the SAME product fold (:186,
+`finitePolySum_mul_pair`) and original Casimir (:204,
+`activeCasimir_finitePolySum`). Every signed rational scale and repeated list
+occurrence is retained. No support/degree/analytic premise is required for
+these coefficient identities; coefficient equivalences are lifted before
+transport by the Haar-carrier Casimir producer.
+
+Physical producers/consumers, all in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedFamilyCurvature.lean`:
+
+| line | declaration | checked scope |
+| --- | --- | --- |
+| 76 | `pairRemainder` | Actual geometric equal/shared/disjoint classifier; -192, 42*fp*fq, 48*fp*fq. |
+| 152 | `pair_curvature_remainder` | Original full pair identity under every Haar insertion; physical membership guards. |
+| 198 | `familyPairRemainder` | Ordered occurrence pairs with signed c(p)*c(q); repeats not deduplicated. |
+| 266 | `family_curvature_remainder` | `C Gamma(F,F)+48 F^2 = 20 Gamma(F,F)+R(F)` on original spatialSpan. |
+| 300 | `familyChannelGradient` | Actual b_z squared insertions and original product channels. |
+| 310 | `familyChannelPairRemainder` | SAME actual projected terminal source, spectator blocks and channel weights. |
+| 332 | `familyChannel_curvature_remainder` | Exact `curvature+48*square = 20*gradient+channelR`; no sign/nome bound for equality. |
+| 384 | `familyChannelGradient_nonnegative` | Produced supported square certificate for assembled Gamma; nonnegative Gram weights for 0<=w. |
+| 408 | `familyChannelPairRemainder_le_curvature_square` | Correct LOWER direction for the quantity subtracted by the actual retained-square consumer. |
+
+The classifier's false-disjoint branch extracts a finite common-link witness
+constructively; its existential is only used to prove a proposition, not erase
+a required computational output. Equality means geometric face equality, not
+list-position equality. Mixed pair Gamma terms are not individually positive.
+Only after assembly may the 20*Gamma(F,F) credit be discarded. Neither R nor
+its actual weighted moment receives a sign or OWN-variance bound.
+
+Accepted checks, ROOT-only/serial, each exit 0 during its initial call:
+
+```sh
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionHaarGammaFiniteSum.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionHaarGammaFiniteSum.olean --log-file /private/tmp/ym-oct9-gamma-finite-sum2.log
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedFamilyCurvature.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedFamilyCurvature.olean --log-file /private/tmp/ym-oct9-signed-family-curvature2.log
+```
+
+Generic final source SHA256:
+`9b98758d6ff1c5da6c092c86db6eb24fa607064ce876d5e3ff08fb8421c095c2`.
+Accepted generic log SHA256:
+`8d386d3a012c98c1d64a0b141d093673a39752dcd52a0b131eb63237f2441a0a`.
+Physical final source SHA256:
+`24b420eb2757ca8c020b895a0f8b22e08a3b0dbd3f0c2492705d472dc111614a`.
+Accepted physical log SHA256:
+`914c4889ccd3188e27db67fa3c05a2e5b82c98225f8dca2a00eed0b873b29227`.
+
+Generic check1 failed on missing opened derivative/neg namespaces; physical
+check1 failed on namespace resolution, a Haar parameter name and missing
+support namespace. Their elaboration placeholders/`sorryAx` are NOT accepted
+evidence. No theorem, hypothesis, equation or resource limit was weakened to
+repair them. Final generic check2 has 12 gates within {propext,Quot.sound};
+physical check2 has nine gates exactly that pair. No final warnings/errors.
+Complete independent generic final-source/log review PASS; two complete
+independent physical final-source/log/math reviews PASS, exact hashes verified.
+Fresh live preflights before every launch: 85--86% pressure-free capacity,
+zero swap, no competing compiler/test or Runner job found. The first sandboxed
+process inspection was denied; approved read-only inspection succeeded before
+compilation. No long job/polling, pressure event or foreign process mutation.
+Root imports are registration ONLY, not root integration checking. No tree
+audit/metric, new hole, axiom, analytic interface, CI/resource or chart change.
+
+**NEXT quantitative producer, still OPEN:** at the actual positive-depth
+terminal channels, estimate the whole
+
+    errorBudget - t*(20*gradient+channelR),   t=(1/2)*(1-w)^2,
+
+against the SAME `oddMass*oddVariance` of
+`padded_family_energy_le_retainedChannelVariance`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyChannelRetainedSquare.lean:357`).
+Retain favorable gradient/square and signed cross credits until combined with
+the actual cubic/omitted errors. Do not replace this weight by W=V*g_n*g_(n+1)
+or claim the ordered cross moments are already OWN covariances. The lower
+bound alone pays nothing relative to that variance; full temporal/BOTH-mass
+conversion and warming require their own actual-source producers. A useful
+changing-family/scaling estimate, nontrivial continuum survival, finite positive
+physical mass, full SAME-theory QFT, every group and Clay remain OPEN. No
+canonical displayed claim closed, so no unchanged ASCII chart was reprinted.

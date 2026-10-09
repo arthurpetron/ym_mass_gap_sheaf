@@ -4,6 +4,27 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## ORIGINAL signed-family curvature on the actual channels (2026-10-09 UTC)
+
+`QuaternionHaarGammaFiniteSum` produces coefficient-level bilinear Gamma,
+product and Casimir ordered folds. `SignedFamilyCurvature` classifies actual
+equal/shared/disjoint pairs and proves
+`C Gamma(F,F)+48 F^2 = 20 Gamma(F,F)+R(F)` under every Haar insertion.
+Ordered repeated occurrences and every signed c(p)*c(q) remain explicit.
+`familyChannel_curvature_remainder` inserts the identity into the SAME
+projected terminal source/spectator Gram channels used by the retained-square
+variance estimate. Assembled-gradient positivity produces the correctly
+directed `channelR <= curvature+48*square`, not a sign for channelR or mixed
+terms. Final generic check2/physical check2 and complete independent final
+source/log reviews PASS; 21 gates within {propext,Quot.sound}, no final
+warnings/errors. Both initial failed elaborations are superseded, not proof
+evidence; no source sorry was added. NEXT: the complete signed channel error
+minus t*(20*gradient+channelR), relative to SAME oddMass*oddVariance, preserving
+credits and errors. Warmed/chronological conversion, justified scaling,
+physical/QFT/every-group and Clay remain OPEN. No new hypothesis/interface,
+broad audit/metric, resource increase, CI or canonical chart change.
+Exact commands, hashes, declaration pins and scope: adaptive-score audit.
+
 ## ORIGINAL full shared-face pair Casimir (2026-10-09 UTC)
 
 `QuaternionHaarExclusiveMixedCasimir` produces distinct-slot raw degree

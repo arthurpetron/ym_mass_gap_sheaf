@@ -52,15 +52,35 @@ one unused-pattern warning;
 earlier elaboration errors are not accepted evidence. Root registration
 only, no tree audit, new hole or resource increase. Exact hashes: score audit.
 
-NEXT bounded mathematical join: expand `spatialSpan` into ORDERED occurrence
-pairs, retaining arbitrary signed coefficients and repeated geometric faces.
-Use the existing equal-face and disjoint branches plus the checked shared-face
-law; first produce coefficient-level bilinear fold identities, not a guessed
-raw equality from Haar-carrier equality. Preserve actual `channelSource`
-squared insertions in the curvature-plus-48-square consumer. The remaining
-cross moments are not automatically OWN marginal covariances. Favorable
-weighted payment and its chronological/physical/scaling join remain OPEN;
-no new analytic interface or canonical chart closure is claimed.
+CHECKED ordered ORIGINAL signed-family assembly and actual channel join:
+`QuaternionHaarGammaFiniteSum` expands the literal Gamma, product and Casimir
+folds at coefficient level. `SignedFamilyCurvature.family_curvature_remainder`
+then proves `C Gamma(F,F)+48 F^2 = 20 Gamma(F,F)+R(F)` under every Haar
+insertion, for `F=spatialSpan width c qs` and physical face occurrences.
+R retains ORDERED occurrence pairs and signed c(p)*c(q), with geometric
+equal/shared/disjoint remainders -192, 42*fp*fq and 48*fp*fq. Repeats are
+not deduplicated. `familyChannel_curvature_remainder` uses the SAME actual
+projected terminal source and spectator Gram insertions to give
+`curvature+48*square = 20*gradient+channelR`. The assembled gradient is
+nonnegative for 0<=w; `familyChannelPairRemainder_le_curvature_square`
+therefore gives the LOWER direction required by the retained-square consumer.
+Neither mixed Gamma terms nor channelR are asserted nonnegative. Both final
+narrow checks and complete independent final-source/log reviews PASS;
+21 gates within {propext,Quot.sound}, no final warnings/errors. No new
+hypothesis, sorry, broad audit or resource increase. Exact evidence: score audit.
+
+NEXT mathematical producer: control the complete actual signed quantity
+`familyChannelErrorBudget - t*(20*familyChannelGradient+familyChannelPairRemainder)`,
+where `t=(1/2)*(1-w)^2`, relative to the SAME `oddMass*oddVariance` in
+`padded_family_energy_le_retainedChannelVariance`. Keep the favorable gradient
+credit with the signed cross moments and both cubic/omitted errors. The
+checked lower bound permits discarding that credit only for a justified
+estimate; it does not supply the missing variance payment. Do not substitute
+the different joint marginal W=V*g_n*g_(n+1), absolutize all pair terms, or
+apply this initial spatialSpan curvature identity to a warmed source without
+a producer. Chronological mass conversion, useful changing-family/scaling
+control, physical/QFT/every-group and Clay remain OPEN. No new analytic
+interface or canonical chart closure is selected.
 
 New backward-consumer screen: a proposed full-density directional-flux
 bound was independently correct on PAPER but PRUNED before Lean edits.
@@ -72,11 +92,13 @@ channel weights, not the upper estimate or a different density. Neither
 residual sign nor density equality was proved. Exact source pins and
 calculation: the final selected-test/observed-decision section of
 `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`.
-NEXT remains the literal combined error minus
+The rejected upper-bound candidate supplies no payment. NEXT remains the
+literal combined error minus
 `(1/2)*(1-w)^2*(familyChannelCurvature+48*familyChannelObservableSquare)`
-against SAME `oddMass*oddVariance`, retaining its favorable square, or
-direct SAME-source macro retention. No new assumption/interface, compiler,
-Lean theorem, warmed locality or canonical chart closure is claimed.
+against SAME `oddMass*oddVariance`, now with the checked exact signed-family
+channel assembly above, or direct SAME-source macro retention. The pruned
+candidate introduced no assumption/interface or Lean theorem. Warmed
+locality and canonical chart claims remain unchanged.
 
 New independently reviewed PAPER source-specific reduction: for the INITIAL,
 unwarmed signed `spatialSpan`, the own plaquette gradient transports to a

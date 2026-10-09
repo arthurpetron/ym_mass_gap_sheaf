@@ -5157,11 +5157,13 @@ import YMGap.Continuum.QuaternionHaarPolynomialGramDeterminant
 import YMGap.Continuum.SU2QuaternionSecondOrderRetainedSquare
 import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteCurvature
 -- Local original shared-face curvature and unique-link Gamma localization.
--- Full original pair Casimir; signed-family assembly and weighted payment remain open.
+-- Full original pair Casimir and ordered signed-family/channel assembly; payment remains open.
 import YMGap.Continuum.QuaternionHaarMixedLinearCasimir
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSharedFaceCurvature
 import YMGap.Continuum.QuaternionHaarExclusiveMixedCasimir
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFullSharedFaceCurvature
+import YMGap.Continuum.QuaternionHaarGammaFiniteSum
+import YMGap.Continuum.BF4ExactSlabFixedSpatialSignedFamilyCurvature
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyRetainedSquare
 -- Actual terminal first order versus the SAME variance, with joint signed debt.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalSourceBounds
