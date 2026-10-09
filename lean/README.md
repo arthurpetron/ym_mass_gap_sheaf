@@ -16,6 +16,17 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked fixed-element polynomial Haar invariance (2026-10-09 UTC):**
+`Continuum/SU2QuaternionFixedRationalHaarTranslation.fixedTranslatedPolynomial_haar`
+preserves the ORIGINAL one-link Haar moment at every polynomial degree for
+any supplied rational unit quaternion, in both multiplication orders.
+Evaluation is pinned to actual `g*x` / `x*g`; support, both central signs,
+the equator and a nonunit failure are checked. The existing single-link
+interface now exports the general result. Both final narrow checks and
+independent full source/log reviews PASS; all 13 printed gates are permitted.
+This is not Haar on arbitrary completed group functions or a physical gap.
+J04, MAIN interacting retention and Clay remain OPEN; no root/tree audit.
+
 **Checked represented matrix inverse (2026-10-09 UTC):**
 `RepTheory/RationalQuaternionRepresentedMatrixInverse.preimage` constructs
 the SAME Point from a SUPPLIED CReal-complex matrix with explicit first-row

@@ -741,6 +741,109 @@ establish Haar on all functions or compactness; no analytic branch/field is
 weakened. MAIN complete signed warmed payment/direct two-mass macro retention
 remains the separate OPEN priority, not a consequence of group geometry.
 
+SELECTED fixed-rational all-degree Haar join (2026-10-09 UTC):
+use the existing COEFFICIENT-level translated head moment, the tail-evaluation
+homomorphism and the supplied rational UnitNorm equation. Output is actual
+left/right invariance of quaternionHaar 1 for EVERY supported one-block
+polynomial, with an evaluation pin to the original Hamilton action g*x/x*g.
+The multiplier is FIXED, not averaged over a second Haar block. No such
+assembled theorem was found. Consumer is quaternionPolyLinkHaar and the
+existing SU2PolyLinkHaarInvariance module; wire the new general producer there
+without deleting its old finite tests or adding an assumed Haar field.
+Predict an unconditional algebraic proof: specialize the retained radius
+power to one, commute specialization with head Haar and sum source terms.
+Test both central signs/equator and retain a nonunit sanity failure. Sol
+implements one bounded leaf; an independent reviewer screens/reviews all
+source and final log. ROOT fully inspects and checks serially at one worker,
+20 GiB/12 GiB reserve, with fresh capacity before EVERY launch. No new axiom,
+sorry, classical choice, hidden analytic premise or resource/heartbeat increase.
+Revise on a missing evaluation/support premise; do not silently freeze an
+interacting physical link or replace its action. Polynomial Haar invariance
+does not give a compact-group measure on all functions or a transfer gap.
+In parallel, the MAIN reviewer tests Fejer summation/cancellation for the
+actual OWN-centered changing-family moments and the warmed lag denominator,
+not the already-refuted smoothing-alone implication. J04 and Clay stay OPEN.
+
+OBSERVED fixed-rational all-degree Haar join (2026-10-09 20:01 UTC):
+`lean/YMGap/Continuum/SU2QuaternionFixedRationalHaarTranslation.lean:194`
+(`fixedTranslatedPolynomial_haar`) proves invariance of the ORIGINAL
+quaternionHaar 1 for every supported one-block polynomial and every supplied
+rational UnitNorm, in both Hamilton orders. The multiplier is fixed, not
+integrated. Output support (:89), actual action evaluation (:370), both
+central signs (:380), equator (:388) and scalar-two failure (:395) are checked.
+The existing consumer `SU2PolyLinkHaarInvariance` now exports actual single-link
+left/right invariance (:53/:62); all old two-block and finite tests remain.
+Producer SHA-256:
+b41ad2816351b9e28a49514f33c84e44bc87431546b06e07bbba58fe910b2a9f.
+Consumer SHA-256:
+9846f54ed4016758f908e8fb1416194af81c6c5f0e24b5d896985956bac1146e.
+Producer final narrow check2 and consumer check1 PASS; all six/seven printed
+gates lie in {propext, Quot.sound}, no diagnostics. COMPLETE independent full
+final-source/log reviews PASS. Final producer/consumer logs respectively:
+`/private/tmp/ym-oct9-fixed-rational-haar2.log`, SHA-256
+7b9808259382e7169057801dabbf89e952fabe3e2d8dd488154e4c4eec376254;
+`/private/tmp/ym-oct9-fixed-rational-haar-consumer1.log`, SHA-256
+d14f4284a7fc285f638c6ad269adef8b6612023a29a608917eefe0cfcf2770db.
+Exact final commands from repository root:
+
+```sh
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 \
+  --check lean/YMGap/Continuum/SU2QuaternionFixedRationalHaarTranslation.lean \
+  --check-output lean/.lake/build/lib/lean/YMGap/Continuum/SU2QuaternionFixedRationalHaarTranslation.olean \
+  --log-file /private/tmp/ym-oct9-fixed-rational-haar2.log
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 \
+  --check lean/YMGap/Continuum/SU2PolyLinkHaarInvariance.lean \
+  --check-output lean/.lake/build/lib/lean/YMGap/Continuum/SU2PolyLinkHaarInvariance.olean \
+  --log-file /private/tmp/ym-oct9-fixed-rational-haar-consumer1.log
+```
+
+Every launch had fresh capacity checks, no competing compiler and zero swap.
+Check1 found weighted-sum definitional bridges, two unavailable lemma names
+and an elaboration-heavy radius expression. Explicit list inductions and
+four typed square intermediates repair them WITHOUT raising limits. No sorry,
+axiom, analytic premise or classical choice was added. Root import registered,
+NOT root/tree audited. This supplies a polynomial Haar producer, not Haar on
+all completed Point-functions, compactness, an interacting gap or Clay closure.
+J04 and MAIN remain OPEN; exact displayed chart claims are unchanged.
+
+NEXT-consumer screen, independent read-only source review (2026-10-09):
+no existing Haar-on-`RationalQuaternionCauchyGroup.Point` consumer was found.
+`HaarClassIntegral.AngleCosineIntegral` (:111) is a different conditional
+class-angle primitive. The actual consumers remain `quaternionPolyLinkHaar`
+(`SU2PolyLinkHaar.lean:69`) and `torusPolyPartition`
+(`SU2TorusMultiLinkPolyGibbs.lean:133`). A future finite Point-multiplier
+identity may evaluate the retained coefficient-level radius identity in RC
+at actual `pointCoordinate` (:426), using `rowCoordinate_norm` (:413) and
+the SAME matrix multiplication pin (:107); that finite algebraic extension
+is NOT yet proved. No Point-continuous-function carrier, certified uniform
+polynomial approximation or sup-norm bounded Haar extension was located.
+Do not add an assumed-Haar interface or ordinary-GNS completion wrapper.
+Return MAIN attention to actual changing-family signed payment/direct macro
+retention; the endpoint-band screen below is paper math, not a new bound.
+
+PAPER MAIN endpoint-band screen (2026-10-09): ROOT and an independent
+read-only reviewer inspected the ACTUAL `smoothedResponse_pin`
+(`BF4WilsonAllNomeSmoothedCoherentState.lean:341`), one-step
+`boxSum_shift_telescope` (`BF4WilsonAllNomeH1FixedScale.lean:261`) and
+`PathShiftedWindowSurvival` (`BF4WilsonAllNomeShiftedWindowSurvival.lean:448`).
+For the AF all-face trajectory, s=2^j, smoothing radius s, L=s/2 and
+d=s/2+1, write r_n for its SAME OWN-centered original family moment. Cancelling
+overlapping m-indices in the two boxes gives, on paper,
+
+  R_s(L)-R_s(s+1) = (s+1)^(-2) sum_{k=0}^s sum_{a=0}^{d-1}
+                     (r_{L+k+a}-r_{L+s+1+k+a}).
+
+This retains every cross term and the ORIGINAL familyState center; it is
+not a stationary-heat substitution. Interior cancellation alone gives no
+retention: the early band may carry nearly all of R_s(L), and monotonicity
+does not yield early <= d/(s+1)*R_s(L). A useful SAME-source early/late
+overlap comparison on the changing width s^2+1/nome family is still unpaid.
+`response_shifted_block_geometric_lower` (`BF4WilsonAllNomeBlockResponseLower.lean:129`)
+already consumes a supplied ratio; it does not produce one. No new theorem,
+wrapper, norm-fraction hypothesis or implementation branch is selected from
+this identity alone. Continue the original relative signed payment/direct
+macro-retention priority; this read-only selection screen closes no node.
+
 PAPER smoothing screen (2026-10-09): the actual
 `H1FixedScale.smoothedEnergy_le_familyNorm` already pays the unconditional
 energy bound, but relative to the INITIAL norm, not the warmed denominator.

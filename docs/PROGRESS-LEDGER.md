@@ -4,6 +4,21 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Fixed rational multiplier preserves every one-link polynomial Haar moment (2026-10-09 UTC)
+
+`SU2QuaternionFixedRationalHaarTranslation.fixedTranslatedPolynomial_haar`
+specializes the retained coefficient-level radius identity at any supplied
+rational UnitNorm. Both multiplication orders and EVERY supported polynomial
+degree are covered; `fixedTranslatedPolynomial_eval` separately pins the
+actual Hamilton action. The existing single-link functional consumes the
+general producer in `SU2PolyLinkHaarInvariance`; older finite tests remain.
+Final narrow producer check2/consumer check1, 13 permitted printed gates and
+COMPLETE independent full source/log reviews PASS. No new assumption or hole,
+no broad audit/metric. This removes the fixed-element finite polynomial seam,
+not compact-Point integration, every-group J04, MAIN signed retention or Clay.
+Exact commands/hashes and the parallel MAIN endpoint-band screen are in
+`work_plan.md`. Canonical displayed claims unchanged; no chart reprint.
+
 ## SAME-slice Gauss symmetry of the ORIGINAL transfer (2026-10-08 UTC)
 
 Actual injective-coordinate derivatives and supported Haar reflection join

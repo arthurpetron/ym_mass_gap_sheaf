@@ -6480,6 +6480,20 @@ RC entries, establish compactness/Haar, or close every-group J04 or MAIN
 interacting retention. Clay remains OPEN; the displayed chart's proof states
 are unchanged, and no root/tree audit is implied.
 
+Checked J04 fixed-element polynomial Haar input (2026-10-09):
+`lean/YMGap/Continuum/SU2QuaternionFixedRationalHaarTranslation.lean:194`
+(`fixedTranslatedPolynomial_haar`) gives ORIGINAL one-block polynomial Haar
+invariance at every degree for every supplied rational unit multiplier,
+in both Hamilton orders. Actual evaluation (:370), output support (:89),
+central signs (:380), equator (:388) and nonunit-two failure (:395) are checked.
+`SU2PolyLinkHaarInvariance.polyLinkHaar_left_fixed_invariant` (:53) and the
+right export (:62) instantiate the EXISTING single-link functional without
+an assumed field. Final narrow producer check2/consumer check1 and COMPLETE
+independent full final-source/log reviews PASS; all six/seven gates permitted.
+Exact hashes/commands are in `work_plan.md`. This is not Haar on arbitrary
+completed Point-functions, compactness, every-group J04 or MAIN retention.
+Clay remains OPEN; exact displayed chart claims unchanged, no root/tree audit.
+
 Verification context: `audits/AUDIT-FOUR-LINK-SQUARE-YOUNG-2026-09-24.md`,
 `audits/AUDIT-SURVIVAL-QUANTIFIERS-2026-09-24.md`, and the complex-time
 checkpoint in `work_plan.md`. These record targeted checks, not a fresh
