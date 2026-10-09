@@ -4,6 +4,81 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## MAIN mixed-test reconciliation (2026-10-09 20:10 UTC)
+
+Read-only mathematical selection after `42a2b2e7`, not a new Lean proof or
+kernel replay. ROOT inspected the cited source, with three independent bounded
+screens. No new analytic field, source, action or normalizer was introduced.
+
+The Fisher--Ward loop result does NOT silently extend to the actual AF
+all-face source. `family_coherent_row`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyCoherentTail.lean:383`,
+retains A_l=4*normSquared(aggregateCoherentTail_l), with the square of the
+INCIDENT span, not the full family. `doubleIBPSource_amplitude_pin`,
+`lean/YMGap/Continuum/QuaternionHaarPairedLinearDoubleIBP.lean:396`, has
+ordered source 12*A_l-16*Gamma_l; it does not replace A_l by 4.
+The latest loop `paddedSquare_original_own_variance_fisher_ward`,
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareFisherWard.lean:205`, therefore
+does not supply the same `48Z` correction for a coherent family.
+
+A PAPER geometry diagnostic: for base>=2 take the spatial x0 link at
+v=(0,1,1,0), with every other link equal to 1. Its four incident spatial
+faces are p01 at v,v-e1 and p02 at v,v-e2. Their words are U,conj(U),U,conj(U).
+With unit coefficients the incident span is 8*x0, aggregate tail is 4,
+A_l=64 and Gamma_l=64*(1-x0*x0). At U=i the gradient square is 64;
+the generic ordered source is 768-16*Gamma_l, not 48-16*Gamma_l.
+This concrete incidence/evaluation specialization is NOT kernel-checked.
+It is not an interacting-moment counterexample: it supplies no expectation
+or concentration estimate under the original action. Constant coefficients
+and vertex Gauss symmetry cannot alone pay a horizontal gradient square.
+The existing exact Gauss declarations are `spatialSpan_gauss_zero` (:551)
+and `blockConditionalRatio_gauss_zero` (:615) in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialGaussTransfer.lean`.
+
+The initially proposed extra ratio/ground-state reconstruction branch is
+ALREADY supplied, at fixed parameters. `reciprocal_ratio_cleared_derivative`,
+`lean/YMGap/Continuum/QuaternionHaarReciprocalRatioGradientBound.lean:104`,
+retains the signed coupled derivative. `blockConditionalRatio_angular_reconstruction`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockConditionalScore.lean:75`,
+gives ell_V[(A^2*D(phi_(k+1))-(A*Db-b*DA))^2]<=epsilon at its COMPUTED
+`blockAngularScoreCutoff` (:62). A=g_(n+t), b=T^t(g_n*psi), n+t>=1;
+the clearing factor is A^2 and the weight is ORIGINAL V. No uniform bound
+on its two cost inputs or on the changing-family onset is stated.
+`energy_eq_bare_add_correction` (:144) and `endpoint_angular_cancellation`
+(:173), `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialGroundStateEnergy.lean`,
+also already retain the full endpoint correction and derivative cancellation.
+Do NOT implement another derivative-convergence/ground-state wrapper.
+
+The unpaid join is QUANTITATIVE, not this fixed-window approximation:
+for a mixed Ward test h, sum_i (J_i f)(J_i h) is not Gamma(f), and its
+original weighted pairing has not been bounded by the required transmitted
+two-mass cost. `clearedRayleighCost`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockRayleighSplit.lean:131`,
+is Z1*ell_V[b^2]-Z0*ell_V[b*Tb], with Z0=ell_V[A^2] and
+Z1=ell_V[A*TA]. Neither is silently the local Ward variance's normalizer.
+The positive incoming Ward-gradient pullback still contains T(Vbar*Ta),
+NOT Ta or T^2a: `original_ratioNoise_gradientPayment_weighted_pin`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.lean:576`.
+Likewise the exact coherent payment `family_coherent_energy_retained_square`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyCoherentEnergy.lean:263`,
+retains its entire signed Taylor debt. No favorable sign is supplied by
+per-face curvature, Gauss symmetry, positive Gram matrices or resolvent
+upper bounds. A source/filtered-norm fraction relative to the RAW norm is
+not imposed as a necessary condition; existing padded nondegeneracy is enough
+for the selected shifted consumer's positive norm.
+
+Decision: PRUNE copying `48Z` to coherent families and duplicating fixed-window
+angular reconstruction. Retain the existing ORIGINAL signed-cost/noise
+consumer `blockConditionalRatio_noiseCost_abs_le`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedPredictionPayment.lean:505`,
+or DIRECT `PathShiftedWindowSurvival`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedWindowSurvival.lean:448`, for
+`afPaddedZeroMomentumTrajectory`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeAFPaddedTrajectory.lean:305`.
+Neither changing-family quantitative producer is supplied by this screen.
+No Lean edit/check, broad audit, new assumption, resource increase or chart
+change; continuum/physical/QFT/every-group/Clay remain OPEN.
+
 ## Observed quantitative screens and the next joint payment (2026-10-08 UTC)
 
 ### Observed signed double-orbit join (2026-10-08 17:10 UTC)

@@ -821,6 +821,22 @@ Do not add an assumed-Haar interface or ordinary-GNS completion wrapper.
 Return MAIN attention to actual changing-family signed payment/direct macro
 retention; the endpoint-band screen below is paper math, not a new bound.
 
+MAIN source/test reconciliation (2026-10-09 20:10 UTC, read-only mathematics):
+three parallel screens and ROOT inspection PRUNE copying the loop's 48Z
+Fisher correction to the all-face family: its actual local amplitude is
+4*||aggregateCoherentTail||^2, not4 (`FamilyCoherentTail`:383;
+`QuaternionHaarPairedLinearDoubleIBP`:396). A concrete equatorial field test
+is PAPER only, not an interacting expectation/scaling counterexample.
+Also PRUNE a duplicate derivative-reconstruction/ground-state wrapper:
+`BlockConditionalScore.blockConditionalRatio_angular_reconstruction` (:75)
+already reconstructs A^2*D phi in ORIGINAL V-weighted norm with an explicit
+fixed-window onset. The missing input is QUANTITATIVE complete signed
+payment/direct retention on the actual AF family, retaining OWN warmed
+variance, BOTH masses and the actual T(Vbar*Ta) pullback. No mandatory
+filtered/raw norm fraction is added. Exact source citations and scope are
+in the adaptive-score audit's MAIN mixed-test reconciliation. No new Lean
+theorem/check, analytic field or chart change; Clay remains OPEN.
+
 PAPER MAIN endpoint-band screen (2026-10-09): ROOT and an independent
 read-only reviewer inspected the ACTUAL `smoothedResponse_pin`
 (`BF4WilsonAllNomeSmoothedCoherentState.lean:341`), one-step
