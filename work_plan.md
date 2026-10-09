@@ -147,6 +147,24 @@ be proved. Complete relative signed payment/direct macro retention remain
 co-primary and OPEN. Evidence and exact source pins: adaptive-score audit.
 No canonical displayed claim changed; no ASCII reprint.
 
+Consumer reconciliation (2026-10-09, two independent read-only reviews):
+at a common admissible cutoff and d=stage+t, the local Fisher density
+V*g_d*g_(d+1) matches only the window's Z1 weight, up to the established
+Haar/setoid equality. The window instead uses b=T^t(g_stage*(f-c_stage)),
+Z0=H[V*g_d^2], variance H[V*b^2]/Z0, and cost divided by Z0*Z1.
+Neither its transferred test nor its variance follows by identifying Z1
+with the local mass. Even t=0 does not identify Z0 and Z1. Applying Fisher
+also requires marginalCurvatureCutoff(w)<=headCutoff(w)+stage. The reciprocal
+Ward route additionally retains the actual pullback T(Vbar*T a) and a
+signed centered density correction. Do not propagate the literal-loop
+floor into this budget by substituting a weight, source or center.
+Select a quantitative estimate of the COMPLETE signed cost against this
+warmed variance, or the direct cleared two-mass margin already specified
+in the paper review. This is a mathematical source/mass join, not a
+missing normalization wrapper; no new mandatory intermediate premise is
+introduced. Source table and precise remaining consumer:
+`audits/RESEARCH-2610-09093-2026-10-08.md`, current-consumer reconciliation.
+
 CHECKED supporting ORIGINAL variance estimate (2026-10-08 UTC): the EXISTING
 `GeneralizedLinearWard.original_score_variance_floor` produces
 4/(7+10*C^2+4*C^4), with C=`marginalScoreCap(w)`. The literal dyadic-square
