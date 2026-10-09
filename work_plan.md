@@ -5,7 +5,7 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
-## Whole-project goal and live completion map (updated 2026-10-08 UTC)
+## Whole-project goal and live completion map (updated 2026-10-09 UTC)
 
 The unchanged mathematical target is: for each compact simple gauge group G,
 construct a nontrivial quantum Yang--Mills theory on R^4 satisfying the QFT
@@ -42,15 +42,26 @@ review PASS. This is integrated order, NOT a polynomial certificate,
 innovation ceiling, improved variance floor or scaling survival. Two serial
 focused targets only; no full-tree audit or resource-limit increase.
 
-Next geometric input (source review, NOT proved): the literal selected-link
-plaquette scalar X needs its frozen all-nine-jet identity
-`sum_ij u_i*u_j*J_i*J_j X = -X*sum_i u_i^2` at arbitrary-insertion Haar
-carrier strength. Its first-gradient identity, six-incident-face count and
-polynomial-cost product tensorization already exist; do not rebuild them
-or mistake block relocation for plaquette-word transport. Only after actual
-spatial-weight curvature and integrated product order are produced can the
-PAPER sharp weighted-Bochner variance route be tested. A stronger norm
-floor alone still does not pay the current absolute temporal-loss ceiling.
+CHECKED literal plaquette frozen Hessian (2026-10-09 14:35 UTC):
+`PlaquetteFrozenHessian.plaquette_frozen_hessian` produces
+`sum_ij u_i*u_j*J_i*J_j X = -X*sum_i u_i^2` for the actual spatial face
+and selected physical link, with arbitrary Haar insertions. The generic
+exact degree-one argument retains spectator coefficients; reversible word
+exposure and scalar cyclicity preserve the literal orientation. All nine
+ordered jets precede multiplication by arbitrary frozen u. Final generic
+check5/original check3 and COMPLETE independent frozen-source reviews PASS;
+all eight gates use only {propext, Quot.sound}. No resource-limit increase,
+foreign proof import or full-tree audit. This is finite geometry, not a
+heat-curvature certificate or survival theorem.
+
+NEXT: transport the actual plaquette heat's radial curvature with produced
+first/mixed-jet bounds and explicit cutoff-error certificates; then compose
+the complete spatial weight and actual integrated terminal product order.
+Reuse the existing first-gradient identity, six-incident-face count and
+polynomial-cost tensorization. Do not consume integrated order as a
+polynomial certificate. Only after those joins can the PAPER sharp weighted-
+Bochner variance route be tested. A stronger norm floor alone still does
+not pay the current absolute temporal-loss ceiling.
 Complete SAME-action relative signed payment/direct macro retention remain
 co-primary and OPEN. Evidence and exact source pins: adaptive-score audit.
 Canonical displayed claims unchanged; no ASCII reprint.

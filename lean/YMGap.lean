@@ -5037,6 +5037,7 @@ import YMGap.Continuum.SU2QuaternionConditionalSignedGramOrder
 import YMGap.Continuum.SU2QuaternionPairedFrozenHeatPrefixConditionalGram
 -- Original-action local signed Gram: produced output recoding and density.
 import YMGap.Continuum.SU2QuaternionPairedFrameAt
+import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteFrozenHessian
 import YMGap.Continuum.SU2QuaternionPairedHeatAtFrozenCurvature
 import YMGap.Continuum.SU2QuaternionConditionalZeroMeanSignedGram
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepPairedScorePin

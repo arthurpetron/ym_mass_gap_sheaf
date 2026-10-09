@@ -8769,3 +8769,91 @@ The PAPER kappa^-2 variance route is not yet proved, and even a stronger
 finite floor does not itself pay the relative time-loss budget. No main
 macro-retention, scaling survival, physical mass, continuum QFT, every-group
 or Clay closure; canonical displayed claims remain OPEN and unchanged.
+
+## Selected next geometric identity: literal plaquette frozen Hessian
+
+2026-10-08 23:42 UTC, selection BEFORE implementation. The preceding turn
+is PROGRESS: checked original terminal curvature, commit 5817c89b, pushed
+to main. The remaining spatial-curvature leg needs the actual plaquette
+scalar's frozen Hessian, not another conditional bundle assuming it.
+
+Proposition: at a link occurring exactly once in a four-link oriented word,
+each paired diagonal second jet is minus the word scalar and each distinct
+symmetrized mixed jet is zero. Hence ALL NINE frozen jets contracted with
+arbitrary polynomial coefficients u equal `-X*threeSquare(u)`, retaining
+every original Haar insertion. The direct scalar chain-rule/radial-curvature
+consumer is not yet implemented; this removes its actual missing second-jet
+identity. Do not call the Hessian pin a heat-curvature or survival theorem.
+
+Argument selected: prove the quaternion paired-frame Clifford identity on
+ANY head-homogeneous degree-one polynomial using existing active derivative
+degree/Euler identities, then transport through the explicit original word
+exposure and retain literal face selection. Available inputs:
+`QuaternionHaarLinearAngularEnergy.angular_partial_zero`, actual paired
+generators, original oriented-word degree, `PairedFrameAt.chain_pairedSecondAt`
+and reversible block charts. This avoids exponential orientation cases or
+a new conjugation-frame interface. Reversed orientations stay linear;
+repeated links are excluded by the existing four-block exposure, not assumed
+to obey this eigen-identity. Frozen coefficients are multiplied AFTER jets.
+
+Predicted scope: generic head-linear Hessian plus literal original plaquette
+pin only. Costs/moduli, complete spatialWeight curvature, sharp weighted
+Bochner and MAIN relative loss remain unproved. Verification budget: bounded
+generic/original targets serialized at 20 GiB with 12-GiB reserve and a fresh
+dynamic/process preflight per launch; independent complete final-source
+review. Abandon/revise if the geometric identity already exists, the actual
+word is not head-linear under its exposure, or any transport needs a changed
+carrier/action. No new analytic premise, canonical-field change or chart.
+
+## Checked literal plaquette frozen Hessian
+
+2026-10-09 14:35 UTC. The selected finite geometric input is now produced:
+`paired_linear_diagonal`, `paired_linear_mixed`,
+`frozen_hessian_of_diagonal_mixed`, `paired_linear_frozen`,
+`lean/YMGap/Continuum/QuaternionHaarPairedLinearHessian.lean:246`, `:282`,
+`:357`, `:384`; and `oriented_fourWord_first_paired_hessian_jets`,
+`oriented_fourWord_first_frozen_hessian`,
+`oriented_fourWord_any_slot_frozen_hessian`, `plaquette_frozen_hessian`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteFrozenHessian.lean:115`,
+`:198`, `:212`, `:238`.
+
+The exact degree-one Euler decomposition preserves spectator coefficients.
+Signed coordinate jets prove diagonal -X and symmetrized mixed zero; the
+ordered mixed derivatives are not declared to commute. Reversible supported
+word exposure, scalar cyclicity and the literal face pin preserve all four
+distinct physical edges and their orientation. Arbitrary frozen u is
+multiplied only AFTER all nine actual jets. Equality retains every Haar
+insertion; no original action, source, carrier or marginal is substituted.
+
+Final source SHA-256 (396 / 289 lines):
+
+    QuaternionHaarPairedLinearHessian:
+    c516bea4ca53dc054a85a74b0540ee27b3fe7369af5250a39ecd6176bd76a818
+    BF4ExactSlabFixedSpatialPlaquetteFrozenHessian:
+    5c0312085723447d22d4555f359bb689967f597ea0f6c3a0a22543312ad6c87c
+
+ROOT final generic check5 and original check3 exited 0, without warnings.
+Their eight gates contain only {propext, Quot.sound}. Logs / SHA-256:
+
+    /private/tmp/ym-oct9-paired-linear-hessian5.log
+    454bf5de62d6e845946228bc5f60168123cec9e44a8b15ab3b5f7a36f1ed8d8f
+    /private/tmp/ym-oct9-original-plaquette-hessian3.log
+    36c0cf075dfa4ac492871a76a3955de30846108b04f3cc93ab0faa1f48526fa7
+
+Earlier checks exposed raw trailing-zero padding, implicit/namespace issues
+and expensive definitional search. Explicit carrier first/second-jet pins,
+twelve signed cases and explicit frozen-form definitions repaired these;
+no heartbeat, memory or recursion limit was increased. COMPLETE independent
+review of both final hashes PASS. Every launch used a fresh dynamic/process
+preflight and one monitored 20-GiB worker with 12-GiB reserve; final-turn
+preflights reported 86--87% free, zero swap and no competing job.
+The semantic-root import was added, but no root/full-tree build or audit ran.
+
+NEXT remains actual plaquette heat radial-curvature transport with produced
+jet intervals and cutoff-error certificates, then complete spatial-weight
+curvature and integrated terminal product order. Existing certificate
+tensorization does not automatically accept integrated order. Sharp weighted
+Bochner, useful SAME-action relative loss/direct macro retention, scaling,
+physical mass, QFT/every-group and Clay remain OPEN. The canonical displayed
+claims did not change; no ASCII reprint. This is our own finite proof, not
+an imported fermion theorem or an admissibility-restricted substitute.
