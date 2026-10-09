@@ -108,7 +108,7 @@ private theorem first_square {n : Nat} (hn : 3 < n)
       ((RatPolyCoeffEqv.refl _).add (RatPolyCoeffEqv.neg (hp.symm.mul hp.symm)))))
 
 /-- Exact one-link curvature for an actual incident spatial face. -/
-private theorem incident_square (width : Nat) (face : Z4Plaq)
+theorem incident_square (width : Nat) (face : Z4Plaq)
     (hf : face ∈ spatialFaces width) (l : Z4Link) (hl : l ∈ edgesOf face) :
     let f := characterPolynomial (plaquette width face).scalar 1
     HaarCarrierEqv (N width) (blockGamma ((baseLinks width).idxOf l) f f) (faceGap f) := by
@@ -498,5 +498,6 @@ end YMGap.Continuum.BF4ExactSlabFixedSpatialAdjacentFullAngular
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialAdjacentFullAngular.adjacentSource
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialAdjacentFullAngular.adjacentFullDensity
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialAdjacentFullAngular.equalWeightPaidDensity
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialAdjacentFullAngular.incident_square
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialAdjacentFullAngular.adjacent_full_angular
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialAdjacentFullAngular.adjacent_full_angular_paid

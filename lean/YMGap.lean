@@ -5038,6 +5038,13 @@ import YMGap.Continuum.SU2QuaternionPairedFrozenHeatPrefixConditionalGram
 -- Original-action local signed Gram: produced output recoding and density.
 import YMGap.Continuum.SU2QuaternionPairedFrameAt
 import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteFrozenHessian
+-- Literal spatial plaquette jets and radial-to-ORIGINAL-prefix curvature.
+import YMGap.Continuum.QPolyHaarPairedAtFrozenChain
+import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteGradient
+import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteJetInterval
+import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteRadialCurvature
+import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteHeatPrefixJets
+import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteHeatPrefixCurvature
 import YMGap.Continuum.SU2QuaternionPairedHeatAtFrozenCurvature
 import YMGap.Continuum.SU2QuaternionConditionalZeroMeanSignedGram
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepPairedScorePin

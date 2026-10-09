@@ -8857,3 +8857,167 @@ Bochner, useful SAME-action relative loss/direct macro retention, scaling,
 physical mass, QFT/every-group and Clay remain OPEN. The canonical displayed
 claims did not change; no ASCII reprint. This is our own finite proof, not
 an imported fermion theorem or an admissibility-restricted substitute.
+
+## Selected original plaquette radial-to-prefix curvature join
+
+Selection BEFORE the next analytic transport. Reuse the exact selected-edge
+first-gradient identity and the newly checked literal frozen Hessian. The
+Lagrange identity produces the nonnegative complement
+`|u|^2*(1-X^2)-(sum u_i*J_i X)^2` as three supported cross-product squares.
+The existing radial and log-concavity certificates then give the full frozen
+Jacobi curvature at the SAME literal spatial face and selected physical link.
+This removes the missing finite geometry consumer, not the original-prefix
+approximation or the complete spatial-weight estimate.
+
+The original-prefix join must additionally retain the actual value, first and
+ALL NINE ordered mixed deficit intervals and the explicit positive head floor.
+The generic frozen-curvature approximation consumer already exists. Two
+bounded Sol implementations supply arbitrary-block raw chain rules and the
+literal four-factor plane-jet intervals, and one independent reviewer checks
+their exact final sources. ROOT assembles the actual complement/radial join.
+No relative-word substitution or differentiation of a Haar equality is allowed.
+
+Predicted outcome: finite, fixed-strict-nome plaquette curvature only; no claim
+uniform as nome tends to one, no integrated-order-to-certificate inference.
+The decisive tests are the original four distinct edge selection, the frozen
+zero direction, all ordered mixed planes, and equality of the actual prefix
+to Jacobi plus deficit before any estimate. Revise if a required actual jet
+producer is absent or if the approximation budget cannot pay at its computed
+cutoff. Verification is serialized narrow checks, one 20-GiB worker and
+12-GiB reserve with fresh dynamic/process preflights; no full-tree audit or
+limit increase. MAIN relative signed loss/macro retention and Clay remain OPEN.
+
+## Checked literal ORIGINAL spatial-face heat curvature
+
+2026-10-09 14:57 UTC. The selected radial-to-original-prefix join is now
+constructed. For each literal spatial face and one of its physical edges,
+strict nome w, later computed cutoff K, and arbitrary supported frozen u,
+the original polynomial p=heatPrefix(w,K,X) has a Type-valued certificate for
+
+    C*|u|^2*p^2 + p*sum_ij(u_i*u_j*J_i*J_j p)
+                         - (sum_i u_i*J_i p)^2,
+
+with C=`nearFlatCurvatureCap(w)+1`. C depends on w, not width, face, K or u.
+This is NOT a claim uniform as w tends to one. The produced derivative caps
+512/4096 enter the tolerance/cutoff, not C. The consumer is complete spatial
+potential curvature, followed by the still-missing weighted-Bochner estimate.
+
+Exact construction and source pins:
+
+| Input / join | Declaration and source |
+| --- | --- |
+| Reused selected-edge gradient | `incident_square`, `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialAdjacentFullAngular.lean:111` (only made public; body/type unchanged) |
+| Literal scalar paired-gradient norm | `plaquette_paired_gradient_square`, `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteGradient.lean:85` |
+| Actual raw first/all-ordered-mixed face intervals | `originalFirstInterval`, `originalMixedInterval`, `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteJetInterval.lean:169`, `:186` |
+| Frozen actual cross-product square complement | `plaquette_frozen_complement_certificate`, `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteRadialCurvature.lean:115` |
+| Same-face full Jacobi curvature | `plaquetteJacobi_frozen_curvature_nearFlat_certificate`, same source `:246` |
+| K+1 original split and raw ordered jets | `prefix_split_pin`, `prefix_first_split_pin`, `prefix_mixed_split_pin`, `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteHeatPrefixJets.lean:237`, `:246`, `:256` |
+| Actual deficit intervals | `deficit_value_interval`, `deficit_first_interval`, `deficit_mixed_interval`, same source `:315`, `:325`, `:345` |
+| Computed tolerance/cutoff/cost | `plaquetteCurvatureTolerance`, `plaquetteCurvatureCutoff`, `plaquetteCurvatureCost`, `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteHeatPrefixCurvature.lean:56`, `:60`, `:66` |
+| ORIGINAL full frozen certificate | `plaquettePrefix_frozen_curvature_nearFlat_certificate`, same source `:104` |
+
+The generic `QPolyHaarPairedAtFrozenChain` leaf supplies raw coefficient
+chain rules at arbitrary selected blocks, with all nine ordered jets before
+multiplication by u. Original-gradient rescaling uses character-one = 2X and
+exact quarter cancellation, not an aggregate-gradient/4 inference. The
+Lagrange complement uses actual selected-link derivatives, supported on
+the original carrier. The radial and log-concavity polynomials use SAME X.
+The original-prefix comparison retains its head floor, signed value/first/
+mixed deficits, exact K+1 approximant and factor-six matrix-error budget.
+No derivative of a Haar equality, frozen coefficient or integrated scalar
+is silently inferred. Arbitrary original insertions and ordered orientation
+`a,d,conj(c),conj(b)` remain.
+
+Final source SHA-256:
+
+    QPolyHaarPairedAtFrozenChain:
+    dd2f8ff8d17ba6b8a725ada66349b0f2370a1c595bb8c506882da41aa7c3eae0
+    BF4ExactSlabFixedSpatialAdjacentFullAngular:
+    3f9b245cfd2f9bd0cbabae89c693f55bcb63f20573bd180758ef275e8abe833f
+    BF4ExactSlabFixedSpatialPlaquetteGradient:
+    0720925ce2014917b0f77409579813d92dbb595d472a10397b3f9cb98c8bacb4
+    BF4ExactSlabFixedSpatialPlaquetteJetInterval:
+    ed5167e2d389583b6768890a7fbb98e578b936a228061718b39b1eb92261bd0c
+    BF4ExactSlabFixedSpatialPlaquetteRadialCurvature:
+    4063a4f8d758f505976cf22aa51230f832a38979d1452feededc267f98b188eb
+    BF4ExactSlabFixedSpatialPlaquetteHeatPrefixJets:
+    a0db619ffe862d4457d112b50c5e209039e691fbcf8a8b49f82c729793fd4045
+    BF4ExactSlabFixedSpatialPlaquetteHeatPrefixCurvature:
+    48a992a9c822e4efd70a9bfec15f1b9a7d5ff080117438b86ab23fd7cacb0483
+
+Seven final ROOT focused checks exited 0 without warnings. Their 52 printed
+gates (47 new) contain only {propext, Quot.sound}, or are empty. Exact logs
+and SHA-256, respectively:
+
+    /private/tmp/ym-oct9-paired-at-frozen-chain2.log
+    50c58a2f88ffcc58648c33854da374835e80e180bf96d070d277076ce4b0850c
+    /private/tmp/ym-oct9-selected-edge-square1.log
+    42bef380e43770de3226daae850f7cf1142a41b3063c4afee252617395a23599
+    /private/tmp/ym-oct9-plaquette-paired-gradient1.log
+    8a810938199a95efe88ba4c7181db2fa192805a8d8aef31a16013dbcfd882870
+    /private/tmp/ym-oct9-plaquette-jet-interval2.log
+    7d9c93777834d8c00aeba11e0bd49efdcac4cb7993d85bef79eb6d5e2613da5a
+    /private/tmp/ym-oct9-plaquette-radial-curvature2.log
+    71f1cc73723b3f57522516756a62ad72fdc38aa5ad6c11ab2b0b8d2b6e3079d5
+    /private/tmp/ym-oct9-plaquette-prefix-jets2.log
+    5ad755702fdb407cc6a67dd8c6ae7bac5b58c87e5e0b63ae307213271d8934e9
+    /private/tmp/ym-oct9-plaquette-prefix-curvature1.log
+    e3b8497cdf7a0fb4c722fece5ade09eef1bbac596e098caef008ec056d4147a1
+
+COMPLETE independent frozen-source review PASS for all seven sources
+(unchanged promoted body reviewed against the diff). Two bounded Sol
+implementation tasks and one independent read-only reviewer; ROOT inspected
+all sources and assembled the actual radial/prefix certificate. Earlier
+errors were parser layout, notation precedence, namespace/implicit arguments
+and the need for decidable Fin cases when returning Type-valued intervals.
+All were repaired without changing the mathematical claim or raising limits.
+Fresh preflight per launch reported 84--87% free memory, zero swap and no
+competing compiler/runner/test process; one monitored 20-GiB worker with
+12-GiB reserve. Semantic-root imports were registered, not root-compiled.
+No full-tree build/audit/guard, new hole, classical input or analytic bundle.
+The three user untracked `(1).lean` files were untouched.
+
+CONTINUE at the complete actual spatialWeight and integrated terminal product
+order. The existing six-incident-face count and polynomial-cost tensorization
+are inputs, not a proved product join. Integrated order is NOT automatically
+a polynomial certificate. Sharp weighted paired-Bochner variance remains
+PAPER; even a sharper norm floor cannot alone pay the absolute cubic temporal
+loss. SAME-action relative signed payment/direct macro retention, justified
+scaling, physical mass, QFT/every-group and Clay remain OPEN. This is our
+finite constructive proof, not an imported fermion result. Canonical exact
+displayed claims are unchanged, so no ASCII reprint.
+
+### Independent next-consumer block audit
+
+The bounded source review finds the next finite product joins in existing
+source: `spatialWeight`, `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSliceHeat.lean:70`,
+is the literal ordered product; `pairedAt_mul`,
+`lean/YMGap/Continuum/QPolyHaarPairedAtFrozenChain.lean:48`, supplies raw first
+Leibniz; `polynomialJet_product_curvature_certificate`,
+`lean/YMGap/Continuum/QuaternionHaarPolynomialJetCurvature.lean:49`, retains
+the mixed product terms. The next bounded finite proposition is raw frozen
+first/second product pins, including all nine ordered cells before u, then
+the SAME original spatial product certificate at cost six times the new
+face cost. Nonincident zero jets use `heatFace_independent`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFaceIndependence.lean:169`;
+the actual partition and count are `spatialFace_partition` and
+`spatialIncidentFaces_length_le_six`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLocalRelativeBound.lean:65`, `:70`.
+These are available inputs, not a checked product conclusion.
+
+The integration residue is importantly different. `localOutputDensity`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLocalOutputDensity.lean:55`,
+contains UPPER kinetic factors times the LOWER original spatialWeight.
+`terminalDensity_independent`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalLocalSignedGram.lean:460`,
+is independence of the selected UPPER block N+s; the checked
+`terminal_marginal_curvature_nonnegative_nearFlat` at `:840` does NOT
+therefore control a selected LOWER spatial link. Its lower kinetic factors
+and terminal message are not certified spectator-independent by that lemma.
+The existing `weightedHessian_positive`,
+`lean/YMGap/Continuum/SU2QuaternionWeightedHessianSignObstruction.lean:101`,
+rules out inferring the required integrated log-Hessian sign from positive
+terminal/square insertion alone. Do not infer polynomial positivity from
+integrated order, or move that upper-block theorem to a lower block.
+After the finite spatial product, require actual LOWER-link density/jet/
+integration pins or retain and quantitatively pay the signed term.

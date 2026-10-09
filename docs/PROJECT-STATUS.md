@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Supporting literal ORIGINAL spatial plaquette curvature checked
+(2026-10-09 UTC): the actual selected physical edge, oriented face and ALL
+nine frozen jets now have a produced character-prefix curvature certificate
+at a computed cutoff. Its fixed-strict-nome cost is independent of width,
+face, cutoff and frozen supported direction; no near-one uniformity is claimed.
+The actual radial/Lagrange argument and complete value/first/mixed deficit
+budget preserve the original action carrier. Seven final focused checks and
+COMPLETE independent final-source reviews PASS; all new gates permitted.
+Complete spatial-weight/terminal product order, sharp weighted variance and
+MAIN relative loss/macro retention remain OPEN. No physical/Clay or exact
+displayed chart claim changes; no chart reprint. Evidence: adaptive-score audit.
+
 Supporting sharper ORIGINAL terminal signed Gram checked (2026-10-08 UTC):
 the produced radial certificate now reaches the original character prefix,
 its selected output endpoint and the full terminal density at computed cost

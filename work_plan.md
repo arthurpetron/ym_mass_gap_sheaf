@@ -54,14 +54,32 @@ all eight gates use only {propext, Quot.sound}. No resource-limit increase,
 foreign proof import or full-tree audit. This is finite geometry, not a
 heat-curvature certificate or survival theorem.
 
-NEXT: transport the actual plaquette heat's radial curvature with produced
-first/mixed-jet bounds and explicit cutoff-error certificates; then compose
-the complete spatial weight and actual integrated terminal product order.
-Reuse the existing first-gradient identity, six-incident-face count and
-polynomial-cost tensorization. Do not consume integrated order as a
-polynomial certificate. Only after those joins can the PAPER sharp weighted-
-Bochner variance route be tested. A stronger norm floor alone still does
-not pay the current absolute temporal-loss ceiling.
+CHECKED literal ORIGINAL plaquette heat curvature (2026-10-09 14:57 UTC):
+`PlaquetteHeatPrefixCurvature.plaquettePrefix_frozen_curvature_nearFlat_certificate`
+now produces the full frozen matrix on the actual spatial face and selected
+physical link at the computed `plaquetteCurvatureCutoff(w)`. The cost
+`nearFlatCurvatureCap(w)+1` is independent of width, face, finite cutoff and
+direction at each FIXED strict nome, not uniform as w approaches one.
+The reused selected-edge gradient identity gives explicit cross-product
+squares; the literal Hessian and arbitrary-block chain rule then consume
+the produced radial/log-concavity certificates. The ORIGINAL character-prefix
+join retains K+1, its positive head floor, actual value/first/ALL NINE ordered
+mixed deficits and the complete approximation budget. Raw face-jet caps
+512/4096 affect precision and cutoff only, not the curvature cost.
+Seven final focused checks and COMPLETE independent frozen-source reviews
+PASS, all new gates within {propext, Quot.sound}; no new analytic premise,
+hole, limit increase, changed action or full-tree audit. Exact source/log
+evidence: adaptive-score audit. This is our finite proof, not a fermion theorem.
+
+NEXT: compose the complete spatial weight using the existing six-incident-face
+count and polynomial-cost tensorization, then prove the actual LOWER-link
+conditional integration/curvature join. The existing terminal order selects
+an UPPER kinetic block; its spectator independence cannot be reindexed to
+the lower spatial link. Positivity alone cannot drop that signed Hessian.
+Do not consume integrated order as a polynomial certificate.
+Only after those joins can the PAPER sharp weighted-Bochner variance route
+be tested. A stronger norm floor alone still does not pay the current absolute
+temporal-loss ceiling.
 Complete SAME-action relative signed payment/direct macro retention remain
 co-primary and OPEN. Evidence and exact source pins: adaptive-score audit.
 Canonical displayed claims unchanged; no ASCII reprint.
