@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Supporting signed ORIGINAL omitted component checked (2026-10-09 UTC): the
+constructed positive complementary form retains mixed-minus-diagonal
+cancellation and gives M*rho*H[q^2]. The literal OWN-centered Wilson-square
+channels have M=16; coefficient-one norm contraction and the computed
+full-width cutoff pay normalized SIGNED loss by delta*OWN variance at EVERY
+positive depth and permitted perimeter. Both final narrow check2 and COMPLETE
+independent final-source/log reviews PASS; fourteen permitted gates, no final
+warnings/errors. This bounds neither the old absolute leaf budget nor remaining
+cubic/curvature debt; changing-family/scaling and all physical/Clay goals OPEN.
+No displayed claim changes or chart reprint. Evidence: adaptive-score audit.
+
 Supporting coefficient-only route pruned (2026-10-09 UTC): the ACTUAL
 Fisher cost C=32+8/(1-w*w) obeys (1-w)*C>=4 at every strict nome.
 Focused check2/four permitted gates and COMPLETE independent frozen-source

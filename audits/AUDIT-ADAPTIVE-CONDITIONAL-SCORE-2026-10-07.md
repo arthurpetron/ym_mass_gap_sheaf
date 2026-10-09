@@ -11036,3 +11036,141 @@ conversion and warming require their own actual-source producers. A useful
 changing-family/scaling estimate, nontrivial continuum survival, finite positive
 physical mass, full SAME-theory QFT, every group and Clay remain OPEN. No
 canonical displayed claim closed, so no unchanged ASCII chart was reprinted.
+
+## Selected complementary-operator signed cutoff payment (2026-10-09)
+
+Previous turn: PROGRESS, `7e27db05` checked the original signed-family/channel
+curvature join. Two bounded read-only forward/backward screens found no actual
+relative producer for the remaining curvature/cubic debt. Existing linear
+square credit, full-width raw mass cap and literal-Wilson variance floor are
+available; bare channel squares are not the odd marginal. The source-specific
+IBP still contains actual b_z derivatives, not the density of the Ward law.
+Do not build a wrapper that merely assumes their payment.
+
+Selected new estimate: the actual omitted PSD form O satisfies
+0<=O<=rho*Haar by `pairOmitted_diagonal_nonnegative` and
+`pairOmitted_diagonal_le_haar` in `SU2QuaternionCyclicOmittedNorm` (:82/:91),
+with actual symmetry/bilinearity from `SU2QuaternionCyclicOmittedOperator`.
+Its complement D=rho*Haar-O is constructed and PSD. For supported q and a
+produced `SquareBound f M`, the raw Haar mixed and diagonal terms cancel:
+
+    -sourceOmitted(q,f)=D(q,q*f^2)-D(q*f,q*f)
+                     <= M*rho*H[q^2].
+
+Keep the negative D diagonal before Cauchy--Schwarz; the fourth-square cap is
+M^2*H[q^2], so a root-free rational square comparison suffices. No kernel
+pointwise sign, source sign, moment inverse or eigenvalue assumption is used.
+For the SAME OWN-centered literal Wilson square M=16, coefficient-one actual
+passive-channel norm contraction gives signed omitted loss <=16*rho*U.
+Use the EXISTING full-width `rawSourceMassCutoff` at tolerance
+delta*starRatio(w)/16 to pay this ACTUAL signed component against delta*Z*V,
+at every positive depth and every admissible square perimeter. This improves
+the earlier PAPER 289/2 majorant and supplies its missing constructive join.
+It does NOT bound the older absolute omitted leaf budget or arbitrary signed
+spatialSpan by the literal Wilson constant, and does not pay cubic/curvature.
+
+Consumers/inputs: `sourceEnergy_secondOrder` and `sourceOmitted` in
+`SU2QuaternionCyclicSecondOrder`; actual passive channels in
+`SU2QuaternionProductHeatPassiveChannels`; `channelSource_mul_haarSquare_sum_le`
+in `SU2QuaternionPassiveChannelSobolevError`; actual raw source in
+`BF4ExactSlabFixedSpatialRawSourceMassBound.omitted_rawSourceMass_bound` (:223);
+`BF4DyadicWilsonSquareCenteredFourthMoment.paddedSquare_centered_squareBound`
+(:76); `BF4DyadicWilsonSquareOddVarianceFloor.paddedSquare_oddVariance_floor`
+(:121). Preserve cutoff-dependent q, OWN center and original partition.
+
+Decisive tests: q=0, f=0, M=0, rho=0 and saturated cutoff must retain the
+mixed-minus-diagonal cancellation; do not infer this bound for the absolute
+leaf sums. Predicted outcome is one unconditional finite operator estimate
+and an explicit variance-relative signed-cutoff modulus, not MAIN survival.
+Budget: one bounded generic producer and one literal actual-channel consumer,
+parallel implementation/read-only math review; ROOT-only serialized narrow
+20GiB/12GiBreserve checks with fresh live preflights. Revise/prune before
+expansion if PSD complement, fourth-square cap, actual channel norm contraction
+or cutoff/OWN-variance join cannot be produced from these inputs. No new
+analytic interface, premise, sorry, axiom, tree audit, scan or resource increase.
+The selected estimate is PAPER until accepted checks/reviews. Whole signed
+debt, chronological/warming/scaling, physical/QFT/every-group and Clay OPEN.
+
+### Observed result: complementary signed cutoff component CHECKED
+
+2026-10-09 23:05 UTC. CONTINUE: the predicted finite complement bound and
+its literal OWN-variance cutoff join are now kernel-checked, not imported
+from the fermion paper. The generic estimate accepts signed supported q and
+a Type-level SquareBound f M; its constructed GNSData uses the ACTUAL
+omitted form's carrier, symmetry, bilinearity and diagonal cap. No source
+positivity, pointwise-positive kernel or inverse source norm is supplied.
+`sourceOmitted_complementary` cancels the two identical Haar moments before
+the positive D diagonal is discarded. P.mul P produces the fourth-square
+cap, and rational cross-product order retains M=0, rho=0 and H[q^2]=0.
+
+The actual original consumer keeps q=Pi_fringe(V*g_depth), SAME odd-centered
+literal Wilson square, and all passive Gram channels, with coefficient-one
+norm contraction. Its exact payment chain is
+
+    normalized signed loss <=16*(rho*U/Z)
+                           <=16*tolerance
+                            =delta*starRatio(w)
+                           <=delta*OWNVariance,
+    tolerance=delta*starRatio(w)/16.
+
+There is NO extra variance factor before the last floor step and no bound
+on the old two absolute omitted leaf sums. `omittedPaymentCutoff` returns
+the existing FULL-width raw modulus as Nat data, independent of positive
+depth/permitted square perimeter at fixed nome/width/tolerance. Its hhead
+guard is produced. Positive-depth n+1 is intentional; no raw depth-zero
+extension, cap16 for an arbitrary family or projection reversal is claimed.
+
+Frozen accepted declarations/files:
+
+- `complementaryGNSData`,
+  `lean/YMGap/Continuum/SU2QuaternionCyclicComplementaryOmitted.lean:116`;
+  `sourceOmitted_complementary:194`, `neg_sourceOmitted_le_squareBound:219`.
+  258 lines, SHA256
+  `1cb60fa762c308d1d089ce3527a478d69cb92badc1e1e5383d9e0953b8b50cd9`.
+- `signedChannelOmitted_le_rawMass`,
+  `lean/YMGap/Continuum/BF4DyadicWilsonSquareSignedChannelOmittedPayment.lean:107`;
+  `omittedPaymentCutoff:168`, `signedChannelOmitted_le_variance:179`.
+  220 lines, SHA256
+  `ed560e978bd5f1e19f8b73747968c3aa7729d739c278807f27080568efb46d70`.
+
+Accepted ROOT-only serialized commands:
+
+```sh
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/SU2QuaternionCyclicComplementaryOmitted.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/SU2QuaternionCyclicComplementaryOmitted.olean --log-file /private/tmp/ym-oct9-complementary-omitted2.log
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/BF4DyadicWilsonSquareSignedChannelOmittedPayment.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/BF4DyadicWilsonSquareSignedChannelOmittedPayment.olean --log-file /private/tmp/ym-oct9-signed-channel-omitted2.log
+```
+
+Accepted logs SHA256, respectively:
+`d1cbe25f23063f35b5cf58511c1d251b75f63c808fb61cb04e4b3e3e3241e9d0`,
+`c0d02811ceae5a79ef5344fc051ce4ff6cadc08c526604287c3ac57150e98b61`.
+Both exited zero without warnings/errors; eight generic and six consumer
+gates lie within {propext,Quot.sound}; omittedPaymentTolerance is axiom-free.
+ROOT read COMPLETE final sources and exact logs. Two independent COMPLETE
+final-source/log reviews PASS; the consumer review's prose was corrected to
+the displayed chain, with no code change. Generic check1 failed on namespace,
+fixed-left multiplication congruence and match layout; consumer check1 failed
+only on the missing Dir4 namespace. Compiler placeholders/sorryAx in those
+failed logs are NOT accepted evidence. No statement, hypothesis or resource
+limit changed to repair them. No source sorry introduced or discharged.
+
+Fresh pressure/swap/vm_stat/process checks before all FOUR serial launches
+showed 85--86% pressure-free capacity, zero swap and no competing Lean/Lake/
+pytest/Runner process. Every check ended during its initial tool call. One
+20GiB worker, 12GiB OS reserve; no pressure stop, live-job polling, foreign
+process mutation, tree/root audit, metric, CI or limit change. Root import is
+registration only. The three user-owned duplicate Lean files are untouched.
+
+Requested paper reread was a bounded parallel current-consumer reconciliation
+using the cached hash-matched main PDF; ROOT visually checked F.13. No foreign
+code, full listing scan or full foreign-formalization audit. Useful discipline
+is cancellation before estimation, not a Yang--Mills operator/variance theorem.
+Research report, live plan, ledger, Lean README and supporting status record
+updated. No canonical displayed claim changes, so no ASCII reprint.
+
+NEXT: use the EXACT original channel-energy identity to retain cubic and
+curvature/negative-square credits jointly, paying only its signed omitted
+component with this modulus. Do not substitute this result into the older
+absolute-leaf ceiling. Useful remaining signed payment, OWN warmed variance,
+BOTH chronological masses, changing-family/scaling, nontrivial continuum
+survival, finite positive physical mass, full SAME-theory QFT, every group
+and Clay remain OPEN. The goal is unchanged and ACTIVE.

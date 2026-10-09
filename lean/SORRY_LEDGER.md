@@ -1,5 +1,29 @@
 # Sorry Ledger
 
+## PROVED signed original omitted-component payment / OPEN full signed debt (2026-10-09 UTC)
+
+`neg_sourceOmitted_le_squareBound`,
+`lean/YMGap/Continuum/SU2QuaternionCyclicComplementaryOmitted.lean:219`,
+constructs D=rho*Haar-O, its positive finite form and Cauchy inequality,
+retaining the exact mixed-minus-diagonal Haar cancellation. Supported signed
+sources and zero caps/rates/norms are allowed; no inverse source norm.
+`signedChannelOmitted_le_rawMass`,
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareSignedChannelOmittedPayment.lean:107`,
+joins the literal OWN-centered cap16 and actual passive channels to 16*rho*U.
+`omittedPaymentCutoff:168` computes the full-width raw modulus at tolerance
+delta*starRatio(w)/16. `signedChannelOmitted_le_variance:179` pays normalized
+SIGNED loss by delta*OWN variance at every positive depth and permitted
+perimeter. Source q is the fringe-projected actual original endpoint; there
+is no projection reversal or bare-square/odd-law identification.
+Final narrow check2 for each and COMPLETE independent source/log reviews
+PASS; fourteen permitted gates, no final warnings/errors. Check1 elaboration
+failures are superseded, not evidence. No new hole, axiom, analytic premise,
+canonical-field change or resource increase; root registration only, no
+root/tree audit. This does not bound the old absolute leaf error budget or
+apply Wilson cap16 to an arbitrary family. Exact-energy reassembly, remaining
+cubic/curvature payment, warmed/BOTH-mass and changing-family scaling joins,
+physical/QFT/every-group and Clay remain OPEN. Evidence: adaptive-score audit.
+
 ## PROVED finite polynomial-kernel concentration / OPEN continuous Haar (2026-10-09 UTC)
 
 `kernelMoment_recurrence`,

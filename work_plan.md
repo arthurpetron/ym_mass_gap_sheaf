@@ -69,18 +69,45 @@ narrow checks and complete independent final-source/log reviews PASS;
 21 gates within {propext,Quot.sound}, no final warnings/errors. No new
 hypothesis, sorry, broad audit or resource increase. Exact evidence: score audit.
 
-NEXT mathematical producer: control the complete actual signed quantity
-`familyChannelErrorBudget - t*(20*familyChannelGradient+familyChannelPairRemainder)`,
-where `t=(1/2)*(1-w)^2`, relative to the SAME `oddMass*oddVariance` in
-`padded_family_energy_le_retainedChannelVariance`. Keep the favorable gradient
-credit with the signed cross moments and both cubic/omitted errors. The
-checked lower bound permits discarding that credit only for a justified
-estimate; it does not supply the missing variance payment. Do not substitute
-the different joint marginal W=V*g_n*g_(n+1), absolutize all pair terms, or
-apply this initial spatialSpan curvature identity to a warmed source without
-a producer. Chronological mass conversion, useful changing-family/scaling
-control, physical/QFT/every-group and Clay remain OPEN. No new analytic
+CHECKED signed omitted-cutoff component on the ACTUAL Wilson-square channels:
+`SU2QuaternionCyclicComplementaryOmitted.neg_sourceOmitted_le_squareBound`
+constructs D=rho*Haar-O and proves `-sourceOmitted<=M*rho*H[q^2]` from a
+produced SquareBound, without source positivity or division by a source norm.
+The identical Haar terms cancel BEFORE discarding the positive D diagonal.
+`BF4DyadicWilsonSquareSignedChannelOmittedPayment.signedChannelOmitted_le_variance`
+joins M=16, coefficient-one actual passive-channel contraction, the existing
+fringe-PROJECTED raw source and OWN variance floor. Its computed
+`omittedPaymentCutoff(w,width,delta)` uses delta*starRatio(w)/16 and works at
+EVERY positive depth and permitted square perimeter. This supersedes the
+earlier PAPER 289/2 majorant; it does NOT bound the old absolute leaf budget,
+apply cap16 to an arbitrary signed spatialSpan, or claim nome/width uniformity.
+Final generic/consumer check2 and COMPLETE independent source/log reviews
+PASS; fourteen gates within {propext,Quot.sound}, one axiom-free definition,
+no final warnings/errors. Exact hashes/commands: complementary-operator
+section of the adaptive-score audit. Root registration only, no tree audit.
+
+NEXT mathematical producer: reassemble the literal ORIGINAL signed energy
+using `sourceEnergy_secondOrder`, `sourceEnergy_projected_channels` and
+`energy_projected_source`, retaining actual cubic and curvature/negative-square
+terms together and paying ONLY the signed omitted component with the new
+modulus. Produce useful payment of the remaining whole expression against
+SAME `oddMass*oddVariance`; do not pretend the old absolute-leaf error budget
+has been bounded. For general signed spatialSpan the existing
+`familyChannelErrorBudget-t*(20*familyChannelGradient+familyChannelPairRemainder)`
+consumer remains OPEN; its own produced cap and variance comparison are
+required, not the Wilson constant. Keep favorable gradient and signed cross
+credits. Do not substitute the different joint marginal W=V*g_n*g_(n+1),
+absolutize all pair terms, or apply the initial curvature identity to a warmed
+source without a producer. Chronological mass conversion, changing-family/
+scaling control, physical/QFT/every-group and Clay remain OPEN. No new analytic
 interface or canonical chart closure is selected.
+
+The requested parallel paper reconciliation reused the cached review of
+arXiv:2610.09093; it supplied no missing Yang--Mills variance estimate. Its
+cancellation-first/full-output discipline informs the independently derived
+complement argument above, not an import of a fermion theorem or auxiliary
+gap. Scope and current-consumer decision:
+`audits/RESEARCH-2610-09093-2026-10-08.md`, latest reconciliation.
 
 New backward-consumer screen: a proposed full-density directional-flux
 bound was independently correct on PAPER but PRUNED before Lean edits.

@@ -16,6 +16,21 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked signed omitted-cutoff payment (2026-10-09 UTC):**
+`Continuum/SU2QuaternionCyclicComplementaryOmitted.neg_sourceOmitted_le_squareBound`
+constructs the positive complement of the actual omitted form and preserves
+mixed-minus-diagonal cancellation, giving `-sourceOmitted<=M*rho*H[q^2]`.
+`Continuum/BF4DyadicWilsonSquareSignedChannelOmittedPayment.signedChannelOmitted_le_variance`
+uses the literal OWN-centered square cap16, actual passive Gram channels and
+fringe-projected ORIGINAL endpoint to pay this SIGNED component by delta times
+the SAME odd variance at every positive depth and allowed square perimeter.
+The computed cutoff depends on nome/full width/tolerance; no uniform scaling
+claim or bound on the old absolute leaf budget. Both final narrow check2 and
+COMPLETE independent final-source/log reviews PASS; fourteen gates within
+{propext,Quot.sound}, no final warnings/errors. Cubic/curvature, chronological
+mass conversion, changing-family survival and physical/QFT/Clay remain OPEN.
+Root registration only; exact verification evidence: adaptive-score audit.
+
 **Checked full original pair curvature (2026-10-09 UTC):**
 `Continuum/QuaternionHaarMixedLinearCasimir.blockGamma_linear_casimir`
 proves `C_s Gamma_s(p,q)=2 Gamma_s(p,q)-6 p*q` for arbitrary supported
@@ -33,8 +48,11 @@ faces sharing a physical link, with arbitrary Haar insertions. Actual row
 counts and the shared correction are produced, not assumed. Generic check1
 and original check2 and complete independent final-source/log reviews PASS;
 six gates exactly {propext,Quot.sound}, with one
-unused-pattern warning in the original leaf. Signed-family assembly, actual
-channel-weighted payment, scaling retention and Clay remain OPEN. Root
+unused-pattern warning in the original leaf. The subsequent checked
+`Continuum/BF4ExactSlabFixedSpatialSignedFamilyCurvature.family_curvature_remainder`
+assembles ordered signed occurrences as `C Gamma+48F^2=20Gamma+R`; its SAME
+actual channel join retains signed R. Actual full channel-weighted payment,
+scaling retention and Clay remain OPEN. Root
 registration only; no root/tree audit, new hole or resource increase.
 
 **Checked original common-frame gradient (2026-10-09 UTC):**

@@ -5470,6 +5470,9 @@ import YMGap.Continuum.BF4DyadicWilsonSquareSignedQuarticInsertion
 -- SAME predecessor square cancels in original source cap and odd-mass floor.
 -- Explicit additive cutoff modulus at fixed nome/width; scaling remains OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRawSourceMassBound
+-- Signed complementary omitted loss versus OWN variance on actual Wilson channels;
+-- computed full-width cutoff, not complete cubic/curvature or scaling payment.
+import YMGap.Continuum.BF4DyadicWilsonSquareSignedChannelOmittedPayment
 -- Integrated original Ward residual transport, not a weight/derivative identity.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialProjectedWard
 -- The displayed majorant retains a quadratic floor; not a true-moment lower bound.
