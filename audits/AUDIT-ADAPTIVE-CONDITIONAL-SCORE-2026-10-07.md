@@ -10670,3 +10670,129 @@ Execution change: validate inequality DIRECTION and literal weight equality
 against the backward consumer BEFORE selecting even a small implementation.
 This prunes a route, not a Yang--Mills theory or the Clay target. No canonical
 displayed claim changes; no unchanged chart, full audit or compiler is run.
+
+## Selected original pair-curvature reduction (2026-10-09)
+
+After the wrong-sign/different-weight screen, ROOT and an independent
+mathematical reader checked a different finite argument. For degree-one
+polynomials p,q at the SAME original quaternion link s, the mixed Lagrange
+identity is Gamma_s(p,q)+p*q=radius_s*sum_k dp_k*dq_k. Angular derivatives
+annihilate the right side. The actual local Casimir product rule therefore
+predicts the arbitrary-insertion identity
+
+    C_s Gamma_s(p,q) = 2*Gamma_s(p,q)-6*p*q.
+
+No unit tail, weight sign, score alignment or Hessian premise is needed.
+For two distinct physical plaquettes sharing exactly one link, the six
+exclusive links contribute 18*Gamma_s, giving the PAPER full identity
+C Gamma(fp,fq)=20*Gamma(fp,fq)-6*fp*fq. Orientation is already contained
+in the actual degree-one characters. The diagonal producer ALREADY EXISTS:
+`plaquette_gamma_casimir`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteCurvature.lean:382`.
+Reuse it; do not reprove it. Disjoint pairs give zero. Repeated faces must
+take the equal-face branch, not the distinct one-link formula.
+
+Next bounded producer: the local mixed-linear Casimir identity, selected-block
+transport, and literal two-incident-face application using produced original
+degrees/support. Existing inputs: `angular_partial_zero`,
+QuaternionHaarLinearAngularEnergy:110; `headEuler_of_blockDegree`,
+SU2QuaternionRatPolyDifferential:788; `blockCasimir_linear`,
+SU2QuaternionBlockLinearCasimir:39; `activeCasimirPolynomial_mul`,
+SU2QuaternionActiveCasimirProduct:214; and `plaquette_character_degree`,
+BF4ExactSlabFixedSpatialPlaquetteDegree:118. These are structural inputs,
+not new analytic assumptions. Check the local identity with nonunit and
+shared spectator coefficients; no differentiated sphere-equivalence shortcut.
+
+Actual downstream consumer: `familyChannelCurvature`,
+BF4ExactSlabFixedSpatialFamilyChannelRetainedSquare:133, which integrates
+C Gamma(F,F) under its unchanged ACTUAL channelSource b^2. Full-pair
+localization/exclusive-link Casimir, signed ordered-pair assembly and a
+favorable weighted comparison still remain; no existing whole-family
+theorem consumes just the local identity. The planned full expansion
+retains coefficient products and duplicate-list multiplicity. It exposes
+the correct curvature object, not a variance/retention bound by itself.
+
+Budget: a compact local proof plus literal physical instance, narrow serial
+checks with complete independent final-source/log review, fresh dynamic
+preflight, one capped 20-GiB worker/12-GiB reserve. No full audit, resource
+increase, new hole or assumed-input interface. Stop/revise on a unit-tail
+premise, action replacement, unchecked derivative transport or duplicate
+producer. Selection is PAPER until kernel evidence is recorded.
+
+### Observed local decision: CHECKED; full pair/family comparison remains OPEN
+
+Four exact public producers passed their dependency gates:
+
+- `headGamma_linear_casimir`,
+  `lean/YMGap/Continuum/QuaternionHaarMixedLinearCasimir.lean:222`;
+- `blockGamma_linear_casimir`, the same file :272;
+- `incident_pair_gamma_casimir`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSharedFaceCurvature.lean:141`;
+- `distinct_pair_activeGamma_localizes`, the same file :170.
+
+The local proof keeps arbitrary supported, signed, shared spectator
+coefficients. It includes equal/zero polynomials and one-block carriers;
+no unit-tail assumption is used. Euler and a finite mixed-wedge identity
+reduce Gamma+p*q to the spectator gradient dot product on the actual
+sphere. Only tangential angular derivatives transport that carrier equality;
+an explicit supported head swap produces every selected link. The original
+instance uses actual canonical oriented face words and produced degrees.
+Localization uses distinct-face geometry and physical-index injectivity,
+not an assumed absence of cross terms.
+
+Accepted source/log SHA-256:
+
+| target | source | accepted log |
+|---|---|---|
+| `QuaternionHaarMixedLinearCasimir` | `388db6f0a5b840d3b1f8840d2c020fec9f3d2a446218dee1a32ede743034a2e1` | `0f883bbaf34cd988c33ebaa52543923d14756d42929af1e54c7a8657fb1063f9` |
+| `BF4ExactSlabFixedSpatialSharedFaceCurvature` | `7e7c587c9582e43769072a70e1a204fd3a63258a610d36e9e749b58d1498fdf7` | `6c78c4f4f1a4b3b8cbbb71cbd45e582e2953c3e5cb69c3bd1608fffc9efc4cb8` |
+
+Exact accepted commands, from the repository root:
+
+```text
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionHaarMixedLinearCasimir.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionHaarMixedLinearCasimir.olean --log-file /private/tmp/ym-oct9-mixed-linear-casimir3.log
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSharedFaceCurvature.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSharedFaceCurvature.olean --log-file /private/tmp/ym-oct9-shared-face-curvature7.log
+```
+
+Every accepted gate reports exactly {propext,Quot.sound}. ROOT reviewed
+complete sources and logs; the independent reader reread both complete
+FINAL sources and accepted logs, matching all four hashes, and returned
+PASS. Local checks1/2 and physical checks1--3 failed elaboration and are
+not proof evidence. Physical check4 compiled but FAILED the axiom gate;
+diagnostic checks5/6 isolated core `List.nodup_range` as carrying
+`Classical.choice`. Reusing existing constructive `range_nodup`,
+`lean/YMGap/Continuum/CayleyParentInj.lean:124`, removed that dependency.
+No classical quarantine, gate relaxation or duplicate range proof.
+Each launch had a fresh dynamic memory/swap/process preflight: 86 percent
+free, zero swap and no competing compiler/test/runner. All runs finished
+within their initial call; no live long job, full-tree audit, broad metric,
+new hole or resource-limit increase. Root imports are registered, not
+root/tree checked.
+
+NEXT mathematical join remains PAPER: for an EXCLUSIVE link b, prove
+`C_b(Gamma_s(fp,fq))=3*Gamma_s(fp,fq)`. This is the Casimir of the SHARED
+mixed Gamma, not the exclusive-block Gamma (which vanishes). Distinct-block
+angular degree preservation and actual independence/support supply the
+short route; no theorem currently supplies the full six-link sum here.
+The full distinct-pair `20*Gamma-6*fp*fq` and ordered-family assembly are
+therefore NOT asserted as checked.
+
+Independent PAPER family algebra predicts
+
+```text
+C Gamma(F,F)+48*F^2
+  = 20*Gamma(F,F)
+    +48*sum_distinct_disjoint c_p*c_q*fp*fq
+    +42*sum_distinct_one_overlap c_p*c_q*fp*fq
+    -192*sum_equal_geometric_face c_p*c_q.
+```
+
+All sums are ORDERED occurrence pairs. Equal geometric faces include
+every duplicate-position pair; their coefficient sum regroups by the
+square of each face's TOTAL signed coefficient. The remaining channel
+insertions are the actual H[b_z^2*fp*fq] and H[b_z^2], not automatically
+OWN marginal covariances. Signed 42/48 cross products remain unpaid.
+This is our calculation, not a theorem imported from the fermion paper.
+Main chronological retention, changing-family survival, physical mass,
+continuum/QFT, every-group and Clay remain OPEN. No canonical chart claim
+changed, so no unchanged ASCII chart is reprinted.

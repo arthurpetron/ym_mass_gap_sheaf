@@ -4,6 +4,22 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## ORIGINAL local pair curvature and physical-link localization (2026-10-09 UTC)
+
+`QuaternionHaarMixedLinearCasimir.blockGamma_linear_casimir` produces
+`C_s Gamma_s(p,q)=2 Gamma_s(p,q)-6 p*q`, retaining arbitrary supported
+shared spectators. `SharedFaceCurvature.incident_pair_gamma_casimir` uses
+the actual plaquette words/degrees; `distinct_pair_activeGamma_localizes`
+eliminates every other physical block for distinct incident faces. Accepted
+local check3 and physical check7, four permitted gates and complete independent
+final-source/log reviews PASS. Physical check4 compiled but FAILED the axiom
+gate: core `List.nodup_range` was replaced by the existing constructive
+`CayleyParentInj.range_nodup`; no gate was relaxed or proof duplicated.
+The consumer is the actual channel curvature, not a different marginal density.
+Full pair/family assembly and favorable signed weighted comparison remain OPEN,
+as do MAIN scaling retention and Clay. No new hole, broad audit/metric, resource
+increase or canonical chart change. Exact evidence: adaptive-score audit.
+
 ## ORIGINAL four-slot jets and own-gradient common-frame synthesis (2026-10-09 UTC)
 
 `PlaquetteCommonFrame.original_paired_first_jet` produces the actual +,+,-,-

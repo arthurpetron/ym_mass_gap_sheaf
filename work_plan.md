@@ -27,6 +27,30 @@ formal statement would not solve the mathematical problem.
 
 ### Latest MAIN selection (2026-10-09 UTC)
 
+CHECKED new producer on the correct curvature object:
+`QuaternionHaarMixedLinearCasimir.blockGamma_linear_casimir` proves
+`C_s Gamma_s(p,q)=2 Gamma_s(p,q)-6 p*q` with arbitrary supported
+degree-one polynomials and shared nonunit spectators. The ORIGINAL
+`SharedFaceCurvature.incident_pair_gamma_casimir` supplies actual face
+instances; `distinct_pair_activeGamma_localizes` keeps only the unique
+shared physical link. Accepted local check3/physical check7 and complete
+independent final-source/log reviews PASS; four gates exactly
+{propext,Quot.sound}. Core `List.nodup_range` unexpectedly carried choice;
+reuse of `CayleyParentInj.range_nodup` repaired it without weakening the gate.
+
+NEXT bounded join: prove the six exclusive-link contributions to the
+Casimir of the SHARED mixed Gamma, each equal to `3*Gamma_s`; do not
+confuse these with the vanishing exclusive-block Gamma itself. Actual
+degree/independence, distinct-block angular transport and produced support
+are the inputs. The full `20*Gamma-6*fp*fq` identity remains PAPER, not
+checked. Reuse the existing equal-face curvature theorem and preserve
+duplicate occurrence pairs and signed coefficients in later family assembly.
+Keep actual `channelSource` squared insertions; remaining cross moments
+are not automatically OWN marginal covariances. Favorable weighted payment
+and its chronological/physical/scaling join remain OPEN; no new analytic
+interface or canonical chart closure. Exact source/log hashes and residual:
+adaptive-score audit. Root registration only, no tree audit or limit increase.
+
 New backward-consumer screen: a proposed full-density directional-flux
 bound was independently correct on PAPER but PRUNED before Lean edits.
 It bounded a joint flux/response from ABOVE under the original marginal

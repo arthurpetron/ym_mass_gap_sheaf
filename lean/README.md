@@ -16,6 +16,18 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked local original pair curvature (2026-10-09 UTC):**
+`Continuum/QuaternionHaarMixedLinearCasimir.blockGamma_linear_casimir`
+proves `C_s Gamma_s(p,q)=2 Gamma_s(p,q)-6 p*q` for arbitrary supported
+degree-one polynomials at the SAME link, including shared nonunit spectators.
+`Continuum/BF4ExactSlabFixedSpatialSharedFaceCurvature` applies this to actual
+incident plaquette characters and localizes their full mixed Gamma to the
+unique shared physical link when the faces are distinct. Final focused checks
+and complete independent final-source/log reviews PASS; four gates exactly
+{propext,Quot.sound}. Full pair-Casimir/family assembly, actual channel-weighted
+signed payment, scaling retention and Clay remain OPEN. Root registration only;
+no root/tree audit, new hole or resource increase.
+
 **Checked original common-frame gradient (2026-10-09 UTC):**
 `Continuum/BF4ExactSlabFixedSpatialPlaquetteCommonFrame.original_paired_first_jet`
 pins every physical slot and imaginary direction to the ORIGINAL plaquette,
