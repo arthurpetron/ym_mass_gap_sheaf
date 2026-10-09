@@ -9,6 +9,7 @@ physical instances must actually supply them for their original kernel.
 -/
 
 import YMGap.Continuum.QuaternionHaarPositiveWindowOrderReflection
+import YMGap.Continuum.QuaternionHaarIntegratedPositiveWindowOrderReflection
 import YMGap.Continuum.RationalQuadraticDiscriminant
 import YMGap.Continuum.SU2QuaternionAngularSupport
 
@@ -29,6 +30,7 @@ open YMGap.Continuum.QuaternionHaarSquareCertificate
 open YMGap.Continuum.QuaternionHaarPolynomialSquareBound
 open YMGap.Continuum.QuaternionHaarPolynomialInterval
 open YMGap.Continuum.QuaternionHaarPositiveWindowOrderReflection
+open YMGap.Continuum.QuaternionHaarIntegratedPositiveWindowOrderReflection
 open YMGap.Continuum.RationalQuadraticDiscriminant
 
 local infix:50 " ≈ " => Q'.eqv
@@ -199,7 +201,118 @@ theorem curvature_signed_dual_bound
     (clearedTiltCertificate hW hd hf lambda s t C)
   exact Q'.le_trans' _ _ _ h (Q'.le_of_eqv (haar_tilt blocks background W d dd f lambda s t))
 
+/-- Complete the square under each certified insertion. The curvature premise
+is integrated order, not a certificate for the curvature polynomial. -/
+private theorem clearedTiltOrder {blocks : Nat} {W d dd f : RatPoly}
+    (hW : SupportedQuaternionBlocks blocks W) (hd : SupportedQuaternionBlocks blocks d)
+    (hf : SupportedQuaternionBlocks blocks f) (lambda s t : Q')
+    (P : ∀ {R : RatPoly}, Certificate blocks R →
+      (0 : Q') ≤ quaternionHaar blocks (polyMul R
+        (polyAdd (polyMul (cap lambda) (polyMul W W))
+          (polyAdd (polyMul W dd) (polyNeg (polyMul d d)))))) :
+    ∀ {R : RatPoly}, Certificate blocks R →
+      (0 : Q') ≤ quaternionHaar blocks (polyMul R (polyMul W (tilt W d dd f lambda s t))) := by
+  intro R HR
+  let FC := polyAdd (polyMul (cap lambda) (polyMul W W))
+    (polyAdd (polyMul W dd) (polyNeg (polyMul d d)))
+  let v := polyAdd (scalePoly s (polyMul W f)) (scalePoly (-1) (scalePoly t d))
+  let t2 := polyMul (cap t) (cap t)
+  have hv : SupportedQuaternionBlocks blocks v :=
+    supported_add (scale_support (supported_polyMul hW hf) s)
+      (scale_support (scale_support hd t) (-1))
+  have ht2 : Certificate blocks t2 :=
+    Certificate.square (cap t) (polySmul_supported (supported_one blocks) t)
+  have hclear : RatPolyCoeffEqv (polyMul W (tilt W d dd f lambda s t))
+      (polyAdd (polyMul v v) (polyMul t2 FC)) :=
+    coeffEvalExpr_eqv_of_normalize_eq
+      (.mul (.var 0)
+        (.add
+          (.add (.mul (.var 4) (.mul (.var 4) (.mul (.var 0) (.mul (.var 3) (.var 3)))))
+            (.mul (.const (-2)) (.mul (.var 4) (.mul (.var 5) (.mul (.var 1) (.var 3))))))
+          (.mul (.var 5) (.mul (.var 5) (.add (.var 2) (.mul (.var 6) (.var 0)))))))
+      (.add
+        (.mul
+          (.add (.mul (.var 4) (.mul (.var 0) (.var 3)))
+            (.mul (.const (-1)) (.mul (.var 5) (.var 1))))
+          (.add (.mul (.var 4) (.mul (.var 0) (.var 3)))
+            (.mul (.const (-1)) (.mul (.var 5) (.var 1)))))
+        (.mul (.mul (.var 5) (.var 5))
+          (.add (.mul (.var 6) (.mul (.var 0) (.var 0)))
+            (.add (.mul (.var 0) (.var 2)) (.neg (.mul (.var 1) (.var 1)))))))
+      (by decide)
+      (fun | 0 => W | 1 => d | 2 => dd | 3 => f | 4 => cap s | 5 => cap t | _ => cap lambda)
+  have hsplit : RatPolyCoeffEqv (polyMul R (polyMul W (tilt W d dd f lambda s t)))
+      (polyAdd (polyMul R (polyMul v v)) (polyMul (polyMul R t2) FC)) :=
+    ((hclear.mul_left R).trans (RatPolyCoeffEqv.mul_add_right R _ _)).trans
+      ((RatPolyCoeffEqv.refl _).add (RatPolyCoeffEqv.mul_assoc R t2 FC).symm)
+  have hsq := (HR.mul (Certificate.square v hv)).haar_nonnegative
+  have hcurv := P (HR.mul ht2)
+  exact Q'.le_trans' _ _ _ (Q'.zero_le_add _ _ hsq hcurv)
+    (Q'.ge_of_eqv (Q'.eqv_trans _ _ _ (haar_of_coeff hsplit)
+      (quaternionHaar_append blocks _ _)))
+
+/-- Same-background signed dual estimate from actual integrated curvature
+order under every certified multiplier. No curvature certificate is inferred. -/
+theorem integrated_curvature_signed_dual_bound
+    {blocks : Nat} {background W d dd f : RatPoly} {ell u lambda : Q'}
+    (hW : SupportedQuaternionBlocks blocks W) (hd : SupportedQuaternionBlocks blocks d)
+    (hdd : SupportedQuaternionBlocks blocks dd) (hf : SupportedQuaternionBlocks blocks f)
+    (hell : (0 : Q') < ell) (hu : (0 : Q') < u) (hle : ell ≤ u)
+    (L : Certificate blocks (polyAdd W (polyNeg (cap ell))))
+    (U : Certificate blocks (polyAdd (cap u) (polyNeg W)))
+    (B : Certificate blocks background)
+    (P : ∀ {R : RatPoly}, Certificate blocks R →
+      (0 : Q') ≤ quaternionHaar blocks (polyMul R
+        (polyAdd (polyMul (cap lambda) (polyMul W W))
+          (polyAdd (polyMul W dd) (polyNeg (polyMul d d)))))) :
+    quaternionHaar blocks (polyMul background (polyMul d f)) *
+        quaternionHaar blocks (polyMul background (polyMul d f)) ≤
+      quaternionHaar blocks (polyMul background (polyMul W (polyMul f f))) *
+        (quaternionHaar blocks (polyMul background dd) +
+          lambda*quaternionHaar blocks (polyMul background W)) := by
+  apply nonnegative_quadratic_discriminant
+  intro s t
+  have h := haar_nonnegative_of_positive_multiplier_order hW
+    (tilt_support hW hd hdd hf lambda s t) hell hu hle L U B
+    (clearedTiltOrder hW hd hf lambda s t P)
+  exact Q'.le_trans' _ _ _ h (Q'.le_of_eqv (haar_tilt blocks background W d dd f lambda s t))
+
+/-- Drop the signed integrated Hessian only when its raw same-background
+Haar expectation is nonpositive. -/
+theorem integrated_curvature_dual_bound
+    {blocks : Nat} {background W d dd f : RatPoly} {ell u lambda : Q'}
+    (hW : SupportedQuaternionBlocks blocks W) (hd : SupportedQuaternionBlocks blocks d)
+    (hdd : SupportedQuaternionBlocks blocks dd) (hf : SupportedQuaternionBlocks blocks f)
+    (hell : (0 : Q') < ell) (hu : (0 : Q') < u) (hle : ell ≤ u)
+    (L : Certificate blocks (polyAdd W (polyNeg (cap ell))))
+    (U : Certificate blocks (polyAdd (cap u) (polyNeg W)))
+    (B : Certificate blocks background)
+    (P : ∀ {R : RatPoly}, Certificate blocks R →
+      (0 : Q') ≤ quaternionHaar blocks (polyMul R
+        (polyAdd (polyMul (cap lambda) (polyMul W W))
+          (polyAdd (polyMul W dd) (polyNeg (polyMul d d))))))
+    (H : quaternionHaar blocks (polyMul background dd) ≤ (0 : Q')) :
+    quaternionHaar blocks (polyMul background (polyMul d f)) *
+        quaternionHaar blocks (polyMul background (polyMul d f)) ≤
+      quaternionHaar blocks (polyMul background (polyMul W (polyMul f f))) *
+        (lambda*quaternionHaar blocks (polyMul background W)) := by
+  apply nonnegative_quadratic_discriminant
+  intro s t
+  have h := haar_nonnegative_of_positive_multiplier_order hW
+    (tilt_support hW hd hdd hf lambda s t) hell hu hle L U B
+    (clearedTiltOrder hW hd hf lambda s t P)
+  have hD : quaternionHaar blocks (polyMul background dd) +
+      lambda*quaternionHaar blocks (polyMul background W) ≤
+      lambda*quaternionHaar blocks (polyMul background W) :=
+    Q'.le_trans' _ _ _ (Q'.add_le_add_right _ _ _ H)
+      (Q'.le_of_eqv (QPoly.q_zero_add_eqv _))
+  exact Q'.le_trans' _ _ _ (Q'.le_trans' _ _ _ h (Q'.le_of_eqv (haar_tilt blocks background W d dd f lambda s t)))
+    (Q'.add_le_add_left _ _ _ (Q'.mul_le_mul_of_nonneg_left _ _ _ hD
+      (SumOfSquares.q_mul_self_nonneg t)))
+
 end YMGap.Continuum.QuaternionHaarCurvatureDualBound
 
 #print axioms YMGap.Continuum.QuaternionHaarCurvatureDualBound.curvature_dual_bound
 #print axioms YMGap.Continuum.QuaternionHaarCurvatureDualBound.curvature_signed_dual_bound
+#print axioms YMGap.Continuum.QuaternionHaarCurvatureDualBound.integrated_curvature_signed_dual_bound
+#print axioms YMGap.Continuum.QuaternionHaarCurvatureDualBound.integrated_curvature_dual_bound

@@ -9140,3 +9140,104 @@ Decision: CONTINUE the same-W reciprocal/Fisher/Bochner join, retaining MAIN
 relative signed payment/direct macro retention as co-primary. Even a sharper
 variance floor alone does not pay the existing absolute temporal-loss ceiling.
 No canonical displayed claim or scorecard field changed, hence no chart print.
+
+## Selection: lossless SAME-marginal Fisher dual
+
+2026-10-09 15:30 UTC. Prior turn PROGRESS, committed/pushed dfeb7488.
+Selected proposition: for every supported signed test h and actual active
+selected paired generator J_i, H[(J_i W)h]^2 <= C(w) H[W] H[W h^2],
+where W is the literal V*g_n*g_(n+1) and C is marginalCurvatureCost.
+No logarithmic score object or inverse-floor penalty is selected.
+
+Square completion converts the already produced integrated curvature order
+under EVERY certified insertion R into order of W times a polynomial tilt.
+Finite positive-window reciprocal tests then reflect that integrated order
+without asserting a polynomial certificate for the quotient. Approximation
+errors vanish constructively using the existing explicit cutoff and rational
+Archimedean closure. Actual paired Haar IBP gives H[J_i^2 W]=0. A two-variable
+quadratic discriminant then proves the dual bound. The finite window may
+depend on cutoff/width/depth; the final cost does not, at FIXED strict nome.
+
+Inputs already exist: full original curvature, actual finite lower/upper
+window certificates, actual active-block support and angular Haar IBP.
+ROOT proves the original-marginal consumer; bounded Sol implements basis pins
+and integrated dual algebra; independent read-only Sol reviews exact objects,
+signs and quantifiers. Backward review screens source-specific ordered IBP
+for a later variance join; no Bochner/Poincare premise is introduced now.
+Checks cover signed h, n=0, actual active index, and BOTH original depths.
+Abandon this join if arbitrary certified insertion or actual positive window
+is absent. One monitored 20-GiB worker, 12-GiB reserve, fresh telemetry EACH
+launch; no full-tree audit or limit raise. MAIN signed retention, scaling and
+Clay remain OPEN. Canonical displayed claims unchanged; no chart print.
+
+## Checked lossless ORIGINAL paired Fisher dual
+
+2026-10-09 15:35 UTC. Observed finite proof outcome, not an imported paper
+theorem or a variance/scaling conclusion. For the literal W=V*g_n*g_(n+1),
+actual active selected index s and every supported signed polynomial h:
+
+    H_N[(J_i W)*h]^2 <= H_N[W*h^2] * (C(w)*H_N[W]),
+    C(w) = marginalCurvatureCost(w) = 6*C_face(w)+2*C_terminal(w).
+
+The normalized version divides BOTH sides by the SAME positive original odd
+partition H_N[W]. Neither terminal mass is substituted. K, width and n remain
+in W; both chronological messages remain, including the g_0=1 case. C depends
+on strict nome w, with no claimed uniformity as w approaches one.
+
+The exact square completion is
+W*tilt = (s*W*h-t*J_i W)^2 + t^2*(C*W^2+W*J_i^2 W-(J_i W)^2).
+The previously proved arbitrary-certified-insertion curvature order therefore
+orders R*W*tilt for every certified R. The NEW integrated positive-window
+reflection uses R=background*reciprocal_k, pays the supported-polynomial
+interval error at an explicit cutoff, and removes it by rational invSucc
+closure. It never asserts a Certificate for the curvature, quotient or tilt.
+Actual paired Haar IBP gives H_N[J_i^2 W]=0. The nonnegative two-variable
+quadratic discriminant gives the squared dual bound. Finite approximation
+depth/window can depend on K/width/n and h; NO inverse-floor factor survives
+in the conclusion. The heat cutoff stays fixed while the reciprocal degree
+varies; no circular heat-cutoff selection occurs.
+
+### Frozen sources, narrow checks and independent review
+
+Four final focused checks exited zero, with no diagnostics. Seventeen printed
+gates (including two unchanged old dual theorems) use only {propext,
+Quot.sound}; basisDirection is axiom-free. No new hole, analytic premise,
+classical step, foreign code or limit increase. ROOT read the full sources,
+owns the compilation and actual original consumer. Bounded Sol supplied
+basis pins and integrated dual algebra; an independent read-only Sol reviewer
+attested COMPLETE final-frozen-source PASS on all four exact hashes below.
+
+| Declaration | Source path:line | Frozen SHA-256 | Passing log / SHA-256 |
+|---|---|---|---|
+| reflection_with_error_of_positive_multiplier_order; haar_nonnegative_of_positive_multiplier_order | lean/YMGap/Continuum/QuaternionHaarIntegratedPositiveWindowOrderReflection.lean:32; :69 | 7d7326d092d2dc999fb1f46712f12a03274c689ed45716272e346da2666a2622 | /private/tmp/ym-oct9-integrated-window-reflection1.log / e6c8d5365dfeec3f6ecaac459e1221ecf76e7f5d06f701b277dd99912b2ba4b0 |
+| frozenCurvatureAt_basis_pin; paired_haar_zero; paired_square_haar_zero | lean/YMGap/Continuum/QPolyHaarPairedAtFrozenBasis.lean:103; :128; :154 | da6ac4fcc18f4898dd55f3805683e49679a7f35190bfb03a0c1ec3098b0df69a | /private/tmp/ym-oct9-paired-at-frozen-basis2.log / e0e24608a409598d76ef0ec826cc76be71c91d084c4e85640f893867c86d5eb4 |
+| integrated_curvature_signed_dual_bound; integrated_curvature_dual_bound | lean/YMGap/Continuum/QuaternionHaarCurvatureDualBound.lean:256; :282 | 887695a53e3c1078197cb16869764b83b7f4121d5533f284fd3488cd8b282be1 | /private/tmp/ym-oct9-integrated-curvature-dual1.log / c444553a4a6149401fc65a98eb285dd05e2edc8dbce2ce7ec7c32f0c11ff0707 |
+| marginal_paired_score_dual_bound; marginal_paired_score_normalized_dual_bound | lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFisherDual.lean:72; :130 | db3faa3c3071ec0d5f18160646cff71dcb986a8ca55f6be5282c39cc99fdf5c7 | /private/tmp/ym-oct9-original-marginal-fisher2.log / efe1262c689fb450d27f9ccc1da4537a22668fa3787d810436a04ab36056b568 |
+
+Fresh pressure/swap/full-process telemetry before EACH launch: 86 percent
+free, zero swap, no competing compiler/runner. One monitored 20-GiB worker,
+12-GiB reserve. Intermediate repairs were missing namespace, vacuous zero
+support, the actual Certificate.one constructor and existing left/right
+rational congruence APIs; the mathematical statement was unchanged. Root
+imports registered only; no root/full-tree build or audit is inferred.
+
+### Backward consumer and next analytic test
+
+The produced dual bounds the original score paired with any signed supported
+test. Alone it does NOT produce a lower interacting variance or a weighted
+Poincare inequality. Next join to the literal source's OWN mean and energy,
+using actual paired eigen/gradient pins rather than assuming the odd-marginal
+mean vanishes. The read-only backward screen offers a source-specific double
+IBP route: with u_i=J_i f, H2=sum_ij u_i*u_j*J_i*J_j W,
+the two integrations give H[H2]=H[W*K_f], where
+K_f=sum_ij J_j*J_i((J_i f)*(J_j f)). The REVERSED ordered derivatives matter.
+For the literal amplitude-two source the candidate K_f=48-16*Gamma(f)
+requires an actual bracket/source-carrier proof; it remains PAPER, not a new
+Lean premise or proof. Existing symmetric Hessian pins do not commute JiJj.
+
+Decision: CONTINUE OWN-mean/energy and ordered-source join. Preserve complete
+SAME-action relative signed payment/direct macro retention as co-primary;
+a stronger norm floor alone cannot pay the present absolute temporal-loss
+ceiling. Nontrivial continuum survival, physical calibration, full QFT,
+every compact simple group and Clay remain OPEN. No exact displayed chart
+claim changed; no chart reprint.

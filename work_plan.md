@@ -89,12 +89,28 @@ analytic premise, resource-limit increase or tree audit. These costs are
 width/depth/cutoff independent at FIXED strict nome, NOT near-one uniform.
 The marginal result is integrated order, NOT a polynomial Certificate for W.
 
-NEXT: justify the reciprocal passage on this SAME W and prove selected-frame
-weighted Fisher/Bochner identities with the literal source's full ordered
-second derivatives. The backward variance candidate uses OWN mean and energy,
-not an assumed zero mean or weighted Poincare. It remains PAPER until these
-identities and errors are produced. A stronger norm floor alone still does
-not pay the current absolute temporal-loss ceiling.
+CHECKED lossless ORIGINAL Fisher dual (2026-10-09 UTC):
+`FisherDual.marginal_paired_score_dual_bound` proves
+`H[(J_i W)h]^2 <= C(w)*H[W]*H[W*h^2]` for EVERY supported signed test h,
+with W literally `V*g_n*g_(n+1)` and C=`marginalCurvatureCost(w)`.
+Square completion uses the existing integrated order under EVERY certified
+insertion, NOT a curvature polynomial Certificate. Positive-window reciprocal
+tests and explicit error removal cancel W inside Haar order with no
+inverse-floor loss. Actual paired Haar IBP produces `H[J_i^2 W]=0`.
+The normalized theorem divides only by this SAME positive odd partition.
+Four final focused checks, COMPLETE independent frozen-source reviews, and
+17 permitted gates PASS (including unchanged old dual theorems). No new
+analytic premise/hole or full-tree audit; one capped serial worker. This
+fixed-nome cost is width/depth/cutoff independent, NOT near-one uniform.
+
+NEXT: join this produced Fisher dual to the literal source's OWN mean and
+selected-frame energy. For variance, produce the actual ordered double-IBP
+source pin, keeping the reversed `J_j J_i` order and all paired commutator
+terms. The backward screen finds a shorter split-Cauchy route using
+`K_f=sum_ij J_j J_i((J_i f)(J_j f))`; its proposed amplitude-two identity
+`K_f=48-16*Gamma(f)` remains PAPER. No zero-mean or weighted Poincare
+assumption is allowed. A stronger norm floor alone still does not pay the
+current absolute temporal-loss ceiling.
 Complete SAME-action relative signed payment/direct macro retention remain
 co-primary and OPEN. Evidence and exact source pins: adaptive-score audit.
 Canonical displayed claims unchanged; no ASCII reprint.

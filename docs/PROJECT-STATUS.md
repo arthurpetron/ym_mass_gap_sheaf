@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Supporting lossless ORIGINAL Fisher dual checked (2026-10-09 UTC): the literal
+`W=V*g_n*g_(n+1)` satisfies `H[(J_i W)h]^2 <= C(w)*H[W]*H[W*h^2]` for every
+supported signed test at an actual active physical link. Constructive integrated
+order reflection removes W without an inverse-floor loss; actual paired Haar
+IBP supplies the second-derivative zero. Normalization uses the SAME odd mass.
+Cost is width/depth/cutoff independent at fixed nome, not near-one uniform.
+Four final focused checks/17 permitted gates and COMPLETE independent final-
+source reviews PASS. OWN-centered variance, useful macro retention and MAIN
+relative loss remain OPEN. Exact displayed chart claims unchanged; no chart
+reprint. Evidence: adaptive-score audit.
+
 Supporting complete ORIGINAL spatial/odd-marginal curvature checked
 (2026-10-09 UTC): the spatial certificate retains all factors and charges
 only at most six incident faces. Exact ordered-jet square tensorization then
@@ -8,7 +19,8 @@ every certified insertion, including n=0, at `6*C_face(w)+2*C_terminal(w)`.
 Active selected links, computed cutoffs and strict nome remain. Cost is
 width/depth/cutoff independent at fixed nome, not uniform near one. Five final
 focused checks/22 permitted gates and COMPLETE independent frozen-source
-reviews PASS. Reciprocal/weighted Bochner passage, sharp variance and MAIN
+reviews PASS. The reciprocal/Fisher join is now checked above; weighted
+Bochner/source ordered-square passage, sharp variance and MAIN
 relative loss/macro retention remain OPEN. No physical/Clay or exact displayed
 chart claim changes; no chart reprint. Evidence: adaptive-score audit.
 

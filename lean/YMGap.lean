@@ -5051,6 +5051,12 @@ import YMGap.Continuum.QPolyHaarPairedAtFrozenZero
 import YMGap.Continuum.QuaternionHaarPairedAtFrozenCurvatureProduct
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSpatialCurvature
 import YMGap.Continuum.BF4ExactSlabFixedSpatialMarginalCurvature
+-- Lossless INTEGRATED order reflection and actual original paired score dual.
+-- SAME odd mass; fixed-nome cost only, no variance/scaling conclusion.
+import YMGap.Continuum.QuaternionHaarIntegratedPositiveWindowOrderReflection
+import YMGap.Continuum.QPolyHaarPairedAtFrozenBasis
+import YMGap.Continuum.QuaternionHaarCurvatureDualBound
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFisherDual
 import YMGap.Continuum.SU2QuaternionPairedHeatAtFrozenCurvature
 import YMGap.Continuum.SU2QuaternionConditionalZeroMeanSignedGram
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLastStepPairedScorePin
