@@ -268,6 +268,70 @@ truncated-current distinction are in the targeted review's cutoff reconciliation
 Two bounded independent source reviews; no Lean edit/check, new hypothesis,
 foreign proof import or chart change. Physical/Clay endpoints remain OPEN.
 
+SELECTED parallel geometric input (2026-10-09): construct an explicit finite
+net of `RationalQuaternion.UnitNorm`, with a computable index for every point
+and squared chord error at most 12/N^2 for each positive integer N. Existing
+unit-norm rational algebra, positive reciprocals, natural-number mesh division
+and reflected polynomial identities suffice. Two independent mathematical
+screens accept the stereographic proof: choose the scalar-coordinate sign,
+invert through 1+r, round each coordinate on the bounded 1/N mesh, and retain
+BOTH signs in the finite net. The south pole, equator and N=0 exclusion are
+explicit tests; the constant bounds squared distance, not distance. This pays
+effective total boundedness of the rational source for J04's planned compact
+completion. No canonical compact-group consumer is implemented yet; this
+does NOT assert compactness/completeness of rational points, completed Haar,
+compact SU(2) identification or every-group closure. Implementation is one
+new rational-geometric leaf, with no assumed coverage, new axiom or sorry;
+verification is narrow, serial, one capped worker with fresh dynamic capacity
+and independent full-source review. Stop/revise if the full selected finite
+cover cannot be proved from these inputs; do not substitute a chart-only
+wrapper. The signed original-payment/direct-retention frontier remains OPEN.
+
+CHECKED observed geometric input (2026-10-09): the selected full finite net
+is now constructed in `RepTheory/RationalQuaternionSphereNets.lean`:
+`netPoint` (:506), `netIndex` (:510), `net_covers` (:540), `net` (:597),
+`selected_mem_net` (:599), and `net_length` (:603). The literal list has
+2*(2*N+1)^3 entries (duplicates allowed); every rational unit point has a
+computed index with squared chord error <=12/N^2. First check failed on
+syntax/namespaces/casts; repaired narrow safe check2 PASS, all 18 gates within
+{propext, Quot.sound}, COMPLETE independent final-source review PASS.
+Source SHA-256: 77f4c7c9e1dd3f9d183a6db963b548bb3412e44ca74ae6243a791947ba8219d6.
+Log: `/private/tmp/ym-oct9-quaternion-finite-net2.log`, SHA-256
+1d9d0c3722188023680c62794826513894a0479643d2a490111942c3f2579132.
+Final narrow command, from the repository root:
+
+```sh
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 \
+  --check lean/YMGap/RepTheory/RationalQuaternionSphereNets.lean \
+  --check-output lean/.lake/build/lib/lean/YMGap/RepTheory/RationalQuaternionSphereNets.olean \
+  --log-file /private/tmp/ym-oct9-quaternion-finite-net2.log
+```
+
+Two capped one-worker checks, each preceded by successful dynamic-capacity
+checks; no limit increase, analytic premise, hole or foreign proof. Root
+import registered, NOT root/tree audited. This supplies rational-source
+effective total boundedness; completed group/SU(2)/Haar identification, J04,
+main interacting retention and all physical/Clay endpoints remain OPEN.
+Canonical chart claims unchanged; no reprint.
+
+PAPER downstream density argument (2026-10-09, independently checked): for
+a rational coordinate approximation a to a real unit vector x, with each
+coordinate error at most delta<=1, choose the sign of a's RATIONAL scalar.
+Write sa=(b,u), b>=0, d=1+b, P=d^2+|u|^2 and e=|a|^2-1=P-2d. The rational
+unit point q=s*((d^2-|u|^2)/P,2*d*u/P) satisfies
+|q-a|^2=e^2/P<=e^2 and therefore |q-x|^2<=296*delta^2. Both denominators
+are positive by rational tests; no real sign decision or real reciprocal is
+needed. This offers an actual density producer rather than an assumed
+density field. It is NOT a checked Lean theorem. Bare `CReal.cauchy`
+(`Constructive/Reals.lean:163`) stores its stage in Prop;
+`CReal.InnerRegularity` (`Constructive/CRealInnerRegularity.lean:34`) supplies
+usable Type-level rates. Effective density must use supplied/constructed
+rates, not extract them from Prop. `CRealSeminormPresentedCompleteness`
+already distinguishes represented families from arbitrary quotient-valued
+families. Point-metric/group-operation descent, completion identification and
+Haar compatibility are still separate unpaid joins; the ordinary polynomial
+Haar GNS completion does not complete the point carrier.
+
 Consumer reconciliation (2026-10-09, two independent read-only reviews):
 at a common admissible cutoff and d=stage+t, the local Fisher density
 V*g_d*g_(d+1) matches only the window's Z1 weight, up to the established

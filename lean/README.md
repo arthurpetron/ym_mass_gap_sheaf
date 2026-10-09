@@ -16,6 +16,15 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked parallel rational-sphere geometry (2026-10-09 UTC):**
+`RepTheory/RationalQuaternionSphereNets.net_covers` constructs finite exact
+unit-quaternion nets with computed indices and squared chord error `12/N^2`.
+The list has `2*(2*N+1)^3` entries, allowing duplicate points and retaining
+both signs. Focused safe check2 and complete independent source review PASS;
+all 18 printed gates are permitted. This is effective total boundedness of
+the rational source, not compactness, completed SU(2), Haar extension or a
+mass gap. No root/tree audit or canonical chart change.
+
 **Checked parallel SU(2) basis input (2026-10-09 UTC):** every literal
 two-link relative character has Haar norm one, supplying Casimir-reading
 uniqueness at every label in `RepTheory/SU2RealizedRow`. Final two focused

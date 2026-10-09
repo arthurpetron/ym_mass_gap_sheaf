@@ -62516,6 +62516,25 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+## 2026-10-09 — Rational unit-sphere effective finite covers constructed
+
+`RepTheory/RationalQuaternionSphereNets.netPoint` (:506), `netIndex` (:510)
+and `net_covers` (:540) construct exact rational unit-quaternion points and
+computed covering indices with squared chord error at most 12/N^2 for N>0.
+`net` (:597), `selected_mem_net` (:599) and `net_length` (:603) supply the
+literal finite list and membership; its length is 2*(2*N+1)^3, allowing
+duplicate points. Both signs, the south pole, equator and mesh endpoints
+are retained. No coverage premise, new axiom or sorry is introduced/discharged.
+
+Final focused safe check2 PASS; all 18 printed gates are within
+{propext, Quot.sound}; COMPLETE independent frozen-source review PASS.
+Exact source/log hashes and the two-launch verification boundary are in
+`work_plan.md`, observed geometric input. Root import registered, not
+root/tree audited. This proves effective total boundedness of rational
+points, not completeness/compactness, a completed SU(2) identification,
+Haar extension, every-group construction or physical/Clay closure. These
+remain OPEN, together with the main original interacting retention input.
+
 ## 2026-10-09 — SU(2) realized all-spin TWO-link norm premise supplied
 
 `Continuum/SU2QuaternionRelativeCharacterNorm.relativeCharacter_square_norm`
