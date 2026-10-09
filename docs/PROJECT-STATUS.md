@@ -6426,6 +6426,26 @@ quotient-family completeness, compact SU(2) identification, Haar extension,
 every-group construction or physical gap is asserted. J04 and the MAIN
 signed warmed estimate remain OPEN; canonical chart claims unchanged.
 
+Checked J04 coordinate-realization input (2026-10-09):
+`lean/YMGap/RepTheory/RationalQuaternionNormRepair.lean:287`
+(`repair_error_identity`) proves the exact squared repair error is the squared
+norm defect divided by a denominator at least one; `repair_error_le` (:315)
+and `repair_unit` (:326) give its bound and all-unit recovery.
+`lean/YMGap/RepTheory/RationalQuaternionCoordinateCompletion.lean:374`
+(`realizationRow`) constructs actual rational-unit Cauchy points from four
+SUPPLIED CReal coordinates, their explicit inner rates and semantic unit
+norm. Norm regularity (:241) and residual bounds (:269) are proved, not
+assumed. All-coordinate recovery (:447/:454), RC-valued quotient coordinates
+(:426), same-Point row recovery (:460), injectivity (:533) and semantic/rate
+congruence (:543/:489) are checked. Arbitrary initial raw zeros (:591) and
+distinct central signs (:607) are included. Final narrow safe checks3/5,
+13/31 permitted gates and COMPLETE independent final-source reviews PASS;
+source/log hashes and exact commands are in `work_plan.md`. No arbitrary
+Point-to-CReal representative selection, all-RC-sphere equivalence,
+compactness, completed matrix SU(2), Haar extension or every-group theorem
+follows. J04 and the MAIN signed warmed estimate remain OPEN; no exact
+canonical chart claim changes or root/tree audit follows.
+
 Verification context: `audits/AUDIT-FOUR-LINK-SQUARE-YOUNG-2026-09-24.md`,
 `audits/AUDIT-SURVIVAL-QUANTIFIERS-2026-09-24.md`, and the complex-time
 checkpoint in `work_plan.md`. These record targeted checks, not a fresh

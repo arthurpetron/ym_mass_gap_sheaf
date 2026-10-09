@@ -88,6 +88,8 @@ import YMGap.RepTheory.RationalQuaternionUnitNormGroup
 import YMGap.RepTheory.RationalQuaternionSphereNets
 import YMGap.RepTheory.RationalQuaternionCauchyGroup
 import YMGap.RepTheory.RationalQuaternionCompletedDistance
+import YMGap.RepTheory.RationalQuaternionNormRepair
+import YMGap.RepTheory.RationalQuaternionCoordinateCompletion
 import YMGap.RepTheory.RationalQuaternionSignQuotient
 import YMGap.RepTheory.RationalQuaternionQ8Fixture
 import YMGap.RepTheory.CompactSimpleGlobalForm

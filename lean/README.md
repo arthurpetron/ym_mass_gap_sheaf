@@ -16,6 +16,21 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked quaternion coordinate-realization join (2026-10-09 UTC):**
+`RepTheory/RationalQuaternionCoordinateCompletion.realizationRow` constructs
+an actual rational-unit Cauchy row from four SUPPLIED CReal coordinates with
+explicit rates and semantic unit norm. No norm-residual-rate premise is
+assumed. All four coordinates are recovered; RC-valued coordinates descend
+to the EXISTING Point quotient, separate its points and reconstruct every
+supplied row on that SAME carrier. Changed rates, arbitrary initial zeros
+and both central signs are covered. The finite repair has exact squared
+error `normDefect^2/denominator <= normDefect^2`, with denominator at least
+one. Final narrow safe checks3/5 and COMPLETE independent final-source
+reviews PASS; 13/31 printed gates are permitted. No arbitrary quotient
+representative choice, compactness, completed matrix SU(2), Haar extension,
+every-group construction or physical gap is asserted. J04, MAIN interacting
+retention and Clay remain OPEN; root imports registered, not root/tree audited.
+
 **Checked quaternion completed-distance join (2026-10-09 UTC):**
 `RepTheory/RationalQuaternionCompletedDistance.distanceData` constructs the
 actual separated RC-valued squared chord on the EXISTING point quotient,

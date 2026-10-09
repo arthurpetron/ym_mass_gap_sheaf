@@ -479,6 +479,109 @@ chord has a factor-two triangle, not a Lawvere additive metric. MAIN stays
 the original interacting signed warmed aggregate/direct macro retention;
 no physical/Clay or exact canonical chart claim closes.
 
+SELECTED quaternion coordinate-realization join (2026-10-09 19:10 UTC):
+from four supplied CReal coordinates with Type-valued `InnerRegularity` and
+semantic sum-of-squares one, construct an ACTUAL unit-rational
+`chordSeminorm.Cauchy` row recovering those coordinates. Conversely construct
+the four coordinate reals of every supplied point row. Existing consumers:
+`RationalQuaternionCauchyGroup.Point` and its separated actual completed
+distance; no existing completed-coordinate reconstruction declaration was
+found. This removes a finite coordinate-realization gap on the J04 A1 spine,
+not the every-group theorem or the MAIN interacting estimate. No ordinary
+GNS, surrogate sphere, or extra norm-residual-rate assumption is substituted.
+
+Mathematical producer: choose the sign of EACH rational scalar approximation,
+put b>=0, d=1+b, P=d^2+|u|^2>=1 and e=normSq(a)-1, and use the existing
+signed stereographic point q=sign*((d^2-|u|^2)/P,2*d*u/P). Prove the finite
+identity `distSq(q,a)=e^2/P<=e^2`, without a real sign or square root.
+The supplied coordinate rates plus semantic unit norm prove the tail bound
+|coordinate|<=2 at M0=max R_i(1/2); a semantic later stage is used only
+inside Prop. Construct norm regularity N(epsilon)=max(M0,max R_i(epsilon/16)),
+then its residual bound at N(epsilon/2). For squared-chord tolerance epsilon,
+eta=min(1,epsilon)/8 gives a computable point-row rate with
+`distSq(q_p,q_q)<=22*eta^2<=epsilon`. Recover the actual coordinate limits;
+prove representative independence and rational-unit recovery where the
+existing quotient/coordinate consumers require them. All witnesses and
+moduli remain Type data; never choose an arbitrary quotient representative.
+
+Predict an unconditional producer given the supplied coordinate data,
+not another structure assuming density. Tests: both central signs, equator
+and sign changes, arbitrary early zero approximations, exact rational-unit
+inputs, identical rows with different moduli. Bounded implementation goes to
+Sol; independent mathematical/source review and ROOT full inspection precede
+ROOT's serial capped checks (one worker, 20 GiB, 12 GiB reserve, fresh capacity
+before each launch). No sorry, new axiom, choice, resource increase or frontier
+field change. Stop/revise if an unprovided analytic input or Prop-to-Type
+selection is needed. Compactness, completed matrix SU(2), Haar compatibility,
+all groups, continuum QFT and Clay remain OPEN. In parallel test an actual
+source-specific signed energy saving, not another reconstruction wrapper.
+
+OBSERVED quaternion coordinate-realization result (2026-10-09 19:24 UTC):
+`lean/YMGap/RepTheory/RationalQuaternionNormRepair.lean:287`
+(`repair_error_identity`) proves the exact finite squared error
+`distSq(repair(a),a)=normDefect(a)^2/repairDenominator(a)`.
+The denominator is at least one (:281), the squared error is at most the
+squared defect (:315), and repair recovers EVERY rational unit (:326),
+without a real sign or square root. Source SHA-256:
+00939607348024bc8dffdc5d7c95ee1bfa50e16ef208ae6b7d90bdf8558453bf.
+Final narrow check3 PASS, 13 permitted gates and COMPLETE independent
+final-source review PASS. Final log
+`/private/tmp/ym-oct9-quaternion-norm-repair3.log`, SHA-256:
+e8940c11530c6963562e793c90943c10efadfff85e0007769036ce54c1fb53ad.
+
+`lean/YMGap/RepTheory/RationalQuaternionCoordinateCompletion.lean:374`
+(`realizationRow`) constructs the ACTUAL repaired rational-unit Cauchy row
+and computed modulus. `normRegularity` (:241) and `norm_residual_bound`
+(:269) are proved from the supplied coordinate rates, not new inputs;
+the repaired row has squared chord <=22*eta^2<=epsilon. All four supplied
+coordinates are recovered (:447/:454); `pointCoordinate` (:426) descends
+to RC on the EXISTING Point quotient. `pointCoordinate_injective` (:533)
+separates those points; `realization_rowCoordinate` (:460) reconstructs
+every supplied row on that SAME quotient. Semantic/rate congruence
+(:543/:489), arbitrary initial zeros (:591) and distinct signs (:607)
+are proved. No arbitrary quotient representative is selected. Source SHA-256:
+7660ac6dbc26cb690eda7ba607682962e4a043ff5e06567819504c045c60de3c.
+Final narrow check5 PASS, all 31 gates within {propext, Quot.sound},
+COMPLETE independent final-source/log review PASS. Final log
+`/private/tmp/ym-oct9-quaternion-coordinate-completion5.log`, SHA-256:
+4c06e06435a2f176fb4e9271d18a7bf418159dfd88ed0c2a6706f98821a92e78.
+Exact final commands, from repository root:
+
+```sh
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 \
+  --check lean/YMGap/RepTheory/RationalQuaternionNormRepair.lean \
+  --check-output lean/.lake/build/lib/lean/YMGap/RepTheory/RationalQuaternionNormRepair.olean \
+  --log-file /private/tmp/ym-oct9-quaternion-norm-repair3.log
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 \
+  --check lean/YMGap/RepTheory/RationalQuaternionCoordinateCompletion.lean \
+  --check-output lean/.lake/build/lib/lean/YMGap/RepTheory/RationalQuaternionCoordinateCompletion.olean \
+  --log-file /private/tmp/ym-oct9-quaternion-coordinate-completion5.log
+```
+
+All eight serial launches had fresh successful dynamic-capacity checks,
+no competing compiler and zero swap; no resource or heartbeat increase.
+Initial attempts found ordinary elaboration/parser problems, then finite
+expression-unfolding heartbeats; ROOT repaired them by explicit typing and
+opaque additive identities, not by weakening a statement. Final coordinate
+log has no diagnostic; repair log retains one harmless unnecessary-simpa
+warning. No sorry, axiom, classical choice or analytic hypothesis was added.
+Root imports registered, NOT root/tree audited. This closes the selected
+represented-coordinate producer, not an all-RC-sphere equivalence or
+arbitrary quotient-family completeness/compactness. Completed matrix SU(2),
+Haar extension, all groups, J04 and physical/Clay closure remain OPEN.
+MAIN remains original interacting signed warmed cost/direct two-mass macro
+retention. Its parallel mathematical screen supplied no new estimate:
+the tested eigen-reading belongs to bare heat, not the interacting transfer,
+and Gram positivity does not sign the original signed remainder difference.
+No exact displayed canonical chart claim changes, so no chart reprint.
+
+NEXT group-realization consumer: use the existing rational fundamental
+matrix multiplication/conjugation identities and the checked four-coordinate
+Point map to build a faithful completed RC-matrix representation on this
+SAME group. The coordinate producer is now available for represented
+unit-sphere inputs. Compactness/Haar and every-group realization must remain
+separate OPEN obligations; no transfer estimate is imported from this geometry.
+
 PAPER smoothing screen (2026-10-09): the actual
 `H1FixedScale.smoothedEnergy_le_familyNorm` already pays the unconditional
 energy bound, but relative to the INITIAL norm, not the warmed denominator.
