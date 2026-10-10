@@ -68,8 +68,16 @@ rational scalar input's bound abs(c)*M, rescaled radius and inner rate.
 zero/negative/noncanonical c. `scaleHaarInnerRegularity` retains the candidate
 rate. Focused check2 and complete independent source/log/math review PASS;
 all thirteen permitted gates, no final diagnostics.
-Continuous translation invariance, full continuous Haar/J04, MAIN scaling
-and Clay remain OPEN.
+`Continuum/QuaternionDenseCRealHaarTranslation` now produces both rational
+unit pullbacks with unchanged bounds/radii and transported inner rates.
+`translateHaar_stage` pays two invSucc errors; `translateHaarEqualityRate`
+computes den(epsilon/2) and `translateHaar_invariant` proves the ACTUAL
+original-Haar law. `translateExtension_value` identifies the actual map on
+EVERY Point with composition by the SAME completed Hamilton product.
+Focused check2 and COMPLETE independent frozen-source/log/math review PASS;
+twelve permitted gates, one axiom-free, no final diagnostics. Multipliers
+are rational units, NOT arbitrary completed Points. Completed-multiplier
+invariance, full continuous Haar/J04, MAIN scaling and Clay remain OPEN.
 Root registration only; no full root/tree/audit. Exact evidence: adaptive-score audit.
 
 **Checked POINTWISE rational-carrier approximation (2026-10-10 UTC):**

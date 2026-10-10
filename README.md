@@ -32,8 +32,11 @@ Actual rational constant inputs now have produced bounds/radii/rates and
 the expected Haar value, including unit normalization; their completed maps
 are constant on every Point. Signed rational homogeneity is now checked for
 the actual scaled input, with produced bounds/radii/inner rates and explicit
-full-error cutoff. Continuous translation invariance and compact realization
-remain open.
+full-error cutoff. Rational unit left/right translations now preserve the
+ACTUAL Haar candidate, with stage error 2/(n+1) and a computed equality cutoff.
+Their actual completed maps are composition with the SAME completed product
+on every Point. Arbitrary completed multipliers and compact realization remain
+open; rational invariance is not the full continuous-Haar package.
 It closes no mass-gap claim. See the
 [checked construction and next join](audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md).
 

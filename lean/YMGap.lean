@@ -5439,6 +5439,9 @@ import YMGap.Continuum.QuaternionDenseCRealHaarNormalization
 -- Produced signed scalar input data and ACTUAL original-Haar homogeneity.
 -- Independently sampled polynomials are compared, not identified.
 import YMGap.Continuum.QuaternionDenseCRealHaarHomogeneity
+-- ACTUAL rational unit left/right invariance, paying two vanishing errors.
+-- SAME completed-map composition on every Point; completed multipliers open.
+import YMGap.Continuum.QuaternionDenseCRealHaarTranslation
 import YMGap.Continuum.SU2HeatJacobiFinitePrefixClassPolynomial
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticBound
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticCutoff

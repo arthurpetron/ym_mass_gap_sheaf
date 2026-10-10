@@ -781,32 +781,44 @@ COMPLETE independent source/log/math review PASS; thirteen permitted gates,
 no final diagnostics. Rejected check1 had a missing support namespace only;
 its cascading sorryAx is not accepted evidence. Exact command/hashes: score
 audit. Root registration only; no full root/tree/audit/metric or chart change.
-NEXT: continuous translation invariance, first on actual rational pullbacks.
-The requested arXiv:2610.09093 recheck sharpens the latter into a bounded
-independent experiment [PAPER, not yet a checked theorem]: for a supplied
-rational unit multiplier g and either Hamilton order, produce the actual
-pullback F_g(q)=F(g*q) or F(q*g), with inner data R at the actual product
-and the SAME bound M and radius rho. `RationalQuaternionCauchyGroup.chord:57`
-is definitionally the supplied squared distance; `chord_mul_left:255` and
-`chord_mul_right:264` therefore preserve that radius without monotonicity.
-Translate the ORIGINAL computed p_n using
-`SU2QuaternionFixedRationalHaarTranslation.fixedTranslatedPolynomial:86`;
-its support/evaluation/moment pins (:89, :370, :194), together with
-`QuaternionPointBernsteinCRealApproximation.realApproximation_error:149`
-and `QuaternionDenseCRealHaarApproximation.haarApproximation_polynomial_distance:193`,
-predict SAME-stage error <=2*invSucc(n). The explicit cutoff
-(epsilon/2).den then removes that error. Only literal coordinate recoding
-and sound distance symmetry are needed, not another continuous-integral
-premise or an identity between independently sampled polynomials.
-Retain both Hamilton orders, n=0, signed/zero input values, equatorial and
-negative-central unit multipliers, and noncanonical rationals. This rational
-join is independent of scalar homogeneity; arbitrary completed multipliers
-still need their own quantitative continuity/limit transfer. Exact source
-pins and the independent mathematical screen are recorded in
-`audits/RESEARCH-2610-09093-2026-10-08.md`, precise next translation experiment.
-Full continuous Haar and compact realization remain OPEN; addition,
-positivity, rational constant normalization and signed rational homogeneity
-do not supply the remaining laws.
+CHECKED subsequent ACTUAL rational left/right translation (after 1b443668):
+`QuaternionDenseCRealHaarTranslation.translateInput:56`, `translateInner:61`,
+`translate_bound:67` and `translate_modulus:75` produce the actual F(g*q)
+or F(q*g), preserving the SAME bound/radius by exact chord isometry.
+`translateHaar:128` and `translateHaarInnerRegularity:134` construct its
+actual original-Haar candidate and retain the computed candidate rate.
+`translateHaar_stage:143` compares independently sampled stages using
+literal coordinate recoding and original polynomial evaluation/moment pins,
+paying TWO invSucc(n) errors, not assuming sampled-polynomial equality.
+`translateHaarEqualityRate:187` computes den(epsilon/2);
+`translateHaar_invariant:202` proves genuine CReal equivalence.
+`translateExtension_value:217` gives actual Point-map composition with the
+SAME completed Hamilton product on EVERY Point and a rational unit multiplier,
+by quotient induction and identical samples, without representative choice.
+Both orders, n=0, signed/zero inputs, identity/negative-central/equatorial
+units, noncanonical rationals and nonmonotone moduli remain covered.
+Focused check2 and COMPLETE independent frozen-source/log/math review PASS;
+twelve permitted gates, equalityRate axiom-free, no final diagnostics.
+Check1's missing parent namespace and cascading sorryAx are rejected evidence,
+not source holes. Root registration only; no root/tree/audit/metric or chart
+change. Exact command, hashes and scope: adaptive-score audit.
+
+NEXT, independently source/math screened [PAPER, not yet a checked theorem]:
+produce quantitative stability for ACTUAL `rowImage` on two supplied rows
+whose squared chord is <=rho(eta) from K onward. Stable sampling gives
+row gap <=eta+2*invSucc(n), paid at max(K,den(epsilon/2)). Uniform sound
+dense-input distance likewise passes through rowImage with that computed
+sampling tail. For a supplied multiplier row G, construct the translated
+dense CReal input on the ACTUAL product row, with `rowImageInnerRegularity`,
+bound M from `sample_abs_le`, and SAME rho by chord isometry. At
+J=G.modulus(rho(eta)), the rational multiplier G.seq J is uniformly eta-close
+on every dense test point. Haar contractivity and checked rational invariance
+can then remove eta; the two row stability comparisons give the all-Point
+composition pin through the SAME rational translate. No uniform early-row
+bound, representative selection, new continuity hypothesis or nested diagonal
+is selected. Complete exact source pins and the two independent mathematical
+screens: adaptive-score audit. Full continuous Haar and compact realization
+remain OPEN; rational invariance is not arbitrary completed invariance.
 Use the checked all-Point approximation and ORIGINAL moment invariance;
 the paper's pre-existing continuous Haar is not our constructive producer.
 This foundation is separate from MAIN warmed signed-cost versus SAME variance

@@ -4,6 +4,34 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## ACTUAL original-Haar rational translation (2026-10-10 UTC)
+
+`QuaternionDenseCRealHaarTranslation.translateInput:56`, `translateInner:61`,
+`translate_bound:67` and `translate_modulus:75` produce either rational
+unit pullback with the SAME bound/radius, using the exact chord isometry.
+`translateHaar:128` constructs its ACTUAL original-Haar candidate;
+`translateHaarInnerRegularity:134` retains its computed candidate rate.
+`translateHaar_stage:143` compares independent stages using original
+polynomial evaluation/moment pins and pays TWO invSucc(n) errors.
+`translateHaarEqualityRate:187` computes den(epsilon/2);
+`translateHaar_invariant:202` proves genuine CReal equivalence.
+`translateExtension_value:217` pins the ACTUAL extension on EVERY Point
+to composition with the SAME completed Hamilton product by embed(g),
+using literal row samples and quotient soundness, not representative choice.
+Both orders, n=0, signed/zero inputs, noncanonical rational units and
+nonmonotone supplied moduli are covered. No integral premise or new analytic
+input is introduced. Focused check2 and COMPLETE independent frozen-source/
+log/math review PASS; twelve gates permitted, equalityRate axiom-free,
+no final diagnostics. Check1's missing parent namespace and cascading
+compiler sorryAx are not accepted evidence; no source hole was added.
+Exact command/hashes: adaptive-score audit. Root registration only, no
+full root/tree/audit/metric, literature scan or canonical chart-state change.
+NEXT: quantitative pair-row and dense-input stability of actual rowImage,
+then construct admissible completed pullbacks from supplied multiplier rows
+and pass their invariant law and same-map pin through the rational limit.
+Arbitrary completed multipliers, full Haar/J04, MAIN SAME warmed-variance
+payment/scaling and every physical/QFT/every-group/Clay endpoint remain OPEN.
+
 ## ACTUAL original-Haar signed rational homogeneity (2026-10-10 UTC)
 
 `QuaternionDenseCRealHaarHomogeneity.scaleInput:90`, `scaleInner:94`,

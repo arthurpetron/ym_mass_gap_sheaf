@@ -6,6 +6,112 @@ and a finite strictly positive physical Hamiltonian mass gap.
 
 ## Finite positive cubature foundation (2026-10-10 UTC)
 
+### Selected ACTUAL rational left/right translation (after 17645d39)
+
+Previous turn: PROGRESS, actual signed rational homogeneity checked and pushed.
+Next proposition: ORIGINAL Haar of the ACTUAL F(g*q) or F(q*g) equals the
+original F candidate, for every supplied rational UNIT g. Consumer: the
+invariant law of the constructive continuous-Haar route. Produce the input's
+inner rate and inherit its SAME bound/radius using the actual chord isometry;
+do not assume translated admissibility or an integral identity. Translate F's
+actual stage polynomial, use its support/evaluation/original-moment pins and
+`haarApproximation_polynomial_distance`, paying two invSucc(n) errors.
+Predicted explicit equality cutoff: (epsilon/2).den. Include both orders,
+n=0, signed/zero F, identity/negative-central/equatorial multipliers,
+noncanonical rationals and nonmonotone supplied moduli; nonunit g is excluded.
+Revise if coordinate recoding needs an analytic premise or independently
+sampled polynomials must be identified. Luna owns only the input prefix;
+ROOT implements the actual comparison/limit and owns serial checks at 20 GiB,
+12 GiB reserve and fresh telemetry. Sol independently reviews frozen final
+source/log/math. No broad/root/audit run, resource increase or browsing.
+Completed-multiplier continuity/composition, full Haar/J04, MAIN and every
+physical/Clay endpoint remain OPEN.
+
+Selected same-map test before the rational-translation compiler check:
+the ACTUAL translated Point extension equals the original extension composed
+with completed multiplication by embed(g), on EVERY Point and for either
+order. Available `completionMap_mk`, literal `mapCauchy.seq`, constant rows
+and `rowImageApprox` give identical rational samples after quotient induction;
+`Quotient.sound` and pointwise CReal equivalence suffice. No representative
+selection or new continuity premise is needed. This includes completed
+arguments, NOT completed multipliers; the latter limit remains open.
+Independent read-only Sol mathematical screen PASS; ROOT implements and
+checks this join in the same leaf. Prior paper-review turn: authoritative
+review progress only, no new mathematical proof or changed analytic selection.
+
+### Observed ACTUAL rational translation [CHECKED]
+
+Luna's admissibility prefix was read in full; ROOT implemented the literal
+polynomial recoding, actual-stage comparison, limit law and SAME completed-map
+pin. `translate_distSq`,
+`lean/YMGap/Continuum/QuaternionDenseCRealHaarTranslation.lean:44`, preserves
+the actual squared chord for both Hamilton orders. `translateInput:56`,
+`translateInner:61`, `translate_bound:67` and `translate_modulus:75` produce
+the actual translated input with unchanged bound/radius and transported
+Type-level inner rate. `translateHaar:128` constructs its ACTUAL candidate;
+`translateHaarInnerRegularity:134` retains den(epsilon/2).
+
+`translateHaar_stage:143` uses the ORIGINAL F stage polynomial, its translated
+support/evaluation/Haar pins and `haarApproximation_polynomial_distance`.
+It pays TWO invSucc(n) errors without identifying independently sampled
+polynomials. `translateHaarEqualityRate:187` computes den(epsilon/2), and
+`translateHaar_invariant:202` gives genuine CReal equivalence with the
+original candidate. `translateExtension_value:217` identifies the ACTUAL map
+on EVERY Point with composition by the SAME completed product and embed(g).
+Quotient induction compares literal row samples; no representative is chosen
+and no completed-map identity is assumed. Both orders, n=0, signed/zero F,
+M=0, arbitrary supplied nonmonotone rates/radii and all rational UNIT
+multipliers, including noncanonical, equatorial and central signs, are covered.
+Literal zero quaternion/nonunit multipliers are not in that scope.
+
+Accepted focused command after fresh capacity/process inspection:
+
+```text
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionDenseCRealHaarTranslation.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionDenseCRealHaarTranslation.olean --log-file /private/tmp/ym-original-haar-translation-check2.log
+```
+
+Source SHA-256 `f967130c28ca4471237bdcc0c735f38e25b9d81b9fe2f9304168831bc1717052`.
+Accepted log SHA-256 `823326b862a4dca12beaf38bfbe8d9cf5b25076a3a41ec57e75546438d01276c`.
+All twelve public gates pass: eleven exactly {propext,Quot.sound},
+`translateHaarEqualityRate` axiom-free. No final warnings/errors/sorryAx.
+Check1 failed at the missing parent namespace for `RationalQuaternion`, with
+cascading elaborator sorryAx; no source sorry was introduced. ROOT added the
+defining namespace open, not a new hypothesis or proof hole, and reran only
+the same leaf. ROOT inspected the full proof and logs; independent Sol review
+of COMPLETE frozen source/log/math PASS, exact hashes matched. The separate
+all-Point mathematical screen also PASS. Available-memory report 85%, swap
+zero, no competing compiler/test process; no limit change or broad/root/tree/
+audit/metric run. Root import is registration only. Canonical claims unchanged.
+
+### Next completed-multiplier producer [PAPER, independently screened]
+
+Two quantitative lemmas are needed, not another continuity assumption:
+(1) if actual source rows X,Y have chord <=rho(eta), eta>0, from K onward,
+their `rowImage` values have sound distance <=eta; (2) uniformly eta-close
+dense input values have uniformly eta-close row images on every Point.
+`sample_difference_le_asymmetric`,
+`lean/YMGap/Constructive/CRealStableSampling.lean:140`, pays the literal
+row difference by eta+2*invSucc(n), with explicit sampling-tail stage
+max(K,den(epsilon/2)). `sample_abs_le:58` gives bound M of each actual image
+at epsilon.den; no bound on arbitrary initial approximants is needed.
+
+For supplied multiplier row G and either order, put F_G(q)=rowImage F on
+`multiplication.mapCauchy G (chordSeminorm.constant q)` or its reverse.
+`rowImageInnerRegularity`,
+`lean/YMGap/Continuum/QuaternionDenseCRealPointExtension.lean:133`, gives
+the actual Type-level inner rate; same-index chord isometry retains rho.
+J=G.modulus(rho(eta)) gives the rational g_eta=G.seq J, uniformly eta-close
+in the resulting input values on every q. Existing Haar comparison and
+CHECKED rational invariance can remove eta. For the all-Point composition
+pin, compare both sides to the SAME rational translate: dense-input
+stability pays the first comparison; pair-row stability on G*X versus
+constant(g_eta)*X pays the second. This avoids a nested diagonal proof or
+selecting an RC representative. Exact equality and representative independence
+are remaining joins, not yet checked claims. ROOT and two independent Sol
+screens agree that the inputs exist; no new producer is assumed.
+Full completed invariance/Haar/J04, MAIN signed payment/scaling and all
+physical/QFT/every-group/Clay conclusions remain OPEN.
+
 ### Selected ACTUAL signed rational homogeneity (after e649ba1f)
 
 Previous turn: PROGRESS in authoritative planning, not a new checked theorem.
