@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Supporting exact completed ADJOINT kernel checked (2026-10-10 UTC):
+`RationalQuaternionCompletedAdjointKernel.representation_kernel_iff:386`
+proves the actual completed matrix kernel is exactly the two embedded signs.
+`coverKernelSignWitness:404` produces the existing Type-valued reverse witness;
+`quotientRepresentation_faithful:421` and `representation_eq_iff_coset:426`
+prove faithfulness and exact matrix/sign-coset equality for the EXISTING
+quotient representation. Focused check3 and COMPLETE independent final
+source/log/math review PASS; four gates exactly {propext,Quot.sound}, no
+diagnostics. This is NOT compact/topological SO(3), interacting theory descent,
+a uniform MAIN estimate or a physical gap. NEXT returns to the ORIGINAL
+late-response/signed-cost producer search. Exact displayed claims unchanged;
+no chart reprint. Evidence: adaptive-score audit, observed adjoint kernel.
+
 Supporting SAME-carrier energy projection checked (2026-10-10 UTC):
 `BF4WilsonAllNomeAxisEnergyProjection.sector_pairing_split:99` and
 `sector_energy_split:125` split the ORIGINAL completed pairing and actual
@@ -28,7 +41,8 @@ actual Hamilton multiplication/transpose and both orthogonality laws on every
 existing completed Point. Its matrix-image group and Hom descend through
 the actual central-sign quotient; the trace equals the original even chiTwo.
 Focused check2 and COMPLETE independent frozen-source/full-log/math review
-PASS. This is NOT faithfulness, compact SO(3), interacting descent or MAIN.
+PASS. Faithfulness and exact kernel are supplied by the subsequent leaf above;
+this is NOT compact SO(3), interacting descent or MAIN.
 NEXT is the original late-response/signed-cost estimate or a produced
 low-energy dual. Exact displayed claims unchanged; no chart reprint.
 Evidence: adaptive-score audit, observed completed-adjoint contraction.

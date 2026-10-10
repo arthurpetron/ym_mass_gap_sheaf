@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED exact completed adjoint kernel / OPEN compact group and physical estimates (2026-10-10 UTC)
+
+`representation_kernel_iff:386`, `coverKernelSignWitness:404`,
+`quotientRepresentation_faithful:421` and `representation_eq_iff_coset:426`,
+`lean/YMGap/RepTheory/RationalQuaternionCompletedAdjointKernel.lean`, prove
+the actual completed Point matrix has precisely the two central signs in
+its kernel, produce the EXISTING Type-valued reverse-kernel witness, and
+prove faithfulness of the EXISTING completed sign-quotient representation.
+Literal matrix equality is equivalent to the actual completed sign-coset
+relation. A fixed rational row probe selects the sign; Prop-level trace
+tail cutoffs only certify closeness. The Close modulus uses supplied row
+rates and the existing selector retains computational content.
+Focused check3 and COMPLETE independent final-source/log/math review PASS;
+four gates exactly {propext,Quot.sound}, no diagnostics, hole or new axiom.
+No compact/topological SO(3), surjectivity onto every orthogonal matrix,
+interacting-action/OS descent, MAIN survival/scaling or physical gap follows.
+All continuum/QFT/every-group/Clay endpoints remain OPEN. Root import
+registration only, not a root/tree audit. Exact accepted/rejected commands,
+hashes and preflight evidence: adaptive-score audit, observed adjoint kernel.
+
 ## PROVED SAME-carrier energy projection / OPEN actual late dual (2026-10-10 UTC)
 
 `sector_pairing_split:99`, `sector_energy_split:125` and

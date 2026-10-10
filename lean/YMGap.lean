@@ -99,6 +99,8 @@ import YMGap.RepTheory.RationalQuaternionSignQuotient
 import YMGap.RepTheory.RationalQuaternionCompletedSignQuotient
 -- Actual completed adjoint matrix and sign descent; not compact SO(3).
 import YMGap.RepTheory.RationalQuaternionCompletedAdjointMatrix
+-- Exact completed adjoint kernel and faithful sign-coset matrix image only.
+import YMGap.RepTheory.RationalQuaternionCompletedAdjointKernel
 import YMGap.RepTheory.RationalQuaternionQ8Fixture
 import YMGap.RepTheory.CompactSimpleGlobalForm
 -- Finite root-coordinate groundwork only; not an actual compact G2 group.

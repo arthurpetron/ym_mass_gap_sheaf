@@ -31,14 +31,28 @@ Current analytic screen: additional time filters duplicate the known one-mode
 obstruction; OWN centering retains the raw channel mean in the Casimir IBP.
 No new late-dual or joint signed-cost estimate was found. Keep MAIN below OPEN
 and do not add a conditional square/centering layer.
-Independent known-input group work selected: produce the exact reverse kernel
-of the EXISTING completed adjoint matrix and feed
-`CentralQuotientPresentation.descendFaithful_of_kernelGammaWitness`,
-`lean/YMGap/RepTheory/ConstructiveRepresentationDescent.lean:315`.
-Its output is faithful action of the actual completed sign-coset group,
-not compact SO(3), interacting theory descent or an analytic producer.
-The supplied-row trace/chord proof and bounded verification budget are recorded
-in the adaptive-score audit, exact adjoint-kernel selection. No canonical claim changes.
+The complete-weight score numerator also does not become an original dual
+by insertion: its bare-Haar Ward pairing would acquire an extra W in the
+original marginal. No completed ratio, late lower overlap or useful energy
+bound was found; exact source pins: adaptive-score audit, score-dual screen.
+
+CHECKED independent exact completed adjoint kernel:
+`representation_kernel_iff:386`, `coverKernelSignWitness:404`,
+`quotientRepresentation_faithful:421` and `representation_eq_iff_coset:426`,
+`lean/YMGap/RepTheory/RationalQuaternionCompletedAdjointKernel.lean`, identify
+the exact two-sign kernel on EVERY actual completed Point, produce the
+EXISTING Type reverse witness, and feed
+`CentralQuotientPresentation.descendFaithful_of_kernelGammaWitness:315`,
+`lean/YMGap/RepTheory/ConstructiveRepresentationDescent.lean`.
+The EXISTING sign-quotient representation is faithful to its literal matrix
+image; matrix equality is exactly actual sign-coset equivalence. Fixed rational
+probe selection and supplied-row rates preserve constructive data. Focused
+check3 and COMPLETE independent final-source/log/math review PASS; four
+gates exactly {propext,Quot.sound}, no diagnostics. No compact/topological
+SO(3), every-matrix surjectivity, interacting descent or analytic producer.
+NEXT returns to the ORIGINAL late-response/signed-cost producer search;
+do not expand a further quotient prerequisite. Exact commands, hashes and
+rejected checks: adaptive-score audit, observed adjoint kernel. Chart unchanged.
 
 CHECKED actual MAIN sector input:
 `afPadded_state_even`,
@@ -83,8 +97,9 @@ is pinned by `quotientRepresentation_matrix:629`. `trace_chiTwo:499` recovers
 the existing even character 4*r^2-1. Both signs and all imaginary basis units
 are tested; generic raw/row statements include noncanonical rationals.
 Focused check2 and COMPLETE independent frozen-source/full-log/math review
-PASS. No compact SO(3), faithfulness/exact adjoint kernel, admissibility,
-interacting descent or MAIN bound is inferred. This is independently proved
+PASS. Exact kernel and faithfulness are supplied by the subsequent leaf above;
+no compact SO(3), admissibility, interacting descent or MAIN bound is inferred.
+This is independently proved
 project algebra, not an imported theorem from 2610.09093. Exact command,
 hashes and rejected check1: adaptive-score audit. NEXT is the ORIGINAL
 late-response/signed-cost producer, including the dual search below; no

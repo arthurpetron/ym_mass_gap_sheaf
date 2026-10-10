@@ -6,6 +6,13 @@ and a finite strictly positive physical Hamiltonian mass gap.
 
 ## MAIN screen and exact adjoint-kernel selection (2026-10-10 UTC)
 
+Continuation classification: b5eab261 is documentation/research-decision
+PROGRESS only, not a new analytic estimate. The exact-kernel source remained
+unverified. Its first frozen source is 429 lines, SHA-256
+`b71c596a978ee2ec3628825d8fd96e3760e978438f664e5842c49a77836e64bc`;
+ROOT read it completely and the independent complete mathematical review
+found no conceptual defect. Verification remains the selected bounded task.
+
 Previous goal turn PROGRESS: 7f14d5ce proves SAME-carrier even projection
 energy contraction. Live HEAD=origin/main; only the same three unrelated
 user duplicate leaves are untracked. No live compiler handle is resumed.
@@ -56,6 +63,101 @@ rational-only substitution or a new analytic premise is required.
 This reduces an available algebraic global-form input only. MAIN retention,
 compact/topological SO(3), interacting descent, full continuum/QFT/physical
 gap/every-group/Clay remain OPEN. No chart, paper polling or broad audit.
+
+### Independent complete-weight score-dual screen (SOURCE/PAPER only)
+
+While ROOT owns the single capped kernel check, a read-only Sol screen and
+ROOT source inspection test the actual complete-weight score numerator
+S_W(f)=sum(DW*Df), W=V*g_n*g_(n+1).
+`marginalWeight:75`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialActualMarginalDual.lean`, and
+`family_ward:124`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyVarianceWard.lean`,
+give the SAME-slice identity H[(f-mu_OWN)*S_W(f)]=12*Z*OWNVar(f)-Angular(W,f),
+with mass, mean and variance declaration pins at lines 48, 64 and 93 of the Ward leaf.
+This is bare-Haar pairing of the score numerator. In the literal W-weighted
+pairing its formal representer is S_W/W, not the same polynomial S_W;
+inserting S_W adds another W. No original completed-vector pin, fixed late
+overlap fraction or side-scaled energy estimate for this ratio was found.
+`marginal_paired_score_dual_bound:72`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFisherDual.lean`, bounds the
+score functional from above, not the required late overlap from below.
+Ward alone allows zero overlap when Angular=12*Z*OWNVar; the flat-density
+algebraic test DW=0 illustrates this without refuting the actual AF family.
+Decision: no additional score/reciprocal interface; retain the ORIGINAL
+late-response/signed-cost producer search. No new kernel proof is claimed.
+
+### Observed exact completed adjoint kernel (2026-10-10 08:49 UTC)
+
+The predicted algebraic join is CHECKED in
+`lean/YMGap/RepTheory/RationalQuaternionCompletedAdjointKernel.lean`:
+
+- `representation_kernel_iff:386` identifies the kernel on EVERY actual
+  completed Point as exactly the positive or negative embedded sign.
+- `coverKernelSignWitness:404` produces the EXISTING Type-valued reverse
+  witness from the existing fixed-probe `kernelSignWitness`, not a sign
+  extracted from the propositionally erased trace-tail cutoff.
+- `quotientRepresentation_faithful:421` fills the selected existing faithful
+  descent consumer for the EXISTING sign-quotient representation.
+- `representation_eq_iff_coset:426` identifies literal matrix equality with
+  actual completed sign-coset equivalence for arbitrary Point pairs.
+
+The universal supplied-row proof covers nonmonotone/delayed rows without a
+new row-normalization premise. The fixed 1/16 trace deficit certifies the
+fixed 1/2 probe threshold; a separate arbitrary positive-epsilon trace tail
+pays convergence. The SAME rational scalar-sign branch is used for both;
+no invalid requirement that arbitrary epsilon be below a fixed constant.
+`closeOfZero` supplies its modulus from existing row regularity rates.
+No Type data is obtained by eliminating a Prop existence proof.
+
+Accepted narrow check3 EXIT 0, 0.955 s initial call; complete eight-line log
+`/private/tmp/ym-oct10-adjoint-kernel3.log` contains exactly four axiom outputs,
+each {propext,Quot.sound}, with no warnings/errors/sorryAx. Command:
+
+```text
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/RepTheory/RationalQuaternionCompletedAdjointKernel.lean --check-output lean/.lake/build/lib/lean/YMGap/RepTheory/RationalQuaternionCompletedAdjointKernel.olean --log-file /private/tmp/ym-oct10-adjoint-kernel3.log
+```
+
+Final source SHA-256:
+`c428f18269a0d815827bee47e464c57f0ad73f7a16c9cc7aa8ae9ff4f4f2d6d7`.
+Accepted log SHA-256:
+`b66792764c74fef62099de3a30037f60abc94c7bc7ec413d084d05bdca565751`.
+ROOT fully inspected the frozen source and complete logs. Independent
+COMPLETE final frozen-source/log/math review PASS; implementer self-review
+also matched both final hashes. Generated .olean is the narrow target above.
+Independent documentation/root-registration diff review also PASS; ROOT
+checked the remaining Ward declaration line starts directly before staging.
+
+Rejected check1 (first frozen b71c596a...): EXIT 1, full 52-line log hash
+`adff9857515be192a7648de001b940ebc4483768081e5f07234c08d63ed95918`;
+polynomial-helper elaboration/whnf limits, double-negation metavars,
+if simplification and embed(ite) versus ite(embed) failed. Typed expression
+lets, local irreducibility and explicit algebra/branch rewriting repaired
+these without resource or statement changes. Rejected check2, source hash
+`d24781ba6507954b36b43a84326c9a3d7a5283b46fe6fbd3b04ee0bd94902088`,
+EXIT 1 in 3.186 s; full 22-line log hash
+`7c430c8069b21668ebb3a8c3a06cf7cadcbcf2101a15e6cd73c114f22059dc77`.
+Its only remaining failure was deciding exact sign separation through locally
+irreducible chord. ROOT's explicit `unfold chord; decide` repaired it.
+Failed elaborations propagated sorryAx into their print outputs; both logs
+are REJECTED evidence, not accepted proofs or introduced source sorries.
+
+Fresh preflight before EACH serial launch: 64 GiB host, no competing
+Lean/Lake/pytest/runner/launcher process, zero swap usage and reported
+memory-pressure free percentage 84%, 84%, 83% respectively. One worker,
+20 GiB cap and 12 GiB reserve unchanged; all builds used the monitored lock.
+Sandbox-denied initial ps/sysctl reads were repeated read-only with approval,
+not bypassed or interpreted as absence of processes. No broad/root build,
+tree/axiom/frontier audit, foreign code or further literature scan was run.
+Root import registration only; the three unrelated user duplicates stay untouched.
+
+Decision: the selected exact algebraic group input is discharged. Return to
+the ORIGINAL late-response/signed-cost producer search; the score screen
+above supplies no missing estimate. Compact/topological SO(3), realization
+of every orthogonal matrix, interacting/OS descent, spatial/spacing control,
+nontrivial continuum survival, finite positive physical gap, full SAME-theory
+QFT, every group and the Clay result remain OPEN. Exact canonical displayed
+claims are unchanged; no ASCII chart reprint or further quotient branch.
 
 ## Even projection energy: decision before implementation (2026-10-10 UTC)
 
