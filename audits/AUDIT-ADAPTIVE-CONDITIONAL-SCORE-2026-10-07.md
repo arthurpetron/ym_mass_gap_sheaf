@@ -6,6 +6,118 @@ and a finite strictly positive physical Hamiltonian mass gap.
 
 ## Finite positive cubature foundation (2026-10-10 UTC)
 
+### Selected generic ORIGINAL-polynomial comparison (after 4765b0d1)
+
+Previous goal turn: PROGRESS, checked/pushed actual dense CReal approximation
+and original-Haar Cauchy candidate. The optional concrete polynomial
+specialization was removed after elaboration timeouts, not refuted mathematically.
+This experiment keeps F/R abstract instead of rebuilding specialized aliases.
+Exact proposition: if a supported ORIGINAL polynomial p approximates F on
+the dense rational sphere with sound limit error eta, prove
+`abs(H_k-H[p])<=invSucc(k)+eta`, then sound limit error<=eta and equivalence
+when eta=0. The input describes the ACTUAL function's variation from p,
+not the Haar candidate or a supplied integral/approximation conclusion.
+Consumer: original-moment compatibility and continuity of the constructed
+dense functional before its completed-Point extension. No existing final
+continuous Haar/J04 consumer is inhabited by this step alone.
+
+Available inputs: `realApproximation_error_at_index`, supported actual stage
+polynomials, original `haar_abs_le_unit_bound`, and rational residual
+elimination. For each test point, compare p_k and p to the SAME late F(q)
+row, taking the max of its computed output rate and the pointwise-bound stage
+inside a proposition proof. `leRat` supplies eta+delta, never an exact finite-row
+eta; preserve delta until the rational Haar bound and eliminate it explicitly.
+The limit stage is epsilon.den. Decisive cases: eta=0, M=0, signed/zero/repeated
+polynomial terms, irregular initial rows and nonuniform pointwise-bound stages.
+ROOT implements after the Sol mathematical screen; independent full-source/log
+review follows. Sol also screens the MAIN signed-variance frontier read-only
+in parallel, preserving actual weights/center and identifying a useful next
+estimate rather than adding wrappers. No browsing, source hole, new analytic
+field, resource option or canonical statement change. Serial focused capped
+checks only with fresh dynamic telemetry. Reassess on repeated generic
+elaboration expansion or any use of legacy one-slack order/representative choice.
+
+Immediate contraction selected after the generic comparison: apply it to the
+literal zero polynomial to derive `leRat(abs(H_F)) M` from the already supplied
+function bound hM. This pays boundedness of the ACTUAL limit candidate, not a
+chosen supremum or a new input estimate. The zero-subtraction pins must be
+proved at the original approximation rows. No completed-domain claim follows.
+
+### Observed ORIGINAL-polynomial comparison and actual norm bound [CHECKED]
+
+`haarApproximation_polynomial_distance`,
+`lean/YMGap/Continuum/QuaternionDenseCRealHaarApproximation.lean:193`, proves
+`abs(H_k-H[p])<=invSucc(k)+eta` from sound pointwise distance<=eta of the
+ACTUAL dense F values from the ORIGINAL supported polynomial p. Its signed
+difference polynomial preserves every term. For each q and residual tolerance,
+it uses the maximum of the computed target-output rate and q's eventual
+`leRat` stage, only inside a proposition proof. It first retains eta+residual,
+then removes ONLY the arbitrary residual after original Haar contractivity.
+No pointwise stage uniform in q or integral-identity input is assumed.
+
+`haarApproximation_polynomial_limit_distance:249` proves sound limit
+distance<=eta with explicit cutoff epsilon.den; stage approximation error
+vanishes, not the supplied eta. `haarApproximation_bound:279` compares to the
+literal empty polynomial to derive `leRat(abs(H_F)) M` from the already
+supplied bound on F. It chooses no supremum and does not bound arbitrary raw
+F approximants. `haarApproximation_polynomial_compatible:301` proves
+`Equiv H_F (ofQ' H[p])` when the dense inputs have zero sound distance from p.
+That hypothesis identifies the input VALUES, not the candidate integral with
+the desired answer. This generic moment compatibility is checked; a separate
+specialized constructor alias is neither needed nor claimed.
+
+Accepted ROOT-only monitored command, exit 0:
+
+```
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionDenseCRealHaarApproximation.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionDenseCRealHaarApproximation.olean --log-file /private/tmp/ym-dense-creal-haar-polynomial-distance-check3.log
+```
+
+Final source SHA-256:
+`4a9cf060a0f97052e07faf2c21a663ae194924f3ab72f92bfca397139138b3cf`.
+Accepted log SHA-256:
+`02b489df6d93defc51b6eda17068e527a74a8a55fff48383afca643e65b156c5`.
+COMPLETE independent Luna final-source/log and Sol mathematical reviews PASS.
+All eleven public gates are permitted: ten {propext,Quot.sound}, one empty.
+Check1 failed only on the unqualified zero-addition helper; its recovery
+`sorryAx` output is REJECTED. The actual `QPoly.q_add_zero_eqv` fixed it.
+Check2 accepted the three comparison theorems; check3 additionally accepted
+the actual norm bound. No final diagnostics, source hole, new axiom, analytic
+field or resource option. Fresh memory/swap/process telemetry preceded each
+serial 20-GiB check with 12-GiB reserve; no root/tree/audit/guard/metric run.
+
+NEXT concrete producer: extend dense F to the SAME Point quotient. On a
+SUPPLIED Cauchy row X compute `s_X(k)=sample(F(X.seq k),R(...),invSucc(k))`.
+An asymmetric two-tolerance sampling estimate should give a Cauchy cutoff
+`max(X.modulus(radius(epsilon/2)), (epsilon/4).den)` and quotient descent.
+Keep this rate as actual InnerRegularity; do not choose a Point representative
+or assume a global CReal-valued lift from the quotient. Then prove the dense
+embedding pin and transfer fixed-polynomial approximation to this actual map.
+Positivity, normalization, linearity, translation invariance and compact
+realization are separate obligations. Continuous Haar/J04, MAIN warmed
+SAME-variance payment/scaling, physical/QFT/every-group and Clay remain OPEN.
+Canonical chart claims unchanged; no reprint.
+
+### Parallel MAIN parameter screen [SOURCE/PAPER, not a new proof]
+
+`padded_family_energy_signed_exact`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedFamilyEnergy.lean:489`,
+retains `E=(h-19t)G+C-tR-O-tB`. At w=17/19, h=2/19 and t=2/361, so the
+gradient coefficient is zero and the COMPLETE correction S=C-tR-O=E+tB.
+Under the original head-cutoff/support hypotheses, `energy_nonnegative`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialDirichletForm.lean:308`, applies
+with `terminalMessage_certificate`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalBracket.lean:126`;
+`signedFamilyRetainedSlack_nonnegative`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedFamilyEnergy.lean:140`,
+gives B>=0. Thus S>=0 is a PAPER consequence; assembled-gradient positivity
+(`familyChannelGradient_nonnegative`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedFamilyCurvature.lean:384`)
+extends that necessary-condition screen to 0<w<=17/19.
+This is NOT a strict counterexample to S<=0, an upper variance payment, or
+a weak-coupling/scaling result. Strict singleton transport was not verified;
+no new useful weak-coupling upper estimate was found. Preserve MAIN's exact
+signed aggregate and source/center instead of claiming a component sign.
+
 ### Selected explicit real-sample / SAME dense-evaluation join (after 969ba22e)
 
 Previous goal turn was PROGRESS: actual POINTWISE rational-valued approximation

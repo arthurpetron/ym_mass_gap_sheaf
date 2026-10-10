@@ -28,6 +28,11 @@ evaluation to the SAME completed polynomial carrier.
 `Continuum/QuaternionDenseCRealHaarApproximation` applies ORIGINAL polynomial
 Haar to those approximants, proves stage difference<=1/(m+1)+1/(n+1), and
 constructs a CReal with separately retained rate `den(epsilon/2)`.
+Its `haarApproximation_polynomial_limit_distance` now transfers any dense
+error eta from a supported original polynomial to the actual Haar candidate.
+`haarApproximation_polynomial_compatible` pins original moments from exact
+dense input-value identification, not an assumed integral equality;
+`haarApproximation_bound` derives the candidate's own sound bound<=M.
 The input function's bound, continuity radius and output regularity are supplied;
 approximation and the limit candidate are produced, not assumed. Focused checks
 and complete independent source/log and mathematical reviews PASS within the

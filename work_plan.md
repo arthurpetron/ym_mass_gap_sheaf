@@ -671,8 +671,22 @@ No integral, approximation theorem or global output rate is assumed.
 Focused checks and complete independent final-source/log and mathematical
 reviews PASS; constructive gates permitted, no final diagnostics. Root imports
 are registration only. Exact commands/hashes and rejected checks: score audit.
-NEXT: pin original-polynomial compatibility, then extend supplied dense data
-to the SAME Point quotient and transport fixed-polynomial approximation.
+CHECKED subsequent comparison in the SAME leaf:
+`haarApproximation_polynomial_distance:193` gives |H_k-H[p]|<=invSucc(k)+eta
+from the actual dense function's sound distance<=eta from supported p.
+`haarApproximation_polynomial_limit_distance:249` passes eta to the limit;
+`haarApproximation_bound:279` derives the actual limit's own bound<=M by
+comparison to p=[]. `haarApproximation_polynomial_compatible:301` pins original
+moments when the dense inputs are pointwise identified with p. No integral
+equality or approximation conclusion is assumed. Final focused check3 and
+complete independent final-source/log/math reviews PASS; eleven permitted
+gates, no diagnostics. The failed concrete specialization aliases are not
+reintroduced. Exact hashes/commands: adaptive-score audit.
+NEXT: extend supplied dense data to the SAME Point quotient and transport
+fixed-polynomial approximation. First prove asymmetric sample-error addition,
+then compute the image of a supplied Cauchy row using tolerance invSucc(k)
+and rate max(X.modulus(radius(epsilon/2)), (epsilon/4).den); retain explicit
+InnerRegularity and prove representative-equivalence descent and dense pin.
 Use supplied Cauchy rows, explicitly varying sample tolerances, quantitative
 difference bounds and quotient descent, NOT representative choice. Prove
 positive/normalized/linear/invariant functional laws on the resulting object;

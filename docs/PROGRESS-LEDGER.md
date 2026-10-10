@@ -4,6 +4,26 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## ORIGINAL-moment comparison and actual candidate norm (2026-10-10 UTC)
+
+`QuaternionDenseCRealHaarApproximation.haarApproximation_polynomial_distance:193`
+proves stage error<=invSucc(k)+eta against ORIGINAL Haar[p] from the ACTUAL
+dense F values' sound distance<=eta from supported p. It retains pointwise
+late-row residuals until original signed-polynomial Haar contractivity, then
+removes only the arbitrary residual. No global pointwise stage is chosen.
+`haarApproximation_polynomial_limit_distance:249` passes eta to the limit
+at explicit epsilon.den; `haarApproximation_bound:279` derives |H_F|<=M by
+comparison to p=[]. `haarApproximation_polynomial_compatible:301` gives exact
+original-moment equivalence from exact dense input-value identification,
+not an assumed integral answer. Generic F/R avoid the rejected concrete
+specialization aliases. Focused check3 and complete independent source/log/math
+reviews PASS; eleven permitted gates, no final diagnostics. Exact evidence:
+adaptive-score audit. NEXT: actual supplied-row image, quantitative quotient
+descent and dense embedding pin, then completed-Point polynomial approximation.
+Continuous Haar/J04, MAIN warmed SAME-variance payment/scaling and every
+physical/QFT/every-group/Clay endpoint remain OPEN. No root/tree/audit/metric
+or canonical displayed chart change.
+
 ## CReal-valued dense approximation and ORIGINAL-Haar candidate (2026-10-10 UTC)
 
 `CRealStableSampling.sample:22` computes samples at supplied rates. Sound
@@ -25,8 +45,8 @@ Function bound, continuity radius and output regularity are inputs;
 polynomial approximation and the Haar limit candidate are genuine outputs.
 Focused checks and complete independent source/log and mathematical reviews
 PASS within {propext,Quot.sound}; exact evidence in the adaptive-score audit.
-NEXT: original-polynomial compatibility and SAME completed-Point extension;
-then actual positive/normalized/linear/invariant continuous Haar and J04.
+Generic original-polynomial compatibility is now checked above. NEXT: SAME
+completed-Point extension and actual positive/normalized/linear/invariant Haar.
 MAIN warmed SAME-variance payment/scaling, physical/QFT/every-group and Clay
 remain OPEN. No broad audit/metric or canonical chart-state change.
 
