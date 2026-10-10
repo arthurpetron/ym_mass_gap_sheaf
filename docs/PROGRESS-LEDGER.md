@@ -4,6 +4,25 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Actual rational central-sign action descent (2026-10-10 UTC)
+
+`SU2QuaternionSymmetricPowerSignDescent.negativeTensorParity:108` proves
+the actual negative-unit action at EVERY tensor degree.
+`signQuotientAction_congr:182` joins even-degree symmetric coefficients to
+the ACTUAL rational sign-coset relation; `symmetricAction_odd_rejected:214`
+rejects every odd degree on a nonzero coefficient.
+`so3DoubledSpin_descends_iff_action:240` ties the SO(3) code criterion to
+actual central triviality, retaining windowed identity and representative
+multiplication/unitarity. Final focused check3 and COMPLETE independent
+frozen-source/full-log/math review PASS; no final diagnostics or forbidden
+axiom. Exact command/hashes and rejected checks: adaptive-score audit.
+This is a rational algebraic action input, NOT a descended group Hom,
+compact SO(3), completed representation/Haar, MAIN estimate or physical gap.
+Root registration only; no broad audit/metric or canonical chart-state change.
+NEXT MAIN stays complete ORIGINAL signed cost versus SAME warmed OWN
+variance/BOTH masses, or direct centered late-area control. Full every-group
+realization, scaling, QFT, physical mass and Clay closure remain OPEN.
+
 ## All-spin original polynomial Haar consumers (2026-10-10 UTC)
 
 `SU2TorusPolySchurAll.relativeCharacter_pairing_all:58` proves exact ORIGINAL

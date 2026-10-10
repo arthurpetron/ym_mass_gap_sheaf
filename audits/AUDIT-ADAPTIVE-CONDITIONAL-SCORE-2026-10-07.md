@@ -4,6 +4,81 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Concrete central-sign action join (after db403133, 2026-10-10 UTC)
+
+MAIN source screens produced no new relative estimate: passive channel
+polynomials are signed, and terminal positivity/chain reflection positivity
+does not supply their character-coefficient cone. The constant source's
+predicted cubic +1/8 versus the checked positive-coefficient sourcePlus
+cubic <0 also rejects coefficient-positivity as a sign-only strategy; the
+constant calculation is SOURCE/PAPER, not a new kernel theorem. The direct
+late-area screen found the useful telescope already checked but with the
+RAW family response, not the required SAME warmed response. No duplicate
+sign fence, moment wrapper, literature scan or analytic premise is selected.
+
+Independent required global-form input selected: derive the ACTUAL central
+sign action at every degree and prove that the rational symmetric-power
+action respects `UnitNorm.signLocatedQuotientGroup` precisely for even
+degree. Existing `SO3DoubledSpinDescends`,
+`lean/YMGap/RepTheory/CompactSimpleGlobalForm.lean:432`, is only a label
+criterion; the existing `symmetricAction`,
+`lean/YMGap/Continuum/SU2QuaternionSymmetricPowerAction.lean:182`, supplies
+actual coefficient actions and identity/multiplication/unitarity.
+`signCoset_iff`, `lean/YMGap/RepTheory/RationalQuaternionSignQuotient.lean:134`,
+identifies precisely the two actual cosets. Negative fundamental matrix is
+-I, so tensor recursion produces parity action; coefficient reconstruction
+transports it without a basis choice. Test all finite-window coordinates
+k<=degree, degrees zero/one/two, semantic rational representatives, and odd
+rejection on the first coefficient. No identity law on unused Nat coordinates.
+This supplies the code-to-actual rational quotient-action join, NOT compact
+SO(3), completed action/Haar or a per-group analytic estimate. No new
+conditional record, classical input, hole or canonical field weakening.
+Sol owns one bounded new leaf; independent preimplementation math review and
+complete frozen-source/log review, ROOT full inspection and serial narrow
+checks with fresh capacity, one worker/20 GiB/12 GiB reserve. Revise on any
+missing action law, representative choice or unsupplied premise. MAIN stays
+complete ORIGINAL signed cost versus SAME warmed OWN variance/BOTH masses,
+or direct centered late-area control; all physical/Clay endpoints remain OPEN.
+
+### Observed central-sign action result
+
+`negativeTensorParity:108`,
+`lean/YMGap/Continuum/SU2QuaternionSymmetricPowerSignDescent.lean`, proves
+the actual negative-unit tensor action is degree parity at EVERY degree.
+`symmetricAction_negative:134` reconstructs every coefficient k<=n;
+`symmetricAction_negative_even:151` gives the full valid-window identity.
+`signQuotientAction_congr:182` preserves the ACTUAL sign-coset relation
+for all output indices using finite-window input reconstruction.
+`signQuotientAction_one:196`, `signQuotientAction_mul:201` and
+`signQuotientAction_unitary:207` retain the existing identity, multiplication
+and Hermitian laws on representatives. `symmetricAction_odd_rejected:214`
+uses a concrete nonzero coefficient at zero for EVERY odd degree;
+`so3DoubledSpin_descends_iff_action:240` identifies the existing SO(3) code
+criterion with ACTUAL central triviality. No quotient representative is
+chosen, no group-valued Hom or compact SO(3) is constructed, and no completed
+representation, Haar, MAIN or physical gap claim is made.
+
+Final focused check3 exit 0; COMPLETE independent frozen-source/full-log/math
+review PASS. `signQuotientAction` is axiom-free; all nine printed theorem
+gates are exactly {propext,Quot.sound}. No final warning/error, sorry,
+Classical input, native oracle or resource-option increase. Fresh preflight:
+85% memory free, zero swap, no competing build/runner; one worker, 20 GiB
+hard ceiling and 12 GiB reserve. Exact accepted command:
+
+```sh
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/SU2QuaternionSymmetricPowerSignDescent.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/SU2QuaternionSymmetricPowerSignDescent.olean --log-file /private/tmp/ym-symmetric-sign-descent-check3.log
+```
+
+Source SHA-256 `6dfe702368fd581109ed94c05f450c55cd739583a819fe1b46bc4e6173465b0d`;
+accepted log SHA-256 `a503fa242e2fb7a5fb611eec9ba9b6de4f400958a0db2d34647fc4fa6ffac453`.
+Rejected check1 used an incorrect source path and checked no source; rejected
+check2 had one local missing `TensorEqv` unfold in the scalar-one base case.
+The reported error-generated sorryAx was NOT accepted. Adding that unfold
+alone fixed check3 without changing any theorem statement or build limit.
+Root import registration only; no root/tree/audit/metric run. MAIN remains
+the source-specific complete signed estimate or SAME warmed late-area bound;
+canonical displayed claims unchanged, so no chart reprint.
+
 ## Finite positive cubature foundation (2026-10-10 UTC)
 
 ### Selected all-spin ORIGINAL polynomial Schur consumer (after 513d4bd6)

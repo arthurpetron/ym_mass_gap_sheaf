@@ -929,6 +929,20 @@ shortcut; the remaining estimate must use the actual source's structure
 and the complete combined signed debt, rather than its cubic term in isolation.
 Exact source/log hashes and rejected check1: adaptive-score audit.
 
+CHECKED independent global-form producer (after db403133):
+`SU2QuaternionSymmetricPowerSignDescent.negativeTensorParity:108` produces
+actual degree parity; `signQuotientAction_congr:182` gives even-degree
+representative independence for the ACTUAL rational sign quotient.
+`symmetricAction_odd_rejected:214` distinguishes every odd degree on
+coefficient zero; `so3DoubledSpin_descends_iff_action:240` links the existing
+code criterion to actual central triviality. Identity is guarded k<=degree;
+multiplication/unitarity remain on the same representative action. No new
+conditional wrapper, Hom target, compact SO(3), completed representation/Haar
+or MAIN bound is inferred. Final focused check3 and COMPLETE independent
+frozen-source/full-log/math review PASS, no diagnostics; permitted axioms
+only. Exact command/hashes and rejected checks: adaptive-score audit,
+observed central-sign result. Canonical displayed claims unchanged.
+
 NEXT MAIN remains original complete signed cost versus SAME warmed OWN
 variance with BOTH chronological masses, or the direct centered late-area
 estimate. Select further group/action producers against their actual

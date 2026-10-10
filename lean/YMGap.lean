@@ -8207,3 +8207,8 @@ import YMGap.Continuum.BF4ExactSlabVertexGaussWardIdentity
 -- gauge domain, horizontal signed-energy estimate or physical gap follows.
 import YMGap.Continuum.SU2QuaternionHaarBlockEmbeddingAngular
 import YMGap.Continuum.BF4ExactSlabFixedSpatialGaussTransfer
+
+-- Actual rational symmetric-power central parity, even-degree sign-coset
+-- action and odd-degree rejection. No compact SO(3), completed action or
+-- physical gap is inferred; this import is registration, not a root audit.
+import YMGap.Continuum.SU2QuaternionSymmetricPowerSignDescent

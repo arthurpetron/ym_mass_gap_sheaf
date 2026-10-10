@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Supporting ACTUAL rational global-form action checked (2026-10-10 UTC):
+`SU2QuaternionSymmetricPowerSignDescent` proves negative-unit degree parity,
+even-degree invariance under the actual rational sign-coset relation and
+odd-degree rejection on a concrete coefficient. The SO(3) code rule now
+matches actual central triviality; windowed identity and representative
+multiplication/unitarity are retained. Final focused check3 and COMPLETE
+independent frozen-source/full-log/math review PASS; no diagnostics or
+forbidden axiom. This is NOT compact SO(3), a descended group Hom, completed
+Haar/representation, a MAIN bound or a physical gap. MAIN SAME warmed
+signed payment/scaling and every-group/QFT/Clay remain OPEN. Exact displayed
+claims unchanged; no chart reprint. Evidence: adaptive-score audit.
+
 Supporting ORIGINAL TOTAL-channel constant-mode extraction checked
 (2026-10-10 UTC): first angular IBP and weighted-form Cauchy produce
 `6*t*S*(a*G-t*B)+144*t*t*M*M <= (a*a+24*a*t)*(S*Q-M*M)` for every rational
