@@ -513,6 +513,67 @@ claim, ledger discharge, canonical-field weakening or chart-state change.
 This is an execution-scope correction and stopped-branch record, not a new
 analytic estimate or continuum/Clay proof. Goal remains active.
 
+### Common rotation of the first BOX (2026-10-10 UTC; PAPER)
+
+Selected test: can a different, divergence-preserving current remove the
+interior kinetic mismatch WITHOUT changing the original source? Consumer
+remains `pathShiftedEpsBound_iff_response:418`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1Anchor.lean`. Available inputs
+are slice independence, `spatialSpan_casimir:294`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyCasimir.lean`, and
+`productHeat_pairedAngular_carrier:64`,
+`lean/YMGap/Continuum/SU2QuaternionProductHeatAngularForm.lean`.
+This is not the rejected cancellation with local currents a_t*D_tF_t.
+
+On one full original chain W, let I=[p,q] be the reversed first BOX,
+Phi=sum_(t in I) a_t F_t, sum a_t=1, and
+H=Psi_s-Psi_(s+1), where the future BOX starts at q+s, s>=1.
+For every matched physical link/ambient six-plane alpha, construct
+
+    U_alpha=sum_(r in I) a_r D_(r,alpha)F_r,
+    u_(t,alpha)=U_alpha for t in I, and zero outside I.
+
+Slice independence gives D_t U_alpha=a_t D_t^2 F_t. Therefore the
+summed divergence is -12*Phi. The correction
+u_t-a_t D_tF_t=sum_(r!=t) a_r D_rF_r has D_t derivative ZERO termwise.
+All interior differences u_t-u_(t+1) are also ZERO. Paired kinetic
+invariance consequently leaves only the two boundary factors K_(p-1), K_q.
+
+Define division-free Q_alpha by the product-rule sum
+
+    sum_(t in I) W_without_Vt * D_(t,alpha)V_t
+      + W_without_K(p-1) * D_(p,alpha)K_(p-1)
+      + W_without_Kq * D_(q,alpha)K_q.
+
+Omit a boundary factor absent from the chain. No logarithm, pointwise
+prefix inverse or removed action factor is used. Haar IBP with D_t H=0
+then gives the exact PAPER identity, for the unchanged OLD center c,
+
+    12*(P_s-P_(s+1))
+      = H_haar[H*(sum_alpha U_alpha Q_alpha - 12*c*W)],
+    P_s=H_haar[W*(Phi-c)*(Psi_s-c)].
+
+This removes the kinetic INTERIOR from the identity, but changes the spatial
+term to a CROSS-TIME sum: U_alpha times all spatial derivatives in I.
+Do not replace it by the old same-slice score. The full weighted-divergence
+correction pairs to zero with the separated future test; it is not an extra
+unpaid bulk hypothesis. Signs, source divergence, old center, separation and
+full factors were checked by ROOT and two independent Sol math reviews.
+The assembled chain theorem has NOT been kernel-checked.
+
+NEXT quantitative target is the COMPLETE expectation on the right, bounded
+by (12*c0/s)*P_s, with SOME finite c0 independent of scale on a justified
+family, allowing controlled original cutoff/tail errors. This is the same
+relative endpoint target, now with two kinetic boundaries and a cross-time
+spatial score. A taper through source-free slices can spread the boundary
+current, but adds their spatial scores: 1/s weights on s terms are not a
+proved gain. Scalar heat monotonicity likewise does not give a mixed or
+centered adjacent-flux sign. Stop before implementation if no quantitative
+payment is found; do not add a Ward wrapper just to compile this identity.
+No Lean edit/build, new uniform bound, canonical-field or chart-state change.
+Independent read-only review of the actual two-file diff PASS: source pins,
+boundary orientation, old center, separated test and PAPER scope checked.
+
 ### Existing consumers versus missing work
 
 - Full ORIGINAL chronological numerator and partition: `window_pairing:96`

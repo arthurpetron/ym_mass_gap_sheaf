@@ -74,8 +74,17 @@ pair. The current endpoint mean cancels exactly; no sign or relative bound
 on the remaining flux is supplied. Strictly positive lag is essential.
 NEXT: seek a source-specific bound on the COMPLETE signed sum over the actual
 BOX cross-time lags, relative to its SAME late response, with c0 independent
-of j on the justified family. Test the inequality direction, original weights
-and scaling dependence
+of j on the justified family. A new divergence-preserving common rotation of
+the FIRST BOX cancels the kinetic interior exactly: use the SAME summed source
+gradient U at every first-BOX slice, not the old local a_t*D_tF_t. Its divergence
+still equals -12*Phi by slice independence. The remaining original expectation
+contains two kinetic boundary currents, the CROSS-TIME spatial-score sum and
+the OLD center. ROOT and two independent Sol math reviews checked this PAPER
+identity; no uniform payment or kernel-checked chain theorem is supplied.
+Seek a joint relative bound on that complete expectation. Do not infer a
+1/s gain from tapering through s new spatial-score terms. Exact formula and
+source pins: adaptive-score audit, "Common rotation of the first BOX".
+Test the inequality direction, original weights and scaling dependence
 on paper before selecting Lean implementation. Do not formalize another Ward
 wrapper or assume this estimate merely to make a passing leaf. Existing
 common-tail and OWN-limit consumers are available; their missing assembled
