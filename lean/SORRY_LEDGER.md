@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## PROVED sharp real two-sector budget / OPEN original-OS estimates (2026-10-10 UTC)
+
+`two_cross_le_add_of_square_le_product:168` and
+`twoSector_upper_of_squared_cross:200`,
+`lean/YMGap/Continuum/RCSignedPairBudget.lean`, prove root-free signed cross
+absorption and the Schur threshold eta^2<=(q-alpha)*(q-beta) in genuine RC
+order, including zero norms/margins. `twoSectorCost:233` returns the rational
+eta^2/g; `twoSectorCost_cap_criteria:247` proves its cap criterion from
+0<g<=alpha-beta. No state-norm division, real-order decision, new analytic
+bundle, hole, axiom or canonical-field change. Focused check1 and COMPLETE
+independent source/log/math reviews PASS; six new permitted gates, no
+diagnostics. The safe-build procedure kept one 20-GiB worker/12-GiB reserve;
+no full root/tree build/audit or hashed-baseline regeneration. An actual
+ORIGINAL-OS retained/fast split, its diagonal/mixed estimates and useful
+strictness remain OPEN; generic Cauchy--Schwarz is not that input. The existing
+two-step recovery is a prospective consumer, not a new physical instance.
+PRIMARY H1 survival, justified scaling and all QFT/every-group/Clay endpoints
+remain OPEN. Evidence: RG relative-dissipation audit, retained/fast screen.
+
 ## PROVED exact completed adjoint kernel / OPEN compact group and physical estimates (2026-10-10 UTC)
 
 `representation_kernel_iff:386`, `coverKernelSignWitness:404`,

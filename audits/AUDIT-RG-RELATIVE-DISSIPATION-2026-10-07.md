@@ -146,3 +146,85 @@ middle spatial action, signed terms and separately normalized OWN forms.
 Independent AF window survival, justified spacing/volume control, the SAME
 limiting OS/QFT theory, every compact simple group and Clay remain OPEN.
 The canonical broad chart is unchanged and is not reprinted.
+
+## Retained/fast-sector screen (2026-10-10 UTC)
+
+SOURCE/PAPER review of the additive and relative comparisons identifies an
+extra demand on a genuine zero-preserving coarse projection P. On a
+positive-norm z with Pz=0, the additive comparison requires
+`||T_f^2 z||^2 <= kappa*epsilon*||z||^2`; the relative comparison requires
+`||T_f^2 z||^2 <= delta*||z||^2`. A fixed fast-sector bound below one alone
+does not pay either shrinking error budget. The current Phi is an arbitrary
+function: this is a limitation of the proposed projection, not a contradiction
+in the existing structure or a constructed Yang--Mills counterexample.
+
+With kappa>=1 and epsilon>=0, effectiveDefect>=kappa*epsilon. The finite-prefix
+weighted budget in `BF4WilsonAllNomeRGComputedMargin.lean:308`,
+`computedRate_contraction_of_upperComparisons`, consequently requires
+`kappa_k*epsilon_k <= S*2^(-k)`. The ordinary delta prefix budget of the
+relative route likewise demands more than a fixed fast-sector gap. No actual
+original-OS projection/positive kernel witness is supplied by this screen.
+
+Selected algebraic proposition: for an actual orthogonal retained/fast split,
+let A=T_f^2, squared diagonal caps alpha,beta and mixed cap
+`<Ar,Af>^2 <= eta^2*||r||^2*||f||^2`. A full squared-norm cap q follows from
+`q>=alpha,beta` and `eta^2 <= (q-alpha)*(q-beta)`. If
+`0<g<=alpha-beta`, the computed rational q=alpha+eta^2/g meets this criterion.
+This permits a fixed beta<1 rather than requiring beta to vanish. Under a
+fixed positive sector separation, eta_k=O(2^(-k)) would give a weighted-
+summable O(4^(-k)) correction; neither bound is produced for Yang--Mills.
+
+Decision record BEFORE implementation: prove only the root-free, zero-safe
+scalar absorption and computed rational budget in EXISTING
+`RCSignedPairBudget.lean`. Its prospective consumer is the existing
+`BF4WilsonAllNomeRGTwoStepRecovery.vacuumSq_of_twoStepFactor:58`, once an
+original-OS split and its actual estimates exist. Do not add another sector
+structure or gap premise. Available inputs are constructive square order,
+scalar monotonicity and polynomial identities. Test signed mixed terms, zero
+sector norms/margins and eta=0. Verification budget: ROOT only, one focused
+20-GiB compiler with 12-GiB reserve; no full build/audit. Abandon/revise the
+analytic route if no actual OS split or small mixed bound can be produced.
+The independent late H1 survival estimate and physical scaling justification
+remain PRIMARY and OPEN; this algebra does not supply either.
+
+### Observed scalar contraction
+
+The selected algebra is now kernel-checked in EXISTING
+`lean/YMGap/Continuum/RCSignedPairBudget.lean`:
+
+- `two_cross_le_add_of_square_le_product:168` absorbs a SIGNED mixed term
+  without square roots, real-order decisions or division by a sector norm.
+- `twoSector_upper_of_squared_cross:200` combines the diagonal caps with
+  `eta^2 <= (q-alpha)*(q-beta)` in genuine RC order. The actual orthogonal
+  input split and its diagonal/mixed estimates are NOT supplied.
+- `twoSectorCost:233`, `twoSectorCost_nonnegative:236`,
+  `twoSectorCost_mul_gap:241` and `twoSectorCost_cap_criteria:247` construct
+  eta^2/g as rational data and prove the resulting cap criterion whenever
+  `0<g<=alpha-beta`. This does NOT assert q<1 without further smallness.
+
+Accepted focused command:
+
+```
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/RCSignedPairBudget.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/RCSignedPairBudget.olean --log-file /private/tmp/ym-oct10-schur-pair-check1.log
+```
+
+Exit 0, no diagnostics; all six new printed gates exactly
+{propext,Quot.sound}. Log SHA-256:
+`427d61a4fe9e10445cd554710d93b3add4b9bcbf649441434197d33acae527df`.
+Final source SHA-256:
+`a74b99f6d1d91633737ac13a1d7d454f6e9ec004c8f7eb755d3e3202770f7ad7`.
+Independent COMPLETE source/log and math reviews PASS, including negative m,
+zero sector budgets and eta=0. Preflight: 85% memory free, zero swap and no
+competing compiler/runner; one monitored worker, no raised limits.
+No full root/tree build or axiom-baseline regeneration was run; CI remains off.
+
+REVISE the prospective coarse-projection producer: test a genuine original-OS
+retained/fast decomposition, not shrinking transfer norm on every discarded
+mode. Demand a uniform fast-sector bound and a quantitatively small mixed
+OUTPUT pairing. Generic Cauchy--Schwarz alone supplies the coefficient
+alpha*beta in the SQUARED mixed cap, which does not supply a near-one full cap.
+The mixed correction's O(4^(-k)) budget
+does not pay any separate kappa-1 error. The existing relative route remains
+available if its stronger actual comparison can be proved; no canonical field
+is weakened or deleted. H1 survival, justified physical scaling and Clay stay
+OPEN. No new chart-state claim, new sector bundle, hole or axiom.

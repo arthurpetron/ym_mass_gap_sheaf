@@ -108,9 +108,24 @@ wrapper or assume this estimate merely to make a passing leaf. Existing
 common-tail and OWN-limit consumers are available; their missing assembled
 common-chain join is not itself a uniform analytic estimate.
 
+Secondary all-vector RG screen (2026-10-10 UTC): a genuine zero-preserving
+coarse projection would require dyadically vanishing discarded-mode transfer
+norm in the additive weighted-error route, not merely a fixed fast-sector gap.
+Instead test an ORIGINAL-OS orthogonal retained/fast split and small mixed
+OUTPUT pairing. The EXISTING `RCSignedPairBudget.lean` now proves the sharp
+zero-safe scalar join and constructs the quadratic cost eta^2/g
+(`twoSector_upper_of_squared_cross:200`, `twoSectorCost_cap_criteria:247`).
+This can feed the existing two-step-to-one-step recovery ONLY after the actual
+split, diagonal caps and mixed estimate are proved, with a useful strict cap.
+Do not add another sector bundle or replace the original middle action by bare
+heat. This supplies algebra, NOT those producers, H1, physical scaling or a gap.
+Exact evidence: `audits/AUDIT-RG-RELATIVE-DISSIPATION-2026-10-07.md`,
+"Retained/fast-sector screen". PRIMARY remains the signed late H1 estimate.
+
 Independent bounded Sol source/math review agrees with this reduction and
-its unpaid bound. No Lean file, axiom, proof status, canonical field or chart
-changed. The rounded AF-shaped family is still NOT a justified physical
+its unpaid H1 bound. That SOURCE/PAPER H1 review changed no Lean file, axiom
+declaration, canonical field or chart; the separately recorded scalar RG
+algebra above is now checked. The rounded AF-shaped family is still NOT a justified physical
 scaling family; the previously constructed precision schedule does not supply
 that justification. Exact algebra, source pins and stopping conditions:
 `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`, "Math-first reset".
