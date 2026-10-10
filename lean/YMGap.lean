@@ -5428,11 +5428,14 @@ import YMGap.Continuum.QuaternionCompletedPolynomialApproximation
 -- Completed-map equality is consumed through dense pins, not integral axioms.
 import YMGap.Continuum.QuaternionDenseCRealHaarComparison
 -- Produced sum bounds/radii/inner rates and ACTUAL original-Haar additivity.
--- No normalization, full continuous Haar or J04 closure yet.
+-- Further functional laws are separate; no full continuous Haar/J04 closure.
 import YMGap.Continuum.QuaternionDenseCRealHaarAdditivity
 -- SAME positive cubature produces signed lower order and actual nonnegativity.
--- Normalization, homogeneity, continuous invariance and J04 remain open.
+-- Full invariant continuous Haar and J04 remain open.
 import YMGap.Continuum.QuaternionDenseCRealHaarPositivity
+-- Produced rational constant input and its ACTUAL original-Haar value/map.
+-- Unit normalization is checked; homogeneity/invariance/J04 remain open.
+import YMGap.Continuum.QuaternionDenseCRealHaarNormalization
 import YMGap.Continuum.SU2HeatJacobiFinitePrefixClassPolynomial
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticBound
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticCutoff

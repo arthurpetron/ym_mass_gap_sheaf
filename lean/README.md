@@ -56,7 +56,11 @@ not a law assumed as an input; `sumHaarInnerRegularity` retains its rate.
 rational lower bound in the actual candidate's genuine real-quotient order,
 with explicit cutoff epsilon.den. Its nonnegativity follows from actual positive
 joint cubature, not an assumed continuous-Haar law or early-row positivity.
-Normalization, rational homogeneity, continuous translation
+`Continuum/QuaternionDenseCRealHaarNormalization` now produces constant-input
+bound abs(c), inner rate zero and radius one, proves its ACTUAL original-Haar
+value is c (including unit normalization) and its actual map is constant on
+EVERY Point. The candidate retains its computed den(epsilon/2) inner rate.
+Rational homogeneity, continuous translation
 invariance, full continuous Haar/J04, MAIN scaling and Clay remain OPEN.
 Root registration only; no full root/tree/audit. Exact evidence: adaptive-score audit.
 

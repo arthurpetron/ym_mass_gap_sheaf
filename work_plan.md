@@ -749,10 +749,24 @@ No early-row positivity, point-uniform row rate or continuous-Haar premise.
 Grid check1 and positivity check2 pass their focused axiom gates; failed
 positivity check1 is not evidence. Exact hashes/review scope: adaptive-score
 audit. This is independent project mathematics, not an imported paper theorem.
-NEXT: produce constant-input admissibility and normalization, then rational
-homogeneity and continuous translation invariance. Full continuous Haar and
-compact realization remain OPEN; addition and positivity do not supply the
-remaining laws.
+CHECKED subsequent ACTUAL rational-constant normalization (after 4750633f):
+`QuaternionDenseCRealHaarNormalization.constantInput:33`, `constantInner:36`,
+`constantRadius:40`, `constant_bound:47` and `constant_modulus:53` produce
+the actual input's rate zero, radius one, abs(c) bound and sound continuity.
+`constantPolynomial_eval:67`, `constantPolynomial_haar:74` and
+`constantPolynomial_distance_zero:85` derive the original polynomial/input
+pins, not an integral answer. `constantHaar:99` constructs its actual value;
+`constantHaarInnerRegularity:104` retains den(epsilon/2).
+`constantHaar_value:110` and `constantHaar_quotient_value:119` prove value c,
+including the unit normalization c=1. `constantExtension_value:126` proves
+the ACTUAL map is constant on EVERY Point via literal row samples, without
+representative choice. Signed/zero/noncanonical c are included. Focused
+check2 and COMPLETE independent source/log/math reviews PASS; fifteen
+permitted gates, no final diagnostics. Exact evidence: adaptive-score audit.
+NEXT: signed rational homogeneity with produced input bounds/radii/inner
+rates and actual-stage comparison, then continuous translation invariance.
+Full continuous Haar and compact realization remain OPEN; addition,
+positivity and rational constant normalization do not supply the remaining laws.
 Use the checked all-Point approximation and ORIGINAL moment invariance;
 the paper's pre-existing continuous Haar is not our constructive producer.
 This foundation is separate from MAIN warmed signed-cost versus SAME variance

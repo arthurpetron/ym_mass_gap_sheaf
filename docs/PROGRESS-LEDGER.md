@@ -4,6 +4,27 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## ACTUAL original-Haar constant normalization (2026-10-10 UTC)
+
+`QuaternionDenseCRealHaarNormalization.constantInput:33`, `constantInner:36`,
+`constantRadius:40`, `constant_bound:47` and `constant_modulus:53` construct
+actual rational constant data with rate zero, radius one and bound abs(c).
+Supported polynomial evaluation/Haar pins and derived dense distance zero
+give `constantHaar_value:110` and `constantHaar_quotient_value:119` for the
+ACTUAL original-Haar candidate. c=1 is unit normalization; signed/zero/
+noncanonical c are allowed. `constantHaarInnerRegularity:104` retains its
+computed den(epsilon/2) rate. `constantExtension_value:126` gives constant
+map equality on EVERY Point from literal supplied-row samples, not chosen
+representatives or an assumed integral answer.
+Focused check2 and COMPLETE independent source/log/math reviews PASS;
+fifteen permitted gates, no final diagnostics. Exact command/hashes/rejected
+check: adaptive-score audit. Root registration only, no full root/tree/audit/
+metric, paper scan or canonical chart-state change.
+NEXT: signed rational homogeneity with produced input data and actual-stage
+comparison, then continuous invariance. Full Haar/J04, MAIN SAME warmed-
+variance payment/scaling and every physical/QFT/every-group/Clay endpoint
+remain OPEN.
+
 ## SAME original-Haar lower order and positivity (2026-10-10 UTC)
 
 `QuaternionHaarTensorBernsteinPolynomialGrid.repairedWeightedSum_lower:302`

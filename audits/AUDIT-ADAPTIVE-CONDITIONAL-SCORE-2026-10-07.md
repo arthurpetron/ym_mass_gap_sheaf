@@ -6,6 +6,96 @@ and a finite strictly positive physical Hamiltonian mass gap.
 
 ## Finite positive cubature foundation (2026-10-10 UTC)
 
+### Selected actual constant normalization (after 4750633f)
+
+Previous turn: PROGRESS, SAME candidate lower order/positivity checked and
+pushed. Next proposition: actual rational constant input has produced inner
+regularity, bound abs(c) and radius one; its ORIGINAL-Haar candidate equals c
+and its ACTUAL Point extension is constant. Consumer: unital continuous
+original-Haar extension, a still-missing law. Use exact polyConst evaluation,
+original quaternionHaarMono_one and the checked polynomial compatibility,
+not a proposed integral value. All moduli must be produced as data. Tests:
+c=0, c<0, noncanonical rationals and every supplied Point row. Revise if the
+pointwise polynomial pin or quotient row equality needs an analytic premise.
+ROOT implements/serially checks at 20 GiB with fresh telemetry and 12 GiB
+reserve; Sol screens math, Luna/ Sol independently review frozen source/log.
+No new hypothesis, hole, option increase, browsing or broad check. Full
+Haar/J04, MAIN and every physical/Clay obligation remain open.
+
+### Observed ACTUAL constant normalization [CHECKED]
+
+`constantInput`,
+`lean/YMGap/Continuum/QuaternionDenseCRealHaarNormalization.lean:33`,
+produces the actual rational constant dense function. `constantInner:36`
+retains rate zero; `constantRadius:40` is one with its produced positivity
+proof, `constant_bound:47` supplies abs(c), and `constant_modulus:53` derives
+sound continuity from literal self-distance zero. No admissibility data or
+integral value is assumed. c may be zero, negative or a noncanonical rational.
+
+`constantPolynomial_supported:59`, `constantPolynomial_eval:67` and
+`constantPolynomial_haar:74` give actual support and signed evaluation/original
+Haar eqv pins (the last at every finite block count). Its exact dense input
+distance is DERIVED by `constantPolynomial_distance_zero:85`.
+`constantHaar:99` invokes the actual ORIGINAL-Haar construction with only
+produced data. `constantHaarInnerRegularity:104` retains den(epsilon/2).
+`constantHaar_value:110` uses polynomial compatibility and original constant
+moments; `constantHaar_quotient_value:119` gives genuine quotient equality.
+c=1 is the unital normalization instance. `constantExtension_value:126`
+proves the ACTUAL map is constant on EVERY Point: each supplied row image
+samples c literally, and proposition-level quotient induction introduces no
+chosen representative or extracted data. This is not a surrogate integral.
+
+Accepted focused command, after fresh capacity/process checks:
+
+```text
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionDenseCRealHaarNormalization.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionDenseCRealHaarNormalization.olean --log-file /private/tmp/ym-original-haar-normalization-check2.log
+```
+
+Terminal exit 0; no diagnostics. All fifteen public gates permitted: two
+axiom-free, seven {propext}, six {propext,Quot.sound}. COMPLETE independent
+Luna source/log and Sol mathematical source/log reviews PASS; ROOT inspected
+the complete source and accepted log. SHA-256:
+
+```text
+source 592e679cd3cf6fe4c0a94c80447466099724409c8e64a72c081307d29232c2fe
+log    ba7b64bf470efe3906786a5c429ab3ca2ad1302389af6e0c2c9b6d766d1ef29b
+```
+
+Rejected check1: `decide` refused the free e in `constantRadius e` before
+unfolding; `change (0:Q')<1` exposed the closed proposition. Its propagated
+sorryAx outputs are rejected evidence, not new source holes. No option or
+resource increase. No explicit sorry, analytic field or canonical statement
+change. Root import registration only; no full root/tree/audit/metric check,
+new paper scan or canonical chart-state change.
+
+Decision: CONTINUE. Actual rational constants/unit normalization are produced.
+NEXT is signed rational homogeneity with produced input bounds/radii/inner
+rates and comparison of the actual independently sampled stages, followed
+by genuine continuous translation invariance. Full continuous Haar/compact
+realization/J04, MAIN complete signed payment against SAME warmed variance
+on justified scaling, and every physical/QFT/every-group/Clay endpoint remain
+OPEN. No source hypothesis or frontier field was weakened.
+
+Parallel bounded MAIN reassessment [SOURCE/PAPER, not a new Lean proof]:
+ROOT and a read-only Sol reviewer checked the existing actual consumers.
+`original_window_budget_macro_ratio`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeWindowSignedCost.lean:245`, still
+requires 2*aggregate signed cost <=(1-kappa)*OWN block variance with a useful
+positive kappa. The per-lag `paddedSquare_linearBand_originalOwnBlockCost`,
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareLinearBandTransport.lean:224`,
+retains coefficient 1-linearBandFraction+comparisonEta; separate per-lag
+caps alone do not give a window-length-independent strict aggregate reserve.
+`blockConditionalRatio_boundaryDrift_abs_le`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockConditionalDrift.lean:126`,
+pays only drift, and `original_lastStep_noise_variance_loss_le`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLastStepOriginalDissipation.lean:106`,
+retains positive noise but no supplied useful strict aggregate contraction.
+No missing producer was found in this bounded screen. Do not add an adapter:
+the selected complete SAME-source/OWN-center signed window estimate or direct
+`window_area_epsBound` input,
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedWindowSurvival.lean:347`, remains
+the MAIN mathematical task, not an implication supplied by normalization.
+
 ### Selected SAME original-Haar lower order and normalization (after bfde2ed8)
 
 Previous turn: PROGRESS, actual sum closure/additivity checked and pushed.
