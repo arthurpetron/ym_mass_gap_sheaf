@@ -525,8 +525,18 @@ the computed `weightedRowCutoff:422`, and the SAME joint weights, without
 continuous Haar or exact raw-grid sampling. Focused weighted-row check3 PASS;
 all 30 public gates stay within {propext,Quot.sound}. The earlier classical
 dependency in an automated max-cutoff proof was rejected and replaced by
-explicit natural-number inequalities; no hypothesis changed. Next unpaid inputs
-also include the tensor coefficient-error bound and sphere-repair concentration,
+explicit natural-number inequalities; no hypothesis changed. The tensor
+coefficient-error input is now CHECKED for the same four separable signed/zero
+lists: `QuaternionHaarTensorBernsteinError.normalizedCoefficientProduct_error:130`,
+`weightedRowSum_grid_error:346`, and `haar_separable_grid_error:364` produce
+the explicit error e*sum_i(product_{j!=i} B_j), with e=eta/2 and
+B_j=weightedL1(1,p_j)+e, at the existing computed cutoff. The last theorem
+compares the ORIGINAL Haar value with the literal joint-weighted grid sum;
+it does NOT identify raw grid nodes with sphere points or integrate a continuous f.
+`RatPolyCubeLipschitz.polynomialLipschitz:29` computes sum |c|*totalDegree,
+and `polynomial_difference:150` proves signed cube variation, supplying the
+polynomial continuity payment needed when repairing raw nodes.
+Next unpaid inputs include the sphere-repair concentration,
 then sphere sup-norm contractivity and continuous-function approximation/
 extension. Existing coordinate Certificates, row reconstruction/error and
 `RationalQuaternionNormRepair.repair_error_le` are the forward inputs.
@@ -535,6 +545,18 @@ weighted-row check3 passes 30, eighteen exactly {propext,Quot.sound}, twelve
 axiom-free. Root registration only; no root/tree audit. Exact source/log
 hashes, earlier elaboration failure and independent review: adaptive-score
 audit, finite positive cubature section. No J04 or MAIN closure is claimed.
+
+Both quantitative leaves passed narrow capped checks and independent COMPLETE
+final-source/log review; 18 gates total remain within {propext,Quot.sound}.
+No root/tree/audit was run. Next selected mathematical contraction: a
+SUFFICIENT norm-defect/repair bound 48/(n+1), using second moments and a
+four-term sum-of-squares identity, rather than requiring the exact fourth
+moment. The scalar-to-polynomial variance join and same-Haar SOS proof remain
+OPEN; this is a PAPER argument, not a proved concentration declaration.
+All source pins, hashes, failed-check repairs and the Fisher/slack screen are
+in the adaptive-score audit's next quantitative joins section. MAIN still needs
+an upper payment of the complete warmed square plus signed remainder; a bound
+on only its output score does not pay the positive conditional CS slack.
 
 The requested paper review confirms that Appendix E assumes continuous Haar;
 its companion section 10.4 supplies a useful EFFECTIVE error-accounting

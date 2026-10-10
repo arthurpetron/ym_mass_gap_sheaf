@@ -6,6 +6,137 @@ and a finite strictly positive physical Hamiltonian mass gap.
 
 ## Finite positive cubature foundation (2026-10-10 UTC)
 
+### Next quantitative joins (2026-10-10 UTC; PAPER before implementation)
+
+Previous goal turn 3c7a990f was PROGRESS: the actual signed weighted-row
+identity is checked and pushed. Select two independent quantitative inputs
+to the SAME polynomial-Haar sup-norm argument, not new assumed interfaces.
+
+First, tensorize `BernsteinRationalPositiveRow.normalizedRow_error:192`.
+For e=eta/2 and B_i=weightedL1(1,p_i)+e, the telescoping product gives
+|product normalizedRow_i-product eval(p_i,k_i/N)| <=
+e*(B1*B2*B3+B0*B2*B3+B0*B1*B3+B0*B1*B2).
+The cutoff is the already computed `weightedRowCutoff`; positive unit-mass
+joint weights should preserve this bound without assuming independent
+coordinate marginals. Consumer: the checked signed weighted identity :581,
+followed by the still-OPEN sphere-repair and continuous extension. Signed
+and zero lists and all legal endpoint indices are decisive tests. Stop if
+any row, grid rule or continuous Haar must be supplied as a hypothesis.
+
+Second, construct L(p)=sum_terms |coefficient|*sum_exponents exponent and
+prove the actual RatPoly cube difference bound
+|eval(p,rho)-eval(p,sigma)| <= L(p)*delta whenever both environments lie in
+[-1,1] and every coordinate difference is at most delta. This computable
+constant pays the ORIGINAL polynomial's raw-grid-to-repaired-sphere error;
+`RationalQuaternionNormRepair.repair_error_le:315` is the existing repair
+input, not a new analytic assumption. No spacing/group/observable uniformity
+or continuous integration is claimed. Test empty/constant polynomials,
+signed coefficients, zero delta and arbitrary exponents. Use the elementary
+product telescoping identity, not an assumed Lipschitz certificate.
+
+Verification budget: ROOT-only, serial narrow checks with fresh dynamic
+capacity analysis, one 20-GiB worker/12-GiB reserve; independent source/log
+review. No full tree, resource increase, sorry or canonical field change.
+Parallel MAIN task: look for a source-specific upper payment of the complete
+warmed derivative square and signed remainder, not another automatic
+conditional-fluctuation telescope or initial-family Ward substitution.
+
+### Observed quantitative results [CHECKED]
+
+`normalizedCoefficientProduct_error`,
+`lean/YMGap/Continuum/QuaternionHaarTensorBernsteinError.lean:130`, proves
+the selected signed four-factor coefficient bound, including zero lists and
+every legal endpoint index. `weightedRowSum_grid_error:346` contracts it
+through the ACTUAL nonnegative unit-mass weights. `haar_separable_grid_error:364`
+then compares the original one-block Haar value with the literal finite
+grid-evaluation sum at the computed cutoff, with the SAME computed error.
+The raw nodes need not lie on S^3. No continuous integration, marginal
+independence, exact raw-node quadrature or sup-norm result is asserted.
+
+`polynomialLipschitz`,
+`lean/YMGap/Continuum/RatPolyCubeLipschitz.lean:29`, computes the rational
+coefficient-weighted total degree. `power_difference:80` handles SIGNED
+bases in [-1,1]; `monomial_difference:141` and `polynomial_difference:150`
+give the actual finite RatPoly variation bound. Empty, constant and
+zero-exponent cases are covered; no Lipschitz premise is assumed. The legacy
+module import supplies only generic cube bounds, not a physical action estimate.
+
+Accepted ROOT checks: cube-Lipschitz check2 exited 0 (six gates: two empty,
+four {propext,Quot.sound}); tensor-error check4 exited 0 (twelve gates: four
+empty, three {propext}, five {propext,Quot.sound}). Both complete logs are
+warning/error-free. Cube check1 and tensor check1 failed on multiline function
+pattern layout (cube also had an unused binder); tensor check2 checked the
+per-grid theorem, and check3 failed on an incorrect ExpNeg qualification of
+the existing `CReal.abs_sub_le_of_bounds`. Elaboration-generated sorryAx in
+failed logs is REJECTED, not evidence. Repairs changed no hypothesis or limit.
+Each launch used fresh dynamic telemetry, one monitored 20-GiB worker,
+12-GiB reserve; zero swap/no competing compiler observed. No full tree/audit.
+
+Frozen cube source SHA-256
+`dc1c2206bc10c0429aac0600659c88a1c25367ad974018cca8c731deb0f82e76`;
+accepted `/private/tmp/ym-ratpoly-cube-lipschitz-check2.log` SHA-256
+`02d74b72aa8640f8be351fa2a9563c114864b3c9d2577d01c6cfb3d396eb4e55`.
+Frozen tensor-error source SHA-256
+`f57ebf66607d33bdff7d5bb2b6ece4f964803f8c836dc1ac3cc44ed3f477d228`;
+accepted `/private/tmp/ym-tensor-bernstein-error-check4.log` SHA-256
+`22851ef3d27bff537dbf930b4e8221f2a9c78c956b83c460790426b7c71d9e85`.
+Independent COMPLETE final-source/log reviews PASS: 202+6 and 394+14 lines,
+hashes/gates matched; finite/OPEN boundaries confirmed. Root imports are
+registration only. No sorry, canonical field or displayed chart claim changes.
+Independent bounded final documentation/source-citation review also PASS.
+
+### Revised concentration frontier [SOURCE/PAPER, not a new theorem]
+
+The exact fourth-moment formula is not required for convergence. A sufficient
+coarse bound is 48/N, N=n+1, including n=0. Put r_i=2*k_i/N-1,
+d_i=r_i-x_i and s_i=r_i+x_i for the SAME original sphere coordinates. The
+four-term identity
+
+```
+16*sum_i d_i^2-(sum_i d_i*s_i)^2
+  =4*sum_i d_i^2*(4-s_i^2)+sum_{i<j}(d_i*s_i-d_j*s_j)^2
+```
+
+exhibits a finite Certificate construction, not an assumed pointwise-to-Haar
+positivity principle. `coordinateSquareBound`,
+`lean/YMGap/Continuum/QuaternionHaarSupportedPolynomialInterval.lean:86`,
+and `SquareBound.add`,
+`lean/YMGap/Continuum/QuaternionHaarPolynomialSquareBound.lean:108`,
+bound s_i^2 by 4 because r_i^2<=1; the resulting gaps and six squares supply
+the displayed certificate. `haarNorm_coordinate`,
+`lean/YMGap/Continuum/BF4ExactSlabSymmetricPowerHaarTrace.lean:92`, supplies
+the arbitrary-insertion sphere relation, so the dot product squared has the
+SAME Haar value as (normSq(r)-1)^2. The scalar `bernsteinVariance`,
+`lean/YMGap/Continuum/BernsteinVarianceClose.lean:599`, gives conditional
+mean squared coordinate discrepancy (1-x_i^2)/N. Tensor with the other
+three `coordinatePartition_one` factors (cubature :223), then sum and apply
+the original Haar: total discrepancy 3/N, hence norm defect at most 48/N.
+`repair_error_le`,
+`lean/YMGap/RepTheory/RationalQuaternionNormRepair.lean:315`, would pay the
+same weighted squared repair distance. This argument was independently
+screened on PAPER, not kernel-checked. The scalar-to-RatPoly variance lift,
+SOS construction and weighted same-Haar joins are the NEXT missing producers.
+Avoid the unnecessary third/fourth moment expansion. Sup-norm contractivity,
+continuous extension, the continuum/physical/all-group Clay clauses remain OPEN.
+
+### MAIN Fisher/slack screen [SOURCE/PAPER, not a new theorem]
+
+`terminal_local_signed_score_bound_nearFlat`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalLocalSignedGram.lean:800`,
+bounds an OUTPUT score square by conditional noise times signed Fisher.
+`terminal_marginal_curvature_nonnegative_nearFlat:840` produces lower
+Fisher order, not an upper bound on the incoming derivative replica.
+The source budget retains both the output square AND the nonnegative CS
+slack from `lastStep_sourceDerivative_certificate`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLastStepSourceDerivative.lean:177`.
+Thus even an additional upper Fisher estimate would leave that slack and
+the mixed-minus-diagonal remainder in `sourceDerivativeSignedBulk`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLastStepAsymmetricEnergy.lean:359`.
+Discarding slack is not an upper payment. The distinct original masses also
+leave summed errors against intermediate response, not endpoint variance.
+No new complete-bulk producer or stronger prerequisite was found; retain
+the complete SAME-source signed estimate rather than another Fisher adapter.
+
 ### Selected finite join (2026-10-10 UTC; PAPER before implementation)
 
 Previous goal turn 65068ecf was PROGRESS: actual joint nonnegative unit-mass

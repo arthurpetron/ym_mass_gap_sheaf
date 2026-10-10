@@ -5384,9 +5384,12 @@ import YMGap.Continuum.BernsteinNormalizedMonomialCoefficient
 import YMGap.Continuum.BernsteinRationalPositiveRow
 import YMGap.Continuum.QuaternionHaarBernsteinRowCertificate
 import YMGap.Continuum.QuaternionHaarUnitIntervalCoordinate
--- Actual positive normalized JOINT finite weights and elevated-row reconstruction;
--- signed quadrature identity, sphere sup-norm and continuous Haar remain OPEN.
+-- Actual positive normalized JOINT weights, exact signed elevated-row identity,
+-- computed Haar-to-grid error and cube variation; sphere concentration,
+-- sphere sup-norm and continuous Haar remain OPEN. Narrow leaves checked only.
 import YMGap.Continuum.QuaternionHaarTensorBernsteinCubature
+import YMGap.Continuum.QuaternionHaarTensorBernsteinError
+import YMGap.Continuum.RatPolyCubeLipschitz
 import YMGap.Continuum.SU2HeatJacobiFinitePrefixClassPolynomial
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticBound
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticCutoff
