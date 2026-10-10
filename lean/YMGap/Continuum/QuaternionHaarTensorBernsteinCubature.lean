@@ -416,6 +416,227 @@ theorem jointElevatedRow_reconstruction_auto (p0 p1 p2 p3 : Poly) :
   apply jointElevatedRow_reconstruction
   all_goals unfold jointCutoff; omega
 
+/-! ## Exact signed Haar-to-weighted-elevated-row identity -/
+
+/-- A computable common cutoff for the four actual normalized rows. -/
+def weightedRowCutoff (p0 p1 p2 p3 : Poly) (eta : Q') : Nat :=
+  max (max (rowCutoff p0 eta) (rowCutoff p1 eta))
+    (max (rowCutoff p2 eta) (rowCutoff p3 eta))
+
+private theorem weightedRowCutoff_ge (p0 p1 p2 p3 : Poly) (eta : Q')
+    (n : Nat) (hn : weightedRowCutoff p0 p1 p2 p3 eta ≤ n) :
+    rowCutoff p0 eta ≤ n ∧ rowCutoff p1 eta ≤ n ∧
+      rowCutoff p2 eta ≤ n ∧ rowCutoff p3 eta ≤ n := by
+  exact ⟨
+    Nat.le_trans (Nat.le_trans (Nat.le_max_left _ _) (Nat.le_max_left _ _)) hn,
+    Nat.le_trans (Nat.le_trans (Nat.le_max_right _ _) (Nat.le_max_left _ _)) hn,
+    Nat.le_trans (Nat.le_trans (Nat.le_max_left _ _) (Nat.le_max_right _ _)) hn,
+    Nat.le_trans (Nat.le_trans (Nat.le_max_right _ _) (Nat.le_max_right _ _)) hn⟩
+
+private theorem ratFinSum_congr_lt (f g : Nat → RatPoly) :
+    ∀ count, (∀ k, k<count → RatPolyCoeffEqv (f k) (g k)) →
+      RatPolyCoeffEqv (ratFinSum f count) (ratFinSum g count)
+  | 0, _ => RatPolyCoeffEqv.refl polyZero
+  | m+1, h =>
+      (ratFinSum_congr_lt f g m (fun k hk => h k (by omega))).add
+        (h m (by omega))
+
+private def scaledBasis (n : Nat) (p : Poly) (i : Fin 4) (k : Nat) : RatPoly :=
+  polySmul (normalizedRow p n k) (coordinateBasis n i k)
+
+private theorem elevatedTerm_pin (n : Nat) (p : Poly) (i : Fin 4)
+    (eta : Q') (hn : rowCutoff p eta ≤ n) (k : Nat) (hk : k≤n+1) :
+    RatPolyCoeffEqv
+      (subst (shiftedCoordinate i)
+        (pscale (unnormalizedRow p n k)
+          (bernsteinBasisPoly (degree n) k)))
+      (scaledBasis n p i k) := by
+  let y := shiftedCoordinate i
+  let b := bernsteinBasisPoly (degree n) k
+  let c := Q'.ofNat (YMGap.RG.binom (degree n) k)
+  let a := normalizedRow p n k
+  have hpin : unnormalizedRow p n k ≈ c*a :=
+    unnormalizedRow_pin p eta n k hn hk
+  have hcomm : c*a ≈ a*c := Q'.mul_comm_eqv c a
+  exact (subst_pscale y (unnormalizedRow p n k) b).trans
+    ((RatPolyCoeffEqv.smul_coefficient hpin (subst y b)).trans
+      ((RatPolyCoeffEqv.smul_coefficient hcomm (subst y b)).trans
+        (((RatPolyCoeffEqv.smul_assoc a c (subst y b)).symm).trans
+          ((subst_pscale y c b).symm.smul a))))
+
+private theorem elevatedRow_eq_scaled_sum (n : Nat) (p : Poly) (i : Fin 4)
+    (eta : Q') (hn : rowCutoff p eta ≤ n) :
+    RatPolyCoeffEqv (elevatedRow n p i)
+      (ratFinSum (scaledBasis n p i) (n+2)) := by
+  have hrow := subst_polyFinSum (shiftedCoordinate i)
+    (fun k => pscale (unnormalizedRow p n k)
+      (bernsteinBasisPoly (degree n) k)) (n+2)
+  exact hrow.trans (ratFinSum_congr_lt _ _ (n+2)
+    (fun k hk => elevatedTerm_pin n p i eta hn k (by omega)))
+
+private theorem fourfold_poly (f0 f1 f2 f3 : Nat → RatPoly) (count : Nat) :
+    RatPolyCoeffEqv
+      (polyMul (ratFinSum f0 count)
+        (polyMul (ratFinSum f1 count)
+          (polyMul (ratFinSum f2 count) (ratFinSum f3 count))))
+      (ratFinSum (fun k0 => ratFinSum (fun k1 => ratFinSum (fun k2 =>
+        ratFinSum (fun k3 => polyMul (f0 k0)
+          (polyMul (f1 k1) (polyMul (f2 k2) (f3 k3)))) count)
+        count) count) count) := by
+  let t2 := ratFinSum (fun k2 => ratFinSum (fun k3 =>
+    polyMul (f2 k2) (f3 k3)) count) count
+  let t1 := ratFinSum (fun k1 => ratFinSum (fun k2 => ratFinSum (fun k3 =>
+    polyMul (f1 k1) (polyMul (f2 k2) (f3 k3))) count) count) count
+  have h2 : RatPolyCoeffEqv
+      (polyMul (ratFinSum f2 count) (ratFinSum f3 count)) t2 :=
+    (ratFinSum_mul_right f2 (ratFinSum f3 count) count).trans
+      (ratFinSum_congr _ _ (fun k2 =>
+        ratFinSum_mul_left (f2 k2) f3 count) count)
+  have h1k (k1 : Nat) :
+      RatPolyCoeffEqv (polyMul (f1 k1) t2)
+        (ratFinSum (fun k2 => ratFinSum (fun k3 =>
+          polyMul (f1 k1) (polyMul (f2 k2) (f3 k3))) count) count) := by
+    exact (ratFinSum_mul_left (f1 k1) _ count).trans
+      (ratFinSum_congr _ _ (fun k2 =>
+        ratFinSum_mul_left (f1 k1) _ count) count)
+  have h1 : RatPolyCoeffEqv
+      (polyMul (ratFinSum f1 count)
+        (polyMul (ratFinSum f2 count) (ratFinSum f3 count))) t1 :=
+    ((RatPolyCoeffEqv.refl _).mul h2).trans
+      ((ratFinSum_mul_right f1 t2 count).trans
+        (ratFinSum_congr _ _ h1k count))
+  have h0k (k0 : Nat) : RatPolyCoeffEqv (polyMul (f0 k0) t1)
+      (ratFinSum (fun k1 => ratFinSum (fun k2 => ratFinSum (fun k3 =>
+        polyMul (f0 k0) (polyMul (f1 k1)
+          (polyMul (f2 k2) (f3 k3)))) count) count) count) := by
+    exact (ratFinSum_mul_left (f0 k0) _ count).trans
+      (ratFinSum_congr _ _ (fun k1 =>
+        (ratFinSum_mul_left (f0 k0) _ count).trans
+          (ratFinSum_congr _ _ (fun k2 =>
+            ratFinSum_mul_left (f0 k0) _ count) count)) count)
+  exact ((RatPolyCoeffEqv.refl _).mul h1).trans
+    ((ratFinSum_mul_right f0 t1 count).trans
+      (ratFinSum_congr _ _ h0k count))
+
+private theorem fourfold_haar (f0 f1 f2 f3 : Nat → RatPoly) (count : Nat) :
+    quaternionHaar 1
+      (polyMul (ratFinSum f0 count)
+        (polyMul (ratFinSum f1 count)
+          (polyMul (ratFinSum f2 count) (ratFinSum f3 count)))) ≈
+      finSum (fun k0 => finSum (fun k1 => finSum (fun k2 =>
+        finSum (fun k3 => quaternionHaar 1
+          (polyMul (f0 k0) (polyMul (f1 k1)
+            (polyMul (f2 k2) (f3 k3))))) count) count) count) count := by
+  exact Q'.eqv_trans _ _ _ (haar_of_coeff (fourfold_poly f0 f1 f2 f3 count))
+    (Q'.eqv_trans _ _ _ (ratFinSum_haar _ count)
+      (finSum_eqv_congr _ _ (fun k0 =>
+        Q'.eqv_trans _ _ _ (ratFinSum_haar _ count)
+          (finSum_eqv_congr _ _ (fun k1 =>
+            Q'.eqv_trans _ _ _ (ratFinSum_haar _ count)
+              (finSum_eqv_congr _ _ (fun k2 =>
+                ratFinSum_haar _ count) count)) count)) count))
+
+private theorem smul_mul (a b : Q') (p q : RatPoly) :
+    RatPolyCoeffEqv (polyMul (polySmul a p) (polySmul b q))
+      (polySmul (a*b) (polyMul p q)) :=
+  (RatPolyCoeffEqv.polyMul_smul_left a p (polySmul b q)).trans
+    (((RatPolyCoeffEqv.polyMul_smul_right b p q).smul a).trans
+      (RatPolyCoeffEqv.smul_assoc a b (polyMul p q)))
+
+private theorem haar_four_scaled (a0 a1 a2 a3 : Q')
+    (b0 b1 b2 b3 : RatPoly) :
+    quaternionHaar 1
+      (polyMul (polySmul a0 b0)
+        (polyMul (polySmul a1 b1)
+          (polyMul (polySmul a2 b2) (polySmul a3 b3)))) ≈
+      quaternionHaar 1
+        (polyMul b0 (polyMul b1 (polyMul b2 b3))) *
+        (a0*(a1*(a2*a3))) := by
+  have h23 := smul_mul a2 a3 b2 b3
+  have h123 := ((RatPolyCoeffEqv.refl _).mul h23).trans
+    (smul_mul a1 (a2*a3) b1 (polyMul b2 b3))
+  have h0123 := ((RatPolyCoeffEqv.refl _).mul h123).trans
+    (smul_mul a0 (a1*(a2*a3)) b0 (polyMul b1 (polyMul b2 b3)))
+  exact Q'.eqv_trans _ _ _ (haar_of_coeff h0123)
+    (Q'.eqv_trans _ _ _
+      (quaternionHaar_polySmul 1 (a0*(a1*(a2*a3))) _)
+      (Q'.mul_comm_eqv _ _))
+
+/-- Signed exact cubature coefficient product. These are elevated Bernstein
+coefficients, not evaluations of `p_i` at the raw grid nodes. -/
+def normalizedCoefficientProduct (n : Nat) (p0 p1 p2 p3 : Poly)
+    (k0 k1 k2 k3 : Nat) : Q' :=
+  normalizedRow p0 n k0 * (normalizedRow p1 n k1 *
+    (normalizedRow p2 n k2 * normalizedRow p3 n k3))
+
+def weightedRowSum (n : Nat) (p0 p1 p2 p3 : Poly) : Q' :=
+  finSum (fun k0 => finSum (fun k1 => finSum (fun k2 =>
+    finSum (fun k3 => jointWeightRaw n k0 k1 k2 k3 *
+      normalizedCoefficientProduct n p0 p1 p2 p3 k0 k1 k2 k3)
+      (n+2)) (n+2)) (n+2)) (n+2)
+
+/-- Exact signed four-coordinate identity on the ORIGINAL Haar functional.
+The sole guard is a computed degree/cutoff from the four input coefficient
+lists and rational tolerance parameter; no positivity of the `p_i` is used. -/
+theorem haar_separable_eq_weightedRow (p0 p1 p2 p3 : Poly)
+    (eta : Q') (n : Nat)
+    (hn : weightedRowCutoff p0 p1 p2 p3 eta ≤ n) :
+    quaternionHaar 1
+      (polyMul (subst (shiftedCoordinate ⟨0, by decide⟩) p0)
+        (polyMul (subst (shiftedCoordinate ⟨1, by decide⟩) p1)
+          (polyMul (subst (shiftedCoordinate ⟨2, by decide⟩) p2)
+            (subst (shiftedCoordinate ⟨3, by decide⟩) p3)))) ≈
+      weightedRowSum n p0 p1 p2 p3 := by
+  obtain ⟨hn0, hn1, hn2, hn3⟩ :=
+    weightedRowCutoff_ge p0 p1 p2 p3 eta n hn
+  have hd0 : p0.length ≤ n+1 := by
+    have h := rowCutoff_degree p0 eta
+    omega
+  have hd1 : p1.length ≤ n+1 := by
+    have h := rowCutoff_degree p1 eta
+    omega
+  have hd2 : p2.length ≤ n+1 := by
+    have h := rowCutoff_degree p2 eta
+    omega
+  have hd3 : p3.length ≤ n+1 := by
+    have h := rowCutoff_degree p3 eta
+    omega
+  let f0 := scaledBasis n p0 ⟨0, by decide⟩
+  let f1 := scaledBasis n p1 ⟨1, by decide⟩
+  let f2 := scaledBasis n p2 ⟨2, by decide⟩
+  let f3 := scaledBasis n p3 ⟨3, by decide⟩
+  have hrow : RatPolyCoeffEqv (jointElevatedRow n p0 p1 p2 p3)
+      (polyMul (ratFinSum f0 (n+2))
+        (polyMul (ratFinSum f1 (n+2))
+          (polyMul (ratFinSum f2 (n+2))
+            (ratFinSum f3 (n+2))))) :=
+    (elevatedRow_eq_scaled_sum n p0 ⟨0, by decide⟩ eta hn0).mul
+      ((elevatedRow_eq_scaled_sum n p1 ⟨1, by decide⟩ eta hn1).mul
+        ((elevatedRow_eq_scaled_sum n p2 ⟨2, by decide⟩ eta hn2).mul
+          (elevatedRow_eq_scaled_sum n p3 ⟨3, by decide⟩ eta hn3)))
+  have hterm (k0 k1 k2 k3 : Nat) :
+      quaternionHaar 1 (polyMul (f0 k0)
+        (polyMul (f1 k1) (polyMul (f2 k2) (f3 k3)))) ≈
+        jointWeightRaw n k0 k1 k2 k3 *
+          normalizedCoefficientProduct n p0 p1 p2 p3 k0 k1 k2 k3 := by
+    exact haar_four_scaled
+      (normalizedRow p0 n k0) (normalizedRow p1 n k1)
+      (normalizedRow p2 n k2) (normalizedRow p3 n k3)
+      (coordinateBasis n ⟨0, by decide⟩ k0)
+      (coordinateBasis n ⟨1, by decide⟩ k1)
+      (coordinateBasis n ⟨2, by decide⟩ k2)
+      (coordinateBasis n ⟨3, by decide⟩ k3)
+  exact Q'.eqv_trans _ _ _
+    (Q'.eqv_symm (haar_of_coeff
+      (jointElevatedRow_reconstruction n p0 p1 p2 p3 hd0 hd1 hd2 hd3)))
+    (Q'.eqv_trans _ _ _ (haar_of_coeff hrow)
+      (Q'.eqv_trans _ _ _ (fourfold_haar f0 f1 f2 f3 (n+2))
+        (finSum_eqv_congr _ _ (fun k0 =>
+          finSum_eqv_congr _ _ (fun k1 =>
+            finSum_eqv_congr _ _ (fun k2 =>
+              finSum_eqv_congr _ _ (fun k3 => hterm k0 k1 k2 k3)
+                (n+2)) (n+2)) (n+2)) (n+2))))
+
 end YMGap.Continuum.QuaternionHaarTensorBernsteinCubature
 
 #print axioms YMGap.Continuum.QuaternionHaarTensorBernsteinCubature.degree
@@ -444,3 +665,7 @@ end YMGap.Continuum.QuaternionHaarTensorBernsteinCubature
 #print axioms YMGap.Continuum.QuaternionHaarTensorBernsteinCubature.jointElevatedRow_reconstruction
 #print axioms YMGap.Continuum.QuaternionHaarTensorBernsteinCubature.jointCutoff
 #print axioms YMGap.Continuum.QuaternionHaarTensorBernsteinCubature.jointElevatedRow_reconstruction_auto
+#print axioms YMGap.Continuum.QuaternionHaarTensorBernsteinCubature.weightedRowCutoff
+#print axioms YMGap.Continuum.QuaternionHaarTensorBernsteinCubature.normalizedCoefficientProduct
+#print axioms YMGap.Continuum.QuaternionHaarTensorBernsteinCubature.weightedRowSum
+#print axioms YMGap.Continuum.QuaternionHaarTensorBernsteinCubature.haar_separable_eq_weightedRow

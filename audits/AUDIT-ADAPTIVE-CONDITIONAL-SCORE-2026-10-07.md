@@ -6,6 +6,89 @@ and a finite strictly positive physical Hamiltonian mass gap.
 
 ## Finite positive cubature foundation (2026-10-10 UTC)
 
+### Selected finite join (2026-10-10 UTC; PAPER before implementation)
+
+Previous goal turn 65068ecf was PROGRESS: actual joint nonnegative unit-mass
+weights and elevated-row reconstruction were checked and pushed. The remaining
+signed cubature identity is a real missing edge, not another Haar interface.
+For Y_i=(1+x_i)/2, select the exact finite proposition
+
+```
+H[product_i subst(Y_i,p_i)]
+  = sum_k jointWeight(n,k) * product_i normalizedRow(p_i,n,k_i).
+```
+
+All four factors stay under the SAME one-quaternion polynomial Haar; rows
+are arbitrary signed QPoly lists. `unnormalizedRow_pin` converts the actual
+elevated coefficient to binom(n+1,k)*normalizedRow without a new inverse or
+analytic assumption. Use its computed `rowCutoff(p_i,eta)` and take their
+maximum; the finite product/sum expansion and Haar linearity then supply
+the join. No p_i(k_i/N) sampling equality is asserted. Immediate consumer:
+the noncircular polynomial-Haar sphere sup-norm argument; no existing
+continuous-Haar field is filled by this identity alone.
+
+Degenerate tests: empty/zero and signed lists, n=0 when the computed guards
+permit it, shared coordinates, no factorization of joint weights. Predicted
+result: exact rational equality with no new analytic premise. Stop/revise if
+it requires assuming reconstruction, a cubature rule or continuous Haar.
+Verification budget: the same one capped finite-file check, ROOT-only with
+fresh dynamic preflight, one 20-GiB worker/12-GiB reserve and independent
+source/log review; no full tree/audit. In parallel, screen the MAIN squared
+derivative aggregate on its unchanged fixed-mean chronological consumer.
+
+### Observed signed weighted-row result [CHECKED]
+
+`haar_separable_eq_weightedRow`,
+`lean/YMGap/Continuum/QuaternionHaarTensorBernsteinCubature.lean:581`,
+now proves the selected equality for arbitrary signed/zero QPoly lists and
+every n above the computable `weightedRowCutoff:422`. The actual finite sum
+is `weightedRowSum:572`, with `normalizedCoefficientProduct:567`. All four
+factors remain under the original ONE-quaternion polynomial Haar. It uses
+elevated coefficients, not evaluations at raw grid nodes; it neither assumes
+nor produces continuous Haar. This is our finite proof, not a foreign theorem.
+Tensor coefficient error, norm-defect moment, sphere sup-norm contractivity
+and continuous extension remain OPEN, as does MAIN centered late-area payment.
+
+ROOT's accepted weighted-row check3 exited 0. Its complete log has no
+warnings/errors, and all 30 public axiom gates pass: eighteen exactly
+{propext,Quot.sound}, twelve empty. Checks1/2 compiled but were REJECTED:
+the automated max-cutoff inequality introduced Classical.choice. Diagnostic
+private gates isolated it to `weightedRowCutoff_ge:426`; explicit
+`Nat.le_trans`/`Nat.le_max_left`/`Nat.le_max_right` chains removed it without
+changing any hypothesis. Temporary diagnostic gates were removed before
+check3. Every launch followed fresh dynamic memory/swap/process inspection;
+no competing compiler/runner and zero swap were observed. One monitored
+20-GiB worker, 12-GiB reserve; no root/tree/audit or resource increase.
+
+Final source SHA-256
+`71c780cecda439488b1cdf267ded735c37bc049841acb97317ac25fa28ec7d44`;
+accepted `/private/tmp/ym-tensor-bernstein-weighted-row-check3.log` SHA-256
+`3210508ff662d972bf4af7a6d77a14faaf20b1d91a57649ddfe2a0fe75c197f8`.
+Independent COMPLETE final-source/log review PASS: all 671 source lines and
+39 log lines were read, hashes/gates matched and the finite/OPEN boundary
+confirmed. No canonical chart claim closes; no sorry/frontier statement changed.
+Independent bounded final documentation/source-citation review also PASS.
+
+### Parallel MAIN telescope screen [SOURCE/PAPER, not a new theorem]
+
+The actual `lastStepPairedResidual`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLastStepScoreVariance.lean:65`,
+is X=A(lift)c-b(lift)a. Its mean-zero identity :131 and exact square pin :169
+retain A^2 T(c^2)-2Ab T(ac)+b^2 T(a^2). This is a conditional input fluctuation,
+not an identified chronological response difference. The original action
+derivative remains in `lastStepSourceDerivative_expansion`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLastStepSourceDerivative.lean:80`.
+Its actual conditional determinant `lastStep_sourceDerivative_certificate:177`
+pays the score square by the FULL conditional derivative square, with a
+nonnegative Cauchy--Schwarz slack. Thus `sourceDerivativeSignedBulk`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLastStepAsymmetricEnergy.lean:359`,
+retains both that slack and the signed mixed-minus-diagonal remainder.
+Discarding positive slack is the wrong inequality direction for an upper
+late-area payment. The proposed automatic telescope is therefore not supplied
+by these declarations; no general impossibility or Yang--Mills counterexample
+is claimed. Continue the complete SAME-source upper payment, not another
+smoothing/telescope adapter or a small-initial-energy prerequisite.
+
 Previous turn b188aa45 changed planning only; no new mathematical proof.
 The bounded main-source screen found no valid automatic telescope of the
 squared conditional derivative budget. Continue MAIN centered late-area
@@ -55,9 +138,10 @@ coefficient-level reconstruction of four separable QPoly factors at its
 computed `jointCutoff:406`, including zero/signed coefficient lists.
 
 This is a finite FOUNDATION, not exact quadrature at raw grid nodes.
-The explicit signed Haar-to-weighted-elevated-coefficient identity is still
-OPEN; the normalized elevated coefficients, not p evaluated at k/N, would
-enter that identity. Tensor error, norm-defect moment, sphere sup-norm and
+At that foundation checkpoint the signed Haar-to-weighted-elevated-coefficient
+identity was OPEN; the subsequent checked result above fills that finite edge
+using normalized elevated coefficients, not p evaluated at k/N.
+Tensor error, norm-defect moment, sphere sup-norm and
 continuous extension are still PAPER/OPEN. MAIN late-area payment is
 unchanged. No canonical displayed claim closes, so no ASCII reprint.
 

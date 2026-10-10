@@ -519,12 +519,19 @@ reconstruction for four separable coordinate polynomials with a computed
 degree cutoff, including signed/zero coefficient lists. This
 supplies actual finite weights without already integrating a continuous f;
 it does NOT assert exact raw-grid polynomial quadrature. The explicit signed
-Haar-to-weighted-elevated-coefficient identity remains OPEN. Next unpaid inputs
+Haar-to-weighted-elevated-coefficient identity is now CHECKED:
+`haar_separable_eq_weightedRow:581` uses arbitrary signed/zero input lists,
+the computed `weightedRowCutoff:422`, and the SAME joint weights, without
+continuous Haar or exact raw-grid sampling. Focused weighted-row check3 PASS;
+all 30 public gates stay within {propext,Quot.sound}. The earlier classical
+dependency in an automated max-cutoff proof was rejected and replaced by
+explicit natural-number inequalities; no hypothesis changed. Next unpaid inputs
 also include the tensor coefficient-error bound and sphere-repair concentration,
 then sphere sup-norm contractivity and continuous-function approximation/
 extension. Existing coordinate Certificates, row reconstruction/error and
 `RationalQuaternionNormRepair.repair_error_le` are the forward inputs.
-Focused check2 PASS; 26 gates, fourteen exactly {propext,Quot.sound}, twelve
+The preceding foundation's focused check2 passed 26 gates; the extended
+weighted-row check3 passes 30, eighteen exactly {propext,Quot.sound}, twelve
 axiom-free. Root registration only; no root/tree audit. Exact source/log
 hashes, earlier elaboration failure and independent review: adaptive-score
 audit, finite positive cubature section. No J04 or MAIN closure is claimed.
