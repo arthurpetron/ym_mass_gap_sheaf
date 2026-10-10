@@ -4,6 +4,59 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## MAIN screen and exact adjoint-kernel selection (2026-10-10 UTC)
+
+Previous goal turn PROGRESS: 7f14d5ce proves SAME-carrier even projection
+energy contraction. Live HEAD=origin/main; only the same three unrelated
+user duplicate leaves are untracked. No live compiler handle is resumed.
+Two parallel read-only MAIN screens found no new analytic producer. Generic
+temporal filters repeat the already recorded scalar-mode obstruction.
+OWN centering changes the Casimir pin to C(F-mu)=12*((F-mu)+mu): the mixed
+IBP remains 6*M, not 6*(M-mu*S). Inputs are
+`casimir12_first_ibp:152`, `channel_coercivity_mixed:203`,
+`lean/YMGap/Continuum/SU2QuaternionChannelConnectedCoercivity.lean`, and
+`oddCentered:75`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSourceVarianceGram.lean`.
+No new bound on the full channel/OWN discrepancy or signed cubic/pair is
+supplied. Do not implement another square or centering adapter as payment.
+The original late-response/signed-cost estimate remains MAIN and OPEN.
+
+Independent available backward group input: exact kernel of the EXISTING
+completed adjoint representation. The selected consumer is
+`CentralQuotientPresentation.descendFaithful_of_kernelGammaWitness:315`,
+`lean/YMGap/RepTheory/ConstructiveRepresentationDescent.lean`.
+Produce a Type-valued reverse-kernel sign witness for the literal
+`coverRepresentation`, then faithfulness of the EXISTING
+`quotientRepresentation` in
+`lean/YMGap/RepTheory/RationalQuaternionCompletedAdjointMatrix.lean:624`.
+The current `representation_coset_congr:635` supplies only the forward join.
+No new quotient, matrix carrier, field or analytic prerequisite is selected.
+
+PAPER argument: on every actual unit rational row, trace=4*r^2-1 and
+chord(q,+/-1)=2*(1-/+r). The sign of rational r gives
+2*chord(q,chosen sign)<=3-trace. Matrix identity forces the supplied-row
+trace defect to zero. Choose a fixed rational Cauchy probe at tolerance
+1/16; when the row is near one sign, the probe is within 3/8 of that sign.
+Its decidable chord-to-positive-sign<=1/2 test and separation 4 force the
+same sign at all sufficiently late rows. This gives zero actual completed
+distance, not merely a rational kernel. `closeOfZero:328`,
+`lean/YMGap/RepTheory/RationalQuaternionCompletedDistance.lean`, constructs
+its Close modulus from the supplied row rates, not from an erased existence
+cutoff. `kernelSignWitness:240`,
+`lean/YMGap/RepTheory/RationalQuaternionCompletedSignQuotient.lean`, then
+returns the existing unique Type-valued sign on arbitrary quotient Points.
+
+Tests: both signs, all three imaginary basis units, delayed/nonmonotone
+supplied rows, arbitrary Point pairs and actual matrix equality. Predict
+exact sign kernel and faithful sign-coset action with no new analytic input.
+Budget: one bounded Sol leaf, independent full math/source/log review,
+ROOT inspection and serial one-worker/20GiB checks with 12GiB reserve after
+fresh dynamic capacity. Stop if proof-dependent cutoff extraction, choice,
+rational-only substitution or a new analytic premise is required.
+This reduces an available algebraic global-form input only. MAIN retention,
+compact/topological SO(3), interacting descent, full continuum/QFT/physical
+gap/every-group/Clay remain OPEN. No chart, paper polling or broad audit.
+
 ## Even projection energy: decision before implementation (2026-10-10 UTC)
 
 Previous goal turn PROGRESS: c79a61d7 proved the actual padded AF source-even

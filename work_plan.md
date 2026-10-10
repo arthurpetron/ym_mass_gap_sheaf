@@ -27,6 +27,19 @@ formal statement would not solve the mathematical problem.
 
 ### Latest MAIN selection (2026-10-10 UTC)
 
+Current analytic screen: additional time filters duplicate the known one-mode
+obstruction; OWN centering retains the raw channel mean in the Casimir IBP.
+No new late-dual or joint signed-cost estimate was found. Keep MAIN below OPEN
+and do not add a conditional square/centering layer.
+Independent known-input group work selected: produce the exact reverse kernel
+of the EXISTING completed adjoint matrix and feed
+`CentralQuotientPresentation.descendFaithful_of_kernelGammaWitness`,
+`lean/YMGap/RepTheory/ConstructiveRepresentationDescent.lean:315`.
+Its output is faithful action of the actual completed sign-coset group,
+not compact SO(3), interacting theory descent or an analytic producer.
+The supplied-row trace/chord proof and bounded verification budget are recorded
+in the adaptive-score audit, exact adjoint-kernel selection. No canonical claim changes.
+
 CHECKED actual MAIN sector input:
 `afPadded_state_even`,
 `lean/YMGap/Continuum/BF4WilsonAllNomePaddedAxisSector.lean:241`, proves
@@ -167,6 +180,12 @@ budget. No new analytic producer was supplied by the paper. Source review:
 Cache this applicability decision. Goal continuation alone does not request
 another review of the same paper; revisit only on an explicit new request,
 a new version/access change, or a materially different actual consumer.
+Explicit parallel recheck completed 2026-10-10 08:39 UTC, same hash-matched
+v1: no additional moving-family MAIN input or group prerequisite was found.
+Keep the existing source-even/energy-projection uses; the analytic producer
+search remains OPEN;
+the selected exact adjoint-kernel work is independent project algebra.
+See the paper audit's latest recheck; no further paper branch or claim change.
 
 CHECKED new producer on the correct curvature object:
 `QuaternionHaarMixedLinearCasimir.blockGamma_linear_casimir` proves
