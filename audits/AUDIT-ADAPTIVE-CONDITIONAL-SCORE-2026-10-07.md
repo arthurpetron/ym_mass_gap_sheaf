@@ -17260,3 +17260,180 @@ and checked the quadratic/mode algebra; bounded Sol SOURCE/PAPER review agrees.
 No Lean edit/build, original H1, physical/QFT/Clay closure or chart change.
 Independent COMPLETE two-file diff/math/source/scope review PASS, including
 the K=0 degeneracy and Haar-Jacobian exclusion; `git diff --check` passes.
+
+### Finite open-cube Gaussian Wick doubling
+
+2026-10-10 UTC; new explicit PAPER estimate, independently reviewed. This
+supplies the FREE benchmark estimate left open in the preceding screen,
+not the original Haar/OS comparison. No new Lean declaration is claimed.
+Consumer: an original SAME-source bound R(s/2)<=K*R(s) would supply H1 with
+c0=2*(K-1) through `retained_time_budget:100`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeMacroRatioFilteredCost.lean`. The free
+estimate below cannot be passed to that consumer without the original join.
+
+Fix even s>=2, W=s^2+1, b=(s^2-s)/2, and the previously constructed rational
+bulk coefficient h on [b,b+s)^3, identical in the 01/02/12 orientations.
+It satisfies 0<h<=1 and, on ONE orientation,
+
+    sum_p h(p) >= sum_p h(p)^2 >= gamma*s^3,
+    gamma=3^(-36)/8.
+
+Here and below p ranges over the corresponding retained internal faces.
+The source is fully active, not an inclusive-fringe or periodic source.
+Choose a fixed integer m>=1 and nonnegative normalized BOX weights supported
+on integer offsets 0,...,m*s. Both insertions use these SAME weights.
+
+Explicit free reference (construction, not an assumed spectral producer).
+For the open one-dimensional vertex set r=0,...,W-1 and internal edge set
+r=0,...,W-2 define
+
+    phi_0(r)=1/sqrt(W),
+    phi_k(r)=sqrt(2/W)*cos(pi*k*(r+1/2)/W), 1<=k<W,
+    g_k(r)=-sqrt(2/W)*sin(pi*k*(r+1)/W), 1<=k<W,
+    sigma_k=2*sin(pi*k/(2*W)), sigma_0=0.
+
+Finite trigonometric sums give orthonormal vertex/edge bases. With the
+ordinary forward incidence D, D(phi_k)=sigma_k*g_k and
+D^*g_k=sigma_k*phi_k. There is NO edge mode g_0. Tensor products put g on
+edge directions and phi on the remaining directions. At each momentum
+triple k, incidence is wedge multiplication by sigma, its adjoint is
+contraction, and the explicit identity
+
+    i_sigma*(sigma wedge u)+sigma wedge i_sigma(u)=lambda*u,
+    lambda=sum_(i=0)^2 sigma_(k_i)^2
+
+decomposes forms into exact/coexact parts. For lambda>0 the normalized curls of
+transverse one-forms give the magnetic two-form basis. There are at most
+two such modes per triple (r-1 when r>=2 indices are positive; none when
+r<=1). Coordinate polarizations can be constructed using the first positive
+indices of the finite triple. Thus no choice or abstract Hodge-existence
+assumption is needed at PAPER level. Each normalized face-mode component
+has squared size <=8/W^3, and 0<lambda<=12.
+
+Define the free reference ONLY on these internal transverse modes. The
+original kinetic-only outgoing coordinates and longitudinal compact gauge
+sector are not thereby removed from the original completed theory.
+For kappa>0, its scalar mode kernel is
+
+    exp(-kappa*((y-x)^2+lambda*(x^2+y^2)/2)).
+
+Completing the square gives its vacuum exp(-kappa*sinh(omega)*x^2),
+normalized conditional mean e^(-omega)*y and stationary variance
+1/(4*kappa*sinh(omega)), where
+
+    cosh(omega)=1+lambda/2,
+    omega=2*asinh(sqrt(lambda)/2), a_0=1/(4*kappa).
+
+Hence the magnetic covariance C(t) has eigenvalues
+beta_lambda*e^(-t*omega), beta_lambda=a_0*lambda/sinh(omega).
+For the centered Wick square sum_p h(p)*B(p)^2, finite Gaussian integration
+gives the actual free response
+
+    R_G(t)=2*Tr(h*C(t)*h*C(t))
+          =2*sum_(a,b) beta_a*beta_b*|sum_p h(p)*u_a(p)*u_b(p)|^2
+             *exp(-t*(omega_a+omega_b)).
+
+This is a finite positive sum, so it is nonincreasing in t. Independent
+color copies multiply it by their number and do not affect the ratio.
+It is NOT the original nonlinear plaquette response or a new physical clock.
+The Wick source is centered at its OWN Gaussian expectation. Equality with
+the original OLD OWN center is NOT assumed; a common-center interpolation
+must pay that mismatch or retain the varying-center corrections above.
+
+Upper estimate. The elementary bounds, for 0<lambda<=12, are
+
+    omega>=sqrt(lambda)/2>=|k|/W,
+    lambda^2/sinh(omega)^2=lambda/(1+lambda/4)
+      <=lambda<=16*|k|^2/W^2.
+
+For a=t/W<=1, extend the finite frequency sum to nonnegative integer triples.
+Since 2*|k|>=|k|_1 and 1-e^(-a)>=a/2,
+
+    S_0=sum_(n>=0) exp(-a*n)<=2/a,
+    S_2=sum_(n>=0) n^2*exp(-a*n)<=16/a^3,
+    sum_k |k|^2*exp(-2*t*|k|/W)<=3*S_2*S_0^2<=192/a^5.
+
+The face-component bound and multiplicity at most two now give
+(C(t)^2)_(p,p)<=49152*a_0^2/t^5. Because 0<=h<=1, expanding the trace
+entrywise (squares, not assumed signs of covariance entries) gives
+
+    R_G(t)<=2*sum_p h(p)*(C(t)^2)_(p,p)
+          <=294912*a_0^2*s^3/t^5,
+    R_G(s/2)<=9437184*a_0^2/s^2=9*2^20*a_0^2/s^2.
+
+Lower estimate. Put D_m=1+2*m, t_*=D_m*s and
+K=max(1,floor(W/(4*s))). Direct integer estimates give
+W/(8*s)<=K<=W/(2*s). Select triples with k_0,k_1 odd in [K/2,K]
+and k_2 even in [0,K]. There are at least
+N=W^3/(2^16*s^3) such triples (a real lower bound on the integer count).
+For each select ONE transverse polarization
+
+    a_k=(-sigma_(k_1),sigma_(k_0),0)
+          /sqrt(sigma_(k_0)^2+sigma_(k_1)^2),
+    u_k=(sigma wedge a_k)/sqrt(lambda).
+
+Its squared 01 coefficient is
+(sigma_(k_0)^2+sigma_(k_1)^2)/lambda>=1/9. On the whole bulk support,
+each odd sine/even cosine phase stays within pi/4 of its central extremum.
+The 01 face basis g_(k_0)(x)*g_(k_1)(y)*phi_(k_2)(z) therefore has a
+fixed sign for that triple and basis(p)*basis(q)>=1/(8*W^3).
+The k_2=0 case uses phi_0, NOT a nonexistent edge mode, and satisfies the
+same floor. Consequently the projector P onto the selected polarizations
+has, for ALL bulk 01 faces p,q,
+
+    P_(p,q)>=N/(72*W^3)>=1/(72*2^16*s^3).
+
+This selected band obeys omega<=4/s and
+lambda/sinh(omega)=sqrt(lambda)/sqrt(1+lambda/4)>=1/(16*s).
+Every selected covariance eigenvalue at t_* is therefore at least
+beta_min=a_0*e^(-4*D_m)/(16*s). All summands in the spectral formula for
+R_G are nonnegative, so restricting both spectral indices to this band
+and then using its common eigenvalue floor is legitimate:
+
+    R_G(t_*)>=2*beta_min^2*Tr(h*P*h*P)
+             >=2*a_0^2*gamma^2*e^(-8*D_m)
+                 /(16^2*72^2*2^32*s^2).
+
+The second step restricts the entrywise trace sum to 01 source faces and
+uses the same-sign projector and sum h>=gamma*s^3. It does not assume that
+PSD matrix order is preserved by squaring noncommuting matrices.
+Small even scales are included: s=2 and s=4 have K=1 and selected
+triple (1,1,0); s=8 has K=2 and triples (1,1,0),(1,1,2).
+
+SAME BOX estimate. The double BOX response is a nonnegative normalized
+average of R_G(t+u+v), with 0<=u,v<=m*s. Monotonicity yields
+
+    R_G,BOX(s/2)<=R_G(s/2),
+    R_G,BOX(s)>=R_G((1+2*m)*s).
+
+Using e<3 and gamma=3^(-36)/8 gives the completely explicit rational bounds
+
+    2^(-51)*3^(-(84+16*m))*a_0^2/s^2
+       <=R_G,BOX(s)<=R_G,BOX(s/2)<=9*2^20*a_0^2/s^2,
+    R_G,BOX(s/2)<=K_m*R_G,BOX(s),
+    K_m=2^71*3^(86+16*m).
+
+Thus K_m is independent of s, W=s^2+1 and kappa>0 for FIXED integer m.
+The constants are deliberately conservative, not claimed optimal. A changing
+unbounded m is not covered. The common kappa factor cancels from this ratio;
+that says nothing about an original interacting or physical mass gap.
+In particular this free reference has low spatial frequencies tending to
+zero as W grows, so bounded doubling is not a uniform spectral gap.
+
+Next decision: CONTINUE at the original joint two-time comparison, not with
+another Gaussian/interface wrapper. The one-sided signed relative score
+must be controlled at the scale of these actual positive-time responses,
+while preserving every original factor, terminal response, OLD OWN center,
+source normalization and physical clock. No Gaussian-to-original
+interpolation, chart/Haar Jacobian estimate, large-field/remainder bound,
+outgoing/gauge-sector OS equivalence, original H1, physical scaling-family
+justification, field renormalization, continuum/QFT/every-group or Clay
+closure is supplied. The existing canonical ASCII proof state is unchanged.
+
+Verification boundary: ROOT checked the explicit incidence/dispersion and
+trace calculations; two independent bounded Sol PAPER reviews checked the
+upper/lower constants, mode selection, BOX bounds and small-scale cases.
+This is a finite constructive PAPER argument, not a kernel-checked Lean
+theorem or a completed-source/whole-tree axiom audit.
+Independent COMPLETE two-file diff/math/source/scope review PASS, including
+the explicit finite basis construction; `git diff --check` passes.

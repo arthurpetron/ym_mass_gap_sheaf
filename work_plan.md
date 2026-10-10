@@ -225,8 +225,19 @@ heat-product action has a common positive spatial/temporal coefficient, but
 outward kinetic-only links and longitudinal gauge modes still need explicit
 treatment. No original OS equivalence or uniform Gaussian doubling estimate
 follows from that Hessian calculation; Haar/chart factors remain unpaid.
-Exact source pins and the next
-benchmark test: adaptive-score audit, "Original-boundary quadratic screen".
+The separate finite OPEN Gaussian Wick-reference calculation now supplies a
+PAPER doubling bound for the explicit bulk coefficients: for even s>=2,
+fixed integer m>=1 and BOX radius m*s,
+R_G,BOX(s/2)<=K_m*R_G,BOX(s), K_m=2^71*3^(86+16*m).
+It uses an explicit open-cubical transverse basis, a spectral trace upper
+bound and a same-sign standing-mode lower bound, including s=2,4. The common
+positive quadratic coupling cancels from the ratio. This constructs the
+FREE reference estimate, not its comparison with the original Haar/OS theory.
+NEXT forward: construct the original joint interpolation and pay its ONE-SIDED
+two-time relative score, including chart/Haar, large-field, terminal, OLD-center
+and normalization errors. No original relative estimate is supplied yet.
+Exact source pins and proof: adaptive-score audit, "Original-boundary quadratic
+screen" and "Finite open-cube Gaussian Wick doubling".
 Do not turn the global all-face sum into a local field by dropping cross-block
 covariances. The existing padded nondegeneracy theorem already supplies each
 chosen family's qualitative late floor; its supplied certificate is too weak
