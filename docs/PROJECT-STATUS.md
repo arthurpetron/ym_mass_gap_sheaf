@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Supporting completed ADJOINT matrix checked (2026-10-10 UTC):
+`RationalQuaternionCompletedAdjointMatrix` constructs literal 3x3 matrices,
+actual Hamilton multiplication/transpose and both orthogonality laws on every
+existing completed Point. Its matrix-image group and Hom descend through
+the actual central-sign quotient; the trace equals the original even chiTwo.
+Focused check2 and COMPLETE independent frozen-source/full-log/math review
+PASS. This is NOT faithfulness, compact SO(3), interacting descent or MAIN.
+NEXT is the original late-response/signed-cost estimate or a produced
+low-energy dual. Exact displayed claims unchanged; no chart reprint.
+Evidence: adaptive-score audit, observed completed-adjoint contraction.
+
 Supporting completed quotient-Haar compatibility checked (2026-10-10 UTC):
 `QuaternionSignQuotientRepresentedHaar` constructs the actual even represented
 algebra, coset-compatible evaluation and both completed translations, with

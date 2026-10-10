@@ -4,6 +4,150 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Completed adjoint matrix: decision before implementation (2026-10-10 UTC)
+
+Previous paper-only goal turn: NO PROGRESS; it supplied no new input or state
+change. Revalidated clean tracked HEAD d43cbd92; three unrelated user-owned
+`(1).lean` duplicates remain untouched. No live compiler is being resumed.
+
+Independent known-input consumer:
+`CentralQuotientPresentation.descendRepresentation`,
+`lean/YMGap/RepTheory/ConstructiveRepresentationDescent.lean:230`, together
+with `signQuotientPresentation`,
+`lean/YMGap/RepTheory/RationalQuaternionCompletedSignQuotient.lean:251`.
+The missing concrete producer is the completed quaternion ADJOINT matrix,
+not another central quotient. Its raw nine quadratic entries describe
+Im(q*e_j*conj(q)); raw multiplicativity holds even off the unit sphere.
+Existing Hamilton algebra and supplied coordinate rows suffice to lift it.
+Both orthogonality laws follow from completed inverse/multiplication pins.
+
+Produce literal 3x3 real matrices and their image group with a SUPPLIED Point
+realization. Matrix multiplication/transpose must be the actual operations;
+the target cannot be just a relabeled Point carrier. Construct the cover Hom,
+kill both central signs and use the EXISTING descent. Join trace to the
+actual even character chiTwo, including identity and basis-unit tests.
+Predict unconditional algebraic output; no analytic premise or representative
+choice. Faithfulness/exact adjoint kernel, compact SO(3), admissibility and
+interacting action/OS descent remain outside this bounded claim.
+
+Budget: one new leaf, at most one raw helper if required; serial focused
+one-worker/20GiB checks with 12GiB reserve, fresh capacity before each.
+Independent source/log/math review. Stop/revise if a new unconstructed input
+or quotient representative selection is needed. No broad/root/tree audit,
+resource increase, foreign code, frontier weakening or chart closure.
+MAIN remains the original signed cost/late-response estimate. Parallel MAIN
+screens found no continuity-density producer; a late dual-test screen must
+not impose full competing-mode spectral separation unnecessarily when ANY
+fixed finite loss coefficient suffices. No conditional wrapper is selected.
+
+## Completed adjoint matrix: observed contraction (2026-10-10 UTC)
+
+The bounded known-input task above is CHECKED in one new leaf, with no
+additional raw helper. `rawMatrix_mul:185` proves arbitrary-raw Hamilton
+composition; `raw_conjugation_entry:262` pins the displayed entries to actual
+q*e_j*conj(q). `rowEntryRegularity:306` returns explicit Type-valued inner
+rates and `rowEntry_approx:330` uses the ORIGINAL supplied row at the same n.
+`representation_mul:374`, `representation_one:410`, `representation_inv:425`
+and `representation_orthogonal_left/right:446/450` give actual completed
+matrix multiplication, identity, transpose and both orthogonality laws.
+`trace_chiTwo:499` joins the SAME all-Point trace to the already represented
+even character 4*r^2-1.
+
+`representedGroup:551` stores literal matrices with supplied Point realization
+and identifies equal matrices, not equal realization witnesses. Its product
+is matrixMul and inverse is transpose. `representation_sign:605` kills both
+actual central signs. `quotientRepresentation:624` constructs the existing
+completed-sign quotient Hom; `quotientRepresentation_matrix:629` pins its
+literal matrix and `representation_coset_congr:635` respects actual cosets.
+All declarations above are in
+`lean/YMGap/RepTheory/RationalQuaternionCompletedAdjointMatrix.lean`.
+Identity, negative one and all three imaginary basis units are tested.
+Generic raw and row identities include noncanonical rational representations.
+No new analytic premise, representative selection, axiom or sorry.
+
+ROOT inspected the complete final source and accepted full log; independent
+Luna complete frozen-source/full-log/math review and Sol math self-review PASS.
+Accepted source SHA256:
+`5cf70891cb7ebe4c0a14b2af419f8e90cfbd70ab39ac37fb5eae4b1e4f777464`.
+Accepted focused command, EXIT0:
+
+```text
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/RepTheory/RationalQuaternionCompletedAdjointMatrix.lean --check-output lean/.lake/build/lib/lean/YMGap/RepTheory/RationalQuaternionCompletedAdjointMatrix.olean --log-file /private/tmp/ym-oct10-completed-adjoint2.log
+```
+
+Accepted log SHA256:
+`0965c63c27299a37926674acb7c142504b210829145736b9ee42ea6795500931`.
+All 31 printed gates are accounted for: rawEntry is axiom-free; the other
+30 are exactly {propext,Quot.sound}. No final diagnostics. Rejected check1
+(`09b25363d18d37c7d77a924b128b976cd3cfd3c3288392b27bc09f6509935835`)
+had variable-index PolyExpr evaluation and completed-row conversion errors;
+its error-recovery sorryAx output is NOT accepted proof evidence. Explicit
+evaluation/row pins repaired these without changing statements or raising
+options. A parser typo in the repair was caught BEFORE check2.
+Fresh preflights before both launches: 85 percent dynamic memory free,
+zero swap, no competing compiler. One capped 20GiB worker/12GiB reserve;
+no resource increase, lock removal, process kill or broad/root/tree audit.
+Root import registration only. Three unrelated user duplicate files untouched.
+
+This removes the concrete algebraic representation producer for the existing
+descent consumer, NOT faithfulness/exact adjoint kernel, compact SO(3),
+admissibility, interacting-action/OS descent, MAIN or a physical gap.
+NEXT: the original late-response/signed-cost producer or actual low-energy
+dual, not another quotient/conditional wrapper. Canonical displayed claims
+unchanged; no chart reprint. Every continuum/QFT/Clay endpoint remains OPEN.
+
+## Low-energy dual selection correction (2026-10-10 UTC; not formalized)
+
+ROOT and independent Sol math review corrected a rejected claim that a
+tiny slow-mode overlap requires a gap for every competing mode. That claim
+is too strong for this consumer, which permits ANY fixed finite c0.
+No competing-mode gap or spectral representation is needed for the following
+sufficient input. No new Lean theorem or actual input producer is claimed.
+
+On the SAME original completed carrier put N=B(x,x), V=B(v,v),
+E(v)=V-B(v,Tv), t=side_j=2^j. A supplied DIFFERENT nonvacuum dual with a
+positive rational V floor, fixed 0<alpha<=1, fixed D>=0, and
+B(x,v)^2 >= alpha*N*V, t*E(v) <= D*V suffices mathematically.
+Choose fixed a>=1 with 2^a>=8D/alpha; for j>=a put u=2^(j-a).
+Pairing linearity, time balance and response monotonicity give
+||v-T^u v||^2 <= V-B(v,T^u v) <= u*E(v).
+Writing b=B(x,v)=h+d, h=B(T^u x,v), Cauchy--Schwarz gives
+d^2<=alpha*N*V/8. From b^2<=2h^2+2d^2 obtain
+h^2>=alpha*N*V/4. Cauchy--Schwarz again, cancelling the produced positive
+V floor, gives R_x(2u)>=kappa*N, kappa=alpha/4.
+Use the existing positive rational N floor for the ORIGINAL smoothed family
+(`smoothedCoherent_norm_floor:411`, `smoothedNormFloor_positive:263`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeSmoothedCoherentState.lean`).
+Existing dyadic log-convexity propagates this to
+R_x(t)>=kappa^(2^(a-1))*N. The backward telescope gives t*e_t<=N;
+therefore c0=max(2^a,kappa^(-2^(a-1))) covers the cofinal scales and the
+finite prefix (e_t<=R_t). At j=0 the shifted carrier is x itself and its
+one-step defect is <=N. Norm floors may depend on j; alpha,D,a,c0 may not.
+
+Verified source pins: `time_loss_linear_bound`,
+`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteFamilyKineticUpper.lean:233`;
+`response_antitone`, `lean/YMGap/Continuum/BF4WilsonAllNomeOddResponseJensen.lean:236`;
+`completedInner_sub_left/right`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeCompletedPairingContinuity.lean:74/79`;
+`completedInner_time_sum`, `lean/YMGap/Continuum/BF4WilsonAllNomeCompletedTime.lean:158`;
+`completedInner_cauchySchwarz`, `lean/YMGap/Continuum/BF4WilsonAllNomeCompletedInner.lean:82`;
+`completedInner_even_diagonal`, `lean/YMGap/Continuum/BF4WilsonAllNomeCompletedGap.lean:174`;
+`macro_ratio_of_survival_floor`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeCompletedLogConvexity.lean:133`;
+`window_telescope`, `lean/YMGap/Continuum/BF4WilsonAllNomeShiftedWindowSurvival.lean:271`;
+actual consumer `pathShiftedEpsBound_iff_response`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1Anchor.lean:418`.
+
+ACTUAL dual producer: NOT FOUND in the family/connected-dual sources.
+`family_rayleigh_floor`,
+`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteFamilyBondOrbit.lean:104`,
+has a deteriorating family fraction, and
+`paddedSquare_connected_overlap_cleared`,
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareConnectedDualOverlap.lean:230`,
+does not produce the two uniform bounds. Taking v=x would merely repeat the
+unpaid initial-energy hypothesis. NEXT: concrete source-sensitive dual or
+the original late-area/signed-cost bound, not a conditional wrapper.
+
 ## Finite uniform coefficient, not the half-survival specialization
 
 SOURCE/PLANNING ONLY (2026-10-10 UTC). The actual analytic input for this

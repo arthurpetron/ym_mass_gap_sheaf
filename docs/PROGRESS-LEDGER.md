@@ -4,6 +4,26 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Actual completed adjoint matrix and sign descent (2026-10-10 UTC)
+
+`rawMatrix_mul`,
+`lean/YMGap/RepTheory/RationalQuaternionCompletedAdjointMatrix.lean:185`,
+proves the literal 3x3 Hamilton product law for arbitrary raw quaternions.
+`representation_mul:374` and both orthogonality laws lift it to every existing
+completed Point with explicit supplied-row entry moduli. The literal matrix
+image group uses actual multiplication/transpose and matrix equality;
+`quotientRepresentation:624` fills the existing central-sign descent consumer.
+`trace_chiTwo:499` identifies the actual trace with the original represented
+even character. Final focused check2 and COMPLETE independent frozen-source/
+full-log/math review PASS; 31 permitted gates, no diagnostics. Exact commands,
+hashes and rejected check1: adaptive-score audit. Root registration only;
+no broad/root/tree run. This is NOT faithfulness, compact SO(3), interacting
+descent or a mass gap. NEXT: ORIGINAL late-response/signed cost, or an actual
+different dual with uniform overlap and side-scaled low energy; the latter
+selection was mathematically reviewed but is not a new Lean theorem or
+produced input. Canonical displayed claims unchanged; no chart reprint.
+Continuum/QFT/every-group/Clay endpoints remain OPEN.
+
 ## Late-response consumer correction (2026-10-10 UTC; planning only)
 
 The EXISTING `path_normalized_anchor_shifted`,

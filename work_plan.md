@@ -27,6 +27,26 @@ formal statement would not solve the mathematical problem.
 
 ### Latest MAIN selection (2026-10-10 UTC)
 
+CHECKED independent completed adjoint input:
+`RationalQuaternionCompletedAdjointMatrix.rawMatrix_mul:185` and
+`raw_conjugation_entry:262` prove the literal 3x3 Hamilton action, including
+arbitrary raw quaternions. `representation_mul:374`, `representation_inv:425`
+and both orthogonality laws retain the SAME completed Point coordinates and
+supplied-row moduli. `representedGroup:551` uses literal matrix values,
+matrix multiplication/transpose and matrix equality, with supplied Point
+realization data. `quotientRepresentation:624` now fills the EXISTING
+central-sign representation-descent consumer; its actual matrix evaluation
+is pinned by `quotientRepresentation_matrix:629`. `trace_chiTwo:499` recovers
+the existing even character 4*r^2-1. Both signs and all imaginary basis units
+are tested; generic raw/row statements include noncanonical rationals.
+Focused check2 and COMPLETE independent frozen-source/full-log/math review
+PASS. No compact SO(3), faithfulness/exact adjoint kernel, admissibility,
+interacting descent or MAIN bound is inferred. This is independently proved
+project algebra, not an imported theorem from 2610.09093. Exact command,
+hashes and rejected check1: adaptive-score audit. NEXT is the ORIGINAL
+late-response/signed-cost producer, including the dual search below; no
+further quotient/conditional layer is selected. Canonical chart unchanged.
+
 CHECKED selected quotient-Haar join:
 `QuaternionSignQuotientRepresentedHaar.evaluation_coset:49` respects the
 ACTUAL completed sign-coset relation. Constants, signed rational linear
@@ -56,6 +76,18 @@ convenient specializations, NOT necessary analytic thresholds. A coefficient
 growing with j does not pay this consumer. No new estimate or proof is claimed.
 Exact source pins and independent consumer reviews: adaptive-score audit,
 "Finite uniform coefficient, not the half-survival specialization".
+
+Additional MAIN producer search (SOURCE/MATH REVIEW ONLY): a DIFFERENT
+original nonvacuum dual v_j with fixed positive squared-overlap fraction
+alpha and side_j * E(v_j) <= D * ||v_j||^2, for fixed finite D, would suffice.
+No exact eigenvector or gap for competing modes is necessary. A fixed
+dyadic time split, Cauchy--Schwarz and the existing log-convexity/telescope
+lemmas give a fixed positive response floor and hence SOME finite c0.
+This implication is not a new Lean theorem; no actual dual with both bounds
+was found. v_j = x_j just reinstates the unpaid initial-energy bound.
+Search for the concrete dual or the original late-area/signed-cost estimate;
+do not add another conditional interface. Exact constants, source pins and
+the corrected rejected spectral-separation claim: adaptive-score audit.
 
 Its side_j=2^j while 1-w_j is of order 1/j; the existing cofinal bare-heat
 obstruction rules out paying ANY fixed finite late-loss cap by the bare
