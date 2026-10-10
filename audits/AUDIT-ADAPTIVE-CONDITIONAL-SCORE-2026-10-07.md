@@ -297,6 +297,106 @@ Verification: independent source/math review PASS after clarifying the fixed
 filter; ROOT source/diff review and documentation diff check PASS. No Lean
 edit, compiler run, axiom audit or displayed proof-status change this turn.
 
+### Interior temporal current and spatial score (2026-10-10 UTC; PAPER)
+
+Previous turn a51539ac is PROGRESS in quantitative route selection, not a
+uniform estimate. Test a different proposed cancellation: sum first-source
+IBP over the BOX and use paired kinetic rotations BEFORE bounding. Available
+inputs are the original chain, spatial Casimir pin and paired rotation law;
+the unchanged consumer remains `pathShiftedEpsBound_iff_response:418` in
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1Anchor.lean`.
+Abandon the boundary-only simplification if an ORIGINAL interior term
+survives. No additional Ward interface or compiler experiment is selected.
+
+Fix the full W=product_t V_t * product_t K_t, put Phi=sum_t a_t F_t, and
+set a_t=0 outside the first BOX. Matching link/plane derivatives obey
+(D_t+D_(t+1))K_t=0 at the existing Haar-carrier scope, by
+`productHeat_pairedAngular_carrier`,
+`lean/YMGap/Continuum/SU2QuaternionProductHeatAngularForm.lean:64`.
+The product rule gives the PAPER decomposition, with no factor divided out:
+
+```text
+Gamma(W,Phi)
+ = sum_t a_t W_without_V_t Gamma_t(V_t,F_t)
+   + sum_(t,link,plane) W_without_K_t (D_t K_t)
+         [a_t D_t F_t - a_(t+1) D_(t+1) F_(t+1)].
+```
+
+Constant BOX weights remove their own difference, NOT the difference of
+source gradients evaluated on independent adjacent slices. The spatial
+term remains too. For the OLD-centered Phi_c=Phi-c*sum_t a_t, the Casimir
+is 12*Phi, not 12*Phi_c: its future-test Ward also retains
+-12*c*W*sum_t a_t. This follows from `spatialSpan_casimir`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyCasimir.lean:294`.
+The first-source placement must be reversed: m+M-a and m+M+s+b give the
+actual lags s+a+b in `smoothedResponse_pin`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeSmoothedCoherentState.lean:341`.
+Putting the first source at m+a would instead give s+b-a.
+
+PAPER ORIGINAL finite-prefix witness to the kinetic bulk, not just one
+nonzero summand: take base=4, width=5, M=2 and the unit-coefficient family
+ALL spatialFaces(4), with three raw first-BOX weights equal to one. Set
+only the origin x0 edge at the middle first-source time to (0,1,0,0);
+all other links and times are identity. That edge belongs to exactly the
+two source faces p01,p02. Thus its D_01 F is -4 at the middle time and
+zero at the neighboring times. At K=1,w=1/8, H_1=1+4*w^3*(q dot r).
+Each of the two interior kinetic layers has H_1=1 on that edge and gives
+16*w^3 to the kinetic contribution divided by W. All other kinetic
+derivatives, including both outer BOX edges, vanish. The TOTAL interior
+kinetic score is therefore 32*w^3=1/16, not a time-edge expression.
+Every heat factor is >=127/128>0; constants do not change gradients.
+Source pins: `relative:64` and `kineticWeight:68`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialKineticHeat.lean`;
+`spatialFaces_mem_iff:98` and `temporalFaces_mem_iff:104`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFacePlacement.lean`;
+`angularDerivative`,
+`lean/YMGap/Continuum/SU2QuaternionAngularDerivative.lean:27`.
+This checks a proposed algebraic simplification only. K=1 headCutoff
+eligibility and the actual AF nome are NOT asserted. Spatial-score terms
+can still cancel kinetic terms after integration. No H1/YM counterexample
+or sign for the complete expectation follows.
+
+The spatial remainder is also exact, not a common beta times Gamma(F,F).
+For f_p=2*s_p, with p ranging over ALL action faces at width and q over
+the padded source faces at base, the denominator-cleared product rule is
+
+```text
+Gamma(V,F) = sum_(p,q) (H'_K(w,s_p)/2)
+                 * product_(r!=p) H_K(w,s_r) * Gamma(f_p,f_q).
+```
+
+The derivative here is in the scalar coordinate, NOT in w. Original
+`spatialWeight`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSliceHeat.lean:70`, retains
+action faces outside the source that can share its links. The coefficients
+vary with the configuration. Positivity of a literal prefix alone does not
+give their sign: H_2(3/4,z)=(78732*z^2+110592*z+45853)/65536 is positive
+for every real z (discriminant -2209803120), but its derivative at z=-3/4
+is -7506/65536 and its value there is 28783/262144. This is another raw
+finite-prefix test, NOT headCutoff eligibility or an AF-family instance.
+No stronger late-cutoff derivative property is refuted by this example.
+Coefficients are pinned by `heatPrefix:31`,
+`lean/YMGap/Continuum/QuaternionHaarHeatCertificate.lean`, `coeffW:259`,
+`lean/YMGap/Continuum/BondMovingStep.lean`, and `characterPolynomial:409`,
+`lean/YMGap/Continuum/BF4GeometricSpinNetworkMehler.lean`.
+
+Existing `heatPrefixRelativeBoundAt`,
+`lean/YMGap/Continuum/QuaternionHaarHeatRelativeAngularBound.lean:77`,
+supplies a nome-dependent derivative cap, not this signed covariance
+payment. `familyChannelGradient:300` and `familyChannelPairRemainder:310`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedFamilyCurvature.lean`,
+retain the actual mixed pairs; the assembled Gamma(F,F) square does not
+make the displayed action-weighted mixed sum a square.
+Decision: when using this Ward decomposition, retain BOTH the interior
+temporal gradient mismatch and the spatial mixed score. Their joint
+original-weight expectation is still unpaid; no boundary-only or linear
+plaquette-action substitution is selected for implementation.
+
+Verification: bounded independent source/math review PASS on the exact
+current diff after correcting declaration-line pins; ROOT arithmetic/source
+review and documentation diff check PASS. No Lean edit, compiler run or
+axiom audit; canonical proof/ASCII state unchanged.
+
 ### Existing consumers versus missing work
 
 - Full ORIGINAL chronological numerator and partition: `window_pairing:96`

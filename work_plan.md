@@ -85,6 +85,15 @@ coefficient grows rather than proving uniform H1. This diagnoses that
 payment method, NOT the true response; do not add a spectral/floor wrapper.
 SOURCE/PAPER details: the same audit, "BOX high-tail/floor test". MAIN OPEN.
 
+Paired-rotation follow-up retains an interior temporal gradient mismatch:
+constant BOX weights do NOT make it a time-edge term. An explicit original
+finite-kernel witness has zero outer kinetic terms and nonzero interior sum.
+The spatial score also retains configuration-weighted mixed plaquette pairs,
+including action faces outside the padded source. Bound these jointly in the
+original expectation; do not replace V by a linear plaquette action. PAPER
+scope and source pins: the same audit, "Interior temporal current and spatial
+score". No new uniform bound, Lean proof status or chart state.
+
 ### Previous checked MAIN selection (2026-10-10 UTC)
 
 Keep the direct ORIGINAL late endpoint estimate PRIMARY. New finite selection
