@@ -4,6 +4,18 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Late-response consumer correction (2026-10-10 UTC; planning only)
+
+The EXISTING `path_normalized_anchor_shifted`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1Anchor.lean:581`, needs
+SOME fixed finite late-loss coefficient, not specifically 2; a larger fixed
+dyadic a retains a fixed positive anchor floor. Live selection now accepts
+any fixed positive window-survival factor or finite uniform area coefficient.
+Independent consumer/source reviews; no new bound, Lean edit or compiler run.
+Ward centering/transport was already checked and is not selected again.
+Exact pins: adaptive-score audit, finite-coefficient correction. MAIN and
+all physical/Clay endpoints remain OPEN; canonical chart unchanged.
+
 ## Actual completed sign-quotient represented Haar (2026-10-10 UTC)
 
 `evaluation_coset`,

@@ -42,12 +42,26 @@ theory descent. NEXT returns to the ORIGINAL late-response/signed-cost
 estimate below; do not expand another quotient or conditional filter layer.
 Exact command, hashes and rejected preliminary checks: adaptive-score audit.
 
-Selection after bb1cc58b: prioritize actual LATE response loss <=2/side_j
-or the centered backward-area coefficient <=3/2 on the existing AF family.
+MAIN consumer correction (2026-10-10 UTC, SOURCE/PLANNING ONLY): seek SOME
+fixed finite rational c0>=1 with actual LATE response loss <=c0/side_j,
+not necessarily c0=2. Other sufficient alternatives are SOME fixed
+positive backward-window survival factor theta<=1, with
+c0>=max(1,2*(1-theta)/theta), or SOME finite uniform backward-area
+coefficient A, with c0>=max(1,4*(A-1)). The EXISTING
+`BF4WilsonAllNomeShiftedH1Anchor.path_normalized_anchor_shifted:581`
+accepts a FIXED finite a>=1 satisfying c0<=2^a*delta; delta=1/2 and a
+sufficiently large yield a fixed positive kappa=(1/2)^(2^a). Its output
+`ShiftedAnchorPackage:550` is unchanged. The values 2, 1/2 and 3/2 were
+convenient specializations, NOT necessary analytic thresholds. A coefficient
+growing with j does not pay this consumer. No new estimate or proof is claimed.
+Exact source pins and independent consumer reviews: adaptive-score audit,
+"Finite uniform coefficient, not the half-survival specialization".
+
 Its side_j=2^j while 1-w_j is of order 1/j; the existing cofinal bare-heat
-obstruction shows that merely producing an O(1-w_j) initial ceiling does
-not pay that consumer. No new theorem or mandatory exponentially-small
-INITIAL premise is claimed. The exact raw-determinant substitution still
+obstruction rules out paying ANY fixed finite late-loss cap by the bare
+rate, not just cap 2. Merely producing an O(1-w_j) initial ceiling does
+not pay that consumer. No mandatory exponentially-small INITIAL premise
+is claimed. The exact raw-determinant substitution still
 leaves source-side/diagonal/Casimir signed debt; no favorable drift sign
 was found for the actual projected terminal channels. Do not expand those
 failed joins into adapters. Independent group input selected and now checked:

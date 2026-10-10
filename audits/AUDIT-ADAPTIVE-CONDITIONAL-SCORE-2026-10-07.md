@@ -4,6 +4,49 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Finite uniform coefficient, not the half-survival specialization
+
+SOURCE/PLANNING ONLY (2026-10-10 UTC). The actual analytic input for this
+branch is SOME fixed finite rational c0>=1 in
+s_j*(R_j(s_j)-R_j(s_j+1))<=c0*R_j(s_j), not necessarily c0=2.
+`PathShiftedEpsBound:396`, `pathShiftedEpsBound_iff_response:418`,
+`ShiftedAnchorPackage:550` and `path_normalized_anchor_shifted:581`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1Anchor.lean`, retain the SAME
+actual response, normalized anchor and original time/action. Choose a FIXED
+finite a>=1 with c0<=2^a/2 and delta=1/2; the existing theorem's scalar
+condition is satisfied and kappa=(1/2)^(2^a) is fixed and positive.
+This does not permit a growing c0(j), prove a physical time calibration,
+or construct the missing analytic input.
+
+`pathShiftedEpsBound_of_windowSurvival:467` accepts ANY fixed
+0<theta<=1 if c0>=max(1,2*(1-theta)/theta);
+`pathShiftedEpsBound_of_responseArea:490` accepts ANY finite uniform area
+coefficient A if c0>=max(1,4*(A-1)),
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedWindowSurvival.lean`.
+`af_path_normalized_anchor_of_windowSurvival:325`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeAFPaddedTrajectory.lean`, remains
+general; `af_path_normalized_anchor_of_halfSurvival:343` is only its
+convenient specialization. Correct the live selection to search for ANY
+uniform finite constant, rather than insist on 2, 1/2 or 3/2. ROOT and
+independent Sol/Luna consumer reviews inspect the literal output fields.
+No Lean edit, compiler run, new proof, canonical field or chart change.
+
+Parallel Ward review found the candidate centering-before-heat join already
+implemented: `wardResidual_projected_pair:143` and
+`normalizedWardResidual_projected_pair:207`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialProjectedWard.lean`;
+`varianceRemainder_raw:48` and `padded_family_energy_variance:67`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyVarianceTaylor.lean`,
+already combine the full signed correction and original OWN-centered Ward
+residual over the SAME partition. These are identities, not an upper bound
+on the residue. The transfer screen likewise found only nonnegative Hankel
+determinants, `hankel_logConvex_step:335`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeResponseHankelPositivity.lean`;
+no source-specific quantitative lower determinant bound was produced.
+Do not implement another Ward transport, assumed filter or determinant
+wrapper. MAIN remains an ACTUAL source-specific late relative estimate;
+physical/scaling/QFT/every-group/Clay endpoints remain OPEN.
+
 ## Observed completed sign-quotient represented Haar [CHECKED]
 
 `EvenRepresented`,
