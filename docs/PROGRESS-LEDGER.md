@@ -4,6 +4,27 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## POINTWISE polynomial approximation on the rational carrier (2026-10-10 UTC)
+
+`RationalQuaternionCubeRepairDistance.repair_distance_le:210` proves
+distance-to-unit repair cost<=34 times raw squared distance, including zero.
+`QuaternionPointBernsteinConcentration.pointMass_one:243` and
+`pointRawDistance_eq:385` prove actual POINTWISE weights have mass one and
+raw squared-distance average=3/(n+1), not a Haar-averaged identity.
+`QuaternionPointBernsteinApproximation.pointRepairedDistance_le:53` gives
+102/(n+1); `approximationPolynomial:91` computes supported rational coefficients
+from actual unit-node samples. `uniform_approximation:375` gives error<=epsilon
+at EVERY degree past computed `approximationCutoff:330`, from the function's
+explicit bound and squared-distance modulus, including M=0. No approximation
+premise, continuous integral or quotient representative choice.
+Three focused checks and COMPLETE independent final-source/log and math
+reviews PASS; all 21 public gates within {propext,Quot.sound}, no diagnostics.
+Earlier elaboration recovery output rejected, not evidence. NEXT: explicit
+CReal sample errors and SAME completed-Point approximation/functional extension.
+Continuous Haar/J04, MAIN warmed SAME-variance payment/scaling,
+physical/QFT/every-group and Clay remain OPEN; no broad audit/metric or chart
+claim change. Exact commands, hashes and scope: adaptive-score audit.
+
 ## ORIGINAL polynomial approximation and rational sphere sup-bound (2026-10-10 UTC)
 
 `QuaternionHaarBernsteinMonomialRecoding.monomialSeparable_haar:175` and

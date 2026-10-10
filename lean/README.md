@@ -16,6 +16,22 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked POINTWISE rational-carrier approximation (2026-10-10 UTC):**
+`Continuum/RationalQuaternionCubeRepairDistance.repair_distance_le` proves
+actual repair has squared-distance cost<=34 times raw distance to a unit input.
+`Continuum/QuaternionPointBernsteinConcentration` evaluates the joint basis
+at the input, proving nonnegative weights, mass one and raw distance=3/(n+1).
+These are NOT Haar-averaged weights. `Continuum/QuaternionPointBernsteinApproximation`
+joins them to repaired distance<=102/(n+1), constructs a supported RatPoly from
+actual rational samples, and proves `uniform_approximation` at the computed
+`approximationCutoff`, given a function bound and explicit continuity radius.
+Zero nodes, n=0 and M=0 are retained. Three focused checks and complete
+independent source/log and math reviews PASS; all 21 public gates permitted.
+This is for rational-valued functions on dense UnitNorm, not arbitrary
+completed Point-functions. CReal sample/extension joins, continuous Haar/J04,
+MAIN and Clay remain OPEN. Exact evidence: adaptive-score audit.
+Root registration only; no full root/tree/audit.
+
 **Checked ORIGINAL polynomial approximation and sphere sup-bound (2026-10-10 UTC):**
 `Continuum/QuaternionHaarBernsteinMonomialRecoding` pins affine Haar/raw
 evaluation for arbitrary supported exponent lists, including trailing zeros.

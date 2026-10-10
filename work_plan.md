@@ -622,6 +622,34 @@ compact Haar realization. J04, MAIN complete warmed signed-variance payment,
 physical/QFT/every-group and Clay remain OPEN; chart claims unchanged.
 Exact commands, source/log hashes and failed-check boundaries: adaptive-score audit.
 
+CHECKED POINTWISE rational-carrier approximation (2026-10-10 UTC):
+`RationalQuaternionCubeRepairDistance.norm_defect_square_le_distance:101`
+and `repair_distance_le:210` prove the literal cube/unit defect and actual
+repair distance bounds 16 and 34, including zero and chart boundaries.
+`QuaternionPointBernsteinConcentration.pointWeight:87` evaluates the original
+joint basis at x; it is NOT its Haar average. Nonnegative weights,
+`pointMass_one:243` and `pointRawDistance_eq:385` give mass one and raw
+squared-distance average=3/(n+1). `QuaternionPointBernsteinApproximation`
+proves `pointRepairedDistance_le:53` <=102/(n+1), constructs the actual
+supported `approximationPolynomial:91`, and pins its pointwise evaluation.
+`approximation_error:252` gives eta+(2M/delta)*102/(n+1).
+`approximationCutoff:330` computes the denominator of
+T=((epsilon/2)*delta)/(204*(1+abs(M))); `uniform_approximation:375`
+gives error<=epsilon at every later n with delta=radius(epsilon/2).
+Only the function's bound and squared-distance modulus are supplied;
+approximation and cutoff are produced, including M=0.
+Three final focused checks and COMPLETE independent source/log and
+mathematical reviews PASS; 21 permitted public gates, no diagnostics.
+No source hole/axiom/classical input, frontier field or resource option added.
+Scope: rational-valued f on the actual dense UnitNorm, NOT arbitrary
+completed Point-functions. NEXT: explicit CReal sample rationalization and
+SAME completed-domain approximation/extension, avoiding quotient representative
+choice and integration of an unavailable f. Use the checked original
+polynomial sphere sup-bound for the actual Cauchy integral construction.
+Continuous Haar/J04, MAIN warmed SAME-variance payment/scaling, physical/QFT/
+every-group and Clay remain OPEN. Root registration only; no root/tree audit
+or canonical chart-state change. Exact evidence: adaptive-score audit.
+
 The requested paper review confirms that Appendix E assumes continuous Haar;
 its companion section 10.4 supplies a useful EFFECTIVE error-accounting
 recipe, not our missing integration producer. Keep derivative-weighted

@@ -5407,6 +5407,11 @@ import YMGap.Continuum.QuaternionHaarTensorBernsteinRepairModulus
 import YMGap.Continuum.QuaternionHaarBernsteinMonomialRecoding
 import YMGap.Continuum.QuaternionHaarBernsteinPolynomialBudget
 import YMGap.Continuum.QuaternionHaarTensorBernsteinPolynomialGrid
+-- Actual POINTWISE repaired Bernstein approximation on rational UnitNorm.
+-- Explicit bound/radius/cutoff; no completed continuous-function Haar yet.
+import YMGap.Continuum.RationalQuaternionCubeRepairDistance
+import YMGap.Continuum.QuaternionPointBernsteinConcentration
+import YMGap.Continuum.QuaternionPointBernsteinApproximation
 import YMGap.Continuum.SU2HeatJacobiFinitePrefixClassPolynomial
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticBound
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticCutoff

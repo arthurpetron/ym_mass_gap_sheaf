@@ -6,6 +6,117 @@ and a finite strictly positive physical Hamiltonian mass gap.
 
 ## Finite positive cubature foundation (2026-10-10 UTC)
 
+### Selected POINTWISE repaired Bernstein approximation (after 244b483c)
+
+Previous goal turn was PROGRESS: ORIGINAL polynomial Haar approximation and
+rational-unit sphere sup-bound are checked and pushed. The next missing J04
+producer is uniform polynomial approximation on the SAME completed Point
+function domain, not another assumed-approximation consumer. First inspect
+the existing function-domain and explicit CReal sample APIs. The proposed
+finite kernel evaluates the actual `jointBasisRaw` at the input quaternion;
+these POINTWISE tensor Bernstein weights are NOT `jointWeightRaw`, which
+applies Haar to that polynomial. No continuous integral enters their definition.
+
+Predicted quantitative argument: for raw cube node r and unit input x,
+four-coordinate Gram/Young inequalities give `(normSq(r)-1)^2<=16*distSq(r,x)`.
+Existing total `repair_error_le` and squared-distance triangle then give
+`distSq(repair(r),x)<=34*distSq(r,x)`. Actual pointwise tensor partition and
+coordinate variance would give raw average `3/(n+1)` on the sphere, hence
+repaired average at most `102/(n+1)`. A near/far modulus majorant can turn this
+into uniform approximation without integrating f. CReal samples must be
+rationalized with produced explicit errors, before claiming a RatPoly.
+
+Actual downstream consumer: the polynomial bound
+`QuaternionHaarTensorBernsteinPolynomialGrid.haar_abs_le_unit_bound:276`,
+then continuous-functional extension; continuous Haar/J04 remains OPEN until
+the function domain, approximation and extension joins are produced. No MAIN
+warmed signed-variance, scaling, physical mass or Clay conclusion follows.
+Sol macro screens the finite kernel path, Sol radial owns the deterministic
+cube repair estimate, Luna locates the actual completed function domain and
+sample APIs, and ROOT assembles the estimate/consumer after reading sources.
+Only ROOT may run serial capped focused checks (20 GiB/12 GiB reserve), with
+fresh dynamic telemetry and independent final-source/log review. Revise if
+the path assumes pointwise validity from Haar-carrier equality, conflates the
+two weights, drops zero/chart boundaries, selects a quotient representative,
+or requires the unavailable continuous integral. No new frontier field,
+assumed-approximation wrapper, sorry, axiom or broad build is selected.
+
+### Observed POINTWISE rational-carrier approximation [CHECKED]
+
+`norm_defect_square_le_distance`,
+`lean/YMGap/Continuum/RationalQuaternionCubeRepairDistance.lean:101`, proves
+the literal pointwise cube/unit estimate `(normSq(r)-1)^2<=16*distSq(r,x)`.
+`repair_distance_le:210` joins total repair and squared triangle to give
+`distSq(repair(r),x)<=34*distSq(r,x)`. This is relative to a unit input,
+NOT a general Lipschitz theorem for repair between arbitrary cube points.
+Zero raw input and both chart boundaries remain included.
+
+`pointWeight`,
+`lean/YMGap/Continuum/QuaternionPointBernsteinConcentration.lean:87`, evaluates
+the actual joint polynomial at x. `pointWeight_nonnegative:206`,
+`pointMass_one:243` and `pointRawDistance_eq:385` prove nonnegativity,
+partition of unity and exact raw squared-distance average `3/(n+1)`.
+Coefficient equivalence is specialized to the evaluation probe; Haar-carrier
+equivalence is NOT used as pointwise equality. Haar-averaged `jointWeightRaw`
+and the old Haar-averaged discrepancy are distinct objects, not these weights.
+
+`pointRepairedDistance_le`,
+`lean/YMGap/Continuum/QuaternionPointBernsteinApproximation.lean:53`, proves
+the actual POINTWISE repaired-node average<=`102/(n+1)` for every n, including
+n=0. `approximationPolynomial:91` computes a RatPoly from rational values of
+f at actual repaired unit nodes. `approximationPolynomial_supported:125`
+proves syntactic one-block support by finite polynomial operations, not by
+transporting a Certificate. `eval_approximationPolynomial:143` pins its
+evaluation to the literal pointwise average.
+
+`approximation_error:252` gives
+`abs(p_n(x)-f(x))<=eta+(2*M/delta)*(102/(n+1))`, from the explicit bound
+abs(f)<=M and squared-distance continuity radius delta at tolerance eta.
+Near/far splitting is decidable rational order, not classical choice.
+`degreeTolerance:312` computes
+T=((epsilon/2)*delta)/(204*(1+abs(M))); `approximationCutoff:330` returns T.den.
+`uniform_approximation:375` proves error<=epsilon for EVERY later n, with
+delta=radius(epsilon/2). M=0 is included without inversion of M.
+The domain is `UnitNorm -> Q'`: bounds and radius describe f, not an assumed
+approximation or a modulus extracted from arbitrary continuity.
+
+Accepted ROOT-only serial monitored checks, each exit 0:
+
+```
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/RationalQuaternionCubeRepairDistance.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/RationalQuaternionCubeRepairDistance.olean --log-file /private/tmp/ym-point-cube-repair-check5.log
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionPointBernsteinConcentration.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionPointBernsteinConcentration.olean --log-file /private/tmp/ym-point-bernstein-concentration-check2.log
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionPointBernsteinApproximation.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionPointBernsteinApproximation.olean --log-file /private/tmp/ym-point-bernstein-approximation-check2.log
+```
+
+| Source | Source SHA-256 | Accepted log SHA-256 |
+|---|---|---|
+| CubeRepairDistance | `93e4dbb5ca4af0b5ae90e922a215888178f5c40c14e2cd90f4101c2b5b5798e9` | `9d8c1fbce34f46e06406e7843b686d2ac43a3ede2e7d43db73815ad1b673cf46` |
+| PointConcentration | `6af5743a42635ff48d01ba39c9df769ff0de11b755305724437d9af83f174289` | `5dd4c5d7e56f75fa71e8d8b6b13c03b60e1dace4e3247a700c999a2481c3eac4` |
+| PointApproximation | `b06203e1143a95b251191bd3afc29ad0fe93b147de75d80767881472115e50ed` | `c1b90a135a4113a725335acb00428db205a19a13e7fe1f8d9b99f9b8ac1da415` |
+
+COMPLETE independent Luna final-source/log and Sol mathematical reviews PASS.
+All 21 public gates (2+6+13) are within {propext,Quot.sound}; four are empty.
+Some computational definitions carry the permitted pair through proof-backed
+repaired nodes/positive division; this is not a forbidden choice dependency.
+Rejected repair checks1--4 exposed namespace/projection reduction and
+overloaded expression elaboration; explicit coordinate pins and expression
+constructors fixed them. Concentration check1 exposed namespace/parenthesis
+errors. Approximation check1 exposed match indentation, a missing support
+namespace and free-variable decision; local fixes changed no hypothesis.
+Failed-check recovery sorry/self-axiom output is REJECTED, never proof evidence.
+No source sorry, axiom, classical input, resource option or frontier field added.
+Fresh telemetry: 85--86% available, zero swap, no competing compiler; one
+20-GiB worker/12-GiB reserve. Root imports are registration, not a root/tree audit.
+
+NEXT: rationalize actual CReal-valued samples with explicit error, and prove
+approximation/extension on the SAME completed Point domain without choosing
+quotient representatives. Existing completed polynomial translation is NOT
+translation of arbitrary continuous functions. The rational polynomial Haar
+sup-bound is the actual downstream consumer for a Cauchy integral construction.
+Continuous Haar/J04, MAIN complete warmed signed-cost versus SAME interacting
+variance, justified scaling, physical mass, full QFT, every group and Clay
+remain OPEN. Canonical displayed chart claims are unchanged.
+
 ### Selected ORIGINAL signed-polynomial grid join (after 2ebc15f8)
 
 Previous goal turn was PROGRESS: actual same-weight sphere repair and its
