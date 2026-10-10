@@ -721,10 +721,24 @@ typed quotient exactness, not a supplied integral identity. Final focused
 check5 and COMPLETE independent final-source/log/math reviews PASS; seven
 permitted gates, no diagnostics. Exact rejected-check
 scope, command and hashes: adaptive-score audit. Root registration only.
-NEXT: produce admissible-input closure for the operations needed by
-positive/normalized/linear/invariant laws, retaining explicit bounds,
-regularity and continuity radii. Prove the laws on the resulting object;
-presentation independence and genuine output contractivity are now checked.
+CHECKED subsequent ACTUAL sum and additive law (after 3b1a253b):
+`QuaternionDenseCRealHaarAdditivity.sumInput:52`, `sumInner:56`, `sumRadius:62`,
+`sum_bound:73` and `sum_modulus:84` produce the actual pointwise sum with bound
+MF+MG, min of half-error radii and max of half-error inner rates. No monotonicity
+or early-row bound is assumed. `haarAdditivity_stage:137` compares its original
+Haar stage to the ACTUAL sum of F/G stage polynomials, paying three invSucc
+errors and retaining explicit rational evaluation/moment eqv pins.
+`haarAdditivity:203` removes all three errors at (epsilon/4).den;
+`sumHaar:218`, `sumHaarInnerRegularity:224` and `sumHaar_additive:232` give the
+ACTUAL sum candidate, its recoverable rate and exact additive law without
+assuming a sum's admissibility or an integral value. Focused final check4 and
+COMPLETE independent source/log/math reviews PASS, all twelve gates permitted,
+no final diagnostics. Exact command/hashes/rejected checks: adaptive-score audit.
+Root registration only; no full root/tree/audit/metric or canonical chart change.
+NEXT: produce constant-input admissibility and normalization; derive positivity
+from SAME positive cubature and approximation, then rational homogeneity and
+continuous translation invariance. Full continuous Haar and compact realization
+remain OPEN; checked addition does not supply the remaining laws.
 Use the checked all-Point approximation and ORIGINAL moment invariance;
 the paper's pre-existing continuous Haar is not our constructive producer.
 This foundation is separate from MAIN warmed signed-cost versus SAME variance

@@ -4,6 +4,29 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Actual input addition and original-Haar additive law (2026-10-10 UTC)
+
+`QuaternionDenseCRealHaarAdditivity.sumInput:52` constructs the pointwise sum;
+`sumInner:56`, `sumRadius:62`, `sum_bound:73` and `sum_modulus:84` produce
+its recoverable regularity, bound MF+MG and positive minimum half-error radius.
+Sound limit bounds suffice; irregular early rows, signed values and arbitrary
+nonmonotone rates/radii are included.
+`haarAdditivity_stage:137` compares the actual original-Haar stages using the
+ACTUAL polynomial sum, with dense error 2*invSucc(n) and three total tails.
+Rational evaluation and ORIGINAL Haar moment eqv pins are explicit; sampled
+polynomials are not identified definitionally.
+`haarAdditivity:203` removes those tails at (epsilon/4).den.
+`sumHaar:218`, `sumHaarInnerRegularity:224` and `sumHaar_additive:232` construct
+and verify the ACTUAL sum instance with retained rate den(epsilon/2), not a
+supplied integral identity. Focused final check4 and COMPLETE independent
+source/log/math reviews PASS; all twelve gates permitted, no diagnostics.
+Exact command/hashes/rejected checks: adaptive-score audit. Root registration
+only; no full root/tree/audit/metric or canonical chart-state change.
+NEXT: constant-input admissibility and normalization, positivity from SAME
+cubature, rational homogeneity and continuous translation invariance. Full
+continuous Haar/J04, MAIN signed-variance payment/scaling, physical/QFT/
+every-group and Clay remain OPEN.
+
 ## Original-Haar contractivity and presentation independence (2026-10-10 UTC)
 
 `QuaternionDenseCRealHaarComparison.haarComparison_stage:49` compares the

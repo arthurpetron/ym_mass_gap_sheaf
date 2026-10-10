@@ -5427,6 +5427,9 @@ import YMGap.Continuum.QuaternionCompletedPolynomialApproximation
 -- Actual original-Haar input contractivity and presentation independence.
 -- Completed-map equality is consumed through dense pins, not integral axioms.
 import YMGap.Continuum.QuaternionDenseCRealHaarComparison
+-- Produced sum bounds/radii/inner rates and ACTUAL original-Haar additivity.
+-- No positivity, normalization, full continuous Haar or J04 closure yet.
+import YMGap.Continuum.QuaternionDenseCRealHaarAdditivity
 import YMGap.Continuum.SU2HeatJacobiFinitePrefixClassPolynomial
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticBound
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticCutoff

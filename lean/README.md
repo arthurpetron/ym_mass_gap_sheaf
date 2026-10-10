@@ -48,7 +48,12 @@ the SAME pointEval on all Points, not just embedded rationals.
 eta in the actual original-Haar outputs, with genuine two-sided RCle bounds.
 Zero input distance, ordinary input identity and equality of actual completed
 maps give output equivalence across different bounds, rates and radii.
-Actual continuous Haar functional laws, J04, MAIN scaling and Clay remain OPEN.
+`Continuum/QuaternionDenseCRealHaarAdditivity` now produces the actual sum's
+bound, continuity radius and inner rate, then proves original-Haar additivity
+with three vanishing stage errors. `sumHaar_additive` is the ACTUAL sum instance,
+not a law assumed as an input; `sumHaarInnerRegularity` retains its rate.
+Normalization, positivity, rational homogeneity, continuous translation
+invariance, full continuous Haar/J04, MAIN scaling and Clay remain OPEN.
 Root registration only; no full root/tree/audit. Exact evidence: adaptive-score audit.
 
 **Checked POINTWISE rational-carrier approximation (2026-10-10 UTC):**

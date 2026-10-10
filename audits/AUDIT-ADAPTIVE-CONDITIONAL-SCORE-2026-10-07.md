@@ -6,6 +6,88 @@ and a finite strictly positive physical Hamiltonian mass gap.
 
 ## Finite positive cubature foundation (2026-10-10 UTC)
 
+### Selected actual addition input and original-Haar law (after 3b1a253b)
+
+Previous turn: PROGRESS, original-Haar contractivity/presentation independence
+checked and pushed. Next proposition: the actual pointwise sum of two supplied
+admissible dense CReal functions has produced regularity, bound and continuity
+radius. Consumer: additive law for the ACTUAL original-Haar candidates; no
+such law is currently constructed. Use InnerRegularity.add, sound leRat_add,
+the rational triangle and min(rhoF(epsilon/2),rhoG(epsilon/2)). No monotonicity
+or bound on arbitrary early approximation rows is needed. Produce all moduli
+as data; assume no integral equality. If this closes cleanly, compare the sum
+candidate's stage with the ACTUAL polynomial pF_n+pG_n, whose dense error is
+2*invSucc(n). Existing haarApproximation_polynomial_distance and original
+quaternionHaar_append should give three stage tails, then exact additivity.
+Do NOT identify independently sampled Bernstein polynomials definitionally.
+Tests: signed functions, zero/cancelling inputs, different radii and arbitrary
+nonmonotone output rates. Revise on a hidden output equality, chosen modulus,
+incorrect error orientation or expensive concrete specialization. Sol screens
+the mathematics; ROOT implements and runs serial 20-GiB focused checks with
+12-GiB reserve and fresh telemetry; final independent complete source/log
+reviews. No browsing, new analytic field, canonical chart change or broad run.
+
+### Observed actual sum closure and original-Haar additivity [CHECKED]
+
+`sum_distance`,
+`lean/YMGap/Continuum/QuaternionDenseCRealHaarAdditivity.lean:32`, combines
+sound input distances by the actual pointwise sum and rational triangle.
+`sumInput:52` constructs that sum, `sumInner:56` retains the existing maximum
+of half-error inner rates, and `sumRadius:62` computes the minimum of the
+two half-error continuity radii. `sumRadius_positive:65`, `sum_bound:73`
+and `sum_modulus:84` prove its admissibility, with bound MF+MG and exact
+requested continuity error. No monotonicity, input sign condition or bound
+on arbitrary early approximation rows is assumed.
+
+`haarAdditivity_stage:137` compares a generic admissible H, whose INPUT values
+are the actual sum, against the ACTUAL polynomial polyAdd(pF_n,pG_n).
+The two dense polynomial errors give 2*invSucc(n). Rational evaluation of
+polyAdd is explicitly transported by eqv, not falsely taken as definitional
+equality. Existing haarApproximation_polynomial_distance pays H's remaining
+stage error. ORIGINAL quaternionHaar_append identifies the test moment with
+the two actual F/G stage moments, giving exactly three invSucc tails.
+`haarAdditivity:203` removes those tails at explicit cutoff
+(epsilon/4).den, padding three quarters to four without changing the target.
+`sumHaar:218` constructs the actual sum candidate from ONLY the produced
+admissibility data; `sumHaarInnerRegularity:224` retains its recoverable
+rate den(epsilon/2). `sumHaar_additive:232` is the checked ACTUAL sum instance
+with a reflexive input pin: no sum admissibility or integral value is assumed.
+The independently sampled sum polynomial is never identified with pF_n+pG_n.
+
+Accepted final ROOT-only focused command, exit 0:
+
+```
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionDenseCRealHaarAdditivity.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionDenseCRealHaarAdditivity.olean --log-file /private/tmp/ym-original-haar-additivity-check4.log
+```
+
+Frozen source SHA-256:
+`bbe80e3dad42443a9cdc74cc88b88c8e1a0fad917679fbf01d045771753fe65d`.
+Accepted final log SHA-256:
+`2129006a51706091f52349be822180c38779a008a0bac0ff389556dab766209c`.
+COMPLETE independent Luna final-source/log and Sol mathematical reviews PASS,
+with both hashes confirmed. Seven gates use {propext,Quot.sound}, four use
+only propext and sumRadius is axiom-free; all twelve are permitted, with no
+final diagnostics. Luna corrected its initial overcount of pair-dependency
+gates after rereading the accepted log; no source defect or revision resulted.
+Check1 accepted the seven-gate input closure. Check2 was REJECTED only for
+two missing explicit rational arguments to the existing neg_eqv_congr;
+its recovery sorryAx outputs are NOT accepted evidence. Check3 accepted
+the actual additive law; check4 also retains sumHaarInnerRegularity and the
+final docstring. No resource option was raised and the concrete specialization
+checked without the earlier repeated-F elaboration issue.
+Fresh telemetry before each serial 20-GiB check found zero swap and no
+competing compiler/runner; reserve stayed 12 GiB. No hole, new axiom, analytic
+field or canonical statement changed. Root registration only; no full
+root/tree/audit/guard/metric run. All displayed canonical goal nodes retain
+their prior scopes/statuses, so no chart is reprinted.
+
+NEXT: produce constant-input admissibility and normalization; prove positivity
+from the SAME positive rational cubature and approximation, then rational
+homogeneity and continuous translation invariance. Actual addition is checked,
+but the full positive/normalized/linear/invariant continuous Haar package,
+compact realization/J04, MAIN signed-variance payment/scaling and every
+physical/QFT/every-group/Clay endpoint remain OPEN. No literature scan.
+
 ### Selected original-Haar presentation comparison (after 9335faae)
 
 Previous goal turn: PROGRESS, actual all-Point Bernstein approximation
