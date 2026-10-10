@@ -135,6 +135,56 @@ theorem sample_error_leRat (x : CReal) (R : InnerRegularity x)
   intro k hk
   exact sample_error_bound x R tau htau k hk
 
+/-- Different computed sampling tolerances retain their separate errors.
+This is needed for images of Cauchy rows sampled at shrinking tolerances. -/
+theorem sample_difference_le_asymmetric (x y : CReal)
+    (Rx : InnerRegularity x) (Ry : InnerRegularity y)
+    (eta tauX tauY : Q')
+    (hD : leRat (abs (add x (neg y))) eta)
+    (hX : (0 : Q') < tauX) (hY : (0 : Q') < tauY) :
+    Q'.abs (sample x Rx tauX + -(sample y Ry tauY)) ≤
+      (eta + tauX) + tauY := by
+  apply cancel_unit_residual
+  intro N
+  obtain ⟨K, hK⟩ := hD (Q'.invSucc N) (Q'.invSucc_pos N)
+  let j := max K (max (Rx.rate tauX) (Ry.rate tauY))
+  have hXj : Rx.rate tauX ≤ j :=
+    Nat.le_trans (Nat.le_max_left _ _) (Nat.le_max_right _ _)
+  have hYj : Ry.rate tauY ≤ j :=
+    Nat.le_trans (Nat.le_max_right _ _) (Nat.le_max_right _ _)
+  have hpin : (sample x Rx tauX + -(sample y Ry tauY)).eqv
+      ((sample x Rx tauX + -(x.approx j)) +
+        ((x.approx j + -(y.approx j)) +
+          (y.approx j + -(sample y Ry tauY)))) :=
+    poly_identity_of_normal_eq
+      (.add (.var 0) (.neg (.var 1)))
+      (.add (.add (.var 0) (.neg (.var 2)))
+        (.add (.add (.var 2) (.neg (.var 3)))
+          (.add (.var 3) (.neg (.var 1)))))
+      (by decide)
+      (fun | 0 => sample x Rx tauX
+           | 1 => sample y Ry tauY
+           | 2 => x.approx j
+           | _ => y.approx j)
+  have hy : Q'.abs (y.approx j + -(sample y Ry tauY)) ≤ tauY :=
+    Q'.le_trans' _ _ _ (Q'.le_of_eqv (ExpNeg.abs_sub_comm _ _))
+      (sample_error_bound y Ry tauY hY j hYj)
+  have ht : Q'.abs (sample x Rx tauX + -(sample y Ry tauY)) ≤
+      tauX + ((eta + Q'.invSucc N) + tauY) :=
+    Q'.le_trans' _ _ _ (Q'.le_of_eqv (ExpNeg.abs_eqv_congr hpin))
+      (Q'.le_trans' _ _ _ (ExpNeg.abs_add_le _ _)
+        (Q'.le_trans' _ _ _
+          (Q'.add_le_add_left _ _ _ (ExpNeg.abs_add_le _ _))
+          (Q'.add_le_add (sample_error_bound x Rx tauX hX j hXj)
+            (Q'.add_le_add (hK j (Nat.le_max_left _ _)) hy))))
+  have hregroup : (tauX + ((eta + Q'.invSucc N) + tauY)).eqv
+      (((eta + tauX) + tauY) + Q'.invSucc N) :=
+    poly_identity_of_normal_eq
+      (.add (.var 0) (.add (.add (.var 1) (.var 2)) (.var 3)))
+      (.add (.add (.add (.var 1) (.var 0)) (.var 3)) (.var 2))
+      (by decide) (fun | 0 => tauX | 1 => eta | 2 => Q'.invSucc N | _ => tauY)
+  exact Q'.le_trans' _ _ _ ht (Q'.le_of_eqv hregroup)
+
 end YMGap.Constructive.CReal
 
 #print axioms YMGap.Constructive.CReal.sample
@@ -142,3 +192,4 @@ end YMGap.Constructive.CReal
 #print axioms YMGap.Constructive.CReal.sample_abs_le
 #print axioms YMGap.Constructive.CReal.sample_difference_le
 #print axioms YMGap.Constructive.CReal.sample_error_leRat
+#print axioms YMGap.Constructive.CReal.sample_difference_le_asymmetric

@@ -6,6 +6,90 @@ and a finite strictly positive physical Hamiltonian mass gap.
 
 ## Finite positive cubature foundation (2026-10-10 UTC)
 
+### Selected actual completed-Point extension (after d9d07205)
+
+Previous goal turn: PROGRESS, original-moment comparison and actual candidate
+norm bound checked and pushed. Next exact output: for supplied dense
+F:UnitNorm->CReal with per-output InnerRegularity and sound squared-chord
+continuity radius, compute the image of every supplied Cauchy row as
+`s_X(k)=sample(F(X.seq k),R(...),invSucc(k))`. Produce its explicit regularity,
+prove representative equivalence and descend to Point->RC, then pin dense
+embedding values. No bound on F is needed for this extension.
+Consumer: move the existing dense original-Haar candidate and its polynomial
+approximation onto the SAME completed domain. No complete continuous Haar/J04
+consumer is yet inhabited; this extension alone supplies no functional laws.
+
+Available inputs: stable sample errors, sound leRat variation, actual
+chordSeminorm Cauchy/Close data and quotient APIs. First prove the asymmetric
+sample estimate eta+tauX+tauY. Predicted row rate is
+`max(X.modulus(radius(epsilon/2)), (epsilon/4).den)`; the three error terms
+are epsilon/2+epsilon/4+epsilon/4. Representative descent replaces the source
+row modulus by its supplied Close modulus. For dense embedding, use a common
+late F(q) stage: do NOT assume k exceeds its variable rate(invSucc(k)).
+Decisive cases: constant/zero input, nonmonotone output rates, arbitrary
+irregular initial approximants, semantic rational-unit representatives and
+different row speeds. No Point representative or Prop modulus is extracted.
+ROOT owns implementation and serial capped checks; Sol screens the argument
+read-only and an independent complete final-source/log review follows.
+Reassess if descent needs choice, legacy one-slack order or stronger inputs.
+No browsing, new analytic field, resource option or canonical statement change.
+
+### Observed actual SAME-Point extension [CHECKED]
+
+`sample_difference_le_asymmetric`,
+`lean/YMGap/Constructive/CRealStableSampling.lean:140`, proves sample
+distance<=eta+tauX+tauY from sound value distance<=eta and two separately
+supplied positive sampling tolerances. The comparison uses a common late
+output index only in the proof, then removes the arbitrary rational residual.
+
+`rowImage`,
+`lean/YMGap/Continuum/QuaternionDenseCRealPointExtension.lean:127`, constructs
+the actual sampled image of a SUPPLIED source Cauchy row.
+`rowImageRate:98` computes max(X.modulus(radius(epsilon/2)),(epsilon/4).den),
+retained as data by `rowImageInnerRegularity:133`. `rowImage_regular:104`
+pays source continuity and both sample tails on this literal row.
+`rowImage_congr:141` uses the ACTUAL source Close witness and proves equivalent
+output values. `pointExtension:205` therefore descends to the EXISTING
+Point->RC quotient map. `pointExtension_embed:215` recovers the supplied
+dense values: a common j=max(R.rate(invSucc n),n), together with the fixed
+R.rate(epsilon/2), avoids assuming n>=the varying sample rate.
+No boundedness input, monotone rate, representative choice, continuous
+integral or semantic-equality shortcut is used.
+
+Accepted ROOT-only monitored commands, both exit 0:
+
+```
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Constructive/CRealStableSampling.lean --check-output lean/.lake/build/lib/lean/YMGap/Constructive/CRealStableSampling.olean --log-file /private/tmp/ym-asymmetric-stable-sampling-check2.log
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionDenseCRealPointExtension.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionDenseCRealPointExtension.olean --log-file /private/tmp/ym-dense-creal-point-extension-check1.log
+```
+
+Stable-sampling source SHA-256:
+`b50ddfdcdb6e8400808f580ea6812647db0dff415ed65eb836c0b2e8f134ec09`.
+Stable-sampling accepted log SHA-256:
+`48ae3191385a3648f1333580da7285a116df66a4a345d802ac148232961cf66b`.
+Point-extension source SHA-256:
+`fc9b988b68afc91b33043625605d9b223131be70c100fb4735799e87156fc205`.
+Point-extension accepted log SHA-256:
+`c8906745344c149f8030cca88227803d4f2de37ca9d7d22905ffb130ed199570`.
+COMPLETE independent Luna final-source/log and Sol mathematical reviews PASS.
+Six sampling gates and ten extension gates are permitted; no final diagnostics.
+The first asymmetric check failed only on multiline match indentation; its
+recovery sorryAx output is REJECTED. Reindentation preserved the proposition.
+Fresh telemetry before each serial capped check found zero swap and no
+competing compiler/runner. No safety threshold, axiom, source hole, analytic
+field or canonical statement changed. Semantic-root import is registration
+only; no full root/tree/audit/guard/metric run was performed.
+
+NEXT: join the ORIGINAL polynomial row to existing pointEval on EVERY
+completed Point, not another embedded-rational-only pin; then transfer fixed
+polynomial approximation to this actual extension. Existing private
+`pointEval_mk`, `realPower_approx`, `realMonomial_approx`, and `evalReal_approx`
+in `SU2QuaternionPointPolynomialHaarTranslation.lean` are the relevant actual
+row arithmetic. Positivity, normalization, linearity, translation invariance
+and compact realization remain separate. Continuous Haar/J04, MAIN warmed
+SAME-variance payment/scaling, physical/QFT/every-group and Clay remain OPEN.
+Canonical chart claims unchanged; no reprint or new literature scan.
+
 ### Selected generic ORIGINAL-polynomial comparison (after 4765b0d1)
 
 Previous goal turn: PROGRESS, checked/pushed actual dense CReal approximation

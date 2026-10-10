@@ -5418,6 +5418,9 @@ import YMGap.Continuum.QuaternionPointBernsteinApproximation
 import YMGap.Continuum.QuaternionPointPolynomialDenseEvaluation
 import YMGap.Continuum.QuaternionPointBernsteinCRealApproximation
 import YMGap.Continuum.QuaternionDenseCRealHaarApproximation
+-- Actual supplied-row image, retained rate and choice-free Point->RC descent.
+-- Continuous Haar and completed-polynomial compatibility are still open.
+import YMGap.Continuum.QuaternionDenseCRealPointExtension
 import YMGap.Continuum.SU2HeatJacobiFinitePrefixClassPolynomial
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticBound
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticCutoff

@@ -36,8 +36,12 @@ dense input-value identification, not an assumed integral equality;
 The input function's bound, continuity radius and output regularity are supplied;
 approximation and the limit candidate are produced, not assumed. Focused checks
 and complete independent source/log and mathematical reviews PASS within the
-constructive gate. Completed Point extension, the positive/normalized/invariant
-continuous Haar package, J04, MAIN scaling and Clay remain OPEN. Root registration
+constructive gate. `Continuum/QuaternionDenseCRealPointExtension` now computes
+the image of each supplied point Cauchy row using shrinking samples, retains
+its explicit inner rate and descends to the SAME Point->RC map. Its dense
+embedding pin handles nonmonotone output rates without representative choice.
+Compatibility with completed polynomial evaluation and the actual continuous
+Haar functional laws, J04, MAIN scaling and Clay remain OPEN. Root registration
 only; no full root/tree/audit. Exact evidence: adaptive-score audit.
 
 **Checked POINTWISE rational-carrier approximation (2026-10-10 UTC):**

@@ -682,13 +682,25 @@ equality or approximation conclusion is assumed. Final focused check3 and
 complete independent final-source/log/math reviews PASS; eleven permitted
 gates, no diagnostics. The failed concrete specialization aliases are not
 reintroduced. Exact hashes/commands: adaptive-score audit.
-NEXT: extend supplied dense data to the SAME Point quotient and transport
-fixed-polynomial approximation. First prove asymmetric sample-error addition,
-then compute the image of a supplied Cauchy row using tolerance invSucc(k)
-and rate max(X.modulus(radius(epsilon/2)), (epsilon/4).den); retain explicit
-InnerRegularity and prove representative-equivalence descent and dense pin.
-Use supplied Cauchy rows, explicitly varying sample tolerances, quantitative
-difference bounds and quotient descent, NOT representative choice. Prove
+CHECKED subsequent SAME-Point extension (after d9d07205):
+`CRealStableSampling.sample_difference_le_asymmetric:140` pays separate
+sampling tolerances. `QuaternionDenseCRealPointExtension.rowImage:127`
+computes the actual sampled Cauchy-row image, retaining explicit regularity
+at max(X.modulus(radius(epsilon/2)), (epsilon/4).den).
+`rowImage_congr:141` proves equivalent rows have equivalent real values;
+`pointExtension:205` descends to the existing Point->RC quotient map and
+`pointExtension_embed:215` recovers the supplied dense values even for
+nonmonotone inner rates. No boundedness or chosen representative is assumed.
+Two focused checks and COMPLETE independent source/log/math reviews PASS;
+six sampling gates and ten extension gates permitted, no final diagnostics.
+Root registration only; exact commands/hashes/rejected checks: score audit.
+NEXT: pin the ORIGINAL polynomial row to existing pointEval on EVERY
+completed Point, then transfer fixed-polynomial approximation to this actual
+map. Agreement at embedded rationals alone is not that join. Existing
+`SU2QuaternionPointPolynomialHaarTranslation` has the relevant exact supplied
+row evaluation privately; reuse its finite arithmetic rather than replace
+the completed carrier or add another dense-only wrapper. Retain quantitative
+row errors and quotient descent, NOT representative choice. Prove
 positive/normalized/linear/invariant functional laws on the resulting object;
 the paper's pre-existing continuous Haar is not our constructive producer.
 This foundation is separate from MAIN warmed signed-cost versus SAME variance

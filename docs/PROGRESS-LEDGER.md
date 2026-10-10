@@ -4,6 +4,24 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Actual SAME-Point extension of supplied dense data (2026-10-10 UTC)
+
+`CRealStableSampling.sample_difference_le_asymmetric:140` retains the two
+different sample errors. `QuaternionDenseCRealPointExtension.rowImage:127`
+constructs the actual sampled image of a supplied source row with explicit
+rate max(X.modulus(radius(epsilon/2)),(epsilon/4).den). Continuity and the
+two sample tails pay epsilon/2+epsilon/4+epsilon/4.
+`rowImage_congr:141` respects the existing source equivalence;
+`pointExtension:205` gives a choice-free Point->RC map and
+`pointExtension_embed:215` recovers the supplied dense values. No rate
+monotonicity, arbitrary raw-row bound or quotient representative choice.
+Two focused checks and complete independent source/log/math reviews PASS;
+exact commands/hashes in the adaptive-score audit. No full root/tree audit.
+NEXT: original polynomial evaluation pin on EVERY completed Point and
+fixed-polynomial approximation on this actual map, then functional laws.
+Continuous Haar/J04, MAIN signed-variance payment/scaling, physical/QFT/
+every-group and Clay remain OPEN. Canonical displayed chart unchanged.
+
 ## ORIGINAL-moment comparison and actual candidate norm (2026-10-10 UTC)
 
 `QuaternionDenseCRealHaarApproximation.haarApproximation_polynomial_distance:193`
@@ -18,8 +36,9 @@ original-moment equivalence from exact dense input-value identification,
 not an assumed integral answer. Generic F/R avoid the rejected concrete
 specialization aliases. Focused check3 and complete independent source/log/math
 reviews PASS; eleven permitted gates, no final diagnostics. Exact evidence:
-adaptive-score audit. NEXT: actual supplied-row image, quantitative quotient
-descent and dense embedding pin, then completed-Point polynomial approximation.
+adaptive-score audit. The actual supplied-row image, quotient descent and
+dense embedding pin are now checked above. NEXT: completed-Point polynomial
+approximation and its SAME-evaluation join.
 Continuous Haar/J04, MAIN warmed SAME-variance payment/scaling and every
 physical/QFT/every-group/Clay endpoint remain OPEN. No root/tree/audit/metric
 or canonical displayed chart change.
