@@ -834,20 +834,48 @@ evidence; the final proof has default heartbeats and unchanged memory limits.
 Exact commands, hashes and rejected-check record: adaptive-score audit.
 Root registration only; no root/tree/audit/metric or chart-state change.
 
-NEXT: prove the completed-map sum/scalar laws for the already-produced dense
-inputs, then compose presentation-independent original-Haar laws on represented
-bounded uniformly continuous completed functions. Do not assume a general
-RC-function CReal lift or another invariant law. A concrete general
-completed-function/compact-group Haar consumer was NOT FOUND in the source
-lookup; `CompactGroupData` in the J04 ladder is still only a plan. Retain
-explicit domain/regularity data rather than manufacturing a vacuous interface.
-Full continuous-Haar packaging, compact realization and every-group J04
-remain OPEN; the constructed completed invariance is not those larger claims.
-Use the checked all-Point approximation and ORIGINAL moment invariance;
-the paper's pre-existing continuous Haar is not our constructive producer.
-This foundation is separate from MAIN warmed signed-cost versus SAME variance
-and its justified scaling. Continuous Haar/J04, physical/QFT/every-group and
-Clay remain OPEN; no canonical displayed chart claim changed.
+CHECKED same-map functional join (after 8718203c):
+`QuaternionDenseCRealPointLinearity.rowImage_sum:116` and `rowImage_scale:234`
+compare independent samples at ONE later inner stage, paying respectively
+three and (1+abs(c)) invSucc(n) errors. `pointExtension_sum:146` and
+`pointExtension_scale:261` pin the actual maps on EVERY Point, with explicit
+cutoffs and zero/negative/noncanonical scalars. No additional bound, rate or
+map law is assumed.
+`QuaternionRepresentedHaar.DenseData:43` retains actual CReal input values,
+Type-level inner rates, sound bound and positive continuity radius;
+`DenseData.haarInner:71` retains the candidate's computed output rate.
+`dataSetoid:145` identifies only equal ACTUAL completed maps;
+`evaluate:156` and `ext:162` make the represented quotient faithful.
+`integral:170` descends ACTUAL original-Haar candidates through the checked
+same-map comparison. Produced sum/scalar inputs descend through the Point
+pins; `integral_add:191`, `integral_scale:211`, `integral_constant:225`,
+`integral_lower:231`, `integral_nonnegative:245` and `integral_distance:265`
+give rational linearity, normalization, positivity and retention of uniform
+pointwise error in genuine RC order. `translate:288` descends BOTH multiplier
+and function quotients; `evaluate_translate:299` pins SAME completed-product
+composition and `integral_translate:308` proves invariance for EVERY completed
+multiplier, either order. No representative choice or functional-law field.
+Point-linearity check2 and functional check1 and COMPLETE independent frozen
+source/log/math reviews PASS; all 42 gates permitted, no final diagnostics.
+Two cutoff defs axiom-free. Shared typed contexts resolved Point check1's
+statement-elaboration timeouts without strengthening or resource changes.
+Exact sources/log hashes and commands: adaptive-score audit. Root registration
+only; no root/tree/audit/metric or canonical displayed chart-state change.
+
+NEXT: construct concrete supported-polynomial DenseData, with produced cube
+bound, inner rate and positive continuity radius, and pin its ACTUAL map and
+ORIGINAL moments. The generic coefficient-L1 and polynomial variation bounds
+exist, but no such constructor was found; existing coordinate-motion/cube
+arguments are private. Then supply product closure and quantitative domain
+completion/compact realization required by the actual downstream consumer.
+The current functional is on represented admissible maps, not every continuous
+Point->RC map; no intrinsic sup norm or Banach algebra is built. Do not assume
+a general RC-function CReal lift or polynomial membership. `CompactGroupData`
+in the every-group J04 ladder remains a plan. Full continuous-Haar/compact
+realization/J04 and MAIN warmed signed-cost versus SAME variance on justified
+scaling stay OPEN. The paper's pre-existing Haar is not our producer; these
+are independently checked project results. Physical/QFT/every-group and Clay
+remain OPEN; no canonical displayed chart claim changed.
 
 The requested paper review confirms that Appendix E assumes continuous Haar;
 its companion section 10.4 supplies a useful EFFECTIVE error-accounting

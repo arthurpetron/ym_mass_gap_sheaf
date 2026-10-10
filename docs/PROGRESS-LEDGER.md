@@ -4,6 +4,38 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## ORIGINAL Haar on SAME represented completed maps (2026-10-10 UTC)
+
+`QuaternionDenseCRealPointLinearity.rowImage_sum:116` pays three independent
+sample errors at ONE later inner index; `rowImage_scale:234` pays
+(1+abs(c))*invSucc(n), including c=0/negative/noncanonical rationals.
+The computed cutoffs and `pointExtension_sum:146` / `pointExtension_scale:261`
+give ACTUAL all-Point map identities without another analytic premise.
+`QuaternionRepresentedHaar.DenseData:43` retains input values, Type-level
+inner rates, sound bound and positive continuity radius. `dataSetoid:145`
+identifies equal ACTUAL maps; `evaluate:156` / `ext:162` are faithful.
+`integral:170` descends the ACTUAL original-Haar candidate, with original
+candidate rates retained by `DenseData.haarInner:71` for supplied data.
+`integral_add:191`, `integral_scale:211`, `integral_constant:225`,
+`integral_lower:231` / `integral_nonnegative:245` give rational linearity,
+normalization and positivity; `integral_distance:265` retains uniform
+pointwise error in genuine RC order. `translate:288` descends BOTH multiplier
+and function classes; `evaluate_translate:299` pins the SAME completed
+Hamilton product, and `integral_translate:308` proves invariance for EVERY
+completed multiplier, either order. No chosen representative or integral-law
+field. This is on represented admissible maps, NOT every continuous RC map.
+Final focused checks and COMPLETE independent frozen-source/log/math reviews
+PASS; all 42 gates permitted, two cutoffs axiom-free, no final diagnostics.
+Shared typed contexts fixed rejected Point check1 statement timeouts without
+changing hypotheses, argument order, math, heartbeat or memory. Exact
+commands/hashes: adaptive-score audit. Root registration only, no root/tree/
+audit/metric or chart-state change. CI off; user-owned duplicates preserved.
+NEXT: concrete supported-polynomial data with produced bound/rate/positive
+radius and ACTUAL map/moment pins, then product closure and quantitative
+domain completion/compact realization. Full continuous-Haar/every-group J04,
+MAIN SAME warmed-variance signed payment/scaling and every physical/QFT/
+every-group/Clay endpoint remain OPEN.
+
 ## ACTUAL original-Haar COMPLETED translation (2026-10-10 UTC)
 
 `QuaternionDenseCRealPointStability.rowImage_distance:73` passes eventual

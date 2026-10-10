@@ -5447,6 +5447,11 @@ import YMGap.Continuum.QuaternionDenseCRealPointStability
 -- Actual completed-multiplier Haar invariance and same-map composition.
 -- Quotient descent covers every Point; full Haar/J04 and Clay remain OPEN.
 import YMGap.Continuum.QuaternionDenseCRealCompletedHaarTranslation
+-- Actual all-Point sum/signed-scale pins for produced dense inputs.
+import YMGap.Continuum.QuaternionDenseCRealPointLinearity
+-- ORIGINAL Haar descended by equality of actual represented Point maps.
+-- Positive/normalized/rational-linear/completed-invariant; not full Haar/J04.
+import YMGap.Continuum.QuaternionRepresentedHaar
 import YMGap.Continuum.SU2HeatJacobiFinitePrefixClassPolynomial
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticBound
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticCutoff

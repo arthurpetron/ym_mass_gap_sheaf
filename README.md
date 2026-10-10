@@ -40,9 +40,15 @@ actual product rows produce translated dense inputs with the same bound and
 radius, and four vanishing stage errors give a computed invariance cutoff.
 The composition identity and multiplier-quotient descent are checked without
 selecting representatives. Quantitative continuity of the actual row images
-is proved, not supplied as another premise. Full continuous-Haar packaging
-and compact realization remain open; these results apply to the represented
-bounded, uniformly continuous dense data.
+is proved, not supplied as another premise. Actual completed-map sum and
+signed-scalar identities now let these laws descend to one faithful quotient
+of represented maps. Its original-Haar functional is presentation-independent,
+positive, normalized, rational-linear and invariant under every completed
+multiplier, without choosing representatives. Focused kernel checks and
+independent reviews passed. This domain retains actual dense values and
+explicit rates/radii; it is not every continuous Point-to-real map. Concrete
+supported-polynomial membership, product closure, quantitative domain
+completion and compact realization/full Haar remain open.
 It closes no mass-gap claim. See the
 [checked construction and next join](audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md).
 

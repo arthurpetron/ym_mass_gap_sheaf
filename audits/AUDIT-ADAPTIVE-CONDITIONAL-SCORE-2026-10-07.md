@@ -116,30 +116,105 @@ worker/reserve change, root/full-tree/audit/metric run or literature scan.
 Root imports only register the checked leaves. Canonical displayed claims
 remain unchanged, so no ASCII chart is reprinted.
 
-### Next represented-function join [OPEN]
+### Represented-function join [CHECKED]
 
-The completed-multiplier input and limit joins above are no longer missing.
-Next mathematical work: actual Point-map sum/scalar laws for the existing
-produced dense inputs, then compose the presentation-independent positive,
-normalized rational-linear invariant functional on represented bounded
-uniformly continuous functions. `sumHaar_additive`,
-`lean/YMGap/Continuum/QuaternionDenseCRealHaarAdditivity.lean:232`, and
-`scaleHaar_homogeneous`,
-`lean/YMGap/Continuum/QuaternionDenseCRealHaarHomogeneity.lean:234`, already
-give original-Haar value laws; no completed-map sum law was found in those
-leaves. `haarComparison_completed_maps`,
-`lean/YMGap/Continuum/QuaternionDenseCRealHaarComparison.lean:189`, is the
-existing SAME-map presentation-independence consumer.
-Luna's bounded source lookup found NO concrete general completed-function/
-compact-group Haar interface: the J04 `CompactGroupData` at work_plan item d
-remains a plan. Do not invent arbitrary RC-value CReal lifts or assume an
-invariant functional. Matrix inverse with supplied regularity is not full
-compact realization. Continuous-Haar packaging/compact realization and
-every-group J04 remain OPEN. MAIN's unchanged consumers are
-`original_window_budget_macro_ratio` and `window_area_epsBound`; neither
-their missing SAME-source signed estimate nor justified moving-family,
-physical mass/nontrivial survival/QFT/every-group/Clay endpoints is closed
-by these integration results.
+Selected next experiment (after 8718203c): prove the ACTUAL Point-map sum
+and signed scalar pins, then descend ORIGINAL Haar to the quotient of actual
+dense presentations by equality of their completed maps. The domain stores
+input CReal values, Type-level inner rates, sound bound and explicit positive
+continuity radius, not an integral or functional-law field. Existing actual
+sum/scalar/constant/completed-translation producers supply the domain
+operations; `haarComparison_completed_maps` supplies integral descent.
+The consumer is one positive, normalized rational-linear invariant functional
+on these represented maps, not a claim about all continuous Point->RC maps.
+Test different rates/radii for the SAME map, zero/negative/noncanonical
+scalars and both completed translation orders. Multiplier AND function
+quotient descent must use the all-Point composition pin. Revise if selecting
+an RC representative, assuming a map law/integral answer, or adding a general
+representation theorem is required. Supported-polynomial membership, product
+closure, compactness and full continuous-Haar/J04 remain separate residues.
+Sol owns the bounded Point-linearity leaf, ROOT the represented functional;
+independent Sol read-only domain screen PASS with these scope restrictions.
+ROOT alone owns serial focused checks with fresh capacity/process inspection,
+one worker, 20 GiB ceiling and 12 GiB reserve. Independent complete frozen
+source/log/math reviews follow. No root/full-tree/audit/metric run or chart
+change is selected; MAIN's missing signed estimate/scaling and Clay stay OPEN.
+
+Observed PROGRESS: `rowImage_sum`,
+`lean/YMGap/Continuum/QuaternionDenseCRealPointLinearity.lean:116`, compares
+three independent samples at ONE later inner index and pays three invSucc(n)
+errors. `sumRowEqualityRate:70` computes den(epsilon/4).
+`rowImage_scale:234` pays (1+abs(c))*invSucc(n) at the computed
+`scaleRowEqualityRate:196`, without dividing by c. The actual Point pins
+`pointExtension_sum:146` and `pointExtension_scale:261` cover EVERY Point,
+with separately supplied rates/radii and zero/negative/noncanonical scalars.
+No bound, monotonicity, Haar answer or sampled-polynomial identity is added.
+
+`DenseData`, `lean/YMGap/Continuum/QuaternionRepresentedHaar.lean:43`, stores
+actual values, Type-level inner rates, sound bound and positive continuity
+radius. `DenseData.haar:65` constructs the actual ORIGINAL-Haar candidate;
+`DenseData.haarInner:71` retains its rate. `dataSetoid:145` identifies data
+by equality of ACTUAL completed maps; `evaluate:156` and `ext:162` show that
+the quotient is faithful to those maps. `integral:170` descends actual
+candidates using `haarComparison_completed_maps`, not an assumed law or
+chosen real representative. The actual produced sum/scalar inputs descend
+through the checked Point pins; `integral_add:191` and `integral_scale:211`
+give rational linearity. `integral_constant:225` proves normalization;
+`integral_lower:231` and `integral_nonnegative:245` preserve sound order.
+`integral_distance:265` retains a supplied uniform two-sided pointwise
+error in genuine RC order, without an intrinsic sup norm. `translate:288`
+descends BOTH the multiplier and function quotients via the actual
+`completedExtension_value`; `evaluate_translate:299` pins SAME-product
+composition and `integral_translate:308` gives invariance for EVERY Point
+multiplier in either order. This is an actual functional on REPRESENTED
+admissible maps, not all continuous Point->RC maps.
+
+Accepted serial focused commands (fresh memory/swap/process inspection first):
+
+```text
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionDenseCRealPointLinearity.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionDenseCRealPointLinearity.olean --log-file /private/tmp/ym-point-linearity-check2.log
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionRepresentedHaar.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionRepresentedHaar.olean --log-file /private/tmp/ym-represented-haar-check1.log
+```
+
+Point-linearity source SHA-256
+`599e026a5bdc86637093756c1442cf29e3e48604c63e864314745b6ceb865a27`;
+accepted log `2d40e1b6b47ff0df3a4856f0e20b1f6cc141070df31137773f9c962485d11a8e`.
+Represented-functional source SHA-256
+`47e514f90093230b32a2ecd7442208f10530d4a0752e686bcee2c21c563eca8d`;
+accepted log `8d1bc319519508d2a4ce210ee71e24715f00eab97898018ebbc2a62c0334fc2c`.
+All 42 gates pass: two cutoff definitions axiom-free, DenseData.constant
+uses propext only, other 39 use exactly {propext,Quot.sound}. No final
+diagnostics/sorryAx. ROOT inspected complete final sources and logs;
+independent Sol COMPLETE frozen-source/log/math reviews PASS with matched
+hashes (Point-linearity reviewed by the domain screener, ROOT's functional
+by the independent Point author). The earlier read-only domain/math screen
+also PASS, explicitly excluding arbitrary RC lifts and a built sup norm.
+Point check1's four statement-elaboration whnf timeouts/unknown identifiers
+are rejected evidence. Shared typed Sum/Scale contexts resolved them without
+changing the statement, public argument order, math, heartbeat or memory.
+Check2 passed in 2.82 seconds; functional check1 passed in 1.78 seconds.
+Capacity 84--85% available, zero swap, no competing compiler/test process.
+No full root/tree/audit/metric or canonical chart-state change; root imports
+only register the checked leaves. CI stays off.
+
+NEXT: supply concrete supported-polynomial DenseData and pin its ACTUAL map
+and ORIGINAL moments, then tackle product closure/quantitative domain
+completion and the compact realization consumer. Luna's bounded lookup
+found no polynomial-data constructor. `InnerRegularity.ofQ'`,
+`lean/YMGap/Constructive/CRealInnerRegularity.lean:43`, and
+`evalRatPoly_abs_le_coefficientL1`,
+`lean/YMGap/Continuum/BF4CompactCoupledActionBounds.lean:87`, supply output
+rate and a generic cube bound. `polynomial_difference`,
+`lean/YMGap/Continuum/RatPolyCubeLipschitz.lean:150`, supplies a computed
+variation constant. The coordinate-motion and environment-cube arguments
+found in existing leaves are PRIVATE, not ready public producers; a small
+actual positive-radius/cube join is still required. Do not describe all
+supported polynomials as domain members before that constructor is checked.
+Full continuous-Haar/compact realization/every-group J04 remain OPEN.
+MAIN's unchanged consumers `original_window_budget_macro_ratio` and
+`window_area_epsBound`, their missing SAME-source signed estimate and
+justified moving-family, physical mass/nontrivial survival/QFT/every-group/
+Clay endpoints are not closed by this integration join.
 
 ### Selected ACTUAL rational left/right translation (after 17645d39)
 

@@ -90,8 +90,22 @@ EVERY completed Point multiplier without representative choice.
 Focused stability check2 / completed check4 and COMPLETE independent frozen
 source/log/math reviews PASS; 22 permitted gates, two rate definitions
 axiom-free, no final diagnostics. No new analytic premise or enlarged final
-heartbeat/memory budget. Full continuous-Haar function-space packaging and
-compact realization/J04, MAIN scaling and Clay remain OPEN.
+heartbeat/memory budget. `Continuum/QuaternionDenseCRealPointLinearity` now
+compares independently sampled sum/scalar rows at a common later inner stage,
+paying three or (1+abs(c)) errors at computed cutoffs, and proves their actual
+map identities on EVERY Point. `Continuum/QuaternionRepresentedHaar` now
+stores actual dense values, inner rates, sound bounds and positive radii,
+quotients presentations by equality of their ACTUAL maps, and descends the
+ORIGINAL-Haar candidates. Its functional is positive, normalized, rational-
+linear and completed-translation invariant; both function and multiplier
+quotients descend without choice. Uniform pointwise error is retained in
+genuine RC order, not a claimed intrinsic sup norm. Focused Point-linearity
+check2 / functional check1 and COMPLETE independent frozen-source/log/math
+reviews PASS; 42 permitted gates, two cutoffs axiom-free, no final diagnostics
+or strengthened premises/resource changes. This is a represented-map domain,
+not every continuous Point->RC function. Concrete polynomial membership,
+product closure, quantitative domain completion/compact realization/full
+Haar/J04, MAIN scaling and Clay remain OPEN.
 Root registration only; no full root/tree/audit. Exact evidence: adaptive-score audit.
 
 **Checked POINTWISE rational-carrier approximation (2026-10-10 UTC):**
