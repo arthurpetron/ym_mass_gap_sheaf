@@ -112,8 +112,15 @@ pins polynomial products to their actual pointwise RC products. The concrete
 coordinate has mean zero, same-square moment 1/4 and distinct values at the
 two central units. Focused check1 and COMPLETE independent frozen-source/log/
 math review PASS; all 21 gates permitted, no diagnostics or new hypotheses.
-General represented-domain product closure, quantitative completion/compact realization/full
-Haar/J04, MAIN scaling and Clay remain OPEN.
+`Continuum/QuaternionRepresentedHaarMultiplication` now produces general
+product membership, including Type-level inner rates from
+`Constructive/CRealInnerMultiplication`, sound bounds and positive radii.
+`product_map:329` and `evaluate_mul:350` pin actual multiplication on EVERY
+Point; `mul_polynomial:358` recovers the original polynomial product and
+`integral_coordinate_square:368` its SAME Haar moment 1/4. Independent
+complete source/log/math reviews PASS for both focused checks; no new
+analytic premise or integral-multiplicativity claim. Quantitative domain
+completion/compact realization/full Haar/J04, MAIN scaling and Clay remain OPEN.
 Root registration only; no full root/tree/audit. Exact evidence: adaptive-score audit.
 
 **Checked POINTWISE rational-carrier approximation (2026-10-10 UTC):**

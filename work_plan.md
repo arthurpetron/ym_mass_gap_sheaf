@@ -878,9 +878,24 @@ Focused check1 and COMPLETE independent frozen-source/log/math review PASS;
 This is independently proved project mathematics, not Appendix E's assumed
 continuous Haar. No canonical displayed claim changes or broad/root audit.
 
-NEXT: produce general represented-domain product closure with recoverable
-Type-valued output rates and the SAME all-Point multiplication pin; quantitative
-domain completion/compact realization remains separate. Demand the minimal
+CHECKED general represented-domain product closure (after d3e81eba):
+`CReal.InnerRegularity.mul`,
+`lean/YMGap/Constructive/CRealInnerMultiplication.lean:122`, computes its rate
+from supplied rate(1) anchors and tolerance-specific rates, not an extracted
+Prop cutoff. `QuaternionRepresentedHaarMultiplication.productData:205`
+produces the ACTUAL dense product, sound bound and positive common radius.
+`sample_product_error:228` pays independent sampling by
+(abs(M)+abs(N)+3)*tau; `productRowEqualityRate:283` retains the outer cutoff.
+`product_map:329` and `evaluate_mul:350` pin the SAME product on EVERY Point
+and justify both quotient arguments. `mul_polynomial:358` recovers original
+polynomial multiplication; `integral_coordinate_square:368` retains the
+actual general square's original Haar moment 1/4. Both focused checks and
+COMPLETE independent source/log/math reviews PASS; exact hashes/commands:
+adaptive-score audit. This is domain closure, not interacting survival,
+quantitative completion or a multiplicative-Haar law. No new premise/hole,
+canonical chart claim, resource increase or root/tree audit.
+
+NEXT: identify the minimal quantitative domain-completion/compact-realization
 interface consumed by the original compact/action route, not a general
 RC-function representative selection or every-continuous-function theorem.
 The current functional is on represented admissible maps, not every continuous
@@ -897,6 +912,13 @@ its companion section 10.4 supplies a useful EFFECTIVE error-accounting
 recipe, not our missing integration producer. Keep derivative-weighted
 coefficient error separate from support/refinement tails and charge all of
 them to the actual growing consumer before claiming a joint limit.
+The 2026-10-10 05:59 UTC requested parallel missed-result check reused the
+hash-matched v1 cache. Proposition 7.1 and Appendix C.7 retain fixed original
+links/admissibility; Appendix F.4 keeps the operator, weight and insertions
+fixed and requires nonzero exact partition function for normalized limits.
+No additional producer for the two MAIN consumers was found. Retain the
+existing source-matching/error-budget plan; no new paper branch or assumed
+continuous-Haar input is selected. Review evidence: the existing paper report.
 Source pins, classical-formalization and bounded review scope:
 `audits/RESEARCH-2610-09093-2026-10-08.md`, effective approximation inputs.
 The parallel companion recheck adds one validation rule (section 10.4,

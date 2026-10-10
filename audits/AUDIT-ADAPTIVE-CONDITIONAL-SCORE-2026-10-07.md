@@ -116,6 +116,96 @@ worker/reserve change, root/full-tree/audit/metric run or literature scan.
 Root imports only register the checked leaves. Canonical displayed claims
 remain unchanged, so no ASCII chart is reprinted.
 
+### Selected actual represented-domain multiplication (after d3e81eba)
+
+Previous goal turn: PROGRESS, concrete polynomial membership/SAME map and
+ORIGINAL moment pins checked and pushed. Exact next proposition: construct
+actual pointwise product DenseData with recoverable inner rate, sound bound
+and positive radius, then prove its ACTUAL map is RCmul of the SAME two maps
+on EVERY Point. Consumer: multiplication on the existing represented Haar
+domain; this removes its missing product closure, not quantitative completion,
+compact realization or any MAIN/Clay analytic input. Available data: supplied
+inner rates, sound bounds/radii, sample_error_bound/sample_abs_le and existing
+pointwise rational product algebra. Inner-rate prediction: absolute anchors
+at the two supplied rate(1) stages plus one bound late approximants, enabling
+a computed scaleTolerance rate without extracting any Prop cutoff. Continuity:
+|ab-cd|<=|a|*|b-d|+|d|*|a-c|, using sound input bounds and a scaled common
+tolerance; take the minimum of the two radii, without assuming monotonicity.
+Actual map join must compare independent samples at ONE later inner stage,
+paying a vanishing error with a cutoff depending on the explicit global bounds.
+Test zero/signed/noncanonical data, empty-polynomial instances, different
+inner rates/radii and arbitrary completed Points. Revise if an integral
+answer, bound on every early row, representative choice or new analytic
+premise is needed. ROOT owns consumer/join and serial safe checks, Sol a bounded
+new Type-level multiplication-rate leaf; Luna bounded source/API lookup;
+independent complete frozen-source/log/math reviews follow. Separately Sol
+reviews the current MAIN signed-window/centered-area producer gap for a shorter
+mathematical route, without another literature scan or proxy substitution.
+One worker, 20 GiB limit, 12 GiB reserve; fresh capacity before each check.
+No broad/root/tree/audit/metric or new paper review. Clay stays OPEN.
+
+### Observed general product closure [CHECKED, after d3e81eba]
+
+`productAnchor`, `lean/YMGap/Constructive/CRealInnerMultiplication.lean:18`,
+uses only the supplied rate(1) value plus one. `productAnchor_bounds:28`
+bounds late approximants, not arbitrary early ones. `productRate:57` and
+`mul:122` retain Type-level cutoffs from both supplied rates and
+scaleTolerance(A+B,epsilon), including signed/zero inputs.
+
+`productData`,
+`lean/YMGap/Continuum/QuaternionRepresentedHaarMultiplication.lean:205`,
+constructs the literal dense CReal product with sound absolute bound and the
+minimum of the two supplied radii at its computed tolerance; monotonicity is
+not assumed. `sample_product_error:228` compares independently sampled
+products at ONE later inner index and pays (abs(M)+abs(N)+3)*tau for tau<=1.
+The sound-bound cutoff occurs only inside the proof, not the returned rate.
+`productRowEqualityRate:283` computes the outer cutoff from those bounds;
+`rowImage_product:306` proves actual row equivalence and `product_map:329`
+pins multiplication on EVERY Point. `mul:343` descends through BOTH actual
+map arguments in the correct order; `evaluate_mul:350` recovers pointwise
+RC multiplication. `mul_polynomial:358` agrees with the original polynomial
+product; `integral_coordinate_square:368` gives SAME general square moment
+1/4. Haar multiplicativity, interacting variance and continuum survival are
+NOT asserted.
+
+Accepted serial focused commands (fresh capacity/process checks at launch,
+one worker, 20 GiB ceiling, 12 GiB reserve):
+
+```text
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Constructive/CRealInnerMultiplication.lean --check-output lean/.lake/build/lib/lean/YMGap/Constructive/CRealInnerMultiplication.olean --log-file /private/tmp/ym-inner-multiplication-check1.log
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionRepresentedHaarMultiplication.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionRepresentedHaarMultiplication.olean --log-file /private/tmp/ym-represented-haar-multiplication-check1.log
+```
+
+Inner source SHA-256
+`dc91f322e85d50016212878388e8a3d784a980a40c478169a753425008818c33`;
+accepted log `b40254a16be37c3bbae4a7e9653ad95219abe5f7b90583675512d92fd290bb91`.
+Domain source SHA-256
+`5eced41dffd0fdfa7452c47b4b5e4ba23d448720ec475c5420c116b4ec327555`;
+accepted log `d43da170a7cfe2f417d501af4c8ff275452fc150f53954d6257ce5a4f8a34a74`.
+Both check1 runs PASS, with no diagnostics. All 25 public gates permitted:
+two axiom-free, seven propext-only, sixteen {propext,Quot.sound}. ROOT read
+both complete sources/logs; independent Luna inner-rate and Sol COMPLETE
+final domain source/log/math reviews PASS with matching hashes. The final
+documentation/review stage reused these receipts and ran no compiler.
+No new analytic premise, sorry, canonical field change or resource increase.
+Root imports register the leaves only; no root/tree/audit/metric run or
+canonical chart-state change. NEXT: the minimal quantitative domain-completion
+interface actually consumed by the original compact/action route, not
+representative selection or an unnecessary every-continuous-function claim.
+Full Haar/J04, MAIN SAME-variance scaling and Clay remain OPEN.
+
+Separate MAIN read-only mathematical screen: diagonal positivity
+(`cubicPair_diagonal_nonnegative`,
+`lean/YMGap/Continuum/SU2QuaternionCyclicCubicOperator.lean:63`) does not pay
+the actual mixed-minus-diagonal `sourceCubic`,
+`lean/YMGap/Continuum/SU2QuaternionCyclicSecondOrder.lean:187`, against OWN
+variance. The tested diagonal-domination shortcut supplies no such signed
+ordering; its proposed first-Casimir cap also loses uniformity in degree.
+This is a rejected proof strategy, not a new kernel theorem or a BF4
+counterexample. Keep the actual complete signed-cost or centered late-area
+producer as MAIN. The requested bounded paper check is recorded once in
+`audits/RESEARCH-2610-09093-2026-10-08.md`; no extra literature branch.
+
 ### Concrete polynomial-domain producer [CHECKED, after cd9e81c8]
 
 Previous goal turn: PROGRESS, actual completed-map linearity and SAME-map

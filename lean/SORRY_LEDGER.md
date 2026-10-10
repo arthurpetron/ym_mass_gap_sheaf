@@ -1,5 +1,22 @@
 # Sorry Ledger
 
+## PROVED general represented-Haar multiplication / OPEN completion and scaling (2026-10-10 UTC)
+
+`mul`, `lean/YMGap/Constructive/CRealInnerMultiplication.lean:122`, retains a
+computed Type-level product rate from supplied anchors, without extracting a
+Prop cutoff. `productData`,
+`lean/YMGap/Continuum/QuaternionRepresentedHaarMultiplication.lean:205`,
+produces actual product admissibility; `product_map:329` / `evaluate_mul:350`
+pin pointwise multiplication on EVERY Point and both quotient arguments.
+`mul_polynomial:358` recovers original polynomial multiplication and
+`integral_coordinate_square:368` its SAME Haar moment 1/4. Both focused
+checks and COMPLETE independent final-source/log/math reviews PASS within
+{propext,Quot.sound}. No new hole, axiom, analytic premise or weakened field.
+Quantitative domain completion, compact realization/full Haar/J04, MAIN's
+SAME interacting-variance estimate/scaling and all physical/Clay endpoints
+remain OPEN. Root registration only, no full root/tree audit. Exact evidence:
+adaptive-score audit, observed general product closure.
+
 ## PROVED concrete polynomial members of represented ORIGINAL Haar / OPEN full Haar and scaling (2026-10-10 UTC)
 
 `polynomialData`, `lean/YMGap/Continuum/QuaternionRepresentedPolynomialHaar.lean:149`,

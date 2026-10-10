@@ -5455,6 +5455,10 @@ import YMGap.Continuum.QuaternionRepresentedHaar
 -- Produced polynomial members with SAME all-Point maps and ORIGINAL moments.
 -- Concrete nonconstancy is Haar-domain only, not continuum excitation survival.
 import YMGap.Continuum.QuaternionRepresentedPolynomialHaar
+-- Actual product rates and multiplication on the SAME represented Haar domain.
+-- All-Point product pin; no multiplicative-Haar or continuum-survival claim.
+import YMGap.Constructive.CRealInnerMultiplication
+import YMGap.Continuum.QuaternionRepresentedHaarMultiplication
 import YMGap.Continuum.SU2HeatJacobiFinitePrefixClassPolynomial
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticBound
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticCutoff
