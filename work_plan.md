@@ -65,6 +65,19 @@ scaling family; the previously constructed precision schedule does not supply
 that justification. Exact algebra, source pins and stopping conditions:
 `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`, "Math-first reset".
 
+Follow-up SOURCE/PAPER screen: the complete BOX loss telescopes to two time
+edge layers, but no useful comparison to the SAME double-sum response was
+produced. A correctly normalized local score must retain BOTH neighboring
+kinetic factors. An explicit original K=1 kernel calculation rules out its
+LITERAL same-slice spatial-loop source encoding in that instance; it does
+not obstruct OS-form projection or refute the AF estimate. Correct reflection
+placement shows that a suitable score realization plus all-test Ward limit
+would reproduce 12*advance(1,F), not by itself supply independent late energy
+control.
+Do not expand a score-encoder/reciprocal detour without a new quantitative
+argument. Retain the original signed flux as an integral, with MAIN OPEN.
+Exact scope and calculations: the same audit, "BOX and local-score screen".
+
 ### Previous checked MAIN selection (2026-10-10 UTC)
 
 Keep the direct ORIGINAL late endpoint estimate PRIMARY. New finite selection

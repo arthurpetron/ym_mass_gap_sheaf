@@ -118,6 +118,114 @@ independent of j on the actual family. Positivity, reversibility and a
 generic Young bound do not supply the signed adjacent-flux estimate. No
 source-specific producer for it was found in this screen.
 
+### BOX and local-score screen (2026-10-10 UTC; SOURCE/PAPER only)
+
+Previous turn b7d72d59 is PROGRESS in route selection: it recorded reviewed
+algebra and rejected two specific joins, but proved no uniform estimate.
+Two bounded Sol mathematical screens now test quantitative use of that
+reduction. No compiler, paper scan or new conditional interface is selected.
+
+First telescope BEFORE bounding. On the SAME W,F,c define
+
+```text
+B_s = sum_(a=0..M) (G_(s+a)-G_(s+a+M+1)).
+12 sum_(a,b=0..M) (P_(s+a+b)-P_(s+a+b+1))
+   = H[(Gamma(W,F)-12 c W) B_s].
+```
+
+This follows by finite telescoping and linearity from the preceding Ward
+identity. The whole signed numerator has only two time edge layers; its
+denominator remains sum_(a,b) P_(s+a+b). Local angular bounds do not compare
+those objects at relative scale 1/s. A lower coherence estimate could suffice
+for a termwise approach, but is NOT made a new necessary H1 prerequisite.
+On the actual trajectory M=side (radiusFactor=1), by
+`paddedZeroMomentumTrajectory`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedPaddedNondegenerate.lean:251`,
+and `afPaddedZeroMomentumTrajectory`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeAFPaddedTrajectory.lean:305`.
+No automatic box-length gain is asserted.
+
+Second distinguish the correctly normalized score from its bare numerator.
+For an interior slice m, the original `chain`,
+`lean/YMGap/Continuum/SU2QuaternionHeadChainComposition.lean:149`, factors as
+W=W_remote*U_m with U_m=V_m*K_(m-1,m)*K_(m,m+1) and D_m W_remote=0.
+At positive local factors, S=Gamma(U_m,F)/U_m contains THREE terms: the
+spatial score and BOTH kinetic scores. For every test G independent of slice
+m, Haar IBP gives the PAPER pairing H[W S G]=12 H[W F G]. The product
+W S is evaluated by cancellation as W_remote*Gamma(U_m,F); this notation
+does not claim that the repository's polynomial Haar already integrates
+arbitrary rational functions. Applied to adjacent future lags, it exactly
+reproduces the unpaid flux, without a sign or a 1/s factor.
+
+There is a concrete LITERAL-source obstruction, not just a missing encoder.
+`SourceLoop`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonProbe.lean:44`, confines
+each closed loop to spatial baseLinks. `WindowExpression:50` and
+`sourcePolynomial:65`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonWindow.lean`, therefore
+produce polynomials invariant under a central vertex sign operation on
+ANY one slice separately. This operation is an algebraic test, NOT a
+claimed symmetry of the temporally coupled action.
+
+PAPER exact ORIGINAL local-kernel witness: take width=2, the unit x0-x1
+plaquette at the spatial origin, and its first live x0 edge. At the middle
+slice set that edge q=(0,1,0,0), all other links and both neighboring slices
+to identity. Let F be the plaquette's fundamental character, K=1, w=1/8.
+Apply the central sign -1 at the first endpoint ONLY in the middle slice.
+All closed spatial loops and V remain unchanged. The selected edge changes
+to r=-q; another edge in the plaquette also changes sign, so F is locally
+2*q0 before and -2*r0 afterward. Each adjacent kinetic heat factor is
+H_1=1+4*w^3*q0. With the project's six-plane Gamma, Gamma(q0,q0)=1-q0^2
+on the unit quaternion, so each kinetic score contributes +8*w^3 before
+and -8*w^3 afterward. Other changed links are at +/-identity, where these
+heat angular derivatives vanish; the spatial score is invariant under the
+sign isometry. Thus S_before-S_after=32*w^3=1/16. Every H_1 factor is at
+least 127/128>0. This S cannot equal a literal WindowExpression polynomial.
+Source pins: `relative:64`, `kineticWeight:68`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialKineticHeat.lean`;
+`temporalFaces_mem_iff`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFacePlacement.lean:104`;
+`angularDerivative`,
+`lean/YMGap/Continuum/SU2QuaternionAngularDerivative.lean:27`; and
+`blockGamma`,
+`lean/YMGap/Continuum/SU2QuaternionActiveCasimirProduct.lean:37`.
+The first live edge occurs once in each neighboring kinetic layer.
+This is NOT a proof that K=1 meets a headCutoff guard, an AF-family
+counterexample, an obstruction to OS-form projection, or a Yang--Mills
+counterexample. No general changing-cutoff nonrepresentability is claimed.
+
+Correct reflection placement also sharpens the conditional scope. A radius-2
+score with middle offset 1 reflects to slice H+1, beyond EVERY right test
+Within H, using `commonForm:112`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeReflectedForm.lean`, and `mirror:90`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonWindow.lean`.
+`advance:33` and `chart_advance:59`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonPhysicalTime.lean`, place
+advance(1,F) at that same reflected slice. IF an admissible score realization
+and its all-test ORIGINAL Ward limit were proved, dense-test equality and
+positivity would identify the FULL quotient score with 12*advance(1,F),
+not merely a delayed transfer projection. No time injectivity is needed.
+Those realization/limit proofs are unsupplied here; even their conclusion
+alone would only rename the warmed family, not improve its late energy.
+
+Existing `reciprocal_cancellation`,
+`lean/YMGap/Continuum/QuaternionHaarPositiveWindowInverse.lean:181`, is a
+polynomial cancellation identity, not that physical source realization.
+`original_block_score_energy_le`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockConditionalScoreGradient.lean:216`,
+bounds a DIFFERENT projected terminal ratio with nome-gap angular and pair
+budgets, not the temporal energy of S. Neither pays the missing estimate.
+
+Decision: retain the complete original signed flux functional; do not build
+a literal score encoder or reciprocal/completion layer on this route merely
+to reproduce F. Seek an actual relative flux/endpoint estimate. Both
+independent mathematical screens agree with the BOX algebra and local-score
+obstruction; these remain PAPER, not kernel-checked declarations.
+
+Verification: independent bounded source/math review PASS on the formulas,
+source citations and stated limitations. Documentation diff check PASS.
+No Lean file was changed and no compiler or axiom audit was run this turn.
+
 ### Existing consumers versus missing work
 
 - Full ORIGINAL chronological numerator and partition: `window_pairing:96`
