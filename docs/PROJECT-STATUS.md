@@ -1,5 +1,13 @@
 # Canonical one-page project status
 
+Execution-scope correction (2026-10-10 UTC; SOURCE/PAPER only): pursue the
+ORIGINAL signed late-response estimate alongside same-theory physical
+scale-setting. Keep the rounded AF trajectory as an unchanged diagnostic;
+the improving-precision schedule is only a candidate, not physical calibration.
+An unconsumed function-completion branch was stopped before editing.
+No new kernel-checked result or chart-state change. Evidence: adaptive-score
+audit, "Transport and scale-setting screen".
+
 Small supporting H1 contraction checked (2026-10-10 UTC):
 `pathShiftedEpsBound_zero:693` supplies scale zero for c0>=1;
 `pathShiftedEpsBound_iff_positiveScales:718` leaves exactly the ORIGINAL

@@ -442,6 +442,77 @@ surviving merely from its normalization. These are scope/selection findings,
 not new analytic estimates. NEXT remains the joint ORIGINAL endpoint/flux
 estimate for j>=1; no extra conditional wrapper is selected.
 
+### Transport and scale-setting screen (2026-10-10 UTC; SOURCE/PAPER only)
+
+For the original finite step, `transferStep:51`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTransferStep.lean`, uses
+`step:75`, `lean/YMGap/Continuum/SU2QuaternionHeadChainComposition.lean`:
+`P f(r)=H_q[K(q,r)*V(q)*f(q)]`. Paired angular invariance of the kinetic
+factor and Haar IBP give the PAPER commutator
+
+    D(P f)=P(D f)+C f,
+    C f(r)=H_q[K(q,r)*(D V)(q)*f(q)],
+    D(P^m f)=P^m(D f)+sum_(a=0..m-1) P^a C P^(m-1-a) f.
+
+Transport therefore retains an original spatial-score term at every interior
+step. It is not a time-edge estimate. OLD centering also remains: C(F-c)
+contains -c*H[K*D V]. The bare-family consumer
+`padded_family_energy_relative_ward:332`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyRelativeWard.lean`, retains
+its complete signed Taylor remainder; it is not a bound for this transported
+sum against the late response. `sourceDerivativeSignedBulk:227` and
+`original_block_sourceDerivative_cost_relative_tolerance:316`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLastStepSourceDerivativeEnergy.lean`,
+likewise retain their signed bulk. The direction-dependent ordered Hessian in
+`marginal_frozen_score_signed_dual_bound:70`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFisherVector.lean`, cannot be
+discarded using constant-direction Haar IBP. No quantitative payment was
+found; no commutator leaf is selected.
+
+The physical consistency test already has a checked consumer:
+`path_shiftedEps_forces_rate:617`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1Anchor.lean`, implies
+`side_j*(1-r_j)<=c0` from shifted H1, nondegeneracy, and SAME-carrier Rayleigh
+rate witnesses, for j>=1. IF additional physical calibration supplies
+`1-r_j>=m*a(w_j)` with fixed m>0, then `m*side_j*a(w_j)<=c0`.
+Unbounded side_j*a(w_j) would contradict that cap. This is a conditional
+PAPER consequence, NOT a refutation of an actual BF4 trajectory: no such
+physical calibration or drift theorem for the interacting theory is supplied.
+`NomeSchedulePhysicalBox:669` in the same module is only a predicate.
+
+The rounded `afNomeSchedule:274`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeAFPaddedTrajectory.lean`, uses
+`afA:197` = 1942/1000. Its conventional physical-box rounding drift is
+already recorded in `audits/AUDIT-AF-PADDED-TRAJECTORY-2026-10-06.md`, opening
+caveats, not newly proved here. Retain that trajectory unchanged as a
+diagnostic; do not identify it with a justified physical family.
+`value_product_pin:310`, `lean/YMGap/Continuum/AFLeadingCoefficient.lean`, and
+`precisionNomeSchedule:148`,
+`lean/YMGap/Continuum/AFPrecisionNomeSchedule.lean`, supply actual numerical
+precision inputs but still no physical a(w). PRIMARY is now the direct
+original endpoint estimate on a justified family, with scale-setting and
+cross-scale/local-field compatibility investigated backward in parallel.
+No new schedule adapter or canonical-field change is selected.
+
+Independent producer screen stopped a mathematically plausible uniform-limit
+closure of supplied `QuaternionRepresentedHaar.DenseData:43`,
+`lean/YMGap/Continuum/QuaternionRepresentedHaar.lean`. The explicit work-plan
+consumer correction still applies: neither the existing original integral
+API nor the polynomial torus consumers require that new completion property.
+Two independent reviews found no downstream obligation it would remove.
+The finite all-group/OS screen also found no ready producer: exact all-spin
+polynomial consumers are already supplied by `polySchur_all:69`,
+`polyCharMean_all:73`, and `partition_constructed_all:83`,
+`lean/YMGap/Continuum/SU2TorusPolySchurAll.lean`; actual continuum expectations
+and their two-regulator moduli remain inputs to `CanonicalSchwingerLimit:121`,
+`lean/YMGap/Continuum/CanonicalOSRoot.lean`.
+
+Verification boundary: ROOT source/math review and bounded independent Sol
+reviews; no Lean file edited, compiler launched, new theorem, axiom-status
+claim, ledger discharge, canonical-field weakening or chart-state change.
+This is an execution-scope correction and stopped-branch record, not a new
+analytic estimate or continuum/Clay proof. Goal remains active.
+
 ### Existing consumers versus missing work
 
 - Full ORIGINAL chronological numerator and partition: `window_pairing:96`

@@ -27,8 +27,8 @@ formal statement would not solve the mathematical problem.
 
 ### Math-first execution reset (2026-10-10 UTC, user approved)
 
-PRIMARY remains the ORIGINAL late endpoint estimate with SOME fixed finite
-rational c0>=1:
+PRIMARY is the ORIGINAL late endpoint estimate on a JUSTIFIED changing family,
+with SOME fixed finite rational c0>=1:
 `side_j*(R_j(side_j)-R_j(side_j+1)) <= c0*R_j(side_j)` for j>=1,
 with scale zero now supplied by `pathShiftedEpsBound_zero:693` for c0>=1.
 `pathShiftedEpsBound_iff_positiveScales:718` identifies the remaining input
@@ -38,6 +38,25 @@ consumer is `path_normalized_anchor_shifted:581`,
 `lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1Anchor.lean`.
 This is a shifted-survival input alongside the consumer's separate positive
 norm floors, NOT every-state decay or a Clay solution.
+Execution-scope correction after independent SOURCE/PAPER review: the existing
+rounded `afPaddedZeroMomentumTrajectory` stays unchanged as a diagnostic, not
+the selected physical scaling family. Its fixed leading-coefficient rounding
+has the physical-box drift already recorded in the AF trajectory audit.
+`path_shiftedEps_forces_rate:617` on the SAME carrier forces
+`side_j*(1-r_j)<=c0`. IF physical calibration supplies
+`1-r_j>=m*a(w_j)` with fixed m>0, this forces `m*side_j*a(w_j)<=c0`;
+unbounded physical-box drift would therefore conflict with H1 under those
+additional inputs. Neither calibration nor drift of the actual interacting
+theory is proved here. Do not spend the physical-survival proof budget on the
+rounded family without resolving that consistency test.
+
+Work from both ends: retain the exact signed late-response estimate as the
+forward analytic target; independently establish same-action scale-setting
+and cross-scale/local-field compatibility backward from the physical target.
+The already checked `AFPrecisionNomeSchedule.precisionNomeSchedule:148` is a
+provisional numerical candidate, NOT a physical clock or a new H1 proof.
+No adapter leaf or canonical-field change is selected. Exact scope and
+consumer pins: adaptive-score audit, "Transport and scale-setting screen".
 Backward area and late-dual bounds remain optional sufficient routes.
 
 Stop two specific joins: an UPPER bound on the comparison cost cannot be
@@ -55,7 +74,8 @@ pair. The current endpoint mean cancels exactly; no sign or relative bound
 on the remaining flux is supplied. Strictly positive lag is essential.
 NEXT: seek a source-specific bound on the COMPLETE signed sum over the actual
 BOX cross-time lags, relative to its SAME late response, with c0 independent
-of j. Test the inequality direction, original weights and scaling dependence
+of j on the justified family. Test the inequality direction, original weights
+and scaling dependence
 on paper before selecting Lean implementation. Do not formalize another Ward
 wrapper or assume this estimate merely to make a passing leaf. Existing
 common-tail and OWN-limit consumers are available; their missing assembled
@@ -96,6 +116,18 @@ including action faces outside the padded source. Bound these jointly in the
 original expectation; do not replace V by a linear plaquette action. PAPER
 scope and source pins: the same audit, "Interior temporal current and spatial
 score". No new uniform bound, Lean proof status or chart state.
+
+Transported-gradient SOURCE/PAPER screen: commuting an angular derivative
+through ORIGINAL P=K(V*.) creates a spatial-score insertion at EVERY interior
+step, not just the time edges. The available signed curvature/Taylor bounds
+do not pay that sum against the SAME late response. Do not formalize another
+commutator wrapper. A proposed supplied-presentation Haar uniform-limit leaf
+was stopped BEFORE editing: the existing consumer correction below still
+applies, and two independent reviews found no downstream obligation needing
+it. Finite group producers screened in parallel are already supplied; the
+genuine continuum approximation inputs remain unsupplied. No Lean edit,
+compiler run, new estimate or displayed proof-state change. Evidence:
+adaptive-score audit, "Transport and scale-setting screen".
 
 Small CHECKED contraction (2026-10-10 UTC): the two scale-zero/positive-scale
 theorems above remove the retained base-scale premise without changing
