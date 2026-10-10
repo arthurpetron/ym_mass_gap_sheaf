@@ -9,6 +9,11 @@ window threshold theta=1/11), the finite area input holds while earliest-point
 survival fails. The separate finite H1 inequality also holds. These are tests
 at one scalar datum; they assert no uniformly weaker implication,
 original-action estimate, or continuum counterexample.
+
+The second, separately scoped test below establishes the converse separation
+at one finite endpoint: the endpoint H1 inequality holds while the C=6
+backward-area premise fails. It does not assert an unbounded/cofinal family
+or realize either test on the original completed Yang--Mills carrier.
 -/
 
 import YMGap.Constructive.Geometric
@@ -81,6 +86,57 @@ theorem pure_fast_H1_fails : 20*a^64 < 64*(a^64-a^65) := by
       (Q'.mul_eqv_congr_right _ _ _ (by decide : Q'.eqv (64 + -(64*a)) 32))
   exact ClusteringImpliesGap.lt_of_lt_of_le hlt (Q'.ge_of_eqv heq)
 
+/-! ## A finite endpoint-H1 example outside the backward-area premise -/
+
+namespace EndpointVsArea
+
+/-- The second test keeps the fast rate at one half, but changes the slow
+rate and positive fast weight. These are scalar moments, not BF4 responses. -/
+def q : Q' := Q'.mkPos 127 128 (by decide)
+def a : Q' := Q'.mkPos 1 2 (by decide)
+def amplitude : Q' := 4194304
+
+theorem q_bounds : (0 : Q') < q ∧ q < 1 := by decide
+theorem a_bounds : (0 : Q') < a ∧ a < 1 := by decide
+theorem amplitude_positive : (0 : Q') < amplitude := by decide
+
+def response (k : Nat) : Q' := q^k + amplitude*a^k
+def moment (k l : Nat) : Q' :=
+  q^k*(1-q)^l + amplitude*a^(k+l)
+
+/-- Both modal weights and both defect eigenvalues are nonnegative. -/
+theorem moment_nonnegative (k l : Nat) : (0 : Q') ≤ moment k l := by
+  unfold moment
+  apply Q'.zero_le_add
+  · exact Q'.mul_nonneg _ _
+      (Q'.pow_nonneg q (by decide) k)
+      (Q'.pow_nonneg (1-q) (by decide) l)
+  · exact Q'.mul_nonneg _ _ (by decide)
+      (Q'.pow_nonneg a (by decide) (k+l))
+
+/-- Literal backward area at p=16, n=16, endpoint s=32. -/
+def areaWindow : Q' :=
+  response 16 + response 17 + response 18 + response 19 +
+    response 20 + response 21 + response 22 + response 23 +
+    response 24 + response 25 + response 26 + response 27 +
+    response 28 + response 29 + response 30 + response 31
+
+/-- The endpoint H1 estimate has coefficient one, despite the large
+early fast-mode contribution to the backward window. -/
+theorem finite_endpoint_H1 :
+    32*(response 32-response 33) ≤ response 32 := by decide
+
+/-- The SAME positive moment law violates the C=6 backward-area ceiling. -/
+theorem finite_area_ceiling_fails :
+    6*16*response 32 < areaWindow := by decide
+
+theorem endpoint_without_area :
+    32*(response 32-response 33) ≤ response 32 ∧
+      6*16*response 32 < areaWindow :=
+  ⟨finite_endpoint_H1, finite_area_ceiling_fails⟩
+
+end EndpointVsArea
+
 end YMGap.Continuum.BackwardResponseAreaStrictness
 
 #print axioms YMGap.Continuum.BackwardResponseAreaStrictness.moment_nonnegative
@@ -88,3 +144,7 @@ end YMGap.Continuum.BackwardResponseAreaStrictness
 #print axioms YMGap.Continuum.BackwardResponseAreaStrictness.earliest_point_survival_fails
 #print axioms YMGap.Continuum.BackwardResponseAreaStrictness.finite_H1
 #print axioms YMGap.Continuum.BackwardResponseAreaStrictness.pure_fast_H1_fails
+#print axioms YMGap.Continuum.BackwardResponseAreaStrictness.EndpointVsArea.moment_nonnegative
+#print axioms YMGap.Continuum.BackwardResponseAreaStrictness.EndpointVsArea.finite_endpoint_H1
+#print axioms YMGap.Continuum.BackwardResponseAreaStrictness.EndpointVsArea.finite_area_ceiling_fails
+#print axioms YMGap.Continuum.BackwardResponseAreaStrictness.EndpointVsArea.endpoint_without_area

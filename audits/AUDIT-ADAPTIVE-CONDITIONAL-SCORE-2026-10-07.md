@@ -4,6 +4,191 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Selected endpoint-versus-area test (2026-10-10 UTC)
+
+Previous goal turn a952866f is verified algebraic PROGRESS: the exact
+completed adjoint kernel and faithful existing sign descent were checked
+and pushed. HEAD equals origin/main; the three unrelated user duplicate
+leaves remain untracked. No live compiler handle is resumed.
+
+MAIN still asks for SOME fixed finite c0 in the ORIGINAL endpoint estimate
+`side*(R(side)-R(side+1)) <= c0*R(side)`, consumed by
+`path_normalized_anchor_shifted:581`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1Anchor.lean`.
+The recently selected backward-area premise is SUFFICIENT, not yet shown
+necessary. Its exact consumer is `window_area_epsBound:347`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedWindowSurvival.lean`.
+Before pursuing that larger premise, test its converse in the EXISTING
+finite scalar leaf `BackwardResponseAreaStrictness.lean`.
+
+Predicted finite certificate: slow rate 127/128, fast rate 1/2 and fast
+weight 4194304 give a positive two-mode moment law. At s=32 the endpoint
+H1 holds with c0=1, but the area R(16)+...+R(31) EXCEEDS 6*16*R(32).
+This reverses the direction of the leaf's earlier finite comparison;
+neither example is an original-action or Yang--Mills counterexample.
+Independent Sol and Luna review confirms the broader PAPER family
+lambda_s=1-1/(4s), R_s(n)=lambda_s^n+2^(s-n)/s^2, s even >=2:
+the endpoint bound holds with c0=1, while the backward-area ratio is at
+least 2^(s/2)/s^3 and is unbounded. That family is not a Lean theorem.
+
+Budget: one small extension of the EXISTING scalar leaf, no new frontier
+or prerequisite, ROOT-only serial capped verification after a fresh
+capacity check, independent complete source/log review. Abandon if resource
+limits must rise or an original-theory substitution is needed. No full
+audit, paper scan, new sorry/axiom, canonical-field change or ASCII reprint.
+If accepted, keep the direct ORIGINAL endpoint estimate primary and the
+stronger source-specific area route optional; this supplies no such estimate.
+
+### Observed finite separation and verification (2026-10-10 09:01 UTC)
+
+CHECKED in `lean/YMGap/Continuum/BackwardResponseAreaStrictness.lean`:
+`EndpointVsArea.moment_nonnegative:108`, `finite_endpoint_H1:126`,
+`finite_area_ceiling_fails:130` and `endpoint_without_area:133` prove the
+predicted exact finite separation. All mixed moments are nonnegative;
+both mode rates are strictly between zero and one. No original completed
+carrier realization or unbounded family is asserted by these declarations.
+
+ROOT read the COMPLETE frozen 150-line source and COMPLETE nine-line log.
+Independent Luna complete source/log/math review PASS; the reviewer corrected
+a compressed gate-count description against the actual log. Three NEW
+finite inequality gates are axiom-free; NEW mixed-moment positivity depends
+only on propext. The five unchanged earlier gates also stay within the
+permitted gate. No warnings/errors/sorryAx. Focused check1 EXIT0, 0.327s:
+
+```text
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/BackwardResponseAreaStrictness.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/BackwardResponseAreaStrictness.olean --log-file /private/tmp/ym-oct10-endpoint-area1.log
+```
+
+Source SHA-256:
+`eaf8a24215d10a971878fe65af71caef575d7e06992fb08c02491102745f7ac4`.
+Log SHA-256:
+`9bb344115605cd7b1eb704222d3cd67e68e0032ebd9c5cb0a1a80f4d0be20315`.
+Fresh preflight: 64GiB physical RAM, pressure report 84 percent available,
+zero swap, no competing Lean/Lake/pytest/runner/cargo/rustc job. Sandboxed
+process/swap reads were denied and then repeated read-only with approval;
+denial was not treated as evidence of idle capacity. One serial monitored
+worker, 20GiB cap, 12GiB reserve; no full-root/tree build/audit, new module,
+resource override, CI change or paper polling. Existing root import already
+registers this leaf. The three user duplicate leaves are untouched.
+
+### Why no uniform area coefficient follows (independently reviewed PAPER)
+
+For even s>=2 take the Euclidean three-coordinate model with vacuum U=e0,
+T_s=diag(1,lambda_s,1/2), lambda_s=1-1/(4s), and
+x_s=(0,1,2^(s/2)/s). It is a positive self-adjoint contraction, strictly
+contracting on U-perp, and x_s has positive norm in that complement.
+Its actual scalar response is
+
+    R_s(n)=lambda_s^n+(2^s/s^2)*(1/2)^n.
+
+Bernoulli gives lambda_s^s>=3/4. Therefore
+
+    s*(R_s(s)-R_s(s+1))=lambda_s^s/4+1/(2s)<=1/2<R_s(s).
+
+The endpoint coefficient c0=1 is uniform. With p=N=s/2 the backward area
+A_s=sum_(i=0..N-1)R_s(p+i) contains the fast term 2^(s/2)/s^2, whereas
+N*R_s(s)<=s. Thus A_s/(N*R_s(s))>=2^(s/2)/s^3. For s=2^j and j>=6,
+2^(j-1)>=4j by induction, so this ratio is at least 2^j. For a nonnegative
+rational C=a/b with natural b>=1, the explicit choice j=a+6 defeats C
+since 2^j>a>=a/b. No erased existence or asymptotic numerical test is needed.
+The fixed s=32 instance above uses fast weight 2^22; only that instance
+and its mixed-moment positivity have been Lean-checked.
+
+This PAPER model can also be an exact positive BOX image: the rational
+box multiplier b_s(lambda)=(1+...+lambda^s)/(s+1) is strictly positive at
+both excited rates. Divide each source coordinate by its own b_s to
+obtain x_s after that box. This is a statement about the finite model,
+not about the selected original AF observable. It prevents a generic
+positive-box argument from making area a necessary endpoint premise.
+After squared-norm normalization, the same model's response at s satisfies
+R_s(s)/R_s(0)<=2*s^2*2^(-s), which tends to zero. Thus this endpoint
+control also supplies no surviving normalized source by itself. This
+PAPER observation keeps the independent nontrivial continuum-survival
+obligation visible; it is not a normalization or field substitution in MAIN.
+
+Decision: keep the ORIGINAL endpoint estimate primary; source-specific
+area control is still a valid optional sufficient argument. This prunes
+an unnecessary converse, not the original analytic obligation or Clay.
+
+### Parallel original-source screens (SOURCE/PAPER, no new proof)
+
+**Larger square dual.** A concrete candidate is the original centered
+padded-square loop, projected even. `centered_loop_norm_le_four:74`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeLoopNormBound.lean`, supplies V=4;
+`evenPart_detector:287`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeSpatialAxisSwapCompletion.lean`, and
+`evenPart_energy_le:142`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeAxisEnergyProjection.lean`, preserve
+late even overlap and contract energy. `orbitSum_inner_left:174`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeBilinearTime.lean`, leaves ORIGINAL
+mixed family/loop correlators. Neither their required LOWER overlap nor a
+fixed side-scaled energy bound was found. The square's OWN positive overlap
+`paddedSquare_overlap_positive:236`,
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareConnectedDualGain.lean`, is NOT that
+mixed overlap. `paddedSquare_fundamental_family_haar_zero:187`,
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareHeatImage.lean`, is bare Haar
+orthogonality, not interacting orthogonality. The available
+`padded_timeIncrement_nome_bound:131`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeTimeIncrement.lean`, specialized at
+n=1, and `square_length:65`,
+`lean/YMGap/Continuum/BF4DyadicWilsonSquare.lean`, give squared increment
+<=24*(4*side)^2*(1-w). `timeIncrement_reflected_pin:72`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeLoopTimePin.lean`, and
+`centeredVector_loss_pin:188`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeCenteredVector.lean`, identify that
+increment with TWO times the ORIGINAL centered one-step defect energy.
+Their PAPER composition yields only E(v)<=192*side^2*(1-w), hence
+side*E(v)<=192*side^3*(1-w), also for its even projection. Do NOT substitute
+`unitTimeIncrement_bound:115` in the square leaf: its elapsed time is SIDE,
+not one, and its 384*side^3 bound concerns the full squared increment.
+This ceiling does NOT imply the required O(1) estimate on the AF schedule.
+No new dual adapter is selected.
+
+**Mean-neutral temporal filter.** `orbitSum:166` and `orbitSum_pairing:195`
+in the bilinear-time leaf above, with `completedUnit_fixed:139` and
+`completedInner_time_balance:164`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeCompletedTime.lean`, permit zero-total-
+mass finite filters and exact vacuum orthogonality. But differencing the
+original positive box multiplies it by 1-lambda^r. Near lambda=1 its norm
+ratio (1-lambda^r)^2 tends to zero. It changes the tested source rather
+than proving the area or endpoint bound for the ORIGINAL box state.
+No quantitative lower source comparison is supplied by mean removal.
+
+**One chronological insertion.** The correct ALL-NOME pins are
+`expressionRaw_original_pin:104`,
+`expressionCenteredTimeMoment_chronological_pin:128` and
+`expressionOwn_centeredPair_converges:251`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonOwnCenterLimit.lean`.
+They expand the ACTUAL moving rational OWN mean before the fixed-lag limit.
+The initially proposed `OriginalCorrelator.completedTime_originalCorrelator`
+is a DIFFERENT fixed-stage completion and is rejected as a MAIN join.
+`window_pairing:96` and `window_partition_pairing:124`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWindowPairing.lean`, retain
+one complete chain numerator/partition; they do not identify all differing
+lag windows with ONE common finite density. That placement/centering join
+and any useful signed expectation estimate remain unproved.
+
+For source values y_r, s=2N and M=s, the PAPER common-window insertion is
+
+    P=(sum_(a=0..s)y_(t-a)) *
+      [C*N*sum_(b=0..s)y_(t+s+b)
+       -sum_(i=0..N-1)sum_(b=0..s)y_(t+N+i+b)].
+
+In the FREE-sequence test y_r=A>0 before t+s and y_r=-B<0 thereafter,
+P=(s+1)*A*N*[-A*(N+1)/2+B*((3N+1)/2-C*(2N+1))]<0 for C>=1,N>=1.
+This is not a realized gauge configuration or a negative ORIGINAL
+expectation. It rejects pointwise positivity as a generic shortcut;
+the dynamics must control the signed expectation. No SOS/area compiler
+assuming the missing estimate is selected. MAIN and all continuum/QFT/
+physical/every-group/Clay endpoints remain OPEN; canonical chart unchanged.
+
+Final independent documentation review PASS after spelling out the n=1
+squared-increment, factor-two and centered-loss pins in the square-dual
+screen. The elapsed-SIDE scalar is a different quantity, not the one-step
+energy in the dual consumer. ROOT checked each added declaration start
+and read the full revised diff. Source remains frozen at the accepted hash;
+no further compiler run is needed for these documentation clarifications.
+
 ## MAIN screen and exact adjoint-kernel selection (2026-10-10 UTC)
 
 Continuation classification: b5eab261 is documentation/research-decision

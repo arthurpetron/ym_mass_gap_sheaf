@@ -2009,6 +2009,27 @@ Evidence: `audits/AUDIT-INTERACTING-RESPONSE-SHAPE-2026-10-07.md`.
 
 Evidence: `audits/AUDIT-BACKWARD-AREA-AND-RETAINED-COST-2026-10-07.md`.
 
+## PROVED: finite endpoint H1 without the backward-area ceiling (2026-10-10)
+
+- `BackwardResponseAreaStrictness.EndpointVsArea.moment_nonnegative:108`
+  gives the positive scalar two-mode law with rates 127/128 and 1/2.
+  `finite_endpoint_H1:126`, `finite_area_ceiling_fails:130` and
+  `endpoint_without_area:133` prove endpoint coefficient c0=1 at s=32
+  while R(16)+...+R(31)>6*16*R(32). All in
+  `YMGap/Continuum/BackwardResponseAreaStrictness.lean`.
+- Focused check1 and COMPLETE independent frozen-source/log review PASS;
+  the three finite inequalities are axiom-free, mixed-moment positivity
+  uses propext only. No new module, sorry/axiom, canonical-field change,
+  resource increase, root/tree build or broader audit.
+- OPEN: actual uniform ORIGINAL endpoint/combined signed-cost estimate,
+  justified scaling, continuum survival, physical mass, full SAME-theory
+  QFT, every group and Clay. The cofinal separation is PAPER only and
+  neither it nor this finite scalar certificate is a BF4 counterexample.
+  Backward-area control remains an OPTIONAL sufficient route.
+
+Evidence: `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`,
+endpoint-versus-area test.
+
 ## PROVED: transport an initial original energy fraction through filtering (2026-10-07)
 
 - `BF4ExactSlabFixedSpatialSourceRayleighPersistence.sourceRayleigh_floor_step`

@@ -27,6 +27,18 @@ formal statement would not solve the mathematical problem.
 
 ### Latest MAIN selection (2026-10-10 UTC)
 
+Keep the direct ORIGINAL late endpoint estimate PRIMARY. New finite selection
+guard `BackwardResponseAreaStrictness.EndpointVsArea.endpoint_without_area:133`
+proves H1 with c0=1 at s=32 while the SAME positive scalar moment law violates
+the backward-area ceiling C=6. Focused check1 and independent complete
+source/log review PASS; three new gates axiom-free, one uses only propext.
+The separately reviewed PAPER two-mode family has uniform endpoint c0=1
+but no finite uniform backward-area coefficient. This is NOT a BF4/AF
+counterexample. The area premise is a useful OPTIONAL sufficient route,
+not a necessary input to the existing endpoint consumer. No canonical
+field or displayed claim changes. Exact derivation and verification:
+adaptive-score audit, endpoint-versus-area test.
+
 Current analytic screen: additional time filters duplicate the known one-mode
 obstruction; OWN centering retains the raw channel mean in the Casimir IBP.
 No new late-dual or joint signed-cost estimate was found. Keep MAIN below OPEN
@@ -449,8 +461,11 @@ no final diagnostics or resource increase. No arbitrary-Q coefficient theorem,
 closed variance formula or BF4 counterexample is claimed. Exact evidence:
 adaptive-score audit, "Accepted one-block obstruction". MAIN remains open.
 
-Current source/math selection (2026-10-10 UTC): keep the stronger initial
-relative-energy route OPTIONAL. The existing backward-area consumer
+Current source/math selection (2026-10-10 UTC): keep BOTH the stronger initial
+relative-energy route and backward-area route OPTIONAL. The new finite
+endpoint-versus-area certificate above and its separate PAPER cofinal family
+show why area must not be promoted to a necessary endpoint prerequisite.
+The existing backward-area consumer
 `BF4WilsonAllNomeShiftedWindowSurvival.window_area_epsBound:347` only needs
 late-area control to give endpoint loss `s*e_Y(s)<=4*(C-1)*R_Y(s)`.
 `smoothedResponse_pin` and `familyExcitation_correlator_pin` already identify

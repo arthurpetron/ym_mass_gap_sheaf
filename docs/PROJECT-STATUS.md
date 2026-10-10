@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Supporting endpoint/area selection guard checked (2026-10-10 UTC):
+`BackwardResponseAreaStrictness.EndpointVsArea.endpoint_without_area:133`
+gives a positive two-mode scalar response with endpoint H1 c0=1 at s=32,
+but failing backward area C=6. Focused check1 and COMPLETE independent
+source/log review PASS; three new gates axiom-free, one uses propext.
+The uniform-family separation is independently reviewed PAPER, not Lean.
+Keep direct ORIGINAL endpoint control primary and area optional. No actual
+BF4 estimate or counterexample, continuum/Clay closure or displayed claim
+change follows; no chart reprint. Evidence: adaptive-score audit.
+
 Supporting exact completed ADJOINT kernel checked (2026-10-10 UTC):
 `RationalQuaternionCompletedAdjointKernel.representation_kernel_iff:386`
 proves the actual completed matrix kernel is exactly the two embedded signs.
