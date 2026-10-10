@@ -501,16 +501,42 @@ was found in the bounded source review. Thus the initial-family Ward identity
 is not a producer for the late centered-area target above. Estimate that
 complete aggregate before compiling another transport adapter.
 
-Independent J04 review found no useful small approximation leaf: finite
+The earlier independent J04 review found no useful net-cover wrapper: finite
 rational nets, supplied-row completed cover and Point polynomial translation
 already exist. The missing mathematics is uniform polynomial approximation
 on the SAME continuous Point-function domain and a sup-norm bound for the
 actual polynomial Haar functional. Nets supply no cubature weights, and
 integrating a nonpolynomial function to define its approximation presupposes
 the unavailable Haar extension. Do not add an existential quotient net-cover
-wrapper or another assumed-approximation interface. Source pins and the
-review boundary are recorded in `audits/RESEARCH-2610-09093-2026-10-08.md`; no J04,
-MAIN or canonical displayed claim closes.
+wrapper or another assumed-approximation interface.
+
+CHECKED bounded J04 foundation (2026-10-10 UTC):
+`QuaternionHaarTensorBernsteinCubature.jointWeight_nonnegative:141` and
+`jointMass_one:349` produce finite nonnegative tensor-Bernstein weights using
+PRODUCTS under the SAME one-quaternion polynomial Haar functional, not independent coordinate
+marginals. `jointElevatedRow_reconstruction_auto:409` proves exact elevated-row
+reconstruction for four separable coordinate polynomials with a computed
+degree cutoff, including signed/zero coefficient lists. This
+supplies actual finite weights without already integrating a continuous f;
+it does NOT assert exact raw-grid polynomial quadrature. The explicit signed
+Haar-to-weighted-elevated-coefficient identity remains OPEN. Next unpaid inputs
+also include the tensor coefficient-error bound and sphere-repair concentration,
+then sphere sup-norm contractivity and continuous-function approximation/
+extension. Existing coordinate Certificates, row reconstruction/error and
+`RationalQuaternionNormRepair.repair_error_le` are the forward inputs.
+Focused check2 PASS; 26 gates, fourteen exactly {propext,Quot.sound}, twelve
+axiom-free. Root registration only; no root/tree audit. Exact source/log
+hashes, earlier elaboration failure and independent review: adaptive-score
+audit, finite positive cubature section. No J04 or MAIN closure is claimed.
+
+The requested paper review confirms that Appendix E assumes continuous Haar;
+its companion section 10.4 supplies a useful EFFECTIVE error-accounting
+recipe, not our missing integration producer. Keep derivative-weighted
+coefficient error separate from support/refinement tails and charge all of
+them to the actual growing consumer before claiming a joint limit.
+Source pins, classical-formalization and bounded review scope:
+`audits/RESEARCH-2610-09093-2026-10-08.md`, effective approximation inputs.
+MAIN centered late-area and all continuum/physical/Clay obligations stay OPEN.
 
 CHECKED original terminal curvature (2026-10-08 23:39 UTC): the new
 `ConditionalFisherOrder.conditional_fisher_nonnegative` uses two actual

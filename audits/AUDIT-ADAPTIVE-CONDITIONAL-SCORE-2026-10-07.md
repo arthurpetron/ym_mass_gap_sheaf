@@ -4,6 +4,89 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Finite positive cubature foundation (2026-10-10 UTC)
+
+Previous turn b188aa45 changed planning only; no new mathematical proof.
+The bounded main-source screen found no valid automatic telescope of the
+squared conditional derivative budget. Continue MAIN centered late-area
+payment; do not identify changing finite-law means with its fixed unit mean.
+
+Independent J04 experiment: construct the ACTUAL four-coordinate tensor
+Bernstein Haar weights at every finite degree, prove nonnegativity and
+normalization, and reconstruct separable coordinate polynomials with their
+literal elevated rows. The weights are Haar integrals of PRODUCTS of basis
+polynomials in the SAME quaternion, not products of marginal integrals.
+This is the finite positive cubature input to a noncircular sup-norm proof;
+no existing continuous-Haar consumer is inhabited by this leaf alone.
+
+Available inputs: `QuaternionHaarUnitIntervalCoordinate` supplies certified
+Y_i=(1+x_i)/2 and 1-Y_i; `QuaternionHaarBernsteinRowCertificate` supplies
+literal basis polynomials; `BernsteinRationalPositiveRow` supplies exact
+reconstruction and a computed grid-coefficient error. Actual rational repair
+`RationalQuaternionNormRepair.repair_error_le` pays squared repair distance
+by (normSq-1)^2, including zero inputs.
+
+PAPER downstream argument, independently checked: the tensor grid law has
+mean squared norm defect 2/N+10/N^2-3/N^3 for positive degree N. Repairing
+grid points and tensorizing the existing coefficient-error estimate should
+give sup-norm contractivity on the sphere without already integrating a
+continuous function. This moment formula, the tensor error estimate, the
+sup-norm theorem and the continuous extension are NOT checked outputs yet.
+
+Degeneracy tests: lowest tensor degree, signed polynomial coefficients,
+shared coordinates and zero raw grid point. Do not assume independence,
+pointwise-positive-to-Haar positivity, a cubature witness, or an approximation
+theorem. Stop if exact reconstruction requires such an input. Verification:
+one new finite leaf, ROOT-only serial safe checks with fresh capacity readings,
+one 20-GiB worker and 12-GiB reserve; no broad audit or resource increase.
+No canonical field, sorry, classical input or chart claim changes.
+
+### Observed finite result [CHECKED]
+
+`jointWeight_nonnegative`,
+`lean/YMGap/Continuum/QuaternionHaarTensorBernsteinCubature.lean:141`, and
+`jointMass_one:349` construct nonnegative rational joint weights of total
+mass one at EVERY positive degree N=n+1, including n=0. All four coordinate
+basis factors are multiplied under ONE actual polynomial Haar. No marginal-
+independence or continuous-integration assumption is used; the finite joint
+weights are constructed here, with nonnegativity proved by Certificates.
+`jointElevatedRow_reconstruction_auto:409` proves
+coefficient-level reconstruction of four separable QPoly factors at its
+computed `jointCutoff:406`, including zero/signed coefficient lists.
+
+This is a finite FOUNDATION, not exact quadrature at raw grid nodes.
+The explicit signed Haar-to-weighted-elevated-coefficient identity is still
+OPEN; the normalized elevated coefficients, not p evaluated at k/N, would
+enter that identity. Tensor error, norm-defect moment, sphere sup-norm and
+continuous extension are still PAPER/OPEN. MAIN late-area payment is
+unchanged. No canonical displayed claim closes, so no ASCII reprint.
+
+ROOT's accepted one-file check2: terminal exit 0, 0.96 seconds. The complete
+log has no warnings/errors; all 26 public gates pass, fourteen with exactly
+{propext,Quot.sound} and twelve axiom-free. Check1 failed only on unresolved
+Haar namespaces and an ambiguous polyFinSum; its error-recovery sorryAx is
+NOT proof evidence. Namespace opens and an explicit qualification repaired
+it without changing hypotheses or increasing limits. Each launch followed
+fresh memory/swap/compiler-process inspection; no competing compiler/runner
+was observed and swap was zero. One 20-GiB worker, 12-GiB reserve, atomic
+monitored launcher; no root/tree/audit run. Root import registration only.
+
+Final source SHA-256
+`7212e6d6401e4f459ad8206ed9e9d75888c80fd766c9522b55a55f8fc6fc7754`;
+accepted `/private/tmp/ym-tensor-bernstein-cubature-check2.log` SHA-256
+`020e36c3ec85b3814d7d9a164f7c601f48a526a9e9a37fc8b3517babc7a91ee8`.
+Independent COMPLETE final-source/log review PASS: the reviewer reread all
+446 final source lines and the complete 33-line accepted log, matched both
+hashes and all gates, and confirmed the finite foundation/OPEN consumer
+boundary. The next useful contraction is the actual signed weighted-row
+identity and its grid/repair error, not another assumed Haar interface.
+Independent final documentation/source-citation review PASS after clarifying
+that the weights are constructed, not a supplied cubature hypothesis.
+
+```sh
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionHaarTensorBernsteinCubature.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionHaarTensorBernsteinCubature.olean --log-file /private/tmp/ym-tensor-bernstein-cubature-check2.log
+```
+
 ## CHECKED original common-frame first jets and own-vector synthesis (2026-10-09)
 
 Previous goal turn was PROGRESS: the all-degree original polynomial-kernel
