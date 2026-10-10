@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## PROVED linear-UV scalar obstruction / OPEN original late estimate (2026-10-10 UTC)
+
+`PolynomialUV.response_zero_le_endpoint:276`, `response_endpoint:287`,
+`moment_nonnegative:297`, `moment_split:310`, `scaled_loss_pin:333` and
+Type-valued `failingDatum:371`,
+`lean/YMGap/Continuum/BackwardResponseAreaStrictness.lean`, construct positive
+pure-mode moments with R(0)<=s, R(s)=1 and endpoint loss (n+1)/2. An explicit
+index defeats every natural H1 coefficient. This prunes a generic inference
+from polynomial UV growth and an absolute late floor; no ORIGINAL action,
+dyadic trajectory, continuum field or Yang--Mills counterexample is realized.
+Focused check2 PASS: 17 new gates within {propext,Quot.sound}, no diagnostics.
+Independent COMPLETE final-source/log/math and four-file scope reviews PASS.
+Check1 rejected a rational-as-integer polynomial constant; its recovered
+sorryAx output is NOT accepted evidence. No new hole, axiom, analytic premise,
+canonical-field change or full-tree audit. One 20-GiB worker/12-GiB reserve.
+PRIMARY SAME-source H1, justified scaling, continuum survival, physical mass,
+full QFT, every-group and Clay remain OPEN. Exact evidence: adaptive-score
+audit, "Observed linear-UV obstruction".
+
 ## PROVED sharp real two-sector budget / OPEN original-OS estimates (2026-10-10 UTC)
 
 `two_cross_le_add_of_square_le_product:168` and

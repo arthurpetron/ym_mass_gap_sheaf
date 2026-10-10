@@ -16453,3 +16453,115 @@ BOX H1 drop. No uniform relative estimate is asserted by either. Continue
 with the future-visible COMPLETE
 signed flux, including OLD-center debt, on a justified changing family.
 No Lean edit/build, supplied uniform bound, canonical field or chart change.
+
+## Positive-time envelope versus polynomial UV norm (2026-10-10 UTC)
+
+Decision BEFORE implementation: test the proposed inference from a polynomial
+time-zero norm ceiling and a uniform positive late-response floor to H1. The
+exact SAME-object endpoint consumer remains `pathShiftedEpsBound_iff_response`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1Anchor.lean:418`. From
+`mixedMoment_time_budget`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeTimeDefectTail.lean:71`, the already
+proved machinery instead pays H1 if compatible fixed rational bounds give
+R(s/2)<=U and R(s)>=L>0: c0=2*(U/L-1) suffices for even s. This avoids
+time-zero UV growth. The two actual physical-time bounds are NOT supplied.
+
+Predicted decisive diagnostic: k=n+1, m=2^k, s=k*m, q=1-1/(2*m),
+A=1/q^s and R(t)=A*q^t. The existing `slow_horizon_floor`,
+`lean/YMGap/Continuum/RationalMacroRetentionWithoutInitialEnergy.lean:110`,
+gives q^m>=1/2, hence A<=2^k=m<=s. Yet R(s)=1 and
+s*(R(s)-R(s+1))=k/2, which is unbounded. Thus even a LINEAR UV ceiling
+and an absolute late floor do not supply a uniform endpoint coefficient.
+These are computable positive scalar moment data, NOT a BF4 realization,
+justified scaling family, continuum field or Yang--Mills counterexample.
+
+Select only this parametrized finite mathematical screen in EXISTING
+`BackwardResponseAreaStrictness.lean`, reusing the already proved rational
+slow-rate/Bernoulli input. Return an explicit failing datum for each natural
+candidate coefficient; no additional analytic bundle or conditional H1
+compiler. ROOT alone will verify the focused file with one 20-GiB worker and
+12-GiB reserve after fresh capacity inspection. No full build/audit. Revise
+or stop if an actual same-source positive-time envelope is already proved,
+or if the claimed polynomial ceiling/failure cannot be independently checked.
+Keep physical-box/action/local-field justification and the PRIMARY signed
+estimate OPEN; do not elevate this optional envelope route to necessity.
+
+## Observed linear-UV obstruction (2026-10-10 UTC)
+
+The selected finite scalar test is now kernel-checked in EXISTING
+`lean/YMGap/Continuum/BackwardResponseAreaStrictness.lean`:
+
+- `PolynomialUV.endpoint_power_floor:234` iterates the existing Bernoulli floor;
+  `amplitude_le_block:261` bounds its computed reciprocal amplitude by 2^k.
+- `response_zero_le_endpoint:276` proves R(0)<=s, and
+  `response_endpoint:287` pins the SAME late response to exactly one.
+- `moment_nonnegative:297` and `moment_split:310` prove the full positive
+  binomial moment law, without an assumed moment-positivity interface.
+- `scaled_loss_pin:333` proves s*(R(s)-R(s+1))=k/2.
+  `endpoint_bound_fails:354` and Type-valued `failingDatum:371` compute
+  n=2*C+1 for every natural candidate coefficient C, retaining every premise.
+
+Verification: ROOT ran only the focused file, serially, with
+`python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20
+--reserve-gib 12 --check lean/YMGap/Continuum/BackwardResponseAreaStrictness.lean
+--check-output lean/.lake/build/lib/lean/YMGap/Continuum/BackwardResponseAreaStrictness.olean
+--log-file /private/tmp/ym-oct10-poly-uv-endpoint2.log`.
+Check2 exited zero with no diagnostics; all 17 new printed gates are within
+{propext,Quot.sound}. Check1 rejected precisely `PolyExpr.const half`, since
+that constructor takes Int, not Q'. ROOT corrected the representation by
+using a variable and the separately checked identity half*2=1. Error-recovery
+sorryAx output in the REJECTED check1 log is not proof evidence. No explicit
+sorry, new axiom, classical shortcut or resource-limit increase was added.
+
+Final source SHA256:
+`19a2d85b43fbceb23dfd5bff5e304a27f46d576d8b66bc0afaec20ecee061555`.
+Accepted complete log SHA256:
+`9132a220a4b5aacde6aea00b0f310fb0ca1a8cce0cc20eb8fb782f8654079628`.
+ROOT and independent COMPLETE final-source/log/math review PASS. Independent
+review of the complete four-file implementation/documentation diff also PASS;
+the reviewer rechecked declaration line numbers against `nl -ba`.
+Fresh host preflight: 64 GiB total, memory-pressure free percentage 86%,
+no swap used and no competing Lean/lake/Rust job. The check completed in
+the initial call; no live-job polling or full build/audit was needed.
+
+Interpretation: prune polynomial-time-zero-ceiling + absolute-late-floor as
+a GENERIC sufficient implication. This family is not an actual BF4 source,
+justified dyadic physical family, local-field construction or Yang--Mills
+counterexample. The SAME positive-time envelope remains an OPTIONAL sufficient
+route, not an H1 necessity. For bounded fundamental loops its compatible
+ceiling is already supplied by `centered_loop_norm_le_four`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeLoopNormBound.lean:74`; no renormalized
+local-field ceiling follows from that statement. The source-specific late
+floor on a justified changing family, or a direct complete signed relative
+estimate, is still missing. PRIMARY H1 and every continuum/physical/QFT/group/
+Clay endpoint remain OPEN. No canonical displayed claim changes; no ASCII.
+
+Narrow SOURCE/PAPER producer screen (not a new Lean family bound):
+`centered_loop_norm_le_four`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeLoopNormBound.lean:74`, and
+`completedTime_form_le`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeTimeDefectMoments.lean:120`, bound
+every positive-time response of ONE fundamental centered loop by 4.
+`timeKernel_weight_pos:202`, `timeKernel_mass:228` and
+`smoothedResponse_orbit_expand:326` in
+`lean/YMGap/Continuum/BF4WilsonAllNomeSmoothedCoherentState.lean` preserve
+an available ceiling by positive normalized double averaging.
+For the signed `familyState`,
+`lean/YMGap/Continuum/BF4WilsonPlaquetteFamilySourcePin.lean:69`, the elementary
+triangle bound is instead 4*(sum |c_p|)^2. The actual
+`paddedZeroMomentumTrajectory`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedPaddedNondegenerate.lean:251`,
+has unit coefficients on ALL interior spatial faces; its AF variant
+`afPaddedZeroMomentumTrajectory`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeAFPaddedTrajectory.lean:305`, retains
+those coefficients. This bound therefore gives only 4*faceCount_j^2, not a
+uniform ceiling. It proves neither growth of the true norm nor impossibility
+of a sharper cancellation estimate. Dividing each coefficient by faceCount_j
+would also divide EVERY response and late floor by faceCount_j^2, leaving
+the relative H1 question unchanged. Field-renormalization likewise changes
+both bounds. `DyadicSmoothedTrajectory`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicSmoothedTrajectory.lean:329`,
+requires positive squared-coefficient mass, not uniform L1 mass or physical
+local-field compatibility. Retain source-specific positive-time cancellation
+or relative late retention as optional analytic targets; no averaging-only
+join, new interface or physical scaling claim is selected.

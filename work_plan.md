@@ -135,6 +135,30 @@ the SAME warmed source, not an extra all-vector Rayleigh-rate theorem. These
 are selection tests, NOT supplied calibration, H1 or scaling proofs. Details:
 adaptive-score audit, "Current invariance and source-specific calibration".
 
+Checked selection test: `PolynomialUV.response_zero_le_endpoint:276`,
+`response_endpoint:287`, `scaled_loss_pin:333` and `failingDatum:371` in
+`lean/YMGap/Continuum/BackwardResponseAreaStrictness.lean` exhibit positive
+scalar moments with R(0)<=s, R(s)=1 and s*(R(s)-R(s+1))=(n+1)/2.
+Every natural candidate H1 coefficient has a computed failing datum. Thus
+a polynomial UV ceiling plus an absolute late floor is NOT a sufficient
+generic join. This is not an ORIGINAL BF4 realization or physical counterexample.
+An OPTIONAL sufficient route instead bounds the SAME response at compatible
+positive times: R(s/2)<=U and R(s)>=L>0 give c0=2*(U/L-1) by the existing
+`mixedMoment_time_budget:71`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeTimeDefectTail.lean`, for even s.
+Do not transport a bounded-character ceiling through a divergent local-field
+normalization or promote this optional pair of bounds to a necessary premise.
+The actual changing-family floor/envelope and PRIMARY signed estimate stay
+OPEN. Exact verification: adaptive-score audit, "Observed linear-UV obstruction".
+The narrow producer screen distinguishes a single bounded fundamental loop
+(checked ceiling 4) from the actual unit-coefficient all-face source (only
+the PAPER triangle ceiling 4*faceCount^2). Normalized BOX weights preserve
+such a ceiling; averaging the spatial coefficients also divides the late
+response/floor by faceCount^2 and supplies no relative H1 improvement.
+Seek actual positive-time cancellation or a relative late floor, not a
+normalization-only shortcut. These are SOURCE/PAPER consequences, not new
+kernel-checked family estimates or physical-family justification.
+
 Independent bounded Sol source/math review agrees with this reduction and
 its unpaid H1 bound. That SOURCE/PAPER H1 review changed no Lean file, axiom
 declaration, canonical field or chart; the separately recorded scalar RG
