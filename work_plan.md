@@ -141,6 +141,36 @@ checks and COMPLETE independent final-source/log reviews PASS; 25 permitted
 gates, two axiom-free definitions, no final warnings/errors. Root registration
 only; no tree audit or displayed-claim closure. Exact evidence: score audit.
 
+Selected PAPER contraction after the targeted paper follow-up
+(2026-10-10 00:07 UTC): complete the square on the ACTUAL gradient and
+retained slack together. With v=bF, x=Gamma(b,F), y=Gamma(b,b), g=Gamma(F,F),
+Q=H[v^2], G=H[b^2*g] and B the literal retained slack, existing angular
+IBP/product rules plus the ORIGINAL carrier C(F)=12F pin give G+2H[v*x]=12Q.
+ROOT and the independent reviewer checked the resulting division-free identity
+for all rational a,t:
+`(a^2+24*a*t)*Q-6*t*(a*G-t*B) = H[((a-24*t)*v+6*t*x)^2]+12*t^2*H[y*g-x^2]`.
+The angular Gram certificate supplies the last nonnegative term. This is
+OUR PAPER calculation, not an imported fermion theorem or a new Lean proof.
+The next finite test folds the EXACT residual with the actual passive Gram
+weights into `remainingFamilyEnergy`, retaining both positive-square credits.
+Its existing downstream consumer is
+`normalizedEnergy_signed_cutoff_payment`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedFamilyEnergyPayment.lean:78`.
+At a=h-19t and t=h^2/2, the raw-Q ceiling tends to 1/3 as h tends to zero;
+it is not a small relative SAME-variance estimate by itself. Cubic/pair cost,
+raw-Q versus OWN variance, warmed transport and moving-family control remain
+unpaid. Test the COMPLETE joined expression before expanding a cap/floor or
+channelwise Cauchy branch; no inverse observable norm or new analytic premise
+is selected. Exact derivation and input declarations:
+`audits/RESEARCH-2610-09093-2026-10-08.md`, current-consumer decision.
+
+The supplement's newly reviewed Appendix B.9 gives an exact local
+gauge-invariant one-form invisible to Ward, curvature and closed-period tests
+but visible in transverse response. Use it as a scope guard: symmetry tests
+alone do not pin the literal full residual. It is not a BF4 counterexample
+or permission to change the original action/current. No canonical chart claim
+changes; no ASCII reprint or compiler run is justified by this planning review.
+
 NEXT mathematical producer is a useful COMPLETE signed cost versus the SAME
 interacting variance on a justified moving family, or direct original macro
 retention. For the MAIN signed spatial family, omitted loss is now paid at its
