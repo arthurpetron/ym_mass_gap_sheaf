@@ -12121,3 +12121,171 @@ task with a coarse Ward/score-floor or normalization wrapper. Continuum
 survival, physical mass, full QFT, every compact simple group and Clay remain
 OPEN. The unchanged whole-project goal stays active; no canonical displayed
 claim changes and no ASCII reprint.
+
+## Source-specific selection after mixed-radial payment (2026-10-10 UTC)
+
+ROOT and two bounded parallel source/math reviews examined the next consumer,
+not another literature scan. Previous turn classified PROGRESS: 7cd2d6fb
+constructed and pushed the finite original mixed-radial payment. The unchanged
+Clay goal remains open and active.
+
+### Exact original Ward reduction, not a variance payment
+
+`BF4ExactSlabFixedSpatialWilsonMeanRadial.edgeMoment_pin`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonMeanRadial.lean:91`,
+identifies lower endpoint moments with the SAME odd one-slice marginal. The
+source has BOTH terminal factors, not a replacement b-squared density.
+Together with `paddedSquare_variance`, `paddedSquare_angular` and
+`paddedSquare_ward`,
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareWardMoments.lean:544`, `:552`, `:578`,
+the PAPER reduction is r=RA/Z=3-m2, v=1+m2-m1^2 and Ward=L*(3*v-r),
+where L=4*side. The reduction does not supply a sign or bound for Ward.
+With Q=quarticBudget (NOT the unnormalized fourthBudget=Q*Z), the optional
+radial consumer still needs useful control of
+
+    6*h*L^2*r + 3*L^4*Q  versus  v.
+
+No normalization adapter or coarse score-floor join is selected. The full
+MAIN signed-family estimate remains a separate original-law obligation.
+
+### Selected decisive test: positive polynomial concentration
+
+On the actual one-block polynomial Haar, let u=(1+x0)/2, W_m=u^m,
+Z_m=H[W_m], f=2*x0, v_m=OWN normalized variance, and r_m=E_m[4-f^2].
+The density is certified NONNEGATIVE and its Haar mass is strictly positive;
+W_m itself vanishes at x0=-1 when m>0.
+The existing `kernelMoment_recurrence`,
+`lean/YMGap/Continuum/SU2QuaternionPolynomialKernelConcentration.lean:319`,
+and produced `kernelMoment_positive:433` supply the input, with no Beta
+integral, continuous Haar, source-positivity assumption or mass oracle.
+The selected NEW Lean claim is the ratio and positivity
+
+    r_m=(m+3)*v_m,
+    v_m > 0.
+
+The closed formula `v_m=12*(2*m+3)/[(m+3)^2*(m+4)]` is a PAPER prediction,
+not a separately implemented or kernel-checked declaration.
+
+Its cleared core is A*(B-C)=(m+3)*(A*C-B^2), A=Z_m, B=Z_(m+1),
+C=Z_(m+2), obtained by adding two actual moment recurrences. This includes
+m=0 and every later degree. Predicted decision: positivity, linear trace
+degree and the centered Ward identity alone CANNOT imply a source-uniform
+radial/variance ceiling. The explicit m-index is the witness, not an erased
+existence claim. It is NOT a BF4 terminal-source counterexample or an
+obstruction to a source-SPECIFIC estimate using the original dynamics.
+
+Verification budget: one existing leaf, no new frontier interface, ROOT-only
+serial capped focused checks after fresh dynamic preflights, independent
+final-source/log review. No new sorry, Classical input, options increase,
+canonical closure, full audit or ASCII reprint. Revise or abandon if the
+identity requires a substituted measure or an unproved moment assumption.
+The preceding paragraphs record experiment selection. Accepted evidence for
+the implemented ratio, positivity and Nat witness is recorded below; the
+closed formula remains PAPER.
+
+### Weaker backward target: signed late-window area
+
+`window_area_epsBound`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedWindowSurvival.lean:347`,
+already consumes area control at p=N=s/2, s=side, to produce
+`s*(R_Y(s)-R_Y(s+1)) <= 4*(C-1)*R_Y(s)`. It does NOT need a small
+initial-family relative energy. `smoothedResponse_pin`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeSmoothedCoherentState.lean:341`,
+and `familyExcitation_correlator_pin`,
+`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteFamilyVariance.lean:187`,
+pin the SAME original centered time moments. For box smoothing radius M,
+the exact PAPER area target, with positive normalization cleared, is
+
+    sum_(a,b=0..M) [C*N*R_x(s+a+b)
+                         - sum_(i=0..N-1) R_x(p+i+a+b)] >= 0.
+
+Every raw lag is at least s/2. This avoids the initial UV response without
+assuming it small. Retain the whole SIGNED bracket; no separately centered
+channel, different partition, spectral-support assumption or synthetic
+response may replace it. This is a consumer expansion, not a produced
+original Yang--Mills estimate or a new Lean theorem.
+
+The mean subtraction does NOT cancel from this area. By the definition
+`centeredTimeMoment`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeCenteredMoments.lean:43`, and the SAME
+unit stationarity `intrinsicForm_unit_invariant:64`, each (a,b) bracket
+in uncentered notation retains `-(C-1)*N*mu_j^2`, with the original mean
+and partition. An uncentered area ceiling alone therefore does not pay the
+centered target. The current one-marginal
+`family_ward`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyVarianceWard.lean:124`,
+and initial-step `padded_family_energy_signed_exact`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedFamilyEnergy.lean:489`,
+do not themselves compare the required two-time lags. A source-specific
+estimate must keep the complete centered joint insertion, uniformly along
+the justified moving family; a finite-cutoff producer must additionally
+pass its finitely many lags to the SAME completion at each fixed scale.
+
+Automatic smoothing is also insufficient: for T*x=lambda*x, 0<lambda<1,
+Y_M is a scalar multiple of x, so relative one-step loss remains 1-lambda
+independently of M. The existing scalar `pure_fast_H1_fails`,
+`lean/YMGap/Continuum/BackwardResponseAreaStrictness.lean:71`, is a checked
+finite screen; the general eigenmode argument here is PAPER. Neither is an
+actual BF4 counterexample. Prioritize a source-sensitive estimate of the
+late signed area or complete original cost on the justified moving family;
+do not add another area/smoothing compiler assuming the missing conclusion.
+
+### Accepted one-block obstruction
+
+ROOT's final focused check4 returned EXIT0; ROOT and the independent Sol
+reviewer read the entire frozen new source and final log. Source/math and
+accepted-log reviews PASS. The actual public declarations in
+`lean/YMGap/Continuum/SU2QuaternionPolynomialKernelConcentration.lean` are:
+
+- `kernelScalarDeterminant:524`, `kernelRadialDeterminant:529`,
+  `kernelRadialDeterminant_eq_variance:534`;
+- `kernelCharacter:617`, `kernelRawRadial:620`,
+  `kernelScalarDeterminant_positive:800`;
+- `normalizedKernelRawRadial:827`, `normalizedKernelVariance:832`,
+  `normalizedKernelRawRadial_eq_variance:969`,
+  `normalizedKernelVariance_positive:997`,
+  `no_nat_uniform_radial_variance_factor:1024`.
+
+The literal radial expectation and literal OWN variance divide by the SAME
+produced A=H[W_m]. The carrier relation identifies the radial polynomial with
+4-f^2 under arbitrary Haar insertions. The two actual moment recurrences
+prove A*(B-C)=(m+3)*(A*C-B^2) and
+(2*m+6)*(2*m+8)*(A*C-B^2)=6*A*B>0. Their composition therefore proves
+`r_m=(m+3)*v_m`, `v_m>0` at EVERY degree, including zero. The explicit
+Nat-coefficient theorem chooses m=C and proves `C*v_C<r_C`; no arbitrary
+Q'/CReal coefficient witness or separate closed variance formula is claimed.
+This is a nonnegative positive-mass polynomial Haar example, NOT an actual
+BF4 terminal-source counterexample or a Yang--Mills counterexample.
+
+Accepted command (repository root):
+
+```text
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/SU2QuaternionPolynomialKernelConcentration.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/SU2QuaternionPolynomialKernelConcentration.olean --log-file /private/tmp/ym-oct10-kernel-radial-variance4.log
+```
+
+Final source SHA256:
+`bac7887e860ce3f5d586d7c42a337c6bd6e12e264541b0fe463ba9dc62da7225`.
+Final log SHA256:
+`db12081bf7caaae4d82042519833291a375cc1736c4b9a708f2cfaccfa6dfcb0`.
+The full 45-line log has 24 public gates matching the source: 22 depend only
+on {propext,Quot.sound}; `kernelCharacter` and `kernelRawRadial` are axiom-free.
+No final warnings/errors, sorryAx or additional axioms. Checks1--2 had
+elaboration/parenthesis errors; check3 had a whnf heartbeat timeout. None is
+accepted evidence, including their recovery-generated axiom output. Moving
+only the normalization algebra into an opaque abstract-Q' helper repaired
+the timeout without a limit increase or a new analytic hypothesis.
+
+Fresh preflight before check4: 64GiB physical RAM, memory-pressure report
+86 percent available, zero swap, no competing Lean/Lake/cargo/rustc runner.
+Only ROOT ran serial monitored verification with the unchanged worker cap
+and 12GiB reserve. No new module, sorry, axiom, canonical-field weakening,
+root/tree audit, CI change or resource override. The three user `(1).lean`
+duplicates remain untouched and unstaged.
+
+Outcome is finite mathematical PROGRESS: the generic ratio shortcut has an
+explicit checked obstruction. Next MAIN work is the source-specific signed
+late area on the justified original moving family, retaining its mean term,
+or the complete signed original relative cost. Neither is produced here.
+Continuum survival, physical mass, full QFT, every compact simple group and
+Clay remain OPEN. The goal remains active; no canonical displayed claim
+changes and no ASCII reprint.

@@ -260,6 +260,40 @@ theorem). Do not build their redundant adapter: a useful source-specific
 signed radial/variance and quartic/variance budget, or direct original macro
 retention, remains missing. The canonical displayed claims and Clay stay OPEN.
 
+CHECKED selection guard (2026-10-10 UTC): on the ORIGINAL one-block
+polynomial Haar law with certified nonnegative weight W_m=((1+x0)/2)^m,
+`SU2QuaternionPolynomialKernelConcentration.normalizedKernelRawRadial_eq_variance:969`
+proves `r_m=(m+3)*OWNVariance_m`. The variance is produced strictly positive
+at every degree, including zero; `no_nat_uniform_radial_variance_factor:1024`
+gives the explicit defeating source m=C for each natural coefficient C.
+This prunes a source-uniform radial/variance comparison from positivity and
+Ward identities alone, NOT a source-SPECIFIC original Wilson estimate.
+Final focused check4 and complete independent source/log reviews PASS;
+24 public gates within {propext,Quot.sound}, two axiom-free definitions,
+no final diagnostics or resource increase. No arbitrary-Q coefficient theorem,
+closed variance formula or BF4 counterexample is claimed. Exact evidence:
+adaptive-score audit, "Accepted one-block obstruction". MAIN remains open.
+
+Current source/math selection (2026-10-10 UTC): keep the stronger initial
+relative-energy route OPTIONAL. The existing backward-area consumer
+`BF4WilsonAllNomeShiftedWindowSurvival.window_area_epsBound:347` only needs
+late-area control to give endpoint loss `s*e_Y(s)<=4*(C-1)*R_Y(s)`.
+`smoothedResponse_pin` and `familyExcitation_correlator_pin` already identify
+its moments on the SAME completion. For s=side and p=N=s/2, the PAPER
+positive-normalization-cleared target is
+`sum_(a,b=0..M)[C*N*R_x(s+a+b)-sum_(i=0..N-1)R_x(p+i+a+b)]>=0`.
+Every raw lag is at least s/2; no initial UV-energy estimate is required.
+Keep centering: in uncentered notation each box pair retains the original
+`-(C-1)*N*mu_j^2`; an uncentered area ceiling is insufficient.
+This is NOT a produced original-law bound. Positivity and increasing the
+box radius alone do not pay it (a single fast eigenmode retains its relative
+loss). Do not build another conditional smoothing/area adapter. Next work
+must estimate this complete SIGNED area on a justified moving original
+family, or pay the complete initial signed cost with a useful relative rate.
+Exact declarations and independent selection evidence: adaptive-score audit,
+"Source-specific selection after mixed-radial payment". No canonical displayed
+claim closes and no chart is reprinted.
+
 NEXT mathematical producer is a useful COMPLETE signed cost versus the SAME
 interacting variance on a justified moving family, or direct original macro
 retention. For the MAIN signed spatial family, omitted loss is now paid at its
