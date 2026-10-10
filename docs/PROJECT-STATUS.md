@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Supporting ORIGINAL signed-family cutoff join checked (2026-10-09 UTC):
+exact ordered bare face Gram produces the positive padded ALL-face norm;
+the constructed family square cap and SAME predecessor-mass/OWN-variance
+floor pay signed omitted loss at an explicit nome/width/family cutoff.
+The actual normalized-energy consumer retains the negative retained slack.
+ONE fixed-family cutoff serves every positive terminal depth, NOT a uniform
+scaling estimate. Three final narrow checks/25 permitted gates and COMPLETE
+independent final-source/log reviews PASS, no final warnings/errors.
+Remaining signed cost, temporal smoothing/chronological conversion, scaling
+and physical/Clay goals OPEN. Exact displayed claims unchanged; no chart
+reprint. Evidence: adaptive-score audit's general-family cutoff section.
+
 Supporting complete SIGNED ORIGINAL family energy checked (2026-10-09 UTC):
 `BF4ExactSlabFixedSpatialSignedFamilyEnergy` proves the exact
 `E=(h-19*t)*G+C-t*R-O-t*B`, retaining the actual certificate

@@ -5169,7 +5169,12 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyRetainedSquare
 -- Actual terminal first order versus the SAME variance, with joint signed debt.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalSourceBounds
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyBareHaar
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyBareGram
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilySourceVarianceBound
+-- SAME original signed-family omitted loss paid at a computed fixed-family cutoff;
+-- remaining signed cost, temporal smoothing and scaling still open.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialSignedFamilyOmittedPayment
+import YMGap.Continuum.BF4ExactSlabFixedSpatialSignedFamilyEnergyPayment
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyJointCorrection
 -- Exact spectator Gram-channel reduction of original moments and plaquette energy.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialPassiveChannels

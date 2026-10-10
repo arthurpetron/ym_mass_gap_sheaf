@@ -11502,3 +11502,129 @@ or produce direct original macro retention, then justify warmed/BOTH-mass and
 moving-family/scaling joins. Those estimates, continuum survival, physical mass,
 full QFT/every-group and Clay remain OPEN. Exact canonical displayed claims
 unchanged; no ASCII reprint.
+
+## Selected general-family signed cutoff payment (2026-10-09 UTC)
+
+Previous turn: PROGRESS, exact original-family energy pushed as `1f859d11`.
+MAIN finite output: construct a cap for the literal signed/repeated family
+and a computed cutoff that pays `-signedFamilyOmitted` by
+delta*oddMass*OWN oddVariance at EVERY positive depth. Use SAME actual
+channels and the shared predecessor-mass square in `rawSourceMass_le_capSquare`
+and `family_variance_bare_floor`; no Wilson cap16/starRatio substitution.
+Parallel producer: exact ORIGINAL bare-family Gram, including geometric
+repeats, and nonzero PADDED all-face/unit-coefficient instance. This is a
+finite positive-norm producer, not a completed norm or survival hypothesis.
+
+Prediction: the cap is produced by existing finite square addition; positivity
+of the exact bare norm permits inverting only its explicit finite scalar
+coefficient, never the predecessor mass or interacting variance. The cutoff
+may depend on nome, full width and the actual family; no scaling uniformity.
+Test empty/zero families, signs, repeated faces, physical padding and positive
+depth before compilation. Abandon rather than replace the OWN variance or
+postulate the missing finite Gram. ROOT serial narrow checks only, one
+20GiB worker/12GiB OS reserve with fresh capacity preflights; no root/tree audit.
+
+Parallel auxiliary math screen derives, on PAPER, `2*Q*B>=3*(G-4*Q)^2`
+and its completed-square ceiling for `(h-19*t)*G-t*B`, from the ACTUAL
+retained certificate and Casimir-12 IBP. Q is the raw channel observable
+square, NOT OWN variance; signed cubic/pair/O corrections remain. A bounded
+constructive producer may remove an angular comparison cost, but this
+auxiliary estimate is not selected as another required analytic hypothesis
+or a claim of MAIN relative payment. Require the actual polynomial/Cauchy
+certificate, not just a re-assumption of the displayed inequality.
+
+### Observed general-family cutoff payment and original-energy consumer
+
+KERNEL-CHECKED, with COMPLETE ROOT and independent final-source/log reviews
+PASS. This is our finite mathematical follow-through, not an imported theorem
+from the requested chiral-fermion paper.
+
+1. `plaquette_pair_haar`,
+   `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyBareGram.lean:81`,
+   constructs actual face orthogonality by an exclusive original link, including
+   adjacent faces. `family_square_ordered_gram:139` retains every ordered pair
+   of geometric occurrences and signed coefficients. `family_square_nodup:194`
+   simplifies to the coefficient-square sum only under Nodup.
+   `padded_all_faces_square:211` gives literal ALL-face/unit norm equal to its
+   face count on the SAME padded carrier; `padded_all_faces_square_positive:221`
+   produces positivity for base>0 and base<=width. No interacting Gram or
+   warmed/continuum survival is claimed.
+2. `familySquareBound`,
+   `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedFamilyOmittedPayment.lean:99`,
+   constructs the whole signed/repeated family cap M from actual face cap4 and
+   the existing finite square-addition compiler. Let B0 be its actual bare Haar
+   square, L=sourceFloorScale, U=sourceCapScale, rho=omittedRate, Z=oddMass.
+   `signedFamilyOmitted_le_rawMass:142` retains signed loss -O, the projected
+   endpoint source and complete actual passive weights. Shared-predecessor
+   substitution gives `signedFamilyOmitted_variance_cleared:178`:
+
+       (L*B0)*(-O) <= (M*U*rho)*(Z*OWNVariance).
+
+   This handles zero B0 ONLY as a cleared bound. No division by predecessor
+   mass, projected source or OWN variance occurs. `omittedPaymentConstant:217`
+   divides only when the computed bare norm B0>0. `omittedPaymentCutoff:270`
+   is max(headCutoff, geometricCutoff(w, M*U/(L*B0), delta)).
+   `signedFamilyOmitted_le_variance:283` pays -O by delta*Z*OWNVariance
+   at EVERY positive depth n+1 using this one cutoff.
+   `normalized_signedFamilyOmitted_le_variance:320` divides by the SAME positive
+   original partition, not variance. `allFacesPaymentCutoff:350` and
+   `allFaces_signedFamilyOmitted_le_variance:355` produce the bare-norm guard
+   for literal spatialFaces base, unit coefficients, positive base and strict
+   padding. No Wilson cap16/starRatio or changed mean is substituted.
+3. `remainingFamilyEnergy`,
+   `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedFamilyEnergyPayment.lean:51`,
+   retains `(h-19*t)*G+C-t*R-t*Slack`. `energy_eq_remaining:60` is lossless;
+   `normalizedEnergy_signed_cutoff_payment:78` and concrete
+   `allFaces_normalizedEnergy_signed_cutoff_payment:104` prove
+
+       normalizedEnergy <= remainingFamilyEnergy/Z + delta*OWNVariance.
+
+   The actual original transfer energy, source, partition and OWN variance
+   remain. Favorable retained-square slack is not dropped. The remaining
+   signed expression is UNPAID; this is not a new strict form bound.
+
+The cap is deliberately coarse and grows with the literal family. Nome,
+FULL width, coefficients, family and tolerance are visible in the modulus;
+only positive depth is uniform after those are fixed. No beta/volume/spacing
+uniformity, temporal smoothing or two-chronological-mass identification.
+Empty/zero/repeated/signed families remain in the cleared theorem; the later
+divided bound does not assert a zero-family positive norm.
+
+Accepted final commands, from repository root:
+
+```sh
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyBareGram.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyBareGram.olean --log-file /private/tmp/ym-oct9-family-bare-gram2.log
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedFamilyOmittedPayment.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedFamilyOmittedPayment.olean --log-file /private/tmp/ym-oct9-family-omitted-payment4.log
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedFamilyEnergyPayment.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedFamilyEnergyPayment.olean --log-file /private/tmp/ym-oct9-family-energy-payment1.log
+```
+
+All three exit 0. Six/fifteen/four public gates respectively; the Gram and
+family-cap definitions are axiom-free, all other 23 gates exactly
+{propext,Quot.sound}. No final warnings/errors. Final hashes:
+
+- FamilyBareGram source `4f0f6b3fd45400eba8bec2533d9563ccea71d71077dd3441dd166262679f2998`;
+  accepted gram2 log `bdc554efb0c2d64e3177beabc7ffc4874da13444dbf5a4f9dfe20d4fdd6b57bd`.
+- SignedFamilyOmittedPayment source `5301e5f6a7ac35957195e0b433366dbb83cd902f8f2f4c3fd5ad50f8180752a8`;
+  accepted payment4 log `1b9b11a8f26bfafb8c542bdbbc4ce7e0cf7eaa7b2852438c3c6c5ef8ce15978d`.
+- SignedFamilyEnergyPayment source `db854449903195c44ac74df2c4c1028a3a9c50fcf44f446bafa60d7abf74c0cf`;
+  accepted energy1 log `6a2a607af5199d7a081040262271472dbfd37c2165d7e4afa2f3a2992a7e0f67`.
+
+Gram1 failed two reflexive-membership elaborations, repaired without changing
+the statement. Omitted1 failed parser layout; omitted2 hit an unfolding timeout
+in normalization; omitted3 needed an explicit positive-mass proof. Those
+outputs are superseded, NOT proof evidence. Kept large partition/variance
+definitions opaque locally; no heartbeat/resource increase or statement change.
+Fresh dynamic memory/swap/compiler/runner preflights preceded EACH serial
+launch: 85--86 percent system memory free, zero swap, no competing compiler.
+One capped 20GiB worker and 12GiB OS reserve. No user process stopped; no full
+root/tree build, audit/guard, new hole, axiom or classical input. Root imports
+are registered only. Three user duplicate leaves remain untouched.
+
+REPOINT: the finite omitted component is now paid for the MAIN initial family.
+Estimate the remaining signed expression against SAME interacting variance,
+retaining its negative slack and explicit delta reserve. Then produce temporal
+smoothing/warmed/BOTH-chronological-mass and justified moving-family/scaling
+control, or direct original macro retention. The auxiliary raw-Q coercivity
+screen remains PAPER and is not another analytic prerequisite. Continuum
+survival, physical mass, full QFT/every-group and Clay remain OPEN. Exact
+canonical displayed claims unchanged; no ASCII reprint.

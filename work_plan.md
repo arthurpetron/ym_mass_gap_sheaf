@@ -125,11 +125,29 @@ eight gates exactly {propext,Quot.sound}, no final warnings/errors.
 This is an initial-family identity, not a warmed or relative estimate.
 Root registration only; no root/tree audit. Exact evidence: score audit.
 
+CHECKED ORIGINAL signed-family cutoff payment (2026-10-09 UTC):
+`BF4ExactSlabFixedSpatialFamilyBareGram` computes the exact ordered bare Gram,
+including repetitions, and gives the padded ALL-face unit norm as face count.
+`BF4ExactSlabFixedSpatialSignedFamilyOmittedPayment` constructs the whole-family
+square cap and joins the shared predecessor-mass square to the SAME OWN variance
+floor. Its cleared estimate includes zero bare norm; division requires produced
+positive norm. `allFacesPaymentCutoff` supplies that guard, not a survival premise.
+`BF4ExactSlabFixedSpatialSignedFamilyEnergyPayment.allFaces_normalizedEnergy_signed_cutoff_payment`
+now gives `normalizedEnergy <= remainingFamilyEnergy/Z + delta*OWNVariance`,
+retaining the favorable actual retained-square slack. Fixed nome/full width/
+family/tolerance remain explicit; ONE cutoff serves every positive terminal
+depth. The finite cap is coarse and NOT volume-uniform. Three final narrow
+checks and COMPLETE independent final-source/log reviews PASS; 25 permitted
+gates, two axiom-free definitions, no final warnings/errors. Root registration
+only; no tree audit or displayed-claim closure. Exact evidence: score audit.
+
 NEXT mathematical producer is a useful COMPLETE signed cost versus the SAME
 interacting variance on a justified moving family, or direct original macro
-retention. For the MAIN signed spatial family, target the exact expression
-`(h-19*t)*familyChannelGradient+signedFamilyCubic-t*familyChannelPairRemainder-signedFamilyOmitted-t*signedFamilyRetainedSlack`
-against SAME `oddMass*oddVariance`. Keep the last negative term: dropping it
+retention. For the MAIN signed spatial family, omitted loss is now paid at its
+computed fixed-family cutoff; target the remaining exact expression
+`(h-19*t)*familyChannelGradient+signedFamilyCubic-t*familyChannelPairRemainder-t*signedFamilyRetainedSlack`
+against SAME `oddMass*oddVariance`, retaining the explicit delta reserve.
+Keep the last negative term: dropping it
 requires a strictly stronger payment than estimating the actual energy.
 The weaker checked signed upper bound and older absolute error consumer
 remain available, but neither is a necessary extra analytic prerequisite.
@@ -142,10 +160,11 @@ even for a positive low-degree source. That screen is PAPER, not an actual
 BF4 terminal-source counterexample. A first-Casimir norm ceiling on the
 joined scalar remainder does not give its missing channel/OWN-variance
 comparison. Do not pretend the old absolute-leaf error budget has been
-bounded. A general family's omitted payment needs its OWN produced cap and
-bare-norm/variance comparison, not Wilson cap16/starRatio. Existing finite
-sum caps and the actual `family_variance_bare_floor` are inputs, not an
-already joined all-face cutoff payment. Keep favorable gradient and signed
+bounded. The general-family omitted payment above uses its OWN produced cap
+and bare-norm/variance comparison, not Wilson cap16/starRatio. Its cutoff
+depends on nome, full width and family and pays ONLY this component; changing-
+family control and temporally smoothed/chronological payment are still owed.
+Keep favorable gradient and signed
 cross credits. Do not substitute the different joint marginal W=V*g_n*g_(n+1),
 absolutize all pair terms, or apply the initial curvature identity to a warmed
 source without a producer. Chronological mass conversion, changing-family/
