@@ -16565,3 +16565,74 @@ requires positive squared-coefficient mass, not uniform L1 mass or physical
 local-field compatibility. Retain source-specific positive-time cancellation
 or relative late retention as optional analytic targets; no averaging-only
 join, new interface or physical scaling claim is selected.
+
+## Positive-time producer and field-normalization screen (2026-10-10 UTC)
+
+Previous goal turn: PROGRESS, the checked linear-UV countermodel pruned a
+specific false sufficient implication. This continuation is SOURCE/PAPER
+selection work, not a new original-theory estimate or Lean proof.
+
+The bounded original-source searches supplied no lower-retention producer.
+`mixed_response_half:354` and `common_time_filter_response:413`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeOriginPlaquetteOrbitResponse.lean`,
+retain a negative mixed response on the SAME carrier; spatial symmetry does
+not justify dropping it. `plaquette_response_geometric_lower:125`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeLocalResponseOrbit.lean`, retains its
+nome-dependent rate. The conditional-current identity was already recorded
+above in "Coherent-score variance and future-test cancellation"; optimizing
+invisible fluctuations supplies no new signed relative estimate. Do not
+reimplement those reductions or launch another compiler for them.
+
+Targeted primary-source review, not a routine math-ph scan:
+[Faria da Veiga--O'Carroll, arXiv:2205.07376v2](https://arxiv.org/pdf/2205.07376v2),
+pp. 30--35, Eq. 82--84, Remark 16. The paper uses an exponential Wilson
+weight, not this repository's heat-character product. Its Eq. 82 field is
+sqrt(gamma)*ImTr(U-1), gamma=a^(d-4)/g^2. Remark 16 PRINTS H=A_p/(a^4*g),
+S=a^d*H; do not silently change g to g^2. Its displayed Eq. 83 estimate
+retains extra-boundary powers. Substituting its partition bounds leaves
+gamma^(D*2^(d-1)*Lambda_e/Lambda_s), with D=N^2 in the displayed U(N)
+formulas; SU(N) requires the stated adaptation. For Lambda_e=d*L^(d-1),
+this is gamma^(C/L), C=D*d*2^(d-1). Thus the displayed bound still requires
+boundary/coupling control at finite stages; its thermodynamic-first bounds
+are not supplied rectangular approximation moduli. This does NOT establish
+failure of the actual moments. A constructed stage family could control the
+factor: for gamma>=1, gamma<=2^L gives gamma^(C/L)<=2^C. No such physical
+family or action comparison is provided here.
+
+Independent ROOT/Sol PAPER normalization check against the ACTUAL source:
+`fundamentalMatrixValue`,
+`lean/YMGap/Continuum/SU2QuaternionFundamentalMatrixSemantics.lean:203`,
+has conjugate diagonal entries; the fundamental SU(2) trace is real.
+`faceCharacter`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFaceCharacter.lean:52`,
+uses the real fundamental character chi_1. Therefore the imaginary-trace
+field is identically zero for this representation. The real action field
+instead satisfies A_p=4-2*chi_1 and, with the PRINTED d=4 normalization,
+S=A_p/g and chi_1-E(chi_1)=-(g/2)*(S-E(S)). Any covariance rescaling by
+g^2/4 must use the SAME measure and its OWN center; it is not a source of
+relative H1 improvement. These are algebraic PAPER consequences of the
+existing matrix/source definitions, not newly printed axiom gates.
+
+The actual action pins are `spatialWeight`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSliceHeat.lean:70`,
+`heatPrefix`, `lean/YMGap/Continuum/QuaternionHaarHeatCertificate.lean:31`,
+and `coeffW`, `lean/YMGap/Continuum/BondMovingStep.lean:259`.
+The signed-window consumer `original_window_budget_macro_ratio`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeWindowSignedCost.lean:245`, still needs
+its original cost relative to the SAME surviving variance. An absolute
+local moment estimate in a different action is not that input.
+`CanonicalSchwingerLimit.approximationConverges`,
+`lean/YMGap/Continuum/CanonicalOSRoot.lean:147`, requires actual independent
+thermodynamic/continuum error moduli. Its stage geometry may depend on BOTH
+indices: no fixed-lattice-width premise is imposed by this screen.
+
+Decision: retain the original signed late estimate as PRIMARY. Before using
+a generating-functional ceiling, establish the REAL source normalization,
+the ORIGINAL heat-action bound/comparison, and its actual finite-stage
+boundary control. Do not import the zero imaginary-trace field, correct a
+paper's coupling normalization without proof, infer survival from an upper
+bound, or replace explicit moduli by a subsequence. No new hypothesis bundle,
+Lean edit/build, canonical-field change or chart reprint. Clay stays OPEN.
+Independent COMPLETE two-file source/math/scope review PASS; ROOT confirmed
+the printed equations by local PDF rendering. No numerical proof certificate
+or external theorem was imported.

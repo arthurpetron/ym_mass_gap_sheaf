@@ -158,6 +158,15 @@ response/floor by faceCount^2 and supplies no relative H1 improvement.
 Seek actual positive-time cancellation or a relative late floor, not a
 normalization-only shortcut. These are SOURCE/PAPER consequences, not new
 kernel-checked family estimates or physical-family justification.
+The next generating-functional producer must match the REAL source and
+ORIGINAL heat action, with finite-stage boundary control. A reviewed
+exponential-Wilson-action paper's imaginary trace is zero for fundamental
+SU(2); its real action field has a different printed coupling normalization,
+and its displayed finite-volume bound retains a boundary/coupling factor.
+Do not import it as a heat-action ceiling or rectangular continuum modulus.
+Physical stage geometry may depend on both regulator indices; controlling
+that factor is not ruled out. Exact PAPER/source evidence: adaptive-score
+audit, "Positive-time producer and field-normalization screen". MAIN stays OPEN.
 
 Independent bounded Sol source/math review agrees with this reduction and
 its unpaid H1 bound. That SOURCE/PAPER H1 review changed no Lean file, axiom
