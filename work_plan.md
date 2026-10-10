@@ -27,15 +27,20 @@ formal statement would not solve the mathematical problem.
 
 ### Latest MAIN selection (2026-10-10 UTC)
 
-SELECTED actual MAIN sector input: prove the x1/x2 swap fixes
-`afPaddedZeroMomentumTrajectory.state j` on the ORIGINAL completion for
-every j, including actual centering and BOX orbitSum smoothing. This pays
-the source-even premise of existing `evenPart_detector`; every-lag overlap
-with swap-odd duals must then be zero. Existing face-list permutation and
-ordered source-character pins suffice; no invariance assumption or new
-analytic interface. One bounded Sol leaf, serial capped ROOT verification
-and independent review. Exact decision/budget: adaptive-score audit.
+CHECKED actual MAIN sector input:
+`afPadded_state_even`,
+`lean/YMGap/Continuum/BF4WilsonAllNomePaddedAxisSector.lean:241`, proves
+the x1/x2 swap fixes the ORIGINAL AF state at every scale, including actual
+unit centering and literal BOX orbitSum smoothing. `afPadded_evenPart_detector:259`
+pays the existing detector's source-even premise; `afPadded_odd_lag_zero:274`
+excludes every swap-odd dual at every lag. No invariance is assumed.
+Focused check2 and independent COMPLETE source/log/math review PASS;
+six gates exactly {propext,Quot.sound}, two unused-binder warnings only.
 This constrains the concrete dual search, not MAIN retention or Clay closure.
+NEXT: produce the ORIGINAL late-response/signed-cost estimate or a concrete
+even-sector dual with the fixed overlap/energy bounds below. No candidate
+currently pays them; do not add another conditional interface. Exact
+command, hashes and rejected check1: adaptive-score audit. Chart unchanged.
 
 CHECKED independent completed adjoint input:
 `RationalQuaternionCompletedAdjointMatrix.rawMatrix_mul:185` and
@@ -109,8 +114,8 @@ the initial-versus-late correction: adaptive-score audit.
 Requested paper refinement (2610.09093, 2026-10-10 UTC): Appendix E.1
 symmetrizes the COMPLETE current, including its transformed inputs and
 tangent arguments. Apply only that bookkeeping lesson, not its fermion
-symmetry law, to our scalar source/dual. AFTER the selected actual source
-pin U*x_j=x_j is proved, replace any candidate dual by evenPart(v_j).
+symmetry law, to our scalar source/dual. The actual source pin U*x_j=x_j
+is now checked above; replace any candidate dual by evenPart(v_j).
 It preserves late overlap and contracts norm and energy. Retain the OLD
 positive norm budget V_j; do not renormalize by the projected norm.
 Then alpha,D,a,c0 remain unchanged, even if the projected or late-source

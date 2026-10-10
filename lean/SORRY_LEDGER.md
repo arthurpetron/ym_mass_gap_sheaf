@@ -1,5 +1,21 @@
 # Sorry Ledger
 
+## PROVED actual padded all-face swap-even sector / OPEN late-response estimate (2026-10-10 UTC)
+
+`allFace_raw_even:155`, `allFace_centered_even:189` and
+`allFace_smoothed_even:232`,
+`lean/YMGap/Continuum/BF4WilsonAllNomePaddedAxisSector.lean`, retain the
+ORIGINAL embedded face family, unit centering and literal BOX orbitSum.
+`afPadded_state_even:241` pays the existing detector's source-even premise
+at every scale; `afPadded_evenPart_detector:259` preserves detection and
+`afPadded_odd_lag_zero:274` excludes every odd dual at every lag.
+Focused check2 and independent complete frozen-source/log/math review PASS;
+six gates exactly {propext,Quot.sound}, two unused-binder warnings only.
+No new hole, axiom, analytic premise or canonical-field change. Energy
+projection, an actual low-energy even dual, MAIN retention/scaling and every
+physical/QFT/every-group/Clay endpoint remain OPEN. Root registration only,
+not a root/tree audit. Exact evidence: adaptive-score audit, padded axis sector.
+
 ## PROVED all-spin ORIGINAL polynomial Schur/partition consumers / OPEN physical estimates (2026-10-10 UTC)
 
 `relativeCharacter_pair_zero`,

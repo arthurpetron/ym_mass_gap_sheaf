@@ -6,6 +6,15 @@ and a finite strictly positive physical Hamiltonian mass gap.
 
 ## Actual padded axis sector: decision before implementation (2026-10-10 UTC)
 
+Resumption at HEAD=origin/main=10f4a5e7: previous turn PROGRESS in source/math
+selection, not a new Lean theorem. It verified the late-overlap/norm-budget
+refinement and changed the next dual search. Tracked checkout is clean;
+the same three user duplicate leaves are preserved. No live compiler handle.
+Execute the selected source pin now. A short SAME-carrier evenPart energy
+contraction in that leaf may additionally remove the PAPER algebra input
+of the existing late-dual search; it must produce the inequality for every
+vector from checked symmetry and defect positivity, not assume it.
+
 Previous goal turn PROGRESS: 687a89da independently checked the completed
 adjoint input. Live HEAD and origin/main agree; only the three unrelated
 user duplicate leaves are untracked. No live compiler is being resumed.
@@ -33,6 +42,52 @@ one-worker/20GiB check/12GiB reserve after fresh capacity preflight, with
 independent full-source/full-log/math review. Stop if a symmetry or analytic
 input must be assumed. No broad/root/tree audit, resource increase, new
 frontier field, paper polling or chart closure. MAIN late response is OPEN.
+
+## Actual padded axis sector: observed contraction (2026-10-10 UTC)
+
+The selected source input is CHECKED in
+`lean/YMGap/Continuum/BF4WilsonAllNomePaddedAxisSector.lean`.
+`allFace_raw_even:155` proves the actual embedded all-unit face sum is fixed
+for every base<=width, including the empty base. The proof uses the existing
+ordered source-character pin, including reversed p12, and face-list permutation.
+`allFace_centered_even:189` retains the actual unit projection;
+`allFace_smoothed_even:232` retains the literal BOX orbitSum for every radius.
+`afPadded_state_even:241` instantiates the ORIGINAL moving AF state at every j.
+`afPadded_evenPart_detector:259` pays the existing detector premise;
+`afPadded_odd_lag_zero:274` proves zero overlap with every swap-odd completed
+test at every time lag. No symmetry, nonzero dual, energy or response bound
+is added as a premise.
+
+ROOT read the complete source, repairs and full accepted log; independent
+Luna complete frozen-source/full-log/math review PASS, with Sol self-review.
+Accepted source SHA256:
+`2a5121586646c008016d4fd56076a293f32d8735d2a177c728bc2760f2fc073f`.
+Accepted focused command, EXIT0:
+
+```text
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/BF4WilsonAllNomePaddedAxisSector.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/BF4WilsonAllNomePaddedAxisSector.olean --log-file /private/tmp/ym-oct10-padded-axis-sector2.log
+```
+
+Accepted log SHA256:
+`8712a0d22e91c860242ffa548fbc9d55e0a23f0ad2e20f81678ba7c701f32456`.
+All six printed gates are exactly {propext,Quot.sound}. The only diagnostics
+are two unused-variable p warnings at :157/159. Rejected check1 log
+`beb3d20b61478e61f40470fc00c2eaec8462b65901da13fd4de349b7698e7975`
+contained a reversed List.Perm.swap pattern, unresolved width arguments,
+redundant dependent generalizing and an unsupplied hbase rewrite obligation.
+Explicit pins/local proof repairs fixed these without changing mathematical
+statements or raising options; error-recovery sorryAx is NOT accepted evidence.
+Both fresh preflights: 84 percent dynamic memory free, zero swap and no
+competing compiler. One capped 20GiB worker/12GiB reserve, no resource increase,
+lock removal, process kill or broad/root/tree audit. Root import registration
+only. The three unrelated user duplicate leaves remain untouched.
+
+This is project follow-through on the paper's full-object symmetry discipline,
+not an imported fermion theorem. The evenPart energy contraction remains PAPER
+algebra; no actual dual with fixed alpha,D was found. NEXT is the ORIGINAL
+late-response/signed-cost producer restricted by this proved sector input,
+not another interface layer. MAIN retention and every continuum/QFT/Clay
+endpoint remain OPEN. Canonical displayed claims unchanged; no chart reprint.
 
 ## Completed adjoint matrix: decision before implementation (2026-10-10 UTC)
 

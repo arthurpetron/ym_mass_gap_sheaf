@@ -8165,6 +8165,11 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialAntisymmetricGram
 -- every completed response under a COMMON time filter. No slow-rate bound.
 import YMGap.Continuum.BF4WilsonAllNomeOriginPlaquetteOrbitResponse
 
+-- Actual padded all-face AF state is swap-even through unit centering and
+-- literal BOX smoothing; every swap-odd detector vanishes at every lag.
+-- No late-response, energy or continuum estimate is supplied.
+import YMGap.Continuum.BF4WilsonAllNomePaddedAxisSector
+
 -- Independent signed filters in this same local difference sector reduce
 -- response and forward cost to two scalar filters of x. No rate is supplied.
 import YMGap.Continuum.BF4WilsonAllNomeOriginPlaquetteKrylovReduction

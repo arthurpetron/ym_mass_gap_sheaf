@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Supporting ORIGINAL padded axis sector checked (2026-10-10 UTC):
+`BF4WilsonAllNomePaddedAxisSector.afPadded_state_even:241` proves the actual
+centered, BOX-smoothed all-face state is swap-even at every scale. Its detector
+is preserved by even projection and every odd-dual overlap vanishes at every
+lag. Focused check2 and independent complete source/log/math review PASS;
+six permitted gates, two unused-binder warnings only. This supplies no
+low-energy dual or late-response estimate. NEXT remains the ORIGINAL
+late-response/signed-cost producer; all continuum/QFT/Clay endpoints OPEN.
+Exact displayed claims unchanged; no chart reprint. Evidence: adaptive-score audit.
+
 Supporting completed ADJOINT matrix checked (2026-10-10 UTC):
 `RationalQuaternionCompletedAdjointMatrix` constructs literal 3x3 matrices,
 actual Hamilton multiplication/transpose and both orthogonality laws on every
