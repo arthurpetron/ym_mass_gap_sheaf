@@ -1,5 +1,21 @@
 # Sorry Ledger
 
+## PROVED SAME-carrier energy projection / OPEN actual late dual (2026-10-10 UTC)
+
+`sector_pairing_split:99`, `sector_energy_split:125` and
+`evenPart_energy_le:142`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeAxisEnergyProjection.lean`, prove the
+mixed even/odd pairing split, actual one-step defect energy split and even
+projection energy contraction on the ORIGINAL completion. All vectors,
+widths and strict nomes are covered without an analytic premise, positive
+projected-norm floor or substituted operator. Focused check2 and independent
+complete frozen-source/log/math review PASS; three gates exactly
+{propext,Quot.sound}, no diagnostics. No new hole or axiom. Retaining the OLD
+positive upper norm budget leaves future dual constants unchanged; an actual
+dual with fixed overlap/energy bounds and MAIN retention/scaling remain OPEN,
+as do all physical/QFT/every-group/Clay endpoints. Root registration only,
+not a root/tree audit. Exact evidence: adaptive-score audit, observed energy projection.
+
 ## PROVED actual padded all-face swap-even sector / OPEN late-response estimate (2026-10-10 UTC)
 
 `allFace_raw_even:155`, `allFace_centered_even:189` and
@@ -12,7 +28,8 @@ at every scale; `afPadded_evenPart_detector:259` preserves detection and
 Focused check2 and independent complete frozen-source/log/math review PASS;
 six gates exactly {propext,Quot.sound}, two unused-binder warnings only.
 No new hole, axiom, analytic premise or canonical-field change. Energy
-projection, an actual low-energy even dual, MAIN retention/scaling and every
+projection is subsequently checked above; an actual low-energy even dual,
+MAIN retention/scaling and every
 physical/QFT/every-group/Clay endpoint remain OPEN. Root registration only,
 not a root/tree audit. Exact evidence: adaptive-score audit, padded axis sector.
 

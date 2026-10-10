@@ -4,6 +4,91 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Even projection energy: decision before implementation (2026-10-10 UTC)
+
+Previous goal turn PROGRESS: c79a61d7 proved the actual padded AF source-even
+pin and excluded all swap-odd lag detectors. Live HEAD=origin/main; tracked
+checkout clean, the same three unrelated duplicate leaves preserved, no
+live compiler handle. The MAIN uniform late-response estimate is still OPEN.
+
+Parallel direct producer screens found no paid late alpha,D dual. Existing
+finite ResponseDual/connected-square costs are not completed-time norm and
+energy; the square's supplied fraction is already cofinally refuted as a
+uniform certificate, not as actual interacting response. A proposed explicit
+slack expansion B=24G-192Q+4X+2Y adds no new coercive payment: it is already
+retained in `slack_expansion:150` and `retained_coercivity_identity:215`,
+`lean/YMGap/Continuum/SU2QuaternionRetainedSquareCoercivity.lean`.
+Do not build another expansion wrapper; raw Q is still not OWN variance.
+
+Selected known-input proposition: for EVERY vector on the ORIGINAL completed
+carrier, even projection contracts E(v)=B(v,(I-T)v). This pays the remaining
+PAPER energy-projection step of the current late-dual search; it neither
+constructs that dual nor supplies alpha,D. No dedicated late-dual consumer
+declaration exists: its sufficient calculation remains PAPER, while the final
+finite-uniform loss consumer is the existing PathShiftedEpsBound.
+
+Inputs: actual involutive isometry/time commutation and rational even/odd
+parts in `BF4WilsonAllNomeSpatialAxisSwapCompletion`; actual bilinearity;
+`defect_nonnegative:164`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeTimeDefectMoments.lean`.
+Proof: extend the existing diagonal sector split to mixed pairings, apply it
+to (v,v) and (v,Tv), and subtract to get E(Pv)+E(Ov)=E(v).
+Nonnegative E(Ov) then gives E(Pv)<=E(v). No spectral theorem, inverse norm,
+positive projected/late-source floor, source symmetry or new estimate is assumed.
+The actual source-even pin separately preserves late detection. Keep the OLD
+positive norm budget so alpha,D and the tested split a do not worsen.
+
+Tests: zero vectors, either parity sector, every width/strict nome and the
+literal completedTime 1 (not an auxiliary kinetic operator). Predicted
+unconditional mixed split/energy split/contraction, within the axiom gate.
+Budget: one bounded leaf, Sol implementation, independent Luna full-source/
+full-log/math review, ROOT inspection and serial one-worker/20GiB checks with
+12GiB reserve after fresh capacity. Stop if an analytic premise is needed.
+No additional conditional interface, root/tree audit, resource increase,
+paper polling or chart closure. MAIN and every Clay endpoint remain OPEN.
+
+## Even projection energy: observed contraction (2026-10-10 UTC)
+
+The selected proposition is CHECKED in
+`lean/YMGap/Continuum/BF4WilsonAllNomeAxisEnergyProjection.lean`.
+`sector_pairing_split:99` produces the mixed even/odd pairing identity;
+`sector_energy_split:125` applies it to the ORIGINAL completedTime 1 defect.
+`evenPart_energy_le:142` uses the produced nonnegative odd defect to prove
+the unconditional energy contraction for EVERY vector, width and strict nome.
+No source symmetry, dual estimate, norm inverse, positive projected/late-source
+floor, changed carrier/action/operator or additional analytic premise is used.
+
+ROOT read the complete source, repairs and accepted full log; independent
+Luna complete frozen-source/full-log/math review PASS, with Sol self-review.
+Accepted source SHA256:
+`3314f22b58946bf3339292dfc08e6b6813c2b8ba2bfeec105b3b6e855bd4aa97`.
+Accepted focused command, EXIT0:
+
+```text
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/BF4WilsonAllNomeAxisEnergyProjection.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/BF4WilsonAllNomeAxisEnergyProjection.olean --log-file /private/tmp/ym-oct10-axis-energy-projection2.log
+```
+
+Accepted log SHA256:
+`52f45868ecaf79124191fe57b85fccfe87223bf1392f3c5aeb86bd2d7b4168f2`.
+All three gates are exactly {propext,Quot.sound}; no errors or warnings.
+Rejected check1 log SHA256:
+`60b79590d70a6efd283b3165f9a9b0a60c62162d19161fed715213fd5b7b80db`;
+its sole parser-layout error in the private RC helper was repaired by aligning
+the four lambda cases. The recovery sorryAx output is NOT accepted evidence.
+Both fresh preflights: 85 percent dynamic memory free, zero swap and no
+competing compiler. One capped 20GiB worker/12GiB reserve; no resource increase,
+lock removal, process kill or broad/root/tree audit. Root import registration
+only. The same three unrelated user duplicate leaves remain untouched.
+
+This pays the energy-projection step of OUR late-dual search, not a theorem
+imported from the requested paper. Together with the existing actual source
+sector and norm contraction, projection preserves a candidate's late detector
+and OLD positive norm budget without worsening alpha,D,a,c0. The sufficient
+late-dual calculation itself remains PAPER; no actual fixed-alpha,D dual or
+uniform late-response/signed-cost producer was found. MAIN and every
+continuum/QFT/Clay endpoint remain OPEN. Canonical displayed claims unchanged;
+no chart reprint. NEXT is the actual analytic producer, not another interface.
+
 ## Actual padded axis sector: decision before implementation (2026-10-10 UTC)
 
 Resumption at HEAD=origin/main=10f4a5e7: previous turn PROGRESS in source/math
@@ -83,8 +168,9 @@ lock removal, process kill or broad/root/tree audit. Root import registration
 only. The three unrelated user duplicate leaves remain untouched.
 
 This is project follow-through on the paper's full-object symmetry discipline,
-not an imported fermion theorem. The evenPart energy contraction remains PAPER
-algebra; no actual dual with fixed alpha,D was found. NEXT is the ORIGINAL
+not an imported fermion theorem. The evenPart energy contraction is subsequently
+checked in the observed energy section above; no actual dual with fixed alpha,D
+was found. NEXT is the ORIGINAL
 late-response/signed-cost producer restricted by this proved sector input,
 not another interface layer. MAIN retention and every continuum/QFT/Clay
 endpoint remain OPEN. Canonical displayed claims unchanged; no chart reprint.

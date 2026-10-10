@@ -8136,6 +8136,9 @@ import YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapForm
 import YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapAlgebra
 import YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapCompletion
 import YMGap.Continuum.BF4WilsonAllNomeSpatialAxisSwapTimeSector
+-- SAME completed one-step energy splits into even/odd parts; even projection
+-- contracts energy. No actual low-energy dual or uniform late-response bound.
+import YMGap.Continuum.BF4WilsonAllNomeAxisEnergyProjection
 
 -- Second finite spatial generator x0/x1, with literal braid geometry
 -- and SAME original-action/window/reflected-form invariance. Its p01 word reverses.

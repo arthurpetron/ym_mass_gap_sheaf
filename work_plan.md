@@ -42,6 +42,21 @@ even-sector dual with the fixed overlap/energy bounds below. No candidate
 currently pays them; do not add another conditional interface. Exact
 command, hashes and rejected check1: adaptive-score audit. Chart unchanged.
 
+CHECKED SAME-carrier energy input:
+`BF4WilsonAllNomeAxisEnergyProjection.sector_pairing_split:99` and
+`sector_energy_split:125`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeAxisEnergyProjection.lean`, split the
+actual completed pairing and E(v)=B(v,(I-completedTime 1)v) into even/odd parts.
+`evenPart_energy_le:142` proves energy contraction for EVERY vector, width
+and strict nome from the existing symmetry/time laws and defect positivity.
+Focused check2 and independent COMPLETE source/log/math review PASS;
+three gates exactly {propext,Quot.sound}, no diagnostics. This removes the
+PAPER projection step below, not the actual uniform overlap/energy estimates.
+Keep the OLD positive dual norm budget; no projected or late-source norm
+floor is required. NEXT remains the original late-response/signed-cost
+producer or a concrete even dual; no new conditional interface. Exact
+command, hashes and rejected parser check: adaptive-score audit. Chart unchanged.
+
 CHECKED independent completed adjoint input:
 `RationalQuaternionCompletedAdjointMatrix.rawMatrix_mul:185` and
 `raw_conjugation_entry:262` prove the literal 3x3 Hamilton action, including
@@ -119,8 +134,9 @@ is now checked above; replace any candidate dual by evenPart(v_j).
 It preserves late overlap and contracts norm and energy. Retain the OLD
 positive norm budget V_j; do not renormalize by the projected norm.
 Then alpha,D,a,c0 remain unchanged, even if the projected or late-source
-norm is zero. The energy contraction is PAPER algebra still to formalize;
-the projection produces neither the candidate dual nor the missing bounds.
+norm is zero. Energy contraction is now checked by `evenPart_energy_le:142`
+in the energy-projection leaf above; the sufficient late-dual calculation
+remains PAPER. Projection produces neither the candidate dual nor the missing bounds.
 Source review and independent mathematics: paper audit's latest section
 and adaptive-score audit. No foreign proof port or additional paper branch.
 

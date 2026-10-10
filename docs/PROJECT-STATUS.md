@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Supporting SAME-carrier energy projection checked (2026-10-10 UTC):
+`BF4WilsonAllNomeAxisEnergyProjection.sector_pairing_split:99` and
+`sector_energy_split:125` split the ORIGINAL completed pairing and actual
+one-step defect energy into even/odd parts. `evenPart_energy_le:142`
+proves even projection cannot increase that energy, for every vector,
+width and strict nome. Focused check2 and independent complete source/log/math
+review PASS; three gates exactly {propext,Quot.sound}, no diagnostics.
+This preserves a future dual's OLD norm budget without worsening its energy
+bound; it constructs no dual or uniform late-response estimate. MAIN and all
+Clay endpoints remain OPEN. Exact displayed claims unchanged; no chart reprint.
+Evidence: adaptive-score audit, observed even projection energy.
+
 Supporting ORIGINAL padded axis sector checked (2026-10-10 UTC):
 `BF4WilsonAllNomePaddedAxisSector.afPadded_state_even:241` proves the actual
 centered, BOX-smoothed all-face state is swap-even at every scale. Its detector
