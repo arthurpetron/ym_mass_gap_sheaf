@@ -5452,6 +5452,9 @@ import YMGap.Continuum.QuaternionDenseCRealPointLinearity
 -- ORIGINAL Haar descended by equality of actual represented Point maps.
 -- Positive/normalized/rational-linear/completed-invariant; not full Haar/J04.
 import YMGap.Continuum.QuaternionRepresentedHaar
+-- Produced polynomial members with SAME all-Point maps and ORIGINAL moments.
+-- Concrete nonconstancy is Haar-domain only, not continuum excitation survival.
+import YMGap.Continuum.QuaternionRepresentedPolynomialHaar
 import YMGap.Continuum.SU2HeatJacobiFinitePrefixClassPolynomial
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticBound
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticCutoff

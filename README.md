@@ -47,8 +47,12 @@ positive, normalized, rational-linear and invariant under every completed
 multiplier, without choosing representatives. Focused kernel checks and
 independent reviews passed. This domain retains actual dense values and
 explicit rates/radii; it is not every continuous Point-to-real map. Concrete
-supported-polynomial membership, product closure, quantitative domain
-completion and compact realization/full Haar remain open.
+supported polynomials now have produced bounds, continuity radii and rates;
+their actual completed maps and integral values recover the original
+polynomial maps and moments. Polynomial products are pinned to the same
+pointwise products. A concrete nonconstant coordinate has mean zero and
+same-square moment 1/4. General represented-domain product closure,
+quantitative completion and compact realization/full Haar remain open.
 It closes no mass-gap claim. See the
 [checked construction and next join](audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md).
 

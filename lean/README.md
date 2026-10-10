@@ -103,8 +103,16 @@ genuine RC order, not a claimed intrinsic sup norm. Focused Point-linearity
 check2 / functional check1 and COMPLETE independent frozen-source/log/math
 reviews PASS; 42 permitted gates, two cutoffs axiom-free, no final diagnostics
 or strengthened premises/resource changes. This is a represented-map domain,
-not every continuous Point->RC function. Concrete polynomial membership,
-product closure, quantitative domain completion/compact realization/full
+not every continuous Point->RC function. `Continuum/QuaternionRepresentedPolynomialHaar`
+now produces polynomial membership with coefficient-L1 bounds, zero inner
+rates and positive computed squared-distance radii. `evaluate_polynomial:168`
+recovers the SAME pointEval on every Point; `integral_polynomial:176` recovers
+ORIGINAL moments under one-block support. `evaluate_polynomial_mul:186`
+pins polynomial products to their actual pointwise RC products. The concrete
+coordinate has mean zero, same-square moment 1/4 and distinct values at the
+two central units. Focused check1 and COMPLETE independent frozen-source/log/
+math review PASS; all 21 gates permitted, no diagnostics or new hypotheses.
+General represented-domain product closure, quantitative completion/compact realization/full
 Haar/J04, MAIN scaling and Clay remain OPEN.
 Root registration only; no full root/tree/audit. Exact evidence: adaptive-score audit.
 

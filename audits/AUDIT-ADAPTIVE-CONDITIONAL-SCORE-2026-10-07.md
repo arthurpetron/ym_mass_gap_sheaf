@@ -116,6 +116,77 @@ worker/reserve change, root/full-tree/audit/metric run or literature scan.
 Root imports only register the checked leaves. Canonical displayed claims
 remain unchanged, so no ASCII chart is reprinted.
 
+### Concrete polynomial-domain producer [CHECKED, after cd9e81c8]
+
+Previous goal turn: PROGRESS, actual completed-map linearity and SAME-map
+ORIGINAL-Haar functional checked and pushed. Next proposition: construct
+DenseData for the ACTUAL polynomial evaluation on dense UnitNorm, with zero
+inner rate, coefficient-L1 bound and a produced positive continuity radius;
+pin its represented map to SAME pointEval on EVERY Point and its integral
+to ORIGINAL quaternionHaar for SupportedQuaternionBlocks 1. Consumers:
+`pointPolynomial_compatible` and `haarApproximation_polynomial_compatible`,
+and the new represented integration domain. Available inputs: actual unit
+coordinate-square/difference-square bounds, computed `polynomial_difference`,
+`InnerRegularity.scaleTolerance` and existing candidate comparison. Prediction:
+delta=scaleTolerance(polynomialLipschitz p,epsilon), radius=delta*delta;
+coordinate motion <=delta pays L*delta<=epsilon, including L=0. No root,
+division by L, assumed cube/modulus/input identity or chosen representative.
+Test empty/constants/negative coefficients/noncanonical rationals, support
+guard for ORIGINAL moments, and a concrete nonconstant first-coordinate
+observable with its original zero mean and positive second moment. Revise if
+admissibility or a functional answer has to be supplied as a new premise.
+Sol owns only a bounded new producer prefix, ROOT the actual map/moment
+and nonconstant-instance join; independent read-only review follows.
+ROOT sole compiler: serial focused checks, fresh capacity/process inspection,
+one worker, 20 GiB ceiling and 12 GiB reserve. No broad/root/audit/metric,
+resource change or literature scan. Full Haar/compact realization/J04,
+MAIN's missing signed SAME-variance estimate/scaling and Clay stay OPEN.
+
+Observed PROGRESS: `polynomialData`,
+`lean/YMGap/Continuum/QuaternionRepresentedPolynomialHaar.lean:149`, produces
+admissibility from the ACTUAL UnitNorm environment, coefficient-L1 bound,
+zero inner rate and positive delta^2 radius. delta is the existing raw-rational
+`scaleTolerance(polynomialLipschitz p,epsilon)`, not a silently substituted
+canonical division. Coordinate-square/difference-square bounds give actual
+cube membership and motion; L*delta<=epsilon pays the modulus, including
+empty/constant/signed/repeated/noncanonical data. `evaluate_polynomial:168`
+recovers SAME pointEval on EVERY Point without support. `integral_polynomial:176`
+recovers the ORIGINAL moment with explicit SupportedQuaternionBlocks 1.
+`evaluate_polynomial_mul:186` proves the actual polynomial-subfamily product
+pin by comparing sampled rows, not a claimed general-domain product.
+`coordinate_mean_zero:226`, `coordinate_second_moment:232` and
+`coordinate_square_pin:238` tie zero mean and moment 1/4 to the SAME coordinate.
+`coordinate_at_one:246` / `coordinate_at_negative_one:251` give +1/-1;
+`coordinate_nonconstant:258` uses the explicit epsilon=1 contradiction in
+CReal.Equiv, not an unjustified reflection to exact rational equality.
+
+Accepted focused command, after fresh capacity/process inspection:
+
+```text
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionRepresentedPolynomialHaar.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionRepresentedPolynomialHaar.olean --log-file /private/tmp/ym-represented-polynomial-haar-check1.log
+```
+
+Source SHA-256 `313998117a0c0b000fe0cf533e511d68e715dae0bd294fec811aea8c7f1a6e5f`;
+accepted log `fb80b1d0634f2c447b60b1e0589d2f5ebb88ad23df914220946cf497ecb3a623`.
+Check1 passed in 5.83 seconds; all 21 public gates permitted (two axiom-free,
+five propext-only, fourteen exactly {propext,Quot.sound}), no diagnostics.
+ROOT inspected COMPLETE final source/log; independent Sol COMPLETE frozen
+source/log/math review PASS with matching hashes. Sol produced only the
+admissibility prefix, ROOT the map/moment/product/nonconstant join.
+Capacity was 84% available by memory_pressure, zero swap and no competing
+compiler/test/runner. No resource, heartbeat, premise or axiom-gate changes;
+no broad/root/tree/audit/metric run. Three unrelated duplicate Lean files
+remain untouched. Canonical displayed claims unchanged, so no chart reprint.
+
+Disposition CONTINUE: polynomial membership and original-moment compatibility
+are removed as missing inputs. General represented-domain product closure
+still needs produced Type-valued inner rates and an actual all-Point product
+pin; quantitative domain completion/compact realization remains separate.
+This is independently proved project mathematics, not imported chiral-fermion
+code. The parallel bounded Appendix E.2/section13 recheck found no new usable
+estimate or consequential correction; do not repeat the paper-wide review.
+MAIN signed SAME-variance/scaling and all physical/Clay endpoints remain OPEN.
+
 ### Represented-function join [CHECKED]
 
 Selected next experiment (after 8718203c): prove the ACTUAL Point-map sum

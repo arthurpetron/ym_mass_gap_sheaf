@@ -862,15 +862,30 @@ statement-elaboration timeouts without strengthening or resource changes.
 Exact sources/log hashes and commands: adaptive-score audit. Root registration
 only; no root/tree/audit/metric or canonical displayed chart-state change.
 
-NEXT: construct concrete supported-polynomial DenseData, with produced cube
-bound, inner rate and positive continuity radius, and pin its ACTUAL map and
-ORIGINAL moments. The generic coefficient-L1 and polynomial variation bounds
-exist, but no such constructor was found; existing coordinate-motion/cube
-arguments are private. Then supply product closure and quantitative domain
-completion/compact realization required by the actual downstream consumer.
+CHECKED concrete polynomial join (after cd9e81c8):
+`QuaternionRepresentedPolynomialHaar.polynomialData:149` constructs actual
+polynomial evaluation with zero inner rate, coefficient-L1 bound and positive
+radius scaleTolerance(L,epsilon)^2, including L=0. `evaluate_polynomial:168`
+pins its actual map to SAME pointEval on EVERY Point without support;
+`integral_polynomial:176` recovers ORIGINAL quaternionHaar with explicit
+SupportedQuaternionBlocks 1. `evaluate_polynomial_mul:186` pins the product
+on every Point, only for the polynomial subfamily. The actual coordinate
+is nonconstant (`coordinate_nonconstant:258`), with mean zero and SAME-square
+second moment 1/4 (`coordinate_mean_zero:226`, `coordinate_second_moment:232`,
+`coordinate_square_pin:238`); this is not an interacting/continuum excitation.
+Focused check1 and COMPLETE independent frozen-source/log/math review PASS;
+21 permitted gates, no diagnostics. Exact command/hashes: adaptive-score audit.
+This is independently proved project mathematics, not Appendix E's assumed
+continuous Haar. No canonical displayed claim changes or broad/root audit.
+
+NEXT: produce general represented-domain product closure with recoverable
+Type-valued output rates and the SAME all-Point multiplication pin; quantitative
+domain completion/compact realization remains separate. Demand the minimal
+interface consumed by the original compact/action route, not a general
+RC-function representative selection or every-continuous-function theorem.
 The current functional is on represented admissible maps, not every continuous
 Point->RC map; no intrinsic sup norm or Banach algebra is built. Do not assume
-a general RC-function CReal lift or polynomial membership. `CompactGroupData`
+a general RC-function CReal lift. `CompactGroupData`
 in the every-group J04 ladder remains a plan. Full continuous-Haar/compact
 realization/J04 and MAIN warmed signed-cost versus SAME variance on justified
 scaling stay OPEN. The paper's pre-existing Haar is not our producer; these

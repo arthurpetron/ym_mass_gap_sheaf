@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED concrete polynomial members of represented ORIGINAL Haar / OPEN full Haar and scaling (2026-10-10 UTC)
+
+`polynomialData`, `lean/YMGap/Continuum/QuaternionRepresentedPolynomialHaar.lean:149`,
+produces actual dense evaluation, zero Type-level inner rate, coefficient-L1
+bound and positive computed squared-distance radius. `evaluate_polynomial:168`
+recovers SAME pointEval on EVERY Point without support; `integral_polynomial:176`
+recovers ORIGINAL quaternionHaar under explicit one-block support.
+`evaluate_polynomial_mul:186` pins polynomial multiplication to SAME pointwise
+RC multiplication, not closure of all represented maps. The concrete coordinate
+has mean zero (`coordinate_mean_zero:226`) and SAME-square moment 1/4
+(`coordinate_second_moment:232`, `coordinate_square_pin:238`); distinct values
+at the central units prove nonconstancy (`coordinate_nonconstant:258`).
+This is Haar-domain nonconstancy, NOT continuum excitation survival or an
+interacting variance bound. Focused check1 and COMPLETE independent frozen
+source/log/math review PASS; 21 gates within {propext,Quot.sound}, no diagnostics.
+No new hole, axiom, analytic hypothesis or canonical-field change. General
+product closure, quantitative completion/compact realization/full Haar/J04,
+MAIN SAME-variance scaling and every physical/QFT/all-group/Clay endpoint remain
+OPEN. Root registration only; no root/tree audit. Exact evidence: adaptive-score audit.
+
 ## PROVED finite SAME-Haar norm-defect concentration / OPEN continuous extension (2026-10-10 UTC)
 
 `jointNormDefect_le_sixteen_discrepancy`,
