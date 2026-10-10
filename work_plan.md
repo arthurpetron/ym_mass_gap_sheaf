@@ -218,6 +218,15 @@ profile is claimed to be Schwartz, and no original OS-norm floor follows.
 NEXT backward: justify the physical clock, fixed physical placement/shape,
 renormalized local-field normalization and orientation comparison on the SAME
 ambient width s_j^2+1. The coefficient construction does not supply these joins.
+Benchmark scope: use the original OPEN boundary, not a periodic substitute.
+Existing finite fringe integration leaves the unchanged fully-active face
+product with prefactor one, under fringe-independent tests. The quadratic
+heat-product action has a common positive spatial/temporal coefficient, but
+outward kinetic-only links and longitudinal gauge modes still need explicit
+treatment. No original OS equivalence or uniform Gaussian doubling estimate
+follows from that Hessian calculation; Haar/chart factors remain unpaid.
+Exact source pins and the next
+benchmark test: adaptive-score audit, "Original-boundary quadratic screen".
 Do not turn the global all-face sum into a local field by dropping cross-block
 covariances. The existing padded nondegeneracy theorem already supplies each
 chosen family's qualitative late floor; its supplied certificate is too weak

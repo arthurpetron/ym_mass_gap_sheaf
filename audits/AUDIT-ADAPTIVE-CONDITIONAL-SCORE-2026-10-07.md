@@ -17182,3 +17182,81 @@ edit/build, sorry, axiom, canonical-field change or ASCII reprint.
 ROOT read the complete two-file diff; independent COMPLETE math/source/scope
 review PASS, including all new source pins. `git diff --check` passes.
 Verification is SOURCE/PAPER, not a current-session kernel or full-tree audit.
+
+### Original-boundary quadratic screen
+
+NEXT comparison test: match the free benchmark to the actual finite boundary
+before claiming an initial doubling constant K_0. This is SOURCE/PAPER,
+not a new Gaussian producer or an interacting response estimate.
+
+`activeBlocks:83`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialKineticMarginals.lean`, and
+`active_index_iff:54` / `FullyActive:82`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFringeFaceGeometry.lean`,
+show that only links with all three BASE coordinates <W are transmitted.
+The full original slice also retains inclusive-fringe links. Gaussianizing
+that full kinetic matrix as an ordinary Maxwell propagator is unjustified.
+
+An exact finite reduction is ALREADY available: `spatialWeight_haar_active:130`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialActiveSpatialWeight.lean`,
+integrates fringe-touching faces with prefactor ONE and keeps the unchanged
+heat product on `activeSpatialFaces:58` / `activeSpatialWeight:62` in that
+module. The retained faces have base-coordinate guards
+
+    p01: x+1<W, y+1<W, z<W;
+    p02: x+1<W, z+1<W, y<W;
+    p12: y+1<W, z+1<W, x<W,    all at time zero.
+
+Thus the potential uses the open cubical faces on vertices {0,...,W-1}^3,
+not a periodic box or new boundary interaction. The kinetic list additionally
+has outward links with their own directional coordinate W-1; they occur in
+NO retained face. They are free compact heat coordinates, not periodic edges.
+The selected bulk source is fringe-independent: every incident link base
+is <=s^2<W=s^2+1. `original_transfer_haar_active:87`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialActiveTransfer.lean`, is a tested
+finite-transfer equality with support/independence guards, NOT a full completed
+OS equivalence. Do not discard positive-norm fringe states from that completion.
+
+The literal `heatPrefix:31`,
+`lean/YMGap/Continuum/QuaternionHaarHeatCertificate.lean`, uses
+`coeffW:259`, `lean/YMGap/Continuum/BondMovingStep.lean`. PAPER evaluation of
+the character recurrence at one gives
+
+    H(z)=sum_(n=0)^K (n+1)*w^(n*(n+2))*chi_n(z),
+    H(1)=sum_(n=0)^K (n+1)^2*w^(n*(n+2)),
+    H'(1)=(1/3)*sum_(n=0)^K (n+1)^2*n*(n+2)*w^(n*(n+2)),
+    kappa=H'(1)/(2*H(1)).
+
+For w>0 and K>=1, kappa>0; at K=0 it is ZERO. At K=1 the direct check is
+H(z)=1+4*w^3*z, kappa=2*w^3/(1+4*w^3). The SAME prefix occurs in
+`spatialWeight:70`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSliceHeat.lean`, and
+`relative:64` / `kineticWeight:68`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialKineticHeat.lean`.
+
+In exponential quaternion coordinates the kinetic scalar is
+1-|A_(n+1)-A_n|^2/2+O(A^3), and the plaquette scalar is
+1-|dA_n|^2/2+O(A^3). Therefore the negative-log HEAT-PRODUCT Hessian is
+
+    S_2=kappa*sum_n (||Delta_t A_n||^2+||dA_n||^2).
+
+This omits the Haar/chart Jacobian. It is not a Taylor model of the complete
+normalized integral, even though the heat-product Hessian itself is exact.
+After explicit treatment of outward coordinates and longitudinal gauge
+modes, a POSITIVE curl mode lambda has symmetric Gaussian kernel
+exp(-kappa*((y-x)^2+lambda*(x^2+y^2)/2)). Its mode calculation gives
+cosh(omega)=1+lambda/2, or omega=2*asinh(sqrt(lambda)/2): the common kappa
+cancels. This is a quadratic benchmark calculation, NOT a dispersion/gap
+theorem for the original completed transfer or a physical time calibration.
+
+The actual next benchmark estimate is uniform two-positive-time doubling
+for the centered isotropic curl-square on this explicitly reduced OPEN
+lattice, with the selected spatial coefficients and SAME fixed BOX filter.
+That estimate, the Gaussian gauge/null-coordinate construction, and the
+chart/Jacobian, large-field and uniform Taylor-remainder comparison to the
+original interacting action are not supplied here. Do not replace them by
+the infinite-volume continuum diagnostic. ROOT inspected the cited source
+and checked the quadratic/mode algebra; bounded Sol SOURCE/PAPER review agrees.
+No Lean edit/build, original H1, physical/QFT/Clay closure or chart change.
+Independent COMPLETE two-file diff/math/source/scope review PASS, including
+the K=0 degeneracy and Haar-Jacobian exclusion; `git diff --check` passes.
