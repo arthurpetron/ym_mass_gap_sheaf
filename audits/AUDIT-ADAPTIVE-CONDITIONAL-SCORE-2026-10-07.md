@@ -4,6 +4,74 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## MAIN scaling screen and completed-quotient Haar selection (after bb1cc58b)
+
+Two read-only MAIN screens produced no new relative estimate. The selected
+AF schedule has s_j=2^j and 1-w_j=(1942/1000)/
+(j+(51/121)*floor(log2(j+1))+4), `afNomeSchedule`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeAFPaddedTrajectory.lean:274`.
+The actual shifted-H1 target at c0=2 needs LATE relative loss <=2/s_j,
+not merely O(1-w_j). `afGap_side_gt_at_probe`, same module `:376`,
+already certifies the cofinal unbounded s_j*(1-w_j). Temporal averaging
+does not improve a single-mode relative loss. The alternative
+`window_area_epsBound`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedWindowSurvival.lean:347`,
+requires area coefficient <=3/2 for that c0. Prefer a genuine late-time
+spectral-selection/centered-area estimate or an initial O(1/s_j) estimate;
+do NOT infer that exponentially small INITIAL energy is necessary.
+Odd-mass normalized finite energy still is not the completed response
+loss without actual source/time/BOTH-chronological-mass transport.
+
+For the literal projected channel sources, the known PAPER determinant
+substitution leaves the joint signed residue
+6*t*S*(C-t*R)-k*S*Corr-k*N^2-144*t^2*M^2-Dconn,
+k=a^2+24*a*t. The actual heat eigenpin belongs to F, not b_z or b_z*psi.
+Expanding Corr shares only the source-side cubic leaf; the diagonal,
+Casimir and omitted leaves remain. Existing nonnegative square credits
+produce neither a useful joint payment nor a source-drift sign. No
+duplicate determinant identity, O(1-w) adapter or new analytic input
+is selected. MAIN remains source-specific LATE area/complete signed cost.
+
+Selected independent available global-form input: restrict/descent of the
+EXISTING represented Haar algebra to the ACTUAL completed sign quotient.
+Output: represented sign-invariant functions with evaluation respecting
+`signQuotientGroup` cosets, closed constants/sums/rational scales/products,
+both completed translations respecting multiplier cosets, and the existing
+positive normalized integral invariant under those translations. Produce
+the concrete even character chi_2=4*r^2-1 with actual mean 0, SAME-square
+integral 1, and values 3 versus -1 at identity and basis-i cosets.
+Existing typed inputs: `signQuotientGroup`,
+`lean/YMGap/RepTheory/RationalQuaternionCompletedSignQuotient.lean:86`;
+`evaluate`, `integral`, `translate`, `integral_translate`,
+`lean/YMGap/Continuum/QuaternionRepresentedHaar.lean:156`, `:170`,
+`:288`, `:308`; positivity and normalization: `integral_nonnegative:245`
+and `integral_constant:225` in that module; `mul` / `evaluate_mul`,
+`lean/YMGap/Continuum/QuaternionRepresentedHaarMultiplication.lean:343`,
+`:350`; `polynomial` / `integral_polynomial`,
+`lean/YMGap/Continuum/QuaternionRepresentedPolynomialHaar.lean:159`, `:176`.
+This is a selected concrete contribution to the global-form/Haar input in
+docs/outline.md section 1.1, not a required unique route or a new general
+analytic interface. Implementation and kernel verification remain pending.
+There is still no separate CompactGroupData receiver; do NOT instantiate
+deprecated all-functions LinkHaar or claim full continuous Haar/compact SO(3).
+
+Two independent preimplementation screens PASS. Coset witnesses are
+eliminated only into evaluation equality; associativity and produced sign
+centrality preserve BOTH translations. Original one-block Haar r^2=1/4,
+r^4=1/8 supplies the character moments, not an assumed variance field.
+All-Point parity is a short rowwise rational Hamilton identity. Existing
+finite antipodal modules already contain another even nonzero polynomial;
+this is quotient/Haar compatibility with a normalized character, not its
+first ever even example. Test both multiplication orders, both central
+signs, quotient-row independence, SAME general multiplication square,
+zero/signed scalar inputs and nonconstancy on DISTINCT cosets.
+Reject a representative choice, all-continuous-function representation
+premise, unsupported CompactGroupData instantiation or merely conditional
+nonconstancy. Sol owns one bounded Continuum leaf; ROOT alone runs serial
+focused checks using fresh dynamic capacity, one worker/20 GiB/12 GiB
+reserve, followed by complete independent frozen-source/log/math review.
+No canonical field weakening, chart change, MAIN or Clay closure.
+
 ## Completed central-sign quotient selection (after bf9ab8b8)
 
 MAIN read-only screens found no new payment: `energy_identity`,

@@ -27,6 +27,35 @@ formal statement would not solve the mathematical problem.
 
 ### Latest MAIN selection (2026-10-10 UTC)
 
+Selection after bb1cc58b: prioritize actual LATE response loss <=2/side_j
+or the centered backward-area coefficient <=3/2 on the existing AF family.
+Its side_j=2^j while 1-w_j is of order 1/j; the existing cofinal bare-heat
+obstruction shows that merely producing an O(1-w_j) initial ceiling does
+not pay that consumer. No new theorem or mandatory exponentially-small
+INITIAL premise is claimed. The exact raw-determinant substitution still
+leaves source-side/diagonal/Casimir signed debt; no favorable drift sign
+was found for the actual projected terminal channels. Do not expand those
+failed joins into adapters. Independent available group input selected:
+EXISTING represented Haar restricted/descent to the ACTUAL completed sign
+quotient, with BOTH quotient translation laws and a PRODUCED even character
+of mean zero and SAME-square integral one. No all-continuous-function
+representation or compact SO(3) claim. Exact inputs, tests and narrow safe
+verification budget: adaptive-score audit, scaling/quotient-Haar selection.
+
+Paper-informed quotient guard (requested parallel review of 2610.09093):
+its Eqs. (10.5)--(10.9) separate faithful admissibility from exact image
+operator/measure identification. For our selected even character, Haar
+moments and nonconstancy are not yet a faithful MATRIX realization,
+quantitative admissibility proof, or interacting-action/OS-transfer descent.
+A trace-defect bridge may be useful only when a named consumer needs it;
+do not create an additional prerequisite or assume SU(2) estimates descend
+to the quotient. Retain the SAME original MAIN carrier and its late-response
+budget. No new analytic producer was supplied by the paper. Source review:
+`audits/RESEARCH-2610-09093-2026-10-08.md`, current-frontier application.
+Cache this applicability decision. Goal continuation alone does not request
+another review of the same paper; revisit only on an explicit new request,
+a new version/access change, or a materially different actual consumer.
+
 CHECKED new producer on the correct curvature object:
 `QuaternionHaarMixedLinearCasimir.blockGamma_linear_casimir` proves
 `C_s Gamma_s(p,q)=2 Gamma_s(p,q)-6 p*q` with arbitrary supported
