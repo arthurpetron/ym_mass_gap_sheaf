@@ -16,6 +16,18 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked ORIGINAL signed-family square contraction (2026-10-10 UTC):**
+`Continuum/SU2QuaternionRetainedSquareCoercivity` derives mixed IBP and a
+division-free exact square/Gram residual. The actual channel consumer
+`Continuum/BF4ExactSlabFixedSpatialSignedFamilyCoercivity`
+joins it to ORIGINAL energy and the existing omitted-payment cutoff,
+retaining the nonnegative residual rather than discarding its credit.
+Signed cubic/pair cost and raw-Q versus OWN variance remain UNPAID; this is
+not a warmed, moving-family, scaling or physical-gap proof. Two final narrow
+checks and COMPLETE independent source/log reviews PASS; sixteen gates within
+{propext,Quot.sound}, no final warnings/errors. Root imports are registration
+only; no full root/tree check. Exact evidence: adaptive-score audit.
+
 **Checked exact ORIGINAL signed-family energy (2026-10-09 UTC):**
 `Continuum/BF4ExactSlabFixedSpatialSignedFamilyEnergy.padded_family_energy_signed_exact`
 retains the literal commutator/Gram slack (nonnegative for nonnegative nome) in

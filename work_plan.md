@@ -141,35 +141,48 @@ checks and COMPLETE independent final-source/log reviews PASS; 25 permitted
 gates, two axiom-free definitions, no final warnings/errors. Root registration
 only; no tree audit or displayed-claim closure. Exact evidence: score audit.
 
-Selected PAPER contraction after the targeted paper follow-up
-(2026-10-10 00:07 UTC): complete the square on the ACTUAL gradient and
-retained slack together. With v=bF, x=Gamma(b,F), y=Gamma(b,b), g=Gamma(F,F),
-Q=H[v^2], G=H[b^2*g] and B the literal retained slack, existing angular
-IBP/product rules plus the ORIGINAL carrier C(F)=12F pin give G+2H[v*x]=12Q.
-ROOT and the independent reviewer checked the resulting division-free identity
-for all rational a,t:
+CHECKED follow-through of the paper-informed square selection
+(2026-10-10 UTC): `SU2QuaternionRetainedSquareCoercivity.casimir12_mixed_ibp`
+produces G+2H[v*x]=12Q from angular IBP with test b^2*F and TWO product
+rules, using the SAME carrier C(F)=12F pin. With v=bF, x=Gamma(b,F),
+y=Gamma(b,b), g=Gamma(F,F), Q=H[v^2], G=H[b^2*g] and literal slack B,
+`retained_coercivity_identity` proves for ALL rational a,t:
 `(a^2+24*a*t)*Q-6*t*(a*G-t*B) = H[((a-24*t)*v+6*t*x)^2]+12*t^2*H[y*g-x^2]`.
-The angular Gram certificate supplies the last nonnegative term. This is
-OUR PAPER calculation, not an imported fermion theorem or a new Lean proof.
-The next finite test folds the EXACT residual with the actual passive Gram
-weights into `remainingFamilyEnergy`, retaining both positive-square credits.
-Its existing downstream consumer is
-`normalizedEnergy_signed_cutoff_payment`,
-`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedFamilyEnergyPayment.lean:78`.
-At a=h-19t and t=h^2/2, the raw-Q ceiling tends to 1/3 as h tends to zero;
+The square and existing angular Gram certificate produce positivity, including
+zero Q/t and signed b, without norm inversion or a mixed-moment assumption.
+This is OUR Lean proof, not an imported fermion theorem. Generic declarations:
+`lean/YMGap/Continuum/SU2QuaternionRetainedSquareCoercivity.lean:108`, `:215`.
+
+The actual `BF4ExactSlabFixedSpatialSignedFamilyCoercivity` folds the EXACT
+residual with unchanged passive Gram weights and original projected sources.
+`remainingFamilyEnergy_coercivity_identity:232` retains both credits;
+`padded_family_energy_coercivity_identity:256` gives the complete ORIGINAL
+energy, signed/repeated physical faces and every cutoff/depth, including zero:
+`6*t*Energy+D=(a^2+24*a*t)*ChannelQ+6*t*(C-t*R-O)`.
+`normalizedEnergy_coercivity_cutoff_payment:298` joins the existing computed
+fixed-family cutoff to SAME energy/partition/OWN variance at every positive
+depth: `6*t*normalizedEnergy+D/Z<=((a^2+24*a*t)*ChannelQ+6*t*(C-t*R))/Z+6*t*delta*OWNVariance`.
+The positive bare-norm guard remains explicit; no new analytic premise is
+introduced. D>=0 is produced for nonnegative nome. Two final narrow checks
+and COMPLETE independent final-source/log reviews PASS; sixteen gates within
+{propext,Quot.sound}, no final warnings/errors. Root registration only, not a
+root/tree audit. Exact commands/hashes and superseded attempts: score audit.
+
+At a=h-19t and t=h^2/2 the raw-Q ceiling tends to 1/3 as h tends to zero;
 it is not a small relative SAME-variance estimate by itself. Cubic/pair cost,
 raw-Q versus OWN variance, warmed transport and moving-family control remain
-unpaid. Test the COMPLETE joined expression before expanding a cap/floor or
-channelwise Cauchy branch; no inverse observable norm or new analytic premise
-is selected. Exact derivation and input declarations:
+unpaid. Test the COMPLETE joined expression WITH D before expanding a cap/floor
+or channelwise Cauchy branch; no inverse observable norm or assumed estimate.
+Paper scope and original derivation:
 `audits/RESEARCH-2610-09093-2026-10-08.md`, current-consumer decision.
 
 The supplement's newly reviewed Appendix B.9 gives an exact local
 gauge-invariant one-form invisible to Ward, curvature and closed-period tests
 but visible in transverse response. Use it as a scope guard: symmetry tests
 alone do not pin the literal full residual. It is not a BF4 counterexample
-or permission to change the original action/current. No canonical chart claim
-changes; no ASCII reprint or compiler run is justified by this planning review.
+or permission to change the original action/current. No canonical displayed
+claim changes; no ASCII reprint. The two new checks concern OUR finite
+follow-through only, not the foreign formalization or a full-tree audit.
 
 NEXT mathematical producer is a useful COMPLETE signed cost versus the SAME
 interacting variance on a justified moving family, or direct original macro
@@ -179,6 +192,12 @@ computed fixed-family cutoff; target the remaining exact expression
 against SAME `oddMass*oddVariance`, retaining the explicit delta reserve.
 Keep the last negative term: dropping it
 requires a strictly stronger payment than estimating the actual energy.
+Equivalently, the new exact contraction targets the COMPLETE joined numerator
+`(a*a+24*a*t)*familyChannelObservableSquare+6*t*(signedFamilyCubic-t*familyChannelPairRemainder)-channelCoercivityResidual`
+against `6*t*oddMass*oddVariance` with the needed small coefficient. Do not
+discard D and then count an angular ceiling as a payment of the cubic/pair
+cost. Produce this source-specific bound, or direct original macro retention,
+before extending to the temporally smoothed/moving family.
 The weaker checked signed upper bound and older absolute error consumer
 remain available, but neither is a necessary extra analytic prerequisite.
 For the optional Wilson square, the newly checked debt is exactly

@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Supporting ORIGINAL signed-family square contraction checked (2026-10-10 UTC):
+`SU2QuaternionRetainedSquareCoercivity` produces the Casimir-12 mixed IBP
+identity and the exact division-free square/Gram residual. The actual family
+consumer preserves projected endpoint, signed/repeated faces and passive
+weights; it proves `6*t*Energy+D=(a*a+24*a*t)*ChannelQ+6*t*(C-t*R-O)`.
+D is produced nonnegative for nonnegative nome, not postulated. Its normalized
+cutoff join pays ONLY O and retains D on the left. Both final narrow checks
+and COMPLETE independent final-source/log reviews PASS; sixteen permitted
+gates, no final warnings/errors. Remaining cubic/pair/raw-Q versus OWN variance,
+warmed/chronological and moving-family/scaling control, physical/QFT/every-group
+and Clay remain OPEN. Exact displayed claims unchanged; no chart reprint.
+Evidence: adaptive-score audit's square-contraction section.
+
 Supporting ORIGINAL signed-family cutoff join checked (2026-10-09 UTC):
 exact ordered bare face Gram produces the positive padded ALL-face norm;
 the constructed family square cap and SAME predecessor-mass/OWN-variance

@@ -11628,3 +11628,109 @@ control, or direct original macro retention. The auxiliary raw-Q coercivity
 screen remains PAPER and is not another analytic prerequisite. Continuum
 survival, physical mass, full QFT/every-group and Clay remain OPEN. Exact
 canonical displayed claims unchanged; no ASCII reprint.
+
+## Actual retained-square contraction and original-energy join (2026-10-10 UTC)
+
+Selected bounded test: implement the PAPER square completion on the ACTUAL
+signed sources, then fold it into original energy without dropping its two
+positive residuals. Prediction: bare Haar IBP with test b^2*F produces the
+needed mixed moment, so no source sign, source/variance inverse, or new
+analytic field is required. This tests finite algebra, not the remaining
+relative payment or warmed/moving-family estimate.
+
+### Observed result and exact consumer
+
+KERNEL-CHECKED. COMPLETE ROOT and independent final-source/log reviews PASS.
+The generic leaf and the original consumer are OUR mathematical follow-through,
+not foreign fermion results from arXiv:2610.09093.
+
+1. `casimir12_mixed_ibp`,
+   `lean/YMGap/Continuum/SU2QuaternionRetainedSquareCoercivity.lean:108`,
+   uses supported b/F, active indices inside the original Haar carrier, and
+   the carrier equality C(F)=12F. IBP with test b^2*F and TWO actual product
+   rules produces G+2J=12Q. Let v=bF, x=Gamma(b,F), y=Gamma(b,b), g=Gamma(F,F),
+   Q=H[v^2], J=H[v*x], X=H[x^2], Y=H[y*g], G=H[b^2*g].
+   `retainedSlackValue:89` is the literal
+   B=H[(b*C(F)-2*x)^2+2*y*g-48*v^2]; its expansion is 96Q-48J+4X+2Y.
+   `retained_coercivity_identity:215` proves, for ALL rational a,t,
+
+       (a*a+24*a*t)*Q-6*t*(a*G-t*B)
+         = H[((a-24*t)*v+6*t*x)^2]+12*t*t*H[y*g-x*x].
+
+   `coercivitySquare_haar_nonnegative:249` and
+   `coercivityGram_nonnegative:258` produce both positive terms.
+   `retained_square_coercivity:265` is the cleared UPPER bound
+   6*t*(a*G-t*B)<=(a*a+24*a*t)*Q. Zero t/Q and signed b are included;
+   no moment inequality or new analytic hypothesis is assumed.
+2. `channelCoercivitySquare`,
+   `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedFamilyCoercivity.lean:72`,
+   `channelCoercivityGram:82` and `channelCoercivityResidual:91` retain the
+   literal fringe-projected original terminal source and unchanged actual
+   passive Gram channels. `family_channel_coercivity_identity:128` produces
+   the original spatialSpan support/Casimir pin and folds the exact identity.
+   `channelCoercivityResidual_nonnegative:180` produces D>=0 for 0<=w;
+   a/t remain arbitrary and channel sources may be signed. No deduplication.
+3. Set h=1-w, t=h*h/2, a=h-19*t. With C the signed family cubic, R the
+   ordered signed/repeated pair remainder and O the literal omitted form,
+   `remainingFamilyEnergy_coercivity_identity:232` retains the complete
+   residual D=ChannelSquare+12*t*t*ChannelGram. Padding into ORIGINAL energy,
+   `padded_family_energy_coercivity_identity:256` proves
+
+       6*t*Energy+D=(a*a+24*a*t)*ChannelQ+6*t*(C-t*R-O).
+
+   Every cutoff and depth, including zero, remains. No positivity claim for
+   C, R or the mixed Gamma terms is made.
+4. `normalizedEnergy_coercivity_cutoff_payment:298` composes the EXISTING
+   computed fixed-family omitted cutoff and gives at EVERY positive depth:
+
+       6*t*normalizedEnergy+D/Z
+         <= ((a*a+24*a*t)*ChannelQ+6*t*(C-t*R))/Z
+            +(6*t*delta)*OWNVariance.
+
+   Z is SAME positive original oddMass. This divides only by the partition;
+   the existing cutoff's positive bare-norm guard remains an explicit input.
+   Its ALL-face producer is already checked in FamilyBareGram, NOT reproved
+   or assumed as continuum survival here. Only O is paid; C/R/raw-Q versus
+   OWN variance, temporal smoothing and changing-family control are UNPAID.
+
+### Accepted verification boundary
+
+Accepted commands from repository root, run serially:
+
+```sh
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/SU2QuaternionRetainedSquareCoercivity.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/SU2QuaternionRetainedSquareCoercivity.olean --log-file /private/tmp/ym-oct9-retained-square-coercivity3.log
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedFamilyCoercivity.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedFamilyCoercivity.olean --log-file /private/tmp/ym-oct9-signed-family-coercivity2.log
+```
+
+Both exit 0; eight public gates each. The generic square/Gram definitions use
+propext only; all other fourteen gates exactly {propext,Quot.sound}.
+No final warnings/errors, sorryAx, classical input or new analytic obligation.
+Final source/log hashes, independently checked unchanged:
+
+- Generic source `6d745e15e04b30f1b5e24c929834b11a1d737a4826998d4ceef95acff1a21f04`;
+  accepted generic3 log `ef4da5da7f27bd121a836eb9fd70db5d16bcfbd263cae7db493fd68e17f28853`.
+- Actual consumer source `0535063b3804212aeadfbf6e134ca7bfea7d2fc9122328100267f247532795d1`;
+  accepted consumer2 log `631ddeaffb9081e7cb5bab7c664fb21a0c7228f8d3ccc64714944cde2b55cb94`.
+
+Generic1 failed parser layout and namespace lookup; generic2 left an
+unconstrained Haar-linearity placeholder. Explicit cases, namespace and the
+full target repaired them. Consumer1 hit whnf's default unfolding limit in
+positivity; named actual functions and explicit intermediate bounds repaired
+it without raising options or changing statements. These superseded failed
+logs are NOT proof evidence. Fresh dynamic memory/swap/compiler/runner
+preflights preceded EACH launch: 85--86 percent memory free, zero swap and no
+competing compiler/runner. One capped 20GiB worker/12GiB OS reserve; no process
+kill, resource increase, full root/tree build or audit/guard. Root imports are
+registration only; the three user duplicate leaves remain untouched.
+
+REPOINT: the square contraction is now checked on the actual signed family.
+For t>0, discarding D gives raw-Q coefficient
+1/3-7*h/3-95*h*h/12, which tends to 1/3, not zero, near w=1. That ceiling
+is not the required small SAME-variance payment. Target the COMPLETE joined
+numerator `(a*a+24*a*t)*ChannelQ+6*t*(C-t*R)-D` versus
+`6*t*oddMass*OWNVariance`, retaining its favorable residual and delta reserve,
+or produce direct original macro retention. No extra cap/floor or assumed
+coercivity interface is selected. Warmed/BOTH-chronological-mass and justified
+moving-family/scaling control, continuum survival, physical mass, full QFT,
+every compact simple group and Clay remain OPEN. Exact canonical displayed
+claims unchanged; no ASCII reprint.

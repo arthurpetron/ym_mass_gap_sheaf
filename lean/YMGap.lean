@@ -5155,6 +5155,8 @@ import YMGap.Continuum.SU2QuaternionSecondOrderCancellation
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyCurvature
 import YMGap.Continuum.QuaternionHaarPolynomialGramDeterminant
 import YMGap.Continuum.SU2QuaternionSecondOrderRetainedSquare
+-- Exact square/Gram residual, without source or observable-norm division.
+import YMGap.Continuum.SU2QuaternionRetainedSquareCoercivity
 import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteCurvature
 -- Local original shared-face curvature and unique-link Gamma localization.
 -- Full original pair Casimir and ordered signed-family/channel assembly; payment remains open.
@@ -5175,6 +5177,8 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilySourceVarianceBound
 -- remaining signed cost, temporal smoothing and scaling still open.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSignedFamilyOmittedPayment
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSignedFamilyEnergyPayment
+-- SAME original signed-energy residual and cutoff join; relative/scaling debt remains open.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialSignedFamilyCoercivity
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyJointCorrection
 -- Exact spectator Gram-channel reduction of original moments and plaquette energy.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialPassiveChannels
