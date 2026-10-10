@@ -670,6 +670,94 @@ the missing quantitative estimate.
 Independent read-only review of the actual two-file diff PASS: complete
 formulas, source pins, normalization, scope and stopping decision checked.
 
+### Pointwise spatial-score cancellation screen (2026-10-10 UTC; PAPER)
+
+Decision test: can a divergence-preserving change of current eliminate the
+spatial score POINTWISE, before its pairing with the separated future test?
+The intended consumer is still `pathShiftedEpsBound_iff_response:418`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1Anchor.lean`. Available inputs
+are original-Haar angular IBP and an exact original cube source moment.
+The decisive test is a nonzero weighted source mean; abandon a UNIVERSAL
+pointwise shortcut if it fails. Budget: source/math review only, no compiler
+or new Ward interface. Two bounded Sol reviews were used independently.
+
+Let V be the original spatial polynomial and P a literal plaquette source.
+For a finite polynomial angular current u in in-range blocks, summed IBP gives
+
+    H[V*div_Haar(u)] + H[sum_alpha u_alpha*D_alpha V] = 0.
+
+This follows from `quaternionHaar_weighted_angular_at:99`,
+`lean/YMGap/Continuum/SU2QuaternionHaarAngularIBPAt.lean`, applied termwise.
+Hence div_Haar(u)=-12*P together with sum u_alpha*D_alpha V=0 would force
+H[V*P]=0. Testing instead with V*h(V) gives H[V*h(V)*P]=0 for every
+polynomial h. These are necessary compatibility conditions, not estimates.
+No positivity, inverse, conditional measure or change of action is needed.
+
+The compatibility already fails for a FULLY ACTIVE original source. Set
+N=length(baseLinks 2), V=spatialWeight w 1 2 and
+P=firstFaceTrace, the origin p01 character from `firstFaceTrace:68`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCubeBentFusion.lean`.
+This is the complete spatial product `spatialWeight:70`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSliceHeat.lean`, not an action
+with omitted fringe factors. The exact source chain is:
+
+- `activeSpatialFaces_two_mem_iff:115`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCubeTransfer.lean`, makes this
+  face fully active. `characterFace_independent_index:139`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFaceIndependence.lean`,
+  supplies its fringe independence; `plaquette_supported:44`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteHaar.lean`, supplies
+  the other hypothesis of the following Haar comparison.
+- `spatialWeight_haar_active:130`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialActiveSpatialWeight.lean`,
+  integrates the fringe-touching full prefixes with P still retained.
+  `activeSpatialWeight_cube:176`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCubeTransfer.lean`, identifies
+  the remaining original six-face product.
+- `tested_vacuum_action_channel:156`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCubeVacuumActionMoment.lean`,
+  gives H[V*P]=a+a^5/16, a=coeffW(w,1). By `coeffW_one:272`,
+  `lean/YMGap/Continuum/BondMovingStep.lean`, a=2*w^3. At w=1/8 this is
+  2^-8+2^-44>0. The order of V and P is immaterial by polynomial commutativity.
+
+Thus universal pointwise spatial tangency plus preservation of the bare
+source divergence is impossible even for an original bulk Wilson source.
+The composed full-weight moment and current obstruction above are PAPER
+derivations from existing declarations, NOT newly kernel-checked theorems.
+This single-face witness does not refute a particular all-face padded
+scaling family, signed cancellation AFTER the future pairing, approximate
+currents, or the endpoint H1 estimate.
+
+Nor can the OLD center simply be absorbed into bare-Haar divergence:
+H[div_Haar(u)]=0 and `family_haar_zero:124`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyBareHaar.lean`, would
+force c=0 for div_Haar(u)=-12*(Phi-c). No vanishing of the OLD OWN center
+is supplied. Keep its signed correction in the full original identity.
+
+Parallel quantitative review also found no new payment from positivity or
+log-convexity alone. `mixedMoment_time_budget:71`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeTimeDefectTail.lean`, yields
+k*(R_s-R_(s+1))<=R_(s-k)-R_s for the SAME fixed smoothed source. For
+even s>0 and k=s/2, an ACTUAL uniform R_(s/2)<=C*R_s would suffice with
+c0=2*(C-1). That source-sensitive comparison is unsupplied and remains
+OPTIONAL, not a new necessary input. The double BOX pin
+`smoothedResponse_pin:341`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeSmoothedCoherentState.lean`, keeps
+the same filter in both adjacent moments. For a nonzero pure response with
+0<lambda<=1, the filter cancels in the ratio, leaving s*(1-lambda); it gives no
+uniform bound as s grows. This pure-rate test is not an original-action
+realization or Yang--Mills counterexample.
+
+Decision: prune the UNIVERSAL pointwise score-annihilation shortcut. Continue
+with the complete signed relative expectation, or a genuinely proved
+source-sensitive late response comparison, on a justified changing family.
+No Lean edit/build, new uniform estimate, canonical field, ledger discharge
+or displayed proof-state change. MAIN and the constructive Clay goal remain
+OPEN.
+Independent complete two-file diff/source review PASS after qualifying the
+pure-rate ratio to exclude zero response. ROOT inspected the complete diff;
+`git diff --check` PASS. No unchanged Lean machinery was recompiled.
+
 ### Existing consumers versus missing work
 
 - Full ORIGINAL chronological numerator and partition: `window_pairing:96`

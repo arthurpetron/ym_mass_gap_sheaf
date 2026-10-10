@@ -93,6 +93,15 @@ No new source-selection interface is needed: the existing family/expression
 trajectories already permit adaptation. Exact formulas, source pins and
 stopping decision: adaptive-score audit, "Coherent-score variance and
 future-test cancellation". No uniform bound or Lean proof-state change.
+The next PAPER screen rejects a UNIVERSAL pointwise spatial-score-annihilating
+current: preserving div_Haar(u)=-12*P would force H[V*P]=0, whereas a fully
+active original width-two plaquette has H[V*P]=a+a^5/16>0 at w=1/8, K=1,
+with the complete spatial action retained. This does NOT refute the padded
+scaling family, signed future-test cancellation or H1. Absorbing the OLD
+center into bare-Haar divergence would also require its unproved vanishing.
+Retain the joint signed target; no new Ward or tangent-current interface is
+selected. Evidence and exact scope: adaptive-score audit, "Pointwise
+spatial-score cancellation screen". No Lean proof or chart-state change.
 Test the inequality direction, original weights and scaling dependence
 on paper before selecting Lean implementation. Do not formalize another Ward
 wrapper or assume this estimate merely to make a passing leaf. Existing
