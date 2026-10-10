@@ -5390,6 +5390,7 @@ import YMGap.Continuum.QuaternionHaarUnitIntervalCoordinate
 import YMGap.Continuum.QuaternionHaarTensorBernsteinCubature
 import YMGap.Continuum.QuaternionHaarTensorBernsteinError
 import YMGap.Continuum.RatPolyCubeLipschitz
+import YMGap.Continuum.QuaternionHaarCubeNormDefect
 import YMGap.Continuum.SU2HeatJacobiFinitePrefixClassPolynomial
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticBound
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticCutoff

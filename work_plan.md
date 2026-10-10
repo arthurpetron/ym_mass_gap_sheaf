@@ -551,8 +551,9 @@ final-source/log review; 18 gates total remain within {propext,Quot.sound}.
 No root/tree/audit was run. Next selected mathematical contraction: a
 SUFFICIENT norm-defect/repair bound 48/(n+1), using second moments and a
 four-term sum-of-squares identity, rather than requiring the exact fourth
-moment. The scalar-to-polynomial variance join and same-Haar SOS proof remain
-OPEN; this is a PAPER argument, not a proved concentration declaration.
+moment. The same-Haar SOS certificate is now CHECKED (below); the
+scalar-to-polynomial variance/tensor join remains OPEN. The full 48/N estimate
+is still a PAPER argument, not a proved concentration declaration.
 All source pins, hashes, failed-check repairs and the Fisher/slack screen are
 in the adaptive-score audit's next quantitative joins section. MAIN still needs
 an upper payment of the complete warmed square plus signed remainder; a bound
@@ -566,6 +567,28 @@ them to the actual growing consumer before claiming a joint limit.
 Source pins, classical-formalization and bounded review scope:
 `audits/RESEARCH-2610-09093-2026-10-08.md`, effective approximation inputs.
 MAIN centered late-area and all continuum/physical/Clay obligations stay OPEN.
+
+Requested-paper refinement (2026-10-10 UTC; independently screened PAPER):
+after proving the SAME joint-weight repair-square bound 48/N, rational Young
+gives repair error <=L*(tau/2+24/(N*tau)), with the CHECKED computed
+L=`RatPolyCubeLipschitz.polynomialLipschitz`. Choose tau=epsilon/(2*(L+1))
+and N=n+1>=192*(L+1)^2/epsilon^2 for repair error <=epsilon/2; pay the
+coefficient/grid error separately by epsilon/2 and retain n>=weightedRowCutoff.
+No root or inverse of L is needed, including L=0. The actual cube-point SOS
+certificate is now CHECKED: `QuaternionHaarCubeNormDefect.defectCertificate`,
+`lean/YMGap/Continuum/QuaternionHaarCubeNormDefect.lean:293`, produces
+`16*sum_i(r_i-x_i)^2-(sum_i r_i^2-1)^2` on the ORIGINAL one-block sphere
+carrier for every guarded rational cube node. `normDefect_cap:104` pins the
+scalar defect and `coordSumBound:197` constructs the actual coordinate gaps;
+zero/corners and shared variables remain. Final focused check3 and COMPLETE
+independent source/log and mathematical reviews PASS; all fifteen gates
+are permitted. No root/tree audit; root registration only. Next prove the
+polynomial variance/tensor sum, not another SOS interface;
+do not import Appendix E's pre-existing continuous Haar. Repaired-coordinate
+cube membership and finite aggregation from separable factors to arbitrary
+supported RatPoly still need checked joins. This is a quantitative plan,
+not a proved repair bound, sup-norm theorem or continuous extension.
+Details: paper audit, current requested follow-through.
 
 CHECKED original terminal curvature (2026-10-08 23:39 UTC): the new
 `ConditionalFisherOrder.conditional_fisher_nonnegative` uses two actual

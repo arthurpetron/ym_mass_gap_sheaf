@@ -114,10 +114,70 @@ the original Haar: total discrepancy 3/N, hence norm defect at most 48/N.
 `repair_error_le`,
 `lean/YMGap/RepTheory/RationalQuaternionNormRepair.lean:315`, would pay the
 same weighted squared repair distance. This argument was independently
-screened on PAPER, not kernel-checked. The scalar-to-RatPoly variance lift,
-SOS construction and weighted same-Haar joins are the NEXT missing producers.
+screened on PAPER, not kernel-checked. The scalar-to-RatPoly variance lift
+and weighted same-Haar joins are the NEXT missing producers; the SOS
+construction is now checked in the requested-paper follow-through below.
 Avoid the unnecessary third/fourth moment expansion. Sup-norm contractivity,
 continuous extension, the continuum/physical/all-group Clay clauses remain OPEN.
+
+### Requested-paper follow-through selection (2026-10-10 UTC)
+
+Implement only the missing actual cube-point SOS certificate: for rational
+r_i with r_i^2<=1, construct on the ORIGINAL one-block sphere carrier
+`Certificate 1 (16*sum_i(r_i-x_i)^2-(sum_i r_i^2-1)^2)`.
+The available coordinate square bounds, six supported polynomial squares and
+arbitrary-insertion sphere identity produce it without continuous integration
+or a pointwise-positivity axiom. This removes the algebraic upper-bound input
+of the selected 48/N concentration argument; it does NOT supply the still
+missing scalar-to-polynomial Bernstein variance identity or its tensor sum.
+Consumers remain the SAME polynomial-Haar sup-norm argument and eventual
+`quaternionPolyLinkHaar` / `torusPolyPartition` continuous extensions.
+Tests: r=0, cube corners, repeated/shared coordinates and arbitrary supported
+square insertions. ROOT serial narrow checks only (20-GiB worker/12-GiB
+reserve), independent complete source/log review; stop rather than supply
+an unproved positivity or sphere-identification premise. No canonical closure.
+Parallel PRIMARY-source reviewer checks Appendix E and companion 10.3--10.4
+for genuinely additional effective inputs, using the existing paper cache.
+
+### Observed cube norm-defect producer [CHECKED]
+
+`coordSumBound`,
+`lean/YMGap/Continuum/QuaternionHaarCubeNormDefect.lean:197`, constructs
+`4-(r_i+x_i)^2` from the actual supported coordinate cap1 and the explicit
+rational guard r_i^2<=1. `normDefect_cap:104` pins the squared constant node
+defect, including r=0; `defectCertificate:293` constructs
+`16*sum_i(r_i-x_i)^2-(sum_i r_i^2-1)^2` on the SAME one-block Haar carrier.
+The six pair squares and four coordinate-gap terms retain shared variables.
+Sphere transport is equality under every polynomial insertion; nonnegativity
+is preserved under supported-square or Certificate-positive insertions, NOT
+arbitrary signed ones. `defect_haar_nonnegative:315` specializes to the actual
+Haar inequality. The certificate can be multiplied by the existing actual
+joint-basis certificate; no continuous Haar or pointwise-positivity axiom.
+
+Final ROOT monitored check3 exited0 (~0.71s), 15 public gates: ten empty,
+five exactly {propext,Quot.sound}; no final warnings/errors. Accepted command:
+
+```
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionHaarCubeNormDefect.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionHaarCubeNormDefect.olean --log-file /private/tmp/ym-cube-norm-defect-check3.log
+```
+
+Check1 failed on
+missing namespace opens; check2 failed on dot notation for a reducible
+HaarCarrierEqv alias. Explicit namespace/carrier calls repaired these without
+changing a hypothesis or resource limit. Recovery sorryAx in failed logs is
+REJECTED. Every launch used fresh dynamic telemetry, one 20-GiB worker and
+12-GiB reserve; zero swap and no competing compiler observed.
+
+Frozen 336-line source SHA-256
+`eb2ec03149c48402fea540065656c50c76d9e67ffc3487c85ee8b7721df19e00`;
+accepted 15-line `/private/tmp/ym-cube-norm-defect-check3.log` SHA-256
+`d9b15c2716387a9525f4feb1aaa9ed589c850e13fd8ba640251fdc67abf851d4`.
+Independent COMPLETE mathematical and source/log reviews PASS. Root import
+registration only; no root/tree/audit, new sorry, canonical-field weakening
+or displayed-chart claim change. This is independently derived PROJECT
+mathematics, not imported fermion code. Next: the scalar-to-polynomial
+Bernstein variance/tensor sum 3/N and actual weighted repair estimate 48/N.
+Sup-norm, continuous-Haar, MAIN, physical/QFT/every-group and Clay remain OPEN.
 
 ### MAIN Fisher/slack screen [SOURCE/PAPER, not a new theorem]
 
