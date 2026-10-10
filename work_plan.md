@@ -765,6 +765,28 @@ check2 and COMPLETE independent source/log/math reviews PASS; fifteen
 permitted gates, no final diagnostics. Exact evidence: adaptive-score audit.
 NEXT: signed rational homogeneity with produced input bounds/radii/inner
 rates and actual-stage comparison, then continuous translation invariance.
+The requested arXiv:2610.09093 recheck sharpens the latter into a bounded
+independent experiment [PAPER, not yet a checked theorem]: for a supplied
+rational unit multiplier g and either Hamilton order, produce the actual
+pullback F_g(q)=F(g*q) or F(q*g), with inner data R at the actual product
+and the SAME bound M and radius rho. `RationalQuaternionCauchyGroup.chord:57`
+is definitionally the supplied squared distance; `chord_mul_left:255` and
+`chord_mul_right:264` therefore preserve that radius without monotonicity.
+Translate the ORIGINAL computed p_n using
+`SU2QuaternionFixedRationalHaarTranslation.fixedTranslatedPolynomial:86`;
+its support/evaluation/moment pins (:89, :370, :194), together with
+`QuaternionPointBernsteinCRealApproximation.realApproximation_error:149`
+and `QuaternionDenseCRealHaarApproximation.haarApproximation_polynomial_distance:193`,
+predict SAME-stage error <=2*invSucc(n). The explicit cutoff
+(epsilon/2).den then removes that error. Only literal coordinate recoding
+and sound distance symmetry are needed, not another continuous-integral
+premise or an identity between independently sampled polynomials.
+Retain both Hamilton orders, n=0, signed/zero input values, equatorial and
+negative-central unit multipliers, and noncanonical rationals. This rational
+join is independent of scalar homogeneity; arbitrary completed multipliers
+still need their own quantitative continuity/limit transfer. Exact source
+pins and the independent mathematical screen are recorded in
+`audits/RESEARCH-2610-09093-2026-10-08.md`, precise next translation experiment.
 Full continuous Haar and compact realization remain OPEN; addition,
 positivity and rational constant normalization do not supply the remaining laws.
 Use the checked all-Point approximation and ORIGINAL moment invariance;
