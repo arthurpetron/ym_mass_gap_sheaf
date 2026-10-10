@@ -11734,3 +11734,135 @@ coercivity interface is selected. Warmed/BOTH-chronological-mass and justified
 moving-family/scaling control, continuum survival, physical mass, full QFT,
 every compact simple group and Clay remain OPEN. Exact canonical displayed
 claims unchanged; no ASCII reprint.
+
+## Connected retained-square test selection (2026-10-10 UTC)
+
+The preceding turn is PROGRESS: ce5a573d supplies a checked exact residual
+and its original-energy/cutoff consumer. The next test deletes the constant
+mode from its raw-Q ceiling rather than treating raw Q as OWN variance.
+
+For the SAME weighted actual passive-channel form, put
+S=sum H[b_z^2], M=sum H[b_z^2*F], Q=sum H[(b_z*F)^2]. With unchanged
+weights, G/B as above and s_z=(a-24*t)*b_z*F+6*t*Gamma(b_z,F), the selected
+PAPER proposition is
+
+    6*t*S*(a*G-t*B)+144*t*t*M*M
+      <= (a*a+24*a*t)*(S*Q-M*M).
+
+Available inputs: the original carrier C(F)=12F, actual angular IBP/product
+rules, supported signed sources, nonnegative channel weights, the checked
+retained residual and RationalQuadraticDiscriminant. IBP with test b_z^2
+predicts H[b_z*Gamma(b_z,F)]=6H[b_z^2*F], hence the full weighted inner
+product <b,s>=(a+12*t)*M. Full-channel Cauchy then gives
+S*D>=(a+12*t)^2*M^2. An independent mathematical screen confirms the
+algebra/direction; this is not yet a checked declaration at selection time.
+
+Consumer: strengthen the existing ORIGINAL signed-family normalized energy
+cutoff join, retaining signed cubic/pair terms and the SAME original positive
+partition/OWN variance. The new raw connected determinant is NOT that
+interacting variance. No equality of their means, positivity of source, or
+source/observable/variance inverse is selected. Empty/zero/signed/repeated
+families, zero channel mass and t=0 are decisive degeneracy tests. Abandon
+a merely per-channel S_z bound: the consumer needs the FULL weighted S.
+Use the existing constructive quadratic-discriminant theorem on weighted
+Haar squares rather than another assumed-input/direct-sum interface.
+
+Verification budget: two new narrow leaves only, ROOT serial one-worker
+20GiB checks/12GiB reserve and fresh dynamic capacity preflights. Independent
+math reviews continue while implementation/compilation proceeds. No root/tree
+audit, new canonical field or chart reprint. If the raw determinant still
+needs an exponential cap/floor comparison, do not expand that branch as a
+surrogate for the missing useful relative estimate.
+
+## Connected retained-square observed contraction (2026-10-10 UTC)
+
+Outcome: the selected TOTAL-channel constant-mode removal is CHECKED in two
+new finite leaves. This is independently derived project mathematics; the
+foreign chiral-fermion paper supplied no missing original Yang--Mills
+variance or scaling estimate. No new analytic hypothesis/interface is added.
+
+`channelHaarPair`,
+`lean/YMGap/Continuum/SU2QuaternionChannelConnectedCoercivity.lean:69`,
+is the literal weighted Haar form. `channelHaarPair_cauchySchwarz:113`
+uses nonnegative weighted Haar squares and the existing constructive quadratic
+discriminant, including zero diagonals. Support is required only on occurring
+channels. `casimir12_first_ibp:152` produces H[b*Gamma(b,F)]=6H[b^2*F]
+from the actual carrier C(F)=12F and product rules. `channel_coercivity_mixed:203`
+then produces <b,s>=(a+12*t)*M on the COMPLETE weighted channel form.
+`connected_channel_coercivity:303` proves, for every rational a,t,
+
+    6*t*S*(a*G-t*B)+144*t*t*M*M
+      <= (a*a+24*a*t)*(S*Q-M*M).
+
+B is the SAME literal retained slack, not a substitute lower credit. The
+proof keeps signed sources, empty channel lists, zero S and t=0. No source
+positivity, norm inverse, favorable cubic/pair sign or new moment premise.
+
+Actual definitions:
+`familyChannelSourceMass:66`, `familyChannelSourceMoment:73`,
+`familyChannelConnectedDeterminant:82` and `familyChannelConnectedResidual:90`,
+all in `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedFamilyConnectedCoercivity.lean`.
+They keep Pi_fringe(V*g_depth), its existing product-channel weights and the
+ORIGINAL signed spatialSpan. Det=S*Q-M*M is TOTAL raw channel data, NOT
+OWN interacting variance. Dconn=S*D-(a+12*t)^2*M*M retains the FULL previous
+residual after the produced rank-one credit. Their positivity is proved by
+`familyChannelConnectedDeterminant_nonnegative:112` and
+`familyChannelConnectedResidual_nonnegative:189`, for nonnegative nome.
+`family_channel_connected_coercivity:130` supplies the actual extraction.
+Signed/repeated faces and every cutoff/depth, including zero, remain.
+
+`padded_family_energy_connected_identity:250` proves the exact ORIGINAL join:
+
+    6*t*S*Energy+144*t*t*M*M+Dconn
+      = (a*a+24*a*t)*Det+6*t*S*(C-t*R-O),
+
+with h=1-w, t=h^2/2, a=h-19*t. `normalizedEnergy_connected_cutoff_payment:328`
+keeps the SAME positive original oddMass Z, OWN variance, original energy,
+positive bare-norm guard and existing computed cutoff:
+
+    6*t*S*normalizedEnergy+(144*t*t*M*M+Dconn)/Z
+      <= ((a*a+24*a*t)*Det+6*t*S*(C-t*R))/Z
+         +6*t*S*delta*OWNVariance.
+
+Only omitted loss O is paid at that fixed-nome/full-width/family cutoff,
+serving EVERY positive terminal depth. No equality of channel/OWN means,
+source-mass inverse, warmed Casimir pin or scaling-uniform estimate is added.
+Zero S remains included but does not witness nonzero continuum survival.
+
+ROOT read the complete final sources and accepted logs. Two independent
+mathematical screens checked aggregation, IBP, coefficients, signs, zero cases,
+unchanged source/energy/partition and scope. COMPLETE independent final
+source/log review PASS. Accepted source SHA-256:
+
+- generic: `022f83eb6dde4744a8b753ed7c0f8fe8f1f3a5b2aee9ba6cd8ffe9e496902d71`;
+- actual: `c7e0a7c22d645fad6398c9ca9bc1ae04f86b650af9a1fe404b2ab42ce66c0ca5`.
+
+Accepted narrow serial commands, both EXIT0:
+
+```text
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/SU2QuaternionChannelConnectedCoercivity.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/SU2QuaternionChannelConnectedCoercivity.olean --log-file /private/tmp/ym-oct9-channel-connected-coercivity3.log
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedFamilyConnectedCoercivity.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedFamilyConnectedCoercivity.olean --log-file /private/tmp/ym-oct9-signed-family-connected-coercivity2.log
+```
+
+Accepted log SHA-256 respectively:
+`6f652dd4bee22c9859935be6a51e240d57ef85370b7ce9e04a91b0ba9178850b`,
+`5d8dfd4ae1b155c705dadeaf0c366bd6ac0628f7c4e3ba39e4950503a64baad3`.
+All SIX generic and TEN actual public gates are exactly {propext,Quot.sound};
+no final warnings/errors. Earlier generic check1/2 namespace/parser/function-
+family inference failures and actual check1 equality-orientation error were
+repaired without statement changes or raised options; their error-recovery
+axiom output is NOT accepted proof evidence. Fresh preflights preceded EVERY
+launch: 85--86 percent dynamic memory free, zero swap, no competing Lean/
+Lake/pytest/runner. One hard-capped 20GiB worker and 12GiB reserve; no process
+kill, lock removal, full root/tree build, audit/guard or resource increase.
+Root imports are registration only. User duplicate files remain untouched.
+
+REPOINT: retain `k*Det+6*t*S*(C-t*R)-144*t*t*M*M-Dconn`, k=a^2+24*a*t,
+against `6*t*S*oddMass*OWNVariance`, or produce direct ORIGINAL macro
+retention. The raw connected determinant is not that interacting variance;
+no useful comparison was constructed. Do not expand a footprint-dependent
+cap/floor surrogate or separately centered channel argument as a replacement.
+Signed cubic/pair cost, warmed/BOTH-chronological-mass transport and justified
+moving-family/scaling control remain open. Continuum survival, physical mass,
+full QFT, every compact simple group and Clay remain OPEN. Exact canonical
+displayed claims unchanged; no ASCII reprint.

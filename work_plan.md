@@ -5,7 +5,7 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
-## Whole-project goal and live completion map (updated 2026-10-09 UTC)
+## Whole-project goal and live completion map (updated 2026-10-10 UTC)
 
 The unchanged mathematical target is: for each compact simple gauge group G,
 construct a nontrivial quantum Yang--Mills theory on R^4 satisfying the QFT
@@ -25,7 +25,7 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Latest MAIN selection (2026-10-09 UTC)
+### Latest MAIN selection (2026-10-10 UTC)
 
 CHECKED new producer on the correct curvature object:
 `QuaternionHaarMixedLinearCasimir.blockGamma_linear_casimir` proves
@@ -168,11 +168,32 @@ and COMPLETE independent final-source/log reviews PASS; sixteen gates within
 {propext,Quot.sound}, no final warnings/errors. Root registration only, not a
 root/tree audit. Exact commands/hashes and superseded attempts: score audit.
 
+CHECKED TOTAL-channel constant-mode extraction (2026-10-10 UTC):
+`SU2QuaternionChannelConnectedCoercivity.casimir12_first_ibp:152` tests the
+SAME Casimir-12 pin against b^2; `channel_coercivity_mixed:203` gives
+`<b,s>=(a+12*t)*M`. The weighted-form quadratic discriminant, not separate
+channel normalization, produces `connected_channel_coercivity:303`:
+`6*t*S*(a*G-t*B)+144*t*t*M*M <= (a*a+24*a*t)*(S*Q-M*M)`.
+Every rational a,t, signed supported b, empty channels and zero S are covered.
+The actual `BF4ExactSlabFixedSpatialSignedFamilyConnectedCoercivity` defines
+TOTAL source mass S, moment M, Det=S*Q-M*M and
+Dconn=S*D-(a+12*t)^2*M*M; both Det and Dconn are produced nonnegative.
+`padded_family_energy_connected_identity:250` retains the complete original
+energy as `6*t*S*Energy+144*t*t*M*M+Dconn=(a*a+24*a*t)*Det+6*t*S*(C-t*R-O)`.
+`normalizedEnergy_connected_cutoff_payment:328` joins this to the SAME
+partition/OWN variance at the existing cutoff, keeping both left credits
+and paying ONLY O. No source-mass inverse or channel/OWN-mean equality.
+Generic check3/actual check2 and COMPLETE independent source/log reviews PASS;
+sixteen gates exactly {propext,Quot.sound}, no final warnings/errors.
+Root registration only; no tree audit or canonical displayed-claim change.
+Exact commands/hashes/superseded attempts: adaptive-score audit.
+
 At a=h-19t and t=h^2/2 the raw-Q ceiling tends to 1/3 as h tends to zero;
-it is not a small relative SAME-variance estimate by itself. Cubic/pair cost,
-raw-Q versus OWN variance, warmed transport and moving-family control remain
-unpaid. Test the COMPLETE joined expression WITH D before expanding a cap/floor
-or channelwise Cauchy branch; no inverse observable norm or assumed estimate.
+the new raw connected determinant is still NOT OWN interacting variance.
+Cubic/pair cost, useful determinant/OWN comparison, warmed transport and
+moving-family control remain unpaid. Test the COMPLETE joined expression
+WITH its connected residual before expanding a cap/floor or separately
+centered channel branch; no inverse observable norm or assumed estimate.
 Paper scope and original derivation:
 `audits/RESEARCH-2610-09093-2026-10-08.md`, current-consumer decision.
 
@@ -192,11 +213,15 @@ computed fixed-family cutoff; target the remaining exact expression
 against SAME `oddMass*oddVariance`, retaining the explicit delta reserve.
 Keep the last negative term: dropping it
 requires a strictly stronger payment than estimating the actual energy.
-Equivalently, the new exact contraction targets the COMPLETE joined numerator
+Equivalently, the earlier exact contraction targets the COMPLETE joined numerator
 `(a*a+24*a*t)*familyChannelObservableSquare+6*t*(signedFamilyCubic-t*familyChannelPairRemainder)-channelCoercivityResidual`
 against `6*t*oddMass*oddVariance` with the needed small coefficient. Do not
 discard D and then count an angular ceiling as a payment of the cubic/pair
-cost. Produce this source-specific bound, or direct original macro retention,
+cost. The additional cleared connected consumer retains
+`(a*a+24*a*t)*Det+6*t*S*(C-t*R)-144*t*t*M*M-Dconn`
+against `6*t*S*oddMass*OWNVariance`, without dividing by S. A zero-S
+statement is not a nonzero-survival producer. Produce a useful source-specific
+bound, or direct original macro retention,
 before extending to the temporally smoothed/moving family.
 The weaker checked signed upper bound and older absolute error consumer
 remain available, but neither is a necessary extra analytic prerequisite.

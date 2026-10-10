@@ -1,6 +1,6 @@
 # Constructive Yang--Mills mass-gap formalization
 
-## Current proof boundary (2026-10-09 UTC)
+## Current proof boundary (2026-10-10 UTC)
 
 The [canonical one-page status chart](docs/PROJECT-STATUS.md) keeps fixed
 wording, layout, proof-status meanings and permanent node IDs across updates.
@@ -21,6 +21,16 @@ and independent complete source/log review passed the constructive axiom gate.
 The full expression still needs payment against the SAME interacting variance;
 no scaling or physical mass gap follows. See the
 [proof and next estimate](audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md).
+
+**Sharper connected finite estimate:** first angular integration by parts
+and weighted Cauchy--Schwarz now remove the constant mode across the TOTAL
+original channel form. The proof retains the exact nonnegative residual
+and signed cubic/pair corrections, including zero source mass, and reaches
+the original-energy cutoff consumer without a source-norm inverse.
+Both focused checks and independent complete source/log review passed the
+constructive gate. The raw connected determinant is not the SAME interacting
+variance; their useful comparison and scaling remain open. See the
+[checked connected bound and remaining target](audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md).
 
 **Earlier finite inputs:** the original plaquette's four physical-slot derivatives
 now have a checked common-frame identity, and their own-gradient sum is exactly

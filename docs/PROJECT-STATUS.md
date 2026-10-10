@@ -1,5 +1,19 @@
 # Canonical one-page project status
 
+Supporting ORIGINAL TOTAL-channel constant-mode extraction checked
+(2026-10-10 UTC): first angular IBP and weighted-form Cauchy produce
+`6*t*S*(a*G-t*B)+144*t*t*M*M <= (a*a+24*a*t)*(S*Q-M*M)` for every rational
+a,t, including signed/empty/zero-mass sources. The actual raw determinant
+Det and full residual Dconn=S*D-(a+12*t)^2*M*M are produced nonnegative.
+The exact original-energy and SAME-partition/OWN-variance cutoff consumers
+retain both credits; only omitted loss is paid. Generic check3/actual check2
+and COMPLETE independent source/log reviews PASS; sixteen gates exactly
+{propext,Quot.sound}, no final warnings/errors. Det is NOT OWN interacting
+variance; remaining signed cost, useful comparison, warmed/chronological,
+moving-family/scaling and physical/QFT/every-group/Clay stay OPEN. Root
+registration only, not a tree audit. Exact displayed claims unchanged;
+no chart reprint. Evidence: adaptive-score audit's connected-square section.
+
 Supporting ORIGINAL signed-family square contraction checked (2026-10-10 UTC):
 `SU2QuaternionRetainedSquareCoercivity` produces the Casimir-12 mixed IBP
 identity and the exact division-free square/Gram residual. The actual family

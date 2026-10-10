@@ -5157,6 +5157,8 @@ import YMGap.Continuum.QuaternionHaarPolynomialGramDeterminant
 import YMGap.Continuum.SU2QuaternionSecondOrderRetainedSquare
 -- Exact square/Gram residual, without source or observable-norm division.
 import YMGap.Continuum.SU2QuaternionRetainedSquareCoercivity
+-- TOTAL weighted constant-mode extraction; no source-mass inverse or OWN-variance pin.
+import YMGap.Continuum.SU2QuaternionChannelConnectedCoercivity
 import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteCurvature
 -- Local original shared-face curvature and unique-link Gamma localization.
 -- Full original pair Casimir and ordered signed-family/channel assembly; payment remains open.
@@ -5179,6 +5181,8 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialSignedFamilyOmittedPayment
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSignedFamilyEnergyPayment
 -- SAME original signed-energy residual and cutoff join; relative/scaling debt remains open.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSignedFamilyCoercivity
+-- Connected ORIGINAL signed-energy/cutoff join; remaining relative/scaling debt is open.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialSignedFamilyConnectedCoercivity
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyJointCorrection
 -- Exact spectator Gram-channel reduction of original moments and plaquette energy.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialPassiveChannels
