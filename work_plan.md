@@ -489,6 +489,29 @@ registration only, no root/tree audit or resource increase.
 
 ### Current priorities after the recent-commit review (2026-10-07)
 
+Bounded parallel consumer review (2026-10-10 01:44 UTC; source/planning,
+NOT a new proof): the original warmed starting point is
+`BF4ExactSlabFixedSpatialLastStepAsymmetricEnergy.sourceDerivativeSignedBulk:359`
+and `original_block_sourceDerivative_cost_relative_tolerance:448`. Keep its
+actual source/action derivatives and DISTINCT chronological masses. Summing
+its finite error allowance produces a tolerance times the SUM of the warmed
+responses, not automatically a tolerance times the final response. No uniform
+signed-bulk sum, moving-family diagonal modulus or warmed Casimir-12 pin
+was found in the bounded source review. Thus the initial-family Ward identity
+is not a producer for the late centered-area target above. Estimate that
+complete aggregate before compiling another transport adapter.
+
+Independent J04 review found no useful small approximation leaf: finite
+rational nets, supplied-row completed cover and Point polynomial translation
+already exist. The missing mathematics is uniform polynomial approximation
+on the SAME continuous Point-function domain and a sup-norm bound for the
+actual polynomial Haar functional. Nets supply no cubature weights, and
+integrating a nonpolynomial function to define its approximation presupposes
+the unavailable Haar extension. Do not add an existential quotient net-cover
+wrapper or another assumed-approximation interface. Source pins and the
+review boundary are recorded in `audits/RESEARCH-2610-09093-2026-10-08.md`; no J04,
+MAIN or canonical displayed claim closes.
+
 CHECKED original terminal curvature (2026-10-08 23:39 UTC): the new
 `ConditionalFisherOrder.conditional_fisher_nonnegative` uses two actual
 head copies and positive-window order reflection, without an inverse-floor
