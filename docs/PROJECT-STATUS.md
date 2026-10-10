@@ -1,5 +1,19 @@
 # Canonical one-page project status
 
+Supporting ACTUAL completed global-form quotient checked (2026-10-10 UTC):
+`RationalQuaternionCompletedSignQuotient.signQuotientPresentation:251`
+constructs the exact quotient of the original completed quaternion Point
+group by its two embedded central signs, with explicit identity lifts and
+Type-valued kernel signs. A fixed rational Cauchy-row probe plus actual sign
+separation 4 replaces an unavailable total Point-equality locator;
+dependent subsingleton quotient recursion preserves row independence.
+First focused check and COMPLETE independent frozen-source/full-log/math
+review PASS, eleven permitted gates and no diagnostics. This is algebraic,
+NOT compact/topological SO(3), completed representations/Haar, every-group
+realization or a MAIN/physical gap. All continuum/QFT/Clay endpoints remain
+OPEN. Exact displayed claims unchanged; no chart reprint. Evidence:
+adaptive-score audit's observed completed-sign quotient.
+
 Supporting ACTUAL rational global-form action checked (2026-10-10 UTC):
 `SU2QuaternionSymmetricPowerSignDescent` proves negative-unit degree parity,
 even-degree invariance under the actual rational sign-coset relation and

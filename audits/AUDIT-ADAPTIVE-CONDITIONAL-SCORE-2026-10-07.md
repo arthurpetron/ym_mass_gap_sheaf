@@ -4,6 +4,114 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Completed central-sign quotient selection (after bf9ab8b8)
+
+MAIN read-only screens found no new payment: `energy_identity`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialDirichletForm.lean:267`,
+already supplies the unprojected positive edge square, but
+`sourceEnergy_projected_channels`,
+`lean/YMGap/Continuum/SU2QuaternionProductHeatPassiveChannels.lean:252`,
+uses signed projected sources. The chronological cost retains energy,
+boundary drift and signed multiplication together. Individual quaternion
+Gram coordinates rotate under the vertex action; the whole-source Gauss
+intertwiner does not make each passive channel Gauss-zero. No projected-source
+Gauss intertwiner was found, and no conditional wrapper is selected.
+
+Independent exact PAPER calculation tests a stronger complete centered
+shortcut: f=chi_1, q=(1+f/2)^2 has positive character coefficients and is a
+closed-loop gauge-invariant source. With Haar-orthonormal characters and
+P chi_j=lambda_j chi_j, write Z=<q,Pq>, L=<qf,Pq>, Q=<qf^2,Pq>,
+B=<qf,P(qf)> and OWN=ZQ-L^2. The proposed bare-retention floor would require
+ZB-L^2-lambda_1*OWN>=0. For lambda=(1/8,1/256,1/32768), OWN=
+25503479/16777216>0 but the required difference is
+-193729647/2147483648<0. For a four-link plaquette with lambda=
+(2^-12,2^-32,2^-60), OWN=6457801507503580643319/4722366482869645213696>0
+and the difference is -186268723775234558383292415/
+1267650600228229401496703205376<0. Two independent rational derivations
+agree. This is PAPER, not a newly kernel-checked certificate or an actual
+BF4-terminal-source/scaling counterexample. Prune the universal
+positive-character-coefficient floor; MAIN must use the actual source.
+
+Selected independent global-form producer: construct
+`CentralQuotientPresentation completedGroup signQuotientGroup` on the
+ACTUAL completed quaternion Point carrier, with its two embedded central
+signs and a coarser central-coset setoid. Required object:
+`CentralQuotientPresentation`,
+`lean/YMGap/RepTheory/ConstructiveGroup.lean:200`; actual inputs:
+`completedGroup`, `embed_eq_iff`, `embedded_signs_distinct` and
+`rowApproximation_bound`,
+`lean/YMGap/RepTheory/RationalQuaternionCauchyGroup.lean:389`, `:435`,
+`:455`, `:465`, and the public central-coset witness algebra in
+`lean/YMGap/RepTheory/LocatedCentralQuotient.lean`.
+Two independent preimplementation screens PASS: no total Point-equality
+Locator is needed. For a supplied Cauchy row, sample at its modulus(1/16)
+and compute a rational separated-sign probe. The implementation tests
+squared chord to +1 <= 1/4, rather than scalar sign; under the kernel proof,
+later common-stage close/Cauchy bounds force this test to be correct.
+Both-sign proximity would force the actual sign distance 4 <= 1. Sign
+witnesses are subsingleton by actual embedded-sign injectivity, so
+`Quotient.recOnSubsingleton` descends the dependent witness producer
+without choosing a row or eliminating truncated existence into data.
+
+Tests: both signs, row independence, exact kernel in both directions,
+identity-on-representatives surjectivity, and all SAME completed group laws.
+Reject a total equality locator, arbitrary representative choice, hidden
+analytic input or merely conditional presentation. This is an algebraic
+completed quotient, NOT compact/topological SO(3), its completed
+representations/Haar, any every-group realization or MAIN payment.
+Sol owns one bounded RepTheory leaf; ROOT inspects complete source and runs
+only serial focused checks after fresh dynamic-capacity inspection, one
+worker/20 GiB/12 GiB reserve. Independent final full-source/log/math review
+required. No canonical field change or chart reprint. MAIN and all
+physical/continuum/Clay endpoints remain OPEN.
+
+The first existing algebraic consumer is `descendRepresentation`,
+`lean/YMGap/RepTheory/ConstructiveRepresentationDescent.lean:230`, after
+supplying an ACTUAL completed-group homomorphism trivial on both signs.
+The previously checked rational coefficient action is not that completed
+homomorphism. A read-only receiver screen found no existing CompactGroupData
+receiver for this presentation; do not invent one merely to claim closure.
+The completed distance/separation/isometry APIs could support a squared
+sign-quotient chord, but this is NOT selected: no current consumer requires
+it. Constructive zero separation would require the finite sign gap, not
+the invalid implication min(a,b)=0 => a=0 or b=0 for arbitrary real a,b.
+No RC minimum, quotient metric, compactness or completed action is claimed.
+
+### Observed completed-sign quotient result
+
+`signCentralSubgroup:78`, `signQuotientGroup:86` and
+`signQuotientHom:121`,
+`lean/YMGap/RepTheory/RationalQuaternionCompletedSignQuotient.lean`,
+construct the ACTUAL embedded finite central subgroup, SAME completed Point
+coset group and identity-on-representatives quotient homomorphism.
+`kernelSignWitness:240` returns the actual sign as Type-valued data using
+the fixed rational probe and dependent subsingleton quotient recursion;
+`signQuotientPresentation:251` supplies the EXISTING full algebraic
+presentation with identity representative lifts. `signKernel_iff:261`
+retains exactly the two actual signs. No Point equality locator or arbitrary
+row/real representative is supplied, assumed or selected. The kernel's
+truncated existence is eliminated only into propositions, not into data.
+
+First focused check exit 0, no diagnostics. All eleven printed gates
+exactly {propext,Quot.sound}. ROOT inspected the complete frozen source/log;
+independent COMPLETE frozen-source/full-log/math review PASS with matching
+hashes. Fresh preflight: 85% reported memory free, zero swap, no competing
+compiler/test/runner; one worker, 20 GiB hard ceiling, 12 GiB reserve.
+Exact accepted command:
+
+```sh
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/RepTheory/RationalQuaternionCompletedSignQuotient.lean --check-output lean/.lake/build/lib/lean/YMGap/RepTheory/RationalQuaternionCompletedSignQuotient.olean --log-file /private/tmp/ym-completed-sign-quotient-check1.log
+```
+
+Source SHA-256 `4f9da6e9b8fedcf44e01020e722b1cc2ec169f02d44db8fcb2c2111c56dbc427`;
+accepted log SHA-256 `f155db459c0d557b520db58bb677cb53b16d4a2a8cfbe81135a071e42a712063`.
+No failed launch or source repair was needed. No new hole, axiom, classical
+input, native oracle or resource-option increase. Root import registration
+only, not a full root/tree/audit/metric run. This is an ACTUAL completed
+algebraic global-form input, NOT compact/topological SO(3), completed
+representation/Haar, every-group realization, MAIN or physical gap closure.
+Canonical displayed claims unchanged; no chart reprint.
+
 ## Concrete central-sign action join (after db403133, 2026-10-10 UTC)
 
 MAIN source screens produced no new relative estimate: passive channel

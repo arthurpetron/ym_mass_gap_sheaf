@@ -4,6 +4,28 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Actual completed central-sign quotient (2026-10-10 UTC)
+
+`signQuotientPresentation`,
+`lean/YMGap/RepTheory/RationalQuaternionCompletedSignQuotient.lean:251`,
+constructs the EXISTING exact central-quotient presentation on the ACTUAL
+completed quaternion Point group. Both central signs, group laws, quotient
+homomorphism and identity representative lifts are constructed.
+`kernelSignWitness:240` computes the unique Type-valued sign through a
+rational row probe at modulus(1/16), using squared-sign separation 4 and
+dependent subsingleton quotient recursion. `signKernel_iff:261` gives the
+exact two-sign kernel. No total equality locator, selected row, choice or
+analytic input. First focused check and COMPLETE independent frozen-source/
+full-log/math review PASS; eleven gates exactly {propext,Quot.sound}, no
+diagnostics. Exact command/hashes: adaptive-score audit, completed quotient.
+Root import registration only; no broad/root/tree/audit/metric run.
+This is an algebraic input to the existing representation-descent consumer,
+NOT its missing completed representation, compact/topological SO(3), Haar,
+every-group realization, MAIN estimate, continuum survival or physical gap.
+MAIN remains complete ORIGINAL signed cost versus SAME warmed OWN variance/
+BOTH masses or direct centered late-area control. Canonical displayed claims
+unchanged; no chart reprint. Physical/QFT/Clay endpoints remain OPEN.
+
 ## Actual rational central-sign action descent (2026-10-10 UTC)
 
 `SU2QuaternionSymmetricPowerSignDescent.negativeTensorParity:108` proves

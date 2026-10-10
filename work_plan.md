@@ -947,6 +947,25 @@ NEXT MAIN remains original complete signed cost versus SAME warmed OWN
 variance with BOTH chronological masses, or the direct centered late-area
 estimate. Select further group/action producers against their actual
 consumer, not a general RC-function representation theorem.
+Selected after bf9ab8b8: the actual completed quaternion group's finite-sign
+central quotient presentation. Two independent feasibility screens give a
+computable kernel sign from a supplied Cauchy row at modulus(1/16); the
+checked rational squared-chord probe uses the actual sign separation 4. Unique
+sign witnesses descend by dependent subsingleton quotient elimination.
+No total Point equality locator, chosen representative or analytic premise
+is needed. Reuse the existing finite-central-coset algebra on the SAME Point
+carrier. `RationalQuaternionCompletedSignQuotient.signQuotientPresentation:251`
+now fills this algebraic input with an explicit exact-kernel witness and
+identity representative lifts. First focused check and COMPLETE independent
+frozen-source/full-log/math review PASS; eleven permitted gates, no
+diagnostics. This is NOT compact SO(3),
+completed representations/Haar or J04. Exact selection, tests and bounded
+verification budget: adaptive-score audit, completed-sign quotient section.
+MAIN screens also prune a universal positive-character-coefficient centered
+retention floor: two independent exact PAPER computations give a negative
+complete centered difference, including a closed four-link plaquette.
+This is not a new kernel certificate or a BF4-source counterexample; no
+canonical field or displayed claim changes.
 The current functional is on represented admissible maps, not every continuous
 Point->RC map; no intrinsic sup norm or Banach algebra is built. Do not assume
 a general RC-function CReal lift. `CompactGroupData`

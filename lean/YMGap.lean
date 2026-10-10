@@ -95,6 +95,8 @@ import YMGap.RepTheory.RationalQuaternionCoordinateCompletion
 import YMGap.RepTheory.RationalQuaternionCompletedMatrix
 import YMGap.RepTheory.RationalQuaternionRepresentedMatrixInverse
 import YMGap.RepTheory.RationalQuaternionSignQuotient
+-- Actual completed finite-sign quotient; algebraic only, not compact SO(3).
+import YMGap.RepTheory.RationalQuaternionCompletedSignQuotient
 import YMGap.RepTheory.RationalQuaternionQ8Fixture
 import YMGap.RepTheory.CompactSimpleGlobalForm
 -- Finite root-coordinate groundwork only; not an actual compact G2 group.
