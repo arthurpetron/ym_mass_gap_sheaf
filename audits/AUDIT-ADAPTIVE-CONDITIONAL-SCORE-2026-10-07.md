@@ -4,6 +4,60 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Observed completed sign-quotient represented Haar [CHECKED]
+
+`EvenRepresented`,
+`lean/YMGap/Continuum/QuaternionSignQuotientRepresentedHaar.lean:42`,
+is the concrete even subalgebra of the EXISTING represented ORIGINAL-Haar
+domain. `evaluation_coset:49` respects the ACTUAL completed sign quotient.
+Constants, sums, signed rational scales and general represented products
+are constructed inside that subalgebra. `integration_lower:111`,
+`integration_nonnegative:117`, `integration_constant:71`,
+`integration_add:85` and `integration_scale:98` inherit the actual positive,
+normalized, rational-linear integral, not an assumed answer.
+`translate_coset:155`, `translate_coset_eq:178` and
+`integration_translate:183` cover every completed multiplier in BOTH orders.
+No completed-point equality locator or selected representative is used.
+
+`chiTwo_antipodal:238` proves parity on EVERY Point by rowwise rational
+Hamilton multiplication and quotient induction. `chiTwo:261` is the produced
+even polynomial 4*r^2-1; `chiTwo_mean_zero:281` and
+`chiTwo_same_square_one:287` give ORIGINAL one-block moments 0 and 1 with
+the SAME general represented product. `chiTwo_nonconstant:310` uses values
+3 and -1 at identity and basis-i. Along with `evaluation_coset`, these values
+exclude identification of those two cosets. This is not the first finite
+even mode, a matrix-character identification, or continuum survival.
+
+Accepted command, repository root:
+
+```sh
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionSignQuotientRepresentedHaar.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionSignQuotientRepresentedHaar.olean --log-file /private/tmp/ym-sign-quotient-represented-haar-check3.log
+```
+
+Exit zero; all 30 printed public gates are subsets of {propext,Quot.sound},
+with no final diagnostics. Final 352-line source SHA256
+`5075244c9308ed800c4cec8f6743f5796b7c4b0a540b8dd2506f67f043b33e16`;
+complete accepted log SHA256
+`3b97bb884daf185bd8a8655913505464a00f7aeac198fe598268ea708c17ea1a`.
+ROOT and an independent Sol reviewer read the COMPLETE frozen source and
+accepted log; mathematical/source/log review PASS. Checks1--2 are rejected:
+unknown namespace/Bool identifiers and insufficiently exposed quotient/value
+forms, then a fragile finite-list support expansion. The final proof reuses
+`BF4CompactActionCPOrder.supported_polyMul:304`; no options, assumptions or
+statements were weakened. Earlier elaboration-produced sorryAx is NOT evidence.
+
+All three launches had fresh memory/process preflights: reported free memory
+84%, swap zero, no competing Lean/Lake/pytest/runner. Single capped worker,
+12-GiB OS reserve, existing lock and automatic safety telemetry unchanged.
+Root import is registration only; no root/tree/audit/guard/metric build run.
+No new hole, axiom, analytic premise, foreign execution or literature scan.
+This supplies the selected represented quotient-Haar compatibility, not
+full continuous Haar, compact/topological SO(3), interacting-action/OS
+descent, every-group realization, MAIN survival or a physical mass gap.
+NEXT remains the complete ORIGINAL signed cost versus SAME warmed OWN
+variance/BOTH masses, or direct centered late-area control on a justified
+scaling family. Canonical displayed claims unchanged; no chart reprint.
+
 ## MAIN scaling screen and completed-quotient Haar selection (after bb1cc58b)
 
 Two read-only MAIN screens produced no new relative estimate. The selected
@@ -51,7 +105,7 @@ and `integral_constant:225` in that module; `mul` / `evaluate_mul`,
 `lean/YMGap/Continuum/QuaternionRepresentedPolynomialHaar.lean:159`, `:176`.
 This is a selected concrete contribution to the global-form/Haar input in
 docs/outline.md section 1.1, not a required unique route or a new general
-analytic interface. Implementation and kernel verification remain pending.
+analytic interface. This selection preceded the accepted verification above.
 There is still no separate CompactGroupData receiver; do NOT instantiate
 deprecated all-functions LinkHaar or claim full continuous Haar/compact SO(3).
 

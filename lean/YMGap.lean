@@ -5461,6 +5461,9 @@ import YMGap.Continuum.QuaternionRepresentedPolynomialHaar
 -- All-Point product pin; no multiplicative-Haar or continuum-survival claim.
 import YMGap.Constructive.CRealInnerMultiplication
 import YMGap.Continuum.QuaternionRepresentedHaarMultiplication
+-- Represented ORIGINAL Haar on the actual completed central-sign quotient.
+-- Even polynomial moments/nonconstancy; not compact SO(3) or interacting descent.
+import YMGap.Continuum.QuaternionSignQuotientRepresentedHaar
 -- All-spin ORIGINAL two-link polynomial Schur/mean/partition consumers.
 -- Not full torus Gibbs, compact Haar or an interacting mass-gap estimate.
 import YMGap.Continuum.SU2TorusPolySchurAll

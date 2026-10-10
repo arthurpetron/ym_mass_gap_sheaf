@@ -27,6 +27,21 @@ formal statement would not solve the mathematical problem.
 
 ### Latest MAIN selection (2026-10-10 UTC)
 
+CHECKED selected quotient-Haar join:
+`QuaternionSignQuotientRepresentedHaar.evaluation_coset:49` respects the
+ACTUAL completed sign-coset relation. Constants, signed rational linear
+operations and general represented products preserve its even algebra;
+`translate_coset:155` and `integration_translate:183` cover BOTH completed
+multiplication orders. The explicit even polynomial `chiTwo` has ORIGINAL
+Haar mean zero (`chiTwo_mean_zero:281`), SAME general-product square integral
+one (`chiTwo_same_square_one:287`) and distinct values on identity/basis-i
+cosets (`chiTwo_nonconstant:310`). Final focused check3 and COMPLETE
+independent frozen-source/full-log/math review PASS. This removes the
+selected compatibility input only, not full Haar/compact SO(3) or interacting
+theory descent. NEXT returns to the ORIGINAL late-response/signed-cost
+estimate below; do not expand another quotient or conditional filter layer.
+Exact command, hashes and rejected preliminary checks: adaptive-score audit.
+
 Selection after bb1cc58b: prioritize actual LATE response loss <=2/side_j
 or the centered backward-area coefficient <=3/2 on the existing AF family.
 Its side_j=2^j while 1-w_j is of order 1/j; the existing cofinal bare-heat
@@ -35,7 +50,7 @@ not pay that consumer. No new theorem or mandatory exponentially-small
 INITIAL premise is claimed. The exact raw-determinant substitution still
 leaves source-side/diagonal/Casimir signed debt; no favorable drift sign
 was found for the actual projected terminal channels. Do not expand those
-failed joins into adapters. Independent available group input selected:
+failed joins into adapters. Independent group input selected and now checked:
 EXISTING represented Haar restricted/descent to the ACTUAL completed sign
 quotient, with BOTH quotient translation laws and a PRODUCED even character
 of mean zero and SAME-square integral one. No all-continuous-function

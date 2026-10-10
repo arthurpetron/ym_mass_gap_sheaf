@@ -4,6 +4,26 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Actual completed sign-quotient represented Haar (2026-10-10 UTC)
+
+`evaluation_coset`,
+`lean/YMGap/Continuum/QuaternionSignQuotientRepresentedHaar.lean:49`,
+respects the actual completed sign quotient. Its even represented algebra
+is closed under constants, sums, signed scales and general products;
+`translate_coset:155` and `integration_translate:183` produce both-order
+completed translation compatibility and ORIGINAL-Haar invariance.
+`chiTwo_mean_zero:281`, `chiTwo_same_square_one:287` and
+`chiTwo_nonconstant:310` give a concrete even polynomial with moments 0,1
+and unequal identity/basis-i coset values. Final focused check3 and COMPLETE
+independent frozen-source/full-log/math review PASS; all public gates within
+{propext,Quot.sound}, no final diagnostics. Commands/hashes/rejected checks:
+adaptive-score audit. Root import registration only; no broad/root/tree run.
+This removes the selected algebraic/Haar compatibility input, not full
+compact SO(3), every-group realization, interacting descent or MAIN/scaling.
+NEXT is the ORIGINAL late-response/signed-cost estimate, not another
+conditional filter or quotient layer. Canonical displayed claims unchanged;
+no chart reprint. Physical/QFT/Clay endpoints remain OPEN.
+
 ## Actual completed central-sign quotient (2026-10-10 UTC)
 
 `signQuotientPresentation`,
