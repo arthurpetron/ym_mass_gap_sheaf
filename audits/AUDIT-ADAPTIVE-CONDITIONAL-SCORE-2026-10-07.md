@@ -6,6 +6,89 @@ and a finite strictly positive physical Hamiltonian mass gap.
 
 ## Finite positive cubature foundation (2026-10-10 UTC)
 
+### Selected SAME original-Haar lower order and normalization (after bfde2ed8)
+
+Previous turn: PROGRESS, actual sum closure/additivity checked and pushed.
+Next propositions: the original polynomial Haar preserves a signed rational
+UnitNorm lower bound, and the ACTUAL CReal candidate preserves sound eventual
+lower order. Consumer: positive continuous original-Haar extension; these
+one-sided producers do not yet exist. Actual positive joint weights, mass one
+and haar_repaired_error supply the finite lower bound, with computed cubature
+cutoffs and rational residual elimination. For F bounded below by c, combine
+the actual stage-polynomial error and eventual input lower bound at a
+point-dependent late row; eliminate that row residual BEFORE integration.
+Predicted stage result is c<=H_k+invSucc(k), with output cutoff epsilon.den,
+including negative c and irregular initial samples. No point-uniform output
+stage or supplied Haar value is allowed. Construct constant input data with
+bound abs(c), zero inner rate and constant positive radius; original constant
+moments then prove its value is c, with the actual completed map constant too.
+Tests: zero/negative constants, zero degree, signed coefficients, noncanonical
+polynomials and nonmonotone input rates. Sol screens lower-order mathematics;
+Luna locates constant APIs; ROOT owns implementation/serial 20-GiB checks
+with 12-GiB reserve and fresh telemetry. Final complete independent reviews.
+Revise on a hidden positivity/integral premise or a reversed error inequality.
+No browsing, analytic field, canonical statement/chart change or broad run.
+
+### Observed SAME original-Haar lower order and positivity [CHECKED]
+
+`repairedWeightedSum_lower`,
+`lean/YMGap/Continuum/QuaternionHaarTensorBernsteinPolynomialGrid.lean:302`,
+preserves any signed rational UnitNorm lower bound under the ACTUAL repaired
+joint weights. Their nonnegativity and exact mass one are produced, not assumed.
+`haar_lower_bound:317` uses the SAME polynomial Haar and computed cubature
+error; rational epsilon elimination removes the final residual. Signed
+coefficients, duplicate/noncanonical terms, c<0 and n=0 remain allowed.
+
+`haarLower_stage`,
+`lean/YMGap/Continuum/QuaternionDenseCRealHaarPositivity.lean:42`, combines
+the actual polynomial error with eventual input lower order at
+j=max(K(q,delta),realApproximationOutputRate(q)). It eliminates delta BEFORE
+applying the original polynomial lower bound, then proves c<=H_k+invSucc(k).
+`haarLowerRate:84` computes epsilon.den; `haarLower_order:88` gives genuine
+RCle for the ACTUAL quotient Haar output. `haar_nonnegative:104` specializes
+to sound input nonnegativity. No early-row positivity, coefficient signs,
+point-uniform row rate, chosen modulus or continuous-Haar positivity is assumed.
+Input boundedness/continuity and inner regularity retain their prior scope.
+
+Accepted serial focused checks, with fresh memory/swap/process telemetry:
+
+```text
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionHaarTensorBernsteinPolynomialGrid.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionHaarTensorBernsteinPolynomialGrid.olean --log-file /private/tmp/ym-original-haar-lower-grid-check1.log
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionDenseCRealHaarPositivity.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionDenseCRealHaarPositivity.olean --log-file /private/tmp/ym-original-haar-positivity-check2.log
+```
+
+Both completed with exit 0 and no diagnostics. Grid: all seventeen public
+gates exactly {propext,Quot.sound}. Positivity: three gates exactly that pair,
+and the rate gate axiom-free. COMPLETE independent Luna source/log and Sol
+mathematical source/log reviews PASS; ROOT inspected both complete sources
+and accepted logs. Source/log SHA-256, respectively:
+
+```text
+grid source 57443f6a21b30bd10d7f47c50d3c990692034d71e9e915e2a38b1446f89a6ec8
+grid log    4a80e33c4cec413b395fa76355767fe2e18f4104b3285dcdd74f45b8756fca11
+positivity source 3390ee974e01b1a68326f53e1cd61f8dc5ef1633a5e59d94fae6188959717694
+positivity log    6d0334c9f1ee4f5d8cd2bc5dd5563a58b21362374434be903d2e889853dd5f94
+```
+
+Rejected positivity check1 lacked two namespace opens; its unknown-identifier
+diagnostics and resulting sorryAx gates are NOT accepted evidence. Only
+located namespace opens were added, with no option/resource increase.
+No explicit sorry, new analytic input or canonical statement change was made.
+Root import registration only; no full root/tree/audit/metric check.
+
+An explicitly requested paper recheck ran separately, using the hash-matched
+main/companion/verification cache and a read-only Sol reviewer. No additional
+transferable producer or consequential applicability correction was found.
+This positivity proof is independent project mathematics, not imported code
+or a theorem of arXiv:2610.09093. The approximation-budget discipline remains
+useful; Appendix E's continuous Haar remains a prerequisite, not our producer.
+
+Decision: CONTINUE. The selected lower-order leg is produced; actual constant
+admissibility/normalization is the next bounded step, not yet checked. Rational
+homogeneity, continuous invariance, full Haar/compact realization/J04, MAIN
+signed cost versus SAME warmed variance/scaling and every physical/Clay
+endpoint remain OPEN. No displayed canonical chart claim changed.
+
 ### Selected actual addition input and original-Haar law (after 3b1a253b)
 
 Previous turn: PROGRESS, original-Haar contractivity/presentation independence

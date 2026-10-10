@@ -735,10 +735,24 @@ assuming a sum's admissibility or an integral value. Focused final check4 and
 COMPLETE independent source/log/math reviews PASS, all twelve gates permitted,
 no final diagnostics. Exact command/hashes/rejected checks: adaptive-score audit.
 Root registration only; no full root/tree/audit/metric or canonical chart change.
-NEXT: produce constant-input admissibility and normalization; derive positivity
-from SAME positive cubature and approximation, then rational homogeneity and
-continuous translation invariance. Full continuous Haar and compact realization
-remain OPEN; checked addition does not supply the remaining laws.
+CHECKED subsequent SAME original-Haar positivity (after bfde2ed8):
+`QuaternionHaarTensorBernsteinPolynomialGrid.repairedWeightedSum_lower:302`
+preserves any signed rational pointwise lower bound on actual repaired unit
+nodes. `haar_lower_bound:317` transfers it to ORIGINAL polynomial Haar by
+computed cubature error and rational residual elimination.
+`QuaternionDenseCRealHaarPositivity.haarLower_stage:42` meets eventual input
+order and the actual polynomial error at a point-dependent late row, eliminates
+its residual BEFORE integration, and proves c<=H_k+invSucc(k).
+`haarLowerRate:84` retains epsilon.den; `haarLower_order:88` gives genuine
+quotient lower order and `haar_nonnegative:104` specializes to nonnegativity.
+No early-row positivity, point-uniform row rate or continuous-Haar premise.
+Grid check1 and positivity check2 pass their focused axiom gates; failed
+positivity check1 is not evidence. Exact hashes/review scope: adaptive-score
+audit. This is independent project mathematics, not an imported paper theorem.
+NEXT: produce constant-input admissibility and normalization, then rational
+homogeneity and continuous translation invariance. Full continuous Haar and
+compact realization remain OPEN; addition and positivity do not supply the
+remaining laws.
 Use the checked all-Point approximation and ORIGINAL moment invariance;
 the paper's pre-existing continuous Haar is not our constructive producer.
 This foundation is separate from MAIN warmed signed-cost versus SAME variance

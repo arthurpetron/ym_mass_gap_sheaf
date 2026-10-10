@@ -297,6 +297,37 @@ theorem haar_abs_le_unit_bound (p : RatPoly) (hp : SupportedQuaternionBlocks 1 p
     (Q'.ge_of_eqv (Q'.add_eqv_congr_left _ _ _
       (Q'.one_mul_eqv epsilon)))
 
+/-- The ACTUAL positive unit-mass sphere nodes preserve any signed rational
+pointwise lower bound. No positivity of the polynomial's coefficients is needed. -/
+theorem repairedWeightedSum_lower (n : Nat) (p : RatPoly) (c : Q')
+    (hlow : ∀ q : UnitNorm, c ≤ evalRatPoly (environmentOf q.val) p) :
+    c ≤ repairedWeightedSum n p := by
+  let F := fun a b d e => jointWeightRaw n a b d e *
+    evalRatPoly (repairedEnvironment n a b d e) p
+  let L := fun a b d e => c * jointWeightRaw n a b d e
+  have hpoint (a b d e : Nat) : L a b d e ≤ F a b d e :=
+    Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.mul_comm_eqv _ _))
+      (Q'.mul_le_mul_of_nonneg_left _ _ _ (hlow (repairedQuaternion n a b d e))
+        (jointWeightRaw_nonnegative n a b d e))
+  exact Q'.le_trans' _ _ _ (Q'.ge_of_eqv (same_weight_const_sum n c))
+    (sum4_le_lt L F (n+2) (fun a b d e _ _ _ _ => hpoint a b d e))
+
+/-- ORIGINAL polynomial Haar preserves a pointwise lower bound on rational
+UnitNorm. Actual cubature error vanishes; no continuous-Haar positivity is assumed. -/
+theorem haar_lower_bound (p : RatPoly) (hp : SupportedQuaternionBlocks 1 p)
+    (c : Q') (hlow : ∀ q : UnitNorm, c ≤ evalRatPoly (environmentOf q.val) p) :
+    c ≤ quaternionHaar 1 p := by
+  apply Q'.le_of_le_add_mul_invSucc _ _ 1
+  intro k
+  let e := Q'.invSucc k
+  let n := approximationCutoff p e
+  have herr := haar_repaired_error p hp e (Q'.invSucc_pos k) n (Nat.le_refl _)
+  have hback : repairedWeightedSum n p ≤ quaternionHaar 1 p + e :=
+    ExpNeg.le_add_of_abs_sub_le (Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (ExpNeg.abs_sub_comm _ _)) herr)
+  exact Q'.le_trans' _ _ _ (Q'.le_trans' _ _ _ (repairedWeightedSum_lower n p c hlow) hback)
+    (Q'.ge_of_eqv (Q'.add_eqv_congr_left _ _ _ (Q'.one_mul_eqv e)))
+
 end YMGap.Continuum.QuaternionHaarTensorBernsteinPolynomialGrid
 
 #print axioms YMGap.Continuum.QuaternionHaarTensorBernsteinPolynomialGrid.nodeMonomialSum
@@ -314,3 +345,5 @@ end YMGap.Continuum.QuaternionHaarTensorBernsteinPolynomialGrid
 #print axioms YMGap.Continuum.QuaternionHaarTensorBernsteinPolynomialGrid.haar_repaired_error
 #print axioms YMGap.Continuum.QuaternionHaarTensorBernsteinPolynomialGrid.repairedWeightedSum_abs_le
 #print axioms YMGap.Continuum.QuaternionHaarTensorBernsteinPolynomialGrid.haar_abs_le_unit_bound
+#print axioms YMGap.Continuum.QuaternionHaarTensorBernsteinPolynomialGrid.repairedWeightedSum_lower
+#print axioms YMGap.Continuum.QuaternionHaarTensorBernsteinPolynomialGrid.haar_lower_bound

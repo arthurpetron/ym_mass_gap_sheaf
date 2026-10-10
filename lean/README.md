@@ -52,7 +52,11 @@ maps give output equivalence across different bounds, rates and radii.
 bound, continuity radius and inner rate, then proves original-Haar additivity
 with three vanishing stage errors. `sumHaar_additive` is the ACTUAL sum instance,
 not a law assumed as an input; `sumHaarInnerRegularity` retains its rate.
-Normalization, positivity, rational homogeneity, continuous translation
+`Continuum/QuaternionDenseCRealHaarPositivity` now preserves any sound signed
+rational lower bound in the actual candidate's genuine real-quotient order,
+with explicit cutoff epsilon.den. Its nonnegativity follows from actual positive
+joint cubature, not an assumed continuous-Haar law or early-row positivity.
+Normalization, rational homogeneity, continuous translation
 invariance, full continuous Haar/J04, MAIN scaling and Clay remain OPEN.
 Root registration only; no full root/tree/audit. Exact evidence: adaptive-score audit.
 

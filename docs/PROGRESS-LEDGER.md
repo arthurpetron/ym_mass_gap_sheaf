@@ -4,6 +4,28 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## SAME original-Haar lower order and positivity (2026-10-10 UTC)
+
+`QuaternionHaarTensorBernsteinPolynomialGrid.repairedWeightedSum_lower:302`
+preserves signed rational pointwise lower bounds under actual positive,
+unit-mass repaired-node weights. `haar_lower_bound:317` transfers this to
+ORIGINAL polynomial Haar by computed approximation and residual elimination.
+`QuaternionDenseCRealHaarPositivity.haarLower_stage:42` meets eventual input
+order and actual polynomial error at a point-dependent late row, eliminates
+that residual before integration and proves c<=H_k+invSucc(k).
+`haarLowerRate:84` retains epsilon.den; `haarLower_order:88` proves genuine
+RCle, and `haar_nonnegative:104` produces actual quotient nonnegativity.
+No early-row or coefficient positivity, uniform row index or continuous-Haar
+law is assumed. Grid check1/positivity check2 and COMPLETE independent
+source/log/math reviews PASS; seventeen grid gates permitted, three new
+permitted gates plus an axiom-free rate. Exact commands/hashes/rejected check:
+adaptive-score audit. No full root/tree/audit/metric or chart-state change.
+The requested paper recheck found no new transferable producer; these are
+independent constructive project proofs. NEXT: actual constant admissibility
+and normalization, rational homogeneity and continuous invariance.
+Full Haar/J04, MAIN signed-variance payment/scaling, physical/QFT/every-group
+and Clay remain OPEN.
+
 ## Actual input addition and original-Haar additive law (2026-10-10 UTC)
 
 `QuaternionDenseCRealHaarAdditivity.sumInput:52` constructs the pointwise sum;

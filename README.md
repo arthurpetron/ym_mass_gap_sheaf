@@ -26,7 +26,9 @@ Original-Haar candidates now preserve the supplied dense input-distance
 bound, including in genuine real-quotient order. Equal input values or equal
 completed maps give equal Haar values despite different approximation choices.
 Additivity is now checked for the actual sum, with produced bounds, radii
-and recoverable rates. Normalization, positivity, rational homogeneity,
+and recoverable rates. Its actual Haar value now preserves sound rational
+lower bounds, including nonnegativity, with the explicit cutoff epsilon.den.
+Normalization, rational homogeneity,
 continuous translation invariance and compact realization remain open.
 It closes no mass-gap claim. See the
 [checked construction and next join](audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md).
