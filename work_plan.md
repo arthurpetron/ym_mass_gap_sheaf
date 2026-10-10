@@ -84,6 +84,15 @@ identity; no uniform payment or kernel-checked chain theorem is supplied.
 Seek a joint relative bound on that complete expectation. Do not infer a
 1/s gain from tapering through s new spatial-score terms. Exact formula and
 source pins: adaptive-score audit, "Common rotation of the first BOX".
+The subsequent PAPER variance test retains an exact negative energy credit,
+but leaves the squared DIAGONAL angular generator and a signed OLD-center
+mean correction unpaid. Raw score norms also count fluctuations invisible
+to EVERY separated future test. Do not promote BOX telescoping or local
+Fisher/Bochner estimates to relative payment; retain the direct signed target.
+No new source-selection interface is needed: the existing family/expression
+trajectories already permit adaptation. Exact formulas, source pins and
+stopping decision: adaptive-score audit, "Coherent-score variance and
+future-test cancellation". No uniform bound or Lean proof-state change.
 Test the inequality direction, original weights and scaling dependence
 on paper before selecting Lean implementation. Do not formalize another Ward
 wrapper or assume this estimate merely to make a passing leaf. Existing

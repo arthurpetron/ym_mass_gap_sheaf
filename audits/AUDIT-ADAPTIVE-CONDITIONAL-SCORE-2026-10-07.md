@@ -574,6 +574,102 @@ No Lean edit/build, new uniform bound, canonical-field or chart-state change.
 Independent read-only review of the actual two-file diff PASS: source pins,
 boundary orientation, old center, separated test and PAPER scope checked.
 
+### Coherent-score variance and future-test cancellation (2026-10-10 UTC; PAPER)
+
+Selected quantitative test: does the common rotation's squared-score/Fisher
+bound supply the ORIGINAL endpoint estimate, rather than just its Ward
+identity? The consumer remains `pathShiftedEpsBound_iff_response:418`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1Anchor.lean`. No new source,
+carrier, physical generator or hypothesis interface is selected.
+
+On the SAME finite chain, assume W is strictly positive for the following
+PAPER ratio notation; these rational-function norms are not claimed to be
+existing polynomial-Haar Lean objects. Write integral = original product
+Haar integral, Z=integral W, f=Phi-c, X=integral W*Phi and
+WB=sum_alpha U_alpha*Q_alpha-12*c*W. The division-free WB remains fundamental.
+For the selected uniform BOX with M=s, N=M+1=s+1,
+
+    H=Psi_s-Psi_(s+1)=(G_(q+s)-G_(q+s+N))/N = DeltaG/N,
+    integral W*B=12*(X-c*Z),
+    12*(P_s-P_(s+1))=integral W*H*B.
+
+The BOX telescope was already recorded above. Its factor 1/N is not itself
+a relative estimate. Put h=integral W*H and
+VarInt_W(g)=integral W*(g-(integral W*g)/Z)^2. Centered Cauchy gives
+
+    12*(P_s-P_(s+1))
+      <= sqrt(VarInt_W(H)*VarInt_W(B)) + 12*h*(X-c*Z)/Z.
+
+The last term is SIGNED: the current chain mean X/Z is not the OLD OWN c.
+Since VarInt_W(H)=VarInt_W(DeltaG)/N^2, this sufficient norm route would
+still need uniform relative control of both contributions against the SAME
+P_s. Neither their individual absolute bounds nor this stronger norm route
+is made a necessary H1 input.
+
+There is an exact retained square credit. Define the DIAGONAL derivatives
+D_Sigma,alpha=sum_(t in I) D_(t,alpha), not the local full-product generator.
+They satisfy D_Sigma Phi=U and sum_alpha D_Sigma,alpha^2 Phi=-12*Phi.
+In positive-W notation let
+
+    L_Sigma f=sum_alpha [D_Sigma,alpha^2 f
+                         +(D_Sigma,alpha W/W)*D_Sigma,alpha f],
+    E_Sigma(f)=integral W*sum_alpha U_alpha^2.
+
+For the canonical gradient current, B=(L_Sigma+12)f. Weighted IBP therefore
+gives the exact PAPER identity
+
+    VarInt_W(B)=integral W*(L_Sigma f)^2
+                 -24*E_Sigma(f)+144*VarInt_W(f).
+
+The negative energy credit is retained, not discarded. The positive squared
+generator term is UNPAID relative to P_s. L_Sigma is an auxiliary angular
+generator, NOT the physical time transfer, its logarithm or Hamiltonian.
+Available `weighted_bochner_nonnegative:126`,
+`lean/YMGap/Continuum/SU2QuaternionAngularBochner.lean`, is local; it is not
+an upper bound for this complete weighted diagonal generator.
+`marginal_frozen_score_signed_dual_bound:70`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFisherVector.lean`, retains a
+signed frozen Hessian on the original ODD marginal, not this full chain.
+Its already-checked cost satisfies `marginalCurvatureCost_formula:24` and
+`marginalCurvatureCost_nome_defect_lower:76`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFisherCalibrationObstruction.lean`:
+C(w)=32+8/(1-w^2), and (1-w)*C(w)>=4. That is a limitation of this computed
+upper-budget payment, NOT a lower bound on actual energy or an H1 refutation.
+
+More importantly, for EVERY test k independent of the first BOX, the same
+Ward argument gives integral W*k*B=12*integral W*k*f. Thus B-12*f is exactly
+invisible to all such future tests. Raw score norms need not retain this
+cancellation. In conditional-expectation shorthand this would be
+E_W[B|outside I]=12*E_W[f|outside I]; no original conditional projection
+object or new completion theorem is constructed here. The polynomial input
+is `quaternionHaar_weighted_angular_at:99`,
+`lean/YMGap/Continuum/SU2QuaternionHaarAngularIBPAt.lean`.
+
+Decision: do not implement a raw coherent Fisher/Bochner wrapper or treat
+BOX telescoping as payment. Preserve the direct COMPLETE signed relative
+bound as PRIMARY; any norm route must control its squared-generator and
+signed mean contributions with their actual scale dependence. ROOT and two
+independent Sol math reviews checked these identities and conventions.
+No quantitative H1 producer, Lean edit/build, canonical field or displayed
+proof-state change. The constructive continuum/Clay goal remains OPEN.
+
+Parallel source-selection screen: `DyadicSmoothedTrajectory:329`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicSmoothedTrajectory.lean`, already
+allows changing signed physical plaquette families; `ExprAnchorTrajectory:235`
+and `exprShiftedEpsBound_iff_response:310`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeExprAnchorTrajectory.lean`, already allow
+original supported Wilson expressions on the SAME completion. No new source
+interface is needed. `paddedSquare_transfer_loop_mode_floor:159`,
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareLoopModeReserve.lean`, retains the
+w^(12*side) loop-mode factor; it supplies no near-one normalized slope.
+`path_normalized_anchor_shifted_padded:225`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedPaddedNondegenerate.lean`, still
+requires PathShiftedEpsBound. No constructed slow family or physical/local-field
+compatibility producer was found in these modules. Selection freedom is not
+the missing quantitative estimate.
+Independent read-only review of the actual two-file diff PASS: complete
+formulas, source pins, normalization, scope and stopping decision checked.
+
 ### Existing consumers versus missing work
 
 - Full ORIGINAL chronological numerator and partition: `window_pairing:96`
