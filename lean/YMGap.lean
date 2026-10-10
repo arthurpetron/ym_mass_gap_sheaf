@@ -5440,8 +5440,13 @@ import YMGap.Continuum.QuaternionDenseCRealHaarNormalization
 -- Independently sampled polynomials are compared, not identified.
 import YMGap.Continuum.QuaternionDenseCRealHaarHomogeneity
 -- ACTUAL rational unit left/right invariance, paying two vanishing errors.
--- SAME completed-map composition on every Point; completed multipliers open.
+-- SAME completed-map composition on every Point in this rational leaf.
 import YMGap.Continuum.QuaternionDenseCRealHaarTranslation
+-- Quantitative actual row/input stability and SAME sound bound, not assumed.
+import YMGap.Continuum.QuaternionDenseCRealPointStability
+-- Actual completed-multiplier Haar invariance and same-map composition.
+-- Quotient descent covers every Point; full Haar/J04 and Clay remain OPEN.
+import YMGap.Continuum.QuaternionDenseCRealCompletedHaarTranslation
 import YMGap.Continuum.SU2HeatJacobiFinitePrefixClassPolynomial
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticBound
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticCutoff

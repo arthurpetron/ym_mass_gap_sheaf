@@ -6,6 +6,141 @@ and a finite strictly positive physical Hamiltonian mass gap.
 
 ## Finite positive cubature foundation (2026-10-10 UTC)
 
+### Selected quantitative ACTUAL row-image stability (after 6a3af546)
+
+Previous goal turn: PROGRESS, actual rational translation and its all-Point
+composition pin checked and pushed. Implement the two already-screened
+quantitative row-image estimates and the image's own sound bound. Consumer:
+constructing translated dense CReal data for a SUPPLIED completed multiplier
+row, with the same M and rho, then the original-Haar/completed-map limit join.
+Available input: actual shrinking samples, Type-level inner rates and
+`sample_difference_le_asymmetric` / `sample_abs_le`. Prediction: eventual
+dense-value distance eta pays actual row gap <=eta+2*invSucc(n), with cutoff
+max(K,den(epsilon/2)); sound bound M pays one tail at epsilon.den. Distinct
+input rates/radii, eta=0 for input comparison, M=0, signed values and
+nonmonotone moduli stay included. Source-distance continuity uses eta>0,
+as required by the existing supplied modulus. Revise if early-row bounds,
+representative selection or a stronger continuity hypothesis becomes needed.
+ROOT implements and owns serial narrow checks with fresh capacity/process
+inspection, one worker, 20 GiB ceiling and 12 GiB reserve. Independent Sol
+reviews math and frozen final source/log. No broad/root/audit, resource change,
+literature scan or canonical chart-state claim. MAIN and Clay remain OPEN.
+
+With the quantitative leaf checked and independently reviewed, continue to
+the ACTUAL completed translation producer in this same increment. For each
+supplied multiplier row G, construct F_G, its Type-level rate and the SAME
+M/rho from actual product rows. The recoverable rational g_eta at
+G.modulus(rho(eta)) gives uniform dense distance eta. Compare both all-Point
+extensions to that SAME rational translate, using two half-errors; no nested
+diagonal or chosen representative is needed. For ORIGINAL Haar, compare
+actual stages through the rational translate: eta+FOUR invSucc(n) errors.
+Select eta=epsilon/2 and explicit cutoff den(epsilon/8). Descend the actual
+Haar class in the multiplier quotient only after proving row invariance.
+Revise if a completed-map pin or translated admissibility has to be assumed.
+The proof constructs neither a general completed-function CReal lift nor
+full Haar/J04, MAIN/scaling or Clay closure. Same narrow verification policy.
+
+### Observed quantitative stability and COMPLETED invariance [CHECKED]
+
+`rowDistanceRate`,
+`lean/YMGap/Continuum/QuaternionDenseCRealPointStability.lean:26`, retains
+max(K,den(epsilon/2)). `rowImage_distance_stage:59` bounds the literal two
+sampled outputs by (eta+invSucc(n))+invSucc(n), allowing different dense
+functions and source rows. `rowImage_distance:73` removes only the sample
+tails. `rowImage_source_distance:89` produces continuity from the supplied
+radius at eta>0; `rowImage_input_distance:100` accepts eta=0 and independent
+inner rates/radii. `pointExtension_input_distance:128` proves both genuine
+RCle directions on EVERY Point, without choosing a representative.
+`rowImage_bound_stage:146` and `rowImage_bound:154` pay one sampling error
+and retain the SAME M at epsilon.den. No arbitrary early-row bound is used.
+
+`translateRow`,
+`lean/YMGap/Continuum/QuaternionDenseCRealCompletedHaarTranslation.lean:36`,
+is the ACTUAL left/right `multiplication.mapCauchy`. `completedInput:106`
+evaluates F on its product with the constant dense input row.
+`completedInner:110`, `completed_modulus:115` and `completed_bound:125`
+produce the actual inner rate and SAME rho/M, not new analytic fields.
+`completedInput_rational_distance:148` uses the computable rational multiplier
+G.seq(G.modulus(rho(eta))), exact chord isometry and the actual constant/rational
+row pins to give uniform dense distance eta. `completedExtension_value:168`
+compares BOTH actual row images to that SAME rational translate at eta=e/2,
+then pays eta+eta and descends by quotient soundness. It pins composition
+with the SAME completed Hamilton product on EVERY Point, for either order.
+No nested diagonal or completed-map identity is assumed.
+
+`completedHaar:205` applies ORIGINAL polynomial Haar to the produced input;
+`completedHaarInnerRegularity:211` retains its own computed rate.
+`completedHaarEqualityRate:219` computes den(epsilon/8), and
+`completedHaar_invariant:252` compares fixed ACTUAL completed/original
+candidates through one epsilon-dependent rational candidate. Haar comparison
+costs eta+2*invSucc(n); rational translation costs 2*invSucc(n). With
+eta=epsilon/2, the explicit cutoff pays all FOUR tails.
+`completedHaarClass:287` quotient-lifts ACTUAL row candidates, using their
+proved invariance for representative independence; it is not defined as a
+constant surrogate. `completedHaarClass_invariant:296` proves the original
+value for EVERY completed Point multiplier. Both orders, signed/zero F,
+M=0, n=0, G.modulus=0 and nonmonotone supplied radii/rates stay covered.
+
+Accepted serial focused commands, each after fresh memory/swap/process checks:
+
+```text
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionDenseCRealPointStability.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionDenseCRealPointStability.olean --log-file /private/tmp/ym-point-stability-check2.log
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionDenseCRealCompletedHaarTranslation.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionDenseCRealCompletedHaarTranslation.olean --log-file /private/tmp/ym-completed-haar-translation-check4.log
+```
+
+Stability source SHA-256
+`867f23e558113a4f076aeb1b5f22e0a9b6664009b9c9c449632aff44120580e9`;
+accepted log SHA-256
+`538ec75095c16629d9bf4c23d4182799c026f19d0de283a39cb0211b2c9013de`.
+Completed source SHA-256
+`eacee6ff31a20dabc57a007aa4545ec2aa93a2bec8f45590bdfda301ea4c14de`;
+accepted log SHA-256
+`1aff663eb17eb224a63f58214f15defcd5b9e5e4d3fc47bf7870fa85d69e33ec`.
+All 22 gates pass: two rate definitions axiom-free, other twenty exactly
+{propext,Quot.sound}. No final warnings/errors/sorryAx. ROOT inspected the
+complete final source and accepted logs; independent Sol COMPLETE frozen
+source/log/math reviews PASS with matching hashes. Separate quantitative
+and all-Point/Haar mathematical screens PASS.
+
+Rejected evidence: stability check1 used an unimported `rational` alias;
+explicit quotient/ofQ terms fixed it. Completed check1 omitted `include
+positive` on a helper and timed out elaborating a separately rebound row
+comparison; check2 retained only that timeout. Check3's declaration-local
+800000-heartbeat experiment also timed out. ROOT removed that option,
+reused the existing shared typed-variable context and checked rational Point
+pin, and check4 passed at default heartbeats in about 1.43 seconds. The
+cascading compiler sorryAx from rejected elaborations are NOT source holes
+or accepted proof evidence. No hypothesis was strengthened. Available-memory
+reports 84--85%, zero swap and no competing compiler/test process; no memory/
+worker/reserve change, root/full-tree/audit/metric run or literature scan.
+Root imports only register the checked leaves. Canonical displayed claims
+remain unchanged, so no ASCII chart is reprinted.
+
+### Next represented-function join [OPEN]
+
+The completed-multiplier input and limit joins above are no longer missing.
+Next mathematical work: actual Point-map sum/scalar laws for the existing
+produced dense inputs, then compose the presentation-independent positive,
+normalized rational-linear invariant functional on represented bounded
+uniformly continuous functions. `sumHaar_additive`,
+`lean/YMGap/Continuum/QuaternionDenseCRealHaarAdditivity.lean:232`, and
+`scaleHaar_homogeneous`,
+`lean/YMGap/Continuum/QuaternionDenseCRealHaarHomogeneity.lean:234`, already
+give original-Haar value laws; no completed-map sum law was found in those
+leaves. `haarComparison_completed_maps`,
+`lean/YMGap/Continuum/QuaternionDenseCRealHaarComparison.lean:189`, is the
+existing SAME-map presentation-independence consumer.
+Luna's bounded source lookup found NO concrete general completed-function/
+compact-group Haar interface: the J04 `CompactGroupData` at work_plan item d
+remains a plan. Do not invent arbitrary RC-value CReal lifts or assume an
+invariant functional. Matrix inverse with supplied regularity is not full
+compact realization. Continuous-Haar packaging/compact realization and
+every-group J04 remain OPEN. MAIN's unchanged consumers are
+`original_window_budget_macro_ratio` and `window_area_epsBound`; neither
+their missing SAME-source signed estimate nor justified moving-family,
+physical mass/nontrivial survival/QFT/every-group/Clay endpoints is closed
+by these integration results.
+
 ### Selected ACTUAL rational left/right translation (after 17645d39)
 
 Previous turn: PROGRESS, actual signed rational homogeneity checked and pushed.

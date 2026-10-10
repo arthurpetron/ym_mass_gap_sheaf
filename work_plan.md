@@ -803,22 +803,46 @@ Check1's missing parent namespace and cascading sorryAx are rejected evidence,
 not source holes. Root registration only; no root/tree/audit/metric or chart
 change. Exact command, hashes and scope: adaptive-score audit.
 
-NEXT, independently source/math screened [PAPER, not yet a checked theorem]:
-produce quantitative stability for ACTUAL `rowImage` on two supplied rows
-whose squared chord is <=rho(eta) from K onward. Stable sampling gives
-row gap <=eta+2*invSucc(n), paid at max(K,den(epsilon/2)). Uniform sound
-dense-input distance likewise passes through rowImage with that computed
-sampling tail. For a supplied multiplier row G, construct the translated
-dense CReal input on the ACTUAL product row, with `rowImageInnerRegularity`,
-bound M from `sample_abs_le`, and SAME rho by chord isometry. At
-J=G.modulus(rho(eta)), the rational multiplier G.seq J is uniformly eta-close
-on every dense test point. Haar contractivity and checked rational invariance
-can then remove eta; the two row stability comparisons give the all-Point
-composition pin through the SAME rational translate. No uniform early-row
-bound, representative selection, new continuity hypothesis or nested diagonal
-is selected. Complete exact source pins and the two independent mathematical
-screens: adaptive-score audit. Full continuous Haar and compact realization
-remain OPEN; rational invariance is not arbitrary completed invariance.
+CHECKED actual quantitative stability and COMPLETED multiplier join
+(after 6a3af546): `QuaternionDenseCRealPointStability.rowImage_distance:73`
+retains sound eventual input distance eta through two actual sampled images,
+with `rowDistanceRate:26` = max(K,den(epsilon/2)).
+`rowImage_source_distance:89` produces source-row continuity at positive eta;
+`rowImage_input_distance:100` permits different presentations and eta=0.
+`pointExtension_input_distance:128` gives both genuine RCle directions on
+EVERY Point. `rowImage_bound:154` retains the SAME sound M at epsilon.den.
+No early-row bound or monotone modulus is assumed.
+`QuaternionDenseCRealCompletedHaarTranslation.completedInput:106` uses the
+ACTUAL product row; `completedInner:110`, `completed_modulus:115` and
+`completed_bound:125` produce its rate and SAME rho/M. The computed rational
+g_eta = G.seq(G.modulus(rho(eta))) gives uniform dense distance eta via
+`completedInput_rational_distance:148`. `completedExtension_value:168`
+compares both actual maps to ONE rational translate and pins composition
+with the SAME completed product on EVERY Point, for either order.
+`completedHaar:205` constructs the actual original-Haar candidate and
+`completedHaarInnerRegularity:211` retains its rate.
+`completedHaarEqualityRate:219` computes den(epsilon/8);
+`completedHaar_invariant:252` pays eta+FOUR invSucc(n) errors, with
+eta=epsilon/2. `completedHaarClass:287` descends the actual candidates in
+the multiplier quotient; `completedHaarClass_invariant:296` covers EVERY
+completed multiplier, not only embedded rational units. No representative
+choice, translated admissibility/integral premise or nested diagonal.
+Stability check2 and completed check4 and COMPLETE independent frozen-source/
+log/math reviews PASS; 22 permitted gates, two axiom-free rates, no final
+diagnostics. Rejected preliminary elaboration errors are not accepted
+evidence; the final proof has default heartbeats and unchanged memory limits.
+Exact commands, hashes and rejected-check record: adaptive-score audit.
+Root registration only; no root/tree/audit/metric or chart-state change.
+
+NEXT: prove the completed-map sum/scalar laws for the already-produced dense
+inputs, then compose presentation-independent original-Haar laws on represented
+bounded uniformly continuous completed functions. Do not assume a general
+RC-function CReal lift or another invariant law. A concrete general
+completed-function/compact-group Haar consumer was NOT FOUND in the source
+lookup; `CompactGroupData` in the J04 ladder is still only a plan. Retain
+explicit domain/regularity data rather than manufacturing a vacuous interface.
+Full continuous-Haar packaging, compact realization and every-group J04
+remain OPEN; the constructed completed invariance is not those larger claims.
 Use the checked all-Point approximation and ORIGINAL moment invariance;
 the paper's pre-existing continuous Haar is not our constructive producer.
 This foundation is separate from MAIN warmed signed-cost versus SAME variance

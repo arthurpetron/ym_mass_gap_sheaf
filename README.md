@@ -15,7 +15,7 @@ data on the dense rational quaternion sphere now have a computed polynomial
 approximation with explicit error. Applying the original polynomial Haar
 functional gives a constructive-real limit with a recoverable Cauchy rate.
 Focused kernel checks and independent reviews passed. This is a dense-data
-limit candidate, not yet continuous Haar on the completed group. Its own
+limit candidate, not yet the full continuous-Haar package. Its own
 function-bound estimate and compatibility with original polynomial moments
 are now checked for pointwise-identified dense inputs. Supplied dense data
 now extend to the same completed Point space with real-quotient values,
@@ -35,8 +35,14 @@ the actual scaled input, with produced bounds/radii/inner rates and explicit
 full-error cutoff. Rational unit left/right translations now preserve the
 ACTUAL Haar candidate, with stage error 2/(n+1) and a computed equality cutoff.
 Their actual completed maps are composition with the SAME completed product
-on every Point. Arbitrary completed multipliers and compact realization remain
-open; rational invariance is not the full continuous-Haar package.
+on every Point. This now extends to arbitrary completed Point multipliers:
+actual product rows produce translated dense inputs with the same bound and
+radius, and four vanishing stage errors give a computed invariance cutoff.
+The composition identity and multiplier-quotient descent are checked without
+selecting representatives. Quantitative continuity of the actual row images
+is proved, not supplied as another premise. Full continuous-Haar packaging
+and compact realization remain open; these results apply to the represented
+bounded, uniformly continuous dense data.
 It closes no mass-gap claim. See the
 [checked construction and next join](audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md).
 

@@ -4,6 +4,37 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## ACTUAL original-Haar COMPLETED translation (2026-10-10 UTC)
+
+`QuaternionDenseCRealPointStability.rowImage_distance:73` passes eventual
+sound input distance through actual sampled rows, paying both sampling tails
+at max(K,den(epsilon/2)); source continuity, distinct-input stability on EVERY
+Point and SAME M bound are produced, not new assumptions.
+`QuaternionDenseCRealCompletedHaarTranslation.completedInput:106` constructs
+the translated dense data on the actual product row. Its rate and SAME rho/M
+are produced by `completedInner:110`, `completed_modulus:115`,
+`completed_bound:125`. Computed rational multipliers give uniform dense
+distance eta. `completedExtension_value:168` pins the actual completed map
+to the SAME completed Hamilton product on EVERY Point using two comparisons
+to one rational translate. `completedHaar_invariant:252` pays eta plus FOUR
+invSucc(n) errors, with explicit cutoff `completedHaarEqualityRate:219` =
+den(epsilon/8). `completedHaarClass:287` descends ACTUAL candidates and
+`completedHaarClass_invariant:296` covers EVERY completed Point multiplier.
+No translated admissibility, integral equality, early-row bound, monotonicity,
+representative selection or nested diagonal is assumed. Both orders,
+signed/zero inputs and zero starting stages remain included.
+Final focused stability check2 / completed check4 and COMPLETE independent
+frozen-source/log/math reviews PASS; 22 gates permitted, two rates axiom-free,
+no final diagnostics. Earlier rejected errors and exact hashes/commands:
+adaptive-score audit. The final source raises no heartbeat/memory limit.
+Root registration only; no full root/tree/audit/metric or chart-state change.
+NEXT: actual completed-map sum/scalar laws and presentation-independent
+functional composition on represented bounded uniformly continuous functions.
+No existing general completed-function/compact-group Haar consumer was found;
+do not hide arbitrary RC representative lifts in a new interface. Full Haar/
+compact realization/J04, MAIN SAME warmed-variance payment/scaling and every
+physical/QFT/every-group/Clay endpoint remain OPEN.
+
 ## ACTUAL original-Haar rational translation (2026-10-10 UTC)
 
 `QuaternionDenseCRealHaarTranslation.translateInput:56`, `translateInner:61`,

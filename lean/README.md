@@ -76,8 +76,22 @@ original-Haar law. `translateExtension_value` identifies the actual map on
 EVERY Point with composition by the SAME completed Hamilton product.
 Focused check2 and COMPLETE independent frozen-source/log/math review PASS;
 twelve permitted gates, one axiom-free, no final diagnostics. Multipliers
-are rational units, NOT arbitrary completed Points. Completed-multiplier
-invariance, full continuous Haar/J04, MAIN scaling and Clay remain OPEN.
+in that leaf are rational units. The subsequent
+`Continuum/QuaternionDenseCRealPointStability` now proves sound continuity
+on two actual rows, dense-input stability on EVERY Point, and the image's
+own bound, paying sampling errors at max(K,den(epsilon/2)) or epsilon.den.
+`Continuum/QuaternionDenseCRealCompletedHaarTranslation` constructs the actual
+completed translated dense input with the SAME M/rho and a retained inner
+rate. `completedExtension_value` pins composition on EVERY Point and
+`completedHaar_invariant` proves actual original-Haar invariance, with cutoff
+den(epsilon/8), for either order and a supplied multiplier row.
+`completedHaarClass_invariant` descends the actual candidates and covers
+EVERY completed Point multiplier without representative choice.
+Focused stability check2 / completed check4 and COMPLETE independent frozen
+source/log/math reviews PASS; 22 permitted gates, two rate definitions
+axiom-free, no final diagnostics. No new analytic premise or enlarged final
+heartbeat/memory budget. Full continuous-Haar function-space packaging and
+compact realization/J04, MAIN scaling and Clay remain OPEN.
 Root registration only; no full root/tree/audit. Exact evidence: adaptive-score audit.
 
 **Checked POINTWISE rational-carrier approximation (2026-10-10 UTC):**
