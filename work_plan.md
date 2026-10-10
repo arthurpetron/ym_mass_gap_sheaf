@@ -25,7 +25,47 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Latest MAIN selection (2026-10-10 UTC)
+### Math-first execution reset (2026-10-10 UTC, user approved)
+
+PRIMARY remains the ORIGINAL late endpoint estimate with SOME fixed finite
+rational c0>=1:
+`side_j*(R_j(side_j)-R_j(side_j+1)) <= c0*R_j(side_j)` for j>=1,
+with the existing j=0 shifted-form obligation retained. Its SAME completed
+consumer is `path_normalized_anchor_shifted:581`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1Anchor.lean`.
+This is a shifted-survival input alongside the consumer's separate positive
+norm floors, NOT every-state decay or a Clay solution.
+Backward area and late-dual bounds remain optional sufficient routes.
+
+Stop two specific joins: an UPPER bound on the comparison cost cannot be
+subtracted to upper-bound the complete signed cost; and the literal plaquette
+source is not the heat-prefix nome derivative. Neither shortcut supplies an
+original-theory estimate. The existing connected-square identity remains
+valid in its recorded scope; do not apply its one-slice Casimir pin to a
+warmed reciprocal source or silently change the OLD OWN center.
+
+The new PAPER reduction uses ONE complete original chronological chain for
+all adjacent lags. Horizontal IBP on the first, unfiltered spatial insertion
+gives `12*(P_L-P_(L+1)) = (J_L-J_(L+1))-12*c*(m_L-m_(L+1))`, with the
+full action retained, c the OLD OWN center and P the unnormalized centered
+pair. The current endpoint mean cancels exactly; no sign or relative bound
+on the remaining flux is supplied. Strictly positive lag is essential.
+NEXT: seek a source-specific bound on the COMPLETE signed sum over the actual
+BOX cross-time lags, relative to its SAME late response, with c0 independent
+of j. Test the inequality direction, original weights and scaling dependence
+on paper before selecting Lean implementation. Do not formalize another Ward
+wrapper or assume this estimate merely to make a passing leaf. Existing
+common-tail and OWN-limit consumers are available; their missing assembled
+common-chain join is not itself a uniform analytic estimate.
+
+Independent bounded Sol source/math review agrees with this reduction and
+its unpaid bound. No Lean file, axiom, proof status, canonical field or chart
+changed. The rounded AF-shaped family is still NOT a justified physical
+scaling family; the previously constructed precision schedule does not supply
+that justification. Exact algebra, source pins and stopping conditions:
+`audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md`, "Math-first reset".
+
+### Previous checked MAIN selection (2026-10-10 UTC)
 
 Keep the direct ORIGINAL late endpoint estimate PRIMARY. New finite selection
 guard `BackwardResponseAreaStrictness.EndpointVsArea.endpoint_without_area:133`

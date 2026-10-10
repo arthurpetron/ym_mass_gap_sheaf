@@ -4,6 +4,170 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Math-first reset (2026-10-10 UTC, SOURCE/PAPER; user approved)
+
+The preceding conversational turn reported status, not mathematical progress.
+This selection returns to the missing ORIGINAL analytic producer. No new
+Lean theorem, build, axiom audit or broad proof-node closure is claimed here.
+The user approved finding the mathematical argument before implementation.
+
+### Two rejected joins
+
+1. **Subtraction needs the opposite direction.**
+   `signedMultiplicationCost_difference`,
+   `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockRayleighSplit.lean:204`,
+   gives S=C(A,b)-C(A,A*psi), with the SAME A and BOTH original partition
+   factors. `clearedRayleighCost_split` in that file at :214 identifies the
+   latter cost as Z0*energy(A,psi)+boundaryDrift(A,psi).
+   `original_block_sourceDerivative_cost_relative_tolerance`,
+   `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLastStepAsymmetricEnergy.lean:448`,
+   gives an UPPER bound on C(A,b). An upper bound on the subtracted cost
+   cannot be used to obtain an upper bound on S. In particular, the connected
+   identity/upper payment `padded_family_energy_connected_identity:250` and
+   `normalizedEnergy_connected_cutoff_payment:328`,
+   `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedFamilyConnectedCoercivity.lean`,
+   do not pay this subtraction by themselves. A lower comparison bound or
+   a direct complete signed-cost bound would be needed for this join.
+
+   There is a second, independent object mismatch: `spatialSpan_casimir`,
+   `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyCasimir.lean:294`,
+   is the eigenvalue-12 pin for an UNSHIFTED one-slice spatial family F.
+   C(F-c)=12(F-c)+12c, not 12(F-c); it is also not a Casimir pin for the
+   warmed reciprocal source `blockConditionalRatio`,
+   `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockConditionalRatio.lean:213`.
+   `lastStepSourceDerivative_expansion`,
+   `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLastStepSourceDerivative.lean:80`,
+   explicitly retains the derivative of spatialWeight times the paired
+   residual. `original_signed_window_pin`,
+   `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedMultiplicationWindow.lean:87`,
+   retains the OLD depth-n OWN center even in the later comparison windows.
+   None of these terms may be dropped by recentering or stationarity.
+
+2. **Heat-action differentiation is not plaquette insertion.** SOURCE pins:
+   `heatPrefix`, `lean/YMGap/Continuum/QuaternionHaarHeatCertificate.lean:31`;
+   `coeffW`, `lean/YMGap/Continuum/BondMovingStep.lean:259`; and
+   `characterPolynomial`,
+   `lean/YMGap/Continuum/BF4GeometricSpinNetworkMehler.lean:409`.
+   They define H_K(w,U)=sum_(r=0..K) (r+1)*w^(r*(r+2))*chi_r(U).
+   The following is a PAPER polynomial argument, not a new Lean declaration.
+   For w>0 and K>=1, there are no scalar a,b with
+   d_w H_K = a*chi_1*H_K+b*H_K: the highest chi_(K+1) coefficient forces
+   a=0, the chi_0 coefficient then forces b=0, while d_w H_K has chi_1
+   coefficient 6*w^2>0. Already H_1=1+2*w^3*chi_1 and
+   chi_1*H_1=chi_1+2*w^3*(chi_0+chi_2) exhibit the mismatch.
+   The original `spatialWeight`,
+   `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSliceHeat.lean:70`, is a
+   PRODUCT of such heat factors, not an exponential linear plaquette action.
+   The proposed substitution of a plaquette source for this parameter score
+   is rejected; this argument does not refute a late response estimate or YM.
+
+### Common-chain adjacent-lag Ward reduction
+
+**PAPER only, independently reviewed.** Fix cutoff, width, a finite original
+chronological chain W, its Haar functional H and Z=H[W]. Place the SAME
+unfiltered spatial family F at the first insertion slice, and its translate
+G_L at a strictly later slice L>=1. All active angular derivatives act on
+the first slice; C=-sum D^2, C F=12F and D G_L=0. Retain EVERY spatial and
+kinetic factor in W. Define
+
+```text
+m_F = H[W F],             m_L = H[W G_L],
+J_L = H[Gamma(W,F) G_L],  I = H[Gamma(W,F)],
+P_L = H[W (F-c)(G_L-c)],  c = the OLD OWN center.
+
+12 H[W F G_L] = J_L,      12 m_F = I,
+12 (Z H[W F G_L] - m_F m_L) = Z J_L - I m_L,
+12 Z P_L = Z J_L - I m_L + 12 (m_F-c Z)(m_L-c Z).
+```
+
+Both marginals are equal in the SYMMETRIC finite window by the existing
+`endpoint_means_eqv`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWindowLagMeanControl.lean:114`.
+That does not equate them with c: the centered correction in that symmetric
+window is 12*(m_F-c Z)^2, not zero. Do NOT impose this symmetry in the
+asymmetric common-chain placement below.
+
+To compare adjacent lags, choose a single maximum lag Lmax covering BOTH
+members of every adjacent pair and one chain length m+Lmax+n;
+place every required G_L at m+L, with right tail
+n+Lmax-L. W, Z, F and c are then identical for all L. Subtracting the
+displayed identities and using I=12*m_F gives the simpler exact formula
+
+```text
+12 (P_L-P_(L+1)) = (J_L-J_(L+1)) - 12 c (m_L-m_(L+1)).
+```
+
+The CURRENT first endpoint mean cancels. The OLD center and complete action
+derivative remain. At lag zero D G_0 is not zero, and an extra Gamma(F,G_0)
+term occurs; the separated formula must not be quantified over lag zero.
+All late raw BOX lags L=s+a+b in the selected endpoint problem are positive.
+For the actual BOX kernel, the common positive smoothing factor cancels,
+so the cleared quantitative demand on the original complete sum is
+
+```text
+sum_(a,b=0..M) [(J_L-J_(L+1)) - 12 c (m_L-m_(L+1))]
+    <= (12 c0/s) * sum_(a,b=0..M) P_L,      L=s+a+b.
+```
+
+This is a candidate finite precursor to the late response estimate, not a
+claim that the finite inequality is necessary or already holds. Controlled
+finite cutoff/boundary errors may be retained and passed at each fixed j.
+The real analytic task is to produce this relative control (or another
+sufficient direct endpoint estimate) with SOME fixed finite rational c0>=1,
+independent of j on the actual family. Positivity, reversibility and a
+generic Young bound do not supply the signed adjacent-flux estimate. No
+source-specific producer for it was found in this screen.
+
+### Existing consumers versus missing work
+
+- Full ORIGINAL chronological numerator and partition: `window_pairing:96`
+  and `window_partition_pairing:124`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWindowPairing.lean`.
+- Finite Haar IBP and Gamma product rule: `casimir_pair_gamma`,
+  `lean/YMGap/Continuum/SU2QuaternionSecondOrderCancellation.lean:153`, and
+  `activeGamma_mul_right`,
+  `lean/YMGap/Continuum/SU2QuaternionActiveCasimirProduct.lean:307`.
+  Slice transport/disjointness inputs are `angularDerivative_liftBoundary`,
+  `lean/YMGap/Continuum/SU2QuaternionAngularLift.lean:56`, and
+  `angularDerivative_blockIndependent_zero`,
+  `lean/YMGap/Continuum/SU2QuaternionHaarTailDerivative.lean:235`.
+  The literal assembled common-chain Casimir/adjacent-lag theorem is NOT
+  FOUND in these modules; the one-slice pin is not itself its formal proof.
+- Removing extra right padding is already bounded at FIXED nome/width by
+  `polynomialWindow_right_commonTail`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWindowBracket.lean:154`, with
+  error mixRate^n*(polynomialCap(p)+polynomialCap(p)). This is not a
+  changing-family uniform score/response bound. No convergence of J_L/Z
+  is inferred merely by treating the differentiated W as a fixed probe.
+- The SAME completed centered target and OLD OWN diagonal convergence are
+  `expressionCenteredTimeMoment_chronological_pin:128` and
+  `expressionOwn_centeredPair_converges:251`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonOwnCenterLimit.lean`.
+  `smoothedResponse_pin`,
+  `lean/YMGap/Continuum/BF4WilsonAllNomeSmoothedCoherentState.lean:341`,
+  retains the actual double BOX sum. The assembled asymmetric common-chain
+  comparison to these limits is still missing; its fixed-parameter boundary
+  estimate is NOT missing.
+- Direct endpoint statement/consumer: `PathShiftedEpsBound:396`,
+  `pathShiftedEpsBound_iff_response:418` (j>=1), and
+  `path_normalized_anchor_shifted:581`,
+  `lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1Anchor.lean`.
+  The j=0 shifted-form obligation is retained, not silently replaced.
+
+**Selection:** continue source-specific analytic work on the complete signed
+adjacent flux (or the complete original cost), NOT another conditional Ward
+interface. Select Lean implementation only after a quantitative argument
+with these actual weights and the correct direction is identified. Stop or
+revise a candidate that loses the shared chain, drops the mean term, uses the
+warmed-source Casimir pin, or yields a coefficient growing with j.
+The rounded AF-shaped family still lacks physical scaling justification;
+the existing precision schedule does not fill that separate obligation.
+Two bounded independent Sol reviews checked algebra, source placement and
+consumer scope. Final independent read-only diff/source/citation review PASS
+after correcting three line references against the current declarations;
+ROOT's exact-diff inspection and `git diff --check` PASS. Verification is
+documentation-only: no Lean edits/checks or proof/ASCII state changes.
+
 ## Selected endpoint-versus-area test (2026-10-10 UTC)
 
 Previous goal turn a952866f is verified algebraic PROGRESS: the exact
