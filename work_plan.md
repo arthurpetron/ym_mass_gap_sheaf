@@ -122,6 +122,19 @@ heat. This supplies algebra, NOT those producers, H1, physical scaling or a gap.
 Exact evidence: `audits/AUDIT-RG-RELATIVE-DISSIPATION-2026-10-07.md`,
 "Retained/fast-sector screen". PRIMARY remains the signed late H1 estimate.
 
+Producer screen: the existing spatial-axis parity split is orthogonal and
+transfer-invariant, but supplies no new fast-sector rate; the actual padded
+source is entirely even. The alternative `Tx+(I-T)x` frame leaves slow modes
+in BOTH parts and does not produce the required separation or small mixed
+OUTPUT pairing. Do not implement either as an automatic RG producer. Exact
+SOURCE/PAPER tests: the same RG audit, "Actual split and time-frame tests".
+For PRIMARY, divergence-free first-BOX current corrections leave the COMPLETE
+signed flux unchanged; a better representation still needs an actual relative
+estimate. Backward physical-box consistency needs only a lower calibration on
+the SAME warmed source, not an extra all-vector Rayleigh-rate theorem. These
+are selection tests, NOT supplied calibration, H1 or scaling proofs. Details:
+adaptive-score audit, "Current invariance and source-specific calibration".
+
 Independent bounded Sol source/math review agrees with this reduction and
 its unpaid H1 bound. That SOURCE/PAPER H1 review changed no Lean file, axiom
 declaration, canonical field or chart; the separately recorded scalar RG

@@ -16398,3 +16398,58 @@ or the complete signed original relative cost. Neither is produced here.
 Continuum survival, physical mass, full QFT, every compact simple group and
 Clay remain OPEN. The goal remains active; no canonical displayed claim
 changes and no ASCII reprint.
+
+## Current invariance and source-specific calibration (2026-10-10 UTC)
+
+Bounded SOURCE/PAPER selection tests, NOT new Lean estimates or a physical
+counterexample. The exact PRIMARY consumer remains
+`pathShiftedEpsBound_iff_response`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1Anchor.lean:418`, followed by
+`path_normalized_anchor_shifted:581` in the same file.
+
+First-BOX current choice has a limited, precise freedom. Let W be the complete
+original chronological weight, H the separated future test and v a polynomial
+angular current supported in the first BOX. If div_Haar(v)=0 and D H=0 on its
+support, weighted IBP gives
+
+```
+Haar[H*v.DW] = -Haar[W*v.DH] - Haar[W*H*div_Haar(v)] = 0.
+```
+
+This is a finite-sum/product-rule consequence of
+`quaternionHaar_weighted_angular_at`,
+`lean/YMGap/Continuum/SU2QuaternionHaarAngularIBPAt.lean:99`, not a newly
+formalized current theorem. Consequently adding v to the common first-BOX
+current preserves the COMPLETE boundary-plus-spatial flux, with the OLD-center
+correction unchanged. A different representation may improve an envelope or
+expose cancellations; divergence preservation alone creates no signed gain
+or automatic 1/side factor. No tangent-current wrapper is selected.
+
+The physical-box consistency test can be made source-specific. For j>=1,
+s=side_j, Y=tr.state j, z=T^(s/2)Y and N=R_j(s)>=fl_j>0 with a supplied
+positive rational floor, the exact shift pins
+`shift_norm_pin:239` and `shift_response_pin:244` in
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1Anchor.lean` identify
+D=R_j(s)-R_j(s+1) with <z,(I-T)z>. IF a justified SAME-state physical
+calibration supplies D>=m*a_j*N, with m,a_j>0, then H1 implies
+`m*s*a_j<=c0` by cancelling the positive N. This needs calibration only on
+the actual warmed source, not the stronger all-vector
+`WilsonVacuumRayleighRate` premise of `path_shiftedEps_forces_rate:617`.
+The complete BOX response and original center are retained by
+`smoothedResponse_pin`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeSmoothedCoherentState.lean:341`.
+Neither the state-specific lower calibration nor a physical spacing a_j is
+produced here. Do not add an all-vector theorem as an extra prerequisite for
+this diagnostic, or treat the diagnostic as an H1 producer.
+
+The checked temporal identities do not supply independent upper payment:
+`finite_increment_pin`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeTemporalEnergyLimit.lean:102`, retains
+the full squared increment and partition for a supported loop insertion;
+`current_limit_completed_pin`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeJumpCurrentLimit.lean:178`, identifies
+the signed current with its lag-1 versus lag-2 response drop, not the late
+BOX H1 drop. No uniform relative estimate is asserted by either. Continue
+with the future-visible COMPLETE
+signed flux, including OLD-center debt, on a justified changing family.
+No Lean edit/build, supplied uniform bound, canonical field or chart change.

@@ -228,3 +228,70 @@ does not pay any separate kappa-1 error. The existing relative route remains
 available if its stronger actual comparison can be proved; no canonical field
 is weakened or deleted. H1 survival, justified physical scaling and Clay stay
 OPEN. No new chart-state claim, new sector bundle, hole or axiom.
+
+### Actual split and time-frame tests (2026-10-10 UTC)
+
+Bounded SOURCE/PAPER review; no new Lean theorem, compilation or physical
+instance. The next prospective consumer remains the checked scalar join
+`twoSector_upper_of_squared_cross`,
+`lean/YMGap/Continuum/RCSignedPairBudget.lean:200`, followed, if a useful
+strict full cap is actually produced, by `vacuumSq_of_twoStepFactor`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeRGTwoStepRecovery.lean:58`.
+
+**Existing parity split.** `sector_norm_split`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeSpatialAxisSwapCompletion.lean:234`,
+and `sector_pairing_split`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeAxisEnergyProjection.lean:99`, supply
+the actual orthogonal decomposition. `evenPart_time:276` and
+`oddPart_time:281` in the former file show that it commutes with the ORIGINAL
+completed time. Thus the output mixed pairing of even and odd parts is zero
+(PAPER consequence of these declarations, not a new named gate). But no new
+changing-family fast-sector rate is supplied. `completed_iterated_norm_gap`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeCompletedGap.lean:214`, retains the
+existing nome/width-dependent `mixRate`, defined in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTransferMixingRate.lean:110`.
+The current diagnostic padded source is already entirely even:
+`afPadded_state_even`,
+`lean/YMGap/Continuum/BF4WilsonAllNomePaddedAxisSector.lean:241`.
+Removing its zero odd part creates no new quantitative gain. Parity remains
+a valid symmetry tool, not a produced retained/fast RG estimate.
+
+**Time frame.** Put r=Tx, f=(I-T)x, N=||x||^2 on the SAME carrier.
+`mixedMoment_nonnegative`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeTimeDefectMoments.lean:343`, gives
+B(r,f)>=0 and therefore ||r||^2+||f||^2<=N. This frame is not in general
+orthogonal. More importantly, positivity and contraction alone do not make
+f a uniformly fast sector. Test these operator laws on the scalar positive
+contraction T=lambda*I, 0<lambda<1. This is a PAPER countermodel to the generic
+inference, NOT an asserted BF4 eigenstate or a Yang--Mills counterexample:
+
+An additional orthogonal fixed-unit line gives T=diag(1,lambda), so this
+test is also compatible with unit stationarity on an abstract carrier.
+
+```
+a=||r||^2=lambda^2*N          b=||f||^2=(1-lambda)^2*N
+||T^2 r||^2=lambda^6*N        ||T^2 f||^2=lambda^4*(1-lambda)^2*N
+m=<T^2 r,T^2 f>=lambda^5*(1-lambda)*N
+||T^2 f||^2/b=lambda^4        m^2/(a*b)=lambda^8
+```
+
+For N>0 these two ratios tend to one as lambda tends to one. Taking the
+smallest diagonal caps alpha=beta=lambda^4, the scalar Schur criterion needs
+q>=2*lambda^4, which exceeds one near lambda=1. Increasing alpha to introduce
+a positive separation g cannot improve this cap. This diagnoses that
+sufficient criterion on the proposed frame; it does NOT prove that the
+actual full scalar operator lacks its existing strict cap lambda^4<1.
+
+Using the original deficit d=N-||Tx||^2=(1-lambda^2)*N instead gives the valid
+PAPER inequalities ||T^2 f||^2<=d/4 and m<=d/2. They follow respectively from
+4*lambda^4*(1-lambda)^2<=1-lambda^2 and
+2*lambda^5*(1-lambda)<=1-lambda^2. But m/d tends to 1/2 and d/N tends to zero.
+Without an independent lower deficit fraction this does not yield a uniform
+strict cap; it merely rearranges the existing time contraction.
+
+Decision: STOP these two substitutions as automatic fast-sector producers.
+Retain symmetry only where it gives a real source-specific reduction; demand
+an original-action quantitative diagonal or mixed-output estimate before
+another RG implementation. PRIMARY stays the signed late H1 estimate on a
+justified changing family. Independent source/math screens agreed with the
+scope; no new interface, hole, canonical field or displayed proof-state change.
