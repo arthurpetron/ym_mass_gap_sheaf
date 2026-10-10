@@ -4,6 +4,30 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## ORIGINAL polynomial approximation and rational sphere sup-bound (2026-10-10 UTC)
+
+`QuaternionHaarBernsteinMonomialRecoding.monomialSeparable_haar:175` and
+`monomial_gridProduct:257` pin the four affine factors to ORIGINAL moments
+and raw evaluations, including trailing-zero exponent lists of length<=4.
+`QuaternionHaarBernsteinPolynomialBudget.polynomialGridBudget_half:247`
+computes the coefficient-weighted strength K from each actual signed term and
+eta=epsilon/(1+abs(epsilon)+K), paying grid error<=epsilon/2.
+`QuaternionHaarTensorBernsteinPolynomialGrid.haar_repaired_error:204`
+joins actual signed aggregation and SAME-weight repair at `approximationCutoff:199`,
+giving complete error<=epsilon at every later degree. No repeated half-budget.
+`haar_abs_le_unit_bound:276` then proves |H[p]|<=M if |p(q)|<=M on rational
+UnitNorm q, by nonnegative unit-mass weights on actual rational unit nodes
+and constructive rational order;
+no chosen supremum, continuous integral or independent marginals.
+Three focused checks and COMPLETE independent final-source/log and mathematical
+reviews PASS; all 35 public gates permitted, no final diagnostics. Rejected
+preliminary recovery output is not evidence; no source hole/axiom/resource change.
+NEXT: uniform approximation with explicit modulus on the SAME completed
+Point-function domain, then actual continuous extension. Continuous Haar/J04,
+MAIN signed payment/scaling, physical/QFT/every-group and Clay remain OPEN.
+Root registration only; no full root/tree/audit or chart-state change.
+Exact sources/commands/hashes and scope: adaptive-score audit.
+
 ## Actual SAME-weight rational sphere-repair payment (2026-10-10 UTC)
 
 `QuaternionHaarTensorBernsteinRepair.jointRepairDistance_le:248` joins

@@ -6,6 +6,113 @@ and a finite strictly positive physical Hamiltonian mass gap.
 
 ## Finite positive cubature foundation (2026-10-10 UTC)
 
+### Selected ORIGINAL signed-polynomial grid join (after 2ebc15f8)
+
+Previous goal turn was PROGRESS: actual same-weight sphere repair and its
+computed epsilon/2 cutoff are checked and pushed. Now remove the restriction
+of `haar_separable_grid_error` to four factor lists: recode each ORIGINAL
+supported monomial through x_i=2*y_i-1, prove its Haar and raw-evaluation
+pins, and fold its signed coefficient into the literal joint-weighted grid
+sum. Compute the finite maximum row cutoff and coefficient-weighted error
+budget from p itself, then shrink the row tolerance to pay epsilon/2.
+No arbitrary-polynomial quadrature theorem is currently assumed or available.
+Sol macro owns the monomial recoding producer, ROOT the signed fold, and Sol
+radial screens the positive rational tolerance arithmetic; Luna independently
+checks the trailing-zero APIs and final sources/logs. Actual consumers remain
+the existing polynomial Haar/link functional, then sphere sup-norm and a
+continuous extension, NOT MAIN warmed-cost payment or physical mass.
+
+Predicted join: finite signed-term linearity suffices without independent
+coordinate marginals. Decisive tests are exponent-list lengths 0..4,
+trailing zeros, signed/zero/repeated terms, constant p and all grid endpoints.
+Revise if recoding requires false raw coefficient equality across padding,
+continuous integration or a new supplied estimate. Preserve the SAME joint
+weights and pay grid and repair errors separately. ROOT-only serial focused
+20-GiB checks/12-GiB reserve with fresh dynamic telemetry and complete
+independent source/log review; no root/tree/audit, new sorry or field change.
+
+Immediate contraction selected before checking: after the complete repaired
+grid estimate, actual nonnegative unit-mass weights preserve ANY rational bound
+on |p(q)| over rational UnitNorm q. The approximation error then gives
+|H[p]|<=M+epsilon for every positive rational epsilon; the existing rational
+Archimedean order lemma removes epsilon. This would supply the missing
+polynomial sphere sup-bound estimate itself, not a continuous Haar measure
+or integration of an unavailable continuous function. No exact supremum,
+classical compactness, supplied approximation or new interface is required.
+
+### Observed ORIGINAL polynomial approximation and sup-bound [CHECKED]
+
+`monomialFactor`,
+`lean/YMGap/Continuum/QuaternionHaarBernsteinMonomialRecoding.lean:48`,
+computes the four affine factors from the ORIGINAL exponent entries.
+`monomialSeparable_haar:175` and `monomial_gridProduct:257` pin their
+actual Haar moment and raw-grid evaluation for every m.length<=4, including
+trailing zeros. A finite power-exponent ledger and `haarMono_congr` compare
+monomials semantically; no false raw coefficient-key equality is asserted.
+
+`polynomialGridStrength`,
+`lean/YMGap/Continuum/QuaternionHaarBernsteinPolynomialBudget.lean:144`,
+computes K=SUM_terms |c|*S_m, with C_i=weightedL1(1,factor_i)+1 and S_m
+the four triple-products. The literal term list, repeats and zero/signed
+coefficients remain. `gridTolerance:197` computes
+eta=epsilon/(1+abs(epsilon)+K); for epsilon>0, eta>0, eta<=1 and eta*K<=epsilon.
+`polynomialGridBudget_half:247` therefore pays grid coefficient error<=epsilon/2.
+There is no inverse of K or a nonzero-coefficient premise.
+
+`haar_raw_grid_error`,
+`lean/YMGap/Continuum/QuaternionHaarTensorBernsteinPolynomialGrid.lean:119`,
+assembles the ORIGINAL signed supported RatPoly under the SAME joint weights.
+`raw_repaired_difference_le_cost:170` bounds actual sum difference by the
+literal existing repair cost, using finite two-sided order, not an absolute-
+sum equality. `approximationCutoff:199` is explicit Nat data: the maximum
+of the per-term grid stage at computed eta and the existing repair stage.
+`haar_repaired_error:204` proves |H[p]-repairedWeightedSum(n,p)|<=epsilon
+at every later degree. Each error has its OWN epsilon/2 payment, all actual
+nodes are repaired rational unit quaternions, and zero/endpoints remain.
+
+`repairedWeightedSum_abs_le:245` uses actual nonnegative joint weights and
+unit total mass to preserve ANY bound M on |p(q)| for rational UnitNorm q.
+`haar_abs_le_unit_bound:276` then proves |H[p]|<=M on the ORIGINAL one-block
+Haar functional by taking the computed approximation stage separately at
+each invSucc(k) and applying existing constructive rational Archimedean order.
+This closes the rational polynomial sphere sup-bound input without choosing
+a supremum. It is NOT yet an integral on arbitrary continuous Point-functions,
+compact Haar realization, or a continuum/scaling/physical gap theorem.
+
+Accepted ROOT-only serial monitored checks, each exit 0:
+
+```
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionHaarBernsteinMonomialRecoding.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionHaarBernsteinMonomialRecoding.olean --log-file /private/tmp/ym-monomial-recoding-check2.log
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionHaarBernsteinPolynomialBudget.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionHaarBernsteinPolynomialBudget.olean --log-file /private/tmp/ym-polynomial-grid-budget-check1.log
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionHaarTensorBernsteinPolynomialGrid.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionHaarTensorBernsteinPolynomialGrid.olean --log-file /private/tmp/ym-polynomial-grid-check2.log
+```
+
+| Source | Source SHA-256 | Accepted log SHA-256 |
+|---|---|---|
+| MonomialRecoding | `a0c3f1e0d391d18977f1cd60280c659ce94beb66dad0716062e731ccf3dff16a` | `ecfd3ff38ba10fd9a44ce96ee44e1c2cb1730007e995bffbe6d7c9c331f3d514` |
+| PolynomialBudget | `ba81842bb216a76f7399ade649356660942ddf31c75c6ff95d83982e23ffd1b0` | `5cc98567cf5409b29cf2ab6dca8ebb4aabe133f1300dd7656bfcbcc4bff28317` |
+| PolynomialGrid | `40fc1f590e264abb1f31981451576213a78806b7d329c013a14bec1be7d8809c` | `5c6da558f6a81e10ee88930ce78c6d73097740c10c2895dc019a58d18d7b6bc7` |
+
+COMPLETE independent Luna final-source/log and Sol mathematical reviews PASS.
+All 35 public gates (4+16+15) stay within {propext,Quot.sound}; no final
+diagnostics. Rejected recoding check1 had Nat addition, Haar/weighted-fold
+definitional mismatch, missing grid namespace and ambiguous numeric type;
+grid check1 had a decision's free eta and rational half placed in the Int-only
+expression constant slot. Local fixes changed no hypothesis. Elaboration
+recovery sorry/self-axiom output in failed checks is REJECTED, not evidence.
+No source sorry/axiom/classical input or resource option added. Fresh telemetry
+showed zero swap/no competing compiler; one 20-GiB worker and 12-GiB reserve
+per check. Root imports are registration, not a root/tree/audit check.
+
+NEXT: a produced uniform approximation with explicit modulus for the SAME
+completed Point-function domain, then use this polynomial sup-bound in the
+actual continuous-functional extension. No integration of an unavailable f
+may be used to define its approximants. The former four-factor restriction,
+actual repair payment and rational polynomial sup-bound are now discharged;
+continuous Haar/J04, MAIN complete warmed signed-cost versus SAME interacting
+variance, justified scaling, physical mass, full QFT, every group and Clay
+remain OPEN. Canonical displayed chart claims are unchanged.
+
 ### Selected actual repair payment (after ecfea23e)
 
 The previous turn was PROGRESS: the SAME joint-weight squared norm defect

@@ -537,9 +537,9 @@ it does NOT identify raw grid nodes with sphere points or integrate a continuous
 and `polynomial_difference:150` proves signed cube variation, supplying the
 polynomial continuity payment needed when repairing raw nodes.
 The sphere-repair concentration and rational polynomial repair payment are
-now CHECKED below. Unpaid inputs include arbitrary-polynomial grid aggregation,
-then sphere sup-norm contractivity and continuous-function approximation/
-extension. Existing coordinate Certificates, row reconstruction/error and
+now CHECKED below, as are arbitrary-polynomial grid aggregation and the
+rational-unit sphere sup-bound. Completed Point-function approximation and
+continuous extension remain unpaid. Existing Certificates, row error and
 `RationalQuaternionNormRepair.repair_error_le` are the forward inputs.
 The preceding foundation's focused check2 passed 26 gates; the extended
 weighted-row check3 passes 30, eighteen exactly {propext,Quot.sound}, twelve
@@ -565,8 +565,8 @@ literal four-coordinate variance before Haar to give 3/(n+1).
 assumed. Three final focused checks and COMPLETE independent source/log and
 mathematical reviews PASS; 22 gates are permitted, no final diagnostics.
 The repair-distance pin, cube membership and polynomial repair payment are
-now CHECKED below; arbitrary-polynomial grid aggregation, sphere sup-norm
-contractivity and continuous extension remain OPEN.
+now CHECKED below, as are arbitrary-polynomial grid aggregation and rational
+polynomial sphere sup-bound. Continuous approximation/extension remain OPEN.
 All source pins, hashes, failed-check repairs and the Fisher/slack screen are
 in the adaptive-score audit's next quantitative joins section. MAIN still needs
 an upper payment of the complete warmed square plus signed remainder; a bound
@@ -590,12 +590,37 @@ Three final focused checks and COMPLETE independent final-source/log and
 mathematical reviews PASS; 32 public gates permitted, no final diagnostics.
 No new supplied input, sorry, canonical-field change, resource increase or
 broad audit. Exact commands/hashes: adaptive-score audit, actual repair payment.
-NEXT: aggregate the existing separable Haar-to-grid error over the ORIGINAL
-signed supported RatPoly terms, paying grid and repair errors separately.
-Preserve evaluation/Haar moments under affine recoding; arbitrary monomial
-lists may have trailing zeros, so do NOT assert raw syntactic coefficient
-equality with normalized products. Sup-norm/continuous Haar, J04, MAIN and
-all physical/Clay endpoints remain OPEN; no canonical chart claim changed.
+The subsequent ORIGINAL signed-term grid aggregation and rational polynomial
+sphere sup-bound are now CHECKED below; noncanonical monomial padding is
+handled by moment/evaluation pins, not false raw coefficient-key equality.
+Continuous Haar, J04, MAIN and all physical/Clay endpoints remain OPEN;
+no canonical chart claim changed.
+
+CHECKED ORIGINAL polynomial approximation and sphere sup-bound (2026-10-10 UTC):
+`QuaternionHaarBernsteinMonomialRecoding.monomialSeparable_haar:175` and
+`monomial_gridProduct:257` preserve actual Haar moments and raw evaluations
+for every exponent list of length<=4, including trailing zeros.
+`QuaternionHaarBernsteinPolynomialBudget.polynomialGridBudget_half:247`
+computes K from the ORIGINAL signed term list and selects
+eta=epsilon/(1+abs(epsilon)+K), paying grid error<=epsilon/2.
+`QuaternionHaarTensorBernsteinPolynomialGrid.haar_raw_grid_error:119`
+assembles all signed/zero/duplicate terms under the SAME joint weights.
+`approximationCutoff:199` joins per-term row stages and actual repair stage;
+`haar_repaired_error:204` proves |H[p]-repairedWeightedSum|<=epsilon at
+EVERY later degree, with separate half-budgets. `haar_abs_le_unit_bound:276`
+proves |H[p]|<=M whenever |p(q)|<=M on all rational UnitNorm q, by actual
+nonnegative unit-mass weights on actual rational unit nodes and constructive
+rational epsilon elimination.
+No supremum, continuous Haar, independent marginal or supplied approximation
+is assumed. Three final focused checks and COMPLETE independent final-source/
+log and mathematical reviews PASS; 35 permitted public gates, no diagnostics.
+No new hole, input, resource option or canonical field; root registration only.
+NEXT: produce uniform polynomial approximation with explicit modulus for the
+SAME completed Point-function domain, then the continuous functional extension.
+This rational sphere sup-bound is not already that continuous integral or
+compact Haar realization. J04, MAIN complete warmed signed-variance payment,
+physical/QFT/every-group and Clay remain OPEN; chart claims unchanged.
+Exact commands, source/log hashes and failed-check boundaries: adaptive-score audit.
 
 The requested paper review confirms that Appendix E assumes continuous Haar;
 its companion section 10.4 supplies a useful EFFECTIVE error-accounting
@@ -630,9 +655,8 @@ are permitted. No root/tree audit; root registration only. The polynomial
 variance/tensor sum and 48/N norm-defect bound are now CHECKED above;
 actual repaired distance, repaired-coordinate cube membership and polynomial
 repair payment are now CHECKED above. Do not import Appendix E's pre-existing
-continuous Haar. Finite aggregation from separable factors to arbitrary
-supported RatPoly still needs a checked join; this is not a sup-norm theorem
-or continuous extension.
+continuous Haar. Finite signed aggregation and the rational polynomial sphere
+sup-bound are now CHECKED above; continuous extension remains OPEN.
 Details: paper audit, current requested follow-through.
 
 CHECKED original terminal curvature (2026-10-08 23:39 UTC): the new

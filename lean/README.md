@@ -16,6 +16,21 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked ORIGINAL polynomial approximation and sphere sup-bound (2026-10-10 UTC):**
+`Continuum/QuaternionHaarBernsteinMonomialRecoding` pins affine Haar/raw
+evaluation for arbitrary supported exponent lists, including trailing zeros.
+`Continuum/QuaternionHaarBernsteinPolynomialBudget` computes a signed-term
+coefficient budget and row tolerance; no nonzero-coefficient assumption.
+`Continuum/QuaternionHaarTensorBernsteinPolynomialGrid.haar_repaired_error`
+approximates ORIGINAL H[p] by actual same-weight rational-unit nodes to every
+positive rational tolerance, at a computed Nat stage with separate grid and
+repair half-budgets. `haar_abs_le_unit_bound` proves |H[p]|<=M from a bound
+|p(q)|<=M on rational UnitNorm q, without choosing a supremum or assuming
+continuous Haar. Three final focused checks and complete independent source/log
+and math reviews PASS; 35 permitted public gates, no diagnostics. Completed
+Point-function approximation, continuous Haar/J04, MAIN and Clay remain OPEN.
+Root registration only; no full root/tree/audit. Exact evidence: adaptive-score audit.
+
 **Checked finite SAME-Haar Bernstein concentration (2026-10-10 UTC):**
 `Continuum/QuaternionHaarBernsteinCoordinateVariance.coordinateVariance_eq`
 proves the actual coordinate coefficient identity for all n. The literal
@@ -25,8 +40,8 @@ including n=0. These are ACTUAL joint polynomial-Haar weights under one
 quaternion, not independent marginal integrals or a continuous-Haar premise.
 Three focused capped checks and COMPLETE independent source/log and
 mathematical reviews PASS; 22 permitted gates, no final diagnostics.
-Repair-distance/cube/polynomial joins, sphere sup-norm contractivity,
-continuous Haar, MAIN signed payment and Clay remain OPEN. Root imports
+Repair-distance/cube/polynomial joins and rational sphere sup-bound are now
+checked above. Continuous Haar, MAIN signed payment and Clay remain OPEN. Root imports
 are registration only; no full root/tree/audit. Exact evidence: adaptive-score audit.
 
 **Checked ORIGINAL signed-family square contraction (2026-10-10 UTC):**

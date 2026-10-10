@@ -5385,8 +5385,8 @@ import YMGap.Continuum.BernsteinRationalPositiveRow
 import YMGap.Continuum.QuaternionHaarBernsteinRowCertificate
 import YMGap.Continuum.QuaternionHaarUnitIntervalCoordinate
 -- Actual positive normalized JOINT weights, exact signed elevated-row identity,
--- computed Haar-to-grid error and cube variation; arbitrary-polynomial grid
--- aggregation, sphere sup-norm and continuous Haar remain OPEN.
+-- computed Haar-to-grid error and cube variation. Arbitrary-polynomial grid
+-- and rational-unit sphere sup-bound are checked below; continuous Haar OPEN.
 -- Narrow leaves checked only.
 import YMGap.Continuum.QuaternionHaarTensorBernsteinCubature
 import YMGap.Continuum.QuaternionHaarTensorBernsteinError
@@ -5402,6 +5402,11 @@ import YMGap.Continuum.QuaternionHaarTensorBernsteinConcentration
 import YMGap.Continuum.QuaternionHaarTensorBernsteinRepair
 import YMGap.Continuum.QuaternionHaarTensorBernsteinPolynomialRepair
 import YMGap.Continuum.QuaternionHaarTensorBernsteinRepairModulus
+-- ORIGINAL signed RatPoly approximation by actual unit nodes and rational
+-- sphere sup-bound. No arbitrary-continuous-function Haar integral is assumed.
+import YMGap.Continuum.QuaternionHaarBernsteinMonomialRecoding
+import YMGap.Continuum.QuaternionHaarBernsteinPolynomialBudget
+import YMGap.Continuum.QuaternionHaarTensorBernsteinPolynomialGrid
 import YMGap.Continuum.SU2HeatJacobiFinitePrefixClassPolynomial
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticBound
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticCutoff
