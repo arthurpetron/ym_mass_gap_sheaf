@@ -16966,3 +16966,219 @@ every-group or Clay closure is claimed. No compiler or ASCII reprint.
 Independent COMPLETE two-file diff/source/math/scope review PASS after ROOT
 corrected three source-line pins. `git diff --check` passes. Verification is
 SOURCE/PAPER only; no current-session Lean or full-tree audit is implied.
+
+### Explicit rational bulk coefficients and smooth-profile moduli
+
+This is a new PAPER construction, not a Lean trajectory instance or a
+continuum-field theorem. The finite data consumer is
+`DyadicSmoothedTrajectory:329`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicSmoothedTrajectory.lean`;
+its coefficient-mass field is NOT the original completed inner product.
+
+For s=2^j and b=(s^2-s)/2, take the coordinate filter of spatialFaces(s^2)
+already selected above. It has exactly 3*s^3 faces: each base coordinate
+runs through b,...,b+s-1 and each plane through p01,p02,p12. Since
+b+s<=s^2, all BASE coordinates are below s^2, including s=1. Membership
+and Nodup use `spatialFaces_mem_iff:98` / `spatialFaces_nodup:172`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFacePlacement.lean`.
+All coefficients use LOCAL offsets r_i=coordinate_i-b:
+
+    v_s(r) = (2*r+1)*(2*s-2*r-1),
+    d_s(r) = (v_s(r)/(4*s+v_s(r)))^s,
+    c_j(p) = d_s(r_0)*d_s(r_1)*d_s(r_2).
+
+They are positive rational numbers <=1, identical across all three spatial
+planes at the same base. No action factor is removed. The lower-corner p01
+face has positive coefficient; at j=0 it is 1/125. `dirsOf:84` and
+`edgesOf:147`, `lean/YMGap/Continuum/ClusterCount4DProgress.lean`, retain the
+actual orientations and plaquette footprint, not point insertions.
+
+There is also a uniform RATIONAL coefficient-profile mass floor. For even
+s, at least s/2 midpoints (r+1/2)/s per axis lie in [1/4,3/4]. There
+q=t*(1-t)>=3/16, so d_s=(1+1/(s*q))^(-s)>=3^(-6): use
+1+6/s<=(1+1/s)^6 and (1+1/s)^s<=3. The latter follows from
+binom(s,k)/s^k<=1/k! and k!>=2^(k-1) for k>=1. Thus
+
+    3^(-36)/8 <= (sum_p c_j(p)^2)/(3*s^3) <= 1.
+
+The s=1 value is 1/15625 and satisfies the same floor. This is a finite
+coefficient mass, NOT a lower bound for interacting variance, OS norm or
+a physical excitation. The existing padded response floor still contains
+its coupling-dependent variance/rate factors.
+
+Define the one-dimensional profiles, on 0<t<1,
+
+    q=t*(1-t),
+    b_m(t)=(m*q/(1+m*q))^m,
+    b_infty(t)=exp(-1/q),
+
+with zero extension outside (0,1). Then d_s(r)=b_s((r+1/2)/s). Direct bounds:
+
+    0 <= b_m-b_infty <= 2/m,     Lip(b_m)<=2.
+
+For the first bound put x=1/q and y=x/m. The logarithm defect
+delta=x-m*log(1+y) lies in [0,m*y^2/2], giving
+b_m-b_infty <= m*y^2/(2*(1+y)^m). For m>=2 the degree-two binomial term
+gives 1/(m-1)<=2/m; m=1 uses the bound one. For the Lipschitz bound put
+z=m*q: |b_m'|<=m^2*z^(m-1)/(1+z)^(m+1)<=2m/(m+1)<=2 by the degree-(m-1)
+binomial term. Zero extension is continuous and preserves this bound.
+
+The tensor B_m(u)=prod_i b_m(u_i) has error <=6/m and Lipschitz bound
+2*||u-v||_1. Cell-center reconstruction at m=s therefore has value error
+<=9/s. Neighboring coefficients differ by <=2/s; using a plaquette centroid
+instead of the cube-cell center adds at most 1/s. These are VALUE bounds,
+not a comparison of orientation-dependent field operators. Squaring the
+coefficients and midpoint quadrature gives
+
+    |(sum_p c_j(p)^2)/(3*s^3) - integral_[0,1]^3 B_infty^2| <= 18/s.
+
+The two errors are 12/s from profile squaring and 6/s from the 4-Lipschitz
+function B_infty^2. No field-renormalization factor is paid by this rate.
+
+The limiting bump has explicit ALL-ORDER smoothness data. Write
+
+    P_0=1,
+    P_(k+1)=q^2*P_k' + q'*(1-2*k*q)*P_k,
+    b_infty^(k)=exp(-1/q)*q^(-2*k)*P_k,
+    C_0=1, C_(k+1)=(3+24*k)*C_k,
+    G_k=C_k*(2*k)!, F_k=C_k*(2*k+2)!.
+
+Degree(P_k)<=3*k and coefficient l1(P_k)<=C_k. The exponential-series
+terms of orders 2*k and 2*k+2 give respectively
+
+    |b_infty^(k)|<=G_k,
+    |b_infty^(k)(t)|<=F_k*min(t,1-t)^2.
+
+The endpoint derivative quotient is <=F_k*|h|, with modulus epsilon/F_k.
+Derivative continuity has modulus epsilon/G_(k+1). Constructively, define
+the approximants first on rational inputs using clipped q=max(0,t*(1-t));
+their common Lipschitz bound and uniform Cauchy estimate give the value
+extension without deciding the sign of a represented real input. Extend
+the derivative functions defined on rational inputs with their moduli as well.
+For the LIMITING derivative candidates the uniform Taylor remainder is
+<=G_(k+2)*h^2/2 and identifies each successive derivative; the finite
+approximants use the larger derivative cap G_(k+2)+A_(k+2)/m below.
+Extending only values would not supply that smoothness witness.
+
+The approximants also converge in EVERY FIXED finite derivative order.
+An explicit loose integer budget is
+
+    B_0=1, B_(k+1)=(8*k+3)*B_k,
+    D_k=2^(3*k+1)*(2*k+2)! + 2^k*k^2*(2*k)! + k*(2*k+1)!,
+    A_k=B_k*D_k,
+    sup |b_m^(k)-b_infty^(k)| <= A_k/m,  m>=4*k+4.
+
+Proof: for h_m(x)=(1+x/m)^(-m), its l-th derivative is
+(-1)^l*a_(m,l)*(1+x/m)^(-m-l),
+a_(m,l)=prod_(i<l)(1+i/m). For m>=l, a<=2^l and a-1<=2^l*l^2/m.
+Split a*v*h_m-exp(-x) as a*v*(h_m-exp(-x))+(a*v-1)*exp(-x), with
+v=(1+x/m)^(-l) and |a*v-1|<=a-1+l*x/m. For m>=2*r, the degree-r
+binomial term gives sup x^r*h_m<=2^r*r!. Hence, when
+m>=max(l,2*(p+2)), the weighted l-th derivative error is at most
+
+    [2^(p+l+1)*(p+2)! + 2^l*l^2*p! + l*(p+1)!]/m.
+
+For composition with x=1/q, the exact polynomial recurrence is
+
+    derivative^k h(1/q)=sum_(l=0)^k q^(-k-l)*P_(k,l)*h^(l)(1/q),
+    P_(0,0)=1,
+    P_(k+1,l)=q*P_(k,l)'-(k+l)*q'*P_(k,l)-q'*P_(k,l-1),
+
+with out-of-range P zero. Degree<=k and sum_l l1(P_(k,l))<=B_k;
+the coefficient costs are 2*k, 6*k and 3. Use p=k+l<=2*k in the weighted
+bound. The zero-extended derivatives agree at the endpoints since m>k.
+Thus M_k(epsilon)=max(4*k+4,ceil(A_k/epsilon)) is a convergence modulus.
+For tensor multi-index alpha, use
+
+    H_alpha=sum_i A_(alpha_i)*prod_(r!=i)(G_(alpha_r)+A_(alpha_r));
+    sup |derivative^alpha B_m-derivative^alpha B_infty|<=H_alpha/m
+      for m>=4*max_i(alpha_i)+4.
+
+Monomial-weighted seminorms have the same bound on the unit cube; weights
+(1+||u||_1)^N cost an extra 4^N. Every finite b_m is only C^(m-1), NOT
+Schwartz. This is eventual finite-jet compatibility, not a sequence of
+Schwartz members. No new Lean smooth-test-space declaration is produced.
+
+IF L_j=s*a_j>=L_lo>0, physical spatial continuity has bound
+6*delta/L_lo for coordinate sup-distance delta. A TWO-sided bound on L_j
+alone does not fix one physical test: placement and convergence of L_j
+with an explicit modulus are still needed. Local-field normalization,
+cutoff/volume compatibility, temporal smoothing and original response
+comparison remain unpaid. The existing rectangular time BOX is unchanged.
+
+### The joint two-time score is the narrower forward test
+
+On ONE complete original chronological carrier consider a differentiable
+positive density W_theta, with all original interaction factors and terminal
+histories retained. For fixed OLD c set U_t=(Phi-c)*(Psi_t-c),
+Z_theta=H[W_theta], R_theta(t)=H[W_theta*U_t]/Z_theta. Exact PAPER algebra:
+
+    Z_theta^2*R_theta'(t)
+      = Z_theta*H[dot(W_theta)*U_t]-H[W_theta*U_t]*H[dot(W_theta)].
+
+Where S_theta=dot(W_theta)/W_theta, this is Cov_theta(U_t,S_theta).
+If centers c_A,c_B vary, add
+-c_A'*E_theta(Psi_t-c_B)-c_B'*E_theta(Phi-c_A). These terms vanish when
+the centers are the ACTUAL endpoint means, not merely equal to each other.
+`endpoint_means_eqv:114`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWindowLagMeanControl.lean`,
+does not identify finite means with the OLD OWN limit.
+`expressionCenteredTimeMoment_chronological_pin:128`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonOwnCenterLimit.lean`,
+retains that original limiting center. A fixed OLD c has zero derivative
+by being fixed, not by finite stationarity.
+
+At the two times t_1=s/2 and t_2=s, provided both responses are positive,
+
+    derivative_theta log(R_theta(t_1)/R_theta(t_2))
+      = Cov_theta(U_(t_1),S_theta)/R_theta(t_1)
+        - Cov_theta(U_(t_2),S_theta)/R_theta(t_2),
+
+plus any varying-center corrections. The common partition/free-energy term
+CANCELS EXACTLY. The complete score contains every differentiated action
+factor; integrating terminal histories produces BOTH message derivatives.
+The remaining task is a ONE-SIDED integral upper bound for this joint signed
+quantity, uniform along the justified changing family. Bounding separate
+absolute scores discards its possible cancellation and is stronger than needed.
+A bound C and an actual initial doubling constant K_0 would give K<=K_0*exp(C),
+and the existing retained-time consumer gives c0=2*(K-1). No interpolation,
+initial Gaussian comparison or score payment is constructed here.
+
+The existing `frozen_curvature_certificate:139` and
+`frozen_curvature_nearFlat_certificate:152`,
+`lean/YMGap/Continuum/SU2QuaternionPairedFrozenJacobiCurvature.lean`, concern
+one-prefix curvature. `curvature_signed_dual_bound:182`,
+`lean/YMGap/Continuum/QuaternionHaarCurvatureDualBound.lean`, retains signed
+second derivatives; `localSignedFisher_marginal_pin:497`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLocalMarginalJets.lean`, retains
+the actual marginal Fisher term. None supplies this two-time relative bound.
+Do not assume a Gaussian on a different carrier: a gauge/chart/Jacobian and
+large-field join would be part of the missing comparison, not notation.
+
+A finite PAPER countermodel makes the density shortcut decisive. On x,y=+/-1
+with normalized product Haar, let W_0=1+epsilon*x*y and W_1=1+epsilon^2*x*y,
+0<epsilon<1. Both partitions are one and endpoint means vanish. Exactly
+
+    sup |W_1/W_0-1|=epsilon,
+    R_0=epsilon/4, R_1=epsilon^2/4
+
+for f=(1+x)/2 with OWN mean 1/2. The associated normalized symmetric Markov
+transfers have positive entries and eigenvalues (1,epsilon) / (1,epsilon^2),
+hence are PSD. Their density error tends to zero while R_1/R_0 tends to zero.
+For epsilon<1/2 the centered eigenvalue of K_1-(1-epsilon)*K_0 is
+epsilon*(2*epsilon-1)<0: pointwise kernel order is not PSD form order.
+Powers give responses epsilon^n/4 and epsilon^(2*n)/4, so unrestricted
+kernel-closeness-to-doubling comparison fails too. Neither model realizes
+the proposed bounded-physical-time Gaussian benchmark or the changing BF4
+BOX/source/action. This is NOT an original Yang--Mills/H1 counterexample.
+
+Decision: retain the explicit bulk coefficients for backward source work,
+but spend the forward proof budget on the joint signed connected response.
+No additional density/curvature/interface wrapper is selected. The primary
+endpoint estimate, physical family/field joins, every-state decay, QFT,
+every-group and Clay closure remain OPEN. Independent bounded Sol reviews
+checked the coefficient, derivative and countermodel mathematics. No Lean
+edit/build, sorry, axiom, canonical-field change or ASCII reprint.
+ROOT read the complete two-file diff; independent COMPLETE math/source/scope
+review PASS, including all new source pins. `git diff --check` passes.
+Verification is SOURCE/PAPER, not a current-session kernel or full-tree audit.

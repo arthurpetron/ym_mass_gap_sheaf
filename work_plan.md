@@ -200,12 +200,24 @@ necessary premise or a replacement by free variance.
 
 Forward test: obtain a genuinely relative positive-time estimate in the
 original heat action, retaining signed interaction, terminal and centering
-errors. The new free infinite-volume magnetic-square PAPER benchmark gives
+errors. Compare the TWO times jointly: the common partition derivative cancels,
+but the difference of response-relative connected action scores remains unpaid.
+Small pointwise density errors cannot pay this comparison, even for positive
+normalized PSD transfers. Do not add another absolute density/curvature wrapper.
+The new free infinite-volume magnetic-square PAPER benchmark gives
 coefficient 8 for nonnegative scalar spatial smearing and fixed BOX averaging.
 It supplies a quantitative diagnostic, NOT an interacting comparison or gap.
-Backward test in parallel: select a bulk-supported insertion of lattice size
-s_j INSIDE the existing ambient width s_j^2+1, and justify its physical clock,
-renormalized local-field normalization and orientation/placement comparison.
+Backward construction in parallel: the PAPER bulk insertion is now explicit.
+For s=side_j, b=(s^2-s)/2, filter spatialFaces(s^2) to base coordinates
+[b,b+s) and use the SAME coefficient in all three spatial orientations:
+prod_i (v_s(r_i)/(4*s+v_s(r_i)))^s, where r_i=coordinate_i-b and
+v_s(r)=(2*r+1)*(2*s-2*r-1). Its rational coefficient-profile mass has a
+uniform positive floor; its underlying profiles approach one smooth spatial
+bump with explicit value and every-fixed-derivative-order moduli. No finite
+profile is claimed to be Schwartz, and no original OS-norm floor follows.
+NEXT backward: justify the physical clock, fixed physical placement/shape,
+renormalized local-field normalization and orientation comparison on the SAME
+ambient width s_j^2+1. The coefficient construction does not supply these joins.
 Do not turn the global all-face sum into a local field by dropping cross-block
 covariances. The existing padded nondegeneracy theorem already supplies each
 chosen family's qualitative late floor; its supplied certificate is too weak
