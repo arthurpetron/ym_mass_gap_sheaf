@@ -78,6 +78,13 @@ Do not expand a score-encoder/reciprocal detour without a new quantitative
 argument. Retain the original signed flux as an integral, with MAIN OPEN.
 Exact scope and calculations: the same audit, "BOX and local-score screen".
 
+Quantitative follow-up rejects paying a BOX high-transfer-energy tail from
+the existing response floor: even the stronger relative floor retains
+rho_j^(3*side_j), rho_j<=2^(-280*|faces_j|). The resulting fixed-cutoff
+coefficient grows rather than proving uniform H1. This diagnoses that
+payment method, NOT the true response; do not add a spectral/floor wrapper.
+SOURCE/PAPER details: the same audit, "BOX high-tail/floor test". MAIN OPEN.
+
 ### Previous checked MAIN selection (2026-10-10 UTC)
 
 Keep the direct ORIGINAL late endpoint estimate PRIMARY. New finite selection

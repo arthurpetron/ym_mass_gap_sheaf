@@ -226,6 +226,77 @@ Verification: independent bounded source/math review PASS on the formulas,
 source citations and stated limitations. Documentation diff check PASS.
 No Lean file was changed and no compiler or axiom audit was run this turn.
 
+### BOX high-tail/floor test (2026-10-10 UTC; SOURCE/PAPER only)
+
+Previous goal turn 7e812a7e is PROGRESS: it supplied a reviewed finite
+literal-encoding obstruction and changed route selection, not a uniform
+estimate. This bounded test asks whether BOX suppression can pay the late
+endpoint using the ALREADY produced response floor. The unchanged consumer
+is `pathShiftedEpsBound_iff_response`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1Anchor.lean:418`.
+Test a fixed transfer-energy cutoff A; abandon this method if its computed
+coefficient grows with j. No new spectral interface or Lean check is selected.
+
+The existing floor is stronger than unspecified positive numbers. Put
+s=side_j, n=|faces_j|, x the ORIGINAL unsmoothed centered family,
+N=B(x,x), and Y its normalized BOX average with M=s. Then
+
+```text
+R_Y(s) >= rho_j^(3s) N,
+rho_j = w_j^12 (headFloor(w_j)/prefixCap(w_j))^(56n),
+0 < rho_j <= 2^(-280n),   n >= 1.
+```
+
+The first inequality follows from `family_time_geometric_floor`,
+`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteFamilyBondOrbit.lean:110`,
+and `smoothedResponse_ge_family_response`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedPaddedNondegenerate.lean:144`.
+The fraction is `familyResponseFraction`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyBandResponse.lean:165`,
+using `localLower:44` and `localUpper:47`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialUniformLocalBand.lean`.
+Its ceiling is the EXISTING `familyResponseFraction_le_ceiling`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeFamilyBandCalibrationObstruction.lean:64`.
+The actual M=s and nonempty unit-coefficient family are pinned by
+`afPaddedZeroMomentumTrajectory`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeAFPaddedTrajectory.lean:305`, and
+`origin_face_mem`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedPaddedNondegenerate.lean:244`.
+`paddedNondegFloor:176` in the latter file retains rho_j^(3s); no finite
+cutoff remains in that completed floor. Do not reuse the lag-zero smoothed
+floor or an anchor floor that already assumes H1 as a late relative credit.
+
+PAPER diagnostic, even GRANTING a positive-contraction spectral presentation:
+b_s(lambda)=(1+...+lambda^s)/(s+1), u=s(1-lambda), 0<=lambda<=1.
+Fix j and its filter FIRST: the two adjacent moment integrands are
+lambda^s*b_s(lambda)^2 and lambda^(s+1)*b_s(lambda)^2, respectively.
+There is NO change from b_s to b_(s+1) between these moments.
+This matches `smoothedResponse`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeSmoothedCoherentState.lean:296`.
+For fixed A>=1, the low part u<=A contributes at most A R_Y(s) to
+s*(R_Y(s)-R_Y(s+1)). On u>A, lambda^s<=exp(-u) and b_s<=1/u, so
+the high contribution is at most exp(-A)*N/A. Paying this latter bound
+with the PRODUCED relative floor gives the computed coefficient
+
+```text
+K_j(A) = A + exp(-A)*rho_j^(-3s)/A
+       >= A + exp(-A)*2^(840sn)/A.
+```
+
+For every fixed A this coefficient is unbounded on the actual family.
+This is NOT a lower bound on the TRUE loss or on N/R_Y(s); only the
+certificate's reciprocal is being bounded from below. No spectral theorem
+for the current CReal carrier is asserted, and no AF/YM counterexample is
+claimed. A stronger relative-tail estimate is needed ONLY for this method,
+not made a new necessary H1 hypothesis. Decision: do not implement this
+floor-based split. Retain the original signed-flux/endpoint producer search;
+BOX suppression alone has not paid it. Two bounded Sol mathematical screens
+agree with this quantitative failure of the proposed payment.
+
+Verification: independent source/math review PASS after clarifying the fixed
+filter; ROOT source/diff review and documentation diff check PASS. No Lean
+edit, compiler run, axiom audit or displayed proof-status change this turn.
+
 ### Existing consumers versus missing work
 
 - Full ORIGINAL chronological numerator and partition: `window_pairing:96`
