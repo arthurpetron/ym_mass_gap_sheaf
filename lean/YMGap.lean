@@ -5224,6 +5224,11 @@ import YMGap.Continuum.QuaternionHaarWordComponents
 import YMGap.Continuum.QuaternionHaarWordQuartic
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLinkQuartic
 import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonQuarticIncrement
+
+-- ORIGINAL signed-source radial alignment and reweighted Wilson moments.
+-- Raw radial mass is not OWN variance; no scaling or survival is inferred.
+import YMGap.Continuum.SU2QuaternionProductHeatRadialAlignment
+import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonRadialAlignment
 -- Explicit dyadic quartic budget o(1-w), relative to the original partition.
 -- This is a heat-parameter schedule, not a justified physical scaling family.
 import YMGap.Continuum.SU2HeatQuarticDyadicSchedule

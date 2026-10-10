@@ -232,6 +232,34 @@ or permission to change the original action/current. No canonical displayed
 claim changes; no ASCII reprint. The two new checks concern OUR finite
 follow-through only, not the foreign formalization or a full-tree audit.
 
+CHECKED optional ORIGINAL Wilson-word mixed-radial producer (2026-10-10 UTC):
+`SU2QuaternionProductHeatRadialAlignment.product_endpoint_square_bound:221`
+uses arbitrary SIGNED coordinate sources in the actual heat alignment,
+retaining endpoint swap and certified ORIGINAL aggregate positivity.
+`BF4ExactSlabFixedSpatialWilsonRadialAlignment.original_radial_moment_bounds:338`
+constructs `mixedRadialMoment<=6*h*L^2*RA+2*L^4*Q*Z` and
+`H[W*r^2]<=L^4*Q*Z` by three reweighted quadratic word estimates.
+`wilson_energy_radial_alignment_cleared:445` joins these to the ORIGINAL
+energy as `E<=6*h*L^2*RA+3*L^4*Q*Z`. Here h=1-w, L counts actual
+ordered occurrences, RA=H[W*(4-f^2)], and Q is the produced one-link
+quarticBudget. Both endpoint sources, all heat factors, oddMass Z and
+explicit alignment/quartic onset guards remain; empty/repeated words,
+zero budgets and depth zero require no inverse. The new fourth coefficient
+is ONE rather than the existing coarse 16, not a constant relabeling.
+Both narrow checks PASS; final independent source/log review is recorded
+in the adaptive-score audit. Fifteen gates within {propext,Quot.sound},
+no final warnings/errors, new analytic premise or limit increase.
+Root imports are registration only, not a root/tree audit.
+
+RA/Z is a raw trace deficit, NOT OWN variance. This pays an optional
+Wilson-word moment, not the MAIN signed-family/scaling obligation. Existing
+padded-square relative Ward and score-floor inputs do exist, but their
+coarse weak-nome envelopes give h*angularVarianceFactor of order h^(-5)
+and scoreVarianceFloor of order h^12 (PAPER arithmetic, not a new Lean limit
+theorem). Do not build their redundant adapter: a useful source-specific
+signed radial/variance and quartic/variance budget, or direct original macro
+retention, remains missing. The canonical displayed claims and Clay stay OPEN.
+
 NEXT mathematical producer is a useful COMPLETE signed cost versus the SAME
 interacting variance on a justified moving family, or direct original macro
 retention. For the MAIN signed spatial family, omitted loss is now paid at its

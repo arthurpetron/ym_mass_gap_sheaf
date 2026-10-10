@@ -11941,3 +11941,183 @@ auxiliary fermion gap. No Lean edit, compiler launch, foreign-code execution,
 new analytic input, sorry, canonical displayed-claim change or ASCII reprint.
 Constructive continuum survival, physical mass, full QFT, every compact simple
 group and Clay remain OPEN; the unchanged whole-project goal remains active.
+
+## Selected original mixed-radial payment (2026-10-10 UTC; PAPER)
+
+The next bounded experiment is a NEW inequality, not another smoothing or
+determinant interface. On the literal ORIGINAL two-copy edge weight W, put
+U=the ordered unit Wilson word, f=2*U.scalar, A=4-f^2,
+r=wordChordal, d_i=the selected squared link chord, h=1-w and
+L=the literal number of word occurrences (repetitions retained). Write
+RA=H[W*A] and B=quarticBudget(w,S)*oddMass. Predicted output:
+
+    mixedRadialMoment <= 6*h*L^2*RA + 2*L^4*B,
+    H[W*r^2] <= L^4*B,
+    ORIGINAL Energy <= 6*h*L^2*RA + 3*L^4*B.
+
+Existing SAME-object consumer: `mixedRadialMoment`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonQuarticIncrement.lean:155`,
+and `radial_moment_split:162`, together with `wilson_energy_radial_cleared`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonRadialIncrement.lean:117`.
+This would pay their mixed radial term without a density floor. It is an
+optional initial Wilson-word estimate, not automatically a payment of the
+MAIN signed spatial-family cost. RA/Z=4-E_OWN[f^2] is NOT OWN variance.
+No relative norm, scaling, continuum survival or Clay result is predicted.
+
+Available inputs: `product_displacement_nome_bound`,
+`lean/YMGap/Continuum/SU2QuaternionProductHeatExactAlignment.lean:141`,
+allows arbitrary SIGNED supported sources. Its source q*U_j must be pinned
+exactly to W*U_j(x)*U_j(y), where q is the actual spatial/terminal source.
+Swap of W and d_i gives the division-free identity
+
+    H[W*d_i*A_x] = 4*sum_j H[W*d_i*U_jx*U_jy]
+                    + 2*H[W*d_i*|Imag(U_x-U_y)|^2].
+
+Alignment controls the signed cross terms; positivity is invoked ONLY on
+the certified ORIGINAL aggregate W. `selected_quartic_bound`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLinkQuartic.lean:173`,
+supplies the matching component fourth budget with its computed guards.
+The supported square (d_i-d_j)^2 pays cross moments by B.
+`word_norm_quadratic_bound`,
+`lean/YMGap/Continuum/QuaternionHaarWordQuadratic.lean:209`,
+applied under the certified weights W*d_i, W*A and W*r then predicts the
+displayed constants. This constructs the coefficient-one fourth estimate;
+it is NOT the existing coarse wordFourthFactor=16*L^4 estimate relabeled.
+
+Decisive tests: empty word, zero B, signed dual sources, repeated links,
+conjugate orientations, actual active physical links, and identical K+1,
+heat factors, terminal source and partition in every application. Keep all
+alignment/quartic cutoff guards explicit. No division by a source or
+observable norm. Abandon or revise if the exact pin needs positivity of a
+signed dual source, a changed action/normalization, or an unavailable
+analytic hypothesis. Two independent PAPER screens requested; one PASS
+already checks the algebra and constants. This section is selection, not
+accepted Lean evidence.
+
+Budget: Sol owns at most two new narrow leaves; ROOT alone performs serial
+one-worker 20GiB checks with 12GiB reserve and fresh dynamic preflights.
+Independent mathematics continues during checks. No full-tree/root audit,
+new sorry, canonical field change, resource increase or ASCII reprint.
+
+### Next-consumer screen (source review, not a new Lean proof)
+
+The second independent screen confirms the signed alignment, original
+component fourth-budget match, and reweighted quadratic argument. The
+coordinate-to-oriented and padded upper-word pins remain actual proof work;
+they must not be replaced by definitional identifications.
+
+The raw radial/variance join is NOT wholly absent: for the padded square,
+`paddedSquare_head_gamma`,
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareWardMoments.lean:259`,
+identifies the one-link angular square with 4-f^2 under arbitrary Haar
+insertions. `frame_energy_le_originalVariance`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRelativeWardBound.lean:74`,
+already bounds that angular energy by the SAME variance with coefficient
+`angularVarianceFactor:57 = 6*(1+marginalScoreCap(w)^2)`.
+This is a fixed-nome explicit coefficient, not a useful scaling payment.
+`paddedSquare_variance:544` and `paddedSquare_angular:552`,
+in the Ward-moment module above, preserve the actual character moments:
+OWNVariance=1+m2-m1^2 and raw radial mass/Z=3-m2.
+Simply moving the variance term to the left of a normalized radial bound
+adds no information about their ratio. Do not build that redundant adapter.
+
+The old dyadic schedule's `budget_bound`,
+`lean/YMGap/Continuum/SU2HeatQuarticDyadicBudget.lean:146`,
+makes quarticBudget small in PARTITION units; it is not a justified physical
+scaling trajectory and does not pay quarticBudget/OWNVariance. There is
+also an existing actual padded-square score floor, not only a density floor:
+`paddedSquare_variance_score_floor`,
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareWardMoments.lean:410`.
+The missing next input is a USEFUL controlled radial/variance and quartic/
+variance budget on the same moving family, not merely existence of any
+finite positive variance floor. No additional survival join is selected.
+
+Independent PAPER pruning of the naive envelope join: for 0<w<1 and
+h=1-w, `geoTailBase`,
+`lean/YMGap/Continuum/HeatKernelConvGen.lean:335`, and `Cstar`,
+`lean/YMGap/Continuum/HeatKernelConv.lean:461`, give
+budget=2*w/[h^2*(1-w^2)]. `relativeCap`,
+`lean/YMGap/Continuum/QuaternionHaarHeatRelativeAngularBound.lean:41`,
+and marginalScoreCap above give the EXACT envelope C=24640*budget+8.
+Thus C grows as h^(-3), h*angularVarianceFactor as h^(-5), and the
+existing scoreVarianceFloor as h^12. Its denominator is
+7+10*C^2+4*C^4 (`scoreVarianceFactor`,
+`lean/YMGap/Continuum/QuaternionHaarGeneralizedLinearWard.lean:333`;
+`scoreVarianceFloor:347`). Even an h^2 quartic coefficient does not become
+small after division by this floor: that scalar ratio grows as h^(-10).
+These asymptotic statements are PAPER arithmetic on the recorded envelopes,
+not newly checked Lean limit theorems or assertions about the true variance.
+They prune the coarse-envelope adapter, NOT the actual raw moment ratio.
+The padded-square floor is also not automatically an arbitrary-loop floor.
+Prefer a source-specific signed ratio estimate or direct macro retention.
+
+## Mixed-radial observed contraction (2026-10-10 UTC; CHECKED finite)
+
+The selected inequality is now constructed on the ORIGINAL measure, not
+introduced as a new assumption. `signed_coordinate_cross_bound` and
+`product_endpoint_square_bound`,
+`lean/YMGap/Continuum/SU2QuaternionProductHeatRadialAlignment.lean:193`
+and `:221`, pin q*u on BOTH endpoints to W*u(x)*u(y). Arbitrary supported
+signed coordinate tests are allowed; only the ORIGINAL aggregate W uses
+its produced positive square certificate. Slice swap retains the selected
+chord, and `mixed_square_bound:181` uses the supported square (d_i-d_j)^2.
+
+The actual `original_radial_moment_bounds`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonRadialAlignment.lean:338`,
+constructs both estimates at the SAME inclusive cutoff K+1:
+
+    mixedRadialMoment <= 6*h*L^2*RA + 2*L^4*quarticBudget*Z,
+    H[W*r^2] <= L^4*quarticBudget*Z.
+
+Coordinate-to-oriented chord transport is coefficient equality, including
+conjugation. Upper-word components use padded coefficient equality with
+supported original insertions. The three quadratic word applications keep
+the certified weights W*d_i, W*r and W*A; their L^2 factors compose to
+L^4 without a positive-length premise or the previous coarse factor 16.
+`wilson_energy_radial_alignment_cleared:445` supplies the actual consumer:
+
+    E <= 6*h*L^2*RA + 3*L^4*quarticBudget*Z.
+
+RA is `radialMass:239`, the raw trace defect H[W*(4-f^2)]. Z is the
+unchanged original oddMass, not a new normalization. All active physical
+occurrences, alignment/head/quartic onset guards, spin split and nome
+guards are explicit. Repeated/empty words, zero budgets and depth zero
+are retained; only the fixed positive rational 2 is canceled. No source
+positivity for signed dual tests, source norm inverse, variance hypothesis,
+new sorry, changed action or physical-time identification.
+
+ROOT read all 317 generic and 485 actual final source lines and both final
+logs. COMPLETE independent final source/log review PASS. Source SHA-256:
+
+- generic: `c3d3e570bf78bf7fee88a2efd1a9d84ab72dc1290283feda684964f3fa77d270`;
+- actual: `7d7c6a798099f6343c288b3e94841536487b9e7fcbc2c5a7d0fa993e1642fc0b`.
+
+Accepted narrow serial commands, both EXIT0:
+
+```text
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/SU2QuaternionProductHeatRadialAlignment.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/SU2QuaternionProductHeatRadialAlignment.olean --log-file /private/tmp/ym-oct10-product-heat-radial-alignment5.log
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonRadialAlignment.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonRadialAlignment.olean --log-file /private/tmp/ym-oct10-wilson-radial-alignment4.log
+```
+
+Accepted log SHA-256 respectively:
+`73c20278266acac8b48cd3707e0dd58481b3e37246abc8549e2a3004582cd2e4`,
+`80a576711e1dbecd08a363489a61318ba0ecf07837772e390fc9fc5978676e72`.
+Fifteen public gates: two axiom-free, thirteen within {propext,Quot.sound};
+no final warnings/errors. Superseded generic checks 1--3 and actual checks
+1--3 had parser/namespace, carrier-inference and function-field errors;
+actual whnf timeouts were removed by shielding edgeDensity/energy and
+explicit carrier types. No heartbeat, memory or worker limits were raised.
+Error-recovery axiom output from those failed attempts is NOT proof evidence.
+Fresh capacity preflights preceded EVERY launch: 85--86 percent free memory,
+zero swap and no competing Lean/Lake/pytest/runner. One 20GiB worker,
+12GiB reserve; no process killing or lock removal. Root imports only register
+the checked leaves; no root/tree/audit/guard run. User duplicates untouched.
+
+REPOINT: the optional mixed-radial moment is now paid in raw radial/partition
+units. SAME interacting variance, useful warmed/moving-family budgets and a
+justified physical scaling join remain open. The MAIN complete signed-family
+numerator is not paid by this one-word result. Do not replace the next analytic
+task with a coarse Ward/score-floor or normalization wrapper. Continuum
+survival, physical mass, full QFT, every compact simple group and Clay remain
+OPEN. The unchanged whole-project goal stays active; no canonical displayed
+claim changes and no ASCII reprint.
