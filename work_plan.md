@@ -763,8 +763,25 @@ the ACTUAL map is constant on EVERY Point via literal row samples, without
 representative choice. Signed/zero/noncanonical c are included. Focused
 check2 and COMPLETE independent source/log/math reviews PASS; fifteen
 permitted gates, no final diagnostics. Exact evidence: adaptive-score audit.
-NEXT: signed rational homogeneity with produced input bounds/radii/inner
-rates and actual-stage comparison, then continuous translation invariance.
+CHECKED subsequent ACTUAL signed rational homogeneity (after e649ba1f):
+`QuaternionDenseCRealHaarHomogeneity.scale_abs_bound:39` and
+`scale_distance:69` pay sound eventual scalar bounds by abs(c), without
+early-row assumptions or division by c. `scaleInput:90`, `scaleInner:94`,
+`scaleRadius:100`, `scale_bound:110` and `scale_modulus:116` produce the
+actual input, signed inner rate, rescaled radius and bound abs(c)*M.
+`scaleHaar:149` and `scaleHaarInnerRegularity:155` retain its ACTUAL original
+candidate and computed Haar rate. `scaleHaar_stage:164` compares it to c
+times F's actual stage with error invSucc(n)+abs(c)*invSucc(n), using
+the actual polynomial evaluation/moment pins rather than sampled-polynomial
+identity. `scaleHaarEqualityRate:209` computes
+den(scaleTolerance(1+abs(c),epsilon)); `scaleHaar_homogeneous:234` removes
+the full error and proves genuine CReal equivalence. Zero/negative/noncanonical
+c, M=0 and nonmonotone supplied moduli are included. Focused check2 and
+COMPLETE independent source/log/math review PASS; thirteen permitted gates,
+no final diagnostics. Rejected check1 had a missing support namespace only;
+its cascading sorryAx is not accepted evidence. Exact command/hashes: score
+audit. Root registration only; no full root/tree/audit/metric or chart change.
+NEXT: continuous translation invariance, first on actual rational pullbacks.
 The requested arXiv:2610.09093 recheck sharpens the latter into a bounded
 independent experiment [PAPER, not yet a checked theorem]: for a supplied
 rational unit multiplier g and either Hamilton order, produce the actual
@@ -788,7 +805,8 @@ still need their own quantitative continuity/limit transfer. Exact source
 pins and the independent mathematical screen are recorded in
 `audits/RESEARCH-2610-09093-2026-10-08.md`, precise next translation experiment.
 Full continuous Haar and compact realization remain OPEN; addition,
-positivity and rational constant normalization do not supply the remaining laws.
+positivity, rational constant normalization and signed rational homogeneity
+do not supply the remaining laws.
 Use the checked all-Point approximation and ORIGINAL moment invariance;
 the paper's pre-existing continuous Haar is not our constructive producer.
 This foundation is separate from MAIN warmed signed-cost versus SAME variance

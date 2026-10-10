@@ -6,6 +6,107 @@ and a finite strictly positive physical Hamiltonian mass gap.
 
 ## Finite positive cubature foundation (2026-10-10 UTC)
 
+### Selected ACTUAL signed rational homogeneity (after e649ba1f)
+
+Previous turn: PROGRESS in authoritative planning, not a new checked theorem.
+The paper recheck supplied no new analytic producer. Next proposition: the
+original-Haar construction applied to the ACTUAL c*F equals c times its
+original F value, for every signed rational c, with scaled bounds/radii/inner
+rates produced as data. Consumer: the rational-linear continuous original-Haar
+functional; normalization, addition and positivity are already recorded.
+Luna's scalar-admissibility prefix is unverified and ROOT will read it in full.
+Use `scaleLeftSigned`, `scaleTolerance`, sound distance scaling, actual
+`realApproximation_error`, original `evalRatPoly_smul` and
+`quaternionHaar_polySmul`, then `haarApproximation_polynomial_distance`.
+Predicted SAME-stage error is invSucc(n)+abs(c)*invSucc(n), not equality of
+independently sampled Bernstein constructions. At A=1+abs(c), use the
+Type-level cutoff `(scaleTolerance A epsilon).den` to remove the full error.
+Test c=0, c<0, M=0, noncanonical rationals and nonmonotone supplied moduli;
+do not impose early-row bounds or divide by c. Revise if an integral answer,
+extra admissibility assumption, uniform output-row rate or unsupported
+polynomial identity is required. ROOT owns serial narrow checks at 20 GiB
+with fresh dynamic telemetry and 12 GiB reserve; Sol independently screens
+the math and frozen final source/log. No full/root/audit, resource increase,
+foreign code or literature polling. Continuous invariance/J04, MAIN signed
+payment/scaling and every physical/Clay endpoint remain OPEN.
+
+### Observed ACTUAL signed rational homogeneity [CHECKED]
+
+Luna supplied the admissibility prefix; ROOT inspected it, corrected the
+rational distributivity transport, and implemented the actual Haar law.
+`scale_abs_bound`,
+`lean/YMGap/Continuum/QuaternionDenseCRealHaarHomogeneity.lean:39`, preserves
+sound bounds with abs(c)*M, paying errors at `scaleTolerance(abs(c),epsilon)`.
+`scale_distance:69` handles ACTUAL c*u-c*v with rational eqv and sound-bound
+transport. No early-row bound, sign restriction or inverse of c is required.
+`scaleInput:90`, `scaleInner:94`, `scaleRadius:100`, `scaleRadius_positive:103`,
+`scale_bound:110` and `scale_modulus:116` produce the input, recoverable signed
+inner rate, positive rescaled radius and sound continuity.
+
+`scaleHaar:149` applies the actual original-Haar construction with those
+produced data; `scaleHaarInnerRegularity:155` retains den(epsilon/2).
+`scaleHaar_stage:164` uses the ORIGINAL F polynomial, derives its scaled dense
+error from actual sampling and `evalRatPoly_smul`, then uses the generic
+polynomial-distance theorem on the independently constructed scaled candidate.
+The original `quaternionHaar_polySmul` pins its comparison moment. Full error
+is invSucc(n)+abs(c)*invSucc(n), with no identification of sampled polynomials.
+`scaleHaarEqualityRate:209` computes
+`den(scaleTolerance(1+abs(c),epsilon))`; `scaleHaar_homogeneous:234` removes
+the full error and gives genuine Equiv with c times the ORIGINAL candidate.
+Zero/negative/noncanonical c, M=0 and nonmonotone supplied rates/radii are
+covered without an integral premise or an additional analytic input.
+
+Accepted focused command, after fresh dynamic capacity/process checks:
+
+```text
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionDenseCRealHaarHomogeneity.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionDenseCRealHaarHomogeneity.olean --log-file /private/tmp/ym-original-haar-homogeneity-check2.log
+```
+
+Terminal exit 0; no warnings/errors. All thirteen gates permitted: two
+axiom-free (`scaleRadius`, `scaleHaarEqualityRate`), one {propext}
+(`scaleRadius_positive`), ten {propext,Quot.sound}. COMPLETE independent
+Sol frozen-source/log/math review PASS, including exact hash checks; ROOT
+read the complete source and accepted log. SHA-256:
+
+```text
+source ee6161d872d315985edbb40a3f254b766d77cbc2928a4b29d699aa406c255117
+log    36487ef2e63474a2d44973bf171d2b3e26dccf6cba25325e424c75cd690f8510
+```
+
+Rejected check1: missing `SU2QuaternionArbitraryHaarRadialPositivity`
+namespace for `SupportedQuaternionBlocks`; its cascading sorryAx is
+rejected evidence, not a source hole. The namespace open alone repaired it.
+No resource/compiler option increase, new sorry, analytic field, canonical
+statement or scorecard change. Root registration only; no full root/tree/
+audit/metric or routine literature scan. No canonical displayed claim closed,
+so no ASCII reprint. NEXT: actual rational left/right pullback invariance.
+Completed multiplier transfer, full Haar/J04, MAIN signed payment/scaling,
+every physical/QFT/all-group and Clay endpoint remain OPEN.
+
+### Independent completed-multiplier screen [PAPER]
+
+ROOT and a parallel read-only reviewer found a presentation-level route,
+not a new checked theorem. For a SUPPLIED `G:CauchyPoint` and rational q,
+`multiplication`,
+`lean/YMGap/RepTheory/RationalQuaternionCauchyGroup.lean:339`, constructs the
+product row with the constant q row. `rowImage`,
+`lean/YMGap/Continuum/QuaternionDenseCRealPointExtension.lean:127`, and
+`rowImageInnerRegularity:133` then produce a CReal-valued dense translated
+input with actual inner data. `pointExtension_mk:211` pins its RC value to
+the existing completed product, without choosing a Point/RC representative.
+The missing quantitative producer is the row-image versus fixed-rational
+value bound, uniformly in q, plus inheritance of F's bound/modulus. Sound
+stable-sample errors and the supplied G modulus are the available inputs.
+Only AFTER that join and rational invariance can
+`haarComparison_distance`,
+`lean/YMGap/Continuum/QuaternionDenseCRealHaarComparison.lean:113`, pass the
+invariant value to the limit. Separately prove the all-Point composition pin
+between the ACTUAL translated extension and F's extension composed with
+`completedMul:354`; the dense pin alone does not establish that equality.
+This is a bounded next input, not an authorization to assume a continuous
+integral or to require arbitrary RC maps with chosen CReal lifts. Do not
+instantiate a larger compact/group or physical frontier from this screen.
+
 ### Selected actual constant normalization (after 4750633f)
 
 Previous turn: PROGRESS, SAME candidate lower order/positivity checked and

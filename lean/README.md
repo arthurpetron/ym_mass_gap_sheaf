@@ -60,8 +60,16 @@ joint cubature, not an assumed continuous-Haar law or early-row positivity.
 bound abs(c), inner rate zero and radius one, proves its ACTUAL original-Haar
 value is c (including unit normalization) and its actual map is constant on
 EVERY Point. The candidate retains its computed den(epsilon/2) inner rate.
-Rational homogeneity, continuous translation
-invariance, full continuous Haar/J04, MAIN scaling and Clay remain OPEN.
+`Continuum/QuaternionDenseCRealHaarHomogeneity` now produces the actual signed
+rational scalar input's bound abs(c)*M, rescaled radius and inner rate.
+`scaleHaar_stage` compares independently constructed stages with full error
+(1+abs(c))/(n+1); `scaleHaarEqualityRate` retains its computed cutoff and
+`scaleHaar_homogeneous` proves the ACTUAL original-Haar scalar law, including
+zero/negative/noncanonical c. `scaleHaarInnerRegularity` retains the candidate
+rate. Focused check2 and complete independent source/log/math review PASS;
+all thirteen permitted gates, no final diagnostics.
+Continuous translation invariance, full continuous Haar/J04, MAIN scaling
+and Clay remain OPEN.
 Root registration only; no full root/tree/audit. Exact evidence: adaptive-score audit.
 
 **Checked POINTWISE rational-carrier approximation (2026-10-10 UTC):**

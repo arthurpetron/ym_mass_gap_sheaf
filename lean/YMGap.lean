@@ -5434,8 +5434,11 @@ import YMGap.Continuum.QuaternionDenseCRealHaarAdditivity
 -- Full invariant continuous Haar and J04 remain open.
 import YMGap.Continuum.QuaternionDenseCRealHaarPositivity
 -- Produced rational constant input and its ACTUAL original-Haar value/map.
--- Unit normalization is checked; homogeneity/invariance/J04 remain open.
+-- Unit normalization is checked; invariance/J04 remain open.
 import YMGap.Continuum.QuaternionDenseCRealHaarNormalization
+-- Produced signed scalar input data and ACTUAL original-Haar homogeneity.
+-- Independently sampled polynomials are compared, not identified.
+import YMGap.Continuum.QuaternionDenseCRealHaarHomogeneity
 import YMGap.Continuum.SU2HeatJacobiFinitePrefixClassPolynomial
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticBound
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticCutoff

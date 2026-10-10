@@ -4,6 +4,29 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## ACTUAL original-Haar signed rational homogeneity (2026-10-10 UTC)
+
+`QuaternionDenseCRealHaarHomogeneity.scaleInput:90`, `scaleInner:94`,
+`scaleRadius:100`, `scale_bound:110` and `scale_modulus:116` produce the
+actual c*F input with sound bound abs(c)*M, rescaled radius and signed inner
+rate. `scaleHaar:149` constructs its ACTUAL original-Haar candidate;
+`scaleHaarInnerRegularity:155` retains the computed candidate rate.
+`scaleHaar_stage:164` compares independently constructed stages via actual
+polynomial evaluation and original Haar scalar pins, paying both errors
+invSucc(n)+abs(c)*invSucc(n). `scaleHaarEqualityRate:209` computes the full
+error cutoff; `scaleHaar_homogeneous:234` proves genuine CReal equivalence
+with c times the ORIGINAL F candidate. No scaled-polynomial identity,
+integral answer, new admissibility premise, division by c or early-row bound.
+Zero/negative/noncanonical c, M=0 and nonmonotone supplied moduli are covered.
+Focused check2 and COMPLETE independent frozen-source/log/math review PASS;
+thirteen permitted gates, no final diagnostics. Exact command/hashes and
+rejected check1: adaptive-score audit. Root registration only; no full root/
+tree/audit/metric, paper scan or canonical chart-state change.
+NEXT: actual rational left/right pullback invariance, then completed
+multiplier continuity/limit transfer. Full Haar/J04, MAIN SAME warmed-
+variance payment/scaling and every physical/QFT/every-group/Clay endpoint
+remain OPEN.
+
 ## ACTUAL original-Haar constant normalization (2026-10-10 UTC)
 
 `QuaternionDenseCRealHaarNormalization.constantInput:33`, `constantInner:36`,

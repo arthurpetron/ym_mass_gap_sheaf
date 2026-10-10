@@ -30,8 +30,10 @@ and recoverable rates. Its actual Haar value now preserves sound rational
 lower bounds, including nonnegativity, with the explicit cutoff epsilon.den.
 Actual rational constant inputs now have produced bounds/radii/rates and
 the expected Haar value, including unit normalization; their completed maps
-are constant on every Point. Rational homogeneity, continuous translation
-invariance and compact realization remain open.
+are constant on every Point. Signed rational homogeneity is now checked for
+the actual scaled input, with produced bounds/radii/inner rates and explicit
+full-error cutoff. Continuous translation invariance and compact realization
+remain open.
 It closes no mass-gap claim. See the
 [checked construction and next join](audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md).
 
