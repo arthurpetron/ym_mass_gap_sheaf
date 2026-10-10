@@ -238,6 +238,23 @@ two-time relative score, including chart/Haar, large-field, terminal, OLD-center
 and normalization errors. No original relative estimate is supplied yet.
 Exact source pins and proof: adaptive-score audit, "Original-boundary quadratic
 screen" and "Finite open-cube Gaussian Wick doubling".
+Original comparison screen: a finite rooted-tree reduction preserves the bulk
+pairings only with the full relative-vertex-gauge integral in its kinetic
+kernel and the original terminal-message restrictions. Outgoing leaf factors
+integrate to one in these selected finite pairings, not on every completed
+state. For a concrete comb tree, the FREE linear bulk chord variance is
+>=s^2/(64*kappa); a fixed near-zero chord chart fails to concentrate when
+kappa=o(s^2). Do not Gaussianize diagonal chord coordinates by deleting tree
+factors, or interchange compact gauge integration with local quadratic
+replacement: a positive-prefix four-cycle already has different coefficients.
+Haar also contributes once per independent link coordinate, not per
+plaquette. A Jacobian-only quadratic proxy changes the late doubling ratio
+exponentially in that regime, despite small relative stiffness; this is not
+the original theory. NEXT comparison must keep gauge integration, full measure,
+center corrections and discarded-region contributions jointly, using a
+controlled local/transverse construction if available. No such producer is
+assumed. Exact identities, quantitative tests and scope: adaptive-score audit,
+"Original gauge and measure comparison screen". PRIMARY remains OPEN.
 Do not turn the global all-face sum into a local field by dropping cross-block
 covariances. The existing padded nondegeneracy theorem already supplies each
 chosen family's qualitative late floor; its supplied certificate is too weak

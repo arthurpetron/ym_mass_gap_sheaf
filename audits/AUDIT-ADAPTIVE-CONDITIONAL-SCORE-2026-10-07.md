@@ -17437,3 +17437,199 @@ This is a finite constructive PAPER argument, not a kernel-checked Lean
 theorem or a completed-source/whole-tree axiom audit.
 Independent COMPLETE two-file diff/math/source/scope review PASS, including
 the explicit finite basis construction; `git diff --check` passes.
+
+### Original gauge and measure comparison screen
+
+2026-10-10 UTC; SOURCE/PAPER. The preceding explicit free doubling result
+changes the next question to the ORIGINAL comparison. The previous goal
+checkpoint was PROGRESS: it supplied that finite free estimate and updated
+the selected mathematical action. This screen derives the finite original
+gauge reduction and tests two concrete proposed small-chart shortcuts.
+No new Gaussian/compiler interface, Lean declaration or uniform H1 is claimed.
+
+Exact finite gauge reduction. Work on the internal open graph after the
+recorded active-face peeling, retaining the original heat factors. Write
+k(q)=H_(w,K)(scalar(q)) and K(U,V)=prod_e k(U_e*V_e^(-1)); this is the actual
+order in `relative:64` / `kineticWeight:68`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialKineticHeat.lean`.
+The active step remains K(V_A*f), by `activeTransfer:55` and
+`original_transfer_haar_active:87`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialActiveTransfer.lean`.
+
+Choose an explicitly supplied rooted spanning tree T. Recursing along its
+ordered paths uniquely writes U_e=a_source^(-1)*X_e*a_target, with
+a_root=1 and X_e=1 on T. The nonroot a_v and chord X_e have product
+normalized Haar measure: recursively left/right translate each chord and
+tree coordinate, with no commutation or extra determinant. For an independent
+decomposition of V, put r_v=a_v*b_v^(-1). Cyclic scalar invariance then gives
+the exact based quotient kinetic kernel
+
+    K_T(X,Y)=integral_(r_root=1)
+      prod_e k(X_e*r_target*Y_e^(-1)*r_source^(-1)) prod_(v!=root) dr_v.
+
+EVERY original kinetic factor remains inside this relative-gauge integral.
+For gauge-invariant insertions f,g, restrict the original functions to the
+tree section, denoting them f_hat,g_hat,V_hat. The full finite pairing is
+
+    integral V_A(U)*f(U)*K(U,V)*V_A(V)*g(V) dU dV
+      = integral V_hat(X)*f_hat(X)*K_T(X,Y)*V_hat(Y)*g_hat(Y) dX dY.
+
+Root gauges simultaneously conjugate the chords. The based kernel need not
+be separately invariant under conjugating X and Y independently. Averaging
+the relative root gauge as well gives a separately invariant kernel with
+the SAME action on conjugation-invariant tests; no independent conjugation
+of EACH chord is allowed. The argument is a finite Haar substitution, not
+a construction of a completed quotient or continuum gauge action.
+
+The actual original messages g_n=T^n(1), defined by `terminalMessage:118`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalBracket.lean`, remain.
+Their restrictions obey g_hat_(n+1)=K_T(V_hat*g_hat_n), g_hat_0=1.
+Gauge invariance here follows at PAPER level from the closed-word action,
+simultaneous kinetic covariance and induction, not from substituting a
+stationary message. With F_n=V_hat*g_hat_n the original active energy and
+partition are therefore
+
+    E_n(f)=(1/2)*integral K_T(X,Y)*F_n(X)*F_n(Y)
+                         *(f_hat(X)-f_hat(Y))^2 dX dY,
+    Z_n=integral V_hat*g_hat_n*g_hat_(n+1) dX.
+
+These retain BOTH original messages appearing in `marginal_pair_active:93`
+and `energy_active:129`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialActiveEnergy.lean`.
+Outgoing kinetic-only edges are distinct graph leaves, absent from V_A
+and the selected internal bulk insertions. Add them as tree leaves and
+integrate their relative gauges: each factor is integral k=1. Equivalently,
+their finite heat chains end in the actual terminal constant 1 and integrate
+to one. This reduces THESE finite bulk pairings, not arbitrary positive-norm
+outgoing/fringe states of the original completed carrier. Relevant existing
+normalization pins are `productHeat_upper_marginal:226` and
+`productHeat_lower_marginal:236`,
+`lean/YMGap/Continuum/SU2QuaternionProductHeatMarginals.lean`.
+
+Two exact tests reject deleting the tree factors. A one-edge tree reduces
+to integral k=1, not k(1)>1 for w>0,K>=1. On one four-edge cycle, fixing
+three tree edges gives K_T(X,Y)=k^{*4}(X*Y^(-1))=H_(w^4,K)(scalar(X*Y^(-1))).
+Indeed character convolution multiplies the coefficients w^(n*(n+2))
+four times. This is NOT H_(w,K): nonconstant transmission changes, not just
+partition normalization. The small cycle is a kernel sanity test, not a
+replacement of the full original spatial action.
+
+The formal LOCAL heat-action quadratic reference replaces the relative-gauge
+integrand by exp(-kappa*||A-B+D*eta||^2). Extending eta to its linear space
+and comparing this Gaussian integral to the COMPACT gauge integral are
+unpaid steps. The Gaussian quotient cost uses the TRANSVERSE projection
+of A-B, not a diagonal Euclidean chord-coordinate metric. It is NOT the
+exact Hessian of the already integrated K_T: the four-cycle kernel has
+coefficient kappa(w^4,K), whereas Gaussian elimination gives kappa(w,K)/4
+in the loop coordinate. At the positive-prefix diagnostic w=1/2,K=1 these
+are 1/2050 and 1/24, respectively. Gauge integration and local quadratic
+replacement cannot be silently interchanged. Existing algebraic ingredients
+are `gauge_word:74` and
+`closed_character:104`,
+`lean/YMGap/Continuum/SU2QuaternionHaarGaugeWord.lean`, and
+`applySelectedTranslationSteps_haar:80`,
+`lean/YMGap/Continuum/SU2QuaternionAllDegreeHaarTranslationChain.lean`.
+The latter's concrete BF4 tree-ledger consumer is fixed-size, not this
+arbitrary-width two-slice producer. None of those declarations alone proves
+the new general reduction or a Gaussian-to-original relative estimate.
+
+Quantitative comb-chart test. Take the explicit 3D tree containing all
+x-links, the y-links at x=0 and the z-links at x=y=0. It has W^3-1 edges
+and connects the internal open cube. A y-chord at x>=1 has the rectangular
+fundamental cycle J of length ell=2*x+2. In the FREE transverse reference,
+the equal-time A covariance eigenvalues are a_0/sinh(omega), with
+sinh(omega)=sqrt(lambda)*sqrt(1+lambda/4)<=4*sqrt(3)<8. A cycle has
+D^*J=0 and ||J||^2=ell, so the explicit spectral construction above gives
+
+    Var_G(<J,A>)>=a_0*ell/8=ell/(32*kappa).
+
+For the selected bulk x>=b=(s^2-s)/2, ell>=s^2/2, and thus
+Var_G(<J,A>)>=s^2/(64*kappa). The one-dimensional Gaussian density ceiling
+gives, for any fixed epsilon>0,
+
+    Prob_G(|<J,A>|<=epsilon)<=16*epsilon*sqrt(kappa)/s.
+
+If kappa=o(s^2), a fixed near-zero comb-chord window captures probability
+tending to ZERO, not one. This is a quantitative obstruction to that FREE
+linear-coordinate chart, not a claim about original nonlinear holonomy,
+every possible tree, the actual physical scaling family, or H1. A controlled
+local/transverse chart still needs its own construction and large-field bound.
+
+Haar/chart test. Fix 0<w<1 and finite K. For ONE group coordinate
+U=(cos r,(sin r/r)*z), r=|z|<pi,
+normalized spherical Haar is (2*pi^2)^(-1)*(sin r/r)^2 dz. Let
+p_n=(n+1)^2*w^(n*(n+2))/H(1), c_n=n*(n+2), mu=sum p_n*c_n, nu=sum p_n*c_n^2.
+The literal character recurrence, or its finite sine ratio, gives
+
+    H(cos r)/H(1)=1-mu*r^2/6+(3*nu-4*mu)*r^4/360+O(r^6),
+    log[H(cos r)*(sin r/r)^2]
+      = log H(1)-(mu/6+1/3)*r^2
+          +(3*nu-4*mu-5*mu^2-4)*r^4/360+O(r^6).
+
+Thus the heat coefficient kappa=mu/6 is NOT the complete one-link density
+coefficient: Haar adds 1/3, exactly once per independent link coordinate,
+NOT once per spatial/kinetic factor. No sign of the quartic coefficient or
+uniform Taylor remainder is inferred. At the globally positive diagnostic
+w=1/2,K=1, H(x)=1+x/2: kappa=1/6 but the complete coefficient is 1/2.
+This coordinate term is not a physical or gauge-invariant mass term.
+
+Positive kappa alone does not make a prefix globally positive: at K=1,
+H(-1)=1-4*w^3. Existing sufficient guards include
+`finiteFloor_le_standardPointwiseHeatPartial:148`,
+`lean/YMGap/Continuum/SU2PointwiseHeatStrictFloor.lean` (finiteCutoff w<=K+1),
+and `prefixCertificate:159`,
+`lean/YMGap/Continuum/QuaternionHaarAllNomeHeatCertificate.lean`
+(headCutoff w<=K plus supported Haar-unit-word hypotheses).
+The literal definitions are `heatPrefix:31`,
+`lean/YMGap/Continuum/QuaternionHaarHeatCertificate.lean`, and `coeffW:259`,
+`lean/YMGap/Continuum/BondMovingStep.lean`. These are positivity/coefficient
+inputs, not the missing complete-measure Gaussian comparison.
+
+A radius cutoff also changes centering. For a globally positive prefix
+with K>=1, the scalar mean under H(U.scalar)dU is w^3; conditioning to
+r<=rho gives mean >=cos(rho), tending to one as rho tends to zero.
+The corresponding exact coefficient/mass statements for the exposed word
+are `heat_mass:233` and `heat_fundamental_moment:246`,
+`lean/YMGap/Continuum/QuaternionHaarExposedHeatMoments.lean`.
+No original OLD OWN mean may silently be substituted for this conditional mean.
+For fixed OLD-centered insertion U and event D with both pieces of positive
+probability, the exact total expectation
+identity is R-R_D=Prob(D^c)*(R_(D^c)-R_D). A tail probability alone supplies
+only an absolute error, not the required response-relative estimate.
+For fixed D, parameter differentiation retains the conditional partition
+and score; angular IBP additionally retains cutoff boundary flux. If D_theta
+moves, differentiating its conditional response adds
+
+    (1/Z_D)*integral_(boundary D_theta) (U-R_D)*W_theta*v_normal.
+
+Jacobian-only proxy test. Replacing the Haar factor ONLY by exp(-x^2/3)dx
+in the FREE scalar transfer, square-root measure conjugation multiplies its
+symmetric Lebesgue kernel by exp(-(x^2+y^2)/6). This shifts
+lambda to lambda+1/(3*kappa). A nonzero quadratic source centered at the
+PROXY vacuum therefore has rates >=2*omega_min and, with the SAME BOX,
+
+    R_proxy,BOX(s/2)>=exp(s*omega_min)*R_proxy,BOX(s),
+    omega_min>=2*asinh(1/(2*sqrt(3*kappa))).
+
+For kappa=o(s^2), s*omega_min tends to infinity. Hence small relative
+stiffness 1/kappa need not be uniformly negligible at time s. This diagnostic
+rejects that isolated-Jacobian approximation, NOT the original theory.
+Retaining an old unperturbed mean can instead leave a constant-sector term;
+then the proxy ratio conclusion need not hold. Such vacuum leakage must
+not be counted as excitation survival. The full gauge/measure/action terms
+and correct center still have to be controlled together.
+
+Decision: prune diagonal-chord Gaussianization, a globally small comb-tree
+chart in the stated regime, and isolated-Haar-Hessian payment. Continue at a
+controlled original local/transverse comparison retaining the relative-gauge
+integral, full measure, discarded-region contribution, BOTH terminal responses
+and the OLD OWN center. An acceptable estimate must bound the joint signed
+two-time score relative to the SAME positive responses. No such estimate,
+completed OS identification, justified physical family, continuum/QFT/every-group
+or Clay closure is supplied. No Lean edit/build, sorry, axiom or canonical
+chart-state change. ROOT checked the source pins and algebra; independent
+bounded Sol PAPER reviews checked the gauge kernel, comb variance, complete
+chart coefficient, cutoff/center corrections and proxy test.
+Independent COMPLETE final two-file diff/math/source/scope review PASS,
+including the corrected integrated-kernel/quadratic-reference distinction;
+`git diff --check` passes. No compiler or full-tree axiom audit was run.
