@@ -197,6 +197,33 @@ centered channel branch; no inverse observable norm or assumed estimate.
 Paper scope and original derivation:
 `audits/RESEARCH-2610-09093-2026-10-08.md`, current-consumer decision.
 
+Source-reviewed downstream simplification (2026-10-10 UTC; no new Lean
+proof): the family is ALREADY the generic expression case on the SAME
+completion. `familyExcitation` is `centeredExcitation familyState`, and
+`smoothedResponse` is definitionally `exprResponse` at that expression.
+`BF4WilsonAllNomeExprStepRatioWindowSurvival.exprResponse_step_of_ray:216`
+therefore already transports an initial nonnegative one-step ratio floor
+through every temporal box radius without an extra norm-floor loss. Do not
+build another family-ratio or smoothing wrapper. This is only a conditional
+reuse: neither the initial small relative loss nor a justified scaling
+schedule is produced. A direct smoothed/backward-window estimate remains an
+alternative; do not make the stronger initial estimate a new prerequisite.
+
+The source-reviewed PAPER determinant discrepancy is
+`Det-S*Z*OWNVariance = -S*Corr-N*N`, where psi=F-OWNMean,
+`N=sum weights*H[b^2*psi]` and
+`Corr=sum weights*H[b*psi^2*(P_all b-b)]` on the unchanged channels.
+The full-heat moment is `H[b*psi^2*P_all b]`, NOT a b-squared weight.
+This is not a new kernel-checked theorem or a bound on Corr. The COMPLETE
+connected numerator also simplifies to
+`S*(k*Q+6*t*(C-t*R)-D)`, since `(a+12*t)^2=k+144*t^2`.
+Keep the raw-Q/square cancellation and signed correction together; neither
+constant-mode extraction nor positivity of a cubic diagonal pays the joint
+cost. No separate determinant comparison is selected as a mandatory input.
+Exact source pins and independent review: adaptive-score audit's
+"Source-reviewed reuse and joint discrepancy" section. No compiler launch,
+new analytic premise, canonical closure or chart change in this screen.
+
 The supplement's newly reviewed Appendix B.9 gives an exact local
 gauge-invariant one-form invisible to Ward, curvature and closed-period tests
 but visible in transverse response. Use it as a scope guard: symmetry tests

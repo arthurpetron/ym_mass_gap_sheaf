@@ -11866,3 +11866,78 @@ Signed cubic/pair cost, warmed/BOTH-chronological-mass transport and justified
 moving-family/scaling control remain open. Continuum survival, physical mass,
 full QFT, every compact simple group and Clay remain OPEN. Exact canonical
 displayed claims unchanged; no ASCII reprint.
+
+## Source-reviewed reuse and joint discrepancy (2026-10-10 UTC)
+
+Read-only mathematical follow-up to 30beb0fb; no new checked Lean result.
+ROOT and the parallel reviewers inspected the literal original definitions.
+The conditional time-smoothing ratio proof is ALREADY present on the SAME
+all-nome completion, not a different or legacy carrier:
+
+- `familyState`, `lean/YMGap/Continuum/BF4WilsonPlaquetteFamilySourcePin.lean:69`,
+  is an IntrinsicExpression.
+- `familyExcitation`, `lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteFamilyVariance.lean:147`,
+  is literally centeredExcitation of that familyState.
+- `exprSmoothedVector` and `exprResponse`,
+  `lean/YMGap/Continuum/BF4WilsonAllNomeExprAnchorTrajectory.lean:158` and `:167`,
+  use the identical orbitSum, timeKernel, pairing and completed time as
+  `smoothedCoherentVector` and `smoothedResponse`,
+  `lean/YMGap/Continuum/BF4WilsonAllNomeSmoothedCoherentState.lean:285` and `:296`.
+- `exprResponse_step_of_ray`,
+  `lean/YMGap/Continuum/BF4WilsonAllNomeExprStepRatioWindowSurvival.lean:216`,
+  therefore specializes definitionally to the actual family for every box
+  radius and lag, given its initial ratio floor and nonnegative rho.
+
+No extra family-ratio proof is selected. At lag zero the existing ratio
+would imply E_M <= (1-rho)*norm(Y_M), hence the algebraic epsilon budget
+with c0=side*(1-rho). This implication is PAPER here, not a newly checked
+adapter. `SmoothedCoherentEpsBound`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeSmoothedCoherentState.lean:519`,
+still has no initial/scaling producer. A direct smoothed or backward-window
+estimate may be weaker than this initial-ray route and remains available.
+
+The norm screen also isolates a PAPER identity rather than introducing an
+identity-only module. Put mu=ORIGINAL OWN mean, psi=F-mu, and retain ALL
+original channel weights and projected terminal sources b_z. Define
+Qpsi=sum weights*H[b_z^2*psi^2], N=sum weights*H[b_z^2*psi],
+Corr=sum weights*H[b_z*psi^2*(P_all b_z-b_z)] and W=Z*OWNVariance.
+`sourceMoment` and `sourceCorrection`,
+`lean/YMGap/Continuum/SU2QuaternionProductHeatProjectedSourceEnergy.lean:49`
+and `:58`, give Corr=W-Qpsi once the SAME full-heat moment pin is used.
+That pin is `padded_family_centered_channel_variance`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyPassiveCancellation.lean:324`,
+with the unchanged weights from `sourceMoment_projected_channels`,
+`lean/YMGap/Continuum/SU2QuaternionProductHeatPassiveChannels.lean:231`.
+The full-heat integrand has ONE leading b_z, not two. Since M=N+mu*S and
+Q=Qpsi+2*mu*N+mu^2*S, cancellation gives
+
+    Det-S*Z*OWNVariance = -S*Corr-N*N.
+
+This division-free equality handles signed sources, repeated faces, empty
+channels and zero S; nonnegative actual weights remain required for the
+separate determinant positivity. It produces NO sign or useful bound on
+Corr. S is raw source-square mass, not Z. No channel is separately centered
+or normalized and no source/observable norm is inverted.
+
+The COMPLETE connected numerator has a further exact PAPER cancellation:
+
+    k*Det+6*t*S*(C-t*R)-144*t*t*M*M-Dconn
+      = S*(k*Q+6*t*(C-t*R)-D),  k=a*a+24*a*t.
+
+This follows directly from the existing Det/Dconn definitions at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedFamilyConnectedCoercivity.lean:82`
+and `:90`, since (a+12*t)^2=k+144*t*t. Constant-mode extraction rearranges
+the exact complete budget; it does not remove the raw-Q/square cancellation
+needed near w=1. No source-specific bound paying this complete expression
+from current positivity was found. In particular, a positive cubic diagonal
+does not give a sign for the actual diagonal-minus-mixed cubic correction.
+
+REPOINT: estimate the complete signed response against SAME interacting
+variance, or directly estimate the original smoothed/backward-window response.
+Do not insert a redundant smoothing proof, an exponential cap/floor surrogate,
+or the isolated Det comparison as an obligatory stronger intermediate goal.
+The paper's cancellation-first/full-output discipline remains useful, not its
+auxiliary fermion gap. No Lean edit, compiler launch, foreign-code execution,
+new analytic input, sorry, canonical displayed-claim change or ASCII reprint.
+Constructive continuum survival, physical mass, full QFT, every compact simple
+group and Clay remain OPEN; the unchanged whole-project goal remains active.
