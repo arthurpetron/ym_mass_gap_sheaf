@@ -6,6 +6,89 @@ and a finite strictly positive physical Hamiltonian mass gap.
 
 ## Finite positive cubature foundation (2026-10-10 UTC)
 
+### Selected original-Haar presentation comparison (after 9335faae)
+
+Previous goal turn: PROGRESS, actual all-Point Bernstein approximation
+checked and pushed. Exact next proposition: sound dense distance eta between
+F and G bounds distance between their ACTUAL original-Haar candidates by eta,
+allowing separate bounds, output rates and continuity radii. Consumer:
+presentation-independent integration before quotient-level functional laws.
+Reuse haarApproximation_polynomial_distance for F against the ACTUAL
+computed G stage polynomial. At every dense point use hD's eventual index
+and G's computed polynomial-output rate to derive eta+invSucc(n), retaining
+the rational residual. Predicted Haar stage bound is
+invSucc(m)+(eta+invSucc(n)); cutoff (epsilon/2).den removes the two tails.
+Zero input distance gives exact candidate equivalence. Prove same-F zero
+distance rather than assume it; if possible consume equality of actual
+completed maps through their dense embedding pins.
+Tests: differing moduli/bounds/radii, nonmonotone rates, irregular initial
+rows, eta=0 and signed input values. No constant is claimed spacing/coupling
+uniform. Sol screens mathematics; ROOT owns implementation and serial capped
+checks; independent complete final-source/log review. Revise on any assumed
+integral identity or representation choice. No new field, browsing or chart.
+After the six-gate comparison passed complete independent reviews, add its
+genuine two-sided RCle output consumer using the existing leEv order pattern.
+No new analytic input; the bound must apply to the actual quotient Haar values.
+
+### Observed original-Haar input contractivity and presentation independence [CHECKED]
+
+`haarComparison_stage`,
+`lean/YMGap/Continuum/QuaternionDenseCRealHaarComparison.lean:49`, compares
+two ACTUAL original-Haar stages from independent bounds, regularity rates
+and continuity radii. It retains invSucc(m)+(eta+invSucc(n)). For each dense
+point the maximum of its input-distance witness and G's computed output
+rate gives distance eta+invSucc(n) from G's actual polynomial. The existing
+original polynomial-Haar comparison then pays the F-stage error. No
+point-uniform late output index, integral identity or supremum is assumed.
+`haarComparison_distance:113` removes only the two tails at (epsilon/2).den,
+retaining eta. `haarComparison_order:127` exports BOTH directions in genuine
+RCle order for the quotient classes of the actual constructed Haar outputs.
+`haarComparison_equiv:157` gives exact output equivalence for zero input
+distance. `self_input_distance_zero:168` produces literal self-distance zero
+from every approximation row; `haarComparison_identical_inputs:206` consumes
+ordinary pointwise input equality, not an assumed analytic estimate.
+`haarComparison_completed_maps:189` consumes equality of the ACTUAL Point->RC
+maps. Their existing dense embedding pins and typed Quotient.exact recover
+input-value equivalence; no equality of integrals is supplied as an input.
+Signed values, nonmonotone rates and separate presentations are retained.
+
+Accepted final ROOT-only focused command, exit 0:
+
+```
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionDenseCRealHaarComparison.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionDenseCRealHaarComparison.olean --log-file /private/tmp/ym-original-haar-presentation-comparison-check5.log
+```
+
+Source SHA-256:
+`9092010f7502114afb3d7a1e1e07c35b4430cd3dd6901ebc6dddd83a321697d2`.
+Accepted final log SHA-256:
+`ebdc372de975bab0645eda2ae3ef84e8b9d0b0f63bb6b39d8c95b54ac1fc5eba`.
+All seven public gates stay within {propext,Quot.sound}; self-distance needs
+only propext. No final diagnostics. Check1/check2 were REJECTED at the
+expensive repeated-F specialization result type (200000-heartbeat whnf /
+isDefEq timeout), not at the generic mathematical argument. The repeated-F
+specialization is removed; a distinct-F/G theorem consumes ordinary input
+identity instead. No limit option was raised. Check3 was REJECTED solely at
+untyped Quotient.exact inference; specifying the existing crealSetoid
+resolved it without changing a hypothesis. Check4 accepted the six-gate
+comparison and passed complete independent reviews; check5 includes the
+additional genuine quotient-order consumer. Recovery sorryAx outputs from
+rejected checks are NOT accepted evidence. COMPLETE independent Luna
+final-source/log and Sol mathematical reviews PASS for the frozen seven-gate
+source and accepted check5 log, with both hashes independently confirmed.
+Fresh telemetry before each serial 20-GiB check found zero swap and no
+competing compiler/runner; reserve stayed 12 GiB. No source hole, new axiom,
+analytic field, resource option or canonical statement changed. Semantic-root
+import is registration only; no full root/tree/audit/guard/metric run.
+
+NEXT: prove actual admissible-input closure with explicit bounds/radii/rates
+for the operations needed by continuous Haar's functional laws, then prove
+those laws from the original polynomial moments and checked approximation.
+Input and completed-map congruence are now available; positivity,
+normalization, linearity, continuous translation invariance and compact
+realization remain separate OPEN obligations. Continuous Haar/J04, MAIN
+warmed SAME-variance payment/scaling, physical/QFT/every-group and Clay remain
+OPEN. No canonical chart-state change or literature scan.
+
 ### Selected SAME completed polynomial comparison (after 8caa580f)
 
 Previous goal turn: PROGRESS, actual Point->RC extension checked and pushed.

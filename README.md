@@ -22,6 +22,9 @@ now extend to the same completed Point space with real-quotient values,
 explicit supplied-row rates and no representative choice. Uniform polynomial
 approximation on every completed Point is now checked with a computed degree
 cutoff; exact polynomial inputs recover the existing polynomial evaluation.
+Original-Haar candidates now preserve the supplied dense input-distance
+bound, including in genuine real-quotient order. Equal input values or equal
+completed maps give equal Haar values despite different approximation choices.
 Continuous Haar functional laws and compact realization remain open.
 It closes no mass-gap claim. See the
 [checked construction and next join](audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md).

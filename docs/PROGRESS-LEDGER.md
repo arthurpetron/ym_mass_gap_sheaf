@@ -4,6 +4,29 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Original-Haar contractivity and presentation independence (2026-10-10 UTC)
+
+`QuaternionDenseCRealHaarComparison.haarComparison_stage:49` compares the
+actual polynomial-Haar stages from two independent data presentations:
+invSucc(m)+(eta+invSucc(n)). `haarComparison_distance:113` removes only the
+stage errors at (epsilon/2).den and preserves dense input error eta.
+`haarComparison_order:127` exports both directions in genuine RCle order
+for the actual quotient outputs. `haarComparison_equiv:157` handles zero
+input distance; `self_input_distance_zero:168` produces literal zero
+self-distance, and `haarComparison_identical_inputs:206` consumes ordinary
+input identity despite separate rates/bounds/radii.
+`haarComparison_completed_maps:189` recovers input equivalence from equality
+of ACTUAL completed maps via their dense embedding pins and typed quotient
+exactness. No integral answer or representative choice is assumed.
+Final focused check5 and COMPLETE independent final-source/log/math reviews
+PASS; seven permitted gates, no diagnostics. Exact commands, hashes and
+rejected checks: adaptive-score audit. Root registration only.
+NEXT: actual admissible-input closure with explicit moduli for the operations
+needed by positive/normalized/linear/invariant continuous Haar laws, then
+those laws. Continuous Haar/J04, MAIN SAME-variance payment/scaling,
+physical/QFT/every-group and Clay remain OPEN. No full root/tree/audit/metric
+or canonical chart-state change.
+
 ## Uniform polynomial approximation on the SAME completed Points (2026-10-10 UTC)
 
 `SU2QuaternionPointPolynomialHaarTranslation.rowPolynomialEval:335` reuses

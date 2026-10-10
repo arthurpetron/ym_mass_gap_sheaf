@@ -707,10 +707,24 @@ completed-domain approximation. No approximation or completed equality is
 assumed. Two focused checks and COMPLETE independent source/log/math reviews
 PASS, twelve permitted gates, no final diagnostics. Root registration only;
 exact commands/hashes/rejected checks: adaptive-score audit.
-NEXT: compare original-Haar candidates from different actual dense data
-presentations, retaining their bounds, rates and radius choices. Prove
-independence for equal input values before quotient-level functional laws;
-then positive/normalized/linear/invariant laws on the resulting object.
+CHECKED subsequent original-Haar contractivity (after 9335faae):
+`QuaternionDenseCRealHaarComparison.haarComparison_stage:49` compares actual
+stages across separate bounds, regularity rates and radii, retaining
+invSucc(m)+(eta+invSucc(n)). `haarComparison_distance:113` removes only the
+two tails at (epsilon/2).den; `haarComparison_order:127` exports both genuine
+RCle directions for actual quotient Haar outputs. `haarComparison_equiv:157`
+handles zero input distance; `self_input_distance_zero:168` produces literal
+self-distance zero and `haarComparison_identical_inputs:206` consumes ordinary
+pointwise identity. `haarComparison_completed_maps:189` derives candidate
+equivalence from ACTUAL completed-map equality via dense embedding pins and
+typed quotient exactness, not a supplied integral identity. Final focused
+check5 and COMPLETE independent final-source/log/math reviews PASS; seven
+permitted gates, no diagnostics. Exact rejected-check
+scope, command and hashes: adaptive-score audit. Root registration only.
+NEXT: produce admissible-input closure for the operations needed by
+positive/normalized/linear/invariant laws, retaining explicit bounds,
+regularity and continuity radii. Prove the laws on the resulting object;
+presentation independence and genuine output contractivity are now checked.
 Use the checked all-Point approximation and ORIGINAL moment invariance;
 the paper's pre-existing continuous Haar is not our constructive producer.
 This foundation is separate from MAIN warmed signed-cost versus SAME variance

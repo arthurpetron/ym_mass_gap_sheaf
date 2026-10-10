@@ -44,6 +44,10 @@ embedding pin handles nonmonotone output rates without representative choice.
 Bernstein polynomial to that extension on EVERY Point in two-sided RC order,
 at the existing computed degree cutoff. Exact dense polynomial values recover
 the SAME pointEval on all Points, not just embedded rationals.
+`Continuum/QuaternionDenseCRealHaarComparison` now retains dense input error
+eta in the actual original-Haar outputs, with genuine two-sided RCle bounds.
+Zero input distance, ordinary input identity and equality of actual completed
+maps give output equivalence across different bounds, rates and radii.
 Actual continuous Haar functional laws, J04, MAIN scaling and Clay remain OPEN.
 Root registration only; no full root/tree/audit. Exact evidence: adaptive-score audit.
 

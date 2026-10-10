@@ -5424,6 +5424,9 @@ import YMGap.Continuum.QuaternionDenseCRealPointExtension
 -- Actual all-Point polynomial comparison and computed Bernstein degree bound.
 -- Continuous Haar functional laws and the physical frontiers remain open.
 import YMGap.Continuum.QuaternionCompletedPolynomialApproximation
+-- Actual original-Haar input contractivity and presentation independence.
+-- Completed-map equality is consumed through dense pins, not integral axioms.
+import YMGap.Continuum.QuaternionDenseCRealHaarComparison
 import YMGap.Continuum.SU2HeatJacobiFinitePrefixClassPolynomial
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticBound
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticCutoff
