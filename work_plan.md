@@ -27,6 +27,16 @@ formal statement would not solve the mathematical problem.
 
 ### Latest MAIN selection (2026-10-10 UTC)
 
+SELECTED actual MAIN sector input: prove the x1/x2 swap fixes
+`afPaddedZeroMomentumTrajectory.state j` on the ORIGINAL completion for
+every j, including actual centering and BOX orbitSum smoothing. This pays
+the source-even premise of existing `evenPart_detector`; every-lag overlap
+with swap-odd duals must then be zero. Existing face-list permutation and
+ordered source-character pins suffice; no invariance assumption or new
+analytic interface. One bounded Sol leaf, serial capped ROOT verification
+and independent review. Exact decision/budget: adaptive-score audit.
+This constrains the concrete dual search, not MAIN retention or Clay closure.
+
 CHECKED independent completed adjoint input:
 `RationalQuaternionCompletedAdjointMatrix.rawMatrix_mul:185` and
 `raw_conjugation_entry:262` prove the literal 3x3 Hamilton action, including
@@ -80,14 +90,34 @@ Exact source pins and independent consumer reviews: adaptive-score audit,
 Additional MAIN producer search (SOURCE/MATH REVIEW ONLY): a DIFFERENT
 original nonvacuum dual v_j with fixed positive squared-overlap fraction
 alpha and side_j * E(v_j) <= D * ||v_j||^2, for fixed finite D, would suffice.
-No exact eigenvector or gap for competing modes is necessary. A fixed
-dyadic time split, Cauchy--Schwarz and the existing log-convexity/telescope
-lemmas give a fixed positive response floor and hence SOME finite c0.
-This implication is not a new Lean theorem; no actual dual with both bounds
-was found. v_j = x_j just reinstates the unpaid initial-energy bound.
+Initial overlap is sufficient but NOT necessary. Prefer testing overlap
+with z_j=T^(side_j/2-u_j)x_j, u_j=side_j/2^a, for one fixed a>=2.
+With V_j a produced positive upper norm budget for the dual, fixed
+0<alpha<=1 and D>=0, the inputs are
+B(z_j,v_j)^2>=alpha*B(z_j,z_j)*V_j and side_j*E(v_j)<=D*V_j.
+Require 2^a>=8D/alpha for that SAME tested late family; changing a requires
+reproving its overlap/energy bounds. Cauchy--Schwarz and the telescope give
+R_j(side_j)>=alpha*R_j(side_j-2u_j)/4 and a finite uniform
+c0=2^(a-1)*(4/alpha-1). No initial-overlap, competing-mode gap,
+spectral representation or positive late-source norm floor is required.
+This is independently reviewed PAPER mathematics, not a new Lean theorem;
+no actual dual with the uniform bounds was found. v_j=x_j need not pay them.
 Search for the concrete dual or the original late-area/signed-cost estimate;
 do not add another conditional interface. Exact constants, source pins and
-the corrected rejected spectral-separation claim: adaptive-score audit.
+the initial-versus-late correction: adaptive-score audit.
+
+Requested paper refinement (2610.09093, 2026-10-10 UTC): Appendix E.1
+symmetrizes the COMPLETE current, including its transformed inputs and
+tangent arguments. Apply only that bookkeeping lesson, not its fermion
+symmetry law, to our scalar source/dual. AFTER the selected actual source
+pin U*x_j=x_j is proved, replace any candidate dual by evenPart(v_j).
+It preserves late overlap and contracts norm and energy. Retain the OLD
+positive norm budget V_j; do not renormalize by the projected norm.
+Then alpha,D,a,c0 remain unchanged, even if the projected or late-source
+norm is zero. The energy contraction is PAPER algebra still to formalize;
+the projection produces neither the candidate dual nor the missing bounds.
+Source review and independent mathematics: paper audit's latest section
+and adaptive-score audit. No foreign proof port or additional paper branch.
 
 Its side_j=2^j while 1-w_j is of order 1/j; the existing cofinal bare-heat
 obstruction rules out paying ANY fixed finite late-loss cap by the bare

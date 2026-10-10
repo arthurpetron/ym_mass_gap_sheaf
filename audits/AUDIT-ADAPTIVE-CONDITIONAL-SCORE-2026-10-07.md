@@ -4,6 +4,36 @@ Whole-project goal unchanged and OPEN: constructive nontrivial continuum
 Yang--Mills on R^4 for every compact simple group, SAME-theory QFT axioms,
 and a finite strictly positive physical Hamiltonian mass gap.
 
+## Actual padded axis sector: decision before implementation (2026-10-10 UTC)
+
+Previous goal turn PROGRESS: 687a89da independently checked the completed
+adjoint input. Live HEAD and origin/main agree; only the three unrelated
+user duplicate leaves are untracked. No live compiler is being resumed.
+This turn returns to MAIN, not a further group/quotient layer.
+
+Bounded consumer: `evenPart_detector`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeSpatialAxisSwapCompletion.lean:287`,
+needs the ACTUAL source pin U*x=x. No declaration supplying it for
+`afPaddedZeroMomentumTrajectory.state j` was found in family/swap sources.
+Produce this pin, including centering and the ORIGINAL box orbitSum
+smoothing (not a single T^side). The x1/x2 geometry permutes the complete
+interior spatialFaces(side_j^2), while the carrier remains side_j^2+1.
+Use the existing ordered face-character/source identities, radius-zero
+source embedding, unit pairing and time-map compatibility. Predict an
+unconditional equality, hence zero EVERY-lag pairing with any swap-odd dual.
+This removes a concrete premise from the EXISTING detector consumer and
+restricts the actual MAIN dual search, NOT an analytic survival estimate.
+
+Tests: zero/empty face base, all strict nomes, nested spatial widths,
+reversed p12 word, every smoothing radius including zero and every time lag.
+Do not replace semantic coefficient identity by syntactic loop equality,
+identify chronological masses, assume the state is even, or choose a row.
+Budget: one new bounded Sol leaf, ROOT full source inspection and serial
+one-worker/20GiB check/12GiB reserve after fresh capacity preflight, with
+independent full-source/full-log/math review. Stop if a symmetry or analytic
+input must be assumed. No broad/root/tree audit, resource increase, new
+frontier field, paper polling or chart closure. MAIN late response is OPEN.
+
 ## Completed adjoint matrix: decision before implementation (2026-10-10 UTC)
 
 Previous paper-only goal turn: NO PROGRESS; it supplied no new input or state
@@ -95,6 +125,78 @@ admissibility, interacting-action/OS descent, MAIN or a physical gap.
 NEXT: the original late-response/signed-cost producer or actual low-energy
 dual, not another quotient/conditional wrapper. Canonical displayed claims
 unchanged; no chart reprint. Every continuum/QFT/Clay endpoint remains OPEN.
+
+## Late-filtered dual and symmetry budget (2026-10-10 UTC; not formalized)
+
+ROOT and independent Sol review verified a WEAKER sufficient search target
+than the initial-overlap criterion below. This is project PAPER mathematics,
+not a result imported from arXiv:2610.09093 or a checked Lean declaration.
+The requested paper review supplies only the full-object symmetry-bookkeeping
+lesson; its scope and source checks are in the paper audit's latest section.
+
+On the SAME actual carrier set x=x_j, t=side_j=2^j, R(k)=B(x,T^k x)
+and e_k=R(k)-R(k+1). Fix 0<alpha<=1, D>=0 and a>=2 with
+2^a>=8D/alpha. For j>=a put u=t/2^a and z=T^(t/2-u)x.
+A dual p with a PRODUCED positive upper norm budget V, B(p,p)<=V,
+B(z,p)^2>=alpha*B(z,z)*V and t*E(p)<=D*V suffices. A positive rational
+floor for V may depend on j; alpha,D,a may not. Changing a changes z;
+reprove the bounds rather than assuming they persist for a larger split.
+No floor for B(z,z) or B(p,p) is required. Retain E(p)=B(p,p-Tp).
+
+Put N=B(z,z)=R(t-2u), b=B(z,p), h=B(T^u z,p) and
+d=B(z,p-T^u p), so b=h+d. Positive-transfer monotonicity and the
+existing linear time-loss bound give ||p-T^u p||^2<=u*E(p).
+Cauchy--Schwarz gives d^2<=D*N*V/2^a<=alpha*N*V/8.
+Since b^2<=2*h^2+2*d^2, h^2>=alpha*N*V/4. A second
+Cauchy--Schwarz gives h^2<=R(t)*B(p,p)<=R(t)*V.
+Cancel ONLY V using its supplied positive floor to obtain
+R(t)>=(alpha/4)*R(t-2u). If N or p is null this remains valid;
+there is no division by either. The backward telescope and decreasing
+e_k give 2*u*e_t<=R(t-2u)-R(t), hence
+
+```text
+t*e_t <= c0*R(t),  c0=2^(a-1)*(4/alpha-1).
+```
+
+For 1<=j<a, e_t<=R(t) and t<=2^(a-1) cover the finite prefix
+with the same c0. At j=0, the actual shifted carrier is x itself;
+its one-step defect is at most its norm and c0>=1. This pays the
+EXISTING `pathShiftedEpsBound_iff_response`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1Anchor.lean:418`,
+when the stated actual dual bounds are produced. They are not. This is
+a sufficient route, not a necessary condition on every proof path.
+Source pins are `time_loss_linear_bound`,
+`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteFamilyKineticUpper.lean:233`,
+`response_antitone`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeOddResponseJensen.lean:236`,
+`completedInner_cauchySchwarz`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeCompletedInner.lean:82`,
+`completedInner_even_diagonal`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeCompletedGap.lean:174`,
+and `window_energy_antitone` / `window_telescope`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedWindowSurvival.lean:259/271`.
+
+AFTER proving the selected ACTUAL source-even pin, z is even by
+`completedSwap_time`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeSpatialAxisSwapCompletion.lean:75`.
+For any candidate v, p=evenPart(v) preserves B(z,v) by
+`evenPart_detector:287`, contracts norm by `evenPart_norm_le:260`,
+and preserves a supplied vacuum-complement witness by
+`evenPart_preserves_vacuumComplement:325`, in the same module.
+Energy contraction E(p)<=E(v) is PAPER algebra: write
+C=B(v,(I-T)Uv), use swap isometry/time balance to expand
+E(v-Uv)=2*(E(v)-C)>=0 and E(p)=(E(v)+C)/2.
+The nonnegativity input is `defect_nonnegative`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeTimeDefectMoments.lean:164`.
+All averaging uses the existing RATIONAL half, not arbitrary real scaling.
+Retain V=B(v,v) as the projected dual's upper budget. The same alpha,D,a,c0
+then work. Renormalizing by B(p,p) would introduce an unnecessary late norm
+floor and D/alpha penalty; that initially proposed stronger route was rejected.
+
+NOT FOUND: an actual dual producing fixed alpha,D, or a declaration fixing
+the actual padded all-face source under swap. The latter remains SELECTED,
+not proved. No late floor, spectral separation, new interface or analytic
+premise is added. MAIN and every continuum/physical/QFT/Clay endpoint stay OPEN.
 
 ## Low-energy dual selection correction (2026-10-10 UTC; not formalized)
 
