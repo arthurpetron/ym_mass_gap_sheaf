@@ -6,6 +6,115 @@ and a finite strictly positive physical Hamiltonian mass gap.
 
 ## Finite positive cubature foundation (2026-10-10 UTC)
 
+### Selected actual repair payment (after ecfea23e)
+
+The previous turn was PROGRESS: the SAME joint-weight squared norm defect
+<=48/(n+1) is checked and pushed. Now pin the literal raw quaternion norm
+to that scalar defect and use `RationalQuaternionNormRepair.repair_error_le`
+to pay actual squared repair distance with the SAME weights. Sol macro owns
+that finite join plus actual raw/repaired cube membership; Sol radial uses
+coordinate-square distance control and rational Young to pay the actual
+polynomial repair cost by L*(tau/2+24*invSucc(n)/tau). ROOT owns the computed
+positive rational tau and Nat half-budget cutoff, including L=0 and n=0.
+These are producers, not new hypotheses. Luna searches the next arbitrary
+supported-RatPoly affine/monomial aggregation join without editing it.
+
+Backward consumer: polynomial sphere sup-norm contractivity, then a genuine
+continuous extension of the existing polynomial Haar. Current consumers are
+`quaternionPolyLinkHaar` and `torusPolyPartition`, not MAIN signed-cost or a
+physical Hamiltonian. Zero raw input, negative coordinates, endpoint indices,
+empty/constant/signed polynomials and the exact epsilon/2 split are decisive
+tests. Stop/revise if the repair, variance or continuous integral must be
+assumed instead of constructed. ROOT-only serial narrow capped checks and
+complete independent source/log review; fresh dynamic capacity, one 20-GiB
+worker and 12-GiB reserve; no root/tree audit, field change or new sorry.
+
+Numeric simplification selected before checking: tau=epsilon/(2*(1+L)),
+delta=tau^2/48. Use the existing `HalfPow.invSucc_den_le` to compute the
+stage delta.den; past it, invSucc<=delta. Then the cleared actual cost
+inequality is paid by L*(2*tau^2)<=tau*epsilon. This retains the same
+192*(1+L)^2/epsilon^2 sufficient inverse-degree scale but avoids unnecessary
+ceiling algebra and divisions by L. The modulus is a Nat function of the
+original polynomial and rational tolerance; it is not a continuum estimate.
+
+### Observed actual repair payment [CHECKED]
+
+`rawQuaternion_normSq`,
+`lean/YMGap/Continuum/QuaternionHaarTensorBernsteinRepair.lean:58`, pins the
+actual scalar-first raw quaternion norm to `nodeNormScalar`.
+`rawEnvironment_cube:124` and `repairedEnvironment_cube:136` produce the
+actual coordinate cube bounds; coordinates beyond four are exactly zero.
+`jointRepairDistance_le:248` uses the existing total `repair_error_le`
+and the checked concentration to give the literal SAME joint-weight squared
+repair distance <=48*invSucc(n), including zero raw input and n=0.
+
+`repairPolynomialCost`,
+`lean/YMGap/Continuum/QuaternionHaarTensorBernsteinPolynomialRepair.lean:173`,
+is the literal fourfold same-weight absolute raw-versus-repaired polynomial
+cost. `repairPolynomialCost_cleared:182` proves
+`2*tau*cost <= L(p)*(tau^2+48*invSucc(n))` for every RatPoly, n and tau>0.
+Its rational Young proof handles signed coordinate differences, the produced
+cube guards and the actual unit joint mass. There is no support/sign premise,
+independent marginal, supplied modulus or continuous integral.
+
+`repairCutoff`,
+`lean/YMGap/Continuum/QuaternionHaarTensorBernsteinRepairModulus.lean:75`,
+computes delta.den, with tau=epsilon/(2*(1+L(p))) and delta=tau^2/48.
+`repairCutoff_inverse_bound:78` uses the existing constructive denominator
+lemma; `repair_halfBudget:86` proves actual cost<=invSucc(1)*epsilon=epsilon/2
+at every later degree, for every positive rational epsilon. Empty/constant
+polynomials and L=0 remain included, without division by L or a square root.
+The sufficient inverse-degree scale is 192*(1+L)^2/epsilon^2; delta.den is
+usable data, not an optimal ceiling. This is cubature-degree control, NOT a
+physical lattice-spacing or continuum estimate.
+
+Accepted ROOT-only serial monitored checks, each exit 0:
+
+```
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionHaarTensorBernsteinRepair.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionHaarTensorBernsteinRepair.olean --log-file /private/tmp/ym-tensor-repair-check2.log
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionHaarTensorBernsteinPolynomialRepair.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionHaarTensorBernsteinPolynomialRepair.olean --log-file /private/tmp/ym-polynomial-repair-check2.log
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionHaarTensorBernsteinRepairModulus.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionHaarTensorBernsteinRepairModulus.olean --log-file /private/tmp/ym-repair-modulus-check1.log
+```
+
+| Source | Source SHA-256 | Accepted log SHA-256 |
+|---|---|---|
+| Repair | `24ac02064ede308396ac3f7e228cb746c10d73d3b9514c074adbea5d90ba894c` | `9722ee6a9a182422e2c5b871802f33f76bb67fc7a3eaaad7f323f86553130cf0` |
+| PolynomialRepair | `bebd23db26ced2955d02bfd630a94be6ecdbc84029271c3caa2809d65851b057` | `7201dd1ebb52843bfdde8d1073a43c00a3cd86f0e01a5279a72065c4ee3740b6` |
+| RepairModulus | `60e61f759392f798a9c44bf264058fc9dd55ffa17278e8722aba03d016173e03` | `9fa9194b9c36b80e85babc4a356855f42ed61402e2e9eef29f6bfac09444b3cd` |
+
+COMPLETE independent Luna final-source/log and Sol mathematical reviews PASS.
+All 32 public gates (19+2+11) stay within {propext,Quot.sound}; no final
+diagnostics. Repair check1 lacked the parent RepTheory namespace for the raw
+quaternion type; PolynomialRepair check1 had malformed multiline function
+alternatives. Their recovery sorryAx is REJECTED, not accepted evidence;
+repairs changed no mathematical hypothesis. No source sorry, new axiom,
+analytic input, resource option or canonical field was added. Fresh telemetry
+showed zero swap/no competing compiler; each worker was capped at 20 GiB
+with 12 GiB reserve. Root import registration is not a root/tree/audit check.
+
+NEXT source-reviewed join: for each ORIGINAL signed supported term, use its
+four `exponentAt` entries and the affine coordinate polynomials to apply the
+existing separable grid error, then fold with a computed aggregate budget.
+The source permits noncanonical trailing zeros (`RatTerm:75`/`RatPoly:79`,
+`lean/YMGap/Continuum/SU2QuaternionPolynomialHaarCarrier.lean`, and
+`SupportedQuaternionBlocks`,
+`lean/YMGap/Continuum/SU2QuaternionArbitraryHaarRadialPositivity.lean:142`).
+`quaternionHaarMono`,
+`lean/YMGap/Continuum/BF4GeometricHaarMehlerProjection.lean:65`, reads the
+four exponents and tail guard; `RatPolyCoeffEqv`,
+`lean/YMGap/Continuum/SU2QuaternionRatPolyDifferential.lean:107`, probes
+syntactic coefficient keys. Thus a raw exponent list and its trailing-zero
+trim may have identical evaluations/moments without raw coefficient equality.
+Use the required evaluation/Haar pins, not that false equality. Existing
+affine inputs include `subst_compose`,
+`lean/YMGap/Continuum/QPolyRatPolySubstitutionAlgebra.lean:130`, and
+`unitArgument_inverse`,
+`lean/YMGap/Continuum/QuaternionHaarUnitIntervalCoordinate.lean:79`.
+This is a source-based next selection, NOT a checked arbitrary-polynomial
+grid theorem. Sup-norm contractivity, continuous Haar/J04, MAIN signed cost
+versus SAME interacting variance and all physical/QFT/every-group/Clay
+endpoints remain OPEN. Canonical displayed chart claims are unchanged.
+
 ### Selected same-Haar concentration contraction (after 719f1011)
 
 Previous goal turn was PROGRESS: the actual cube-node SOS producer is

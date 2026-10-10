@@ -4,6 +4,29 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Actual SAME-weight rational sphere-repair payment (2026-10-10 UTC)
+
+`QuaternionHaarTensorBernsteinRepair.jointRepairDistance_le:248` joins
+the literal raw norm and total rational repair to the checked SAME-weight
+48/(n+1) bound; actual raw/repaired cube membership is produced.
+`QuaternionHaarTensorBernsteinPolynomialRepair.repairPolynomialCost_cleared:182`
+proves `2*tau*cost <= L(p)*(tau^2+48/(n+1))` for every RatPoly and tau>0,
+using the original joint weights and computed polynomial Lipschitz constant.
+`QuaternionHaarTensorBernsteinRepairModulus.repairCutoff:75` is explicit Nat
+data from tau=epsilon/(2*(1+L)), delta=tau^2/48 and cutoff=delta.den;
+`repair_halfBudget:86` pays actual cost<=epsilon/2 at every later degree.
+Zero nodes, endpoints and empty/constant/signed polynomials, including L=0,
+are covered. The inverse-degree tolerance is NOT physical lattice spacing.
+Three final focused checks and COMPLETE independent final-source/log and
+mathematical reviews PASS; all 32 public gates permitted, no final diagnostics.
+Earlier namespace/parser recovery sorryAx is rejected, not evidence.
+NEXT: finite signed-term aggregation of the separable Haar-to-grid error,
+with affine recoding and trailing-zero moment/evaluation pins (not false raw
+coefficient equality), then sphere sup-norm contractivity and continuous Haar.
+J04, MAIN interacting retention, physical/QFT/every-group and Clay remain OPEN.
+No new analytic input/hole, canonical chart claim, broad audit/metric, resource
+increase or CI change. Exact commands/hashes and next-source pins: score audit.
+
 ## ORIGINAL signed-family curvature on the actual channels (2026-10-09 UTC)
 
 `QuaternionHaarGammaFiniteSum` produces coefficient-level bilinear Gamma,

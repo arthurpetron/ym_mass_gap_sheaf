@@ -536,7 +536,8 @@ it does NOT identify raw grid nodes with sphere points or integrate a continuous
 `RatPolyCubeLipschitz.polynomialLipschitz:29` computes sum |c|*totalDegree,
 and `polynomial_difference:150` proves signed cube variation, supplying the
 polynomial continuity payment needed when repairing raw nodes.
-Next unpaid inputs include the sphere-repair concentration,
+The sphere-repair concentration and rational polynomial repair payment are
+now CHECKED below. Unpaid inputs include arbitrary-polynomial grid aggregation,
 then sphere sup-norm contractivity and continuous-function approximation/
 extension. Existing coordinate Certificates, row reconstruction/error and
 `RationalQuaternionNormRepair.repair_error_le` are the forward inputs.
@@ -563,12 +564,38 @@ literal four-coordinate variance before Haar to give 3/(n+1).
 48/(n+1), including n=0. No marginal independence or continuous Haar is
 assumed. Three final focused checks and COMPLETE independent source/log and
 mathematical reviews PASS; 22 gates are permitted, no final diagnostics.
-The repair-distance pin, cube membership, polynomial repair/aggregation,
-sphere sup-norm contractivity and continuous extension remain OPEN.
+The repair-distance pin, cube membership and polynomial repair payment are
+now CHECKED below; arbitrary-polynomial grid aggregation, sphere sup-norm
+contractivity and continuous extension remain OPEN.
 All source pins, hashes, failed-check repairs and the Fisher/slack screen are
 in the adaptive-score audit's next quantitative joins section. MAIN still needs
 an upper payment of the complete warmed square plus signed remainder; a bound
 on only its output score does not pay the positive conditional CS slack.
+
+CHECKED actual rational sphere-repair payment (2026-10-10 UTC):
+`QuaternionHaarTensorBernsteinRepair.jointRepairDistance_le:248` pins the
+literal raw norm and actual total rational repair, including zero input,
+and bounds the SAME joint-weight squared distance by 48/(n+1).
+`rawEnvironment_cube:124` and `repairedEnvironment_cube:136` produce actual
+cube membership. `QuaternionHaarTensorBernsteinPolynomialRepair.repairPolynomialCost_cleared:182`
+uses rational Young and the computed L(p) to prove
+`2*tau*cost <= L(p)*(tau^2+48/(n+1))` for every RatPoly, tau>0 and n,
+without support/sign or continuous-Haar premises. In
+`QuaternionHaarTensorBernsteinRepairModulus`, `repairCutoff:75` computes
+delta.den from tau=epsilon/(2*(1+L)) and delta=tau^2/48;
+`repair_halfBudget:86` proves actual cost<=epsilon/2 at every n past it.
+The cutoff concerns cubature degree, NOT physical lattice spacing. L=0,
+empty/constant/signed polynomials, zero nodes and endpoints remain included.
+Three final focused checks and COMPLETE independent final-source/log and
+mathematical reviews PASS; 32 public gates permitted, no final diagnostics.
+No new supplied input, sorry, canonical-field change, resource increase or
+broad audit. Exact commands/hashes: adaptive-score audit, actual repair payment.
+NEXT: aggregate the existing separable Haar-to-grid error over the ORIGINAL
+signed supported RatPoly terms, paying grid and repair errors separately.
+Preserve evaluation/Haar moments under affine recoding; arbitrary monomial
+lists may have trailing zeros, so do NOT assert raw syntactic coefficient
+equality with normalized products. Sup-norm/continuous Haar, J04, MAIN and
+all physical/Clay endpoints remain OPEN; no canonical chart claim changed.
 
 The requested paper review confirms that Appendix E assumes continuous Haar;
 its companion section 10.4 supplies a useful EFFECTIVE error-accounting
@@ -601,11 +628,11 @@ zero/corners and shared variables remain. Final focused check3 and COMPLETE
 independent source/log and mathematical reviews PASS; all fifteen gates
 are permitted. No root/tree audit; root registration only. The polynomial
 variance/tensor sum and 48/N norm-defect bound are now CHECKED above;
-next pin the actual repaired distance and pay polynomial error,
-do not import Appendix E's pre-existing continuous Haar. Repaired-coordinate
-cube membership and finite aggregation from separable factors to arbitrary
-supported RatPoly still need checked joins. This is a quantitative plan,
-not a proved repair bound, sup-norm theorem or continuous extension.
+actual repaired distance, repaired-coordinate cube membership and polynomial
+repair payment are now CHECKED above. Do not import Appendix E's pre-existing
+continuous Haar. Finite aggregation from separable factors to arbitrary
+supported RatPoly still needs a checked join; this is not a sup-norm theorem
+or continuous extension.
 Details: paper audit, current requested follow-through.
 
 CHECKED original terminal curvature (2026-10-08 23:39 UTC): the new

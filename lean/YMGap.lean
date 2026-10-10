@@ -5385,17 +5385,23 @@ import YMGap.Continuum.BernsteinRationalPositiveRow
 import YMGap.Continuum.QuaternionHaarBernsteinRowCertificate
 import YMGap.Continuum.QuaternionHaarUnitIntervalCoordinate
 -- Actual positive normalized JOINT weights, exact signed elevated-row identity,
--- computed Haar-to-grid error and cube variation; sphere concentration,
--- sphere sup-norm and continuous Haar remain OPEN. Narrow leaves checked only.
+-- computed Haar-to-grid error and cube variation; arbitrary-polynomial grid
+-- aggregation, sphere sup-norm and continuous Haar remain OPEN.
+-- Narrow leaves checked only.
 import YMGap.Continuum.QuaternionHaarTensorBernsteinCubature
 import YMGap.Continuum.QuaternionHaarTensorBernsteinError
 import YMGap.Continuum.RatPolyCubeLipschitz
 import YMGap.Continuum.QuaternionHaarCubeNormDefect
 -- SAME one-block tensor variance and finite 48/(n+1) squared norm-defect
--- concentration. Repair, continuous Haar and physical endpoints remain open.
+-- concentration. Continuous Haar and physical endpoints remain open.
 import YMGap.Continuum.QuaternionHaarTensorBernsteinNormDefect
 import YMGap.Continuum.QuaternionHaarBernsteinCoordinateVariance
 import YMGap.Continuum.QuaternionHaarTensorBernsteinConcentration
+-- Literal rational sphere repair and computed epsilon/2 polynomial cost;
+-- SAME weights throughout. No continuous-Haar or physical-gap conclusion.
+import YMGap.Continuum.QuaternionHaarTensorBernsteinRepair
+import YMGap.Continuum.QuaternionHaarTensorBernsteinPolynomialRepair
+import YMGap.Continuum.QuaternionHaarTensorBernsteinRepairModulus
 import YMGap.Continuum.SU2HeatJacobiFinitePrefixClassPolynomial
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticBound
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticCutoff
