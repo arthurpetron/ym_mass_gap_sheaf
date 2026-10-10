@@ -30,7 +30,10 @@ formal statement would not solve the mathematical problem.
 PRIMARY remains the ORIGINAL late endpoint estimate with SOME fixed finite
 rational c0>=1:
 `side_j*(R_j(side_j)-R_j(side_j+1)) <= c0*R_j(side_j)` for j>=1,
-with the existing j=0 shifted-form obligation retained. Its SAME completed
+with scale zero now supplied by `pathShiftedEpsBound_zero:693` for c0>=1.
+`pathShiftedEpsBound_iff_positiveScales:718` identifies the remaining input
+exactly with those j>=1 endpoint estimates; neither theorem supplies them.
+Both declarations are in `BF4WilsonAllNomeShiftedH1Anchor.lean`. Its SAME completed
 consumer is `path_normalized_anchor_shifted:581`,
 `lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1Anchor.lean`.
 This is a shifted-survival input alongside the consumer's separate positive
@@ -93,6 +96,19 @@ including action faces outside the padded source. Bound these jointly in the
 original expectation; do not replace V by a linear plaquette action. PAPER
 scope and source pins: the same audit, "Interior temporal current and spatial
 score". No new uniform bound, Lean proof status or chart state.
+
+Small CHECKED contraction (2026-10-10 UTC): the two scale-zero/positive-scale
+theorems above remove the retained base-scale premise without changing
+`PathShiftedEpsBound`, its action/carrier or the normalized-anchor consumer.
+Final focused one-worker/20-GiB check and independent complete source/log
+review PASS; both new gates use only {propext,Quot.sound}. MAIN remains OPEN.
+Parallel source/math screens found no independent missing scalar or finite-net
+producer to implement: those inputs already exist. Log-convexity can turn
+backward dyadic point retention into H1, but that original-family retention
+is itself unsupplied and remains OPTIONAL. A03 temporal survival still needs
+the existing cross-scale/local-observable join for continuum nontriviality;
+no added wrapper, localization assumption or displayed proof-state change.
+Exact verification: adaptive-score audit, "Scale-zero H1 contraction".
 
 ### Previous checked MAIN selection (2026-10-10 UTC)
 

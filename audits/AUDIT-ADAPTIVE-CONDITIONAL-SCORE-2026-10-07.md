@@ -397,6 +397,51 @@ current diff after correcting declaration-line pins; ROOT arithmetic/source
 review and documentation diff check PASS. No Lean edit, compiler run or
 axiom audit; canonical proof/ASCII state unchanged.
 
+### Scale-zero H1 contraction (2026-10-10 UTC; CHECKED)
+
+Selected proposition: remove the explicitly retained j=0 input from the
+existing `PathShiftedEpsBound:396` when c0>=1, without changing that predicate
+or `path_normalized_anchor_shifted:581`, both in
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1Anchor.lean`.
+The predicted proof is immediate from the ACTUAL completed one-step
+positivity: side_0=1 and floor(side_0/2)=0, so
+`B(x,x)-B(x,T x) <= B(x,x) <= c0*B(x,x)`.
+No norm floor or missing analytic hypothesis is needed. The verification
+budget is one narrow serialized 20-GiB check, not a tree audit.
+
+Observed: `pathShiftedEpsBound_zero:693` constructs this exact base case;
+`pathShiftedEpsBound_iff_positiveScales:718` proves equivalence with the
+ORIGINAL response endpoint bound at every j>=1, using the unchanged
+`pathShiftedEpsBound_iff_response:418`. All four declarations are in the
+same file above. The old declaration/consumer line numbers were preserved.
+The uniform positive-scale estimate is NOT produced. This is a small
+contraction of a retained premise, not new asymptotic analytic control.
+
+Final command:
+`python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20
+--log-file /tmp/ym-shifted-h1-zero-20261010-check2.log
+--check lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1Anchor.lean`.
+Exit 0; no diagnostics; both new printed gates exactly {propext,Quot.sound}.
+Log SHA-256:
+`128620382bc23c9c70e01d24fb9c20d45d01bd5238a75a31e726ac50c7b1425f`.
+Frozen source SHA-256:
+`411cb39da9cb8690272ee85fc71c58c945329c8af1fb2a04ae7aadfec0f62858`.
+Independent complete final source/log review PASS. No full root/tree build,
+axiom audit, sorry/axiom introduction, canonical-field or chart-state change.
+
+Parallel SOURCE/MATH screens supplied no additional implementation target:
+current supplied-modulus scalar laws and finite sphere nets already exist;
+quotient representative selection was not assumed. Reflection positivity's
+log-convexity could amplify a fixed backward dyadic point-retention seed,
+but that seed is not supplied for this original AF-shaped family and is not
+a necessary H1 premise. The existing cross-scale/local-field join remains
+separate: `ShiftedAnchorPackage:550` in the same file proves per-scale norm
+and time-survival laws, not a fixed-local-test overlap or a common Hilbert
+limit. The spatially expanding source cannot be treated as already locally
+surviving merely from its normalization. These are scope/selection findings,
+not new analytic estimates. NEXT remains the joint ORIGINAL endpoint/flux
+estimate for j>=1; no extra conditional wrapper is selected.
+
 ### Existing consumers versus missing work
 
 - Full ORIGINAL chronological numerator and partition: `window_pairing:96`
@@ -431,7 +476,8 @@ axiom audit; canonical proof/ASCII state unchanged.
   `pathShiftedEpsBound_iff_response:418` (j>=1), and
   `path_normalized_anchor_shifted:581`,
   `lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1Anchor.lean`.
-  The j=0 shifted-form obligation is retained, not silently replaced.
+  The j=0 shifted-form obligation was retained in the original screen;
+  the checked contraction above now supplies it for c0>=1.
 
 **Selection:** continue source-specific analytic work on the complete signed
 adjacent flux (or the complete original cost), NOT another conditional Ward

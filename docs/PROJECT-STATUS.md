@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Small supporting H1 contraction checked (2026-10-10 UTC):
+`pathShiftedEpsBound_zero:693` supplies scale zero for c0>=1;
+`pathShiftedEpsBound_iff_positiveScales:718` leaves exactly the ORIGINAL
+positive-scale endpoint estimates, in `BF4WilsonAllNomeShiftedH1Anchor.lean`.
+Final focused one-worker/20-GiB check and independent complete source/log
+review PASS; both new gates use only {propext,Quot.sound}.
+No uniform H1 bound, cross-scale/local excitation or continuum/Clay closure.
+Exact displayed claims unchanged; no chart reprint. Evidence: adaptive-score
+audit, "Scale-zero H1 contraction".
+
 Supporting endpoint/area selection guard checked (2026-10-10 UTC):
 `BackwardResponseAreaStrictness.EndpointVsArea.endpoint_without_area:133`
 gives a positive two-mode scalar response with endpoint H1 c0=1 at s=32,

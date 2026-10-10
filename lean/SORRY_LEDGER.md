@@ -2948,6 +2948,15 @@ axiom. Root registration only.
 
 ## PROVED shifted telescope and shifted-H1 => A03 package; OPEN shifted H1, AF schedule (2026-10-06 UTC)
 
+2026-10-10 base-scale contraction: `pathShiftedEpsBound_zero:693` supplies
+j=0 for c0>=1; `pathShiftedEpsBound_iff_positiveScales:718` in
+`BF4WilsonAllNomeShiftedH1Anchor.lean` proves that the ORIGINAL j>=1 response
+endpoint inequalities are exactly the remaining H1 input. Final focused
+check2 and independent complete source/log review PASS; both new gates
+{propext,Quot.sound}. Uniform H1 and physical scaling remain OPEN; no named
+field was weakened, new assumption introduced or continuum atom closed.
+Evidence: adaptive-score audit, "Scale-zero H1 contraction".
+
 `BF4WilsonAllNomeShiftedH1Anchor` restates H1 for the time-shifted anchor
 x_j = T^(side_j/2) Y_j (`PathShiftedEpsBound`). Since T^s is self-adjoint and
 PSD, B(T^h Y,T^n T^h Y) = R_Y(n+2h). Proved: the exact shifted Fejer telescope

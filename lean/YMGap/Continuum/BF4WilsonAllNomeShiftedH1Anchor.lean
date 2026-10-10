@@ -688,6 +688,50 @@ theorem dyadicNomeSchedule_margin_side (j : Nat) :
       (fun | 0 => HalfPow.half | 1 => HalfPow.half^j | _ => Q'.ofNat (side j)))
     (Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_left _ _ _ hu) (Q'.mul_one_eqv _))
 
+/-- Scale zero is automatic for `c0 ≥ 1`: `side 0 = 1`, so positivity of the
+original completed one-step response pays its whole loss. -/
+theorem pathShiftedEpsBound_zero (tr : DyadicSmoothedTrajectory) (c0 : Q')
+    (hc0 : (1 : Q') ≤ c0) :
+    OneStepEpsBound (tr.schedule.nome_pos 0) (tr.schedule.nome_lt_one 0) (trajWidth 0)
+      (completedTime (tr.schedule.nome_pos 0) (tr.schedule.nome_lt_one 0) (side 0 / 2)
+        (tr.state 0)) (side 0) c0 := by
+  change OneStepEpsBound (tr.schedule.nome_pos 0) (tr.schedule.nome_lt_one 0) (trajWidth 0)
+    (completedTime (tr.schedule.nome_pos 0) (tr.schedule.nome_lt_one 0) 0
+      (tr.state 0)) 1 c0
+  rw [completedTime_zero]
+  unfold OneStepEpsBound
+  have htail : RCnonneg (completedInner (tr.schedule.nome_pos 0)
+      (tr.schedule.nome_lt_one 0) (tr.state 0)
+      (completedTime (tr.schedule.nome_pos 0) (tr.schedule.nome_lt_one 0) 1
+        (tr.state 0))) :=
+    mixedMoment_nonnegative (tr.schedule.nome_pos 0) (tr.schedule.nome_lt_one 0)
+      (tr.state 0) 1 0
+  have hnorm := completedInner_nonnegative (tr.schedule.nome_pos 0)
+    (tr.schedule.nome_lt_one 0) (tr.state 0)
+  have hcoeff := RCscale_scalar_mono hc0 hnorm
+  rw [RCscale_one] at hcoeff
+  simpa only [show (Q'.ofNat 1 : Q') = 1 from rfl, RCscale_one] using
+    (RCle_trans (sh_sub_le_self htail) hcoeff)
+
+/-- For `c0 ≥ 1`, the ONLY remaining shifted H1 estimates are the original
+response endpoints at positive scales; this does not prove a uniform estimate. -/
+theorem pathShiftedEpsBound_iff_positiveScales (tr : DyadicSmoothedTrajectory)
+    (c0 : Q') (hc0 : (1 : Q') ≤ c0) :
+    PathShiftedEpsBound tr c0 ↔
+      ∀ j : Nat, 1 ≤ j →
+        RCle (RCscale (Q'.ofNat (side j)) (RCsub (tr.response j (side j))
+          (tr.response j (side j + 1))))
+          (RCscale c0 (tr.response j (side j))) := by
+  constructor
+  · intro h j hj
+    exact (pathShiftedEpsBound_iff_response tr c0 j hj).mp (h j)
+  · intro h j
+    cases j with
+    | zero => exact pathShiftedEpsBound_zero tr c0 hc0
+    | succ k =>
+        exact (pathShiftedEpsBound_iff_response tr c0 (k+1) (by omega)).mpr
+          (h (k+1) (by omega))
+
 #print axioms OneStepEpsBound
 #print axioms shift_norm_pin
 #print axioms shift_response_pin
@@ -702,6 +746,8 @@ theorem dyadicNomeSchedule_margin_side (j : Nat) :
 #print axioms PathShiftedNondegenerate
 #print axioms PathShiftedFamilySurvival
 #print axioms pathShiftedEpsBound_iff_response
+#print axioms pathShiftedEpsBound_zero
+#print axioms pathShiftedEpsBound_iff_positiveScales
 #print axioms pathShiftedEpsBound_of_shiftedFamilySurvival
 #print axioms shiftedPathAnchor
 #print axioms path_shifted_macroRatio
