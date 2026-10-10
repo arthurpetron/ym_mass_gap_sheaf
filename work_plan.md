@@ -895,9 +895,44 @@ adaptive-score audit. This is domain closure, not interacting survival,
 quantitative completion or a multiplicative-Haar law. No new premise/hole,
 canonical chart claim, resource increase or root/tree audit.
 
-NEXT: identify the minimal quantitative domain-completion/compact-realization
-interface consumed by the original compact/action route, not a general
-RC-function representative selection or every-continuous-function theorem.
+Consumer correction after 513d4bd6: no current downstream Lean declaration
+requires completion of the represented-function domain. The polynomial
+torus route already consumes exact quaternionHaar; deprecated ConfigHaar /
+LinkHaar demand invariant means on ALL rational-carrier functions and cannot
+be filled by the new Point->RC functional. Do not expand function completion
+or quotient-level point selection without an actual justified consumer.
+
+CHECKED instead: `SU2TorusPolySchurAll.relativeCharacter_pairing_all:58`,
+`lean/YMGap/Continuum/SU2TorusPolySchurAll.lean`, proves ORIGINAL two-link
+Haar orthonormality for EVERY s,t. BOTH ordinary characters are transported
+to their solid harmonics, the unequal-degree head pairing vanishes, and the
+remaining physical link is integrated by exact Fubini; diagonal uses the
+existing SAME two-link norm. `polySchur_all:69` and `polyCharMean_all:73`
+inhabit the EXISTING polynomial consumers for every J;
+`partition_constructed_all:83` removes J<=2 from the signed character-sum
+partition identity Z_J=c_0, including J=0. Focused check1 and COMPLETE
+independent final-source/log/math review PASS; five permitted gates, no
+diagnostics. No new input, physical-link substitution or canonical closure.
+This is polynomial Haar normalization, NOT full torus Gibbs or MAIN payment.
+Exact hashes/command: adaptive-score audit, observed all-spin consumer.
+
+CHECKED MAIN route obstruction: `plus_sourceCubic_value:32` and
+`minus_sourceCubic_value:38`,
+`lean/YMGap/Continuum/SU2QuaternionSourceCubicSignFence.lean`, give
+-36097/524288 and +945919/524288 for the existing positive sources at
+half-nome. `sourceCenters_zero:61` retains both zero OWN centers. Thus
+centering/positivity alone do not provide a universal favorable cubic sign.
+Final narrow check2 and COMPLETE independent source/log/math review PASS;
+five permitted gates, no diagnostics. This is a finite one-link obstruction,
+NOT a counterexample for the changing BF4 source. PRUNE that sign-only
+shortcut; the remaining estimate must use the actual source's structure
+and the complete combined signed debt, rather than its cubic term in isolation.
+Exact source/log hashes and rejected check1: adaptive-score audit.
+
+NEXT MAIN remains original complete signed cost versus SAME warmed OWN
+variance with BOTH chronological masses, or the direct centered late-area
+estimate. Select further group/action producers against their actual
+consumer, not a general RC-function representation theorem.
 The current functional is on represented admissible maps, not every continuous
 Point->RC map; no intrinsic sup norm or Banach algebra is built. Do not assume
 a general RC-function CReal lift. `CompactGroupData`
@@ -906,6 +941,11 @@ realization/J04 and MAIN warmed signed-cost versus SAME variance on justified
 scaling stay OPEN. The paper's pre-existing Haar is not our producer; these
 are independently checked project results. Physical/QFT/every-group and Clay
 remain OPEN; no canonical displayed chart claim changed.
+
+The requested coverage extension of arXiv:2610.09093 (2026-10-10 06:14 UTC),
+with a read-only Sol reviewer and ROOT visual checks, found no additional
+producer for either MAIN consumer. Reuse the existing applicability audit;
+no auxiliary-fermion or representation-restriction branch is selected.
 
 The requested paper review confirms that Appendix E assumes continuous Haar;
 its companion section 10.4 supplies a useful EFFECTIVE error-accounting

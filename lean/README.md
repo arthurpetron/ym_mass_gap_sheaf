@@ -16,6 +16,24 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked all-spin ORIGINAL two-link Haar Schur consumer (2026-10-10 UTC):**
+`Continuum/SU2TorusPolySchurAll.relativeCharacter_pairing_all:58` proves
+exact orthonormality for every spin pair from two solid-character carrier
+pins, unequal-degree harmonic head integration and the SAME diagonal norm.
+`polySchur_all:69`, `polyCharMean_all:73` and
+`partition_constructed_all:83` feed existing polynomial consumers for every
+J and arbitrary signed coefficients, including zero cutoff. Focused check1
+and COMPLETE independent source/log/math review PASS; five permitted gates,
+no diagnostics. No new norm, Haar premise or physical-link specialization.
+This is not full torus Gibbs, compact Haar or an interacting estimate.
+
+**Checked centering-only cubic sign obstruction (2026-10-10 UTC):**
+`Continuum/SU2QuaternionSourceCubicSignFence` computes opposite cubic signs
+for the existing positive one-link sources whose OWN centers are both zero.
+Focused check2 and COMPLETE independent source/log/math review PASS. This
+prunes a universal favorable-sign shortcut, not the changing BF4 source or
+the MAIN combined signed-cost bound. No new premise, hole or limit increase.
+
 **Checked CReal-valued dense approximation and ORIGINAL-Haar limit candidate (2026-10-10 UTC):**
 `Constructive/CRealStableSampling` samples at supplied output regularity rates,
 with sound limit error and no bound on arbitrary initial approximants.

@@ -4,6 +4,39 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## All-spin original polynomial Haar consumers (2026-10-10 UTC)
+
+`SU2TorusPolySchurAll.relativeCharacter_pairing_all:58` proves exact ORIGINAL
+two-link pairing for every s,t from the existing harmonic selection and SAME
+diagonal norm. `polySchur_all:69`, `polyCharMean_all:73` and
+`partition_constructed_all:83` remove the spin<=2 restriction from actual
+polynomial consumers for all cutoffs and signed coefficients. Focused check1
+and COMPLETE independent final-source/log/math review PASS; exact evidence:
+adaptive-score audit. Both physical links remain; no new analytic assumption,
+full torus/compact/MAIN/scaling/Clay closure. No broad audit/metric run.
+
+The preceding `513d4bd6` checkpoint closed actual represented-Haar products:
+`QuaternionRepresentedHaarMultiplication.product_map:329` and
+`evaluate_mul:350` retain the SAME all-Point product with computed rates;
+`integral_coordinate_square:368` retains original moment 1/4. It does not
+make arbitrary continuous functions admissible. The current consumer search
+found no typed need for broad function-domain completion, so that extension
+is not selected. MAIN is still original complete signed cost versus SAME
+warmed OWN variance/BOTH masses, or direct centered late-area control.
+
+## Centering-only cubic sign shortcut pruned (2026-10-10 UTC)
+
+`SU2QuaternionSourceCubicSignFence.plus_sourceCubic_value:32` /
+`minus_sourceCubic_value:38` compute opposite signed cubic corrections for
+the existing certified positive one-link sources, both with zero OWN centers
+(`sourceCenters_zero:61`). Focused check2 and COMPLETE independent frozen
+source/log/math review PASS; exact hashes and rejected check1: adaptive-score
+audit. This rules out positivity/centering as a universal favorable-sign
+argument, not the changing BF4 source or the complete signed estimate.
+NEXT stays source-specific COMBINED debt versus SAME warmed OWN variance
+with BOTH masses, or direct centered late-area control. No broad audit/metric,
+paper-imported bound, canonical displayed closure or chart reprint.
+
 ## ORIGINAL Haar on SAME represented completed maps (2026-10-10 UTC)
 
 `QuaternionDenseCRealPointLinearity.rowImage_sum:116` pays three independent

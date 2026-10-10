@@ -6,6 +6,124 @@ and a finite strictly positive physical Hamiltonian mass gap.
 
 ## Finite positive cubature foundation (2026-10-10 UTC)
 
+### Selected all-spin ORIGINAL polynomial Schur consumer (after 513d4bd6)
+
+Previous goal turn: PROGRESS, actual represented-domain multiplication
+checked and pushed. A read-only consumer search found no current typed
+consumer requiring uniform completion of that function domain; do not
+expand it merely because the prior NEXT listed completion. The actual
+consumers `PolySchurUpTo`, `PolyCharMeanUpTo` and `partitionPoly_eqv_c0`,
+`lean/YMGap/Continuum/SU2TorusPolyGibbs.lean:41`, `:63`, `:88`, still have
+only spin<=2 constructed instances. Selected proposition: ORIGINAL
+two-link Haar character pairing equals if s=t then 1 else 0 for EVERY
+s,t, and supply these same consumers for EVERY J with arbitrary signed c.
+Inputs: `relativeSolid_harmonic_offDiagonal`,
+`lean/YMGap/Continuum/SU2QuaternionRelativeHarmonicSelection.lean:65`,
+`relativeSolid_blockDegree`,
+`lean/YMGap/Continuum/SU2QuaternionRelativeCharacterCasimir.lean:40`,
+the TWO `solid_character_pin` carrier equalities and
+`relativeCharacter_square_norm`,
+`lean/YMGap/Continuum/SU2QuaternionRelativeCharacterNorm.lean:144`.
+Prediction: off-diagonal harmonic head integration vanishes before the
+retained-link Haar integration; diagonal uses the existing same-two-link
+norm. Then character means follow by pairing with spin zero and the
+existing finite signed character-sum partition theorem applies unchanged.
+Test J=0, either label order, all labels, arbitrary signed/zero c, and keep
+both physical blocks. Revise if a new norm, compact/Haar assumption,
+one-link substitution or finite label cutoff is needed. Sol owns only the
+new consumer leaf; ROOT owns serial narrow safe verification and final
+source inspection; independent read-only frozen-source/log/math review.
+One worker, 20 GiB ceiling, 12 GiB reserve, fresh capacity/process check;
+no broad/root/tree/audit/metric or literature scan. This is polynomial
+Haar normalization, NOT interacting variance, full torus Gibbs, compact
+realization, J04 or Clay closure. MAIN remains the complete original signed
+window payment/centered late-area producer.
+
+Separate MAIN test selected: determine both exact signs of the ACTUAL
+`sourceCubic`, `lean/YMGap/Continuum/SU2QuaternionCyclicSecondOrder.lean:187`,
+at w=1/2 and the already-certified positive sources `sourcePlus/sourceMinus`,
+`lean/YMGap/Continuum/SU2QuaternionSourceDefectSignFence.lean:53` / `:54`,
+with the SAME fundamental observable. Both actual interacting centers are
+already zero (`plusCenter_zero:158`, `minusCenter_zero:163`). Sol's finite
+character arithmetic predicts cubic values -36097/524288 and 945919/524288;
+Luna independently checks the literal definitions and builds only a bounded
+kernel arithmetic certificate. If accepted, this rules out universal
+sign-only cancellation after centering, not the BF4 moving-source estimate.
+Abandon if the values do not concern the actual sourceCubic or need a new
+mean/positivity assumption. Serialized narrow verification under the same
+limits, no finite example promoted to an interacting/continuum theorem.
+
+### Observed all-spin polynomial consumers [CHECKED, after 513d4bd6]
+
+`relativeCharacter_pair_zero`,
+`lean/YMGap/Continuum/SU2TorusPolySchurAll.lean:40`, transports BOTH actual
+relative characters to solid representatives and integrates the unequal
+head-harmonic pairing to zero. Exact partial-head Fubini then integrates
+the retained second physical link. `relativeCharacter_pairing_all:58`
+uses the SAME existing two-link diagonal norm to obtain the Kronecker value
+for every s,t; `polySchur_all:69` / `polyCharMean_all:73` fill the EXISTING
+polynomial Haar consumers for every J. `partition_constructed_all:83`
+applies their existing finite induction to signed c, including J=0.
+No new norm, group/Haar hypothesis or fixed physical-link substitution.
+
+Accepted command after fresh capacity/process inspection (84% reported
+available memory, zero swap, no competing compiler/test/runner):
+
+```text
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/SU2TorusPolySchurAll.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/SU2TorusPolySchurAll.olean --log-file /private/tmp/ym-poly-schur-all-check1.log
+```
+
+Source SHA-256 `1475f55fcdc6775890f68623fec4a61f46dbcce739cf247ccc9e5db209957b9a`;
+accepted log `c23d63cbed50f732dc495050db7c4bfdcfb7c76c357c84c9e20d68263dd07286`.
+Check1 PASS in about 0.81 seconds; all five gates exactly
+{propext,Quot.sound}, no diagnostics. ROOT inspected complete source/log;
+independent Sol COMPLETE 93-line source/5-line log/math review PASS with
+matching hashes. Two missing namespace opens were repaired by static
+inspection BEFORE the first launch; no failed compiler receipt for this leaf.
+No new hole, axiom, analytic input or resource option. Root registration
+only; no full root/tree/audit/metric or canonical chart-state change.
+The consumer search removes unused function-domain completion from the
+selected NEXT, not from any canonical requirement: no current downstream
+module needs it. Deprecated ALL-function rational Haar is not inhabited.
+MAIN signed OWN-variance scaling, full torus Gibbs, compact/every-group
+realization, physical mass/QFT and Clay remain OPEN.
+
+### Observed centered positive-source cubic sign fence [CHECKED, after 513d4bd6]
+
+`plus_sourceCubic_value` / `minus_sourceCubic_value`,
+`lean/YMGap/Continuum/SU2QuaternionSourceCubicSignFence.lean:32` / `:38`,
+compute the ACTUAL mixed-minus-diagonal cubic at the existing half-nome:
+-36097/524288 and +945919/524288. The sources are the SAME positive
+`sourcePlus/sourceMinus` certified in
+`lean/YMGap/Continuum/SU2QuaternionSourceDefectSignFence.lean:77` / `:84`.
+`plus_sourceCubic_negative:43`, `minus_sourceCubic_positive:55` and
+`sourceCenters_zero:61` retain both strict signs and their already-zero
+OWN interacting centers. Positivity and centering alone therefore do not
+give a universal favorable cubic sign. This does NOT refute the actual
+BF4 changing source or supply its full signed-cost estimate.
+
+Accepted check2, after fresh capacity/process inspection (85% reported
+available memory, zero swap, no competing compiler/test/runner):
+
+```text
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/SU2QuaternionSourceCubicSignFence.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/SU2QuaternionSourceCubicSignFence.olean --log-file /private/tmp/ym-source-cubic-sign-check2.log
+```
+
+Source SHA-256 `22c3d40d80a130f3e8ba09c6ebea98d8a33cb217fba2ee11647bbc79a819e8ce`;
+accepted log `6ed9136f456aa1b88ccdcf5dbcdd4fe94bacb22c5017993113de2f5c46da024c`.
+Check2 PASS in about 0.89 seconds, five gates exactly {propext,Quot.sound},
+no diagnostics. ROOT and independent Sol inspected COMPLETE final 72-line
+source/5-line log and the actual source definitions; matching hashes, PASS.
+Rejected check1 hit default elaborator maxRecDepth in the two exact-value
+proofs; its cascading sorryAx output is NOT accepted evidence. Changing
+only those proofs to `decide +kernel` fixed reduction without increasing
+any resource setting or trusting native/compiler evaluation.
+No source sorry, new premise, axiom, broad/root/tree audit or chart change.
+Decision: PRUNE centering-only universal cubic-sign payment. Seek an
+ORIGINAL-source-specific estimate of the COMBINED signed debt, or direct
+centered late-area control; retain favorable credits, OWN variance and BOTH
+chronological masses. No foreign theorem or paper-derived bound was used.
+
 ### Selected quantitative ACTUAL row-image stability (after 6a3af546)
 
 Previous goal turn: PROGRESS, actual rational translation and its all-Point

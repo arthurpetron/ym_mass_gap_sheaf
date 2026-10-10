@@ -10,6 +10,13 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**New all-spin polynomial Haar join:** original two-link relative characters
+now have exact Schur pairing for every pair of spin labels. Their means and
+the signed character-sum partition identity now hold at every cutoff,
+removing the previous spin <= 2 restriction. A focused kernel check and
+independent complete review passed. This is not a full torus Gibbs measure
+or an interacting mass-gap estimate.
+
 **New constructive integration input:** bounded, uniformly continuous CReal
 data on the dense rational quaternion sphere now have a computed polynomial
 approximation with explicit error. Applying the original polynomial Haar

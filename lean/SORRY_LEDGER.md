@@ -1,5 +1,35 @@
 # Sorry Ledger
 
+## PROVED all-spin ORIGINAL polynomial Schur/partition consumers / OPEN physical estimates (2026-10-10 UTC)
+
+`relativeCharacter_pair_zero`,
+`lean/YMGap/Continuum/SU2TorusPolySchurAll.lean:40`, integrates two actual
+solid representatives with both physical links retained.
+`relativeCharacter_pairing_all:58` combines it with the SAME diagonal norm.
+`polySchur_all:69` / `polyCharMean_all:73` inhabit the existing polynomial
+consumers for every cutoff; `partition_constructed_all:83` proves Z_J=c_0
+for arbitrary signed c and all J. Focused check1 and COMPLETE independent
+frozen-source/log/math review PASS within {propext,Quot.sound}; no diagnostics,
+new hole, analytic premise or canonical-field change. Full torus Gibbs,
+compact/every-group realization, MAIN SAME interacting-variance payment,
+scaling and every physical/Clay endpoint remain OPEN. Root registration only,
+no root/tree/audit. Exact evidence: adaptive-score audit, all-spin consumer.
+
+## PROVED finite centered-source cubic sign obstruction / OPEN original combined payment (2026-10-10 UTC)
+
+`plus_sourceCubic_value:32`, `minus_sourceCubic_value:38`,
+`plus_sourceCubic_negative:43`, `minus_sourceCubic_positive:55` and
+`sourceCenters_zero:61`,
+`lean/YMGap/Continuum/SU2QuaternionSourceCubicSignFence.lean`, prove opposite
+cubic signs for the existing positive one-link sources with zero OWN centers.
+Final narrow check2 and COMPLETE independent frozen-source/log/math review
+PASS within {propext,Quot.sound}, no diagnostics or new hole/premise/axiom.
+Kernel `decide +kernel` fixes the rejected elaborator-only depth failure;
+no resource limit was raised. This prunes a universal sign-only shortcut,
+not the BF4 moving source. MAIN combined signed-cost/OWN-variance payment,
+scaling and all physical/Clay endpoints remain OPEN. Root registration only;
+no root/tree audit. Exact hashes/command: adaptive-score audit.
+
 ## PROVED general represented-Haar multiplication / OPEN completion and scaling (2026-10-10 UTC)
 
 `mul`, `lean/YMGap/Constructive/CRealInnerMultiplication.lean:122`, retains a
