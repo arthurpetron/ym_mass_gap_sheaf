@@ -179,12 +179,40 @@ Do not substitute the latter or identify this kernel with completed T.
 A new elementary product-prefix counterexample also rejects a generic
 dimension-free total-gradient shortcut for arbitrary endpoint sources and
 global observables; it does NOT refute bounded-degree Wilson families or H1.
-NEXT selection test: keep the COMPLETE signed late-BOX insertion and ask
-whether actual source/action structure pays its cross terms or density-swap
-defect against its OWN late response. An absolute unfiltered locality bound
-alone would still not be H1. No conditional-kernel, gradient or variance
-wrapper is selected. Exact formulas, counterexample and scope: adaptive-score
-audit, "Original-edge locality and conditional-variance screen".
+The subsequent complete-action test preserves spatial weights under a
+whole-future-BOX cyclic permutation, but leaves a signed THREE-cut kinetic
+defect, including a long-time wrap edge. This is exact PAPER algebra, not
+relative payment; stop expanding swap/Ward wrappers without a quantitative
+estimate. An absolute unfiltered locality bound alone would still not be H1.
+Exact formulas, counterexample and scope: adaptive-score audit,
+"Original-edge locality and conditional-variance screen" and
+"Quantitative positive-time pivot".
+
+### Selected quantitative experiment (2026-10-10 UTC)
+
+Keep PRIMARY and its SAME completed carrier unchanged. Investigate the
+actual two-positive-time ratio R_j(s_j/2)/R_j(s_j), with the SAME source,
+BOX radius and OLD OWN center at both times. The existing
+`retained_time_budget:100`, `BF4WilsonAllNomeMacroRatioFilteredCost.lean`,
+gives H1 with c0=2*(K-1) from R_j(s_j/2)<=K*R_j(s_j); no new ratio
+interface or compiler is needed. This is a sufficient route, not a new
+necessary premise or a replacement by free variance.
+
+Forward test: obtain a genuinely relative positive-time estimate in the
+original heat action, retaining signed interaction, terminal and centering
+errors. The new free infinite-volume magnetic-square PAPER benchmark gives
+coefficient 8 for nonnegative scalar spatial smearing and fixed BOX averaging.
+It supplies a quantitative diagnostic, NOT an interacting comparison or gap.
+Backward test in parallel: select a bulk-supported insertion of lattice size
+s_j INSIDE the existing ambient width s_j^2+1, and justify its physical clock,
+renormalized local-field normalization and orientation/placement comparison.
+Do not turn the global all-face sum into a local field by dropping cross-block
+covariances. The existing padded nondegeneracy theorem already supplies each
+chosen family's qualitative late floor; its supplied certificate is too weak
+for bounded doubling. No localized Lean instance or physical scaling family
+is claimed yet. Exact quantitative tests and stopping criteria: adaptive-score
+audit, "Quantitative positive-time pivot". Neither a diagnostic benchmark nor
+another exact recoding changes the canonical ASCII proof state.
 
 Independent bounded Sol source/math review agrees with this reduction and
 its unpaid H1 bound. That SOURCE/PAPER H1 review changed no Lean file, axiom

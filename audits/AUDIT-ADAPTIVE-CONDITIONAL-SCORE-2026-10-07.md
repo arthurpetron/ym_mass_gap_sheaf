@@ -16801,3 +16801,168 @@ ROOT inspected the complete two-file diff and rechecked the finite-prefix
 arithmetic. Independent COMPLETE source/math/scope review PASS, including
 declaration line numbers and the odd/even marginal distinction. `git diff
 --check` passes; no compiler or broad audit was needed for these documents.
+
+## Quantitative positive-time pivot (2026-10-10 UTC; SOURCE/PAPER)
+
+Decision: prioritize an actual positive-time response estimate over another
+exact swap/Ward recoding. PRIMARY remains the ORIGINAL shifted endpoint
+inequality, consumed by `pathShiftedEpsBound_iff_response:418`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1Anchor.lean`.
+No Lean file, frontier type, sorry, axiom or canonical chart status changes.
+
+### The complete swap test supplies algebra, not payment
+
+On one full original chain, let the future BOX use slices x_0,...,x_M;
+include x_(M+1) and both neighboring slices u,v in the common chain. Let C
+cycle x_i to x_(i+1), with x_(M+1) sent to x_0. C sends the SAME uniform
+future BOX Psi_s to Psi_(s+1), fixes the separated first BOX Phi and OLD c,
+and permutes all identical one-slice V factors. Product-Haar invariance gives
+
+    P_s-P_(s+1) = integral (W-C^(-1)W)*(Phi-c)*(Psi_s-c).
+
+There is NO factor two: C is not an involution for M>0. Factoring the common
+kinetic product over i=0,...,M-1 leaves exactly
+
+    K(u,x_0) K(x_M,x_(M+1)) K(x_(M+1),v)
+      - K(u,x_(M+1)) K(x_(M+1),x_0) K(x_M,v).
+
+For M=0 the middle factors agree by symmetry. The bracket has either sign
+even for k(a,b)=1+d*a.dot(b), 0<d<1: u=x_0=+1, x_1=v=-1 gives
+4*d*(1-d), and exchanging x_0,x_1 gives its negative. This is NOT a
+counterexample to integrated H1. For M>0 the wrap factor is a ONE-step K
+between nonadjacent original slices, not an iterated convolution. Spatial
+weights and insertions prevent automatic semigroup collapse. This screen
+produces no 1/s gain or completed-response passage. Original full-chain pin:
+`chain:149`, `lean/YMGap/Continuum/SU2QuaternionHeadChainComposition.lean`.
+
+### A quantitative benchmark for LOCAL nonnegative smearing
+
+This is a free INFINITE-VOLUME continuum Gaussian diagnostic, not the BF4
+action or a lattice/continuum comparison. Define its covariance from
+D(t,r)=kappa/(t^2+|r|^2), t>0, kappa>0. The magnetic tensor is, up to an
+irrelevant overall convention sign,
+
+    C_ij = 4*kappa*((t^2-|r|^2)*delta_ij + 2*r_i*r_j)/(t^2+|r|^2)^3.
+
+The centered full magnetic scalar sum_i B_i^2 has Wick correlation
+
+    H(t,r) = 32*kappa^2*(3*t^4-2*t^2*|r|^2+3*|r|^4)
+                       /(t^2+|r|^2)^6.
+
+Write x=|r|^2/t^2 and H=A*t^(-8)*f(x), with A=32*kappa^2>0. Direct algebra:
+
+    f(x) = (3-2*x+3*x^2)/(1+x)^6,
+    f'(x) = -4*(3*x^2-4*x+5)/(1+x)^7,
+    -t*partial_t H/H
+      = 8*(5*x^2-4*x+3)/((1+x)*(3-2*x+3*x^2)) in (0,8].
+
+The positivity uses rational square identities, e.g.
+3*x^2-4*x+5=3*(x-2/3)^2+11/3. The upper bound follows because
+(1+x)*(3-2*x+3*x^2)-(5*x^2-4*x+3)
+=x*(3*x^2-4*x+5)>=0. Consequently 0<=-t*partial_t H<=8*H.
+
+Integrating against the SAME nonnegative compact scalar smearing h(z)h(z')
+preserves this inequality. With the SAME fixed nonnegative BOX kernel at
+both compared times, each lag t+a+b satisfies t/(t+a+b)<=1. Its benchmark
+response b_BOX therefore satisfies
+
+    s*(b_BOX(s)-b_BOX(s+1)) <= 8*b_BOX(s),
+    b_BOX(s/2) <= 256*b_BOX(s).
+
+The BOX radius is held fixed when differentiating or comparing those times;
+do not compare separately rebuilt filters. This controls positive times, not
+the coincident-time ultraviolet variance. Arbitrary orientation-dependent
+face weights do NOT inherit this pointwise coefficient: individual tensor
+entries can vanish or have a larger slope. Finite spatial volume, discrete
+infrared modes, lattice spacing and interacting corrections are excluded.
+The literal lattice source needs an isotropic orientation/placement comparison.
+This benchmark is deliberately massless; its endpoint bound is not a gap.
+
+### Exact sufficient interaction test; no new assumed-input bundle
+
+For an actual original completed response R and even s>=2, the existing
+`retained_time_budget:100`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeMacroRatioFilteredCost.lean`, gives
+
+    s*(R(s)-R(s+1)) <= 2*(R(s/2)-R(s)).
+
+Thus R(s/2)<=K*R(s) supplies the endpoint bound with c0=2*(K-1).
+If, on the SAME BOX/source/OLD center, a source-specific original-action
+comparison proves (1-eta)*b(t)<=R(t)<=(1+eta)*b(t) at BOTH t=s/2,s,
+with fixed 0<=eta<1, the local benchmark would give
+
+    K = 256*(1+eta)/(1-eta),  c0 = 2*(K-1).
+
+For eta=0 this comparison route gives 510, not the sharper benchmark's 8;
+two value comparisons do not control derivatives of their errors. A factor
+exp(-mu_j*t) in a chosen benchmark costs exp(mu_j*s/2) in K and additionally
+requires a uniform bound on mu_j*s. All positive amplitude normalizations
+cancel in the ratio. No such original comparison, clock or remainder bound
+is produced here. This is an OPTIONAL sufficient test, not a necessary H1
+hypothesis, renormalization theorem or an interacting variance substitution.
+
+### Actual source selection and the paid-floor limitation
+
+Keep ambient `trajWidth:310`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicSmoothedTrajectory.lean`, s^2+1,
+and the provisional numerical `precisionNomeSchedule:148`,
+`lean/YMGap/Continuum/AFPrecisionNomeSchedule.lean`. A bulk-local candidate
+is a direct coordinate filter of spatialFaces(s^2), with the three lower
+coordinates in [b,b+s), b=(s^2-s)/2, and unit coefficients in all three
+spatial orientations. It changes the insertion, not any factor of the full
+ambient action. `spatialFaces_mem_iff:98` and `spatialFaces_nodup:172`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFacePlacement.lean`, supply
+its PAPER support/Nodup guards; the face ((b,b,b,0),p01) proves nonempty.
+No localized instance was compiled in this checkpoint.
+
+IF an original physical clock proves 0<tau_lo<=s*a_j<=tau_hi, that source
+has physical coordinate span s*a_j<=tau_hi, while its boundary margin
+b*a_j=(s-1)*(s*a_j)/2 grows. This does NOT identify a renormalized local
+field, smooth test function, translated theory or cross-width state map.
+The original syntax is already available through `familyExpression:51`,
+`familyState:69` and `source_family_span:92`,
+`lean/YMGap/Continuum/BF4WilsonPlaquetteFamilySourcePin.lean`.
+`smoothedResponse_pin:341`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeSmoothedCoherentState.lean`, retains
+its actual centered original correlations. `paddedNondegFloor:176` and
+`pathShiftedNondegenerate_of_padded:191`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedPaddedNondegenerate.lean`,
+already supply qualitative per-scale floors once the candidate is constructed.
+They do NOT supply uniform doubling or continuum survival. Spatial scalar
+normalization cannot change H1; decomposing a global family requires keeping
+all signed cross-block correlations rather than asserting independence.
+
+Even the single-face width-free paid certificate is too weak. Definitions
+`localRayleighFloor:58`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeLocalResponseOrbit.lean`,
+`localResponseFloor:69`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLocalResponse.lean`,
+`localLower:44` and `localUpper:47`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialUniformLocalBand.lean`, and
+`inverseRate:60` / `costCap:65`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteDualCost.lean`, give
+
+    rho(w)=(headFloor(w)/prefixCap(w))^56 / (4*(w^(-12)+5)),
+    0<rho(w)<=(1-w)^56/(20*8^56).
+
+The latter PAPER bound uses `headFloor_le_stepEighth:47`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialChannelCoefficientFence.lean`,
+and `prefixCap_ge_one:32`,
+`lean/YMGap/Continuum/BF4ExactSlabStarRateObstruction.lean`.
+`response_step_lower:102`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeResponseLower.lean`, propagates the
+paid rate, but it tends to zero, not one, as w tends to one. Its resulting
+rho^(s/2) reserve cannot provide a uniform doubling constant. This limits
+THAT certificate; it does not bound the true response from above or refute H1.
+
+Continue only with a quantitative SAME-action positive-time comparison or
+another direct endpoint estimate; abandon a benchmark-to-interaction join
+that drops signed remainder, orientation, OLD-center, regulator or boundary
+control. Backward work concerns the original physical clock and local-field
+identification, not more scalar schedule precision. ROOT and bounded Sol
+reviews checked the new swap and benchmark mathematics. No original H1,
+interacting comparison, justified physical family, every-state decay, QFT,
+every-group or Clay closure is claimed. No compiler or ASCII reprint.
+Independent COMPLETE two-file diff/source/math/scope review PASS after ROOT
+corrected three source-line pins. `git diff --check` passes. Verification is
+SOURCE/PAPER only; no current-session Lean or full-tree audit is implied.
