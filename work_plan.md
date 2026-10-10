@@ -642,13 +642,44 @@ Three final focused checks and COMPLETE independent source/log and
 mathematical reviews PASS; 21 permitted public gates, no diagnostics.
 No source hole/axiom/classical input, frontier field or resource option added.
 Scope: rational-valued f on the actual dense UnitNorm, NOT arbitrary
-completed Point-functions. NEXT: explicit CReal sample rationalization and
-SAME completed-domain approximation/extension, avoiding quotient representative
-choice and integration of an unavailable f. Use the checked original
-polynomial sphere sup-bound for the actual Cauchy integral construction.
+completed Point-functions. The CReal sample rationalization and actual
+original-polynomial-Haar Cauchy candidate are now checked below. SAME
+completed-domain approximation/extension still avoids quotient representative
+choice and integration of an unavailable f.
 Continuous Haar/J04, MAIN warmed SAME-variance payment/scaling, physical/QFT/
 every-group and Clay remain OPEN. Root registration only; no root/tree audit
 or canonical chart-state change. Exact evidence: adaptive-score audit.
+
+CHECKED CReal-valued dense approximation and ORIGINAL-Haar candidate (2026-10-10 UTC):
+`CRealStableSampling.sample:22` computes an actual rational sample at supplied
+InnerRegularity.rate(tau); sound bound and variation estimates pay tau and
+2*tau without controlling arbitrary initial approximants. The single-radius
+`QuaternionPointBernsteinApproximation.approximation_error_at_cutoff:406`
+retains the sampled noise floor rather than assuming continuity below it.
+`QuaternionPointBernsteinCRealApproximation.realApproximation_error:149`
+produces uniform error<=epsilon for F:UnitNorm->CReal with supplied bound,
+explicit radius and per-output regularity. The actual RatPoly and degree cutoff
+are computed; epsilon/4+3*epsilon/12+epsilon/2 pays all four error contributions.
+`QuaternionPointPolynomialDenseEvaluation.pointEval_embed:101` joins dense
+rational evaluation to the SAME completed polynomial carrier.
+`QuaternionDenseCRealHaarApproximation.haarApproximation_difference:87`
+uses the original sphere sup-bound on the supported signed difference,
+comparing both approximants to SAME F(q).approx at max(two computed rates).
+Its `haarApproximationReal:168` and `haarApproximationInnerRegularity:174`
+produce an actual CReal limit candidate and recoverable den(epsilon/2) rate.
+No integral, approximation theorem or global output rate is assumed.
+Focused checks and complete independent final-source/log and mathematical
+reviews PASS; constructive gates permitted, no final diagnostics. Root imports
+are registration only. Exact commands/hashes and rejected checks: score audit.
+NEXT: pin original-polynomial compatibility, then extend supplied dense data
+to the SAME Point quotient and transport fixed-polynomial approximation.
+Use supplied Cauchy rows, explicitly varying sample tolerances, quantitative
+difference bounds and quotient descent, NOT representative choice. Prove
+positive/normalized/linear/invariant functional laws on the resulting object;
+the paper's pre-existing continuous Haar is not our constructive producer.
+This foundation is separate from MAIN warmed signed-cost versus SAME variance
+and its justified scaling. Continuous Haar/J04, physical/QFT/every-group and
+Clay remain OPEN; no canonical displayed chart claim changed.
 
 The requested paper review confirms that Appendix E assumes continuous Haar;
 its companion section 10.4 supplies a useful EFFECTIVE error-accounting

@@ -16,6 +16,25 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked CReal-valued dense approximation and ORIGINAL-Haar limit candidate (2026-10-10 UTC):**
+`Constructive/CRealStableSampling` samples at supplied output regularity rates,
+with sound limit error and no bound on arbitrary initial approximants.
+`Continuum/QuaternionPointBernsteinCRealApproximation.realApproximation_error`
+constructs a supported rational polynomial uniformly approximating supplied
+CReal-valued dense UnitNorm data with an explicit degree cutoff. Continuity,
+sampling and kernel errors are separately paid: epsilon/4+3*epsilon/12+epsilon/2.
+`Continuum/QuaternionPointPolynomialDenseEvaluation.pointEval_embed` pins dense
+evaluation to the SAME completed polynomial carrier.
+`Continuum/QuaternionDenseCRealHaarApproximation` applies ORIGINAL polynomial
+Haar to those approximants, proves stage difference<=1/(m+1)+1/(n+1), and
+constructs a CReal with separately retained rate `den(epsilon/2)`.
+The input function's bound, continuity radius and output regularity are supplied;
+approximation and the limit candidate are produced, not assumed. Focused checks
+and complete independent source/log and mathematical reviews PASS within the
+constructive gate. Completed Point extension, the positive/normalized/invariant
+continuous Haar package, J04, MAIN scaling and Clay remain OPEN. Root registration
+only; no full root/tree/audit. Exact evidence: adaptive-score audit.
+
 **Checked POINTWISE rational-carrier approximation (2026-10-10 UTC):**
 `Continuum/RationalQuaternionCubeRepairDistance.repair_distance_le` proves
 actual repair has squared-distance cost<=34 times raw distance to a unit input.
@@ -28,8 +47,9 @@ actual rational samples, and proves `uniform_approximation` at the computed
 Zero nodes, n=0 and M=0 are retained. Three focused checks and complete
 independent source/log and math reviews PASS; all 21 public gates permitted.
 This is for rational-valued functions on dense UnitNorm, not arbitrary
-completed Point-functions. CReal sample/extension joins, continuous Haar/J04,
-MAIN and Clay remain OPEN. Exact evidence: adaptive-score audit.
+completed Point-functions. The CReal sample join is now checked above;
+completed-domain extension, continuous Haar/J04, MAIN and Clay remain OPEN.
+Exact evidence: adaptive-score audit.
 Root registration only; no full root/tree/audit.
 
 **Checked ORIGINAL polynomial approximation and sphere sup-bound (2026-10-10 UTC):**

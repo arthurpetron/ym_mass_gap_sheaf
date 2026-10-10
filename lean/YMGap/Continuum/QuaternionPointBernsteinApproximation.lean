@@ -401,6 +401,20 @@ theorem uniform_approximation (f : UnitNorm → Q') (M : Q')
   exact Q'.le_trans' _ _ _ hbound
     (Q'.le_trans' _ _ _ hsum (Q'.le_of_eqv hpin))
 
+/-- The single-radius consumer retains a fixed noise floor in `eta`.
+It does not require a modulus at every smaller tolerance. -/
+theorem approximation_error_at_cutoff (f : UnitNorm → Q') (M delta eta : Q')
+    (hd : (0 : Q') < delta) (heta : (0 : Q') ≤ eta)
+    (hM : ∀ x, Q'.abs (f x) ≤ M)
+    (hmod : ∀ q x, distSq q.val x.val ≤ delta → Q'.abs (f q + -(f x)) ≤ eta)
+    (epsilon : Q') (he : (0 : Q') < epsilon) (n : Nat)
+    (hn : approximationCutoff M delta epsilon ≤ n) (x : UnitNorm) :
+    Q'.abs (evalRatPoly (environmentOf x.val) (approximationPolynomial f n) + -(f x))
+      ≤ eta + HalfPow.half*epsilon := by
+  have hM0 : (0 : Q') ≤ M := Q'.le_trans' _ _ _ (Q'.abs_nonneg (f x)) (hM x)
+  exact Q'.le_trans' _ _ _ (approximation_error f M delta eta hd heta hM hmod x n)
+    (Q'.add_le_add_left eta _ _ (tail_halfBudget M delta epsilon hM0 hd he n hn))
+
 end YMGap.Continuum.QuaternionPointBernsteinApproximation
 
 #print axioms YMGap.Continuum.QuaternionPointBernsteinApproximation.pointRepairedDistance
@@ -416,3 +430,4 @@ end YMGap.Continuum.QuaternionPointBernsteinApproximation
 #print axioms YMGap.Continuum.QuaternionPointBernsteinApproximation.degreeTolerance_positive
 #print axioms YMGap.Continuum.QuaternionPointBernsteinApproximation.approximationCutoff
 #print axioms YMGap.Continuum.QuaternionPointBernsteinApproximation.uniform_approximation
+#print axioms YMGap.Continuum.QuaternionPointBernsteinApproximation.approximation_error_at_cutoff

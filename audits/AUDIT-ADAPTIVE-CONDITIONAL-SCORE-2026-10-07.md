@@ -6,6 +6,151 @@ and a finite strictly positive physical Hamiltonian mass gap.
 
 ## Finite positive cubature foundation (2026-10-10 UTC)
 
+### Selected explicit real-sample / SAME dense-evaluation join (after 969ba22e)
+
+Previous goal turn was PROGRESS: actual POINTWISE rational-valued approximation
+and its data-level cutoff were checked and pushed. Next proposition: for
+F:UnitNorm->CReal with supplied `InnerRegularity` of each output, sound bound
+`leRat(abs(F(q))) M` and an explicit squared-distance continuity radius, construct
+a supported RatPoly with error<=epsilon against the ACTUAL F(q) limit.
+This removes rational-valued sample restriction, not completed-domain/Haar closure.
+Consumer: original polynomial Haar sup-bound for its Cauchy extension, then
+the SAME `Point` polynomial evaluation; no arbitrary-continuous Haar producer exists.
+
+Predicted argument: sample each F(q) at its OWN data-level rate for tau.
+Prove sample absolute value<=M+tau and pair variation<=eta+2*tau from sound
+limit bounds and inner regularity. Rationalized samples need not be uniformly
+continuous at arbitrarily small tolerance: retain the noise floor explicitly.
+Use the existing single-radius Bernstein estimate, charge one further tau
+for the target sample and a separate epsilon/2 kernel tail. Choosing
+eta=epsilon/4 and tau=epsilon/12 pays eta+3*tau+epsilon/2=epsilon.
+The degree stage uses the ACTUAL sampled bound M+tau and radius at eta;
+each output-row stage is explicitly its supplied rate(tau). No Prop witness
+is extracted into sample or cutoff data; no all-approximant bound is assumed.
+
+Sol radial owns the sound stable-sampling estimates; Sol macro produces
+`pointEval(embed q,p)=rational(evalRatPoly(q,p))` on the actual completed
+carrier; Luna locates/reviews the APIs independently. ROOT joins the noisy
+single-radius estimate and computed polynomial/cutoff after reading sources.
+Decisive tests: arbitrary irregular initial approximants, per-point rates,
+M=0, signed values, tau>0 and the original normalization. Abandon/revise on
+legacy one-slack order, quotient-representative choice, silent noise removal,
+continuous-integral circularity or a supplied approximation conclusion.
+Only ROOT runs serial focused capped checks (20 GiB/12 GiB reserve), fresh
+dynamic telemetry and independent complete-source/log reviews; no broad build,
+new frontier bundle/field, source hole, resource option or physical claim.
+
+Actual consumer selected after the real-sample proof: set p_k to the produced
+polynomial at epsilon=invSucc(k) and its computed degree, then H_k=the
+ORIGINAL one-block polynomial Haar of p_k. At each rational test point use
+the maximum of the TWO computed target-output rates to compare p_m,p_n to
+the same F(q) approximation; the original sphere sup-bound gives
+abs(H_m-H_n)<=invSucc(m)+invSucc(n). Predicted CReal Cauchy stage is
+(epsilon/2).den, separately retained as `InnerRegularity` data. No integration
+of F is assumed to define p_k. This produces a limit candidate on supplied
+dense CReal function data, NOT the completed-domain, invariant, positive,
+normalized continuous Haar package. Sol macro owns that actual join; ROOT
+reads and checks it serially. An equality with the original polynomial moment
+on polynomial-valued inputs is the next SAME-functional compatibility test.
+
+### Observed CReal-valued approximation and ORIGINAL-Haar candidate [CHECKED]
+
+`sample`, `lean/YMGap/Constructive/CRealStableSampling.lean:22`, computes
+`x.approx(R.rate tau)` from supplied `InnerRegularity` data. Its
+`sample_error_bound:26`, `sample_abs_le:58`, `sample_difference_le:102` and
+`sample_error_leRat:130` prove error<=tau, sampled bound<=M+tau and sampled
+variation<=eta+2*tau, using sound `leRat` bounds. Arbitrarily irregular initial
+approximants and point-dependent rates are allowed. Eventual witnesses are
+eliminated only in proposition proofs; none is extracted into sample data.
+
+`approximation_error_at_cutoff`,
+`lean/YMGap/Continuum/QuaternionPointBernsteinApproximation.lean:406`, keeps
+the fixed variation floor eta and pays only the kernel tail by epsilon/2.
+`realApproximationPolynomial`,
+`lean/YMGap/Continuum/QuaternionPointBernsteinCRealApproximation.lean:51`,
+uses actual samples of F:UnitNorm->CReal at tau=epsilon/12; its
+`realApproximationCutoff:61` uses bound M+tau and radius at eta=epsilon/4.
+`realApproximationOutputRate:66` retains each output's own rate(tau).
+`realApproximation_error_at_index:96` and `realApproximation_error:149`
+prove uniform error<=epsilon against the actual output row and sound CReal
+limit respectively. The budget is eta+3*tau+epsilon/2=epsilon. No continuity
+of noisy samples below their fixed noise floor or global output regularity
+is assumed. A supported polynomial and its degree cutoff are produced.
+
+`pointCoordinate_embed`,
+`lean/YMGap/Continuum/QuaternionPointPolynomialDenseEvaluation.lean:33`,
+and `pointEnvironment_embed:44` pin dense rational coordinates on the SAME
+completed carrier. `pointEval_embed:101` proves
+`pointEval(embed q,p)=rational(evalRatPoly(environmentOf q.val,p))` for every
+RatPoly. This is evaluation compatibility, not already Haar compatibility;
+no quotient representative is chosen or Haar equivalence used pointwise.
+
+`haarApproximationPolynomial`,
+`lean/YMGap/Continuum/QuaternionDenseCRealHaarApproximation.lean:46`, uses
+the produced polynomial and degree at invSucc(k). `haarApproximationValue:51`
+applies the ORIGINAL one-block polynomial `quaternionHaar 1`.
+`haarApproximation_difference:87` proves actual stage difference<=invSucc(m)
++invSucc(n): at each rational unit point, compare the two polynomials to
+the SAME F(q) row at the maximum of their TWO computed output rates, keep
+their supported signed difference, then apply the original sphere sup-bound.
+`haarApproximationRate:136` computes den(epsilon/2);
+`haarApproximation_regular:140` pays each stage residual by epsilon/2.
+`haarApproximationReal:168` constructs the actual CReal sequence, while
+`haarApproximationInnerRegularity:174` separately retains the recoverable rate.
+This is a candidate for supplied bounded uniformly continuous dense CReal
+data, not a supplied integral or a functional on all completed Point functions.
+
+Accepted ROOT-only serial monitored checks, each exit 0:
+
+```
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Constructive/CRealStableSampling.lean --check-output lean/.lake/build/lib/lean/YMGap/Constructive/CRealStableSampling.olean --log-file /private/tmp/ym-stable-creal-sampling-check1.log
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionPointBernsteinApproximation.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionPointBernsteinApproximation.olean --log-file /private/tmp/ym-point-single-radius-check1.log
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionPointPolynomialDenseEvaluation.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionPointPolynomialDenseEvaluation.olean --log-file /private/tmp/ym-point-dense-evaluation-check3.log
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionPointBernsteinCRealApproximation.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionPointBernsteinCRealApproximation.olean --log-file /private/tmp/ym-point-creal-approximation-check2.log
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionDenseCRealHaarApproximation.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionDenseCRealHaarApproximation.olean --log-file /private/tmp/ym-dense-creal-haar-check3.log
+```
+
+| Source | Source SHA-256 | Accepted log SHA-256 |
+|---|---|---|
+| CRealStableSampling | `6c23e28dda39a70e40fe49184af3d9deb6420ddd3626fbdb1bff0e9ca6be566b` | `e8620d022c9a46e844c8aa71377d41bd932be0ed12c514d2c001e851d3b51257` |
+| PointApproximation with single-radius helper | `9d4e4ec0ea0655ce0f3e8247661f51f447a8b06f06d8ae35dbdeb83c83844eb9` | `8fd5a13d5bdf73e9cbbb466192a40c8061853d71abb08d0136a25d40ba4062ab` |
+| PointPolynomialDenseEvaluation | `5c7c694fa10e95b0d70a48ed3cec51e9f73f0a4a762535f18342878ff3fa2f1d` | `3b06fc510380a955a87db2fc3b271887edec0a121ac50f45831c2c10d2456de3` |
+| PointBernsteinCRealApproximation | `b72253596a36950afe6a7e4496cd2998fbd08e9d0952029cde9ea1dae913573b` | `7486a1c5455c6d32fbf58c968bec797bdc7f5c776be07d9561d2418d89edb16b` |
+| DenseCRealHaarApproximation core | `9fb765b619943e88162403d07b538dfc65f195adb5b178a69e7ce023cd2370ae` | `c610767759fd444fa231b5085d1f069e2af1f6f0896bd6450d78f3b30edd10fb` |
+
+COMPLETE independent final-source/log and mathematical reviews PASS for
+the four new leaves and the added single-radius helper. The five accepted
+checks print 40 gates (5+14+3+11+7), all within {propext,Quot.sound}; seven
+are empty. No final diagnostics. Dense-evaluation checks1--2 exposed tactic
+syntax and the out-of-range coordinate branch; CReal-approximation check1
+exposed missing namespace opens and a nonexistent nonnegativity helper.
+Haar checks1--2 exposed an unqualified Haar sum lemma and proof-only section
+variables, then `include ... in` placement before documentation. Those failed
+checks' recovery output is REJECTED, never accepted axiom evidence. Corrections
+changed no hypothesis and introduced no source hole, axiom or classical input.
+Fresh dynamic telemetry, zero swap and no competing compiler preceded every
+launch; one 20-GiB worker with 12-GiB reserve. Root imports are registration
+only; no full root/tree/audit/guard/metric or resource-limit increase.
+
+Optional SAME-polynomial compatibility was mathematically reviewed but NOT
+accepted. Haar checks4--6 hit deterministic 200000-heartbeat limits while
+elaborating the specialized CReal statement/projection, before its proof;
+aliases and local irreducibility did not resolve that expansion. Their output
+is REJECTED. No resource option was raised. The optional append was removed,
+restoring the BYTE-IDENTICAL accepted check3 source hash above, independently
+reviewed in full. No compatibility theorem or mathematical refutation is
+claimed from those attempts. The next join remains an explicit open residue.
+
+NEXT: prove original-polynomial compatibility, then construct the SAME
+completed-Point function extension and transfer the fixed polynomial estimate
+through it. A supplied Cauchy row may carry a varying output sample precision;
+its quotient descent needs both sampling errors explicitly. Positivity,
+normalization, linearity and invariance must be proved for the actual functional,
+not imported from the paper's already-assumed continuous Haar.
+Continuous Haar/J04, MAIN complete warmed signed-cost versus SAME interacting
+variance, justified scaling, physical mass, full QFT, every group and Clay
+remain OPEN. Canonical displayed chart claims are unchanged; no reprint.
+
 ### Selected POINTWISE repaired Bernstein approximation (after 244b483c)
 
 Previous goal turn was PROGRESS: ORIGINAL polynomial Haar approximation and

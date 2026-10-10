@@ -36,6 +36,7 @@ import YMGap.Constructive.ExpPos
 import YMGap.Constructive.CRealLog
 import YMGap.Constructive.CRealAdd
 import YMGap.Constructive.CRealInnerRegularity
+import YMGap.Constructive.CRealStableSampling
 import YMGap.Constructive.CRealLogInnerRegularity
 import YMGap.Constructive.CRealMulMono
 import YMGap.Constructive.SumOfSquares
@@ -5412,6 +5413,11 @@ import YMGap.Continuum.QuaternionHaarTensorBernsteinPolynomialGrid
 import YMGap.Continuum.RationalQuaternionCubeRepairDistance
 import YMGap.Continuum.QuaternionPointBernsteinConcentration
 import YMGap.Continuum.QuaternionPointBernsteinApproximation
+-- Explicit CReal samples, SAME dense completed evaluation, and the original
+-- polynomial-Haar Cauchy candidate. Not completed continuous Haar or J04.
+import YMGap.Continuum.QuaternionPointPolynomialDenseEvaluation
+import YMGap.Continuum.QuaternionPointBernsteinCRealApproximation
+import YMGap.Continuum.QuaternionDenseCRealHaarApproximation
 import YMGap.Continuum.SU2HeatJacobiFinitePrefixClassPolynomial
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticBound
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticCutoff

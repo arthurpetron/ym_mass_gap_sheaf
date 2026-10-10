@@ -10,6 +10,16 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**New constructive integration input:** bounded, uniformly continuous CReal
+data on the dense rational quaternion sphere now have a computed polynomial
+approximation with explicit error. Applying the original polynomial Haar
+functional gives a constructive-real limit with a recoverable Cauchy rate.
+Focused kernel checks and independent reviews passed. This is a dense-data
+limit candidate, not yet continuous Haar on the completed group; polynomial
+compatibility, completed-domain extension and invariant functional laws remain
+open. It closes no mass-gap claim. See the
+[checked construction and next join](audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md).
+
 **New exact original-family energy identity:** Lean now proves
 `E=(h-19*t)*G+C-t*R-O-t*B`, where `h=1-w`, `t=h^2/2` and B is a
 produced nonnegative commutator/Gram slack for nonnegative nome. It retains

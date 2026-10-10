@@ -4,6 +4,32 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## CReal-valued dense approximation and ORIGINAL-Haar candidate (2026-10-10 UTC)
+
+`CRealStableSampling.sample:22` computes samples at supplied rates. Sound
+`sample_abs_le:58` and `sample_difference_le:102` pay sample errors without
+assuming arbitrary initial approximants are bounded. The fixed-radius
+`QuaternionPointBernsteinApproximation.approximation_error_at_cutoff:406`
+keeps the noise floor. `QuaternionPointBernsteinCRealApproximation`
+produces a supported RatPoly and explicit degree/output stages;
+`realApproximation_error:149` proves error<=epsilon against the actual CReal
+output, paying epsilon/4+3*epsilon/12+epsilon/2.
+`QuaternionPointPolynomialDenseEvaluation.pointEval_embed:101` pins its
+dense evaluation to the SAME completed polynomial carrier.
+`QuaternionDenseCRealHaarApproximation.haarApproximation_difference:87`
+applies the ORIGINAL polynomial Haar sup-bound to the signed difference of
+two computed approximants, giving <=invSucc(m)+invSucc(n).
+`haarApproximationReal:168` constructs a CReal, and
+`haarApproximationInnerRegularity:174` retains explicit rate den(epsilon/2).
+Function bound, continuity radius and output regularity are inputs;
+polynomial approximation and the Haar limit candidate are genuine outputs.
+Focused checks and complete independent source/log and mathematical reviews
+PASS within {propext,Quot.sound}; exact evidence in the adaptive-score audit.
+NEXT: original-polynomial compatibility and SAME completed-Point extension;
+then actual positive/normalized/linear/invariant continuous Haar and J04.
+MAIN warmed SAME-variance payment/scaling, physical/QFT/every-group and Clay
+remain OPEN. No broad audit/metric or canonical chart-state change.
+
 ## POINTWISE polynomial approximation on the rational carrier (2026-10-10 UTC)
 
 `RationalQuaternionCubeRepairDistance.repair_distance_le:210` proves
@@ -19,8 +45,8 @@ explicit bound and squared-distance modulus, including M=0. No approximation
 premise, continuous integral or quotient representative choice.
 Three focused checks and COMPLETE independent final-source/log and math
 reviews PASS; all 21 public gates within {propext,Quot.sound}, no diagnostics.
-Earlier elaboration recovery output rejected, not evidence. NEXT: explicit
-CReal sample errors and SAME completed-Point approximation/functional extension.
+Earlier elaboration recovery output rejected, not evidence. The explicit
+CReal sample join is now checked above; SAME completed-Point extension is OPEN.
 Continuous Haar/J04, MAIN warmed SAME-variance payment/scaling,
 physical/QFT/every-group and Clay remain OPEN; no broad audit/metric or chart
 claim change. Exact commands, hashes and scope: adaptive-score audit.
