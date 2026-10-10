@@ -330,9 +330,31 @@ theorem completedTranslatedEval_action (right : Bool) (g x : Point)
     rw [ho]
     exact translated_rational_eval true (G.seq n) (X.seq n) p hp
 
+/-- The actual polynomial CReal on a SUPPLIED source row, reusing the finite
+arithmetic underlying pointEval. No quotient representative is selected. -/
+def rowPolynomialEval (X : CauchyPoint) (p : RatPoly) : CReal :=
+  evalReal (rowEnvironment X) p
+
+/-- Every approximation is the original polynomial evaluated on the literal
+rational unit point at that same row index. -/
+theorem rowPolynomialEval_approx (X : CauchyPoint) (p : RatPoly) (n : Nat) :
+    (rowPolynomialEval X p).approx n =
+      evalRatPoly (quaternionCoordinates (X.seq n).val) p := by
+  unfold rowPolynomialEval
+  rw [evalReal_approx]
+  rw [funext (environment_approx X n)]
+
+/-- Exact pin to the EXISTING pointEval on the actual completion quotient. -/
+theorem pointEval_rowPolynomialEval (X : CauchyPoint) (p : RatPoly) :
+    pointEval (Quotient.mk chordSeminorm.completionSetoid X) p =
+      Quotient.mk crealSetoid (rowPolynomialEval X p) := pointEval_mk X p
+
 end YMGap.Continuum.SU2QuaternionPointPolynomialHaarTranslation
 
 #print axioms YMGap.Continuum.SU2QuaternionPointPolynomialHaarTranslation.evalRC_coeffEqv_supplied
 #print axioms YMGap.Continuum.SU2QuaternionPointPolynomialHaarTranslation.pointEval_coeffEqv
 #print axioms YMGap.Continuum.SU2QuaternionPointPolynomialHaarTranslation.completedTranslatedHaar_invariant
 #print axioms YMGap.Continuum.SU2QuaternionPointPolynomialHaarTranslation.completedTranslatedEval_action
+#print axioms YMGap.Continuum.SU2QuaternionPointPolynomialHaarTranslation.rowPolynomialEval
+#print axioms YMGap.Continuum.SU2QuaternionPointPolynomialHaarTranslation.rowPolynomialEval_approx
+#print axioms YMGap.Continuum.SU2QuaternionPointPolynomialHaarTranslation.pointEval_rowPolynomialEval

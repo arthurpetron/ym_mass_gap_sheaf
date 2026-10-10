@@ -40,9 +40,12 @@ constructive gate. `Continuum/QuaternionDenseCRealPointExtension` now computes
 the image of each supplied point Cauchy row using shrinking samples, retains
 its explicit inner rate and descends to the SAME Point->RC map. Its dense
 embedding pin handles nonmonotone output rates without representative choice.
-Compatibility with completed polynomial evaluation and the actual continuous
-Haar functional laws, J04, MAIN scaling and Clay remain OPEN. Root registration
-only; no full root/tree/audit. Exact evidence: adaptive-score audit.
+`Continuum/QuaternionCompletedPolynomialApproximation` now joins the ACTUAL
+Bernstein polynomial to that extension on EVERY Point in two-sided RC order,
+at the existing computed degree cutoff. Exact dense polynomial values recover
+the SAME pointEval on all Points, not just embedded rationals.
+Actual continuous Haar functional laws, J04, MAIN scaling and Clay remain OPEN.
+Root registration only; no full root/tree/audit. Exact evidence: adaptive-score audit.
 
 **Checked POINTWISE rational-carrier approximation (2026-10-10 UTC):**
 `Continuum/RationalQuaternionCubeRepairDistance.repair_distance_le` proves

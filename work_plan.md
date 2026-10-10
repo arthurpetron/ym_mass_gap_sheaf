@@ -694,14 +694,24 @@ nonmonotone inner rates. No boundedness or chosen representative is assumed.
 Two focused checks and COMPLETE independent source/log/math reviews PASS;
 six sampling gates and ten extension gates permitted, no final diagnostics.
 Root registration only; exact commands/hashes/rejected checks: score audit.
-NEXT: pin the ORIGINAL polynomial row to existing pointEval on EVERY
-completed Point, then transfer fixed-polynomial approximation to this actual
-map. Agreement at embedded rationals alone is not that join. Existing
-`SU2QuaternionPointPolynomialHaarTranslation` has the relevant exact supplied
-row evaluation privately; reuse its finite arithmetic rather than replace
-the completed carrier or add another dense-only wrapper. Retain quantitative
-row errors and quotient descent, NOT representative choice. Prove
-positive/normalized/linear/invariant functional laws on the resulting object;
+CHECKED subsequent EVERY-Point polynomial join (after 8caa580f):
+`SU2QuaternionPointPolynomialHaarTranslation.rowPolynomialEval:335` reuses
+the original supplied-row arithmetic; its approximation and quotient pins
+retain the existing pointEval. `QuaternionCompletedPolynomialApproximation`
+proves row error eta at explicit (epsilon/2).den, and
+`pointPolynomial_distance:129` gives the genuine two-sided RC order bound
+on EVERY Point. `pointPolynomial_compatible:145` gives exact all-Point equality
+from exact dense INPUT values. `pointBernstein_approximation:163` consumes
+the actual computed dense polynomial and degree bound, producing uniform
+completed-domain approximation. No approximation or completed equality is
+assumed. Two focused checks and COMPLETE independent source/log/math reviews
+PASS, twelve permitted gates, no final diagnostics. Root registration only;
+exact commands/hashes/rejected checks: adaptive-score audit.
+NEXT: compare original-Haar candidates from different actual dense data
+presentations, retaining their bounds, rates and radius choices. Prove
+independence for equal input values before quotient-level functional laws;
+then positive/normalized/linear/invariant laws on the resulting object.
+Use the checked all-Point approximation and ORIGINAL moment invariance;
 the paper's pre-existing continuous Haar is not our constructive producer.
 This foundation is separate from MAIN warmed signed-cost versus SAME variance
 and its justified scaling. Continuous Haar/J04, physical/QFT/every-group and

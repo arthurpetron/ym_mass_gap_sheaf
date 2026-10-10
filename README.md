@@ -19,9 +19,11 @@ limit candidate, not yet continuous Haar on the completed group. Its own
 function-bound estimate and compatibility with original polynomial moments
 are now checked for pointwise-identified dense inputs. Supplied dense data
 now extend to the same completed Point space with real-quotient values,
-explicit supplied-row rates and no representative choice. Compatibility
-with completed polynomial evaluation and invariant functional laws remain
-open. It closes no mass-gap claim. See the
+explicit supplied-row rates and no representative choice. Uniform polynomial
+approximation on every completed Point is now checked with a computed degree
+cutoff; exact polynomial inputs recover the existing polynomial evaluation.
+Continuous Haar functional laws and compact realization remain open.
+It closes no mass-gap claim. See the
 [checked construction and next join](audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md).
 
 **New exact original-family energy identity:** Lean now proves

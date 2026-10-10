@@ -6,6 +6,86 @@ and a finite strictly positive physical Hamiltonian mass gap.
 
 ## Finite positive cubature foundation (2026-10-10 UTC)
 
+### Selected SAME completed polynomial comparison (after 8caa580f)
+
+Previous goal turn: PROGRESS, actual Point->RC extension checked and pushed.
+Next proposition: sound dense error eta from an original polynomial p
+passes to the constructed extension versus EXISTING pointEval on EVERY
+completed Point; eta=0 gives equality of those two maps. Consumer: actual
+completed-domain Bernstein approximation before continuous original Haar.
+Reuse existing private supplied-row polynomial arithmetic with a public
+computed row value, exact approximation pin and pointEval quotient pin.
+No existing definition or frontier statement changes. At source row index n,
+compare the computed F sample with the constant original polynomial value
+using the two-tolerance sampling estimate. Preserve eta+2*invSucc(n),
+then remove only that tail at the explicit cutoff (epsilon/2).den.
+An RC-valued two-sided order bound must be proved before calling the result
+completed-point approximation, not inferred from a representative-row label.
+Consume realApproximation_error to produce the actual Bernstein instance.
+Tests: zero/constant/repeated/signed p, nonmonotone rates and varying row
+speeds. Abandon any representative choice, assumed polynomial output pin or
+different environment. Sol screens the mathematics; ROOT implements and
+checks serially under fresh telemetry; independent final-source/log review.
+No browsing, new analytic field, resource option or canonical status change.
+
+### Observed EVERY-Point polynomial comparison [CHECKED]
+
+The appended `rowPolynomialEval`,
+`lean/YMGap/Continuum/SU2QuaternionPointPolynomialHaarTranslation.lean:335`,
+reuses the existing private evalReal/rowEnvironment, changing no old definition.
+`rowPolynomialEval_approx:340` pins literal same-index rational evaluation;
+`pointEval_rowPolynomialEval:348` pins the existing completed pointEval.
+The exact four-coordinate environment equality is proved, including zeros
+outside the four actual coordinates.
+
+`rowPolynomial_distance_at_index`,
+`lean/YMGap/Continuum/QuaternionCompletedPolynomialApproximation.lean:83`,
+retains eta+2*invSucc(n) against this ACTUAL polynomial row from sound dense
+error eta. `rowPolynomial_distance:100` removes only the sample tail at
+computed cutoff (epsilon/2).den. `pointPolynomial_distance:129` then proves
+BOTH directions in the genuine RC order for EVERY Point, using the existing
+pointEval, not a new presentation advertised as equivalent.
+`pointPolynomial_compatible:145` gives exact all-Point equality from zero
+dense input-value error. `pointBernstein_approximation:163` consumes the
+ACTUAL realApproximation_error and computed degree cutoff, with its sign
+orientation explicitly reversed, to produce completed-domain approximation.
+Function bounds/moduli are supplied; approximation and compatibility are
+outputs. No uniform pointwise eventual index or Point representative is chosen.
+
+Accepted ROOT-only monitored commands, both exit 0:
+
+```
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/SU2QuaternionPointPolynomialHaarTranslation.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/SU2QuaternionPointPolynomialHaarTranslation.olean --log-file /private/tmp/ym-point-polynomial-row-api-check1.log
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionCompletedPolynomialApproximation.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionCompletedPolynomialApproximation.olean --log-file /private/tmp/ym-completed-polynomial-approximation-check2.log
+```
+
+Translation source SHA-256:
+`85b0e626ede3dd0704009c732986fc8205b9ce947150d76ce288808352781721`.
+Translation accepted log SHA-256:
+`bd735d0d7cd59dd81750500369c187aa886be14c6300ef75dca8b874699f1b85`.
+Completed-comparison source SHA-256:
+`e3a19097bd704b127d4ac840e065b499372e38d5e017ef5024d7eddba8b02f33`.
+Completed-comparison accepted log SHA-256:
+`bdfd81966363f6d9eeea2144644bfaa1f2a500d9ed01dab80006aea57745dd20`.
+COMPLETE independent Luna final-source/log and Sol mathematical reviews PASS.
+Seven row-API gates and five comparison gates are exactly {propext,Quot.sound};
+no final diagnostics. First comparison check failed only on the missing
+SU2QuaternionPolynomialHaarCarrier namespace open; its recovery sorryAx output
+is REJECTED. Adding that actual defining namespace preserved every hypothesis.
+Fresh telemetry before each serial 20-GiB check found zero swap and no
+competing compiler/runner; reserve stayed 12 GiB. No source hole, new axiom,
+analytic field, resource option or canonical statement changed. Semantic-root
+import is registration only; no full root/tree/audit/guard/metric run.
+
+NEXT: prove original-Haar candidate distance<=eta from actual dense input
+distance<=eta across separate bounds/regularity/radius presentations. Zero
+distance must give presentation independence before quotient functional laws.
+The completed approximation is now available; positivity, normalization,
+linearity, continuous translation invariance and compact realization remain
+separate obligations. Continuous Haar/J04, MAIN warmed SAME-variance payment/
+scaling, physical/QFT/every-group and Clay remain OPEN. No chart-state change
+or literature scan.
+
 ### Selected actual completed-Point extension (after d9d07205)
 
 Previous goal turn: PROGRESS, original-moment comparison and actual candidate

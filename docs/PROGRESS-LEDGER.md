@@ -4,6 +4,26 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Uniform polynomial approximation on the SAME completed Points (2026-10-10 UTC)
+
+`SU2QuaternionPointPolynomialHaarTranslation.rowPolynomialEval:335` reuses
+the existing finite CReal polynomial arithmetic; its exact row and quotient
+pins preserve original polynomial evaluation at literal source-row points.
+`QuaternionCompletedPolynomialApproximation.rowPolynomial_distance:100`
+passes dense error eta to the actual extension with cutoff (epsilon/2).den.
+`pointPolynomial_distance:129` is a genuine two-sided RCle bound on EVERY
+completed Point, not just a supplied-row label.
+`pointPolynomial_compatible:145` gives exact equality with SAME pointEval
+from dense input-value identification. `pointBernstein_approximation:163`
+produces uniform completed approximation using the existing computed degree
+cutoff and actual Bernstein polynomial. Input bounds/moduli remain explicit;
+no approximation conclusion, representative or uniform output stage is assumed.
+Two focused checks and COMPLETE independent final-source/log/math reviews PASS;
+exact evidence in the adaptive-score audit. NEXT: original-Haar comparison
+across actual data presentations and choices, then functional laws.
+Continuous Haar/J04, MAIN signed-variance payment/scaling, physical/QFT/
+every-group and Clay remain OPEN. No full root/tree audit or chart-state change.
+
 ## Actual SAME-Point extension of supplied dense data (2026-10-10 UTC)
 
 `CRealStableSampling.sample_difference_le_asymmetric:140` retains the two
@@ -17,8 +37,8 @@ two sample tails pay epsilon/2+epsilon/4+epsilon/4.
 monotonicity, arbitrary raw-row bound or quotient representative choice.
 Two focused checks and complete independent source/log/math reviews PASS;
 exact commands/hashes in the adaptive-score audit. No full root/tree audit.
-NEXT: original polynomial evaluation pin on EVERY completed Point and
-fixed-polynomial approximation on this actual map, then functional laws.
+The original polynomial pin and completed approximation are now checked
+above. NEXT: original-Haar presentation independence and functional laws.
 Continuous Haar/J04, MAIN signed-variance payment/scaling, physical/QFT/
 every-group and Clay remain OPEN. Canonical displayed chart unchanged.
 
