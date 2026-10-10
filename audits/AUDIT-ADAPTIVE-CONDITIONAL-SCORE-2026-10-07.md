@@ -16636,3 +16636,168 @@ Lean edit/build, canonical-field change or chart reprint. Clay stays OPEN.
 Independent COMPLETE two-file source/math/scope review PASS; ROOT confirmed
 the printed equations by local PDF rendering. No numerical proof certificate
 or external theorem was imported.
+
+## Original-edge locality and conditional-variance screen (2026-10-10 UTC)
+
+Bounded ROOT and parallel Sol mathematical/source review, not a literature
+listing scan, compiler run or new original-theory estimate. Test: replace
+the list-length kinetic ceiling by C*(1-w)*sum(c_p^2), using local incidence
+on the SAME complete original edge. Consumer: `family_energy_nome_normalized`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyKineticUpper.lean:266`.
+This optional absolute initial-step improvement would NOT by itself supply
+the PRIMARY late relative estimate consumed by `pathShiftedEpsBound_iff_response`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1Anchor.lean:418`.
+Stop if a hybrid drops an endpoint action/terminal factor, assumes disjoint
+variables independent under the interacting law, or pays a different norm.
+
+### The local angular estimate is already available
+
+`blockRowFaces_length_le_six`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyIncidence.lean:66`, and
+`weighted_spatial_family_angular`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyLocalAngular.lean:117`,
+pay the complete signed local angular form under an arbitrary certified
+original weight. For Nodup physical padded qs, the existing consumer
+`padded_family_energy_local_angular:293` in that same local-angular module
+gives E/Z <= 96*(1-w)*sum(c_p^2) + normalizedRemainder. The signed Taylor
+and angular-weight corrections remain; no bound on their sum is supplied.
+Repeating one face m times would scale its jump energy by m^2, not m;
+an occurrence-wise sum(c_p^2) cannot replace the old budget without Nodup
+or consolidation of identical coefficients.
+
+`family_jump_sum`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyKineticUpper.lean:184`,
+retains ALL face jumps before squaring. Disjoint faces still jump during
+the same simultaneous transition. The checked width-free sweep uses
+`jointWeight:59` and `joint_sweep_efron_stein:234`,
+`lean/YMGap/Continuum/SU2QuaternionProductHeatEfronStein.lean`:
+its law is K(x,y)*W(y), not K(x,y)*q(x)*q(y), q=V*g_n. The missing lower
+factor cannot be silently treated as a spectator.
+
+There is a useful exact PAPER identity for link-disjoint faces p,r. Let S
+swap both endpoints on every link of p, and let Delta_p=f_p(x)-f_p(y).
+The product heat is S-invariant, Delta_p changes sign and Delta_r is fixed:
+
+    2*H2[K*q(x)*q(y)*Delta_p*Delta_r]
+      = H2[K*(q(x)*q(y)-q(x^S)*q(y^S))*Delta_p*Delta_r].
+
+Kernel symmetry is checked by `productHeat_partialSwap_mask`,
+`lean/YMGap/Continuum/SU2QuaternionPartialSwapHeat.lean:97`.
+`reindex_fixed_of_selected_independent`,
+`lean/YMGap/Continuum/SU2QuaternionPartialSliceSwap.lean:258`, requires
+actual source independence, which is not supplied for V*g_n. Thus locality
+exposes an original density-swap defect; it does not make the cross term zero
+or pay it at order (1-w)^2. The checked `disjoint_gamma_zero`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialDisjointFaceJointMargin.lean:208`,
+is differential locality, not an independence theorem for this edge law.
+
+### Positivity removes a separate collective-drift budget on the finite law
+
+PAPER notation: P is the literal bare product heat, A=V*g_n, m=P A=g_(n+1),
+Z=integral A*m, pi_A=A*m/Z and P_A f=P(A*f)/m. This is the actual FINITE
+conditional edge kernel, not a claimed realization of completed T.
+`edgeDensity`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialDirichletForm.lean:55`,
+`oddMass:65`, `edge_total_mass:84` and `normalizedEnergy_window:110` in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialDirichletWindow.lean` pin its
+edge, partition and jump energy. The positive kernel quadratic is checked by
+`productMap_nonnegative`,
+`lean/YMGap/Continuum/SU2QuaternionProductHeatPositive.lean:246`.
+
+On this finite law P_A is reversible, Markov and positive. Put
+
+    e = <f,(I-P_A)f>_pi,
+    C = integral pi_A*Var_(P_A(x,.))(f),
+    D = integral pi_A*(f-P_A f)^2.
+
+Then C=<f,(I-P_A^2)f>, C+D=2e and D<=e<=C. This uses the positive-contraction
+inequality ||P_A f||^2<=<f,P_A f>, not a spectral theorem. Its zero-safe
+rational algebra already exists as `square_form_bound` with U=1,
+`lean/YMGap/Continuum/PositiveContractionOneStepForm.lean:113`.
+The actual reciprocal/marginal instance here is PAPER, not a new Lean term.
+
+With b=T(g_n*f), H=T(g_n*f^2), the actual conditional variance is
+
+    Z*C = integral V*(g_n/g_(n+1))*(g_(n+1)*H-b^2).
+
+`blockNoise:59` and `blockNoise_certificate:96`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockConditionalNoise.lean`,
+produce the determinant, but their weightedMass integrates V*determinant.
+That is variance weighted by V*g_(n+1)^2, NOT V*g_n*g_(n+1). No comparison
+of these weights has been proved by this screen. Positivity removes a
+separate drift payment ONLY if the variance is bounded on the actual law.
+It does not repair that weight mismatch or supply interacting tensorization.
+
+### A generic total-gradient shortcut fails (new elementary PAPER screen)
+
+Reject an arbitrary-source, dimension-independent bound of edge energy by
+C*sup Gamma(f), even at one fixed positive product prefix. This is NOT a
+counterexample to the actual Wilson-family or late H1 estimate.
+
+The literal cutoff-one prefix at w=1/2 is k(q)=1+d*Re(q), d=1/2.
+Source pins: `coeffW` and `coeffW_one`,
+`lean/YMGap/Continuum/BondMovingStep.lean:259` and `:272`;
+`characterPolynomial`,
+`lean/YMGap/Continuum/BF4GeometricSpinNetworkMehler.lean:409`;
+`heatPrefix`, `lean/YMGap/Continuum/QuaternionHaarHeatCertificate.lean:31`.
+This kernel is pointwise >=1/2, normalized and positive as a quadratic.
+No cofinal head-cutoff guard or semigroup identity is asserted for this test.
+
+Choose m>=4, n=m^2, z=1-1/m and unit q_+,q_- with real part z and
+q_-=conj(q_+). Let mu be uniform on the 2^n product-cube points with
+coordinates q_+ or q_-. For the product kernel, set
+
+    a=1+d, b=1+d*z, c=1+d*z^2,
+    nu=a^(-n/2)*delta_identity+c^(-n/2)*mu,
+    rho=(b/sqrt(a*c))^n.
+
+Both self-pairings of the two components equal 1; their cross-pairing is rho.
+Exactly b^2/(a*c)=1-d/[m^2*(1+d)*(1+d*z^2)]. Bernoulli gives rho^2>=2/3,
+so rho>1/2 and the complete two-endpoint partition is 2+2*rho.
+
+Use the globally smooth observable
+
+    f(x)=sqrt(1+sum_j 2*(1-Re(x_j)))-1.
+
+Its total round-S^3 angular energy is
+sum_j(1-Re(x_j)^2)/(1+sum_j 2*(1-Re(x_j))) <=1. It is zero at the identity
+and constant L=sqrt(1+2*m)-1 on the cube. Hence its edge energy is exactly
+rho*L^2/[2*(1+rho)] > m/6, since L^2>=m for m>=4. The link count is n=m^2;
+the total-gradient cap stays 1 while the energy grows without bound.
+
+The source need not remain singular. For each fixed m, approximate every
+point by the normalized polynomial-square density (1+dot(q,x))^(2M),
+take products and the same balanced mixture, and add 1/M. The densities
+are strictly positive; their limiting edge energy is the displayed value.
+The one-point concentration inputs are already checked as
+`kernelPower_certificate:75`, `kernelMoment_positive:433` and
+`normalizedChordMoment_exact:507`,
+`lean/YMGap/Continuum/SU2QuaternionPolynomialKernelConcentration.lean`.
+Transported-source approximation and this counterexample are PAPER here,
+not a newly compiled arbitrary-continuous integration theorem.
+All centers and source coefficients can be rational: take odd s>=3,
+m=(s^2+3)/2 and q_+=(1-1/m,s/m,1/m,1/m). Its norm is exactly one, m and
+n are even, and both balancing powers are rational.
+
+The bad f is nonlinear and global, NOT a bounded-degree local character sum
+or a supplied original observable. For n^(-1/2)*sum_j chi_1(x_j), the cube
+increment is only 2, so this construction does not refute its desired bound.
+Nor is nu, or its polynomial approximation, realized as BF4's V*g_n.
+
+### Decision and remaining analytic task
+
+REVISE the locality experiment: do not build an incidence-only kinetic
+compiler, a generic intrinsic-gradient compiler, or a conditional-kernel
+bundle assuming the missing estimate. A source-specific signed covariance,
+density-swap or remainder estimate could still give a stronger finite bound;
+none is supplied here. Even that absolute unfiltered bound would need a
+separate SAME late-response join. PRIMARY remains the complete signed
+late-BOX expectation relative to its OWN late response on a justified
+changing family. The finite conditional kernel has not been identified
+with completed T, and no heat-bath/OS/physical gap inference is made.
+No Lean edit/build, sorry, axiom, physical-family instance, canonical claim
+closure or ASCII reprint. Continuum/QFT/every-group/Clay remain OPEN.
+ROOT inspected the complete two-file diff and rechecked the finite-prefix
+arithmetic. Independent COMPLETE source/math/scope review PASS, including
+declaration line numbers and the odd/even marginal distinction. `git diff
+--check` passes; no compiler or broad audit was needed for these documents.

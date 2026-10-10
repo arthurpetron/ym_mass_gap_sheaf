@@ -168,6 +168,24 @@ Physical stage geometry may depend on both regulator indices; controlling
 that factor is not ruled out. Exact PAPER/source evidence: adaptive-score
 audit, "Positive-time producer and field-normalization screen". MAIN stays OPEN.
 
+Locality screen (2026-10-10 UTC; SOURCE/PAPER, not a new Lean bound): the
+six-face incidence estimate ALREADY pays the angular term. It does not pay
+the complete simultaneous jump: partial endpoint swaps expose the original
+spatial/terminal density defect. For the actual finite conditional edge
+kernel, positivity gives drift <= energy <= integrated conditional variance;
+no separate drift producer is necessary on THAT law. Its marginal is
+V*g_n*g_(n+1), not the existing noise determinant's V*g_(n+1)^2 weight.
+Do not substitute the latter or identify this kernel with completed T.
+A new elementary product-prefix counterexample also rejects a generic
+dimension-free total-gradient shortcut for arbitrary endpoint sources and
+global observables; it does NOT refute bounded-degree Wilson families or H1.
+NEXT selection test: keep the COMPLETE signed late-BOX insertion and ask
+whether actual source/action structure pays its cross terms or density-swap
+defect against its OWN late response. An absolute unfiltered locality bound
+alone would still not be H1. No conditional-kernel, gradient or variance
+wrapper is selected. Exact formulas, counterexample and scope: adaptive-score
+audit, "Original-edge locality and conditional-variance screen".
+
 Independent bounded Sol source/math review agrees with this reduction and
 its unpaid H1 bound. That SOURCE/PAPER H1 review changed no Lean file, axiom
 declaration, canonical field or chart; the separately recorded scalar RG
