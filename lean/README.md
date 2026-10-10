@@ -16,6 +16,19 @@ genuinely constructive.
 t = -4 log w (repo label g^2 = t); standard g^2 = 2t = -8 log w, to which b0, b1
 refer; older docstrings use w = e^{-t}. See `docs/CONVENTIONS-COUPLING.md`.
 
+**Checked finite SAME-Haar Bernstein concentration (2026-10-10 UTC):**
+`Continuum/QuaternionHaarBernsteinCoordinateVariance.coordinateVariance_eq`
+proves the actual coordinate coefficient identity for all n. The literal
+tensor/Certificate join in `Continuum/QuaternionHaarTensorBernsteinConcentration`
+proves `jointDiscrepancy_eq` =3/(n+1) and `jointNormDefect_le` <=48/(n+1),
+including n=0. These are ACTUAL joint polynomial-Haar weights under one
+quaternion, not independent marginal integrals or a continuous-Haar premise.
+Three focused capped checks and COMPLETE independent source/log and
+mathematical reviews PASS; 22 permitted gates, no final diagnostics.
+Repair-distance/cube/polynomial joins, sphere sup-norm contractivity,
+continuous Haar, MAIN signed payment and Clay remain OPEN. Root imports
+are registration only; no full root/tree/audit. Exact evidence: adaptive-score audit.
+
 **Checked ORIGINAL signed-family square contraction (2026-10-10 UTC):**
 `Continuum/SU2QuaternionRetainedSquareCoercivity` derives mixed IBP and a
 division-free exact square/Gram residual. The actual channel consumer

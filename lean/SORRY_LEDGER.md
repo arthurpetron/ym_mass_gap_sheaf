@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## PROVED finite SAME-Haar norm-defect concentration / OPEN continuous extension (2026-10-10 UTC)
+
+`jointNormDefect_le_sixteen_discrepancy`,
+`lean/YMGap/Continuum/QuaternionHaarTensorBernsteinNormDefect.lean:197`,
+weights the constructed cube Certificate with the actual joint basis.
+`coordinateVariance_eq`,
+`lean/YMGap/Continuum/QuaternionHaarBernsteinCoordinateVariance.lean:426`,
+derives the unconditional coefficient variance identity. The literal
+tensor join `jointDiscrepancy_eq`,
+`lean/YMGap/Continuum/QuaternionHaarTensorBernsteinConcentration.lean:223`,
+uses the SAME sphere carrier to give 3/(n+1), and `jointNormDefect_le:255`
+gives 48/(n+1) for the squared norm defect, including n=0. Three final
+focused checks and COMPLETE independent source/log and mathematical reviews
+PASS; 22 permitted gates, no final diagnostics. No source sorry, axiom,
+analytic premise or canonical-field change; root registration only, no
+root/tree audit. Actual repair-distance/cube/polynomial error joins,
+sup-norm contractivity and continuous Haar remain OPEN. This removes a
+finite approximation input, not MAIN relative payment or a Clay clause.
+MAIN scaling, continuum survival, physical mass, full QFT and every group
+remain OPEN. Commands/hashes and failed-check rejection: adaptive-score audit.
+
 ## PROVED exact ORIGINAL signed-family energy / OPEN SAME-variance payment (2026-10-09 UTC)
 
 `signedFamilyRetainedSlack_nonnegative`,

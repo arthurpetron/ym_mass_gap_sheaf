@@ -5391,6 +5391,11 @@ import YMGap.Continuum.QuaternionHaarTensorBernsteinCubature
 import YMGap.Continuum.QuaternionHaarTensorBernsteinError
 import YMGap.Continuum.RatPolyCubeLipschitz
 import YMGap.Continuum.QuaternionHaarCubeNormDefect
+-- SAME one-block tensor variance and finite 48/(n+1) squared norm-defect
+-- concentration. Repair, continuous Haar and physical endpoints remain open.
+import YMGap.Continuum.QuaternionHaarTensorBernsteinNormDefect
+import YMGap.Continuum.QuaternionHaarBernsteinCoordinateVariance
+import YMGap.Continuum.QuaternionHaarTensorBernsteinConcentration
 import YMGap.Continuum.SU2HeatJacobiFinitePrefixClassPolynomial
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticBound
 import YMGap.Continuum.SU2HeatJacobiOriginalHaarQuarticCutoff

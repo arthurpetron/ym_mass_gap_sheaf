@@ -6,6 +6,95 @@ and a finite strictly positive physical Hamiltonian mass gap.
 
 ## Finite positive cubature foundation (2026-10-10 UTC)
 
+### Selected same-Haar concentration contraction (after 719f1011)
+
+Previous goal turn was PROGRESS: the actual cube-node SOS producer is
+checked and pushed. Now prove the literal finite joint norm-defect average
+<=48*invSucc(n), for every n including zero, rather than another conditional
+consumer. Forward inputs: `defectCertificate`, actual joint-basis Certificates,
+unit-mass rows and the unconditional scalar `bernsteinVariance`. Backward
+consumer: sphere-repaired polynomial approximation, then actual polynomial
+Haar sup-norm contractivity and its continuous extension. This is still an
+SU(2) finite foundation, not MAIN signed-cost or a Clay closure.
+
+Parallel ownership: Sol macro constructs actual raw nodes and the guarded
+finite bound normDefectAverage<=16*discrepancyAverage; Sol radial lifts
+Bernstein variance to a coefficient-level coordinate identity and finite
+polynomial sum algebra; ROOT tensorizes on the SAME four-coordinate Haar
+and proves discrepancyAverage=3*invSucc(n), then joins the inequality.
+No independent coordinate law is introduced. Constant cap pins, all endpoint
+indices and n=0 are decisive checks. Stop/revise if scalar evaluation cannot
+be reflected to coefficients without an analytic premise. ROOT-only serial
+narrow checks, fresh capacity telemetry, one 20-GiB worker/12-GiB reserve;
+independent complete source/log review, no full tree, new sorry or field change.
+
+### Observed same-Haar concentration producer [CHECKED]
+
+The preceding selection now contracts into the actual finite theorem,
+without a supplied variance, continuous integral or independent-coordinate
+law. `coordinateVariance_eq`,
+`lean/YMGap/Continuum/QuaternionHaarBernsteinCoordinateVariance.lean:426`,
+derives the coefficient identity
+`sum_k basis_i(k)*(rawCoordinate(k)-x_i)^2=invSucc(n)*(1-x_i^2)`
+from unconditional `BernsteinVarianceClose.bernsteinVariance` and the actual
+affine-coordinate substitution. All n, every coordinate and endpoint remain.
+`jointNormDefect_le_sixteen_discrepancy`,
+`lean/YMGap/Continuum/QuaternionHaarTensorBernsteinNormDefect.lean:197`,
+multiplies the actual cube Certificate by the actual joint-basis Certificate
+and sums the range-guarded finite inequalities. Both sides use the SAME
+one-block polynomial Haar and literal joint weights.
+
+`discrepancyPolynomial_variance`,
+`lean/YMGap/Continuum/QuaternionHaarTensorBernsteinConcentration.lean:171`,
+tensorizes the four coefficient identities BEFORE applying Haar, using each
+other coordinate's literal partition of unity. `jointDiscrepancy_eq:223`
+then uses the existing arbitrary-insertion sphere-norm relation to give
+the exact total `3*invSucc(n)`. `jointNormDefect_le:255` proves
+the literal weighted squared norm defect <=`48*invSucc(n)`, for every n,
+including n=0 (N=1). No fourth-moment expansion or marginal factorization
+is needed. Carrier equalities do not assert positivity for arbitrary signed
+insertions; the positivity input is the constructed joint-basis Certificate.
+
+ROOT ran only these serial monitored checks, each exit 0:
+
+```
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionHaarTensorBernsteinNormDefect.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionHaarTensorBernsteinNormDefect.olean --log-file /private/tmp/ym-tensor-norm-defect-check2.log
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionHaarBernsteinCoordinateVariance.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionHaarBernsteinCoordinateVariance.olean --log-file /private/tmp/ym-coordinate-variance-check3.log
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/QuaternionHaarTensorBernsteinConcentration.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/QuaternionHaarTensorBernsteinConcentration.olean --log-file /private/tmp/ym-tensor-concentration-check2.log
+```
+
+| Source | Source SHA-256 | Accepted log SHA-256 |
+|---|---|---|
+| NormDefect | `f67eab33b091927f50200c934baeaaddc128efd3bfbb4ecbd2eb73e31938b778` | `a42b28fb5e9d01644af2714ecc8859dc8ab94dc8e74f229faf9aac26f2ea9b4c` |
+| CoordinateVariance | `febea7a296623d9e4b4260cae4aa30504e3bc1a6d9e14dbc8a60002ea9a91434` | `1d1e09e674822c7e1c587909dca872a799e5f788a4fe428ebe945b529eb238a9` |
+| Concentration | `19ac82c4592698ea33500dac58a4c45c4477452b6f7fa0a62879c45e8c615158` | `4785de1fa6f9e1bbc947243d58deaae814ff4d5a3b6eac169541e2de3e5dc0ca` |
+
+COMPLETE independent Luna source/log and Sol mathematical reviews PASS.
+All 22 public gates (7+11+4) stay within {propext,Quot.sound}; six are
+axiom-free, two use only propext, fourteen use both. No final diagnostic.
+Rejected preliminary logs: NormDefect check1 lacked defining namespace
+opens; CoordinateVariance check1 had scalar-associativity/local-unfold and
+unavailable negation-helper errors, check2 had a malformed nested smul;
+Concentration check1 timed out inferring the sphere block at default
+heartbeats. Explicit block/type pinning fixed it, with no raised option.
+Recovery sorryAx in failed logs is NOT accepted evidence; no source sorry,
+new axiom, analytic premise or canonical-field change was introduced.
+Fresh capacity checks showed no competing compiler and zero swap; only one
+20-GiB capped worker with 12-GiB reserve was used. Root imports register these
+modules only; no root/full-tree/axiom audit or canonical chart-state change.
+
+Continue the actual repair-square pin to `repair_error_le`, repaired-coordinate
+cube membership, then the rational Young/half-budget consumer and finite
+aggregation from four separable factors to arbitrary supported RatPoly.
+Only after those joins pursue polynomial sphere sup-norm contractivity and
+continuous Haar extension. Consumers remain `quaternionPolyLinkHaar`,
+`lean/YMGap/Continuum/SU2PolyLinkHaar.lean:69`, and `torusPolyPartition`,
+`lean/YMGap/Continuum/SU2TorusMultiLinkPolyGibbs.lean:133`.
+This is independently derived finite mathematics, not a fermion theorem
+imported from arXiv:2610.09093. MAIN signed-cost versus SAME interacting
+variance, moving-family scaling, physical mass, full QFT, every group and
+Clay stay OPEN. The historical selections below record their earlier scopes.
+
 ### Next quantitative joins (2026-10-10 UTC; PAPER before implementation)
 
 Previous goal turn 3c7a990f was PROGRESS: the actual signed weighted-row

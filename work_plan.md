@@ -552,8 +552,19 @@ No root/tree/audit was run. Next selected mathematical contraction: a
 SUFFICIENT norm-defect/repair bound 48/(n+1), using second moments and a
 four-term sum-of-squares identity, rather than requiring the exact fourth
 moment. The same-Haar SOS certificate is now CHECKED (below); the
-scalar-to-polynomial variance/tensor join remains OPEN. The full 48/N estimate
-is still a PAPER argument, not a proved concentration declaration.
+scalar-to-polynomial variance/tensor join is now CHECKED:
+`QuaternionHaarBernsteinCoordinateVariance.coordinateVariance_eq:426`
+derives the unconditional coefficient identity on the actual shifted coordinate.
+`QuaternionHaarTensorBernsteinNormDefect.jointNormDefect_le_sixteen_discrepancy:197`
+weights the Certificate with the actual joint basis, and
+`QuaternionHaarTensorBernsteinConcentration.jointDiscrepancy_eq:223` sums the
+literal four-coordinate variance before Haar to give 3/(n+1).
+`jointNormDefect_le:255` proves the actual squared norm-defect bound
+48/(n+1), including n=0. No marginal independence or continuous Haar is
+assumed. Three final focused checks and COMPLETE independent source/log and
+mathematical reviews PASS; 22 gates are permitted, no final diagnostics.
+The repair-distance pin, cube membership, polynomial repair/aggregation,
+sphere sup-norm contractivity and continuous extension remain OPEN.
 All source pins, hashes, failed-check repairs and the Fisher/slack screen are
 in the adaptive-score audit's next quantitative joins section. MAIN still needs
 an upper payment of the complete warmed square plus signed remainder; a bound
@@ -566,6 +577,12 @@ coefficient error separate from support/refinement tails and charge all of
 them to the actual growing consumer before claiming a joint limit.
 Source pins, classical-formalization and bounded review scope:
 `audits/RESEARCH-2610-09093-2026-10-08.md`, effective approximation inputs.
+The parallel companion recheck adds one validation rule (section 10.4,
+printed p. 28): fix the construction on the cover first, but on wrapping
+supports average the ACTUAL identified periodic links and their graph/sign
+data. Averaging independent lifted inputs before identifying them is not
+the same polynomial. Preserve this rule when extending the one-block
+cubature to actual finite link products; it supplies no missing bound.
 MAIN centered late-area and all continuum/physical/Clay obligations stay OPEN.
 
 Requested-paper refinement (2026-10-10 UTC; independently screened PAPER):
@@ -582,8 +599,9 @@ carrier for every guarded rational cube node. `normDefect_cap:104` pins the
 scalar defect and `coordSumBound:197` constructs the actual coordinate gaps;
 zero/corners and shared variables remain. Final focused check3 and COMPLETE
 independent source/log and mathematical reviews PASS; all fifteen gates
-are permitted. No root/tree audit; root registration only. Next prove the
-polynomial variance/tensor sum, not another SOS interface;
+are permitted. No root/tree audit; root registration only. The polynomial
+variance/tensor sum and 48/N norm-defect bound are now CHECKED above;
+next pin the actual repaired distance and pay polynomial error,
 do not import Appendix E's pre-existing continuous Haar. Repaired-coordinate
 cube membership and finite aggregation from separable factors to arbitrary
 supported RatPoly still need checked joins. This is a quantitative plan,
