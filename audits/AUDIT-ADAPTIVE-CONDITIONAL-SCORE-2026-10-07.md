@@ -20360,3 +20360,204 @@ ROOT and two independent bounded reviewers agree on factors, signs and the
 four-versus-two correction. No Lean edit/check, new axiom claim, ledger
 discharge or canonical chart change. Original relative energy, justified
 physical family, continuum/QFT/every-group and Clay closure remain OPEN.
+
+### Growing-label heat norm and the complete-star obstruction (2026-10-11 UTC; SOURCE/PAPER)
+
+Decision-driven test: can SU(2) trace recoding or exact neighboring-face
+integration pay the joint insertion exposed in the preceding section? The
+existing consumer is still
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1Anchor.lean:418`
+(`pathShiftedEpsBound_iff_response`). No inspected declaration transports a
+bare-Haar heat-factor norm bound to that SAME interacting response. Test
+finite label closure, actual cutoff guards, weighted label control and the
+head-independence condition before selecting an implementation. Budget:
+ROOT mathematics and two bounded read-only reviewers; no compiler or sweep.
+
+Use doubled-spin labels n, dimensions d_n=n+1 and C_n=n*(n+2), exactly
+`lean/YMGap/Continuum/RGTransport.lean:188,196` (`dimQ`, `c4`). The coefficient
+is `lean/YMGap/Continuum/BondMovingStep.lean:259` (`coeffW`), and the actual
+inclusive prefix is `lean/YMGap/Continuum/QuaternionHaarHeatCertificate.lean:31`
+(`heatPrefix`): h_K(w,x)=sum_(n=0..K) d_n*w^(C_n)*chi_n(x).
+All joins and new estimates below are PAPER deductions, not newly checked
+Lean declarations. In particular, citing an existing component is not a
+claim that its arbitrary placement or the assembled estimate was compiled.
+
+**1. No bounded linear-label closure.** Specialize the nonshared tails of
+the two literal adjacent words to identity. Their shared link then occurs as
+U and U^-1; SU(2) characters agree. The literal orientations are pinned by
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialAdjacentAngularCancellation.lean:184`
+(`original_adjacent_trace_pins`). For ONE shared-link six-plane Gamma,
+
+    Gamma(h_K,h_K) = (1-x*x)*(h_K'(x))^2,
+    [chi_(2K)] Gamma(h_K,h_K) = -K^2*(K+1)^2*w^(2*K*(K+2)).
+
+The Chebyshev recurrence has leading coefficient 2^n; its actual polynomial
+definition and fusion are
+`lean/YMGap/Continuum/SU2ClassPolynomialAlgebra.lean:213,272`
+(`chebPoly`, `chebPoly_fusion`). The leading monomial of the displayed Gamma
+is -K^2*(K+1)^2*2^(2K)*w^(2*K*(K+2))*x^(2K), and lower input labels cannot
+reach degree 2K. This proves the coefficient formula. It is nonzero for
+K>=1,w>0. Applying w*d_w multiplies it by 2*K*(K+2), rather than removing it.
+At K=1 the exact expansion is 12*w^6*chi_0-4*w^6*chi_2.
+
+Thus fixed bounded LINEAR character/loop bases cannot represent these
+insertions at all cutoffs. Bounded primitive trace GENERATORS with unbounded
+polynomial degree remain possible; single-trace recoding introduces repeated
+words. This local degree argument does not refute integrated signed
+cancellation, a weighted approximation, PRIMARY or Yang--Mills.
+
+**2. A useful cutoff-independent weighted norm bound.** Define the finite
+positive coefficient sums
+
+    N_K(w) = sum_(n=0..K) d_n^2*w^(2*C_n),
+    E_K(w) = sum_(n=0..K) C_n*d_n^2*w^(2*C_n).
+
+In normalized class Haar these are respectively the squared heat norm and
+its full one-link angular energy. Actual quaternion ingredients include
+`lean/YMGap/Continuum/SU2QuaternionRelativeCharacterNorm.lean:144`
+(`relativeCharacter_square_norm`),
+`lean/YMGap/Continuum/SU2QuaternionRelativeHarmonicReproduction.lean:46,89`
+(`character_harmonic_reproduction`, `heat_harmonic_reproduction`) and
+`lean/YMGap/Continuum/QuaternionHaarExposedHeatCasimir.lean:79,219`
+(`exposedCharacter_angularCasimir`, `exposedHeatPrefix_angularCasimir`).
+These do not constitute a newly compiled arbitrary-block energy pin here.
+The scalar estimate itself needs no positivity cutoff:
+
+    (1-w)*E_K(w) <= 8*N_K(w),    for EVERY K and 0<=w<=1.
+
+Proof: scalar smoothing already checked in
+`lean/YMGap/Continuum/SU2HeatSquaredCasimirSmoothing.lean:57`
+(`qpow_squared_casimir_smoothing`) gives
+(1-w)*C_n*w^(2*C_n)<=w^(C_n). Multiply by d_n^2 and sum. For n=2r or 2r+1,
+
+    d_n^2 <= 4*d_r^2,
+    C_(2r)-2*C_r = 2*r^2,
+    C_(2r+1)-2*C_r = 2*r^2+4*r+3.
+
+Exponent antitonicity is
+`lean/YMGap/Continuum/HeatKernelRGStep.lean:364` (`qpow_antitone`). Each paired
+term d_n^2*w^(C_n) is therefore <=4*d_r^2*w^(2*C_r). Summing the two terms
+and then extending the nonnegative shorter sum gives <=8*N_K at the SAME
+inclusive cutoff. An unpaired even last label only improves the inequality.
+At w=0, C_0=0 and 0^0=1 give N_K=1,E_K=0; w=1 and K=0 also satisfy it.
+No fixed-band restriction, larger cutoff or opaque constant enters.
+
+**3. Growing energy persists at actual positive cutoffs.** Use only the
+provisional numerical schedule, NOT a physically justified family. Put
+delta_j=`AFPrecisionNomeSchedule.gap j`, w_j=1-delta_j. The checked bounds are
+`lean/YMGap/Continuum/AFPrecisionNomeSchedule.lean:91,101,249,279`
+(`gap_positive`, `gap_lt_one`, `quarter_lt_gap_mul_succ`,
+`gap_mul_succ_lt_two`): 0<delta_j<1 and
+1/4<delta_j*(j+1)<2.
+
+For m>=1 choose j>=8*m*(m+2) and
+K>=max(headCutoff(w_j),m), retaining the actual positivity cutoff from
+`lean/YMGap/Continuum/BF4ExactSlabRetainedHeatHeadComparison.lean:55,71`
+(`headCutoff`, `faceHead_floorCertificate`). Rational Bernoulli gives
+w_j^(2*C_n)>1/2 for all n<=m. Set r=ceil(m/2) and
+a_n=d_n^2*w_j^(2*C_n). For 0<=n<r, n+r<=m and
+
+    a_(n+r) > (n+r+1)^2/2 >= 2*(n+1)^2 >= 2*a_n.
+
+The labels >=r thus carry more than twice the mass below r, without an
+upper bound on N_K. Hence
+
+    E_K(w_j) > (2/3)*r*(r+2)*N_K(w_j) >= (m^2/6)*N_K(w_j),
+    N_K(w_j) > (m+1)*(m+2)*(2*m+3)/12.
+
+For any fixed band n<=B its share of N_K is less than
+2*(B+1)*(B+2)*(2*B+3)/((m+1)*(m+2)*(2*m+3)), which tends to zero with an
+explicit rational bound. At j_m=8*m*(m+2), j_m+1<=25*m^2, so combining the
+schedule's lower bound with part 2 gives
+
+    1/600 < delta_(j_m)*E_K(w_(j_m))/N_K(w_(j_m)) <= 8.
+
+This is a bounded, NONVANISHING weighted heat-factor budget, with every
+K>=max(headCutoff(w_(j_m)),m) still eligible. Bare energy/norm caps and fixed
+spin-band relative accuracy cannot be nome-independent. Coupling weighting
+is viable, but does not by itself produce the required 1/side relative cost.
+The ratio is legitimate here because N_K>=1. It is NOT the warmed source,
+the interacting OS form, a physical clock or a response lower bound.
+The separate highest-label subsequence j=16*K*(K+2) makes the coefficient in
+part 1 exceed (3/4)*K^2*(K+1)^2 in absolute value, but does NOT establish
+K>=headCutoff(w_j); do not use that subsequence as a positive-action instance.
+
+**4. Exact pair fusion does not eliminate the full incident star.** When
+EVERY other insertion is independent of the eliminated link U, Schur
+orthogonality gives, preserving ordered external tails P,Q,
+
+    integral_U h_K(w,U*P)*h_K(w,Q*U^-1) = h_K(w*w,P*Q),
+    integral_U Gamma_U(h_p,h_q)
+      = sum_(n<=K) C_n*d_n*w^(2*C_n)*chi_n(P*Q)
+      = (w/2)*d_w h_K(w*w,P*Q).
+
+Different input cutoffs give their minimum; no tail commutation is allowed.
+At K=1 and P*Q=-1 the second integral is -12*w^6, while both individual
+prefixes are strictly positive, for example at w=1/8. Positive heat factors
+therefore do NOT imply a favorable integrated mixed-gradient sign. At
+P*Q=1 it is positive. Identity-normalized factors require retaining
+h_K(w*w,1)/h_K(w,1)^2; they do not automatically fuse to an identity-normalized
+new prefix.
+
+Existing PUBLIC fundamental path contraction and head-independent boundary
+pins are `lean/YMGap/Continuum/SU2QuaternionAdjacentPlaquetteGluing.lean:137,194,237`
+(`path_schur`, `shared_link_contraction`, `adjacent_boundary_haar`); all-degree
+reproduction is cited in part 2. A public assembled all-spin arbitrary
+incident-path convolution theorem was NOT FOUND in that bounded source
+review. The formulas above remain PAPER joins, not new exported declarations.
+
+Interior original chronological spatial links have four spatial and two
+kinetic factors. The physical incidence cap is
+`lean/YMGap/Continuum/BF4ExactSlabKernelIncidence.lean:64`
+(`faceLinks_count_le_six`), with its NODUP guard; kinetic words remain those
+in `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialKineticHeat.lean:64,94`
+(`relative`, `relative_pin`). The remaining factor R generally depends on U.
+Angular IBP then gives, with positive Casimir C_U=-Delta_U,
+
+    integral R*Gamma_U(h_p,h_q)
+      = integral R*h_p*C_U(h_q) - integral h_p*Gamma_U(R,h_q).
+
+It is the residual, not the two-factor semigroup formula, that retains the
+other incident faces and source/terminal dependence. Existing weighted IBP:
+`lean/YMGap/Continuum/SU2QuaternionHaarAngularIBPAt.lean:99`
+(`quaternionHaar_weighted_angular_at`). Subtracting the two normalized
+response times does not automatically kill this connected insertion or its
+OWN masses and OLD-center terms. No pair-only or positive-sign join is selected.
+
+**5. Stop another local Fisher refinement.** An independently reviewed PAPER
+calculation for finite positive Jacobi heat gives the full S^3 trace
+Delta log h_N >= -6*q/(1-q*q), 0<q<1,N>=1. Each affine factor's worst
+trace occurs at x=1, and the positive derivative-mixture adds nonnegative
+gradient variance; this is not a per-plane Hessian theorem. The mixture is
+`lean/YMGap/Continuum/JacobiShiftedPositiveCoefficients.lean:36,68,90,126`
+(`factor`, `shifted_factor_eq`, `derivative`, `heat`). It still needs value
+and second-jet discrepancy transport before becoming a raw-prefix statement.
+No implementation is selected: the existing original marginal cost already
+has the same inverse-defect scale, by
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFisherCalibrationObstruction.lean:24,76`
+(`marginalCurvatureCost_formula`, `marginalCurvatureCost_nome_defect_lower`).
+Improving this local constant does not pay the squared-generator or signed
+surviving-response term identified above.
+
+Selection consequence: retain full nome-dependent weighted labels and the
+COMPLETE signed joint insertion, or the shorter direct original relative
+energy target. Fixed linear label closure, pure two-factor elimination in an
+interacting six-factor star, and local Fisher refinement are not payments.
+ROOT and two bounded reviewers checked the new finite-sum arguments, cutoffs,
+orientations and scope. No Lean edits/builds, new axiom claims, ledger
+discharges or canonical chart changes. PRIMARY, justified physical scaling,
+continuum/QFT/every-group and Clay remain OPEN.
+
+Bounded external-input screen, saved to avoid repetition: four targeted
+queries and two full primary texts found no theorem paying the actual heat-
+action two-time estimate. Shen--Smith--Zhu, Theorem 1.1/(1.6), gives a finite-N
+Wilson-action loop hierarchy, not this quantitative weak-coupling payment
+([primary paper](https://arxiv.org/pdf/2202.00880v2)). Chatterjee, Theorems 2.3,
+8.1 and 16.3, controls finite-U(N) Wilson free energy/action and its small-field
+quadratic comparison, not the heat-action signed source-relative difference
+([primary paper](https://arxiv.org/html/1602.01222v6)). Menotti--Onofri's
+accessible primary abstract identifies a rigorous two-dimensional heat-action
+result; its full CERN PDF was access-blocked, so no stronger contents claim
+was verified ([primary publication](https://doi.org/10.1016/0550-3213(81)90560-5)).
+This is a bounded NOT FOUND, not an exhaustive literature-absence claim; no
+Wilson-to-heat or four-dimensional continuum-universality join is supplied.

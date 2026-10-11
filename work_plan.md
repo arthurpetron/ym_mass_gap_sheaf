@@ -125,6 +125,26 @@ original relative-energy producer, not a replacement for PRIMARY. Exact
 formula and source pins: adaptive-score audit,
 "Joint coupling Ward reduction and the kinetic correction".
 
+Local closure screen (2026-10-11; SOURCE/PAPER, not new Lean proofs): the
+original neighboring-face gradient insertion has a nonzero label-2K term
+under identity-tail specialization at every positive nome and K>=1.
+SU(2) trace identities therefore do not
+close it on a cutoff-independent bounded LINEAR spin/loop basis. Keep
+nome-dependent weighted labels: for the literal finite heat coefficients,
+`(1-w)*sum_(n<=K) C_n*d_n^2*w^(2*C_n) <= 8*sum_(n<=K) d_n^2*w^(2*C_n)`
+by scalar smoothing and even/odd label pairing. This bare-Haar bound is
+uniform in K, not a bound on the interacting warmed ratio. Its weighted
+cost stays bounded away from zero along an explicit subsequence of the
+provisional precision schedule; weighting alone does not pay 1/side.
+Exact two-factor Schur fusion is eligible only when EVERY other insertion
+is independent of the eliminated link. The complete original incident star
+usually violates that condition; retain its weighted-IBP residual, both
+responses and OLD center. No fixed-band, pair-only or new Fisher adapter is
+selected. The next quantitative test remains the COMPLETE signed joint
+insertion or direct original relative energy. Proofs, cutoff guards and
+independent reviews: adaptive-score audit, "Growing-label heat norm and
+the complete-star obstruction". PRIMARY and chart claims remain OPEN.
+
 Stop two specific joins: an UPPER bound on the comparison cost cannot be
 subtracted to upper-bound the complete signed cost; and the literal plaquette
 source is not the heat-prefix nome derivative. Neither shortcut supplies an
