@@ -19876,3 +19876,143 @@ or canonical closure is claimed for them. Decision: do not add uniform
 warmed kurtosis as a necessary premise or build a Jensen-only adapter.
 Keep entropy/concentration optional and return its remaining local costs
 to the actual joint signed late-response comparison. PRIMARY is unchanged.
+
+### Direct signed consumer gate and removable mean cost (2026-10-11 UTC; SOURCE/PAPER)
+
+Decision: test the CHECKED collar payment against the actual signed consumer
+before selecting further implementation. PRIMARY remains
+`side_j*(R_j(side_j)-R_j(side_j+1)) <= c0*R_j(side_j)` on a justified
+changing family, with fixed finite c0; see
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1Anchor.lean:418`
+(`pathShiftedEpsBound_iff_response`) and `:581`
+(`path_normalized_anchor_shifted`). No positive-scale input is supplied here.
+
+**The unchanged entropy budget fails the selected scaling test.** Let
+P be the actual selected Haar projection/evaluation, W the normalized collar
+action, g its bounded nonnegative source, Z=P(W), a=P(W*g)>0,
+b=P(W*g*g), m=b/a. Since 0<=W,g<=1, weighted Cauchy--Schwarz and g^2<=g
+give `a^2 <= Z*b <= b <= a`, hence `a<=m<=1`.
+The finite ell_N is decreasing on [0,1], so
+
+    p_N(a)-a*ell_N(m) = a*(ell_N(a)-ell_N(m)) >= 0.
+
+For N>=1, `3*p_N(1/3)>=3*p_1(1/3)=2/3`. The computed local RHS of
+`original_collar_source_moment_payment`, after removing its retained exterior
+factor and dividing by a, therefore has the LOWER floor
+
+    budget_N/a >= (512/3)*(1-q)*F,
+    F = selectedCount selected (collar extent links).
+
+The finite remainder is also nonnegative. Optimizing N, heat cutoff, or
+source concentration does not remove this positive face charge. This is a
+floor on the computed UPPER certificate, NOT on the actual defect or
+transfer cost. It does not refute H1 or Yang--Mills.
+Source pins: `lean/YMGap/Continuum/BF4ExactSlabCollarSourceEntropyCoercivity.lean:185`
+(`original_collar_source_moment_payment`);
+`lean/YMGap/Continuum/BF4ExactSlabNormalizedHeatBounds.lean:161`
+(`normalizedHeatProduct_bounds`);
+`lean/YMGap/Continuum/QuaternionHaarFamilySourceConcentration.lean:61,71,87`
+(`sourceMean`, `sourceSecond_le_mass`, `sourceMean_le_one`);
+`lean/YMGap/Continuum/RegularizedLogPolynomialLowerTangent.lean:102`
+(`partial_pin`); `lean/YMGap/Continuum/RegularizedLogPolynomial.lean:61`
+(`partial_mono`); `lean/YMGap/Continuum/RegularizedLogFiniteCoercivity.lean:136`
+(`third`). The assembled budget-floor argument is PAPER, not a new Lean theorem.
+
+For s_j=2^j and F_j>=1, the diagnostic rounded schedule has
+`s_j*(1-q_j)>=2^j/[3*(j+1)]`, by
+`lean/YMGap/Continuum/BF4WilsonAllNomeAFPowerBudget.lean:41`
+(`afGap_linear_floor`); its `afPowerBudget_gt:100` supplies the all-tail
+obstruction. The improving-precision candidate likewise has the PAPER floor
+`1-q_j>1/[4*(j+1)]`: use
+`lean/YMGap/Continuum/AFPrecisionNomeSchedule.lean:35,89,148,228`
+(`coefficientUpper_floor`, `gap`, `precisionNomeSchedule`,
+`denominator_le_four_succ`) and
+`lean/YMGap/Continuum/AFLeadingCoefficient.lean:271` (`one_lt_lower_one`).
+Thus the unchanged positive face budget cannot alone pay O(1/s_j) on either
+numerical schedule, including their late indices satisfying the heat guards.
+Neither schedule is thereby promoted to a justified physical family.
+
+**No signed-response bridge supplied.** The common-BOX Ward spatial term is
+`H_future * W_without_p * H'_K(X_p) * sum_(link,alpha) U_(link,alpha)*D_(link,alpha)X_p`.
+It is signed; it is not the positive bounded-source insertion g*(1-X_p).
+Even for the own-face diagonal of a nondegenerate four-link plaquette with
+F=2*X_p, the PAPER coefficient of W*(1-X_p) is
+`8*H_future*(1+X_p)*H'_K(X_p)/H_K(X_p)`.
+Shared-face/cross-time terms and both kinetic boundaries remain. The
+own-link gradient pin is
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteGradient.lean:85`
+(`plaquette_paired_gradient_square`); the full common-BOX identity remains
+PAPER as recorded above. Division-free product-rule notation is fundamental.
+
+The actual finite temporal cost is
+`C=Z1*B-Z0*<b,Tb>_V`, with `Z0=<A,A>_V`, `Z1=<A,TA>_V`, `B=<b,b>_V`.
+See `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockRayleighSplit.lean:131,244`
+(`clearedRayleighCost`, `original_block_rayleigh_split`). Its normalized
+cost/variance are C/(Z0*Z1) and B/Z0, not a collar defect expectation.
+`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicOriginalRayleighLimit.lean:93,98,136,157`
+(`originalOwnBlockVariance`, `originalOwnBlockCost`, and their `_converges`
+theorems) pins these to the SAME dyadic-source completed moments.
+`lean/YMGap/Continuum/BF4WilsonAllNomeWindowSignedCost.lean:245`
+(`original_window_budget_macro_ratio`) consumes an eventual aggregate
+`2*sum C_t/(Z0_t*Z1_t) <= (1-kappa)*B_u/Z0_u` for t=u,...,2u-1.
+That dyadic-source consumer is not automatically the temporally smoothed
+family in PRIMARY. The ordinary Haar energy pin
+`lean/YMGap/Continuum/BF4ExactSlabWardGradientEnergy.lean:73`
+(`originalScore_energy_pair`) is not the temporal cost.
+NOT FOUND in this bounded search: a checked comparison from the collar
+insertion to the complete signed response loss. Modules searched:
+`BF4ExactSlabCollarSourceEntropyCoercivity`, `BF4WilsonAllNomeWindowSignedCost`,
+`BF4ExactSlabFixedSpatialBlockRayleighSplit`,
+`BF4ExactSlabFixedSpatialBlockConditionalRelativeEnergy`,
+`BF4ExactSlabFixedSpatialSignedFamilyEnergy`,
+`BF4ExactSlabFixedSpatialSignedFamilyCoercivity`, `BF4ExactSlabWardGradientEnergy`.
+
+**OLD-center correction is removable without recentering.** Existing
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialMovingCenterLagDifference.lean:230,272`
+(`own_centered_lag_difference_bounds`, `polynomial_own_centered_lag_difference_bounds`)
+already pays the OLD center with error r^n*(2*C)^2, uniformly in both lags
+and retained cutoff, at fixed nome/width/source. Existing
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonOwnCenterLimit.lean:158,164,225,251`
+(`expressionEndpointMeanThreshold`, `expressionEndpointMean_approx`,
+`expressionOwnMean_converges`, `expressionOwn_centeredPair_converges`)
+gives explicit same-completion centering, not a new current-center substitution.
+
+For the single complete chain of length L*, its normalized insertion mean is
+`mu_ell=middleRatio(n+ell,n+L*-ell;f)`, 0<=ell<=L*.
+Repeated padding and the zero-window pin identify it without removing action
+factors: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWindowPadding.lean:66,84,105`
+(`windowRatio_pad_right`, `windowRatio_pad_left`, `windowRatio_zero`).
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPolynomialMiddleTime.lean:137`
+(`intervalMiddle_commonTail`) then gives
+`|mu_ell-mu_k|<=4*C*r^n` for ANY two positions. Both original expectations
+use the same full-chain partition; the proof may compare intermediate lengths.
+Here r=mixRate(w,width), f has its certified interval cap C, and
+`K>=headCutoff(w)` remains explicit. The OLD mean also has |c_old|<=C by
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWindowLagMeanControl.lean:146`
+(`middleRatio_interval_bounds`).
+
+ROOT's new PAPER BOX reduction retains the already literal telescope:
+for uniform N=s+1 and begin+N<=L*,
+
+    H = (F_begin-F_(begin+N))/N,
+    |E_W H| <= 4*C*r^n/N,
+    |12*c_old*E_W H| <= 48*C^2*r^n/N,
+    s*|12*c_old*E_W H| <= 48*C^2*r^n.
+
+Thus `PositiveContractionResidual.geometricCutoff r (48*C*C) epsilon`
+computes a boundary depth paying the scaled mean error, including C=0 and
+r=0; source pin `lean/YMGap/Continuum/PositiveContractionResidual.lean:119,126`
+(`geometricCutoff`, `geometric_bound`). This composed common-chain statement
+has not been kernel-checked. C, r and the depth may depend on j. It eliminates
+a separate centering premise at the fixed-member limit; it supplies neither
+uniform scaling control nor a relative bound on the remaining signed flux.
+
+Decision: stop the unchanged entropy/logarithm/kurtosis adapter branch until
+it has a quantitatively sharper budget and an actual signed-response consumer.
+Do not reopen fixed-member centering as a missing analytic hypothesis.
+PRIMARY remains the complete signed flux relative to the SAME late response,
+with boundary and cross-time contributions retained, on a justified family.
+ROOT inspected the cited source and checked the algebra; bounded independent
+Sol reviews agree, including the retained BOX divisor. No Lean file edited,
+compiler launched, new kernel theorem, ledger discharge, axiom claim or
+canonical chart-state change. Goal remains active; Clay remains OPEN.

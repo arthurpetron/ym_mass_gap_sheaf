@@ -93,6 +93,18 @@ No new source-selection interface is needed: the existing family/expression
 trajectories already permit adaptation. Exact formulas, source pins and
 stopping decision: adaptive-score audit, "Coherent-score variance and
 future-test cancellation". No uniform bound or Lean proof-state change.
+Subsequent SOURCE/PAPER reduction (2026-10-11): the OLD-center correction
+is quantitatively removable at each fixed member, without changing center.
+The existing `intervalMiddle_commonTail:137` compares ANY two insertion
+positions in one original chain with error 4*C*mixRate^n. The uniform future
+BOX telescope retains its divisor N=s+1, so its normalized Ward mean term
+is at most 48*C^2*mixRate^n/(s+1) in absolute value. Multiplication by s
+does not enlarge the geometric amplitude. An existing geometric cutoff
+therefore pays this error; nome/width/source-dependent depth remains explicit.
+This composed common-chain calculation is PAPER, not a new compiled theorem
+or a uniform changing-family estimate. Prioritize the remaining signed flux,
+not another centering interface. Evidence: adaptive-score audit,
+"Direct signed consumer gate and removable mean cost".
 The next PAPER screen rejects a UNIVERSAL pointwise spatial-score-annihilating
 current: preserving div_Haar(u)=-12*P would force H[V*P]=0, whereas a fully
 active original width-two plaquette has H[V*P]=a+a^5/16>0 at w=1/8, K=1,
@@ -637,6 +649,23 @@ response. Do not build a generic warmed-Jensen adapter that leaves this
 denominator unpaid. Evidence: adaptive-score audit, "Observed ORIGINAL
 collar-local payment" and "Moving-bridge fourth moment and H1 selection test".
 No physical scaling or canonical proof-state change follows.
+Consumer/parameter screen (2026-10-11; SOURCE/PAPER): no checked bridge was
+found from the positive collar-defect insertion to the complete signed
+two-time cost in the bounded modules recorded in the adaptive-score audit.
+The normalized contracted entropy certificate itself has the floor
+(512/3)*(1-q)*F for N>=1 and positive source mass. Thus its UNCHANGED positive
+face payment cannot provide an O(1/side) budget on either tested numerical
+schedule when F>=1, even if source concentration is perfect. This is a
+limitation of an UPPER certificate, not an actual-cost lower bound or an H1
+refutation. Stop its logarithm/kurtosis adapter branch pending a genuinely
+sharper signed estimate and actual response comparison. Fixed-member OLD
+centering has existing quantitative inputs and the preceding PAPER BOX
+reduction; it is not a separate missing premise for fixed-member completion.
+NEXT remains the complete joint signed flux relative to the SAME late
+response, on a justified physical family, with all boundary/cross-time terms
+retained. No new wrapper, physical-family claim or chart-state change.
+Source pins and independent review: adaptive-score audit,
+"Direct signed consumer gate and removable mean cost".
 The new finite FREE-reference screen also excludes a high-mass simultaneous
 shrinking chart for all elementary curls in the support cube: under
 kappa*rho^2<=log(s)/32 its probability is <=exp(-s^(9/4)/48).
