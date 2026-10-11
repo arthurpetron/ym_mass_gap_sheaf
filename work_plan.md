@@ -297,6 +297,29 @@ Do not duplicate the EXISTING indirect finite-original positivity theorem
 or infer pointwise bounds from HaarCarrierEqv. PRIMARY response-relative
 payment and physical scaling remain OPEN. Exact pins and boundaries:
 adaptive-score audit, "Finite original Haar order and polynomial entropy reduction".
+The next actual-action and finite-entropy joins are now CHECKED (2026-10-11 UTC):
+`plaquette_norm_one:143` and `faceScalar_box:181`,
+`lean/YMGap/Continuum/BF4ExactSlabOriginalHeatHaarOrder.lean`, evaluate the
+literal ordered word using COEFFICIENTWISE norm identities. The same leaf's
+`productFloor_le_heatProductHaar:189` retains all shared factors, including
+repeated face IDs, and gives finiteFloor(q)^faceCount at the explicit original
+finiteCutoff. This is direct finite-prefix positivity, not volume-uniform
+localization or the first original positive-partition proof.
+`partial_tangent:214`,
+`lean/YMGap/Continuum/RegularizedLogPolynomialConcavity.lean`, proves the
+EXISTING entropy polynomial's upper tangent by finite square remainders.
+`haar_partial_jensen:115`,
+`lean/YMGap/Continuum/QuaternionHaarFiniteEntropy.lean`, integrates that
+tangent at its OWN original Z=H[W], with exact cancellation of H[W-Z].
+Its finite inequality needs only W<=1 pointwise, even at zero density.
+No logarithmic integral or entropy property is assumed. Three focused checks
+and COMPLETE independent Sol source/log/math reviews PASS within the gate.
+NEXT produce the original normalized-density bounds and the restricted-region
+localized partition lower bound; then join finite entropy stages to the scalar
+logarithmic remainder. The global face-count floor alone cannot supply that
+localized estimate. OLD-center and SAME late-response-relative payment,
+physical-family justification and every canonical open node remain OPEN.
+Exact evidence: adaptive-score audit, "Checked original plaquette boxes and finite entropy".
 The new finite FREE-reference screen also excludes a high-mass simultaneous
 shrinking chart for all elementary curls in the support cube: under
 kappa*rho^2<=log(s)/32 its probability is <=exp(-s^(9/4)/48).

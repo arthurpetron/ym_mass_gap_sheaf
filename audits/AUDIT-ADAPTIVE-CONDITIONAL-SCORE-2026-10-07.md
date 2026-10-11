@@ -18246,3 +18246,99 @@ Independent bounded Sol review read the COMPLETE frozen source and accepted
 log and returned code PASS; a separate mathematical review returned PAPER
 consumer PASS under the explicit N>=1 and 0<alpha<=W<=1 guards.
 No full build/audit, new sorry/axiom, ledger closure or ASCII state change.
+
+### Checked original plaquette boxes and finite entropy
+
+2026-10-11 UTC. This increment constructs the two previously selected finite
+joins. PRIMARY, the justified-family requirement, canonical frontier fields
+and the whole-project Clay target are unchanged.
+
+CHECKED actual-action producer:
+`lean/YMGap/Continuum/BF4ExactSlabOriginalHeatHaarOrder.lean`.
+`plaquette_norm_one:143` evaluates COEFFICIENTWISE quaternion norm identities
+along the literal corrected oriented plaquette fold. Each physical link gets
+its assigned UnitNorm coordinates; links outside the original carrier retain
+the actual identity fallback. No HaarCarrierEqv is used pointwise.
+`faceScalar_box:181` consequently produces -1<=x<=1 for every actual face
+scalar at every explicit unit assignment. These are produced boxes, not new
+supplied analytic hypotheses.
+
+`productFloor_le_heatProductHaar:189` feeds the existing finite-prefix pointwise
+floor and new finite-product order. It keeps the exact original carrier
+`(boundaryCompleteSlabLinks extent).length`, the nome, inclusive cutoff K and
+every factor in the same polynomial product. Arbitrary face-ID lists may
+overlap or repeat. At `finiteCutoff q<=K+1`, its rational floor is exactly
+`finiteFloor(q)^ids.length`. `heatProductHaar_positive:200` is its strict
+positivity corollary. This is NOT a product of separate Haar expectations,
+an SOS Certificate, a volume-uniform floor or the first original positivity
+result. The existing indirect comparison floor/cutoff remains unchanged.
+
+CHECKED scalar entropy producer:
+`lean/YMGap/Continuum/RegularizedLogPolynomialConcavity.lean`.
+`power_tangent:84` proves the degree-(n+1) supporting tangent for y,b>=0.
+For its explicit remainder D_n, the proof uses
+
+    D_0=0,
+    D_(n+1)=y*D_n+(n+1)*b^n*(y-b)^2 >=0.
+
+`partial_complement:137` proves the exact finite expansion of the EXISTING
+`RegularizedLogPolynomial.partialSum (1-y) (n+1)`, with coefficients
+invSucc(i)*invSucc(i+1), not a newly defined entropy surrogate.
+`tangentSlope:210` computes the rational slope, including the minus sign from
+the complement coordinate. `partial_tangent:214` proves the actual upper
+tangent with only x,b<=1. Zero endpoints are included; no derivative,
+logarithm or entropy oracle is used.
+
+CHECKED original-Haar consumer:
+`lean/YMGap/Continuum/QuaternionHaarFiniteEntropy.lean`.
+`entropyStage:58` substitutes the EXISTING finite regularized-log polynomial
+into W. `entropyStage_eval:61` pins evaluation to its actual partialSum;
+`entropyStage_supported:67` retains the original finite coordinate support.
+`haar_partial_jensen:115` proves, for every n and supported W<=1 pointwise,
+
+    H[entropyStage (n+1) W] <= partialSum (H[W]) (n+1),
+    equivalently H[W*L_(n+1)(W)] <= Z*L_(n+1)(Z), Z=H[W].
+
+Finite-product Haar order gives Z<=1. The tangent is based at this OWN Z,
+and original linearity/normalization cancel its linear term exactly.
+Signed coefficients and zero blocks are retained. Positivity is not required
+for this finite Jensen statement; a positive floor is still required for
+normalized logarithmic entropy. This constructs an inequality, not an
+algebraic positivity certificate or a new assumed functional law.
+
+NEXT original analytic joins: produce bounds for the normalized original
+density, construct the restricted-region localized partition lower bound,
+and consume the scalar logarithmic remainder with its explicit cutoff.
+The direct global face-count floor alone is not the localized partition
+estimate. Restricted-ball mass and the localized source-weighted deviation
+budget still remain PAPER. The same OLD OWN center and late-response
+denominator remain unpaid; no H1, physical clock, continuum survival,
+every-state decay, full QFT, every-group or Clay closure is claimed.
+
+Verification: ONLY the three new leaves were checked, serially, using the
+monitored launcher with jobs=1, 20 GiB worker cap and 12 GiB OS reserve.
+Fresh telemetry showed approximately 39 GiB available and pressure-free
+90--91%; no competing compiler/runner/pytest process was found.
+Accepted logs: `/private/tmp/ym-oct11-original-heat-haar-order-check4.log`,
+`/private/tmp/ym-oct11-finite-entropy-concavity-check2.log`, and
+`/private/tmp/ym-oct11-finite-haar-entropy-check2.log`.
+All exited 0 and emitted their final oleans, with no diagnostics.
+All TWELVE public gates passed within {propext, Quot.sound}; tangentSlope
+and entropyStage are axiom-free. Earlier failed elaboration attempts are
+not accepted evidence. The pointwise-word leaf's timeout was repaired by
+preserving an inferred coordinate inequality and simplifying only its
+coordinate, not raising a resource limit.
+
+COMPLETE independent bounded Sol reviews read all three frozen sources and
+their authoritative logs and returned code/log/math PASS. Accepted hashes:
+
+    OriginalHeatHaarOrder source e5d7c3407524dbcd121d61d0259de129e9f762c3b22c4d333ca73e8785bf1579
+    OriginalHeatHaarOrder log    45c5445118d25d322bfa418c5602090ee0e4d695a917a86484635bb106ef0b0a
+    PolynomialConcavity source a29af0c46333b561c2d95c9e02c9a7e62ee70b21019d42f4a349df739631f972
+    PolynomialConcavity log    a84a197a1389c47994df24b43717e03dde008666ef449c241254815734397db3
+    FiniteEntropy source       842905d8dd4de894154c132ae5e4b7f9eb87c377c2e5b0ec65eb26bab32e98fb
+    FiniteEntropy log          fb52b0f87683ae018b670a8ffff0df25834311fb5a76e29eb5148d0a5b9f6b84
+
+No full root/tree build or axiom audit, new sorry/axiom, ledger/frontier
+closure, resource increase or ASCII state change. User-owned duplicate
+Lean files are untouched.
