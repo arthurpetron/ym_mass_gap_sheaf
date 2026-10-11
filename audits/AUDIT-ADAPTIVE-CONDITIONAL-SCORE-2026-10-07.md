@@ -18484,3 +18484,137 @@ Frozen source and accepted log SHA256 pairs:
 No full root/tree build or axiom audit, new sorry/axiom, ledger/frontier
 closure, resource increase or canonical ASCII state change. User-owned
 duplicate Lean files remain untouched.
+
+### Checked literal original heat polynomial localization
+
+2026-10-11 17:11 UTC. PRIMARY and the Clay goal remain OPEN. This increment
+joins the checked finite Casimir deficit to the literal original slab face,
+then proves an explicit polynomial below that SAME normalized heat factor.
+It introduces no analytic hypothesis bundle, changed action or physical clock.
+
+Literal original-word adapter:
+`lean/YMGap/Continuum/BF4ExactSlabPlaquetteDeficit.lean:59`, `linkValue`,
+uses the existing boundary-complete link index and original identity fallback.
+`orientedLinkValue:65` uses actual quaternion inverse. `link_eval:154`,
+`oriented_link_eval:167` and `plaquette_scalar_pin:204` give coefficientwise
+pointwise evaluation pins, NOT specialization of a Haar-only equivalence.
+The original fold's initial identity and +,+,-,- order remain. Repeated links
+use the SAME assignment. `plaquette_deficit:237` transports the existing
+four-factor deficit to literal corrected-slab link-polynomial evaluations.
+No membership, distinctness, independence or commutation hypothesis is added.
+
+Joint scalar kernel product:
+`lean/YMGap/RepTheory/RationalQuaternionFourKernelProduct.lean:33`, `base`,
+is (1+r)/2; `product:36` is the balanced product of the four actual bases.
+`base_bounds:53` and `product_bounds:85` produce their [0,1] bounds.
+The product u is at most EACH factor t_l, so sum_l(1-r_l)<=8*(1-u).
+`four_word_deficit:127` combines this with the checked word bound to prove
+1-r(((ab)c)d)<=32*(1-u), including inverse/repeated unit arguments.
+
+Computed scalar localization:
+`lean/YMGap/Continuum/PolynomialHeatLocalizationParameters.lean:26`, `D`,
+is the depth-zero upper mesh, i.e. floor(2*c)+1 for c>=0.
+`D_positive:38`, `D_lower:41` and `D_upper:48` prove positivity and
+2*c<=D<=2*c+1. This is VALUE-based rounding, not a raw numerator exponent.
+`n:61` uses the existing Type-valued binary-search datum when eta<1 and
+returns 1 when eta>=1; `n_positive:67` and `half_pow_n_le:75` give
+n>=1 and 2^(-n)<=eta. It is not an exponent equal to the raw denominator.
+`lean/YMGap/Continuum/PolynomialHeatLocalization.lean:92`, `degree`,
+is D*n; `degree_positive:94` and `half_mul_power_le:101` prove
+
+    eta>0, eta<=h, 0<=u<=1, c>=0, 1-h<=c*(1-u)
+       => (1/2)*u^(D*n)<=h.
+
+The proof is finite rational arithmetic. If c*(1-u)<=1/2, then h>=1/2.
+Otherwise D*(1-u)>=1, so the EXISTING reciprocal Bernoulli inequality
+gives u^D<=1/2. Exact exponent recoding gives u^(D*n)<=2^(-n)<=eta<=h.
+No logarithm or exponential, zero-erasing norm estimate or analytic field
+is assumed. Endpoint u=0,1, zero c and eta>=1 are included.
+This simpler proof supersedes the earlier PAPER constants D=ceil(64*m/3)
+and 2^(-n)<=2*eta; it does not alter any earlier proved theorem.
+
+ACTUAL original-heat consumer:
+`lean/YMGap/Continuum/BF4ExactSlabPolynomialHeatLocalization.lean`.
+`reciprocal:62` is 1/H_(K+1)(1), NEVER 1/Z. `eta:73` and
+`eta_positive:76` retain finiteFloor(w)/H_(K+1)(1). `mu:81` and
+`mu_nonnegative:95` retain casimirMoment(w,K+1)/H_(K+1)(1).
+`cost:101` and `cost_nonnegative:104` give c=1+(32/3)*mu>=0.
+`normalizedFace:110` is reciprocal times the literal original face polynomial
+evaluated at the SAME shared-link environment. `normalizedFace_floor:114`
+produces its eta floor at 0<w<1 and finiteCutoff(w)<=K+1;
+`normalizedFace_upper:122` produces its unit ceiling, using only w>0.
+`faceKernelProduct:132` uses the exact slabPlaquetteAt and original four
+link units/inverses; `faceKernelProduct_bounds:140` produces its [0,1] box.
+`normalizedFace_linear_deficit:182` pays 1-h<=c*(1-u) using the ORIGINAL
+finite Casimir sum, positive normalization and the literal word pin.
+`localizationDegree:211` constructs M=D(c)*n(eta);
+`localizationDegree_positive:215` proves it positive.
+`original_face_localization:221` now proves
+
+    (1/2)*faceKernelProduct(extent,id,qs)^M
+       <= eval(faceHeatPolynomial(w,K,extent,id), SAME qs)/H_(K+1)(1),
+
+with EVERY scalar premise produced above, not supplied as an analytic input.
+The actual statement uses the existing qpow fold; exponent equivalences
+are kernel-checked. Nome w, inclusive cutoff K+1 and original id are retained.
+M is independent of extent and factor count but depends explicitly on w,K.
+No cutoff-uniform Casimir cap or relation removing eta dependence is claimed.
+
+NEXT: multiply over the actual complete action without dropping boundary
+factors; join the existing incidence bound to its actual swept-factor occurrence
+tally (arbitrary repeated face IDs do NOT satisfy a fixed multiplicity cap).
+The raw bound is ALREADY proved by `incidentIds_length_le_six:89`,
+`lean/YMGap/Continuum/BF4ExactSlabLinkStarGeometry.lean`, for the literal original
+physical face list, and `blockRowFaces_length_le_six:66`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyIncidence.lean`, for a Nodup
+face list. Do not rebuild that enumeration. The chronological carrier is
+`chainLinks:35`, `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialChainCarrier.lean`;
+`activeSpatialFaces:58`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialActiveSpatialWeight.lean`, filters
+EVERY edge by FullyActive, not just the face base. `swept_chain_factorization:82`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialChainAction.lean`, retains the
+original chronological spatial/kinetic factors. These are SOURCE reuse pins,
+not a newly checked localized tally or a new verification of these modules.
+Then factor the independent polynomial
+LINK TEST weights under original product Haar, then use the already checked
+one-link floor. The conditional localized partition is still OPEN. So are
+entropy-series/log identification, source-weighted deviation and especially
+the signed OLD OWN-center/SAME late-response-relative PRIMARY estimate on a
+justified physical family. This pointwise producer supplies neither typical
+raw-link concentration, continuum survival, every-state decay nor a mass gap.
+No canonical displayed node changes, so no ASCII chart is reprinted.
+
+Verification: ONLY these five new leaves, serially, through the monitored
+launcher with jobs=1, 20 GiB worker cap and 12 GiB OS reserve, repository lock,
+and fresh process/dynamic-memory preflights for EVERY launch. Available memory
+was 39.1--39.7 GiB, pressure-free 90--91%; no competing build/runner/pytest.
+Accepted logs (each exit 0, olean emitted, no diagnostics):
+
+    /private/tmp/ym-oct11-polynomial-localization-parameters-check1.log
+    /private/tmp/ym-oct11-polynomial-localization-check2.log
+    /private/tmp/ym-oct11-literal-plaquette-deficit-check3.log
+    /private/tmp/ym-oct11-four-kernel-product-check1.log
+    /private/tmp/ym-oct11-original-face-polynomial-localization-check2.log
+
+All 39 public axiom-print gates are within {propext, Quot.sound}; five are
+axiom-free. COMPLETE producer-independent bounded Sol reviews read each final
+source and its full accepted log and returned source/log/math PASS. Literal
+adapter checks1--2 timed out only in large definitional scalar projection;
+an opaque generic scalar helper repaired it WITHOUT a resource increase.
+Scalar check1 needed explicit environment constants; original-consumer check1
+needed the two existing defining namespace opens. Failed logs are NOT proof
+evidence; no explicit sorry was introduced. No full root/tree build or audit.
+No frontier/ledger closure, new axiom, resource increase or user-file mutation.
+
+Frozen source and accepted log SHA256 pairs:
+
+    Parameters source 85d86c73671044236e3e29c736dcc6022955354634dcadaeb70ede50c1f4125a
+    Parameters log    de165f92fce71b7d84a752c78d70754310af8012b4ee4ae335656d7c1fd9ca05
+    Scalar source e5b17be63d3a8d71922a61eca508038c964ac3434430c8bc12abe9ea58ad45a5
+    Scalar log    8d43bcf2e938eab80a789762cbf99aabb8b53bddd29b5cd0982d4160a8073be2
+    Literal source 42275b09f78d5b0b37beab84abd291d11cdb19e4d79ad1dc59c3cd067fd17879
+    Literal log    96b4b3a156fb1224cceba94f7f325b3c1c26088e933822d68bb2a2368f616ffa
+    FourKernel source 13e43cc18c432be5e7586bc6120977c09f56791551d8ca456ef9e64feaabed64
+    FourKernel log    90a32a246ca32e0bb9b21da2ed2f23fd673dbdc5d30b26ff604f1ceefc501346
+    OriginalConsumer source c54a3e4885e81e183ce1b28a0756c6c9aea4f41e1b76f7dec382a42878acd72c
+    OriginalConsumer log    da750a6b05759e39bd855ae20f249800c798e1e56d0d1a7aa576fc64076ec7a2

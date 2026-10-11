@@ -336,8 +336,8 @@ H1 interface. Their full independent source/log/math reviews PASS.
 `RationalQuaternionFourFactorDeficit.four_factor_deficit:105` now proves
 the actual four-unit-quaternion scalar deficit with factor 4, by BALANCED
 chord estimates and semantic associativity; inverse factors are permitted.
-This does not yet identify the literal corrected-slab polynomial evaluation
-with those four inputs.
+The literal corrected-slab polynomial evaluation is now pinned to those
+four inputs by the next checked join below.
 
 NEXT select the polynomial localization route: pay each internal heat factor
 by one half times a product of link weights ((1+r_l)/2)^M; retain EVERY
@@ -345,15 +345,48 @@ boundary factor's eta floor. The computed positive M depends on the Casimir
 mean and eta, but not the number of internal faces. At most six internal
 factor occurrences per swept spatial link would then give the PAPER lower
 bound Z_y>=2^(-Fi)*eta^Fb*(6M+1)^(-2L) from the checked one-link floor.
-The literal plaquette-evaluation, factor-incidence and conditional Haar
-factorization joins still need to be built; this is not yet a Lean
-partition theorem. Keep the extra eta dependence in M explicit. A positive
+The literal plaquette-evaluation and one-factor polynomial localization
+joins are now checked below; factor-incidence and conditional Haar
+factorization still need to be built. This is not yet a Lean partition
+theorem. Keep the extra eta dependence in M explicit. A positive
 partition device is NOT typical raw-link concentration, and absolute
 plaquette deviation about 2 is NOT OLD-center/SAME-response-relative payment.
 After the localized entropy/deviation join, return directly to that PRIMARY
 signed estimate and physical-family compatibility; no canonical node closes.
 Exact formulas and current verification: adaptive-score audit,
 "Checked heat deficits, normalized action and localization mass".
+The literal polynomial-localization join is CHECKED (2026-10-11 UTC):
+`BF4ExactSlabPlaquetteDeficit.plaquette_scalar_pin:204` and
+`plaquette_deficit:237` identify the ORIGINAL corrected-slab evaluation,
+including its initial identity, inverses, shared assignments and fallback.
+`RationalQuaternionFourKernelProduct.four_word_deficit:127` proves
+1-r_word<=32*(1-u), u the product of the four actual bases (1+r_l)/2.
+This permits a simpler scalar proof than the preceding PAPER region split:
+`PolynomialHeatLocalization.half_mul_power_le:101` gives (1/2)*u^(D*n)<=h
+from the positive floor and linear deficit, using reciprocal Bernoulli.
+`PolynomialHeatLocalizationParameters.D:26` is floor(2*c)+1, and `n:61`
+uses actual binary search with 2^(-n)<=eta, not the raw denominator.
+`BF4ExactSlabPolynomialHeatLocalization.original_face_localization:221`
+PRODUCES every premise for the literal original face heat at inclusive K+1:
+eta=finiteFloor(w)/H_(K+1)(1), mu=casimirMoment(w,K+1)/H_(K+1)(1),
+c=1+(32/3)*mu. Its `localizationDegree:211` is positive computed data.
+No replacement density, supplied analytic estimate or independent face law.
+The degree is independent of extent and factor count but remains explicitly
+dependent on w and K; a cutoff-uniform Casimir cap is not proved here.
+Five narrow serialized checks and COMPLETE independent Sol source/log/math
+reviews PASS: all 39 public gates within {propext, Quot.sound}, no final
+diagnostics. No full build/audit, sorry, frontier closure or resource increase.
+NEXT multiply these inequalities while retaining all original action factors.
+The raw six-incidence bound ALREADY exists:
+`BF4ExactSlabLinkStarGeometry.incidentIds_length_le_six:89` and
+`BF4ExactSlabFixedSpatialFamilyIncidence.blockRowFaces_length_le_six:66`.
+Reuse it to prove the localized swept-factor occurrence tally, not a fresh
+star enumeration or a cap for arbitrary repeated IDs. Join the existing
+original Haar kernel-moment floor to the conditional
+localized partition. Entropy-series identification and the signed OLD-center/
+SAME late-response payment still follow as genuine open work; no canonical
+chart node closes. Evidence: adaptive-score audit,
+"Checked literal original heat polynomial localization".
 For the entropy's scalar logarithmic identification, reuse the EXISTING
 windowed artanh value and computed binary reduction, but prove their finite
 series comparison and dyadic scaling. A free `CRealLogRangeReduction.logScale`
