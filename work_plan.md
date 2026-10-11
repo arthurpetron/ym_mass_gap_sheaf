@@ -456,11 +456,22 @@ literal partial sums and uniform denominator modulus;
 `powerDifferenceRow_weightedL1_le:118` supply the finite signed coefficient
 bound needed to evaluate the SAME defect at the negative artanh argument.
 All three leaves pass narrow serialized checks; all 27 public gates permitted,
-four axiom-free. The direct-window logarithm identification and faithful binary
-reduction remain OPEN/PENDING; the half-value is not yet identified with
-half*log2. Their closure would supply entropy, not the signed centered two-time
-PRIMARY bound. Evidence: adaptive-score audit, "Selected finite entropy product
-law and direct-window comparison". No canonical node or physical gap closes.
+four axiom-free. The ACTUAL direct-window identification is now CHECKED too:
+`RegularizedLogArtanhFiniteComparison.partial_logRat_error:193` gives the
+finite error `(2*M/6)*(5/6)^(2*M-1)` against the actual artanh stream, M>0.
+`RegularizedLogWindowIdentification.identificationRate:36` retains a computed
+cutoff; `value_logRat_approx:52` and `value_logRat:110` identify the ORIGINAL
+series value with `-x*logRat(x)` on [1/2,1], preserving p_n versus logRat_n.
+`value_half_log2:121` pins the halving constant to the ACTUAL artanh log2.
+Both leaves pass serialized checks and independent complete source/log/math
+reviews; all nine gates permitted, three axiom-free.
+NEXT apply the proved product/halving law with this actual half-value and window
+pin to the EXISTING computed binary reduction, retaining the series-value
+equality cutoff as data. The faithful outside-window identification and its
+original conditional-entropy join remain OPEN. Then return to source-weighted
+deviation relative to the SAME signed late response, not positivity alone.
+Evidence: adaptive-score audit, "Selected finite entropy product law and
+direct-window comparison". No canonical node or physical gap closes.
 The new finite FREE-reference screen also excludes a high-mass simultaneous
 shrinking chart for all elementary curls in the support cube: under
 kappa*rho^2<=log(s)/32 its probability is <=exp(-s^(9/4)/48).

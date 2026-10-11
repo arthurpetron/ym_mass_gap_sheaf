@@ -18941,3 +18941,65 @@ Frozen source and accepted log SHA256 pairs:
     RationalAlgebra log    3944f332cbd628ff04a891fa854f87a13565ce5acf098088a84a13d8409419e7
     PrimitiveNorm source 8fdb2078366cd4e43d7507224e733feda3965d4801f0c5682fe4f2bc8731069a
     PrimitiveNorm log    4b4badb0c666c8504cef5409981a4f8680d00c32b6ea21736d1d3550334103b3
+
+### Checked ACTUAL artanh-window identification and halving constant
+
+The pending direct-window finite comparison and consumer above are now
+CHECKED (2026-10-11 UTC). The two leaves retain the SAME actual rational
+regularized-series and artanh approximation streams; no supplied log law.
+All paths below are under `lean/YMGap/Continuum/`.
+
+`RegularizedLogArtanhFiniteComparison.lean:131`
+(`finiteLog_artanh_reflection`) proves finite odd/even cancellation at cutoff
+2*M for every rational argument, including M=0. `partial_logRat_defect:159`
+pins p_(2M)(x)+x*logRat(x)_M to x times the EXACT original defect at yOf(x).
+The affine relation `(1-x)+x*yOf(x)=-yOf(x)` is proved using the actual positive
+reciprocal, not a log assumption. `partial_logRat_error:193` proves, on
+x in [1/2,1], with the genuine logRat window certificate and M>0,
+
+    abs(p_(2M)(x)+x*logRat(x)_M) <= (5/6)^(2*M-1)*((1/6)*(2*M)).
+
+The finite norm budget is explicit: radius 1/3, affine coefficient norm at
+most 5/6, factor 1-x at most 1/2, and multiplication by x at most one. The
+primitive is used at its actual negative argument. No analytic integral,
+operator gap or physical scaling estimate is asserted.
+
+`RegularizedLogWindowIdentification.lean:36` (`identificationRate`) computes
+the maximum of the original uniform partial-tail cutoff and the existing
+polynomial-geometric cutoff plus one, at half tolerance. The modulus is data.
+`value_logRat_approx:52` preserves p_n and logRat_n as the actual final streams;
+p_(2n) is only the finite intermediate, and the reverse direction pays the
+original series tail explicitly. `value_logRat:110` proves
+
+    value(x) == -x*logRat(x), x in [1/2,1].
+
+`value_half_log2:121` pins the half-value to `(1/2)*log2` using the existing
+actual pointwise reciprocal-half/oddness pin. It is not a freely chosen
+`CRealLogRangeReduction.logScale`. The previously checked product/halving law
+can now consume this constant. Faithful computed binary reduction outside
+the window and the original conditional-entropy join remain OPEN; PRIMARY
+signed H1, justified physical scaling and the Clay target remain OPEN.
+
+Two more narrow serialized checks exited 0 and emitted their oleans:
+
+    /private/tmp/ym-oct11-regularized-artanh-comparison-check3.log
+    /private/tmp/ym-oct11-regularized-window-identification-check2.log
+
+All nine public gates are within {propext, Quot.sound}, three axiom-free.
+Fresh process/dynamic-memory preflight preceded EVERY launch, jobs=1,
+20-GiB worker cap, 12-GiB OS reserve; accepted preflights 38.9 GiB available,
+pressure-free 90%, no competing compiler/runner/test. ROOT read complete
+sources and accepted logs. Independent complete finite+limit source/log/math
+review PASS, plus a second independent complete limit-consumer review PASS.
+Initial elaboration repairs concerned a namespace, finite zero reduction,
+rational coefficient spelling, pattern indentation and Nat.pow_one; failed
+logs are not verification evidence. No new sorry/axiom, full root/tree
+build/audit, resource increase, canonical-node/ledger closure or mutation of
+user-owned duplicate files. The canonical chart is unchanged and not reprinted.
+
+Frozen source and accepted log SHA256 pairs:
+
+    ArtanhFinite source 3978573af7281ba84d4b62e29b2766c1f55f2cc3100c22d39a71da1eb076e1ed
+    ArtanhFinite log    15796a75bf8b9974829d51cd07942d7f9995056f5b96b49815516ed28ddb308b
+    WindowIdentification source 6cf5f500dc35d6d5de9d9089b37756068cb2a3f1e8b9f71732f3b0b8de983d8c
+    WindowIdentification log    f6b434f6873a067b75ac19d141af9981c0ed647ce3192137924d40aa87b868f1
