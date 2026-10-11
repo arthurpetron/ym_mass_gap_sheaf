@@ -20256,3 +20256,107 @@ estimate remain missing. A bounded bare shell product does not bound the
 running coupling or the joint interacting response.
 The numerical obstruction prunes a proposed comparison premise; it does not
 close PRIMARY or any continuum/Clay node. No canonical chart state changes.
+
+### Joint coupling Ward reduction and the kinetic correction (2026-10-11 UTC; SOURCE/PAPER)
+
+Mathematical test: remove universal action/source normalization BEFORE trying
+to bound the two-time response score. Keep a fixed finite cutoff, ONE common
+chronological geometry, every original factor, and the OLD center c(w).
+These are finite symbolic derivatives, not differentiation through the
+cutoff, depth or thermodynamic limits. Positive responses are guards whenever
+logs or their reciprocals are used; no zero-response case of PRIMARY is removed.
+Positive density expectations also retain the original computed heat-cutoff
+guards; this reduction does not manufacture a new positivity witness.
+
+Let W be the complete factor product, H its original product Haar, Z=H[W],
+E[U]=H[WU]/Z, and Delta the sum of all link angular Laplacians. Define
+
+    M = sum_(p<q) W_without_(p,q) * Gamma(h_p,h_q),
+    U_t = (F_0-c)*(F_t-c), V_t=F_0+F_t-2c.
+
+Pairs are UNORDERED distinct factor occurrences; repeats are not erased.
+On a genuine FOUR-link-per-face carrier, the finite heat Euler rule and
+product rule give Delta W=-4*w*W'+2*M. Two Haar integrations by parts give
+w*R_t'=-E[Delta U_t]/4+Cov(U_t,M/W)/2+w*E[U_t'].
+For strictly separated initial fundamental spans,
+Delta U_t=-24*U_t-12*c*V_t and U_t'=-c'*V_t. Thus
+
+    w*d_w log R_t = 6 + [Cov(U_t,M/W)/2 + (3*c-w*c')*E[V_t]]/R_t.
+
+The 6 cancels EXACTLY between the two times, as does the common partition
+derivative. This cancels scalar action normalization and a genuinely common
+multiplicative source normalization, NOT arbitrary operator mixing or
+nonconstant extensive score fluctuations. The OLD-center term remains.
+
+**Carrier correction:** the actual fixed-spatial chronological kinetic word
+has TWO link blocks, whereas a spatial face has FOUR. Source definitions:
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialKineticHeat.lean:64,68`
+(`relative`, `kineticWeight`) and
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSliceHeat.lean:70` (`spatialWeight`).
+With independent nomes, Delta W=-4*w_s*partial_s W-2*w_k*partial_k W+2*M.
+On the isotropic diagonal the CORRECT identity is instead
+
+    w*d_w log R_t = 6 + [Cov(U_t,M/W+S_k)/2 + (3*c-w*c')*E[V_t]]/R_t,
+    W*S_k = w_k*partial_k W.
+
+Do not drop S_k or transport the full-carrier angular generator through
+temporal gauge by equality of Haar moments alone. All differentiated temporal
+and spatial factors are retained; integrating histories differentiates BOTH
+`terminalMessage` histories
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalBracket.lean:118`).
+
+Existing ingredients, not a checked assembled theorem:
+`lean/YMGap/Continuum/QuaternionHaarExposedHeatCasimir.lean:219`
+(`exposedHeatPrefix_angularCasimir`);
+`lean/YMGap/Continuum/SU2QuaternionActiveCasimirProduct.lean:214`
+(`activeCasimirPolynomial_mul`);
+`lean/YMGap/Continuum/QuaternionHaarAngularCarrier.lean:45` (`angular_pair`);
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyCasimir.lean:294`
+(`spatialSpan_casimir`). The separate
+`lean/YMGap/Continuum/SU2QuaternionHeadHeatGenerator.lean:199`
+(`headMap_formal_nome_generator`) has an
+input-saturation cutoff; it is not an unrestricted finite-prefix replacement.
+Full face placement, coordinate transport and joint assembly remain PAPER.
+
+The actual next quantitative probe is the signed neighboring-face insertion
+H[W_without_(p,q)*Gamma(h_p,h_q)*U_t]/H[W*U_t], SUBTRACTED between both
+times and summed with the retained kinetic-score and OLD-center terms.
+Its unnormalized numerator is polynomial; the division-free cross-product
+form must be kept when response positivity has not been supplied.
+The mixed trace is retained by
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialAdjacentFullAngular.lean:425`
+(`adjacent_full_angular`); its internal `shared_cross:370` is private.
+At cutoff one, Gamma(h_p,h_q)=4*w^6*Gamma(F_p,F_q); there is no automatic
+favorable sign. Bounded incidence does not pay the sum: only for physical
+NODUP face identifiers does
+`lean/YMGap/Continuum/BF4ExactSlabKernelIncidence.lean:64`
+(`faceLinks_count_le_six`) give six faces, hence fifteen local pairs per link.
+The number of links still grows; this is not shell summability.
+
+An exact finite face-change formulation avoids logs. At a fixed OLD center,
+put P=R_2(u)*U_1-R_1(u)*U_2. Then
+E_B[P*faceScore(u,v)]=R_1(v)*R_2(u)-R_2(v)*R_1(u), a direct PAPER instance
+of `lean/YMGap/Continuum/BF4ExactSlabCouplingCenteredResponse.lean:71`
+(`face_response_pin`). Required payment: this signed expression is at most
+e*R_1(u)*R_2(v). If dc=c_v-c_u, add
+-dc*(R_2(u)*E_v[V_1]-R_1(u)*E_v[V_2])+dc^2*(R_2(u)-R_1(u)).
+Both V_i in this finite-change line use the BASE center c_u.
+All other factors stay in B. Positive densities alone do NOT ensure positive
+responses at intermediate single-face changes; any comparison path must pay
+that guard or use a reflection-compatible construction and actual witnesses.
+
+No inspected theorem pays this signed relative difference:
+`lean/YMGap/Continuum/BF4ExactSlabCouplingScoreBound.lean:273`
+(`face_response_variance_bound`) uses an absolute square;
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.lean:1076`
+(`original_ratioNoise_ward_unitJointGradient_le`) leaves a signed covariance;
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedFamilyCoercivity.lean:298`
+(`normalizedEnergy_coercivity_cutoff_payment`) pays only the omitted term.
+
+Decision: retain this corrected local signed probe as an OPTIONAL analytic
+route to the existing PRIMARY consumer. Do not implement another Euler,
+interpolation or unsigned-score adapter without a quantitative payment.
+ROOT and two independent bounded reviewers agree on factors, signs and the
+four-versus-two correction. No Lean edit/check, new axiom claim, ledger
+discharge or canonical chart change. Original relative energy, justified
+physical family, continuum/QFT/every-group and Clay closure remain OPEN.

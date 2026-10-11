@@ -112,6 +112,19 @@ doubling ratio. Retain both actual terminal histories and OLD-center changes.
 Evidence and narrow verification scope: adaptive-score audit,
 "Precision-schedule shell-budget test". No canonical chart claim changes.
 
+Optional next quantitative probe (2026-10-11; SOURCE/PAPER): compare the
+COMPLETE signed neighboring-face gradient insertion at both response times,
+retaining the OLD-center derivative. The heat Euler/Casimir reduction cancels
+the universal source term, but the actual temporal-gauge kinetic word has
+TWO links, not FOUR: a kinetic coupling-response term remains. Do not drop
+it or infer that angular generators transport through temporal gauge merely
+because the Haar moments agree. Local incidence and mixed trace identities
+give no sign or relative payment. Test the joint signed insertion, not another
+Euler/interpolation compiler. This remains an alternative to the OPEN direct
+original relative-energy producer, not a replacement for PRIMARY. Exact
+formula and source pins: adaptive-score audit,
+"Joint coupling Ward reduction and the kinetic correction".
+
 Stop two specific joins: an UPPER bound on the comparison cost cannot be
 subtracted to upper-bound the complete signed cost; and the literal plaquette
 source is not the heat-prefix nome derivative. Neither shortcut supplies an
