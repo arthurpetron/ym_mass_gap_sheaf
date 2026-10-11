@@ -8229,3 +8229,8 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialGaussTransfer
 -- action and odd-degree rejection. No compact SO(3), completed action or
 -- physical gap is inferred; this import is registration, not a root audit.
 import YMGap.Continuum.SU2QuaternionSymmetricPowerSignDescent
+
+-- Exact cleared Cayley expansion of the ORIGINAL four-link plaquette scalar.
+-- Source matching only, not a heat/measure/remainder/gap estimate; registration
+-- here does not constitute a root build or repository-wide axiom audit.
+import YMGap.Continuum.BF4ExactSlabPlaquetteCayleyExpansion

@@ -226,6 +226,29 @@ with an interacting measure. Exact primary-source pins and pruning decisions:
 adaptive-score audit, "Finite-infrared and orderwise literature screen".
 No canonical claim changes.
 
+First interacting-correction test (2026-10-11; CHECKED source, PAPER coefficients): retain the
+complete cubic-source/action pairs, quartic action, kinetic factors, Haar
+Jacobian, OWN normalization and literal OLD center. The finite Gaussian
+coefficient calculation identifies the signed two-time residual after common
+complete-action/source rescalings cancel; it supplies no original-measure
+comparison or nonperturbative relative remainder. The actual ordered four-link
+source has a nonzero cubic coefficient in general. The exact
+denominator-cleared identity is now CHECKED in
+`BF4ExactSlabPlaquetteCayleyExpansion.plaquetteWord_cayley_cleared:508`,
+with its literal original shared-assignment/fallback consumer
+`original_plaquette_cayley_cleared:529` and cubic pin `H3_dot_cross:122`.
+This is ONE original-source matching ingredient, not a new conditional
+heat/cumulant interface. The serialized 20-GiB/12-GiB-reserve check passes
+all three gates with exactly {propext,Quot.sound}; the root import is only
+registration. Test the SCALE-WEIGHTED one-sided signed residual, not merely
+a bounded unscaled log-ratio error. No canonical claim changes. Exact
+verification, calculation, source pins and independent reviews:
+adaptive-score audit, "Complete coefficient calculation" and "Signed grouping
+before taking absolute values", and "Checked original Cayley source identity".
+Continue toward the signed residual on the
+justified family; PRIMARY, physical calibration and continuum passage remain
+OPEN.
+
 Stop two specific joins: an UPPER bound on the comparison cost cannot be
 subtracted to upper-bound the complete signed cost; and the literal plaquette
 source is not the heat-prefix nome derivative. Neither shortcut supplies an

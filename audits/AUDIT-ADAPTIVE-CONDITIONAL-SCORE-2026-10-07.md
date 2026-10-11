@@ -21020,3 +21020,270 @@ sections and existing source declarations; bounded parallel reviews agree.
 No Lean edit/build, new hole/axiom, canonical-field change or ledger
 discharge. PRIMARY, physical calibration, changing-family survival, full
 QFT/every-group and Clay remain OPEN. Canonical chart claims unchanged.
+
+## First interacting correction: decision before the bounded test
+
+Selected question (2026-10-11): determine the FIRST complete correction to
+the already screened finite transverse-Gaussian two-time Wilson response,
+not an absolute density comparison. The intended consumer is still the
+ORIGINAL late relative-energy/response estimate in the opening work plan.
+No perturbative coefficient will be substituted for that nonperturbative
+estimate.
+
+First establish the actual four-link SU(2) source expansion in the existing
+rational stereographic chart. Keep the cubic term and the quartic remainder;
+the earlier commutator fixture is not a general four-link expansion. Then
+derive the connected two-time correction including BOTH source insertions,
+the cubic-action pair, quartic action, Haar Jacobian and OWN normalization
+and center. Kinetic faces and temporal-boundary/gauge factors must be included
+in any original-action identification, not discarded as spectators.
+
+Available inputs: `RationalQuaternionSphereNets.stereographic:153` and
+`RationalQuaternionCommutatorDefect.plaquetteWord:198` (line pins to be
+checked before reporting), the existing finite Gaussian/Hodge PAPER
+reference, and the original complete chronological weight. A small-chart
+heat expansion and a uniform nonperturbative remainder are NOT available
+inputs. Formal coefficient identities must be labelled as such.
+
+Prediction: odd Gaussian parity removes the first cubic contribution, but
+at the next order cubic source/action contractions and normalization terms
+remain. A pointwise positive quartic term alone cannot pay the joint ratio.
+Decisive test: retain the mixed cubic terms and test an actual noncommuting
+four-link fixture; then distinguish cancellation of a common multiplicative
+source factor from a bound on the residual two-time correction.
+
+Budget: two bounded independent PAPER derivations, no numerical sweep or
+broad build. Select at most one narrow Lean target only if it constructs an
+actual source matching ingredient not already present. Revise/prune if the
+calculation merely restates an existing Ward identity, needs a missing
+heat/gauge identification to make its claimed conclusion, or gives only
+an absolute error without a relative-response consumer. No canonical
+chart or physical-family selection changes during this test.
+
+Bounded algebra selection: independent derivation agrees that, for directed
+vectors v=(a,b,-c,-d), the cleared ACTUAL trace deficit is exactly
+`e^2 H2 + e^3 H3 + e^4 H4 + e^5 H5 + e^6 H6`. H2=4|sum v|^2 and
+H3=16*(sum v) dot (sum_(i<j) v_i cross v_j). This has a literal original
+source consumer: `lean/YMGap/Continuum/BF4ExactSlabPlaquetteDeficit.lean:204`,
+`plaquette_scalar_pin`, retaining original shared link assignments and
+fallbacks. Select ONE narrow source-matching target for this exact identity,
+not a new heat/variance premise or interface. Verify its whole source and
+axiom gates with one serialized monitored worker capped at 20 GiB and
+12 GiB reserved. The finite polynomial identity does not identify an
+original interacting measure with the Gaussian reference.
+
+### Complete coefficient calculation (PAPER, not relative payment)
+
+ROOT and bounded independent reviewers obtained the following finite formal
+coefficient identities. They do not assert a convergent expansion of the
+original increasing-volume theory.
+
+Let E_G be the fixed finite centered Gaussian reference and kappa its joint
+cumulant. Write a reference density as
+`exp(-e V3-e^2 V4)*(1+e^2 J2+...)`, and the two actual source expansions as
+`A_e=e^2 A2+e^3 A3+e^4 A4+...`, likewise B_e. V3, A3 and B3 are odd;
+the displayed second/fourth-order terms are even. The OWN-connected response
+has fourth-order coefficient R4=kappa(A2,B2), zero fifth-order coefficient,
+and sixth-order coefficient
+
+```
+R6 = kappa(A4,B2) + kappa(A2,B4) + kappa(A3,B3)
+   - kappa(A3,B2,V3) - kappa(A2,B3,V3)
+   + (1/2)*kappa(A2,B2,V3,V3)
+   - kappa(A2,B2,V4) + kappa(A2,B2,J2).
+```
+
+Use the normalized log generating function to derive this identity: its
+mixed insertion derivative is covariance, so cumulants retain partition
+normalization and BOTH mean subtractions. Constant source shifts disappear.
+For positive leading responses, the first correction to the two-time
+log ratio is `e^2*(R6(t1)/R4(t1)-R6(t2)/R4(t2))`. The cubic-source/action
+pairs cannot be dropped just because each odd first-order expectation
+vanishes. A common multiplicative source correction cancels only together
+with the corresponding center transformation.
+
+The actual PRIMARY response has the OLD center, not an arbitrarily
+recentered Gaussian source. For supplied
+`c_e=e^2 c2+e^3 c3+e^4 c4+...`, put
+`E_e A_e=e^2 a2+e^3 a3+e^4 a4+...`, likewise b. Then
+
+```
+P4 = R4 + (a2-c2)*(b2-c2)
+P5 = (a2-c2)*(b3-c3) + (a3-c3)*(b2-c2)
+P6 = R6 + (a2-c2)*(b4-c4) + (a3-c3)*(b3-c3)
+        + (a4-c4)*(b2-c2).
+a2 = E_G A2
+a3 = E_G A3 - kappa(A2,V3)
+a4 = E_G A4 - kappa(A3,V3) + kappa(A2,J2-V4)
+        + (1/2)*kappa(A2,V3,V3).
+```
+
+Parity gives a3=b3=0, but does NOT alone establish c3=0 for a separately
+supplied OLD center. If P5 is not zero, the second log coefficient is
+`P6/P4-(1/2)*(P5/P4)^2`, and there is also a first-order difference P5/P4.
+Scaling both sources by `1+z e^2` with OLD c held fixed adds, beyond twice
+the common source scaling, `z*c2*((a2-c2)+(b2-c2))` at sixth order. Thus
+even the source-renormalization cancellation needs the literal OLD-center
+pin, or its already available fixed-member common-tail payment. No new
+center identification is assumed here.
+
+For the rational chart the normalized trace deficit coefficient F4 is H4
+MINUS `(sum_i |v_i|^2)*H2`; H4 alone is the cleared-numerator coefficient.
+At B=sum v=0, H3=0 and F4=16*|sum_(i<j) v_i cross v_j|^2. In general
+H3=16*B dot (sum_(i<j) v_i cross v_j) has no favorable sign. For example,
+a=i, b=j, c=k, d=i+j gives
+
+```
+D=(1+e^2)^3*(1+2e^2)
+N=1+3e^2+8e^3-7e^4-16e^5+e^6+2e^8
+F2=4, F3=-16, F4=12;
+scalar(q(e a)q(e b)q(e c)^-1 q(e d)^-1) at e=1/2 = 47/75.
+```
+
+These are literal Hamilton products, not source bracket fixtures or an
+integrated sign claim. A source-only quartic approximation cannot substitute
+for all the terms in R6.
+
+The local ZERO-WINDING reference has tau=e^2, w=exp(-tau),
+`F=2-chi1=2*(1-cos theta)`. Its facewise action coefficients are
+`F2/4`, `F3/4`, and `F4/4+F2^2/48-F2/6`. Here
+`theta^2=F+F^2/12+...` and `log(theta/sin theta)=theta^2/6+...`.
+Cayley Haar contributes DENSITY coefficient `J2=-3*sum_links |a|^2`,
+equivalently plus that positive quadratic term in the action. Its Jacobian
+is proportional to `(1+e^2|a|^2)^(-3)`, not the exponential-chart Jacobian.
+The complete second density coefficient is `V3^2/2-V4+J2`.
+
+The ACTUAL temporal-gauge kinetic word has two links: its exact trace
+deficit is `4e^2|a-b|^2/((1+e^2|a|^2)*(1+e^2|b|^2))`. Consequently its
+cubic coefficient vanishes, but its quartic coefficient
+`-4|a-b|^2*(|a|^2+|b|^2)` remains. Keep these kinetic terms and all terminal
+histories in any original comparison. Independent review of constants and
+ROOT source inspection agree. Source pins:
+
+- `lean/YMGap/Continuum/RGTransport.lean:188,196`, `dimQ`, `c4`;
+  `lean/YMGap/Continuum/BondMovingStep.lean:259`, `coeffW`;
+  `lean/YMGap/Continuum/QuaternionHaarHeatCertificate.lean:31`, `heatPrefix`.
+- `lean/YMGap/Continuum/BF4GeometricSpinNetworkMehler.lean:409`,
+  `characterPolynomial`; `lean/YMGap/RepTheory/RationalQuaternionSphereNets.lean:205`,
+  `stereographic_chord` (the existing exact two-link chord identity).
+- `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSliceHeat.lean:70`,
+  `spatialWeight`; `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialKineticHeat.lean:64,68`,
+  `relative`, `kineticWeight`.
+
+An independent quantitative normalization test uses ONE heat holonomy, not
+the interacting star. With r=|a|^2 and Gaussian density proportional to
+exp(-|a|^2), the second density correction is
+`1+(2/3)r^2-(7/3)r`. Its Gaussian mean is zero. For this exact one-holonomy
+source F2=4r, F4=-4r^2, the mean coefficients are 6 and -9; the variance
+coefficients are 24 and -112. They agree with the expansions of the EXISTING
+original heat moments `2*(1-w^3)` and `1+3*w^8-4*w^6`, not a new variance
+proof. Those exact moments are already in
+`lean/YMGap/Continuum/QuaternionHaarExposedHeatMoments.lean:246,264`,
+`heat_fundamental_moment`, `heat_fundamental_square_moment`, and
+`lean/YMGap/Continuum/QuaternionHaarHeatAngularVarianceObstruction.lean:81`,
+`normalized_variance`. The second-moment/variance pins require K>=2 (mean
+alone K>=1). This tests the full-heat zero-winding local reference, NOT a
+fixed-cutoff small-tau density approximation; the constant 1 is the e^tau
+factor. Omitting the Haar/source correction fails this test. Independent
+complete algebra/source review PASS, with this cutoff clarification retained.
+
+Residue: the original heat-prefix/full-heat, chart, gauge and terminal
+identifications; winding and large-field control; and a nonperturbative
+remainder relative to the SAME positive late response remain OPEN. This
+calculation identifies the signed coefficients that must be bounded; it
+does not pay them. Do not use finite perturbative order or absolute density
+control as PRIMARY payment. Continue the exact source matching target;
+do not create a new conditional cumulant/heat interface.
+
+### Signed grouping before taking absolute values (PAPER)
+
+One exact Gaussian cancellation narrows the next coefficient estimate.
+For the COMPLETE finite Gaussian action S0, tilting by exp(-u*S0) rescales
+the entire covariance by 1/(1+u). Homogeneous quadratic connected responses
+therefore scale by 1/(1+u)^2. Differentiating gives
+`kappa(A2,B2,S0)=2*R4`. An EXPLICITLY identified order-e^2 action component
+alpha*S0 consequently contributes -2*alpha*R4 to R6. A common source
+component A4=beta*A2, B4=beta*B2 contributes +2*beta*R4. Both cancel in
+the CLEARED signed joint expression
+
+```
+R4(t2)*R6(t1) - R4(t1)*R6(t2).
+```
+
+This argument is finite Gaussian covariance homogeneity, not an assertion
+that the ORIGINAL interacting counterterms have been identified. The action
+rescaling must be complete; a selected spatial term alone does not have
+this property. The symbol V4 above labels the order-e^2 action correction,
+not an assumption that all its terms are homogeneous quartics.
+
+For the OLD response, the corresponding center must scale consistently.
+Holding c2 fixed instead leaves
+`(beta-alpha)*c2*((a2-c2)+(b2-c2))` beyond the common scaling. The original
+OLD-center identification/payment remains part of the quantitative join.
+ROOT derivation and independent finite-Gaussian review PASS. Select the
+signed joint residual after the actual common terms are identified; do not
+absolute-bound all eight contributions separately or assume missing
+original RG counterterms/remainder data. No additional Lean target selected.
+
+The response-time scale must remain in this test. With positive R4(s) and
+R4(s+1), define J=R4(s+1)*R6(s)-R4(s)*R6(s+1). The order-e^2 contribution
+to `s*log(R_e(s)/R_e(s+1))` is exactly
+`s*e^2*J/(R4(s)*R4(s+1))`. For positive ACTUAL responses and s>c0,
+PRIMARY is equivalent to
+`s*log(R(s)/R(s+1)) <= -s*log(1-c0/s)`.
+An unscaled positive log-ratio error bounded by a fixed constant does not
+pay this scale-weighted target. Test the one-sided SIGNED residual with
+the s factor, not merely an unscaled bounded correction. This is a formal
+coefficient diagnostic, not a uniform asymptotic/remainder theorem. Positive
+denominators, ORIGINAL measure matching and the OLD-center correspondence
+remain unproved inputs to the contemplated comparison. ROOT derivation and
+bounded independent math review agree; no new interface or Lean target.
+
+### Checked original Cayley source identity (2026-10-11)
+
+NEW kernel-checked source matching in
+`lean/YMGap/Continuum/BF4ExactSlabPlaquetteCayleyExpansion.lean`:
+
+- `plaquetteWord_cayley_cleared:508` proves the EXACT identity
+  `D*(2-2*scalar(original ordered chart word)) = e^2 H2+e^3 H3+e^4 H4+e^5 H5+e^6 H6`
+  in rational equivalence, for arbitrary rational e and directed a,b,-c,-d.
+  D is `cayleyDenominator:90`; the finite right side is `cayleyDeficit:95`.
+  The degree-eight terms cancel exactly; no expansion/remainder premise is used.
+- `H3_dot_cross:122` identifies the cubic coefficient with
+  `16*(sum directed vectors) dot (sum ordered pair crosses)`.
+- `original_plaquette_cayley_cleared:529` consumes four explicit chart pins
+  for the SAME original corrected-slab polynomial scalar. It uses
+  `lean/YMGap/Continuum/BF4ExactSlabPlaquetteDeficit.lean:204`,
+  `plaquette_scalar_pin`. Repeated link occurrences and original fallbacks
+  stay in scope; they require consistent supplied chart pins, not independence.
+
+Verification: `scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20
+--reserve-gib 12 --check lean/YMGap/Continuum/BF4ExactSlabPlaquetteCayleyExpansion.lean
+--check-output lean/.lake/build/lib/lean/YMGap/Continuum/BF4ExactSlabPlaquetteCayleyExpansion.olean
+--log-file /private/tmp/ym-oct11-plaquette-cayley-expansion-check3.log`
+completed with EXIT 0. Each of the three printed public theorem gates is
+exactly {propext, Quot.sound}, with no sorryAx. Dynamic preflight found 91%
+free memory, 64 GiB physical RAM and no competing compiler/test/runner;
+continuous launcher telemetry retained the worker cap and OS reserve.
+Existing swap was 4593.38 MiB; the launcher measures growth from that baseline.
+No resource limit was raised. The first two checks failed on syntax/oversized
+reflection certificates, then a single bilinearity certificate; they are NOT
+proof evidence. Splitting the Hamilton scalar and bilinearity identities paid
+the compiler cost without changing the public claims.
+
+ROOT inspected the complete final source; independent entire-source and
+accepted narrow-log review PASS. Final source SHA256:
+`01c1c498f4cabe3231b6b21d28be81208ee6f28f33d6bda0700dcf9f382f3051`.
+Accepted check3 log SHA256:
+`80cc93a0d4b40e12a361c566a607e7e11ed003b9c791a8caa7419c8dc58bd9aa`.
+Registration in `lean/YMGap.lean` does not assert a root rebuild or full audit.
+No new sorry/axiom, canonical-field change or analytic ledger discharge.
+
+Decision: retain this exact original-source ingredient and the SCALE-WEIGHTED
+signed coefficient test. Do not construct another conditional completion,
+cumulant or Gaussian-comparison wrapper. The first interacting correction and
+common-term grouping above remain PAPER results. No global chart, original
+heat/gauge/terminal measure identification, uniform relative remainder or
+late-response estimate has been produced. PRIMARY, changing-family survival,
+physical calibration, full QFT/every group and Clay remain OPEN. Canonical
+displayed claims are unchanged; no chart reprint.
