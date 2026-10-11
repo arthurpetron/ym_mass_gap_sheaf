@@ -19399,3 +19399,104 @@ Frozen source and accepted log SHA256 pairs:
     FamilyFiniteEntropy log    645e81ea9df0c889bf8cc9d0e38fb4d8213cf5b012511f68f314cc44a40443f3
     OriginalSelectedHaarCoercivity source 178659465b7a7fd14b66c7c0fe96cba615814b4260377b9cc91c2d989af170b9
     OriginalSelectedHaarCoercivity log    9e87db512eae0b2c6e2d22e35fd5059025e5d9f55291cf8a17adb605e04e7958
+
+### Checked ORIGINAL selected-Haar logarithmic defect bound (2026-10-11 UTC)
+
+The preceding selected-Haar finite estimate is now joined to the actual
+binary logarithm, with its entropy-series cutoff removed constructively.
+Paths below are under `lean/YMGap/Continuum/`.
+
+`BF4SelectedEntropyBudget.lean:42` (`errorBudget`) returns
+256*L+768*(M(q)-1)*F. `error_coefficient_le:65` bounds the actual finite-error
+coefficient by that natural-number budget; `errorRate:88` and `error_bound:96`
+return and prove a nome/count/tolerance cutoff. The construction uses the
+inverse of budget+1, including zero counts, never an inverse of a possibly
+zero budget or density.
+
+`BF4SelectedEntropyLogBound.lean:49` (`logBound`) uses the EXISTING computed
+binary-log values at OWN Z and at 1/3. `totalBudget:58` is
+256+768*F+errorBudget(q,L,F), and `logRate:68` is the maximum of the actual
+binary-identification rate and finite-error rate at tolerance divided by
+totalBudget+1. `log_approx:119` preserves the SAME approximation index through
+the CReal addition/multiplication, pays the Z, 1/3 and finite-tail errors, and
+proves the epsilon approximation bound. `log_bound:197` returns its rate as
+`CReal.ExplicitLeEv` data. No transitivity of the unsound one-slack order is
+used. The generic finite premise is supplied by the original consumer below,
+not left as an additional original-action analytic assumption.
+
+`BF4ExactSlabOriginalSelectedHaarLogCoercivity.lean:41`
+(`originalSelectedPartition_floor`), `originalSelectedPartition_positive:51`
+and `originalSelectedPartition_le_one:59` produce the positive unit window
+for the literal OWN selected partition Z_y=eval_y(P_slots W), using the
+actual original normalized heat floor and selected projection order.
+`originalSelectedDefectHaar:68` is A=eval_y(P_slots(W*D)), where D sums the
+selected face OCCURRENCES. `originalLogCoercivityValue:76`,
+`original_selected_log_approx:86` and `original_selected_log_bound:106`
+instantiate the generic proof with
+`BF4ExactSlabOriginalSelectedHaarEntropyCoercivity.lean:111`
+(`original_selected_haar_coercivity_finite`). In mathematical notation:
+
+    A <= 256*(1-q)*Z_y*(-log(Z_y)+F*log(3)).
+
+The code retains 3*F*Z_y*(-(1/3)*binaryLog(1/3)), not an opaque log(3)
+constant. Only the entropy-series cutoff is removed: the ORIGINAL heat K
+remains finite with coercivityCutoff(q)<=K+1 and 16/17<=q<1. Every complete
+weight factor, shared variable, boundary assignment and schedule remains in
+place. The rate is independent of the retained assignment and admissible heat
+cutoff at FIXED nome and occurrence counts; its explicit budget depends on
+those counts. No partition division, spatially uniform estimate, physical
+clock, OLD-centered response-relative estimate, H1 or Clay closure follows.
+
+Verification: ONLY these three leaves, narrow serialized monitored checks,
+jobs=1, 20-GiB hard worker cap, 12-GiB reserve and repository lock. Fresh
+process/dynamic-memory preflight before EVERY launch. Accepted preflights:
+39.1, 38.6 and 38.5 GiB available, pressure-free 91%, 90% and 90%, no
+competing job. Exit 0, emitted oleans and no diagnostics in accepted logs:
+
+    /private/tmp/ym-oct11-selected-entropy-budget-check1.log
+    /private/tmp/ym-oct11-selected-entropy-log-bound-check2.log
+    /private/tmp/ym-oct11-original-selected-haar-log-coercivity-check1.log
+
+All 21 public gates are within {propext, Quot.sound}, four axiom-free. ROOT
+read COMPLETE final sources and accepted logs. Complete independent budget,
+generic-log and actual-original-consumer source/log/math reviews PASS; the
+actual consumer has two independent reviews. The initial generic-log check
+only needed an explicit rational polynomial coefficient type pin and aligned
+function alternatives; no mathematical premise or resource limit changed.
+Failed outputs are NOT verification evidence. No sorry/new axiom, full-tree
+audit/build, ledger or canonical-node closure, or duplicate mutation.
+
+Frozen source and accepted log SHA256 pairs:
+
+    SelectedEntropyBudget source a2fd72cc6a7691130d451b4d81475f43e4157b93f523fe44b54eb4244422848c
+    SelectedEntropyBudget log    390ff6052fb962f1d194b935d6d827b0471614788f719f9f49f2470df99a2ef9
+    SelectedEntropyLogBound source 8ee64b628b1d031eda835eba08d1cbdbeb1908580e2d8ce55e378774866be64f
+    SelectedEntropyLogBound log    e238e85dc697e1217c2155fde4c0e1d821fe15596327764654964c7b16bf0cdc
+    OriginalSelectedHaarLogCoercivity source d57708ed7d20e2d8509885e09437b2036de5324352b6ec7362acec8a43562533
+    OriginalSelectedHaarLogCoercivity log    0e9a21efb9df37affc8ba01bd04ce91ff65b0c7239f0c2e84e279ec9d0d32d69
+
+### PRIMARY source-relative screen after the logarithmic join (2026-10-11 UTC)
+
+`BF4WilsonAllNomeDyadicSmoothedTrajectory.lean:348` (`familyVector`),
+`state:354` and `response:360` retain the SAME smoothed state Y_j and define
+R_j(n)=B(Y_j,T(n)Y_j). The ORIGINAL late endpoint is exactly
+`BF4WilsonAllNomeShiftedH1Anchor.lean:418`
+(`pathShiftedEpsBound_iff_response`); its completed normalized consumer
+`path_normalized_anchor_shifted:581` separately needs late positive norm
+floors. `BF4WilsonAllNomeOddResponseJensen.lean:222`
+(`response_log_convex_step`) and `response_ratio_floor:251` already transfer
+an INITIAL relative one-step floor to all lags. They do not produce that
+floor. `BF4WilsonAllNomeTimeDefectMoments.lean:343`
+(`mixedMoment_nonnegative`) and `mixedMoment_split:349` supply positive
+defect moments; the existing `BF4WilsonAllNomeMacroRatioFilteredCost.lean:100`
+(`retained_time_budget`) consumes R_j(s_j/2)<=C*R_j(s_j) to give coefficient
+2*(C-1). No new ratio interface or compiler is needed.
+
+The bounded trajectory, moment, Jensen, smoothing and H1 SOURCE screen found
+no declaration producing that relative two-time comparison from the new
+absolute conditional bound. The gap is quantitative and source-relative,
+not partition positivity. PRIMARY remains the late signed estimate on a
+JUSTIFIED changing physical family; the rounded diagnostic AF trajectory is
+not promoted. Do not replace the next estimate with another absolute UV
+ceiling plus a qualitative floor, which the earlier checked scalar obstruction
+already excludes as a sufficient generic join.

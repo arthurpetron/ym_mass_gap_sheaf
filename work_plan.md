@@ -537,22 +537,36 @@ retains P_selected(W*sum_selected(1-X)) and bounds it by
 256*(1-q)*(p_N(Z_y)+3*p_N(1/3)*F*Z_y+(L+3*(M(q)-1)*F)/(N+1)).
 Selected link slots and selected face occurrences remain separate. Two
 serialized narrow checks and complete independent source/log/math reviews
-PASS; ten gates permitted. This is finite conditional coercivity, NOT the
-cutoff-removed logarithmic UV estimate or response-relative payment.
+PASS; ten gates permitted. This supplies finite conditional coercivity,
+not response-relative payment.
 Do NOT substitute the global-Haar entropy constructor
 at P_selected W: H_all(p_N(P_selected W)) is not P_selected(p_N(W)).
-NEXT remove the finite error with explicit nome/count/tolerance data, then
-consume actual binary-log identification at that SAME positive selected Z_y.
-Positivity must come from the produced original finite floor (and its sharper
-collar conditionalFloor specialization), retaining the crossing eta costs.
-Use its OWN conditional partition and retain every crossing eta cost.
-The existing localized partition floor alone does not supply this inequality.
-The cutoff-removed logarithmic conditional UV estimate, source-weighted
-deviation relative to the SAME
-signed late response, PRIMARY estimate and physical-family justification all
-remain OPEN; absolute UV control is not relative response payment.
+The entropy-cutoff-removed ORIGINAL selected-Haar logarithmic bound is now
+CHECKED: `BF4SelectedEntropyBudget.errorBudget:42` and `errorRate:88` retain
+nome/count/tolerance data. `BF4SelectedEntropyLogBound.logBound:49`,
+`logRate:68`, `log_approx:119` and `log_bound:197` consume the actual binary
+logarithms at Z_y and 1/3 at the SAME approximation index, with total budget
+256+768*F+256*L+768*(M(q)-1)*F. The original consumer
+`BF4ExactSlabOriginalSelectedHaarLogCoercivity.originalSelectedPartition_floor:41`,
+`originalSelectedPartition_positive:51` and `originalSelectedPartition_le_one:59`
+produce the positive unit window from the actual original finite heat floor.
+`original_selected_log_approx:86` and `original_selected_log_bound:106` give
+A<=256*(1-q)*Z_y*(-log(Z_y)+F*log(3)), represented by the computed binary
+log value and `CReal.ExplicitLeEv` with an explicit rate. A is the literal
+selected-Haar projection of W*sum_selected(1-X), NOT divided by Z_y.
+Every crossing factor, shared variable and occurrence remains in W; the
+heat cutoff stays finite. Three narrow serial checks and complete independent
+source/log/math reviews PASS; 21 permitted gates, four axiom-free. No canonical
+node closes. NEXT seek a genuinely source-relative comparison at the SAME
+two positive times, not another absolute entropy or positivity wrapper.
+The sharper collar conditionalFloor specialization and crossing eta costs
+remain relevant to quantitative localization, but its floor alone does not
+supply relative payment. Source-weighted deviation relative to the SAME
+signed late response, PRIMARY estimate and physical-family justification
+remain OPEN; absolute conditional UV control is not relative response payment.
 Evidence: adaptive-score audit, "Selected finite entropy product law and
-direct-window comparison". No canonical node or physical gap closes.
+direct-window comparison" and "Checked ORIGINAL selected-Haar logarithmic
+defect bound". No canonical node or physical gap closes.
 The new finite FREE-reference screen also excludes a high-mass simultaneous
 shrinking chart for all elementary curls in the support cube: under
 kappa*rho^2<=log(s)/32 its probability is <=exp(-s^(9/4)/48).
