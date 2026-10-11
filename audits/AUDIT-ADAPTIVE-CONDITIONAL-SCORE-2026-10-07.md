@@ -20097,3 +20097,102 @@ fraction/error algebra; bounded independent Sol mathematical/source reviews
 agree. No Lean edit, compiler, new theorem, axiom claim, ledger discharge,
 physical scaling construction or canonical chart-state change. PRIMARY and
 the unchanged constructive continuum/Clay goal remain OPEN.
+
+### Original-action higher-label leakage and the actual energy target (2026-10-11 UTC; SOURCE/PAPER)
+
+Decision test: can the initial plaquette's small representation band provide
+the raw signed-bulk estimate selected above? Consumer remains PRIMARY via
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1Anchor.lean:418,581`
+(`pathShiftedEpsBound_iff_response`, `path_normalized_anchor_shifted`).
+Test the actual transfer BEFORE implementing a transported Casimir-12 bound;
+retain full action, OLD center and the actual surviving norm. No compiler
+or surrogate free-transfer proof is selected.
+
+Already paid: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLastStepSignedScoreEnergy.lean:86,170`
+(`exactScoreReciprocalDebt`, `exactScoreSignedBulk_energy_split`) gives
+Bulk=Z0*(energy(A,phi_k)+(1-w)*Debt). At fixed finite data a fixed positive
+sigma leaves a positive angular surcharge even as the reciprocal converges.
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialAdaptiveSignedScorePayment.lean:93,120,277`
+(`originalScoreCap`, `original_signed_debt_le`, `adaptiveSignedScorePayment`)
+already chooses sigma and an all-later degree onset to pay this overhead
+to any positive relative tolerance when Z1*B>0. Thus the genuinely missing
+estimate is Z0*energy(A,phi_k) <= (c_E/s)*Z1*B, up to controlled errors,
+on the justified changing family. No new Taylor assembly or sigma adapter
+is needed. This positive-target certificate does not remove PRIMARY's
+zero-response cases or supply a uniform changing-family modulus.
+
+SHORTER selected join: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockConditionalRelativeEnergy.lean:264`
+(`blockConditionalRatio_energy_error_relative_tolerance`) and
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockConditionalDrift.lean:152,158`
+(`blockConditionalDriftDepthCutoff`, `blockConditionalRatio_boundaryDrift_tolerance`)
+already imply C<=Z0*energy(A,phi_k)+(epsilon+delta)*Z1*B. Choose
+epsilon=delta=1/s, an admissible reciprocal degree at each finite stage,
+and an eventual original depth. The proposed relative energy estimate then
+gives s*C<=(c_E+2)*Z1*B with c_E>=0 fixed. The hypotheses need only
+headCutoff(w)<=K and n+t>=1, not relativeCutoff(w,32), sigma, a separate
+positive surviving target, or a positive carrier-dimension guard. Division
+still uses only the strictly positive original chronological partitions;
+the generic raw-cost/variance limits and positive-BOX transfer above apply.
+No convergence theorem for the approximating energy is needed: the literal
+cost is what passes to the limit. This preserves zero responses and removes
+the adaptive-surcharge theorem's positivity guard from the selected route.
+The relative energy estimate itself is OPEN, not produced by this composition.
+
+NEW PAPER diagnostic, not a checked Lean endpoint: take width two, the origin
+p01 face p, f=chi_1(Pp), h2=chi_2(Pp), n=0 and K>=2. The literal action/transfer
+pins are `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCubeTransfer.lean:173,176,229`
+(`cubeWeight`, `activeSpatialWeight_cube`, `original_transfer_cube`). Support
+and four-link realization: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteHaar.lean:44`
+(`plaquette_supported`) and `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFaceSelection.lean:61`
+(`plaquette_fourWord`). All six original spatial factors remain. Haar symmetry
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialActiveTransfer.lean:72`
+(`kineticMap_symmetric`) and the spin-two four-link heat pin
+`lean/YMGap/Continuum/SU2QuaternionProductHeatSpinTwoPlaquette.lean:195`
+(`productMap_spinTwoPlaquette_of_perm`) give the factor w^32 on the detector.
+
+For the PAPER cube contraction, let d_n=n+1 and C_n=n*(n+2). Orient the six
+faces outward; SU(2) characters are unchanged by inversion. The five faces
+without the insertion form a connected disk, so bivalent Schur contractions
+force one common label n. The closed cube contributes d_n^(8-12)=d_n^-4.
+For an insertion P in the remaining face this gives the finite formula
+
+    H[W_K*P] = sum_(n,m<=K) d_n*d_m*w^(5*C_n+C_m)*[chi_n](chi_m*P).
+
+At K=2, using chi_1*chi_2=chi_1+chi_3, the explicit sums are
+
+    M12 = H[W_2*f*h2] = 2w^3+2w^15+12w^23+12w^43,
+    M2  = H[W_2*h2]   = 3w^8+4w^18+3w^40+9w^48.
+
+Therefore H[h2*T(f-c)] = w^32*(M12-c*M2), retaining the subtractive vacuum
+term. For ANY |c|<=2 and 0<w<=1/4, M12>=2w^3, M2<=19w^8, and
+38w^5<=38/1024<1 give H[h2*T(f-c)]>=w^35>0. The center cap is a guard
+here; no arbitrary-center cancellation or new formal OLD-mean cap is claimed.
+
+The same PAPER sphere formula also yields a cutoff-independent detector:
+M12_K>=2w^3. Fusion with chi_2 allows at most m=n-2,n,n+2. The n=0 term
+is 3w^8; for n>=1, d_n*d_m<=(n+1)*(n+3) and 5n(n+2)>=8+n. Hence
+M2_K<=w^8*(3+3*sum_(n>=1)(n+1)*(n+3)*4^-n)=(122/9)*w^8<14w^8.
+Finite sums obey the same upper bound. This again preserves positive leakage
+under the same center guard, at every K>=2, not merely a selected small cutoff.
+
+Formal boundary: an arbitrary-label cube contraction was NOT FOUND in the
+bounded cube/Schur sources inspected. The existing
+`lean/YMGap/Continuum/SU2QuaternionElementaryCubeCanonicalTraceExpansionProduct.lean:281`
+(`finiteProductHaarComplex_radiusZeroElementaryCubeCanonicalTraceExpansionProduct_exact`)
+supplies only the fundamental six-face value 1/16, not the formula above.
+The detector and fusion computations are independently reviewed PAPER
+mathematics; no original high-label moment theorem was compiled or assumed.
+
+Selection: this detects failure of literal fundamental-sector preservation
+by the interacting transfer; it does NOT refute an averaged original-weight
+gradient estimate, H1 or Yang--Mills. The actual initial pins
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyHeatEigen.lean:42`
+(`spatialSpan_fullRange`) and
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyCasimir.lean:294`
+(`spatialSpan_casimir`) cannot simply be reused for the transported ratio.
+The probe is a bare-Haar detector at n=0, not an identification with the late
+surviving variance. Stop the exact-sector shortcut; retain the joint original
+energy/score target, with no new low-band premise or interface. ROOT and two
+bounded Sol readers agree on the finite sums, center subtraction and scope.
+No Lean edit/check, axiom claim, ledger discharge or canonical chart change;
+PRIMARY, physical calibration and the full constructive Clay target stay OPEN.

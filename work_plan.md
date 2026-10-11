@@ -56,6 +56,27 @@ quotient-gradient, innovation or smoothing adapter. The direct signed BOX
 route remains available if raw retention is too strong. Exact source/limit
 pins and independent review: adaptive-score audit, "Raw-source signed bulk
 can feed PRIMARY without a new BOX interface". No canonical claim changes.
+Quantitative screen (2026-10-11; SOURCE/PAPER): the existing
+`LastStepSignedScoreEnergy.exactScoreSignedBulk_energy_split:170` already
+reassembles both Taylor terms. `AdaptiveSignedScorePayment.adaptiveSignedScorePayment:277`
+constructs the auxiliary sigma and reciprocal onset at each fixed finite
+positive target Z1*B. Do not keep sigma fixed and mistake its angular
+surcharge for an analytic obligation. Select the original-energy producer
+Z0*energy(A,phi_k) <= (c_E/s)*Z1*B directly. The existing relative energy
+reconstruction and boundary-drift theorems, with epsilon=delta=1/s, give
+s*Cost <= (c_E+2)*Z1*B. This shorter join needs only headCutoff, not the
+score route's relativeCutoff(w,32), auxiliary sigma or positive Z1*B guard.
+The SAME raw limit and positive-BOX transfer then give c0=c_E+2. Choose an
+admissible reciprocal degree per finite stage; no limit of energy is required.
+Zero responses stay in scope. The actual relative energy estimate is OPEN;
+the exact signed bulk remains an analytic presentation, not an extra premise.
+A new complete-action cube calculation detects a label-two component after
+one transfer of a centered fundamental plaquette. It rules out literal
+preservation of the initial Casimir-12 sector, NOT an averaged gradient bound
+or H1. The arbitrary-label cube contraction is still a PAPER join, not a new
+Lean theorem; no implementation of a warmed Casimir-12 shortcut is selected.
+Exact formulas, OLD-center guard and bounded independent reviews: adaptive
+score audit, "Original-action higher-label leakage and the actual energy target".
 Execution-scope correction after independent SOURCE/PAPER review: the existing
 rounded `afPaddedZeroMomentumTrajectory` stays unchanged as a diagnostic, not
 the selected physical scaling family. Its fixed leading-coefficient rounding
