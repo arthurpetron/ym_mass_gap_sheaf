@@ -19581,3 +19581,145 @@ PRIMARY. No new source-bias/Jensen adapter
 or presumed source floor is selected. This screen changes the quantitative
 work focus, not a Lean theorem, canonical proof node, H1 or physical-family
 status. No compiler, resource change or routine literature scan was run for it.
+
+### Checked retained-source concentration and ORIGINAL tilted payment (2026-10-11 UTC)
+
+The preceding PAPER tilt calculation now has an actual finite ORIGINAL
+producer and a computed SAME-law concentration bound. This is not a new
+analytic hypothesis bundle. All Lean paths below are under
+`lean/YMGap/Continuum/`.
+
+`RegularizedLogPolynomialLowerTangent.lean:30` (`ell`) is the actual finite
+sum ell_N(t)=sum_(k=1..N) (1-t)^k/k; `slope:35` computes its derivative.
+`lower_tangent:71` proves its supporting LOWER tangent for x,m<=1, including
+N=0 and t=0. `partial_pin:102` proves p_N(t)=t*ell_N(t) without division.
+`polynomial:123` and `polynomial_eval:134` retain the same coefficients.
+
+`QuaternionHaarFamilySourceConcentration.lean:48` (`sourceMass`),
+`sourceSecond:52`, `sourceEntropy:56` and `sourceMean:61` compute, at the
+SAME retained assignment and selected Haar schedule,
+
+    a=P(W*g), b=P((W*g)*g), E_N=P(W*p_N(g)), m=b/a.
+
+Only the explicit positive OWN biased mass a is inverted. W>=0 and
+0<=g<=1 imply `sourceSecond_le_mass:71` and `sourceMean_le_one:87`.
+`source_entropy_lower:148` integrates the supporting lower tangent against
+the literal W*g and uses `sourceMean_pin:65` to cancel b-m*a exactly:
+
+    a*ell_N(m) <= E_N.
+
+`retained_credit_upper:186` consequently proves
+p_N(a)-E_N<=p_N(a)-a*ell_N(m), with the correct negative-credit direction.
+No W<=1 premise is needed for this generic weighted tangent. Empty or
+repeated schedules, N=0 and pointwise zeros of g are included. A globally
+zero source cannot satisfy the explicit positive-mass premise; no normalized
+conclusion is asserted for it.
+
+`BF4ExactSlabOriginalSourceEntropyCoercivity.lean:154`
+(`originalSourceDefect`) is the literal P((W*g)*D), with the complete ORIGINAL
+normalized heat product and selected face OCCURRENCES. Its private
+`source_scalar_payment:70` multiplies the existing original pointwise
+payment by g and uses the proved finite two-factor multiplication defect.
+It keeps -W*p_N(g), adding exactly one invSucc N error. Jensen is applied
+to the ACTUAL W*g, never to the unbiased partition or an exterior source.
+`original_source_entropy_payment:162` proves, without a supplied payment,
+
+    P(W*g*D) <= c*[p_N(a)-E_N+3*F*p_N(1/3)*a+(L+3*k*F+1)/(N+1)]
+
+where c=256*(1-q), L=ids.length, F=selectedCount(selected,ids), and
+k=activeFactorCount(q)-1. `original_source_moment_payment:235` then proves
+
+    P(W*g*D) <= c*[p_N(a)-a*ell_N(b/a)
+                    +3*F*p_N(1/3)*a+(L+3*k*F+1)/(N+1)].
+
+Every action factor, shared variable, assignment, schedule and occurrence
+is retained. Original premises remain 16/17<=q<1,
+coercivityCutoff(q)<=K+1 and N>=1; K is finite. The entropy-payment theorem
+includes zero sources, while its moment contraction explicitly requires a>0.
+No source independence, changed center, source floor, supplied kurtosis,
+logarithmic passage, completed-response identification or uniform scaling
+estimate is asserted. PRIMARY and every displayed canonical node stay OPEN
+in their unchanged scopes.
+
+#### Same-law normalization and next quantitative residue (SOURCE/PAPER)
+
+For Z=P(W), weighted Cauchy--Schwarz gives a^2<=Z*b. When 0<=W<=1,
+0<=g<=1 and a>0, this gives a<=m<=1 and a/m<=1. These NEW inequalities
+and the following logarithmic passage are PAPER here, not checked additions.
+The moment credit has prospective logarithmic value
+
+    a*log(b/a^2) = a*(-log Z+log kappa), kappa=Z*b/a^2.
+
+For g=f^2/S with a produced cap S>0, kappa is the SAME normalized original
+fourth moment divided by its squared second moment; S cancels. This removes
+the arbitrary source-cap charge, NOT the original -log Z partition cost,
+selected-face cost F*log(3), two-time comparison, or their changing-family
+dependence. A uniform kurtosis bound alone is not an H1 producer.
+
+`QuaternionHaarDensityVariance.lean:40` (`normalizedMoment`) keeps the
+same density denominator for every moment; `own_mean_pin:274` pins its own
+center. For an UNWARMED padded loop,
+`BF4DyadicWilsonSquareCenteredFourthMoment.lean:113`
+(`paddedSquare_centered_fourth_le_sixteen_second`) bounds
+H[r^2*psi_old^4]<=16*H[r^2*psi_old^2] for every supported polynomial r;
+it does NOT identify the original odd density with a terminal square.
+Its `paddedSquare_centered_squareBound:76`,
+`QuaternionHaarIntervalSecondMoment.lean:67`
+(`Interval.normalized_square_le`) and
+`BF4ExactSlabFixedSpatialActualMarginalDual.lean:89`
+(`marginalCertificate`) instead give the PAPER density-certificate route
+to the corresponding own-law fourth/second bound. Together with
+`BF4DyadicWilsonSquareOddVarianceFloor.lean:121`
+(`paddedSquare_oddVariance_floor`), this gives the PAPER kurtosis ceiling
+16/starRatio(w) at FIXED nome. It does not give a useful q->1 uniform
+bound for the actual warmed source. Do not read a density-weighted fourth
+insertion as the fourth power of density times source.
+
+`BF4ExactSlabFixedSpatialBlockWindowPin.lean:140`
+(`normalized_block_window_pin`), at d=0, retains
+
+    R = H[V*b_t^2]/H[V*A_t^2],
+    b_t=T^t(g_n*psi_old), A_t=g_(n+t).
+
+Under the actual vacuum law V*A_t^2/H[V*A_t^2], its relative source is
+b_t/A_t. Its correct fourth moment is
+H[V*b_t^4/A_t^2]/H[V*A_t^2], NOT H[V*b_t^4]/H[V*A_t^2]. This is a
+normalization calculation, not a constructed reciprocal-source polynomial
+or a common-limit pin to generic R_j. The bounded block/window, transfer,
+variance and fourth-moment screen found no uniform actual warmed L4/L2
+producer. Do not use ordinary Haar transfer square bounds or symmetry as
+kurtosis-preservation theorems. NEXT remains source-relative original
+payment at both positive times, with these denominators, OLD center and
+the actual R_j identification preserved; logarithmic removal of the NEW
+moment estimate is a subordinate useful estimate, not PRIMARY itself.
+
+#### Verification boundary
+
+ONLY these three leaves were checked, serially with the monitored launcher,
+jobs=1, 20-GiB hard worker cap, 12-GiB reserve and repository lock. Fresh
+process/dynamic-memory preflight preceded EVERY compiler launch. Accepted
+preflights: 38.5, 38.6 and 38.6 GiB available, pressure-free 90%, no
+competing job. Accepted checks exited 0, emitted oleans and had no diagnostics:
+
+    /private/tmp/ym-oct11-lower-log-tangent-check2.log
+    /private/tmp/ym-oct11-source-concentration-check3.log
+    /private/tmp/ym-oct11-original-source-entropy-coercivity-check3.log
+
+All eighteen public gates are within {propext, Quot.sound}, three axiom-free.
+ROOT read COMPLETE final sources and accepted logs. Complete independent
+source/log/math reviews PASS for the scalar and generic weighted producers;
+the actual original consumer has two independent complete PASS reviews.
+Initial failed checks repaired one eqv_symm arity, explicit namespace/term
+type pins and one namespace open; the final moment join also passed. Failed
+outputs are NOT evidence. No sorry/new axiom, resource increase, full-tree
+build/audit, canonical-node or ledger closure, duplicate mutation, or
+routine literature scan.
+
+Frozen source and accepted log SHA256 pairs:
+
+    LowerTangent source b5082a1d15102bc5b16c1c45c7f2ea20733e39a3576a5edb7c078ba4b95cf55c
+    LowerTangent log    d4b6eaf0c3f2b3b594b7ef9be3dd9d70d974d09db5caf94326177bd560a95b59
+    SourceConcentration source c44e2f43c4089a89b68e95b9ba4c3e8bed016f6931378f074a6979c7efbd2631
+    SourceConcentration log    e16a2c28c752be409c825ba81ec447b6ad0be5f009a81743f3e201bccdbc4727
+    OriginalSourceEntropyCoercivity source 8f42334032a60e372908422c11d698e8f1843709b4a8b19876c5eeaa5f61eef0
+    OriginalSourceEntropyCoercivity log    0921fdb09bd9f9c45eacbf30a3d0a686ce858cfa7ea062503766383aa3f4f73d

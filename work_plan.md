@@ -578,16 +578,40 @@ its selected links. The explicit terminal-message square is
 `BF4ExactSlabFixedSpatialBlockWindowPin.normalized_block_window_pin:140` at d=0;
 do not identify its finite window with a generic smoothed R_j without the
 actual common-limit pin. Adding a bounded source square g to W changes OWN
-Z to P_slots(W*g). The finite PAPER tilt calculation retains the negative
-source-entropy credit -P_slots(W*p_N(g)); dropping it only charges the
-unknown source concentration through -log(P_slots(W*g)). The entropy route
-now exposes that JOINT biased-partition/source-entropy comparison for the
-actual warmed OLD-centered source at both positive times, together with its
-same-response pin. This is a sufficient route to test, not a new necessary
-premise replacing PRIMARY. Pulling the interior square outside projection would
-discard the missing input. No extra bias/Jensen adapter is selected.
-Exact algebra, producer pins and limits: adaptive-score audit,
-"Warmed source square and retained entropy credit". PRIMARY is unchanged.
+Z to P_slots(W*g). The finite tilt estimate is now CHECKED, with its negative
+source-entropy credit retained and a computed SAME-law moment contraction.
+`RegularizedLogPolynomialLowerTangent.lower_tangent:71` proves the supporting
+lower tangent of ell_N; `partial_pin:102` pins p_N(t)=t*ell_N(t), including
+t=0. `QuaternionHaarFamilySourceConcentration.sourceMass:48`,
+`sourceSecond:52` and `sourceMean:61` compute a=P_slots(W*g),
+b=P_slots(W*g*g), m=b/a from explicit a>0. Its `source_entropy_lower:148`
+proves a*ell_N(m)<=P_slots(W*p_N(g)) by integrating against the ACTUAL W*g
+and canceling b-m*a exactly. No source-independence or supplied kurtosis bound
+is used. The ORIGINAL consumer
+`BF4ExactSlabOriginalSourceEntropyCoercivity.original_source_entropy_payment:162`
+proves P_slots(W*g*D)<=256*(1-q)*[p_N(a)-P_slots(W*p_N(g))+
+3*F*p_N(1/3)*a+(L+3*(M(q)-1)*F+1)/(N+1)].
+Its `original_source_moment_payment:235` contracts the retained credit to
+a*ell_N(b/a), using that computed positive source mass. Heat cutoff K remains
+finite; 16/17<=q<1, coercivityCutoff(q)<=K+1 and N>=1 remain explicit.
+Three narrow serial checks and complete independent source/log/math reviews
+PASS; eighteen permitted gates, three axiom-free. This supplies an actual
+finite original source estimate, not another assumed analytic payment.
+NEXT test the same-law fourth/second-moment concentration at both positive
+times, preserving the actual vacuum denominator and OLD center. A bounded
+source's arbitrary cap cancels in the PAPER quantity Z*b/a^2; a useful uniform
+bound for the warmed source is NOT produced. The original -log Z partition
+cost and F*log(3) face cost still remain; kurtosis control alone is not H1.
+The logarithmic passage of this NEW moment bound and its finite-square/
+common-limit identification with R_j
+also remain OPEN. For the block pin b_t=T^t(g_n*psi_old), A_t=g_(n+t),
+the vacuum law is V*A_t^2/H[V*A_t^2] and its relative source is b_t/A_t:
+its fourth moment is H[V*b_t^4/A_t^2]/H[V*A_t^2], NOT the raw central-law
+fourth moment of b_t. Do not drop this denominator or pull an interior source
+outside projection. This is a sufficient route to test, not a new necessary
+premise replacing PRIMARY. Exact proof, normalization screen and verification:
+adaptive-score audit, "Checked retained-source concentration and ORIGINAL
+tilted payment". PRIMARY and the canonical proof state are unchanged.
 The new finite FREE-reference screen also excludes a high-mass simultaneous
 shrinking chart for all elementary curls in the support cube: under
 kappa*rho^2<=log(s)/32 its probability is <=exp(-s^(9/4)/48).
