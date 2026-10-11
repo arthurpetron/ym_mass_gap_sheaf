@@ -513,10 +513,26 @@ remove the remainder with recoverable q/epsilon data, uniformly in assignment,
 face, extent and admissible heat cutoff at FIXED nome. Two narrow serialized
 checks and complete independent source/log/math reviews PASS; nine public
 gates permitted, two axiom-free. No canonical node closes.
-NEXT analytic input: sum this factorwise payment with ALL other collar
-factors retained, using the actual finite entropy product defect. Bound the
-internal plaquette defects by the SAME complete collar's entropy, then realize
-that limit under the selected original Haar projection.
+The complete-product pointwise join is now CHECKED too:
+`RegularizedLogFiniteProduct.product_defect_bound:85` proves
+0<=S_N-p_N(P)<=L/(N+1), including empty/zero/repeated factors and N=0.
+`RegularizedLogFiniteProductCoercivity.selected_product_payment:173` retains
+every factor but charges only selected occurrences for the local constant/error.
+`BF4ExactSlabOriginalProductEntropyCoercivity.normalized_product_map_pin:69`
+pins P to the EXISTING complete original normalizedHeatProduct, not W/Z.
+`original_selected_product_coercivity_finite:79` produces
+W*sum_selected(1-X)<=256*(1-q)*(p_N(W)+3*p_N(1/3)*F*W+
+(L+3*(M(q)-1)*F)/(N+1)), with L all occurrences and F selected occurrences.
+Three first-attempt narrow serial checks PASS; all 13 gates permitted,
+four axiom-free. Complete source/log/math reviews PASS (generic selected
+consumer ROOT-reviewed, actual original instance independently reviewed).
+NEXT analytic input: transport this SAME complete-product estimate under
+selected original Haar and prove finite Jensen at its OWN fixed-boundary
+Z_y=eval_y(P_selected W). Do NOT substitute the global-Haar entropy constructor
+at P_selected W: H_all(p_N(P_selected W)) is not P_selected(p_N(W)).
+The numerical tangent at that fixed Z_y and actual projection linearity supply
+a finite candidate route; it remains unasserted until kernel checked.
+Then remove the entropy cutoff with explicit nome/count/tolerance data.
 Use its OWN conditional partition and retain every crossing eta cost.
 The existing localized partition floor alone does not supply this inequality.
 That conditional UV estimate, source-weighted deviation relative to the SAME

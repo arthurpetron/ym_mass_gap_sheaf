@@ -19241,3 +19241,80 @@ Frozen source and accepted log SHA256 pairs:
     FiniteCoercivity log    d7a62089e5a8429820f40767866239635d0d34fde716c94224a2accf5a4021d2
     OriginalHeatCoercivity source 80d9830654a759d1bc1c11ef4fc2fd6b8b4d3154c772282ddd21b9bd2970a126
     OriginalHeatCoercivity log    75a98fb0dfeaed7898d9bf8debf6510014eaf4790326a549539e0ec954539c21
+
+### Checked complete ORIGINAL product / selected-face entropy payment (2026-10-11 UTC)
+
+`04b024c7` supplied the preceding original one-face estimate and was pushed
+to main. The complete-product pointwise join is now supplied, with all source
+paths below under `lean/YMGap/Continuum/`.
+
+`RegularizedLogFiniteProduct.lean:31` (`product`) is the literal ordered
+product, with P([])=1. `weightedEntropy:37` obeys
+S_N(x::xs)=P(xs)*p_N(x)+x*S_N(xs), retaining every other OCCURRENCE without
+division by a factor. `product_bounds:42` and `weightedEntropy_nonnegative:56`
+consume only factorwise [0,1]. `defect_cons:72` is the exact finite recursion
+into x times the tail defect plus the already checked two-factor defect.
+`product_defect_bound:85` gives 0<=S_N-p_N(P)<=length(xs)/(N+1), including
+empty products, zero/repeated factors and N=0; no independence or distinctness.
+
+`RegularizedLogFiniteProductCoercivity.lean:46` (`selectedCount`) and
+`selectedDefectSum:53` count/sum selected OCCURRENCES without deduplication.
+`selected_payment:119` joins displayed local payments on the complete product:
+skipped factors remain in both the density and entropy sum, but do not incur
+the selected b/error costs. b and d may be signed; c and e are explicitly
+nonnegative. `selected_product_payment:173` consumes the actual finite defect,
+with all-occurrence length error and selected-only local constant/error counts.
+These generic hypotheses are instantiated, not left as a new analytic oracle.
+
+`BF4ExactSlabOriginalProductEntropyCoercivity.lean:59` (`faceDefect`) uses the
+actual same-assignment plaquette scalar. `normalized_product_map_pin:69` pins
+the scalar producer product to the EXISTING full normalizedHeatProduct.
+`original_selected_product_coercivity_finite:79` consumes the already checked
+ORIGINAL face theorem, floor and heat envelope; with W the complete actual
+identity-normalized weight, L=ids.length, F=selectedCount, k=M(q)-1, it gives
+
+    W*sum_selected(1-X)
+      <=256*(1-q)*(p_N(W)+3*p_N(1/3)*F*W+(L+3*k*F)/(N+1)).
+
+All unselected boundary factors, shared variables and repeated identifiers
+remain in W. The heat-cutoff guard is coercivityCutoff(q)<=K+1; N>=1 is the
+separate entropy cutoff. Nome and counts are explicit, NOT uniform physical
+mass inputs. No selected conditional integration or H1 statement follows yet.
+
+Source-backed next join: `QuaternionHaarFamilyPointwiseOrder.lean:284`
+(`familyProject_pointwise_mono`) preserves pointwise order at each retained
+boundary; `SU2QuaternionHaarFamilyProjection.lean:48` (`familyProject_add`),
+`familyProject_fixed:90` and `familyProject_mul_of_independent:105` supply
+actual projection linearity and constant pins. The OWN selected Z is
+eval_y(P_selected W), not full Haar(W). Applying the existing global-Haar
+entropy constructor to P_selected W would produce H_all(p_N(P_selected W)),
+NOT P_selected(p_N(W)). NEXT prove finite selected Jensen by the numerical
+tangent at that fixed Z and integrate the SAME complete-product inequality;
+then remove the cutoff explicitly. Conditional UV, crossing costs,
+OLD-centered source-relative payment, PRIMARY and Clay remain OPEN.
+
+Verification: ONLY these three leaves, first-attempt narrow serialized
+monitored checks, jobs=1, 20-GiB hard worker cap, 12-GiB reserve and lock.
+Fresh process and dynamic-memory preflights preceded EVERY launch; 39.2,
+39.0 and 38.7 GiB available, pressure-free 91%, 91%, 90%; no competing job.
+Exit 0, emitted oleans and no diagnostics for all three accepted logs:
+
+    /private/tmp/ym-oct11-regularized-finite-product-check1.log
+    /private/tmp/ym-oct11-regularized-finite-product-coercivity-check1.log
+    /private/tmp/ym-oct11-original-product-entropy-coercivity-check1.log
+
+All 13 public gates are within {propext, Quot.sound}, four axiom-free. ROOT
+read COMPLETE final sources and accepted logs. Independent complete finite
+product and actual original-consumer source/log/math reviews PASS. The generic
+selected consumer was fully ROOT-reviewed; its author's log/hash attestation
+is not called independent review. No sorry/new axiom, resource change,
+full-tree audit/build, canonical-node or ledger closure, or duplicate mutation.
+
+Frozen source and accepted log SHA256 pairs:
+
+    FiniteProduct source 638384fc0706c069fe6ce72bceabd7b6d1061a6b96658b7bbca3ee7f214de483
+    FiniteProduct log    28d57fb3fd6b60b5e14d89bd1c0ff9ff34007a19502ae5768958a4fd10191c9c
+    FiniteProductCoercivity source 72e54a2f730d576cc5335cf23a50755673277b6fddfccd664a14a25fd4e67116
+    FiniteProductCoercivity log    ade2ec34b94137080583c9d8a4422fba34ba5868e0d2e2cc6625550662528f23
+    OriginalProductCoercivity source 5e824d418c151bff8e9ffe386acfc30cec59494cf7819aff89feea14c0e1960b
+    OriginalProductCoercivity log    890e089c9a79c73b983059ab5cfff73a3ba6bb815527e5bdd2a05f6945e94a49
