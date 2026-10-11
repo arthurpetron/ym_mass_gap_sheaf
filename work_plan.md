@@ -193,8 +193,10 @@ Exact formulas, counterexample and scope: adaptive-score audit,
 Keep PRIMARY and its SAME completed carrier unchanged. Investigate the
 actual two-positive-time ratio R_j(s_j/2)/R_j(s_j), with the SAME source,
 BOX radius and OLD OWN center at both times. The existing
-`retained_time_budget:100`, `BF4WilsonAllNomeMacroRatioFilteredCost.lean`,
-gives H1 with c0=2*(K-1) from R_j(s_j/2)<=K*R_j(s_j); no new ratio
+`retained_time_budget:100` and `macro_to_filtered_budget:123`,
+`BF4WilsonAllNomeMacroRatioFilteredCost.lean`, give the cleared budget; its
+PAPER reciprocal specialization yields H1 with c0=2*(K-1) from
+R_j(s_j/2)<=K*R_j(s_j). No new ratio
 interface or compiler is needed. This is a sufficient route, not a new
 necessary premise or a replacement by free variance.
 
@@ -567,6 +569,25 @@ remain OPEN; absolute conditional UV control is not relative response payment.
 Evidence: adaptive-score audit, "Selected finite entropy product law and
 direct-window comparison" and "Checked ORIGINAL selected-Haar logarithmic
 defect bound". No canonical node or physical gap closes.
+The subsequent bounded SOURCE/PAPER screen finds the ACTUAL positive square
+already available: `BF4ExactSlabSiteSelectedHeatAction.selectedAction_square:214`
+retains the original lower/central/upper weights. Its computed source
+`BF4ExactSlabSiteConditionalSquare.conditionalPolynomial:124` is local on
+the retained slice (`conditional_local:132`), generally NOT independent of
+its selected links. The explicit terminal-message square is
+`BF4ExactSlabFixedSpatialBlockWindowPin.normalized_block_window_pin:140` at d=0;
+do not identify its finite window with a generic smoothed R_j without the
+actual common-limit pin. Adding a bounded source square g to W changes OWN
+Z to P_slots(W*g). The finite PAPER tilt calculation retains the negative
+source-entropy credit -P_slots(W*p_N(g)); dropping it only charges the
+unknown source concentration through -log(P_slots(W*g)). The entropy route
+now exposes that JOINT biased-partition/source-entropy comparison for the
+actual warmed OLD-centered source at both positive times, together with its
+same-response pin. This is a sufficient route to test, not a new necessary
+premise replacing PRIMARY. Pulling the interior square outside projection would
+discard the missing input. No extra bias/Jensen adapter is selected.
+Exact algebra, producer pins and limits: adaptive-score audit,
+"Warmed source square and retained entropy credit". PRIMARY is unchanged.
 The new finite FREE-reference screen also excludes a high-mass simultaneous
 shrinking chart for all elementary curls in the support cube: under
 kappa*rho^2<=log(s)/32 its probability is <=exp(-s^(9/4)/48).

@@ -19488,9 +19488,12 @@ floors. `BF4WilsonAllNomeOddResponseJensen.lean:222`
 an INITIAL relative one-step floor to all lags. They do not produce that
 floor. `BF4WilsonAllNomeTimeDefectMoments.lean:343`
 (`mixedMoment_nonnegative`) and `mixedMoment_split:349` supply positive
-defect moments; the existing `BF4WilsonAllNomeMacroRatioFilteredCost.lean:100`
-(`retained_time_budget`) consumes R_j(s_j/2)<=C*R_j(s_j) to give coefficient
-2*(C-1). No new ratio interface or compiler is needed.
+defect moments; `BF4WilsonAllNomeMacroRatioFilteredCost.lean:100`
+(`retained_time_budget`) retains the late response in the telescoping budget.
+The same file's `macro_to_filtered_budget:123` consumes the equivalent
+cleared ratio kappa*R_j(s_j/2)<=R_j(s_j). The PAPER reciprocal specialization
+kappa=1/C yields coefficient 2*(C-1). No new ratio interface or compiler
+is needed; the ratio is not produced.
 
 The bounded trajectory, moment, Jensen, smoothing and H1 SOURCE screen found
 no declaration producing that relative two-time comparison from the new
@@ -19500,3 +19503,81 @@ JUSTIFIED changing physical family; the rounded diagnostic AF trajectory is
 not promoted. Do not replace the next estimate with another absolute UV
 ceiling plus a qualitative floor, which the earlier checked scalar obstruction
 already excludes as a sufficient generic join.
+
+### Warmed source square and retained entropy credit (2026-10-11 UTC)
+
+Bounded read-only independent SOURCE/math screens, followed by ROOT source
+review, find an actual positive conditional square, not an assumed surrogate.
+All paths below are under `lean/YMGap/Continuum/`.
+
+`BF4ExactSlabSiteSelectedHeatAction.lean:214` (`selectedAction_square`)
+identifies the original reflected numerator with
+
+    H[(theta p)*p*selectedHeat]
+      = H[conditionalPolynomial(p*lowerHeat)^2*fixedHeat].
+
+The complete lower/upper action is absorbed into the COMPUTED source, while
+the original central weight remains once. It requires the written support,
+one-sidedness and reflection-permutation premises, not independent factors.
+`BF4ExactSlabSiteConditionalSquare.lean:124` (`conditionalPolynomial`) is the
+actual finite polynomial. `conditional_local:132` places it on the retained
+fixed slice; it is generally NOT independent of the selected slice links.
+`SU2QuaternionHaarFamilyProjection.lean:105`
+(`familyProject_mul_of_independent`) therefore cannot be applied by discarding
+its independence premise.
+
+The transparent transfer version already exists too:
+`BF4ExactSlabFixedSpatialBlockWindowPin.lean:140`
+(`normalized_block_window_pin`) at d=0 gives the original ratio
+
+    H[V*{T^t(g_n*psi)}^2] / H[V*g_(n+t)^2],
+
+with the actual terminal messages and the supplied SAME psi=f-c. This is an
+identity for the written finite supported window, not an endpoint-stationary
+replacement. `BF4WilsonAllNomeSmoothedCoherentState.lean:341`
+(`smoothedResponse_pin`) identifies the generic R_j with the full double
+time-weight sum of original centered family moments;
+`BF4WilsonAllNomeShiftedH1Anchor.lean:239` (`shift_norm_pin`) identifies
+R_j(2h) with the SAME completed shifted norm. A dedicated finite generic
+smoothed-family conditional-square-to-R_j producer was NOT FOUND in this
+bounded square, block-window, smoothed-state and shifted-H1 screen. The general
+square identity supplies finite algebra, not a quantitative relative bound
+or uniform changing-family limit.
+
+PAPER quantitative tilt calculation (not a new Lean theorem): suppose the
+actual source has a PRODUCED cap M>0 so g=psi_old^2/M satisfies 0<=g<=1.
+Write P for the actual selected projection/evaluation, W for the complete
+identity-normalized original weight, D for the selected face defect sum,
+c=256*(1-q), L=all occurrences, F=selected occurrences, k=M(q)-1, and
+Z_g=P(W*g). `RegularizedLogPolynomialProductDefect.lean:526`
+(`product_defect_bounds`) gives
+
+    g*p_N(W) <= p_N(W*g)-W*p_N(g)+1/(N+1).
+
+Multiply the checked ORIGINAL pointwise product payment
+(`BF4ExactSlabOriginalProductEntropyCoercivity.lean:79`,
+`original_selected_product_coercivity_finite`) by nonnegative g. Use g<=1
+only to bound its finite error, retain the source-entropy subtraction, project,
+and apply `QuaternionHaarFamilyFiniteEntropy.lean:138`
+(`family_partial_jensen`) to the SAME W*g. This gives the PAPER consequence
+
+    P(W*g*D) <= c*[p_N(Z_g)-P(W*p_N(g))
+                    +3*F*p_N(1/3)*Z_g+(L+3*k*F+1)/(N+1)].
+
+All source/action/OLD-center factors remain; zero g and zero Z_g are valid
+at finite N. This is the joint biased-partition/source-entropy pair, NOT
+the original Z=P(W). Positivity of W does not give the earlier uniform
+positive floor for a source that can vanish. Dropping the negative credit
+merely charges the unknown concentration through -log Z_g in a logarithmic
+passage; it does not supply response-relative control. An actually exterior
+square can use the written independence lemma, but only yields an absolute
+conditional UV test, not the signed two-time relative comparison.
+
+For this entropy route, NEXT analytic work is to control the actual
+warmed-source dependence at both positive times, with the vacuum denominator
+and OLD center retained, and connect the finite estimate to the SAME R_j.
+This is a sufficient route to test, not a new necessary premise replacing
+PRIMARY. No new source-bias/Jensen adapter
+or presumed source floor is selected. This screen changes the quantitative
+work focus, not a Lean theorem, canonical proof node, H1 or physical-family
+status. No compiler, resource change or routine literature scan was run for it.
