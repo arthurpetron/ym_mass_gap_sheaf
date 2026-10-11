@@ -38,6 +38,24 @@ consumer is `path_normalized_anchor_shifted:581`,
 `lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1Anchor.lean`.
 This is a shifted-survival input alongside the consumer's separate positive
 norm floors, NOT every-state decay or a Clay solution.
+Next quantitative test (2026-10-11; SOURCE/PAPER): use the existing ORIGINAL
+raw-source finite cost before expanding the first-BOX Ward proof. The generic
+`BF4WilsonAllNomeOriginalRayleighLimit` covers the literal radius-zero
+`familyExpression`, including its stage-dependent OLD center. A raw endpoint
+bound at side s transfers to the actual positive BOX with the SAME constant
+by `positiveOrbit_response_retention:624`; no extra norm floor is needed.
+For even s=2t, target the existing `exactScoreSignedBulk:218` on that source
+with r=t-1: bulk <= (c*/s)*Z1*B, for fixed c*>=0, retaining BOTH signed
+Taylor remainders. `original_block_exact_score_cost_relative_tolerance:324`
+then pays its three errors with delta=epsilon=zeta=1/s, giving c0=c*+3.
+The admissible degrees/depths remain computed per member. These declarations
+are in `BF4ExactSlabFixedSpatialLastStepExactScoreCost.lean`.
+This is an OPTIONAL sufficient producer, not a new necessary PRIMARY input;
+the raw bulk estimate is OPEN. Existing joins suffice: do not formalize another
+quotient-gradient, innovation or smoothing adapter. The direct signed BOX
+route remains available if raw retention is too strong. Exact source/limit
+pins and independent review: adaptive-score audit, "Raw-source signed bulk
+can feed PRIMARY without a new BOX interface". No canonical claim changes.
 Execution-scope correction after independent SOURCE/PAPER review: the existing
 rounded `afPaddedZeroMomentumTrajectory` stays unchanged as a diagnostic, not
 the selected physical scaling family. Its fixed leading-coefficient rounding

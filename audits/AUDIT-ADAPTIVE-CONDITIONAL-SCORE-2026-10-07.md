@@ -20016,3 +20016,84 @@ ROOT inspected the cited source and checked the algebra; bounded independent
 Sol reviews agree, including the retained BOX divisor. No Lean file edited,
 compiler launched, new kernel theorem, ledger discharge, axiom claim or
 canonical chart-state change. Goal remains active; Clay remains OPEN.
+
+### Raw-source signed bulk can feed PRIMARY without a new BOX interface (2026-10-11 UTC; SOURCE/PAPER)
+
+The bounded positive-time review found that the source/vacuum derivative
+cancellation is already constructed, not a missing new gradient lemma.
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockScoreVariance.lean:249`
+(`original_block_centered_scoreVariance_certificate`) retains
+`(A*Db-b*DA)^2 <= (relativeCap(w,32)^2*A^2-(DA)^2)*Noise`.
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLastStepPredictionEnergyNormalized.lean:133`
+(`lastStepNoise_prediction_energy_cleared`) pays innovation plus squared
+prediction error against incoming energy with distinct chronological masses.
+Neither makes this energy small relative to the surviving squared norm.
+The strongest inspected joint absorption also retains a signed density
+covariance: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRatioNoiseWardAbsorption.lean:1076`
+(`original_ratioNoise_ward_unitJointGradient_le`). Do not re-export these
+identities as a new analytic payment.
+
+ROOT selected a more direct quantitative consumer already in the source:
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLastStepExactScoreCost.lean:218,324`
+(`exactScoreSignedBulk`, `original_block_exact_score_cost_relative_tolerance`).
+It bounds the literal cleared temporal cost by the exact score bulk plus
+`((zeta+delta)+epsilon)*Z1*B`; BOTH signed Taylor remainders remain in the bulk.
+The following reduction does not supply a bound on that bulk.
+
+Fix j>=1, s=side_j=2t, the SAME selected plaquette family and its radius-zero
+expression e. At finite stage n, let K=headCutoff(w)+n, c_n its ORIGINAL
+odd-window mean, psi_n=sourcePolynomial(e)-c_n, A=g_(n+t),
+b=T^t(g_n*psi_n), Z0=ell(A^2), Z1=ell(A*T A), B=ell(b^2), and
+C=Z1*B-Z0*ell(b*T b). All action factors and the OLD center remain literal.
+
+NEXT proposed quantitative estimate, with fixed rational c*>=0:
+
+    exactScoreSignedBulk(sigma,w,K,width,n,t-1,psi_n,k+1)
+      <= (c*/s)*Z1*B.
+
+Its scope must include eventual stages on this actual sequence and admissible
+reciprocal degree k, with the original heat/depth guards. Taking
+delta=epsilon=zeta=1/s in the existing cost theorem gives
+`s*C <= (c*+3)*Z1*B`. Only the positive product Z0*Z1 is canceled:
+
+    s*C/(Z0*Z1) <= (c*+3)*B/Z0.
+
+No excitation norm is inverted. Set c0=c*+3. The existing GENERIC expression
+limits `lean/YMGap/Continuum/BF4WilsonAllNomeOriginalRayleighLimit.lean:130,143`
+(`originalOwnBlockVariance_converges`, `originalOwnBlockCost_converges`)
+pass this inequality to `s*(R_x(s)-R_x(s+1))<=c0*R_x(s)`.
+This is not restricted to the dyadic single-loop specialization:
+`lean/YMGap/Continuum/BF4WilsonPlaquetteFamilySourcePin.lean:51,59,69`
+(`familyExpression`, `family_within`, `familyState`) and
+`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteFamilyVariance.lean:187`
+(`familyExcitation_correlator_pin`) identify the SAME raw centered family x.
+Each member is held fixed through its own limit; no changing-source uniform
+limit theorem is inferred.
+
+For s>c0 put kappa=1-c0/s, so 0<=kappa<=1. The raw endpoint inequality is
+`kappa*R_x(s)<=R_x(s+1)`. Existing
+`lean/YMGap/Continuum/BF4WilsonAllNomePositiveOrbitResponseOrder.lean:624`
+(`positiveOrbit_response_retention`) transfers it to ANY positive orbit
+filter Y, including the actual BOX, with no source floor or nonzero-response
+premise. Therefore `s*(R_Y(s)-R_Y(s+1))<=c0*R_Y(s)` with UNCHANGED c0.
+Literal BOX and weight pins:
+`lean/YMGap/Continuum/BF4WilsonAllNomeSmoothedCoherentState.lean:202,285,326`
+(`timeKernel_weight_pos`, `smoothedCoherentVector`, `smoothedResponse_orbit_expand`).
+For s<=c0 the latter endpoint bound is unconditional by response positivity.
+In particular j=0 is handled directly, not forced through the even-lag pin.
+
+Selection: test the complete raw score bulk on the justified family before
+constructing a new common-FIRST-BOX Ward theorem. This is a sufficient route,
+NOT a necessary extra canonical premise: smoothing may succeed where raw
+retention fails, and the direct signed BOX route remains available. The
+decisive next result must bound this bulk relative to Z1*B with its actual
+nome, width, side and source dependence, retaining both signed remainders.
+No positivity, innovation identity or local gradient cap supplies that result.
+If the proposed estimate cannot be obtained, reassess the mathematics rather
+than add its conditional wrapper; all required propagation joins already exist.
+
+ROOT read the consumer, generic limits and SAME-family pins and checked the
+fraction/error algebra; bounded independent Sol mathematical/source reviews
+agree. No Lean edit, compiler, new theorem, axiom claim, ledger discharge,
+physical scaling construction or canonical chart-state change. PRIMARY and
+the unchanged constructive continuum/Clay goal remain OPEN.
