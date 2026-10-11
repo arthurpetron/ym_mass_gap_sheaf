@@ -612,6 +612,31 @@ outside projection. This is a sufficient route to test, not a new necessary
 premise replacing PRIMARY. Exact proof, normalization screen and verification:
 adaptive-score audit, "Checked retained-source concentration and ORIGINAL
 tilted payment". PRIMARY and the canonical proof state are unchanged.
+The full ORIGINAL action now has a CHECKED collar-local source payment:
+`BF4ExactSlabCollarSourceEntropyCoercivity.normalized_full_insertion_pin:79`
+proves alpha_C*P(fullWeight*p)=eval(background)*P(W_C*p) for ARBITRARY p.
+`background_nonnegative:115` produces the background sign from the original
+finite heat floor. `original_collar_source_entropy_payment:152` and
+`original_collar_source_moment_payment:185` retain the complete full-action
+insertion, source and crossing faces, while charging only collar counts.
+The existing `BF4ExactSlabLocalSupportComparison.collarCount_le:56` caps
+L_C by six times the number of selected physical links. Detached factors
+remain multiplicative; no artificial detached-count entropy or -log(background)
+is introduced. One narrow capped check and independent complete source/log/math
+review PASS; six permitted gates. Local collar and source costs still remain.
+The new SOURCE/PAPER warm-up test gives only a moving-bridge fourth-moment
+ceiling with the surviving second moment squared in its denominator.
+Furthermore positive reversible finite Markov examples can satisfy the exact
+H1 endpoint inequality with coefficient 1/2 while their warmed kurtosis diverges.
+This is NOT an ORIGINAL YM counterexample: it shows uniform warmed kurtosis
+is neither automatic nor NECESSARY for PRIMARY. Keep entropy/concentration
+as an optional sufficient route, not a new canonical premise. NEXT prioritize
+the actual source-specific joint signed two-time budget; use the localized
+estimate only where its remaining costs can be paid relative to that SAME
+response. Do not build a generic warmed-Jensen adapter that leaves this
+denominator unpaid. Evidence: adaptive-score audit, "Observed ORIGINAL
+collar-local payment" and "Moving-bridge fourth moment and H1 selection test".
+No physical scaling or canonical proof-state change follows.
 The new finite FREE-reference screen also excludes a high-mass simultaneous
 shrinking chart for all elementary curls in the support cube: under
 kappa*rho^2<=log(s)/32 its probability is <=exp(-s^(9/4)/48).

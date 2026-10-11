@@ -19723,3 +19723,156 @@ Frozen source and accepted log SHA256 pairs:
     SourceConcentration log    e16a2c28c752be409c825ba81ec447b6ad0be5f009a81743f3e201bccdbc4727
     OriginalSourceEntropyCoercivity source 8f42334032a60e372908422c11d698e8f1843709b4a8b19876c5eeaa5f61eef0
     OriginalSourceEntropyCoercivity log    0921fdb09bd9f9c45eacbf30a3d0a686ce858cfa7ea062503766383aa3f4f73d
+
+### Collar localization: decision before implementation (2026-10-11 UTC)
+
+The next finite proposition preserves the COMPLETE original insertion while
+charging entropy only to its actual selected-link incident collar. Let P be
+the selected projection/evaluation, B the detached original action, C the
+incident collar, alpha its identity-normalizing factor, W_C=alpha*C and
+D_C the selected face-occurrence defect within that collar. The target is
+
+    alpha*P(fullWeight*g*D_C)
+      <= eval(B)*256*(1-q)*[p_N(a_C)-E_C
+           +3*F_C*p_N(1/3)*a_C+(L_C+3*k*F_C+1)/(N+1)],
+
+and the computed moment-credit version E_C>=a_C*ell_N(b_C/a_C).
+The original source is arbitrary inside P; no independence of g is imposed.
+Available exact inputs are
+`lean/YMGap/Continuum/BF4ExactSlabBlockNormalizer.lean:110`
+(`full_inserted_marginal_pin`) for ARBITRARY insertion p,
+`lean/YMGap/Continuum/BF4ExactSlabLocalSupportComparison.lean:79`
+(`fullWeight_split`), its `collarCount_le:56`, and the actual source payments
+`lean/YMGap/Continuum/BF4ExactSlabOriginalSourceEntropyCoercivity.lean:162`
+and `:235`. The intended new consumer is
+`BF4ExactSlabCollarSourceEntropyCoercivity.original_collar_source_moment_payment`;
+it does not yet exist as checked evidence at this decision point.
+
+Predicted gain: detached factors remain a shared multiplier, so no artificial
+detached-count entropy or -log(eval B) cost enters. Every crossing face stays
+in C; only D_C is bounded, not defects of detached faces. Test empty links,
+interior-dependent g, and eval B approaching zero. Abandon if factoring the
+SOURCE, dropping crossing action, or a supplied full-action analytic bound
+is needed. Verification budget: one narrow serial capped leaf, independent
+complete final source/log/math review; no broad build, axiom or resource change.
+PRIMARY, physical scaling and all canonical proof nodes remain unchanged.
+
+### Observed ORIGINAL collar-local payment (2026-10-11 UTC; CHECKED)
+
+The preceding predicted local improvement is now proved. All leaf paths in
+this paragraph are under `lean/YMGap/Continuum/`.
+`BF4ExactSlabCollarSourceEntropyCoercivity.lean:79`
+(`normalized_full_insertion_pin`) proves, for arbitrary insertion p,
+
+    alpha_C*P(fullWeight*p) = eval(background)*P(W_C*p).
+
+The exact original membership guard on selected physical links is explicit;
+only background independence is used, not insertion/source independence.
+`background_nonnegative:115` produces the needed multiplier sign using
+the ORIGINAL finite-prefix floor. `originalCollarSourceDefect:125` is the
+literal full-action projection of g times the selected collar defect sum.
+`normalized_full_source_pin:132` rejoins this source defect to the actual
+existing `originalSourceDefect` at ids=collar, slots=the literal selected
+link schedule. The complete original weight is retained on the left.
+
+`original_collar_source_entropy_payment:152` proves the stated finite
+local-entropy bound, and `original_collar_source_moment_payment:185` proves
+its computed moment-credit contraction. Writing
+
+    L_C=collar.length, F_C=selectedCount(selected,collar),
+    a_C=P(W_C*g), b_C=P((W_C*g)*g), k=activeFactorCount(q)-1,
+
+the contracted right side is exactly
+
+    eval(background)*256*(1-q)*[p_N(a_C)-a_C*ell_N(b_C/a_C)
+          +3*F_C*p_N(1/3)*a_C+(L_C+3*k*F_C+1)/(N+1)].
+
+Only the collar is identity-normalized. No nonlinear entropy is applied to
+the detached multiplier. Hence its count and -log(eval background) do not
+enter the local charge. This remains a full ORIGINAL insertion estimate,
+not replacement of detached action by one. Every crossing face remains in
+the collar, whose count obeys
+`BF4ExactSlabLocalSupportComparison.lean:56` (`collarCount_le`). Defects of
+detached faces are NOT bounded by this theorem. Repeated or empty selected
+link schedules are retained; no Nodup premise is needed. Zero g is valid in
+the entropy version; the moment version explicitly requires a_C>0.
+The guards 16/17<=q<1, coercivityCutoff(q)<=K+1 and N>=1 remain. Collar
+costs, source concentration, OLD-centered response identification, the
+two-time relative budget and the justified physical family remain unpaid.
+
+Verification: ONLY this leaf, monitored narrow check1, jobs=1, hard worker
+cap 20 GiB, OS reserve 12 GiB and repository lock. Fresh competing-process
+and dynamic-memory preflight: available 39.7 GiB, pressure-free 91%, no
+competing build/runner/test. Exit 0, emitted olean, no diagnostics. Complete
+accepted log `/private/tmp/ym-oct11-collar-source-entropy-coercivity-check1.log`
+has all six gates exactly {propext, Quot.sound}. ROOT read the complete frozen
+source and accepted log; the Sol author performed a complete static reread,
+and an independent Sol complete source/log/math review PASS. No retry,
+resource change, sorry/new axiom, full-tree audit/build, ledger or canonical
+node closure, duplicate mutation or routine literature scan.
+
+    CollarSourceEntropyCoercivity source f18f7c6852aa4cb1da143798b70bcd024a6b5036ef2f68a885243067bf4dad00
+    CollarSourceEntropyCoercivity log    273ec36f8fbf5b8d7c1503da0f17ec5e102a40fc38724de26f4229b315ec3d80
+
+### Moving-bridge fourth moment and H1 selection test (2026-10-11 UTC; SOURCE/PAPER)
+
+The exact normalization screen does not produce automatic warmed kurtosis.
+Write ell(p)=H[V*p], g=g_n, A=T^t(g), b=T^t(g*psi_old), Z_t=ell(A^2),
+and mu_t=V*A^2/Z_t. Under the positive original finite kernel, conditional
+Cauchy--Schwarz twice gives the PAPER bound
+
+    b^4 <= A^3*T^t(g*psi_old^4).
+
+Weighted symmetry and the chronological partition pin then give
+
+    E_mu_t[(b/A)^4] <= ell[g_n*g_(n+2t)*psi_old^4]/Z_t,
+    Z_t = ell[g_n*g_(n+2t)].
+
+The source is still OLD-centered; its second moment need not be variance
+about the current mean. Its kurtosis ceiling is the displayed moving-bridge
+fourth moment divided by (ell[b^2]/Z_t)^2. This leaves the very surviving
+norm unpaid. These NEW fourth-moment inequalities are PAPER, not a compiled
+fourth-moment producer or a reciprocal-source construction.
+
+Existing exact source inputs:
+`lean/YMGap/Continuum/SU2QuaternionMultiHeadVarianceReplica.lean:470`
+(`determinant_certificate`) constructs the conditional square certificate;
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTransferSymmetry.lean:128`
+(`iterateStep_weighted_symmetric`) gives actual dual transport;
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockWindowPin.lean:127`
+(`block_window_partition`) and `:140` (`normalized_block_window_pin`) give
+the actual chronological normalization. In contrast,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockUnitalPrediction.lean:196`
+(`blockMarginalSquare`) uses V*g_n*A, NOT V*A^2; its
+`blockUnitalPrediction_square_upper:371` cannot substitute the desired law
+or identify its finite reciprocal-plus-residual map with exact b/A.
+
+Finite PAPER refutation of generic automatic kurtosis: take uniform law on
+even N>=2 sites and balanced centered f=+1/-1. Let J average all sites and
+E be conditional expectation on the partition {one +1 site, all others}.
+J and E are commuting self-adjoint orthogonal projections with JE=EJ=J.
+For rational 0<alpha<1, P=(1-alpha)*J+alpha*E is strictly entrywise positive,
+reversible, unital and positive semidefinite. For every t>=1,
+
+    P^t f = alpha^t*(1,-1/(N-1),...,-1/(N-1)),
+    E[(P^t f)^2] = alpha^(2t)/(N-1),
+    E[(P^t f)^4] = alpha^(4t)*[1+(N-1)^(-3)]/N,
+    kurtosis(P^t f) = N-2+1/(N-1), while kurtosis(f)=1.
+
+All messages and partition masses are one and the OLD center is zero, so
+moving-law drift and recentering do not explain the failure. This is a
+generic finite diagnostic, NOT an ORIGINAL YM instance or counterexample.
+It also shows uniform kurtosis is not NECESSARY for PRIMARY: choose
+alpha_s=1-1/(2s), s>=1, with any growing even N_s. For n>=1,
+
+    R_s(n)=<f,P_s^n f>=alpha_s^n/(N_s-1),
+    s*(R_s(s)-R_s(s+1))=(1/2)*R_s(s).
+
+The endpoint coefficient stays fixed while warmed kurtosis diverges.
+The n>=1 guard matters: R_s(0)=1. This supplies neither a uniform surviving
+norm floor nor physical scaling. ROOT and an independent Sol math review
+checked these finite rational calculations on PAPER; no new file, compiler
+or canonical closure is claimed for them. Decision: do not add uniform
+warmed kurtosis as a necessary premise or build a Jensen-only adapter.
+Keep entropy/concentration optional and return its remaining local costs
+to the actual joint signed late-response comparison. PRIMARY is unchanged.
