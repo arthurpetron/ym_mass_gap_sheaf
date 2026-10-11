@@ -17956,3 +17956,176 @@ with justified realization, full action/messages, OLD OWN center and
 source-weighted two-time error payment. Neither the exact raw moments nor
 the Gaussian benchmark supplies that missing original estimate, a
 justified physical scaling family, continuum/QFT/every-group or Clay closure.
+
+### Original same-nome coercivity and localized entropy test
+
+2026-10-11 UTC; new SOURCE/PAPER argument. The preceding goal checkpoint
+was PROGRESS: it kernel-checked original raw-link moments and revised the
+comparison. This experiment now seeks an ORIGINAL gauge-invariant UV
+deviation estimate, not another Gaussian comparison or assumed H1 field.
+The immediate consumer is source-weighted discarded-field control in the
+original two-time comparison. An absolute UV estimate is only one input;
+payment relative to its SAME OLD-centered late response remains separate.
+
+Decision-driven experiment: prove a scalar envelope for the literal finite
+heat prefix, retaining its nome and normalization; then test localized
+entropy on the complete original chronological chain. Available inputs are
+positive Jacobi factors, a computed active block, the original uniform
+derivative comparison and a strict original heat floor. Predicted result:
+an explicit cutoff and a finite scalar envelope, followed by a PAPER
+averaged-source estimate independent of unused ambient volume/depth.
+Decisive tests: x=-1 and x=1, loss of ONE active factor in differentiation,
+N=K+1 normalization, positive-prefix guards, and all block boundary factors.
+Verification budget: one narrow monitored Lean target, one compiler, 20 GiB,
+independent source/math review. Stop before implementing an entropy wrapper
+if the original scalar transfer or boundary payment fails; no new analytic
+interface or canonical field is selected.
+
+Scalar argument. Write H_K(x) for the SAME inclusive original heat prefix,
+g=1-q, 16/17<=q<1, delta=1-x in [0,2], and r=1-delta/8 in [3/4,1].
+The computed active block has M=activeFactorCount(q)>=2 and M*g>=1/16:
+`activeFactorCount_two:125`, `activeFactorCount_mass:131` and
+`activeFactor_amplitude_bounds:222`,
+`lean/YMGap/Continuum/SU2HeatJacobiActiveFactorCount.lean`.
+For an active amplitude a in [1/4,3/4], the original factor ratio satisfies
+
+    [1+2*a*x+a^2]/[1+2*a+a^2] <= r.
+
+All other factor ratios are <=1. The x-independent Euler factors remain.
+The finite Leibniz derivative is a POSITIVE sum of products, each omitting
+exactly one factor; at least M-1 active factors therefore remain:
+
+    fullProdDx(q,x,N) <= r^(M-1)*fullProdDx(q,1,N).
+
+The recurrence and positivity pins are `fullProdDx_succ:73`,
+`lean/YMGap/Continuum/JTPFullProductDerivativeNormalization.lean`, and
+`slope_pos:43`, `product_nonnegative:94`, `derivative_nonnegative:99`,
+`lean/YMGap/Continuum/JacobiShiftedPositiveCoefficients.lean`.
+Do not identify that derivative approximant with an original character
+prefix. The existing SAME-nome uniform comparison
+`fullProdDx_sub_two_dPartial_close:252`,
+`lean/YMGap/Continuum/FiniteJacobiDerivativeComparison.lean`, pays the join.
+Take N=K+1 containing the computed active block and beyond
+derivativeCutoff(q,q*floor(q)). The derivative floor is >=2*q*floor(q)
+by `nome_floor_le_Rhalf_approx:96`,
+`lean/YMGap/Continuum/SU2PointwiseHeatStrictFloor.lean`, with the original
+half normalization. Error <=q*floor(q) gives multiplicative slack three:
+
+    H_K(x) <= 3*r^(M-1)*H_K(1),
+    -log[H_K(x)/H_K(1)] >= delta/[256*g]-log(3).
+
+Include finiteCutoff(q) as well to retain positive H_K everywhere. The
+stronger cutoff is explicit data, not mere prefix positivity and not an
+infinite-kernel substitution. The scalar envelope is now kernel-checked in
+`lean/YMGap/Continuum/SU2HeatJacobiOriginalCoercivity.lean`:
+`fullProdDx_envelope:202`, `coercivityCutoff:268`,
+`standardPointwiseHeatPartial_envelope:291`, `original_heat_envelope:333`.
+The literal RatPoly corollary `original_heatPrefix_eval_envelope:343` uses
+the EXISTING exact evaluation bridge `eval_heatPrefix:179`,
+`lean/YMGap/Continuum/SU2HeatJacobiFinitePrefixMargin.lean`.
+This is pointwise on the scalar interval, not a new Haar certificate.
+
+Localized PAPER entropy argument. First use the SAME common temporal sweep:
+`original_chain_pairing:102`, `swept_chain_factorization:82`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialChainAction.lean`.
+Swept kinetic words are lower spatial link times inverse-upper spatial
+link, by `relative:64` / `relative_pin:94`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialKineticHeat.lean`.
+Use a translated R^3 cube of bases and T consecutive slices, R,T>=2,
+fully contained in the ACTIVE region and chronological chain. Every base
+coordinate must be strictly below width. Inclusive baseLinks/fringe
+membership alone is insufficient for the following exact internal counts.
+Let B contain all three outgoing spatial link variables at these bases.
+Retain every factor touching B; no temporal link is frozen before sweeping.
+
+    L=3*R^3*T,
+    F_i=3*R*(R-1)^2*T+3*R^3*(T-1),
+    F_b<=12*R^2*T+6*R^3.
+
+Here F_i counts factors entirely inside B and F_b the remaining touching
+factors. For each spatial orientation the touched lower bases number
+R^3+2*R^2; subtract R*(R-1)^2 internal bases, leaving 4*R^2-R.
+There are three orientations. The two temporal ends cost at most 6*R^3.
+Missing ambient boundary factors reduce F_b, not F_i under the stated guards.
+
+Fix the OUTSIDE configuration only as finite-product Fubini shorthand.
+Normalize EACH original factor by the SAME H_K(1), h=H_K/H_K(1), so
+eta<=h<=1, eta=finiteFloor(q)/H_K(1)>0. Write E_i,E_b for minus their
+log-products and Z_y for the interior conditional partition. For the
+literal Casimir mean u=sum_(n<=K) (n+1)^2*n*(n+2)*q^(n*(n+2))/H_K(1)
+and m=1+u, the finite character-frequency sum gives
+
+    h(cos(theta)) >= 1-u*theta^2/6.
+
+Restrict each interior raw link to angle <=1/(4*sqrt(m)). Every internal
+four-link face then has angle <=1/sqrt(m); a swept kinetic word uses only
+two of these links. Thus internal h>=1/2. Normalized Haar ball mass is
+>=1/(1536*m^(3/2)), and all boundary factors retain their global eta floor:
+
+    Z_y >= (1536^(-1)*m^(-3/2))^L * 2^(-F_i) * eta^F_b.
+
+This rare raw-link chart is ONLY a partition lower-bound device, not a
+claim of typical concentration and not gauge fixing. Relative entropy in
+this SAME positive finite law gives E_y(E_i+E_b)<=-log(Z_y). Since E_b>=0,
+the scalar coercivity pays the sum of internal plaquette defects. Messages
+are integrated portions of the actual chain, not extra local heat factors:
+`swept_middle_pairing:113`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialOriginalMiddle.lean`.
+
+Choose ONE internal spatial orientation, with F_source=R*(R-1)^2*T,
+and D_B its average of 1-X_p. Then L/F_source<=12,
+F_i/F_source<=15 and F_b/F_source<=48/R+24/T. Finite geometric binomial
+bounds give H_K(1)<=2*g^(-3) and u<=24*g^(-5), using H_K(1)>=1.
+Consequently m<=25*g^(-5), eta>=finiteFloor(q)*g^3/2 and
+
+    E_y D_B <= B(q,R,T),
+    B=256*g*[18*log(25*g^(-5))+12*log(1536)+15*log(6)
+             +(48/R+24/T)*log(2/(finiteFloor(q)*g^3))].
+
+All displayed nome dependence is explicit. This B is independent of K
+beyond the selected stronger cutoff, outside configuration, and unused
+ambient width/depth; it still depends on q,R,T and the original floor.
+No physical family or asymptotic boundary-floor calibration is asserted.
+The logarithms have explicit positive guards. For h>=eta>0, the polynomial
+series for -log(h) has uniform remainder <=(1-eta)^(N+1)/((N+1)*eta).
+Thus the finite analytic argument has a constructive approximation route;
+no Lean entropy, ball-integral or localized counting theorem is claimed.
+
+Source-weighted consequence on PAPER: because the bound holds for EACH
+outside configuration, every integrable nonnegative outside insertion G
+satisfies integral W*G*D_B<=B*integral W*G. For 0<rho<pi the average
+indicator of face angle >rho costs at most B/(1-cos(rho)) in these same
+weighted units. The literal averaged fundamental trace F_B=2-2*D_B obeys
+(F_B-2)^2<=8*D_B, hence
+
+    integral W*G*(F_B-2)^2 <= 8*B*integral W*G.
+
+A separated future square qualifies ONLY when it is independent of the
+swept interior variables. An already integrated terminal message need
+not qualify. This is an absolute UV deviation bound about the constant
+2, not the OLD OWN center. It supplies no lower centered response or
+relative late two-time payment. Keep signed insertions, OLD-center debt
+and their response-normalized estimate as the remaining PRIMARY.
+ROOT and independent bounded Sol reviews checked the entropy direction,
+rare-chart calculation, active geometry, finite-frequency caps, cutoff
+transfer, Fubini weighting and constants. No H1, survival, physical mass,
+continuum/QFT/every-group, canonical-node or Clay closure follows.
+
+Scalar verification boundary: ONLY
+`lean/YMGap/Continuum/SU2HeatJacobiOriginalCoercivity.lean` was checked by
+the monitored launcher, jobs=1, worker cap=20 GiB, dynamic memory guards,
+12 GiB OS reserve. Check3 exited 0 with no warnings and all seven exported
+gates permitted; decay and cutoff are axiom-free, the theorem gates use only
+{propext, Quot.sound}. Log:
+`/private/tmp/ym-oct11-original-heat-coercivity-check3.log`.
+Check2's namespace error was not accepted; the successful check emitted
+the final olean. No new sorry/axiom, frontier field, ledger closure, or full
+build/audit. The localized entropy and source-weighted UV bounds above
+remain PAPER, not kernel-checked original-action estimates.
+
+Final independent read-only Sol review: PASS for the complete scalar source,
+accepted check3 log and this appended audit. It checked the joint
+product/derivative induction, one-active-factor loss, factor-three transfer,
+maximum cutoff, inclusive K+1 convention and literal heatPrefix endpoint.
+It confirmed the seven permitted gates and the separation between checked
+scalar coercivity and PAPER original-Haar/entropy/source-weighted estimates.

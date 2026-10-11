@@ -266,6 +266,20 @@ control or a justified gauge-fixed/local-transverse construction. Keep those
 distinct from raw-link concentration; no conditional single-link law or
 changing-family estimate is supplied. Exact scope and verification:
 adaptive-score audit, "Original unfixed raw-link moment constraint".
+The SAME-nome ORIGINAL scalar heat envelope is now kernel-checked:
+H_K(x)<=3*[1-(1-x)/8]^(M(q)-1)*H_K(1), for 16/17<=q<1,
+x in [-1,1], and K+1 beyond the explicit `coercivityCutoff:268`.
+The literal RatPoly evaluation is `original_heatPrefix_eval_envelope:343`,
+`SU2HeatJacobiOriginalCoercivity.lean`; no widened action or Gaussian
+substitution is used. A new independently reviewed PAPER localization keeps
+ALL boundary factors and gives an absolute source-weighted averaged
+plaquette-deviation budget independent of unused ambient width/depth and
+sufficiently large heat cutoff. Its explicit nome and block-boundary costs
+remain. NEXT construct its original Haar/entropy realization before calling
+that budget a Lean theorem; then pay the OLD-center and SAME late-response
+normalization, not just deviation about the constant 2. No H1 or canonical
+node closes. Exact formulas and verification: adaptive-score audit,
+"Original same-nome coercivity and localized entropy test".
 The new finite FREE-reference screen also excludes a high-mass simultaneous
 shrinking chart for all elementary curls in the support cube: under
 kappa*rho^2<=log(s)/32 its probability is <=exp(-s^(9/4)/48).
