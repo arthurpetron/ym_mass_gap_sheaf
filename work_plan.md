@@ -320,6 +320,45 @@ logarithmic remainder. The global face-count floor alone cannot supply that
 localized estimate. OLD-center and SAME late-response-relative payment,
 physical-family justification and every canonical open node remain OPEN.
 Exact evidence: adaptive-score audit, "Checked original plaquette boxes and finite entropy".
+The next quantitative producers are CHECKED (2026-10-11 UTC):
+`SU2HeatFiniteCasimirDeficit.heat_deficit:153` retains the original finite
+heat coefficients and proves 3*(H_N(1)-H_N(x))<=C_N*(1-x), with the exact
+computed Casimir moment C_N. `BF4ExactSlabNormalizedHeatBounds.normalizedHeatProduct_bounds:161`
+and `normalizedHeatProductHaar_bounds:185` construct the full original
+identity-normalized action's positive window alpha<=W<=1 and alpha<=H[W]<=1.
+`BF4ExactSlabOriginalFiniteEntropy.original_partial_jensen:55` now applies
+finite Jensen to that ACTUAL W at its OWN partition, not a supplied density.
+`SU2QuaternionKernelMomentLower.localizationFloor_le_kernelMoment:111`
+proves H[((1+x0)/2)^N]>=1/(N+1)^2 by the EXISTING original recurrence;
+do not rebuild the recurrence or a Catalan formula to obtain that floor.
+These are kernel-checked finite quantitative producers, not another assumed
+H1 interface. Their full independent source/log/math reviews PASS.
+`RationalQuaternionFourFactorDeficit.four_factor_deficit:105` now proves
+the actual four-unit-quaternion scalar deficit with factor 4, by BALANCED
+chord estimates and semantic associativity; inverse factors are permitted.
+This does not yet identify the literal corrected-slab polynomial evaluation
+with those four inputs.
+
+NEXT select the polynomial localization route: pay each internal heat factor
+by one half times a product of link weights ((1+r_l)/2)^M; retain EVERY
+boundary factor's eta floor. The computed positive M depends on the Casimir
+mean and eta, but not the number of internal faces. At most six internal
+factor occurrences per swept spatial link would then give the PAPER lower
+bound Z_y>=2^(-Fi)*eta^Fb*(6M+1)^(-2L) from the checked one-link floor.
+The literal plaquette-evaluation, factor-incidence and conditional Haar
+factorization joins still need to be built; this is not yet a Lean
+partition theorem. Keep the extra eta dependence in M explicit. A positive
+partition device is NOT typical raw-link concentration, and absolute
+plaquette deviation about 2 is NOT OLD-center/SAME-response-relative payment.
+After the localized entropy/deviation join, return directly to that PRIMARY
+signed estimate and physical-family compatibility; no canonical node closes.
+Exact formulas and current verification: adaptive-score audit,
+"Checked heat deficits, normalized action and localization mass".
+For the entropy's scalar logarithmic identification, reuse the EXISTING
+windowed artanh value and computed binary reduction, but prove their finite
+series comparison and dyadic scaling. A free `CRealLogRangeReduction.logScale`
+is not such a proof. This remains an actual scalar-series obligation, not a
+reason to introduce another general logarithmic-Haar hypothesis interface.
 The new finite FREE-reference screen also excludes a high-mass simultaneous
 shrinking chart for all elementary curls in the support cube: under
 kappa*rho^2<=log(s)/32 its probability is <=exp(-s^(9/4)/48).

@@ -18342,3 +18342,145 @@ their authoritative logs and returned code/log/math PASS. Accepted hashes:
 No full root/tree build or axiom audit, new sorry/axiom, ledger/frontier
 closure, resource increase or ASCII state change. User-owned duplicate
 Lean files are untouched.
+
+### Checked heat deficits, normalized action and localization mass
+
+2026-10-11 UTC. PRIMARY and the Clay target remain OPEN. This increment
+produces quantitative finite inputs for the original localized entropy test,
+without a new assumed H1 field, replacement action or physical clock.
+
+CHECKED scalar near-identity payment:
+`lean/YMGap/Continuum/SU2HeatFiniteCasimirDeficit.lean`.
+`T_deficit:104` proves 1-T_n(x)<=n^2*(1-x) on [-1,1]. The exact first
+difference E_n=T_n-T_(n+1) obeys E_(n+1)=E_n+2*(1-x)*T_(n+1), so its
+bound (2n+1)*(1-x) telescopes without exponential-in-degree constants.
+`U_deficit:132` uses U_(n+2)=U_n+2*T_(n+2) and the exact cubic step
+C_(n+2)-C_n=6*(n+2)^2, with both parity bases retained, to obtain
+3*((n+1)-U_n(x))<=n*(n+1)*(n+2)*(1-x).
+`casimirMoment:148` is the computable ORIGINAL finite weighted sum;
+`heat_deficit:153` gives 3*(H_N(1)-H_N(x))<=casimirMoment(w,N)*(1-x).
+Only w>=0 is required. Empty/vacuum prefixes, w=0 and x=+/-1 are included.
+No infinite-kernel or cutoff-uniform Casimir estimate is supplied.
+
+CHECKED full original-action density window:
+`lean/YMGap/Continuum/BF4ExactSlabNormalizedHeatBounds.lean`.
+`standardPointwiseHeatPartial_le_at_one:61` preserves every original
+coefficient; `one_le_identityHeat:70` retains the exact vacuum term.
+`normalizedHeatProduct:139` divides the literal shared-link action by
+H_(K+1)(1)^ids.length, NOT its partition. At finiteCutoff(w)<=K+1,
+`normalizedHeatProduct_bounds:161` constructs alpha<=W<=1, with the
+positive explicit alpha=finiteFloor(w)^ids.length/H_(K+1)(1)^ids.length.
+`normalizedHeatProductHaar_pin:177` pins H[W] to the ORIGINAL partition
+times that SAME scalar; `normalizedHeatProductHaar_bounds:185` constructs
+alpha<=H[W]<=1. Factor multiplicities, overlaps, the complete finite carrier,
+and the empty factor list remain. Alpha is factor-count dependent.
+
+CHECKED actual-action finite entropy consumer:
+`lean/YMGap/Continuum/BF4ExactSlabOriginalFiniteEntropy.lean`.
+`original_entropyStage_nonnegative:39` includes entropy cutoff zero.
+`original_partial_jensen:55` gives H[p_(n+1)(W)]<=p_(n+1)(H[W]) on
+that literal W with its produced support/window. Here p_N(t) is the EXISTING
+sum_(k=1..N) t*(1-t)^k/k. The tangent cancels at OWN Z=H[W], not at 1.
+No probability normalization W/Z, logarithmic-limit identification or
+interacting concentration is asserted.
+
+CHECKED localization mass, reusing existing mathematics:
+`lean/YMGap/Continuum/SU2QuaternionKernelMomentLower.lean`.
+The recurrence was ALREADY exported by `kernelMoment_recurrence:319`,
+`lean/YMGap/Continuum/SU2QuaternionPolynomialKernelConcentration.lean`,
+for the literal b=(1+x0)/2 and ORIGINAL J_N=H[b^N]. The earlier review's
+narrow-search NOT FOUND was incomplete; do not reconstruct this recurrence
+or a Catalan formula. `kernelMoment_cleared_lower:73` proves
+1<=(N+1)^2*J_N using the exact nonnegative coefficient slack
+(2N+3)(N+2)^2-(2N+6)(N+1)^2=N^2+6N+6.
+`localizationFloor:97` returns invSucc(N)^2 as rational data;
+`localizationFloor_le_kernelMoment:111` proves J_N>=1/(N+1)^2, including N=0.
+This is a one-link rare-chart cost, NOT typical concentration under the
+interacting law and NOT yet an interacting partition bound.
+
+CHECKED actual four-factor geometry:
+`lean/YMGap/RepTheory/RationalQuaternionFourFactorDeficit.lean`.
+`chord_to_one:59` proves the exact identity d^2(u,1)=2*(1-u.r).
+`four_factor_chord:87` applies product bounds in BALANCED pairs ab and cd,
+giving constant 4 rather than a growing unbalanced bound.
+`four_factor_deficit:105` uses semantic associativity to obtain
+1-r(((ab)c)d)<=4*((1-a.r)+(1-b.r)+(1-c.r)+(1-d.r)).
+The four unit arguments may be inverses; no commutation or independent-link
+assumption is made. The literal corrected-slab evaluation adapter remains
+OPEN. This leaf does not yet assert an original interacting action estimate.
+
+PAPER route selected for the next original localized partition join.
+Let h=H_(K+1)/H_(K+1)(1), eta=finiteFloor(w)/H_(K+1)(1),
+mu=casimirMoment(w,K+1)/H_(K+1)(1), m=1+mu, and t_l=(1+r_l)/2.
+For a four-link word the needed deficit inequality is
+1-r_word<=4*sum_l(1-r_l). Thus h_p>=1/2 when
+sum_l(1-r_l)<=3/(8m). Outside that region,
+prod_l t_l<=1-3/(64m). Choose D=ceil(64m/3) and a computed n>=1
+with 2^(-n)<=2*eta, and set M=D*n. Finite Bernoulli/geometric algebra
+then gives h_p>=(1/2)*prod_l t_l^M in both regions. The selected
+construction uses n>=1 so M is positive and needs no separate
+zero-exponent branch. The n=0 case would also be valid when eta>=1/2,
+because the existing floor already gives h_p>=1/2.
+
+Retain all boundary factor floors, prove the actual swept-link incidence
+cap six, and factor only the independent polynomial link TEST weights under
+the original product Haar functional. These missing joins would give
+
+    Z_y >= 2^(-Fi)*eta^Fb*J_(6M)^L
+        >= 2^(-Fi)*eta^Fb*(6M+1)^(-2L).
+
+M has NO internal-face-count dependence, avoiding an artificial L*log(Fi)
+cost. Its eta dependence is real: an efficient n costs order log(1/eta),
+which adds order L*log(1+log(1/eta)) to the partition budget. No produced
+relation bounding that cost purely by m was found. Do not claim a pure
+m^(-cL) floor, coupling-uniform bound or source-relative H1 payment.
+The finite logarithmic identification and original localized entropy/
+source-weighted deviation joins are still OPEN. Absolute deviation about 2
+does not pay the OLD OWN center or SAME late-response denominator.
+
+SOURCE/PAPER logarithmic screen. The actual `logRat:733`,
+`lean/YMGap/Constructive/CRealLog.lean`, takes its artanh-window proof;
+for 0<x<=1 that requires x>=1/2. The same file's generic
+`CRealLogRangeReduction:996` has a FREE logScale, so its `CReal.log:1014`
+does not independently identify any new entropy limit. For smaller positive
+rationals, the computed `binExpOf:91`, `mant_window:213`,
+`hamiltonianGapRealAll:252` and `reductionOf:295`,
+`lean/YMGap/Continuum/HamiltonianAllSep.lean`, supply the scalar dyadic
+value k*log2-logRat(m), x=2^(-k)*m. This is scalar reuse, not a physical
+Hamiltonian or clock identification. Neither that construction nor the
+existing `finiteLog_derivative:34` and `finiteLog_eval:59`,
+`lean/YMGap/Constructive/QPolyFiniteLogDerivative.lean`, proves equality
+with the regularized entropy series. The finite Mercator/artanh comparison
+and dyadic series-scaling inequalities remain substantive open joins;
+do not fill them with an assumed logarithm-interface field.
+
+Verification: ONLY these five leaves were checked serially with jobs=1,
+20 GiB worker cap, 12 GiB OS reserve, lock and fresh dynamic/process guards.
+Fresh available memory ranged approximately 38--40 GiB, pressure-free 88--91%.
+Accepted logs (each exit 0, final olean emitted, no diagnostics):
+
+    /private/tmp/ym-oct11-finite-heat-casimir-deficit-check1.log
+    /private/tmp/ym-oct11-original-normalized-heat-check1.log
+    /private/tmp/ym-oct11-original-finite-entropy-check1.log
+    /private/tmp/ym-oct11-original-kernel-moment-lower-check4.log
+    /private/tmp/ym-oct11-four-factor-deficit-check1.log
+
+All 32 public gates are permitted; five definitions are axiom-free. COMPLETE
+independent bounded Sol source/log/math reviews PASS. Earlier unsuccessful
+helper elaborations in kernel-moment checks1--3 are NOT proof evidence.
+Frozen source and accepted log SHA256 pairs:
+
+    FiniteCasimir source 84512d27580d89dd9a8302b7d09e622c4b9fa529641133bbaa4dc2520c40095a
+    FiniteCasimir log    764f351434214be142bc5c3bb02a9637554409101d7f4a313aef046ad23892ed
+    NormalizedHeat source 6a36d20237da5b260c400cfb0bdd4edb0375dd3ea45ffa036549d87c0cbda7a2
+    NormalizedHeat log    c430222bdc498e1e2f7d1a2c62aa866ab3a3e0d8e0d2ceb76485262c09b1d750
+    OriginalEntropy source 098143f77838fe27a10503e971cc6548c0896f67ec76bed9255a0c94ef48d816
+    OriginalEntropy log    fbc41b7a6fd984a3f84565fd7ba453ac0103bf705fa9d674d2d8e71224f5e500
+    KernelLower source 25be3b141c6464a6cc7623ec2344eef3b269f66b50b3facb1c5c7e602760f6c8
+    KernelLower log    825404bb79d12e13ac08fc3583944c8adf0daaa8bf37e20ef520ad217e8db4ff
+    FourFactor source 3c7665d1e3050440af7646048b611203b13888ddadb62279ffc18566a91a6cf7
+    FourFactor log    81589767581646e948e5de1e7373776edd9d6da0cc11783aa2603777477de040
+
+No full root/tree build or axiom audit, new sorry/axiom, ledger/frontier
+closure, resource increase or canonical ASCII state change. User-owned
+duplicate Lean files remain untouched.
