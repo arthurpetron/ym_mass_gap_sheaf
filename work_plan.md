@@ -376,14 +376,35 @@ dependent on w and K; a cutoff-uniform Casimir cap is not proved here.
 Five narrow serialized checks and COMPLETE independent Sol source/log/math
 reviews PASS: all 39 public gates within {propext, Quot.sound}, no final
 diagnostics. No full build/audit, sorry, frontier closure or resource increase.
-NEXT multiply these inequalities while retaining all original action factors.
+The complete ORIGINAL finite-action/integral join is now CHECKED (2026-10-11 UTC):
+`BF4ExactSlabPolynomialActionLocalization.original_product_localization:144`
+multiplies the produced bounds on ONE shared assignment, retaining all factors.
+`BF4ExactSlabKernelIncidence.faceLinks_count_le_six:64` pays the literal flattened
+occurrences for physical, Nodup face IDs; repeated IDs are NOT given a cap six.
+`BF4ExactSlabKernelProductRecoding.localizedProduct_recoding:110` and
+`carrierProduct_index_pin:158` identify all original slots and carrier indices.
+`FiniteProductMultiplicityBound.scalarProduct_multiplicity_bound:75` groups
+occurrences constructively, including zero factors, using the SAME lawful count.
+`QuaternionHaarTensorLocalization.tensorKernel_haar:182` computes the separable
+LINK TEST's original Haar moment; no interacting face independence is asserted.
+`BF4ExactSlabPolynomialPartitionLower.normalized_partition_lower:152` proves
+Z/H_(K+1)(1)^F >= 2^(-F)*(6*M+1)^(-2*L), with the SAME computed M(w,K),
+F original face count and L original carrier size. `original_partition_lower:180`
+undoes identity normalization; `complete_original_partition_lower:200` supplies
+the actual COMPLETE physical face list. This is a GLOBAL finite partition floor,
+not the boundary-conditioned floor or a uniform estimate. Six focused serialized
+checks and independent source/log/math reviews PASS; 30 public gates permitted.
+No full build/audit, new sorry/axiom, resource increase or canonical-node closure.
+NEXT restrict the test to actual swept links, retain EVERY boundary factor's
+eta floor, and prove conditional integration on the original boundary assignment.
+Do not rebuild the geometry or replace the original chronological action.
 The raw six-incidence bound ALREADY exists:
 `BF4ExactSlabLinkStarGeometry.incidentIds_length_le_six:89` and
 `BF4ExactSlabFixedSpatialFamilyIncidence.blockRowFaces_length_le_six:66`.
-Reuse it to prove the localized swept-factor occurrence tally, not a fresh
-star enumeration or a cap for arbitrary repeated IDs. Join the existing
-original Haar kernel-moment floor to the conditional
-localized partition. Entropy-series identification and the signed OLD-center/
+Reuse it for the chronological localized swept-factor occurrence tally, not a
+fresh star enumeration or a cap for arbitrary repeated IDs. The global integral
+join is now proved; its conditional/localized specialization remains OPEN.
+Entropy-series identification and the signed OLD-center/
 SAME late-response payment still follow as genuine open work; no canonical
 chart node closes. Evidence: adaptive-score audit,
 "Checked literal original heat polynomial localization".

@@ -18618,3 +18618,107 @@ Frozen source and accepted log SHA256 pairs:
     FourKernel log    90a32a246ca32e0bb9b21da2ed2f23fd673dbdc5d30b26ff604f1ceefc501346
     OriginalConsumer source c54a3e4885e81e183ce1b28a0756c6c9aea4f41e1b76f7dec382a42878acd72c
     OriginalConsumer log    da750a6b05759e39bd855ae20f249800c798e1e56d0d1a7aa576fc64076ec7a2
+
+### Checked complete ORIGINAL finite partition localization
+
+2026-10-11 UTC. PRIMARY and the Clay target remain OPEN. The preceding
+one-face producer now has an ACTUAL complete original-action consumer,
+not merely disconnected multiplication, geometry or Haar scaffolds.
+
+The following paths are all under `lean/YMGap/Continuum/`:
+
+- `BF4ExactSlabPolynomialActionLocalization.lean:109`, `normalized_product_pin`,
+  identifies the occurrence-preserving scalar product with the existing
+  original polynomialProduct divided by H_(K+1)(1)^F, NOT by its partition.
+  `original_product_localization:144` multiplies all produced one-face
+  inequalities on ONE shared assignment, including repeated and empty IDs.
+- `BF4ExactSlabKernelIncidence.lean:46`, `faceLinks_count_eq_incident_filter`,
+  counts EVERY four-slot occurrence; repeated IDs remain in this identity.
+  `faceLinks_count_le_six:64` reuses the existing original six-star enumeration
+  ONLY for physical, Nodup IDs. It does not grant six to repeated faces.
+- `BF4ExactSlabKernelProductRecoding.lean:110`, `localizedProduct_recoding`,
+  retains half^F and every literal link occurrence. `carrierProduct_index_pin:158`
+  pins the original distinct carrier to its SAME indexed unit row;
+  `faceLinks_physical:170` produces actual slot membership. Only scalar bases
+  commute; the nonabelian plaquette word and its inverse factors do not change.
+- `FiniteProductMultiplicityBound.lean:44`, `scalarProduct_count_split`,
+  groups occurrences using constructive filtering, without division/erasure.
+  `scalarProduct_multiplicity_bound:75` proves, for 0<=f<=1 on a Nodup carrier,
+  product_carrier f^cap <= product_occurrences f when every count<=cap.
+  The explicit DecidableEq/BEq/LawfulBEq inputs keep the ACTUAL counts aligned.
+  Zero factors, cap zero, repeated occurrences and empty lists are retained.
+- `QuaternionHaarTensorLocalization.lean:52`, `tensorKernel`, places the
+  literal ((1+x0)/2)^m in each original quaternion block. `tensorKernel_eval:145`
+  pins its evaluation to the same scalar/index row; `tensorKernel_bounds:171`
+  produces [0,1]. `tensorKernel_haar:182` computes J_m^L by ordered-head
+  Fubini and the existing supported constant pin. `tensorKernel_haar_lower:209`
+  gives (1/(m+1)^2)^L. ONLY the auxiliary LINK TEST factors under Haar,
+  never the interacting original face factors.
+- `BF4ExactSlabPolynomialPartitionLower.lean:72`, `original_tensor_le_occurrences`,
+  joins these results with m=6*M; unused carrier links only lower the test.
+  `original_test_le_density:99` places it below the COMPLETE original density.
+  `normalized_partition_moment_lower:117` passes this order to ORIGINAL Haar,
+  AFTER both polynomial supports are pinned to the SAME original carrier.
+  `partitionFloor:142` is positive computed Q' data, proved by
+  `partitionFloor_positive:146`. `normalized_partition_lower:152` proves
+
+      Z / H_(K+1)(1)^F >= 2^(-F) * (6*M+1)^(-2*L).
+
+  `original_partition_normalized_lower:168` identifies the existing Z;
+  `original_partition_lower:180` undoes identity normalization, giving
+  H_(K+1)(1)^F * partitionFloor <= original heatProductHaar.
+  `complete_original_partition_lower:200` supplies the ACTUAL complete
+  physical face range and its proved Nodup, not an assumed subaction.
+
+Scope: M is the produced localizationDegree(w,K), F the original face
+count, L the original carrier length; 0<w<1 and finiteCutoff(w)<=K+1
+remain explicit. This is a GLOBAL finite partition bound, not a conditional
+boundary floor or a volume/cutoff-uniform constant. It does not supply
+typical raw-link concentration, entropy/logarithmic identification,
+OLD OWN-center/SAME late-response-relative payment, physical calibration,
+continuum survival, every-state decay or the Clay gap. No canonical node
+changes, so no ASCII chart is printed.
+
+NEXT: use actual chronological swept links; retain EVERY boundary factor's
+eta floor and prove the SAME boundary-conditioned Haar join. Then use the
+localized entropy/deviation argument only in its justified scope, returning
+directly to PRIMARY signed late-response payment and physical-family
+compatibility. Do not treat a positive partition alone as relative payment.
+
+Verification: six narrow checks, serialized through the monitored launcher,
+jobs=1, 20 GiB hard worker cap, 12 GiB OS reserve, repository lock and fresh
+process/dynamic-memory preflight EVERY launch. Available memory remained
+39.0--39.5 GiB, pressure-free 90--91%; no competing compiler/runner/pytest.
+Each final check exited 0 and emitted its olean. Accepted logs:
+
+    /private/tmp/ym-oct11-original-action-localization-check3.log
+    /private/tmp/ym-oct11-original-kernel-incidence-check2.log
+    /private/tmp/ym-oct11-kernel-product-recoding-check3.log
+    /private/tmp/ym-oct11-product-multiplicity-check3.log
+    /private/tmp/ym-oct11-tensor-haar-localization-check2.log
+    /private/tmp/ym-oct11-original-polynomial-partition-check2.log
+
+All 30 public axiom-print gates stay within {propext, Quot.sound}; two
+definitions are axiom-free. COMPLETE producer-independent Sol source/log/math
+reviews PASS for all six final leaves, with no final diagnostics. ROOT also
+read all final sources and accepted logs. Failed elaboration logs are NOT
+proof evidence. The index proof's earlier definitional timeout was repaired
+with opaque generic list helpers, WITHOUT raising resource limits. Count
+instance alignment and explicit Haar comparison types repaired the consumer.
+No full root/tree build or audit, new sorry/axiom, ledger/frontier closure,
+resource increase, or user-owned duplicate-file mutation.
+
+Frozen source and accepted log SHA256 pairs:
+
+    Action source d85029c77c70343e27e3adfbcbcf1321e2faa1aa230798dc4b8e95efc38b3d53
+    Action log    f9c59d9e4274e5356fb4d2f06e76bf7904bf32953d13901d13d4e0b0f2d9d21b
+    Incidence source 1e7d0de41d884ae011030f203330b907c636b440ef788544287ae993f1cd8e8e
+    Incidence log    06b427e051814e587dd843da8f31267fb661fefb77f0137c5a90eeb8257e2bae
+    Recoding source 147b4302d92adfe44309ecfb4e32816abd28f6c982ed31f55853f646301e85eb
+    Recoding log    ae7466880d20931914f06ed2cb6a491ce9fe472ba728e2b8b9f0ad1527bbdb66
+    Multiplicity source ab9f3cf01e1aef6cd8d2dc5766531102fed1bfa68ed28212f7f76f20e0a06e27
+    Multiplicity log    1fa19b215f723f042c1d8d8257ede3e115a7bbe1e920e1b8aeee7ff8b06b1971
+    Tensor source 6d14eccb24af2e8b91eee56893eaeb300f9ccc481712b4e8084f0dfcc5a85c2e
+    Tensor log    525f0b0f0f9aa7537d873c251d6f4b11ae54f5365791814f6fa986561a0aea5b
+    Partition source bc6a730b93287320d6756db1f871a92c60e566723da3a927951ecb60fe3fb80b
+    Partition log    9502843afd2b2ca1ee108f59227c998a4bc7ae0a0895129edf046733d74f78b6
