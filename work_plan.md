@@ -255,6 +255,47 @@ center corrections and discarded-region contributions jointly, using a
 controlled local/transverse construction if available. No such producer is
 assumed. Exact identities, quantitative tests and scope: adaptive-score audit,
 "Original gauge and measure comparison screen". PRIMARY remains OPEN.
+The ORIGINAL finite odd marginal now supplies a checked constraint on the
+comparison: every raw physical-link component has unnormalized mean zero
+and second moment Z/4, with V*g_n*g_(n+1) retained. These are
+`marginal_coordinate_mean:833` and `marginal_coordinate_square:914` in
+`BF4ExactSlabFixedSpatialGaussTransfer.lean`; all new gates are constructive.
+Consequently an unfixed raw-link chart near the identity cannot concentrate
+in any positive instance. This does NOT exclude gauge-invariant plaquette
+control or a justified gauge-fixed/local-transverse construction. Keep those
+distinct from raw-link concentration; no conditional single-link law or
+changing-family estimate is supplied. Exact scope and verification:
+adaptive-score audit, "Original unfixed raw-link moment constraint".
+The new finite FREE-reference screen also excludes a high-mass simultaneous
+shrinking chart for all elementary curls in the support cube: under
+kappa*rho^2<=log(s)/32 its probability is <=exp(-s^(9/4)/48).
+This uses explicit edge-disjoint cycles and a coercively guarded finite
+Gaussian construction, not independence assumed for the original action.
+Do not impose that all-small event as an extra prerequisite. Seek
+source-weighted discarded-region control relative to the SAME two-time
+responses instead. Exact proof and scope: adaptive-score audit,
+"Simultaneous local small-field chart screen". No original estimate or
+canonical proof-state change follows.
+Positive replacement within the SAME free reference: subtracting each local
+CENTERED discarded insertion (discarded quadratic insertion MINUS its exact
+Gaussian tail mean) gives response-relative error without a volume prefactor.
+Thresholds >=4 standard
+deviations retain free two-time doubling up to the explicit factor 17/14.
+The PAPER proof uses a geometric finite Gaussian-kernel remainder, not
+classical Hermite completeness. No measure is conditioned. NEXT test this
+source-weighted strategy in the original complete action; its messages and
+OLD-center corrections remain unpaid. Exact calculation and limitations:
+adaptive-score audit, "Source-weighted Gaussian large-field payment".
+The nonlinear radial curvature trace 2*cos(|B|), centered in its OWN
+three-color Gaussian law, now also has a PAPER relative comparison:
+(4/27)*R_Q<=R_trace<=R_Q for kappa>=1/2. Hence its free doubling costs
+only (27/4)*K_m without truncating the source. This uses the exact quadratic
+projection and positive reference semigroup, not a pointwise Taylor error.
+It is NOT the original product of nonabelian link holonomies, and the
+interacting center/action/messages still require the SAME-object join.
+NEXT forward remains that complete original two-time comparison, with
+source-weighted rather than simultaneous-chart error payment. Exact proof:
+adaptive-score audit, "Nonlinear curvature-trace Gaussian benchmark".
 Do not turn the global all-face sum into a local field by dropping cross-block
 covariances. The existing padded nondegeneracy theorem already supplies each
 chosen family's qualitative late floor; its supplied certificate is too weak

@@ -15,6 +15,9 @@ import YMGap.Continuum.SU2QuaternionProductHeatAngularCommutation
 import YMGap.Continuum.SU2QuaternionHaarAngularIBPAt
 import YMGap.Continuum.BF4ExactSlabFixedSpatialBlockConditionalRatio
 import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteFamilySchedule
+import YMGap.Continuum.BF4ExactSlabFixedSpatialActualMarginalDual
+import YMGap.Continuum.BF4ExactSlabVertexGaussWardIdentity
+import YMGap.Continuum.Z4EvenLinkMinimum
 namespace YMGap.Continuum.BF4ExactSlabFixedSpatialGaussTransfer
 set_option autoImplicit false
 open YMGap.Constructive YMGap.Continuum
@@ -630,6 +633,317 @@ theorem blockConditionalRatio_gauss_zero {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w 
     (iterateStep_gauss_zero w K width v i t (supported_polyMul hg hp)
       (slice_mul_zero width v i hg hp (terminalMessage_gauss_zero w K width n v i) h))
 
+/-! The following moments concern the finite UNNORMALIZED original marginal.
+They use its full local gauge symmetry, not an independent-link hypothesis,
+a gauge-fixed measure, a limiting vacuum, or a spectral-gap estimate. -/
+open YMGap.Continuum.BF4ExactSlabFixedSpatialActualMarginalDual (marginalWeight marginalWeight_supported)
+open YMGap.Continuum.SU2QuaternionAngularCoordinatePadded (angularDerivative_polyVar_padded)
+local infix:50 " ≈ " => Q'.eqv
+
+/-- Both actual terminal messages and every original spatial factor remain. -/
+theorem marginalWeight_gauss_zero (w : Q') (K width n : Nat)
+    (v : Z4Vertex) (i : Fin 3) :
+    HaarCarrierEqv (N width)
+      (sliceGauss width v i (marginalWeight w K width n)) polyZero :=
+  slice_mul_zero width v i
+    (supported_polyMul (spatialWeight_supported w K width)
+      (terminalMessage_supported w K width n))
+    (terminalMessage_supported w K width (n+1))
+    (slice_mul_zero width v i (spatialWeight_supported w K width)
+      (terminalMessage_supported w K width n)
+      (spatialWeight_gauss_zero w K width v i)
+      (terminalMessage_gauss_zero w K width n v i))
+    (terminalMessage_gauss_zero w K width (n+1) v i)
+
+private theorem carrier_integral {blocks : Nat} {p q : RatPoly}
+    (h : HaarCarrierEqv blocks p q) : quaternionHaar blocks p ≈ quaternionHaar blocks q :=
+  Q'.eqv_trans _ _ _ (Q'.eqv_symm (haar_of_coeff (RatPolyCoeffEqv.one_mul p)))
+    (Q'.eqv_trans _ _ _ (h polyOne) (haar_of_coeff (RatPolyCoeffEqv.one_mul q)))
+
+private theorem slice_integral_zero (width : Nat) (v : Z4Vertex) (i : Fin 3)
+    {p : RatPoly} (hp : SupportedQuaternionBlocks (N width) p) :
+    quaternionHaar (N width) (sliceGauss width v i p) ≈ 0 :=
+  Q'.eqv_trans _ _ _
+    (Q'.eqv_symm ((E width).haar _ (sliceGauss_supported width v i hp)))
+    (Q'.eqv_trans _ _ _ (carrier_integral (gauss_embedding width v i hp))
+      (BF4ExactSlabVertexGaussWardIdentity.vertexGauss_haar_zero width v i _))
+
+private theorem marginal_ward (w : Q') (K width n : Nat) (v : Z4Vertex) (i : Fin 3)
+    {p : RatPoly} (hp : SupportedQuaternionBlocks (N width) p) :
+    quaternionHaar (N width)
+      (polyMul (marginalWeight w K width n) (sliceGauss width v i p)) ≈ 0 := by
+  let W := marginalWeight w K width n
+  have hw := marginalWeight_supported w K width n
+  have hz : quaternionHaar (N width) (polyMul (sliceGauss width v i W) p) ≈ 0 :=
+    Q'.eqv_trans _ _ _ (haar_of_coeff (RatPolyCoeffEqv.mul_comm _ _))
+      (Q'.eqv_trans _ _ _ ((marginalWeight_gauss_zero w K width n v i) p)
+        (haar_of_coeff (RatPolyCoeffEqv.mul_zero_right _)))
+  have hs : quaternionHaar (N width) (polyMul (sliceGauss width v i W) p) +
+      quaternionHaar (N width) (polyMul W (sliceGauss width v i p)) ≈ 0 :=
+    Q'.eqv_trans _ _ _ (Q'.eqv_symm (quaternionHaar_append _ _ _))
+      (Q'.eqv_trans _ _ _ (Q'.eqv_symm (carrier_integral (slice_mul width v i hw hp)))
+        (slice_integral_zero width v i (supported_polyMul hw hp)))
+  exact Q'.eqv_trans _ _ _ (Q'.eqv_symm (QPoly.q_zero_add_eqv _))
+    (Q'.eqv_trans _ _ _ (Q'.eqv_symm (Q'.add_eqv_congr' hz (Q'.eqv_refl _))) hs)
+
+private def coord (b a : Nat) : RatPoly := polyVar (4*b+a)
+private theorem coord_supported {blocks b : Nat} (hb : b<blocks) (a : Fin 4) :
+    SupportedQuaternionBlocks blocks (coord b a.val) := by
+  intro t ht
+  have he : t = (varMono (4*b+a.val), (1 : Q')) := List.mem_singleton.mp ht
+  subst t
+  change (varMono (4*b+a.val)).length ≤ 4*blocks
+  simp only [varMono, List.length_append, List.length_replicate, List.length_singleton]
+  have := a.isLt
+  omega
+private theorem components4 (a : Fin 4) : a=0 ∨ a=1 ∨ a=2 ∨ a=3 := by
+  simp only [Fin.ext_iff]
+  omega
+
+private theorem frame_other_coord {blocks b d : Nat} (right : Bool)
+    (hb : b<blocks) (hd : d<blocks) (hne : b≠d) (i : Fin 3) (a : Fin 4) :
+    PaddedPolynomialCoeffEqv blocks (frameDerivativeAt right b i (coord d a.val)) polyZero := by
+  have h := other_coordinate_action right hb hd hne i
+  rcases components4 a with rfl | rfl | rfl | rfl
+  · exact h.scalar
+  · exact h.iPart
+  · exact h.jPart
+  · exact h.kPart
+
+private theorem isolate_sum {blocks : Nat} (f : Z4Link → RatPoly) (target : Z4Link) :
+    ∀ links : List Z4Link, links.Nodup →
+      (∀ l, l∈links → l≠target → PaddedPolynomialCoeffEqv blocks (f l) polyZero) →
+      PaddedPolynomialCoeffEqv blocks (finitePolySum f links)
+        (if target∈links then f target else polyZero)
+  | [], _, _ => .refl _ _
+  | l::ls, hn, hz => by
+      have ih := isolate_sum f target ls (List.nodup_cons.mp hn).2
+        (fun e he hne => hz e (List.mem_cons_of_mem l he) hne)
+      by_cases he : l=target
+      · subst l
+        have hnot := (List.nodup_cons.mp hn).1
+        simp only [if_neg hnot] at ih
+        rw [if_pos List.mem_cons_self]
+        exact ((PaddedPolynomialCoeffEqv.refl blocks _).add ih).trans
+          (.of_coeff (RatPolyCoeffEqv.add_zero _))
+      · have hm : (target∈l::ls) ↔ target∈ls := by
+          simp only [List.mem_cons]
+          exact ⟨fun h => h.elim (fun h => False.elim (he h.symm)) id, Or.inr⟩
+        simpa only [hm, finitePolySum] using
+          ((hz l List.mem_cons_self he).add ih).trans
+            (.of_coeff (RatPolyCoeffEqv.zero_add _))
+
+private theorem slice_coordinate (width : Nat) (l : Z4Link) (hl : l∈baseLinks width)
+    (i : Fin 3) (a : Fin 4) :
+    PaddedPolynomialCoeffEqv (N width)
+      (sliceGauss width l.1 i (coord ((baseLinks width).idxOf l) a.val))
+      (polyNeg (frameDerivativeAt false ((baseLinks width).idxOf l) i
+        (coord ((baseLinks width).idxOf l) a.val))) := by
+  have hb := List.idxOf_lt_length_of_mem hl
+  have h := isolate_sum (blocks := N width)
+    (fun e => term (baseLinks width) l.1 i e (coord ((baseLinks width).idxOf l) a.val))
+    l (baseLinks width) (baseLinks_nodup width) (by
+      intro e he hne
+      have hd := List.idxOf_lt_length_of_mem he
+      have hn : (baseLinks width).idxOf e ≠ (baseLinks width).idxOf l :=
+        fun h => hne (BF4ExactSlabTemporalGaugeLedger.idxOf_injective_on_members he hl h)
+      have hL := frame_other_coord false hd hb hn i a
+      have hR := frame_other_coord true hd hb hn i a
+      dsimp only
+      unfold term
+      split <;> split
+      · exact ((padded_neg hL).add hR).trans (.of_coeff (RatPolyCoeffEqv.zero_add _))
+      · exact ((padded_neg hL).add (.refl _ _)).trans (.of_coeff (RatPolyCoeffEqv.zero_add _))
+      · exact ((PaddedPolynomialCoeffEqv.refl _ _).add hR).trans (.of_coeff (RatPolyCoeffEqv.zero_add _))
+      · exact .of_coeff (RatPolyCoeffEqv.zero_add _))
+  simp only [if_pos hl] at h
+  refine h.trans ?_
+  simp only [term, if_neg (Z4EvenLinkMinimum.base_ne_tip l)]
+  exact .of_coeff (RatPolyCoeffEqv.add_zero _)
+
+private def planeExpr (a d c : Nat) : PolyExpr :=
+  .add (if c=d then .var a else .const 0) (.neg (if c=a then .var d else .const 0))
+private def leftExpr (i : Fin 3) (c : Nat) : PolyExpr :=
+  match i.val with
+  | 0 => .add (planeExpr 0 1 c) (planeExpr 2 3 c)
+  | 1 => .add (planeExpr 0 2 c) (.neg (planeExpr 1 3 c))
+  | _ => .add (planeExpr 0 3 c) (planeExpr 1 2 c)
+private theorem plane_coord {blocks b : Nat} (hb : b<blocks) (a d c : Fin 4) :
+    PaddedPolynomialCoeffEqv blocks
+      (blockAngularDerivative b a.val d.val (coord b c.val))
+      (coeffEvalExpr (coord b) (planeExpr a.val d.val c.val)) := by
+  have h := @angularDerivative_polyVar_padded blocks
+    (4*b+a.val) (4*b+d.val) (4*b+c.val)
+    (by have := a.isLt; omega) (by have := d.isLt; omega) (by have := c.isLt; omega)
+  have hcd : (4*b+c.val=4*b+d.val) ↔ c.val=d.val :=
+    ⟨Nat.add_left_cancel, fun he => congrArg (fun u : Nat => 4*b+u) he⟩
+  have hca : (4*b+c.val=4*b+a.val) ↔ c.val=a.val :=
+    ⟨Nat.add_left_cancel, fun he => congrArg (fun u : Nat => 4*b+u) he⟩
+  simp only [hcd, hca] at h
+  have branch (r u v : Nat) : PaddedPolynomialCoeffEqv blocks
+      (if u=v then coord b r else polyZero)
+      (coeffEvalExpr (coord b) (if u=v then .var r else .const 0)) := by
+    by_cases he : u=v
+    · simp only [if_pos he, coeffEvalExpr]; exact .refl _ _
+    · simp only [if_neg he, coeffEvalExpr]
+      exact .of_coeff (RatPolyCoeffEqv.zero_smul polyOne).symm
+  exact h.trans ((branch a.val c.val d.val).add (padded_neg (branch d.val c.val a.val)))
+private theorem left_coord {blocks b : Nat} (hb : b<blocks) (i : Fin 3) (c : Fin 4) :
+    PaddedPolynomialCoeffEqv blocks (frameDerivativeAt false b i (coord b c.val))
+      (coeffEvalExpr (coord b) (leftExpr i c.val)) := by
+  rcases directions i with rfl | rfl | rfl
+  · exact (plane_coord hb 0 1 c).add (plane_coord hb 2 3 c)
+  · exact (plane_coord hb 0 2 c).add (padded_neg (plane_coord hb 1 3 c))
+  · exact (plane_coord hb 0 3 c).add (plane_coord hb 1 2 c)
+
+private theorem slice_radial (width : Nat) (l : Z4Link) (hl : l∈baseLinks width) (i : Fin 3) :
+    HaarCarrierEqv (N width)
+      (sliceGauss width l.1 i (coord ((baseLinks width).idxOf l) 0))
+      (coord ((baseLinks width).idxOf l) (i.val+1)) ∧
+    HaarCarrierEqv (N width)
+      (sliceGauss width l.1 i (coord ((baseLinks width).idxOf l) (i.val+1)))
+      (polyNeg (coord ((baseLinks width).idxOf l) 0)) := by
+  have hb := List.idxOf_lt_length_of_mem hl
+  let j : Fin 4 := ⟨i.val+1, by have := i.isLt; omega⟩
+  have h0 := (slice_coordinate width l hl i 0).trans (padded_neg (left_coord hb i 0))
+  have hj := (slice_coordinate width l hl i j).trans (padded_neg (left_coord hb i j))
+  have hn0 : normalize (.neg (leftExpr i 0)) = normalize (.var (i.val+1)) := by
+    rcases directions i with rfl | rfl | rfl <;> decide
+  have hnj : normalize (.neg (leftExpr i j.val)) = normalize (.neg (.var 0)) := by
+    dsimp only [j]
+    rcases directions i with rfl | rfl | rfl <;> decide
+  exact ⟨padded_carrier (h0.trans (.of_coeff
+      (coeffEvalExpr_eqv_of_normalize_eq _ _ hn0 (coord _))))
+      (sliceGauss_supported width l.1 i (coord_supported hb 0)) (coord_supported hb j),
+    padded_carrier (hj.trans (.of_coeff
+      (coeffEvalExpr_eqv_of_normalize_eq _ _ hnj (coord _))))
+      (sliceGauss_supported width l.1 i (coord_supported hb j))
+      (neg_supported (coord_supported hb 0))⟩
+
+private theorem weighted_neg (blocks : Nat) (W p : RatPoly) :
+    quaternionHaar blocks (polyMul W (polyNeg p)) ≈
+      -(quaternionHaar blocks (polyMul W p)) := by
+  exact Q'.eqv_trans _ _ _ (haar_of_coeff ((neg_smul p).mul_left W))
+    (Q'.eqv_trans _ _ _ (quaternionHaar_polyMul_smul_right blocks (-1) W p)
+      (Q'.eqv_trans _ _ _ (Q'.neg_mul_eqv 1 _)
+        (Q'.neg_eqv_congr _ _ (Q'.one_mul_eqv _))))
+
+/-- Every raw component of every actual base link has zero ORIGINAL marginal
+mean. This includes fringe links and arbitrary finite terminal depths. -/
+theorem marginal_coordinate_mean (w : Q') (K width n : Nat)
+    (l : Z4Link) (hl : l∈baseLinks width) (a : Fin 4) :
+    quaternionHaar (N width) (polyMul (marginalWeight w K width n)
+      (polyVar (4*((baseLinks width).idxOf l)+a.val))) ≈ 0 := by
+  have hb := List.idxOf_lt_length_of_mem hl
+  have himag (i : Fin 3) := Q'.eqv_trans _ _ _
+    (Q'.eqv_symm ((slice_radial width l hl i).1 (marginalWeight w K width n)))
+    (marginal_ward w K width n l.1 i (coord_supported hb 0))
+  have hn := Q'.eqv_trans _ _ _
+    (Q'.eqv_symm ((slice_radial width l hl 0).2 (marginalWeight w K width n)))
+    (marginal_ward w K width n l.1 0 (coord_supported hb 1))
+  have hreal : quaternionHaar (N width) (polyMul (marginalWeight w K width n)
+      (coord ((baseLinks width).idxOf l) 0)) ≈ 0 := by
+    have hz := Q'.eqv_trans _ _ _ (Q'.eqv_symm (weighted_neg _ _ _)) hn
+    exact Q'.eqv_trans _ _ _ (Q'.eqv_symm (Q'.neg_neg_eqv _))
+      (Q'.eqv_trans _ _ _ (Q'.neg_eqv_congr _ _ hz) (by decide))
+  rcases components4 a with rfl | rfl | rfl | rfl
+  · exact hreal
+  · exact himag 0
+  · exact himag 1
+  · exact himag 2
+
+private theorem marginal_square_equal (w : Q') (K width n : Nat)
+    (l : Z4Link) (hl : l∈baseLinks width) (a : Fin 4) :
+    quaternionHaar (N width) (polyMul (marginalWeight w K width n)
+      (polyMul (coord ((baseLinks width).idxOf l) a.val) (coord ((baseLinks width).idxOf l) a.val))) ≈
+    quaternionHaar (N width) (polyMul (marginalWeight w K width n)
+      (polyMul (coord ((baseLinks width).idxOf l) 0) (coord ((baseLinks width).idxOf l) 0))) := by
+  have hb := List.idxOf_lt_length_of_mem hl
+  have h (i : Fin 3) :
+      quaternionHaar (N width) (polyMul (marginalWeight w K width n)
+        (polyMul (coord ((baseLinks width).idxOf l) (i.val+1))
+          (coord ((baseLinks width).idxOf l) (i.val+1)))) ≈
+      quaternionHaar (N width) (polyMul (marginalWeight w K width n)
+        (polyMul (coord ((baseLinks width).idxOf l) 0)
+          (coord ((baseLinks width).idxOf l) 0))) := by
+    let j : Fin 4 := ⟨i.val+1, by have := i.isLt; omega⟩
+    let x := coord ((baseLinks width).idxOf l) 0
+    let y := coord ((baseLinks width).idxOf l) j.val
+    let W := marginalWeight w K width n
+    have hr := slice_radial width l hl i
+    have hp := HaarCarrierEqv.trans
+      (slice_mul width l.1 i (coord_supported hb 0) (coord_supported hb j))
+      (HaarCarrierEqv.add (HaarCarrierEqv.mul_right y hr.1)
+        (HaarCarrierEqv.mul_left x hr.2))
+    have hz : quaternionHaar (N width)
+        (polyMul W (polyAdd (polyMul y y) (polyMul x (polyNeg x)))) ≈ 0 :=
+      Q'.eqv_trans _ _ _ (Q'.eqv_symm (hp W))
+        (marginal_ward w K width n l.1 i
+          (supported_polyMul (coord_supported hb 0) (coord_supported hb j)))
+    have ha := haar_of_coeff (blocks := N width)
+      (RatPolyCoeffEqv.mul_add_right W (polyMul y y) (polyMul x (polyNeg x)))
+    have hn : quaternionHaar (N width) (polyMul W (polyMul x (polyNeg x))) ≈
+        -(quaternionHaar (N width) (polyMul W (polyMul x x))) :=
+      Q'.eqv_trans _ _ _
+        (haar_of_coeff (coeffEvalExpr_eqv_of_normalize_eq
+          (.mul (.var 0) (.mul (.var 1) (.neg (.var 1))))
+          (.mul (.var 0) (.neg (.mul (.var 1) (.var 1)))) (by decide)
+          (fun k => if k=0 then W else x))) (weighted_neg _ W (polyMul x x))
+    exact QPoly.q_eqv_of_sub_zero (Q'.eqv_trans _ _ _
+      (Q'.eqv_symm (Q'.add_eqv_congr' (Q'.eqv_refl _) hn))
+      (Q'.eqv_trans _ _ _ (Q'.eqv_symm (quaternionHaar_append _ _ _))
+        (Q'.eqv_trans _ _ _ (Q'.eqv_symm ha) hz)))
+  rcases components4 a with rfl | rfl | rfl | rfl
+  · exact Q'.eqv_refl _
+  · exact h 0
+  · exact h 1
+  · exact h 2
+
+private theorem quarter_four (a : Q') :
+    (Q'.mkPos 1 4 (by decide)) * (a+(a+(a+a))) ≈ a := by
+  have h : a+(a+(a+a)) ≈ (4 : Q')*a :=
+    poly_identity_of_normal_eq (.add (.var 0) (.add (.var 0) (.add (.var 0) (.var 0))))
+      (.mul (.const 4) (.var 0)) (by decide) (fun _ => a)
+  exact Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_left _ _ _ h)
+    (Q'.eqv_trans _ _ _ (Q'.eqv_symm (Q'.mul_assoc_eqv _ _ _))
+      (Q'.eqv_trans _ _ _
+        (Q'.mul_eqv_congr_right _ (1 : Q') a (by decide)) (Q'.one_mul_eqv a)))
+
+/-- The literal second moment is one quarter of the SAME unnormalized
+partition. No independent-link or positive-partition premise is imposed. -/
+theorem marginal_coordinate_square (w : Q') (K width n : Nat)
+    (l : Z4Link) (hl : l∈baseLinks width) (a : Fin 4) :
+    quaternionHaar (N width) (polyMul (marginalWeight w K width n)
+      (polyMul (polyVar (4*((baseLinks width).idxOf l)+a.val))
+        (polyVar (4*((baseLinks width).idxOf l)+a.val)))) ≈
+      (Q'.mkPos 1 4 (by decide)) * quaternionHaar (N width) (marginalWeight w K width n) := by
+  let b := (baseLinks width).idxOf l
+  let W := marginalWeight w K width n
+  let s (j : Nat) := polyMul (coord b j) (coord b j)
+  let I (p : RatPoly) := quaternionHaar (N width) (polyMul W p)
+  have hadd (p q : RatPoly) : I (polyAdd p q) ≈ I p + I q :=
+    Q'.eqv_trans _ _ _ (haar_of_coeff (RatPolyCoeffEqv.mul_add_right W p q))
+      (quaternionHaar_append _ _ _)
+  have hs : I (s 0) + (I (s 1) + (I (s 2) + I (s 3))) ≈ quaternionHaar (N width) W :=
+    Q'.eqv_trans _ _ _ (Q'.eqv_symm (Q'.eqv_trans _ _ _
+      (hadd (s 0) (polyAdd (s 1) (polyAdd (s 2) (s 3))))
+      (Q'.add_eqv_congr' (Q'.eqv_refl _)
+        (Q'.eqv_trans _ _ _ (hadd (s 1) (polyAdd (s 2) (s 3)))
+          (Q'.add_eqv_congr' (Q'.eqv_refl _) (hadd (s 2) (s 3)))))))
+      (Q'.eqv_trans _ _ _
+        (haar_of_coeff ((polyQuaternionNorm_coordinateVariable b).mul_left W))
+        (SU2QuaternionArbitraryHaarSphereIdeal.quaternionHaar_mul_radius _ b
+          (List.idxOf_lt_length_of_mem hl) W))
+  have he := Q'.add_eqv_congr' (Q'.eqv_refl (I (s 0)))
+    (Q'.add_eqv_congr' (marginal_square_equal w K width n l hl 1)
+      (Q'.add_eqv_congr' (marginal_square_equal w K width n l hl 2)
+        (marginal_square_equal w K width n l hl 3)))
+  have hfour : I (s 0) + (I (s 0) + (I (s 0) + I (s 0))) ≈ quaternionHaar (N width) W :=
+    Q'.eqv_trans _ _ _ (Q'.eqv_symm he) hs
+  refine Q'.eqv_trans _ _ _ (marginal_square_equal w K width n l hl a) ?_
+  refine Q'.eqv_trans _ _ _ ?_ (Q'.mul_eqv_congr_left _ _ _ hfour)
+  exact Q'.eqv_symm (quarter_four (I (s 0)))
+
 end YMGap.Continuum.BF4ExactSlabFixedSpatialGaussTransfer
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialGaussTransfer.sliceGauss
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialGaussTransfer.sliceGauss_supported
@@ -641,3 +955,6 @@ end YMGap.Continuum.BF4ExactSlabFixedSpatialGaussTransfer
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialGaussTransfer.iterateStep_gauss_zero
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialGaussTransfer.terminalMessage_gauss_zero
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialGaussTransfer.blockConditionalRatio_gauss_zero
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialGaussTransfer.marginalWeight_gauss_zero
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialGaussTransfer.marginal_coordinate_mean
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialGaussTransfer.marginal_coordinate_square

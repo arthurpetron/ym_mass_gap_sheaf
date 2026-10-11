@@ -17633,3 +17633,326 @@ chart coefficient, cutoff/center corrections and proxy test.
 Independent COMPLETE final two-file diff/math/source/scope review PASS,
 including the corrected integrated-kernel/quadratic-reference distinction;
 `git diff --check` passes. No compiler or full-tree axiom audit was run.
+
+### Simultaneous local small-field chart screen
+
+2026-10-10 UTC; new finite FREE-reference PAPER estimate, not an original
+Yang--Mills bound. Consumer remains the SAME original two-positive-time
+comparison in `retained_time_budget:100`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeMacroRatioFilteredCost.lean`.
+The proposed chart is only a possible comparison method, NOT a necessary
+premise of that consumer. This test prunes requiring EVERY elementary curl
+in the growing support cube to lie in one shrinking chart with high mass.
+It does not prune source-weighted discarded-region estimates.
+
+Use exactly the finite open-cube transverse Gaussian reference constructed
+in "Finite open-cube Gaussian Wick doubling" above: even s>=2,
+W=s^2+1, b=(s^2-s)/2, kappa>0. From its positive modes,
+
+    Cov_G(A)|_transverse = diag(1/(4*kappa*sinh(omega))),
+    sinh(omega)=sqrt(lambda)*sqrt(1+lambda/4)<=4*sqrt(3)<7.
+
+Choose xy elementary plaquettes with local x,y in {0,2,...,s-2}
+and local z in {0,...,s-1}. There are M=s^3/4. All their edges are
+internal, including s=2; distinct selected plaquettes share no edges.
+Their cycle currents J_p are curls of individual face indicators and hence
+lie in the positive transverse subspace. Each has squared norm 4, and
+different J_p are orthogonal. For Y_p=<J_p,A>, the explicit covariance
+matrix therefore satisfies
+
+    Sigma >= (1/(7*kappa))*I_M.
+
+Put v=1/(8*kappa). The residual Sigma-v*I_M has the strictly positive
+explicit margin delta=1/(56*kappa). Finite Cholesky recursion constructs
+L with L*L^*=Sigma-v*I_M; no eigenvector choice or zero-eigenvalue decision
+is needed. Every Schur complement retains the lower margin delta: its
+quadratic form at y equals that of the previous matrix at the explicit
+minimizer x=-A_11^(-1)*A_12*y, which is >=delta*||y||^2.
+Thus all divisions and positive square roots have witnessed guards.
+Take independent finite standard Gaussian vectors xi,zeta and set
+X=L*xi, Z=sqrt(v)*zeta. Completing the finite Gaussian square identifies
+Y in law with X+Z. This is a constructive finite PAPER construction;
+no Lean Gaussian producer or continuum Gaussian existence is asserted.
+
+Let rho>=0, z=rho*sqrt(8*kappa), and let p(z) be the standard normal
+probability of [-z,z]. A centered interval has maximal Gaussian probability
+when its center is zero. Conditional on the explicitly constructed X,
+the coordinates of Z are independent, so
+
+    Prob_G(all selected |Y_p|<=rho) <= p(z)^M.
+
+Integrating both standard normal tails only over
+[z,z+1/(1+z)] gives the explicit bound
+
+    1-p(z) >= exp(-(z+1)^2/2)/(2*(1+z)).
+
+If kappa*rho^2<=log(s)/32, then z^2<=log(s)/4,
+(z+1)^2/2<=z^2+1 and 1+z<=2*sqrt(s). Using e<3 yields
+
+    1-p(z) >= s^(-3/4)/12,
+    Prob_G(all selected |Y_p|<=rho) <= exp(-s^(9/4)/48).
+
+This is an explicit finite inequality with a stated guard, not an
+unmodulated limit. In particular, a candidate kappa_s<=C*log(s), C>0,
+and a witnessed shrinking radius family eventually satisfying
+rho_s^2<=1/(32*C) meet that guard. The chart mass then tends to ZERO
+with the displayed rate. Even the elementary gauge-invariant linear curls
+cannot ALL be confined to a shrinking chart with high free-reference mass.
+This differs from the preceding comb-tree test, which concerned one long
+cycle and a fixed chart radius.
+
+Decision: revise the original comparison to pay discarded fields in the
+actual centered two-time insertion, not by assuming a simultaneous shrinking
+small-field event of high reference probability. The compact original
+plaquette holonomy law, interacting large-field contribution, OLD OWN
+center, terminal-message comparison and response-relative bound remain
+unproved. This is not a counterexample to any of them, H1, a physical
+scaling family, or Clay. No new Lean theorem or canonical chart-state change.
+
+### Source-weighted Gaussian large-field payment
+
+2026-10-10 UTC; new constructive finite FREE-reference PAPER estimate.
+This supplies a positive replacement for the preceding all-small-event
+method, within the reference only. It preserves its two-time doubling
+estimate under a locally truncated, correctly centered quadratic insertion.
+It does NOT compare the original Haar/action density or its OLD OWN center.
+
+Use the SAME finite open transverse Gaussian and nonnegative spatial/BOX
+coefficients as above. Write B_p for one scalar magnetic component,
+sigma_p^2=Cov(B_p,B_p)>0 and Q_p=B_p^2-sigma_p^2. Every retained elementary
+face has a nonzero curl current, so its variance is strictly positive.
+Choose explicit thresholds rho_p=a_p*sigma_p with a_p>=4 and define
+
+    E_p=Q_p*1_(|B_p|>rho_p)-sigma_p^2*m(a_p),
+    m(a)=2*a*phi(a), phi(a)=exp(-a^2/2)/sqrt(2*pi),
+    Q_p-E_p=Q_p*1_(|B_p|<=rho_p)+sigma_p^2*m(a_p).
+
+The compensator is the exact UNCONDITIONAL Gaussian tail mean. No measure
+is conditioned or renormalized. Both pieces are centered in the SAME
+Gaussian law and their sum is exactly the original Q_p. Omitting the
+compensator would introduce a constant-sector contribution.
+
+For a jointly Gaussian pair with standardized correlation r, completing
+the conditional Gaussian square gives
+E[Z_q^2-1 | Z_p]=r^2*(Z_p^2-1). Hence, exactly,
+
+    Cov(E_p(t),Q_q(0))=alpha(a_p)*Cov(Q_p(t),Q_q(0)),
+    Cov(Q_p(t),Q_q(0))=2*C_pq(t)^2>=0,
+    alpha(a)=(1/2)*E[(Z^2-1)^2*1_(|Z|>a)]
+            =(a^3+a)*phi(a)+2*normalTail(a).
+
+The last identity follows by two finite Gaussian tail integrations by
+parts. Mills' bound gives, for a>=1,
+
+    0<=alpha(a)<=1,
+    alpha(a)<=2*a^3*exp(-a^2/2).
+
+Alpha is nonincreasing directly from its positive integral. Since e>8/3,
+alpha(4)<128*(3/8)^8<1/16. Thus delta=1/16 works for EVERY a_p>=4.
+
+Constructive tail--tail bound. For |r|<1 let K_r be the explicit joint
+standard-Gaussian Radon density against phi(x)*phi(y), and let
+e_n=H_n/sqrt(n!) be the normalized polynomial Hermites. Finite Gaussian
+moments and a two-dimensional Gaussian determinant calculation give
+
+    ||K_r||_2^2=1/(1-r^2),
+    <K_r,e_n(x)*e_m(y)>=if n=m then r^n else 0.
+
+For the EXPLICIT finite polynomial K_N=sum_(n<N) r^n*e_n(x)*e_n(y),
+orthogonality yields the exact remainder, without an abstract basis or
+Hermite-density theorem:
+
+    ||K_r-K_N||_2^2=r^(2*N)/(1-r^2).
+
+Consequently the covariance truncation error for L2 functions f,g is at
+most ||f||_2*||g||_2*|r|^N/sqrt(1-r^2). This is an explicit geometric
+modulus. In the positive-time comparison above, |r_pq(t)|<=exp(-t/W)<1
+by the reference mode bound omega>=1/W; the SAME bound pays all pairs.
+Finite Bessel and evenness remove coefficients zero and one, so each
+partial covariance is bounded by r^2*||f||_2*||g||_2. Passing with the
+displayed remainder proves the even centered correlation inequality.
+At |r|=1 ordinary Cauchy--Schwarz suffices; a zero-variance coordinate,
+if included outside this retained face family, contributes identically zero.
+All objects and approximations here are explicit finite Gaussian integrals
+with polynomial/exponential tails, not a classical completeness/choice step.
+
+Since Var(E_p)=sigma_p^4*(2*alpha(a_p)-m(a_p)^2), it follows that
+
+    |Cov(E_p(t),E_q(0))|
+      <=sqrt(alpha(a_p)*alpha(a_q))*Cov(Q_p(t),Q_q(0)).
+
+Put F=sum_p h_p*Q_p and E=sum_p h_p*E_p. Nonnegative h_p and the SAME
+nonnegative BOX coefficients preserve the pairwise estimates, with NO
+growing-volume prefactor:
+
+    0<=Cov(E(t),F(0))<=delta*R_F(t),
+    0<=Cov(F(t),E(0))<=delta*R_F(t),
+    |R_E(t)|<=delta*R_F(t).
+
+The explicit finite-mode Gaussian semigroup is symmetric in its OWN
+vacuum and satisfies P_t=P_(t/2)^2 by Gaussian convolution. Thus
+R_E(t)=||P_(t/2)E||^2>=0. The SAME BOX replaces E by its finite advanced
+sum and retains this positivity. Expanding the retained response gives
+
+    (1-2*delta)*R_F(t)<=R_(F-E)(t)<=(1+delta)*R_F(t).
+
+In particular the proved PAPER free bound R_F(s/2)<=K_m*R_F(s) now gives
+
+    R_(F-E)(s/2)<=(17/14)*K_m*R_(F-E)(s),
+    K_m=2^71*3^(86+16*m).
+
+This is actual response-relative local discarded-field payment in the
+QUADRATIC reference, even when the probability that EVERY local field
+is small tends to zero. The retained insertion is a compensated cutoff
+function, not a polynomial or an original Wilson-source instance.
+Independent bounded Sol reviews checked the conditional moment, exact
+tail coefficient, constructive kernel remainder, semigroup positivity,
+compensator and 17/14 ratio. No Lean Gaussian implementation, original
+interacting comparison, changing-family H1, physical scaling, continuum
+or Clay closure is supplied. NEXT original comparison must pay the complete
+measure/action/message and OLD-center errors in these same relative units;
+the Gaussian calculation is not that payment.
+
+### Nonlinear curvature-trace Gaussian benchmark
+
+2026-10-11 UTC; new constructive finite FREE-reference PAPER estimate.
+This retains the radial SU(2) trace function without imposing a small-field
+event or conditioning the law. It is NOT the original nonabelian product
+of four link holonomies; that identification and the interacting action
+comparison remain unpaid.
+
+Take three independent copies of the SAME open magnetic Gaussian, so
+Cov(B_p^a(t),B_q^b(0))=C_pq(t)*delta_ab. Put u_p=sigma_p^2=C_pp(0),
+
+    Q_p=|B_p|^2-3*u_p,
+    psi_p=2*cos(|B_p|)-2*(1-u_p)*exp(-u_p/2),
+    gamma_p=(1-u_p/3)*exp(-u_p/2).
+
+The displayed subtraction is the exact OWN Gaussian mean, obtained by
+the radial three-dimensional Gaussian integral. Radial Gaussian integration
+by parts, followed by the explicit conditional Gaussian quadratic moment,
+gives at every positive lag
+
+    Cov(psi_p(t),Q_q(0))=-gamma_p*6*C_pq(t)^2,
+    Cov(Q_p(t),Q_q(0))=6*C_pq(t)^2.
+
+Thus E_p=psi_p+gamma_p*Q_p has zero mixed covariance with EVERY Q_q
+at these times. For F_psi=sum h_p*psi_p and F_gammaQ=sum h_p*gamma_p*Q_p,
+the SAME positive Gaussian semigroup and BOX advancement give exactly
+
+    R_psi=R_gammaQ+R_E >= R_gammaQ.
+
+This uses actual semigroup positivity, not an assumed sign of arbitrary
+pairwise E_p covariances. If gamma_p>=gamma_min>0, nonnegative spatial and
+BOX coefficients then give R_psi>=gamma_min^2*R_Q.
+
+For the upper bound, the radial function g(v)=2*cos(sqrt(v)), v>=0,
+is 1-Lipschitz (including v=0 by its explicit limit). Comparing two
+independent copies therefore gives Var(psi_p)<=Var(|B_p|^2)=6*u_p^2.
+The three-dimensional centered-even correlation inequality gives
+
+    |Cov(psi_p(t),psi_q(0))|
+      <=r_pq(t)^2*sqrt(Var(psi_p)*Var(psi_q))<=6*C_pq(t)^2.
+
+Its constructive proof is the tensor version of the explicit kernel
+approximation above. For the product of three K_r kernels and the finite
+Hermite cube 0<=n_1,n_2,n_3<N, direct finite orthogonality gives remainder
+
+    ||K_r^(3)-K_N^(3)||_2^2
+      =(1-r^2)^(-3)*(1-(1-r^(2*N))^3)
+      <=3*r^(2*N)/(1-r^2)^3.
+
+This supplies the covariance modulus; no abstract Hermite completeness,
+classical choice, or unlocated spectral decomposition is needed. Parity
+removes total degrees zero and one in the finite Bessel estimate.
+The same positive-time bound |r|<=exp(-t/W)<1 applies. Summing the
+pairwise upper estimate with nonnegative spatial/BOX coefficients yields
+R_psi<=R_Q.
+
+The reference magnetic eigenvalue bound
+beta_lambda=a_0*sqrt(lambda)/sqrt(1+lambda/4)<=2*a_0=1/(2*kappa)
+and the finite orthonormal face-mode construction imply u_p<=1/(2*kappa).
+For kappa>=1/2, u_p<=1 and gamma_p>=(2/3)*exp(-1/2), so
+
+    (4/27)*R_Q(t)<=R_psi(t)<=R_Q(t),
+    R_psi(s/2)<=(27/4)*K_m*R_psi(s).
+
+The three colors multiply the existing quadratic response and leave its
+K_m unchanged. All constants are independent of reference width s and
+kappa in the stated kappa>=1/2 range. This pays nonlinear REFERENCE
+source comparison, not the complete-measure interpolation. The radial
+trace is conjugation-invariant in the free Lie-algebra field, but neither
+its Gaussian center nor its law is identified with the original plaquette
+center/law. ROOT and independent bounded Sol math reviews checked the
+radial mean, quadratic projection, positivity join,
+Lipschitz variance, tensor remainder and 27/4 factor. No Lean Gaussian
+instance, original H1, physical clock, non-Wick survival or Clay closure.
+
+### Original unfixed raw-link moment constraint
+
+2026-10-11 UTC; new kernel-checked ORIGINAL finite identities, separate
+from the preceding FREE-reference PAPER estimates. The consumer is the
+original comparison method selection above: an unfixed raw-link identity
+chart is not a permissible concentration premise. The required complete
+two-time response-relative estimate remains OPEN.
+
+Let nu=V*g_n*g_(n+1), exactly `marginalWeight:75`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialActualMarginalDual.lean`.
+For arbitrary rational w and finite K,width,n, every physical
+l in baseLinks(width), b=idxOf(l), and quaternion component a in Fin 4,
+the new declarations in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialGaussTransfer.lean` prove
+
+    H[nu*x_(4*b+a)]=0,
+    H[nu*x_(4*b+a)^2]=(1/4)*H[nu].
+
+Exact pins are `marginal_coordinate_mean:833` and
+`marginal_coordinate_square:914`. The weight's infinitesimal local
+Gauss invariance is `marginalWeight_gauss_zero:644`, composed from
+`spatialWeight_gauss_zero:286` and `terminalMessage_gauss_zero:588`
+in that SAME file. Both actual messages, including the n+1 message,
+remain; no stationary substitute, block independence, or selected-link
+independence is used. Physical membership provides valid coordinate
+indices and includes fringe links. At the selected link's source endpoint,
+all other link-coordinate derivatives vanish and there is no self-loop.
+Weighted Ward identities rotate its scalar coordinate into the three
+imaginary coordinates. Applied to their products they equate the four
+square moments; the existing arbitrary-insertion radius identity
+`quaternionHaar_mul_radius:621`,
+`lean/YMGap/Continuum/SU2QuaternionArbitraryHaarSphereIdeal.lean`, then
+gives their common value Z/4, Z=H[nu].
+
+The Lean statements are UNNORMALIZED and require neither a positive
+partition nor a positive density. For probability interpretations retain
+those additional guards; the existing original weight positivity input is
+`marginalCertificate:89`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialActualMarginalDual.lean`
+under 0<w<1 and headCutoff(w)<=K. No new normalized probability theorem
+is asserted. PAPER consequence for a positive instance: on the unit
+quaternion sphere, |q-1|^2=2-2*x_0, so its normalized expectation is
+exactly 2. Since 0<=|q-1|^2<=4, an identity ball of radius 0<=rho<sqrt(2)
+has probability at most 2/(4-rho^2), bounded away from one as rho
+shrinks. This is a raw UNFIXED link constraint, not an obstruction to
+gauge-invariant plaquettes concentrating, gauge fixing, or physical
+excitation survival. It does not identify the conditional law given
+other links, construct a global gauge action, or supply an OS map/gap.
+
+Verification: monitored check of ONLY
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialGaussTransfer.lean`,
+jobs=1, worker cap=20 GiB, live memory guards and 12 GiB OS reserve,
+exited 0. All 13 printed exported gates, including the three new
+declarations, report only {propext, Quot.sound}; no sorryAx,
+Classical.choice or Lean.ofReduceBool. Log:
+`/private/tmp/ym-oct11-raw-link-moments-check5.log`. The three existing
+linter warnings at lines 172,247,584 are unchanged. Earlier exploratory
+checks were NOT accepted: the diagnostic isolated a classical dependency
+in two bare-omega iff proofs, now replaced by explicit Nat cancellation
+and congrArg terms. The successful check overwrote the intermediate
+olean. Independent Sol complete Lean-diff review PASS. No new axiom,
+sorry, named frontier field, canonical closure or full-tree audit.
+
+Decision: continue comparison on gauge-invariant/local-transverse data
+with justified realization, full action/messages, OLD OWN center and
+source-weighted two-time error payment. Neither the exact raw moments nor
+the Gaussian benchmark supplies that missing original estimate, a
+justified physical scaling family, continuum/QFT/every-group or Clay closure.
