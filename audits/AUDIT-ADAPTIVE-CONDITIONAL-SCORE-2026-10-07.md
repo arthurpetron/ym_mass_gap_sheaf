@@ -19366,7 +19366,7 @@ conditional estimate, NOT yet a logarithmic limit or relative response bound.
 NEXT supplied-input join, not claimed here: remove the explicit finite error
 with nome/count/tolerance data; use the actual positive selected partition
 floor and binary-log pin at SAME Z_y. The existing
-`BF4ExactSlabNormalizedHeatBounds.lean:162` (`normalizedHeatProduct_bounds`)
+`BF4ExactSlabNormalizedHeatBounds.lean:161` (`normalizedHeatProduct_bounds`)
 and `QuaternionHaarFamilyPointwiseOrder.lean:294`
 (`familyProject_pointwise_lower_bound`) supply generic positive selected mass;
 `BF4ExactSlabConditionalPolynomialPartitionLower.lean:210`

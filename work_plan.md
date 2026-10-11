@@ -547,7 +547,8 @@ Positivity must come from the produced original finite floor (and its sharper
 collar conditionalFloor specialization), retaining the crossing eta costs.
 Use its OWN conditional partition and retain every crossing eta cost.
 The existing localized partition floor alone does not supply this inequality.
-The cutoff-removed logarithmic conditional UV estimate, source-weighted deviation relative to the SAME
+The cutoff-removed logarithmic conditional UV estimate, source-weighted
+deviation relative to the SAME
 signed late response, PRIMARY estimate and physical-family justification all
 remain OPEN; absolute UV control is not relative response payment.
 Evidence: adaptive-score audit, "Selected finite entropy product law and
