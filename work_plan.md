@@ -98,6 +98,20 @@ No adapter leaf or canonical-field change is selected. Exact scope and
 consumer pins: adaptive-score audit, "Transport and scale-setting screen".
 Backward area and late-dual bounds remain optional sufficient routes.
 
+Comparison budget test (2026-10-11; CHECKED arithmetic):
+`AFPrecisionNomeSchedule.quarter_lt_gap_mul_succ:249` and
+`gap_mul_succ_lt_two:279` prove `1/4 < gap j * (j+1) < 2`
+on the improving-precision numerical schedule. Do not select a bootstrap
+requiring bare coupling times logarithmic width to vanish. A bounded
+one-sided change of the JOINT two-time log-response ratio is the narrower
+eligible comparison; its interacting estimate is still OPEN. Neither a
+bounded bare product nor positive facewise heat interpolation proves it.
+Interpolation between compact heat actions does not supply the transverse
+Gaussian reference; removing the spatial action gives a nonuniform heat-only
+doubling ratio. Retain both actual terminal histories and OLD-center changes.
+Evidence and narrow verification scope: adaptive-score audit,
+"Precision-schedule shell-budget test". No canonical chart claim changes.
+
 Stop two specific joins: an UPPER bound on the comparison cost cannot be
 subtracted to upper-bound the complete signed cost; and the literal plaquette
 source is not the heat-prefix nome derivative. Neither shortcut supplies an

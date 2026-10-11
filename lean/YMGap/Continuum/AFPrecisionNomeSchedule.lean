@@ -236,6 +236,78 @@ theorem denominator_le_four_succ (j : Nat) :
   have hlogInt := Int.ofNat_le.mpr hlog
   omega
 
+/-- The SAME clock also dominates the unrounded linear index. -/
+theorem denominator_ge_index_add_four (j : Nat) :
+    Q'.ofNat (j+4) ≤ denominator j := by
+  change ((j+4 : Nat) : Int) * 121 ≤ (afE j : Int) * 1
+  unfold afE
+  simp only [Int.natCast_add, Int.natCast_mul, Int.mul_one]
+  omega
+
+/-- The numerical inverse-index payment does not vanish after index rescaling.
+This is only a rational schedule bound, not an interacting response estimate. -/
+theorem quarter_lt_gap_mul_succ (j : Nat) :
+    Q'.mkPos 1 4 (by decide) < gap j * Q'.ofNat (j+1) := by
+  have hU : (1 : Q') < coefficientUpper j :=
+    ClusteringImpliesGap.lt_of_lt_of_le AFLeadingCoefficient.one_lt_lower_one
+      (coefficientUpper_floor j)
+  change (1 : Int) * (coefficientUpper j).den < (coefficientUpper j).num * 1 at hU
+  simp only [Int.one_mul, Int.mul_one] at hU
+  have hD := denominator_le_four_succ j
+  change (afE j : Int) * 1 ≤ (4 * ((j+1 : Nat) : Int)) * 121 at hD
+  simp only [Int.mul_one] at hD
+  have hden : (0 : Int) ≤ (coefficientUpper j).den :=
+    Int.ofNat_le.mpr (Nat.zero_le _)
+  have hbound : (coefficientUpper j).den * (afE j : Int) <
+      ((coefficientUpper j).num * 121) * ((j+1 : Nat) : Int) * 4 := by
+    calc
+      (coefficientUpper j).den * (afE j : Int) ≤
+          (coefficientUpper j).den * ((4 * ((j+1 : Nat) : Int)) * 121) :=
+        Int.mul_le_mul_of_nonneg_left hD hden
+      _ < (coefficientUpper j).num * ((4 * ((j+1 : Nat) : Int)) * 121) :=
+        Int.mul_lt_mul_of_pos_right hU (by omega)
+      _ = ((coefficientUpper j).num * 121) * ((j+1 : Nat) : Int) * 4 := by ac_rfl
+  change (1 : Int) * ((gap j * Q'.ofNat (j+1)).den : Int) <
+    (gap j * Q'.ofNat (j+1)).num * 4
+  simp only [gap, Q'.divPos, Q'.mul_den_cast, Q'.mul_num_cast,
+    Q'.recipPos_den, Q'.recipPos_num]
+  change (1 : Int) * ((coefficientUpper j).den * (afE j : Int) * 1) <
+    ((coefficientUpper j).num * 121) * ((j+1 : Nat) : Int) * 4
+  simpa only [Int.one_mul, Int.mul_one] using hbound
+
+/-- The SAME rescaled numerical payment remains strictly bounded above. -/
+theorem gap_mul_succ_lt_two (j : Nat) :
+    gap j * Q'.ofNat (j+1) < (2 : Q') := by
+  have hU := coefficientUpper_lt_two j
+  change (coefficientUpper j).num * 1 < (2 : Int) * (coefficientUpper j).den at hU
+  simp only [Int.mul_one] at hU
+  have hD := denominator_ge_index_add_four j
+  change ((j+4 : Nat) : Int) * 121 ≤ (afE j : Int) * 1 at hD
+  simp only [Int.natCast_add, Int.mul_one] at hD
+  have hclock : 121 * ((j+1 : Nat) : Int) ≤ (afE j : Int) := by
+    simp only [Int.natCast_add]
+    omega
+  have hden : (0 : Int) ≤ 2 * (coefficientUpper j).den := by
+    have h := Int.ofNat_le.mpr (Nat.zero_le (coefficientUpper j).den)
+    omega
+  have hbound : ((coefficientUpper j).num * 121) * ((j+1 : Nat) : Int) <
+      2 * ((coefficientUpper j).den * (afE j : Int)) := by
+    calc
+      ((coefficientUpper j).num * 121) * ((j+1 : Nat) : Int) =
+          (coefficientUpper j).num * (121 * ((j+1 : Nat) : Int)) := by ac_rfl
+      _ < (2 * (coefficientUpper j).den) * (121 * ((j+1 : Nat) : Int)) :=
+        Int.mul_lt_mul_of_pos_right hU (by omega)
+      _ ≤ (2 * (coefficientUpper j).den) * (afE j : Int) :=
+        Int.mul_le_mul_of_nonneg_left hclock hden
+      _ = 2 * ((coefficientUpper j).den * (afE j : Int)) := by ac_rfl
+  change (gap j * Q'.ofNat (j+1)).num * 1 <
+    (2 : Int) * ((gap j * Q'.ofNat (j+1)).den : Int)
+  simp only [gap, Q'.divPos, Q'.mul_den_cast, Q'.mul_num_cast,
+    Q'.recipPos_den, Q'.recipPos_num]
+  change (((coefficientUpper j).num * 121) * ((j+1 : Nat) : Int)) * 1 <
+    (2 : Int) * ((coefficientUpper j).den * (afE j : Int) * 1)
+  simpa only [Int.mul_one] using hbound
+
 /-- Multiplying the actual enclosure width by its consumer clock keeps a fixed budget. -/
 theorem denominator_precision_lt (j : Nat) :
     denominator j * (upper (precisionIndex j) - lower (precisionIndex j)) <
@@ -276,4 +348,7 @@ end YMGap.Continuum.AFPrecisionNomeSchedule
 #print axioms YMGap.Continuum.AFPrecisionNomeSchedule.interval_width_lt_invSucc
 #print axioms YMGap.Continuum.AFPrecisionNomeSchedule.coefficientUpper_width_lt_invSucc
 #print axioms YMGap.Continuum.AFPrecisionNomeSchedule.denominator_le_four_succ
+#print axioms YMGap.Continuum.AFPrecisionNomeSchedule.denominator_ge_index_add_four
+#print axioms YMGap.Continuum.AFPrecisionNomeSchedule.quarter_lt_gap_mul_succ
+#print axioms YMGap.Continuum.AFPrecisionNomeSchedule.gap_mul_succ_lt_two
 #print axioms YMGap.Continuum.AFPrecisionNomeSchedule.denominator_precision_lt

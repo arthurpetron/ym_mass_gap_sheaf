@@ -20196,3 +20196,63 @@ energy/score target, with no new low-band premise or interface. ROOT and two
 bounded Sol readers agree on the finite sums, center subtraction and scope.
 No Lean edit/check, axiom claim, ledger discharge or canonical chart change;
 PRIMARY, physical calibration and the full constructive Clay target stay OPEN.
+
+### Precision-schedule shell-budget test (2026-10-11 UTC; CHECKED arithmetic, PAPER comparison screen)
+
+Consumer: the ORIGINAL two-time comparison feeding PRIMARY, not a new
+conditional interface. Test the proposed requirement that bare coupling times
+logarithmic width vanish before investing in such a bootstrap. For the literal
+`AFPrecisionNomeSchedule.gap`, now prove rational upper AND lower bounds on
+`gap j * (j+1)`; the width `trajWidth j = 2^(2*j)+1` has `2*j` binary shells
+at positive scales (the shell identity is PAPER here; definition:
+`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicSmoothedTrajectory.lean:310`, `trajWidth`).
+A positive lower bound rejects vanishing shell payment;
+a finite upper bound keeps a bounded one-sided JOINT log-response comparison
+eligible. Neither conclusion produces that signed interacting estimate.
+
+Selection budget: one existing arithmetic module, no new structure/import,
+ROOT-only focused monitored check with jobs=1, 20 GiB worker ceiling and
+12 GiB OS reserve after fresh process/memory preflight. No physical spacing,
+running-coupling control, justified AF family, relative energy, H1 or Clay
+claim follows from a numerical nome schedule.
+
+Checked declarations in `lean/YMGap/Continuum/AFPrecisionNomeSchedule.lean`:
+`denominator_ge_index_add_four:240` gives D_j>=j+4;
+`quarter_lt_gap_mul_succ:249` gives 1/4<gap_j*(j+1);
+`gap_mul_succ_lt_two:279` gives gap_j*(j+1)<2, for EVERY j.
+The proof uses 1<coefficientUpper_j<2 and the SAME clock bounds
+j+4<=D_j<=4*(j+1), then clears positive rational denominators.
+No new import, structure, hypothesis, `sorry` or axiom was added.
+
+ROOT focused check, exit 0:
+
+```sh
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/AFPrecisionNomeSchedule.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/AFPrecisionNomeSchedule.olean --log-file /private/tmp/ym-oct11-precision-shell-budget1.log
+```
+
+Fresh preflight found no competing compiler/runner; available memory was
+38.6 GiB, pressure-free 91%, with the monitor retaining its swap-growth guard.
+All 29 printed declaration dependencies stay within {propext, Quot.sound};
+the three new declarations each print exactly those two axioms.
+Source SHA256: `17bb8853c4f43047892572c68b534a41f06d5a57bc7d567228346c4637c98b45`.
+Log SHA256: `a3b869894c3424da519ea522cd2ae3185e372de33003f5c9d909c3c33d97afbd`.
+This is one focused module check, not a whole-repository build or axiom audit.
+
+Independent comparison screen (SOURCE/PAPER): mixing two positive original
+heat prefixes face by face preserves their nonnegative character coefficients;
+apply it to BOTH spatial and kinetic factors and recompute both terminal
+histories. The literal definitions are
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSliceHeat.lean:70` (`spatialWeight`),
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialKineticHeat.lean:68` (`kineticWeight`),
+and `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalBracket.lean:118`
+(`terminalMessage`). This connects original compact heat actions, NOT the
+transverse Gaussian reference. No new interpolation theorem or positivity
+witness was checked. Removing the spatial factors instead gives the wrong
+reference: a fundamental plaquette has heat-only response ratio
+`R(s/2)/R(s)=w^(-6*s)`, not a uniform AF-scale doubling constant.
+Do not implement another interpolation adapter. The useful reference
+endpoint, gauge/measure/source/OLD-center comparison and signed relative
+estimate remain missing. A bounded bare shell product does not bound the
+running coupling or the joint interacting response.
+The numerical obstruction prunes a proposed comparison premise; it does not
+close PRIMARY or any continuum/Clay node. No canonical chart state changes.
