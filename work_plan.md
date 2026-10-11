@@ -465,11 +465,29 @@ series value with `-x*logRat(x)` on [1/2,1], preserving p_n versus logRat_n.
 `value_half_log2:121` pins the halving constant to the ACTUAL artanh log2.
 Both leaves pass serialized checks and independent complete source/log/math
 reviews; all nine gates permitted, three axiom-free.
-NEXT apply the proved product/halving law with this actual half-value and window
-pin to the EXISTING computed binary reduction, retaining the series-value
-equality cutoff as data. The faithful outside-window identification and its
-original conditional-entropy join remain OPEN. Then return to source-weighted
-deviation relative to the SAME signed late response, not positivity alone.
+The faithful outside-window identification is now CHECKED as well:
+`RegularizedLogDyadicFiniteDefect.dyadic_defect_bounds:108` and
+`mixed_defect_bounds:147` bound the actual finite scale and mixed defects by
+2/(N+1) and 3/(N+1), independently of the binary exponent.
+`RegularizedLogBinaryReduction.binaryReduction:52` constructs the EXISTING
+binary-search mantissa below one and a literal mantissa-one/exponent-zero
+packet at the semantic endpoint. `binaryReduction_log_approx:142` pins the
+existing faithful dyadicLogValue to its actual log2/window-log stream; no free
+legacy logScale is consumed.
+`RegularizedLogBinaryIdentification.identificationRate:47` is computed from
+epsilon alone. `dyadicCoefficient_le_one:56` cancels the exponent debt via
+x*k<=1; `reduced_error:121` pays 3*delta+2*delta+delta=epsilon.
+`value_binaryLog_approx:213` and `value_binaryLog:245` identify the ORIGINAL
+p_n(x) stream with -x times the computed logarithm for EVERY rational 0<x<=1,
+at the SAME approximation index. Three serialized narrow checks and complete
+independent final source/log/math reviews PASS; all 18 gates permitted,
+three axiom-free. No canonical node closes.
+NEXT use the original finite Haar entropy stages and their uniform series
+tail to construct the actual entropy limit at the OWN partition, then consume
+this scalar pin. Its original conditional-entropy join remains OPEN. Return
+to source-weighted deviation relative to the SAME signed late response, not
+positivity alone; the PRIMARY estimate and physical-family justification are
+still OPEN.
 Evidence: adaptive-score audit, "Selected finite entropy product law and
 direct-window comparison". No canonical node or physical gap closes.
 The new finite FREE-reference screen also excludes a high-mass simultaneous

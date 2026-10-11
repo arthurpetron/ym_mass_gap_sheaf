@@ -19003,3 +19003,80 @@ Frozen source and accepted log SHA256 pairs:
     ArtanhFinite log    15796a75bf8b9974829d51cd07942d7f9995056f5b96b49815516ed28ddb308b
     WindowIdentification source 6cf5f500dc35d6d5de9d9089b37756068cb2a3f1e8b9f71732f3b0b8de983d8c
     WindowIdentification log    f6b434f6873a067b75ac19d141af9981c0ed647ce3192137924d40aa87b868f1
+
+### Checked ACTUAL computed binary-log identification (2026-10-11 UTC)
+
+The outside-window scalar obligation above is now CHECKED. All paths below
+are under `lean/YMGap/Continuum/`; this closes no canonical physical node.
+The actual original conditional-entropy join and PRIMARY signed H1 remain OPEN.
+
+`RegularizedLogDyadicFiniteDefect.lean:65` (`dyadic_recurrence`) gives the
+actual finite defect recurrence D_(k+1)=D_k/2+productDefect. The previously
+checked product defect is in [0,1/(N+1)]. Consequently
+`dyadic_defect_bounds:108` keeps D_k in [0,2/(N+1)], independently of k;
+`mixed_defect_bounds:147` bounds the mixed mantissa/scale defect by 3/(N+1)
+for every m in [0,1], k and N, including zero. No log law or division by m.
+
+`RegularizedLogBinaryReduction.lean:52` (`binaryReduction`) constructs a
+Type-valued `RebasedExpShiftSupportReduction.DyadicLogReduction` from the
+ORIGINAL positive rational x<=1. Below one it uses the existing actual
+`HamiltonianAllSep.binExpOf`; at the semantic endpoint x≈1 it uses literal
+m=1, up=down=0, including noncanonical rational presentations.
+`binaryReduction_m_bounds:78` certifies m in [1/2,1].
+`halfPow_scaleQ_eqv:102` and `binaryReduction_halfPow_scaling:109` pin the
+original x to the literal rational half power times m.
+`natLogTwo_approx:123` and `binaryReduction_log_approx:142` prove the actual
+existing dyadicLogValue approximation equals -down*log2_n+logRat(m)_n.
+The unconstrained legacy range-reduction logScale is NOT used.
+
+`RegularizedLogBinaryIdentification.lean:47` (`identificationRate`) supplies
+a recoverable epsilon-only cutoff: the maximum of the original denominator
+tail modulus and the proved window cutoff, both at epsilon/6.
+`dyadicCoefficient_le_one:56` proves (half^k*m)*k<=1, eliminating apparent
+exponent growth. In `reduced_error:121`, the exact original finite error is
+-D+A+B. Its absolute budgets are 3*delta, 2*delta and delta, with
+delta=epsilon/6. Every window/log2 comparison retains the same index n.
+`value_binaryLog_approx:213` transports the ORIGINAL rational p_n(x), not a
+new subsequence, to the computed faithful log stream; `value_binaryLog:245`
+proves the corresponding CReal equivalence for EVERY rational 0<x<=1.
+Zero remains the separately checked `RegularizedLogRationalAlgebra.value_zero`;
+no positive-input reduction at zero is assumed.
+
+The actual next consumer is still
+`BF4ExactSlabOriginalFiniteEntropy.lean:55` (`original_partial_jensen`) at
+the OWN Z=Haar(W), via `QuaternionHaarFiniteEntropy.lean:115`
+(`haar_partial_jensen`). NEXT construct the original Haar entropy limit with
+the proved uniform series tail, then consume this scalar identification at
+that SAME partition. No original Haar/logarithmic-entropy integral, localized
+signed payment, justified physical clock, completed changing-family bound or
+Clay theorem is asserted by the three scalar leaves.
+
+Verification: ONLY these three leaves, serialized through the monitored
+launcher, jobs=1, 20-GiB hard worker cap, 12-GiB OS reserve and repository
+lock. Fresh host process and dynamic-memory preflight preceded EVERY launch.
+Accepted preflights reported 38.7--39.4 GiB available, pressure-free 90--91%;
+no competing compiler, runner or pytest. Accepted checks exited 0 and emitted
+the three oleans:
+
+    /private/tmp/ym-oct11-regularized-dyadic-defect-check1.log
+    /private/tmp/ym-oct11-regularized-binary-reduction-check2.log
+    /private/tmp/ym-oct11-regularized-binary-identification-check2.log
+
+All 18 public gates are within {propext, Quot.sound}; three are axiom-free.
+ROOT inspected COMPLETE final sources and accepted logs; independent complete
+finite/binary source/log/math reviews PASS, including two independent complete
+consumer reviews. No final diagnostics. Initial failed elaborations repaired
+endpoint projection reduction, explicit let-form rewriting and multiline
+function-pattern indentation only; their temporary sorryAx outputs are NOT
+evidence. No explicit sorry/new axiom, resource increase, full root/tree
+build/audit, canonical-node/ledger closure or user-owned duplicate mutation.
+The canonical chart is unchanged and not reprinted.
+
+Frozen source and accepted log SHA256 pairs:
+
+    DyadicFinite source f1f561edafdf6885bf902f70ef041eb0b86d5c7ba7a5d50f599041340e742ad4
+    DyadicFinite log    37560aace9833936bb260bfd73412bb274e1bc9793daf3f38f5b8481aa1424fc
+    BinaryReduction source 137107ea5c6860a8936920a26f15b3ec0f5aae55f3f94672cdafaa375879a8af
+    BinaryReduction log    fa50a523c4519543ec61dc745fdb76aaa28909934cb2492b2240e6198f9f7219
+    BinaryIdentification source 054bf18e3afaa72ae77525e8bbaf770716492ee06ad5dcc8694826e23dbc13d8
+    BinaryIdentification log    185caaf3d964679f038ae6b0f85e6c0ee5d5e65b2d8995c90a8d969eeb1aa41f
