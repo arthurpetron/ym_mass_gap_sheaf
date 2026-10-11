@@ -446,8 +446,21 @@ and `partial_uniformCauchy:117` already give explicit tails. Reuse
 `lean/YMGap/Constructive/CRealLog.lean:733` (`logRat`),
 `HamiltonianAllSep.binExpOf:91` and its proved mantissa window, and the computed
 `RebasedExpShiftSupportReduction.dyadicLogValue:115`, not a free log-scale.
-The series identification/doubling proofs themselves remain OPEN; even their
-closure would supply entropy, not the signed centered two-time PRIMARY bound.
+The ACTUAL regularized-series product/halving algebra is now CHECKED:
+`RegularizedLogPolynomialProductDefect.product_defect_bounds:526` proves the
+closed-square finite defect is in [0,1/(N+1)] without a logarithm premise.
+`RegularizedLogRationalAlgebra.value:31` and `valueRegularity:37` retain the
+literal partial sums and uniform denominator modulus;
+`productLaw:94` and `halvingLaw:106` prove their limit laws, including zero.
+`RegularizedLogPrimitiveNorm.primitive_weightedL1_le:60` and
+`powerDifferenceRow_weightedL1_le:118` supply the finite signed coefficient
+bound needed to evaluate the SAME defect at the negative artanh argument.
+All three leaves pass narrow serialized checks; all 27 public gates permitted,
+four axiom-free. The direct-window logarithm identification and faithful binary
+reduction remain OPEN/PENDING; the half-value is not yet identified with
+half*log2. Their closure would supply entropy, not the signed centered two-time
+PRIMARY bound. Evidence: adaptive-score audit, "Selected finite entropy product
+law and direct-window comparison". No canonical node or physical gap closes.
 The new finite FREE-reference screen also excludes a high-mass simultaneous
 shrinking chart for all elementary curls in the support cube: under
 kappa*rho^2<=log(s)/32 its probability is <=exp(-s^(9/4)/48).

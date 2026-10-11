@@ -18858,3 +18858,86 @@ Frozen source and accepted log SHA256 pairs:
     SelectedKernel log    7f04b968e3e27e23039867dcdcb47d3996ac0b7b2b38a54dab3a2b844bfd08e0
     OriginalConditional source daef7f764e16b2640b2e4c63f1cb898da43e652604497a33212ed30bd66a1889
     OriginalConditional log    1e1fffd0428e46066fa1219398b45ba28b818b9d72292d6721842c81a3bdf5c8
+
+## Selected finite entropy product law and direct-window comparison (2026-10-11 UTC)
+
+Decision record before verification: for the ACTUAL
+`RegularizedLogPolynomial.partialSum`, seek
+`0 <= b*p_N(a)+a*p_N(b)-p_N(a*b) <= 1/(N+1)` on the closed unit square.
+The predicted producer uses a computed zero-initial coefficient primitive of
+the finite mixed-power derivative. The downstream consumer is an actual
+`CReal` value with the existing denominator modulus, its product law and
+halving law; these remove the scalar-series algebra input, not the PRIMARY
+signed late-response estimate. Test a=0, b=0 and N=0 explicitly. Independent
+finite mathematical review confirms the identity and inequality directions.
+No analytic logarithm law, positive lower spectral floor or extracted
+propositional modulus is an allowed input. Verification budget: only narrow
+serialized 20-GiB-capped checks, preceded by fresh process/memory preflight.
+Revise this route if the finite primitive does not equal the original defect;
+do not substitute a supplied product law.
+
+The direct-window continuation evaluates the SAME finite defect at -y, with
+y=(1-x)/(1+x), x in [1/2,1]. Its expected computable remainder is
+`(M/3)*(2/3)^(2*M-1)` at N=2*M, M>=1, using coefficient-norm contraction of
+the actual primitive. It must be proved before identifying the value with
+`CRealLog.logRat`; the half-value is not yet identified with half*log2.
+The product/halving and norm leaves below are now CHECKED; the direct-window
+finite comparison and limit consumer are still PENDING at this checkpoint.
+For that continuation, the looser geometric ceiling 5/6 is sufficient:
+`1-x <= 1/2`, `abs(y) <= 1/3` and `x <= 1` give coefficient norm at most 5/6,
+avoiding unnecessary sharp 2/3 arithmetic. No physical-family rate is asserted.
+
+### Checked product/halving and signed primitive norm leaves
+
+All paths below are under `lean/YMGap/Continuum/`.
+`RegularizedLogPolynomialProductDefect.lean:526`
+(`product_defect_bounds`) proves the stated finite defect bound for every
+a,b in [0,1] and N, including the endpoints and zero cutoff. Its actual
+derivative/initial-value pins are `defect_derivative:185`, `defect_zero:222`
+and `defect_primitive:270`; `defect_value:507` pins the original partial sums.
+The proof uses a finite coefficient primitive and its integration-by-parts
+identity, no analytic integral and no logarithm law.
+
+`RegularizedLogRationalAlgebra.lean:31` (`value`) and `:37`
+(`valueRegularity`) retain the actual approximants and recoverable denominator
+modulus. `productLawRate:73`, `productLaw_approx:77`, `productLaw:94` and
+`halvingLaw:106` compute the limit law and its halving specialization.
+The endpoints are genuinely zero (`value_zero:61`, `value_one:64`).
+No half-value/log2 equality is claimed at this checkpoint.
+
+`RegularizedLogPrimitiveNorm.lean:40`
+(`reciprocalCoefficients_weightedL1_le`) and `:60`
+(`primitive_weightedL1_le`) bound the ACTUAL primitive for signed coefficients,
+all starting indices and nonnegative radii. `polynomialPower_weightedL1_le:76`,
+`polynomialPower_weightedL1_le_cap:88` and
+`powerDifferenceRow_weightedL1_le:118` control finite powers and the original
+mixed-power row, including zero-radius cases without inversion.
+
+Three narrow serialized checks exited 0 and emitted their oleans:
+
+    /private/tmp/ym-oct11-regularized-product-defect-check2.log
+    /private/tmp/ym-oct11-regularized-rational-algebra-check2.log
+    /private/tmp/ym-oct11-regularized-primitive-norm-check2.log
+
+All 27 public gates are within {propext, Quot.sound}; four are axiom-free.
+Fresh host process/memory preflight preceded every launch, one worker,
+20-GiB cap and 12-GiB reserve. Accepted-check preflight available memory
+38.9--39.5 GiB and pressure-free 90--91%; no competing compiler/runner/test.
+ROOT inspected complete sources and accepted logs; independent complete
+producer and rational-limit-consumer final source/log/math reviews PASS.
+The pending direct-window consumer also has an independent static review;
+that is NOT compiler evidence for its unpaid finite dependency.
+Earlier failed elaborations repaired coefficient pins, explicit typing,
+syntax/namespace and rational-equivalence chaining; their temporary sorryAx
+outputs are NOT proof evidence. No explicit sorry/new axiom, full root/tree
+build/audit, resource increase, canonical-node/ledger closure or mutation of
+the user-owned duplicate sources. PRIMARY signed H1 remains OPEN.
+
+Frozen source and accepted log SHA256 pairs:
+
+    ProductDefect source b12e8f131716dfd701c2c36718b1615d171500432c9757af48ead2bd7876c6e6
+    ProductDefect log    56b1b9af50a40eece851712fe49f14438a528f07b37321342a92e3a93cad5fe4
+    RationalAlgebra source ebdca429ddd5d1fa9b481e266a4cb79e104539b7d458f10eb5c27a89012376c2
+    RationalAlgebra log    3944f332cbd628ff04a891fa854f87a13565ce5acf098088a84a13d8409419e7
+    PrimitiveNorm source 8fdb2078366cd4e43d7507224e733feda3965d4801f0c5682fe4f2bc8731069a
+    PrimitiveNorm log    4b4badb0c666c8504cef5409981a4f8680d00c32b6ea21736d1d3550334103b3
