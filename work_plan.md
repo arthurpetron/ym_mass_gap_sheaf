@@ -482,12 +482,31 @@ p_n(x) stream with -x times the computed logarithm for EVERY rational 0<x<=1,
 at the SAME approximation index. Three serialized narrow checks and complete
 independent final source/log/math reviews PASS; all 18 gates permitted,
 three axiom-free. No canonical node closes.
-NEXT use the original finite Haar entropy stages and their uniform series
-tail to construct the actual entropy limit at the OWN partition, then consume
-this scalar pin. Its original conditional-entropy join remains OPEN. Return
-to source-weighted deviation relative to the SAME signed late response, not
-positivity alone; the PRIMARY estimate and physical-family justification are
-still OPEN.
+The actual finite ORIGINAL Haar entropy limit/log-Jensen join is now CHECKED:
+`QuaternionHaarRegularizedEntropy.entropy_tail:95` retains 1/(m+1) without a
+block-count factor; `entropy_uniformCauchy:108`, `entropyValue:130` and
+`entropyRegularity:138` retain the literal Haar(entropyStage n W) stream and
+epsilon.den as data, including zero density/blocks. `entropy_jensen:147`
+handles every original n at OWN Z=Haar(W). `haar_entropy_log_approx:156` and
+`haar_entropy_log_bound:172` consume the actual binary-log pin at the SAME n
+with a recoverable epsilon-only cutoff, using the existing sound
+`CReal.ExplicitLeEv`, not one-slack order transitivity.
+`BF4ExactSlabOriginalRegularizedEntropy.originalPartition_pin:47` pins OWN Z
+to the FULL raw heat-product partition times its identity-normalizing scalar;
+`originalPartition_positive:55` constructs positivity from the finite floor.
+`original_entropyValue:78`, `original_entropyRegularity:88`,
+`original_entropyValue_approx:99` and `original_entropy_log_approx:108` supply
+the actual original-action instance, retaining all factors and their shared
+variables. Both first-attempt serialized narrow checks and complete independent
+source/log/math reviews PASS; all 17 gates permitted. No chart node closes.
+NEXT analytic input: combine factorwise original heat coercivity and actual
+series product laws to bound internal plaquette defects by the SAME collar's
+entropy, then realize that limit under the selected original Haar projection.
+Use its OWN conditional partition and retain every crossing eta cost.
+The existing localized partition floor alone does not supply this inequality.
+That conditional UV estimate, source-weighted deviation relative to the SAME
+signed late response, PRIMARY estimate and physical-family justification all
+remain OPEN; absolute UV control is not relative response payment.
 Evidence: adaptive-score audit, "Selected finite entropy product law and
 direct-window comparison". No canonical node or physical gap closes.
 The new finite FREE-reference screen also excludes a high-mass simultaneous

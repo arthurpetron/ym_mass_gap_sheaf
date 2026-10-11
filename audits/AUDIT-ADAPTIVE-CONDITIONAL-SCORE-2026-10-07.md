@@ -19080,3 +19080,94 @@ Frozen source and accepted log SHA256 pairs:
     BinaryReduction log    fa50a523c4519543ec61dc745fdb76aaa28909934cb2492b2240e6198f9f7219
     BinaryIdentification source 054bf18e3afaa72ae77525e8bbaf770716492ee06ad5dcc8694826e23dbc13d8
     BinaryIdentification log    185caaf3d964679f038ae6b0f85e6c0ee5d5e65b2d8995c90a8d969eeb1aa41f
+
+### Checked ORIGINAL Haar entropy limit and OWN-partition log Jensen (2026-10-11 UTC)
+
+The previous goal checkpoint was PROGRESS: `c3eeafc8` supplied the actual
+positive-unit-interval scalar pin and was pushed to main. This continuation
+supplies its recorded finite original-Haar consumer, not the localized
+conditional UV estimate or PRIMARY signed H1. All following source paths are
+under `lean/YMGap/Continuum/`.
+
+`QuaternionHaarRegularizedEntropy.lean:79` (`entropyApprox`) is literally
+quaternionHaar(blocks, entropyStage(n,W)). For supported W pointwise in [0,1],
+`entropyApprox_bounds:82` proves every actual approximant lies in [0,1].
+`entropy_tail:95` integrates the original scalar ordered tail, preserving
+1/(m+1) without a block/volume prefactor. `entropy_uniformCauchy:108` integrates
+the original two-sided scalar Cauchy estimate through actual finite Haar order
+and H(1)=1. No independence of interacting factors or new integral is assumed.
+Zero density, zero entropy cutoff and zero blocks are retained.
+
+`entropyValue:130` constructs a CReal with exactly those approximants;
+`entropyRegularity:138` keeps its explicit epsilon.den rate as Type-level data,
+uniform in blocks and W. `entropy_jensen:147` proves original finite Jensen at
+EVERY n with OWN Z=Haar(W): stage zero is literal zero and successors reuse
+`QuaternionHaarFiniteEntropy.haar_partial_jensen:115`.
+`haar_entropy_log_approx:156` composes this SAME-n inequality with the actual
+checked binary-log identification at Z. `haar_entropy_log_bound:172` returns
+the existing `CReal.ExplicitLeEv` certificate with recoverable
+`RegularizedLogBinaryIdentification.identificationRate`, not a cutoff extracted
+from Prop and not unsound one-slack CReal order transitivity.
+
+`BF4ExactSlabOriginalRegularizedEntropy.lean:40` (`originalPartition`) uses
+the literal identity-normalized original heat product. `originalPartition_pin:47`
+pins it to normalizingFactor times the FULL raw heatProductHaar, not 1.
+`originalPartition_positive:55` and `originalPartition_le_one:62` are produced
+from the already checked finite floor and same-action Haar bounds; they are
+not new analytic premises. `original_entropyValue:78` and
+`original_entropyRegularity:88` specialize the actual construction to every
+original face-factor occurrence, including repetitions and shared link
+variables. `original_entropyValue_approx:99` is the literal stream pin;
+`original_entropy_log_approx:108` gives the OWN-partition logarithmic Jensen
+bound at the unchanged approximation index and explicit scalar cutoff.
+Identity normalization is never replaced by probability normalization W/Z.
+
+Bounded next-consumer screen: the full finite original entropy-limit/scalar-log
+join recorded above is now supplied. The localized conditional UV estimate
+remains OPEN. Its actual existing lower-data consumer is
+`BF4ExactSlabConditionalPolynomialPartitionLower.lean:210`
+(`original_normalizer_normalized_lower`), using computed `conditionalFloor:199`;
+the full-action marginal pin is `original_full_marginal_evaluate:259`.
+The original scalar heat envelope is
+`SU2HeatJacobiOriginalCoercivity.lean:333` (`original_heat_envelope`).
+Those declarations do NOT supply a conditional entropy/deviation theorem.
+
+NEXT mathematical input (selected, not proved): for the SAME normalized
+collar W_B,y and selected original Haar H_B at each actual outside assignment,
+let Z_y=H_B(W_B,y) and Ent_B be the corresponding original entropy-series
+limit. Seek the factorwise-coercivity/product-law inequality
+
+    [1/(256*(1-w))] * H_B(W_B,y * sum_internal(1-X_p))
+      <= Ent_B(W_B,y) + F_i*log(3)*Z_y.
+
+The coefficient here is an explicitly nome-dependent coercivity constant,
+NOT a new bare coupling or a uniform physical mass. This also requires the
+selected-Haar realization of the SAME entropy limit; the two new global
+finite-Haar leaves do not assert it. All crossing eta costs and the detached
+background in the original marginal remain. Even the resulting absolute UV
+deviation estimate would not pay the OLD-centered source-weighted error
+relative to the SAME late response R_BOX(s). Do not replace that relative
+target with positivity, entropy nonnegativity or an absolute concentration
+claim. PRIMARY, justified physical scaling and the full Clay target stay OPEN.
+
+Verification: ONLY these two leaves, narrow serialized monitored checks,
+jobs=1, 20-GiB hard worker cap, 12-GiB OS reserve and repository lock. Fresh
+process/dynamic-memory preflight preceded EVERY launch; available memory
+39.2 and 38.7 GiB, pressure-free 91% and 90%, no competing compiler/runner/test.
+Both first-attempt checks exited 0 and emitted their oleans:
+
+    /private/tmp/ym-oct11-haar-regularized-entropy-check1.log
+    /private/tmp/ym-oct11-original-regularized-entropy-check1.log
+
+All 17 public gates are exactly within {propext, Quot.sound}; no diagnostics.
+ROOT read COMPLETE sources and accepted logs. Independent complete generic
+and original-consumer source/log/math reviews PASS. No explicit sorry/new
+axiom, resource increase, full root/tree build/audit, frontier/ledger closure
+or user-owned duplicate-file mutation. No canonical node changes or ASCII.
+
+Frozen source and accepted log SHA256 pairs:
+
+    HaarRegularizedEntropy source e5323ce52889ed79ca34851dbbb4466ada5955839e97db009df5151f755d5828
+    HaarRegularizedEntropy log    320b8c80dcdd041c3a72c819949bc132c1932d4513d39d7b173a5d878a58c2f1
+    OriginalRegularizedEntropy source 32382b4de2114e6621ebf63bb8dc7fc4c1c2654d7774a1c75013d6f9238e192a
+    OriginalRegularizedEntropy log    c7c10d919e4c49b61b9be442d0a6e3e78c3e10c91eaba03ed6d24992ba00f200
