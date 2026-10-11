@@ -20561,3 +20561,61 @@ result; its full CERN PDF was access-blocked, so no stronger contents claim
 was verified ([primary publication](https://doi.org/10.1016/0550-3213(81)90560-5)).
 This is a bounded NOT FOUND, not an exhaustive literature-absence claim; no
 Wilson-to-heat or four-dimensional continuum-universality join is supplied.
+
+### Checked finite weighted heat norm (2026-10-11 20:30 UTC)
+
+The finite weighted-label input in the preceding section is now kernel
+checked, not merely PAPER. No new module, analytic hypothesis, hole or import
+was introduced. In
+`lean/YMGap/Continuum/SU2HeatSquaredCasimirSmoothing.lean`,
+`heatCoefficientNormTerm:104`, `heatCoefficientNorm:108` and
+`heatCoefficientEnergy:112` define the literal inclusive sums
+
+    N_K = sum_(0<=n<=K) (n+1)^2*w^(2*n*(n+2)),
+    E_K = sum_(0<=n<=K) n*(n+2)*(n+1)^2*w^(2*n*(n+2)).
+
+`heatCoefficient_half_power_norm_le:224` bounds the single-power sum by
+8*N_K. The proof extends its nonnegative intermediate prefix to 2*(K+1),
+then pairs labels 2*r and 2*r+1 against the squared-power label r. Its FINAL
+cutoff remains exactly K. `heatCoefficient_energy_le_eight_norm:239`
+composes this with scalar smoothing to prove `(1-w)*E_K<=8*N_K`.
+The only hypotheses are 0<=w<=1; K=0 and w=0,1 remain in scope. This is a
+finite coefficient-norm inequality, not a supplied Haar/operator norm pin.
+
+ROOT focused check, exit 0, and independent ENTIRE source/log review PASS:
+
+```sh
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/SU2HeatSquaredCasimirSmoothing.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/SU2HeatSquaredCasimirSmoothing.olean --log-file /private/tmp/ym-oct11-heat-coefficient-norm1.log
+```
+
+Fresh preflight found no competing compiler/runner; pressure-free capacity
+was 91%, with dynamic memory/swap monitoring retained. All eight printed
+gates pass: three new definitions axiom-free, five theorem gates exactly
+{propext,Quot.sound}. No diagnostics. Source SHA256:
+`1244e68af8cb2ac0ba22559c2322918260ea80461bb4687ec2c2803937437e1d`.
+Accepted log SHA256:
+`10f1ad7a78b028bce63abec4f9c31ae770a43d5a1849ca1cbb3c81f4ff7d2f97`.
+This is one focused check, not a repository-wide build/audit.
+
+The complete-action applicability screen supplies no relative payment.
+With W=product_p h_p and v_p=D_U log h_p, square completion gives
+`-sum_p |v_p|^2/2 <= M_U/W <= (m-1)*sum_p |v_p|^2/2` for m<=6.
+Multiplying by the signed OLD-centered two-time insertion does not preserve
+either order. Even the actual diagonal score has weight
+`H[(R_p/h_p)*Gamma(h_p,h_p)]`, not bare `H[Gamma(h_p,h_p)]`.
+The complete mixed insertion retains
+
+    H[R_pq*U_t*Gamma(h_p,h_q)]
+      = H[R_pq*U_t*h_p*C_U(h_q)]
+        - H[h_p*Gamma(R_pq*U_t,h_q)].
+
+The last term retains other faces, messages and source derivatives. Source
+pin: `lean/YMGap/Continuum/SU2QuaternionHaarAngularIBPAt.lean:99`,
+`quaternionHaar_weighted_angular_at`. This composed formula remains PAPER.
+The six-cap is `BF4ExactSlabKernelIncidence.faceLinks_count_le_six:64`;
+the actual temporal-gauge kinetic relative still uses TWO link blocks,
+`BF4ExactSlabFixedSpatialKineticHeat.relative:64`, not four spatial-face
+blocks. The exact depth-dependent Doob and BOX screens found already-paid
+joins, not a new interacting rate. No new wrapper is selected from them.
+PRIMARY, justified physical scaling, positive-time survival, continuum/QFT,
+every-group and Clay remain OPEN. Exact chart claims unchanged; no reprint.

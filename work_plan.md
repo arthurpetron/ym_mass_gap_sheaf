@@ -145,6 +145,18 @@ insertion or direct original relative energy. Proofs, cutoff guards and
 independent reviews: adaptive-score audit, "Growing-label heat norm and
 the complete-star obstruction". PRIMARY and chart claims remain OPEN.
 
+Checked scalar ingredient (2026-10-11):
+`SU2HeatSquaredCasimirSmoothing.heatCoefficient_energy_le_eight_norm:239`
+now proves the displayed weighted coefficient inequality for EVERY inclusive
+cutoff, including zero, and both nome endpoints. No positive-kernel or
+head-cutoff assumption is used. The two new theorem gates pass the existing
+constructive axiom gate in a focused one-worker/20-GiB check; independent
+complete source/log review PASS. This is bare heat-coefficient arithmetic,
+not an interacting score or variance bound. In the complete star the actual
+weight is different and signed weighted-IBP residues remain. No new Fisher
+adapter or canonical chart closure follows. Exact evidence: adaptive-score
+audit, "Checked finite weighted heat norm".
+
 Stop two specific joins: an UPPER bound on the comparison cost cannot be
 subtracted to upper-bound the complete signed cost; and the literal plaquette
 source is not the heat-prefix nome derivative. Neither shortcut supplies an
