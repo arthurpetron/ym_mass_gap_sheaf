@@ -5,7 +5,7 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
-## Whole-project goal and live completion map (updated 2026-10-10 UTC)
+## Whole-project goal and live completion map (updated 2026-10-11 UTC)
 
 The unchanged mathematical target is: for each compact simple gauge group G,
 construct a nontrivial quantum Yang--Mills theory on R^4 satisfying the QFT
@@ -395,15 +395,41 @@ the actual COMPLETE physical face list. This is a GLOBAL finite partition floor,
 not the boundary-conditioned floor or a uniform estimate. Six focused serialized
 checks and independent source/log/math reviews PASS; 30 public gates permitted.
 No full build/audit, new sorry/axiom, resource increase or canonical-node closure.
-NEXT restrict the test to actual swept links, retain EVERY boundary factor's
-eta floor, and prove conditional integration on the original boundary assignment.
+The ORIGINAL conditional/localized join is now CHECKED (2026-10-11 UTC):
+`BF4ExactSlabCollarPolynomialLocalization.original_collar_localization:162`
+restricts the test to actual selected links. EVERY wholly selected collar face
+pays half, EVERY remaining collar face pays eta, and detached original factors
+stay in the existing background.
+`QuaternionHaarFamilyPointwiseOrder.familyProject_pointwise_mono:284` proves order for the ACTUAL original in-place
+conditional integrations at every fixed boundary assignment, with no supplied
+conditional-probability or analytic premise.
+`QuaternionHaarSelectedKernelLocalization.selectedKernel_project_eval:258` computes the actual selected test moment;
+physical index bounds and Nodup are produced, not omitted from factorization.
+`BF4ExactSlabConditionalPolynomialPartitionLower.original_normalizer_normalized_lower:210`
+joins these leaves to the EXISTING normalizer: its identity-normalized value is
+at least `2^(-Fi)*eta(w,K)^Fb*(6*M(w,K)+1)^(-2*L)` for EVERY retained unit assignment,
+with Fi/Fb the internal/remaining collar counts and L ONLY the selected-link count.
+`original_normalizer_lower:230` undoes identity normalization;
+`original_full_marginal_evaluate:259` retains the EXACT detached original background;
+`chronological_chain_original_normalizer_lower:269` supplies the ACTUAL chronological
+spatial-link chain, including its final slice, in the same original slab.
+This does NOT remove temporal links or identify a different gauge-fixed action.
+The finite floor retains explicit coupling, cutoff and local-volume dependence;
+it is boundary-assignment-independent, NOT a uniform physical-family estimate.
+Four narrow serialized checks and independent complete source/log/math reviews
+PASS; all 34 public gates permitted, three axiom-free. No new sorry/axiom,
+resource increase, full build/audit or canonical-node closure.
+NEXT use this actual conditional floor in the scalar entropy/log identification,
+retaining EVERY boundary eta cost. Then seek source-weighted deviation relative
+to the SAME late response; positivity alone is not signed relative payment.
 Do not rebuild the geometry or replace the original chronological action.
 The raw six-incidence bound ALREADY exists:
 `BF4ExactSlabLinkStarGeometry.incidentIds_length_le_six:89` and
 `BF4ExactSlabFixedSpatialFamilyIncidence.blockRowFaces_length_le_six:66`.
 Reuse it for the chronological localized swept-factor occurrence tally, not a
 fresh star enumeration or a cap for arbitrary repeated IDs. The global integral
-join is now proved; its conditional/localized specialization remains OPEN.
+join AND its original conditional/localized specialization are now proved in
+the finite scope above; the scalar entropy/log and scaling joins remain OPEN.
 Entropy-series identification and the signed OLD-center/
 SAME late-response payment still follow as genuine open work; no canonical
 chart node closes. Evidence: adaptive-score audit,
@@ -413,6 +439,15 @@ windowed artanh value and computed binary reduction, but prove their finite
 series comparison and dyadic scaling. A free `CRealLogRangeReduction.logScale`
 is not such a proof. This remains an actual scalar-series obligation, not a
 reason to introduce another general logarithmic-Haar hypothesis interface.
+The selected next scalar bridge is the direct-window series identification
+and SPECIAL doubling identity `L(x)=log2+L(2*x)` for 0<x<=1/2, where L is the
+limit of `RegularizedLogPolynomial.partialSum(x,N)/x`. Its `partial_tail:105`
+and `partial_uniformCauchy:117` already give explicit tails. Reuse
+`lean/YMGap/Constructive/CRealLog.lean:733` (`logRat`),
+`HamiltonianAllSep.binExpOf:91` and its proved mantissa window, and the computed
+`RebasedExpShiftSupportReduction.dyadicLogValue:115`, not a free log-scale.
+The series identification/doubling proofs themselves remain OPEN; even their
+closure would supply entropy, not the signed centered two-time PRIMARY bound.
 The new finite FREE-reference screen also excludes a high-mass simultaneous
 shrinking chart for all elementary curls in the support cube: under
 kappa*rho^2<=log(s)/32 its probability is <=exp(-s^(9/4)/48).

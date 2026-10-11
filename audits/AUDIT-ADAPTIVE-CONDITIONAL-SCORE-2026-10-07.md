@@ -18722,3 +18722,139 @@ Frozen source and accepted log SHA256 pairs:
     Tensor log    525f0b0f0f9aa7537d873c251d6f4b11ae54f5365791814f6fa986561a0aea5b
     Partition source bc6a730b93287320d6756db1f871a92c60e566723da3a927951ecb60fe3fb80b
     Partition log    9502843afd2b2ca1ee108f59227c998a4bc7ae0a0895129edf046733d74f78b6
+
+### Checked ORIGINAL selected-link conditional localization
+
+2026-10-11 UTC. The preceding NEXT conditional join is now supplied in its
+finite scope. PRIMARY remains the signed OLD OWN-center / SAME late-response
+estimate on a justified changing physical family; it and the Clay target are
+OPEN. No displayed canonical node changes, so no ASCII chart is reprinted.
+
+Every following new source path is under `lean/YMGap/Continuum/`:
+
+- `BF4ExactSlabCollarPolynomialLocalization.lean:48`, `insideFace`, tests ALL
+  four literal original face edges for membership in the selected links.
+  `insideIds:51` and `boundaryIds:54` partition the incident collar occurrence
+  list; every occurrence pays exactly one cost. `inside_slots:57` produces
+  selected membership of all internal slots. `selected_product_le_internal:142`
+  uses the original physical/Nodup incidence cap six, in the correct direction
+  for scalar bases in [0,1]. `original_collar_localization:162` proves the
+  pointwise test bound: internal collar faces pay half and EVERY remaining
+  collar face pays its eta floor. Detached original factors stay in the
+  existing background and pay neither localization nor eta costs here.
+  Only scalar bases commute, never the nonabelian word's quaternion factors.
+- `QuaternionHaarFamilyPointwiseOrder.lean:155`, `fixedBlockPolynomial`,
+  evaluates all spectators and retains the selected four exponents as an
+  actual supported one-block polynomial. `fixedBlockPolynomial_haar:207`
+  identifies its original Haar with the existing in-place projection.
+  `updateAssignment:224` replaces exactly one unit, and
+  `fixedBlockPolynomial_evaluate:247` pins the actual original assignment.
+  `project_pointwise_mono:266` uses existing finite original Haar order;
+  `familyProject_pointwise_mono:284` composes EVERY original integration in
+  the selected schedule. Arbitrary signed coefficients, empty/repeated
+  schedules and beyond-support indices are included. No positive certificate,
+  conditional law or analytic premise is supplied to this order theorem.
+- `QuaternionHaarSelectedKernelLocalization.lean:63`, `selectedKernel`,
+  places literal ((1+x_(4*b))/2)^m at every supplied original slot, retaining
+  order and repetitions. `selectedKernel_supported:72` and
+  `selectedKernel_eval:191` pin support and actual assignments.
+  `selectedKernel_haar:200` factors ONLY these auxiliary one-link TEST factors,
+  with in-range and Nodup guards, not the interacting original face action.
+  `selectedKernel_project_eval:258` proves the actual selected projection
+  evaluates to J_m^L at EVERY remaining assignment. Block locality/support
+  first makes all surviving exponents zero; original Haar then computes that
+  constant. This is not an invalid promotion of Haar equivalence to pointwise
+  equivalence or a false raw coefficient pin across zero-padding aliases.
+  `selectedKernel_project_lower:289` gives (1/(m+1)^2)^L, with strict positivity
+  at `selectedKernel_project_positive:300`; empty schedules and m=0 are covered.
+- `BF4ExactSlabConditionalPolynomialPartitionLower.lean:136`, `collarCost`,
+  is the explicit scalar `2^(-Fi)*eta(w,K)^Fb`. It is produced positive by
+  `collarCost_positive:140`. `original_conditional_test_le_density:146` recodes
+  the actual physical links into the EXISTING original slots and places the
+  test below the full identity-normalized collar on every shared assignment.
+  Physical membership produces slot bounds and injectivity; selected-link
+  Nodup produces distinct moments. `original_normalizer_moment_lower:180`
+  applies actual conditional pointwise order to that inequality, proving
+
+      normalizer(q_boundary) / H_(K+1)(1)^(Fi+Fb)
+        >= 2^(-Fi) * eta(w,K)^Fb * J_(6*M(w,K))^L.
+
+  `conditionalFloor:199` is computed Q' data, positive by
+  `conditionalFloor_positive:203`. `original_normalizer_normalized_lower:210`
+  supplies the rational floor
+
+      2^(-Fi) * eta(w,K)^Fb * (6*M(w,K)+1)^(-2*L).
+
+  `original_normalizer_lower:230` undoes identity normalization, and
+  `original_normalizer_positive:247` establishes actual strict positivity.
+  `original_full_marginal_evaluate:259` evaluates the EXISTING exact full-action
+  marginal pin, keeping the detached background as an explicit factor.
+  `chronological_chain_original_normalizer_lower:269` supplies the actual
+  inclusive chronological spatial-link chain using its proved Nodup and
+  physical membership under width<=extent and start+steps<=extent.
+  This is not temporal-link elimination or a replacement gauge-fixed action.
+
+Scope: 0<w<1, inclusive cutoff finiteCutoff(w)<=K+1, M the produced degree,
+L the selected-link count, Fi/Fb the actual internal/remaining collar counts.
+The floor is independent of the remaining unit assignment; its w, K and
+selected-volume dependence remains explicit. It is NOT a uniform physical
+scaling estimate. Unlike the preceding global floor it does not charge the
+entire ambient carrier exponent. It supplies no typical raw-link chart,
+entropy/log series identification, source-relative deviation, signed H1
+payment, positive physical mass calibration, continuum survival or gap.
+
+NEXT: scalar-series comparison and dyadic scaling for the EXISTING windowed
+artanh/log value, so this actual conditional floor can enter a proved entropy
+estimate. Retain all crossing eta costs; a free logScale field is not the
+missing proof. Return directly to source-weighted deviation and the complete
+signed OLD-center / SAME late-response payment. Do not infer relative payment
+from positive normalization alone or rebuild the existing original geometry.
+
+Bounded next-frontier SOURCE mapping: the actual finite entropy consumer is
+`BF4ExactSlabOriginalFiniteEntropy.lean:55`, `original_partial_jensen`, using
+`QuaternionHaarFiniteEntropy.lean:115`, `haar_partial_jensen`, at its OWN
+Z=Haar(W). `RegularizedLogPolynomial.lean:105`, `partial_tail`, and
+`partial_uniformCauchy:117` supply explicit series control, including zero.
+The selected missing scalar proof pair is direct-window identification with
+`lean/YMGap/Constructive/CRealLog.lean:733`, `logRat`, and the SPECIAL doubling
+identity L(x)=log2+L(2*x) for 0<x<=1/2, with L the limit of partialSum(x,N)/x.
+`HamiltonianAllSep.lean:91`, `binExpOf`, constructs genuine binary search;
+`mant_lt_one:122` and `mant_hhalf:134` certify its mantissa window.
+`RebasedExpShiftSupportReduction.lean:115`, `dyadicLogValue`, computes the
+literal dyadic log-scale. These definitions are NOT the missing series or
+doubling proof. The legacy warning at `lean/YMGap/Constructive/CRealLog.lean:987`
+explicitly fences the independent logScale field. No new scalar interface,
+analytic assumption, source compilation or proof-state change follows from
+this bounded mapping; ROOT checked the defining declarations read-only.
+
+Verification: ONLY these four new leaves, serialized through the monitored
+launcher, jobs=1, 20 GiB hard worker cap, 12 GiB OS reserve, repository lock,
+fresh host process and dynamic-memory preflight before EVERY launch. Available
+memory stayed 39.0--39.5 GiB, pressure-free 90--91%; no competing compiler,
+runner or pytest. Each accepted check exited 0 and emitted its olean:
+
+    /private/tmp/ym-oct11-original-collar-localization-check2.log
+    /private/tmp/ym-oct11-family-pointwise-order-check3.log
+    /private/tmp/ym-oct11-selected-kernel-localization-check2.log
+    /private/tmp/ym-oct11-original-conditional-localization-check2.log
+
+All 34 public axiom-print gates are within {propext, Quot.sound}; three are
+axiom-free. COMPLETE independent bounded Sol final-source/accepted-log/math
+reviews PASS, including two independent reviews of the final original
+consumer. ROOT also read all complete final sources and accepted logs.
+No final diagnostics. Earlier checks repaired explicit constants/namespaces,
+the variable-width empty window case and the scalar predicate spelling;
+failed elaboration logs are NOT evidence. No explicit sorry, new axiom,
+resource increase, full root/tree build/audit, frontier/ledger closure or
+user-owned duplicate-file mutation.
+
+Frozen source and accepted log SHA256 pairs:
+
+    Collar source 67e577ec2df4c4699a1ac1d40ba2b52df5dfe77b75a603288df87efa81c88b36
+    Collar log    9e99ccc733676d174ce7473b23a1a591126e508e81c8d1e2d0cd165cd44fbdba
+    PointwiseOrder source 31db332a6e457e86897a0a0023be327f83ca115d6fdc4579da8f56e8f9368617
+    PointwiseOrder log    c700cbe8f97f43ad0981481ab0ad74798d00cf8e3eb1a08a1a5a11e9fe7f7a1b
+    SelectedKernel source 00de34be635b43dd39ee5b3854fa9a153a71ff284b5ab28aaf7a39603801608e
+    SelectedKernel log    7f04b968e3e27e23039867dcdcb47d3996ac0b7b2b38a54dab3a2b844bfd08e0
+    OriginalConditional source daef7f764e16b2640b2e4c63f1cb898da43e652604497a33212ed30bd66a1889
+    OriginalConditional log    1e1fffd0428e46066fa1219398b45ba28b818b9d72292d6721842c81a3bdf5c8
