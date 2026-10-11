@@ -19171,3 +19171,73 @@ Frozen source and accepted log SHA256 pairs:
     HaarRegularizedEntropy log    320b8c80dcdd041c3a72c819949bc132c1932d4513d39d7b173a5d878a58c2f1
     OriginalRegularizedEntropy source 32382b4de2114e6621ebf63bb8dc7fc4c1c2654d7774a1c75013d6f9238e192a
     OriginalRegularizedEntropy log    c7c10d919e4c49b61b9be442d0a6e3e78c3e10c91eaba03ed6d24992ba00f200
+
+### Checked ORIGINAL face-defect entropy coercivity (2026-10-11 UTC)
+
+The preceding checkpoint `2feeef19` supplied the original Haar entropy limit
+and OWN-partition logarithmic Jensen and was pushed to main. This continuation
+supplies the factorwise finite coercivity input, not the conditional UV estimate
+or PRIMARY signed H1. Paths below are under `lean/YMGap/Continuum/`.
+
+`RegularizedLogFiniteCoercivity.lean:63` (`weighted_monotone`) proves
+a*p_N(b)<=b*p_N(a) for 0<=a<=b<=1, termwise on the literal finite series.
+`power_lower:83` proves r^k*k*(1-r)<=p_N(r^k)+k/(N+1), including r=0 and
+k=0, for N>=1. `envelope_coercivity:163` consumes h<=3*r^k and proves
+
+    h*k*(1-r) <= p_N(h)+3*h*p_N(1/3)+3*k/(N+1).
+
+The proof cancels only the positive r^k, never h. Zero density and zero
+exponent survive. The actual checked finite product defect pays the shrink
+by 1/3; no logarithm law, analytic entropy premise or division by density.
+
+`BF4ExactSlabHeatEntropyCoercivity.lean:65` (`active_gap_coercivity`) consumes
+the actual Jacobi count M>=2 and M*(1-q)>=1/16, yielding the cleared estimate
+1-X<=256*(1-q)*(M-1)*(1-decay(X)). `normalizedFace_envelope:95` specializes
+the ORIGINAL heat envelope to the EXISTING identity-normalized face value,
+at its unchanged actual plaquette scalar. The inclusive K+1 guard supplies
+both the envelope and original finite positive floor. It is not division by
+the full partition and not an alternate heat kernel.
+
+`original_face_coercivity_finite:120` therefore proves, with h that exact
+normalizedFace, k=M(q)-1 and N the independent entropy cutoff,
+
+    h*(1-X) <= 256*(1-q)*(p_N(h)+3*h*p_N(1/3)+3*k/(N+1)).
+
+`entropyCoercivityRate:149` is the computed data
+max(1,modulus(epsilon*invSucc(768*k))). The coefficient of invSucc(N) is
+at most 768*k, since 0<q<1. `original_face_coercivity_approx:170` removes
+the remainder with an explicit epsilon, uniformly over actual assignments,
+faces, extents and admissible heat cutoffs at FIXED nome q. Neither the
+coefficient nor the cutoff is asserted uniform in nome or physical spacing.
+The complete collar product, selected conditional Haar integration, crossing
+eta costs and source-weighted OLD-centered relative payment remain OPEN.
+This is an actual factorwise estimate, not a completed changing-family gap.
+
+NEXT: retain all collar factor occurrences in the weighted entropy sum, use
+the finite product-defect recurrence to pay its explicit count/(N+1) error,
+then integrate the SAME complete action under selected Haar. Repeated and
+shared-variable factors must not be discarded or declared independent.
+
+Verification: ONLY the two new leaves, narrow serialized monitored checks,
+jobs=1, 20-GiB hard worker cap, 12-GiB OS reserve and repository lock. Fresh
+process/dynamic-memory preflight preceded EVERY launch; accepted preflights
+reported 39.1 and 38.7 GiB available, pressure-free 91% and 90%, no competing
+compiler, runner or test. Both accepted checks exited 0 and emitted oleans:
+
+    /private/tmp/ym-oct11-regularized-finite-coercivity-check1.log
+    /private/tmp/ym-oct11-original-heat-entropy-coercivity-check2.log
+
+Nine public gates are within {propext, Quot.sound}; two are axiom-free.
+ROOT inspected COMPLETE final sources and accepted logs. Independent complete
+producer and original-consumer source/log/math reviews PASS. No final
+diagnostics. The initial consumer elaboration needed an explicit reciprocal
+positivity pin; its failed output is NOT proof evidence. No explicit sorry,
+new axiom, resource increase, full root/tree build/audit, canonical-node or
+ledger closure, or user-owned duplicate mutation. The chart is unchanged.
+
+Frozen source and accepted log SHA256 pairs:
+
+    FiniteCoercivity source df8a41711b14af94528d595c8769d4f290b61c57a4abb09f331349cb8aa67f27
+    FiniteCoercivity log    d7a62089e5a8429820f40767866239635d0d34fde716c94224a2accf5a4021d2
+    OriginalHeatCoercivity source 80d9830654a759d1bc1c11ef4fc2fd6b8b4d3154c772282ddd21b9bd2970a126
+    OriginalHeatCoercivity log    75a98fb0dfeaed7898d9bf8debf6510014eaf4790326a549539e0ec954539c21

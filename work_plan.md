@@ -499,9 +499,24 @@ to the FULL raw heat-product partition times its identity-normalizing scalar;
 the actual original-action instance, retaining all factors and their shared
 variables. Both first-attempt serialized narrow checks and complete independent
 source/log/math reviews PASS; all 17 gates permitted. No chart node closes.
-NEXT analytic input: combine factorwise original heat coercivity and actual
-series product laws to bound internal plaquette defects by the SAME collar's
-entropy, then realize that limit under the selected original Haar projection.
+The factorwise ORIGINAL heat/entropy coercivity is now CHECKED:
+`RegularizedLogFiniteCoercivity.weighted_monotone:63`, `power_lower:83` and
+`envelope_coercivity:163` retain the actual finite p_N and the explicit
+3*k/(N+1) error without dividing by the density, including zero density.
+`BF4ExactSlabHeatEntropyCoercivity.active_gap_coercivity:65` and
+`normalizedFace_envelope:95` consume the actual active count and original
+identity-normalized face at the inclusive K+1 cutoff. Its
+`original_face_coercivity_finite:120` bounds h*(1-X) by
+256*(1-q)*(p_N(h)+3*h*p_N(1/3)+3*(M(q)-1)/(N+1)).
+`entropyCoercivityRate:149` and `original_face_coercivity_approx:170`
+remove the remainder with recoverable q/epsilon data, uniformly in assignment,
+face, extent and admissible heat cutoff at FIXED nome. Two narrow serialized
+checks and complete independent source/log/math reviews PASS; nine public
+gates permitted, two axiom-free. No canonical node closes.
+NEXT analytic input: sum this factorwise payment with ALL other collar
+factors retained, using the actual finite entropy product defect. Bound the
+internal plaquette defects by the SAME complete collar's entropy, then realize
+that limit under the selected original Haar projection.
 Use its OWN conditional partition and retain every crossing eta cost.
 The existing localized partition floor alone does not supply this inequality.
 That conditional UV estimate, source-weighted deviation relative to the SAME
