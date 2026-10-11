@@ -524,18 +524,30 @@ pins P to the EXISTING complete original normalizedHeatProduct, not W/Z.
 W*sum_selected(1-X)<=256*(1-q)*(p_N(W)+3*p_N(1/3)*F*W+
 (L+3*(M(q)-1)*F)/(N+1)), with L all occurrences and F selected occurrences.
 Three first-attempt narrow serial checks PASS; all 13 gates permitted,
-four axiom-free. Complete source/log/math reviews PASS (generic selected
-consumer ROOT-reviewed, actual original instance independently reviewed).
-NEXT analytic input: transport this SAME complete-product estimate under
-selected original Haar and prove finite Jensen at its OWN fixed-boundary
-Z_y=eval_y(P_selected W). Do NOT substitute the global-Haar entropy constructor
+four axiom-free. Complete independent source/log/math reviews PASS for all
+three leaves, including the subsequently reviewed generic selected consumer.
+The selected-Haar finite Jensen / ORIGINAL action join is now CHECKED:
+`QuaternionHaarFamilyFiniteEntropy.family_partial_jensen:138` uses the
+numerical tangent at OWN fixed-boundary Z_y=eval_y(P_selected W), with its
+linear term canceled by the ACTUAL projection. Empty/repeated schedules,
+zero Z and N=0 are included; only W<=1 pointwise is needed.
+`BF4ExactSlabOriginalSelectedHaarEntropyCoercivity.originalSelectedPartition:91`
+defines that exact Z_y. `original_selected_haar_coercivity_finite:111`
+retains P_selected(W*sum_selected(1-X)) and bounds it by
+256*(1-q)*(p_N(Z_y)+3*p_N(1/3)*F*Z_y+(L+3*(M(q)-1)*F)/(N+1)).
+Selected link slots and selected face occurrences remain separate. Two
+serialized narrow checks and complete independent source/log/math reviews
+PASS; ten gates permitted. This is finite conditional coercivity, NOT the
+cutoff-removed logarithmic UV estimate or response-relative payment.
+Do NOT substitute the global-Haar entropy constructor
 at P_selected W: H_all(p_N(P_selected W)) is not P_selected(p_N(W)).
-The numerical tangent at that fixed Z_y and actual projection linearity supply
-a finite candidate route; it remains unasserted until kernel checked.
-Then remove the entropy cutoff with explicit nome/count/tolerance data.
+NEXT remove the finite error with explicit nome/count/tolerance data, then
+consume actual binary-log identification at that SAME positive selected Z_y.
+Positivity must come from the produced original finite floor (and its sharper
+collar conditionalFloor specialization), retaining the crossing eta costs.
 Use its OWN conditional partition and retain every crossing eta cost.
 The existing localized partition floor alone does not supply this inequality.
-That conditional UV estimate, source-weighted deviation relative to the SAME
+The cutoff-removed logarithmic conditional UV estimate, source-weighted deviation relative to the SAME
 signed late response, PRIMARY estimate and physical-family justification all
 remain OPEN; absolute UV control is not relative response payment.
 Evidence: adaptive-score audit, "Selected finite entropy product law and

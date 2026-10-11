@@ -19306,8 +19306,9 @@ Exit 0, emitted oleans and no diagnostics for all three accepted logs:
 All 13 public gates are within {propext, Quot.sound}, four axiom-free. ROOT
 read COMPLETE final sources and accepted logs. Independent complete finite
 product and actual original-consumer source/log/math reviews PASS. The generic
-selected consumer was fully ROOT-reviewed; its author's log/hash attestation
-is not called independent review. No sorry/new axiom, resource change,
+selected consumer was fully ROOT-reviewed and subsequently independently
+source/log/math reviewed too; its author's earlier log/hash attestation alone
+was not called independent review. No sorry/new axiom, resource change,
 full-tree audit/build, canonical-node or ledger closure, or duplicate mutation.
 
 Frozen source and accepted log SHA256 pairs:
@@ -19318,3 +19319,83 @@ Frozen source and accepted log SHA256 pairs:
     FiniteProductCoercivity log    ade2ec34b94137080583c9d8a4422fba34ba5868e0d2e2cc6625550662528f23
     OriginalProductCoercivity source 5e824d418c151bff8e9ffe386acfc30cec59494cf7819aff89feea14c0e1960b
     OriginalProductCoercivity log    890e089c9a79c73b983059ab5cfff73a3ba6bb815527e5bdd2a05f6945e94a49
+
+### Checked selected ORIGINAL Haar / OWN conditional-partition coercivity (2026-10-11 UTC)
+
+`c4571693` supplied the preceding complete-product payment and was pushed to
+main. Its actual selected-Haar finite Jensen/conditional-coercivity join is
+now supplied. Source paths below are under `lean/YMGap/Continuum/`.
+
+`QuaternionHaarFamilyFiniteEntropy.lean:62` (`familyProject_constant_eval`),
+`familyProject_smul:69`, `familyProject_smul_eval:78`,
+`familyProject_slack_eval:85` and `familyProject_upper_bound:93` are public
+pins for the EXISTING in-place familyProject. No new integration functional,
+coordinate compression or assumed independence is introduced.
+
+`family_partial_jensen:138` fixes the numerical
+Z=eval_y(familyProject slots W) at the retained assignment y. The actual
+scalar upper tangent at that fixed Z is valid globally for all head
+assignments. Projecting it and evaluating at the SAME y cancels the linear
+term, since projected W evaluates to that very Z. This directly proves
+
+    eval_y(P_slots(entropyStage N W)) <= p_N(eval_y(P_slots W)).
+
+Only W<=1 pointwise is needed. Signed W, zero Z, N=0, empty and repeated
+schedules are included; no support, slot-range, Nodup or lower-floor premise.
+This avoids the wrong global-Haar replacement H_all(p_N(P_slots W)).
+
+`BF4ExactSlabOriginalSelectedHaarEntropyCoercivity.lean:67`
+(`selectedFaceDefectPolynomial`) retains the actual selected face OCCURRENCES;
+`selectedFaceDefectPolynomial_eval:75` pins the exact scalar selected sum.
+`originalSelectedPartition:91` is the literal evaluation of the complete
+original identity-normalized W after the actual selected Haar schedule.
+`original_selected_haar_coercivity_finite:111` projects the complete W*D
+and the entire finite pointwise right-hand polynomial, then consumes selected
+Jensen. With L all factor occurrences, F selected face occurrences, k=M(q)-1,
+and OWN Z_y at the retained assignment, it gives
+
+    eval_y(P_slots(W*sum_selected(1-X)))
+      <=256*(1-q)*(p_N(Z_y)+3*p_N(1/3)*F*Z_y+(L+3*k*F)/(N+1)).
+
+Link-slot schedule and face-selection predicate are distinct data. All
+crossing factors, repetitions and shared variables remain in W; neither
+factor independence nor W/Z normalization is used. Heat cutoff remains
+coercivityCutoff(q)<=K+1, entropy cutoff N>=1. This is an actual finite
+conditional estimate, NOT yet a logarithmic limit or relative response bound.
+
+NEXT supplied-input join, not claimed here: remove the explicit finite error
+with nome/count/tolerance data; use the actual positive selected partition
+floor and binary-log pin at SAME Z_y. The existing
+`BF4ExactSlabNormalizedHeatBounds.lean:162` (`normalizedHeatProduct_bounds`)
+and `QuaternionHaarFamilyPointwiseOrder.lean:294`
+(`familyProject_pointwise_lower_bound`) supply generic positive selected mass;
+`BF4ExactSlabConditionalPolynomialPartitionLower.lean:210`
+(`original_normalizer_normalized_lower`) supplies the sharper collar floor
+once its normalization pin is transported. Do not erase crossing eta costs.
+Even a cutoff-removed absolute UV estimate does not pay OLD-centered signed
+late-response error. PRIMARY, physical-family justification and Clay stay OPEN.
+
+Verification: ONLY these two leaves, serialized narrow monitored checks,
+jobs=1, 20-GiB hard worker cap, 12-GiB reserve and repository lock. Fresh
+process/dynamic-memory preflight before EVERY launch. Accepted preflights:
+39.1 and 38.7 GiB available, pressure-free 91% and 90%, no competing job.
+Accepted checks exited 0, emitted oleans and reported no diagnostics:
+
+    /private/tmp/ym-oct11-family-finite-entropy-check1.log
+    /private/tmp/ym-oct11-original-selected-haar-coercivity-check3.log
+
+All ten public gates are {propext, Quot.sound}. ROOT read COMPLETE final
+sources and accepted logs. Independent complete generic and original-consumer
+source/log/math reviews PASS, including two independent original reviews.
+Failed initial consumer checks repaired multiline term parsing and avoided
+large face-polynomial unfolding by proving the evaluation pin for an arbitrary
+polynomial first, then instantiating it. No heartbeat or memory increase;
+failed outputs are NOT evidence. No sorry/new axiom, full-tree build/audit,
+canonical-node or ledger closure, resource change, or duplicate mutation.
+
+Frozen source and accepted log SHA256 pairs:
+
+    FamilyFiniteEntropy source 2b16c2a23a50e647ee25e658c7926de4c304c4d0b36e8076c7e0354ca838421c
+    FamilyFiniteEntropy log    645e81ea9df0c889bf8cc9d0e38fb4d8213cf5b012511f68f314cc44a40443f3
+    OriginalSelectedHaarCoercivity source 178659465b7a7fd14b66c7c0fe96cba615814b4260377b9cc91c2d989af170b9
+    OriginalSelectedHaarCoercivity log    9e87db512eae0b2c6e2d22e35fd5059025e5d9f55291cf8a17adb605e04e7958
