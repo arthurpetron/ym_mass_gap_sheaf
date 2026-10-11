@@ -18129,3 +18129,120 @@ product/derivative induction, one-active-factor loss, factor-three transfer,
 maximum cutoff, inclusive K+1 convention and literal heatPrefix endpoint.
 It confirmed the seven permitted gates and the separation between checked
 scalar coercivity and PAPER original-Haar/entropy/source-weighted estimates.
+
+### Finite original Haar order and polynomial entropy reduction
+
+2026-10-11 UTC. Previous goal turn was PROGRESS: the SAME-nome original
+finite scalar envelope was checked and pushed as 2f0e4012. This increment
+discharges the next finite integration join, without changing PRIMARY,
+the physical family, canonical frontier fields or the whole Clay target.
+
+CHECKED producer: `lean/YMGap/Continuum/QuaternionHaarFiniteProductOrder.lean`.
+`environment:41` places an explicit Nat->UnitNorm assignment in successive
+four-coordinate blocks; `environment_coordinate:45` pins each actual coordinate.
+`haar_lower_bound:179` proves c<=quaternionHaar blocks p whenever the supported
+original signed polynomial p is >=c at EVERY such assignment. The bound c
+may be negative. Zero blocks are included, using an explicit constant unit
+assignment, not a chosen point. `haar_upper_bound:215` and `haar_mono:227`
+give upper bounds and shared-carrier polynomial order.
+
+The induction fixes the tail, applies the EXISTING one-block rational-unit
+order `haar_lower_bound:317`,
+`lean/YMGap/Continuum/QuaternionHaarTensorBernsteinPolynomialGrid.lean`,
+to evaluateTail 4, then integrates the actual partialHaarHead. Its total
+functional is pinned by `quaternionHaar_partialHaarHead:132`,
+`lean/YMGap/Continuum/SU2QuaternionHaarHeadFubini.lean`; tail specialization
+commutes by `partialHaarHead_evaluate:134`,
+`lean/YMGap/Continuum/SU2QuaternionTailEvaluation.lean`.
+The small splice/evaluation identities are proved in the new leaf;
+private helpers from another namespace are not treated as public APIs.
+Finite support prevents any dependence on unused assignment coordinates.
+No actual face factor or overlapping physical link is removed.
+
+This theorem gives scalar ORIGINAL-Haar order, NOT a witness in
+`QuaternionHaarSquareCertificate.Certificate:62`,
+`lean/YMGap/Continuum/QuaternionHaarSquareCertificate.lean`.
+That algebraic cone still has only square/add/nonnegative-scale/carrier-
+transport constructors. No new constructor, analytic premise, Haar
+inequality assumption or certificate-discharge claim is introduced.
+
+NEXT actual-source producer: evaluate the literal ordered plaquette word
+in the new unit environment and produce its class-coordinate bounds.
+`correctedSlabLinkPolynomial:64` and `correctedSlabPlaquettePolynomial:120`,
+`lean/YMGap/Continuum/BF4ExactCorrectedSlabHaarNetwork.lean`, retain the
+coordinate-or-identity link and oriented fold. COEFFICIENTWISE
+`polyQuaternionNorm_mul:42`, `polyQuaternionNorm_conj:52` and
+`polyQuaternionNorm_one:60`,
+`lean/YMGap/Continuum/BF4ExactSlabSymmetricPowerHaarTrace.lean`, preserve
+the evaluated four-square norm. Do NOT evaluate HaarCarrierEqv pointwise.
+The class scalar is `faceScalar:67`,
+`lean/YMGap/Continuum/BF4ExactSlabAllExtentFaceHeatTail.lean`.
+These produced boxes would discharge the EXISTING box hypotheses in
+`productFloor_le_eval_heatProduct:82`,
+`lean/YMGap/Continuum/BF4ExactSlabHeatPointwiseFloor.lean`.
+Original support is already supplied by `heatProduct_supported:151`,
+`lean/YMGap/Continuum/BF4ExactSlabFaceLinkLocality.lean`.
+This actual-source specialization is NOT yet proved by the new order leaf.
+
+Duplication boundary: finite ORIGINAL positive partitions were already
+available indirectly from `productFloor_le_original_add:103`,
+`lean/YMGap/Continuum/BF4ExactSlabJacobiProductComparison.lean`, with a
+chosen positive error and its comparison cutoff; a successful finite anchor
+is also carried by `fullActionFloorCertificate:67`,
+`lean/YMGap/Continuum/BF4ExactSlabOriginalActionStrictFloor.lean`.
+The proposed direct finiteCutoff/finiteFloor join is different, not the
+first finite-original positive-partition proof. Those two productFloor
+definitions must not be interchanged.
+
+PAPER next-consumer simplification. For N>=1 and x in [0,1], set
+
+    L_N(x)=sum_(k=1..N) (1-x)^k/k,   f_N(x)=x*L_N(x).
+
+Writing y=1-x gives the EXACT finite polynomial identity
+
+    f_N(x)=y-sum_(k=2..N) y^k/[k*(k-1)]-y^(N+1)/N.
+
+For every k>=2 and y,b>=0, the convex monomial tangent remainder is
+
+    y^k-b^k-k*b^(k-1)*(y-b)
+      =(y-b)^2*sum_(j=0..k-2) (j+1)*b^j*y^(k-2-j) >=0.
+
+Hence f_N is concave on [0,1] and has its upper tangent at any rational z
+in that interval. Let W be the SAME original supported polynomial density,
+with supplied/produced pointwise bounds 0<alpha<=W<=1, and Z=H[W].
+The new order theorem yields alpha<=Z<=1. Integrate the tangent at Z:
+H[W-Z]=0 and H[1]=1 give
+
+    H[W*L_N(W)] <= Z*L_N(Z),
+    E_W L_N(W) <= L_N(Z) <= -log(Z).
+
+Here E_W F means H[W*F]/Z, not a substituted or newly postulated law.
+H[1]=1 is `haar_one:100`,
+`lean/YMGap/Continuum/QPolyHaarPositiveSubstitution.lean`.
+All stage integrands are FINITE polynomials on the ORIGINAL product Haar.
+The scalar error is uniform on alpha<=x<=1:
+
+    0 <= -log(x)-L_N(x)
+       <= (1-alpha)^(N+1)/((N+1)*alpha).
+
+Choosing its cutoff as explicit data recovers the previous entropy payment
+to any rational tolerance. This removes the need to first build a general
+multivariate logarithmic integral. The polynomial identities, tangent
+inequality, localization and remainder consumer above remain PAPER: no Lean
+entropy theorem, restricted-ball mass or localized partition lower-bound
+producer is claimed. The same OLD OWN center and late-response denominator
+remain unpaid. This is not H1, a physical clock, continuum survival,
+every-state decay, full QFT, every group or Clay closure.
+
+Verification: ONLY QuaternionHaarFiniteProductOrder.lean was checked,
+jobs=1, 20 GiB worker cap, 12 GiB OS reserve, repository lock and live
+dynamic memory guards. Available memory was about 39 GiB with pressure-free
+90%; no competing Lean/Lake/pytest/runner process was found. Check1/2's
+missing namespace opens were corrected, not accepted as proof. Final check3
+exited 0, emitted the final olean, and reported all FIVE gates within
+{propext, Quot.sound}, with environment axiom-free and no diagnostics. Log:
+`/private/tmp/ym-oct11-finite-product-haar-order-check3.log`.
+Independent bounded Sol review read the COMPLETE frozen source and accepted
+log and returned code PASS; a separate mathematical review returned PAPER
+consumer PASS under the explicit N>=1 and 0<alpha<=W<=1 guards.
+No full build/audit, new sorry/axiom, ledger closure or ASCII state change.

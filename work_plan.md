@@ -280,6 +280,23 @@ that budget a Lean theorem; then pay the OLD-center and SAME late-response
 normalization, not just deviation about the constant 2. No H1 or canonical
 node closes. Exact formulas and verification: adaptive-score audit,
 "Original same-nome coercivity and localized entropy test".
+The next ORIGINAL-Haar join is now checked:
+`QuaternionHaarFiniteProductOrder.haar_lower_bound:179`, upper bound `:215`
+and `haar_mono:227` preserve pointwise rational-unit polynomial order under
+the SAME arbitrary finite product functional, including zero blocks and
+signed coefficients/bounds. Exact ordered-head Fubini retains every tail;
+this produces scalar Haar order, NOT a square Certificate. The new independently
+reviewed PAPER entropy reduction uses the concave finite polynomial
+f_N(x)=x*sum_(k=1..N)(1-x)^k/k. Its tangent inequality gives
+H[W*L_N(W)]<=Z*L_N(Z), Z=H[W], with the explicit uniform logarithmic
+remainder (1-alpha)^(N+1)/((N+1)*alpha) for alpha<=W<=1.
+Thus no general multivariate logarithmic-integral interface is selected.
+NEXT produce actual ordered-plaquette class boxes, then the localized
+partition lower bound and these finite entropy stages on the original action.
+Do not duplicate the EXISTING indirect finite-original positivity theorem
+or infer pointwise bounds from HaarCarrierEqv. PRIMARY response-relative
+payment and physical scaling remain OPEN. Exact pins and boundaries:
+adaptive-score audit, "Finite original Haar order and polynomial entropy reduction".
 The new finite FREE-reference screen also excludes a high-mass simultaneous
 shrinking chart for all elementary curls in the support cube: under
 kappa*rho^2<=log(s)/32 its probability is <=exp(-s^(9/4)/48).
