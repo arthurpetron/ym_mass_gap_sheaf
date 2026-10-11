@@ -207,6 +207,25 @@ estimate on the justified selected family. No new norm/BOX adapter is needed.
 Neither floor proves positive-time continuum survival or physical calibration.
 Exact evidence: adaptive-score audit, "Checked quadratic initial variance floor".
 
+Backward/literature screen (2026-10-11; SOURCE/PAPER, no new Lean proof):
+the fixed-small-nome nonzero excitation and positive responses are ALREADY
+produced on the original infinite-spatial-volume Wilson completion by
+`BF4WilsonSpatialUnionSmallNomeGap.concreteGapCertificate:102` and
+`BF4WilsonSpatialUnionPositiveResponse.lagThree_floor:143` / `lagTwo_floor:149`.
+Do not reopen that prerequisite or confuse it with survival on the changing
+family. The stronger Fisher square floor has no literal translated-source
+pin into that spatial limit; establishing it is not the current bottleneck.
+The targeted finite-infrared construction and all-order correlation papers
+do not supply the original late-response estimate. Background stabilization
+alone is insufficient by the EXISTING density/response countermodel; no new
+toy compiler is selected. Keep the signed two-time/direct-energy target,
+with original-action/source/OS matching and a denominator-relative,
+nonperturbative remainder still unpaid. Do not identify fixed-IR ultraviolet
+control with simultaneous thermodynamic/scaling control or orderwise bounds
+with an interacting measure. Exact primary-source pins and pruning decisions:
+adaptive-score audit, "Finite-infrared and orderwise literature screen".
+No canonical claim changes.
+
 Stop two specific joins: an UPPER bound on the comparison cost cannot be
 subtracted to upper-bound the complete signed cost; and the literal plaquette
 source is not the heat-prefix nome derivative. Neither shortcut supplies an

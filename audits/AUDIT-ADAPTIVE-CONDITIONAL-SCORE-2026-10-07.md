@@ -20928,3 +20928,95 @@ No further precision/spacing adapter is selected. Return to the signed
 original late-response and SAME-action scale-setting work. PRIMARY, physical
 calibration, positive-time continuum survival, full QFT/every-group and Clay
 remain OPEN; no canonical ledger discharge or displayed chart claim change.
+
+### Finite-infrared and orderwise literature screen (2026-10-11 21:11 UTC)
+
+Exact question: does published ultraviolet control supply a bounded one-sided
+distortion of the ORIGINAL joint positive-time response ratio, hence the
+endpoint estimate consumed by
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1Anchor.lean:418`,
+`pathShiftedEpsBound_iff_response`, and the SAME completed survival consumer
+`path_normalized_anchor_shifted:581` in that module? The original action,
+source, OLD center, both terminal histories and partitions remain fixed at
+each finite comparison. A bound on a partition or separate absolute
+correlations is not the selected relative estimate. These were two targeted
+primary-paper reviews, not another routine math-ph listing scan.
+
+[Magnen--Rivasseau--Seneor, Construction of YM4 with an infrared cutoff](https://www.researchgate.net/publication/251358884_Construction_of_YM_4_with_an_infrared_cutoff)
+(CMP 155, 325--383, DOI 10.1007/BF02097397): Section I, pp.327--328, keeps
+the infrared cutoff, uses a momentum regulator and gauge-restoring
+counterterms, and leaves OS positivity to additional work. It does not
+provide the complete detailed proof. Section II.A, p.328, deletes
+constant Fourier modes. Lemma VI.1 and its conclusion (VI.35), pp.369,374,
+bound the combined background-dependent determinant/counterterm factor by
+one for the selected cutoff. Section V.E, p.366, retains an effective-coupling
+flow and a uniform remainder beyond its first two coefficients. No SAME
+original heat-action, source, OS-functional or response-ratio identification
+is provided by these statements. Use the combined-normalization lesson;
+do not import the finite-IR construction as an original-theory estimate.
+
+[Frob--Holland--Hollands, All-order bounds for correlation functions of gauge-invariant operators in Yang-Mills theory](https://arxiv.org/pdf/1511.09425):
+Theorem 3, printed p.5, equation (9), bounds correlators at EACH FIXED
+perturbative order; its constants depend on that order and renormalization
+conditions. Section III.A, printed pp.16--17, defines a formal series, not
+an interacting functional integral even at fixed regulators. Section V.G.2,
+pp.53--54, equations (278)--(279), removes the UV regulator coefficientwise.
+Theorem 4, p.6, equation (10), retains perturbative BRST/contact terms.
+Weighted-tree insertion control is useful organizational mathematics; it
+is not a nonperturbative truncation error against the original lattice law
+or a positive denominator-relative estimate. Original-action, renormalized
+source and SAME OS matching remain unpaid.
+
+The stability-only implication is ALREADY pruned by the PAPER density
+countermodel in "The joint two-time score is the narrower forward test"
+above (the paragraph beginning "A finite PAPER countermodel makes the density
+shortcut decisive"). With
+W0=1+epsilon*x*y and W1=1+epsilon^2*x*y, multiply W1 by 1/(1+epsilon).
+Since sup(W1/W0)=1+epsilon, this produces a literal positive stabilizing
+factor h<=1 relative to W0. The common scalar does not change either OWN
+normalized response. The centered transfer rates remain epsilon and
+epsilon^2, so arbitrarily small density error or one-sided stabilization
+does not preserve their response ratio. This is not a Yang--Mills
+counterexample. An independently reviewed two-state Perron-congruence toy
+has the same obstruction; PRUNE its proposed implementation as duplicate.
+Kernel entrywise order is not positive-semidefinite form order. Do not
+assert domination after changing endpoint vacuum weights or normalizing
+by a changing Perron eigenvalue.
+
+The bounded backward source review also prevents duplicate excitation work:
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonExcitation.lean:103`,
+`excitationCertificate`, and `concreteCertificate:127` construct an original
+spatial-limit nonzero vector, with the actual nome
+`lean/YMGap/Continuum/BF4ExactSlabPlaquetteSmallNomeCertificate.lean:32`,
+`nome = invSucc 1023`. Its fixed-base image has norm floor and nonzero pin in
+`lean/YMGap/Continuum/BF4WilsonSpatialUnionSmallNomeGap.lean:75,89`,
+`vector_norm_floor`, `vector_ne_zero`, and the Type-valued
+`concreteGapCertificate:102`. On THIS original vector,
+`lean/YMGap/Continuum/BF4WilsonSpatialUnionPositiveResponse.lean:143,149`,
+`lagThree_floor` and `lagTwo_floor`, already give positive responses.
+These are source-verified existing declarations, not current-session new
+proofs or a re-run of their axiom gates. Older audits calling this fixed-nome
+prerequisite open are stale; changing-family continuum survival is still OPEN.
+
+Do not silently transport the NEW quadratic Fisher square floor spatially.
+`lean/YMGap/Continuum/BF4DyadicWilsonSquare.lean:81`, `paddedSquare`, retains
+the anchored word, whereas
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonSpatialComparison.lean:49`,
+`centeredExpression`, translates it by r+1 at paddedWidth(base,r).
+The bound for that literally translated source has not been supplied by
+`BF4DyadicWilsonSquareFisherWard.paddedSquare_centeredNorm_fisher_floor:631`
+in `lean/YMGap/Continuum/BF4DyadicWilsonSquareFisherWard.lean`. Such a
+stronger-square pin would improve a quantitative floor, not discharge a
+currently missing fixed-small-nome nonconstant witness or late-family bound.
+
+Decision: PRUNE the duplicate excitation and stability-only shortcuts. Retain
+the actual signed joint two-time/direct relative-energy target; no new
+Ward/RG/completion/toy interface is selected. For any proposed comparison,
+require ORIGINAL action/source/OLD-center matching and an actual relative
+nonperturbative remainder before treating it as payment. Fixed-IR UV control
+does not supply removal of the IR cutoff, and orderwise convergence is not
+convergence of the interacting theory. ROOT inspected the decisive primary
+sections and existing source declarations; bounded parallel reviews agree.
+No Lean edit/build, new hole/axiom, canonical-field change or ledger
+discharge. PRIMARY, physical calibration, changing-family survival, full
+QFT/every-group and Clay remain OPEN. Canonical chart claims unchanged.
