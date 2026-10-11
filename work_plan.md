@@ -112,6 +112,35 @@ doubling ratio. Retain both actual terminal histories and OLD-center changes.
 Evidence and narrow verification scope: adaptive-score audit,
 "Precision-schedule shell-budget test". No canonical chart claim changes.
 
+Backward numerical guard (2026-10-11; CHECKED, not physical calibration):
+`AFPrecisionNomeSchedule.precisionCompatibilityIndex:327` uses the ACTUAL
+coefficient endpoints, nu=D*(lower/U)-(51/121)*ofNat(log2(j+1)). The new
+`precisionCompatibilityIndex_gt:415` and `precisionCompatibilityIndex_le:410`
+prove `ofNat(j+4)-55/64 < nu <= ofNat(j+4)` at EVERY index including zero;
+`precisionCompatibilityIndex_gt_add_three:443` gives `ofNat(j+3)<nu`.
+Improving precision therefore pays a bounded exponent-rounding error without
+introducing a spacing or analytic premise. Focused monitored check and
+independent entire source/log review PASS; the four new public gates are
+exactly {propext,Quot.sound}. Physical SAME-action scale-setting and the
+independent spatial/thermodynamic passage remain OPEN. No further numerical
+precision adapter is selected; continue the actual analytic/matching work.
+Evidence: adaptive-score audit, "Checked numerical compatibility index".
+
+Analytic selection after parallel SOURCE/PAPER review (2026-10-11): retain
+the late two-time/direct original-energy target. A future-score projection
+reduces to the surviving late source, not a new relative bound. The targeted
+scale-Ward literature retains lattice defects/contact/anomaly terms and does
+not identify gradient-flow time with OS lag. The optional INITIAL Rayleigh
+route is stronger: the actual odd-marginal Taylor/Ward identities give
+`E=12*(1-w)*V + (R-(1-w)*Q)`, so it needs a signed cancellation, not merely
+spatial summation or a curvature cap. The finite odd estimate and the cleared
+chronological ratio are distinct and retain the existing comparisonEta
+transport. No new Ward/projection/initial compiler or canonical field is
+selected. Exact sources and pruning decisions: adaptive-score audit,
+"Scale-Ward and future-projection screens" and "Initial-Rayleigh shortcut
+screened against the actual source". PRIMARY and displayed chart claims
+remain OPEN/unchanged.
+
 Optional next quantitative probe (2026-10-11; SOURCE/PAPER): compare the
 COMPLETE signed neighboring-face gradient insertion at both response times,
 retaining the OLD-center derivative. The heat Euler/Casimir reduction cancels

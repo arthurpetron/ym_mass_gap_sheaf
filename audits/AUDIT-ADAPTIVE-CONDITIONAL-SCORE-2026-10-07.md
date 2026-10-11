@@ -20745,3 +20745,186 @@ NEXT remains the original signed endpoint comparison/direct relative-energy
 producer on the justified family. No additional norm/BOX adapter is selected.
 PRIMARY, physical scaling, nontrivial continuum survival, full QFT/every-group
 and Clay remain OPEN. Exact displayed chart claims unchanged; no reprint.
+
+### Precision calibration-exponent test selected (2026-10-11; PAPER)
+
+The backward scale-setting screen selects one bounded arithmetic test in
+the EXISTING `lean/YMGap/Continuum/AFPrecisionNomeSchedule.lean`, not a new
+physical-spacing structure. Set p=precisionIndex(j), U=coefficientUpper(j),
+L=AFLeadingCoefficient.lower(p), D=denominator(j), and kappa=51/121. Test the
+actual computed rational
+
+    nu(j)=D*(L/U)-kappa*ofNat(log2(j+1)).
+
+Predicted result, retaining ALL j including zero:
+
+    ofNat(j+4)-55/64 < nu(j) <= ofNat(j+4),
+    hence ofNat(j+3) < nu(j).
+
+The existing `denominator_precision_lt:312` bounds
+D*(upper(p)-L)<55/64. The actual running-min enclosure gives
+L<=U<=upper(p), and the existing floor gives 1<U; therefore
+0<=D*(1-L/U)<55/64. The denominator formula gives
+D-kappa*ofNat(log2(j+1))=ofNat(j+4). This is an arithmetic consequence
+of the constructed Machin/artanh coefficient, not a new analytic premise.
+
+Causal purpose: test whether the improving precision avoids the secular
+exponent error of fixed coefficient rounding before spending a physical
+matching proof budget on it. Do NOT introduce a spacing by definition and
+call it physical. Matching a(w) of the ORIGINAL theory to this exponent,
+source/ambient spatial scales, and the independent thermodynamic passage
+remain unpaid. PRIMARY remains the original signed late-response estimate.
+An implementation requiring physical matching as an extra premise is pruned.
+
+Bounded execution: Sol may edit only this existing Lean file and may not
+compile. ROOT alone will review the complete candidate and run one focused,
+serialized monitored check (jobs=1, 20GiB worker ceiling, 12GiB reserve),
+with fresh process/memory diagnostics and independent source/log review.
+No canonical frontier/ledger field or displayed chart claim is changed.
+
+### Scale-Ward and future-projection screens (2026-10-11; SOURCE/PAPER)
+
+The targeted primary-literature screen tests a dilation/translation Ward
+payment, not a routine math-ph scan. In
+[Del Debbio--Patella--Rago](https://arxiv.org/pdf/1306.1173), equations
+(3.6)--(3.9), pp.5--6, relate translations to stress-tensor divergence;
+the generic unflowed nonlocal-observable contact problem is explicitly left
+untreated. The finite-lattice identity (6.8), p.14, retains a residual
+symmetry-breaking insertion. Equations (6.10), pp.14--15, retain continuum
+contact terms. Dilation (5.7) retains the trace anomaly, and the derivative
+in (5.11), p.13, is GRADIENT-FLOW time, not the physical OS separation.
+These identities supply no original neighboring-lag relative inequality.
+
+[Michael](https://arxiv.org/pdf/hep-lat/9504016), equations (1),(3),(5),(9),
+(10),(13),(25), relates large-time Wilson-action energies to action
+insertions, including nonperturbative scale-setting, anisotropic coefficients
+and geometry derivatives. [Rothe](https://arxiv.org/pdf/hep-lat/9508005),
+equations (1),(2),(9),(10), retains the corresponding vacuum subtraction,
+temporal/spatial coefficient distinction and trace-anomaly insertion.
+Neither is an original heat-action finite-time relative-bound producer.
+Do not manufacture that producer by dropping those terms or identifying
+gradient-flow time with OS lag. No stress-tensor wrapper is selected.
+
+The independent future-score projection test also supplies no new bound.
+`lean/YMGap/Continuum/BF4ExactSlabBlockConditionalProjection.lean:150,158,173`,
+`conditionalProjection_idempotent`, `conditionalProjection_norm` and
+`conditionalProjection_residual_orthogonal`, concern the full-weight GNS
+completion, not an identified Wilson OS transfer carrier. Even if the needed
+projection were identified, the full-chain PAPER identity already recorded
+in "Coherent-score variance and future-test cancellation" gives
+
+    integral W*k*(B-12*f)=0
+
+for future tests k. Its surviving projection is the propagated late source
+itself; projection contraction does not pay the relative adjacent-lag term.
+Keep both kinetic boundary currents and the two-link kinetic score correction
+in the joint coupling formula. No new Fisher/projection adapter is selected.
+
+Verification scope: ROOT read the decisive primary Ward equations and the
+actual projection declarations; bounded parallel reviews screened all three
+papers and the already-paid source joins. This is SOURCE/PAPER, not a new
+Lean estimate. Continue with the direct original late-response/relative-energy
+producer. PRIMARY, physical matching and continuum/Clay remain OPEN.
+
+### Initial-Rayleigh shortcut screened against the actual source (2026-10-11)
+
+The independent backward test does not select a new compiler. Positive-orbit
+ratio transport is already present in
+`lean/YMGap/Continuum/BF4WilsonAllNomePositiveOrbitResponseOrder.lean:267,624`,
+`response_crossRatio` and `positiveOrbit_response_retention`. A small initial
+Rayleigh defect would suffice, but is stronger than the selected late defect.
+At t=0 the literal finite target, with A=g_n and b=A*(F-c_OLD), is
+
+    s*(Z1*H[V*b*b]-Z0*H[V*b*T(b)]) <= c0*Z1*H[V*b*b],
+    Z0=H[V*A*A], Z1=H[V*A*T(A)].
+
+Its actual object and limits are
+`lean/YMGap/Continuum/BF4WilsonAllNomeOriginalRayleighLimit.lean:84,89,130,143`,
+`originalOwnBlockVariance`, `originalOwnBlockCost`,
+`originalOwnBlockVariance_converges`, `originalOwnBlockCost_converges`;
+the cost is `clearedRayleighCost` in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockRayleighSplit.lean:131`.
+Retain BOTH masses and the original OLD center, rather than replacing this
+ratio with bare product-heat decay.
+
+For the padded family's OWN odd marginal, the already checked
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialMarginalTaylor.lean:127`,
+`padded_family_normalized_taylor`, and
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyVarianceWard.lean:144`,
+`family_normalized_ward`, give E=delta*A_ang+R and A_ang+Q=12*V, hence
+the PAPER identity below. Here E=normalizedEnergy, A_ang=normalizedAngular,
+V=oddVariance, R=normalizedRemainder and Q=normalizedWardResidual. This
+odd-marginal sufficient estimate is DISTINCT from the finite cleared ratio:
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialLocalEnergyTransport.lean:224`,
+`original_block_cost_le_initial_energy`, transports an initial fraction with
+the explicit comparisonEta. They are not identified at finite depth.
+
+    E=12*delta*V+(R-delta*Q), delta=1-w.
+
+Paying an initial E<=(c/s)*V would require the SIGNED payment
+R-delta*Q<=(c/s-12*delta)*V, not an unsigned curvature/score cap. On the
+provisional precision schedule, `quarter_lt_gap_mul_succ:249` gives
+delta*(j+1)>1/4 whereas s=2^j. Thus this route needs cancellation at the
+required scale; the Casimir pin alone supplies none. The remainder retains
+both Taylor terms and the projected/odd-weight change in `signedRemainder:64`
+of the Taylor file; Q retains derivatives of the COMPLETE original marginal
+in `wardResidual:105` of the Ward file.
+
+Spatial smearing does not turn the scalar fundamental trace into a linear
+oriented curl. The existing constant-plane amplitude test at audit section
+"MAIN signed-plane profile screen" already excludes automatic cancellation
+by orientation signs alone, without claiming its amplitudes are energies.
+The open-cube Gaussian benchmark above is quadratic in magnetic modes and
+its successful estimate uses POSITIVE-TIME suppression; spatial smearing
+alone does not eliminate paired high frequencies. This PAPER/source screen
+does NOT prove the true interacting initial bound false.
+
+Decision: retain the original late-energy/two-time target as PRIMARY, with
+the initial signed estimate only an optional stronger test. No source,
+carrier, canonical field, mathematical premise, Lean file or chart claim is
+changed by this screen. ROOT inspected the displayed original limit and
+Taylor/Ward declarations; independent read-only review PASS. No new bound,
+kernel replay, continuum survival or Clay closure is claimed.
+
+### Checked numerical compatibility index (2026-10-11 20:58 UTC)
+
+The selected numerical test is now kernel checked in the EXISTING schedule
+file. `lean/YMGap/Continuum/AFPrecisionNomeSchedule.lean:327`,
+`precisionCompatibilityIndex`, computes nu from the actual lower and folded
+upper coefficient endpoints, unchanged denominator and logarithmic term.
+The public endpoints `precisionCompatibilityIndex_le:410`,
+`precisionCompatibilityIndex_gt:415` and
+`precisionCompatibilityIndex_gt_add_three:443` prove, for EVERY j>=0,
+
+    ofNat(j+4)-55/64 < nu(j) <= ofNat(j+4),
+    ofNat(j+3) < nu(j).
+
+The exact defect remains D*(U-L)/U. The clock identity is proved first on
+abstract natural indices with explicit rational numerator/denominator and
+natural-to-integer cast lemmas, then instantiated at log2(j+1). The private
+defect proof alone permits maxRecDepth=4096; no worker memory ceiling,
+mathematical hypothesis or whole-file setting is raised. Earlier checks
+exposed elaboration/cast issues; their generated sorryAx outputs are NOT
+accepted evidence. No source sorry or axiom was introduced.
+
+ROOT sole-worker focused check returned exit 0:
+
+```sh
+python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --reserve-gib 12 --check lean/YMGap/Continuum/AFPrecisionNomeSchedule.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/AFPrecisionNomeSchedule.olean --log-file /private/tmp/ym-oct11-precision-calibration-exponent7.log
+```
+
+All 33 public prints pass; the four new gates are exactly
+{propext,Quot.sound}. No diagnostics or sorryAx. Fresh preflights found no
+competing compiler/runner, pressure-free capacity 90--91%, swap 4601.38MiB
+unchanged, with dynamic telemetry, 20GiB worker cap and 12GiB reserve.
+Independent COMPLETE final-source/log review PASS. Accepted source SHA256:
+`c5881a0de4cfeba4bcfdd3ee4db4b217a57e0a46856b866edc2083a9bf21472c`.
+Accepted log SHA256:
+`1a4894ec78f1905d0d1024495e7219f786c9510788d3c0d1d87040fd38147176`.
+
+This rules out secular exponent error from the selected coefficient rounding;
+it does NOT construct the physical clock or match the original theory to it.
+No further precision/spacing adapter is selected. Return to the signed
+original late-response and SAME-action scale-setting work. PRIMARY, physical
+calibration, positive-time continuum survival, full QFT/every-group and Clay
+remain OPEN; no canonical ledger discharge or displayed chart claim change.

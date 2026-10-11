@@ -321,6 +321,133 @@ theorem denominator_precision_lt (j : Nat) :
   exact ClusteringImpliesGap.lt_of_lt_of_le
     (Q'.mul_lt_mul_of_pos_left (denominator_positive j) (interval_width_lt_invSucc j)) hpay
 
+/-- Computed numerical compatibility index, using the actual Machin/artanh
+lower endpoint and running upper endpoint.  This is only a rounding-error
+guard; it supplies no physical spacing, scale-setting law or retention bound. -/
+def precisionCompatibilityIndex (j : Nat) : Q' :=
+  denominator j * Q'.divPos (lower (precisionIndex j)) (coefficientUpper j)
+    (coefficientUpper_positive j) -
+      Q'.mkPos 51 121 (by decide) * Q'.ofNat (Nat.log2 (j+1))
+
+private theorem precision_lower_le_running_upper (j : Nat) :
+    lower (precisionIndex j) ≤ coefficientUpper j := by
+  apply bounded_runningMin_floor
+  intro k hk
+  exact Q'.le_trans' _ _ _
+    (AFLeadingCoefficient.stream_enclosure _ _ (Nat.le_refl (precisionIndex j))).1
+    (AFLeadingCoefficient.stream_enclosure k _ hk).2
+
+set_option maxRecDepth 4096 in
+private theorem compatibility_defect_pin (j : Nat) :
+    (Q'.ofNat (j+4) - precisionCompatibilityIndex j).eqv
+      (Q'.divPos (denominator j * (coefficientUpper j - lower (precisionIndex j)))
+        (coefficientUpper j) (coefficientUpper_positive j)) := by
+  let D := denominator j
+  let U := coefficientUpper j
+  let L := lower (precisionIndex j)
+  let r := Q'.recipPos U (coefficientUpper_positive j)
+  let k := Q'.mkPos 51 121 (by decide) * Q'.ofNat (Nat.log2 (j+1))
+  have hclockAny (u v : Nat) :
+      (Q'.mkPos ((121*u+51*v+484 : Nat) : Int) 121 (by decide)).eqv
+        (Q'.ofNat (u+4) + Q'.mkPos 51 121 (by decide) * Q'.ofNat v) := by
+    unfold Q'.eqv
+    simp only [Q'.add_num_cast, Q'.add_den_cast, Q'.mul_num_cast, Q'.mul_den_cast]
+    simp only [Q'.mkPos_num, Q'.mkPos_den]
+    simp only [Q'.ofNat, Q'.den, Int.ofNat_eq_natCast, Int.natCast_add, Int.natCast_mul]
+    omega
+  have hclockAdd : D.eqv (Q'.ofNat (j+4)+k) :=
+    hclockAny j (Nat.log2 (j+1))
+  have hclock : (Q'.ofNat (j+4)).eqv (D-k) := by
+    apply Q'.eqv_symm
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr' hclockAdd (Q'.eqv_refl (-k))) ?_
+    exact RingNormaliser.poly_identity_of_normal_eq
+      (.add (.add (.var 0) (.var 1)) (.neg (.var 1))) (.var 0)
+      (by decide) (fun | 0 => Q'.ofNat (j+4) | _ => k)
+  have hD : D.eqv (D*(U*r)) := Q'.eqv_symm (Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_left D _ _ (Q'.mul_recipPos_eqv U (coefficientUpper_positive j)))
+    (Q'.mul_one_eqv D))
+  have htop : (Q'.ofNat (j+4)).eqv (D*(U*r)-k) :=
+    Q'.eqv_trans _ _ _ hclock (Q'.add_eqv_congr' hD (Q'.eqv_refl (-k)))
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr' htop (Q'.eqv_refl (-(precisionCompatibilityIndex j)))) ?_
+  change ((D*(U*r)-k)-(D*(L*r)-k)).eqv ((D*(U-L))*r)
+  exact RingNormaliser.poly_identity_of_normal_eq
+    (.add (.add (.mul (.var 0) (.mul (.var 1) (.var 3))) (.neg (.var 4)))
+      (.neg (.add (.mul (.var 0) (.mul (.var 2) (.var 3))) (.neg (.var 4)))))
+    (.mul (.mul (.var 0) (.add (.var 1) (.neg (.var 2)))) (.var 3))
+    (by decide) (fun | 0 => D | 1 => U | 2 => L | 3 => r | _ => k)
+
+private theorem compatibility_defect_bounds (j : Nat) :
+    (0 : Q') ≤ Q'.ofNat (j+4) - precisionCompatibilityIndex j ∧
+      Q'.ofNat (j+4) - precisionCompatibilityIndex j < Q'.mkPos 55 64 (by decide) := by
+  let e := denominator j * (coefficientUpper j - lower (precisionIndex j))
+  have he0 : (0 : Q') ≤ e := Q'.mul_nonneg _ _
+    (Q'.le_of_lt (denominator_positive j))
+    (Q'.sub_nonneg_of_le (precision_lower_le_running_upper j))
+  have he : e < Q'.mkPos 55 64 (by decide) := Q'.lt_of_le_of_lt
+    (Q'.mul_le_mul_of_nonneg_left _ _ (denominator j)
+      (Q'.add_le_add_right _ _ (-lower (precisionIndex j))
+        (Q'.runningMin_le upper (precisionIndex j)))
+      (Q'.le_of_lt (denominator_positive j))) (denominator_precision_lt j)
+  have hU : (1 : Q') ≤ coefficientUpper j := Q'.le_trans' _ _ _
+    (Q'.le_of_lt AFLeadingCoefficient.one_lt_lower_one) (coefficientUpper_floor j)
+  have hr : Q'.recipPos (coefficientUpper j) (coefficientUpper_positive j) ≤ (1 : Q') :=
+    Q'.le_trans' _ _ _
+      (ArtanhMonotone.recipPos_antitone 1 _ (by decide) (coefficientUpper_positive j) hU)
+      (by decide)
+  have hpin := compatibility_defect_pin j
+  constructor
+  · exact Q'.le_trans' _ _ _
+      (Q'.mul_nonneg _ _ he0 (Q'.le_of_lt (Q'.recipPos_pos _ (coefficientUpper_positive j))))
+      (Q'.ge_of_eqv hpin)
+  · exact Q'.lt_of_le_of_lt (Q'.le_of_eqv hpin)
+      (Q'.lt_of_le_of_lt
+        (Q'.le_trans' _ _ _ (Q'.mul_le_mul_of_nonneg_left _ _ e hr he0)
+          (Q'.le_of_eqv (Q'.mul_one_eqv e))) he)
+
+/-- The actual computed index never exceeds its unrounded linear target. -/
+theorem precisionCompatibilityIndex_le (j : Nat) :
+    precisionCompatibilityIndex j ≤ Q'.ofNat (j+4) :=
+  Q'.le_of_sub_nonneg (compatibility_defect_bounds j).1
+
+/-- A strict, uniform rounding-error budget, valid also at j=0. -/
+theorem precisionCompatibilityIndex_gt (j : Nat) :
+    Q'.ofNat (j+4) - Q'.mkPos 55 64 (by decide) < precisionCompatibilityIndex j := by
+  have h := (compatibility_defect_bounds j).2
+  have hp := ClusteringImpliesGap.sub_pos_of_lt h
+  have he : (precisionCompatibilityIndex j -
+      (Q'.ofNat (j+4) - Q'.mkPos 55 64 (by decide))).eqv
+      (Q'.mkPos 55 64 (by decide) - (Q'.ofNat (j+4) - precisionCompatibilityIndex j)) :=
+    RingNormaliser.poly_identity_of_normal_eq
+      (.add (.var 0) (.neg (.add (.var 1) (.neg (.var 2)))))
+      (.add (.var 2) (.neg (.add (.var 1) (.neg (.var 0)))))
+      (by decide) (fun
+        | 0 => precisionCompatibilityIndex j
+        | 1 => Q'.ofNat (j+4)
+        | _ => Q'.mkPos 55 64 (by decide))
+  have hn := Q'.num_pos_of_pos (Q'.pos_of_lt_of_le hp (Q'.ge_of_eqv he))
+  change (Q'.ofNat (j+4) - Q'.mkPos 55 64 (by decide)).num *
+      ((precisionCompatibilityIndex j).den : Int) <
+    (precisionCompatibilityIndex j).num *
+      ((Q'.ofNat (j+4) - Q'.mkPos 55 64 (by decide)).den : Int)
+  change 0 < (precisionCompatibilityIndex j).num *
+      ((Q'.ofNat (j+4) - Q'.mkPos 55 64 (by decide)).den : Int) +
+    -(Q'.ofNat (j+4) - Q'.mkPos 55 64 (by decide)).num *
+      ((precisionCompatibilityIndex j).den : Int) at hn
+  rw [Int.neg_mul] at hn
+  omega
+
+/-- In particular, the computed numerical index is beyond j+3.  No physical
+identification of this index is asserted. -/
+theorem precisionCompatibilityIndex_gt_add_three (j : Nat) :
+    Q'.ofNat (j+3) < precisionCompatibilityIndex j := by
+  apply ClusteringImpliesGap.lt_of_lt_of_le (b := Q'.ofNat (j+4) - Q'.mkPos 55 64 (by decide))
+  · change ((j+3 : Nat) : Int) * 64 < (((j+4 : Nat) : Int) * 64 + -55) * 1
+    simp only [Int.natCast_add, Int.mul_one]
+    omega
+  · exact Q'.le_of_lt (precisionCompatibilityIndex_gt j)
+
 end YMGap.Continuum.AFPrecisionNomeSchedule
 
 #print axioms YMGap.Continuum.AFPrecisionNomeSchedule.precisionIndex
@@ -352,3 +479,7 @@ end YMGap.Continuum.AFPrecisionNomeSchedule
 #print axioms YMGap.Continuum.AFPrecisionNomeSchedule.quarter_lt_gap_mul_succ
 #print axioms YMGap.Continuum.AFPrecisionNomeSchedule.gap_mul_succ_lt_two
 #print axioms YMGap.Continuum.AFPrecisionNomeSchedule.denominator_precision_lt
+#print axioms YMGap.Continuum.AFPrecisionNomeSchedule.precisionCompatibilityIndex
+#print axioms YMGap.Continuum.AFPrecisionNomeSchedule.precisionCompatibilityIndex_le
+#print axioms YMGap.Continuum.AFPrecisionNomeSchedule.precisionCompatibilityIndex_gt
+#print axioms YMGap.Continuum.AFPrecisionNomeSchedule.precisionCompatibilityIndex_gt_add_three
