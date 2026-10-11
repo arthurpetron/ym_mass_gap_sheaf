@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Supporting ORIGINAL initial variance and completed norm checked (2026-10-11 UTC):
+`BF4DyadicWilsonSquareFisherWard.paddedSquare_original_own_variance_nome_defect_floor:546`
+and `paddedSquare_centeredNorm_fisher_floor:631` prove the literal padded
+fundamental square's OWN initial variance and SAME completed time-zero norm
+are at least `(1-w)^2/7396`. Actual mean/amplitude/signed Ward inputs produce
+the floor; no new analytic hypothesis. Focused monitored checks and complete
+independent source/log reviews PASS, all gates {propext,Quot.sound}.
+This improves an existing single-loop seed, not the selected signed family's
+covariance or uniform late response. PRIMARY, physical scaling/survival and
+all Clay endpoints remain OPEN. Exact chart claims unchanged; no reprint.
+Evidence: adaptive-score audit, checked quadratic initial variance floor.
+
 Execution-scope correction (2026-10-10 UTC; SOURCE/PAPER only): pursue the
 ORIGINAL signed late-response estimate alongside same-theory physical
 scale-setting. Keep the rounded AF trajectory as an unchanged diagnostic;

@@ -20690,3 +20690,58 @@ pin. This improves an existing initial loop-variance floor; it is not the
 first positivity proof. No warmed Casimir identity, arbitrary signed-family
 floor, positive-time survival, physical normalization/scaling, PRIMARY, full
 QFT/every-group or Clay closure follows. Canonical chart claims unchanged.
+
+### SAME completed initial floor and backward-consumer check (2026-10-11)
+
+The limit join is now kernel checked in the SAME file:
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareFisherWard.lean:631`,
+`paddedSquare_centeredNorm_fisher_floor`. Its actual CReal time-zero centered
+loop norm is at least `(1-w)^2/7396` for every strict nome and finite padded
+square. The selected active block is constructed from the nonempty literal
+word; callers supply neither a block nor a norm-floor premise.
+
+The finite normalized variance is not identified with oddVariance by fiat.
+The join uses `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyVarianceWard.lean:93`,
+`marginalVariance_pin`, then the existing rectangular limit thresholds and
+`lean/YMGap/Continuum/BF4WilsonAllNomeMarginalVarianceLimit.lean:191`,
+`varianceLimit_approx`. Its cutoff is max(curvatureCutoff, variance threshold);
+its depth and approximation index retain their existing explicit moduli.
+Finally `varianceLimit_completed_pin:236` in that same module and
+`lean/YMGap/Continuum/BF4WilsonAllNomeCenteredVector.lean:167`,
+`centeredVector_diagonal`, identify the SAME completed time-zero norm.
+No changing-width/nome limit is asserted.
+
+Focused monitored check exit 0, same one-worker/20GiB/12GiB-reserve policy
+and fresh dynamic preflight; six Ward gates exactly {propext,Quot.sound},
+no diagnostics. Accepted source SHA256:
+`384714842524e700d66b5f602766404896cefe47d71c290dfda91c7fecc8c574`.
+Accepted log `/private/tmp/ym-oct11-wilson-completed-fisher-floor1.log` SHA256:
+`86bfa612243dd55bcd03ee407bbb8857a7e19a245143a75ad89a3b4ed5747ada`.
+Independent complete source/log and exact normalization/modulus review PASS.
+No full-root audit, new hole/axiom or ledger discharge.
+
+Parallel backward review prevents a false source join. For this SAME single
+loop, the Rayleigh fraction is ALREADY produced by
+`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicSpectatorResponse.lean:111`,
+`dyadicExcitation_oneStep_fraction`; `dyadicExcitation_time_geometric_fraction:170`
+propagates it. `lean/YMGap/Continuum/BF4WilsonAllNomeExprAnchorTrajectory.lean:219`,
+`exprResponse_floor`, therefore accepts the stronger seed and gives
+rho^(2*M+n)*(1-w)^2/7396 for its BOX response. This is a direct use of existing
+consumers, not a new theorem or uniform scaling lower bound. In particular,
+`lean/YMGap/Continuum/BF4DyadicSpectatorFloorCollapse.lean:110`,
+`squareResponseFraction_side_le_spacing`, records collapse of the CERTIFIED
+coefficient, not an upper bound on actual response.
+
+The selected signed elementary-plaquette family is a different source.
+Its actual norm input is
+`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteFamilyVariance.lean:151`,
+`familyExcitation_norm_floor`; its padded qualitative late nondegeneracy is
+ALREADY produced in
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedPaddedNondegenerate.lean:191`,
+`pathShiftedNondegenerate_of_padded`. Do not substitute one loop's diagonal
+floor for this family's covariance matrix, or an initial floor for the lag-side
+denominator. Unit normalization is not physical local-field normalization.
+NEXT remains the original signed endpoint comparison/direct relative-energy
+producer on the justified family. No additional norm/BOX adapter is selected.
+PRIMARY, physical scaling, nontrivial continuum survival, full QFT/every-group
+and Clay remain OPEN. Exact displayed chart claims unchanged; no reprint.

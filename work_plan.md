@@ -166,9 +166,16 @@ and `paddedSquare_original_own_variance_nome_defect_floor:546` retain the
 complete original weight, OWN partition and center. Constants are independent
 of square size, width and depth, with the explicit curvature-cutoff/padding
 guards and strict nome retained. Focused kernel check and independent complete
-source/log review PASS; no new analytic input. NEXT pass this stronger floor
-through the existing OWN-variance limit to the SAME completed time-zero norm.
-It does NOT pay positive-time survival, PRIMARY or physical calibration.
+source/log review PASS; no new analytic input. The completed join is also
+CHECKED: `paddedSquare_centeredNorm_fisher_floor:631` passes this bound
+through the existing OWN-variance modulus and exact SAME-carrier pin, with
+the active block produced rather than assumed. It pays the initial norm of
+ONE literal loop, not the selected signed plaquette family's covariance.
+Existing loop Rayleigh/BOX consumers already propagate a fixed-member
+positive seed; their geometric coefficient still need not survive scaling.
+NEXT return to the ORIGINAL signed late-response/direct relative-energy
+estimate on the justified selected family. No new norm/BOX adapter is needed.
+Neither floor proves positive-time continuum survival or physical calibration.
 Exact evidence: adaptive-score audit, "Checked quadratic initial variance floor".
 
 Stop two specific joins: an UPPER bound on the comparison cost cannot be

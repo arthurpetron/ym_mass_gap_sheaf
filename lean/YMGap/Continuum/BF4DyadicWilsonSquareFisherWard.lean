@@ -590,6 +590,106 @@ theorem paddedSquare_original_own_variance_nome_defect_floor {w : Q'}
     (Q'.le_trans' _ _ _ hscaled (Q'.le_trans' _ _ _ (Q'.le_of_eqv hregroup)
       (Q'.mul_le_mul_of_nonneg_right _ _ v hfour hv)))
 
+private theorem variance_floor_of_cleared {a v : Q'} (h : a ≤ (7396 : Q')*v) :
+    Q'.mkPos 1 7396 (by decide)*a ≤ v := by
+  let c := Q'.mkPos 1 7396 (by decide)
+  have hc : (0 : Q') ≤ c := by decide
+  have hscaled := Q'.mul_le_mul_of_nonneg_left _ _ c h hc
+  have hcancel : c*(7396*v) ≈ v :=
+    Q'.eqv_trans _ _ _ (Q'.eqv_symm (Q'.mul_assoc_eqv c 7396 v))
+      (Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ _ v
+        (by decide : (c*(7396 : Q')) ≈ 1)) (Q'.one_mul_eqv v))
+  exact Q'.le_trans' _ _ _ hscaled (Q'.le_of_eqv hcancel)
+
+private theorem observable_length (scale width : Nat) (hwidth : side scale < width) :
+    (observableBlocks scale width hwidth).length = 4*side scale := by
+  have hp := Z4CanonicalPolymerUniverse.perm_of_nodup_mem_iff
+    (observableBlocks scale width hwidth)
+    (BF4DyadicWilsonSquareChannelPartition.loopSlots scale width hwidth)
+    (BF4DyadicWilsonSquareChannelPartition.observableBlocks_nodup scale width hwidth)
+    (BF4DyadicWilsonSquareChannelPartition.loopSlots_nodup scale width hwidth)
+    (fun i => by
+      constructor
+      · intro hi
+        exact of_decide_eq_true (List.mem_filter.mp hi).2
+      · intro hi
+        obtain ⟨e, he, hidx⟩ := List.mem_map.mp hi
+        exact List.mem_filter.mpr ⟨List.mem_range.mpr (hidx ▸
+          List.idxOf_lt_length_of_mem ((paddedSquare scale width hwidth).physical e he)),
+          by simp [hi]⟩)
+  exact hp.length_eq.trans
+    (BF4DyadicWilsonSquareChannelPartition.loopSlots_length scale width hwidth)
+
+/-- The produced finite floor passes through the existing variance modulus
+and exact SAME-carrier pin to the completed time-zero centered norm of ONE
+literal padded Wilson square.  The active link is produced from its nonempty
+word; no block selection or norm-floor hypothesis is supplied by the caller.
+The rational lower bound is `(1-w)^2/7396`, uniform in the finite square size
+and padding width.  This is an initial ambient centered norm, not the physical
+one-step bond norm, first-BOX normalization, late retention or continuum and
+physical excitation survival. -/
+theorem paddedSquare_centeredNorm_fisher_floor {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (scale width : Nat) (hwidth : side scale < width) :
+    CReal.leEv
+      (CReal.ofQ' (Q'.mkPos 1 7396 (by decide)*(((1 : Q')-w)*((1 : Q')-w))))
+      (BF4WilsonAllNomeCenteredMoments.centeredTimeMoment hw0 hw1 0
+        (BF4WilsonAllNomeLoopTimePin.loopState (paddedSquare scale width hwidth))
+        (BF4WilsonAllNomeLoopTimePin.loopState (paddedSquare scale width hwidth))) := by
+  let floor := Q'.mkPos 1 7396 (by decide)*(((1 : Q')-w)*((1 : Q')-w))
+  let f := sourceCharacter width (paddedSquare scale width hwidth).edges 1
+  have hfinite (K n : Nat) (hK : marginalCurvatureCutoff w ≤ K) :
+      floor ≤ BF4ExactSlabFixedSpatialFamilyVarianceWard.oddVariance hw0 hw1
+        K width (headCutoff_le hK) n f := by
+    cases hs : observableBlocks scale width hwidth with
+    | nil =>
+        have h := observable_length scale width hwidth
+        rw [hs] at h
+        have hp := BF4DyadicWilsonSquare.side_positive scale
+        simp only [List.length_nil] at h
+        omega
+    | cons block rest =>
+        have hfloor := variance_floor_of_cleared
+          (paddedSquare_original_own_variance_nome_defect_floor hw0 hw1 K width n
+            scale hK hwidth block (by rw [hs]; exact List.mem_cons_self))
+        exact Q'.le_trans' _ _ _ hfloor (Q'.le_of_eqv
+          (BF4ExactSlabFixedSpatialFamilyVarianceWard.marginalVariance_pin
+            hw0 hw1 K width (headCutoff_le hK) n f))
+  let e : BF4ExactSlabFixedSpatialWilsonWindow.WindowExpression width :=
+    .loop 0 (paddedSquare scale width hwidth) 1
+  let he : BF4ExactSlabFixedSpatialWilsonWindow.Within 0 e := Nat.le_refl 0
+  let L := BF4WilsonAllNomeMarginalVarianceLimit.varianceLimit hw0 hw1 e he
+  have hlimit : CReal.leEv (CReal.ofQ' floor) L := by
+    intro epsilon hepsilon
+    refine ⟨(BF4WilsonAllNomeMarginalVarianceLimit.varianceCauchy hw0 hw1 e he).M
+      epsilon, ?_⟩
+    intro p hp
+    let k := max
+      (BF4WilsonAllNomeMarginalVarianceLimit.varianceCutoffThreshold hw0 hw1 e he epsilon)
+      (marginalCurvatureCutoff w)
+    let t := BF4WilsonAllNomeMarginalVarianceLimit.varianceTimeThreshold hw0 hw1 e he epsilon
+    have hK : marginalCurvatureCutoff w ≤ headCutoff w+k :=
+      Nat.le_trans (Nat.le_max_right _ _) (Nat.le_add_left _ _)
+    have hfloor := hfinite (headCutoff w+k) t hK
+    have hclose := (BF4WilsonAllNomeMarginalVarianceLimit.varianceLimit_approx
+      hw0 hw1 e he epsilon hepsilon k t p (Nat.le_max_left _ _) (Nat.le_refl _) hp).1
+    have hfinitePin : floor ≤
+        BF4WilsonAllNomeMarginalVarianceLimit.finiteVariance hw0 hw1 e k t := by
+      simpa only [BF4WilsonAllNomeMarginalVarianceLimit.finiteVariance,
+        BF4ExactSlabFixedSpatialWilsonWindow.sourcePolynomial, e, Nat.zero_mul,
+        SU2QuaternionPartialFactorizedHaar.liftBoundary] using hfloor
+    exact Q'.le_trans' _ _ _ hfinitePin hclose
+  have hpin := BF4WilsonAllNomeMarginalVarianceLimit.varianceLimit_completed_pin
+    hw0 hw1 e he
+  have heq : CReal.Equiv L
+      (BF4WilsonAllNomeCenteredMoments.centeredTimeMoment hw0 hw1 0
+        (BF4WilsonAllNomeLoopTimePin.loopState (paddedSquare scale width hwidth))
+        (BF4WilsonAllNomeLoopTimePin.loopState (paddedSquare scale width hwidth))) :=
+    Quotient.exact (hpin.trans
+      (BF4WilsonAllNomeCenteredVector.centeredVector_diagonal hw0 hw1
+        (BF4WilsonAllNomeCenteredTransferBondLimit.singleSlice e he)))
+  exact CReal.leEv_trans hlimit (CReal.leEv_of_equiv heq)
+
 end YMGap.Continuum.BF4DyadicWilsonSquareFisherWard
 
 #print axioms YMGap.Continuum.BF4DyadicWilsonSquareFisherWard.paddedSquare_original_signed_vector_dual
@@ -597,3 +697,4 @@ end YMGap.Continuum.BF4DyadicWilsonSquareFisherWard
 #print axioms YMGap.Continuum.BF4DyadicWilsonSquareFisherWard.paddedSquare_original_own_variance_fisher_ward
 #print axioms YMGap.Continuum.BF4DyadicWilsonSquareFisherWard.paddedSquare_original_own_variance_fisher_floor
 #print axioms YMGap.Continuum.BF4DyadicWilsonSquareFisherWard.paddedSquare_original_own_variance_nome_defect_floor
+#print axioms YMGap.Continuum.BF4DyadicWilsonSquareFisherWard.paddedSquare_centeredNorm_fisher_floor
