@@ -109,6 +109,76 @@ theorem marginalCurvatureCost_nome_defect_lower {w : Q'}
     (Q'.le_trans' _ _ _ hleft
       (Q'.le_trans' _ _ _ hright (Q'.ge_of_eqv hcleared)))
 
+/-- The same computed cost is nonnegative on the strict original nome ray.
+This is a scalar input to the equal-time variance-floor extraction, not a
+relative temporal-energy estimate. -/
+theorem marginalCurvatureCost_nonnegative {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) :
+    (0 : Q') ≤ marginalCurvatureCost w := by
+  apply Q'.nonneg_of_mul_pos (HKPos.one_sub_pos hw1)
+  exact Q'.le_trans' _ _ _ (by decide : (0 : Q') ≤ 4)
+    (marginalCurvatureCost_nome_defect_lower hw0 hw1)
+
+/-- Upper as well as lower control of the ACTUAL curvature constant after
+one nome defect. The constant 40 is independent of width and terminal depth;
+it does not make the complete signed temporal loss small. -/
+theorem marginalCurvatureCost_nome_defect_upper {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) :
+    (1 + -w)*marginalCurvatureCost w ≤ (40 : Q') := by
+  let D := 1 + -(w*w)
+  have hw : (0 : Q') ≤ w := Q'.le_of_lt hw0
+  have hplus : (0 : Q') < 1+w :=
+    Q'.pos_of_lt_of_le (by decide : (0 : Q') < 1)
+      (Q'.add_le_self_of_nonneg 1 w hw)
+  have hww : (0 : Q') ≤ w*w := Q'.mul_nonneg _ _ hw hw
+  have hDle : D ≤ (1 : Q') := by
+    apply Q'.sub_le_of_le_add
+    exact Q'.le_trans' _ _ _ (Q'.add_le_self_of_nonneg 1 (w*w) hww)
+      (Q'.le_of_eqv (Q'.add_comm_eqv 1 (w*w)))
+  have h32 : 32*D ≤ (32 : Q') :=
+    Q'.le_trans' _ _ _
+      (Q'.mul_le_mul_of_nonneg_left _ _ 32 hDle (by decide))
+      (Q'.le_of_eqv (Q'.mul_one_eqv 32))
+  have hcap : 32*D+8 ≤ (40 : Q') :=
+    Q'.le_trans' _ _ _ (Q'.add_le_add_right _ _ 8 h32)
+      (Q'.le_of_eqv (by decide : ((32 : Q')+8) ≈ 40))
+  have h40 : (40 : Q') ≤ (1+w)*40 :=
+    Q'.le_trans' _ _ _ (Q'.ge_of_eqv (Q'.one_mul_eqv 40))
+      (Q'.mul_le_mul_of_nonneg_right _ _ 40
+        (Q'.add_le_self_of_nonneg 1 w hw) (by decide))
+  have hfactor : (1+w)*((1 + -w)*marginalCurvatureCost w) ≈
+      marginalCurvatureCost w*D :=
+    poly_identity_of_normal_eq
+      (.mul (.add (.const 1) (.var 0))
+        (.mul (.add (.const 1) (.neg (.var 0))) (.var 1)))
+      (.mul (.var 1) (.add (.const 1) (.neg (.mul (.var 0) (.var 0)))))
+      (by decide) (fun | 0 => w | _ => marginalCurvatureCost w)
+  have hclear : (1+w)*((1 + -w)*marginalCurvatureCost w) ≈ 32*D+8 :=
+    Q'.eqv_trans _ _ _ hfactor (marginalCurvatureCost_denominator_pin hw0 hw1)
+  exact Q'.le_of_mul_le_mul_left
+    (Q'.le_trans' _ _ _ (Q'.le_of_eqv hclear)
+      (Q'.le_trans' _ _ _ hcap h40)) hplus
+
+/-- The exact constant needed by the polynomial equal-time variance floor.
+No physical spacing or transfer-time calibration is inferred. -/
+theorem marginalCurvatureCost_add_three_nome_defect_upper {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) :
+    (1 + -w)*(marginalCurvatureCost w+3) ≤ (43 : Q') := by
+  have hdelta : 1 + -w ≤ (1 : Q') := by
+    apply Q'.sub_le_of_le_add
+    exact Q'.le_trans' _ _ _ (Q'.add_le_self_of_nonneg 1 w (Q'.le_of_lt hw0))
+      (Q'.le_of_eqv (Q'.add_comm_eqv 1 w))
+  have h3 : (1 + -w)*3 ≤ (3 : Q') :=
+    Q'.le_trans' _ _ _
+      (Q'.mul_le_mul_of_nonneg_right _ _ 3 hdelta (by decide))
+      (Q'.le_of_eqv (Q'.one_mul_eqv 3))
+  have hsum : (1 + -w)*marginalCurvatureCost w+(1 + -w)*3 ≤ 40+3 :=
+    Q'.le_trans' _ _ _
+      (Q'.add_le_add_right _ _ _ (marginalCurvatureCost_nome_defect_upper hw0 hw1))
+      (Q'.add_le_add_left _ _ _ h3)
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.mul_add_eqv _ _ _))
+    (Q'.le_trans' _ _ _ hsum (Q'.le_of_eqv (by decide : ((40 : Q')+3) ≈ 43)))
+
 /-- A target strictly below four cannot be certified merely by replacing
 the temporal first-order coefficient with this particular curvature cost. -/
 theorem marginalCurvatureCost_not_below_target {w epsilon : Q'}
@@ -126,4 +196,7 @@ end YMGap.Continuum.BF4ExactSlabFixedSpatialFisherCalibrationObstruction
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialFisherCalibrationObstruction.marginalCurvatureCost_formula
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialFisherCalibrationObstruction.marginalCurvatureCost_denominator_pin
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialFisherCalibrationObstruction.marginalCurvatureCost_nome_defect_lower
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialFisherCalibrationObstruction.marginalCurvatureCost_nonnegative
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialFisherCalibrationObstruction.marginalCurvatureCost_nome_defect_upper
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialFisherCalibrationObstruction.marginalCurvatureCost_add_three_nome_defect_upper
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialFisherCalibrationObstruction.marginalCurvatureCost_not_below_target

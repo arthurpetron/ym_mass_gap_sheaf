@@ -20619,3 +20619,74 @@ blocks. The exact depth-dependent Doob and BOX screens found already-paid
 joins, not a new interacting rate. No new wrapper is selected from them.
 PRIMARY, justified physical scaling, positive-time survival, continuum/QFT,
 every-group and Clay remain OPEN. Exact chart claims unchanged; no reprint.
+
+### Checked quadratic initial variance floor (2026-10-11 20:37 UTC)
+
+This is an actual original-weight producer, not a hypothetical norm-floor
+interface. For the literal padded fundamental Wilson square, set
+W=V*g_n*g_(n+1), Z=H(W)>0, m=E_W(f), v=Var_W(f), A=E_W(threeSquare(Df)),
+and C=marginalCurvatureCost(w). The existing SAME-action inputs give
+
+    A+m*m+v=4,   3*m*m<=C*A,
+    (3*v-A)^2<=v*(48+(C-16)*A).
+
+The mean and signed Ward producers are
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareFisherWard.lean:130,206`,
+`paddedSquare_original_own_mean_square_bound` and
+`paddedSquare_original_own_variance_fisher_ward`. Amplitude is obtained from
+`lean/YMGap/Continuum/QuaternionHaarPairedHessianTrace.lean:113`,
+`paired_gradient_square_pin`, and
+`lean/YMGap/Continuum/BF4DyadicWilsonSquareWardMoments.lean:219`,
+`paddedSquare_block_gamma`, retaining W as the insertion. The normalized
+Ward law cancels only the positive SAME
+partition Z^2; no variance or mean is divided out.
+
+The new private scalar extraction sets L=C+3 and b=4*L^2*v. If b<=1,
+nonnegativity gives v<=1, L*A>=9 and 6*v<=A. Squaring A<=2*(A-3*v) and
+using the signed Ward bound gives (L*A)^2<=48+L*A. But L*A>=9 then forces
+72<=48, a contradiction. Rational order case-splitting is decidable; no
+classical input or analytic premise is introduced.
+
+Actual new public endpoints in that file:
+
+- `paddedSquare_original_own_variance_fisher_floor:399`:
+  `1<=4*(C+3)^2*v`.
+- `paddedSquare_original_own_variance_nome_defect_floor:546`:
+  `(1-w)^2<=7396*v`, equivalently `v>=(1-w)^2/7396`.
+
+The new purely scalar inputs in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFisherCalibrationObstruction.lean`
+are `marginalCurvatureCost_nonnegative:115`,
+`marginalCurvatureCost_nome_defect_upper:125` and
+`marginalCurvatureCost_add_three_nome_defect_upper:164`:
+C>=0, (1-w)*C<=40 and (1-w)*(C+3)<=43. They follow from the existing actual
+six-spatial/two-terminal formula C=32+8/(1-w^2), not an assumed bound.
+The constant 7396 is 4*43^2. Nome dependence is explicit. Every cutoff above
+marginalCurvatureCutoff(w), every depth and every finite square/width within
+the existing padding and selected-observable-block guards is covered.
+
+ROOT serialized focused checks exit 0; two independent PAPER reviews and
+complete source/accepted-log reviews PASS. Both checks used the monitored
+launcher, jobs=1, worker ceiling 20GiB, reserve 12GiB, fresh process/memory
+preflights and dynamic telemetry. No competing compiler; pressure-free
+capacity 91%, observed swap 4609.38MiB unchanged. Seven calibration gates
+and five Ward gates are all exactly {propext,Quot.sound}, no diagnostics.
+The first Ward check's missing namespace was repaired; its elaboration-
+generated sorryAx output is NOT accepted evidence. No source sorry was added.
+
+Accepted source/log SHA256:
+
+- Calibration source:
+  `e8fc276a7d01c0652d795e5066894f7931e042be193567a43873b8bddcfa4cd0`.
+  `/private/tmp/ym-oct11-curvature-upper1.log`:
+  `655267f674c961dfa0ad67d51ef5da5c0c86f71c95cdb2c0fcce7c4ac96e7142`.
+- Ward source:
+  `e2f29f2dd22815e81f8754bcd7eeb5551b7fae69fd3f8fc6cd49281013877e5e`.
+  `/private/tmp/ym-oct11-wilson-fisher-floor2.log`:
+  `b13de0e67e645b3e11c97b77929babbf730bba124dfb927a835c4368c64ae538`.
+
+NEXT reuse the existing variance modulus and SAME completed time-zero norm
+pin. This improves an existing initial loop-variance floor; it is not the
+first positivity proof. No warmed Casimir identity, arbitrary signed-family
+floor, positive-time survival, physical normalization/scaling, PRIMARY, full
+QFT/every-group or Clay closure follows. Canonical chart claims unchanged.

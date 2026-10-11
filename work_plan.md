@@ -157,6 +157,20 @@ weight is different and signed weighted-IBP residues remain. No new Fisher
 adapter or canonical chart closure follows. Exact evidence: adaptive-score
 audit, "Checked finite weighted heat norm".
 
+Initial-excitation progress (2026-10-11; CHECKED): the existing ORIGINAL
+mean/amplitude and signed Fisher--Ward laws now produce
+`1 <= 4*(C+3)^2*Var(f)` and `(1-w)^2 <= 7396*Var(f)` for the literal
+padded fundamental Wilson square, with C the actual marginal curvature cost.
+`BF4DyadicWilsonSquareFisherWard.paddedSquare_original_own_variance_fisher_floor:399`
+and `paddedSquare_original_own_variance_nome_defect_floor:546` retain the
+complete original weight, OWN partition and center. Constants are independent
+of square size, width and depth, with the explicit curvature-cutoff/padding
+guards and strict nome retained. Focused kernel check and independent complete
+source/log review PASS; no new analytic input. NEXT pass this stronger floor
+through the existing OWN-variance limit to the SAME completed time-zero norm.
+It does NOT pay positive-time survival, PRIMARY or physical calibration.
+Exact evidence: adaptive-score audit, "Checked quadratic initial variance floor".
+
 Stop two specific joins: an UPPER bound on the comparison cost cannot be
 subtracted to upper-bound the complete signed cost; and the literal plaquette
 source is not the heat-prefix nome derivative. Neither shortcut supplies an
