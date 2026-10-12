@@ -63,6 +63,18 @@ assume blocking stays in the one-parameter Wilson family.
   subtask only. In parallel demand a concrete ORIGINAL small/large-field,
   denominator-relative remainder estimate; do not indefinitely improve
   perturbative coefficients without that join.
+  NEW PAPER: at 0<t<=1 and 0<=theta<=rho<=pi/2, the full SU(2)
+  heat/principal-image ratio has a signed winding error -delta<=r<=0, with
+  delta<=12*exp(-pi^2/(4*t)); a separate explicit character cutoff pays its
+  own tail. For delta<=1/2 and 2*N*delta<=1, the SAME restricted-domain
+  normalized error is <=4*N*delta times the absolute insertion norm.
+  This exposes, rather than pays, the
+  remaining volume/horizon and signed-response normalization costs. Do not
+  substitute a Gaussian floor for that restricted interacting denominator.
+  The exact scalar formula still needs its angular/Fourier Lean bridge.
+  NEXT original comparison: localize the winding/large-field contributions
+  inside the connected two-time response, retaining the actual section and
+  OLD center, instead of requiring global density closeness as N grows.
 - Separate the running marginal coupling from the summable remainder.
   Illustratively, if u_k=g_k^2 is of order 1/k on geometric UV shells, its
   square is summable but u_k is not. Neither conclusion pays errors amplified
@@ -112,6 +124,13 @@ multiscale OS-form coercivity. Neither candidate is presently established.
   This is a proposed sufficient target, not an existing uniform producer.
   Strong-coupling decay alone does not reach a weak-bare-coupling trajectory;
   absence of a phase transition alone is not a quantitative bound either.
+  SOURCE screen COMPLETE: the current strong-coupling guard implies
+  160000*w^3<1. The existing `not_heatRatio_le_half_afNome:1373` in
+  `lean/YMGap/Continuum/BF4WilsonAllNomeRGStepComposition.lean` already
+  excludes its use at EVERY scale of the current AF schedule. Its conditional
+  coarse transfer needs kappa*(1/16+epsilon)<1, but supplies neither an
+  original blocked action nor an interaction-stable coarse domain. Work on
+  that producer or the direct OS route, not scalar-guard tuning.
 - Use U(1) as a negative control for unjustified extrapolation to a
   four-dimensional Coulomb regime, not to reject valid finite-group-agnostic
   bounds. The massless U(1) lattice phase is proved in
@@ -429,6 +448,16 @@ Execution order:
    original heat/chart/OLD-center join and nonperturbative relative remainder
    remain OPEN. The explicit reference modulus is not a justified physical
    coupling trajectory or a new uniform stationary response estimate.
+   NEW PAPER signed contraction: the matrix-square contact and its RETAINED
+   spatial quartic second chaos combine as
+   16*Tr(C*F_x^* * F_x)-64*||sym(C^(1/2)*d^* * F_x*C^(1/2))||_HS^2.
+   The resulting nonlocal quadratic is a negative Gaussian Gram kernel.
+   Together with the retained kinetic/Haar quadratic, its compensated time
+   symbol has norm <=2^28*(ceil(log2 W)+2)*4*sin(theta/2)^2.
+   NEXT stationary task: the ZERO-frequency combination, both dressed
+   sources and remaining fourth-chaos contractions in the complete signed
+   neighboring ratio. Do not infer that ratio's sign from the negative
+   square alone. The audit records its exact OLD-centered Wick consumer.
    A pair's two Haar densities are NOT half densities of a conjugated
    transfer kernel or two densities per chain step. Ambient Haar restricted
    to a transverse subspace is NOT the section density. This is
@@ -25412,6 +25441,14 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
     do not postpone the gate; keep the incumbent if no challenger is better.
     Compare concrete mathematical outputs before adopting a different route;
     do not create new assumptive endpoints or discard proof provenance.
+    Reuse the new PAPER signed contact/quartic Gram reduction and full
+    reference quadratic compensated-time estimate; the static/source/
+    fourth-chaos join remains active. Original heat winding has a chart/cutoff
+    bound, but its normalized whole-product cost grows with face count and
+    horizon. Demand a connected original comparison before using it for
+    survival; no Gaussian denominator or freely chosen heat trajectory is
+    silently substituted. The IR small-nome/AF guard mismatch is already
+    checked; its missing bridge is an actual coarse-action comparison.
 
 **Quantitative completion viewpoint (2026-10-07, user-supplied Lawvere idea):**
 use the existing constructive extension APIs rather than treating completion

@@ -23822,3 +23822,315 @@ A fresh-context source/scope review checked that schedule; its correction
 0<q_*<1 and a_*>0 is retained in the proposed physical-logarithm target.
 No Lean files, axioms, `sorry`s, CI settings or canonical chart states changed;
 no Lean compilation was needed for this documentation/PAPER checkpoint.
+
+### Exact heat winding and finite-cutoff control on a common chart (PAPER)
+
+2026-10-12. Checkpoint 1833d740 was PROGRESS: the complete sixth-order
+reference terminal comparison and four-front schedule changed the available
+inputs and execution order. The immediately interrupted continuation had
+not saved a new result; the worktree remained at that checkpoint. Its agent
+handles were absent on resumption, so fresh bounded reviews replaced them.
+This calculation starts paying a scalar ORIGINAL-heat matching ingredient,
+not another Gaussian terminal comparison. Its scope is one holonomy and
+then a specified common restricted domain, NOT the full interacting law.
+
+Keep the heat-time convention explicit. `dimQ:188` and `c4:196` in
+`lean/YMGap/Continuum/RGTransport.lean`, and `coeffW:259` in
+`lean/YMGap/Continuum/BondMovingStep.lean`, give (n+1)*w^(n*(n+2)).
+Below w=exp(-t). The physical Casimir-time convention in RGTransport's
+line 181 is w=exp(-T/4), so t=T/4; neither time is the physical continuum
+clock until its separate calibration is proved. The source's
+`heatPrefix:31`, `lean/YMGap/Continuum/QuaternionHaarHeatCertificate.lean`,
+includes labels 0,...,K.
+
+The full scalar character series and its principal image are
+
+    H_t(theta)=sum_(n>=0) (n+1)*exp(-t*n*(n+2))
+                              *sin((n+1)*theta)/sin(theta),
+    H_t^zw(theta)=exp(t)*sqrt(pi)/(4*t^(3/2))
+                    *(theta/sin(theta))*exp(-theta^2/(4*t)).
+
+Both quotients at theta=0 mean their continuous extensions. For t>0,
+periodizing exp(-x^2/(4t)) gives the identity
+
+    H_t(theta)=exp(t)*sqrt(pi)/(4*t^(3/2)*sin(theta))
+                 *sum_(k in Z) (theta-2*pi*k)
+                                *exp(-(theta-2*pi*k)^2/(4*t)).
+
+For completeness, the analytic identification is not inferred just from
+matching Fourier coefficients. The periodized Gaussian has coefficient
+sqrt(t/pi)*exp(-t*m^2): integrate over one period and reindex to the real
+line. The Gaussian transform follows by integration by parts from
+I'(xi)=-2*t*xi*I(xi), I(0)=2*sqrt(pi*t). Gaussian tails bound the finite
+truncation errors for this calculation and its derivatives. The periodized
+and Fourier series have uniformly convergent derivative series, with
+polynomial-times-Gaussian tails dominated by explicit geometric tails.
+Fourier uniqueness can be obtained by Fejer approximation: for a periodic
+function with sup bound B and Lipschitz bound L, its Fejer error is at most
+
+    L*alpha+2*B/((N+1)*sin(alpha/2)^2),  0<alpha<pi.
+
+Choosing alpha then N gives a quantitative modulus, rather than invoking
+an unquantified completeness/choice step. Differentiate the resulting
+theta identity to get the displayed heat formula. This is a constructive
+PAPER argument; these Gaussian-integral/Fourier/argument-identification
+steps have NOT been implemented in Lean here.
+
+Pair k and -k BEFORE dividing by theta. Put A=pi^2/t, b=pi*rho/t and
+z=exp(-(3*A-b)). For 0<=theta<=rho<=pi/2, the relative correction is
+
+    r_t(theta)=H_t(theta)/H_t^zw(theta)-1
+      =sum_(k>=1) exp(-A*k^2)
+          *[2*cosh(pi*k*theta/t)
+                  -(4*pi*k/theta)*sinh(pi*k*theta/t)],
+    r_t(0)=sum_(k>=1) (2-4*A*k^2)*exp(-A*k^2).
+
+Using cosh(x)<=exp(x), sinh(x)/x<=exp(x), and
+A*k^2-b*k >= (A-b)+(3*A-b)*(k-1), geometric summation gives
+
+    |r_t(theta)|<=delta(t,rho),
+    delta(t,rho)=exp(-(A-b))*[2/(1-z)+4*A*(1+z)/(1-z)^3].
+
+There is also a SIGN. For 0<t<=1, A>9 and x=pi*k*theta/t<=A*k/2.
+The kth bracket equals 2*(sinh(x)/x)*(x*coth(x)-2*A*k^2).
+Since x*coth(x)<=1+x and 1+A*k/2<2*A*k^2, it is negative;
+its endpoint 2-4*A*k^2 is negative too. Thus
+
+    -delta(t,rho)<=r_t(theta)<=0.
+
+Here z<=exp(-5*A/2)<1/32, so 2/(1-z)<3 and
+4*(1+z)/(1-z)^3<5. In particular
+
+    delta(t,rho)<=(3+5*pi^2/t)*exp(-pi^2/(2*t))
+                  <=12*exp(-pi^2/(4*t)).
+
+One direct proof of the last inequality is
+12*exp(A/4)>=12+3*A+(3/8)*A^2>3+5*A.
+For integer L>=1 and t<=1/(4*L), pi^2>9 and exp(1)>2 give
+
+    delta(t,rho)<2^(4-9*L).
+
+This is a small-HEAT-TIME error bound, not a cutoff error that can be made
+arbitrarily small while holding t fixed. No coupling trajectory is selected
+just to meet it.
+
+The character cutoff has a separate explicit error. Let m0=K+2 and
+z0=exp(-t*(2*m0+1)). The finite character sum representation gives
+|chi_n(theta)|<=n+1, including theta=0. Therefore
+
+    |H_t-H_(t,K)|<=exp(t-t*m0^2)
+       *[m0^2/(1-z0)+2*m0*z0/(1-z0)^2
+                                  +z0*(1+z0)/(1-z0)^3].
+
+Indeed (m0+l)^2>=m0^2+(2*m0+1)*l. If 0<t<=1 and m0>=2/t,
+the bracket is <=12*m0^2. On the same chart
+H_t^zw>=exp(t)*sqrt(pi)/(4*t^(3/2))*exp(-rho^2/(4*t)).
+With x=t*m0^2, use rho^2/(4*t)<=x/4 and x*exp(-x/2)<=1 to obtain
+
+    |H_t-H_(t,K)|/H_t^zw<=48*exp(-t*m0^2/4).
+
+For integer r>=1 and m0>=2*r/t, this is <=2^(6-r).
+Consequently the ACTUAL finite character prefix obeys
+
+    |H_(t,K)/H_t^zw-1|<=delta(t,rho)+2^(6-r).
+
+It is positive throughout the chart when this sum is <1. This does not
+assert positivity of that prefix on the discarded part of the group.
+
+The normalization cost is now explicit, rather than hidden in a partition
+constant. On a common domain D where all N face angles are <=rho, retain
+the SAME positive background and Haar factors and replace ONLY H_t^zw by
+H_t. Suppose the restricted normalizations are positive. Relative to the
+zero-winding normalized law nu, the density ratio before normalization is
+
+    h=product_(f=1..N)(1+r_t(theta_f)),
+    (1-delta)^N<=h<=1.
+
+If delta<=1/2 and 2*N*delta<=1, then for every real integrable insertion F
+
+    |E_(full,D) F-E_nu F|
+       <=[(1-delta)^(-N)-1]*E_nu |F|
+       <=4*N*delta*E_nu |F|.
+
+No independence of plaquettes and no equality of partitions is used.
+F may retain the literal supplied OLD center, which is NOT replaced by a
+mean of nu. For a witnessed positive P0=E_nu F and C>=E_nu|F|/P0,
+the relative response error is <=4*N*delta*C. For two own normalized
+windows, take common caps N,C. If that error is <=epsilon<=1/2, their
+scale-weighted logarithmic-ratio error is <=4*s*epsilon. Thus the actual
+consumer asks for 16*s*N*C*delta<=eta, not merely delta<<1. Its P0,C are
+for the ZERO-WINDING interacting restricted law, not the previously
+constructed Gaussian floor; substituting the latter is still unpaid.
+
+This also exposes the remaining obstruction to a global-density approach:
+N grows with the time horizon/volume. The bound is not uniform over the
+larger OWN horizons allowed by the FREE reference terminal theorem.
+Increasing a character cutoff removes its own tail but does not remove
+this fixed-t winding cost. One still needs a localized connected comparison
+or controlled original mixing/terminal estimate, discarded large-field
+contributions, nonlinear section/Jacobian/source matching and the complete
+relative nonperturbative remainder. The small-field law is not declared
+equivalent to the unrestricted original law.
+
+Source boundary: `pointwiseHeatCReal:377` /
+`pointwiseHeatCReal_approx:396` in
+`lean/YMGap/Continuum/SU2PointwiseHeatSpacingCompletion.lean` already build
+the full rational-class-coordinate heat series; the exact relation to the
+differentiated Jacobi series is
+`nomeScaledPointwiseHeatCReal_equiv_dSeriesCReal:189` in
+`lean/YMGap/Continuum/SU2PointwiseHeatPositiveCompletion.lean`.
+No heat Poisson/modular-inversion theorem was found in those modules,
+`JacobiDifferentiatedIdentityOnBox.lean`, `JacobiModularCReal.lean`, or
+`CircleFourierPowerModel.lean`. JacobiModularCReal explicitly constructs a
+theta SERIES, not its modular transform. The angular/CReal bridge and the
+quantitative Fourier proof above remain formalization obligations. No
+assumptive Poisson interface or general measure library is added.
+
+### The contact and retained quartic form a negative Gram square (PAPER)
+
+Use the SAME positive color-diagonal Gaussian precision L, C=(1/2)*L^(-1),
+F_x=DZ_x, and S_x=C^(1/2) * d^* * F_x * C^(1/2). These finite positive square
+roots use the already explicit reference modes. Homogeneity gives
+F_x*a=F_a*x. Color antisymmetry gives E[Z(a)]=0. The second-chaos
+quadratic coefficient of the RETAINED quartic 16<Z,R_L Z> is therefore
+
+    16*Tr(C * F_x^* * F_x)-32*||S_x||_HS^2,
+
+since R_L=I-2*d*C*d^*. The matrix-square part of J_contact equals
+-32*Tr(S_x^2). Combining the two, rather than assigning a sign to that
+contact alone, gives the exact identity
+
+    q_pair(x)=16*Tr(C * F_x^* * F_x)-64*||sym(S_x)||_HS^2.
+
+Here ||S||_HS^2+Tr(S^2)=2*||sym(S)||_HS^2. These are coefficients of
+Wick-centered quadratic polynomials. Only their scalar means disappear
+under normalized covariance; no field-dependent local term is discarded.
+The fourth-chaos part of 16<Z,R_L Z> is still present.
+
+For the stationary open-cube reference define, for deterministic spatial x,
+
+    G_x(a)=<d*a,DZ_x*a>,
+    K_tau(x,y)=E[G_x(a_tau)*G_y(a_0)].
+
+G_x is pure quadratic chaos by the same color trace. Its explicit finite
+mode expansion has positive Laplace weights with rates omega_r+omega_q,
+so K_tau is a positive Gram form, even in tau. The nonlocal quadratic
+kernel in q_pair is EXACTLY B_tau=-32*K_tau. The remaining local quadratic
+is
+
+    q_loc(x)=16*E||DZ_x*a_0||^2
+                   +4*Tr_H(Kcurl_0*D Dbar(x)).
+
+The second term evaluates the derivative of the cubic Dbar at x; it is not
+an expected Hessian. Kcurl_0=2*C_A(0)*d^* is its same-time block.
+
+The earlier covariance envelopes now give a SIGNED temporal estimate.
+There are six current types (three orientations, two factors varied).
+For each type the cross-product Wick bound costs at most
+4*diag(C_undifferentiated)*||C_curl||. Keeping the conservative midpoint
+operator/row-sum bounds <=2 costs another factor 16. The positive Gram
+Cauchy--Schwarz estimate on six types therefore gives
+
+    0<=K_tau<=2^22*(1+|tau|)^(-3)*exp(-|tau|/(2*W))*I,
+
+because 6^2*64*1792=4128768<2^22. No additional boundary norm sharpening
+is needed. Let b=ceil(log2 W), eta(theta)=4*sin(theta/2)^2. The earlier
+explicit dyadic time sum and 2*(1-cos(t*theta))<=t^2*eta(theta) yield
+
+    0<=Bhat(theta)-Bhat(0)<=2^27*(b+2)*eta(theta)*I.
+
+Retain the already Ward-equivalent COMPLETE physical insertion, including
+the kinetic/Haar quadratic-chaos coefficients V_exp,T_exp. Its quadratic
+symbol is
+
+    Qhat(theta)=V_exp+Q_loc+eta(theta)*T_exp+Bhat(theta).
+
+Thus eta*T_exp <= Qhat(theta)-Qhat(0)
+<= eta*(T_exp+2^27*(b+2)*I). The earlier ||T_exp||<=150+512*b gives
+
+    ||Qhat(theta)-Qhat(0)||<=2^28*(b+2)*eta(theta).
+
+T_exp and Qhat are action coefficients, NOT the original transfer operator.
+This logarithmic compensated bound says nothing by itself about Qhat(0).
+
+The quadratic part has an exact consumer in the OLD response. For leading
+source matrices A,B on the common finite Gaussian history carrier, put
+A2=a^T*A*a, B2=a^T*B*a, delta_A=E[A2]-c2, delta_B=E[B2]-c2. Then
+
+    Cov((A2-c2)*(B2-c2), :a^T*Q*a:)
+      =8*Tr(C*A*C*B*C*Q)
+          +2*delta_A*Tr(C*B*C*Q)+2*delta_B*Tr(C*A*C*Q).
+
+Finite Wick pairing proves this identity, retaining both OLD corrections.
+The complete P6 still contains BOTH twice-dressed fourth-order sources,
+the dressed cubic product and the fourth-chaos action insertion. Its
+zero-frequency/static combination and normalized neighboring increment
+remain OPEN. A negative Gram action term alone gives no sign to that
+ratio. This is an exact finite reduction plus a stationary PAPER bound,
+not original H1, every-state decay or a nonperturbative remainder theorem.
+
+### Infrared route screen: quantitative strong-coupling domain (SOURCE/PAPER)
+
+The separate IR review identifies a precise domain boundary. Put
+delta_sc=128*w^3. The existing original width-uniform strong-coupling
+theorem requires
+
+    32*w^3<=1/2, delta_sc<1,
+    625*(2*delta_sc+delta_sc^2)/(1-delta_sc)^48<1.
+
+Source definitions: `heatRatio:80` / `heatRemainderBound_eq:85` in
+`lean/YMGap/Continuum/QuaternionHaarCharacterInterval.lean`,
+`pairedHeatRate_eq:47` in
+`lean/YMGap/Continuum/BF4ExactSlabConnectedCoefficientBound.lean`,
+`inverseFaceFloor:41` / `adjustedCoreRate:47` /
+`one_le_inverseFaceFloor:53` in
+`lean/YMGap/Continuum/BF4ExactSlabCollarAdjustedRate.lean`, and
+`entropyRate:58` in `lean/YMGap/Continuum/FiniteSizeGeometricSum.lean`.
+The final guard implies the simpler NECESSARY inequality
+
+    160000*w^3<1,
+
+by dropping the nonnegative square and using the reciprocal factor >=1.
+This rational consequence is PAPER here. More directly, the existing
+`not_heatRatio_le_half_afNome:1373` in
+`lean/YMGap/Continuum/BF4WilsonAllNomeRGStepComposition.lean` ALREADY proves
+that the current AF nome schedule fails even the first guard at every
+scale. No new proof of that exclusion is needed.
+
+The valid guarded conclusion remains the genuine OS completed bound
+<x,T^2*x><=(1/16)<x,x> and ||T*x||^2<=(1/16)||x||^2:
+`sc_completed_twoStep_form_gap:404`, `sc_oneStep_norm_gap:422`, and
+`allNome_strongCoupling_vacuumSq_all_widths:443` in
+`lean/YMGap/Continuum/BF4WilsonAllNomeStrongCouplingUniformRate.lean`.
+Its proof spine uses scalar Haar comparison and absolute connected-cluster
+bounds, not a favorable nonabelian commutator term. The SU(2) carrier and
+character realization are real; extrapolating the guarded estimate to
+w near one, not its validity at small w, is the unsupported step.
+
+The candidate coarse-action join is also concrete:
+`approxRg_transfers_twoStep_factor:415` in
+`lean/YMGap/Continuum/BF4WilsonAllNomeRGStepComposition.lean` transfers
+a SUPPLIED comparison to the factor kappa*(r_C^2+epsilon). For r_C=1/4,
+strict contraction requires kappa*(1/16+epsilon)<1. Its
+`ApproxRgIntertwiner:325` compares two Wilson-family carriers; this does
+not construct a blocked original action or prove that induced interactions
+lie in a stable massive domain. No such physical instance is supplied by
+this screen. Proceed with that original-action domain/comparison problem,
+not tuning the old small-nome constants or adding center symmetry as a
+universal hypothesis. SAME-clock scaling remains separate.
+
+Verification: ROOT derived the heat/cutoff/normalization estimates and
+checked the contact Gram algebra and source pins. Independent bounded
+reviews checked the scalar heat normalization, endpoint, sign, constants,
+cutoff indexing, contact identity and temporal estimate. The temporal
+constant was conservatively corrected to 2^22 for K_tau (2^27 for B)
+using the existing <=2 midpoint bounds. A separate source review screened
+the IR guard and conditional RG consumer. All new analysis is PAPER;
+no Lean file, axiom, `sorry`, CI setting, protected user file or canonical
+chart state changed. The complete Clay goal remains ACTIVE.
+
+Final integrated two-file review PASS by both mathematical reviewers,
+including the quantitative Fejer uniqueness estimate and OWN-window log
+budget. The work-plan summary now explicitly retains 0<t<=1 and the
+normalization small-error guards, matching the full audit. `git diff --check`
+passes; no compiler or whole-repository axiom audit was run.
