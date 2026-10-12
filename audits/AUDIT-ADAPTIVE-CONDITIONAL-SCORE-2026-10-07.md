@@ -22847,3 +22847,211 @@ new bounds are PAPER, not a Lean theorem or full-tree audit. `git diff
 --check` passes; only this audit and work_plan.md change. No Lean build,
 axiom/sorry, CI, canonical chart or protected user file changes. The unchanged
 whole-project Clay goal remains ACTIVE.
+
+### Curvature transport cancels the spatial square with its cubic partner (PAPER)
+
+2026-10-12 UTC. Previous checkpoint 1047ea55 was PROGRESS: it supplied the
+complete spatial current's compensated temporal-curvature estimate and a
+direct OLD-centered normalization identity. The next test is its unpaid
+static/quartic/source join. The following is an exact coefficient reduction
+on the SAME finite Gaussian reference, not a new original measure or a
+supplied bare-field softness assumption. All kinetic, density and OLD terms
+remain in the complete P6 consumer.
+
+First recenter the logarithm of the SAME plaquette word. For its four directed
+slots v1,...,v4 retain B,C,D3 from the ordered exponential expansion and set
+
+    Lface=(3v1+v2-v3-3v4)/4,
+    Cbar=C-Lface cross B=2Z,
+    Dbar=D3-Lface cross C+(1/2)*Lface cross (Lface cross B).
+
+This is the coefficient algebra of an adjoint rotation of the face logarithm.
+Its norm, and hence the trace coefficient, is unchanged. It is NOT a change
+of edge variables and introduces no new measure/Jacobian substitution.
+Direct expansion gives the exact actual spatial action quartic
+
+    Q4_exp=4*|C|^2+8*B dot D3=16*|Z|^2+8*B dot Dbar.
+
+The square coefficient is 16, not 4: V3=8*B dot Z is the cubic term of
+|B+4eps*Z|^2. The separate heat quadratic -(2/3)|B|^2 is not part of Q4_exp
+and stays in its previously assigned kinetic/potential bookkeeping.
+
+There is a more useful choice of the earlier Gaussian IBP transport. Write
+d for spatial curl on the complete internal open cube (slice by slice for
+a finite history), and let L be the SAME positive color-diagonal Gaussian
+precision with Ctime=(1/2)*L^(-1). Put
+
+    Y=4*L^(-1)*d^*Z=8*Ctime*d^*Z, U_Y=Y dot grad.
+
+All spatial/time operators act identically on each color. Contracting a
+color derivative of the bilinear cross product repeats an index of its
+alternating tensor; hence div(Y)=0, including on the transverse carrier.
+The Gaussian logarithmic density then gives
+
+    delta_G(Y)=2<a,L Y>-div(Y)=8<d a,Z>=V3,
+    E[V3*F]=E[U_Y F].
+
+The derivation does not assert existence of a global nonlinear flow or an
+original change of variables. The COMPLETE OLD-centered P4/P5/P6 formulas
+in the preceding subsection apply with this U_Y in place of the previous U.
+In particular BOTH source transports and the OWN partition subtraction stay.
+
+Let P_L(Z)=d(L^(-1)(d^*Z)) and R_L=I-P_L.
+Then differentiating the total V3, including every face/time term, yields
+
+    (1/2)*U_Y V3=16<Z,P_L Z>+4<B,DZ[Y]>,
+    sum Q4_exp-(1/2)*U_Y V3
+       =16<Z,R_L Z>+8<B,Dbar>-4<B,DZ[Y]>.
+
+This is the actual square/cubic cancellation; no facewise-independent
+bubble is substituted. Positivity 0<=P_L<=I needs L>=d^*d, not merely L>0.
+It holds for the stationary reference L=Lambda+eta(theta), and for the
+full-spatial-per-slice finite free chain L=Dt^*Dt+Lambda with any further
+nonnegative boundary quadratic. The stationary reference restricted to a
+finite interval also qualifies: its vacuum endpoint precision adds
+sinh(omega)>=lambda/2 to the half-spatial endpoint weight. A finite product
+of symmetric half-spatial kernels WITHOUT those endpoint factors need not
+qualify. For example its two endpoints have only lambda/2 on a constant-time
+direction. Retain L>=d^*d explicitly for any other covariance; the algebraic
+identities themselves require only L>0.
+Even when positive, <Z,R_L Z> need not vanish, and its connected insertion
+has no automatic sign. J2, kinetic quartics and the common heat quadratic
+remain in W=V4-J2 in the FULL response.
+
+### Exact centered Bianchi residual and the remaining quartic derivative (PAPER)
+
+The static complement has a concrete formula on the COMPLETE internal open
+cubical reference, without invoking an unconstructed topological witness.
+Let d2 take faces to cubes and Lambda=d^*d on transverse edges. Define
+
+    P0(Z)=d(Lambda^(-1)(d^*Z)), R0=I-P0,
+    L3(c)=d2(d2^*c),
+    R0(Z)=d2^*(L3^(-1)(d2Z)).
+
+In the explicit tensor-product modes, d and d2 are wedge multiplication by
+sigma and their adjoints are contraction. The finite identity
+i_sigma*(sigma wedge)+(sigma wedge)*i_sigma=lambda*I proves the displayed
+projection formula. Every top-form mode has three positive frequency
+indices, so L3 is invertible, with lambda>=12/W^2. No periodic zero mode or
+selected-face complex is substituted for this open complex.
+
+Write A_i for the midpoint average in coordinate i and use cyclic indices
+(i,j,k)=(1,2,3),(2,3,1),(3,1,2). The already centered bilinear Z satisfies
+the EXACT lattice Bianchi identity
+
+    d2 Z=-sum_cyclic (A_j A_k a_i) cross (A_i B_jk).
+
+For example d1 Z23=(A1 A3 a2) cross (A2 d1 a3)
+                  -(A1 A2 a3) cross (A3 d1 a2).
+Sum this and its two cyclic versions. Different-coordinate differences
+and averages commute, so terms combine into B_jk=d_j a_k-d_k a_j exactly.
+No continuum approximation or discarded quadratic term is used. Therefore
+
+    <Z,R0 Z>=<d2Z,L3^(-1)*d2Z>.
+
+This makes the remaining static square a product of potentials and curls,
+with its inverse explicitly retained. The inverse norm can grow as W^2;
+the identity alone does not pay a relative-response or spatial soft bound.
+
+The other local quartic also has a real derivative gain. For the physical
+face slots (u,v,-w,-z) put
+
+    U=(u+w)/2, V=(v+z)/2, p=w-u, q=v-z,
+    S=|U|+|V|+|p|+|q|, delta=|p|+|q|.
+
+Then B=q-p, Z=U cross V, Lface=U+V-(p+q)/4. At p=q=0 the actual
+commutator word has D3=2*(U+V) cross (U cross V), giving Dbar=0. An explicit
+multilinear estimate strengthens that degeneracy test to
+
+    |Dbar|<=24*S^2*delta, |B dot Dbar|<=24*S^2*delta^2.
+
+For details, appending a directed factor v to the normalized logarithm gives
+B'=B+v, C'=C+B cross v, and
+D'=D+C cross v+(B cross (B cross v)+v cross (v cross B))/3.
+The four-factor cubic has nested-cross coefficient mass at most 32/3.
+Each slot differs from (U,V,-U,-V) by at most delta/2; telescoping the
+three factors of each monomial bounds |D3-D3_0| by 16*S^2*delta.
+Also |C-C_0|<=6*S*delta, |Lface-Lface_0|<=delta/4, and |Lface|<=S.
+Thus the change in Lface cross C is at most (13/2)*S^2*delta and the
+remaining half-double-cross term at most (1/2)*S^2*delta. Their total is
+23*S^2*delta, safely bounded by 24*S^2*delta.
+Here p and q are actual component differences, not independent mass terms.
+These derivative factors may still be Wick-contracted internally; they
+must not be relabeled as an external soft factor without further proof.
+
+### The SAME dressed trace-deficit source and its profile commutator (PAPER)
+
+The source coefficients here belong to the trace DEFICIT 2-chi_1, not chi_1
+itself. The actual source pin is
+`lean/YMGap/Continuum/BF4ExactSlabPlaquetteCayleyExpansion.lean:508`,
+`plaquetteWord_cayley_cleared`, and `:529`,
+`original_plaquette_cayley_cleared`. The exponential coefficients use the
+previously matched PAPER coordinate change; those Lean declarations do not
+already prove that exponential change or its original-measure comparison.
+For a scalar spatial face profile h, the recentered trace coefficients are
+
+    A2=4*sum h*|B|^2,
+    A3=32*sum h*(B dot Z),
+    A4=64*sum h*|Z|^2+32*sum h*(B dot Dbar)
+                                -(4/3)*sum h*|B|^4.
+
+Let Q=DZ[Y]. Directly applying the SAME U_Y, using dY=4P_L Z and
+U_Y Y=4L^(-1)d^*Q, gives the full source transports
+
+    A3-U_Y A2=32*sum h*(B dot R_L Z),
+    A4-U_Y A3+(1/2)*U_Y^2 A2
+       =64*sum h*|R_L Z|^2+32*sum h*(B dot Dbar)
+          -16*sum h*(B dot (I+R_L)Q)-(4/3)*sum h*|B|^4.
+
+No multiplication by h has been commuted through P_L. These identities
+hold for arbitrary signed h and retain both dressed sources in P6. The
+supplied OLD c2,c3,c4 are subtracted unchanged after these transports;
+they are not reset to reference means.
+
+For the stationary history, the exact face-mode decomposition is
+
+    R_L(theta)=R0+[eta(theta)/(lambda+eta(theta))]*P0,
+    eta(theta)=4*sin(theta/2)^2.
+
+R0 is the time-local spatial complement; the second term is a nonlocal
+temporal operator on the composite Z. Only the R0 portion of the cubic
+source has the following cancellation:
+
+    <hB,R0 Z>=<d2(hB),L3^(-1)*d2Z>.
+
+It is zero for a spatially constant scalar h, since d2B=0. It does NOT
+make the complete dressed finite-lag observable zero: the displayed
+temporal term remains, and a finite original history is not stationary.
+
+For a common base-sampled h in all three face orientations the source
+gradient is especially explicit. On each cube x,
+
+    d2(hB)(x)=sum_cyclic [h(x+e_i)-h(x)]*B_jk(x+e_i).
+
+Subtract h(x)*d2B(x)=0 from the signed upper-minus-lower face sum. This
+gives the UPPER-face B in the formula, not an unqualified midpoint average.
+If h has a cutoff boundary, its jumps remain in the same difference.
+For arbitrary staggered face weights retain d2(hB) itself, or specify a
+cube multiplier h3 and the exact commutator d2*h-h3*d2; the choice of h3
+drops out on B. A small profile difference by itself does not control the
+top-form inverse or the temporal term.
+
+Decision: CONTINUE with this explicit recentered residual and the TWO
+dressed sources, alongside the retained kinetic/Haar/heat terms, in the
+complete OLD-normalized P6. Do not estimate the canceled 16|Z|^2 and its
+cubic partner separately. Next quantitative input is their connected
+contraction, keeping the profile difference, inverse kernel and temporal
+remainder together, to bound the neighboring increment of COMPLETE P6/P4
+on the existing source/BOX family. No original H1, denominator-relative nonperturbative
+remainder, finite-terminal comparison, physical calibration, every-state
+gap, continuum/QFT or all-groups construction is supplied by these identities.
+
+Checkpoint verification: ROOT read the full two-file diff and original
+trace-deficit pins. Two bounded independent mathematical reviews checked
+every displayed identity, the explicit derivative constant and source
+normalization. Their finite-endpoint precision caveat is retained above:
+half-spatial kernels without vacuum endpoints do not inherit L>=d^*d.
+`git diff --check` passes. All additions are PAPER; no Lean build/theorem,
+axiom/sorry, CI, canonical chart or protected-file change is claimed. The
+opening work plan and goal-mode instruction 11 record the new reduction and
+remaining connected estimate. The unchanged whole-project goal stays ACTIVE.

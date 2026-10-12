@@ -121,6 +121,24 @@ Execution order:
    external-curl AA split or impose bare-field softness as a new target.
    Uniform spatial action coefficients are essential to the current estimate;
    source test gradients and finite original terminal laws are not discarded.
+   NEW PAPER static/source join: recentering the SAME face logarithm writes
+   Q4_exp=16|Z|^2+8 B dot Dbar. The color-divergence-free Gaussian transport
+   Y=4 L^(-1) curl^* Z cancels its square against the TOTAL cubic pair,
+   leaving 16<Z,R_L Z>+8<B,Dbar>-4<B,DZ[Y]>. The exact centered lattice
+   Bianchi identity expresses its static complement via the top-form inverse
+   acting on A cross B. Also |Dbar|<=24*S^2*(|p|+|q|), with p,q actual
+   component differences; Wick contractions still need their signed join.
+   For the SAME trace-deficit source, its dressed cubic is
+   32<hB,R_L Z>. The spatial-complement part vanishes at constant h and,
+   for the actual common base-sampled profile, exposes h(x+e_i)-h(x).
+   Both complete source transports are recorded in the adaptive-score audit.
+   NEXT: estimate their connected contribution with the retained
+   kinetic/Haar/heat terms, top-form inverse, temporal remainder and OLD
+   normalization. The inverse's width dependence and original finite-terminal
+   comparison are still OPEN; the canceled square is not a new estimate to pay.
+   Complement positivity requires L>=curl^*curl: retain full spatial weight
+   per slice or the actual stationary-vacuum endpoints, not bare half-spatial
+   kernels. The algebraic transport alone needs only positive L.
    A pair's two Haar densities are NOT half densities of a conjugated
    transfer kernel or two densities per chain step. Ambient Haar restricted
    to a transverse subspace is NOT the section density. This is
@@ -25053,6 +25071,12 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
     with the actual quartic/kinetic/source corrections; preserve the OWN
     denominator and finite-terminal/original-remainder obligations. No
     nonconstant face-action extension or stationary original-law pin follows.
+    Use the new curvature-based IBP transport to keep the spatial quartic
+    square and TOTAL cubic partner together. Its static Bianchi remainder
+    and trace-deficit source transports are explicit; a constant-profile
+    spatial-complement cancellation is not vanishing of the full temporal
+    response. Preserve the actual profile differences, inverse kernel,
+    kinetic/density partners and unchanged OLD coefficients in the next bound.
     Do not restart fixed-carrier completion/time/logarithm machinery. Bounded
     engineering estimates are not a deadline for an unsolved mathematical input.
 
