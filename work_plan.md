@@ -134,11 +134,23 @@ Execution order:
    Both complete source transports are recorded in the adaptive-score audit.
    NEXT: estimate their connected contribution with the retained
    kinetic/Haar/heat terms, top-form inverse, temporal remainder and OLD
-   normalization. The inverse's width dependence and original finite-terminal
+   normalization. The complete connected estimate and original finite-terminal
    comparison are still OPEN; the canceled square is not a new estimate to pay.
    Complement positivity requires L>=curl^*curl: retain full spatial weight
    per slice or the actual stationary-vacuum endpoints, not bare half-spatial
    kernels. The algebraic transport alone needs only positive L.
+   NEW quantitative PAPER payment: the dressed STATIC cubic self-term
+   F0=32<hB,R0Z> obeys R00(s/2)<=2^49/s^2 at stiffness one, uniformly in
+   W=s^2+1. Keeping R0 inside the Wick/Gram contraction avoids the separate
+   W^2 inverse bound. Its SAME-BOX neighboring P4-normalized increment is
+   <=2*J_static*(1+K_(m+1)), J_static=2^104*3^(100+16m).
+   The static--dynamic cross terms and all remaining P6 partners stay OPEN.
+   The full-spatial finite Gaussian terminal/covariance is now explicit;
+   n=W*(270+32*m+5*j+p) controls its leading SAME-source reference OLD-center
+   P4 error by 2^(-p) relative to the stationary floor, retaining each OWN
+   horizon. This pays only the leading FREE comparison. NEXT: the remaining
+   joint dynamic/quartic/action response estimate and its finite higher-order
+   terminal correction; original chart/center/remainder matching is still OPEN.
    A pair's two Haar densities are NOT half densities of a conjugated
    transfer kernel or two densities per chain step. Ambient Haar restricted
    to a transverse subspace is NOT the section density. This is
@@ -25077,6 +25089,12 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
     spatial-complement cancellation is not vanishing of the full temporal
     response. Preserve the actual profile differences, inverse kernel,
     kinetic/density partners and unchanged OLD coefficients in the next bound.
+    The static cubic SELF relative estimate is now paid at PAPER level by
+    keeping its norm-one projection inside the full Wick contraction. Do not
+    reopen a separate W^2 inverse bound for that term. Use the explicit finite
+    free terminal and leading-center modulus, while retaining its reference-only
+    scope: dynamic cross terms, higher-order finite terminals and ORIGINAL
+    center/chart/remainder matching are not consequences of the P4 comparison.
     Do not restart fixed-carrier completion/time/logarithm machinery. Bounded
     engineering estimates are not a deadline for an unsolved mathematical input.
 

@@ -23055,3 +23055,208 @@ half-spatial kernels without vacuum endpoints do not inherit L>=d^*d.
 axiom/sorry, CI, canonical chart or protected-file change is claimed. The
 opening work plan and goal-mode instruction 11 record the new reduction and
 remaining connected estimate. The unchanged whole-project goal stays ACTIVE.
+
+### Uniform relative bound for the dressed static cubic self-term (PAPER)
+
+2026-10-12 UTC. Previous checkpoint 503bcc45 was PROGRESS: it paired the
+spatial quartic square with the cubic action and exposed the dressed source.
+The present quantitative test uses that actual source, retaining its static
+projection INSIDE the Gaussian contraction rather than separating a growing
+top-form inverse. The consumer is the static-self contribution to COMPLETE
+P6/P4; dynamic cross terms, OLD coefficients and other action/source terms
+are still required. No new assumptive interface or compiler is selected.
+
+Use the SAME stationary, stiffness-one reference (a0=1/4), internal cube
+W=s^2+1, s=2^j>=2, and 0<=h<=1 on at most 3s^3 faces. Let U and V be the
+two opposite-edge averaging maps defining Z=U(a) cross V(a), over ALL face
+orientations. They have operator norm <=2 and absolute row sums <=2.
+Define the local-time static part of the actual dressed cubic source
+
+    F0(a)=32<h B(a),R0 Z(a)>,
+    R00(t)=E[F0(a_t)*F0(a_0)].
+
+Color antisymmetry kills every internal Wick contraction, so F0 is pure
+third chaos and mean zero. Its covariance is a finite positive Laplace sum.
+The spatial projection R0 is self-adjoint and has norm <=1; it need not
+commute with the potential covariance or with h.
+
+Here is the estimate that avoids the inverse-kernel loss. Write C_U(t),
+C_V(t), C_B(t) for the one-color cross-time covariance matrices and let
+D_t=C_U(t) circ C_V(t), an entrywise Gram product. Ordered cubic tensor
+symmetrization has factor at most 3!=6, and the alternating color tensor
+has six nonzero entries. Contracting the B legs together in that tensor
+therefore gives
+
+    0<=R00(t)<=36*32^2*Tr(h C_B(t) h R0 D_t R0)
+             <=36*32^2*||D_t||*Tr(h C_B(t) h).
+
+The first inequality bounds ALL six Wick permutations by the unsymmetrized
+tensor norm; it does not discard mixed pairings. D_t is positive semidefinite,
+so R0 D_t R0<=||D_t||*I without a commutation assumption. No positivity of
+individual cross-face determinant terms is used.
+
+The AA loop operator has a uniform 1/t bound. Split the finite positive
+potential modes into dyadic frequency bins R=2^r,Q=2^q as before. After
+the two averaging maps, the finite Schur/Gram estimate is
+
+    ||(C_U)_R circ (C_V)_Q||
+       <=128*min(R^2/(W Q),Q^2/(W R))*exp(-t*(R+Q)/(2W)).
+
+For fixed Q the R<=Q sum is at most (512/3)*Q/W, while the R>Q sum is
+at most 128*Q/W. Retain exp(-t*Q/(2W)) in both bounds. The disjoint intervals
+[Q/2,Q] give
+
+    sum_Q (Q/W)*exp(-t*Q/(2W))<=4/t,
+    ||D_t||<=(3584/3)/t<2^11/t.
+
+This uses only the existing finite-mode component bounds and an explicit
+positive scalar integral majorant; no translation-invariant or infinite
+spatial lattice has replaced the open cube. The magnetic diagonal bound
+for 1<=t<=W gives
+
+    Tr(h C_B(t) h)<=3s^3*(73728/t^4)=221184*s^3/t^4.
+
+Consequently
+
+    R00(t)<=2^44*s^3/t^5, R00(s/2)<=2^49/s^2.
+
+Indeed 36*32^2*2^11*221184=2^36*3^5<2^44. The support volume and the
+projection contraction are essential; a separate ||L3^(-1)|| bound would
+not prove this width-independent result.
+
+Use the SAME nonnegative normalized BOX at both ends, with offsets in
+[0,m*s], fixed m>=1. For any supplied FIXED leading OLD center c2, the
+stationary leading denominator is P4(t)=R4_BOX(t)+(E[A2]-c2)^2. The earlier
+free floor at all relevant lags is
+
+    P4(t)>=2^(-55)*3^(-(100+16m))/s^2, t in [s,s+1].
+
+Positive Laplace monotonicity and the bound at s/2 yield
+
+    R00_BOX(t/2)/P4(t)<=J_static,
+    J_static=2^104*3^(100+16m).
+
+The existing P4 doubling constant is K_(m+1), with
+K_l=2^71*3^(86+16l). Differentiating the two finite Laplace sums and then
+integrating only over [s,s+1] gives the actual relative endpoint estimate
+
+    |s*Delta(R00_BOX/P4)|<=2*J_static*(1+K_(m+1)).
+
+Here Delta is the value at s minus the value at s+1. Multiplication by
+eps^2*r0, r0=P4(s+1)/P4(s)<=1, gives the corresponding bound on THIS part
+of the second-order PRIMARY coefficient. This does not include the constant
+OLD c3, the F0--dynamic cross contribution, dressed quartic sources or
+the complete action insertion. The full temporally nonlocal dressed source
+is not asserted to be a local-time positive Laplace observable. ROOT and
+independent tensor/bin/constant/OLD-denominator review agree; this is PAPER.
+
+### Finite free-chain terminals and an explicit leading-center depth (PAPER)
+
+The finite Gaussian comparison can also be constructed instead of assuming
+stationary endpoints. Work first in ONE positive mode lambda>0 and one color at stiffness one,
+with the literal full-spatial-per-slice reference action
+
+    S_T=sum_(t=0)^(T-1) (a_(t+1)-a_t)^2+lambda*sum_(t=0)^T a_t^2.
+
+Put ell=T+1, r=exp(-omega), lambda=r+r^(-1)-2, M=1/(4*sinh omega).
+For T>=1 its precision L_T has endpoint diagonal 1+lambda, interior
+diagonal 2+lambda and off-diagonal -1. For T=0 the sole diagonal is lambda.
+Solving this tridiagonal recurrence gives the exact SAME-horizon covariance
+
+    C_T(i,j)=M*[r^|i-j|+r^(2ell-|i-j|)
+                    +r^(i+j+1)+r^(2ell-i-j-1)]/(1-r^(2ell)).
+
+The formula also covers T=0. The four terms and denominator retain the
+two free endpoints; no vacuum factors have been silently inserted. The
+determinant and unnormalized partition, in this one-mode convention, are
+
+    det L_T=((1-r)/(1+r))*r^(-ell)*(1-r^(2ell)),
+    Z_T=pi^(ell/2)/sqrt(det L_T).
+
+The reference transfer Tf(y)=integral exp(-(x-y)^2-lambda*x^2)*f(x) dx
+has the exact finite terminal g_n(x)=c_n*exp(-u_n*x^2), where
+
+    u_n=(1-r)*(1-r^(2n))/(1+r^(2n+1)),
+    u_infty=1-r,
+    u_infty-u_n=(1-r^2)*r^(2n)/(1+r^(2n+1)),
+    c_n^2=(pi*r)^n*(1+r)/(1+r^(2n+1)).
+
+These formulas construct FREE reference terminals and their OWN constants.
+They are not identities for the original compact-Haar/heat g_n.
+
+If both i and j are at distance at least n from the two endpoints, direct
+subtraction of the stationary covariance gives, modewise,
+
+    0<=C_T(i,j)-M*r^|i-j|
+          <=4*M*r^(2n+1)/(1-r^(2ell)).
+
+On the same open cube W>=2, the explicit modes give
+omega>=sqrt(lambda)/2>=1/W. Hence r<=1-1/(2W) and r^(2W)<=1/2 by the
+elementary Bernoulli bound. For integers k>=1, n>=W*k, the last estimate
+is at most 8*M*2^(-k), uniformly over all larger OWN horizons. The tensor
+mode construction scales this by 4*a0 for general reference stiffness.
+Thus the one-color curl covariance error has operator norm <=16*a0*2^(-k).
+Modewise positivity is an operator comparison in the spatial mode basis;
+individual spatial matrix entries need not be nonnegative.
+
+Keep the same A2=4*sum h*|B|^2, three colors, 0<=h<=1 and at most 3s^3
+faces. Write e=2^(-k). The stationary curl covariance has norm <=2*a0.
+The actual finite mean and connected quadratic response therefore obey
+
+    0<=E_T[A2]-E_infty[A2]<=576*a0*s^3*e,
+    0<=R4_T(i,j)-R4_infty(|i-j|)<=92160*a0^2*s^3*e.
+
+For the second bound use R4=96*Tr(h C_B h C_B), the positive modewise
+cross-covariance error, h>=0, and its norm <=16*a0*e. No equality of
+partitions is required. For reflection-symmetric placements n,n+d in
+horizon 2n+d, the two means coincide; hence their OLD-centered P4 is
+R4_T+(E_T[A2]-c2_old)^2 and is at least R4_infty.
+
+More generally suppose c2_old is ANOTHER constructed reference mean with
+the SAME source/modes and endpoint buffer at least n, for example its
+reference odd-window mean. All these means lie in the same interval above.
+Thus, also for nonsymmetric placements,
+
+    |P4_T(i,j)-R4_infty(|i-j|)|
+        <=a0^2*[92160*s^3*e+331776*s^6*e^2].
+
+The product of the two mean errors has been bounded in absolute value;
+it is not assumed positive in the nonsymmetric case. If each placement
+has the stated buffer, positive normalized BOX averaging preserves this
+absolute estimate term by term, with each term's OWN horizon/partition.
+
+Here is an explicit conservative depth modulus. For s=2^j>=2, fixed m>=1
+and precision p>=0, set
+
+    k=270+32*m+5*j+p, n=W*k.
+
+The existing stationary floor at every relevant lag <=(3+2m)*s is
+c_m*a0^2/s^2, c_m=2^(-51)*3^(-(100+16m)). Since
+1/c_m<=2^(251+32m), 92160<2^17 and 331776<2^19, substitution yields
+
+    |P4_T-R4_infty|<=2^(-p)*R4_infty,
+
+also after the SAME positive BOX averaging with the required buffer at
+each placement. For p>=1 this supplies a positive leading reference floor.
+The modulus is for the FINITE GAUSSIAN P4 and its constructed reference
+OLD center only. It does not identify the original center's Taylor
+coefficients or bound c4/P6, original terminal corrections or the uniform
+nonperturbative remainder. Conditional parity would give c3=0 for the
+matched finite Gaussian coefficient expansion, but is not an original c3
+pin. Those higher-order and original-law joins remain explicit.
+
+Decision: CONTINUE with the remaining static--dynamic source cross terms
+and complete dressed-quartic/action correction, using the paid static-self
+bound and explicit leading free-terminal modulus. Keep higher-order finite
+terminal corrections and the original chart/center/relative remainder as
+separate unpaid joins. No static inverse-norm detour is needed for the
+self-term just bounded. Goal-mode instruction 11 and the opening work plan
+record these quantitative inputs without changing the whole-project target.
+
+Checkpoint verification: ROOT inspected the full two-file diff and both
+mathematical derivations. Independent reviewers cross-checked the tensor
+factor, dyadic constants, OLD-leading ratio, finite-chain endpoints and
+partitions, and explicit depth modulus. Their distinction between symmetric
+and asymmetric OLD-mean errors is retained. `git diff --check` passes.
+All additions are PAPER; no Lean build, checked theorem, axiom/sorry, CI,
+canonical chart or protected user file changes. The full Clay goal stays ACTIVE.
