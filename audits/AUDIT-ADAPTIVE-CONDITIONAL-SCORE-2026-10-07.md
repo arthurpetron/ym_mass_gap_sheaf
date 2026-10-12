@@ -21557,3 +21557,462 @@ audit and opening work-plan instructions. The next original-energy screen
 has already returned its source-backed result: existing joins suffice, but
 only a constant-scale energy ceiling is available, leaving the 1/s mixed
 cancellation unpaid. Continue the complete OLD-centered signed response.
+
+### Cubic-source relative endpoint estimate (2026-10-12 UTC; PAPER)
+
+The previous checkpoint was PROGRESS: it updated the authoritative
+forward/backward execution plan and located the unpaid 1/s cancellation.
+This increment supplies a quantitative bound for ONE non-Gaussian source
+contribution to the complete reference R6, not an original H1 theorem.
+
+Use EXACTLY the finite open-cube Gaussian reference, source h and fixed
+nonnegative normalized BOX weights of "Finite open-cube Gaussian Wick
+doubling" above. Let s>=2 be even, W=s^2+1, m>=1 fixed, kappa_ref>0,
+a0=1/(4*kappa_ref). There are three independent color copies. Write the
+literal directed plaquette vectors as (a,b,-c,-d), B=sum_i v_i, and
+C=sum_(i<j) vi cross vj. The actual cubic source coefficient is
+
+    A3=sum_p h(p)*H3_p=16*sum_p h(p)*B_p dot C_p.
+
+This identification uses `H3:64` and `H3_dot_cross:122`,
+`lean/YMGap/Continuum/BF4ExactSlabPlaquetteCayleyExpansion.lean`.
+It retains the discrete curl B, not an unconstrained potential cubic.
+Define R33(t)=Cov_G(A3(t),A3(0)) and apply the SAME BOX filter at both ends.
+All internal contractions in each color-antisymmetric cubic vanish.
+Consequently A3 is pure third Gaussian chaos, and its autocovariance is a
+finite positive Laplace sum with energies omega_a+omega_b+omega_c. The
+positive weights are squared TOTAL signed source coefficients; individual
+cross-face determinant contributions need not be positive. R33 may be zero.
+
+For completeness, the same finite modes bound the one-color potential and
+curl covariance diagonals, for 1<=t<=W, by
+
+    C_A(t)_(l,l)<=1536*a0/t^2,
+    C_B(t)_(p,p)<=294912*a0/t^4.
+
+Each normalized edge or face component squared is <=8/W^3, with at most
+two transverse polarizations per triple. Put n=|k|_1. The number of triples
+with this n is <=3*n^2, omega>=n/(2W), sqrt(lambda)<=4*n/W,
+1/sinh(omega)<=2W/n and lambda/sinh(omega)<=4n/W.
+For a=t/(2W)<=1, geometric-series estimates give
+sum_(n>=1) n*exp(-a*n)<=4/a^2 and
+sum_(n>=1) n^3*exp(-a*n)<=96/a^4. Substitution yields the two constants.
+These are positive-time bounds; no ultraviolet equal-time bound is claimed.
+
+Color contraction gives
+Cov(det(X1,X2,X3),det(Y1,Y2,Y3))=6*det(C_cross).
+Its absolute value is <=36*C_B(t)*C_A(t)^2 when one field is a curl on
+each side; covariance Cauchy--Schwarz controls mixed edge/curl entries.
+There are six pair-cross terms per face, at most 3*s^3 source faces and
+0<=h<=1. Thus
+
+    0<=R33(t)<=2^45*3^10*a0^3*s^6/t^8,
+    R33(s/2)<=2^53*3^10*a0^3/s^2.
+
+The earlier one-color quadratic floor at (3+2m)*s is
+2^(-51)*3^(-(100+16m))*a0^2/s^2. The literal H2=4*|B|^2,
+with three colors, supplies an additional factor 48 in its autocovariance;
+discarding that factor is conservative. Let R4 be this literal quadratic
+source covariance and let R4_BOX be its SAME BOX response. For
+t in [s,s+1], monotonicity therefore yields
+
+    R33_BOX(t/2)/R4_BOX(t)<=J_m*a0,
+    J_m=2^104*3^(110+16m),
+    R4_BOX(t/2)<=K_(m+1)*R4_BOX(t),
+    K_n=2^71*3^(86+16n).
+
+For the SAME stationary source/BOX and any supplied FIXED leading OLD
+center c2, put delta=E_G(A2)-c2. Its leading denominator is
+P4(t)=R4_BOX(t)+delta^2. It is positive and nonincreasing, and has the
+same doubling bound because K_(m+1)>=1. This is a statement about the
+leading reference denominator, not an identification of the original center.
+Finite positive Laplace sums obey
+|R33_BOX'(t)|<=2*R33_BOX(t/2)/t and
+|P4'(t)|<=2*K_(m+1)*P4(t)/t. Quotient differentiation and integration
+over ONLY [s,s+1] give
+
+    |s*Delta(R33_BOX/P4)|<=2*J_m*a0*(1+K_(m+1)).
+
+Here Delta is value at s minus value at s+1. In the COMPLETE ratio
+expansion in `AUDIT-FORWARD-BACKWARD-CLAY-2026-10-11.md`,
+r0=P4(s+1)/P4(s)<=1. Therefore the cubic SELF term's contribution to
+the second-order PRIMARY coefficient satisfies
+
+    |e^2*s*r0*Delta(R33_BOX/P4)|
+      <=2*e^2*J_m*a0*(1+K_(m+1)).
+
+No positive lower bound on R33 was used. Fixed m is essential; arbitrary
+growing BOX depth is not covered. The other R6 terms, P5 and the OLD
+c3/c4/mean corrections are not discarded or paid by this estimate.
+
+Normalization guard: the earlier unscaled exponential-coordinate HEAT
+Hessian has kappa_H=H'(1)/(2H(1)). For Cayley q(e*a), the leading
+exponential variable is A=2e*a. Hence the reference stiffness is
+kappa_ref=4*e^2*kappa_H and a0=1/(16*e^2*kappa_H), so
+e^2*a0=1/(16*kappa_H). At the LEADING GAUSSIAN PART of the zero-winding
+tau=e^2 reference, kappa_ref=1 and a0=1/4. Its full Hessian instead has
+4*e^2*kappa_H=1-(2/3)*e^2; the -(2/3) term is retained in V4 under this
+expansion's bookkeeping, not absorbed into the leading reference stiffness.
+This is coordinate coefficient matching, NOT an
+original heat-prefix approximation uniform in cutoff, width or nome.
+The cubic bound thus has explicit stiffness dependence; it is not a
+coupling-independent physical mass bound. ROOT and two bounded independent
+math reviewers checked the constants, OLD-leading-center and scope.
+
+### Regrouping the complete cubic-pair/action coefficient (PAPER)
+
+On a fixed finite whitened Gaussian space write V3=I3(v), A3=I3(a),
+where I_n is the multiple Wick integral normalized by
+E[I_n(f)^2]=n!*||f||^2. Color antisymmetry supplies pure third chaos for
+these literal cubic words. Gaussian multiplication gives
+
+    V3^2/2 = I6(sym(v tensor v))/2
+       +(9/2)*I4(sym(v tensor_1 v))
+       +9*I2(sym(v tensor_2 v))+constant.
+
+The sixth chaos and constant do not contribute to the complete connected
+coefficient against two quadratic sources. Since their covariances with
+V3 vanish by parity, the fourth cumulant with two V3 insertions agrees
+with the connected insertion of V3^2. Thus retain the combined operators
+
+    K2=J2^(2)-V4^(2)+9*I2(sym(v tensor_2 v)),
+    K4=-V4^(4)+(9/2)*I4(sym(v tensor_1 v)).
+
+Likewise kappa(A3,B2,V3)=Cov(18*I2(sym(a tensor_2 v)),B2).
+With D_A=A4^(2)-18*I2(sym(a tensor_2 v)), and the corresponding D_B,
+the COMPLETE OWN-connected coefficient is equivalently
+
+    R6=Cov(D_A,B2)+Cov(A2,D_B)+R33
+          +kappa(A2,B2,K2+K4).
+
+This is an exact regrouping, not a favorable sign or uniform estimate.
+The previous P6 mean/OLD-center terms remain separate and unchanged.
+Crucially, J2 in an original transverse comparison must be the actual
+gauge-reduced density coefficient. Ambient product Cayley Haar's
+-3*sum_links |a|^2 restricted to a transverse subspace is NOT a producer
+of that coefficient. Gaussian projection IBP does not supply the missing
+original change of section. ROOT and independent chaos/scope review agree.
+
+### Relative-gauge Schur coefficients and an exact finite Ward cancellation
+
+2026-10-12 UTC; SOURCE/PAPER, not a reduced-measure construction.
+The exact finite quotient kernel in "Original gauge and measure comparison
+screen" retains a relative vertex-gauge integral. Setting those relative
+gauges to identity loses terms in the actual kinetic word. Examine its
+literal four-factor Cayley word at one edge e=(u,v), source u, target v:
+
+    q(eps*a_e)*q(eps*xi_v)*q(eps*b_e)^(-1)*q(eps*xi_u)^(-1).
+
+Use eps here to distinguish the chart parameter from an edge index.
+This is the zero-winding tau=eps^2 formal coefficient, stiffness 1.
+Let Dxi_e=xi_v-xi_u on a connected finite graph, with one anchored root.
+Then Delta=D^*D on nonroot vertices is positive, with explicit inverse;
+the relative-gauge leading conditional action is ||a-b+Dxi||^2 and
+
+    mu=-Delta^(-1)*D^*(a-b), C=(1/2)*Delta^(-1).
+
+Extend C by zero on its root row/column. Transverse endpoint difference
+gives mu=0. This section is NOT the tree-zero section of the exact
+product-Haar quotient. The nonlinear section change and its Jacobian
+remain unpaid. For mu!=0 one must retain shifted moments and Var(V3),
+not the centered contractions below.
+
+Put x=xi_u,y=xi_v,cx=C_uu,cy=C_vv,z=C_uv,T=cx+cy-2z.
+The literal coefficients H3/H4 above give
+
+    V3_e=4*[(a_e cross b_e) dot (x+y)
+                    +(a_e+b_e) dot (x cross y)],
+    E_xi V3=0,
+    (E_xi V4_e)_(endpoint degree 2)
+       =-(2/3+8*T/3)*|a_e-b_e|^2+32*z*(a_e dot b_e),
+    (E_xi V4_e)_(endpoint degree 4)
+       =-|a_e-b_e|^2*(|a_e|^2+|b_e|^2)+|a_e-b_e|^4/3.
+
+Here V4=F4_Cayley/4+F2^2/48-F2/6, including the denominator
+normalization of H4; endpoint-independent terms stay in C0(graph).
+These constants are not dropped before an actual OWN normalization pin.
+The internal Cayley Haar coefficient has
+E_xi J2_xi=-9*sum_(v!=root) C_vv; it is endpoint-independent in this
+mean-zero calculation and is NOT the endpoint-section Jacobian.
+
+Write V3=L+Q3, where L is linear and Q3 quadratic in xi. For
+e=(u,v),f=(r,s), define
+
+    Cplus_ef=C_ur+C_us+C_vr+C_vs,
+    H_ef=C_ur*C_vs-C_us*C_vr.
+
+Centered Wick contraction gives E[L*Q3]=0 and
+
+    E L^2=16*sum_(e,f) (a_e cross b_e) dot (a_f cross b_f)*Cplus_ef,
+    E Q3^2=32*sum_(e,f) (a_e+b_e) dot (a_f+b_f)*H_ef.
+
+The sums are FULL ordered double sums. Since E V3=0, the order-two
+log-action coefficient after this conditional integration is
+E V4-E J2_xi-(1/2)*E V3^2. Both the nonlocal endpoint quartic and
+quadratic are therefore load-bearing. Evaluating xi=0 is not the integral.
+
+At diagonal endpoints a=b its quadratic part becomes exactly
+
+    Qdiag(a)=32*sum_e C_uv*|a_e|^2
+                -64*sum_(e,f) H_ef*(a_e dot a_f).
+
+This has a finite gauge cancellation stronger than an appeal to symmetry.
+Let M=diag(C_uv)-2H. Using Delta*C=I/2, the coefficient of chi_t in
+sum_f H_ef*(Dchi)_f, for nonroot t, is
+
+    C_ut*(Delta*C)_tv-C_vt*(Delta*C)_tu
+        =(C_uv/2)*(1_(t=v)-1_(t=u)).
+
+Root-incident edges have C_uv=H_ef=0. Consequently
+H*D=(1/2)*diag(C_uv)*D, M*D=0. Symmetry of H proves
+Qdiag(a+Dchi)=Qdiag(a). The local piece alone does NOT have this property.
+
+There is also a direct finite identification. Define the rooted covariant
+Laplacian L_eps by sum_e |xi_u-R_e*xi_v|^2, with
+R_e=Ad(q(eps*a_e))=I+4eps*[a_e cross]+8eps^2*[a_e cross]^2+...
+and G=L_0^(-1)=2C tensor I_3. Its off-diagonal coefficients are
+(L1)_uv=-4[a_e cross], (L1)_vu=4[a_e cross], and
+(L2)_uv=(L2)_vu=-8[a_e cross]^2. Finite determinant differentiation gives
+
+    [(1/2)*log det L_eps]_(eps^2)
+       =(1/2)*Tr(G*L2)-(1/4)*Tr(G*L1*G*L1)=Qdiag(a).
+
+A root-anchored spanning-tree estimate keeps this finite Laplacian positive
+for unitary R, so the differentiation is well-defined without an assumed
+spectral gap. This identifies a finite coefficient of the kinetic WORD;
+neither gradient cancellation nor positivity constructs the SAME full
+boundary density or a width-uniform curl-relative bound.
+
+Source boundary: the existing actual Gauss declarations are
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialGaussTransfer.lean:286`,
+`spatialWeight_gauss_zero`; `:588`, `terminalMessage_gauss_zero`; and
+`:644`, `marginalWeight_gauss_zero`. They retain original factors/messages
+but do not produce the reduced density. The actual original kernel word is
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialKineticHeat.lean:64`, `relative`,
+and `:68`, `kineticWeight`. The selected finite tree bridge is
+`lean/YMGap/Continuum/BF4ExactSpatialTreeGaugeRawCarrier.lean:412`,
+`quaternionHaar_116_eq_rawTreeGaugeBasedCycleFiveHaarMarginal`: it assumes
+support on 116 blocks and a selected adapted chord degree <=5, not arbitrary
+width/degree. The temporal ledger theorem
+`lean/YMGap/Continuum/BF4ExactSlabTemporalGaugeFixedCoordinates.lean:57`,
+`temporalLedger_nonupper_link`, fixes nonupper coordinates; its header
+explicitly leaves the global upper image/substitution join open.
+General arbitrary-width original reduced density/section/source/terminal
+identification is NOT FOUND in the searched modules above. This is a
+missing forward producer, not something the reference Ward calculation pays.
+
+Decision: CONTINUE with the grouped correction and actual nonlinear
+boundary-section density; PRUNE the naive restricted-Haar producer and
+the shortcut that drops relative gauges. Next test is whether the finite
+covariant Hessian's transverse size admits a useful estimate under the
+actual root/boundary treatment. No new Gaussian, prediction or conditional
+gap compiler is selected. No Lean edit/build, sorry, axiom, canonical field,
+checked chart-state change or original H1/physical/QFT/every-group/Clay
+closure is claimed. ROOT and two independent bounded reviewers checked
+the Schur contractions, root signs, determinant and cancellation scope.
+
+### Root-killed loop positivity and a decisive uniformity diagnostic (PAPER)
+
+The next finite test has now been performed, not merely scheduled. For the
+rooted covariant Laplacian above, write
+L_R=d^(1/2)*(I-P_R)*d^(1/2), where d contains full vertex degrees, including
+root-incident edges, but P_R only joins nonroot vertices. The scalar
+root-killed walk has spectral radius <1 on this finite connected graph.
+Explicitly, if N>=1 is the number of nonroot vertices and Dmax the maximum
+degree, every vertex has a root path of length <=N, followed with probability
+at least delta=Dmax^(-N). Survival after n steps is therefore
+<= (1-delta)^(floor(n/N)). Unitarity bounds every matrix walk term by the
+scalar one; differentiated holonomy coefficients add at most a quadratic
+factor in n. These geometric bounds supply convergence and second-derivative
+tail moduli without a supplied spectral gap. Thus the trace-log expansion
+can be differentiated twice at zero.
+For a closed nonroot walk gamma, its weight is
+w_gamma=product_(visited vertices, with multiplicity) 1/d_v, and the
+adjoint holonomy trace has coefficient
+
+    Tr(R_gamma)=3-16*eps^2*|sum_gamma sign(edge)*a_edge|^2+O(eps^3).
+
+Consequently the SAME determinant coefficient has the positive representation
+
+    Qdiag(a)=8*sum_(n>=1) (1/n)*sum_(closed nonroot walks of length n)
+                      w_gamma*|sum_gamma sign(edge)*a_edge|^2 >=0.
+
+This agrees with the finite 32/64 covariance formula. A finite path-based
+tail estimate makes this a constructive PAPER argument, not an invocation
+of spectral choice. No such tail modulus has been implemented in Lean.
+Gradient circulation vanishes termwise. Positivity still supplies no
+width-uniform comparison with local curl energy: the walk-area/current
+weights themselves require a geometry-dependent estimate.
+
+Exact diagnostic, independently reviewed: attach a unit four-cycle to the
+anchored root by a path of L>=1 unit edges. Put identity connection on the
+path and a single common color a=A/4 on each consistently oriented cycle
+edge. This field is divergence-free and has only one face, of curl A.
+Its ACTUAL Cayley adjoint cycle holonomy has angle
+theta=16*arctan(eps*|A|/4)=4*eps*|A|+O(eps^3).
+Eliminating the L-1 interior path vertices contributes determinant L and
+grounding conductance 1/L at the cycle attachment. The four-cycle magnetic
+Laplacian has determinant 2-2*cos(theta), and the attachment-vertex
+cofactor is 4. Hence the scalar complex rooted determinant is exactly
+
+    f(theta)=4+L*(2-2*cos(theta)).
+
+The invariant color axis supplies f(0)=4 and the real two-color plane
+supplies f(theta)^2. Thus det L_R=4*f(theta)^2, and
+
+    [(1/2)*log(det L_R/det L_0)]_(eps^2)=4L*|A|^2,
+    sum_faces |curl a|^2=|A|^2.
+
+The ratio is unbounded in L on this bounded-degree rooted graph. It
+REFUTES the proposed geometry-free inference from gauge covariance,
+positivity and one anchored root to a uniform local-curl ceiling. It is
+NOT a counterexample for the full open three-dimensional cubical BF4
+carrier, the original heat transfer, PRIMARY H1, or Yang--Mills. Removing
+the cube's other edges changes its Green kernel; a subgraph calculation
+does not transfer without a proved comparison in the correct direction.
+Whole-boundary Dirichlet propagators are likewise not the single-root kernel.
+
+Decision update: retain the complete kernel/density/source/terminal
+cancellation. PRUNE a geometry-free Ward-to-soft-rate shortcut. A useful
+cube estimate must control its actual root-killed loop/Green kernel, or
+prove its cancellation with the other actual density/action terms. The
+next producer remains the nonlinear boundary-section density and matching,
+not another supplied soft-dispersion assumption. The cubic-source relative
+bound above remains valid in its finite stationary reference. Original H1,
+every-state scaling decay, physical scale-setting, nontrivial continuum,
+QFT, every compact simple group and Clay closure remain OPEN.
+
+### Original local Coulomb-section Jacobian coefficient (PAPER, next task begun)
+
+The preceding NEXT task has now begun with the actual anchored gauge map,
+not with a density assumed on an unrelated transverse Gaussian carrier.
+On the SAME finite graph let H=ker(D^*) in the internal link-coordinate
+space and write
+
+    U_e=g_u^(-1)*q(eps*a_e)*g_v, a in H, g_v=q(eps*xi_v), g_root=1.
+
+This is the original minus-left source / plus-right target action:
+`lean/YMGap/Continuum/BF4ExactSlabVertexGaussWilsonWord.lean:43`, `linkGauss`,
+and `lean/YMGap/Continuum/SU2QuaternionLeftRightAngularAction.lean:164`,
+`coordinate_action`. The formula below is derived from the rational
+Hamilton/Cayley products, not asserted as a new Lean chart theorem.
+At xi=0 the gauge tangent in ambient Cayley coordinates is EXACTLY
+
+    B(a)chi_e=(Dchi)_e+2*eps*[a_e cross]*(chi_u+chi_v)
+           +eps^2*(-|a_e|^2*I+2*a_e*a_e^T)*(Dchi)_e.
+
+The link-density factor at this section is
+rho_links(a)=product_e (1+eps^2*|a_e|^2)^(-3). Choose orthonormal
+coordinates on H and its complement, the latter represented by
+D*(Delta^(-1/2)) on each color. The block Jacobian of the finite gauge
+map [inclusion_H,B(a)] relative to its leading value is
+
+    det(D^*B(a))/det(Delta tensor I_3)
+       =det(D^*B(a))/(det Delta)^3.
+
+Delta in C=(1/2)*Delta^(-1) is the SCALAR rooted Laplacian; the determinant
+is on THREE colors. This normalizing factor is constant but is not silently
+replaced by det Delta. Oriented signs are fixed by the positive leading
+determinant, and remain positive in a sufficiently small finite chart.
+One can avoid choosing square roots/bases: use the fixed incidence basis
+and cancel the SAME leading Jacobian. This is finite determinant algebra.
+
+Consequently the local map supplies the formal section-density coefficient
+of rho_links(a)*det(D^*B(a))/(det Delta)^3. A global change-of-variables
+statement for the original integral is NOT inferred: local inversion,
+coverage/overlap, large fields and all source/terminal pullbacks remain to
+be constructed and quantitatively controlled. Based root conjugation has
+not been independently quotiented out. This is not the full arbitrary-width
+original reduced-measure producer previously marked NOT FOUND.
+
+Write D^*B=Delta tensor I_3+eps*F1+eps^2*F2. With
+Schi_e=chi_u+chi_v, F1=2D^*[a cross]S, and
+F2=D^*(-r_e*I+2*a_e*a_e^T)D. On the actual transverse section, F1's
+diagonal blocks vanish because D^*a=0. Its off-diagonal blocks are
+(F1)_uv=-2[a_e cross], (F1)_vu=2[a_e cross], hence F1 is symmetric.
+Its trace contribution at first order is zero by color antisymmetry.
+Let R_e=(D*Delta^(-1)*D^*)_ee=2*(C_uu+C_vv-2C_uv). This is the finite
+unit-edge effective resistance, equivalently a gradient-projection
+diagonal, so 0<=R_e<=1. Finite determinant differentiation gives
+
+    Tr((Delta^(-1) tensor I_3)*F2)=-sum_e R_e*|a_e|^2,
+    -(1/2)*Tr(G*F1*G*F1)=-32*sum_(e,f) H_ef*(a_e dot a_f),
+    G=Delta^(-1) tensor I_3.
+
+Thus the ACTUAL gauge-map local density coefficient, including link Haar, is
+
+    J2_slice=-sum_e (3+R_e)*|a_e|^2
+                     -32*sum_(e,f) H_ef*(a_e dot a_f).
+
+It is not ambient Haar restricted to H. The nonlocal term cannot be
+dropped. F1 symmetry implies its trace-square contribution has the displayed
+nonpositive sign; this alone does not bound the full response correction.
+
+An independent exact one-cycle test checks the map and coefficient. On
+the unit four-cycle anchored at one cycle vertex, a_e=A/4 around the cycle,
+R_e=3/4 and Qdiag=0, implying sum_(e,f) H_ef*a_e dot a_f=|A|^2/64.
+The formula gives J2_slice=-(23/16)*|A|^2. Directly, the based holonomy's
+Cayley chart coordinate is
+
+    A_hol=[tan(4*arctan(eps*|A|/4))/eps]*(A/|A|)
+         =A+(5/16)*eps^2*|A|^2*A+O(eps^4),
+
+with its continuous value at A=0. Its radial change-of-variable Jacobian
+has coefficient +(25/16)*|A|^2; holonomy Haar contributes -3*|A|^2.
+Their sum is exactly -(23/16)*|A|^2. This is a finite diagnostic, not an
+identification of the BF4 all-width integral or a Gaussian response.
+
+Immediate grouped consumer: at diagonal a=b, the kinetic log-action
+coefficient and TWO endpoint local Haar densities have quadratic total
+
+    Qdiag(a)-2*J2_slice(a)
+        =sum_e [32*C_uv+6+2*R_e]*|a_e|^2.
+
+The H double sums cancel EXACTLY, before an absolute estimate. This does
+not remove the remaining local quadratic, spatial quartics, finite terminal
+histories, OWN partition normalization, OLD-center mean terms, or higher
+orders. Neither positivity nor this cancellation pays the neighboring
+P6/P4 difference. It is a new identified finite component of the complete
+signed grouping, not an assumption that the full kernel is Gaussian.
+
+The NON-DIAGONAL pair grouping has also been calculated. Require BOTH
+endpoints a,b in H, since each density formula used its own Coulomb condition.
+Put d=a-b, c=a+b, gamma_e=2/3+4R_e/3. The conditional kinetic quadratic
+and TWO endpoint negative-log densities combine as
+
+    K2_pair(a,b)=sum_e (3+R_e)*(|a_e|^2+|b_e|^2)
+       -sum_e gamma_e*|d_e|^2+32*sum_e C_uv*(a_e dot b_e)
+       +16*sum_(e,f) H_ef*(d_e dot d_f)
+      =sum_e [(3+R_e)/2+8*C_uv]*|c_e|^2
+       +(5/6)*sum_e (1-R_e)*|d_e|^2-(1/4)*Qdiag(d).
+
+The nonlocal correction has moved entirely to the endpoint DIFFERENCE.
+This is an exact signed grouping, not permission to drop it when estimating
+the response. It follows by expanding (a+b)^2 in the kinetic bubble and
+subtracting J2_slice(a)+J2_slice(b); equivalently use
+16*H(d,d)=8*sum_e C_uv*|d_e|^2-Qdiag(d)/4. At a=b it reduces to the
+previous diagonal formula. No identification of an original stationary
+message is used.
+
+Density counting matters: this is the local ONE-STEP PAIR integrand with
+two full endpoint Haar densities. A square-root-density conjugated transfer
+kernel has only HALF of each log density. A full chronological chain has
+one Haar density per slice, not two per step. Neither may substitute this
+K2_pair without the appropriate endpoint/terminal allocation theorem.
+
+Decision: the local Jacobian and non-diagonal grouping advance the selected
+missing producer, so CONTINUE from this actual map. Next match the complete
+finite chronological chain's density allocation, source and terminal
+restrictions, retaining the spatial action and OLD mean corrections; then
+assess the complete relative correction and the constructive local-chart/
+global remainder budget. No Lean wrapper,
+compiler run, axiom/sorry, canonical chart change or original uniform theorem
+is supplied. ROOT and independent finite determinant/section reviewers
+agree, including the three-color determinant normalization and cycle test.
+
+Checkpoint verification: ROOT read the complete final two-file diff;
+independent complete math/scope and source/citation reviews PASS, with the
+leading/full stiffness distinction corrected. `git diff --check` passes.
+Only this audit and `work_plan.md` are changed. No Lean compilation or
+new kernel-checked declaration is claimed; protected user files and the
+canonical chart are untouched. The unchanged whole-project goal remains ACTIVE.

@@ -5,7 +5,7 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
-## Whole-project goal and live completion map (updated 2026-10-11 UTC)
+## Whole-project goal and live completion map (updated 2026-10-12 UTC)
 
 The unchanged mathematical target is: for each compact simple gauge group G,
 construct a nontrivial quantum Yang--Mills theory on R^4 satisfying the QFT
@@ -52,6 +52,33 @@ Execution order:
    OLD-centered P4/P5/P6, then demand ORIGINAL heat/gauge/terminal matching and
    a denominator-relative nonperturbative remainder before claiming H1.
    The finite reference coefficients are PAPER diagnostics, not payment.
+   NEW quantitative PAPER result: the literal cubic source self-covariance,
+   retaining its curl factor, has a scale-uniform neighboring-ratio bound
+   even against the leading OLD-centered denominator. Its explicit constants
+   and chart-stiffness normalization are in the adaptive-score audit's
+   "Cubic-source relative endpoint estimate". This pays only ONE reference
+   contribution, not the complete P6 or the original response.
+   NEW exact finite PAPER cancellation: the diagonal relative-gauge quadratic
+   correction is a covariant rooted-Laplacian log-determinant Hessian; its
+   local and nonlocal parts cancel on gauge gradients. Gauge invariance alone
+   does not bound its transverse size uniformly in width.
+   DECISIVE rooted-graph diagnostic: a unit square attached to its root by an
+   L-edge path has quadratic coefficient 4L times its curl square. This
+   refutes a geometry-free uniform ceiling, NOT a full-cube or YM estimate.
+   The actual finite Coulomb-section gauge map now yields its local
+   Haar Jacobian coefficient J2_slice, independently checked against one
+   exact cycle. With TWO endpoint densities it cancels the diagonal kinetic
+   H bubble; the non-diagonal grouping moves the nonlocal term to a-b.
+   The remaining local quadratic and spatial/terminal corrections are retained.
+   NEXT: match the complete chronological chain's density allocation, source
+   and terminal restrictions, then assess the complete signed relative
+   correction and local/global chart remainder budget. A pair's two Haar
+   densities are NOT the half densities of a conjugated transfer kernel or
+   two densities per chain step. Ambient Haar restricted to a transverse
+   subspace is NOT the section density. This is
+   finite PAPER coefficient progress, not a global original measure theorem.
+   A general arbitrary-width original reduction is not supplied by the existing
+   116-link, degree-five bridge. No new assumptive compiler is selected.
 4. In parallel pursue SAME-action scale-setting and cross-scale/local-field
    compatibility. EVERY-state physical decay remains independent of ONE-state
    survival. Reuse the existing fixed-carrier real-time/logarithm constructions.
@@ -24953,6 +24980,13 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
     and per-group producer obligations. The next active analytic probe keeps
     the complete signed diagonal-minus-mixed-transfer energy/response; existing
     constant-scale or incoming-energy bounds do not pay its 1/side budget.
+    Keep the now-identified relative-gauge inverse-Laplacian corrections and
+    their exact gradient cancellation. A free cubic-source relative bound is
+    partial PAPER progress; neither it nor a transverse Ward identity pays
+    the complete original response. The rooted-square diagnostic excludes a
+    geometry-free curl ceiling; it does not exclude a full-cube estimate.
+    Match the actual boundary-section density rather than projecting the
+    ambient Haar coefficient into another carrier.
     Do not restart fixed-carrier completion/time/logarithm machinery. Bounded
     engineering estimates are not a deadline for an unsolved mathematical input.
 
