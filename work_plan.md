@@ -25,6 +25,49 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Bidirectional audit: binding execution update (2026-10-11 Pacific)
+
+The current forward/backward audit is
+[`AUDIT-FORWARD-BACKWARD-CLAY-2026-10-11.md`](audits/AUDIT-FORWARD-BACKWARD-CLAY-2026-10-11.md).
+It governs goal-mode execution's next tasks; the unchanged Clay target above remains
+OPEN. Existing fixed-carrier transfer/completion/logarithm proofs are real
+meeting points, not missing prerequisites to rebuild. The unfilled joins are
+changing-family quantitative estimates, ORIGINAL-action physical scale-setting,
+the SAME continuum/local-field/OS theory, and actual per-group constructions.
+
+Execution order:
+
+1. PRIMARY remains the ORIGINAL positive-scale endpoint H1 estimate below.
+   Direct BOX control is eligible; the raw original-energy route is optional,
+   not an extra necessary Clay requirement.
+2. NEXT task STARTED: screen the exact optional discrete edge energy
+   `Z0*E(A,phi_k) <= (c_E/s)*Z1*B`, s=2t, with OLD center and both masses.
+   The first independent source/math screen is COMPLETE: existing
+   reconstruction/limit/positive-BOX joins suffice and yield c0=c_E+2 if the
+   producer is paid. Existing estimates give only a constant-scale ceiling,
+   not 1/s; the outgoing-noise bound still consumes incoming energy.
+   Preserve the exact diagonal-minus-mixed-transfer cancellation. Do not build
+   a prediction/noise/reciprocal wrapper or mistake incoming energy for payment.
+3. Continue its signed neighboring-response calculation using COMPLETE
+   OLD-centered P4/P5/P6, then demand ORIGINAL heat/gauge/terminal matching and
+   a denominator-relative nonperturbative remainder before claiming H1.
+   The finite reference coefficients are PAPER diagnostics, not payment.
+4. In parallel pursue SAME-action scale-setting and cross-scale/local-field
+   compatibility. EVERY-state physical decay remains independent of ONE-state
+   survival. Reuse the existing fixed-carrier real-time/logarithm constructions.
+5. Freeze purely assumptive QFT/group interface expansion. Historical
+   `FrontierDAG`, weak local-field/OPE slots and a theorem projecting an already
+   assumed gap are not sufficient endpoint specifications. Preserve their fields;
+   any formal specification repair requires its own reviewed change.
+
+Effort: bounded source audit/checkpoint and known finite identities are hours
+to a few focused days of engineering. Allocate 1-2 focused research days to
+the next analytic probe before continue/revise/prune review; this is a budget,
+not a promised uniform theorem. No defensible total completion date exists for
+the remaining analytic/continuum/QFT/every-group breakthroughs. Proof status
+must not be estimated from module counts or graph size. Canonical chart claims
+are unchanged and are not reprinted.
+
 ### Math-first execution reset (2026-10-10 UTC, user approved)
 
 PRIMARY is the ORIGINAL late endpoint estimate on a JUSTIFIED changing family,
@@ -248,6 +291,24 @@ before taking absolute values", and "Checked original Cayley source identity".
 Continue toward the signed residual on the
 justified family; PRIMARY, physical calibration and continuum passage remain
 OPEN.
+
+Complete-correction screen (2026-10-11; PAPER): the exact local Cayley
+Haar compensation is `D*div X-3*X(D)=0` for the NONLINEAR gauge generator.
+It does not remove the transverse Haar insertion or produce a reduced measure.
+A new quantitative finite-reference test controls diagonal soft dispersion
+corrections `lambda'_a=d_a*lambda_a`, |d_a|<=Dsoft: with SAME modes/source/BOX,
+`|s*partial_eta log(R_eta(s)/R_eta(s+1))|_0 <= K_(m+1)*(25+32m)*Dsoft`.
+Common stiffness rescaling cancels before this estimate; BOX offsets are
+retained. This is reference first variation, NOT an original interacting
+estimate or finite-perturbation/remainder bound. No Gaussian compiler selected.
+The ONE local polynomial-derivative/gauge-coordinate matching attempt used
+common-padded equality rather than unequal raw exponent lists, but failed
+three narrow checks. It is now parked, unverified, outside the Lean library in
+`audits/drafts/BF4ExactSlabCayleyGaugeDensity.lean.txt`; no root import or proof
+claim. No limits were raised. The actual reduced correction, changing
+modes/source/OLD-center terms and original relative remainder remain OPEN.
+Exact calculation and source pins: adaptive-score audit, "Gauge-density
+compensation and scale-weighted Gaussian sensitivity". Canonical claims unchanged.
 
 Stop two specific joins: an UPPER bound on the comparison cost cannot be
 subtracted to upper-bound the complete signed cost; and the literal plaquette
@@ -24881,6 +24942,19 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
     Clay, canonical fields, axiom gates and dynamic-memory limits are unchanged.
     Adaptation and current test:
     `audits/AUDIT-RESEARCH-PIPELINE-TASTEVAL-2026-10-07.md`.
+11. **Apply the current bidirectional meeting audit (user request, 2026-10-11).**
+    Use `audits/AUDIT-FORWARD-BACKWARD-CLAY-2026-10-11.md` and the opening
+    binding execution update for subsequent goal turns. Branch backward from
+    actual SAME-theory physical/QFT requirements, not from an inadequate legacy
+    bundle; branch forward from existing original declarations. Record whether
+    a meeting is instantiated, conditional, missing or refuted. PRIMARY H1 is
+    a selected sufficient survival route, not every-state decay or the full
+    Clay theorem. Preserve the separate physical-clock, local-field/continuum
+    and per-group producer obligations. The next active analytic probe keeps
+    the complete signed diagonal-minus-mixed-transfer energy/response; existing
+    constant-scale or incoming-energy bounds do not pay its 1/side budget.
+    Do not restart fixed-carrier completion/time/logarithm machinery. Bounded
+    engineering estimates are not a deadline for an unsolved mathematical input.
 
 **Quantitative completion viewpoint (2026-10-07, user-supplied Lawvere idea):**
 use the existing constructive extension APIs rather than treating completion

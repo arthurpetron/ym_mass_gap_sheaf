@@ -21287,3 +21287,273 @@ heat/gauge/terminal measure identification, uniform relative remainder or
 late-response estimate has been produced. PRIMARY, changing-family survival,
 physical calibration, full QFT/every group and Clay remain OPEN. Canonical
 displayed claims are unchanged; no chart reprint.
+
+## Gauge-density compensation and scale-weighted Gaussian sensitivity
+
+2026-10-11; the preceding goal checkpoint was PROGRESS: it produced the
+exact original-source identity and its accepted axiom gates. The next
+bounded test concerns the COMPLETE correction, not another conditional
+Gaussian/OS interface. Inputs are the existing original Gauss/Ward source,
+the literal chart, and the finite transverse reference above. Consumer:
+the ORIGINAL late endpoint bound in the opening work plan. Any reference
+estimate still needs its ORIGINAL action/source/OLD-center and relative
+remainder joins before it can pay that input.
+
+### Exact local compensation is not transverse cancellation (PAPER)
+
+For the literal chart q(e*a), put D=1+e^2*|a|^2. Rescaling the infinitesimal
+LEFT quaternion multiplication by 2e gives the chart-coordinate vector
+
+```
+X_u(a)=(1-e^2*|a|^2)*u + 2e*(u cross a) + 2e^2*a*(a dot u).
+div X_u = 6e^2*(a dot u),
+a dot X_u = D*(a dot u),
+D*div X_u - 3*X_u(D) = 0.
+```
+
+Thus the Haar density factor D^(-3) compensates the nonlinear generator's
+divergence. For RIGHT multiplication the cross term changes sign, without
+changing this cancellation. It does NOT imply that the Haar contribution
+to the transverse two-time correction vanishes. Keeping only linear gauge
+transformations while discarding the quadratic Haar term loses this identity.
+
+The actual original multiplication-side pins are
+`lean/YMGap/Continuum/SU2QuaternionLeftRightAngularAction.lean:164`,
+`coordinate_action`, and
+`lean/YMGap/Continuum/BF4ExactSlabVertexGaussWilsonWord.lean:43`, `linkGauss`
+(minus-left outgoing, plus-right incoming). The exact full-action identities
+are `lean/YMGap/Continuum/BF4ExactSlabVertexGaussHeatAction.lean:177,203`,
+`faceHeatPolynomial_gauss_zero`, `fullHeatProduct_gauss_zero`, and
+`lean/YMGap/Continuum/BF4ExactSlabVertexGaussWardIdentity.lean:129`,
+`original_action_ward_zero`. These retain every original factor but do not
+construct a gauge-reduced chart density or its complete Taylor coefficient.
+
+Selected ONE local algebra check: use the literal polynomial partial
+derivatives to prove the compensation and cleared coordinate tangent,
+matched to the existing imaginary-basis LEFT Hamilton action. No new
+heat/Ward/gap structure or supplied expansion identity is permitted. The
+existing actual gauge API uses COMMON-PADDED coefficient equality. Raw
+exponent-list equality is the wrong proposed representation here: at
+e=1,u=(1,0,0), literal differentiation represents zero compensation by
+`-4*[1]+2*[1,0]+2*[1,0,0]`. Arbitrary raw-list coefficient weights can
+distinguish these lists although all evaluate as the same degree-one monomial.
+Use the existing common-padding algebra, not a sphere relation on the
+arbitrary chart coordinate a. This changes no canonical/existing statement.
+Stop if actual derivative/action matching requires another general
+substitution wrapper. Serialized capped leaf verification only; no full audit.
+
+### A quantitative soft-dispersion test (PAPER, first variation only)
+
+The Gaussian reference permits an explicit bound on a diagonal quadratic
+correction, rather than an unscaled absolute estimate. Keep its mode vectors,
+reference magnetic observable, spatial source h and nonnegative normalized
+BOX weights FIXED. R_eta is the OWN-Gaussian-connected response, not the
+original OLD-centered response. Let the offsets c lie in [0,2*m*s], with
+fixed integer m>=1 and even s>=2. At reference parameter eta=0 write
+
+```
+E_ab=omega_a+omega_b,
+R(t)=sum_(a,b,c) W_ab*rho_c*exp(-(t+c)*E_ab),
+ell_ab = beta'_a/beta_a + beta'_b/beta_b,
+Dresponse(t)=partial_eta log R_eta(t)|_0
+            = <ell_ab-(t+c)*E'_ab>_t.
+```
+
+Here W_ab=2*beta_a*beta_b*|sum_p h(p)*u_a(p)*u_b(p)|^2>=0;
+rho_c are the SAME fixed double-BOX weights. Primes differentiate the
+supplied finite differentiable mode perturbation at zero. Angle brackets
+are the actual normalized positive response weights, not a new measure
+identification. Suppose |beta'_a/beta_a|<=L and |omega'_a|<=C*omega_a.
+Ordinary differentiation of this finite sum gives
+
+```
+Dresponse'(t) = -Cov_t(E,ell)
+               +Cov_t(E,(t+c)*E') - <E'>_t,
+|Dresponse'(t)| <= (4L+C)*<E>_t
+                   +2*(1+2m)*C*t*<E^2>_t       (t>=s).
+```
+
+The c term is retained; differentiating BOX spectral weights and then
+discarding them would give a different estimate. If R(t/2)<=K*R(t), the
+finite positive Laplace sum gives, by maximizing x^n*exp(-t*x/2),
+`<E>_t<=2K/t` and `<E^2>_t<=16K/t^2`. The already derived free upper/lower
+bounds supply K=K_(m+1) throughout t in [s,s+1]: R(t/2)<=R_G(s/2) and
+R(t)>=R_G((3+2m)*s). No global-in-time doubling assumption is needed.
+Integrating the displayed derivative over this ONE interval therefore gives
+
+```
+|s*(Dresponse(s)-Dresponse(s+1))|
+    <= K_(m+1)*(8L+(34+64m)*C).
+```
+
+For the diagonal soft perturbation lambda'_a=d_a*lambda_a, |d_a|<=Dsoft,
+with the SAME reference curl numerator lambda_a and common stiffness
+kappa'/kappa=alpha, differentiation of cosh omega=1+lambda/2 gives
+
+```
+omega'_a=d_a*tanh(omega_a/2),
+beta'_a/beta_a=-alpha-d_a*(lambda_a+2)/(lambda_a+4).
+```
+
+Consequently C=Dsoft/2 and L=|alpha|+Dsoft are explicit admissible constants.
+Common alpha cancels exactly from the neighboring-time difference, as in
+the complete-action scaling calculation above. Removing that common term
+before estimating improves the bound to
+
+```
+|s*partial_eta log(R_eta(s)/R_eta(s+1))|_0
+    <= K_(m+1)*(25+32m)*Dsoft.
+```
+
+This is uniform in s and W=s^2+1 for a supplied uniform Dsoft and fixed m;
+its Dsoft dependence is explicit. It is only a first-variation bound at
+the REFERENCE. A changing Dsoft must remain visible in the stage-dependent
+correction, including its coupling multiplier. Finite perturbation control
+needs the corresponding bounds throughout a path, not just at eta=0.
+Changing modes, source coefficients, BOX weights or OLD center adds terms
+not covered here. Non-Gaussian cubic-pair/quartic connected insertions and
+the original-measure comparison remain unpaid. No Gaussian Lean wrapper or
+new necessary PRIMARY hypothesis is selected. ROOT derivation and bounded
+independent Gaussian math review agree on the general bound; the removal of
+the common alpha is the same exact scaling cancellation recorded above.
+
+### Identified common heat-action term, retaining the OLD-center residue (PAPER)
+
+In the COMPLETE zero-winding formal reference already displayed above,
+tau=e^2 and EVERY spatial/kinetic factor has the same nome. Define
+S0=sum_faces F2/4, including the unfolded terminal histories. The quadratic
+part of the heat-action correction is then IDENTIFIED, not separately
+assumed: V4_quad=-sum_faces F2/6=-(2/3)*S0. The two-link kinetic word changes
+its F2 and F4 but not this universal coefficient. Facewise constant terms
+drop under OWN normalization. Therefore its OWN-connected contribution to
+R6 is +(4/3)*R4 and cancels from the neighboring-time ratio. With OLD c2
+held fixed, however, the contribution is
+
+```
+Delta P6 = (4/3)*P4 + (2/3)*c2*((a2-c2)+(b2-c2)).
+```
+
+The second term is retained; it is not paid by the connected cancellation.
+This identifies only the common HEAT-ACTION component, not the Haar insertion
+or the complete gauge-reduced effective correction. Same-nome source pins:
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSliceHeat.lean:70`, `spatialWeight`;
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialKineticHeat.lean:68`, `kineticWeight`;
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTransferStep.lean:51`, `transferStep`,
+which supplies the SAME w,K to both weights. This remains a zero-winding
+formal reference calculation, not a fixed-cutoff expansion or original
+gauge/measure/remainder identification. ROOT derivation and independent
+complete coefficient/source review PASS.
+
+### Coordinate-change cancellation must stay on the same carrier (PAPER)
+
+The literal Cayley-to-exponential change has
+`b_l=a_l+e^2*v_l+O(e^4)`, `v_l=-|a_l|^2*a_l/3`.
+Its AMBIENT divergence is `-(5/3)*sum_l |a_l|^2`. The ambient exponential
+Haar coefficient `-(4/3)*sum_l |a_l|^2` then combines to Cayley's `-3*sum r`.
+This does not construct a transverse gauge-reduced measure.
+
+On the EXISTING finite positive Gaussian carrier H=range(P), with P its
+orthogonal Hodge projection, v is generally not tangent. The actual tangent
+field V=P*v instead has
+
+```
+div_H V = -(1/3)*sum_l [r_l*tr(P_ll)+2*a_l^T*P_ll*a_l].
+        = -(5/3)*sum_l p_l*r_l       if P_ll=p_l*I_3.
+```
+
+The second line applies to a color-diagonal projection, not an assumption
+about an original interacting measure. On the WHOLE finite H, Gaussian
+polynomial IBP gives the exact connected identity
+
+```
+kappa(V A2,B2)+kappa(A2,V B2)
+  +kappa(A2,B2,div_H V - V S0)=0.
+```
+
+A hard chart cutoff adds boundary terms and is not in this statement.
+Consequently the ambient Jacobian cannot be substituted for the transverse
+one in this reference. The original gauge-reduced Jacobian/regauging density
+remains unpaid. ROOT derivation and independent same-carrier review PASS;
+no coordinate-change compiler, analytic measure or relative bound is supplied.
+
+This still permits an exact REGROUPING of the existing finite Gaussian
+coefficient, without identifying any new measure. Replace its coefficients by
+
+```
+A4new=A4-V A2; B4new=B4-V B2;
+V4new=V4-V S0; J2new=J2-div_H V.
+```
+
+The displayed IBP identity makes old R6 minus new R6 zero. First-moment IBP
+also leaves a4 and b4 unchanged, hence P6 is unchanged for the SAME supplied
+OLD center. Cubic terms are unchanged. For the color-diagonal projection,
+`J2new=sum_l(-3+5*p_l/3)*r_l`, whose coefficients lie in [-3,-4/3].
+The Haar remainder does not disappear. This is coefficient algebra on the
+whole finite reference, NOT an exponential-chart/regauged original density
+construction. ROOT derivation and independent sign/center review PASS.
+
+### Ordered nonabelian quartic grouping (PAPER, local coefficients)
+
+For directed v=(a,b,-c,-d), put B=sum_i v_i, C=sum_(i<j) v_i cross v_j and
+
+```
+D3=(1/3)*sum_(i<j) [vi cross (vi cross vj)+vj cross (vj cross vi)]
+   +(2/3)*sum_(i<j<k) [vi cross (vj cross vk)+(vi cross vj) cross vk].
+```
+
+Ordered BCH with [u,v]=2*u cross v gives the exponential-word logarithm
+`2e*B+4e^2*C+8e^3*D3` through cubic order. Therefore
+
+```
+F4_exp=16*|C|^2+32*B dot D3-(4/3)*|B|^4,
+V4_exp=F4_exp/4+F2^2/48-F2/6
+      =4*|C|^2+8*B dot D3-(2/3)*|B|^2.
+F4_Cayley=F4_exp-(8/3)*B dot sum_i |vi|^2*vi.
+```
+
+The radial |B|^4 terms cancel in the EXPONENTIAL heat-action coefficient;
+the remaining quartics are commutator terms. In CAYLEY coordinates the
+extra action quartic `-(2/3)*B dot sum_i |vi|^2*vi` remains. Do not drop it
+without the matching source/coordinate/Haar changes. The earlier actual
+fixture has F4_exp=44/3 and B dot sum r_i*vi=1, giving F4_Cayley=12,
+consistent with `lean/YMGap/Continuum/BF4ExactSlabPlaquetteCayleyExpansion.lean:68`,
+`H4`, after denominator normalization. ROOT calculation and independent
+ordered-BCH/source review PASS. No favorable cumulant sign, original reduced
+density, uniform remainder or PRIMARY payment follows from this grouping.
+
+For contrast, an onsite u*mu*sum A^2 changes lambda to lambda+u*mu/kappa.
+For one equal-mode pair its scale-weighted neighboring-log-ratio derivative
+is mu*s/(kappa*sinh omega), of order mu*s^2/kappa in the response band
+lambda~s^(-2). It is NOT a common amplitude correction. This refines the
+EXISTING isolated-Jacobian proxy screen; no new proxy is selected. It does
+not prove that the lowest finite-volume modes dominate the selected source
+or that the ORIGINAL theory has such an uncancelled mass term. Finite Gauss
+invariance alone is not a quantitative soft-dispersion or relative-response
+bound. Continue the COMPLETE signed correction and original reduced-density
+matching; PRIMARY, physical calibration and Clay remain OPEN.
+
+### Local implementation attempt parked (2026-10-11 Pacific; NOT PROVED)
+
+The selected local Cayley derivative/generator implementation failed three
+focused monitored checks, all with one worker, a 20 GiB cap and 12 GiB OS
+reserve. No resource limit was raised. Check1 failed on syntax and literal
+derivative-probe elaboration; check2 failed on expanded reflection certificates;
+check3 still reached default recursion depth at its two remaining larger
+normalization identities. Error-recovered theorem output contains sorryAx
+and is NOT accepted evidence. There is no new checked local density theorem.
+
+The entire attempt is preserved in
+`audits/drafts/BF4ExactSlabCayleyGaugeDensity.lean.txt`, explicitly marked
+UNVERIFIED and outside the Lean library. No root import was added and no
+existing checked Lean declaration, axiom gate or ledger entry was changed.
+Logs: `/private/tmp/ym-oct11-cayley-gauge-density-check1.log`, `check2.log`,
+`check3.log` with the same prefix. The accepted previous original-plaquette
+source identity is unaffected. The PAPER derivations/reviews in this section
+remain mathematical reference calculations, not a kernel-checked gap claim.
+
+Decision: PARK this noncritical implementation rather than spend the next
+goal budget on local certificate elaboration. Apply the new bidirectional
+audit and opening work-plan instructions. The next original-energy screen
+has already returned its source-backed result: existing joins suffice, but
+only a constant-scale energy ceiling is available, leaving the 1/s mixed
+cancellation unpaid. Continue the complete OLD-centered signed response.

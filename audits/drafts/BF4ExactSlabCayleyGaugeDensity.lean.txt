@@ -1,0 +1,485 @@
+/-
+# UNVERIFIED DRAFT: local Cayley gauge tangent and density compensation
+
+Parked outside the Lean library on 2026-10-11 Pacific. Focused checks 1-3
+failed; the latest still exceeds default recursion depth in two reflection
+certificates. Error-recovered axiom output contains sorryAx and is NOT proof
+evidence. No resource limit was raised. This draft is preserved for possible
+reuse, not registered, compiled successfully, or counted as a checked result.
+The bidirectional plan prioritizes the original signed response/energy bound.
+
+The directional derivatives and divergence below are the literal RatPoly
+derivatives. Their output identities use COMMON-PADDED coefficient equality
+on one four-coordinate carrier, not Haar/sphere equality. All three chart
+coordinates remain arbitrary. The generator is actual LEFT Hamilton
+multiplication, with the imaginary basis used by coordinate_action.
+
+Raw coefficient-probe equality would be false: at e=1,u=(1,0,0), the degree-one
+part of D divX-3 XD has exponent-list representatives -4*[1]+2*[1,0]+2*[1,0,0].
+Likewise the quotient tangent's i-component distinguishes the constant lists
+[0] and []. Common padding removes exactly these representation differences.
+
+The compensation is the polynomial numerator corresponding to D^(-3).
+No analytic density, integrated Ward identity, gauge-reduced measure, heat
+estimate, transverse quadratic cancellation, scaling, or gap is asserted.
+-/
+
+import YMGap.Continuum.SU2QuaternionLeftRightAngularAction
+import YMGap.RepTheory.RationalQuaternionSphereNets
+
+namespace YMGap.Continuum.BF4ExactSlabCayleyGaugeDensity
+
+set_option autoImplicit false
+
+open YMGap.Constructive
+open YMGap.RepTheory.RationalQuaternionSphereNets (Triple)
+open YMGap.Continuum.RingNormaliser
+open YMGap.Continuum.BF4GeometricSpinNetworkMehler
+open YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics
+open YMGap.Continuum.SU2QuaternionPolynomialHaarCarrier
+open YMGap.Continuum.SU2QuaternionRatPolyDifferential
+open YMGap.Continuum.SU2QuaternionTranslationPolynomialImages
+open YMGap.Continuum.SU2QuaternionTranslationWordComposition
+open YMGap.Continuum.SU2QuaternionAngularCoordinatePadded
+open YMGap.Continuum.SU2QuaternionLeftRightAngularAction
+open YMGap.Continuum.QuaternionHaarCoordinateAngularInterval (ratDerivative_polyVar_ne)
+open YMGap.Continuum.QuaternionHaarAngularCarrier (neg_smul)
+
+local infix:50 " ≈ " => Q'.eqv
+private abbrev PE := PolyExpr
+local instance : Add PE := ⟨.add⟩
+local instance : Mul PE := ⟨.mul⟩
+local instance : Neg PE := ⟨.neg⟩
+local instance (n : Nat) : OfNat PE n := ⟨.const (Int.ofNat n)⟩
+
+-- A private division-free expression grammar; unlike PolyExpr it has no power
+-- constructor. Its three-variable derivatives are proved structurally below.
+private inductive E where
+  | const : Int → E
+  | var : Nat → E
+  | add : E → E → E
+  | mul : E → E → E
+  | neg : E → E
+private instance : Add E := ⟨.add⟩
+private instance : Mul E := ⟨.mul⟩
+private instance : Neg E := ⟨.neg⟩
+private instance (n : Nat) : OfNat E n := ⟨.const (Int.ofNat n)⟩
+private def pe : E → PolyExpr
+  | .const n => .const n
+  | .var n => .var n
+  | .add p q => .add (pe p) (pe q)
+  | .mul p q => .mul (pe p) (pe q)
+  | .neg p => .neg (pe p)
+private def exprDerivative (i : Nat) : E → E
+  | .const _ => 0
+  | .var j => if i=j then 1 else 0
+  | .add p q => exprDerivative i p+exprDerivative i q
+  | .mul p q => exprDerivative i p*q+p*exprDerivative i q
+  | .neg p => -(exprDerivative i p)
+private def env (e : Q') (u : Triple) (k : Nat) : RatPoly :=
+  if k<3 then polyVar k else
+    polyConst (match k with | 3 => e | 4 => u.x | 5 => u.y | _ => u.z)
+private def ep (e : Q') (u : Triple) (p : E) : RatPoly := coeffEvalExpr (env e u) (pe p)
+private def a0 : E := .var 0
+private def a1 : E := .var 1
+private def a2 : E := .var 2
+private def ee : E := .var 3
+private def u0 : E := .var 4
+private def u1 : E := .var 5
+private def u2 : E := .var 6
+private def radius : E := (a0*a0+a1*a1)+a2*a2
+private def denom : E := 1+(ee*ee)*radius
+private def scalarNumerator : E := 1 + -((ee*ee)*radius)
+private def au : E := (a0*u0+a1*u1)+a2*u2
+private def field0 : E :=
+  (scalarNumerator*u0+2*ee*(u1*a2 + -(u2*a1)))+2*(ee*ee)*a0*au
+private def field1 : E :=
+  (scalarNumerator*u1+2*ee*(u2*a0 + -(u0*a2)))+2*(ee*ee)*a1*au
+private def field2 : E :=
+  (scalarNumerator*u2+2*ee*(u0*a1 + -(u1*a0)))+2*(ee*ee)*a2*au
+private def direction (p : E) : E :=
+  (field0*exprDerivative 0 p+field1*exprDerivative 1 p)+field2*exprDerivative 2 p
+private def divExpr : E :=
+  (exprDerivative 0 field0+exprDerivative 1 field1)+exprDerivative 2 field2
+
+/-- D=1+e²|a|², with literal a=(polyVar 0,polyVar 1,polyVar 2). -/
+def cayleyD (e : Q') : RatPoly := ep e ⟨0,0,0⟩ denom
+
+/-- Literal polynomial Cayley numerator (1-e²|a|²,2e a). -/
+def cayleyN (e : Q') : PolyQuaternion :=
+  ⟨ep e ⟨0,0,0⟩ scalarNumerator,ep e ⟨0,0,0⟩ (2*ee*a0),
+    ep e ⟨0,0,0⟩ (2*ee*a1),ep e ⟨0,0,0⟩ (2*ee*a2)⟩
+
+/-- X=(1-e²|a|²)u+2e(u×a)+2e²a(a·u). -/
+def cayleyX (e : Q') (u : Triple) (i : Fin 3) : RatPoly :=
+  match i.val with | 0 => ep e u field0 | 1 => ep e u field1 | _ => ep e u field2
+
+def directionalDerivative (e : Q') (u : Triple) (p : RatPoly) : RatPoly :=
+  polyAdd (polyAdd (polyMul (cayleyX e u 0) (ratDerivative 0 p))
+    (polyMul (cayleyX e u 1) (ratDerivative 1 p)))
+    (polyMul (cayleyX e u 2) (ratDerivative 2 p))
+
+def divergence (e : Q') (u : Triple) : RatPoly :=
+  polyAdd (polyAdd (ratDerivative 0 (cayleyX e u 0))
+    (ratDerivative 1 (cayleyX e u 1))) (ratDerivative 2 (cayleyX e u 2))
+
+private theorem zero_expr (e : Q') (u : Triple) : RatPolyCoeffEqv polyZero (ep e u 0) :=
+  (RatPolyCoeffEqv.zero_smul polyOne).symm
+private theorem one_expr (e : Q') (u : Triple) : RatPolyCoeffEqv polyOne (ep e u 1) :=
+  (RatPolyCoeffEqv.one_smul polyOne).symm
+private theorem constant_mul (c : Q') (p : RatPoly) :
+    RatPolyCoeffEqv (polyMul (polySmul c polyOne) p) (polySmul c p) :=
+  (RatPolyCoeffEqv.polyMul_smul_left c polyOne p).trans ((RatPolyCoeffEqv.one_mul p).smul c)
+private theorem constant_derivative (i : Nat) (c : Q') :
+    RatPolyCoeffEqv (ratDerivative i (polyConst c)) polyZero := by
+  intro weight
+  change ((Q'.ofNat (exponentAt [] i)*c)*weight (lowerExponentAt i [])+0) ≈ 0
+  have hz : exponentAt ([] : List Nat) i=0 := by cases i <;> rfl
+  rw [hz]
+  exact poly_identity_of_normal_eq
+    (.add (.mul (.mul (.const 0) (.var 0)) (.var 1)) (.const 0)) (.const 0)
+    (by decide) (fun | 0 => c | _ => weight (lowerExponentAt i []))
+private theorem smul_one_derivative (i : Nat) (c : Q') :
+    RatPolyCoeffEqv (ratDerivative i (polySmul c polyOne)) polyZero := by
+  exact (ratDerivative_smul i c polyOne).trans
+    (((constant_derivative i 1).smul c).trans (RatPolyCoeffEqv.smul_zero c))
+private theorem derivative_neg (i : Nat) (p : RatPoly) :
+    RatPolyCoeffEqv (ratDerivative i (polyNeg p)) (polyNeg (ratDerivative i p)) :=
+  ((neg_smul p).derivative i).trans
+    ((ratDerivative_smul i (-1) p).trans (neg_smul (ratDerivative i p)).symm)
+private theorem padded_neg {p q : RatPoly} (h : PaddedPolynomialCoeffEqv 1 p q) :
+    PaddedPolynomialCoeffEqv 1 (polyNeg p) (polyNeg q) :=
+  (PaddedPolynomialCoeffEqv.of_coeff (neg_smul p)).trans
+    ((h.smul (-1)).trans (PaddedPolynomialCoeffEqv.of_coeff (neg_smul q).symm))
+
+private theorem var_derivative (e : Q') (u : Triple) (i : Fin 3) (j : Nat) :
+    PaddedPolynomialCoeffEqv 1 (ratDerivative i.val (env e u j))
+      (ep e u (if i.val=j then 1 else 0)) := by
+  by_cases hj : j<3
+  · by_cases hij : i.val=j
+    · subst j
+      simp only [env, if_pos i.isLt]
+      exact (ratDerivative_polyVar_self_padded 1 i.val).trans
+        (PaddedPolynomialCoeffEqv.of_coeff (one_expr e u))
+    · simp only [env, if_pos hj, if_neg hij]
+      exact PaddedPolynomialCoeffEqv.of_coeff
+        ((ratDerivative_polyVar_ne i.val j hij).trans (zero_expr e u))
+  · have hij : i.val≠j := by have := i.isLt; omega
+    simp only [env, if_neg hj, if_neg hij]
+    exact PaddedPolynomialCoeffEqv.of_coeff
+      ((constant_derivative i.val _).trans (zero_expr e u))
+
+private theorem exprDerivative_pin (e : Q') (u : Triple) (i : Fin 3) : ∀ p : E,
+    PaddedPolynomialCoeffEqv 1 (ratDerivative i.val (ep e u p))
+      (ep e u (exprDerivative i.val p))
+  | .const c => PaddedPolynomialCoeffEqv.of_coeff
+      ((smul_one_derivative i.val (Q'.ofInt c)).trans (zero_expr e u))
+  | .var j => var_derivative e u i j
+  | .add p q => by
+      rw [show ep e u (.add p q)=polyAdd (ep e u p) (ep e u q) by rfl,
+        ratDerivative_add_exact]
+      exact (exprDerivative_pin e u i p).add (exprDerivative_pin e u i q)
+  | .mul p q =>
+      (PaddedPolynomialCoeffEqv.of_coeff (ratDerivative_mul i.val (ep e u p) (ep e u q))).trans
+        (((exprDerivative_pin e u i p).mul (PaddedPolynomialCoeffEqv.refl 1 (ep e u q))).add
+          ((PaddedPolynomialCoeffEqv.refl 1 (ep e u p)).mul (exprDerivative_pin e u i q)))
+  | .neg p => (PaddedPolynomialCoeffEqv.of_coeff (derivative_neg i.val (ep e u p))).trans
+      (padded_neg (exprDerivative_pin e u i p))
+
+private theorem directional_pin (e : Q') (u : Triple) (p : E) :
+    PaddedPolynomialCoeffEqv 1 (directionalDerivative e u (ep e u p))
+      (ep e u (direction p)) :=
+  (((PaddedPolynomialCoeffEqv.refl 1 (cayleyX e u 0)).mul (exprDerivative_pin e u 0 p)).add
+    ((PaddedPolynomialCoeffEqv.refl 1 (cayleyX e u 1)).mul (exprDerivative_pin e u 1 p))).add
+      ((PaddedPolynomialCoeffEqv.refl 1 (cayleyX e u 2)).mul (exprDerivative_pin e u 2 p))
+private theorem divergence_pin (e : Q') (u : Triple) :
+    PaddedPolynomialCoeffEqv 1 (divergence e u) (ep e u divExpr) :=
+  ((exprDerivative_pin e u 0 field0).add (exprDerivative_pin e u 1 field1)).add
+    (exprDerivative_pin e u 2 field2)
+
+-- D and N do not use direction variables 4,5,6. These pins retain the
+-- independently constructed literal numerator/denominator representatives.
+private theorem denom_env (e : Q') (u : Triple) : ep e u denom = cayleyD e := rfl
+private theorem scalar_env (e : Q') (u : Triple) :
+    ep e u scalarNumerator = (cayleyN e).scalar := rfl
+private theorem i_env (e : Q') (u : Triple) : ep e u (2*ee*a0) = (cayleyN e).iPart := rfl
+private theorem j_env (e : Q') (u : Triple) : ep e u (2*ee*a1) = (cayleyN e).jPart := rfl
+private theorem k_env (e : Q') (u : Triple) : ep e u (2*ee*a2) = (cayleyN e).kPart := rfl
+
+private def dSimple : E := 2*(ee*ee)*denom*au
+private theorem d_simple_normal :
+    normalize (pe (direction denom)) = normalize (pe dSimple) := by decide
+private theorem div0_normal :
+    normalize (pe (exprDerivative 0 field0)) = normalize (pe (2*(ee*ee)*au)) := by decide
+private theorem div1_normal :
+    normalize (pe (exprDerivative 1 field1)) = normalize (pe (2*(ee*ee)*au)) := by decide
+private theorem div2_normal :
+    normalize (pe (exprDerivative 2 field2)) = normalize (pe (2*(ee*ee)*au)) := by decide
+
+private theorem d_simple_pin (e : Q') (u : Triple) :
+    PaddedPolynomialCoeffEqv 1 (directionalDerivative e u (cayleyD e)) (ep e u dSimple) := by
+  have h := directional_pin e u denom
+  rw [denom_env] at h
+  exact h.trans (PaddedPolynomialCoeffEqv.of_coeff
+    (coeffEvalExpr_eqv_of_normalize_eq _ _ d_simple_normal (env e u)))
+
+private theorem div_simple_pin (e : Q') (u : Triple) :
+    PaddedPolynomialCoeffEqv 1 (divergence e u) (ep e u (6*(ee*ee)*au)) := by
+  have h0 := (exprDerivative_pin e u 0 field0).trans (PaddedPolynomialCoeffEqv.of_coeff
+    (coeffEvalExpr_eqv_of_normalize_eq _ _ div0_normal (env e u)))
+  have h1 := (exprDerivative_pin e u 1 field1).trans (PaddedPolynomialCoeffEqv.of_coeff
+    (coeffEvalExpr_eqv_of_normalize_eq _ _ div1_normal (env e u)))
+  have h2 := (exprDerivative_pin e u 2 field2).trans (PaddedPolynomialCoeffEqv.of_coeff
+    (coeffEvalExpr_eqv_of_normalize_eq _ _ div2_normal (env e u)))
+  have hn : RatPolyCoeffEqv
+      (ep e u ((2*(ee*ee)*au+2*(ee*ee)*au)+2*(ee*ee)*au))
+      (ep e u (6*(ee*ee)*au)) :=
+    coeffEvalExpr_eqv_of_normalize_eq
+      ((2*(.var 0*.var 0)*.var 1+2*(.var 0*.var 0)*.var 1)+2*(.var 0*.var 0)*.var 1)
+      (6*(.var 0*.var 0)*.var 1) (by decide)
+      (fun | 0 => ep e u ee | _ => ep e u au)
+  exact ((h0.add h1).add h2).trans (PaddedPolynomialCoeffEqv.of_coeff hn)
+
+/-- Exact polynomial compensation for the formal D^-3 density, with literal
+derivatives and no positive-e or analytic density premise. -/
+theorem cayley_density_compensation (e : Q') (u : Triple) :
+    PaddedPolynomialCoeffEqv 1
+      (polyAdd (polyMul (cayleyD e) (divergence e u))
+        (polyNeg (polySmul 3 (directionalDerivative e u (cayleyD e))))) polyZero := by
+  have hD := d_simple_pin e u
+  have h3 := (hD.smul 3).trans
+    (PaddedPolynomialCoeffEqv.of_coeff (constant_mul 3 (ep e u dSimple)).symm)
+  have h := ((PaddedPolynomialCoeffEqv.refl 1 (cayleyD e)).mul (div_simple_pin e u)).add
+    (padded_neg h3)
+  have hn : RatPolyCoeffEqv
+      (ep e u (denom*(6*(ee*ee)*au) + -(3*dSimple))) (ep e u 0) :=
+    coeffEvalExpr_eqv_of_normalize_eq
+      (.var 0*(6*(.var 1*.var 1)*.var 2) + -(3*(2*(.var 1*.var 1)*.var 0*.var 2)))
+      0 (by decide)
+      (fun | 0 => cayleyD e | 1 => ep e u ee | _ => ep e u au)
+  exact h.trans ((PaddedPolynomialCoeffEqv.of_coeff
+    hn).trans
+      (PaddedPolynomialCoeffEqv.of_coeff (zero_expr e u).symm))
+
+private def numeratorExpr (c : Fin 4) : E :=
+  match c.val with | 0 => scalarNumerator | 1 => 2*ee*a0 | 2 => 2*ee*a1 | _ => 2*ee*a2
+private def generatorExpr (c : Fin 4) : E :=
+  match c.val with | 0 => 0 | 1 => 2*ee*u0 | 2 => 2*ee*u1 | _ => 2*ee*u2
+private def productExpr (c : Fin 4) : E :=
+  match c.val with
+  | 0 => generatorExpr 0*numeratorExpr 0 +
+      -((generatorExpr 1*numeratorExpr 1)+(generatorExpr 2*numeratorExpr 2+generatorExpr 3*numeratorExpr 3))
+  | 1 => generatorExpr 0*numeratorExpr 1 + (generatorExpr 1*numeratorExpr 0+
+      (generatorExpr 2*numeratorExpr 3 + -(generatorExpr 3*numeratorExpr 2)))
+  | 2 => generatorExpr 0*numeratorExpr 2 + (generatorExpr 2*numeratorExpr 0+
+      (generatorExpr 3*numeratorExpr 1 + -(generatorExpr 1*numeratorExpr 3)))
+  | _ => generatorExpr 0*numeratorExpr 3 + (generatorExpr 3*numeratorExpr 0+
+      (generatorExpr 1*numeratorExpr 2 + -(generatorExpr 2*numeratorExpr 1)))
+
+private def baseField (c : Fin 4) : E :=
+  match c.val with
+  | 0 => 0
+  | 1 => scalarNumerator*u0+2*ee*(u1*a2 + -(u2*a1))
+  | 2 => scalarNumerator*u1+2*ee*(u2*a0 + -(u0*a2))
+  | _ => scalarNumerator*u2+2*ee*(u0*a1 + -(u1*a0))
+private def directionSimple (c : Fin 4) : E :=
+  match c.val with | 0 => -dSimple | 1 => 2*ee*field0 | 2 => 2*ee*field1 | _ => 2*ee*field2
+private def productSimple (c : Fin 4) : E :=
+  if c.val=0 then -(4*(ee*ee)*au) else 2*ee*baseField c
+private theorem direction_simple_normal (c : Fin 4) :
+    normalize (pe (direction (numeratorExpr c))) = normalize (pe (directionSimple c)) := by
+  have hc : c=0 ∨ c=1 ∨ c=2 ∨ c=3 := by simp only [Fin.ext_iff]; omega
+  rcases hc with rfl | rfl | rfl | rfl <;> decide
+private theorem product_simple_normal (c : Fin 4) :
+    normalize (pe (productExpr c)) = normalize (pe (productSimple c)) := by
+  have hc : c=0 ∨ c=1 ∨ c=2 ∨ c=3 := by simp only [Fin.ext_iff]; omega
+  rcases hc with rfl | rfl | rfl | rfl <;> decide
+
+private theorem small_tangent (e : Q') (u : Triple) (c : Fin 4) :
+    RatPolyCoeffEqv
+      (ep e u (denom*directionSimple c + -(numeratorExpr c*dSimple)))
+      (ep e u (denom*productSimple c)) := by
+  have hc : c=0 ∨ c=1 ∨ c=2 ∨ c=3 := by simp only [Fin.ext_iff]; omega
+  rcases hc with rfl | rfl | rfl | rfl
+  · let t : PE := .var 0
+    let r : PE := .var 1
+    let z : PE := .var 2
+    let D : PE := 1+(t*t)*r
+    let N : PE := 1 + -((t*t)*r)
+    exact coeffEvalExpr_eqv_of_normalize_eq
+      (D*(-(2*(t*t)*D*z)) + -(N*(2*(t*t)*D*z))) (D*(-(4*(t*t)*z)))
+      (by decide) (fun | 0 => ep e u ee | 1 => ep e u radius | _ => ep e u au)
+  · exact coeffEvalExpr_eqv_of_normalize_eq
+      (.var 0*(2*.var 1*(.var 3+2*(.var 1*.var 1)*.var 2*.var 4)) +
+        -((2*.var 1*.var 2)*(2*(.var 1*.var 1)*.var 0*.var 4)))
+      (.var 0*(2*.var 1*.var 3)) (by decide)
+      (fun
+        | 0 => cayleyD e
+        | 1 => ep e u ee
+        | 2 => ep e u a0
+        | 3 => ep e u (baseField 1)
+        | _ => ep e u au)
+  · exact coeffEvalExpr_eqv_of_normalize_eq
+      (.var 0*(2*.var 1*(.var 3+2*(.var 1*.var 1)*.var 2*.var 4)) +
+        -((2*.var 1*.var 2)*(2*(.var 1*.var 1)*.var 0*.var 4)))
+      (.var 0*(2*.var 1*.var 3)) (by decide)
+      (fun
+        | 0 => cayleyD e
+        | 1 => ep e u ee
+        | 2 => ep e u a1
+        | 3 => ep e u (baseField 2)
+        | _ => ep e u au)
+  · exact coeffEvalExpr_eqv_of_normalize_eq
+      (.var 0*(2*.var 1*(.var 3+2*(.var 1*.var 1)*.var 2*.var 4)) +
+        -((2*.var 1*.var 2)*(2*(.var 1*.var 1)*.var 0*.var 4)))
+      (.var 0*(2*.var 1*.var 3)) (by decide)
+      (fun
+        | 0 => cayleyD e
+        | 1 => ep e u ee
+        | 2 => ep e u a2
+        | 3 => ep e u (baseField 3)
+        | _ => ep e u au)
+
+/-- The pure imaginary LEFT generator (0,2e u), with explicit constant
+polynomial representatives and the original Hamilton multiplication order. -/
+def leftGenerator (e : Q') (u : Triple) : PolyQuaternion :=
+  ⟨ep e u (generatorExpr 0),ep e u (generatorExpr 1),
+    ep e u (generatorExpr 2),ep e u (generatorExpr 3)⟩
+private def qscale (p : RatPoly) (q : PolyQuaternion) : PolyQuaternion :=
+  ⟨polyMul p q.scalar,polyMul p q.iPart,polyMul p q.jPart,polyMul p q.kPart⟩
+private def clearedComponent (e : Q') (u : Triple) (p : RatPoly) : RatPoly :=
+  polyAdd (polyMul (cayleyD e) (directionalDerivative e u p))
+    (polyNeg (polyMul p (directionalDerivative e u (cayleyD e))))
+def clearedQuotientTangent (e : Q') (u : Triple) : PolyQuaternion :=
+  ⟨clearedComponent e u (cayleyN e).scalar,clearedComponent e u (cayleyN e).iPart,
+    clearedComponent e u (cayleyN e).jPart,clearedComponent e u (cayleyN e).kPart⟩
+
+private theorem tangent_component (e : Q') (u : Triple) (c : Fin 4) :
+    PaddedPolynomialCoeffEqv 1
+      (clearedComponent e u (ep e u (numeratorExpr c)))
+      (ep e u (denom*productExpr c)) := by
+  have hD := d_simple_pin e u
+  have hp := (directional_pin e u (numeratorExpr c)).trans (PaddedPolynomialCoeffEqv.of_coeff
+    (coeffEvalExpr_eqv_of_normalize_eq _ _ (direction_simple_normal c) (env e u)))
+  have h := ((PaddedPolynomialCoeffEqv.refl 1 (cayleyD e)).mul hp).add
+    (padded_neg ((PaddedPolynomialCoeffEqv.refl 1 (ep e u (numeratorExpr c))).mul hD))
+  have hp' := coeffEvalExpr_eqv_of_normalize_eq _ _ (product_simple_normal c) (env e u)
+  exact h.trans ((PaddedPolynomialCoeffEqv.of_coeff (small_tangent e u c)).trans
+    ((PaddedPolynomialCoeffEqv.refl 1 (cayleyD e)).mul
+      (PaddedPolynomialCoeffEqv.of_coeff hp'.symm)))
+
+private theorem tangent_scalar_actual (e : Q') (u : Triple) :
+    PaddedPolynomialCoeffEqv 1 (clearedQuotientTangent e u).scalar
+      (qscale (cayleyD e) (PolyQuaternion.mul (leftGenerator e u) (cayleyN e))).scalar :=
+  tangent_component e u 0
+private theorem tangent_i_actual (e : Q') (u : Triple) :
+    PaddedPolynomialCoeffEqv 1 (clearedQuotientTangent e u).iPart
+      (qscale (cayleyD e) (PolyQuaternion.mul (leftGenerator e u) (cayleyN e))).iPart :=
+  tangent_component e u 1
+private theorem tangent_j_actual (e : Q') (u : Triple) :
+    PaddedPolynomialCoeffEqv 1 (clearedQuotientTangent e u).jPart
+      (qscale (cayleyD e) (PolyQuaternion.mul (leftGenerator e u) (cayleyN e))).jPart :=
+  tangent_component e u 2
+private theorem tangent_k_actual (e : Q') (u : Triple) :
+    PaddedPolynomialCoeffEqv 1 (clearedQuotientTangent e u).kPart
+      (qscale (cayleyD e) (PolyQuaternion.mul (leftGenerator e u) (cayleyN e))).kPart :=
+  tangent_component e u 3
+
+private theorem paddedQuaternion_components {p q : PolyQuaternion}
+    (hs : PaddedPolynomialCoeffEqv 1 p.scalar q.scalar)
+    (hi : PaddedPolynomialCoeffEqv 1 p.iPart q.iPart)
+    (hj : PaddedPolynomialCoeffEqv 1 p.jPart q.jPart)
+    (hk : PaddedPolynomialCoeffEqv 1 p.kPart q.kPart) : PaddedQuaternionCoeffEqv 1 p q :=
+  ⟨hs,hi,hj,hk⟩
+
+/-- D*DXN-N*DXD = D*((0,2e u)*N), coefficientwise after common padding.
+The multiplication is LEFT, as in coordinate_action false. All chart points,
+including e=0, stay in scope; no quotient is differentiated analytically. -/
+theorem cayley_cleared_left_tangent (e : Q') (u : Triple) :
+    PaddedQuaternionCoeffEqv 1 (clearedQuotientTangent e u)
+      (qscale (cayleyD e) (PolyQuaternion.mul (leftGenerator e u) (cayleyN e))) :=
+  paddedQuaternion_components (tangent_scalar_actual e u) (tangent_i_actual e u)
+    (tangent_j_actual e u) (tangent_k_actual e u)
+
+private def component (c : Fin 4) (q : PolyQuaternion) : RatPoly :=
+  match c.val with | 0 => q.scalar | 1 => q.iPart | 2 => q.jPart | _ => q.kPart
+private def qsmul (s : Q') (q : PolyQuaternion) : PolyQuaternion :=
+  ⟨polySmul s q.scalar,polySmul s q.iPart,polySmul s q.jPart,polySmul s q.kPart⟩
+private def qadd (p q : PolyQuaternion) : PolyQuaternion :=
+  ⟨polyAdd p.scalar q.scalar,polyAdd p.iPart q.iPart,
+    polyAdd p.jPart q.jPart,polyAdd p.kPart q.kPart⟩
+
+/-- The EXISTING original left-frame basis, with its actual 2e*u_i weights.
+coordinate_action false identifies each imaginaryBasis i with the LEFT
+original-coordinate action. This definition does not assert an arbitrary-source
+frame pullback through the chart. -/
+def originalLeftGenerator (e : Q') (u : Triple) : PolyQuaternion :=
+  qadd (qsmul (2*e*u.x) (imaginaryBasis 0))
+    (qadd (qsmul (2*e*u.y) (imaginaryBasis 1)) (qsmul (2*e*u.z) (imaginaryBasis 2)))
+
+private theorem basis_component (c : Fin 4) (x y z : Q') :
+    RatPolyCoeffEqv (polyConst (match c.val with | 0 => 0 | 1 => x | 2 => y | _ => z))
+      (polyAdd (polySmul x (component c (imaginaryBasis 0)))
+        (polyAdd (polySmul y (component c (imaginaryBasis 1)))
+          (polySmul z (component c (imaginaryBasis 2))))) := by
+  have hc : c=0 ∨ c=1 ∨ c=2 ∨ c=3 := by simp only [Fin.ext_iff]; omega
+  rcases hc with rfl | rfl | rfl | rfl
+  · intro weight
+    exact poly_identity_of_normal_eq
+      (.add (.mul (.const 0) (.var 3)) (.const 0))
+      (.add (.mul (.mul (.var 0) (.const 0)) (.var 3))
+        (.add (.mul (.mul (.var 1) (.const 0)) (.var 3))
+          (.add (.mul (.mul (.var 2) (.const 0)) (.var 3)) (.const 0))))
+      (by decide) (fun | 0 => x | 1 => y | 2 => z | _ => weight [])
+  · intro weight
+    exact poly_identity_of_normal_eq
+      (.add (.mul (.var 0) (.var 3)) (.const 0))
+      (.add (.mul (.mul (.var 0) (.const 1)) (.var 3))
+        (.add (.mul (.mul (.var 1) (.const 0)) (.var 3))
+          (.add (.mul (.mul (.var 2) (.const 0)) (.var 3)) (.const 0))))
+      (by decide) (fun | 0 => x | 1 => y | 2 => z | _ => weight [])
+  · intro weight
+    exact poly_identity_of_normal_eq
+      (.add (.mul (.var 1) (.var 3)) (.const 0))
+      (.add (.mul (.mul (.var 0) (.const 0)) (.var 3))
+        (.add (.mul (.mul (.var 1) (.const 1)) (.var 3))
+          (.add (.mul (.mul (.var 2) (.const 0)) (.var 3)) (.const 0))))
+      (by decide) (fun | 0 => x | 1 => y | 2 => z | _ => weight [])
+  · intro weight
+    exact poly_identity_of_normal_eq
+      (.add (.mul (.var 2) (.var 3)) (.const 0))
+      (.add (.mul (.mul (.var 0) (.const 0)) (.var 3))
+        (.add (.mul (.mul (.var 1) (.const 0)) (.var 3))
+          (.add (.mul (.mul (.var 2) (.const 1)) (.var 3)) (.const 0))))
+      (by decide) (fun | 0 => x | 1 => y | 2 => z | _ => weight [])
+
+/-- The chart generator is produced in the existing original angular basis,
+not a separately assumed coordinate-action convention. -/
+theorem leftGenerator_original_basis (e : Q') (u : Triple) :
+    PolyQuaternionCoeffEqv (leftGenerator e u) (originalLeftGenerator e u) :=
+  ⟨basis_component 0 (2*e*u.x) (2*e*u.y) (2*e*u.z),
+    basis_component 1 (2*e*u.x) (2*e*u.y) (2*e*u.z),
+    basis_component 2 (2*e*u.x) (2*e*u.y) (2*e*u.z),
+    basis_component 3 (2*e*u.x) (2*e*u.y) (2*e*u.z)⟩
+
+/-- The exact cleared chart tangent on the SAME original left-generator basis.
+The optional right chart and an arbitrary-source frame pullback are not supplied
+by this leaf. No Haar/sphere equality is used on the chart coordinates. -/
+theorem cayley_original_left_tangent (e : Q') (u : Triple) :
+    PaddedQuaternionCoeffEqv 1 (clearedQuotientTangent e u)
+      (qscale (cayleyD e) (PolyQuaternion.mul (originalLeftGenerator e u) (cayleyN e))) := by
+  have h := (PaddedQuaternionCoeffEqv.of_coeff (leftGenerator_original_basis e u)).mul
+    (PaddedQuaternionCoeffEqv.refl 1 (cayleyN e))
+  exact (cayley_cleared_left_tangent e u).trans
+    (paddedQuaternion_components
+      ((PaddedPolynomialCoeffEqv.refl 1 (cayleyD e)).mul h.scalar)
+      ((PaddedPolynomialCoeffEqv.refl 1 (cayleyD e)).mul h.iPart)
+      ((PaddedPolynomialCoeffEqv.refl 1 (cayleyD e)).mul h.jPart)
+      ((PaddedPolynomialCoeffEqv.refl 1 (cayleyD e)).mul h.kPart))
+
+end YMGap.Continuum.BF4ExactSlabCayleyGaugeDensity
+
+#print axioms YMGap.Continuum.BF4ExactSlabCayleyGaugeDensity.cayley_density_compensation
+#print axioms YMGap.Continuum.BF4ExactSlabCayleyGaugeDensity.cayley_cleared_left_tangent
+#print axioms YMGap.Continuum.BF4ExactSlabCayleyGaugeDensity.leftGenerator_original_basis
+#print axioms YMGap.Continuum.BF4ExactSlabCayleyGaugeDensity.cayley_original_left_tangent
