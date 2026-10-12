@@ -86,6 +86,13 @@ assume blocking stays in the one-parameter Wilson family.
   are recorded. An actual-cube lower bound REFUTES external O(lambda)
   softness for the commutator square alone. Keep its signed join with the
   spatial determinant/cubic derivatives as the next test, not that shortcut.
+  NEW PAPER Ward calculation: one COMMON longitudinal Gaussian probe across
+  all finite times cancels the projected spatial double commutator against
+  its cubic-square partner, including free endpoints and time-local sources.
+  Its exact remainder is -96*sum Tr(Lambda_t*Hgeom*C_tt)
+  -4*sum Tr(Lambda_t*diag(R)*C_tt). Projection leakage is retained.
+  This auxiliary derivative is NOT Phi_HG or the kinetic response; test
+  that remaining join explicitly before inferring a bound.
   NEW PAPER: at 0<t<=1 and 0<=theta<=rho<=pi/2, the full SU(2)
   heat/principal-image ratio has a signed winding error -delta<=r<=0, with
   delta<=12*exp(-pi^2/(4*t)); a separate explicit character cutoff pays its
@@ -108,6 +115,15 @@ assume blocking stays in the one-parameter Wilson family.
   The fixed-OLD one-face determinant and all-nome normalization consumers
   already exist; reuse them. Their spatially summable versions require
   small-nome guards, so they do not yet bound this near-one quartic defect.
+  The GLOBAL sup-budget alternative is now ruled out on the precision-nome
+  family at the prescribed reference buffer depth, even after removing the
+  constant and quadratic winding pieces: at theta=sqrt(t), t=-log(w), the
+  residual is >=(pi/(2*sqrt(t)))*exp(-pi^2/t+pi/sqrt(t)), and the actual
+  face-count times its supremum diverges. This does not lower-bound a
+  connected normalized error or rule out better terminal estimates.
+  Decision: stop optimizing that global-density budget; the next original
+  estimate must exploit connected localization (or a genuinely different
+  comparison), with large fields and OWN denominators still paid.
 - Separate the running marginal coupling from the summable remainder.
   Illustratively, if u_k=g_k^2 is of order 1/k on geometric UV shells, its
   square is summable but u_k is not. Neither conclusion pays errors amplified
@@ -260,6 +276,18 @@ replacements for classical existence arguments may also require mathematics.
   not its actual curvature-mode/cross-time pullback or uniform estimate.
   Reuse this lemma; keep the genuine finite covariance pullback as the
   next engineering join. Do not recreate another scalar moment fixture.
+  The next producer is now KERNEL-CHECKED as well:
+  `finiteProductGaussian_coordinate_stein:192` and
+  `finiteProductGaussian_linearRow_stein:262` in
+  `lean/YMGap/Continuum/SU2QuaternionFiniteProductGaussianIBP.lean` prove
+  actual coordinate/explicit rational-row IBP in EVERY finite dimension
+  for arbitrary RatPoly, with no assumed moment law. All five public gates
+  pass within {propext, Quot.sound}. This scalar evaluator sets variables
+  outside N to one; it does NOT preserve their coefficients like the head
+  operator. Next apply row IBP twice to the literal radial quartic using
+  computed row Gram data, then supply actual transverse-mode/CReal rows.
+  The division-free PAPER covariance identity is recorded in the audit;
+  it is not yet the formal correlated-row theorem or original-law join.
 - Queue original local-integration/change-of-variables/tail tools and
   actual per-group compact/Haar realizations behind identified consumers.
   For the continuum generator, inventory the precise core/domain and
@@ -334,6 +362,29 @@ persuasive prose. Skip the expensive idea-embedding visualization: it is
 not a proof check. Fixed review gates are not repeated status polling or
 permission to discard productive work. This is our adapted procedure,
 not a replication of the paper's benchmark protocol.
+
+**Associated-paper follow-through (Oct 12):** direct review of sections 4--5
+and Appendix D, independently checked by a fresh-context Sol reviewer,
+confirms the mechanism above. Make its execution concrete: default to two
+read-only probes of at most 30 minutes each, followed by at most 30 minutes
+of independent verification/selection (90 agent-minutes total, not 90 minutes
+per route). Record the start, stop and remaining allowance in the handoff;
+stop at a complete useful result sooner. Extension requires an explicit new
+allocation justified by that result, never an automatic restart. These are
+our research budgets, not the paper's tuned parameters or a Clay ETA.
+
+Both probes start from the same recorded immutable commit and the same short
+verified-input/refutation list. Working-tree additions are identified as
+unverified and excluded from that common baseline. Each returns its output
+separately; root alone integrates reviewed changes. Compare the incumbent
+and challengers on the SAME exact statement: which previously missing input
+is now produced, which loss in the actual parameter range is removed, or
+which sufficient route is rigorously ruled out? Reject weakened goals,
+surrogate objects and assumption-only repackaging before ranking. Keep
+incomparable useful results and negative tests without inventing a numerical
+"percentage solved"; no winner is required. A PAPER reduction and a
+kernel-checked theorem retain distinct statuses. This operational change
+adds no mathematical closure and does not alter the canonical progress chart.
 
 ### Bidirectional audit: binding execution update (2026-10-11 Pacific)
 
@@ -25543,11 +25594,24 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
     is NOT O(lambda) on the actual cube's soft transverse eigenmodes.
     Combine the signed kinetic and spatial derivatives before taking norms;
     do not replace this still-open join by the refuted softness assumption.
+    The common-time auxiliary Ward probe now has an exact cancellation and
+    explicit projection-leakage remainder, valid with local sources and
+    finite endpoints. Its identification with the complete response is NOT
+    proved. Use the exact relation as a test, not as payment of Phi_HG.
+    The residual global winding sup-budget diverges on the prescribed
+    precision family even after constant/quadratic removal. Stop sharpening
+    that budget; concentrate the original-law work on connected localization
+    or a mathematically distinct comparison, retaining original normalizations.
     The coefficient-preserving local three-color quartic projection is
     now kernel-checked on RatPoly (only propext/Quot.sound). It pays the
     local Gaussian contraction, not the curvature-mode/cross-time pullback,
     reference uniform bound or original-law matching. Reuse it for that
     actual pullback; no new assumption-only interface is needed.
+    General finite-dimensional coordinate and rational-row Gaussian IBP
+    now passes the constructive gate on the existing evaluator. Use it
+    twice for the computed Gram contraction; do not assume a Gaussian
+    pullback law, confuse scalar tail evaluation with coefficient-preserving
+    head integration, or call this a uniform reference/original estimate.
 
 **Quantitative completion viewpoint (2026-10-07, user-supplied Lawvere idea):**
 use the existing constructive extension APIs rather than treating completion

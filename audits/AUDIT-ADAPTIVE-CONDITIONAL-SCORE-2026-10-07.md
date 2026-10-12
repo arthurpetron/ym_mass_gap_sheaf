@@ -24909,3 +24909,234 @@ the bounded, fixed-gate research heuristic already recorded there; it is
 not a theorem about proof-search success. No axiom, sorry, frontier field,
 protected user file, CI setting or canonical chart claim was changed.
 The unchanged full Clay goal remains ACTIVE.
+
+### Finite spatial Ward cancellation with common time noise (PAPER)
+
+2026-10-12, continuation of dbab5f7c. This is an auxiliary finite Gaussian
+identity for the already specified spatial action, NOT a bound on Phi_HG.
+Keep P=P_link, C_v=(1/2)*(D^*D)^(-1), Cplus=S*C_v*S^*, Lambda_t=d^*Omega_t*d,
+and the actual ambient exponential-coordinate V3,V4 above. S is the unsigned
+endpoint-SUM incidence; D is the oriented incidence used by the action.
+All inverses are on the specified rooted/transverse finite carriers.
+
+Let chi have three independent vertex colors with covariance C_v, set
+c=D*chi and s=S*chi. Differentiation in c is AMBIENT differentiation: c is
+longitudinal, so it cannot be replaced by a derivative within ker(D^*).
+The exponential-coordinate gauge variation, in the existing epsilon
+normalization, is
+
+    delta a=c+2*epsilon*(a cross s)
+                  +(4/3)*epsilon^2*a cross (a cross c)+O(epsilon^3).
+
+Coefficientwise gauge invariance of each weighted spatial face gives
+
+    D_c V3+2*(a cross s) dot grad S_Omega=0,
+    D_c V4+2*(a cross s) dot grad V3
+          +(4/3)*(a cross (a cross c)) dot grad S_Omega=0,
+    S_Omega=<a,Lambda*a>, Lambda*D=0.
+
+Differentiate the second identity once more in c and use the first.
+The contractions E_chi(c cross s)=0,
+E_chi((a cross s) cross s)=-2*diag(Cplus_ee)*a, and
+E_chi(c cross (a cross c))=diag(R)*a yield
+
+    E_chi D_c^2 V3=0,
+    E_chi D_c^2 V4
+      =16*sum_(e,f) Lambda_ef*Cplus_ef*(a_e dot a_f)
+       -16*<Lambda*a,diag(Cplus_ee)*a>
+       -(8/3)*<Lambda*a,diag(R)*a>.
+
+The first two terms are a double commutator, but compression has a cost.
+For k_b=S*(D^*D)^(-1)*D^*e_b, put D_b=diag(k_b), T_b=P*D_b*P,
+E_b=P*D_b*(I-P)*D_b*P. The exact identities are
+
+    P*[D_b,[Lambda,D_b]]*P
+       =[T_b,[Lambda,T_b]]-{E_b,Lambda},
+    (1/2)*sum_b E_b=P*(Cplus circ (I-P))*P=4*P*Hgeom*P.
+
+Here {X,Y}=X*Y+Y*X. The second equality follows from the previously proved
+uncompressed Cplus circ (D*C_v*D^*) identity and P*D=0. Omitting E_b would
+assert the false equality P*D_b^2*P=(P*D_b*P)^2.
+
+For the full FREE finite history let C=C_Omega and use the SAME chi at
+EVERY time. Define the polynomial-in-eta Gaussian probe
+
+    Psi_const(eta)=E_(a,chi)[V4(a+sqrt(eta)*c)
+                              -(1/2)*V3(a+sqrt(eta)*c)^2],
+
+where V3,V4 are summed over spatial slices. Odd chi terms vanish, so the
+derivative at zero is defined algebraically by its eta coefficient. It is
+
+    Psi_const'(0)=(1/2)*E D_c^2 V4-(1/2)*E (D_c V3)^2.
+
+The term E[V3*D_c^2 V3] vanishes by the contracted identity above, not by
+discarding the cubic partner. The square retains ALL ordered pairs of
+times, since D_c V3=-4*sum_t <Lambda_t*a_t,a_t cross S*chi>.
+Put Lambda_full=diag_t Lambda_t, T_b_full=I_time tensor T_b. Wick contraction
+of the projected terms gives
+
+    6*sum_b Tr([T_b_full,[Lambda_full,T_b_full]]*C)
+    +12*sum_b Tr([Lambda_full,T_b_full]*C*[Lambda_full,T_b_full]*C).
+
+For arbitrary symmetric A,Lambda,T and C=(1/2)*A^(-1), cyclicity proves
+
+    Tr([T,[Lambda,T]]*C)
+       +2*Tr([A,T]*C*[Lambda,T]*C)=0.
+
+In this actual history A=L_time tensor P+Lambda_full and
+[L_time tensor P,T_b_full]=0, INCLUDING the free endpoint diagonal entries.
+Thus the two displayed projected terms cancel off stationarity, even for
+time-local sources. The remaining exact expression is
+
+    Psi_const'(0)
+      =-12*sum_(t,b) Tr(Lambda_t*E_b*C_tt)
+         -4*sum_t Tr(Lambda_t*diag(R)*C_tt)
+      =-96*sum_t Tr(Lambda_t*Hgeom*C_tt)
+         -4*sum_t Tr(Lambda_t*diag(R)*C_tt).
+
+ROOT and the independent stationary-contact reviewer checked the coefficients,
+projection leakage and cross-time pairings. Independent chi_t at separate
+times would remove the cross-time pairings and INVALIDATE this cancellation.
+The formula also holds for one slice (T=0). Its finite source derivatives are
+legitimate, but eta is NOT the physical source, heat time or RG flow. No
+identity identifies Psi_const'(0) with Phi or its kinetic mixed derivative.
+NEXT: test this exact Ward relation against the COMPLETE signed kinetic and
+spatial source response; retain its leakage, boundaries and OLD corrections.
+
+### Global winding sup budgets fail even after quadratic removal (PAPER)
+
+Keep t=-log(w), one quarter of the carrier Casimir heat time; it is not the
+physical continuum clock. Retain the preceding exact u_t, gamma_t, R_t.
+For 0<t<=1/32 put A=pi^2/t, y=pi/sqrt(t)>=16 and theta=sqrt(t). All paired
+winding contributions to r_t(theta) are negative. The first pair alone obeys
+
+    -r_(t,1)(sqrt(t))
+      =exp(-A)*[(2*y-1)*exp(y)-(2*y+1)*exp(-y)]
+      >=y*exp(-A+y).
+
+The same geometric tails at zero give
+-r_t(0)<=8*A*exp(-A), q0>=1/2 and gamma_t*t<=(8/3)*A^2*exp(-A).
+Using -log(1-d)>=d and log(1-d0)>=-2*d0 for d0<=1/2 yields
+
+    R_t(sqrt(t))
+      >=exp(-A)*[y*exp(y)-16*y^2-(8/3)*y^4]
+      >=(y/2)*exp(-A+y)>0.
+
+For the last step use exp(y)>=y^6/720; at y>=16,
+y^6/1440 >= 16*y+(8/3)*y^3. This is a lower bound on the ACTUAL residual
+after both removals, not the old removable constant or a loose upper cap.
+
+Source pins for the prescribed precision trajectory are
+`coefficientUpper:28`, `coefficientUpper_lt_two:43`, `denominator:69`,
+`gap:89`, `precisionNomeSchedule:148` and
+`value_leRat_coefficientUpper:165` in
+`lean/YMGap/Continuum/AFPrecisionNomeSchedule.lean`, together with
+`afE:192` in `BF4WilsonAllNomeAFPaddedTrajectory.lean` and
+`trajWidth:310` in `BF4WilsonAllNomeDyadicSmoothedTrajectory.lean`
+(both under `lean/YMGap/Continuum/`). They specify
+
+    s=2^j, W=s^2+1, w_j=1-U_j/D_j,
+    D_j=j+(51/121)*floor(log2(j+1))+4,
+    Astar<=U_j<2, Astar=3*pi^2/(22*log(2)),
+    t_j=-log(w_j).
+
+The displayed real closed form for Astar follows by PAPER limit arithmetic
+from the literal `stream:85` and its endpoints `lower:90`, `upper:94` in
+`lean/YMGap/Continuum/AFLeadingCoefficient.lean`. The CReal `value:276`
+and `value_approx:282` implement that stream; a new Lean theorem identifying
+it with this real quotient is NOT claimed. Then
+
+    Astar/D_j<=t_j<=2/(j+2),
+    exp(-pi^2/t_j)>=exp(-4*pi^2/Astar)
+                        *s^(-22/3)*(j+1)^(-374/121).
+
+For j>=62 the residual lower bound applies. The full original face lists
+have 3*W^3 spatial and 3*W^3 temporal faces per layer, by
+`spatialFaces_mem_iff:98`, `temporalFaces_mem_iff:104` and their no-duplicate
+lemmas in `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFacePlacement.lean`.
+`chainIds:29` in `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialChainGeometry.lean`
+includes T+1 spatial and T temporal layers: N=3*W^3*(2*T+1). These are the
+FULL original origin-box faces including fringe, not internal Gaussian faces.
+The `centered_product_pin:119` window in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWindowCenteredProduct.lean`
+has buffers n,1,n; the complete reference comparison above requests
+n=8*W*k, k=393+32*m+27*j+p. On windows with both such buffers, T>=2*n and
+N>=96*W^4*k. Consequently
+
+    N*sup_(0<=theta<=sqrt(t_j)) |R_(t_j)(theta)|
+      >=48*exp(-4*pi^2/Astar)*k*y
+                             *s^(2/3)*(j+1)^(-374/121) -> infinity.
+
+Here y=pi/sqrt(t_j)>=2*sqrt(j), k>=27*j. Exponential 2^(2*j/3) dominates
+the displayed polynomial loss. This rules out a VANISHING GLOBAL SUP BUDGET
+on these original windows even on this shrinking chart and after the exact
+constant/quadratic absorption. It does NOT lower-bound the error of a
+normalized connected observable, assert simultaneously realizable face
+angles, rule out a sharper terminal theorem, or refute H1/Clay. It makes the
+next task genuinely different: localize connected defects and large fields;
+do not keep sharpening the scalar winding exponent to rescue this budget.
+
+### Rational-row covariance: concrete next contraction (PAPER)
+
+For explicit finite rational coefficient rows b_i,d_j, set B_i=b_i dot X,
+D_j=d_j dot X in N independent standard Gaussian coordinates. Define the
+COMPUTED Gram matrices Sigma_ik=b_i dot b_k, K_ij=b_i dot d_j and
+tau_j=d_j dot d_j. Two applications of row Stein give for every polynomial F
+
+    E[D_j^2*F]-tau_j*E[F]=E[(directionalDerivative_(d_j))^2 F].
+
+Set S_D=sum_j D_j^2. Apply this to S_B=sum_i B_i^2 and its square.
+Their second derivatives are
+2*sum_i K_ij^2 and 8*(sum_i K_ij*B_i)^2+4*S_B*sum_i K_ij^2. Therefore
+
+    Cov(S_B,S_D)=2*Tr(K*K^*),
+    Cov(S_B^2,S_D)=8*Tr(Sigma*K*K^*)
+                                  +4*Tr(Sigma)*Tr(K*K^*).
+
+For three independent identical color rows, Sigma=sigma*I, K=rho*I,
+this is Cov(S_B^2,S_D)=60*sigma*rho^2=10*sigma*Cov(S_B,S_D).
+No division, nondegeneracy or orthogonal change of variables is needed;
+zero rows are included. The consumer is the retained trace-source quartic
+on actual correlated mode rows. This PAPER contraction does not itself
+supply those rows, their CReal approximation moduli or the original-law join.
+
+### Finite-dimensional Stein producer: narrow Lean verification
+
+The new `lean/YMGap/Continuum/SU2QuaternionFiniteProductGaussianIBP.lean`
+proves `finiteProductGaussian_probe:44`, `finiteProductGaussian_coeffEqv:53`,
+`finiteGaussianMono_coordinate_stein:127`,
+`finiteProductGaussian_coordinate_stein:192`, and
+`finiteProductGaussian_linearRow_stein:262`. They use the existing
+`finiteProductGaussian` functional, all finite dimensions and every RatPoly;
+the coordinate theorem requires i<N, the explicit row sums only over i<N.
+Variables outside that prefix are evaluated at ONE, not retained as tail
+coefficients. The N=0 and zero-row cases require no separate hypothesis.
+
+The frozen final source passed this monitored command with exit 0 and no
+warnings, in 0.37 seconds:
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
+      --check lean/YMGap/Continuum/SU2QuaternionFiniteProductGaussianIBP.lean
+
+The probe/congruence gates print [propext]; the three Stein gates print
+[propext, Quot.sound]. An initial compiling version FAILED the axiom gate:
+broad simplification in the local exponent-lowering lemma introduced
+Classical.choice. The repair uses explicit Nat.decEq cases and targeted
+rewrites; the final theorem statements are unchanged. Temporary diagnostic
+prints were removed before the final check. No permission to use classical
+reasoning, new axiom, sorry, resource increase or frontier change was used.
+The 20-GiB worker cap and 12-GiB OS reserve were retained, with no competing
+compiler/runner. No full build, root check or repository-wide audit is claimed.
+An independent Sol source/scope review checked the existing evaluator,
+coordinate guard, finite row, zero cases and lack of moment-law hypotheses;
+the reviewer did not rerun compilation or claim a second axiom check.
+
+The consumer remains the twice-Stein computed-Gram contraction above. That
+PAPER identity and the actual curvature-mode realization are not asserted
+by these new first-IBP theorems. This is finite constructive progress only.
+The Ward and winding-budget arguments have separate independent PAPER
+reviews; neither is described as Lean checked. The associated Fork-and-Flush
+paper was reviewed directly and by a fresh-context Sol reviewer: the work
+plan now fixes probe allocations and common-baseline admission/selection
+rules, without transferring benchmark gains to this problem. The unchanged
+whole-project goal remains ACTIVE; canonical chart claims remain unchanged.
