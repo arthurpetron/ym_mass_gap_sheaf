@@ -22016,3 +22016,300 @@ leading/full stiffness distinction corrected. `git diff --check` passes.
 Only this audit and `work_plan.md` are changed. No Lean compilation or
 new kernel-checked declaration is claimed; protected user files and the
 canonical chart are untouched. The unchanged whole-project goal remains ACTIVE.
+
+### Chronological allocation is already an original theorem (2026-10-12 UTC)
+
+The previous checkpoint was PROGRESS: 90da9c31 supplied the cubic relative
+reference bound and the actual local-section Jacobian/grouping. This turn
+tests their use in the COMPLETE chronological response. Prediction: a pair
+cancellation might leave a temporal-difference term. Decisive test: count
+one Haar density per actual slice, not two per step, and retain both ends.
+Budget: bounded source and independent finite mathematical review, no compiler
+or new interface. Consumer remains the complete OLD-centered P6/P4 correction
+to PRIMARY H1, followed by the unpaid original relative remainder.
+
+Source inspection corrects the preceding NEXT task's wording: the original
+chronological chain, its source placement and terminal allocation are ALREADY
+constructed. They are not a missing compiler to build again. Actual pins:
+
+- `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialChainAction.lean:45`,
+  `originalChainAction`; `:49`, `ambientChain`; `:82`,
+  `swept_chain_factorization`; `:102`, `original_chain_pairing`.
+  The exact selected action is V0*K01*V1*...*K*V_last, with each V once.
+- `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialOriginalIteration.lean:147`,
+  `swept_chain_iteration`; `:182`, `original_chain_iteration` construct
+  the arbitrary-length ambient Haar/weighted-transfer join.
+- `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonWindowTimeLimit.lean:61`,
+  `original_window_pairing`; `:84`, `windowRatio_originalFiniteValue`;
+  `:117`, `originalWindowScalar`; `:123`, `originalWindowScalar_pin`
+  retain the WHOLE signed window, selected original action and its partition.
+  A window between terminal depths m,n and source length L has m+L+n
+  kinetic factors, m+L+n+1 spatial factors and one Haar density per slice.
+
+The literal step and pairing are `transferStep:51`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTransferStep.lean`, and
+`weightedMass:65`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTransferSandwich.lean`:
+T f(y)=integral K(x,y)*V(x)*f(x) dx, ell(p)=integral V*p.
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTransferSymmetry.lean:97`,
+`transferStep_weighted_symmetric`, uses that SAME V-weighted pairing.
+`terminalMessage:118`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalBracket.lean`, is
+g_n=T^n1, not a stationary replacement.
+
+For the actual radius-zero source f and its FIXED-for-this-response OLD
+center c_n, psi=f-c_n, define b_t=T^t(g_n*psi). The exact response is
+
+    R_(n,t,d)=ell(b_t*b_(t+d))/ell(g_(n+t)*g_(n+t+d)).
+
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBlockWindowPin.lean:85`,
+`block_window_numerator`; `:127`, `block_window_partition`; and `:140`,
+`normalized_block_window_pin`, identify it with the source lag 2t+d,
+insertions at n,n+2t+d and total horizon 2n+2t+d. The two neighboring d
+values have DIFFERENT own partitions; they cannot be canceled or replaced
+by a common reference denominator without their relative correction.
+The OLD center is `expressionOwnMean:90`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonOwnCenterLimit.lean`,
+the odd-window mean at depths n+1,n. It is not the varying endpoint mean
+of whichever lag is currently estimated.
+
+Remaining missing join: nonlinear Coulomb-section/relative-gauge density,
+source and terminal pullback, global coverage and uniform relative remainder.
+The cited selected `chainIds` action is not automatically a marginal of a
+larger interacting action with omitted surrounding faces. SOURCE review
+found no need to rebuild the existing arbitrary-time chain/window machinery.
+
+### The half-density chain keeps a temporal neighbor term (PAPER)
+
+Use the previous finite local-section coefficients, all on H=ker(D^*).
+Write Hbil(a,b)=sum_(e,f) H_ef*(a_e dot b_f), z_e=C_uv,
+R_e=2*(C_uu+C_vv-2C_uv), gamma_e=2/3+4R_e/3. Let J=J2_slice and
+
+    W2(a,b)=-sum_e gamma_e*|a_e-b_e|^2
+             +32*sum_e z_e*(a_e dot b_e)-16*Hbil(a+b,a+b).
+
+This is the reduced kinetic endpoint-quadratic coefficient. For a chain of
+L>=1 steps, the H part of sum_t W2(a_t,a_(t+1))-sum_(t=0)^L J(a_t) is
+
+    -32*sum_(t=0)^(L-1) Hbil(a_t,a_(t+1))
+        +16*Hbil(a_0,a_0)+16*Hbil(a_L,a_L).
+
+Interior diagonal H terms cancel, but the temporal NEIGHBOR and both true
+chain ends remain. Unfolding g_n moves the endpoints to the actual terminal
+ends; it does not erase them. The complete chain is therefore not the pair's
+16Hbil(a-b,a-b). This answers the occurrence-count test in the negative.
+
+At finite local coefficient level, conjugating the V*rho-weighted transfer
+to ordinary coordinates uses the kernel
+
+    sqrt(V(a)*rho(a))*K_T(a,b)*sqrt(V(b)*rho(b)).
+
+No such global conjugation is claimed for the original completed carrier.
+Its kinetic/Haar quadratic coefficient is W2-J(a)/2-J(b)/2; the H part is
+EXACTLY -32*Hbil(a,b). Its translation-invariant INTERIOR temporal symbol
+is -32*cos(theta)*H, not a multiple of 1-cos(theta). This Fourier notation
+does not discard the finite chronological boundary terms.
+
+For compact matrix formulas, let Z=diag(z_e), R=diag(R_e),
+Gamma=(2/3)I+(4/3)R, Q=32Z-64H, and Lambda=curl^*curl. Compress all
+operators to the ACTUAL transverse slice. Including HALF of each spatial
+heat quadratic -(2/3)||curl a||^2 gives the homogeneous quadratic
+
+    (a-b)^T*T1*(a-b)+(a^T*V1*a+b^T*V1*b)/2,
+    T1=-Gamma-8Z-Q/4,
+    V1=3I+R+16Z+Q/2-(2/3)Lambda.
+
+For a fixed normalized free curl mode Lambda*u=lambda*u, the generalized
+Rayleigh first variation is
+
+    <u,(V1-lambda*T1)u>
+       =3+(1+4lambda/3)*<R>+8*(lambda+2)*<Z>
+          +(lambda+2)*<Q>/4 >=3.
+
+R,Z,Q are PSD; Z>=0 follows from the root-killed Green series. The common
+heat-stiffness term cancels, but this HOMOGENEOUS QUADRATIC SUBSET is not
+O(lambda). A simple eigenmode has the same first eigenvalue correction;
+on a degenerate band use the compressed perturbation, not an arbitrary
+claimed differentiable eigenvector. This is not a mass in the original
+theory. Its kinetic quartic contractions must be included before interpreting
+it; the next calculation in fact cancels its contact part. Never promote
+this diagnostic subset to the complete P6, a counterexample or a gap proof.
+
+### Actual kinetic Wick contraction cancels the hard contact block (PAPER)
+
+This is the next NON-GAUSSIAN calculation, not another assumed soft bound.
+Use the SAME finite stationary leading-Gaussian reference at stiffness 1.
+Let M=(4*sinh Omega)^(-1) on H, cosh Omega=I+Lambda/2, and
+N=M*exp(-Omega). For its neighboring states a,b, the sums c=a+b and
+differences d=a-b are independent, color-isotropic finite Gaussian vectors:
+
+    Cc=2*(M+N), Cd=2*(M-N), Bmag=Lambda*M,
+    Cd=P/2-Bmag,
+    P=I-D*Delta^(-1)*D^*=I-2D*C*D^*.
+
+P is the link transverse projection and all covariance operators are
+extended by zero on its complement. The Cd identity follows modewise from
+cosh omega=1+lambda/2; it uses the actual stationary covariance, not a new
+massless proxy or an ORIGINAL finite-terminal identity.
+
+The already derived kinetic endpoint-quartic, including the linear relative
+gauge bubble, is
+
+    W4kin(a,b)=-sum_e |d_e|^2*(|a_e|^2+|b_e|^2)
+          +(1/3)*sum_e |d_e|^4
+          -8*sum_(e,f) Cplus_ef*(a_e cross b_e) dot (a_f cross b_f)
+       =-(1/2)*sum_e |d_e|^2*|c_e|^2-(1/6)*sum_e |d_e|^4
+          -2*sum_(e,f) Cplus_ef*(c_e cross d_e) dot (c_f cross d_f).
+
+Colons below denote Wick-centered quadratic products for this SAME pair.
+Its EXACT second-chaos component is
+
+    W4kin^(2)=-(3/2)*sum_e (Cd)_ee*:|c_e|^2:
+       -sum_e [(3/2)*(Cc)_ee+(5/3)*(Cd)_ee]*:|d_e|^2:
+       -4*sum_(e,f) Cplus_ef*
+            [(Cc)_ef*:d_e dot d_f:+(Cd)_ef*:c_e dot c_f:].
+
+The factors are explicit: |d|^4 contributes 10*(Cd)_ee*:|d|^2:;
+the independent radial product contributes 3*(Cd)_ee*:|c|^2: and its
+counterpart. The cross-product contraction contributes
+2*(Cc)_ef*:d_e dot d_f:+2*(Cd)_ef*:c_e dot c_f:.
+No sixth-chaos/source term is silently substituted for this quadratic part.
+
+The key finite identity explains the cancellation. Here circ is entrywise
+matrix product, and T_e=C_uu+C_vv-2C_uv=R_e/2. Without compression,
+
+    Cplus circ (D*C*D^*)=D*(C circ C)*D^*+2H.
+
+The first term kills transverse vectors because D^*a=0. Therefore
+
+    P*(Cplus circ P)*P=P*[diag(T+4z)-4H]*P,
+    diag(P)=I-R.
+
+This is an identity on the SAME link space; omitting the outer projections
+would be false. The static potential part supplied by W4kin^(2) is
+
+    Vtad=-6*diag(Cd)-16*(Cplus circ Cd).
+
+The projection component P/2 of the ACTUAL Cd=P/2-Bmag cancels exactly
+
+    Vhard=3I+R+32Z-32H.
+
+The residual is consequently
+
+    Vhard+Vtad=6*diag(Bmag)+16*(Cplus circ Bmag).
+
+This is a genuine cancellation between the identified gauge/Haar/kinetic
+quadratic and the actual kinetic QUARTIC Wick contraction. It is not the
+false claim that the homogeneous quadratic alone is soft. The residual
+is PSD (finite Gram-product proof of the entrywise covariance product),
+but diag(Bmag) retains ultraviolet covariance sums; it is not Bmag acting
+directly on a soft vector. Thus no O(Lambda), original H1 or mass estimate
+is inferred.
+
+Temporal accounting also has an exact reduction, rather than retaining a
+hidden contact error. Define F(X)=6*diag(X)+16*(Cplus circ X), compressed
+to H. The temporal contraction from the displayed W4kin^(2) is
+
+    Ttad=-(3/2)*diag(Cc)-(1/6)*diag(Cd)
+                -4*(Cplus circ (Cc-Cd)).
+
+Substitute Cd=P/2-Bmag and N=M-P/4+Bmag/2. The SAME projection identity
+then cancels every explicit contact R/Z/H term in T1+Ttad, yielding
+
+    T1+Ttad=-F(M)-(4/3)*diag(Bmag)-8*(Cplus circ Bmag),
+    V1+Vtad=F(Bmag)-(2/3)*Lambda.
+
+These are the complete kinetic/Haar quadratic-chaos blocks plus the common
+spatial heat quadratic, NOT the full spatial-action/source R6 correction.
+Spatial quartic Wick contractions, the spatial cubic-action pair
+9*I2(v tensor_2 v), both dressed sources, OWN partitions and OLD mean terms
+remain to be composed. Original finite g_n have not been replaced by this
+reference's stationary endpoints, and the global relative remainder is unpaid.
+
+Decision: CONTINUE with those actual remaining spatial contractions in the
+existing complete R6 grouping. Do not rebuild the original chronological
+compiler or try to prove a soft bound from the isolated quadratic subset.
+The kinetic contact cancellation is an exact finite mathematical landmark;
+use its explicit residual rather than bounding its canceled pieces separately.
+All new covariance/coefficient work is PAPER, independently reviewed by two
+bounded mathematical reviewers; original chronology pins were inspected by
+ROOT and an independent SOURCE reviewer. No Lean build/proof, sorry/axiom,
+canonical chart-state change, physical calibration, continuum/QFT/every-group
+or Clay closure is claimed. The full project goal remains ACTIVE.
+
+### Spatial contraction producer begun from the literal ordered vertex (PAPER)
+
+The selected next producer has now begun, rather than remaining an assumed
+spatial second-chaos coefficient. For directed slots v1,...,v4 put
+B=sum_i vi, ri=|vi|^2, dij=vi dot vj. Separate the common heat quadratic
+-(2/3)|B|^2, already allocated in V1. The actual spatial heat QUARTIC is
+
+    Q4=H4/4-(sum_i ri)*|B|^2+|B|^4/3,
+    H4/4=-2*sum_(i<j) dij*(rk+rl)
+              -8*(d12*d34-d13*d24+d14*d23),
+
+where {k,l} is the complement of {i,j}. These are the literal ordered
+`H4:68` and `H2:61` in
+`lean/YMGap/Continuum/BF4ExactSlabPlaquetteCayleyExpansion.lean`, with the
+Cayley denominator included, not H4 alone or a supplied continuum vertex.
+
+Let Sij be the one-color covariance of the SAME Gaussian fields on the
+four DIRECTED slots; signs are included in S, not erased. Put
+t=sum_(i,j) Sij and k_i=sum_j Sij. Define the finite single-contraction
+operator W_S on quartics; its exact values are
+
+    W_S(dij*dkl)=3Sij*dkl+3Skl*dij
+                    +Sik*djl+Sil*djk+Sjk*dil+Sjl*dik,
+    W_S(dij*rk)=3Sij*rk+3Skk*dij+2Sik*djk+2Sjk*dik,
+    W_S(ri*|B|^2)=3Sii*|B|^2+3t*ri+4k_i*(vi dot B),
+    W_S(|B|^4)=10t*|B|^2.
+
+These formulas also cover repeated indices: all six single contractions
+are counted before collecting identical terms. The actual second-chaos
+vertex is Q4^(2)=:W_S(Q4):, with Wick centering of the resulting quadratic
+form. This explicitly produces the spatial quartic kernel as a finite sum
+from the original ordered source coefficient and covariance data.
+
+Two degeneracy tests fix the signs. Four equal DIRECTED slots have
+Q4=-(32/3)|v|^4 and Q4^(2)=-(320/3)S*:|v|^2: when they are the same
+Gaussian vector. A constant physical field instead has directed slots
+(v,v,-v,-v), identity word and Q4=0. There is no favorable sign theorem
+for an arbitrary ordered vertex or for its complete connected insertion.
+
+The other remaining spatial kernel has an explicit finite Gram producer.
+Use the tensor v of the TOTAL spatial V3=sum_(times,faces) H3/4=I3(v)
+in the SAME finite whitened Gaussian coordinates. For a direction h,
+
+    D_h V3=3*I2(v contracted h),
+    (1/2)*E_G[(D_h V3)^2]=9*(v tensor_2 v)(h,h).
+
+This supplies exactly the positive quadratic bubble in the DENSITY
+correction, negative in the effective action. The total v is essential:
+cross-face and cross-time contractions are not a sum of independent
+facewise bubbles. Thus the remaining spatial density coefficient is
+
+    K2_spatial=-:W_S(sum_(times,faces) Q4):
+                       +9*I2(v tensor_2 v),
+
+with each face's own directed covariance in W_S. Together with the explicit
+kinetic/Haar residual above this identifies the finite quadratic-chaos
+kernel to estimate. It is not an O(Lambda), relative-response or original
+measure comparison. The fourth-chaos terms, both dressed sources, OWN
+normalizations and OLD mean terms still belong to complete R6/P6.
+
+Decision: NEXT test the COMPLETE finite quadratic kernel, not a separate
+absolute kinetic or local-vertex bound. In particular determine whether
+the spatial quartic and TOTAL cubic pair cancel the remaining local
+covariance sums before trying a soft-mode estimate. Preserve finite
+chronological/terminal boundaries until a quantitative stationary comparison
+is supplied. ROOT derivation and independent local-Wick/total-tensor/scope
+review agree. No Gaussian/interface compiler or new necessary PRIMARY
+hypothesis is introduced; all coefficients remain PAPER, not Lean proofs.
+
+Checkpoint verification: ROOT read the complete two-file diff. Independent
+complete math/scope and SOURCE/citation reviews PASS, including the spatial
+appendix, original terminal chronology, transverse compression and density
+counting. `git diff --check` passes. Only this audit and the work plan change;
+no compiler, Lean declaration, axiom/sorry, canonical chart or protected user
+file changes. Goal-mode instruction 11 records the new residual and existing
+original chronology, with the unchanged Clay objective still ACTIVE.

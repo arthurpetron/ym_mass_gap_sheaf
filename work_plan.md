@@ -70,12 +70,27 @@ Execution order:
    exact cycle. With TWO endpoint densities it cancels the diagonal kinetic
    H bubble; the non-diagonal grouping moves the nonlocal term to a-b.
    The remaining local quadratic and spatial/terminal corrections are retained.
-   NEXT: match the complete chronological chain's density allocation, source
-   and terminal restrictions, then assess the complete signed relative
-   correction and local/global chart remainder budget. A pair's two Haar
-   densities are NOT the half densities of a conjugated transfer kernel or
-   two densities per chain step. Ambient Haar restricted to a transverse
-   subspace is NOT the section density. This is
+   The original arbitrary-time chronological/source join is ALREADY PAID by
+   `original_window_pairing:61` / `windowRatio_originalFiniteValue:84` in
+   `BF4ExactSlabFixedSpatialWilsonWindowTimeLimit.lean`; do not rebuild it.
+   NEW PAPER: correct one-density-per-slice allocation leaves a temporal
+   neighbor term, not automatic temporal-difference smallness. Including the
+   ACTUAL kinetic quartic Wick contraction now cancels the hard contact block
+   in BOTH potential and time-stiffness. The explicit covariance residual is
+   in the adaptive-score audit's "Actual kinetic Wick contraction" section.
+   NEXT: compose the remaining spatial quartic and cubic-pair contractions
+   with this residual in COMPLETE R6, keeping both dressed sources, OWN
+   partitions and OLD mean terms; then test a useful relative bound and the
+   original local/global chart remainder. The nonlinear section/source/
+   terminal pullback remains unpaid, unlike the original chronological pins.
+   This next producer is BEGUN: the literal H4 gives an explicit local spatial
+   Wick contraction, and the TOTAL spatial cubic gives the finite Gram bubble.
+   NEXT quantitative test is cancellation/soft control of their SUM with the
+   kinetic residual; no independent-face bubble or favorable local sign is
+   assumed. Fourth-chaos/source/OLD terms are retained in the full response.
+   A pair's two Haar densities are NOT half densities of a conjugated
+   transfer kernel or two densities per chain step. Ambient Haar restricted
+   to a transverse subspace is NOT the section density. This is
    finite PAPER coefficient progress, not a global original measure theorem.
    A general arbitrary-width original reduction is not supplied by the existing
    116-link, degree-five bridge. No new assumptive compiler is selected.
@@ -24987,6 +25002,12 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
     geometry-free curl ceiling; it does not exclude a full-cube estimate.
     Match the actual boundary-section density rather than projecting the
     ambient Haar coefficient into another carrier.
+    Reuse the already-constructed arbitrary-time original signed-window pins.
+    The newly derived kinetic quartic Wick contraction cancels contact pieces
+    of the local-section kinetic/Haar coefficient; estimate its explicit
+    residual together with spatial contractions and source/OLD means, not
+    the homogeneous quadratic alone. This is PAPER until the actual original
+    section/terminal/relative-remainder join is constructed and checked.
     Do not restart fixed-carrier completion/time/logarithm machinery. Bounded
     engineering estimates are not a deadline for an unsolved mathematical input.
 
