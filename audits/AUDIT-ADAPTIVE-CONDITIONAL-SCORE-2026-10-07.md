@@ -24606,3 +24606,306 @@ uniform estimates. No Lean file, axiom, `sorry`, protected user file, CI
 setting or canonical chart claim changed; no compiler or broad audit ran.
 The work plan and goal-mode instructions now select the joined signed
 mixed-derivative estimate. The unchanged full Clay goal remains ACTIVE.
+
+### Explicit finite covariance form of the joined response (PAPER)
+
+Continue from 3068862e. The consumer is the signed neighboring normalized
+mixed derivative of the SAME Phi, not a replacement free action. All
+identities below are finite-horizon Gaussian coefficient identities.
+The color-diagonal source deformation is still
+
+    Omega=I+4*u*H+4*v*G, L_Omega=L+d^*(Omega-I)*d,
+    C_Omega=(1/2)*L_Omega^(-1).
+
+Use the fixed rooted vertex covariance C_v, incidence D and transverse
+LINK projection P_link=I-2*D*C_v*D^*. This is NOT the FACE operator d*K
+called P in the weighted divergence identity. For e=(u,v), f=(r,s), keep
+
+    Cplus_ef=(C_v)_ur+(C_v)_us+(C_v)_vr+(C_v)_vs,
+    Hgeom_ef=(C_v)_ur*(C_v)_vs-(C_v)_us*(C_v)_vr,
+    z_e=(C_v)_uv, R_e=2*((C_v)_uu+(C_v)_vv-2*z_e),
+    gamma_e=2/3+4*R_e/3, Lambda=d^*d.
+
+These coefficients and the carrier do NOT change with u,v. Write
+M_t=(C_Omega)_(t,t) and N_t=(C_Omega)_(t,t+1). N_t is not assumed symmetric.
+For matrices on the fixed edge space define the algebraic contraction
+
+    Bcal(X,Y)=8*sum_e X_ee*Y_ee
+                   +48*sum_(e,f) Cplus_ef*X_ef*Y_ef.
+
+All double sums are ordered; Bcal is NOT asserted positive. The actual
+exponential kinetic quartic has vacuum expectation
+
+    E W4_kin(t)=-Bcal(M_t,M_(t+1))+Bcal(N_t,N_t^transpose).
+
+Indeed the three-color cross-product contraction is
+6*(M_(t,ef)*M_(t+1,ef)-N_(t,ef)*N_(t,fe)); its diagonal specialization
+fixes the coefficient 8. From the actual W2_kin and exactly ONE negative
+J_exp per slice, the remaining quadratic expectation is
+
+    E_boundary+sum_(t=0..T-1) Bcal(P_link/2,N_t),
+    E_boundary=3*sum_e gamma_e*(M_0+M_T)_ee
+                +48*sum_(e,f) Hgeom_ef*(M_0+M_T)_ef.
+
+This uses the previously derived compressed identity
+P_link*(Cplus circ P_link)*P_link
+  =P_link*[diag(R/2+4*z)-4*Hgeom]*P_link, not its false uncompressed
+version. The cross coefficient becomes
+sum_e (4+8*R_e+96*z_e)*N_(t,ee)-96*sum_(e,f) Hgeom_ef*N_(t,ef),
+exactly the raw kinetic coefficient after contraction. Endpoint
+occurrences are not identified: at T=0 their sum correctly counts the
+single negative density. Consequently the ENTIRE raw W_other expectation is
+
+    Phi_other=kappa_0+E_boundary-2*sum_(t=0..T) Tr(Lambda*M_t)
+      +sum_(t=0..T-1) [Bcal(N_t+P_link/4,(N_t+P_link/4)^transpose)
+                       -Bcal(M_t,M_(t+1))-Bcal(P_link/4,P_link/4)].
+
+Here kappa_0 retains fixed field-independent raw constants. The completion
+is P_link/4, not P_link/2. Its fixed constant and kappa_0 have zero mixed
+source derivative; the endpoint term does not. The identity holds for the
+time-INHOMOGENEOUS deformed covariance and uses P_link*N_t*P_link=N_t.
+It may therefore be differentiated without a false stationary substitution.
+
+For the ACTUAL midpoint rows U_f,V_f, with C=C_Omega, put
+
+    Dcal_fg=(U_f C U_g)*(V_f C V_g)-(U_f C V_g)*(V_f C U_g).
+
+Then E[Z_f^a Z_g^b]=2*delta_ab*Dcal_fg. Write the previously displayed
+recentered 17-term cubic as
+Dbar_f=sum_j c_j*(alpha_j a) cross ((beta_j a) cross (gamma_j a));
+do not replace its coefficients by a new vertex. With normalized
+antisymmetrization Alt=(1/6)*sum sign(permutation), define
+
+    tau=Alt sum_f Omega_f*d_f tensor U_f tensor V_f.
+
+The raw spatial cubic is 48*tau(a^1,a^2,a^3). Three independent colors
+therefore give the full finite formula
+
+    Phi=Phi_other
+      +96*sum_f Omega_f*Dcal_ff
+      +48*sum_(f,j) Omega_f*c_j*
+          [(d_f C beta_j)*(alpha_j C gamma_j)
+            -(d_f C gamma_j)*(alpha_j C beta_j)]
+      -1152*<tau,C tensor C tensor C tau>.
+
+The 48 follows from
+E[(X dot Y)*(Z dot W)]=9*C_XY*C_ZW+3*(C_XZ*C_YW+C_XW*C_YZ).
+The 1152 is (1/2)*48^2. This contracts the previously joined Phi, without
+removing its contact or changing law. Auxiliary K/R inverse factors have
+disappeared from the vacuum formula, not the actual covariance inverse.
+
+For subsequent differentiation, B_H=d^*H*d and B_G=d^*G*d give
+
+    C_H=-8*C*B_H*C,
+    C_HG=64*(C*B_H*C*B_G*C+C*B_G*C*B_H*C).
+
+Omega and tau also have their literal linear source dependence. The
+complete signed neighboring normalized estimate remains OPEN. Neither
+Bcal nor the derivative of the signed sum has acquired positivity. Retain
+finite endpoints, trace sources, SAME BOX averaging before division and
+every OLD residue. The complete FREE terminal comparison concerns
+connected coefficients; no extensive infinite Phi or partition is defined.
+
+### Identified spatial heat term: uniform stiffness response (PAPER)
+
+This bounds one identified component above, not full common-stiffness
+cancellation. Vary only uniform SPATIAL stiffness alpha in [1/2,2], holding
+temporal stiffness, cube, eigenvectors, sources and BOX weights fixed.
+For each positive spatial mode lambda_r<=12 set
+
+    cosh(omega_r)=1+alpha*lambda_r/2,
+    b_r=lambda_r/(4*sinh(omega_r)),
+    v_r=tanh(omega_r/2), a_r=cosh(omega_r)/(1+cosh(omega_r)).
+
+Then alpha*omega_r'=v_r<=omega_r/2 and
+alpha*d(log b_r)/dalpha=-a_r, with 1/2<=a_r<=1. Write the leading
+quadratic SAME BOX response D_alpha(t) as its positive finite mode-pair
+and offset sum, normalized into weights nu. For ell=t+u+v,
+E=omega_r+omega_q and X=a_r+a_q+ell*(v_r+v_q),
+
+    alpha*partial_alpha log D_alpha(t)=-E_nu X,
+    alpha*partial_alpha partial_t log D_alpha(t)
+       =-E_nu(v_r+v_q)+Cov_nu(X,E).
+
+Thus variance amplitudes and the parameter dependence of BOX factors are
+retained. Previous stiffness-one unsmoothed response R_1, upper envelope
+U_1 and floor give, for even s>=2, W=s^2+1, fixed m>=1, t in [s,s+1],
+
+    D_alpha(t/2)<=4*R_1(s/4)<=128*U_1(s/2),
+    D_alpha(t)>=(1/4)*R_1((4*m+3)*s),
+    D_alpha(t/2)/D_alpha(t)<=Kstar=2^9*K_(2*m+1),
+    K_l=2^71*3^(86+16*l).
+
+These comparisons use b_r(alpha)/b_r(1) in [1/2,2] and the same safe
+range for omega_r(alpha)/omega_r(1). The denominator lag is doubled
+INCLUDING its offsets; it is not a comparison with unchanged BOX offsets.
+
+For M_j=E_nu E^j, finite exponential inequalities give
+M_1<=2*Kstar/(exp(1)*t), M_2<=16*Kstar/(exp(2)*t^2).
+Since a_r+a_q lies in [1,2], its covariance with E has absolute value
+at most M_1. Also 0<=v_r+v_q<=E/2 and ell<=(1+2*m)*t. Both nonnegative
+terms defining Cov(ell*(v_r+v_q),E) are at most
+(1+2*m)*t*M_2/2, using M_1^2<=M_2 for the product term. Thus
+
+    |alpha*partial_alpha partial_t log D_alpha(t)|
+       <=[3/exp(1)+8*(1+2*m)/exp(2)]*Kstar/t
+       <=(7/2+4*m)*Kstar/t,
+    |s*alpha*partial_alpha log(D_alpha(s)/D_alpha(s+1))|
+       <=(7/2+4*m)*Kstar.
+
+A finite change from alpha=1 costs at most this last constant times
+|log alpha|. This is uniform in s,W for fixed m on the specified reference
+family, not beta-uniform control of the original law.
+
+The actual heat component is -2*sum_t Tr(Lambda*M_t)=E[-(2/3)*Q_sp],
+where Q_sp=sum_t |d a_t|^2 includes all three colors. A finite insertion
+c*Q_sp contributes c*partial_alpha R_(4,alpha) to the connected order-six
+coefficient, since differentiating the normalized covariance gives
+-kappa(A2,B2,Q_sp). Its stationary connected normalized counterpart is
+
+    -(2/3)*partial_alpha log D_alpha(t) at alpha=1,
+
+with neighboring bound (2/3)*(7/2+4*m)*Kstar. Use connected finite-history
+insertions and the existing terminal estimates to justify their stationary
+derivative join; do not replace that step by a raw infinite Q_sp expectation.
+Unmatched OLD terms still need separate comparison. The remaining signed
+boundary/bond/spatial estimate and original-action remainder stay OPEN.
+
+### Source-valid kinetic commutator and a failed softness shortcut (PAPER)
+
+The finite kinetic bracket above has a further exact reduction. Specialize
+to the actual full-spatial-per-slice reference precision from "Finite
+free-chain terminals", with its two FREE endpoints; retain the same local
+source deformation. Let S be endpoint SUM incidence, Delta=D^*D on rooted
+vertex coordinates, and e_b an edge coordinate vector. Define explicitly
+
+    k_b=S*Delta^(-1)*D^*e_b,
+    T_e=P_link*diag(e_e)*P_link,
+    T_b=P_link*diag(k_b)*P_link.
+
+Because Cplus=(1/2)*S*Delta^(-1)*S^*, the exact weighted Gram identity is
+
+    8*I+48*Cplus=8*sum_e e_e*e_e^*+24*sum_b k_b*k_b^*,
+    Bcal(X,Y)=8*sum_e Tr(T_e*X*T_e*Y^transpose)
+                +24*sum_b Tr(T_b*X*T_b*Y^transpose).
+
+This is a finite constructive formula, not a selected matrix square root.
+X,Y remain transverse blocks. Write sum_T w_T for these two explicit sums.
+After eliminating earlier slices, the adjacent-pair precision has
+off-diagonal -P_link and left diagonal A_t, where inverses are on the
+transverse carrier and
+
+    A_0=(L_Omega)_(0,0),
+    A_t=(L_Omega)_(t,t)-A_(t-1)^(-1),
+    M_t*A_t-N_t=P_link/2, A_t*N_t=M_(t+1).
+
+These identities follow by multiplying the pair covariance and precision;
+eliminating the later slices changes the right diagonal, not A_t. Hence
+each completed kinetic bond equals
+
+    sum_T w_T*Tr(T*M_t*[A_t,T]*N_t).
+
+Indeed its contribution for T is
+Tr(T*N*T*N)-Tr(T*M*T*M')+(1/2)*Tr(T^2*N).
+Substitute N=M*A-P_link/2 and M'=A*N; the two half-contact terms cancel.
+No symmetry of N is used. The previous E_boundary remains; at T=0 there
+are no bonds. In particular, no stationary relation was differentiated
+along an inhomogeneous source path.
+
+For J_(H,t)=d^*H_t*d and E=A_(t-1)^(-1), actual prefix derivatives are
+
+    (A_0)_H=4*J_(H,0), (A_0)_HG=0,
+    (A_t)_H=4*J_(H,t)+E*(A_(t-1))_H*E,
+    (A_t)_HG=E*(A_(t-1))_HG*E
+      -E*(A_(t-1))_G*E*(A_(t-1))_H*E
+      -E*(A_(t-1))_H*E*(A_(t-1))_G*E.
+
+The commutator recurrence at subsequent slices is
+
+    [A_t,T]=[Lambda,T]+4*u*[J_(H,t),T]+4*v*[J_(G,t),T]
+                       +E*[A_(t-1),T]*E.
+
+Keep the actual A_0 and its endpoint precision. With Q=[A_t,T], the mixed
+derivative of one trace is Tr T times the following NINE ordered words:
+
+    M_HG*Q*N + M*Q_HG*N + M*Q*N_HG
+    + M_H*Q_G*N + M_G*Q_H*N
+    + M_H*Q*N_G + M_G*Q*N_H
+    + M*Q_H*N_G + M*Q_G*N_H.
+
+The preceding full-covariance formulas supply the M,N derivatives. Neither
+the source insertions nor the commutators can be commuted through them.
+
+As a check only, in the undeformed stationary reference, put
+M=sum_p m_p*P_p, N=sum_p m_p*exp(-omega_p)*P_p,
+m_p=1/(4*sinh omega_p). Its bond contraction becomes
+
+    sum_(p,q) Bcal(P_p,P_q)*m_p*m_q*
+                         [cosh(omega_p-omega_q)-1].
+
+Here Bcal(P_p,P_q)=sum_T w_T*||P_p*T*P_q||_HS^2>=0, even though
+Cplus has signed entries. Equal-frequency contributions cancel exactly.
+This is positivity of this stationary VACUUM expression, not of its local
+mixed-source derivative or of Bcal on arbitrary matrices.
+
+A tempting further inference is false on the actual complete internal
+open cube. For a unit TRANSVERSE eigenvector P_link*psi=psi,
+Lambda*psi=lambda*psi with 0<lambda<=1/2,
+
+    sum_e ||[Lambda,T_e]*psi||^2
+      =sum_e psi_e^2*[(Lambda-lambda*P_link)^2]_ee >= 2.
+
+Every internal edge has n_e>=2 incident internal faces; Lambda_ee=n_e and
+(Lambda^2)_ee>=n_e^2. Each displayed diagonal is therefore at least
+n_e^2-2*lambda*n_e>=2. The mode (1,1,0) has positive transverse
+lambda=8*sin(pi/(2*W))^2<=2*pi^2/W^2, which tends to zero. The coordinate
+Gram weight 8 thus gives a lower bound 16, ruling out a width-uniform
+O(lambda) upper bound for this commutator square alone. The transverse
+premise matters: zero-eigenvalue gradient vectors would invalidate this
+lower bound. This is NOT a refutation of the full signed response.
+
+NEXT: combine the nine-word kinetic response with the spatial determinant,
+recentered cubic and negative cubic-square derivative, before taking norms.
+The commutator join is valid off stationarity; the desired cancellation
+with those partners is not yet proved. SAME BOX averaging precedes division,
+and trace, terminal, unmatched OLD and original-remainder obligations stay.
+
+### Local three-color projection: narrow Lean verification
+
+`lean/YMGap/Continuum/SU2QuaternionThreeColorQuarticProjection.lean:38`,
+`threeColorSquare`, and `:44`, `threeColorQuartic`, define the literal
+S=x_1^2+x_2^2+x_3^2 and Q4=S^2-10*S+15 on the existing RatPoly carrier.
+The new theorem `threeColorQuartic_quadratic_annihilation:220` proves
+
+    RatPolyCoeffEqv (partialGaussianHead (polyMul Q4 p)) polyZero
+
+for EVERY p whose monomials have head degree <=2. All tail exponents and
+their coefficients remain arbitrary, and x_0 is permitted in the test.
+Only the finite head patterns are enumerated; the proof then extends
+coefficientwise over arbitrary polynomial tails. Thus this is not merely
+a list of numerical Gaussian moments. It checks the local three-color
+projection underlying the retained trace-source coefficient 10. It does
+not construct the actual curvature-mode pullback, cross-time Gaussian
+transport, uniform increment, or original compact-Haar comparison.
+
+The final monitored command passed without warnings:
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
+      --check lean/YMGap/Continuum/SU2QuaternionThreeColorQuarticProjection.lean
+
+The main theorem's printed dependencies are exactly [propext, Quot.sound].
+Earlier unsuccessful elaboration attempts were not axiom evidence. The
+final proof avoids their excessive unfolding by keeping the polynomial
+generic until instantiation, and uses the normal heartbeat budget. No
+resource limits were raised. One compiler ran at a time under the memory
+monitor and 12-GiB reserve; no full build/audit/guard was run or claimed.
+
+ROOT and two independent mathematical reviews checked the finite Phi,
+kinetic commutator, cube obstruction and stiffness-response calculations.
+Those remain PAPER results, distinct from the one kernel-checked local
+lemma. The work plan and goal-mode instructions identify their actual
+consumers and still-open joins. The Fork-and-Flush review protocol remains
+the bounded, fixed-gate research heuristic already recorded there; it is
+not a theorem about proof-search success. No axiom, sorry, frontier field,
+protected user file, CI setting or canonical chart claim was changed.
+The unchanged full Clay goal remains ACTIVE.

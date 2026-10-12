@@ -69,6 +69,23 @@ assume blocking stays in the one-parameter Wilson family.
   subtask only. In parallel demand a concrete ORIGINAL small/large-field,
   denominator-relative remainder estimate; do not indefinitely improve
   perturbative coefficients without that join.
+  NEW PAPER finite covariance contraction removes the auxiliary K/R
+  factors from Phi while retaining its kinetic/Haar boundary term, BOTH
+  kinetic degrees, spatial determinant, recentered cubic and negative
+  cubic-square partner. Its time-inhomogeneous bond completion uses the
+  fixed LINK projection P_link/4, not the face operator d*K. The identified
+  spatial heat insertion has a stationary width/scale-uniform neighboring
+  stiffness bound for alpha in [1/2,2] and fixed BOX shape. Its finite
+  derivative/terminal join and unmatched OLD residues remain explicit;
+  do not promote it to the complete signed estimate. Next differentiate
+  the combined finite covariance expression and test the cancellation of
+  its low-frequency terms, not separate norm bounds for each partner.
+  The kinetic bracket now equals an explicit finite sum of
+  Tr(T*M_t*[A_t,T]*N_t), valid under the actual local source deformation;
+  all nine mixed-derivative placements and the prefix-precision recurrence
+  are recorded. An actual-cube lower bound REFUTES external O(lambda)
+  softness for the commutator square alone. Keep its signed join with the
+  spatial determinant/cubic derivatives as the next test, not that shortcut.
   NEW PAPER: at 0<t<=1 and 0<=theta<=rho<=pi/2, the full SU(2)
   heat/principal-image ratio has a signed winding error -delta<=r<=0, with
   delta<=12*exp(-pi^2/(4*t)); a separate explicit character cutoff pays its
@@ -233,6 +250,16 @@ replacements for classical existence arguments may also require mathematics.
   Supply the actual mode/Gram data and literal source coefficients; do not
   assume the desired covariance estimate. Extend to CReal with explicit
   moduli only where that concrete consumer requires it.
+  A first local piece is now KERNEL-CHECKED:
+  `threeColorQuartic_quadratic_annihilation` in
+  `lean/YMGap/Continuum/SU2QuaternionThreeColorQuarticProjection.lean`
+  proves that (S^2-10*S+15)*p has zero partial Gaussian head integral for
+  every p of head degree <=2, coefficientwise with arbitrary tails.
+  Its axiom output is exactly [propext, Quot.sound]. This verifies the
+  local three-color contraction used by the trace-source calculation,
+  not its actual curvature-mode/cross-time pullback or uniform estimate.
+  Reuse this lemma; keep the genuine finite covariance pullback as the
+  next engineering join. Do not recreate another scalar moment fixture.
 - Queue original local-integration/change-of-variables/tail tools and
   actual per-group compact/Haar realizations behind identified consumers.
   For the continuum generator, inventory the precise core/domain and
@@ -25501,6 +25528,26 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
     differentiate an unconstructed infinite partition function. A local
     action cap or upper equal-time variance bound alone still does not pay
     the original positive-time comparison, even with positive transfer.
+    At PAPER level, Phi now has an explicit finite color-contracted covariance
+    formula, including the exact P_link/4 kinetic/Haar completion and its
+    finite endpoints. The spatial heat component is identified and has a
+    stationary uniform stiffness-response bound on alpha in [1/2,2]. Keep
+    its finite derivative/terminal and OLD joins; do not re-estimate that
+    scalar stationary subterm or confuse P_link with the face operator d*K.
+    The next task is the signed local-source mixed derivative of the
+    remaining combined boundary/bond/spatial contraction. Stationary
+    identities may not be differentiated along time-local sources unless
+    their off-stationary extension has first been proved.
+    Such an extension is now explicit for the kinetic commutator reduction,
+    including all nine derivative placements. Its commutator square alone
+    is NOT O(lambda) on the actual cube's soft transverse eigenmodes.
+    Combine the signed kinetic and spatial derivatives before taking norms;
+    do not replace this still-open join by the refuted softness assumption.
+    The coefficient-preserving local three-color quartic projection is
+    now kernel-checked on RatPoly (only propext/Quot.sound). It pays the
+    local Gaussian contraction, not the curvature-mode/cross-time pullback,
+    reference uniform bound or original-law matching. Reuse it for that
+    actual pullback; no new assumption-only interface is needed.
 
 **Quantitative completion viewpoint (2026-10-07, user-supplied Lawvere idea):**
 use the existing constructive extension APIs rather than treating completion
