@@ -40,7 +40,7 @@ Execution order:
 1. PRIMARY remains the ORIGINAL positive-scale endpoint H1 estimate below.
    Direct BOX control is eligible; the raw original-energy route is optional,
    not an extra necessary Clay requirement.
-2. NEXT task STARTED: screen the exact optional discrete edge energy
+2. SOURCE screen COMPLETE for the exact optional discrete edge energy
    `Z0*E(A,phi_k) <= (c_E/s)*Z1*B`, s=2t, with OLD center and both masses.
    The first independent source/math screen is COMPLETE: existing
    reconstruction/limit/positive-BOX joins suffice and yield c0=c_E+2 if the
@@ -85,9 +85,24 @@ Execution order:
    terminal pullback remains unpaid, unlike the original chronological pins.
    This next producer is BEGUN: the literal H4 gives an explicit local spatial
    Wick contraction, and the TOTAL spatial cubic gives the finite Gram bubble.
-   NEXT quantitative test is cancellation/soft control of their SUM with the
-   kinetic residual; no independent-face bubble or favorable local sign is
-   assumed. Fourth-chaos/source/OLD terms are retained in the full response.
+   Their sum is input to the COMPLETE PHYSICAL RESPONSE test, not a new
+   requirement that a charged bare-field quadratic be soft. No independent-
+   face bubble or favorable local sign is assumed. Fourth-chaos/source/OLD
+   terms are retained in the full response.
+   NEW PAPER consumer correction: the root/path bare-quadratic growth cancels
+   by global angular IBP only when its kinetic QUARTIC partner is retained.
+   The PRIMARY consumer is the gauge-invariant source response, not a charged
+   Gaussian coordinate; do not add bare self-energy softness as a prerequisite.
+   The actual local exponential-section Jacobian now matches the projected
+   coordinate-change IBP (both sources and OLD center retained). On complete
+   physical insertions the rooted Green artifacts may be replaced by the
+   mean-zero Neumann representative. Explicit open-cube dyadic bounds then
+   give ||T_exp||<=150+512*(2j+1), ||V_exp||<=700/3 at W=2^(2j)+1.
+   T_exp is a REFERENCE quadratic time-stiffness coefficient, NOT transfer T;
+   these are logarithmic/absolute coefficient bounds, not a full relative
+   response bound. NEXT: use the Ward-equivalent geometry to estimate COMPLETE
+   physical R6/P6 with both kinetic chaos orders, spatial pairings and source
+   dressing. Retain finite-terminal and original normalized-remainder debts.
    A pair's two Haar densities are NOT half densities of a conjugated
    transfer kernel or two densities per chain step. Ambient Haar restricted
    to a transverse subspace is NOT the section density. This is
@@ -25008,6 +25023,11 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
     residual together with spatial contractions and source/OLD means, not
     the homogeneous quadratic alone. This is PAPER until the actual original
     section/terminal/relative-remainder join is constructed and checked.
+    Global-color Ward cancellation must keep the kinetic quartic partner;
+    a growing bare quadratic can be a gauge artifact. Use the mean-zero
+    coefficient representative only after that complete physical insertion
+    equality. Its explicit logarithmic geometry bound is partial PAPER input,
+    not a transfer norm, a required bare-field soft estimate, or original H1.
     Do not restart fixed-carrier completion/time/logarithm machinery. Bounded
     engineering estimates are not a deadline for an unsolved mathematical input.
 

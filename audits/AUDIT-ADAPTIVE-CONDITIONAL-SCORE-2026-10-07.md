@@ -22313,3 +22313,263 @@ counting. `git diff --check` passes. Only this audit and the work plan change;
 no compiler, Lean declaration, axiom/sorry, canonical chart or protected user
 file changes. Goal-mode instruction 11 records the new residual and existing
 original chronology, with the unchanged Clay objective still ACTIVE.
+
+### Matched exponential section, not an ambient-density substitution (PAPER)
+
+2026-10-12 UTC. The preceding checkpoint c6a97b1a was PROGRESS: it identified
+the kinetic contact cancellation and the actual remaining spatial kernel.
+This turn's consumer is still COMPLETE physical-source R6/P6 and its
+neighboring-time ratio, not the dispersion of a charged Gaussian coordinate.
+Test: keep the local section Jacobian, kinetic quadratic AND quartic, both
+sources and OLD center through a legitimate coefficient change; use a finite
+root/path degeneration to distinguish a real obstruction from gauge artifacts.
+Budget: bounded independent mathematics/source review; no compiler or new
+assumptive interface. The full original relative remainder remains required.
+
+The actual exponential local gauge map is
+U_e=g_u^(-1)*exp(2eps*a_e)*g_v, a in H=ker(D^*), g_v=exp(2eps*xi_v).
+Its gauge tangent, through the needed order, is
+
+    B_exp(a)chi=Dchi+2eps*[a cross]*Schi
+                       +(4/3)*eps^2*[a cross]^2*Dchi+...,
+    Schi_e=chi_u+chi_v.
+
+The ambient exponential Haar coefficient is -(4/3)*sum_e |a_e|^2.
+The SAME determinant calculation used for the actual Cayley section now
+gives the local exponential section density coefficient
+
+    J_exp=-sum_e (4/3+8R_e/3)*|a_e|^2-32*Hbil(a,a).
+
+The color trace of [a cross]^2 is -2|a|^2, fixing the 8R/3 factor.
+The determinant normalization is still (det Delta)^3. No original global
+chart or actual integral comparison is supplied by this formal coefficient.
+
+This closes a previously purely referential COEFFICIENT match. The actual
+Cayley-to-exponential coordinates, followed by the leading regauging back
+to the SAME transverse slice, have
+
+    a_exp=a_C+eps^2*V(a_C)+..., V(a)=-(1/3)*P*(|a_e|^2*a_e)_e,
+    div_H V=-(5/3)*sum_e (1-R_e)*|a_e|^2,
+    J_C-J_exp=div_H V.
+
+The regauging solves the leading gradient defect by the explicit finite
+rooted inverse; it changes the displayed coordinates only by their removed
+gradient at this order. This is not a proof of uniform nonlinear inversion
+or coverage. The sign is important: J_exp=J_C-div_H V. Both source fourth
+coefficients and action quartic must change with it, exactly as in the
+earlier whole-Gaussian IBP identity:
+
+    A4_exp=A4_C-V A2, B4_exp=B4_C-V B2,
+    V4_exp=V4_C-V S0, J_exp=J_C-div_H V.
+
+That finite connected IBP identity preserves complete R6 and the first-mean
+coefficients, hence P6 with the SAME supplied OLD center. It does not permit
+dropping source dressing or resetting the center. A hard chart boundary
+still adds an unpaid boundary term in an original-measure comparison.
+
+For a four-cycle, J_exp=-(4/3)|A|^2 directly in its based exponential
+holonomy coordinate. The formula above gives exactly this from R_e=3/4,
+sum_e |a_e|^2=|A|^2/4 and Hbil(a,a)=|A|^2/64. The Cayley-to-exponential
+cycle coordinate has A_exp=A-(eps^2/48)*|A|^2*A+..., whose radial Jacobian
+coefficient is -5|A|^2/48. It matches J_C-J_exp=-5|A|^2/48 and the
+earlier actual Cayley value -23|A|^2/16. This is a finite sign/normalization
+test, not an all-width measure theorem.
+
+The reduced kinetic W2 is unchanged: at zero conditional gauge mean the
+radial change contributes endpoint quartics and internal constants, not an
+additional endpoint quadratic. Its exponential quartic is simpler:
+
+    W4_exp=-(4/3)*sum_e |a_e cross b_e|^2
+           -8*sum_(e,f) Cplus_ef*(a_e cross b_e) dot (a_f cross b_f).
+
+For c=a+b,d=a-b this is -(1/3)*sum_e |c_e cross d_e|^2 minus the SAME
+nonlocal term in c,d. Define F_exp(X)=(8/3)*diag(X)+16*(Cplus circ X),
+with entrywise operations BEFORE compression to H. Wick contraction gives
+Vtad_exp=-F_exp(Cd), Ttad_exp=-F_exp(N), and
+
+    Vhard_exp=F_exp(P/2), T1_exp=-F_exp(P/4),
+    T_exp=-F_exp((I+Lambda/2)*M),
+    V_exp=F_exp(Lambda*M)-(2/3)*Lambda.
+
+The last potential formula includes the separately identified common
+SPATIAL heat quadratic; kinetic/Haar alone is F_exp(Lambda*M).
+T_exp here is a quadratic TIME-STIFFNESS COEFFICIENT, not the original
+transferStep operator T, a Hamiltonian or a gap claim. Spatial quartic and
+TOTAL cubic-pair terms still must be combined. The existing exponential
+plaquette formula is Q4_exp=4*|Cface|^2+8*Bface dot D3, so this change
+removes radial coordinate artifacts without silently changing the theory.
+ROOT and two independent local-section/Wick/sign reviews agree.
+
+### Root dependence disappears only in the complete physical insertion
+
+PAPER; both kinetic degrees are essential. Work with FULL incidence D and
+extend the old rooted covariance by its zero root row/column. Suppose
+
+    Ctilde_uv=C_uv+phi_u+phi_v, s_e=phi_u+phi_v, e=(u,v).
+
+D*C*D^*, P and R are unchanged. Using the uncompressed identity
+Cplus circ DCD^*=D*(C circ C)*D^*+2H shows P*(Htilde-H)*P=0.
+Consequently BOTH local section-density coefficients are unchanged on H.
+The complete endpoint-quadratic PLUS endpoint-quartic kinetic change is
+
+    Delta W=32*sum_e s_e*(a_e dot b_e)
+       -32*(sum_e s_e*(a_e cross b_e)) dot (sum_f a_f cross b_f).
+
+Let K0(a,b)=exp(-||a-b||^2), and let
+J_i=sum_e (a_e cross e_i) dot partial_(a_e) be simultaneous color rotation.
+Let J_i^s be its link-weighted version with weights s_e. Direct
+differentiation, with the displayed convention, gives the exact identity
+
+    (Delta W)*K0=-8*sum_i J_i J_i^s K0.
+
+Only the OUTER J_i is used for integration by parts. It is tangent to H and
+divergence-free; the inner weighted field need not be tangent. It can be
+applied to the ambient extension first and then restricted, or projected to
+H when differentiating K0 with transverse endpoints, with the same result.
+
+This kills the insertion against globally color-invariant left tests after
+the leading PAST has been integrated. A kernel with its neighbor fixed is
+not invariant under rotating only the current slice. The relevant radius-zero
+spatial Wilson source and scalar OLD-center subtraction are invariant;
+the leading spatial weight and terminal histories preserve this invariance.
+The argument applies termwise to the source's linear BOX placements. It is
+not a blanket theorem for arbitrary time-spanning Wilson sources crossing
+the integration cut without their own pin. The required global-color
+invariance is part of this particular physical-source statement.
+
+Actual SOURCE anchors are
+`lean/YMGap/Continuum/BF4ExactSlabVertexGaussClosedCharacter.lean:569`,
+`placedSourceLoop_gauss_zero`, and `:579`, `placedWindow_gauss_zero`;
+its WindowExpression is built from placed spatial SourceLoops, not arbitrary
+time-crossing Wilson words. The existing original transfer preserves the
+constraints in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialGaussTransfer.lean:554`,
+`spatialSpan_gauss_zero`; `:569`, `shifted_gauss_zero`; `:578`,
+`iterateStep_gauss_zero`; and `:588`, `terminalMessage_gauss_zero`.
+These are coefficient/Haar-carrier derivative-zero proofs, not an existing
+nonlinear-chart or Gaussian-global-Ward identification. The new reference
+angular calculation is PAPER, with those original-source guards retained.
+
+Endpoint-independent constant coefficients also change with the chosen
+covariance representation. Keep them until they cancel between each
+numerator and its OWN partition with the SAME horizon. Distinct neighboring
+partitions are not equated. The Ward identity leaves first moments and
+normalized complete R6/P6 unchanged for the SAME scalar OLD center.
+
+This gives an actual useful representation choice. Let G=(1/2)*L^+ be the
+MEAN-ZERO Neumann vertex Green operator on the same open cubical graph,
+constructed by the explicit nonconstant trigonometric modes. Then
+
+    Croot_uv=G_uv-G_ur-G_rv+G_rr.
+
+The difference has exactly the row/column form above. Hence G may replace
+Croot in this COMPLETE normalized physical insertion calculation. This is
+not a new original Gaussian measure, not an unnormalized-integral equality,
+and not a replacement for the original reduced-measure/global-remainder join.
+G_uv may be negative. In particular rooted Z/Q positivity must NOT be
+carried over to its isolated quadratic block.
+
+A decisive calibration explains why this matters. On a unit four-cycle
+rooted on a cycle vertex, the sole transverse mode has lambda=4 and
+m=1/(8*sqrt(2)); in exponential coordinates spatial Q4 and V3 vanish on
+that entire mode space. The quadratic-action variation is
+(32*sqrt(2)-8)/3>0, so universal cancellation to zero is false. Attaching
+the cycle by L tree edges adds a term growing like L to that QUADRATIC
+variation, but the COMPLETE additional kinetic insertion is instead
+
+    L*[4*A dot B-|A cross B|^2]
+      =-4L*(angularLaplacian_A K0)/K0,
+    K0(A,B)=exp(-|A-B|^2/4).
+
+Angular IBP annihilates it on radial physical sources and integrated
+histories. Thus the earlier rooted-path example still refutes a generic
+bare-Hessian bound, but is NOT a physical-source obstruction. Its quartic
+partner cancels it. The complete gauge-invariant response, not the charged
+Gaussian coordinate or its bare self-energy, is the actual PRIMARY consumer.
+ROOT and independent full-incidence/rotation/normalization reviewers agree.
+
+### Explicit logarithmic geometry control after the physical Ward change
+
+PAPER; new quantitative bound. Fix the SAME internal open cube W>=2, with
+outgoing rotors excluded from the reference and only positive coexact edge
+modes. Replace the root artifacts only by the COMPLETE insertion argument
+above. Write Gplus=S*G*S^*, where (Sxi)_e=xi_u+xi_v; ||S||^2<=12.
+All bin matrices below are PSD, regardless of negative entries of G.
+
+For vertex frequency n=max_i k_i>=1, the number of triples in a shell is
+<=7n^2, vertex component squared <=8/W^3 and
+lambda_k>=4n^2/W^2. For the transverse edge modes there are at most two
+polarizations per triple with component squared <=8/W^3, and
+M_k=1/(4*sinh omega_k)<=W/(4n). Summing the finite shells gives
+
+    G_uu<=7, (Gplus)_ee<=28, M_ee<=14.
+
+These are equal-time REFERENCE geometry bounds, not original interacting
+moment estimates. To avoid a power-of-W time-stiffness estimate, split
+n into the FINITE dyadic bins [R,2R), R=2^r, and [Q,2Q), Q=2^q.
+There are at most 8R^3 triples in the first bin. Direct component and
+eigenvalue estimates give
+
+    diag(Gplus_R)<=32R/W,
+    ||Gplus_R||<=(3/2)*W^2/R^2,
+    diag(M_Q)<=32Q^2/W^2,
+    ||M_Q||<=W/(4Q).
+
+Finite Schur/Gram order yields
+
+    ||Gplus_R circ M_Q||<=min(8R/Q,48*(Q/R)^2).
+
+For each fixed Q, the lower/equal R bins sum to <=16 and the upper R
+bins to <=16. If b=1+floor(log2(W-1)) is the exact finite bin count,
+
+    ||Gplus circ M||<=32b,
+    ||F_exp(M)||<=112/3+512b.
+
+The form Bmag=Lambda*M has norm <=1/2. Hence the same PSD Schur order,
+using diag(Gplus)<=28, gives
+
+    ||F_exp(Bmag)||<=676/3,
+    ||T_exp||<=150+512b,
+    ||V_exp||<=700/3.
+
+The last bound also uses ||Lambda||<=12 for the common heat quadratic.
+For the actual geometric width W=s^2+1, s=2^j, b=2j+1 exactly,
+including the top singleton bin. Thus the time-stiffness coefficient has
+explicit LOGARITHMIC width control rather than the crude linear-W bound.
+All constants are rational and deliberately conservative.
+
+Scope: these are norms of the MEAN-ZERO coefficient representative after
+the FULL angular Ward change, with its quartic partner retained in physical
+moments. They do not bound the old rooted quadratic block, complete K2,
+R6/P4, an original transfer or Hamiltonian, or a coupling-independent mass.
+The potential bound is absolute, not O(lambda); it does not supply PRIMARY's
+1/s budget. The coupling multiplier, source transformation, OLD means,
+stationary-vs-finite-terminal comparison and original denominator-relative
+remainder all remain visible. ROOT derivation and two independent finite
+shell/bin/Gram reviews check every displayed constant.
+
+Decision: use this Ward-equivalent bounded geometry in the COMPLETE physical
+R6/P6 calculation. Do not impose a soft bound on an unphysical bare-field
+quadratic as a NEW necessary obligation. Pair the spatial quartic/TOTAL
+cubic terms and source dressing with both kinetic chaos orders, then test
+the relative neighboring-time estimate. No Lean exponential chart, Haar Jacobian,
+general M/N functional pullback or original Gaussian comparison was FOUND
+in the source search across RationalQuaternion*, SU2Quaternion*, Quaternion*,
+BF4*Gauss* and BF4*Gauge* modules. The existing rational chart is
+`lean/YMGap/RepTheory/RationalQuaternionSphereNets.lean:153`, `stereographic`;
+`:312`, `inverseChart`; and `:334`, `stereographic_inverse`. Neither it nor
+the fixed 116-link bridge supplies the missing original Gaussian join.
+No extra Gaussian compiler is selected. Original H1,
+physical scale-setting, every-state decay, continuum/QFT/every-group and
+the unchanged Clay target remain OPEN. No Lean build or new checked
+canonical-chart claim is made.
+
+Checkpoint verification: ROOT read the complete final two-file diff and the
+decisive original source guards. Independent complete math/scope and SOURCE
+reviews PASS, including the local-section signs, row/column Ward equality,
+past-integration order, OWN-horizon constants, no inherited rooted Z/Q
+positivity, and every dyadic bound. `git diff --check` passes. Only this audit
+and the work plan change; no Lean/CI/canonical-chart or protected-file change.
+Goal-mode instruction 11 retains the unchanged Clay target and records the
+new physical-consumer correction. All new analysis is PAPER, not a current
+Lean certificate or full-tree audit. Goal remains ACTIVE.
