@@ -25614,3 +25614,235 @@ or its OWN normalized response. ROOT independently checked the coefficient
 signs, normalization identity and singularity. No Lean result or new
 assumption bundle is claimed. NEXT: estimate the genuine averaged first
 moment or a cancellation-preserving alternative, not these refuted shortcuts.
+
+### Original-law second moment of the heat-image defect (PAPER)
+
+2026-10-12. Previous checkpoint 5ff088f8 was PROGRESS: original one-face
+bounds and their scope restrictions were proved on paper and pushed with
+the live plan. There is now a further positive estimate for the ORIGINAL
+law, not only for its principal-image replacement. For every five-staple
+boundary and 0<t<=1/32,
+
+    E_(mu conditional boundary) W_t^2 <= L2(t),
+    L2(t)=1536*pi^18*exp(3*pi+1)*t^(-7)*exp(-pi^2/(24*t)).
+
+Disintegration supplies the same bound in the finite original full-heat
+ensemble for the selected interior link. The divergent third moment in
+the previous section is consistent with this finite second moment.
+
+To prove it, let D1(U)=(2*pi-theta)^2+sum_i dist(U,S_i)^2 as before.
+The image upper and global heat lower bounds imply
+
+    H_t(theta)*W_t(theta)^2
+      <=32*pi^2*A_t/sin(theta)^2
+        *exp(-[2*(2*pi-theta)^2-theta^2]/(4*t)).
+
+Use the SAME two-displacement spherical argument, now with all SIX
+original heat lower factors. It gives, pointwise in the initial U,
+
+    Z_mu >= A_t^6*t^3/(24*pi^3)*exp(-3*pi-1)
+                     *exp(-[D1(U)-pi^2/6]/(4*t)).
+
+The factor is half the previous replacement-denominator lower bound;
+neither partition is silently substituted. Multiplying the other five
+global heat upper bounds and dividing leaves
+
+    768*pi^20*exp(3*pi+1)*t^(-8)*exp(-pi^2/(24*t))
+                   *exp(-pi*(pi-theta)/t)/sin(theta)^2.
+
+The exact radial Haar integral of the last factor is at most 2*t/pi^2,
+which proves L2(t). ROOT independently checked this constant and exponent.
+
+There is an immediate useful consumer for the bounded insertion
+q=1-H/H0=W/(1+W). Put x=E_mu W, z=E_mu q. Cauchy--Schwarz applied to
+W=sqrt(q)*sqrt(W*(1+W)) gives
+
+    x^2<=z*(x+E_mu W^2),       x<=z+sqrt(z*L2(t)).
+
+For the SAME environment event B, define x_B=E_mu[1_B*W],
+z_B=E_mu[1_B*q]. The conditional L2 bound retains the mask and gives
+
+    x_B<=z_B+sqrt(z_B*L2(t)*mu(B)),
+    E_(nu_environment)[1_B*delta(boundary)]=x_B/(1+x).
+
+The square roots here are explicit nonnegative finite-real operations,
+not assumed moments or a new Lean bundle. A proved bound
+z<=polynomial(1/t)*exp(-pi^2/(4*t)) would yield
+x<=polynomial(1/t)*exp(-7*pi^2/(48*t)). Its precision-family exponent
+exceeds 49/48, enough for ONE face's extra clock, not an s^4 insertion
+count. No such averaged z bound is supplied here. NEXT: estimate the actual
+bounded q insertion or its connected OLD-source pairing. Do not re-assume
+the second moment that this calculation now pays.
+
+### Two distinct reflection routes must not be conflated (SOURCE/PAPER)
+
+Absorbing a power of the bounded defect into a CROSSING heat factor does
+not preserve positive type. Put a=pi^2/t. The previously established bounds
+give H_t(0)<=A_t, q_t(0)<=8*a*exp(-a), q_t(pi)=1 and
+H_t(pi)>=(A_t/2)*exp(-a/4). For every p>=1,
+
+    (H_t*q_t^p)(I)<=8*A_t*a*exp(-a)
+                    <(A_t/2)*exp(-a/4)<=(H_t*q_t^p)(-I).
+
+The strict inequality holds for t<=1/32; for example the exponential
+series at a>=144 proves exp(3*a/4)>16*a. It violates the necessary
+two-point positive-type inequality |K(-I)|<=K(I). Similarly H_t*W_t^p
+is finite at I but unbounded near -I for every p>0, so cannot be positive
+type. This forbids importing the positive-channel factor argument, not
+Hölder's inequality itself.
+
+Disseminating insertions wholly INSIDE reflected blocks under unchanged
+original action is a different possibility. Its direct spatial application
+has a concrete geometry mismatch: `spatialFaces_mem_iff:98` and
+`temporalFaces_mem_iff:104` in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFacePlacement.lean` put all
+spatial face-origin coordinates in 0,...,W-1, regardless of orientation.
+Under reflection x->2*a-x, a face spanning x has origin 2*a-1-x, so
+preserving that interval requires 2*a=W. A face not spanning x has origin
+2*a-x and requires 2*a=W-1. Both types occur. Thus one coordinate
+reflection does not preserve the literal spatial face list. The corrected
+temporal geometry does not supply this spatial requirement. A controlled
+boundary completion/comparison is not ruled out, but has not been supplied
+with the SAME normalization. No chessboard estimate is inferred here.
+
+### Four-link conditioning still misses the clock (PAPER negative test)
+
+Integrating all four target-plaquette boundary links improves the worst
+conditional exponent, but still does not pay the physical clock. Use the
+actual `edgesOf:147` / `edgePlaqs:167` incidence in
+`lean/YMGap/Continuum/ClusterCount4DProgress.lean`. The four interior target
+edges meet twenty OTHER plaquettes, each containing exactly one variable
+edge. Their twenty opposite parallel edges are distinct; none is a
+connector of another one of these plaquettes. Thus it is an admissible
+external assignment to set each edge's five opposite parallels to a
+central sign sigma_e, all connectors to I, and product_e sigma_e=-I.
+No independent-staple hypothesis is imposed on a conflicting assignment.
+
+After central sign and inversion changes, the exact four-variable law is
+
+    H_t(dist(-V1*V2*V3*V4,I))*product_(e=1..4) H_t(dist(Ve,I))^5.
+
+Only the target factor is replaced by H0. Set alpha_e=dist(Ve,I),
+beta=dist(V1*V2*V3*V4,I), theta=pi-beta. Triangle and Cauchy give
+
+    E=theta^2+5*sum alpha_e^2
+       >=(pi-beta)^2+(5/4)*beta^2>=5*pi^2/9,
+    D=(2*pi-theta)^2+5*sum alpha_e^2>=pi^2.
+
+Equality in E occurs at Ve=exp(pi*i/9); equality in D at all Ve=I.
+Global heat upper bounds and Haar integration of theta/sin(theta) give
+Z_nu<=4*A_t^21*pi^60*t^(-20)*exp(-5*pi^2/(36*t)). For a positive lower
+defect, restrict V1 to the radius-t/16 ball about exp(t*i), the other
+three to such balls about I. Then beta is in [3*t/4,5*t/4],
+sum alpha_e^2<=73*t^2/64, and the product Haar mass is at least
+t^12/(3^4*2^36*pi^12). On this set H0>=2*pi*A_t/(5*t)*exp(-pi^2/(4*t)),
+q>=exp(-5*pi/4)/2 and the other factors are >=2^(-20)*A_t^20*exp(-1).
+Conversely, radius-t balls about the E minimizer lower-bound Z_nu, while
+D>=pi^2 bounds the whole defect numerator. Consequently
+
+    c4*t^31*exp(-pi^2/(9*t)) <= delta4(t)
+       <= C4*t^(-32)*exp(-pi^2/(9*t)),
+    c4=exp(-1-5*pi/4)/(5*3^4*2^58*pi^71),
+    C4=2^12*3^4*pi^72*exp(12*pi).
+
+A radial continuous test F_t(beta), supported on [t/4,2*t] and equal to
+one on [t/2,3*t/2], has normalized discrepancy at least
+
+    exp(-1-2*pi)/(5*3^4*2^59*pi^71)*t^31*exp(-pi^2/(9*t))
+
+once delta4<=exp(-2*pi)/4. This follows from the exact normalized defect
+formula, not merely from a partition-ratio difference. On the precision
+family the exponential lower bound has power s^(-22/27), so the additional
+clock s still makes this discrepancy diverge after multiplication.
+This prunes the proposed boundary-uniform four-link patch shortcut, not
+larger justified patches, the averaged original law or the fixed OLD source.
+The stationary reviewer supplied the proof; ROOT checked the constants,
+energies and normalized-test implication.
+
+### Averaging alone does not justify an all-test s^4 budget (PAPER)
+
+There is also a full finite ORIGINAL ensemble test, with no fixed
+frustrated boundary. Consider the complete free four-dimensional cube
+with vertices {0,1,2,3}^4: it has E_links=768 links and F_faces=864 faces.
+Choose the interior p01 plaquette at (1,1,1,1). Give its four oriented
+boundary edges the commuting angle alpha=pi/4-t/4 around a fixed imaginary
+quaternion axis; set all other links to I. Integrate over radius-t/16
+Haar balls around EVERY link, rather than conditioning them to these values.
+
+The target u=pi-theta lies in [3*t/4,5*t/4]. Its twenty neighboring faces
+have angles <=pi/4; every other face has angle <=t/4. Therefore
+
+    sum_faces theta_f^2<=9*pi^2/4+843*t^2/16.
+
+In the one-face replacement law, the global upper bound
+Z_nu<=2*A_t^864*(pi^3/t)^863 follows by integrating its one H0 factor
+against one link and bounding the other heat factors. Global lower heat
+bounds on the explicit product of balls give, for the continuous radial
+test supported on u in [t/4,2*t] and equal to one on [t/2,3*t/2],
+
+    nu(F_t=1)>=c_mass*t^3167*exp(-9*pi^2/(16*t)),
+    c_mass=exp(-843/2048)/(2^7776*3^768*pi^4893).
+
+When b0(t)<=exp(-2*pi)/4, the exact normalized discrepancy obeys
+
+    E_nu F_t-E_mu F_t
+       >=exp(-2*pi)*c_mass/4*t^3167*exp(-9*pi^2/(16*t)).
+
+The smallness guard is paid eventually by the previously proved global
+b0 bound. On the recorded t_j schedule, the exponential has lower power
+s^(-33/8). Hence s^5 times this lower bound diverges despite the fixed
+polynomial loss in j. In particular, averaging does not supply a universal
+O(s^(-5)) ALL-bounded-local-test estimate uniformly over volumes including
+this cube. This cube is a complete free box, not an identification with
+the asymmetric origin-box list or with the coupled W=s^2+1 trajectory.
+The test changes with t and is not the fixed OLD-centered source. Thus
+the conclusion does NOT refute that actual trajectory or source-specific
+connected cancellation. ROOT constructed the test; the independent
+stationary reviewer checked its incidence counts, constants and scope.
+
+### Finite second Stein verification and next consumer (KERNEL-CHECKED)
+
+2026-10-12. `lean/YMGap/Continuum/SU2QuaternionFiniteGaussianDoubleStein.lean`
+now proves `finiteRowDerivative_mul:134`,
+`finiteLinearRow_coordinate_derivative:277`,
+`finiteRowDerivative_linearRow_contraction:312` and
+`finiteProductGaussian_doubleStein:323`. Its computable
+`finiteRowNorm2:71` is the literal sum of squared rational row entries.
+For EVERY finite N and arbitrary RatPoly p, the final theorem states
+
+    E[(L_d*L_d)*p]=norm2(d)*E[p]+E[D_d(D_d p)].
+
+No degree, support, nondegeneracy or supplied moment-law premise is used.
+N=0 and zero rows are included. The evaluator still sets variables outside
+N to one, rather than preserving unevaluated coefficients. The row product
+rule is coefficientwise, but a padded zero monomial is contracted under
+this SAME evaluator; it is not falsely identified with the raw constant
+polynomial under arbitrary coefficient probes.
+
+The dependency-complete target
+`+YMGap.Continuum.SU2QuaternionFiniteProductGaussianIBP:olean` completed
+through the monitored launcher with jobs=1 and explicit
+`--lake-worker-limit-gib 20`. One earlier default dependency attempt had
+picked up the repository's 32-GiB configuration and was stopped; its
+remaining owned process group was explicitly terminated before restarting
+with 20 GiB. Telemetry reported no memory-pressure stop. No competing
+compiler was found before the focused check.
+
+Focused check1 exposed two incorrect definitional-equality pins. The Sol
+author replaced them with genuine list inductions on the unchanged public
+row definitions, without changing the prior IBP file. Check2 then exited
+zero using jobs=1, `--check-worker-limit-gib 20`, and the same monitored
+launcher. All FOUR final `#print axioms` outputs are exactly
+[propext, Quot.sound]; no warnings or errors remain. Log:
+`/tmp/ym-double-stein-check.QxMBnf/double-stein-check2.log`.
+Frozen source SHA-256:
+`f79f3faeaba11aca273f0fbbfee0e736cf07e6a88414cef57e64fa8b6fe5768b`.
+ROOT reviewed the complete frozen proof and final log. No full-tree audit,
+root guard or canonical frontier closure is claimed.
+
+NEXT formal consumer: compute the literal radial quartic's second derivative
+and its correlated-row Gram contraction, then supply actual transverse-mode
+rows and required CReal approximation moduli. The original-law moment bounds
+above remain separately PAPER. Neither this finite Gaussian identity nor
+the conditional original bounds supplies H1, EVERY-state physical decay,
+the continuum theory or the Clay theorem. The whole-project goal is ACTIVE.

@@ -158,6 +158,23 @@ assume blocking stays in the one-parameter Wilson family.
   convolution bound. Do not assume exponential integrability of W or
   transfer the original reflection-positive factor proof to H0. The
   original averaged first moment remains an honest available target.
+  NEW positive ORIGINAL-law input (PAPER): for every five-staple boundary,
+  E_mu[W^2]<=L2(t)=1536*pi^18*exp(3*pi+1)*t^(-7)*exp(-pi^2/(24*t)).
+  This also holds after original disintegration. For q=W/(1+W), an actual
+  averaged bound on z=E_mu q would give E_mu W<=z+sqrt(z*L2(t)); its masked
+  version retains mu(bad). Thus the second moment is PAID on paper; the
+  bounded-q or connected OLD-source estimate is not. Absorbing q^p into a
+  crossing heat factor fails positive type, and the literal origin box
+  lacks the spatial reflection geometry for direct chessboard dissemination.
+  A boundary-completion comparison would need its own SAME-law estimates.
+  Two sharper route tests now constrain the next probe: an admissible
+  frustrated FOUR-link patch has error exp(-pi^2/(9*t)) up to polynomial
+  factors, still too slow for the clock. A FULL averaged finite free cube
+  supplies a bounded-test lower bound with exponent 9*pi^2/(16*t), ruling
+  out a volume-uniform ALL-test O(s^(-5)) producer that includes that cube.
+  It is not the coupled W=s^2+1 family or the OLD source. Decision: do not
+  replace the connected/source-specific target by another blanket total-
+  variation bound or a slightly larger worst-boundary patch.
 - Separate the running marginal coupling from the summable remainder.
   Illustratively, if u_k=g_k^2 is of order 1/k on geometric UV shells, its
   square is summable but u_k is not. Neither conclusion pays errors amplified
@@ -318,8 +335,15 @@ replacements for classical existence arguments may also require mathematics.
   for arbitrary RatPoly, with no assumed moment law. All five public gates
   pass within {propext, Quot.sound}. This scalar evaluator sets variables
   outside N to one; it does NOT preserve their coefficients like the head
-  operator. Next apply row IBP twice to the literal radial quartic using
-  computed row Gram data, then supply actual transverse-mode/CReal rows.
+  operator. The second-IBP producer is now KERNEL-CHECKED:
+  `finiteProductGaussian_doubleStein:323` in
+  `lean/YMGap/Continuum/SU2QuaternionFiniteGaussianDoubleStein.lean` proves
+  E[L_d^2*p]=norm2(d)*E[p]+E[D_d(D_d p)] for arbitrary p and finite N,
+  including N=0 and zero rows. The literal squared-row sum and derivative
+  contraction are computed, not assumed; all four public theorem gates
+  are exactly [propext, Quot.sound]. Next evaluate the literal radial
+  quartic's second derivative and correlated-row Gram sum, then supply
+  the actual transverse-mode/CReal rows.
   The division-free PAPER covariance identity is recorded in the audit;
   it is not yet the formal correlated-row theorem or original-law join.
 - Queue original local-integration/change-of-variables/tail tools and
@@ -25652,14 +25676,23 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
     first-moment formulation with W=H0/H-1; its third moments diverge.
     Negative H0 character channels also forbid automatic reuse of the
     heat reflection-positive factor argument or relative heat-form domination.
+    The ORIGINAL second moment of W is now bounded explicitly by L2(t),
+    uniformly in the five-staple boundary. Use its exact Cauchy reduction
+    to a bounded-q first moment or the actual connected source. Do not
+    assume that remaining input. Four-link worst-boundary control still
+    misses the clock; a full averaged fixed-cube example also rules out
+    a volume-uniform all-test O(s^(-5)) shortcut. These do not refute the
+    coupled scaling-family/source-specific target. Keep that distinction.
     The coefficient-preserving local three-color quartic projection is
     now kernel-checked on RatPoly (only propext/Quot.sound). It pays the
     local Gaussian contraction, not the curvature-mode/cross-time pullback,
     reference uniform bound or original-law matching. Reuse it for that
     actual pullback; no new assumption-only interface is needed.
     General finite-dimensional coordinate and rational-row Gaussian IBP
-    now passes the constructive gate on the existing evaluator. Use it
-    twice for the computed Gram contraction; do not assume a Gaussian
+    now passes the constructive gate on the existing evaluator. Its
+    second-Stein identity and computed squared-row contraction are also
+    checked. NEXT: the literal radial quartic derivative and correlated
+    Gram contraction, not another proof of row IBP. Do not assume a Gaussian
     pullback law, confuse scalar tail evaluation with coefficient-preserving
     head integration, or call this a uniform reference/original estimate.
 
