@@ -97,6 +97,15 @@ assume blocking stays in the one-parameter Wilson family.
   cancelled leakage. It is not a bound on Phi_HG or an original gauge-law
   identification. The full calculation is in the adaptive-score audit's
   "Complete common-time auxiliary invariance" section.
+  NEW PAPER consequence: for positive bounded physical source profiles,
+  -C_H<=4*h*C/a and -32*h*g*C/a^2<=C_HG<=32*h*g*C/a^2 when Omega>=a*I.
+  Source differentiation therefore adds no separate inverse-covariance
+  power. The common longitudinal addition leaves these source chains
+  unchanged. On the actual cube, a two-mode calculation shows that no
+  choice of its scalar coefficient makes the transverse remainder
+  width-uniform: its norm is at least W^2/(16*pi^2). Do not pursue that
+  scalar-completion shortcut. Bound the COMPLETE signed contraction;
+  the undifferentiated loops and neighboring normalized increment remain.
   NEW PAPER: at 0<t<=1 and 0<=theta<=rho<=pi/2, the full SU(2)
   heat/principal-image ratio has a signed winding error -delta<=r<=0, with
   delta<=12*exp(-pi^2/(4*t)); a separate explicit character cutoff pays its
@@ -175,6 +184,22 @@ assume blocking stays in the one-parameter Wilson family.
   It is not the coupled W=s^2+1 family or the OLD source. Decision: do not
   replace the connected/source-specific target by another blanket total-
   variation bound or a slightly larger worst-boundary patch.
+  NEW PAPER source-specific reduction: the exact one-face difference is
+  a same-link conditional covariance PLUS an environment covariance,
+  each with its OWN normalization. For the literal radius-zero fundamental
+  plaquette family, choose a least-loaded boundary link per face. The sum
+  of absolute LOCAL terms is at most
+  min(128*C^2*min(1,b0(t)),64*C^2*sqrt(L2(t))), C=sum_p |c_p|.
+  This removes face/horizon counts for that part, not any dependence of C
+  on the scaling family. Temporal faces and off-source-slice local terms
+  vanish; normalized positive BOX averaging adds no multiplicity.
+  The estimates extend unchanged to actual boundary stars of degree 1..6.
+  The remaining term is Cov_mu(F,Psi_(f,link))/(1+E_mu W_f), where Psi is
+  the explicit original conditional mean of W_f: a bounded function of
+  at most 18 neighboring links, with 0<=Psi<=sqrt(L2(t)). NEXT: estimate
+  this connected environment sum and its actual relative/clock budget.
+  The local b0 rate still misses the clock. These are comparisons from
+  ONE original law, not a telescope through hybrid replacement actions.
 - Separate the running marginal coupling from the summable remainder.
   Illustratively, if u_k=g_k^2 is of order 1/k on geometric UV shells, its
   square is summable but u_k is not. Neither conclusion pays errors amplified
@@ -341,11 +366,18 @@ replacements for classical existence arguments may also require mathematics.
   E[L_d^2*p]=norm2(d)*E[p]+E[D_d(D_d p)] for arbitrary p and finite N,
   including N=0 and zero rows. The literal squared-row sum and derivative
   contraction are computed, not assumed; all four public theorem gates
-  are exactly [propext, Quot.sound]. Next evaluate the literal radial
-  quartic's second derivative and correlated-row Gram sum, then supply
-  the actual transverse-mode/CReal rows.
+  are exactly [propext, Quot.sound]. The computed mixed Gram contraction,
+  row-pair second moment and paired-square fourth moment are now also
+  KERNEL-CHECKED in `SU2QuaternionFiniteGaussianRowGram.lean`:
+  `finiteRowDerivative_mixed_contraction:113`,
+  `finiteProductGaussian_row_pair:149`, and
+  `finiteProductGaussian_row_square_pair:206`. They use the literal finite
+  rational Gram sum, including N=0 and zero rows, without a moment-law
+  hypothesis. All four public gates are within {propext, Quot.sound}.
+  NEXT: the finite radial sums and sixth-order covariance from the literal
+  radial quartic's second derivative, then actual transverse-mode/CReal rows.
   The division-free PAPER covariance identity is recorded in the audit;
-  it is not yet the formal correlated-row theorem or original-law join.
+  its full sixth-order radial form and original-law join are not yet formal.
 - Queue original local-integration/change-of-variables/tail tools and
   actual per-group compact/Haar realizations behind identified consumers.
   For the continuum generator, inventory the precise core/domain and
@@ -25657,6 +25689,12 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
     quartic pays the previous projection leakage, and Z(D*chi)=d*q kills
     the eta^2 term. Use this freedom only on the joined response, retaining
     finite endpoints and local sources; its uniform bound remains OPEN.
+    Its physical source derivatives now have relative C-form bounds with
+    constants 4*h/a and 32*h*g/a^2. Do not charge another inverse norm
+    merely for those placements. Scalar longitudinal completion cannot
+    remove the transverse W^2 growth; keep the complete signed contraction
+    and do not substitute the augmented covariance into a transverse-only
+    formula without rederiving it from the literal ambient polynomials.
     The residual global winding sup-budget diverges on the prescribed
     precision family even after constant/quadratic removal. Stop sharpening
     that budget; concentrate the original-law work on connected localization
@@ -25683,6 +25721,13 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
     misses the clock; a full averaged fixed-cube example also rules out
     a volume-uniform all-test O(s^(-5)) shortcut. These do not refute the
     coupled scaling-family/source-specific target. Keep that distinction.
+    The exact original one-face split now has a face-count-free LOCAL
+    source bound, preserving C=sum|c_p| and positive BOX normalization.
+    Reuse it. The remaining environment term is an original covariance
+    with an explicit bounded star function Psi, not a singular W; it
+    need not vanish when the selected link is absent from the source.
+    NEXT is its connected relative estimate. Neither the insufficient
+    local clock rate nor a hybrid-action telescope has been repaired.
     The coefficient-preserving local three-color quartic projection is
     now kernel-checked on RatPoly (only propext/Quot.sound). It pays the
     local Gaussian contraction, not the curvature-mode/cross-time pullback,
@@ -25691,8 +25736,10 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
     General finite-dimensional coordinate and rational-row Gaussian IBP
     now passes the constructive gate on the existing evaluator. Its
     second-Stein identity and computed squared-row contraction are also
-    checked. NEXT: the literal radial quartic derivative and correlated
-    Gram contraction, not another proof of row IBP. Do not assume a Gaussian
+    checked. The computed mixed Gram contraction and second/fourth row
+    moments now pass the same gate. NEXT: literal radial finite sums and
+    the sixth-order covariance, then actual mode rows/moduli; do not
+    re-prove the completed row identities. Do not assume a Gaussian
     pullback law, confuse scalar tail evaluation with coefficient-preserving
     head integration, or call this a uniform reference/original estimate.
 

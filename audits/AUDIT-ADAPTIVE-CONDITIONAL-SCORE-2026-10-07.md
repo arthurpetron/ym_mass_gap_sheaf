@@ -25846,3 +25846,269 @@ rows and required CReal approximation moduli. The original-law moment bounds
 above remain separately PAPER. Neither this finite Gaussian identity nor
 the conditional original bounds supplies H1, EVERY-state physical decay,
 the continuum theory or the Clay theorem. The whole-project goal is ACTIVE.
+
+### Computed mixed Gram contraction and fourth moment (KERNEL-CHECKED)
+
+2026-10-12. Starting from common commit `7c45a030`, the bounded Sol
+implementation supplied
+`lean/YMGap/Continuum/SU2QuaternionFiniteGaussianRowGram.lean`.
+Its `finiteRowGram:43` computes sum_(i<N) b_i*d_i. The actual existing
+finite Gaussian evaluator and rational rows satisfy
+
+    E[(D_d L_b)*p] = Gram(d,b)*E[p]          (EVERY RatPoly p),
+    E[L_b*L_d] = Gram(b,d),
+    E[L_b^2*L_d^2] = norm2(b)*norm2(d)+2*Gram(b,d)^2.
+
+The declarations are `finiteRowDerivative_mixed_contraction:113`,
+`finiteProductGaussian_row_pair:149`, and
+`finiteProductGaussian_row_square_pair:206`; `finiteRowGram_symm:52`
+proves symmetry of the computed sum. The proof uses the existing first
+Stein theorem and coefficientwise row product rule, with actual mixed
+derivative contractions. It assumes no moment, independence, Gram,
+pullback or nondegeneracy law; N=0 and zero rows are included. Padded
+constant monomials are contracted under this evaluator, not identified
+with raw constants under arbitrary coefficient probes. Variables outside
+N still evaluate at ONE.
+
+ROOT read the frozen file, built only the missing DoubleStein dependency,
+then ran the focused check. Both exited zero through the monitored
+launcher with jobs=1, explicit 20-GiB worker caps and a 12-GiB OS reserve.
+No competing compiler was present. All FOUR final axiom gates were read:
+symmetry prints [propext]; the other three print [propext, Quot.sound].
+There are no warnings, errors or new holes. Verification log:
+`/tmp/ym-row-gram-check.PFzhkr/row-gram-check.log`.
+Frozen source SHA-256:
+`2ae491d552cfa81522d5ca4701a742e6e153af482ba05956159c737ac6fef25f`.
+No full-tree audit or canonical frontier closure is asserted.
+
+The consumer is the division-free rational-row radial covariance above.
+NEXT are its finite radial sums and sixth-order contraction, followed by
+actual transverse-mode rows and CReal moduli. No original heat-law or
+uniform interacting estimate follows from these finite Gaussian identities.
+
+### Angular monotonicity of the actual one-face heat defect (PAPER)
+
+For the same t in (0,1/32] and q=1-H_t/H0_t, the exact image formula gives
+
+    q(theta)=2*sum_(k>=1) exp(-a_k)
+                *(2*a_k*sinh(x_k)/x_k-cosh(x_k)),
+    a_k=pi^2*k^2/t,  x_k=pi*k*theta/t <= a_k/k.
+
+The value at x=0 uses the continuous extension. For x>0,
+
+    (x*cosh(x)-sinh(x))/(x^2*sinh(x)) >= 1/(x+3).
+
+Indeed, twice exp(x) times the cross-multiplied numerator is
+D(x)=(2*x-3)*exp(2*x)+2*x^2+4*x+3. Its first three initial values
+D(0), D'(0), D''(0) vanish, and D'''(x)=16*x*exp(2*x)>=0.
+Consequently the derivative of the kth bracket is at least
+sinh(x)*(2*a_k/(x+3)-1)>0, since a_k>3 and x<=a_k/k<=a_k.
+The Gaussian-in-k majorants justify uniform convergence of the image
+series and its derivative on [0,pi]. Thus q is increasing in theta,
+as is W=q/(1-q) before the cut locus.
+
+The paired-copy covariance identity now proves
+Cov_mu(chi_1(theta),W)<=0 for ANY marginal of this SAME original finite
+law: chi_1=2*cos(theta) decreases, while W increases. No isotropy or
+association between distinct plaquettes is assumed. Integrability is
+provided by the recorded original second-moment estimate. Equivalently,
+the one-face replacement decreases the expectation of that face's own
+fundamental character. This is a sign statement only, not a bound on
+the OLD-centered two-time source, its environment covariance or the
+physical-clock loss. ROOT derived the argument and the independent
+connected-source reviewer checked the image formula and derivative.
+
+### Original same-link source control and bounded environment residue (PAPER)
+
+Continue from `7c45a030`, for ONE face replacement in the ORIGINAL finite
+full-heat law mu. Write nu_f for that replacement law, W_f=H0/H-1 and
+x_f=E_mu W_f. Choose a boundary link l of f and condition on all other
+links b. Bars denote ORIGINAL conditional expectations. Total covariance
+gives the exact split, retaining the OLD center inside F:
+
+    E_nu_f F-E_mu F = L_(f,l)(F)+R_(f,l)(F),
+    L = E_(mu_b) Cov_(mu(.|b))(F,W_f)/(1+x_f),
+    R = Cov_(mu_b)(barF,barW)/(1+x_f).
+
+The original conditional action includes EVERY incident factor. Its finite
+polynomial source pins are `heatProduct_partition:123` and
+`complementHeat_degree_zero:130` in
+`lean/YMGap/Continuum/BF4ExactSlabLinkStarGeometry.lean`. The same file's
+`incidentIds_length_le_six:89` bounds the actual selected star. These
+checked algebraic statements support the geometry; the full-heat analytic
+disintegration and estimates in this section are PAPER, not those theorems.
+
+The recorded conditional second moment yields
+
+    |L| <= sqrt(L2(t))*E_(mu_b) sqrt(Var_(mu(.|b)) F)/(1+x_f)
+        <= sqrt(L2(t)*E_mu Var(F|b))/(1+x_f),
+    Var(F|b)=(1/2)*E_(U,U'|b) (F(U,b)-F(U',b))^2.
+
+This is an actual observable-difference bound, not an assumed conditional
+Poincare estimate. For F=(A-c)*(B-c), if l occurs only in A, its variance
+is (B-c)^2*Var(A|b). If l occurs in neither source, L=0 EXACTLY; R need
+not vanish. Literal independence is backed by
+`word_blockDegree_zero_of_link_absent:104` in
+`lean/YMGap/Continuum/BF4ExactSlabWilsonWordLinkLocality.lean`.
+
+There is a stronger normalized oscillation estimate. Since the environment
+Radon--Nikodym factor is (1+barW)/(1+x_f),
+
+    L=E_((nu_f)_b)[E_(nu_f(.|b)) F-E_(mu(.|b)) F],
+    |L|<=E_((nu_f)_b)[delta_b*osc_l(F)],
+    delta_b=barW/(1+barW)<=min(1,b0(t)).
+
+The second line follows from the positive-deficit mixture, not a change
+to an unnormalized law. There is NO b0<1 guard and no 1/(1-b0) penalty.
+
+For the ACTUAL radius-zero fundamental family set
+
+    A_tau=sum_(p in qs) c_p*chi_1(U_(tau,p)), C=sum_(p in qs)|c_p|,
+    F=(A_tau-c)*(A_sigma-c), |c|<=2*C,
+    a_l=sum_(p at either endpoint: l in boundary p)|c_p|.
+
+Repetitions are retained. The displayed bound on c applies to the fixed
+OLD normalized mean of the SAME family, since |chi_1|<=2. Do not replace
+it by a new conditional mean. Each character has selected-link oscillation
+at most 4 and Lipschitz constant at most 2, hence
+osc_l F<=16*C*a_l. The sharper existing scalar jet identity is
+`plaquette_paired_gradient_square:85` in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteGradient.lean`.
+The actual family syntax and its radius/source pins are
+`familyExpression:51`, `family_within:59`, `source_family_span:92` in
+`lean/YMGap/Continuum/BF4WilsonPlaquetteFamilySourcePin.lean`.
+
+For each changed face select a least-loaded boundary link. A temporal face
+has a temporal boundary link absent from the spatial sources, giving L=0.
+Spatial faces off the source slices also give L=0. For the remaining faces,
+
+    sum_f min_(l in boundary f) a_l
+       <=(1/4)*sum_f sum_(l in boundary f) a_l
+       <=sum_l a_l=8*C.
+
+Each spatial link is in at most four spatial faces; each endpoint
+plaquette has four links. These PAPER counts use the literal `edgesOf:147`
+and `edgePlaqs:167` in `lean/YMGap/Continuum/ClusterCount4DProgress.lean`,
+restricted to the spatial planes specified by `spatialFaces_mem_iff:98`
+in `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFacePlacement.lean`.
+It follows that
+
+    sum_f |L_(f,l(f))(F)|
+       <=min(128*C^2*min(1,b0(t)), 64*C^2*sqrt(L2(t))).
+
+The second alternative also uses Var(F|b)<=osc_l(F)^2/4. Both alternatives
+retain any scaling-family dependence of C. Positive normalized BOX
+averaging preserves the bound without a squared BOX-length count; its
+source pins are `timeKernel_weight_pos:202`, `timeKernel_mass:228`, and
+`smoothedResponse_orbit_expand:326` in
+`lean/YMGap/Continuum/BF4WilsonAllNomeSmoothedCoherentState.lean`.
+
+Boundary links cause no missing-factor assumption. For any actual degree
+1<=m<=6, retain ell_geom=(pi+u)/6 in the two-displacement proof. Then
+
+    [E(V_+)+E(V_-)]/2
+       <=D-2*(pi+u)*ell_geom+m*ell_geom^2 <=D-pi^2/6.
+
+The ball energy variation is at most 2*m*pi*t+m*t^2; the lower factors
+2^(-m) and upper factors (pi^3/t)^(m-1) improve over m=6. The A_t^m
+factors cancel. Thus the SAME b0 and L2 estimates extend to these smaller
+stars, without inserting nonexistent staples.
+
+Finally define the explicit bounded star function
+
+    Psi_(f,l)(b)=barW
+      = integral (H0_f-H_f)*product_(other star faces) H dU
+        / integral H_f*product_(other star faces) H dU.
+
+Complement factors cancel exactly. Psi depends on at most 18 other links,
+is nonnegative, and is at most sqrt(L2(t)) by conditional Cauchy. Therefore
+
+    R_(f,l)(F)=Cov_mu(F,Psi_(f,l))/(1+x_f).
+
+This is a bounded LOCAL defect paired with the original source, not a
+boundedness assertion about singular W itself. Its summed connected,
+denominator-relative estimate remains OPEN. The local b0 exponential rate
+still misses the physical clock on the recorded precision family. Moreover
+the displayed sum compares separate replacements from the SAME original
+mu; it is NOT a telescope through hybrid backgrounds. The connected-source
+reviewer derived this reduction; ROOT checked its constants, normalization,
+incidence/source pins and boundary extension. No H1 or continuum closure.
+
+### Relative source conditioning and limits of auxiliary completion (PAPER)
+
+The stationary reviewer returned the following finite reference bounds;
+ROOT checked them against the saved literal source derivatives and cube
+modes. Let P_history=I_(T+1) tensor P_link, C=(1/2)*L_Omega^(-1),
+B_H=d^*H*d, B_G=d^*G*d, with Omega>=a*I, a>0 and
+0<=H<=h*I, 0<=G<=g*I. The selected nonnegative bulk/normalized-BOX
+profiles satisfy h,g<=1; this is not an assertion for arbitrary signed
+source coefficients. Free temporal precision is positive, so
+
+    B_H<=h*d^*d<=(h/a)*L_Omega,
+    0<=X_H:=C^(1/2)*B_H*C^(1/2)<=h*P_history/(2*a).
+
+The saved identities C_H=-8*C*B_H*C and
+C_HG=64*(C*B_H*C*B_G*C+C*B_G*C*B_H*C) then give
+
+    0<=-C_H<=(4*h/a)*C,
+    -(32*h*g/a^2)*C<=C_HG<=(32*h*g/a^2)*C.
+
+Indeed ||X_H*X_G+X_G*X_H||<=h*g/(2*a^2). Equivalently, for rows r,s,
+the absolute derivative entries are bounded by 4*h/a and 32*h*g/a^2
+times sqrt((r*C*r^*)*(s*C*s^*)). At Omega=I, h,g<=1, the constants
+are 4 and 32; in the saved Omega>=I/2 neighborhood they are 8 and 128.
+Thus physical source differentiation need not add an inverse-covariance
+norm power. Undifferentiated loops, signed sums and normalized neighboring
+increments are NOT bounded by this observation.
+
+Put Q=I-P_link, n=T+1, J_n=1*1^*. The allowed common-time longitudinal
+addition has covariance
+
+    Ctilde_eta=C+(eta/2)*J_n tensor Q.
+
+Since d*Q=0 (composition, not an adjoint), it satisfies
+Ctilde_eta*B_H=C*B_H, B_H*Ctilde_eta=B_H*C, and the analogous G identities.
+Its physical first/mixed source derivatives therefore equal C_H,C_HG.
+The leading curvature means and covariance, and the trace quartics, are
+unchanged. This is consistent with the COMPLETE affine Phi identity;
+it does not identify an original off-section gauge measure.
+
+Nor can its scalar freedom make the remaining transverse covariance
+uniformly bounded. On the normalized constant temporal vector at Omega=I,
+
+    Ctilde_eta=(eta*n/2)*I
+       +P_link*((1/2)*Lambda_H^(-1)-(eta*n/2)*I)*P_link.
+
+For the actual W=s^2+1>=5 open cube, transverse modes (1,1,0) and (2,2,0)
+have eigenvalues lambda_1=8*sin(pi/(2*W))^2 and
+lambda_2=8*sin(pi/W)^2>=2*lambda_1. For EVERY eta,
+
+    ||P_link*((1/2)*Lambda_H^(-1)-(eta*n/2)*I)*P_link||
+       >=(1/4)*(lambda_1^(-1)-lambda_2^(-1))
+       >=1/(8*lambda_1)>=W^2/(16*pi^2).
+
+This follows by comparing the two eigenvalues with a common scalar.
+The added longitudinal history covariance also vanishes on nonconstant
+temporal vectors: it is not a full elliptic longitudinal propagator.
+These facts prune scalar covariance completion as an infrared-norm
+shortcut, NOT the complete signed response. Do not substitute Ctilde into
+the P_link/4 completion or prefix-precision formulas: those require
+P_link*N*P_link=N, which its augmented undifferentiated blocks fail.
+Use the literal ambient polynomial before any such rewrite.
+
+NEXT remains s*Delta[(-Phi_HG+trace+OLD terms)/P4], keeping the signed
+kinetic, spatial determinant, recentered cubic and cubic-square partners.
+The new source-conditioning bounds pay placement costs only. Finite
+terminal/original-law matching and physical scaling remain separate.
+
+This checkpoint supplies one checked finite package and two reviewed
+analytic reductions. It does not select a new global proof route or close
+a canonical chart node. The linked Fork-and-Flush paper was rechecked;
+its bounded fresh-context review protocol is already in the work plan,
+and no duplicate literature or process branch was opened. Goal mode
+remains ACTIVE under the unchanged full Clay target.
+The three bounded tasks started at approximately 21:20 UTC and returned
+their frozen outputs before 21:28 UTC on Oct 12, within their 25/20/20
+agent-minute allocations. This checkpoint closes those allocations; it
+does not automatically restart them or claim a fresh-context comparison
+between branches that were assigned different propositions.
