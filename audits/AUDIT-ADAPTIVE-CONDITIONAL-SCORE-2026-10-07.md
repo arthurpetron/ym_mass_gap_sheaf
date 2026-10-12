@@ -23260,3 +23260,240 @@ partitions, and explicit depth modulus. Their distinction between symmetric
 and asymmetric OLD-mean errors is retained. `git diff --check` passes.
 All additions are PAPER; no Lean build, checked theorem, axiom/sorry, CI,
 canonical chart or protected user file changes. The full Clay goal stays ACTIVE.
+
+### Resonance-safe temporal transport and its finite reference boundary (PAPER)
+
+2026-10-12 UTC. Previous checkpoint 0e4da74d supplied the dressed STATIC
+cubic self bound and the leading finite FREE terminal comparison. The next
+test is the time-dependent part of the SAME dressed source, not another
+completion interface. Its consumer is the complete OLD-centered P6/P4
+calculation feeding the still-OPEN ORIGINAL H1 estimate. The endpoint
+consumer remains `pathShiftedEpsBound_iff_positiveScales` at
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1Anchor.lean:718`; the
+conditional survival consumer is `path_normalized_anchor_shifted` at :581.
+Neither declaration consumes a Gaussian coefficient as an original-law bound.
+
+For one positive spatial mode write lambda_omega=2*(cosh(omega)-1),
+q=exp(-omega), G_omega(n)=q^|n|/(2*sinh(omega)), and
+
+    K_omega=lambda_omega*G_omega,
+    K_omega(n)=tanh(omega/2)*q^|n|,
+    Q_omega=I-K_omega.
+
+K_omega is a positive mass-one temporal averaging kernel. Its multiplier
+is lambda_omega/(lambda_omega+eta); Q_omega is exactly the dynamic
+eta/(lambda_omega+eta) part of R_L on the spatial P0 range. Positivity of
+that Fourier multiplier is not nonnegative correlation at every lag.
+
+Here is an explicit resonant calculation needed in the Wick contractions.
+Put p=exp(-rho), S_rho(n)=p^|n|, and n>=0. Summing the interval 0,...,n
+and its two geometric tails gives the FINITE expression
+
+    (Q_omega*S_rho)(n)
+      =p^n-tanh(omega/2)*[sum_(j=0)^n q^j*p^(n-j)
+                          +(q*p/(1-q*p))*(p^n+q^n)].
+
+It remains defined when rho=omega; no difference of close frequencies is
+inverted. Away from resonance this is equivalently
+
+    [lambda_omega*(sinh(rho)/sinh(omega))*exp(-omega*n)
+                 -lambda_rho*exp(-rho*n)]/(lambda_omega-lambda_rho).
+
+At resonance the exact value is
+
+    exp(-omega*n)*[1/(cosh(omega)+1)-n*tanh(omega/2)].
+
+Thus even this elementary dynamic channel is positive at zero and negative
+at sufficiently large lag, for every positive pair omega,rho. Its total
+sum over integer lags is zero. The positive-Laplace monotonicity argument
+used for the LOCAL static self-term cannot be applied to this signed
+time-nonlocal channel. This is not a counterexample to the complete physical
+response or to an ORIGINAL transfer inequality.
+
+There are still resonance-independent absolute envelopes. The geometric
+kernel has tail Pr(|N|>=a)<=2*exp(-omega*a) for a>=0. Split the convolution
+according to which displacement has magnitude at least n/2, or n/3 for
+two kernels. Expanding each Q=I-K gives
+
+    |Q_omega*S_rho(n)|<=4*exp(-min(omega,rho)*n/2),
+    |Q_omega*Q_nu*S_rho(n)|
+         <=12*exp(-min(omega,nu,rho)*n/3).
+
+The second constant is 1+3+3+5 for the zero-, one-, and two-K terms.
+The tails also give explicit truncation moduli for these sums; temporal
+expressions can be read as Cauchy limits of finite Gaussian contractions,
+without constructing a probability measure on infinite histories. This avoids
+resonance poles but does NOT supply a width-uniform relative response:
+the smallest reference frequency is of order 1/W. These formulas apply
+to the Wick subchannels with one or two filters on a composite pair;
+other permutations with magnetic legs contracted into that pair stay in
+the full contraction. No omitted permutation is declared positive.
+
+### Exact finite temporal averaging and a normalized Gaussian coupling (PAPER)
+
+Keep the literal full-spatial finite reference L_T and its OWN normalized
+law from the preceding checkpoint. Set ell=T+1, r=exp(-omega), and the
+kernel coefficient b_kernel=(1-r)/(1+r). This is not a Yang--Mills coupling.
+Define K_T=lambda*L_T^(-1), Q_T=I-K_T.
+The explicit finite covariance yields
+
+    K_T(i,j)=b_kernel*[r^|i-j|+r^(2ell-|i-j|)
+                        +r^(i+j+1)+r^(2ell-i-j-1)]/(1-r^(2ell)).
+
+Every entry is positive. Since L_T*1=lambda*1, each row and column sums
+to one, including T=0. Q_T*1=0, 0<=Q_T<=I on temporal l2, and its
+scalar row l1 norm is 2*(1-K_T(i,i))<=2.
+
+Compare with k_infty(i-j)=b_kernel*r^|i-j|. On [0,T], K_T(i,j)>=k_infty(i-j).
+The excess mass inside the interval equals the missing stationary mass
+outside it, EXACTLY:
+
+    tau_i=[r^(i+1)+r^(ell-i)]/(1+r),
+    sum_(j=0)^T (K_T(i,j)-k_infty(i-j))=tau_i,
+    ||zeroExtend(K_T(i,.))-k_infty(i-.)||_1=2*tau_i.
+
+This includes the omitted outside-interval input, not only the image
+correction to entries inside. With both endpoint buffers >=n, omega>=1/W
+and the already proved elementary r^(2W)<=1/2, choose
+
+    n>=2*W*k: 2*tau_i<=4*2^(-k).
+
+This operator-row discrepancy decays with the SINGLE buffer exponent,
+unlike the earlier local covariance's double exponent. Do not copy the
+P4 covariance depth W*k while retaining the same exponent for this kernel.
+For bounded scalar input this gives error <=4*2^(-k) times its sup norm.
+
+There is also a dimension-independent SAME-stationary-law version needed
+for the quadratic random field Z. Expand P0 Z in the explicit positive
+spatial modes alpha. Minkowski in each scalar mode and time stationarity
+give ||Z_alpha(t)||_2=||Z_alpha(0)||_2, hence
+
+    E||[(K_T-K_infty)P0 Z](i)||^2
+       <=16*2^(-2k)*E||P0 Z(0)||^2.
+
+The same inequality holds for Q_T-Q_infty. It needs no independence of
+the modes. It is a kernel replacement on the SAME stationary random field,
+not yet replacement of its probability law by the finite law. It is not
+deduced for arbitrary deterministic time-varying spatial vectors from a
+scalar row norm alone.
+
+The finite row is also the stationary geometric row folded into [0,T] by
+reflection at -1/2 and T+1/2. The folding map is 1-Lipschitz and fixes i,
+so for integer h>=1
+
+    sum_(|j-i|>=h) K_T(i,j)<=2*r^h/(1+r),
+    sum_j |j-i|^2*K_T(i,j)<=2/lambda.
+
+The width dependence in the second moment is a further reason that an
+l1<=2 filter bound alone is not the PRIMARY 1/s estimate.
+
+The law change, when needed, has a constructive finite-mode coupling.
+Let v_i=r^i, w_i=r^(T-i), M=1/(4*sinh(omega)). Directly subtracting the
+stationary restriction from the finite covariance gives
+
+    C_free-C_stat
+      =[M*r/(2*(1-r^ell))]*(v+w)*(v+w)^*
+       +[M*r/(2*(1+r^ell))]*(v-w)*(v-w)^*.
+
+Add two independent unit Gaussians times these explicit square-root
+vectors to the stationary mode. This constructs the finite normalized
+FREE law on the interval. The difference is PSD with rank <=2; at T=0
+the second vector is zero. For T>=1 the equivalent precision check is
+L_stat-L_free=(1-r)*(e0*e0^*+eT*eT^*), with BOTH endpoint contributions
+on the sole diagonal when T=0. Apply this independently to the already
+explicit spatial/color modes. No original compact-Haar law, new partition
+identity or infinite-dimensional Gaussian choice is asserted.
+
+### Explicit higher-order terminal depth for the local source block (PAPER)
+
+The actual local source coefficients permit a further finite comparison,
+without assuming a bound on a new polynomial interface. Work at stiffness
+one, W=s^2+1, s=2^j>=2, and keep the SAME profiles 0<=h<=1 on F<=3s^3
+faces. All source placements must be at least n from their OWN horizon's
+endpoints. The existing finite covariance formula and M_ee<=14 give, for
+any pair of physical edge/color coordinates at those times,
+
+    |C_free|, |C_stat|<=112,
+    |C_free-C_stat|<=112*e, e=2^(-k), n>=W*k, k>=1.
+
+Indeed every mode's finite covariance is <=8 times its equal-time M
+when ell>=W; its buffered error is <=8*e*M. Weighted Cauchy--Schwarz
+in the common spatial basis supplies the entry bounds even for signed
+spatial off-diagonal entries. The laws here are centered Gaussians, not
+the original interacting measure.
+
+For a monomial of total degree 2r, telescope each product in Wick's
+finite pairing formula. Its moment error is at most
+
+    r*(2r-1)!!*112^r*e.
+
+Multiply by the literal polynomial's coefficient l1 mass to sum monomials.
+Odd moments vanish under BOTH reference laws. The masses for the actual
+trace-deficit coefficients can be bounded explicitly. Each coordinate of
+B has mass <=4, Z has mass <=2, and Dbar has mass <=368/3. For the last
+bound the nested-cross scalar coefficient mass of D3 is <=32/3, giving
+coordinate mass <=128/3; Lface cross C contributes <=48 and its remaining
+half-double-cross contributes <=32. Thus the actual displayed sources give
+
+    L2=||A2||_1<=192*F<=2^8*F,
+    L3=||A3||_1<=768*F<=2^10*F,
+    L4=||A4||_1<=50944*F<=2^16*F.
+
+The quartic total is 768+47104+3072 per face, retaining all of A4,
+including its negative trace-norm quartic. These are bounds on the PAPER
+exponential coefficients of the SAME source, not new Lean chart theorems.
+
+Define JUST the raw local connected source block of the complete R6:
+
+    J_source(i,j)=Cov(A4_i,A2_j)+Cov(A2_i,A4_j)+Cov(A3_i,A3_j).
+
+Degree-six Wick telescoping costs 45*112^3*e*L4*L2 for a fourth/second
+product. Subtracting its two means costs a further 9*112^3*e*L4*L2.
+The cubic means vanish in both Gaussian laws. Therefore
+
+    |J_source,free-J_source,stat|
+      <=112^3*e*[108*L4*L2+45*L3^2]
+      <2^56*s^6*2^(-k).
+
+Both fourth-order source insertions are retained. For the existing
+leading stationary floor at lags <=(3+2m)*s, m>=1,
+
+    R4_stat>=2^(-55)*3^(-(100+16m))/s^2,
+
+an explicit sufficient depth for any integer p>=0 is
+
+    k=312+32*m+8*j+p, n=W*k,
+    |J_source,free-J_source,stat|<=2^(-p)*R4_stat.
+
+In fact 3^(100+16m)<=2^(200+32m) makes the relative error smaller
+than 2^(-p-1). Positive normalized BOX averaging preserves this estimate
+termwise, if every source placement retains the buffer, without identifying
+different horizons or partitions. The old leading center may only enlarge
+the stationary leading denominator when kept in its existing square form.
+
+This pays the higher-order finite-terminal comparison for these THREE RAW
+LOCAL connected source contributions. It does not bound their stationary
+size, replace the complete response by J_source, or pay the action cumulants,
+the OLD c3/c4 terms, the temporally dressed source law change, or an original
+nonperturbative remainder. Raw and dressed formulae agree only as COMPLETE
+responses, not by identifying their individual source blocks.
+
+Decision: CONTINUE the complete signed dynamic/quartic/action contraction
+using the resonance-safe kernels; do not extend static positive-Laplace
+monotonicity to an isolated dynamic channel. Reuse the two explicit depths:
+2*W*k for nonlocal kernel rows, and W*(312+32*m+8*j+p) for the local
+sixth-order source block. Remaining finite reference work is the action
+insertions reaching the endpoints and OLD-center higher coefficients;
+original chart/center/denominator-relative remainder remains separate.
+The opening work plan and goal-mode instruction 11 are updated with these
+inputs. No canonical ASCII claim changes; the full Clay goal remains ACTIVE.
+
+Checkpoint verification: ROOT read the complete two-file diff. Independent
+mathematical review checked the resonant signs/envelopes, finite row tails,
+rank-two coupling including T=0, coefficient masses, Wick constants and
+both depth conventions. A separate SOURCE review verified the actual Lean
+consumer pins and reference/OLD/action scope. `git diff --check` passes.
+Only this audit and work_plan.md change. All additions remain PAPER; no
+Lean compilation, checked theorem, axiom/sorry, CI, canonical chart or
+protected user file change is claimed. The active goal still references
+the updated work plan and retains the unchanged full Clay objective.

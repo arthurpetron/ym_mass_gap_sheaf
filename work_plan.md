@@ -151,6 +151,20 @@ Execution order:
    horizon. This pays only the leading FREE comparison. NEXT: the remaining
    joint dynamic/quartic/action response estimate and its finite higher-order
    terminal correction; original chart/center/remainder matching is still OPEN.
+   NEW PAPER continuation: the dynamic temporal filter Q=I-K has exact
+   resonance-safe geometric formulas, including its sign-changing resonant
+   response. Do not transfer the static positive-Laplace argument to it.
+   Its finite FREE row error, including outside-interval input, is
+   <=4*2^(-k) at buffer n>=2*W*k; this is NOT the local covariance depth.
+   An explicit rank-two Gaussian coupling constructs the reference law change.
+   For the three RAW LOCAL sixth-order source covariance terms, direct Wick
+   telescoping gives a leading-response-relative finite-terminal error
+   <=2^(-p) at n=W*(312+32*m+8*j+p), keeping each OWN horizon.
+   This pays that higher-order SOURCE subcomparison, not the remaining action
+   insertions or OLD higher-center coefficients, nor a stationary P6 bound.
+   NEXT: keep the signed dynamic kernels inside the COMPLETE dressed
+   quartic/action response; handle endpoint-reaching action insertions and
+   OLD-center terms separately from the now-bounded local source comparison.
    A pair's two Haar densities are NOT half densities of a conjugated
    transfer kernel or two densities per chain step. Ambient Haar restricted
    to a transverse subspace is NOT the section density. This is
@@ -25095,6 +25109,17 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
     free terminal and leading-center modulus, while retaining its reference-only
     scope: dynamic cross terms, higher-order finite terminals and ORIGINAL
     center/chart/remainder matching are not consequences of the P4 comparison.
+    The next temporal test now supplies exact resonance-safe Q=I-K kernels,
+    finite-row error including outside tails at depth 2*W*k, and an explicit
+    rank-two coupling of the two normalized FREE laws. An isolated Q-filtered
+    exponential changes sign; it does not inherit static positive-Laplace
+    monotonicity. The THREE raw local sixth-order source covariance terms
+    now have a relative finite-terminal modulus W*(312+32*m+8*j+p), by
+    direct coefficient/Wick estimates. Reuse it; do not relabel it as the
+    complete dressed response, action insertion or OLD-center comparison.
+    Continue the complete signed dynamic/quartic/action bound and the
+    endpoint-reaching action/OLD higher-coefficient joins. Original matching
+    and the nonperturbative relative remainder are still OPEN.
     Do not restart fixed-carrier completion/time/logarithm machinery. Bounded
     engineering estimates are not a deadline for an unsolved mathematical input.
 
