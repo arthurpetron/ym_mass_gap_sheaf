@@ -103,6 +103,24 @@ Execution order:
    response bound. NEXT: use the Ward-equivalent geometry to estimate COMPLETE
    physical R6/P6 with both kinetic chaos orders, spatial pairings and source
    dressing. Retain finite-terminal and original normalized-remainder debts.
+   NEW PAPER input: cyclic averaging gives the exact spatial cubic
+   V3=8*sum curl(a) dot (avg_j a_i cross avg_i a_j). On the SAME open
+   reference cube, normal-zero/tangential-even boundary extensions and the
+   midpoint product rule move every external derivative onto an internal
+   field. The TOTAL cubic-pair current kernel therefore has a t^(-3)
+   envelope with an explicit finite-width exponential tail. Its compensated
+   temporal symbol obeys
+   0<=Khat(0)-Khat(theta)<=2^34*(2j+3)*4*sin(theta/2)^2*I
+   at W=2^(2j)+1. This pays a logarithmic temporal-curvature subestimate,
+   NOT the static Khat(0), a spatial soft factor or the complete response.
+   A finite Gaussian IBP transport now regroups P6 directly with the SAME
+   OLD-center coefficients and OWN partition. Use its dressed sources and
+   W-(U V3)/2 insertion, or the exactly equivalent complete R6 grouping.
+   NEXT: combine the static spatial pair with the spatial quartic, kinetic
+   and source terms in that physical response; do not estimate the removed
+   external-curl AA split or impose bare-field softness as a new target.
+   Uniform spatial action coefficients are essential to the current estimate;
+   source test gradients and finite original terminal laws are not discarded.
    A pair's two Haar densities are NOT half densities of a conjugated
    transfer kernel or two densities per chain step. Ambient Haar restricted
    to a transverse subspace is NOT the section density. This is
@@ -25028,6 +25046,13 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
     coefficient representative only after that complete physical insertion
     equality. Its explicit logarithmic geometry bound is partial PAPER input,
     not a transfer norm, a required bare-field soft estimate, or original H1.
+    The centered plaquette identity and boundary-correct product rule now
+    give a logarithmic compensated temporal-curvature bound for the TOTAL
+    stationary spatial cubic pair. Its static term remains unpaid. Use the
+    complete OLD-centered Gaussian-IBP source transport to combine that term
+    with the actual quartic/kinetic/source corrections; preserve the OWN
+    denominator and finite-terminal/original-remainder obligations. No
+    nonconstant face-action extension or stationary original-law pin follows.
     Do not restart fixed-carrier completion/time/logarithm machinery. Bounded
     engineering estimates are not a deadline for an unsolved mathematical input.
 

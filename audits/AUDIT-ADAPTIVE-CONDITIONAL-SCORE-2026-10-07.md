@@ -22573,3 +22573,277 @@ and the work plan change; no Lean/CI/canonical-chart or protected-file change.
 Goal-mode instruction 11 retains the unchanged Clay target and records the
 new physical-consumer correction. All new analysis is PAPER, not a current
 Lean certificate or full-tree audit. Goal remains ACTIVE.
+
+### Centered plaquette cubic and the open-boundary current (PAPER)
+
+2026-10-12 UTC. Previous checkpoint f7cd3ee1 was PROGRESS: the complete
+physical angular Ward identity removed root artifacts and supplied explicit
+logarithmic kinetic geometry control. The next consumer remains the COMPLETE
+OLD-centered neighboring response, not a charged-field quadratic estimate.
+This probe tests whether the TOTAL spatial cubic pair has a logarithmically
+controlled temporal frequency increment. Its zero-frequency value, spatial
+quartic and source/OLD partners must still be retained. Budget: finite
+algebra, explicit reference modes and independent mathematical review; no
+compiler, new interface or claim about an original-measure remainder.
+
+The literal ordered cubic has a simpler exact form. For the four DIRECTED
+slots v=(u,v,-w,-z), write B=sum_i v_i and C=sum_(i<j) v_i cross v_j.
+Average C over the four cyclic placements of the SAME ordered word. The
+average is
+
+    Cbar=(1/2)*(v1 cross v2+v2 cross v3
+                         +v3 cross v4+v4 cross v1)
+         =(1/2)*(u+w) cross (v+z),
+    B dot C = B dot Cbar.
+
+Indeed a cyclic shift changes C by 2*B cross v1, whose dot product with B
+is zero. With a_i(x), a_j(x+e_i), -a_i(x+e_j), -a_j(x) as the directed
+slots, let d_i be the forward difference and A_i the midpoint average.
+Then the actual action cubic is exactly
+
+    V3_slice=8*sum_(i<j,x) B_ij(x) dot Z_ij(x),
+    B_ij=d_i a_j-d_j a_i,
+    Z_ij=(A_j a_i) cross (A_i a_j).
+
+This uses the literal H3/4, not a substituted continuum vertex:
+`lean/YMGap/Continuum/BF4ExactSlabPlaquetteCayleyExpansion.lean:64`, `H3`,
+and `:122`, `H3_dot_cross`. The source cubic H3 has FOUR times this
+coefficient. Spatial action coefficients are uniform over ALL internal
+faces; the source's nonconstant test h has not been inserted into V3_slice.
+
+For an arbitrary external edge variation h, finite differentiation gives
+
+    D_h V3_slice=8*<curl h,Z>
+       +8*sum_faces B_ij dot
+          [(A_j h_i) cross (A_i a_j)+(A_j a_i) cross (A_i h_j)].
+
+Estimating the displayed terms separately with the external curl left on h
+would leave an AA loop with a slow temporal envelope. The actual sum admits
+an exact open-boundary adjoint:
+
+    <curl h,Z>=<h,curl^* Z>.
+
+Use the SAME open-product-grid boundary convention as the explicit modes:
+normal edge components extend by ZERO at the two virtual normal edges;
+tangential components reflect evenly at the corresponding vertex boundary.
+For an i-boundary of an ij face, A_j a_i is zero; for a j-boundary, A_i a_j
+is zero. Thus Z_ij is zero on every virtual normal face. There is no
+additional AA boundary jump when forming curl^* Z. Tangential fields must
+NOT be extended by zero in this calculation.
+
+The exact difference product rule
+
+    d(f cross g)=(A f) cross (d g)+(d f) cross (A g)
+
+now moves each derivative of Z onto ONE internal Gaussian field. Together
+with the two remaining variation terms, D_h V3_slice is a finite sum of
+currents pairing h with an averaged potential times ONE internal spatial
+derivative. These derivatives include component derivatives, not only curl;
+their squared sum has multiplier lambda on the transverse product modes.
+No divergence-free condition on h is needed for the finite adjoint identity.
+
+This is specific to the UNIFORM all-face spatial action. A varying face
+coefficient would also produce d(coefficient)*AA; it cannot be discarded or
+absorbed by asserting the same current identity. Finite temporal endpoint
+weights do not change this spatial algebra, but they do not make a finite
+chain stationary. ROOT and two independent reviewers verified the centered
+identity; the boundary/current calculation is independently checked in the
+same reference boundary convention.
+
+### Logarithmic temporal curvature of the TOTAL spatial cubic pair (PAPER)
+
+In this subsection the reference is stationary, has leading stiffness ONE,
+and uses the SAME internal open W-cube, W>=2, with no outgoing rotors. Let
+the one-color edge covariance at integer separation t>=0 be
+
+    C_A(t)=M*exp(-t*Omega), M=1/(4*sinh Omega).
+
+For n=max_i k_i>=1 the earlier explicit modes give at most 7n^2 triples,
+at most two transverse polarizations, component square <=8/W^3,
+M_k<=W/(4n), and omega_k>=n/(2W). Consequently for real t>0,
+
+    diag C_A(t)<=28/W^2 *sum_(n>=1) n*exp(-t*n/(2W))<=112/t^2.
+
+The last inequality uses sum n*exp(-a*n)=1/[4*sinh(a/2)^2]<=1/a^2.
+This infinite positive scalar sum is an explicit majorant of the finite
+mode sum, not a new infinite-volume reference. Extract the lowest-mode
+exponential from half of t and use the earlier equal-time bound <=14.
+For every INTEGER t>=0 this gives
+
+    diag C_A(t)<=1792*(1+t)^(-2)*exp(-t/(4W)).
+
+Let L be the combined component-gradient map on the product edge modes;
+on the transverse modes its squared multiplier is lambda. A selected
+component derivative or curl has no larger covariance norm. The exact
+identity lambda*M=(1/2)*tanh(omega/2)<=min(1/2,omega/4) gives
+
+    ||L*C_A(t)*L^*||<=(1+t)^(-1)*exp(-t/(4W)).
+
+At t=0 use 1/2<=1; at t>=1 extract exp(-t/(4W)) and maximize
+(omega/4)*exp(-t*omega/2)<=1/(2t)<=1/(1+t).
+
+Define the complete spatial current kernel, as a form on deterministic
+edge variations, by
+
+    K_t(h,k)=(1/2)*E[D_h V3_slice(a_t)*D_k V3_slice(a_0)].
+
+Each current is pure quadratic chaos. Its finite spectral expansion has
+energies omega_r+omega_q and squared TOTAL spatial coefficients. Thus
+K_t is positive semidefinite and symmetric, K_(-t)=K_t. Cross-face terms
+are included; no face independence or positive individual determinant is
+asserted.
+
+Here is an explicit conservative norm estimate. For each of the three face
+orientations the differentiated product contributes four current types,
+and variation of the two averaged factors contributes two more. There are
+18 types, safely bounded by 24, each with prefactor 8. The field averages,
+reflected placements and adjoint placements of h have norm <=2; the
+undifferentiated field placement also has absolute row sum <=2. At a
+boundary the two-step tangential average is the reflected averaging stencil,
+not multiplication by an independently duplicated free boundary variable.
+The normal derivative is the zero-extended edge difference. Thus these
+bounds hold without a W-dependent extension norm.
+
+For one vector cross-product current, the two Wick pairings give a covariance
+bounded by 4*diag(C_undifferentiated)*||C_differentiated||. This follows from
+the finite tensor Gram bound: the exchanged pairing is bounded in absolute
+form by the direct pairing, and the direct Schur product is bounded by its
+first factor's maximum diagonal times the second factor's operator norm.
+The three color components are measured in their Euclidean norm; no color
+sum is suppressed. Cauchy--Schwarz in the positive K_t form controls all
+cross-types. Including the three placement factors gives
+
+    C_bubble=2^34,
+    0<=K_t<=C_bubble*(1+t)^(-3)*exp(-t/(2W))*I,
+
+since (1/2)*8^2*24^2*4*2^6*1792=8455716864<2^34.
+This estimate applies to the COMPLETE derivative of the uniform spatial
+cubic. Leaving curl on h before estimating would not prove this bound.
+
+The exponentially convergent temporal Fourier series is explicit:
+
+    Khat(theta)=K_0+2*sum_(t>=1) cos(t*theta)*K_t.
+
+Put b=1+floor(log2(W-1))=ceil(log2 W). The weighted time moment satisfies
+
+    sum_(t>=1) t^2*(1+t)^(-3)*exp(-t/(2W))<=b+2.
+
+To see this with a finite rational width count, bound t^2/(1+t)^3 by 1/t.
+Each dyadic time bin [2^k,2^(k+1)) contributes at most one before its
+exponential. There are b+1 bins with k=0,...,b. For k=b+1+r,
+2^k/(2W)>=2^r, and sum_(r>=0) exp(-2^r)<1. The latter scalar tail is
+bounded by sum exp(-(r+1))=1/(exp(1)-1)<1. This also gives an explicit
+convergent tail for the series; no limiting mode count is assumed.
+
+Use the LATTICE time symbol eta(theta)=4*sin(theta/2)^2 and the elementary
+identity 2*(1-cos(t*theta))<=t^2*eta(theta). Termwise positivity yields
+
+    0<=Khat(0)-Khat(theta)<=C_bubble*(b+2)*eta(theta)*I.
+
+At W=s^2+1, s=2^j, this coefficient is 2^34*(2j+3). This is logarithmic
+TEMPORAL CURVATURE of the stationary reference spatial bubble. It does not
+remove Khat(0), prove a spatial lambda factor, pay the complete P6/P4
+neighboring estimate or identify a finite original terminal distribution.
+The external sequence in a finite time interval may be extended by zero
+when using this stationary convolution form; its interacting terminal law
+cannot thereby be replaced by the stationary Gaussian law.
+
+### Cubic transport directly in the OLD-centered response (PAPER)
+
+There is also an exact finite Gaussian regrouping that retains the actual
+consumer, without estimating a bare quadratic bubble in isolation. Work on
+ONE finite Gaussian history with its SAME covariance Ctime, and let V be
+the TOTAL spatial cubic over that history, including every face/time cross
+contraction. Its color-antisymmetric coefficients give pure third chaos.
+Define the explicit polynomial vector field and derivation
+
+    u=(1/3)*Ctime*grad V, U=u dot grad, W=V4-J2.
+
+Finite Gaussian integration by parts, or its diagonal whitened polynomial
+version, gives
+
+    E[V*F]=E[U F],
+    E[V^2*F]=E[(U V)*F]+E[U^2 F],
+    E[V^2]=E[U V].
+
+These are coefficient identities; they require no globally invertible
+nonlinear transport map. Here J2 is still the ACTUAL matched section-density
+coefficient of the reference expansion. An ambient Haar substitution is not
+authorized by this rewrite.
+
+For the two source expansions write
+
+    a=A2-c2, alpha=A3-c3, beta=A4-c4,
+    b=B2-c2, gamma=B3-c3, delta=B4-c4,
+    alphaHat=alpha-U A2, gammaHat=gamma-U B2,
+    betaHat=beta-U A3+(1/2)*U^2 A2,
+    deltaHat=delta-U B3+(1/2)*U^2 B2.
+
+Every c_i is the SAME supplied scalar OLD-center coefficient. Expanding the
+OWN partition of this history and applying the three identities above gives
+the complete normalized coefficients
+
+    P4=E[a*b],
+    P5=E[alphaHat*b+a*gammaHat],
+    P6=E[betaHat*b+alphaHat*gammaHat+a*deltaHat]
+                        -Cov(a*b, W-(1/2)*U V).
+
+For example, U^2(a*b)=(U^2 a)*b+2*(U a)*(U b)+a*(U^2 b); this supplies
+the middle product and both second source transports. The covariance
+subtraction is EXACTLY the denominator correction. No equality of the
+partitions at neighboring horizons, resetting of the center, or replacement
+of P by connected covariance is used. Apply the formula to each history with
+its own covariance and partition. As before, identifying such finite
+reference histories with the original finite g_n remains unpaid.
+
+The connected version, when wanted, is
+
+    R6=Cov(A4-U A3+(1/2)*U^2 A2,B2)
+       +Cov(A2,B4-U B3+(1/2)*U^2 B2)
+       +Cov(A3-U A2,B3-U B2)
+       -kappa(A2,B2,W-(1/2)*U V).
+
+Although U V=(1/3)*grad(V) dot Ctime*grad(V)>=0, its connected insertion
+has no automatic sign. The transformation keeps all total-cubic pairings;
+it does not replace them by a sum of independent face bubbles.
+
+The external curl now sits on the actual source. For
+A2=4*sum_p h_p*|(curl a)_p|^2,
+
+    U A2=8*sum_p h_p*(curl a)_p dot (curl u)_p,
+    U^2 A2=8*sum_p h_p*[|(curl u)_p|^2
+                                +(curl a)_p dot (curl(Uu))_p].
+
+For the stationary leading reference ONLY, the exact full-time covariance
+multiplier is Ctime(lambda,theta)=1/[2*(lambda+4*sin(theta/2)^2)].
+Consequently
+
+    ||forwardTimeDifference * curl * Ctime|| <= 1/4,
+
+because its singular multiplier is sqrt(lambda)*q/[2*(lambda+q^2)]
+with q=2*|sin(theta/2)|. This is a bounded EXTERNAL leg of a nonlinear
+source contraction, not a bound on the complete contraction. A temporal
+difference multiplier is not a frequency increment of that multiplier;
+the latter can still resolve the lowest finite-volume mode.
+
+ROOT and independent Gaussian-IBP/OLD-normalization review agree. The new
+current and transport identities are PAPER. They supply no positive original
+norm floor, ORIGINAL H1, physical calibration, every-state decay, continuum,
+QFT or all-groups construction. All those joins remain OPEN.
+
+Decision: CONTINUE with the complete static spatial-pair/quartic/kinetic
+and dressed-source contribution in this SAME normalized response. The new
+temporal-curvature estimate removes an apparent power-of-width loss from
+one actual term; it does not pay the static or original-law join. Do not
+restart the rejected separated external-curl AA estimate. The root/path Ward
+change, both kinetic chaos orders, OLD constants and OWN horizons remain in
+scope. Goal-mode instruction 11 and the opening execution order are updated.
+
+Checkpoint verification: ROOT read the complete two-file diff. Two bounded
+independent mathematical reviews agree on the centered identity, open
+boundary convention, current covariance envelopes, explicit map/Wick
+constant, lattice-frequency dyadic sum, and OLD-partition transport. The
+new bounds are PAPER, not a Lean theorem or full-tree audit. `git diff
+--check` passes; only this audit and work_plan.md change. No Lean build,
+axiom/sorry, CI, canonical chart or protected user file changes. The unchanged
+whole-project Clay goal remains ACTIVE.
