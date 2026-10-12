@@ -24134,3 +24134,254 @@ including the quantitative Fejer uniqueness estimate and OWN-window log
 budget. The work-plan summary now explicitly retains 0<t<=1 and the
 normalization small-error guards, matching the full audit. `git diff --check`
 passes; no compiler or whole-repository axiom audit was run.
+
+### Remove the constant and quadratic winding terms exactly (PAPER)
+
+2026-10-12. Continue from 020493ea with two bounded mathematical tests:
+reduce the ORIGINAL local heat defect before attempting its connected
+comparison, and estimate one literal term in BOTH retained reference
+sources. Consumers are the original fixed-OLD-centered response and the
+complete stationary sixth-order neighboring coefficient, respectively.
+Neither task constructs a scaling family or closes H1. The supplied
+Fork-and-Flush paper has been checked against the existing fixed review
+gates in work_plan; these small reductions do not postpone those gates.
+
+Keep the preceding heat notation, 0<t<=1, 0<=theta<=rho<=pi/2, and impose
+the explicit smallness condition delta(t,rho)<=1/2. The earlier sufficient
+condition t<=1/(4*L), integer L>=1, guarantees it. Write alpha=pi/t,
+q0=1+r_t(0), and
+
+    S2(z)=(1+z)/(1-z)^3,
+    S4(z)=(1+11*z+11*z^2+z^3)/(1-z)^5,
+    S6(z)=(1+57*z+302*z^2+302*z^3+57*z^4+z^5)/(1-z)^7,
+    D2=alpha^2*exp(-(A-b))*(S2(z)+(2*A/3)*S4(z)),
+    D4=alpha^4*exp(-(A-b))*(S4(z)+(2*A/5)*S6(z)).
+
+These S_j are the explicit sums of k^j*z^(k-1), k>=1. Use
+sinh(x)/x=integral_0^1 cosh(v*x) dv in the paired winding formula.
+Differentiating it twice or four times, then using the same geometric
+majorant as above, proves on the WHOLE stated chart
+
+    |r_t''|<=2*D2, |r_t''''|<=2*D4,
+    |r_t(theta)-r_t(0)|<=D2*theta^2.
+
+The differentiated series have uniform explicit summable majorants;
+the derivatives at zero use the even continuous extension. Since
+z<1/32, direct rational evaluation gives S2<2, S4<2 and S6<4. With A>9,
+
+    D2<=2*pi^4*t^(-3)*exp(-(pi^2-pi*rho)/t),
+    D4<=2*pi^6*t^(-5)*exp(-(pi^2-pi*rho)/t).
+
+Normalize out only the scalar constant, defining the local action defect
+
+    u_t(theta)=-log((1+r_t(theta))/q0).
+
+All logarithm arguments are positive, q0>=1/2, and
+
+    u_t(0)=u_t'(0)=0,
+    |u_t(theta)|<=2*D2*theta^2,
+    |u_t'(theta)|<=4*D2*|theta|,
+    |u_t''(theta)|<=4*D2+16*D2^2*theta^2.
+
+Its quadratic coefficient is not an unspecified counterterm:
+
+    gamma_t=(alpha^2/q0)*sum_(k>=1)
+                k^2*((2*A/3)*k^2-1)*exp(-A*k^2),
+    0<gamma_t<=2*D2.
+
+Set R_t(theta)=u_t(theta)-gamma_t*theta^2. Taylor expansion of the EVEN
+r_t, with |r''''|<=2*D4, leaves at most D4*theta^4/12. Taylor expansion
+of -log about q0 has second derivative <=4 along the intervening segment,
+so its second-order remainder is <=2*(r_t(theta)-r_t(0))^2. Therefore
+
+    |R_t(theta)|<=B4*theta^4, B4=D4/6+2*D2^2.
+
+This is a bound for an exact remainder, not a claim that its Taylor series
+converges or that R_t has a favorable sign.
+
+Now DEFINE the auxiliary principal-image heat time
+
+    t'=t/(1+4*t*gamma_t),
+    c_t=q0*exp(t-t')*(t'/t)^(3/2).
+
+Substitution in the displayed principal-image formula proves EXACTLY
+
+    H_t(theta)=c_t*H^zw_(t')(theta)*exp(-R_t(theta)),
+    0<t'<t,
+    1-t'/t=4*t*gamma_t/(1+4*t*gamma_t)<4*t*gamma_t<=8*t*D2.
+
+The full theta/sin(theta) factor and the actual holonomy are retained.
+The original t is still on the left. This derived reference parameter is
+NOT an RG blocking step, a choice of a more favorable original coupling,
+or the physical clock. On each SAME restricted domain with N faces, its
+constant c_t^N cancels in that domain's OWN normalized expectation.
+Different horizons may have different N and different partitions; no
+equality between them is required. The restricted original law is the
+principal-image interacting law at t' tilted by exp(-sum_f R_t(theta_f)).
+It is not thereby the Gaussian reference or the unrestricted original law.
+
+Thus the scalar comparison can use an explicit exponentially small
+QUARTIC local defect instead of retaining constant and quadratic winding
+costs. This alone does not sum the connected defects uniformly in volume
+or horizon. Large-field removal, section/source/Jacobian matching, the
+original OLD center, angular/Fourier Lean realization and the complete
+nonperturbative relative remainder remain unpaid. The character cutoff
+still has its separate previously displayed tail. No new wrapper is needed.
+
+### One retained trace-source contribution has a uniform increment (PAPER)
+
+Use the SAME stationary stiffness-one reference, central face profile h,
+open cube W=s^2+1, even s>=2, and fixed integer m>=1 from "Finite open-cube
+Gaussian Wick doubling". This is NOT a new interacting law. At a face f
+let sigma_f be the one-color curvature variance. The existing explicit
+mode eigenvalue is
+
+    lambda/(4*sinh(omega))
+      =sqrt(lambda)/(4*sqrt(1+lambda/4))<=1/2.
+
+Consequently 0<=sigma_f<=1/2, including the retained transverse projection.
+For the literal leading source and trace quartic in A4_new, put
+
+    A_h=4*sum_f h_f*|B_f|^2,
+    T_h=-(4/3)*sum_f h_f*|B_f|^4.
+
+For three independent colors of variance sigma_f, finite Wick pairing
+gives E|B_f|^4=15*sigma_f^2 and the second-chaos part of |B_f|^4 is
+10*sigma_f*:|B_f|^2:. Hence
+
+    T_h^(2)=-(10/3)*:A_(h*sigma):,
+    mu_T=E[T_h]=-20*sum_f h_f*sigma_f^2.
+
+The fourth-chaos part is orthogonal to the leading quadratic at any time.
+Retain BOTH fourth-order source insertions. With the leading center
+matched to this stationary reference, their trace contribution is
+S_tr(t)=-(20/3)*R_(h*sigma,h)(t), where R_(g,h)=Cov(A_g(t),A_h(0)).
+
+Average BEFORE dividing. For the SAME nonnegative normalized BOX weights
+beta_u at both ends, supported on 0,...,m*s, define
+
+    R^BOX_(g,h)(t)=sum_(u,v) beta_u*beta_v*R_(g,h)(t+u+v),
+    w_f=h_f*(sigma_f-1/4), D(t)=R^BOX_(h,h)(t),
+    N(t)=R^BOX_(w,h)(t).
+
+All following ratios use these BOX quantities. Entrywise curvature-square
+covariances are nonnegative, so |w|<=h/4 gives
+
+    |N(t)|<=D(t)/4, R^BOX_(w,w)(t)<=D(t)/16,
+    S_tr(t)/D(t)=-5/3-(20/3)*N(t)/D(t).
+
+Although w is signed, its AUTOCORRELATION is a finite positive Laplace
+sum. The common BOX multiplies each spectral coefficient at energy e by
+(sum_u beta_u*exp(-u*e))^2>=0; it preserves spectral Cauchy. In particular,
+writing Rww=R^BOX_(w,w),
+
+    |N'(t)|<=sqrt((-Rww'(t))*(-D'(t)))
+       <=(2/(exp(1)*t))*sqrt(Rww(t/2)*D(t/2))
+       <=D(t/2)/(2*exp(1)*t),
+    -D'(t)<=2*D(t/2)/(exp(1)*t).
+
+The middle inequality uses e*exp(-t*e)<=2*exp(-t*e/2)/(exp(1)*t).
+Thus |(N/D)'(t)|<=D(t/2)/(exp(1)*t*D(t)). The earlier doubling
+upper/floor estimates apply uniformly on [s,s+1] with
+
+    D(t/2)/D(t)<=K_(m+1), K_l=2^71*3^(86+16*l).
+
+Indeed the numerator is at most R_(h,h)(s/2); every denominator lag is
+at most (1+2*m)*s+1<=(3+2*m)*s, the already bounded m+1 range.
+The constant -5/3 disappears from the neighboring increment. Integration
+over [s,s+1], with s/t<=1, gives the actual source subestimate
+
+    |s*Delta(S_tr/D)|<=20*K_(m+1)/(3*exp(1))
+                         <=(20/3)*K_(m+1).
+
+This bound is independent of s and W for FIXED m at stiffness one. No
+new boundary norm, spatial translation invariance or differently shaped
+profile autocorrelation was assumed.
+
+The ORIGINAL OLD-center distinction is essential. For a supplied fixed
+leading center c2, put delta=mu2-c2 and mu2=E[A_h]. Leave the supplied
+c4 subtraction in the other source block. The RAW trace contribution is
+
+    P_(6,tr)=-5*D/3-20*N/3+2*delta*mu_T,
+    P4=D+delta^2,
+    P_(6,tr)/P4=-5/3+
+       [-(20/3)*N+2*delta*mu_T+(5/3)*delta^2]/(D+delta^2).
+
+This identity retains, rather than bounds or erases, the unmatched OLD
+residue. The uniform boxed ratio result is for delta=0. It does not pay
+that residue for the original center, the other twice-dressed quartics,
+dynamic cubic cross terms, static quadratic/contact combination or
+fourth-chaos action insertion. Only this literal trace-source contribution
+has been estimated, and only at PAPER level.
+
+### Reuse the existing fixed-OLD one-face comparison (SOURCE/PAPER)
+
+The remaining localized original comparison does not need a new
+normalization/interpolation interface. For F=(A-c)*(B-c) with c FIXED
+throughout a positive one-face insertion h, direct finite algebra gives
+
+    E_new F-E_old F=Cov_old(F,h)/E_old h
+      =[kappa3_old(A,B,h)+(E_old A-c)*Cov_old(B,h)
+                              +(E_old B-c)*Cov_old(A,h)]/E_old h.
+
+Both actual endpoint partitions remain. In particular there is NO extra
+negative product due to changing the center: c is not changing here.
+That negative product belongs to the DISTINCT OWN-covariance identity
+
+    Cov_new(A,B)-Cov_old(A,B)
+      =kappa3_old(A,B,h)/E_old h
+                         -Cov_old(A,h)*Cov_old(B,h)/(E_old h)^2.
+
+Source pins, all under lean/YMGap/Continuum/:
+
+- `BF4ExactSlabFaceInsertionDeterminant.lean:59`,
+  `face_insertion_determinant`, supplies the finite polynomial determinant
+  for any insertion p, hence an available polynomial realization of F.
+- `BF4ExactSlabAllNomeFaceSetComparison.lean:51`,
+  `finite_comparison_bound`, and `:86`, `insertion_bound_eventually`,
+  retain both masses and pass a SUPPLIED eventual determinant bound to the
+  all-nome limit without a new reciprocal penalty. The cutoff-dependent
+  heat insertion stays inside that hypothesis.
+- `BF4ExactSlabFixedSpatialWilsonWindowTimeLimit.lean:61`,
+  `original_window_pairing`, and `:84`, `windowRatio_originalFiniteValue`,
+  pin the actual original signed source/terminal/chain normalization.
+  `BF4ExactSlabFixedSpatialWindowCenteredProduct.lean:119`,
+  `centered_product_pin`, pins its endpoint centered product. Freeze that
+  original mean when changing the action; do not replace it by the
+  intermediate action's mean. Any non-polynomial mean approximation still
+  needs its existing limit/continuity join, not a literal RatPoly coercion.
+- `BF4ExactSlabCouplingCenteredResponse.lean:71`, `face_response_pin`,
+  already realizes E_v p-E_u p=E_B[p*score], with score centered in the
+  retained background B. That background is not automatically the OLD law.
+- `BF4ExactSlabConnectedFaceResponse.lean:90`, `response_identity`, and
+  `:188`, `finite_response_cleared`, implement the separate OWN-covariance
+  combination. `BF4ExactSlabRootedResponseResummation.lean:66`,
+  `response_resummed_filtered`, localizes that exact signed combination.
+
+The existing volume-free spatial estimates have a domain restriction:
+`BF4ExactSlabGuardedCovarianceResponse.lean:152`,
+`finite_moment_insertion_bound`, uses the small-nome guards at lines
+109--111. `BF4ExactSlabHeterogeneousCouplingResponse.lean:118`,
+`background_response_bound`, and
+`BF4ExactSlabSummedCouplingPath.lean:95`, `path_tail_bound`, / `:129`,
+`all_faces_bound`, retain those guards. The preceding IR screen explains
+why they cannot be silently used along the current w-to-one trajectory.
+
+NEXT original producer: a summable, denominator-relative connected bound
+for the literal localized quartic winding/large-field defect, with the
+fixed ORIGINAL center and actual interacting background and endpoint
+masses. The analytic exponential defect above is not already a finite
+RatPoly insertion; its constructive heat-factor/approximation join is a
+separate obligation. All-nome absolute caps and face-count path bounds
+do not provide the missing summability. Reuse the signed consumers;
+do not rebuild them or report their hypotheses as proved estimates.
+
+Verification: ROOT checked the heat derivative/logarithm/reparametrization
+algebra, finite spectral Cauchy, BOX range and actual source declarations.
+Three bounded independent integrated reviews PASS: heat/constants, literal
+source/OLD/BOX, and source/consumer/domain scope. `git diff --check` passes.
+All new mathematical estimates are PAPER, not kernel-checked Lean results.
+No Lean file, axiom, `sorry`, CI setting, protected user file or canonical
+chart state changed; no compiler or broad axiom audit was run. The work
+plan and goal-mode execution instructions now retain these exact reductions
+and the missing original connected producer. The full Clay goal stays ACTIVE.

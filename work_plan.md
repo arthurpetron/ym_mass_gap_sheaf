@@ -72,9 +72,19 @@ assume blocking stays in the one-parameter Wilson family.
   remaining volume/horizon and signed-response normalization costs. Do not
   substitute a Gaussian floor for that restricted interacting denominator.
   The exact scalar formula still needs its angular/Fourier Lean bridge.
+  NEW local reduction (PAPER): remove the winding constant in each OWN
+  partition and absorb its explicit positive quadratic coefficient gamma_t
+  into the DERIVED principal-image reference time t'=t/(1+4*t*gamma_t).
+  Under the same chart and delta<=1/2, the remaining exact action satisfies
+  |R_t(theta)|<=(D4/6+2*D2^2)*theta^4, with explicit exponentially small
+  D2,D4. Original t, holonomy, source and OLD center remain unchanged; t'
+  is neither a blocking step nor a physical scaling trajectory.
   NEXT original comparison: localize the winding/large-field contributions
   inside the connected two-time response, retaining the actual section and
   OLD center, instead of requiring global density closeness as N grows.
+  The fixed-OLD one-face determinant and all-nome normalization consumers
+  already exist; reuse them. Their spatially summable versions require
+  small-nome guards, so they do not yet bound this near-one quartic defect.
 - Separate the running marginal coupling from the summable remainder.
   Illustratively, if u_k=g_k^2 is of order 1/k on geometric UV shells, its
   square is summable but u_k is not. Neither conclusion pays errors amplified
@@ -458,6 +468,15 @@ Execution order:
    sources and remaining fourth-chaos contractions in the complete signed
    neighboring ratio. Do not infer that ratio's sign from the negative
    square alone. The audit records its exact OLD-centered Wick consumer.
+   NEW literal source subestimate (PAPER): retain -(4/3)*sum h*|B|^4 in
+   BOTH sources. On the SAME stationary stiffness-one cube and common BOX,
+   with the leading center matched to that reference, its contribution
+   satisfies |s*Delta(S_tr/R4)|<=(20/3)*K_(m+1), uniformly in s,W for fixed m.
+   Wick contraction and finite spectral Cauchy pay this term without a
+   spatial-boundary assumption. The exact unmatched-OLD residue is retained
+   separately; no original-center identification is inferred. NEXT: the
+   remaining R_L quartics, dynamic cross terms and static/fourth-chaos action
+   combination, alongside the original connected quartic-defect comparison.
    A pair's two Haar densities are NOT half densities of a conjugated
    transfer kernel or two densities per chain step. Ambient Haar restricted
    to a transverse subspace is NOT the section density. This is
@@ -25449,6 +25468,15 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
     survival; no Gaussian denominator or freely chosen heat trajectory is
     silently substituted. The IR small-nome/AF guard mismatch is already
     checked; its missing bridge is an actual coarse-action comparison.
+    Reuse the exact local winding constant/quadratic removal: its residual
+    is quartic with an explicit bound, not a completed connected estimate.
+    The existing fixed-OLD determinant/normalization algebra is sufficient;
+    the missing producer is near-one summability for the actual defect,
+    not a new interpolation wrapper. The literal trace-source quartic in
+    BOTH stationary sources now has a width/scale-uniform matched-center
+    neighboring bound. Keep its explicit unmatched-OLD correction and the
+    other static/source/fourth-chaos terms open; do not estimate that paid
+    matched-reference subterm again or promote it to original H1.
 
 **Quantitative completion viewpoint (2026-10-07, user-supplied Lawvere idea):**
 use the existing constructive extension APIs rather than treating completion
