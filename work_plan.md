@@ -56,8 +56,14 @@ trajectory. Preserve induced interactions, source renormalizations, both
 normalizations, chart/Jacobian factors and the actual terminal law; do not
 assume blocking stays in the one-parameter Wilson family.
 
-- First finish or obstruct the stationary complete signed response after the
-  second IBP, including `J_contact`, both dressed sources and OLD means. The
+- First estimate or obstruct the stationary complete signed response after
+  the second IBP. A NEW exact finite PAPER identity now joins `J_contact`,
+  BOTH dressed quartics, the cubic product and all action chaos into
+  R6_nontrace=-Phi_HG, where Phi is the explicitly defined weighted Gaussian
+  expectation in the adaptive-score audit. Its pointwise divergence identity
+  pays the cancellation, not a uniform bound. Estimate the signed neighboring
+  normalized mixed derivative, with the trace term and OLD means retained;
+  do not separately assume positivity of nonlocal source correlations. The
   new complete order-six FREE-reference terminal modulus in
   `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md` removes a reference
   subtask only. In parallel demand a concrete ORIGINAL small/large-field,
@@ -474,9 +480,18 @@ Execution order:
    satisfies |s*Delta(S_tr/R4)|<=(20/3)*K_(m+1), uniformly in s,W for fixed m.
    Wick contraction and finite spectral Cauchy pay this term without a
    spatial-boundary assumption. The exact unmatched-OLD residue is retained
-   separately; no original-center identification is inferred. NEXT: the
-   remaining R_L quartics, dynamic cross terms and static/fourth-chaos action
-   combination, alongside the original connected quartic-defect comparison.
+   separately; no original-center identification is inferred.
+   NEW COMPLETE finite PAPER join: weighted inverse differentiation and one
+   explicit Gaussian divergence identity combine the remaining R_L quartics,
+   cubic product and quadratic/fourth-chaos action as R6_nontrace=-Phi_HG.
+   Phi=E_(L_Omega)[W_Omega] retains the changing normalized covariance and
+   the RAW kinetic/Haar/heat partners. Actual trace sources add S_tr, and
+   a4_H=Phi_H+E[T_H] supplies the unchanged OLD-center residues explicitly.
+   NEXT: bound this SINGLE signed neighboring normalized combination on
+   finite horizons, then use the existing complete reference terminal
+   modulus. Do not introduce an infinite raw Phi, infer a sign from Schur
+   concavity, or re-open isolated nonlocal-source monotonicity. Continue
+   the original connected quartic-defect/remainder comparison in parallel.
    A pair's two Haar densities are NOT half densities of a conjugated
    transfer kernel or two densities per chain step. Ambient Haar restricted
    to a transverse subspace is NOT the section density. This is
@@ -25477,6 +25492,15 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
     neighboring bound. Keep its explicit unmatched-OLD correction and the
     other static/source/fourth-chaos terms open; do not estimate that paid
     matched-reference subterm again or promote it to original H1.
+    The latest exact weighted divergence identity now JOINS all remaining
+    reference source/action terms into -Phi_HG, with the explicit trace and
+    OLD corrections. This supersedes separate source-term estimates as the
+    next analytic task: bound the complete signed neighboring normalized
+    mixed derivative. Phi is an explicit finite Gaussian expectation, not
+    a supplied estimate; keep its changing law and raw W_other. Do not
+    differentiate an unconstructed infinite partition function. A local
+    action cap or upper equal-time variance bound alone still does not pay
+    the original positive-time comparison, even with positive transfer.
 
 **Quantitative completion viewpoint (2026-10-07, user-supplied Lawvere idea):**
 use the existing constructive extension APIs rather than treating completion

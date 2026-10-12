@@ -24385,3 +24385,224 @@ No Lean file, axiom, `sorry`, CI setting, protected user file or canonical
 chart state changed; no compiler or broad axiom audit was run. The work
 plan and goal-mode execution instructions now retain these exact reductions
 and the missing original connected producer. The full Clay goal stays ACTIVE.
+
+### A weighted identity joins the COMPLETE dressed sources and action (PAPER)
+
+2026-10-12. Previous checkpoint 0be01daa was PROGRESS: the local winding
+reduction and literal trace-source estimate changed the available inputs.
+The next bounded test asks for the remaining source terms TOGETHER, rather
+than treating each time-nonlocal dressed term as a positive Laplace sum.
+The following exact finite identity changes the next analytic task: the
+full connected nontrace coefficient is one mixed derivative of an explicit
+Gaussian expectation, with its source/contact cancellation proved below.
+This is not a newly assumed Hessian bound or an original-law comparison.
+
+Work on ONE finite color-diagonal Gaussian history with density proportional
+to exp(-<a,L*a>), C=(1/2)*L^(-1), and L>=d^*d>0 on the stated transverse
+carrier. Here the inequality d^*d>0 is on that finite spatial transverse
+carrier, slice by slice; d is spatial curl. Retain the actual Z, Dbar,
+B=d*a and raw W_other from the two previous IBPs. W_other includes both
+kinetic degrees and the Haar/heat partners, not only their previously
+estimated quadratic chaos. Let H,G be the two scalar face/time source
+multipliers. Do not commute them through a curl, covariance or projection.
+
+Introduce SOURCE parameters u,v, not a physical coupling or RG trajectory:
+
+    Omega=I+4*u*H+4*v*G,
+    L_Omega=L+d^*(Omega-I)*d,
+    K_Omega=L_Omega^(-1)*d^* * Omega,
+    R_Omega=Omega-Omega*d*L_Omega^(-1)*d^* * Omega.
+
+The heat nome w is unchanged; Omega is a different object. A concrete
+parameter neighborhood is
+4*|u|*||H||+4*|v|*||G||<=1/2, which gives L_Omega>=L/2.
+All derivatives below are at u=v=0. The finite Gaussian integrals and their
+derivatives are polynomial moments with this positive inverse; no infinite
+partition function or nonlinear Gaussian flow is introduced.
+
+Set F=DZ (field derivative), and define the EXPLICIT finite polynomials
+
+    J_Omega=4*Tr(K_Omega*D Dbar)-8*Tr((K_Omega*F)^2),
+    W_Omega=W_other+16*<Z,R_Omega*Z>+J_Omega,
+    Phi(u,v)=E_(L_Omega)[W_Omega].
+
+Only the spatial geodesic-source terms are deformed. W_other is held fixed
+as a raw polynomial, but its Gaussian expectation VARIES with u,v and is
+part of Phi. Replacing it by an already Wick-contracted coefficient from
+the undeformed law would lose terms. Keep the SAME gauge representative
+and carrier throughout differentiation. The raw deformed cubic and quartic
+spatial action are respectively 8*<Omega*B,Z> and
+16*<Z,Omega*Z>+8*<B,Omega*Dbar>. Thus their u derivatives are the actual
+nontrace A3 and A4, while (S0)_u=4*<B,H*B>=A2_H. Weighted versions of the
+same two finite IBPs give W_Omega; no extension of a uniform-weight
+spatial ESTIMATE is assumed in this algebraic statement.
+
+At the base point write K=L^(-1)*d^*, P=d*K, R=I-P and
+S=H*P*G+G*P*H. Direct inverse differentiation gives
+
+    K_H=4*K*H*R, R_H=4*R*H*R,
+    K_HG=-16*K*S*R, R_HG=-16*R*S*R.
+
+These first derivative formulas are BASE-POINT formulas, not identities
+to differentiate unchanged at arbitrary Omega. For example at arbitrary
+Omega, K_H=4*L_Omega^(-1)*d^* *H*(I-d*K_Omega). This produces the displayed
+mixed derivative with the correct ordered factors.
+
+Put Qsrc=4*F*K*Z and D3bar=Dbar-Qsrc. Use Gaussian divergence
+delta_G(V)=2*<a,L*V>-div(V), and introduce actual polynomial vector fields
+
+    Y_H=16*K*H*R*Z,
+    V_H=16*K*H*R*D3bar,
+    T_HG=64*K*S*R*D3bar.
+
+Their coefficients are the preceding explicit matrices. Color
+antisymmetry gives div(Y_H)=0 and kills the trace of the D^2Z[.,Y]
+part of DQsrc against every retained color-diagonal matrix. Therefore the
+literal twice-dressed source coefficients satisfy POINTWISE
+
+    F3_H=32*<H*B,R*Z>=delta_G(Y_H),
+    F4_H=64*<R*Z,H*R*Z>+32*<H*B,R*D3bar>
+          =(W_Omega)_H+delta_G(V_H).
+
+Here F4_H excludes ONLY the trace quartic -(4/3)*sum H_f*|B_f|^4.
+It includes both remaining terms from A4_new, with their original order.
+
+The decisive second identity is also POINTWISE, before expectations:
+
+    (W_Omega)_HG + U_(V_H) A2_G + U_(V_G) A2_H
+       +2*<Y_H,L*Y_G>+Tr(DY_H*DY_G) = delta_G(T_HG).
+
+This cancellation can be verified in two short parts. The square gives
+
+    (16*<Z,R_Omega*Z>)_HG
+        =-512*<R*Z,H*P*G*R*Z>=-2*<Y_H,L*Y_G>.
+
+For the contact, write out J_HG using K_HG and both first derivatives.
+The product of first derivatives cancels Tr(DY_H*DY_G), leaving
+
+    J_HG+Tr(DY_H*DY_G)=-64*Tr(K*S*R*D D3bar).
+
+Here DQsrc=D^2Z[.,4*K*Z]+4*F*K*F; its first term has the zero color
+trace already noted. The two source currents sum to
+128*<B,S*R*D3bar>, exactly the remaining part of delta_G(T_HG).
+No sign has been assigned to a matrix-square trace.
+
+Finite Gaussian IBP gives E[delta_G(T_HG)]=0. Applying it twice also gives
+
+    E[F3_H*F3_G]
+       =E[2*<Y_H,L*Y_G>+Tr(DY_H*DY_G)].
+
+Thus the entire bracket consisting of W_HG, both quartic-source currents
+and the cubic product has ZERO expectation. This is the explicit
+cancellation; invoking a source generating function alone would not have
+identified these retained terms.
+
+Normalized Gaussian differentiation, with A2_H,A2_G fixed as polynomials,
+now reads
+
+    Phi_HG=E[W_HG]-Cov(W_H,A2_G)-Cov(W_G,A2_H)
+                         +kappa(W,A2_H,A2_G).
+
+Insert the two pointwise source identities into the complete R6 formula.
+Their divergence currents cancel the just displayed E[W_HG] and cubic
+product, giving EXACTLY
+
+    R6_nontrace=-Phi_HG.
+
+Both dressed quartic sources, their cubic product, and the quadratic AND
+fourth-chaos action insertion are in this single derivative. No temporal
+positive-Laplace representation for a nonlocal source was needed. Phi is
+an explicit finite expectation, not a field supplied with the desired
+bound and not a claim that R6 or Phi_HG has a favorable sign.
+
+Restore the actual trace deficit. Write
+
+    T_H=-(4/3)*sum_f H_f*|B_f|^4, mu_(T,H)=E[T_H],
+    S_tr=Cov(T_H,A2_G)+Cov(A2_H,T_G),
+    a2_H=E[A2_H], a3_H=0, a4_H=Phi_H+mu_(T,H).
+
+The first mean identity follows from
+Phi_H=E[W_H]-Cov(W,A2_H) and E[delta_G(V_H)]=0; it does NOT recenter
+an original source. For unchanged supplied OLD c2,c3,c4, set
+old_H=a2_H-c2 and old_G=a2_G-c2. The COMPLETE coefficients are
+
+    P4=R4+old_H*old_G,
+    P5=-c3*(old_H+old_G),
+    P6=-Phi_HG+S_tr
+        +old_G*(Phi_H+mu_(T,H)-c4)
+        +old_H*(Phi_G+mu_(T,G)-c4)+c3^2.
+
+No OLD coefficient is differentiated or reset. If P5 is nonzero, retain
+P6/P4-(P5/P4)^2/2 in the second logarithmic coefficient as before.
+SAME BOX averaging is linear in each profile BEFORE division. The matched
+stationary trace estimate from the previous checkpoint still applies in
+its stated scope. It does not bound the displayed unmatched-OLD residue.
+
+NEXT producer: estimate the signed neighboring P4-normalized expression
+using this explicit -Phi_HG and the retained OLD terms. Work with finite
+horizons first and use the existing COMPLETE reference coefficient/terminal
+comparison with all these terms retained; do NOT define an extensive
+infinite-volume raw Phi or differentiate an unconstructed infinite
+partition function. Schur-complement concavity of R_Omega alone does not
+give the sign or size of Phi_HG: the contact and changing Gaussian law
+are still essential. The normalized uniform estimate and ORIGINAL heat,
+section, center, large-field and relative-remainder joins remain OPEN.
+This exact joined calculation supersedes separately estimating each
+remaining nonlocal dressed source as the next task.
+
+### The original comparison still needs dynamical information (PAPER/SOURCE)
+
+A small local defect is not enough even with a genuine positive transfer
+and exactly matched centers. This finite negative control is NOT a
+Yang--Mills instance. For rational 0<q<1, 0<epsilon<1, take
+
+    T_q=(1/2)*[[1+q,1-q],[1-q,1+q]], q'=q*(1-epsilon).
+
+Both matrices have uniform vacuum and positive eigenvalues 1,q or 1,q'.
+The same centered source X=+1,-1 has C_n=q^n and
+C'_n=q^n*(1-epsilon)^n. Put h=q*epsilon/(1-q). Every entry ratio lies
+between 1/(1+h) and 1+h; its largest absolute log-action change is
+log(1+h). For q=1/2 this is <=epsilon, independently of horizon. Yet
+
+    n*epsilon*C_n <= (1+(n-1)*epsilon)*(C_n-C'_n),
+    C_n-C'_n <= n*epsilon*C_n,
+    s*[log(C'_s/C'_(s+1))-log(C_s/C_(s+1))]
+        =-s*log(1-epsilon)>=s*epsilon.
+
+The first two inequalities are finite rational consequences of Bernoulli's
+inequality (apply it also to (1-epsilon)^(-n)); n*epsilon>=1 forces
+relative change >=1/2. Local caps alone do not give a horizon-uniform
+relative modulus. Along q_s=1-1/s, s>=2, the ACTUAL entrywise cost is
+h_s=(s-1)*epsilon, not O(epsilon) uniformly. Thus this example also
+forbids claiming that arbitrarily large scaled error occurs with a
+uniformly tiny local cap on that particular near-one family. It screens
+an inference, not the literal YM winding defect or a proposed mass gap.
+
+An equal-time convexity estimate is not an existing substitute for the
+missing positive-time comparison. Source inspection finds no such
+Hessian-to-original-response producer in the current Gaussian/IBP,
+variance-comparison and macro-response modules. In particular
+`QuaternionHaarDensityVarianceComparison.lean:124`,
+`raw_variance_comparison`, consumes an actual density-order certificate;
+`:143`, `energy_variance_ratio_transport`, needs an UPPER energy and LOWER
+OWN variance. `BF4WilsonAllNomeMacroRatioFilteredCost.lean:123`,
+`macro_to_filtered_budget`, instead needs C(L+s)>=kappa*C(L).
+`BF4ExactSlabLocalWardVariance.lean:145`,
+`scoreResponse_squared_le_centered_cost`, retains an unpaid ORIGINAL score
+square. All paths in this paragraph are under lean/YMGap/Continuum/.
+No full BF4-cube Hessian refutation is inferred from the older rooted-path
+diagnostic; its physical quartic partner cancels that particular artifact.
+The active original task remains the SAME-law connected relative estimate,
+not an upper variance bound or another normalization interface.
+
+Verification: ROOT and the source/action reviewer independently derived
+the ordered mixed derivatives and pointwise divergence cancellation. A
+second mathematical review checked the full normalized Phi/OLD formulas,
+parameter neighborhood and positive-transfer test; the source reviewer
+checked the cited consumers and their inequality directions. All three
+integrated two-file reviews PASS, as does `git diff --check`. These are
+PAPER identities and source-screen results, not new Lean proofs or original
+uniform estimates. No Lean file, axiom, `sorry`, protected user file, CI
+setting or canonical chart claim changed; no compiler or broad audit ran.
+The work plan and goal-mode instructions now select the joined signed
+mixed-derivative estimate. The unchanged full Clay goal remains ACTIVE.
