@@ -26112,3 +26112,267 @@ their frozen outputs before 21:28 UTC on Oct 12, within their 25/20/20
 agent-minute allocations. This checkpoint closes those allocations; it
 does not automatically restart them or claim a fresh-context comparison
 between branches that were assigned different propositions.
+
+### Actual smooth-profile gain for one mixed covariance factor (PAPER)
+
+2026-10-12, baseline `0bb68aae`. The stationary reviewer supplied a genuine
+extra 1/s for a specific derivative placement in the COMPLETE finite Phi.
+ROOT checked the factorization, finite endpoints, constants and scope.
+This is not a bound on the whole normalized response.
+
+Use even s>=2, N=s+1, W=s^2+1, and the SAME stiffness-one finite free
+history of length ell=T+1>=W. Its covariance is C=(1/2)*L^(-1). The
+actual nonnegative bulk profile h has norm <=1 and adjacent differences
+<=2/s, including its zero extension, as constructed above in "Explicit
+rational bulk coefficients and smooth-profile moduli". Let H_i=h/N on a
+first BOX I of N times, and g_j=h on one slice j. For a second BOX put
+
+    G_t=(1/N)*sum_(j=t..t+N-1) g_j,
+    DeltaG=G_t-G_(t+1)=(g_t-g_(t+N))/N.
+
+Both endpoint slices t,t+N are at distance at least s from I, and all
+placements remain in this one history. Reflected first-BOX placement
+I={a-s,...,a}, second BOX={a+t,...,a+t+s}, t>=s, realizes the actual
+lag t+u+v. Literal BOX weights are `smoothingWeight` and `timeKernel`
+in `lean/YMGap/Continuum/BF4WilsonAllNomeSmoothedCoherentState.lean`.
+
+Assign h_link to each edge using the same base-sampled profile. The
+face-edge incidence has at most four entries in each row/column, and
+the relevant bases differ by at most one coordinate step. The Schur
+bound therefore gives
+
+    ||d^*h-h_link*d^*||<=8/s.                         (1)
+
+Write K_ij=d*C_ij*d^*. The saved finite four-image kernel has denominator
+1-exp(-2*ell*omega_lambda)>=1/2 when ell>=W, since the smallest positive
+transverse mode has lambda>=8/W^2 and omega_lambda>=sqrt(lambda)/2.
+Every image distance is >=|i-j|. Hence
+
+    C^lambda_ij<=8*m_lambda*exp(-omega_lambda*|i-j|),
+    m_lambda=1/(4*sinh omega_lambda).
+
+Using lambda*m_lambda<=omega_lambda/4 and sqrt(lambda)<=2*omega_lambda
+on the actual spectrum 0<lambda<=12, for |i-j|>=s we obtain
+
+    ||K_ij||<=2/(exp(1)*s)<=1/s,
+    ||d^*K_ij||<=16/(exp(2)*s^2)<=4/s^2.
+
+Together with (1), ||h*K_ij||<=1/s and ||d^*h*K_ij||<=12/s^2.
+The SAME finite kernel also gives C^lambda_jj<=2/sqrt(lambda), so
+
+    ||C^(1/2)*d_j^*f||^2<=2*||f||*||d^*f||.          (2)
+
+This is the finite spectral Cauchy inequality; no stationary endpoint
+replacement or infinite covariance was differentiated.
+
+Set X_H=C^(1/2)*B_H*C^(1/2) and Y_H=C^(1/2)*d^*H^(1/2).
+The previous relative source bound gives ||Y_H||<=1/sqrt(2*N).
+For an unweighted endpoint source g_j, factor X_H*X_gj=Y_H*Z_j.
+The i-th column block of Z_j^* is
+
+    N^(-1/2)*C^(1/2)*d_j^*h*K_ji*h^(1/2), i in I.
+
+Before the N^(-1/2), its norm is <=sqrt(24)/s^(3/2), by (2).
+Stacking N blocks cancels that square-root count. Thus
+
+    ||X_H*X_gj||<=sqrt(12)/(sqrt(N)*s^(3/2)).
+
+Apply the two endpoints divided by N and the EXACT ordered derivative
+C_(H,DeltaG)=64*C^(1/2)*(X_H*X_DeltaG+X_DeltaG*X_H)*C^(1/2):
+
+    ||C^(-1/2)*C_(H,DeltaG)*C^(-1/2)||
+       <=512*sqrt(3)/(N^(3/2)*s^(3/2))
+       <=1152/(s*N^2).                               (3)
+
+The last safe rational constant uses N/s<=3/2. In row form, (3) multiplies
+sqrt((r*C*r^*)*(q*C*q^*)). It gains 1/s over the previous 32/N^2 bound
+for an undifferenced mixed placement. It holds at undeformed stiffness
+one; the spectral proof is not asserted for arbitrary time-local Omega.
+
+BOX normalization alone does NOT give this gain for a first derivative.
+For an actual central face f with h_f>=3^(-18), use the transverse vector
+psi=d^*f supported at endpoint time t. Its norm squared is 4, and the
+finite precision satisfies L<=14*P_history. In the relative-form Rayleigh
+quotient for -C_DeltaG, the numerator is at least 128*h_f/N and the
+denominator at most 112. Consequently
+
+    ||C^(-1/2)*C_DeltaG*C^(-1/2)||>=8*3^(-18)/(7*N).
+
+Thus (3) uses separation and the actual spatial profile, not merely a
+smaller BOX coefficient. It pays placements with BOTH derivatives on ONE
+covariance factor. Different-factor C_H*C_DeltaG, explicit Omega/tau
+vertex derivatives, and their signed sum remain OPEN.
+
+The required denominator cancellation is also explicit, not paid. If
+p_j,q_j are the complete endpoint P4,P6 with the first BOX and fixed OLD
+constants retained, D_t=(1/N)*sum p_j and Q_t=(1/N)*sum q_j obey
+
+    Q_t/D_t-Q_(t+1)/D_(t+1)
+      =[D_t*(q_t-q_(t+N))-Q_t*(p_t-p_(t+N))]
+        /(N*D_t*D_(t+1)).
+
+Retain this signed determinant, including its cancellation for Q=c*D.
+If P5 is nonzero, its saved logarithmic correction remains as well.
+The next analytic join is the other derivative placements and this SAME
+normalized response, not another proof of (3). ORIGINAL matching remains
+separate from this finite Gaussian reference calculation.
+
+### Original star-score control and two failed influence shortcuts (PAPER)
+
+For the SAME m-face star, 1<=m<=6, rotate its integrated link so the target
+staple is I. Its actual numerator/denominator then are
+
+    L_b(V)=product_(i=1..m-1) H_t(dist(V,S_i(b))),
+    Z_b=integral H_t(V)*L_b(V) dV,
+    Psi(b)=integral (H0_t-H_t)(V)*L_b(V) dV / Z_b.
+
+The singular target factor is FIXED in this frame. H0=O(1/u) near the
+cut locus and Haar measure is O(u^2 du), so it remains integrable. For
+G_b=partial log L_b, differentiating both OWN integrals gives
+
+    partial Psi=Cov_(mu(.|b))(W_t,G_b).               (4)
+
+No derivative of H0's singularity has been taken.
+
+There is a sharper ORIGINAL heat score bound than the earlier crude
+inverse-nome power. Let x=cos(theta), r_k=exp(-(2*k+1)*t) and
+f_k(x)=1+2*r_k*x+r_k^2. The heat kernel is a positive x-independent
+constant times the x-derivative of product f_k. Its positive Leibniz
+expansion is a sum of products each omitting one factor. Consequently
+
+    0<=H_x/H<=sum_(k>=0) 2*r_k/f_k(x)
+       =sum_(k>=0) 1/(cosh((2*k+1)*t)+x).
+
+The summand decreases in its positive argument. Integration over the
+disjoint intervals [2*k*t,(2*k+1)*t] bounds the sum by
+
+    (1/t)*integral_0^infty da/(cosh(a)+cos(theta))
+      =theta/(t*sin(theta)).
+
+The substitution u=tanh(a/2) evaluates that integral. Thus
+
+    ||grad log H_t||<=theta/t<=pi/t.                  (5)
+
+Continuity covers theta=0,pi. Existing finite algebraic pins are
+`fullProdDx:62`, `fullProdDx_eqv_Ppart_mul_Spart:112` in
+`lean/YMGap/Continuum/JTPFullProductDerivativeNormalization.lean`,
+`shifted_factor_eq:68` in
+`lean/YMGap/Continuum/JacobiShiftedPositiveCoefficients.lean`, and
+`heatBound:95` in
+`lean/YMGap/Continuum/JacobiHeatRelativeAngularBound.lean`.
+The new angular integral bound (5) is PAPER, not a claim about those
+declarations' existing constants.
+
+For a unit-speed change of one rest-star link e, k_e=1 for a non-target
+staple link; k_e=m-1 for a target-face rest link after the rotation. Other
+links have no effect. Equation (5) gives |G_b|<=pi*k_e/t, and (4) plus
+W>=0 yields
+
+    ||grad_e Psi||<=2*pi*k_e*Psi/t,
+    ||grad_e log(1+Psi)||<=2*pi*k_e*delta/t,
+    ||grad_e delta||<=2*pi*k_e*delta*(1-delta)/t,
+    delta=Psi/(1+Psi).
+
+The three target rest links and 3*(m-1) other rest links are distinct, so
+sum_e k_e=6*(m-1)<=30. Define B(t)=sqrt(L2(t)), sharpened to
+min(sqrt(L2(t)),b0(t)/(1-b0(t))) when b0<1. For a coordinate change of
+distance d the explicit difference bound is
+
+    |Psi(b')-Psi(b)|<=B(t)*min(1,2*pi*k_e*d/t).
+
+The gradient row is <=60*pi*B(t)/t and the oscillation row <=18*B(t).
+Both tend to zero. For example t<=1/1024 suffices for b0<=exp(-247)
+and 60*pi*B(t)/t<exp(-228)<1, using only coarse rational bounds on pi
+and logarithms and monotonicity of the resulting exponential envelope.
+
+Good-boundary control retains its advantage, but with ACTUAL degree m.
+If all relative staples lie within rho=pi/10, for 2<=m<=6 the same
+small-ball calculation gives
+
+    delta<=b_m(t)=3*2^m*exp(2)*pi^(3*m)*t^(-m-2)*exp(-kappa_m/t),
+    kappa_m=((m-1)/4)*[(2*pi-rho)^2/m-rho^2].
+
+This recovers kappa_6=71*pi^2/96 and the previously saved b_6. For m=1,
+Psi is environment-independent. Use b_m/(1-b_m) only under b_m<1;
+the normalized logarithmic derivative instead uses min(1,b_m) directly.
+Coordinate shortest geodesics between two aligned environments stay
+aligned, since the moving relative staples remain in the convex rho-ball.
+The six-factor aligned exponent does NOT extend unchanged to boundary
+stars; the earlier boundary extension concerned b0 and L2 only.
+
+Two explicit tests prevent misuse of these positive estimates.
+
+First, start with all-I staples and flip ONE target-face rest edge to -I.
+Only the target staple changes. Rotating U to -U gives the saved frustrated
+six-factor star. With c_*=3*exp(-pi-1)/(512*pi^17), the earlier lower
+bound and the exponentially smaller aligned value imply eventually
+
+    |Delta_e Psi|>=(c_*/2)*t^7*exp(-pi^2/(24*t)).
+
+This misses the precision family's physical clock; even one-coordinate
+influence cannot be uniformly O(1/s). A unit-speed derivative supremum
+is at least the displayed difference divided by pi.
+
+Second, the original conditional K_l is not contracted in ordinary TV by
+its neighbors. All-I environment gives density H_t(theta)^6. Flipping
+ANY one of the 18 distinct rest-star links to -I instead gives density
+H_t(theta)^5*H_t(pi-theta), with exact energy
+
+    5*theta^2+(pi-theta)^2=6*(theta-pi/6)^2+5*pi^2/6.
+
+Global heat upper/lower bounds and a radius-t Haar ball about the explicit
+energy minimizer retain each OWN denominator. They give, for
+epsilon(t)=24*pi^21*exp(3*pi+1)*t^(-9)*exp(-pi^2/(96*t)),
+
+    K_allI{theta>=pi/12}<=epsilon(t),
+    K_flip{theta<pi/12}<=epsilon(t).
+
+Thus each original coordinate TV influence is >=1-2*epsilon(t), and its
+interior single-link Dobrushin row is >=18*(1-2*epsilon(t)), tending to
+18. Small influence of the DEFECT observable is not contraction of these
+ORIGINAL conditional kernels. This rules out that unblocked TV shortcut,
+not block estimates, gauge-adapted metrics or the actual mass-gap problem.
+
+The connected reviewer derived these statements; ROOT independently
+checked the Jacobi/log-score argument, exact star geometry, constants and
+normalizations. No Lean theorem or original connected bound is claimed.
+The remaining target is still Cov_mu(F,Psi)/(1+E_mu W), with averaging,
+relative normalization, and the actual physical-clock budget paid.
+
+### Three-square sixth moment and covariance summand (KERNEL-CHECKED)
+
+The bounded Sol implementation added only
+`lean/YMGap/Continuum/SU2QuaternionFiniteGaussianSixthMoment.lean`.
+For B=L_b,D=L_d,E=L_e in the EXISTING finite Gaussian evaluator, write
+a=norm2(b), c=norm2(d), f=norm2(e), x=Gram(b,d), y=Gram(b,e), z=Gram(d,e).
+The literal computed rows and Grams satisfy
+
+    E[B*D*E^2]=x*f+2*y*z,
+    E[B^2*D^2*E^2]=a*c*f+2*(a*z^2+c*y^2+f*x^2)+8*x*y*z,
+    Cov(B^2*D^2,E^2)=2*(a*z^2+c*y^2)+8*x*y*z.
+
+Declarations: `finiteProductGaussian_mixed_fourth:96`,
+`finiteProductGaussian_three_square_sixth:164`, and
+`finiteProductGaussian_three_square_covariance:223`. The last retains
+BOTH actual Gaussian means. All finite dimensions, N=0, zero and
+degenerate rational rows are included. No moment/pullback law is assumed;
+the proofs use the checked first Stein, row Leibniz and computed mixed
+Gram contractions. Padded monomials are handled under the same scalar
+evaluator, which still evaluates variables outside N at one.
+
+ROOT read the frozen source, emitted only its RowGram dependency, and
+ran the narrow check through the safe launcher: jobs=1, explicit 20-GiB
+worker cap, 12-GiB OS reserve. Both commands exited zero. All THREE
+public axiom outputs were inspected and are exactly [propext, Quot.sound].
+No warnings, errors, new holes or full-tree audit. Log:
+`/tmp/ym-sixth-moment-check.L7R44n/sixth-check.log`.
+Frozen source SHA-256:
+`32998581e748e7404800eedae583d7d812ede6ad1ce3d922f92dc2681f10523d`.
+
+NEXT formal join: finite radial summation of the proved covariance
+summand, then actual transverse rows and their CReal moduli. The new
+one-factor 1/s and original-star influence estimates above remain PAPER;
+neither they nor this finite Gaussian theorem closes H1, EVERY-state
+physical decay, the continuum theory or the whole-project Clay target.
+The previous checkpoint was PROGRESS. This checkpoint also makes
+progress; the canonical displayed claims remain open and unchanged.

@@ -106,6 +106,17 @@ assume blocking stays in the one-parameter Wilson family.
   width-uniform: its norm is at least W^2/(16*pi^2). Do not pursue that
   scalar-completion shortcut. Bound the COMPLETE signed contraction;
   the undifferentiated loops and neighboring normalized increment remain.
+  NEW PAPER scale gain: for the ACTUAL smooth spatial profile, two uniform
+  BOXes of length N=s+1 separated by at least s, and SAME finite free
+  history of length >=W=s^2+1, the mixed derivative on ONE covariance
+  factor satisfies |C_(H,DeltaG)|_C<=1152/(s*N^2). This gains an extra
+  1/s over the undifferenced 32/N^2 bound, using the spatial commutator
+  ||d^*h-h_link*d^*||<=8/s and the finite curvature kernel. It holds at
+  undeformed stiffness one, not at arbitrary inhomogeneous deformation.
+  NEXT: the DIFFERENT-factor derivatives and explicit Omega/tau vertices
+  in the same signed Phi, then the normalized endpoint determinant.
+  Do not promote this one-factor estimate to the complete Phi/P4 quotient;
+  the first-derivative BOX bound alone provably has no extra 1/s gain.
   NEW PAPER: at 0<t<=1 and 0<=theta<=rho<=pi/2, the full SU(2)
   heat/principal-image ratio has a signed winding error -delta<=r<=0, with
   delta<=12*exp(-pi^2/(4*t)); a separate explicit character cutoff pays its
@@ -200,6 +211,18 @@ assume blocking stays in the one-parameter Wilson family.
   this connected environment sum and its actual relative/clock budget.
   The local b0 rate still misses the clock. These are comparisons from
   ONE original law, not a telescope through hybrid replacement actions.
+  NEW PAPER influence bound: ||grad log H_t||<=pi/t from the positive
+  Jacobi product gives ||grad_e Psi||<=2*pi*k_e*Psi/t, sum_e k_e<=30,
+  with the target factor fixed by an explicit Haar rotation. Good-staple
+  gradients preserve their exponential gain; for boundary degree m use
+  its actual b_m, not the six-factor exponent. The defect influence row
+  becomes small, but this is NOT contraction of the original conditional
+  kernels. A realizable one-link change still misses the clock, and the
+  original unblocked single-link TV Dobrushin row tends to 18, not below
+  one. Do not pursue either uniform coordinate influence or that TV
+  contraction as the missing connected producer. The next original task
+  must use averaged good/bad control with connected cancellation, or a
+  justified block/gauge-adapted comparison with its own quantitative input.
 - Separate the running marginal coupling from the summable remainder.
   Illustratively, if u_k=g_k^2 is of order 1/k on geometric UV shells, its
   square is summable but u_k is not. Neither conclusion pays errors amplified
@@ -374,8 +397,12 @@ replacements for classical existence arguments may also require mathematics.
   `finiteProductGaussian_row_square_pair:206`. They use the literal finite
   rational Gram sum, including N=0 and zero rows, without a moment-law
   hypothesis. All four public gates are within {propext, Quot.sound}.
-  NEXT: the finite radial sums and sixth-order covariance from the literal
-  radial quartic's second derivative, then actual transverse-mode/CReal rows.
+  The next finite producer is now KERNEL-CHECKED in
+  `SU2QuaternionFiniteGaussianSixthMoment.lean`: mixed fourth moment:96,
+  three-square sixth moment:164, and literal Cov(B^2*D^2,E^2):223, with
+  computed Gram entries and both actual means. All three public gates are
+  exactly [propext, Quot.sound]. NEXT: the finite radial sums that assemble
+  this summand, then actual transverse-mode/CReal rows.
   The division-free PAPER covariance identity is recorded in the audit;
   its full sixth-order radial form and original-law join are not yet formal.
 - Queue original local-integration/change-of-variables/tail tools and
@@ -25695,6 +25722,12 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
     remove the transverse W^2 growth; keep the complete signed contraction
     and do not substitute the augmented covariance into a transverse-only
     formula without rederiving it from the literal ambient polynomials.
+    The actual smooth spatial profile and separated uniform BOXes now
+    give |C_(H,DeltaG)|_C<=1152/(s*(s+1)^2) on the SAME finite free
+    history, at undeformed stiffness one. Reuse this one-factor 1/s gain.
+    The different-factor and explicit-vertex derivatives, signed sum and
+    SAME P4 denominator still require proof; BOX normalization alone does
+    not supply an extra relative 1/s.
     The residual global winding sup-budget diverges on the prescribed
     precision family even after constant/quadratic removal. Stop sharpening
     that budget; concentrate the original-law work on connected localization
@@ -25728,6 +25761,13 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
     need not vanish when the selected link is absent from the source.
     NEXT is its connected relative estimate. Neither the insufficient
     local clock rate nor a hybrid-action telescope has been repaired.
+    Psi now has the explicit local score/difference bound from
+    ||grad log H_t||<=pi/t. Its small unscaled influence row is not a
+    Dobrushin hypothesis for the original law: the latter's single-link
+    TV row is explicitly >=18*(1-2*epsilon(t)) and tends to 18. Also a
+    one-coordinate defect change refutes uniform clock-paying influence.
+    Keep actual boundary-degree aligned constants and pursue averaged
+    connected or justified block/gauge-adapted control, not those shortcuts.
     The coefficient-preserving local three-color quartic projection is
     now kernel-checked on RatPoly (only propext/Quot.sound). It pays the
     local Gaussian contraction, not the curvature-mode/cross-time pullback,
@@ -25737,8 +25777,9 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
     now passes the constructive gate on the existing evaluator. Its
     second-Stein identity and computed squared-row contraction are also
     checked. The computed mixed Gram contraction and second/fourth row
-    moments now pass the same gate. NEXT: literal radial finite sums and
-    the sixth-order covariance, then actual mode rows/moduli; do not
+    moments now pass the same gate. Mixed fourth, three-square sixth and
+    the centered sixth-order covariance summand now also pass. NEXT:
+    literal radial finite sums, then actual mode rows/moduli; do not
     re-prove the completed row identities. Do not assume a Gaussian
     pullback law, confuse scalar tail evaluation with coefficient-preserving
     head integration, or call this a uniform reference/original estimate.
