@@ -25140,3 +25140,477 @@ paper was reviewed directly and by a fresh-context Sol reviewer: the work
 plan now fixes probe allocations and common-baseline admission/selection
 rules, without transferring benchmark gains to this problem. The unchanged
 whole-project goal remains ACTIVE; canonical chart claims remain unchanged.
+
+### Complete common-time auxiliary invariance, including kinetic terms (PAPER)
+
+2026-10-12. Previous checkpoint b4453ea1 was PROGRESS: finite Gaussian IBP
+passed the constructive gate and the global winding sup budget was pruned.
+The next mathematical join improves the preceding spatial-only Ward result.
+It uses the SAME literal ambient polynomials and finite source-dependent
+covariance, not a new original gauge-fixed measure.
+
+Set Q=I-P, F=diag(R)+24*Hgeom and
+D_t=M_t+M_(t+1)-N_t-N_t^transpose. Add c=D*chi, with the SAME three-color
+vertex Gaussian at all times. The explicit kinetic quartic obeys
+
+    (a+sqrt(eta)*c) cross (b+sqrt(eta)*c)
+      =a cross b+sqrt(eta)*(a-b) cross c,
+    derivative_eta E W4kin |0=-4*sum_bonds Tr(F*D_t).
+
+Indeed the chi contraction of (v_e cross c_e) dot (v_f cross c_f) is
+Q_ef*(v_e dot v_f); its a expectation is 3*Q_ef*(D_t)_ef. The raw quartic
+coefficients and P*(Cplus circ Q)*P=4*P*Hgeom*P give exactly the stated F.
+The spatial Ward contribution is -4*sum_slices Tr(Lambda_t*F*M_t).
+Adding them BEFORE taking norms gives
+
+    -4*Tr_history((I_time tensor F)*L_Omega*C_Omega)
+      =-2*(T+1)*Tr(F*P).
+
+This uses the free temporal precision's exact bond/endpoint degree counts
+and L_Omega*C_Omega=P_history/2. Symmetric-block transposition and cyclic
+trace justify the order of F and Lambda_t; they are not assumed to commute.
+Thus the previous projection-leakage residue is cancelled by the kinetic
+QUARTIC variation. The quadratic kinetic and negative slice density remain:
+
+    kappa_T=T*[48*sum_e z_e*R_e-96*Tr(Hgeom*Q)]
+      +(T+1)*[3*sum_e gamma_e*R_e+48*Tr(Hgeom*Q)]
+      -2*(T+1)*Tr(F*P).
+
+They are field/source-independent under this auxiliary variation. The heat
+quadratic has zero variation since d*c=0. This count includes T=0.
+
+In fact no higher eta coefficient survives. For face vertex values A,B,C,D
+in boundary order, the ACTUAL midpoint rows on c give
+
+    U=(B-A+C-D)/2, V=(C-B+D-A)/2,
+    U cross V=(A cross B+B cross C-D cross C-A cross D)/2.
+
+Consequently Z(D*chi)=d*q, with q_e=(chi_u cross chi_v)/2; q is identical
+at every time. Also V3(c)=0 because d*c=0. After odd chi terms vanish, the
+only possible eta^2 term of the COMPLETE raw expectation is
+
+    16*E_chi <Z(c),R_Omega*Z(c)>,
+    R_Omega=Omega-2*Omega*d*C_Omega*d^*Omega.
+
+For q_H=P*q, d*q_H=d*q and the free temporal precision annihilates this
+time-constant vector. Hence L_Omega*q_H=d^*Omega*d*q, even when Omega is
+time-inhomogeneous, and R_Omega*d*q=0. The kinetic quartic above has no
+eta^2 term; all remaining raw terms have degree at most two. Therefore
+
+    Phi_eta(Omega):=E_[W_other(a+sqrt(eta)*c)+V4_Omega(a+sqrt(eta)*c)
+                               -(1/2)*V3_Omega(a+sqrt(eta)*c)^2]
+                  =Phi(Omega)+eta*kappa_T       (eta>=0).
+
+Every first and mixed physical-source derivative of Phi_eta equals that of
+Phi. This is an exact finite Gaussian representation freedom for the joined
+reference response, not an estimate of it. It does NOT identify the ambient
+extension with the original conditional gauge integral away from H, introduce
+a physical eta flow, change the OLD center, or establish an infinite-volume
+measure. ROOT and the independent stationary-contact reviewer checked the
+literal q identity, coefficients, endpoints and source dependence. NEXT:
+use this permitted covariance change only on the complete response when
+testing a useful signed bound; do not estimate the cancelled leakage again.
+
+### Existing temporal localization still has the global cost (SOURCE/PAPER)
+
+The existing original rate cannot repair the pruned winding sup strategy by
+replacing raw time counts with its geometric envelope. All modules in the
+following pins are under `lean/YMGap/Continuum/`:
+
+- `BF4ExactSlabFixedSpatialTransferSandwich.lean:57`, `kineticFloor`, and
+  `:61`, `kineticCap`, are respectively headFloor^M and prefixCap^M.
+- `BF4ExactSlabFixedSpatialTransferMixingRate.lean:81`, `mixFraction`, and
+  `:110`, `mixRate`, give r=1-epsilon, epsilon=(headFloor/prefixCap)^M.
+- `BF4ExactSlabSharedWindowFloorBound.lean:57`,
+  `thirtyTwo_mul_headFloor_le_prefixCap`, proves epsilon<=32^(-M).
+- `BF4ExactSlabFixedSpatialSeparatedCovariance.lean:95`,
+  `windowRatio_covariance_bound`, uses exactly r^g for the homogeneous
+  original finite window; it is not a bound for arbitrary hybrid actions.
+
+Here M=3*W^3 by the full temporal-face list above. At the prescribed
+n=8*W*k, Bernoulli's inequality gives, for sufficiently large j,
+
+    sum_(g=0..n-1) r^g >= n*(1-n*32^(-3*W^3)) >= n/2.
+
+The completed two-step rate r^2 changes this only by a fixed factor.
+For the actual insertion h_j(theta)=exp(-R_(t_j)(theta)), the prior residual
+lower bound and R(0)=0 imply every scalar-shifted chart cap
+|h_j(theta)-b_j|<=c_j, 0<=theta<=sqrt(t_j), satisfies
+
+    c_j >= (1-exp(-a_j))/2 >= a_j/4,
+    a_j=(y_j/2)*exp(-pi^2/t_j+y_j), y_j=pi/sqrt(t_j).
+
+Thus counting just ONE buffer's temporal faces already gives
+
+    3*W^3*c_j*sum_(g=0..n-1) r^g
+      >=(3/2)*W^4*k*y_j*exp(-pi^2/t_j+y_j) -> infinity.
+
+This uses the previous precision-family exponent 22/3, not a tunable
+coupling. The quartic upper bound also gives sup|R_(t_j)|->0 on this chart,
+so each OWN one-face normalization lies between 1/2 and 2 eventually for
+any positive restricted background. It cannot remove the displayed loss.
+
+Even granting an UNPROVED extension of that temporal rate to the required
+restricted/hybrid laws leaves this divergent sufficient budget. This is not
+a lower bound on a connected observable error or an optimal mixing rate.
+Decision: prune temporal floor/cap mixing plus uniform local caps as the
+next original-law producer. A sharper ORIGINAL connected estimate, including
+spatial dependence or signed cancellation, is still needed. The source and
+calculation were independently reviewed; no new Lean closure is claimed.
+
+### Full-group one-link heat replacement: large-field negative control (PAPER)
+
+This test uses the actual six-plaquette 4D incidence, not an arbitrary
+positive-transfer surrogate. `edgesOf:147` and `edgePlaqs:167` in
+`lean/YMGap/Continuum/ClusterCount4DProgress.lean` give the six staples of an
+interior link (x,i). Set all transverse side links to I; assign the six
+distinct parallel links at x+/-e_j, j!=i, one I and five -I. Inversions
+preserve these central signs. Every other action factor is constant when
+conditioning on the target link. The resulting original conditional law is
+
+    dmu proportional to H_t(theta)*H_t(pi-theta)^5*dh,
+    dh=(2/pi)*sin(theta)^2 dtheta, 0<=theta<=pi.
+
+The angular Haar formula follows from q=(cos(theta),sin(theta)*n) on S^3,
+with n in S^2. It and the image formula are used at PAPER level here, not
+claimed as a new Lean original-carrier/angle bridge. Replace ONLY the target
+factor by H0=H_t^zw to define nu0 and its normalization Z0; retain the other
+five ORIGINAL heat factors. Write A_t=exp(t)*sqrt(pi)/(4*t^(3/2)).
+
+For 0<t<=1/32, the earlier image formula gives, for theta<pi,
+
+    0<H_t(theta)<=H0_t(theta),
+    H_t(theta)<=A_t*pi^3*t^(-1)*exp(-theta^2/(4*t)).
+
+For the global upper bound near pi, set u=pi-theta and
+f(x)=x*exp(-x^2/(4t)). Pair f((2m+1)*pi-u)-f((2m+1)*pi+u), use the
+mean-value theorem and sin(u)>=2u/pi. The remaining series is bounded by
+sum_(m>=0) (2m+1)^2*z^m<=2, z=exp(-3*pi^2/(2t)). Away from pi, H<=H0
+and theta/sin(theta)<=pi/2 suffice. The formula H0-H is a positive sum
+of f(2*pi*k-theta)-f(2*pi*k+theta). H0 itself is singular at pi, but its
+ONE-factor Haar density is integrable. Set h=H/H0 with h(pi)=0.
+
+The exact conditional energy identity
+
+    theta^2+5*(pi-theta)^2=6*(theta-5*pi/6)^2+5*pi^2/6
+
+and the heat upper bound give
+
+    Z0<=2*pi^16*A_t^6*t^(-5)*exp(-5*pi^2/(24*t)).
+
+On u in [t/2,t], the first image gives 1-h>=exp(-pi)/2 and the other
+five factors obey H_t(u)>=A_t*exp(-u^2/(4t))/2. Direct integration yields
+
+    nu0{t/2<=u<=t} >= 3*exp(-1)/(256*pi^17)
+                         *t^7*exp(-pi^2/(24*t)),
+    delta:=1-E_nu0 h >= 3*exp(-pi-1)/(512*pi^17)
+                         *t^7*exp(-pi^2/(24*t)).
+
+The normalization loss tends to zero, but slowly relative to the desired
+clock. For an explicit upper bound, the image numerator is at most
+32*A_t^6*pi^13*t^(-3)*exp(-pi^2/(4*t)). Integration near 5*pi/6 gives
+Z0>=exp(-3/2)*A_t^6*sqrt(t)*exp(-5*pi^2/(24*t))/(128*pi) when t<=1/1024.
+Consequently
+
+    delta<=4096*exp(3/2)*pi^14*t^(-7/2)*exp(-pi^2/(24*t)).
+
+Choose a continuous piecewise-linear radial test 0<=F_t<=1, supported on
+u in [t/4,2t], equal to one on [t/2,t]. On its support 1-h>=exp(-2*pi)/2.
+Whenever the explicit upper bound for delta is <=exp(-2*pi)/4, normalization
+is retained exactly:
+
+    E_nu0 F_t-E_mu F_t=E_nu0[F_t*(1-h-delta)]/(1-delta)
+      >=c*t^7*exp(-pi^2/(24*t)),
+    c=3*exp(-2*pi-1)/(1024*pi^17)>0.
+
+The constant/quadratic winding removal does not evade this example. Its
+conditional reference nu_gamma is nu0 tilted by exp(-gamma_t*theta^2),
+since c_t*H0_(t')=q0*H0_t*exp(-gamma_t*theta^2). The previously obtained
+gamma_t<=(8/3)*pi^4*t^(-3)*exp(-pi^2/t) gives
+
+    |E_nu_gamma F-E_nu0 F|<=exp(gamma_t*pi^2)-1
+                         =o(t^7*exp(-pi^2/(24*t))).
+
+The preceding displayed delta guard and a tilt error <=(c/2)*t^7*exp(-pi^2/(24t))
+are explicit sufficient smallness tests. Under them the corrected reference
+retains the lower bound with c/2. On the actual precision family,
+t_j>=Astar/D_j and exp(-pi^2/(24*t_j)) is at least
+exp(-pi^2/(6*Astar))*s^(-11/36)*(j+1)^(-187/1452). Therefore s times this
+normalized discrepancy diverges, with a lower bound proportional to
+D_j^(-7)*s^(25/36)*(j+1)^(-187/1452).
+
+This refutes a UNIFORM-IN-BOUNDARY O(1/s) one-face replacement bound for
+ALL bounded local tests, even after the quadratic correction. It does not
+give a lower bound for the actual fixed-OLD two-time source, the averaged
+Gibbs discrepancy, or a restricted small-field comparison. F_t changes
+with t and is not asserted to be that source. This negative control was
+derived by ROOT and independently checked, including the original incidence,
+cut-locus integrability, constants and normalized-law distinction.
+
+### Aligned-staple original conditional estimate (PAPER)
+
+There is also a positive producer, not just an obstruction. Rotate the
+target staple to I and suppose the other FIVE original staples S_i obey
+dist(S_i,I)<=rho=pi/10, in the bi-invariant S^3 angular metric. They need
+not be central or share an axis. Keep all five original heat factors and
+replace ONLY the target by H0 as above. For theta=dist(U,I), the triangle
+inequality gives dist(U,S_i)>=(theta-rho)_+.
+
+For 0<t<=1/32 the image and global heat bounds give the unnormalized loss
+
+    Z_nu-Z_mu <=16*A_t^6*pi^15*t^(-5)
+                         *exp(-5*(2*pi-rho)^2/(24*t)).
+
+Indeed the target loss is bounded by
+4*pi*A_t*exp(-(2*pi-theta)^2/(4t))/sin(theta), and
+
+    min_[0,pi] [(2*pi-theta)^2+5*(theta-rho)_+^2]
+      =(5/6)*(2*pi-rho)^2.
+
+All these bounds are uniform in the angular axis of U and all five staples.
+On the Haar ball theta<=t, every dist(U,S_i)<=rho+t<pi/2. The small-chart
+lower bound for each ORIGINAL heat factor and the ball mass
+>=8*t^3/(3*pi^3) therefore yield
+
+    Z_nu >=exp(-2)*A_t^6*t^3/(12*pi^3)*exp(-5*rho^2/(4*t)).
+
+The exponent uses theta^2+5*(rho+theta)^2<=5*rho^2+10*rho*t+6*t^2;
+the residual factor exp(-(5/2)*rho-(3/2)*t) is >=exp(-2). Thus the actual
+conditional partition ratio, with neither normalization replaced, obeys
+
+    0<=delta(boundary):=1-Z_mu/Z_nu<=b(t),
+    b(t)=192*exp(2)*pi^18*t^(-8)*exp(-71*pi^2/(96*t)).
+
+The coefficient 71/96 is the EXACT difference
+5*(2*pi-rho)^2/24-5*rho^2/4, divided by pi^2, at rho=pi/10.
+For EVERY bounded test |F|<=M, including a supplied fixed-OLD product,
+
+    |E_nu F-E_mu F|<=2*M*b(t).
+
+No small-delta guard is needed here: the positive unnormalized deficit
+gives nu=(1-delta)*mu+eta, where eta is positive with mass delta. Thus
+|E_eta F-delta*E_mu F|<=2*M*delta, keeping both actual normalizations.
+Equivalently, for delta>0 this is a probability mixture with weight delta;
+no division by delta is needed for the inequality.
+
+No independence, Gaussian denominator, covariance law or weak-coupling
+clustering is assumed. This is an original one-link conditional estimate.
+The heat/angle/integration calculation remains PAPER, not Lean verified.
+
+Its rate is usable on the recorded precision family: t_j<=2/(j+2) and
+t_j>=1/D_j. Elementary bounds pi^2>49/5 and log(2)<7/10 give
+71*pi^2/(192*log(2))>497/96>31/6. Hence
+
+    b(t_j)<=192*exp(2)*pi^18*D_j^8*s^(-31/6), s=2^j.
+
+IF an original comparison localizes to at most C_loc*s^4 insertions with
+these hypotheses, its good-boundary absolute budget times the clock s
+is <=2*M*C_loc*192*exp(2)*pi^18*D_j^8*s^(-1/6), which tends to zero.
+The effective s^4 count is an EXTRA input, NOT the full window face count
+(which is of order s^8*k). This calculation does not construct that
+localization, telescope through arbitrary hybrid actions, or pay a relative
+correlation denominator or the changing observable cap M.
+
+The good/bad decomposition also holds in an actual finite ORIGINAL ensemble
+with this ONE face replaced. Let nu be that ensemble, B the event that the
+five-staple alignment fails, and delta(boundary) the conditional ratio above.
+The disintegration identity and 0<=H/H0<=1 give
+
+    delta_global=1-Z_mu_global/Z_nu_global
+                =E_(nu_environment) delta(boundary)
+                <=b(t)+E_(nu_environment)[1_B*delta(boundary)]
+                <=b(t)+nu_environment(B).
+
+The global normalized |F|<=M error is at most twice M times the penultimate
+bound, by the same positive-deficit mixture. The WEIGHTED exceptional contribution
+is the more precise unpaid quantity; bounding the raw bad-event probability
+is only a sufficient option, not a newly imposed necessity. No alternate
+law is substituted for nu in either expectation. Constant/quadratic removal
+adds at most M*(exp(gamma_t*pi^2)-1), by its exact normalized tilt, so it
+preserves the faster good-boundary rate.
+
+Decision: retain this explicit aligned-staple producer and seek an ORIGINAL
+bound on the weighted exceptional contribution plus connected influence
+localization. The preceding frustrated-staple example forbids simply taking
+the worst boundary value at rate O(1/s). Other neighboring faces must remain
+original, or their replacement must come with equally proved local bounds;
+an arbitrary sequence of principal-image substitutions is not authorized
+by this lemma. ROOT and the independent original-law reviewer checked the
+noncentral triangle bounds, constants, rate arithmetic and scope.
+
+### Targeted source screen: the available field bound is not the defect (SOURCE)
+
+2026-10-12. This was a targeted search for the exceptional contribution,
+not another routine math-ph listing scan.
+[Faria da Veiga--O'Carroll, arXiv:2205.07376v2, section V, Theorem 4,
+equations (83)--(84)](https://arxiv.org/html/2205.07376v2#S5)
+bounds a scaled plaquette-field generating function for periodic Wilson
+action by multireflection and single-link integral estimates. The scalar
+field uses Im Tr(U_p-1). Theorem 3 obtains subsequential free-energy limits
+using Bolzano--Weierstrass, not explicit observable convergence moduli.
+
+Our applicability check: for a fundamental SU(2) quaternion matrix the
+eigenvalues are exp(+i*theta), exp(-i*theta); hence Im Tr(U_p-1)=0
+identically. More generally this scalar does not detect all large-angle
+center configurations. Its stated generating-function bound therefore
+does not control our positive heat-image defect or staple-misalignment
+event. The periodic Wilson action is also not our original full-heat open
+slab. Retain the multireflection method as a possible tool, not an imported
+estimate: its actual defect insertion, reflection geometry, normalization
+and constructive quantitative bounds would need their own proof. No
+original-law input or continuum theorem is discharged by this source screen.
+
+### Boundary-uniform one-face comparison with sharp exponential rate (PAPER)
+
+2026-10-12. The preceding aligned-staple estimate can be complemented by
+a slower bound valid for EVERY choice of the five original staples. With
+the same one-face replacement and 0<t<=1/32, define
+
+    b0(t)=192*pi^18*exp(3*pi+1)*t^(-8)*exp(-pi^2/(24*t)).
+
+Then 0<=delta(boundary)<=min(1,b0(t)). The frustrated configuration's
+lower bound c*t^7*exp(-pi^2/(24*t)) matches this exponential rate up to
+polynomial factors. This is a sharp worst-boundary rate test, not a lower
+bound for the required averaged OLD-centered source.
+
+First the full heat has a GLOBAL lower bound
+
+    H_t(r)>=(A_t/2)*exp(-r^2/(4*t)), 0<=r<=pi.
+
+For r<=pi/2 use the preceding small-chart image-tail estimate; alternatively,
+put x=pi^2/(2*t)>=144. The mean-value theorem on each negative image pair
+bounds its total relative tail by
+(25/2)*x*sum_(k>=1) k^2*exp(-k*x)<=50*x*exp(-x)<=300/x^2<1/2.
+For r=pi-u>=pi/2 regroup images into positive antipodal pairs. The nearest
+pair alone, after factoring A_t*exp(-r^2/(4*t)), has numerator
+
+    (pi-u)-(pi+u)*exp(-pi*u/t) >= u/2 >= sin(u)/2.
+
+Use exp(-a)<=1/(1+a); the first inequality follows from
+pi^2/(4*t)>=5/2. Continuity includes the two angular endpoints.
+
+The key geometry does not select a minimizing configuration. For a target
+link U set theta=dist(U,I), u=pi-theta, ell=(pi+u)/6, and choose the
+EXPLICIT two points V_+=exp(ell*i)*U and V_-=exp(-ell*i)*U on S^3, with
+i a fixed unit imaginary quaternion. For each staple S, squared distance
+obeys the midpoint inequality
+
+    [dist(V_+,S)^2+dist(V_-,S)^2]/2 <= dist(U,S)^2+ell^2.
+
+Along a unit-speed spherical geodesic its second derivative is
+2*(r')^2+2*r*cot(r)*(1-(r')^2)<=2 where smooth. At an antipodal cut crossing,
+the first derivative jumps downward, so the same upper midpoint bound holds
+across the cut. The coincident endpoint follows by continuity. Here
+ell lies in [pi/6,pi/3]. Reverse triangle at -I gives, without an order case,
+
+    dist(V_+,I), dist(V_-,I) <= pi-|ell-u| <= pi+u-ell.
+
+Write E(V)=dist(V,I)^2+sum_i dist(V,S_i)^2 and
+D(U)=(2*pi-theta)^2+sum_i dist(U,S_i)^2. Adding the FIVE midpoint bounds
+and the target bound yields
+
+    [E(V_+)+E(V_-)]/2
+       <=D(U)-(pi+u)^2/6 <=D(U)-pi^2/6.
+
+At either V, a Haar ball of radius t has mass >=8*t^3/(3*pi^3).
+Within it, E changes by at most 12*pi*t+6*t^2. The target H0 is at least
+A_t*exp(-r^2/(4*t)); apply the global heat lower bound to the other five
+factors. Thus EACH ball separately proves
+
+    Z_nu >= A_t^6*t^3/(12*pi^3)*exp(-3*pi-1)*exp(-E(V)/(4*t)).
+
+Average these two lower bounds and apply arithmetic-geometric mean.
+Their balls need not be disjoint: we average two inequalities for the SAME
+Z_nu, not add their integrations as disjoint subsets. The result bounds
+Z_nu below pointwise for every initial U using D(U)-pi^2/6. Combine this
+with the target image-loss upper bound 4*pi*A_t/sin(theta) times its
+Gaussian, and the five bounds H_t<=A_t*pi^3*t^(-1) times their Gaussians.
+The exact Haar integral of 1/sin(theta) is 4/pi. The displayed b0 follows.
+There is no argmin, gradient choice, or unproved conditional concentration
+premise in this argument. ROOT and the independent stationary reviewer
+checked the spherical geometry, global heat lower bound and constants.
+
+Disintegration therefore gives an absolute normalized error <=2*M*b0(t)
+for EVERY |F|<=M in any finite full-heat ensemble with this ONE face
+replaced. More finely the previous exceptional contribution obeys
+
+    E_(nu_environment)[1_B*delta(boundary)]
+       <=min(1,b0(t))*nu_environment(B).
+
+These estimates retain original neighboring factors and OWN partitions.
+They do not authorize an arbitrary all-H0 replacement telescope. The
+exponent pi^2/24 is too slow on the precision family to pay even the extra
+clock s uniformly in boundary; the saved bounded-test counterexample
+proves that limitation. The faster source-specific weighted exceptional
+estimate and connected localization remain the next original-law tasks.
+
+### Original-law defect and the reflection-positivity obstruction (PAPER)
+
+Keep B as the same environment event and set D_t=H0_t-H_t>=0 and
+W_t=D_t/H_t. The full original law mu and the one-face law nu obey exactly
+
+    Z_nu/Z_mu=1+E_mu W_t,
+    E_(nu_environment)[1_B*delta(boundary)]
+      =E_mu[1_B*W_t]/(1+E_mu W_t).
+
+The numerators integrate the SAME positive density
+1_B*D_t*product_(other faces) H_t. This is an original-law formulation of
+the actual debt, not a switch of environment measures by assertion.
+
+There are two concrete restrictions on possible estimates. First, W_t is
+unbounded at the cut locus: as u=pi-theta tends to zero,
+
+    W_t(pi-u) ~ [A_t*pi*exp(-pi^2/(4*t))/H_t(pi)]/u.
+
+At fixed positive t every finite original full-heat density is continuous
+and strictly positive; Haar contributes u^2 du. Hence W_t has finite
+p-moments for 0<=p<3 and divergent moments for p>=3. An open neighborhood
+of the frustrated environment lies in B, so the masked third moment also
+diverges. A positive exponential-moment bound for THIS original-law
+insertion is impossible. The bounded insertion 1-H/H0 under nu is a
+different quantity and is not subject to this conclusion.
+
+Second, the positive function H0_t is NOT a positive-type class kernel.
+For k=n+1 and f(theta)=theta*exp(-theta^2/(4*t)), its character coefficient is
+
+    a_n(H0_t)=(2*A_t/pi)*integral_0^pi f(theta)*sin(k*theta) dtheta,
+    integral f*sin(k*theta)
+      =(-1)^(k+1)*f(pi)/k - k^(-2)*integral f''*sin(k*theta).
+
+Direct integration bounds integral |f''|<=5. For every EVEN integer
+k>=10/f(pi), consequently
+
+    a_(k-1)(H0_t)<=-A_t*exp(-pi^2/(4*t))/k<0.
+
+Since a_(k-1)(H_t)=k*exp(-t*(k^2-1))>0, the positive defect D_t also
+has a negative character channel. The corrected principal image is a
+positive scalar multiple of H0_(t') and has the same obstruction. For ODD
+k above the same threshold, conversely,
+
+    a_(k-1)(D_t)/a_(k-1)(H_t)
+      >=A_t*exp(-pi^2/(4*t))*exp(t*(k^2-1))/k^2-1 -> infinity.
+
+Thus no finite C bounds convolution by D_t above by C times convolution
+by H_t on ALL finite representation probes. This is not a statement that
+every replacement ensemble lacks every possible reflection symmetry or
+positivity property; it blocks the automatic positive-character-factor
+argument across a reflection plane. The existing original proof explicitly
+uses `faceHeatSquares_nonnegative:76` and `observableSquares_nonnegative:127`
+in `lean/YMGap/Continuum/BF4ExactSlabReflectedSquareGluing.lean`, then
+`exact_quadratic_nonnegative:84` in
+`lean/YMGap/Continuum/BF4ExactSlabAllCutoffReflectionPositivity.lean`.
+Pointwise positivity is not its required channel-positivity premise.
+
+An absolute convolution bound does remain:
+
+    ||K_D||_(L2->L2)=integral D_t dh
+       <=32*A_t*t^2/pi^2*exp(-pi^2/(4*t)).
+
+The upper bound uses the image estimate, sin(u)<=u and
+integral_0^infinity u*exp(-pi*u/(2*t))du=4*t^2/pi^2. Weighted Cauchy--Schwarz
+and the constant eigenfunction give the norm equality. This controls an
+incoming unweighted norm, not the spatially dressed interacting heat form
+or its OWN normalized response. ROOT independently checked the coefficient
+signs, normalization identity and singularity. No Lean result or new
+assumption bundle is claimed. NEXT: estimate the genuine averaged first
+moment or a cancellation-preserving alternative, not these refuted shortcuts.

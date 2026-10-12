@@ -86,13 +86,17 @@ assume blocking stays in the one-parameter Wilson family.
   are recorded. An actual-cube lower bound REFUTES external O(lambda)
   softness for the commutator square alone. Keep its signed join with the
   spatial determinant/cubic derivatives as the next test, not that shortcut.
-  NEW PAPER Ward calculation: one COMMON longitudinal Gaussian probe across
-  all finite times cancels the projected spatial double commutator against
-  its cubic-square partner, including free endpoints and time-local sources.
-  Its exact remainder is -96*sum Tr(Lambda_t*Hgeom*C_tt)
-  -4*sum Tr(Lambda_t*diag(R)*C_tt). Projection leakage is retained.
-  This auxiliary derivative is NOT Phi_HG or the kinetic response; test
-  that remaining join explicitly before inferring a bound.
+  NEW COMPLETE PAPER Ward join: the kinetic QUARTIC variation cancels the
+  spatial projection-leakage remainder for one COMMON longitudinal Gaussian
+  probe at all times. With the kinetic quadratic and slice density retained,
+  Phi_eta(Omega)=Phi(Omega)+eta*kappa_T, where kappa_T is source-independent.
+  This is exact for all eta>=0, finite free endpoints and time-local sources;
+  the possible eta^2 term vanishes because Z(D*chi)=d*q and R_Omega*d*q=0.
+  All physical-source mixed derivatives are therefore invariant. Use this
+  representation freedom on the COMPLETE response; do not re-estimate the
+  cancelled leakage. It is not a bound on Phi_HG or an original gauge-law
+  identification. The full calculation is in the adaptive-score audit's
+  "Complete common-time auxiliary invariance" section.
   NEW PAPER: at 0<t<=1 and 0<=theta<=rho<=pi/2, the full SU(2)
   heat/principal-image ratio has a signed winding error -delta<=r<=0, with
   delta<=12*exp(-pi^2/(4*t)); a separate explicit character cutoff pays its
@@ -124,6 +128,36 @@ assume blocking stays in the one-parameter Wilson family.
   Decision: stop optimizing that global-density budget; the next original
   estimate must exploit connected localization (or a genuinely different
   comparison), with large fields and OWN denominators still paid.
+  The existing temporal floor/cap mixing rate also fails this budget:
+  epsilon<=(1/32)^(3*W^3), so its summed envelope is still of horizon order.
+  Do not reuse it as the missing localization. A NEW original conditional
+  PAPER producer keeps all five neighboring heat factors: if their staples
+  lie within pi/10 of the target staple, the one-face partition loss is
+  <=192*exp(2)*pi^18*t^(-8)*exp(-71*pi^2/(96*t)). Positivity gives normalized
+  error <=2*M times this loss for |F|<=M, without a small-loss guard.
+  On the precision family this is <=C*D_j^8*s^(-31/6); an INDEPENDENTLY
+  justified O(s^4) insertion count would survive the extra physical-clock
+  factor s. The full window count is larger and has NOT been localized.
+  The exact averaged residue is the WEIGHTED exceptional contribution
+  E_(replacement environment)[1_bad*delta(boundary)], not automatically
+  the probability under the original or Gaussian law. A frustrated-staple
+  configuration refutes a boundary-uniform O(1/s) bound for all bounded
+  tests, not the actual OLD-centered source. NEXT: bound that weighted
+  residue and connected influence in the original ensemble, retaining the
+  actual insertion cap and positive response floor. No arbitrary hybrid
+  telescope is justified while its five-original-neighbor premise is lost.
+  A complementary PAPER estimate now holds for EVERY boundary:
+  delta<=b0(t)=192*pi^18*exp(3*pi+1)*t^(-8)*exp(-pi^2/(24*t)). Two explicit
+  opposite spherical displacements and squared-distance semiconcavity
+  produce its OWN denominator bound without selecting a minimizer.
+  The frustrated example matches its exponential rate, which is too slow
+  for the physical clock. Use b0 to improve the exceptional cap, not as H1.
+  The exceptional term also equals E_mu[1_bad*W]/(1+E_mu W) in the ORIGINAL
+  law, W=H0/H-1. W has divergent third moments at the cut locus; H0 has
+  negative character coefficients and admits no uniform relative heat
+  convolution bound. Do not assume exponential integrability of W or
+  transfer the original reflection-positive factor proof to H0. The
+  original averaged first moment remains an honest available target.
 - Separate the running marginal coupling from the summable remainder.
   Illustratively, if u_k=g_k^2 is of order 1/k on geometric UV shells, its
   square is summable but u_k is not. Neither conclusion pays errors amplified
@@ -25594,14 +25628,30 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
     is NOT O(lambda) on the actual cube's soft transverse eigenmodes.
     Combine the signed kinetic and spatial derivatives before taking norms;
     do not replace this still-open join by the refuted softness assumption.
-    The common-time auxiliary Ward probe now has an exact cancellation and
-    explicit projection-leakage remainder, valid with local sources and
-    finite endpoints. Its identification with the complete response is NOT
-    proved. Use the exact relation as a test, not as payment of Phi_HG.
+    The COMPLETE common-time auxiliary Ward join is now exact at PAPER level:
+    Phi_eta=Phi+eta*kappa_T, with source-independent kappa_T. The kinetic
+    quartic pays the previous projection leakage, and Z(D*chi)=d*q kills
+    the eta^2 term. Use this freedom only on the joined response, retaining
+    finite endpoints and local sources; its uniform bound remains OPEN.
     The residual global winding sup-budget diverges on the prescribed
     precision family even after constant/quadratic removal. Stop sharpening
     that budget; concentrate the original-law work on connected localization
     or a mathematically distinct comparison, retaining original normalizations.
+    Existing temporal floor/cap mixing does not repair the divergent budget.
+    Use the new aligned-staple original conditional estimate as a local
+    producer, not a global-law assertion. Its rate can pay a clock-weighted
+    s^4 count IF localization produces that count. The next exact debt is
+    the weighted exceptional boundary contribution under the replacement
+    environment law, together with connected influence, the OLD insertion
+    cap and relative response floor. The frustrated-staple negative control
+    excludes worst-boundary O(1/s) replacement for arbitrary bounded tests;
+    it does not refute the required source-specific averaged comparison.
+    A sharp-exponential slower worst-boundary upper bound b0(t) is now
+    available by the explicit two-displacement argument. Use it only for
+    its actual one-face scope. The weighted bad term has an exact original
+    first-moment formulation with W=H0/H-1; its third moments diverge.
+    Negative H0 character channels also forbid automatic reuse of the
+    heat reflection-positive factor argument or relative heat-form domination.
     The coefficient-preserving local three-color quartic projection is
     now kernel-checked on RatPoly (only propext/Quot.sound). It pays the
     local Gaussian contraction, not the curvature-mode/cross-time pullback,
