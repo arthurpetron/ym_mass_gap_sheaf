@@ -23497,3 +23497,328 @@ Only this audit and work_plan.md change. All additions remain PAPER; no
 Lean compilation, checked theorem, axiom/sorry, CI, canonical chart or
 protected user file change is claimed. The active goal still references
 the updated work plan and retains the unchanged full Clay objective.
+
+### A second IBP keeps the remaining contacts inside the physical response (PAPER)
+
+2026-10-12 UTC. Previous goal turn 2720cdea was PROGRESS: exact temporal
+kernels and local-source terminal bounds changed the available estimates
+and the next task. The next stationary test retains the COMPLETE signed
+OLD-normalized response. The separate finite-reference task below addresses
+its action sums, rather than assuming stationary endpoints. No compiler,
+new interface or original-law comparison is selected by these calculations.
+
+There is a further exact cancellation using the existing Gaussian IBP.
+Use ANY of the stated positive, color-diagonal finite reference precisions L.
+Write Kcurl=L^(-1)*d^*, Y=4*Kcurl*Z, Qsrc=DZ[Y], and define the CUBIC field
+
+    T3=Dbar-Qsrc/2, X=4*Kcurl*T3.
+
+Kcurl is not the temporal mass-one kernel K_omega. Gaussian divergence is
+delta_G(X)=2<a,L X>-div_H(X), with trace/divergence on the SAME transverse
+history carrier. Consequently
+
+    delta_G(X)=8<B,Dbar-Qsrc/2>-div_H(X).
+
+Let W_other denote the retained kinetic quadratic/quartic, local Haar
+and heat-quadratic terms. The previous spatial insertion was
+
+    W_eff=W_other+16<Z,R_L Z>+8<B,Dbar>-4<B,Qsrc>.
+
+Replace it by W_eff-delta_G(X), while subtracting U_X A2 from BOTH
+previously dressed fourth-order source coefficients. Since E[delta_G(X)]=0,
+
+    Cov((A2-c2)*(B2-c2),delta_G(X))
+      =E[(U_X A2)*(B2-c2)+(A2-c2)*(U_X B2)].
+
+This proves preservation of the COMPLETE P6 with arbitrary supplied OLD
+c2,c3,c4. It is a second-order coefficient IBP, not a constructed nonlinear
+flow, a new chart Jacobian or a change in the original probability law.
+The resulting action and raw fourth source are
+
+    W_new=W_other+16<Z,R_L Z>+J_contact,
+    J_contact=div_H(X),
+
+    A4_new=64*sum h*|R_L Z|^2
+             +32*<hB,R_L(Dbar-Qsrc)>-(4/3)*sum h*|B|^4.
+
+The cubic remains A3_hat=32<hB,R_L Z>. Subtract the SAME c3 and c4 from
+these raw source coefficients when forming the OLD-centered formula.
+No multiplier h has been commuted through R_L. In particular the naked
+B dot Dbar and B dot Qsrc terms have disappeared jointly from the action
+and the source; their effect is retained in the contact and the R_L terms.
+
+The contact is not left as an unknown divergence. Differentiate Qsrc:
+
+    DQsrc=D^2Z[.,Y]+DZ*DY, DY=4*Kcurl*DZ.
+
+The trace Tr_H(Kcurl*D^2Z[.,Y]) is ZERO by color antisymmetry: Kcurl is
+color-diagonal, and the differentiated bilinear cross product repeats a
+color index of its alternating tensor. Therefore the exact quadratic is
+
+    J_contact=4*Tr_H(Kcurl*D Dbar)
+                    -8*Tr_H((Kcurl*DZ)^2).
+
+Here the second trace is a matrix square, not a squared Hilbert--Schmidt
+norm; it has no automatic sign. Spatial AND temporal indices remain.
+Both traces have explicit finite coefficients, as follows.
+
+For each face/time index f set
+z_(f;e,g)=(U_fe*V_fg-U_fg*V_fe)/2, where U,V are the actual opposite-edge
+midpoint averages at that slice. Then
+
+    (DZ)_((f,a),(e,b))=2*sum_g z_(f;e,g)*epsilon_(a,b,c)*a_g^c,
+
+with a sum over the color c. Contracting the two alternating tensors gives
+
+    -8*Tr_H((Kcurl*DZ)^2)
+      =64*sum_(r,e,f,f',g,g') Kcurl_rf*Kcurl_ef'
+                   *z_(f;e,g)*z_(f';r,g')*(a_g dot a_g').
+
+Full edge-coordinate traces are permitted here because Kcurl has image
+in H; their restriction equals the trace on H, including the square.
+This does not remove the transverse projection from other formulas.
+
+The first trace can be expanded without an unspecified cubic tensor.
+For one nested-cross term c*A cross (B cross C) in Dbar_f, write its
+linear forms as A=sum alpha_e*a_e, B=sum beta_e*a_e, C=sum gamma_e*a_e.
+Its contribution to 4*Tr_H(Kcurl*D Dbar) is
+
+    8*c*[(sum_e Kcurl_ef*beta_e)*(A dot C)
+                         -(sum_e Kcurl_ef*gamma_e)*(A dot B)].
+
+The derivative of the OUTER A has zero color trace. Differentiating the
+inner B or C gives respectively 2*A dot C and -2*A dot B. There are
+exactly 17 nested-cross terms in the following explicit representation of
+the actual Dbar. Put B_(i-1)=sum_(p<i) v_p, B4=sum_p v_p, and retain Lface:
+
+    -v_i cross (v_p cross v_q),       p<q<i<=4                 (4 terms),
+    (1/3)*B_(i-1) cross (B_(i-1) cross v_i), i=2,3,4         (3 terms),
+    (1/3)*v_i cross (v_i cross B_(i-1)), i=2,3,4             (3 terms),
+    -Lface cross (v_p cross v_q),     p<q<=4                  (6 terms),
+    (1/2)*Lface cross (Lface cross B4)                        (1 term).
+
+The first ten terms are precisely the four-word BCH recurrence, using
+C_(i-1) cross v_i=-v_i cross C_(i-1). The last seven are the already
+matched face recentering. This supplies the actual contact coefficients
+from finite linear forms and Kcurl, not a newly assumed Hessian.
+
+As a scope check, in the STATIC reference R_L=R0 and spatially constant
+h=1, d2B=0 kills the linear B terms. The raw cubic is then zero and
+A4_new=64<Z,R0 Z>-(4/3)*sum |B|^4. Its OLD cubic is still -c3 unless
+that center is separately pinned. This static/full-profile test does NOT
+kill the actual temporally nonlocal response or the nonconstant profile.
+The next stationary estimate must retain J_contact, kinetic/Haar partners,
+the R_L-weighted quartics and both sources together. No sign or useful
+relative bound follows from this reduction alone.
+
+### Whole sixth-order FREE terminal comparison by connected contractions (PAPER)
+
+The endpoint comparison can now include ALL displayed reference action
+insertions, not just the three local source terms. This is a statement
+about the finite formal expansion through order six. It does not assert
+integrability of an exponential with a truncated cubic/quartic action,
+convergence of a perturbation series, or matching to an original center.
+
+Use the ROOTED coefficient representative throughout this comparison.
+The mean-zero vertex bound G_uu<=7 and Croot_uv=G_uv-G_ur-G_rv+G_rr imply
+|Croot_uv|<=28 by finite Cauchy--Schwarz. This is a bound on the original
+rooted coefficients, not a Ward substitution. For E internal edges and F
+faces, E,F<=3W^3, the previously derived fields therefore satisfy
+
+    0<=R_e<=1, |z_e|<=28, |Cplus_ef|<=112, |H_ef|<=1568.
+
+All coefficient l1 masses below are in physical edge/color coordinates;
+the Gaussian covariance retains their transverse constraint. Constants in
+action coefficients drop only from their connected normalized insertions.
+The actual exponential formulas give
+
+    ||J_exp||_1<=12*E+150528*E^2<2^18*E^2,
+    ||W2_kin||_1<=2712*E+301056*E^2<2^19*E^2,
+    ||W4_kin||_1<=16*E+10752*E^2<2^14*E^2,
+    ||Q4_exp-(2/3)*|B|^2||_1<=12000*F<2^14*F.
+
+For completeness the quadratic kinetic term used here is
+
+    W2_kin=-sum gamma_e*|a_e-b_e|^2+32*sum z_e*(a_e dot b_e)
+                        -16*sum H_ef*((a_e+b_e) dot (a_f+b_f)),
+    gamma_e=2/3+4*R_e/3<=2.
+
+It follows from the preceding actual kinetic/two-density calculation by
+putting the densities back, rather than counting two Haar factors per step.
+This polynomial degree two and W4_kin are both part of the SAME second
+coupling-order action coefficient. At a single time, V3_slice=8*sum B dot Z.
+Thus convenient conservative bounds are
+
+    L_V=||V3_slice||_1<=2^10*W^3,
+    L_W=||W_slice||_1+||W_bond||_1<=2^25*W^6,
+    L_A>=||A2||_1,||A3||_1,||A4||_1, L_A=2^18*s^3.
+
+Here W_action=V4-J2, W_slice=Q4_exp-(2/3)*|B|^2-J_exp, and
+W_bond=W2_kin+W4_kin. In a finite chain their domains are respectively
+t=0,...,T and t=0,...,T-1. There is exactly one spatial/Haar density per
+slice. This temporal-range distinction is retained in the comparison.
+
+Define the finite higher coefficients by normalized Gaussian cumulants:
+
+    R6=Cov(A4,B2)+Cov(A2,B4)+Cov(A3,B3)
+         -kappa(A3,B2,V3)-kappa(A2,B3,V3)
+         +(1/2)*kappa(A2,B2,V3,V3)-kappa(A2,B2,W_action),
+
+    a2=E[A2],
+    a4=E[A4]-kappa(A3,V3)-kappa(A2,W_action)
+                              +(1/2)*kappa(A2,V3,V3).
+
+Finite V3 and W_action are their literal finite sums. In the stationary formulas,
+define these expressions by their connected sums over action insertion
+times, NOT by an infinite raw action or an infinite partition function.
+The following estimates construct absolute convergence and an explicit
+terminal modulus for those sums.
+
+Take any one monomial term in these cumulants. Its Gaussian cumulant is
+the sum of Wick pairings whose graph connects its polynomial vertices;
+internal contractions are allowed. This follows by the finite partition
+cancellation in the cumulant formula: disconnected pairing graphs cancel,
+and connected ones have coefficient one. There are at most ten legs,
+r<=5 covariance pairs, four vertices and two summed action times, hence
+at most 9!!=945 pairings. All spatial sums are bounded by the displayed
+finite polynomial masses, not by assuming a new norm hypothesis.
+
+Here is a quantitative terminal estimate. Set epsilon_n=exp(-n/(8W)),
+where n>=max(4,W) is a buffer for EVERY source placement from BOTH endpoints.
+Thus T+1>=2*W+1 and the covariance image denominator is bounded below by 1/2.
+For coordinates at times u,v, the common mode basis gives
+|C_T(u,v)|<=112*exp(-|u-v|/W) and the stationary bound is smaller.
+An action monomial based at t uses times t,...,t+rho with rho=0 or 1.
+Passing to base times therefore gives the safe pair bound
+
+    256*exp(-|t-t'|/W).
+
+Divide action positions into the core t>=n/2, t+rho<=T-n/2 and its
+complement. In the core all legs are buffered at least n/2. The earlier
+image formula bounds their covariance error by 112*exp(-n/W).
+Interpolate this with the pair-distance bound and telescope the r
+covariance factors. Each marked-edge term retains half of every graph
+edge's exponential decay and a factor at most epsilon_n.
+
+Outside the core, including stationary action positions OUTSIDE [0,T],
+a connected graph has a path from a buffered source to that action base
+whose total length is at least n/2-1>=n/4. Splitting its decay in half
+extracts epsilon_n again. Retain a spanning tree's remaining half-decay.
+Its temporal sums are bounded by
+
+    sum_(z in Z) exp(-|z|/(2W))<=1+4W<=5W.
+
+Even freeing and summing the other fixed source time as an upper bound
+costs at most (5W)^3. The finite and stationary far parts give two such
+terms, while core telescoping gives r. Consequently the error for a
+complete connected monomial contribution, including all its action times,
+is at most
+
+    945*(r+2)*256^r*(5W)^3*epsilon_n*product_v L_v
+        <2^60*W^3*epsilon_n*product_v L_v.
+
+No factor of the total time horizon survives. The proof bounds the omitted
+outside-interval insertions as well as the internal covariance difference.
+It also supplies convergence by finite tail estimates; it needs no
+probability measure on infinite histories. Each finite cumulant already
+contains its OWN partition subtractions, so no partition equality is used.
+
+Combining the actual masses above, choose
+
+    A_bound=2^125*s^6*W^9.
+
+This bounds |R6_stat|, |a2_stat| and |a4_stat|, and bounds each of
+|R6_free-R6_stat|, |a2_free-a2_stat|, |a4_free-a4_stat| by
+A_bound*epsilon_n. For example the R6 coefficient multiplier is at most
+L_A^2*(3+2*L_V+L_V^2/2+L_W)<2^62*s^6*W^6; multiplication by the
+connected-diagram constant fits inside A_bound with slack. This is a
+fixed-width polynomial ceiling, not the desired uniform stationary estimate.
+
+An OLD reference center can now be CONSTRUCTED through this order: take
+the normalized formal mean coefficients from a separate central reference
+window with the SAME modes, action coefficients, source and buffer. Its
+c2 and c4 converge to a2_stat and a4_stat with the same bound. Gaussian
+parity gives a3=b3=c3=0 for THESE constructed formal coefficients. This
+does not identify the original compact-Haar OLD center's Taylor coefficient.
+The stationary means agree by time translation, and the full finite OLD
+coefficient is therefore
+
+    P6_free=R6_free+(a2-c2)*(b4-c4)+(a4-c4)*(b2-c2),
+    |P6_free-R6_stat|<=A_bound*epsilon_n
+                                      +8*A_bound^2*epsilon_n^2.
+
+The two extra products are retained, not silently recentered away. Different
+finite windows may have different horizons and retain their OWN cumulants.
+
+### Relative sixth-order comparison and the actual neighboring-time consumer (PAPER)
+
+For s=2^j>=2, W=s^2+1, integers m>=1 and p>=0, set
+
+    k=392+32*m+26*j+p, n=8*W*k.
+
+Then epsilon_n=exp(-k)<=2^(-k), W<=2*s^2 gives
+A_bound<=2^134*s^24, and the stationary floor has inverse at most
+2^(255+32*m)*s^2. The two normalized P6 errors above are at most
+
+    2^(-p-3),
+    2^(-258-32*m-2*j-2*p),
+
+respectively. Their sum is <2^(-p-2). Both neighboring lags s,s+1 and
+their SAME positive BOX placements lie in the recorded floor range.
+
+The denominator can also be retained, rather than replacing P4_free by
+its limit. Apply the preceding leading-center comparison at depth index
+8*k. At stiffness one it gives
+
+    |P4_free-R4_stat|
+       <=5760*s^3*2^(-8k)+20736*s^6*2^(-16k)
+       <=2^16*s^6*2^(-8k),
+    delta=|P4_free/R4_stat-1|<=2^(271+32*m+8*j-8*k)<1/2.
+
+Since |R6_stat/R4_stat|<=2^(389+32*m+26*j), division is legitimate and
+
+    |P6_free/P4_free-R6_stat/R4_stat|
+       <=2*|P6_free-R6_stat|/R4_stat
+                             +2*|R6_stat/R4_stat|*delta
+       <=2^(-p).
+
+The second term is at most 2^(-2475-192*m-174*j-8*p); its smallness
+uses the actual stronger local covariance depth, not an assumed uniform
+bound on the stationary sixth-order coefficient.
+
+For the precise neighboring-increment comparison, replace p by p+j+1:
+
+    k_increment=393+32*m+27*j+p, n=8*W*k_increment,
+    |s*Delta(P6_free/P4_free)-s*Delta(R6_stat/R4_stat)|<=2^(-p).
+
+Delta is the value at s minus the value at s+1. Positive normalized BOX
+averaging is applied to the coefficient expressions before division; the
+termwise bounds and the uniform positive floor justify the same formulas.
+Every constituent placement and the separate constructed reference OLD
+window must have the stated buffer. This is a COMPLETE sixth-order FREE
+reference comparison, unlike the preceding local-source-only result.
+
+Decision: the finite Gaussian higher-order terminal join is now supplied
+through this coefficient order with an explicit relative modulus. Do not
+rebuild it as an assumed terminal estimate. Next estimate the stationary
+COMPLETE signed normalized coefficient using W_new and its explicit contact,
+then supply ORIGINAL chart/heat/center matching and a denominator-relative
+nonperturbative remainder on a justified family. A freely chosen very small
+coupling does not establish physical scale-setting or nontrivial continuum
+survival. The formal coefficient comparison is not original H1, every-state
+decay, a continuum measure/QFT construction, an all-groups realization or a
+Clay solution. The full objective stays ACTIVE and the canonical chart
+claims are unchanged.
+
+Checkpoint verification (2026-10-12): two independent mathematical reviews
+checked the second-IBP contact reduction and complete sixth-order reference
+terminal comparison, including the n>=max(4,W) image-denominator guard,
+connected action-time tails, constructed OLD coefficients, division and the
+scale-weighted neighboring modulus. Both accepted the stated PAPER scope.
+The opening four-front schedule and goal instruction 12 in `work_plan.md`
+now distinguish this completed reference subtask from the original remainder,
+infrared mechanism, continuum/QFT and constructive-foundation producers.
+A fresh-context source/scope review checked that schedule; its correction
+0<q_*<1 and a_*>0 is retained in the proposed physical-logarithm target.
+No Lean files, axioms, `sorry`s, CI settings or canonical chart states changed;
+no Lean compilation was needed for this documentation/PAPER checkpoint.

@@ -25,6 +25,254 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Four-front research schedule (2026-10-12 Pacific; user requested)
+
+This is the current scheduling layer over the detailed bidirectional audit
+below. The four fronts run concurrently where their inputs exist; they do
+not wait for H1 to solve every problem. H1 is a sufficient ONE-excitation
+survival route, not an EVERY-state gap theorem. Completion of all four
+research programs in their broadest form is not itself the target: use the
+weakest sufficient, SAME-theory construction for each actual compact simple
+group. Uniqueness/universality and confinement are not additional required
+endpoints unless a selected proof actually needs them.
+
+Two premise corrections guide the work. Bałaban's 1989 paper explicitly
+reports completion of its **4D ultraviolet stability** theorem; that is not
+the continuum mass-gap theorem. Only its publisher abstract has been checked
+here, so reuse requires extracting the theorem's precise hypotheses and
+observable scope first. See [Large field renormalization II](https://link.springer.com/article/10.1007/BF01238433).
+Also, not all repository mathematics applies to U(1): Hamilton quaternion
+multiplication (`mul`, `lean/YMGap/RepTheory/RationalQuaternionAlgebra.lean:105`)
+and the actual SU(2) source's `H3_dot_cross:122` /
+`original_plaquette_cayley_cleared:529` in
+`lean/YMGap/Continuum/BF4ExactSlabPlaquetteCayleyExpansion.lean` use nonabelian
+structure. These identities do NOT supply the missing uniform physical gap.
+
+#### 1. Quantitative RG / ultraviolet transport
+
+**Deliverable:** an ORIGINAL-action blocking/comparison identity, with a
+proved error bound stable under iteration on a justified running-coupling
+trajectory. Preserve induced interactions, source renormalizations, both
+normalizations, chart/Jacobian factors and the actual terminal law; do not
+assume blocking stays in the one-parameter Wilson family.
+
+- First finish or obstruct the stationary complete signed response after the
+  second IBP, including `J_contact`, both dressed sources and OLD means. The
+  new complete order-six FREE-reference terminal modulus in
+  `audits/AUDIT-ADAPTIVE-CONDITIONAL-SCORE-2026-10-07.md` removes a reference
+  subtask only. In parallel demand a concrete ORIGINAL small/large-field,
+  denominator-relative remainder estimate; do not indefinitely improve
+  perturbative coefficients without that join.
+- Separate the running marginal coupling from the summable remainder.
+  Illustratively, if u_k=g_k^2 is of order 1/k on geometric UV shells, its
+  square is summable but u_k is not. Neither conclusion pays errors amplified
+  by 2^k. Derive the ACTUAL transport weights before choosing the required
+  order. Either prove a weighted summable tail with an explicit modulus, or
+  an exact telescoping identity with controlled boundary terms. An asserted
+  telescope is not a substitute for its identity and norm estimates.
+- Choose a gauge-invariant effective-action norm and blocking map compatible
+  with the reflected observables. Bound large-field regions locally, with
+  volume-uniform connected/polymer estimates, rather than requiring every
+  lattice site to be small. If a gauge section is used, include its actual
+  coverage, overlaps, Jacobian and boundaries.
+- Extract only the needed Bałaban estimates and identify the missing
+  normalized-observable and iteration joins. The finite reference expansion
+  is not itself RG. A one-scale estimate becomes usable only with a proved
+  invariant domain and accumulated-error modulus along the chosen family.
+
+**Consumer and stop test:** feed the existing original survival consumer
+`path_normalized_anchor_shifted:581` and its positive-scale obligation
+`pathShiftedEpsBound_iff_positiveScales:718` in
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1Anchor.lean`, then the actual
+coarse-action and continuum comparisons below. Within the first probe,
+exhibit an original remainder budget that can meet its relative tolerance,
+or record precisely why this route cannot yet do so. Repeated reference-only
+bounds without such a budget trigger route review, not new wrappers.
+
+#### 2. Nonabelian infrared mass generation
+
+**Deliverable:** EVERY-state decay on the original OS vacuum complement at
+a calibrated physical scale. Compare two candidate routes before committing:
+(a) transport the actual induced coarse action into a quantitatively massive
+domain stable under its additional interactions; (b) obtain direct
+multiscale OS-form coercivity. Neither candidate is presently established.
+
+- Identify the first load-bearing nonabelian term in the proposed inequality,
+  not merely in the input's group tag. Trace its sign and normalization all
+  the way to the gap. The existing SU(2) cubic/contact calculations are
+  starting evidence, not proof of mass generation.
+- Retain the actual operator. `completed_twoStep_form_gap:147` in
+  `lean/YMGap/Continuum/BF4WilsonAllNomeCompletedGap.lean` proves a FIXED
+  coupling/width statement. A gap for a Markov sampler would need an
+  independently proved bridge to this OS transfer operator.
+- At a physical step a_*>0, a uniform bound
+  `<v,T_*^2 v> <= q_* <v,v>`, 0<q_*<1 on the vacuum complement would give the
+  mass floor `-log(q_*)/(2*a_*)` ONLY with the SAME positive transfer /
+  physical-Hamiltonian identification and the required scaling comparison.
+  This is a proposed sufficient target, not an existing uniform producer.
+  Strong-coupling decay alone does not reach a weak-bare-coupling trajectory;
+  absence of a phase transition alone is not a quantitative bound either.
+- Use U(1) as a negative control for unjustified extrapolation to a
+  four-dimensional Coulomb regime, not to reject valid finite-group-agnostic
+  bounds. The massless U(1) lattice phase is proved in
+  [Fröhlich--Spencer](https://link.springer.com/article/10.1007/BF01213610).
+  Screen proposed universal mechanisms against centerless G2 as well as
+  SU(2) and different global forms; a nontrivial-center hypothesis cannot
+  cover every compact simple group. See the authors' description of
+  [G2's trivial center](https://arxiv.org/abs/hep-lat/0302023).
+
+**Consumer and stop test:** supply the physical EVERY-state decay input to
+front 3. The first mechanism review must show a quantitative candidate
+inequality with its missing premises, nonabelian dependence and effective
+action domain. If neither route connects to available input, leave this a
+research obstruction; do not turn the desired gap into an assumed field.
+Proving SU(2) first is a pilot, not an all-groups reduction.
+
+#### 3. Continuum theory, physical scale and QFT axioms
+
+**Deliverable:** one constructed SAME-theory limit, with actual renormalized
+local fields, explicit volume/spacing moduli, nontrivial finite-energy
+excitation, physical clock and the required axioms, for each realized group.
+Construct only the universality/uniqueness statements consumed by that route.
+
+- Work backward from `ReferenceWeightStageFamily:84`,
+  `CanonicalSchwingerLimit:121` / `approximationConverges:147`, and
+  `PositiveTimeOSRoot:268` / `reflectedForm:298` in
+  `lean/YMGap/Continuum/CanonicalOSRoot.lean`. These demand actual inputs;
+  their `physicalHilbert:513` already constructs the completion given them.
+  Match forward estimates to those inputs rather than rebuilding the root.
+- Track positivity/reflection positivity, regularity, translations,
+  locality and full Euclidean rotations on the SAME limiting functional.
+  For rotations, derive an explicit defect bound for rotated smeared
+  observables that tends to zero along the trajectory. Hypercubic symmetry
+  alone does not supply it. Identify which finite positivity and continuity
+  implications can be proved now and which need unknown RG estimates.
+- Keep three tests separate: a nonzero excitation survives; its physical
+  energy remains finite while EVERY-state decay has a positive mass floor;
+  the local-field/short-distance theory is Yang--Mills. A positive variance
+  alone cannot exclude a Gaussian surrogate, and a connected cumulant of
+  nonlinear Wilson observables is not by itself a Gaussian-exclusion test.
+- Audit and, in a separately reviewed change, repair insufficient legacy
+  local-field/stress/OPE statements before treating them as a final spec.
+  `LocalCurvatureFields:165` in
+  `lean/YMGap/Continuum/LocalCurvatureFields.lean` selects an unlinked
+  functional; the trivial realization at line 186 and `ope_triv:260` show
+  why those slots alone are not payment. Preserve existing fields/proofs;
+  a repaired specification is still not a constructed witness.
+- Pass front 2's uniform physical-time decay through actual form/observable
+  convergence, retaining density and vacuum identification. Keep front 1's
+  independent survival/scale-setting inputs. Reuse `currentPhysicalRate:75`
+  and the warning `fixedMass_no_finite_physical_ceiling:240` in
+  `lean/YMGap/Continuum/BF4WilsonSpatialUnionPhysicalCalibration.lean`:
+  a fixed dimensionless lattice rate alone is not a finite-mass continuum.
+  Full literal cross-width carrier inclusion is already refuted; use
+  justified controlled observable/form comparisons instead.
+
+**Consumer and stop test:** the actual Clay reconstruction, not a theorem
+projecting an assumed gap. First produce a source-backed list of the exact
+rotation, local-field and clock estimates with their original consumers,
+then prove an available consequence or identify a missing producer.
+No repeated assumption-only QFT/all-group interface expansion.
+
+#### 4. Constructive Lean integration and spectral foundations
+
+**Deliverable:** the smallest verified analytic package needed by a selected
+mathematical argument, with witnesses, approximation moduli and the existing
+axiom gate. This is substantial engineering; quantitative constructive
+replacements for classical existence arguments may also require mathematics.
+
+- Reuse, do not rebuild, `integral:170` / `integral_translate:308` in
+  `lean/YMGap/Continuum/QuaternionRepresentedHaar.lean`,
+  `gnsComplete_general:442` in `lean/YMGap/Continuum/GNSComplete.lean`, and
+  `representedLogarithmCertificate:136` in
+  `lean/YMGap/Continuum/BF4WilsonAllNomeBondOSLogarithm.lean`.
+  These are useful SU(2)/fixed-carrier constructions, not general-group
+  Haar integration or a completed continuum spectral theory.
+- First eligible proof package: finite mode-coordinate Gaussian pullback,
+  connected Wick cancellation and degree-six covariance stability for the
+  newly derived FREE terminal comparison. Start with
+  `finiteProductGaussian:150` in
+  `lean/YMGap/Continuum/SU2QuaternionFiniteProductGaussianPositivity.lean`
+  and `gaussianExpectation_mulX_product:70` in
+  `lean/YMGap/Continuum/SU2QuaternionGaussianLeibnizIBP.lean`.
+  Supply the actual mode/Gram data and literal source coefficients; do not
+  assume the desired covariance estimate. Extend to CReal with explicit
+  moduli only where that concrete consumer requires it.
+- Queue original local-integration/change-of-variables/tail tools and
+  actual per-group compact/Haar realizations behind identified consumers.
+  For the continuum generator, inventory the precise core/domain and
+  semigroup/spectral identities needed after physical-time reconstruction;
+  a whole new abstract spectral or measure library is not the default task.
+  Classification tags and SU(2) scalar tables do not construct other groups.
+- Review the mathematical proof before implementation. Kernel-check finite
+  Rust-produced certificates independently; never use numerical experiments
+  as a proof oracle. No new `sorry`, axioms, classical shortcuts, witness
+  erasure or weakening of canonical fields.
+
+**Consumer and stop test:** name the original or reference theorem improved
+by each implementation; keep its exact scope. If an input is not yet proved,
+return it to the relevant research front instead of hiding it in a structure.
+
+#### Review dates, effort budgets and parallel handoffs
+
+Dates below are Pacific **research/checkpoint budgets**, not claimed theorem
+completion dates or newly created background reminders. Engineering estimates
+apply only after the mathematical argument and its required inputs are known.
+
+| Front | Oct 12--14: first output | Oct 15--19: bounded follow-through | Oct 20--26: continue/revise/prune gate |
+| --- | --- | --- | --- |
+| 1: RG/UV | Complete signed stationary-response test plus an explicit original-remainder feasibility test; extract the needed UV-stability theorem hypotheses. | Derive one ORIGINAL normalized blocking/comparison estimate with its actual transport weights, or a decisive obstruction. | Continue iteration only with a viable norm/domain and relative remainder; otherwise change the analytic route. No full RG completion promised. |
+| 2: IR mass | Screen coarse-action versus direct OS coercivity, including U(1), G2 and global-form scope. | Develop the better-supported candidate's nonabelian inequality and quantify its missing UV-to-IR input. | Keep only a route with a connected input/output proposition; record an unresolved mechanism if neither passes. |
+| 3: continuum/QFT | Pin local-field, rotation, clock and survival requirements to actual source; identify available consequences. | Prove a useful existing-input limit consequence or produce the reviewed exact target repair; do not assume the scaling family. | Require quantitative forward input for further reconstruction, separating nonzero survival, finite physical mass and full axioms. |
+| 4: Lean | Inventory existing APIs and select one finite coefficient/connected-tail lemma after math review. | Implement and narrowly check its pullback/Wick/stability core, subject to available dependencies. | Continue toward its explicit terminal modulus; allow a third engineering week only if concrete CReal dependencies require it. |
+
+Reviews are Oct 14, Oct 19 and Oct 26, or earlier on a decisive result.
+The near-term engineering allocation is roughly 1--3 focused weeks for ONE
+selected finite package, not all constructive analysis. The analytic fronts
+get 1--2 focused days per initial probe and a 1--2-week continuation only
+when evidence warrants it. There is no defensible time-to-solution estimate
+for uniform RG control, nonabelian mass generation, continuum reconstruction
+or all compact simple groups. Do not sum probe budgets into a Clay ETA.
+
+The joins determine scheduling: front 1 supplies normalized multiscale
+control to front 3 and any coarse-action route in front 2; front 2 supplies
+EVERY-state physical decay to front 3; front 3 states the actual local-field,
+survival and scale-setting obligations front 1 must meet. Front 4 verifies
+these particular constructions. Work backward and forward simultaneously,
+without assuming that one branch's input is already produced by another.
+
+Use at most three bounded parallel agents plus the main agent. Assign
+Sol/Luna source inventories, bounded implementation and straightforward
+checks; retain independent mathematical review for consequential joins.
+One monitored Lean build, normally one worker for these narrow tasks, must
+respect dynamic memory headroom and the current repository cap. Use compile
+time for independent mathematics; do not increase concurrency to meet dates.
+
+**Fresh-context route review (user's Fork-and-Flush suggestion, Oct 12):**
+the supplied [paper, sections 4--5 and Appendix D](https://arxiv.org/html/2610.07447v1)
+uses fixed-budget interventions rather than waiting only for a stall;
+small score improvements can prevent a stall trigger from ever firing.
+Its experiments concern graded research/engineering tasks, not constructive
+Yang--Mills proofs. We adopt a research heuristic, not a proven speedup here.
+
+At the Oct 14/19/26 review boundaries, or earlier after a decisive failed
+test, allocate up to two fresh-context agents to DIFFERENT routes to the
+SAME precise obstruction. Small coefficient improvements do not reset the
+review date. Their minimal brief includes the fixed Clay target,
+constructivity/safety rules, verified input declarations, known refutations,
+and required output/consumer, but not the accumulated preferred narrative.
+Share one preassigned probe budget under the same concurrency cap; record
+the common commit and start with read-only mathematics. Each returns an
+estimate, counterexample or precise missing lemma, with verification
+evidence. Select only after an independent check; no switch is required if
+no challenger improves the actual obligation. Preserve useful alternative
+results in the existing audit. Do not flush proof provenance, edit shared
+files competitively, poll on a timer, or rank routes by module count or
+persuasive prose. Skip the expensive idea-embedding visualization: it is
+not a proof check. Fixed review gates are not repeated status polling or
+permission to discard productive work. This is our adapted procedure,
+not a replication of the paper's benchmark protocol.
+
 ### Bidirectional audit: binding execution update (2026-10-11 Pacific)
 
 The current forward/backward audit is
@@ -165,6 +413,22 @@ Execution order:
    NEXT: keep the signed dynamic kernels inside the COMPLETE dressed
    quartic/action response; handle endpoint-reaching action insertions and
    OLD-center terms separately from the now-bounded local source comparison.
+   NEW joint PAPER reduction: a SECOND Gaussian IBP removes the remaining
+   unprojected B dot Dbar/B dot DZ[Y] contacts from BOTH sources and the
+   action. Their retained quadratic is explicit:
+   J_contact=4*Tr(Kcurl*D Dbar)-8*Tr((Kcurl*DZ)^2), Kcurl=L^(-1)*curl^*.
+   A color-antisymmetric trace cancels exactly; no contact sign is assumed.
+   NEW complete reference-terminal payment: connected Wick contractions
+   control ALL sixth-order source/action insertions and the CONSTRUCTED
+   reference OLD coefficients, uniformly over larger OWN horizons.
+   At n=8*W*(393+32*m+27*j+p), the error in s*Delta(P6/P4) relative to its
+   stationary reference value is <=2^(-p). This supersedes the local-source
+   terminal subcomparison at this order, not the ORIGINAL-law obligations.
+   NEXT: estimate the stationary complete signed response with J_contact,
+   the R_L-weighted quartics, kinetic/Haar partners and BOTH sources. The
+   original heat/chart/OLD-center join and nonperturbative relative remainder
+   remain OPEN. The explicit reference modulus is not a justified physical
+   coupling trajectory or a new uniform stationary response estimate.
    A pair's two Haar densities are NOT half densities of a conjugated
    transfer kernel or two densities per chain step. Ambient Haar restricted
    to a transverse subspace is NOT the section density. This is
@@ -25120,8 +25384,34 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
     Continue the complete signed dynamic/quartic/action bound and the
     endpoint-reaching action/OLD higher-coefficient joins. Original matching
     and the nonperturbative relative remainder are still OPEN.
+    The second IBP now leaves an explicit quadratic contact and R_L-weighted
+    source/action terms, with both OLD subtractions unchanged. More than the
+    local source block is now controlled at finite reference endpoints:
+    connected Wick sums supply the COMPLETE sixth-order normalized coefficient
+    and constructed-reference-OLD comparison, including omitted outside action
+    times. Reuse n=8*W*(393+32*m+27*j+p) for its s*Delta(P6/P4) error <=2^(-p).
+    This closes only that PAPER Gaussian-reference terminal task through
+    order six. The next producer is the stationary signed relative estimate
+    using the explicit contact, not another terminal wrapper. ORIGINAL
+    center/heat/chart matching, the uniform nonperturbative remainder, physical
+    scale-setting and all other full-Clay obligations remain separate and OPEN.
     Do not restart fixed-carrier completion/time/logarithm machinery. Bounded
     engineering estimates are not a deadline for an unsolved mathematical input.
+12. **Execute the four-front schedule (user request, 2026-10-12).** Use the
+    opening RG/UV, nonabelian IR, continuum/QFT and constructive-foundations
+    schedule and its Oct 14/19/26 review gates. Keep the unchanged full Clay
+    goal ACTIVE; these dates are probe budgets, not solution deadlines.
+    H1 does not serialize or replace the independent EVERY-state, physical
+    clock, local-field and every-group work. Reuse the new COMPLETE order-six
+    FREE terminal comparison while testing the stationary signed response
+    AND original denominator-relative remainder; no reference-only result
+    pays the original-law join. Select Lean work only after its mathematics
+    and consumer are pinned. At the fixed review gates (or a decisive earlier
+    failure) use the bounded fresh-context route review described above,
+    retaining verified inputs and refutations. Minor coefficient improvements
+    do not postpone the gate; keep the incumbent if no challenger is better.
+    Compare concrete mathematical outputs before adopting a different route;
+    do not create new assumptive endpoints or discard proof provenance.
 
 **Quantitative completion viewpoint (2026-10-07, user-supplied Lawvere idea):**
 use the existing constructive extension APIs rather than treating completion
