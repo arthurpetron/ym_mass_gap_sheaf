@@ -12,7 +12,8 @@ by middle-block Haar integration. No operator composition, decay estimate,
 or continuum conclusion is asserted.
 -/
 
-import YMGap.Continuum.BF4ExactSlabFaceLinkLocality
+import YMGap.Continuum.Z4FiniteBoxExhaustion
+import YMGap.Continuum.Z4HalfTimeReflectionFaceReindex
 
 namespace YMGap.Continuum.BF4ExactSlabFixedSpatialTwoLayerGeometry
 

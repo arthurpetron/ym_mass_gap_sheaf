@@ -12,6 +12,7 @@ This counting estimate does not supply heterogeneous-background mixing.
 -/
 import YMGap.Continuum.Z4LinfShellCount
 import YMGap.Continuum.PolynomialGeometricDecay
+import YMGap.Continuum.DyadicGeometricCutoff
 import YMGap.Continuum.FiniteSizeGeometricSum
 
 namespace YMGap.Continuum.Z4LinfGeometricSum
@@ -24,6 +25,7 @@ open YMGap.Continuum.Z4LinfShellCount (ball_count)
 open YMGap.Continuum.PolynomialGeometricDecay (blockLength blockLength_pos block_gain)
 open YMGap.Continuum.PartitionUpperBound (nat_pow_le_two_pow_pow)
 open YMGap.Continuum.PositiveContractionResidual (geometricCutoff geometric_bound)
+open YMGap.Continuum.DyadicGeometricCutoff
 open YMGap.Continuum.FiniteSizeGeometricSum
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm (listQSum)
 
@@ -33,6 +35,38 @@ def blockIndex (root : Z4Plaq) (r : Q') (M : Nat) (face : Z4Plaq) : Nat :=
 /-- Rate and support-size dependence, but no root or finite-volume parameter. -/
 def countCap (r : Q') (M : Nat) : Nat :=
   ((2*(M+blockLength r 4)+1)^4*6)*16
+
+private theorem two_mul_add_one_le_two_pow (n : Nat) :
+    2 * n + 1 ≤ 2 ^ (n + 2) := by
+  have h : n + 1 ≤ 2 ^ (n + 1) :=
+    Nat.le_of_lt (Nat.lt_two_pow_self (n := n + 1))
+  calc
+    2 * n + 1 ≤ 2 * (n + 1) := by omega
+    _ ≤ 2 * 2 ^ (n + 1) := Nat.mul_le_mul_left 2 h
+    _ = 2 ^ (n + 2) := by
+      rw [show n + 2 = n + 1 + 1 by omega, Nat.pow_succ]
+      omega
+
+/-- The quartic shell multiplicity is bounded by one dyadic power whose
+exponent is linear in support and in the fixed geometric block length. -/
+theorem countCap_le_two_pow (r : Q') (M : Nat) :
+    countCap r M ≤ 2 ^ (4 * M + 4 * blockLength r 4 + 15) := by
+  have hbase :
+      2 * (M + blockLength r 4) + 1 ≤
+        2 ^ (M + blockLength r 4 + 2) :=
+    two_mul_add_one_le_two_pow (M + blockLength r 4)
+  have hfour := Nat.pow_le_pow_left hbase 4
+  have hsix : 6 ≤ 2 ^ 3 := by decide
+  have hsixteen : 16 ≤ 2 ^ 4 := by decide
+  calc
+    countCap r M ≤
+        ((2 ^ (M + blockLength r 4 + 2)) ^ 4 * 2 ^ 3) * 2 ^ 4 := by
+      unfold countCap
+      exact Nat.mul_le_mul (Nat.mul_le_mul hfour hsix) hsixteen
+    _ = 2 ^ (4 * M + 4 * blockLength r 4 + 15) := by
+      rw [← Nat.pow_mul, ← Nat.pow_add, ← Nat.pow_add]
+      congr 1
+      omega
 
 private theorem block_radius {d M N n : Nat} (hN : 0 < N) (h : (d-M)/N = n) :
     d ≤ M+N*(n+1) := by
@@ -124,6 +158,16 @@ def blockCutoff {r : Q'} (hr0 : (0 : Q') ≤ r) (hr1 : r < (1 : Q'))
   geometricCutoff s ((A*Q'.ofNat (countCap r M))*
     Q'.recipPos (1 + -s) (HKPos.one_sub_pos (block_rate_lt_one hr0 hr1))) epsilon
 
+/-- Dyadic-search replacement for `blockCutoff`.  The shell geometry and
+amplitude are unchanged; only the geometric convergence modulus is sharpened
+from the reciprocal Archimedean witness to the certified least half-power
+precision. -/
+def dyadicBlockCutoff {r : Q'} (hr0 : (0 : Q') ≤ r) (hr1 : r < (1 : Q'))
+    (M : Nat) (A epsilon : Q') : Nat :=
+  let s := entropyRate 16 (r^blockLength r 4)
+  cutoff s ((A*Q'.ofNat (countCap r M))*
+    Q'.recipPos (1 + -s) (HKPos.one_sub_pos (block_rate_lt_one hr0 hr1))) epsilon
+
 /-- A physical lattice-distance threshold, not just existence of a small tail. -/
 def radiusCutoff {r : Q'} (hr0 : (0 : Q') ≤ r) (hr1 : r < (1 : Q'))
     (M : Nat) (A epsilon : Q') : Nat := M+blockLength r 4*blockCutoff hr0 hr1 M A epsilon
@@ -145,6 +189,28 @@ theorem scaled_tailCap_small {r A epsilon : Q'} (hr0 : (0 : Q') ≤ r) (hr1 : r 
   exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hpin)
     (geometric_bound hs0 (block_rate_lt_one hr0 hr1) hC he d hd)
 
+/-- The amplitude-scaled shell tail is small at the sharper dyadic cutoff. -/
+theorem scaled_tailCap_small_dyadic {r A epsilon : Q'}
+    (hr0 : (0 : Q') ≤ r) (hr1 : r < (1 : Q'))
+    (hA : (0 : Q') ≤ A) (he : (0 : Q') < epsilon) (M d : Nat)
+    (hd : dyadicBlockCutoff hr0 hr1 M A epsilon ≤ d) :
+    A*tailCap hr0 hr1 M d ≤ epsilon := by
+  let s := entropyRate 16 (r^blockLength r 4)
+  let i := Q'.recipPos (1 + -s) (HKPos.one_sub_pos (block_rate_lt_one hr0 hr1))
+  have hs0 : (0 : Q') ≤ s :=
+    Q'.mul_nonneg _ _ (ClusterCount.ofNat_nonneg _) (Q'.pow_nonneg _ hr0 _)
+  have hC : (0 : Q') ≤ (A*Q'.ofNat (countCap r M))*i :=
+    Q'.mul_nonneg _ _ (Q'.mul_nonneg _ _ hA (ClusterCount.ofNat_nonneg _))
+      (Q'.le_of_lt (Q'.recipPos_pos _ _))
+  have hpin : Q'.eqv (A*tailCap hr0 hr1 M d)
+      (s^d*((A*Q'.ofNat (countCap r M))*i)) := by
+    change Q'.eqv (A*((Q'.ofNat (countCap r M)*s^d)*i)) _
+    show _ * (_ : Int) = _ * (_ : Int)
+    simp only [Q'.mul_num_cast, Q'.mul_den_cast]
+    ac_rfl
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hpin)
+    (bound hs0 (block_rate_lt_one hr0 hr1) hC he d hd)
+
 theorem radiusCutoff_block_le {r : Q'} (hr0 : (0 : Q') ≤ r) (hr1 : r < (1 : Q'))
     (root face : Z4Plaq) (M : Nat) (A epsilon : Q')
     (h : radiusCutoff hr0 hr1 M A epsilon ≤ linfDist root face) :
@@ -158,6 +224,7 @@ end YMGap.Continuum.Z4LinfGeometricSum
 
 #print axioms YMGap.Continuum.Z4LinfGeometricSum.blockIndex
 #print axioms YMGap.Continuum.Z4LinfGeometricSum.countCap
+#print axioms YMGap.Continuum.Z4LinfGeometricSum.countCap_le_two_pow
 #print axioms YMGap.Continuum.Z4LinfGeometricSum.block_fiber_count
 #print axioms YMGap.Continuum.Z4LinfGeometricSum.block_rate_lt_one
 #print axioms YMGap.Continuum.Z4LinfGeometricSum.tailCap
@@ -165,6 +232,8 @@ end YMGap.Continuum.Z4LinfGeometricSum
 #print axioms YMGap.Continuum.Z4LinfGeometricSum.finite_tail_bound
 #print axioms YMGap.Continuum.Z4LinfGeometricSum.finite_sum_bound
 #print axioms YMGap.Continuum.Z4LinfGeometricSum.blockCutoff
+#print axioms YMGap.Continuum.Z4LinfGeometricSum.dyadicBlockCutoff
+#print axioms YMGap.Continuum.Z4LinfGeometricSum.scaled_tailCap_small_dyadic
 #print axioms YMGap.Continuum.Z4LinfGeometricSum.radiusCutoff
 #print axioms YMGap.Continuum.Z4LinfGeometricSum.scaled_tailCap_small
 #print axioms YMGap.Continuum.Z4LinfGeometricSum.radiusCutoff_block_le

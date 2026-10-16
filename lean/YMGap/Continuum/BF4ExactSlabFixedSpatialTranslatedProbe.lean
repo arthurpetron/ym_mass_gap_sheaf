@@ -98,6 +98,15 @@ private theorem product_pin (P : Placement) (fs : List FaceFactor)
         characterPolynomial (correctedSlabPlaquettePolynomial P.target face).scalar spin)
         (shiftFace P.space P.time f.1, f.2)) fs (fun f h => factor_pin P f (hf f h)))
 
+/-- Public zero-sweep transport for a literal list of signed face factors. -/
+theorem sweptProduct_zero_pin (P : Placement) (fs : List FaceFactor)
+    (hf : ∀ f, f ∈ fs → f.1 ∈ boundaryCompleteSlabPlaquettes P.source) :
+    QuaternionPrefixPolynomialEqv (B P.target)
+      (P.embedding.polynomial (sweptProduct P.source 0 fs))
+      (sweptProduct P.target 0
+        (fs.map (fun f => (shiftFace P.space P.time f.1, f.2)))) :=
+  product_pin P fs hf
+
 private theorem shiftFace_timeShift (space time start : Nat) (face : Z4Plaq) :
     shiftFace space time (timeShiftPlaquette start face) =
       timeShiftPlaquette (start+time) (shiftFace space 0 face) := by
@@ -245,6 +254,7 @@ theorem aligned_chartInsertion_pin (base r d H t : Nat) (x y : PhysicalSpan base
 end YMGap.Continuum.BF4ExactSlabFixedSpatialTranslatedProbe
 
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTranslatedProbe.placeWindowProbes_translation
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTranslatedProbe.sweptProduct_zero_pin
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTranslatedProbe.placedSpan_pin
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTranslatedProbe.translateSpan_comp
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTranslatedProbe.encodeChart_translate

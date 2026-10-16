@@ -223,9 +223,81 @@ private def rowDerivativeOn (coefficient : Nat → Q') (p : RatPoly) : List Nat 
 def finiteLinearRow (N : Nat) (coefficient : Nat → Q') : RatPoly :=
   linearRowOn coefficient (List.range N)
 
+private theorem linearRowOn_coeffEqv
+    (left right : Nat → Q') : ∀ indices : List Nat,
+    (∀ index, index ∈ indices → left index ≈ right index) →
+    RatPolyCoeffEqv (linearRowOn left indices) (linearRowOn right indices)
+  | [], _ => RatPolyCoeffEqv.refl _
+  | index :: indices, hypothesis =>
+      RatPolyCoeffEqv.add
+        (RatPolyCoeffEqv.smul_coefficient
+          (hypothesis index List.mem_cons_self) (polyVar index))
+        (linearRowOn_coeffEqv left right indices
+          (fun next membership =>
+            hypothesis next (List.mem_cons_of_mem index membership)))
+
+/-- Finite linear rows respect pointwise rational equivalence on their exact
+finite coordinate prefix. -/
+theorem finiteLinearRow_coeffEqv
+    (N : Nat) (left right : Nat → Q')
+    (hypothesis : ∀ index, index < N → left index ≈ right index) :
+    RatPolyCoeffEqv (finiteLinearRow N left) (finiteLinearRow N right) := by
+  unfold finiteLinearRow
+  exact linearRowOn_coeffEqv left right (List.range N)
+    (fun index membership =>
+      hypothesis index (List.mem_range.mp membership))
+
 /-- The computed directional derivative for the SAME explicit row. -/
 def finiteRowDerivative (N : Nat) (coefficient : Nat → Q') (p : RatPoly) : RatPoly :=
   rowDerivativeOn coefficient p (List.range N)
+
+private theorem ratDerivative_one_zero (coordinate : Nat) :
+    RatPolyCoeffEqv (ratDerivative coordinate polyOne) polyZero := by
+  cases coordinate <;> exact RatPolyCoeffEqv.zero_smul polyOne
+
+private theorem rowDerivativeOn_one_zero (coefficient : Nat → Q') :
+    ∀ indices : List Nat,
+      RatPolyCoeffEqv
+        (rowDerivativeOn coefficient polyOne indices) polyZero
+  | [] => RatPolyCoeffEqv.refl _
+  | coordinate :: indices =>
+      RatPolyCoeffEqv.trans
+        (RatPolyCoeffEqv.add
+          (RatPolyCoeffEqv.trans
+            ((ratDerivative_one_zero coordinate).smul
+              (coefficient coordinate))
+            (RatPolyCoeffEqv.smul_zero (coefficient coordinate)))
+          (rowDerivativeOn_one_zero coefficient indices))
+        (RatPolyCoeffEqv.add_zero polyZero)
+
+/-- The computed derivative of the constant polynomial along every finite
+rational row is coefficientwise zero. -/
+theorem finiteRowDerivative_one_zero
+    (N : Nat) (coefficient : Nat → Q') :
+    RatPolyCoeffEqv
+      (finiteRowDerivative N coefficient polyOne) polyZero :=
+  rowDerivativeOn_one_zero coefficient (List.range N)
+
+private theorem monoMul_nil_right (monomial : List Nat) :
+    monoMul monomial [] = monomial := by
+  cases monomial <;> rfl
+
+private theorem polyMul_one_right : ∀ polynomial : RatPoly,
+    RatPolyCoeffEqv (polyMul polynomial polyOne) polynomial
+  | [] => RatPolyCoeffEqv.refl _
+  | term :: polynomial => by
+      intro weight
+      rcases term with ⟨monomial, coefficient⟩
+      change
+        (coefficient * 1) * weight (monoMul monomial []) +
+              ratWeightedSum weight (polyMul polynomial polyOne) ≈
+          coefficient * weight monomial +
+            ratWeightedSum weight polynomial
+      rw [monoMul_nil_right]
+      exact Q'.add_eqv_congr'
+        (Q'.mul_eqv_congr_right _ _ _
+          (Q'.mul_one_eqv coefficient))
+        (polyMul_one_right polynomial weight)
 
 private theorem linearRowOn_stein (N : Nat) (coefficient : Nat → Q') (p : RatPoly) :
     ∀ indices : List Nat, (∀ i, i ∈ indices → i<N) →
@@ -265,10 +337,27 @@ theorem finiteProductGaussian_linearRow_stein (N : Nat) (coefficient : Nat → Q
   linearRowOn_stein N coefficient p (List.range N)
     (fun _ hi => List.mem_range.mp hi)
 
+/-- Every finite rational linear row has zero expectation under the centered
+finite product-Gaussian evaluator. -/
+theorem finiteProductGaussian_linearRow_zero
+    (N : Nat) (coefficient : Nat → Q') :
+    finiteProductGaussian N (finiteLinearRow N coefficient) ≈ 0 := by
+  exact Q'.eqv_trans _ _ _
+    (Q'.eqv_symm
+      (finiteProductGaussian_coeffEqv N
+        (polyMul_one_right (finiteLinearRow N coefficient))))
+    (Q'.eqv_trans _ _ _
+      (finiteProductGaussian_linearRow_stein N coefficient polyOne)
+      (finiteProductGaussian_coeffEqv N
+        (finiteRowDerivative_one_zero N coefficient)))
+
 end YMGap.Continuum.SU2QuaternionFiniteProductGaussianIBP
 
 #print axioms YMGap.Continuum.SU2QuaternionFiniteProductGaussianIBP.finiteProductGaussian_probe
 #print axioms YMGap.Continuum.SU2QuaternionFiniteProductGaussianIBP.finiteProductGaussian_coeffEqv
 #print axioms YMGap.Continuum.SU2QuaternionFiniteProductGaussianIBP.finiteGaussianMono_coordinate_stein
 #print axioms YMGap.Continuum.SU2QuaternionFiniteProductGaussianIBP.finiteProductGaussian_coordinate_stein
+#print axioms YMGap.Continuum.SU2QuaternionFiniteProductGaussianIBP.finiteLinearRow_coeffEqv
 #print axioms YMGap.Continuum.SU2QuaternionFiniteProductGaussianIBP.finiteProductGaussian_linearRow_stein
+#print axioms YMGap.Continuum.SU2QuaternionFiniteProductGaussianIBP.finiteRowDerivative_one_zero
+#print axioms YMGap.Continuum.SU2QuaternionFiniteProductGaussianIBP.finiteProductGaussian_linearRow_zero

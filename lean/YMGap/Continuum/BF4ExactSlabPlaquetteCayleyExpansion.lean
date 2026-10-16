@@ -15,6 +15,7 @@ normalized quartic coefficient additionally contains the denominator correction.
 -/
 
 import YMGap.Continuum.BF4ExactSlabPlaquetteDeficit
+import YMGap.Continuum.BF4ExactSlabPlaquetteCayleyPolynomial
 import YMGap.RepTheory.RationalQuaternionCommutatorDefect
 
 namespace YMGap.Continuum.BF4ExactSlabPlaquetteCayleyExpansion
@@ -42,61 +43,8 @@ local instance : Mul PE := ⟨.mul⟩
 local instance : Neg PE := ⟨.neg⟩
 local instance (n : Nat) : OfNat PE n := ⟨.const (Int.ofNat n)⟩
 
-def add3 (a b : Triple) : Triple := ⟨a.x+b.x,a.y+b.y,a.z+b.z⟩
-def neg3 (a : Triple) : Triple := ⟨-a.x,-a.y,-a.z⟩
-def scale3 (e : Q') (a : Triple) : Triple := ⟨e*a.x,e*a.y,e*a.z⟩
-def dot3 (a b : Triple) : Q' := (a.x*b.x+a.y*b.y)+a.z*b.z
-def cross3 (a b : Triple) : Triple :=
-  ⟨a.y*b.z + -(a.z*b.y), a.z*b.x + -(a.x*b.z), a.x*b.y + -(a.y*b.x)⟩
-def det3 (a b c : Triple) : Q' := dot3 (cross3 a b) c
-
-def pairCrosses (a b c d : Triple) : Triple :=
-  add3 (add3 (add3 (cross3 a b) (cross3 a c)) (cross3 a d))
-    (add3 (add3 (cross3 b c) (cross3 b d)) (cross3 c d))
-
 private def pairDots (a b c d : Triple) : Q' :=
   ((dot3 a b+dot3 a c)+dot3 a d)+((dot3 b c+dot3 b d)+dot3 c d)
-
-/-- Quadratic coefficient for the four DIRECTED chart vectors. -/
-def H2 (a b c d : Triple) : Q' := 4*norm3 (add3 (add3 (add3 a b) c) d)
-
-/-- Cubic coefficient; equivalently 16 times sum-vectors dot sum-pair-crosses. -/
-def H3 (a b c d : Triple) : Q' :=
-  16*((det3 a b c+det3 a b d)+(det3 a c d+det3 b c d))
-
-/-- Cleared quartic coefficient, not the normalized quartic coefficient. -/
-def H4 (a b c d : Triple) : Q' :=
-  -(8*((dot3 a b*(norm3 c+norm3 d)+dot3 a c*(norm3 b+norm3 d))+
-    dot3 a d*(norm3 b+norm3 c)+
-    ((dot3 b c*(norm3 a+norm3 d)+dot3 b d*(norm3 a+norm3 c))+
-      dot3 c d*(norm3 a+norm3 b)))) +
-  -(32*(dot3 a b*dot3 c d + -(dot3 (cross3 a b) (cross3 c d))))
-
-def H5 (a b c d : Triple) : Q' :=
-  -(16*((det3 a b c*norm3 d+det3 a b d*norm3 c)+
-    (det3 a c d*norm3 b+det3 b c d*norm3 a)))
-
-def H6 (a b c d : Triple) : Q' :=
-  4*((norm3 a*norm3 b*norm3 c+norm3 a*norm3 b*norm3 d)+
-    (norm3 a*norm3 c*norm3 d+norm3 b*norm3 c*norm3 d)) +
-  8*((dot3 a b*(norm3 c*norm3 d)+dot3 a c*(norm3 b*norm3 d))+
-    dot3 a d*(norm3 b*norm3 c)+
-    ((dot3 b c*(norm3 a*norm3 d)+dot3 b d*(norm3 a*norm3 c))+
-      dot3 c d*(norm3 a*norm3 b)))
-
-private def factor (e : Q') (a : Triple) : Q' := 1+(e*e)*norm3 a
-
-/-- Product of the four positive chart denominators, in directed-vector form. -/
-def cayleyDenominator (e : Q') (a b c d : Triple) : Q' :=
-  ((factor e a*factor e b)*factor e c)*factor e d
-
-/-- Exact finite polynomial; its residual consists of the displayed fifth and
-sixth degree terms, not a supplied analytic big-O estimate. -/
-def cayleyDeficit (e : Q') (a b c d : Triple) : Q' :=
-  ((((e*e)*H2 a b c d+((e*e)*e)*H3 a b c d)+
-    ((e*e)*(e*e))*H4 a b c d)+
-    (((e*e)*(e*e))*e)*H5 a b c d)+
-    (((e*e)*(e*e))*(e*e))*H6 a b c d
 
 private theorem ac {a b c d : Q'} (h : a ≈ b) (k : c ≈ d) : a+c ≈ b+d :=
   Q'.eqv_trans _ _ _ (Q'.add_eqv_congr_right _ _ _ h) (Q'.add_eqv_congr_left _ _ _ k)

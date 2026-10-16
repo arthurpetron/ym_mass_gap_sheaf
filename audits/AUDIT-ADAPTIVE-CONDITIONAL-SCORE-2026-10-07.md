@@ -26376,3 +26376,5818 @@ neither they nor this finite Gaussian theorem closes H1, EVERY-state
 physical decay, the continuum theory or the whole-project Clay target.
 The previous checkpoint was PROGRESS. This checkpoint also makes
 progress; the canonical displayed claims remain open and unchanged.
+
+### Finite radial covariance trace contraction (KERNEL-CHECKED)
+
+2026-10-12. The new leaf
+`lean/YMGap/Continuum/SU2QuaternionFiniteGaussianRadialCovariance.lean`
+consumes the checked three-square covariance summand without adding a
+moment, pullback, independence, nondegeneracy, matrix or change-of-basis
+premise. For arbitrary finite rational row families b_i,d_j in every
+finite evaluator dimension, define the literal polynomials
+
+    S_B=sum_i (b_i dot X)^2,   S_D=sum_j (d_j dot X)^2,
+
+and the computed Gram entries Sigma_ik=Gram(b_i,b_k), K_ij=Gram(b_i,d_j).
+`finiteGaussianRadialCovariance_summands:232` first proves that the ACTUAL
+finite-product-Gaussian covariance Cov(S_B^2,S_D), retaining both means,
+is the three-index sum of the checked sixth-order covariance formula.
+The explicit finite sums
+
+    finiteRowGramTrace             = Tr(Sigma),
+    finiteCrossGramSquareTrace     = Tr(K*K^*),
+    finiteGramSandwichTrace        = Tr(Sigma*K*K^*)
+
+are definitions, not supplied matrix laws. The final theorem
+`finiteGaussianRadialCovariance_trace:448` proves
+
+    Cov(S_B^2,S_D)
+      = 8*Tr(Sigma*K*K^*) + 4*Tr(Sigma)*Tr(K*K^*).
+
+Empty row/direction families, N=0, zero rows and degenerate Grams are all
+included. The proof is division-free and uses only finite polynomial and
+rational-sum algebra after the checked summand. It constructs no actual
+transverse-mode rows and assumes no Gaussian coordinate pullback.
+
+The first narrow check reported only the expected missing `.olean` for the
+newly checkpointed SixthMoment dependency. The monitored dependency target
+
+    python3 scripts/safe_lean_build.py --jobs 1 --lake-worker-limit-gib 20 \
+      -- +YMGap.Continuum.SU2QuaternionFiniteGaussianSixthMoment:olean
+
+then exited zero. The final focused command
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
+      --check lean/YMGap/Continuum/SU2QuaternionFiniteGaussianRadialCovariance.lean
+
+exited zero with a 12-GiB OS reserve. All THREE printed public theorem gates
+are exactly [propext, Quot.sound]. A source scan found no `sorry`, `admit`,
+custom `axiom`, `Classical`, `noncomputable`, `native_decide` or `unsafe` use;
+the three `#print axioms` lines are the only matches for the word `axiom`.
+No full tree build, root guard or repository-wide axiom audit was run.
+Frozen source SHA-256:
+`a2864210814eedf8438b99ec47df28729532d4a7c6c4813d88849ab9efb295a2`.
+
+The exact consumer is the retained FREE-reference trace-source quartic in
+the rational-row covariance section above. NEXT formal work is to construct
+the actual transverse-mode rational rows and their CReal approximation
+moduli, then connect that finite reference calculation to the complete
+signed response. ORIGINAL compact-Haar/section/source/OLD-center matching,
+uniform response control, H1, EVERY-state physical decay, continuum/QFT and
+the Clay target remain OPEN. This changes no canonical displayed claim.
+
+### Concrete three-color rational rows (KERNEL-CHECKED)
+
+2026-10-15. The new leaf
+`lean/YMGap/Continuum/SU2QuaternionFiniteGaussianThreeColorRows.lean`
+removes the independence premise from the PAPER three-color specialization.
+For arbitrary one-color rational rows b,d of length N, `threeColorRows:125`
+places three copies in disjoint coordinate blocks of the SAME finite
+product-Gaussian evaluator, whose dimension is N+(N+N). The general block
+split `finiteRowGram_append:66` and the color theorem
+`finiteRowGram_threeColorRows:183` compute
+
+    Gram(b_i,d_j) = delta_ij * Gram(b,d)
+
+for the three literal rows. This is a construction, not a supplied
+independence, covariance-matrix, nondegeneracy, square-root, Gaussian-pullback
+or change-of-basis hypothesis. It includes N=0 and zero or degenerate rows.
+
+Writing sigma=norm2(b) and rho=Gram(b,d), the explicit trace definitions from
+the radial leaf are evaluated by
+
+    finiteRowGramTrace_threeColorRows:339          = 3*sigma,
+    finiteCrossGramSquareTrace_threeColorRows:350  = 3*rho^2,
+    finiteGramSandwichTrace_threeColorRows:368     = 3*sigma*rho^2.
+
+The final theorem `finiteGaussianRadialCovariance_threeColorRows:398`
+specializes the already checked radial identity to the ACTUAL disjoint rows:
+
+    Cov(S_B^2,S_D) = 60*sigma*rho^2.
+
+The first focused check stopped before this leaf because the radial dependency
+had no current `.olean`. The monitored dependency target
+
+    python3 scripts/safe_lean_build.py --jobs 1 --lake-worker-limit-gib 20 \
+      -- +YMGap.Continuum.SU2QuaternionFiniteGaussianRadialCovariance:olean
+
+then exited zero. The final focused command
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
+      --check lean/YMGap/Continuum/SU2QuaternionFiniteGaussianThreeColorRows.lean
+
+exited zero with one worker, the mandatory 20-GiB worker cap and 12-GiB OS
+reserve. All FIVE printed public theorem gates are exactly
+[propext, Quot.sound]. A source scan found no `sorry`, `admit`, custom `axiom`,
+`Classical`, `noncomputable`, `native_decide` or `unsafe` use. No full tree
+build, root guard or repository-wide axiom audit was run. Frozen source
+SHA-256:
+`40e340336037dd3e247fe54102dca78fb6e0c5be83bc94bacac47453c64622c8`.
+
+The exact next formal join is now narrower: construct the actual ONE-COLOR
+open-cube transverse-mode rows and give Type-level CReal approximation moduli
+for their rational samples, then feed those rows through this checked color
+lift. The existing constructive `CReal.sample`/`InnerRegularity` API is a
+candidate producer, not yet an instantiated theorem here. Compact-Haar and
+ORIGINAL-law comparison, the signed response bound, H1, EVERY-state physical
+decay, continuum/QFT and the Clay target remain OPEN. This changes no
+canonical displayed claim.
+
+### Witness-bearing CReal row samples (KERNEL-CHECKED)
+
+2026-10-15. The new leaf
+`lean/YMGap/Continuum/SU2QuaternionFiniteGaussianCRealRowSampling.lean`
+pays the generic constructive-real coefficient-sampling obligation identified
+by the three-color checkpoint. For an arbitrary coefficient row
+`row : Nat -> CReal` with supplied `InnerRegularity` at every coordinate,
+`sampledRow:49` takes the rational sample at explicit tolerance `1/(stage+1)`.
+The theorem `sampledRow_error_bound:58` proves the corresponding late-inner-
+approximation error bound, and `sampledRow_abs_le:76` transports a sound
+constructive-real coefficient cap to the computed rational sample.
+
+The definition `sampledRowCoefficientCertificate:94` constructs an ACTUAL
+`ExplicitConvergenceCertificate` with Type-level witness data:
+
+    outer modulus epsilon       = epsilon.den,
+    inner modulus at stage n    = regularity.rate (1/(n+1)).
+
+`finiteSampledRowCertificates:133` packages those witnesses for every
+coordinate of a finite row. No classical selection, existence-only modulus or
+hidden limit passage is used. Finally,
+`finiteGaussianRadialCovariance_sampledCRealRows:150` feeds any two sampled
+one-color rows through the already checked disjoint three-color construction,
+proving at every rational stage n the exact finite-evaluator identity
+
+    Cov(S_B,n^2,S_D,n) = 60*sigma_n*rho_n^2.
+
+The monitored dependency target
+
+    python3 scripts/safe_lean_build.py --jobs 1 --lake-worker-limit-gib 20 \
+      -- +YMGap.Continuum.SU2QuaternionFiniteGaussianThreeColorRows:olean
+
+exited zero. The focused command
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
+      --check lean/YMGap/Continuum/SU2QuaternionFiniteGaussianCRealRowSampling.lean
+
+also exited zero with one worker, the mandatory 20-GiB worker cap and 12-GiB
+OS reserve. The two sampling declarations printed exactly `[propext]`; the
+sampled covariance theorem printed exactly `[propext, Quot.sound]`. A source
+scan found no `sorry`, `admit`, custom `axiom`, `Classical`, `noncomputable`,
+`native_decide` or `unsafe` use. No full tree build, root guard or
+repository-wide axiom audit was run. Frozen source SHA-256:
+`a4076af164275aa27c80b3d1f41ed4f052c0c298607ebe1c64bab5da0511869a`.
+
+This increment does NOT construct the actual open-cube transverse sine/cosine
+rows. Inspecting the existing constructive trig chain exposed the precise
+pre-existing analytic residual: the current `CRealTrig`/`CRealTrigFull` layer
+does not yet identify Machin `Pi.pi` with the trigonometric zero needed for
+`sin(pi)=0`, while the arctan-series-to-trig composition/inversion bridge also
+remains open. Therefore generic samples must not be reported as physical
+modes. The next solve-path choice is either (1) close enough of that analytic
+bridge to prove the required boundary, orthogonality, dispersion and
+transversality identities, or (2) build a finite coordinate-space rational-
+precision covariance calculation that avoids irrational mode rows. The
+compact-Haar/ORIGINAL comparison, signed response estimate, H1, EVERY-state
+physical decay, continuum/QFT and Clay target remain OPEN. No canonical
+displayed claim changes.
+
+### Stable eventually-positive circle assembly (KERNEL-CHECKED)
+
+2026-10-15. Inspection of the older
+`CircleModelAssembly.CircleData` exposed a representation-level defect in its
+two nominally elementary residual fields: the one-slack predicate
+`CReal.IsPositive` constrains every approximation but arbitrary pointwise
+products can still have finitely many early opposite-sign factors. Therefore a
+generic `IsPositive` product theorem is not the correct invariant to assume or
+prove for this assembly.
+
+The new leaf
+`lean/YMGap/Continuum/CircleModelEventuallyPositiveAssembly.lean` replaces that
+conditional piece by the exact eventual lower-bound property used by the
+Gaussian-integer direction proof. `EventuallyPositive:37` records a positive
+rational lower bound after an eventual stage, and
+`eventuallyPositive_mul:49` proves this property is closed under the pointwise
+CReal product. The cancellation theorem
+`equiv_czero_of_eventuallyPositive_mul:71` proves constructively that
+
+    radius * value ~= 0  and  EventuallyPositive radius
+      imply value ~= 0.
+
+It uses tolerance `lower*epsilon`, a sign split on the rational approximation,
+and the existing positive rational-factor cancellation; it assumes no
+reciprocal, located sign or classical selection.
+
+`stableRepDir:159` rebuilds the direction predicate with an eventually positive
+radius. `stableRepDir_add:167` reuses the checked Gaussian-integer/CReal ring
+algebra and closes representation under direction multiplication.
+`stableSinZero:222` supplies the zero-imaginary-part extraction. Consequently
+`StableCircleData:235` has ONLY the two genuine base-direction fields at
+`arctan(1/5)` and `-arctan(1/239)`; no generic multiplication or cancellation
+field remains. `toModel:242` constructs the actual `CircleModel`, and
+`sinPi_eqv_zero:257` feeds those two links through the already checked Machin
+Gaussian-integer telescoping.
+
+The mandatory process preflight found no competing Lean build. The focused
+command
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
+      --check lean/YMGap/Continuum/CircleModelEventuallyPositiveAssembly.lean
+
+exited zero with one worker, the mandatory 20-GiB worker cap and 12-GiB OS
+reserve. All SIX printed public theorem gates are exactly
+`[propext, Quot.sound]`. A source scan found no `sorry`, `admit`, custom
+`axiom`, `Classical`, `noncomputable`, `native_decide` or `unsafe` use. No full
+tree build, root guard or repository-wide axiom audit was run. Frozen source
+SHA-256:
+`133121b7dd43a45f2084023f6d510a2cae406bc28fd07e62077485a20925604d`.
+
+This closes only the circle-model positivity/cancellation algebra. The stable
+base directions themselves remain OPEN and carry the genuine transcendental
+arctan-series/trig-series work, including the retained cosine-composition
+identity and its `1/239` analogue. Therefore `sin(pi)=0`, actual transverse
+mode rows, compact-Haar/ORIGINAL comparison, the signed response estimate, H1,
+EVERY-state physical decay, continuum/QFT and the Clay target remain OPEN. No
+canonical displayed claim changes.
+
+### Exact finite coordinate-factor pullback (KERNEL-CHECKED)
+
+2026-10-15. The new leaf
+`lean/YMGap/Continuum/SU2QuaternionFiniteGaussianCoordinatePullback.lean`
+implements the finite coordinate-space alternative identified after the
+constructive-real sampling checkpoint. Given an arbitrary explicit rational
+matrix `transform`, `pulledRow:118` maps a physical rational row to independent
+noise coordinates. `factorCovariance:124` computes the literal finite factor
+
+    C_ij = sum_k transform(i,k) * transform(j,k),
+
+and `physicalCovarianceBilinear:130` forms the corresponding physical-row
+bilinear. The theorem `finiteRowGram_pulledRow:143` proves by finite
+distributivity and two checked Fubini swaps that
+
+    Gram_noise(A^T b, A^T d) = sum_ij b_i d_j C_ij.
+
+No covariance identity is assumed. `finiteRowNorm2_pulledRow:218` obtains the
+matching quadratic, and the direct consumer
+`finiteGaussianRadialCovariance_threeColorPulledRows:227` feeds both identities
+into the existing concrete three-color theorem. Thus every explicit finite
+rational factor has the exact checked evaluator identity
+
+    Cov(S_B^2,S_D) = 60 * (b^T C b) * (b^T C d)^2.
+
+The mandatory process preflight found no competing Lean build. The focused
+command
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
+      --check lean/YMGap/Continuum/SU2QuaternionFiniteGaussianCoordinatePullback.lean
+
+exited zero with one worker, the mandatory 20-GiB worker cap and 12-GiB OS
+reserve. All THREE printed public theorem gates are exactly
+`[propext, Quot.sound]`. A source scan found no `sorry`, custom `axiom`,
+`Classical`, `noncomputable`, `native_decide` or `unsafe` use. No full tree
+build, root guard or repository-wide axiom audit was run. Frozen source
+SHA-256:
+`c2309bfdb221a992288170890ea37307584efcfe6951827ae28f555b62c0cd81`.
+
+This is an exact row-level construction inside the existing finite iid
+product-Gaussian polynomial evaluator. It does NOT construct a transformed
+Gaussian density, Jacobian, pushforward-law equality, inverse or precision
+certificate, nor an actual target covariance factor. It also proves no
+cutoff-uniform estimate, compact-Haar/ORIGINAL comparison, signed response
+bound, H1, EVERY-state physical decay, continuum/QFT or Clay conclusion. The
+next coordinate-space obligation is therefore concrete rather than
+interface-level: construct the rational finite covariance factor required by
+the retained physical calculation and certify the inverse/precision facts
+its downstream comparison consumes. The trig branch remains the alternative.
+No canonical displayed claim changes.
+
+### LDL-to-rational covariance factors by Heron iteration (KERNEL-CHECKED)
+
+2026-10-15. A rational positive covariance matrix need not possess a rational
+square-root factor, so the preceding exact pullback alone did not yet avoid
+all irrational mode data. The new leaf
+`lean/YMGap/Continuum/SU2QuaternionFiniteGaussianLDLCoordinateFactor.lean`
+closes that generic finite obstruction without selecting any roots.
+
+`finiteLDLPositiveDiagonalCheck:81` is an executable strict-pivot check.
+For exact rational LDL data, `heronLDLTransform:95` replaces each formal
+`sqrt(D_k)` by the explicit rational Heron iterate at a supplied stage.
+`ldlFactorResidual:101` records the signed entry residual, while
+`ldlFactorResidualEnvelope:108` records its geometric rational envelope.
+The exact algebra theorem `factorCovariance_heronLDLTransform:137` proves
+
+    A_n A_n^T = L D L^T + R_n.
+
+When the existing `finiteLDLCheck` succeeds,
+`factorCovariance_heronLDLTransform_checked:157` replaces `L D L^T` by the
+checked matrix itself. `ldlFactorResidual_abs_le:189` and
+`factorCovariance_heronLDLTransform_error:202` prove entrywise
+
+    |(A_n A_n^T)_ij - C_ij|
+      <= sum_k errAt(D_k,0) * (1/2)^n * |L_ik L_jk|.
+
+This is a computed rational bound at every stage; no real square root,
+classical selection or hidden existence modulus occurs. Finally,
+`finiteGaussianRadialCovariance_threeColorHeronLDLRows:231` is the literal
+consumer: every rational Heron stage feeds the checked coordinate pullback
+and exact factor-60 three-color radial covariance.
+
+The first focused check correctly stopped because the newly added coordinate
+pullback had no `.olean`. The monitored dependency target
+
+    python3 scripts/safe_lean_build.py --jobs 1 --lake-worker-limit-gib 20 \
+      -- +YMGap.Continuum.SU2QuaternionFiniteGaussianCoordinatePullback:olean
+
+exited zero. The final focused command
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
+      --check lean/YMGap/Continuum/SU2QuaternionFiniteGaussianLDLCoordinateFactor.lean
+
+also exited zero with one worker, the mandatory 20-GiB worker cap and 12-GiB
+OS reserve. All SIX printed public theorem gates are exactly
+`[propext, Quot.sound]`. A source scan found no `sorry`, `admit`, custom
+`axiom`, `Classical`, `noncomputable`, `native_decide` or `unsafe` use. No
+full tree build, root guard or repository-wide axiom audit was run. Frozen
+source SHA-256:
+`d955c4e4d75c2e0364d6a5f090e6b1c4ca6e86e0ff3900fceb4b679fc341289b`.
+
+This result does NOT define the actual open-cube/history precision, construct
+its exact rational inverse, or supply the concrete positive LDL tables. It
+also does not yet propagate the displayed entrywise residual through the
+complete retained normalized response. Those are now the coordinate branch's
+next concrete obligations. Gaussian density/Jacobian and pushforward-law
+claims, compact-Haar/ORIGINAL matching, the signed response bound, H1,
+EVERY-state physical decay, continuum/QFT and the Clay target remain OPEN.
+No canonical displayed claim changes.
+
+### Coordinate finite free-history precision and inverse checker (KERNEL-CHECKED)
+
+2026-10-15. The new leaf
+`lean/YMGap/Continuum/SU2QuaternionFiniteGaussianFreeHistoryPrecision.lean`
+encodes the ambient finite FREE-history precision skeleton without Fourier or
+trigonometric modes. `finiteCurlPrecision:46` constructs the spatial matrix
+`d^* d` from a supplied finite rational face-by-edge curl incidence. The
+module now states explicitly that a gauge-theory incidence can have gradient
+zero modes and makes no invertibility claim on the full edge carrier. The
+scalar time block `freeTemporalPrecision:71` has endpoint diagonal one,
+interior diagonal two and adjacent coefficient minus one, while a one-slice
+history has zero temporal degree. Thus it retains the two FREE endpoints
+recorded in "Finite free-chain terminals" rather than silently inserting
+vacuum factors.
+
+`freeHistoryPrecision:119` is the flattened Kronecker sum
+
+    I_time tensor (d^* d) + L_time tensor I_edge.
+
+`freeHistoryPrecision_index:131` verifies the mixed-radix decoding, and the
+same-time, adjacent-time and separated-time theorems check the three actual
+block cases. `freeHistoryCurlPrecision:247` specializes this construction to
+the curl incidence and is symmetric by construction.
+
+`finiteMatrixInverseCheck:271` is an executable two-sided exact rational
+inverse check over every in-range entry. Its soundness theorem
+`finiteMatrixInverseCheck_entries:281` returns both `L*C=I` and `C*L=I`.
+`freeHistoryCovarianceInverseCheck:298` applies this checker to the supplied
+history precision; a singular ambient carrier cannot pass it. Finally
+`freeHistoryCovariance_heronFactor:309` composes
+three independently re-evaluated facts:
+
+1. after a separately supplied invertible coordinate restriction, the
+   proposed rational covariance is a two-sided inverse of its history
+   precision;
+2. its rational LDL table is exact with positive pivots;
+3. the staged Heron factor differs from that covariance by the explicit
+   geometric envelope from the preceding leaf.
+
+The initial focused check correctly requested the missing `.olean` for the
+immediate LDL-Heron dependency. The monitored target
+
+    python3 scripts/safe_lean_build.py --jobs 1 --lake-worker-limit-gib 20 \
+      -- +YMGap.Continuum.SU2QuaternionFiniteGaussianLDLCoordinateFactor:olean
+
+exited zero. The final focused command
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
+      --check lean/YMGap/Continuum/SU2QuaternionFiniteGaussianFreeHistoryPrecision.lean
+
+also exited zero with one worker, the mandatory 20-GiB worker cap and 12-GiB
+OS reserve. The process preflight first observed an unrelated 2.1-GiB
+single-core `pytest` run in another repository; it was left untouched, allowed
+to finish, and a clean preflight was obtained before Lean started. All EIGHT
+printed public theorem gates are subsets of the allowed gate and contain only
+`[propext]` or `[propext, Quot.sound]`. A source scan found no `sorry`,
+`admit`, custom `axiom`, `Classical`, `noncomputable`, `native_decide` or
+`unsafe` use. No full tree build, root guard or repository-wide axiom audit
+was run. Frozen source SHA-256:
+`5507db9bb13472849e821e5567ee8bfe0f8eb4af3e4b94be9b6123597877dcbd`.
+
+At this checkpoint the actual open-cube edge/face enumeration had not yet been
+connected to the curl matrix. The next section performs that join and records
+why the initially proposed full-edge inverse target is mathematically invalid.
+No Gaussian density/pushforward, compact-Haar/ORIGINAL, H1, EVERY-state decay,
+continuum/QFT or Clay claim follows, and no canonical displayed claim changes.
+
+### Inclusive fixed-spatial incidence and gauge-kernel route correction (KERNEL-CHECKED)
+
+2026-10-15. The new leaf
+`lean/YMGap/Continuum/SU2QuaternionFiniteGaussianOpenCubeIncidence.lean`
+connects the generic coordinate precision API to the literal fixed-spatial
+geometry. `openCubeEdgeCount` uses the existing inclusive `baseLinks width`, while
+`openCubeFaceCount` uses the existing `spatialFaces width`. Guarded total
+lookups have in-range recovery and `idxOf` recovery theorems, so no fallback
+face or link enters the finite matrix. The public theorem
+`openCubeCurl_idxOf` identifies every literal face/link entry with the existing
+standard oriented cubical coefficient, embedded in `Q'`. The four boundary
+signs are checked as `+A,+B,-C,-D`, and
+`selectedSpatialFace_edge_mem` proves that every literal boundary edge of
+every retained face belongs to the same retained edge carrier. Thus the new
+`openCubeCurl`, `openCubeSpatialPrecision` and
+`openCubeFreeHistoryPrecision` are the exact coordinate objects for that
+existing fixed-spatial ambient carrier, not a substituted graph. They are not
+yet the paper's internal Gaussian carrier: `baseLinks width` also contains
+positive spatial links whose positive endpoint exits the strict width-box.
+
+This exact join exposes a dead end in the previous NEXT wording. The theorem
+`faceCurlValue_edgeGradient` proves for every rational vertex potential and
+every plaquette that the literal oriented curl of its positive-link gradient
+is zero. The explicit `firstCoordinatePotential` has a gradient that is
+provably nonzero on `originFirstLink`, and `originFirstLink_mem` puts that link
+in `baseLinks width` at every width. Hence the ambient full-edge curl has a
+genuine gauge null direction. Its `d^*d` precision must NOT be sent to an
+ordinary two-sided inverse checker. The paper covariance used in the retained
+response lives instead on the transverse section `H=ker(D^*)`; adding an
+unjustified mass or longitudinal term would change the calculation.
+
+The initial focused check stopped only because the new uncommitted
+`SU2QuaternionFiniteGaussianFreeHistoryPrecision` dependency lacked an
+`.olean`. The monitored dependency target
+
+    python3 scripts/safe_lean_build.py --jobs 1 --lake-worker-limit-gib 20 \
+      -- +YMGap.Continuum.SU2QuaternionFiniteGaussianFreeHistoryPrecision:olean
+
+exited zero. After local representation repairs, the focused command
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
+      --check lean/YMGap/Continuum/SU2QuaternionFiniteGaussianOpenCubeIncidence.lean
+
+exited zero with one worker, the mandatory 20-GiB worker cap and 12-GiB OS
+reserve. All SEVEN printed public theorem gates are subsets of the allowed
+gate and contain only `[propext]`, `[propext, Quot.sound]`, or no axioms. A
+source scan found no `sorry`, `admit`, custom `axiom`, `Classical`,
+`noncomputable`, `native_decide` or `unsafe` use. No full tree build, root
+guard or repository-wide axiom audit was run. Frozen source SHA-256:
+`1298fe1a5e7634345b45e44c0c8f3b90835c8d9058c079d2f935d7111445bea9`.
+
+The coordinate branch's next valid obligation is therefore an explicit
+rational transverse/gauge-reduced coordinate map, followed by the restricted
+history precision and its all-scale inverse/positive-LDL producer. The trig
+bridge remains the alternative. The retained normalized response has not yet
+consumed the Heron residual. No Gaussian density/pushforward,
+compact-Haar/ORIGINAL comparison, signed response estimate, H1, EVERY-state
+decay, continuum/QFT or Clay claim follows, and no canonical displayed claim
+changes.
+
+### Formula-level internal open-cube incidence (KERNEL-CHECKED)
+
+2026-10-15. The new lightweight leaf
+`lean/YMGap/Continuum/SU2QuaternionFiniteGaussianInternalOpenCubeIncidence.lean`
+corrects the carrier distinction exposed above without asserting an unproved
+equality to the original transfer filters. `InternalOpenCubeLink:51` requires
+both endpoints of a transmitted positive spatial link to remain in the strict
+vertex box. `InternalOpenCubeFace:65` retains exactly the three spatial face
+orientations with guards
+
+    p01: x+1<width, y+1<width, z<width,
+    p02: x+1<width, y<width, z+1<width,
+    p12: x<width, y+1<width, z+1<width.
+
+The direct finite lists `internalOpenCubeLinks:93` and
+`internalOpenCubeFaces:98` have checked membership equivalences and duplicate-
+free proofs. `internalOpenCubeFace_edge_property:227` constructively checks all
+twelve oriented spatial boundary-edge cases and proves every edge of an
+internal face is an internal link. The complementary formula list
+`outwardOpenCubeLinks:292` contains transmitted links that exit the box;
+`outwardOpenCubeLink_not_mem_edges:310` and
+`outwardOpenCubeLink_boundaryCoefficient_zero:352` prove that such links occur
+in no internal face and have zero boundary coefficient there. The guarded
+matrix `internalOpenCubeCurl:387`, its `idxOf` theorem, and
+`internalOpenCubeFreeHistoryPrecision:420` therefore instantiate the generic
+finite precision API on the internal formula carrier.
+
+An attempted monitored build of the older fixed-spatial import cone,
+
+    python3 scripts/safe_lean_build.py --jobs 1 --lake-worker-limit-gib 20 \
+      -- +YMGap.Continuum.SU2QuaternionFiniteGaussianOpenCubeIncidence:olean
+
+remained machine-safe but failed when pre-existing generated reflection
+wrappers exceeded the mandatory 20-GiB worker limit, including
+`BF4ExactSlabVacuumReflectionCheck2Face0`, `Check3Face0`, `Check4Face6`,
+`Check5Face2`, and `Check5Face11Source`. The cap was not raised. The internal
+leaf was therefore kept on two lightweight checked imports rather than using
+that stale heavy cone. This is an import/build-infrastructure limitation, not
+a proof of the missing original-filter equality.
+
+After replacing one arithmetic tactic proof that exposed `Classical.choice`
+with explicit constructor inequalities, the focused command
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
+      --check lean/YMGap/Continuum/SU2QuaternionFiniteGaussianInternalOpenCubeIncidence.lean
+
+exited zero with one worker, the 20-GiB worker cap and 12-GiB OS reserve. All
+NINE printed load-bearing theorem gates are subsets of the allowed gate and
+contain only `[propext]` or `[propext, Quot.sound]`. A source scan found no
+`sorry`, `admit`, custom `axiom`, `Classical`, `noncomputable`,
+`native_decide` or `unsafe` use. `git diff --check` passed. No full tree build,
+root guard or repository-wide axiom audit was run. Frozen source SHA-256:
+`38f2e3a5a007db1a6fa7c66e3bdc530f8655c72c968d40964faa94ce9f586131`.
+
+NEXT on the coordinate route is the formula-level all-width comb tree: retain
+all x-links, y-links at x=0, and z-links at x=y=0; then construct the explicit
+rational gauge-coordinate map and restricted history precision. Equality of
+the formula carrier with the original transfer filters remains a separate
+open bridge and should be recovered through a lightweight geometry interface,
+not by raising the reflection-wrapper memory cap. The inverse/positive-LDL
+certificate, Gaussian law/pushforward, compact-Haar/ORIGINAL comparison,
+signed response bound, H1, EVERY-state physical decay, continuum/QFT and Clay
+target all remain OPEN. No canonical displayed claim changes.
+
+### All-width comb gauge and chord precision (KERNEL-CHECKED)
+
+2026-10-15. The new leaf
+`lean/YMGap/Continuum/SU2QuaternionFiniteGaussianOpenCubeCombGauge.lean`
+consumes the formula-level internal carrier and implements the standard comb
+restriction at every width. `CombTreeLink:36` selects all internal positive
+x-links, the internal y-links at x=0, and the internal z-links at x=y=0.
+`combTreeLinks:49` and `combGaugeLinks:55` are duplicate-free and form an exact
+decidable partition of `internalOpenCubeLinks`; the latter is the complementary
+chord-coordinate carrier.
+
+This is more than a list filter. `combGaugePotential:136` is the explicit
+rooted path sum that first follows z at x=y=0, then y at x=0, then x.
+`combGaugePotential_increment:147` proves that the potential gains exactly the
+field value on every comb link. Consequently
+`combGaugeFixedField_tree_zero:222` sends every rational internal edge field to
+an explicit representative vanishing on every comb link. The independent
+identity `combGaugeFaceCurl_fixed:252` proves that this transformation preserves
+the literal oriented `+A,+B,-C,-D` curl on every coordinate plaquette.
+
+`combGaugeEmbedding:299` is the literal chord-to-internal-edge inclusion
+matrix. It recovers each chord coordinate and is zero on every comb row.
+`combGaugeCurl:337` is the internal face curl restricted to those columns;
+`combGaugeCurl_eq_internalOpenCubeCurl:345` identifies it with the ambient
+internal curl at the selected chord, and `combGaugeCurl_idxOf:362` gives the
+literal boundary coefficient. `combGaugeFreeHistoryPrecision:378` is therefore
+the finite FREE-history precision on the explicit gauge-reduced coordinate
+carrier.
+
+The lightweight incidence dependency was first compiled by the monitored
+target
+
+    python3 scripts/safe_lean_build.py --jobs 1 --lake-worker-limit-gib 20 \
+      -- +YMGap.Continuum.SU2QuaternionFiniteGaussianInternalOpenCubeIncidence:olean
+
+which exited zero. The final focused command
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
+      --check lean/YMGap/Continuum/SU2QuaternionFiniteGaussianOpenCubeCombGauge.lean
+
+also exited zero with one worker, the 20-GiB worker cap and 12-GiB OS reserve.
+All ELEVEN printed load-bearing theorem gates are subsets of the allowed gate
+and contain only `[propext]` or `[propext, Quot.sound]`. A token-aware source
+scan found no `sorry`, `admit`, custom `axiom`, `Classical`, `noncomputable`,
+`native_decide` or `unsafe` construct. `git diff --check` passed. No full tree
+build, root guard or repository-wide axiom audit was run. Frozen source
+SHA-256:
+`e6bd2a44015690be37f643767e192b40fa697e25ff7199573bb50a2884b3503b`.
+
+This proves existence of a curl-preserving comb-zero representative but not
+yet uniqueness or positivity of the restricted precision. NEXT is the direct
+kernel proof: x-links vanish by the gauge condition; p01 plaquettes propagate
+y-link vanishing from x=0; p02 propagates z-link vanishing to x=0; and p12
+propagates it from y=0. That constructive injectivity must then be connected to
+an all-width rational inverse/positive-LDL producer. The original-filter
+equality, Gaussian density/pushforward, compact-Haar/ORIGINAL comparison,
+signed response bound, H1, EVERY-state physical decay, continuum/QFT and Clay
+target remain OPEN. No canonical displayed claim changes.
+
+### Trivial comb-fixed curl kernel (KERNEL-CHECKED)
+
+2026-10-15. The new leaf
+`lean/YMGap/Continuum/SU2QuaternionFiniteGaussianOpenCubeCombCurlKernel.lean`
+proves the finite topological kernel theorem that the comb-coordinate route
+needs before any inverse certificate. `VanishesOnComb:31` is literal vanishing
+on the listed comb links and `VanishesOnInternalCurls:36` is literal zero
+oriented curl on every listed internal face.
+
+The proof is constructive coordinate recursion, not a dimension count. On a
+`p01` face the first and third edges are x-links and hence zero, so the two
+y-links agree; induction propagates every y-link from its comb value at x=0.
+On `p02`, the same argument propagates z-links to x=0. On `p12` at x=0, the
+first and third edges are comb y-links, so a second induction propagates the
+remaining z-link from its comb value at y=0. Positive x-links already belong to
+the comb. The public theorem
+`internalField_eqv_zero_of_comb_and_curl:208` therefore proves that every
+listed internal edge value is equivalent to zero.
+
+`combGaugeCoordinateField:236` extends an arbitrary chord vector by zero away
+from the chord list. Its comb vanishing is checked directly, and
+`combGaugeCoordinate_eqv_zero_of_face_curls:301` proves that every in-range
+chord coordinate is zero whenever this represented field has zero internal
+face curls. Thus the semantic chord-coordinate curl has trivial kernel at every
+width. The remaining matrix bridge is explicit rather than existential: prove
+that the finite row sum using the already defined entries `combGaugeCurl(i,j)`
+equals this selected face curl.
+
+The comb-gauge dependency was compiled by the monitored target
+
+    python3 scripts/safe_lean_build.py --jobs 1 --lake-worker-limit-gib 20 \
+      -- +YMGap.Continuum.SU2QuaternionFiniteGaussianOpenCubeCombGauge:olean
+
+and the focused command
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
+      --check lean/YMGap/Continuum/SU2QuaternionFiniteGaussianOpenCubeCombCurlKernel.lean
+
+exited zero with one worker, the 20-GiB worker cap and 12-GiB OS reserve. Both
+printed public theorem gates are exactly `[propext, Quot.sound]`. A token-aware
+source scan found no `sorry`, `admit`, custom `axiom`, `Classical`,
+`noncomputable`, `native_decide` or `unsafe` construct. `git diff --check`
+passed. No full tree build, root guard or repository-wide axiom audit was run.
+Frozen source SHA-256:
+`feb1f76715499ec548ab8d8cfd09642bcd86c8fbf2eca6e9365067336e1de1c8`.
+
+NEXT is the finite row-sum/face-curl identity and actual matrix injectivity,
+followed by the all-width rational inverse/positive-LDL producer. The
+original-filter equality, Gaussian density/pushforward, compact-Haar/ORIGINAL
+comparison, signed response bound, H1, EVERY-state physical decay,
+continuum/QFT and Clay target remain OPEN. No canonical displayed claim
+changes.
+
+### Comb-curl matrix injectivity and spatial Gram positivity (KERNEL-CHECKED)
+
+2026-10-15. The new leaf
+`lean/YMGap/Continuum/SU2QuaternionFiniteGaussianOpenCubeCombCurlMatrix.lean`
+closes the explicit finite matrix bridge left open by the semantic kernel
+theorem. `combGaugeCurlApply_eq_faceCurl:471` proves that every in-range row
+sum
+
+    sum_j combGaugeCurl(width,i,j) * coordinate(j)
+
+is equivalent to the selected internal face curl of the literal
+zero-extended chord-coordinate field. The proof filters the internal-link sum
+to the four boundary edges, proves the filtered list is a permutation of the
+literal oriented boundary, and transports the resulting exact rational sum.
+`combGaugeCurl_matrix_injective:488` then consumes the previously checked
+semantic kernel theorem and proves that zero output on every in-range row
+forces every in-range chord coordinate to be equivalent to zero.
+
+`combGaugeCurlEnergy:575` is the literal finite sum of squared row outputs.
+`combGaugeCurlEnergy_nonnegative:582` proves its nonnegativity, and
+`combGaugeCurlEnergy_positive_of_coordinate_not_eqv_zero:597` proves strict
+positivity whenever a supplied in-range coordinate is nonzero. The canonical
+matrix form `combGaugeSpatialQuadratic:622` specializes the repository's
+constructive `FiniteWeightedGramSOS` theorem with unit row weights.
+`combGaugeSpatialQuadratic_eq_energy:701` identifies that actual `D^T D`
+quadratic with the row-square energy;
+`combGaugeSpatialQuadratic_nonnegative:717` and
+`combGaugeSpatialQuadratic_positive_of_coordinate_not_eqv_zero:770` therefore
+give nonnegativity and strict positivity of the finite spatial precision.
+
+The first gate check exposed `Classical.choice` in two broad simplifier proofs:
+the coordinate self-translation inequality and duplicate-freeness of a
+plaquette's four edges. They were replaced respectively by four explicit
+coordinate-projection contradictions and a six-plane `simp only` proof with
+named constructor inequalities. No classical selector remains in any public
+result. The dependency-complete monitored builds
+
+    python3 scripts/safe_lean_build.py --jobs 1 --lake-worker-limit-gib 20 \
+      -- +YMGap.Continuum.SU2QuaternionFiniteGaussianOpenCubeCombCurlKernel:olean
+
+    python3 scripts/safe_lean_build.py --jobs 1 --lake-worker-limit-gib 20 \
+      -- +YMGap.Continuum.FiniteWeightedGramSOS:olean
+
+and the final module build
+
+    python3 scripts/safe_lean_build.py --jobs 1 --lake-worker-limit-gib 20 \
+      -- +YMGap.Continuum.SU2QuaternionFiniteGaussianOpenCubeCombCurlMatrix:olean
+
+all exited zero. The final focused command
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
+      --check lean/YMGap/Continuum/SU2QuaternionFiniteGaussianOpenCubeCombCurlMatrix.lean
+
+also exited zero with one worker, the 20-GiB worker cap and 12-GiB OS reserve.
+All SEVEN printed public theorem gates are subsets of the allowed gate and
+contain only `[propext]` or `[propext, Quot.sound]`. A token-aware source scan
+found no `sorry`, `admit`, custom `axiom`, `Classical`, `noncomputable`,
+`native_decide` or `unsafe` construct. `git diff --check` passed. No full tree
+build, root guard or repository-wide axiom audit was run. Frozen source
+SHA-256:
+`14202bffdb039b74933ad4811dc98b91f820173541e550f18871ab5ab0e46fa6`.
+
+This closes finite spatial matrix injectivity and strict Gram positivity only.
+It does NOT yet construct the all-width rational inverse or positive-LDL data,
+nor prove the corresponding FREE-history inverse/factor certificate. NEXT is a
+generic constructive finite positive-definite matrix producer specialized to
+this spatial quadratic, followed by the temporal FREE-history extension. The
+original-filter equality, Gaussian density/pushforward, compact-Haar/ORIGINAL
+comparison, signed response bound, H1, EVERY-state physical decay,
+continuum/QFT and Clay target remain OPEN. No canonical displayed claim
+changes.
+
+### Constructive positive LDL and exact comb spatial inverse (KERNEL-CHECKED)
+
+2026-10-15. The generic finite rational producer left open above is now
+implemented without determinant choice or an external certificate oracle.
+`FiniteRationalPositiveDefiniteLDL.lean` packages an explicit nonzero-coordinate
+strict-positivity interface and exact positive LDL data. The recursive step in
+`FiniteRationalPositiveDefiniteSchur.lean` uses the literal rational graph
+`x_0=-A(0,tail)/A(0,0)`, proves its pullback is the ordinary Schur complement,
+and transports symmetry and strict positivity to the tail.
+
+`FiniteRationalPositiveDefiniteLDLProducer.lean` recursively prepends the
+positive head pivot and exact first column. Its public
+`positiveLDLDataOfStrictPositive` reconstructs every in-range matrix entry as
+the literal finite `L D L^T` sum, while
+`positiveLDLDataOfStrictPositive_check` proves that the repository's existing
+Boolean LDL checker returns true. `FiniteRationalMatrixAlgebra.lean` supplies
+the missing exact product associativity, identity, transpose and diagonal
+laws. `FiniteRationalUnitLowerInverse.lean` then constructs the recursive
+two-sided inverse of the produced unit-lower factor. Finally
+`FiniteRationalPositiveDefiniteInverse.lean` combines that inverse with the
+positive pivot reciprocals into the explicit rational product
+
+    L^-T D^-1 L^-1
+
+and proves both multiplication orders equal the finite identity. The resulting
+`finiteMatrixInverseDataOfStrictPositive_check` proves the existing executable
+two-sided inverse checker returns true in every finite dimension. The same
+factorization now also exposes
+`finiteMatrixInversePositiveLDLDataOfStrictPositive`: the inverse itself has
+exact positive LDL data with lower factor `L^-T` and reciprocal positive
+pivots. This is the direct covariance-factor input used by the full-history
+consumer below.
+
+The concrete specialization
+`SU2QuaternionFiniteGaussianOpenCubeCombPositiveDefinite.lean` applies these
+generic producers to the actual all-width comb `D^T D`. The public declarations
+`combGaugeSpatialPositiveLDL`, `combGaugeSpatialPositiveLDL_check`,
+`combGaugeSpatialPositiveLDL_diagonal_check`,
+`combGaugeSpatialInverseData`, and
+`combGaugeSpatialCovariance_inverse_check` therefore provide exact positive
+LDL data and an exact rational two-sided spatial covariance at every width.
+
+The focused monitored checks for all new generic leaves and the concrete comb
+leaf exited zero with one worker, a 20-GiB worker cap and 12-GiB OS reserve.
+The final commands included
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
+      --check lean/YMGap/Continuum/FiniteRationalPositiveDefiniteLDLProducer.lean
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
+      --check lean/YMGap/Continuum/FiniteRationalPositiveDefiniteInverse.lean
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
+      --check lean/YMGap/Continuum/SU2QuaternionFiniteGaussianOpenCubeCombPositiveDefinite.lean
+
+and the dependency-complete module builds for the matrix algebra, unit-lower
+inverse, producer, full inverse and concrete specialization also exited zero.
+Every printed load-bearing declaration depends only on `[propext]` or
+`[propext, Quot.sound]`; no `sorryAx` or `Classical.choice` remains. A source
+scan found no `sorry`, `admit`, custom `axiom`, `Classical`, `noncomputable`,
+`native_decide` or `unsafe` use, and `git diff --check` passed. No full tree
+build, root guard or repository-wide axiom audit was run. Frozen source
+SHA-256 values are:
+
+    FiniteRationalPositiveDefiniteLDL.lean
+      b0acd7c9dcac73353cedeb24cba03e79f82d1f15c9364fdb30a6f2c93c91fc20
+    FiniteRationalPositiveDefiniteSchur.lean
+      64de7f670d26a3b944d5eceab9ba4a534ee96678bf729d672ae753076b7945d3
+    FiniteRationalMatrixAlgebra.lean
+      fe07f188bbd85c3a68b291965418664ed402df57a6e8cc1d5207ca7e4bd7b32d
+    FiniteRationalUnitLowerInverse.lean
+      265b24781ffee2e4cfc05fc3ccda0e9714c6ae4c2ef47e2e5fa6686beb9fbc54
+    FiniteRationalPositiveDefiniteLDLProducer.lean
+      64dac350bbab0a0f986cdc553e4567ba10a62827a3982449f5add0f8232edf35
+    FiniteRationalPositiveDefiniteInverse.lean
+      9960cf1331c56fbd4bd69fdbdbefef74b866480af66ae50fe96be6bfa3fe4596
+    SU2QuaternionFiniteGaussianOpenCubeCombPositiveDefinite.lean
+      d46a58735297ee631da431c41a272f987de2b175ab4d4b43be9d52c5bb73fc0a
+
+This section closes the finite spatial inverse/positive-LDL obligation. The
+next section records the subsequent complete comb FREE-history extension. No
+Gaussian density or pushforward law, equality to the original transfer
+filters, compact-Haar/ORIGINAL comparison, signed response bound, H1,
+EVERY-state physical decay, continuum QFT, Hamiltonian gap, or Clay conclusion
+follows. No canonical displayed claim changes.
+
+### Complete comb FREE-history inverse and covariance Heron factor (KERNEL-CHECKED)
+
+2026-10-15. The full finite-history matrix obligation is now discharged
+constructively. `FiniteRationalFreeHistoryQuadratic.lean` proves the exact
+mixed-radix decomposition of the flattened Kronecker-sum quadratic into the
+sum of the spatial quadratic on every time slice and the temporal quadratic
+on every fixed spatial fiber. The proof is an explicit reindexing of finite
+`listQSum` expressions; it uses no eigenmodes, determinant, or classical
+finite-dimensional argument.
+
+`FiniteRationalFreeTemporalPositiveSemidefinite.lean` defines the literal
+forward-difference incidence of the FREE temporal path. Its theorem
+`freeTemporalDifference_gram` identifies the weighted Gram entries with the
+endpoint-degree tridiagonal precision, including the zero-bond one-slice case,
+and `freeTemporalQuadratic_nonnegative` proves the complete temporal quadratic
+nonnegative. An initial focused check exposed `Classical.choice` in the
+diagonal sparse-sum arithmetic because broad `omega` calls had generated
+classical contradiction terms. Those calls were replaced by explicit
+constructive `Nat` lemmas (`sub_one_lt`, `sub_eq_iff_eq_add`,
+`lt_of_le_of_ne`, and the mixed-radix bounds). The final public gates are
+exactly `[propext, Quot.sound]`.
+
+The concrete assembly
+`SU2QuaternionFiniteGaussianOpenCubeCombFreeHistoryPositiveDefinite.lean`
+decodes a supplied nonzero flattened coordinate into its explicit time slice
+and comb spatial coordinate. That selected spatial slice is strictly positive
+by the checked comb `D^T D` theorem, all remaining spatial slices are
+nonnegative, and every temporal fiber is nonnegative. Therefore
+`combGaugeFreeHistoryPrecision_strictlyPositive` proves strict positivity of
+the complete comb FREE-history precision for every width and every temporal
+cutoff. The same module proves symmetry and instantiates the generic Schur
+producer to obtain exact full-history positive LDL data and an exact rational
+two-sided inverse.
+
+The generic inverse leaf now additionally packages its explicit
+`L^-T D^-1 L^-1` inverse as positive LDL data: the lower factor is `L^-T` and
+the pivots are the positive reciprocals of the original pivots. The concrete
+module consequently supplies exact positive LDL data for the covariance
+itself. Its precision LDL checker, precision positive-diagonal checker,
+two-sided inverse checker, covariance LDL checker, and covariance
+positive-diagonal checker all return true by theorem. Finally
+`combGaugeFreeHistoryCovariance_heronFactor` feeds those certificates into the
+existing finite-history consumer and proves both the selected inverse entry
+and the explicit rational Heron factor residual envelope. The named concrete
+factor `combGaugeFreeHistoryHeronTransform` then feeds the already checked
+row-pullback theorem, and
+`combGaugeFreeHistoryHeronRows_radialCovariance` proves the exact three-color
+factor-60 radial covariance identity for arbitrary finite rational physical
+rows at every width, time cutoff and Heron stage. This last statement is an
+identity for the existing finite product-Gaussian polynomial functional, not a
+density or pushforward-law realization.
+
+The monitored focused checks
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
+      --check lean/YMGap/Continuum/FiniteRationalFreeTemporalPositiveSemidefinite.lean
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
+      --check lean/YMGap/Continuum/FiniteRationalPositiveDefiniteInverse.lean
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
+      --check lean/YMGap/Continuum/SU2QuaternionFiniteGaussianOpenCubeCombFreeHistoryPositiveDefinite.lean
+
+all exited zero with one worker, the 20-GiB worker cap and 12-GiB OS reserve.
+The dependency-complete monitored builds for the temporal module, generic
+inverse and concrete full-history module also exited zero. Every printed
+load-bearing declaration depends only on `[propext]` or
+`[propext, Quot.sound]`; no `sorryAx` or `Classical.choice` remains. No full
+tree build, root guard or repository-wide axiom audit was run. Frozen source
+SHA-256 values are:
+
+    FiniteRationalPositiveDefiniteInverse.lean
+      9960cf1331c56fbd4bd69fdbdbefef74b866480af66ae50fe96be6bfa3fe4596
+    FiniteRationalFreeHistoryQuadratic.lean
+      2c852a4dd759703847c16c22a2a4acbbd2372cfeceec4e0955c9270a2a8099f3
+    FiniteRationalFreeTemporalPositiveSemidefinite.lean
+      1beab65aa47f575b03fb4c27cf3aa465f2eb406d884b52f582e2ae9f7ed2b7fb
+    SU2QuaternionFiniteGaussianOpenCubeCombFreeHistoryPositiveDefinite.lean
+      ff6d21fdfd64ad85d060b308d13f33d348d533fbcc4a3fc33685419b46d6ebf9
+
+This closes the exact finite comb-history precision inverse and covariance
+factor-certificate obligation only. It does NOT prove a Gaussian density or
+pushforward law, equality to the original transfer filters, a normalized
+reference/original comparison, signed response bound, H1, EVERY-state physical
+decay, continuum QFT, Hamiltonian gap, or the Clay conclusion. No canonical
+displayed claim changes.
+
+### Concrete linear-coordinate Gaussian realization and entry error (KERNEL-CHECKED)
+
+2026-10-15. `SU2QuaternionFiniteGaussianLinearCoordinateRealization.lean`
+now represents every row of an explicit rational transform as a literal
+`RatPoly` linear coordinate in the existing finite independent-noise
+variables. `finiteProductGaussian_linearCoordinate_pair` identifies the
+actual polynomial pair moment under the existing finite product-Gaussian
+functional with `factorCovariance`. The arbitrary finite-row theorem
+`finiteProductGaussian_linearObservable_pair` identifies the corresponding
+pair moment with `physicalCovarianceBilinear`, and
+`finiteProductGaussian_linearObservable_square_nonneg` supplies its literal
+square positivity from the already checked finite Gaussian Gram witness.
+The theorem `finiteProductGaussian_linearObservable_pair_error` additionally
+turns any in-range entrywise covariance-factor envelope into the literal
+coefficient-weighted double-sum error for the actual row-polynomial pair
+moment against a supplied finite covariance matrix.
+`physicalCovarianceBilinear_error` exposes the underlying row-bilinear
+estimate directly. The constructive scalar theorem
+`factor60RadialExpression_error` then propagates diagonal and mixed bilinear
+errors through `60 * Bbb * Bbd^2` using only rational absolute-value and
+product-difference laws.
+
+The concrete comb-history module now defines
+`combGaugeFreeHistoryHeronCoordinate`. Its pair theorem identifies the actual
+finite Gaussian coordinate-polynomial second moment with the staged Heron
+factor Gram. The new
+`combGaugeFreeHistoryHeronCoordinate_pair_error` then composes that identity
+with the checked inverse/covariance LDL certificate and proves that the same
+explicit geometric Heron envelope bounds the difference from the exact
+comb-history covariance entry. Thus the residual now reaches an actual
+polynomial-functional coordinate moment rather than stopping at an abstract
+factor matrix. The arbitrary-row specialization
+`combGaugeFreeHistoryHeronObservable_pair_error` goes further: it bounds every
+finite row-polynomial pair moment against the exact comb-history covariance
+bilinear form by the literal double sum of absolute pair coefficients times
+the corresponding Heron entry envelopes.
+The direct theorem `combGaugeFreeHistoryHeronBilinear_error` names that
+bilinear estimate. The module also names the ACTUAL finite Gaussian
+three-color polynomial covariance as
+`combGaugeFreeHistoryHeronRadialCovariance` and the exact covariance
+factor-60 target as `combGaugeFreeHistoryExactRadialCovariance`.
+`combGaugeFreeHistoryHeronRadialCovariance_error` now bounds their absolute
+difference by the explicit nonlinear envelope formed from the staged and
+exact diagonal/mixed bilinears and the two summed Heron row errors. No
+positivity floor or normalization denominator is hidden in this estimate.
+
+The monitored focused checks and dependency-complete module builds
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
+      --check lean/YMGap/Continuum/SU2QuaternionFiniteGaussianLinearCoordinateRealization.lean
+
+    python3 scripts/safe_lean_build.py --jobs 1 --lake-worker-limit-gib 20 -- \
+      +YMGap.Continuum.SU2QuaternionFiniteGaussianLinearCoordinateRealization:olean
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
+      --check lean/YMGap/Continuum/SU2QuaternionFiniteGaussianOpenCubeCombFreeHistoryPositiveDefinite.lean
+
+    python3 scripts/safe_lean_build.py --jobs 1 --lake-worker-limit-gib 20 -- \
+      +YMGap.Continuum.SU2QuaternionFiniteGaussianOpenCubeCombFreeHistoryPositiveDefinite:olean
+
+all exited zero with one worker, the 20-GiB worker cap and 12-GiB OS reserve.
+All twenty new printed declarations remain within the allowed constructive
+gate: the two pure scalar error lemmas use `[propext]`, and all remaining
+printed declarations use `[propext, Quot.sound]`.
+No full tree build, root guard or repository-wide axiom audit was run. Frozen
+source SHA-256 values are:
+
+    SU2QuaternionFiniteGaussianLinearCoordinateRealization.lean
+      85beb4150d34d7d42cafa71669082e270d5d55e5a50d994f9b326b9e2576d741
+    SU2QuaternionFiniteGaussianOpenCubeCombFreeHistoryPositiveDefinite.lean
+      4fae10e920590101962b929d49aff03f8e91177de4aed861ca7da963786f8b36
+
+This closes the coordinate-generator and arbitrary finite-row polynomial
+realization together with their entrywise or coefficient-summed Heron errors
+and the unnormalized nonlinear factor-60 radial covariance error. It is not a
+Lebesgue density, Jacobian, arbitrary-polynomial substitution theorem,
+sigma-algebra/probability construction, normalized relative radial estimate,
+original transfer-filter equality, or interacting-law comparison. NEXT on
+this coordinate route is to identify the ACTUAL retained physical rows and
+prove the exact-target positivity floor or denominator needed for their
+normalization. Add only the polynomial-pullback or measure-level realization
+that this consumer actually requires; the original-filter equality remains
+independent. No canonical displayed claim changes.
+
+### Quadratic radial denominator and literal comb-curl rows (KERNEL-CHECKED)
+
+2026-10-15. The finite Gaussian normalization consumer now has its actual
+quadratic denominator rather than only the sixth-order numerator.
+`finiteGaussianCovariance_row_square` proves the literal paired-square
+covariance from the checked fourth moment, and
+`finiteGaussianRadialPairCovariance_trace` sums it over arbitrary finite row
+families:
+
+    Cov(S_B,S_D) = 2*Tr(K*K^*).
+
+`finiteGaussianRadialPairCovariance_threeColorRows` evaluates the existing
+three disjoint color blocks exactly as `6*rho^2`. No independence,
+nondegeneracy, matrix law, density or change of variables is supplied.
+
+The scalar coordinate layer now names this factor-6 denominator, propagates a
+mixed-bilinear error through it, and proves the division-free normalization
+
+    60*Bbb*Bbd^2 = 10*Bbb*(6*Bbd^2).
+
+`factor6RadialPairExpression_pos` proves strict denominator positivity from a
+positive mixed covariance, while `factor6RadialPairExpression_floor` transports
+any explicit `floor <= Bbd` to the denominator floor `6*floor^2`. These
+theorems do not produce the mixed-covariance floor.
+
+The comb-history specialization defines the ACTUAL finite Gaussian quadratic
+radial pair covariance, its exact canonical-covariance target and its Heron
+residual envelope. `combGaugeFreeHistoryHeronRadialPairCovariance_factor6`
+identifies the polynomial-functional denominator with the staged factor-6
+expression, and `combGaugeFreeHistoryHeronRadialPairCovariance_error` gives its
+explicit error against the exact target. The theorem
+`combGaugeFreeHistoryExactRadialCovariance_normalization` is the exact
+division-free numerator/denominator relation; the separate positivity and
+floor theorems retain their substantive mixed-covariance hypotheses.
+
+`combGaugeFreeHistoryCurlRow` is now the literal primitive physical row for
+one oriented internal comb-gauge face curl on a specified FREE-history time
+slice. `combGaugeFreeHistoryCurlRow_historyIndex` proves that every encoded
+in-range spatial coordinate has exactly the corresponding comb-curl matrix
+coefficient. Both the quadratic denominator error and sixth-order numerator
+error are specialized to pairs of these rows. This identifies primitive
+physical rows only.
+
+The rationally weighted family layer is now checked as well.
+`finiteGaussianWeightedRadialSquare` multiplies each row square directly by
+its rational source coefficient, avoiding any irrational square-root row
+rescaling. `finiteGaussianCovariance_weighted_row_square` proves the weighted
+one-pair identity, and
+`finiteGaussianWeightedRadialPairCovariance_trace` sums it exactly as
+
+    Cov(sum_i u_i*(b_i dot X)^2, sum_j v_j*(d_j dot X)^2)
+      = 2*sum_ij u_i*v_j*Gram(b_i,d_j)^2.
+
+The concrete `combGaugeFreeHistoryHeronColorCurlRow` flattens a placed face
+family into three color rows: `rowIndex / 3` selects the face/time placement
+and `rowIndex % 3` selects the color. The corresponding
+`combGaugeFreeHistoryHeronWeightedCurlRadialSquare` copies each rational face
+weight to those three rows, and
+`combGaugeFreeHistoryHeronWeightedCurlRadialPairCovariance_trace` gives the
+actual finite Gaussian covariance as twice the explicit weighted cross-Gram
+square trace. This closes the square-root-free algebraic assembly data shape.
+It does not yet identify the original `spatialFaces` and smooth-profile
+coefficients with internal comb-face indices, prove that this instantiation is
+the PAPER BOX family, simplify its exact trace, or establish the positive
+cross-time mixed-covariance floor.
+
+The monitored focused checks and dependency-complete builds were:
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
+      --check lean/YMGap/Continuum/SU2QuaternionFiniteGaussianRadialCovariance.lean
+    python3 scripts/safe_lean_build.py --jobs 1 --lake-worker-limit-gib 20 -- \
+      +YMGap.Continuum.SU2QuaternionFiniteGaussianRadialCovariance:olean
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
+      --check lean/YMGap/Continuum/SU2QuaternionFiniteGaussianThreeColorRows.lean
+    python3 scripts/safe_lean_build.py --jobs 1 --lake-worker-limit-gib 20 -- \
+      +YMGap.Continuum.SU2QuaternionFiniteGaussianThreeColorRows:olean
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
+      --check lean/YMGap/Continuum/SU2QuaternionFiniteGaussianLinearCoordinateRealization.lean
+    python3 scripts/safe_lean_build.py --jobs 1 --lake-worker-limit-gib 20 -- \
+      +YMGap.Continuum.SU2QuaternionFiniteGaussianLinearCoordinateRealization:olean
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
+      --check lean/YMGap/Continuum/SU2QuaternionFiniteGaussianOpenCubeCombFreeHistoryPositiveDefinite.lean
+    python3 scripts/safe_lean_build.py --jobs 1 --lake-worker-limit-gib 20 -- \
+      +YMGap.Continuum.SU2QuaternionFiniteGaussianOpenCubeCombFreeHistoryPositiveDefinite:olean
+
+The radial-covariance and comb-history focused checks and module builds above
+were rerun after adding the weighted family layer; all final commands exited
+zero with one worker, a 20-GiB worker cap and 12-GiB OS reserve. Of the
+twenty-one newly printed declarations, the pure scalar
+factor-6 error and positivity theorems use `[propext]`; all others use only
+`[propext, Quot.sound]`. An initial scalar check exposed one missing namespace
+opening; after that source-only repair, the final check had no error,
+`sorryAx`, warning or broadened theorem statement. No full tree build, root
+guard or repository-wide axiom audit was run. Frozen source SHA-256 values are:
+
+    SU2QuaternionFiniteGaussianRadialCovariance.lean
+      8098d1c9281d5831e6079160b3423f71c72a4af0e099ea15f2fa9294e21a84b3
+    SU2QuaternionFiniteGaussianThreeColorRows.lean
+      b8ddd7403a584f686409ebd86891f077a4e9fd93947da5ae16d6f18a3cb41edf
+    SU2QuaternionFiniteGaussianLinearCoordinateRealization.lean
+      b8e68aff522344b37d27a6d260f0c5612285f2a6d90f9ff9196cec90bc234e83
+    SU2QuaternionFiniteGaussianOpenCubeCombFreeHistoryPositiveDefinite.lean
+      0ee825db259a9fbebc6977a000673d7cffec7ccf3e5b27daf5ae6c104590699d
+
+NEXT on this branch is to construct the explicit map from the original
+retained `spatialFaces`/smooth-profile source family to internal comb-face
+indices, instantiate the checked weighted placed-row assembly, and prove an
+explicit positive rational lower bound for the resulting exact mixed
+covariance. Only after that floor is checked may the denominator error choose
+a positive Heron stage and the normalized radial ratio be formed. Original
+transfer-filter equality, compact-Haar/interacting-law comparison, H1,
+EVERY-state physical decay, continuum/QFT and the Clay conclusion remain OPEN.
+No canonical displayed claim changes.
+
+### Formula-level rational bulk source and weighted covariance (KERNEL-CHECKED)
+
+2026-10-15. `SU2QuaternionFiniteGaussianOpenCubeBulkSource.lean` now encodes
+the explicit finite rational PAPER source on the lightweight internal comb
+carrier. At side `s`, `bulkSourceFaces` explicitly enumerates the centered
+coordinate block beginning at `(s^2-s)/2`, retaining all three spatial
+orientations at time zero. `bulkSourceFaces_mem_iff` proves equality with the
+intended internal-face coordinate filter. `bulkSourceFaces_nodup` proves
+duplicate freedom, while `bulkSourceFaces_length_cube` proves the exact count
+`3*s^3`. `selectedInternalOpenCubeFace_bulkSourceIndex` gives the exact
+`idxOf` recovery needed by the comb row assembly.
+
+The coefficient is the three-coordinate product of
+
+    (v_s(r)/(4*s+v_s(r)))^s,
+    v_s(r)=(2*r+1)*(2*s-2*r-1).
+
+`bulkProfile_pos` and `bulkSourceCoefficient_pos` prove strict positivity on
+the listed source. `bulkSourceLowerFace_mem` supplies a concrete source face,
+and `bulkSourceCoefficientMass_pos` proves that the finite coefficient-square
+mass is strictly positive for every `s>0`.
+`bulkSourceLowerFace_coefficient` identifies that witness with the cube of the
+explicit one-dimensional corner profile, and
+`bulkSourceCoefficientMass_lowerFaceSquare` proves that the complete mass
+dominates its square. This is a checked side-dependent quantitative floor;
+the PAPER uniform normalized profile floor is closed in the follow-on module
+recorded below. An initial focused
+check exposed
+`Classical.choice` in the lower-face base-cube proof: broad `omega` calls had
+been used for the three elementary inequalities `b < b+s`. Replacing them by
+direct `Nat.lt_add_of_pos_right` proofs removed the leak; the final theorem
+depends only on `[propext, Quot.sound]`.
+
+The definitions `bulkSourceHeronColorCurlRow`,
+`bulkSourceHeronRadialSquare`, and
+`bulkSourceHeronRadialPairCovariance` place the same weighted source at two
+history times. The theorem `bulkSourceHeronRadialPairCovariance_trace`
+specializes the checked weighted comb theorem and identifies the actual finite
+product-Gaussian polynomial covariance with twice the explicit weighted
+cross-Gram-square trace. This is an exact finite identity, not a positive
+cross-time floor, normalized ratio, Gaussian density, or original-law result.
+
+The final monitored commands
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
+      --check lean/YMGap/Continuum/SU2QuaternionFiniteGaussianOpenCubeBulkSource.lean
+
+    python3 scripts/safe_lean_build.py --jobs 1 --lake-worker-limit-gib 20 -- \
+      +YMGap.Continuum.SU2QuaternionFiniteGaussianOpenCubeBulkSource:olean
+
+both exited zero with one worker, the 20-GiB worker cap and 12-GiB OS reserve.
+All twelve printed load-bearing declarations use `[propext]` or
+`[propext, Quot.sound]`; no `Classical.choice`, `sorryAx`, custom axiom or
+noncomputable declaration remains. `git diff --check` and the focused
+prohibited-source scan passed. The frozen source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeBulkSource.lean
+      be0f00258a214ad3d21d68a044615ec71af085a6da028524ed3dd8f33908a2b7
+
+A first implementation imported the canonical original `spatialFaces` and
+smoothed-trajectory compiler. Its dependency-complete monitored build entered
+the generated vacuum-reflection wrapper cone and stopped at the 20-GiB worker
+limit in `BF4ExactSlabVacuumReflectionCheck2Face0.lean` and
+`BF4ExactSlabVacuumReflectionCheck3Face0.lean`. That path was removed rather
+than raising the safety cap. The checked module therefore deliberately states
+the formula-level internal source only. Equality with the original retained
+`spatialFaces` family remains OPEN and must be recovered through a lightweight
+geometry bridge, not by retrying the over-budget import cone.
+
+NEXT is a positive rational lower bound for the exact cross-time mixed
+covariance. Only after that floor is checked may the Heron error select a
+positivity-preserving stage and the normalized radial ratio be certified.
+Original transfer-filter equality,
+compact-Haar/interacting-law comparison, H1, EVERY-state physical decay,
+continuum/QFT, Hamiltonian gap and the Clay conclusion remain OPEN. No full
+tree build, root guard or repository-wide axiom audit was run. No canonical
+displayed claim changes.
+
+### Uniform dyadic rational bulk profile mass floor (KERNEL-CHECKED)
+
+2026-10-15. `SU2QuaternionFiniteGaussianOpenCubeBulkProfileFloor.lean`
+closes the formula-level PAPER coefficient-mass floor at every dyadic side.
+The proof reuses `CubicEulerBoundProof.cubicEulerBound` rather than adding a
+new exponential estimate. `cubicEulerShiftStep` lowers the exponent in the
+Euler inequality by a positive-factor cancellation, and `cubicEulerShift`
+iterates the result to obtain
+
+    (s+6)^s <= 3^6*s^s.
+
+For `s=4*m` and every central offset `m<=r<3*m`, the exact midpoint numerator
+obeys `bulkProfileNumerator_central_floor`, namely
+
+    3*(2*m)^2 <= v_(4m)(r).
+
+After denominator clearing,
+`bulkProfileDenominator_pow_central_le` proves
+
+    (4*s+v_s(r))^s <= 3^6*v_s(r)^s,
+
+and `bulkProfile_central_floor` lifts this to the exact unnormalized rational
+representation:
+
+    3^(-6) <= (v_s(r)/(4*s+v_s(r)))^s.
+
+The list `centralBulkSourceFaces` is the lexicographic three-orientation
+carrier over `List.range' m (2*m)`. `centralBulkSourceFaces_sublist` proves it
+is an ordered sublist of the full formula source, and
+`centralBulkSourceFaces_length` proves its exact cardinality
+`3*(2*m)^3`. The three coordinate profile floors therefore give
+`centralBulkSourceCoefficient_square_floor`, an exact `3^(-36)` lower bound
+for every central coefficient square. Finite-sum monotonicity and the ordered
+sublist inclusion yield `bulkSourceCoefficientMass_central_floor`.
+
+`normalizedBulkSourceCoefficientMass_floor` then proves the exact normalized
+floor
+
+    3^(-36)/8 <=
+      (sum_face bulkSourceCoefficient(s,face)^2)/(3*s^3)
+
+for every `s=4*m`, `m>0`. The exceptional dyadic sides `s=1` and `s=2` are
+checked directly by the finite decidable rational definitions.
+`normalizedBulkSourceCoefficientMassAtSide_dyadic_floor` assembles the three
+cases and proves the same bound for every side `s=2^j`.
+
+The final monitored commands
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
+      --check lean/YMGap/Continuum/SU2QuaternionFiniteGaussianOpenCubeBulkProfileFloor.lean
+
+    python3 scripts/safe_lean_build.py --jobs 1 --lake-worker-limit-gib 20 -- \
+      +YMGap.Continuum.SU2QuaternionFiniteGaussianOpenCubeBulkProfileFloor:olean
+
+both exited zero with one worker, the 20-GiB worker cap and 12-GiB OS reserve.
+All ten printed load-bearing declarations use exactly
+`[propext, Quot.sound]`; no `Classical.choice`, `sorryAx`, custom axiom,
+`native_decide` or noncomputable declaration occurs. The focused prohibited
+source scan and `git diff --check` passed. The frozen source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeBulkProfileFloor.lean
+      cbe4304966c0b7e44bf20dfeb753d0f224142dece3c7c32b32abbac19dc5e3ec
+
+This closes only the coefficient denominator for the formula-level finite
+source. NEXT is a positive rational lower bound for its exact cross-time
+weighted comb-curl covariance trace, followed by a Heron stage preserving
+that positivity. Equality with the original retained `spatialFaces` family,
+original/free-law comparison, H1, EVERY-state physical decay, continuum/QFT,
+Hamiltonian gap and the Clay conclusion remain OPEN. No canonical displayed
+claim changes.
+
+## Exact one-bond bulk cross-covariance floor (KERNEL-CHECKED)
+
+2026-10-15. The formula-level finite bulk source now has an explicit strictly
+positive rational lower term for its complete exact one-bond weighted
+cross-covariance-square trace.
+
+`FiniteRationalPositiveDefiniteInverse.lean` proves constructively that the
+canonical inverse of every symmetric strictly positive finite rational matrix
+is itself strictly positive. The proof uses the produced unit-lower inverse
+and an explicit nonzero transformed channel; it adds no spectral theorem or
+choice principle.
+
+`FiniteRationalTwoSliceCrossCovariance.lean` constructs the one-bond cross
+precision `A^T*A + 2*A`, proves it strictly positive, and identifies its
+canonical inverse with the off-diagonal block of the exact covariance of
+`[[A+I,-I],[-I,A+I]]`. The literal `freeHistoryPrecision 1` is proved
+entrywise equal to that block precision, and exact inverse uniqueness
+transports any recorded finite two-sided inverse to the explicit block
+covariance.
+
+`SU2QuaternionFiniteGaussianOpenCubeCombTwoSliceCrossCovariance.lean`
+specializes the identity to the canonical comb FREE-history covariance.
+Time-zero and time-one physical curl rows are identified with the top and
+bottom slice embeddings, so their exact covariance bilinear is exactly the
+strictly positive cross-block quadratic whenever one chord coefficient is
+nonzero.
+
+`SU2QuaternionFiniteGaussianOpenCubeBulkCrossCovarianceFloor.lean` supplies
+that witness for the concrete lower `p01` bulk face: its upper-`x`,
+`y`-directed boundary edge is a comb chord and has restricted curl
+coefficient exactly one. Therefore
+`bulkSourceLowerFaceOneBondCovariance` is strictly positive. The explicit
+rational term
+
+    bulkSourceExactCrossCovarianceFloor =
+      weight_lower^2 * covariance_lower^2
+
+is strictly positive and is proved no larger than
+`bulkSourceExactCrossCovarianceSquareTrace`, the complete finite weighted
+sum over all source-face pairs. Consequently the exact weighted trace is
+strictly positive for every `s>0`.
+
+This is a side-dependent exact rational floor. It does NOT yet combine the
+dyadic coefficient-mass floor with a uniform operator estimate, and it does
+not prove positivity at a finite Heron stage, equality with the original
+retained `spatialFaces` family, an original/free-law comparison, H1,
+EVERY-state physical decay, continuum/QFT, a Hamiltonian gap, or the Clay
+conclusion.
+
+The focused monitored checks and dependency-complete module builds exited
+zero with one worker, a 20-GiB worker cap and 12-GiB OS reserve. Every printed
+load-bearing declaration uses exactly `[propext, Quot.sound]`; no
+`Classical.choice`, `sorryAx`, custom axiom, `native_decide`,
+noncomputable declaration or broadened heartbeat budget was introduced.
+Frozen source SHA-256 values are:
+
+    FiniteRationalPositiveDefiniteInverse.lean
+      6878c58a4622990c42533b44d6019ef55f660e59cdc73b26c96c5d2c7115918d
+    FiniteRationalTwoSliceCrossCovariance.lean
+      4b9621dcce88fb88b4acf138342213025df49b468bcd6eadb97a0f52ad1d7acb
+    SU2QuaternionFiniteGaussianOpenCubeCombTwoSliceCrossCovariance.lean
+      47fa9d8639394ccc81a942876d22eee167a1c8eb90d52469be19c9ff976e49d8
+    SU2QuaternionFiniteGaussianOpenCubeBulkCrossCovarianceFloor.lean
+      5920db66f9d142f0c03289ee62d6a2cc3375d29848ff2ebb83d39db0a96e236e
+
+NEXT is to propagate the existing finite Heron row-bilinear residual
+envelopes through the weighted cross-Gram-square trace and select an explicit
+stage whose total error is smaller than this exact positive floor. After that,
+form the normalized finite radial ratio. A separate stronger operator estimate
+is still required if the later consumer needs a floor uniform in `s`. No
+canonical displayed claim changes.
+
+## Explicit positive Heron stage for the finite bulk denominator (KERNEL-CHECKED)
+
+2026-10-15. `SU2QuaternionFiniteGaussianOpenCubeBulkHeronPositiveStage.lean`
+closes finite-stage positivity of the actual formula-level bulk-source
+quadratic denominator.
+
+The lower-face row-bilinear Heron envelope is factored exactly into a
+stage-independent rational coefficient and `half^stage`. The coefficient is
+proved nonnegative from the positive LDL pivots, nonnegative Heron errors and
+absolute row coefficients. The constructive `geoOuterModulus` is then used
+with half the exact positive lower-face mixed covariance as tolerance. This
+defines the explicit side-dependent stage `bulkSourcePositiveHeronStage` and
+proves that the staged mixed covariance retains at least half of its exact
+one-bond value.
+
+The corresponding color-zero lower-face Gram is identified with that staged
+mixed covariance. Its source weight is strictly positive, hence its weighted
+square is a strictly positive term in the complete
+`bulkSourceHeronCrossGramSquareTrace`; all other terms are nonnegative. The
+trace is therefore strictly positive. The checked weighted radial covariance
+identity then yields strict positivity of the actual finite product-Gaussian
+covariance `bulkSourceHeronRadialPairCovariance` at the selected stage.
+
+This is a more efficient solve path than the previously recorded plan to
+bound the error of the entire weighted trace: denominator positivity needs
+only one preserved positive summand. No total-trace cancellation estimate is
+used or needed here. The stage and lower bound remain side-dependent, and the
+result still concerns the lightweight formula-level internal comb source.
+
+The final monitored commands
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
+      --check lean/YMGap/Continuum/SU2QuaternionFiniteGaussianOpenCubeBulkHeronPositiveStage.lean
+
+    python3 scripts/safe_lean_build.py --jobs 1 --lake-worker-limit-gib 20 -- \
+      +YMGap.Continuum.SU2QuaternionFiniteGaussianOpenCubeBulkHeronPositiveStage:olean
+
+both exited zero with one worker, the 20-GiB worker cap, default heartbeat
+budget and 12-GiB OS reserve. All twelve printed declarations stay within the
+allowed gate: ten use exactly `[propext, Quot.sound]`, one uses only
+`[propext]`, and one uses no axioms; no `Classical.choice`, `sorryAx`, custom
+axiom, `native_decide`, noncomputable declaration or broadened heartbeat
+budget was introduced. The frozen source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeBulkHeronPositiveStage.lean
+      6d7ea66cc8eaad421c35e9a3de416033c650601e80e60af0a62c4a603bfbccce
+
+NEXT is the exact normalized finite rational radial ratio at this same stage,
+using the checked positive denominator for constructive reciprocal
+cancellation. A weighted sixth-order numerator bound, equality with the
+original retained `spatialFaces` family, original/free-law comparison, H1,
+EVERY-state physical decay, continuum/QFT, Hamiltonian gap and the Clay
+conclusion remain OPEN. No full tree build, root guard or repository-wide
+axiom audit was run. No canonical displayed claim changes.
+
+## Exact normalized finite bulk radial ratio (KERNEL-CHECKED)
+
+2026-10-15. `SU2QuaternionFiniteGaussianOpenCubeBulkHeronRadialRatio.lean`
+uses the new strict denominator witness to construct the exact formula-level
+finite radial ratio.
+
+The numerator is the literal finite product-Gaussian covariance of the square
+of the weighted bulk radial polynomial at time zero with the same weighted
+bulk radial polynomial at time one. The denominator is the already checked
+quadratic radial pair covariance at `bulkSourcePositiveHeronStage`. Its strict
+positivity permits the constructive rational quotient `Q'.divPos` without a
+partial or opaque inverse.
+
+The theorem `bulkSourcePositiveHeronRadialRatio_mul_denominator` cancels the
+positive denominator exactly and recovers the numerator. Separate lower and
+upper transport theorems reduce every future ratio estimate to a
+division-free inequality against the same denominator. This closes quotient
+formation only; it does not claim a sign or bound for the sixth-order
+numerator.
+
+The final monitored commands
+
+    python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
+      --check lean/YMGap/Continuum/SU2QuaternionFiniteGaussianOpenCubeBulkHeronRadialRatio.lean
+
+    python3 scripts/safe_lean_build.py --jobs 1 --lake-worker-limit-gib 20 -- \
+      +YMGap.Continuum.SU2QuaternionFiniteGaussianOpenCubeBulkHeronRadialRatio:olean
+
+both exited zero with one worker, the 20-GiB worker cap, default heartbeat
+budget and 12-GiB OS reserve. All four printed load-bearing declarations use
+exactly `[propext, Quot.sound]`; no `Classical.choice`, `sorryAx`, custom
+axiom, `native_decide`, noncomputable declaration or broadened heartbeat
+budget was introduced. The frozen source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeBulkHeronRadialRatio.lean
+      12cbe2bd5fb35949365df0a3574026c18546373824e6e98dd7033b55f1f5162a
+
+NEXT is an explicit rationally weighted sixth-order expansion and a cleared
+numerator estimate relative to this positive denominator. The existing
+unweighted trace theorem cannot encode arbitrary positive rational source
+weights by row rescaling without square roots, so the weights must remain
+literal coefficients. Equality with the original retained source,
+original/free-law comparison, H1, EVERY-state physical decay, continuum/QFT,
+Hamiltonian gap and the Clay conclusion remain OPEN. No full tree build, root
+guard or repository-wide axiom audit was run. No canonical displayed claim
+changes.
+
+## Weighted sixth covariance and positive finite ratio floor (KERNEL-CHECKED)
+
+2026-10-15. The formula-level finite weighted bulk radial ratio now has an
+exact sixth-order trace decomposition and an explicit strictly positive
+side-dependent lower bound.
+
+`SU2QuaternionFiniteGaussianWeightedRadialCovariance.lean` keeps arbitrary
+rational source coefficients on the row squares and proves
+
+    Cov_G(S_B^2,S_D)
+      = 8*WeightedGramSandwich
+        + 4*WeightedRowGramTrace*WeightedCrossGramSquareTrace.
+
+The proof first expands the covariance into the literal weighted three-row
+sixth-moment sum. It then contracts the two diagonal terms without introducing
+square roots. The remaining Gram-sandwich contraction is rearranged exactly
+as a direction-weighted finite Gram quadratic. This supplies a constructive
+sum-of-squares nonnegativity proof; source weights enter as quadratic-form
+coefficients, so only direction-weight nonnegativity is needed. The module
+also checks weighted row-trace nonnegativity, positive-norm extraction from a
+positive finite cross Gram, and retention of a selected row term.
+
+`SU2QuaternionFiniteGaussianOpenCubeBulkHeronRadialNumeratorTrace.lean`
+instantiates the identity on the actual weighted bulk-source rows at the
+explicit positive Heron stage. The already checked denominator trace identity
+reduces the numerator to
+
+    numerator
+      = 8*WeightedGramSandwich
+        + 2*WeightedRowGramTrace*denominator.
+
+Both trace terms are nonnegative, hence the positive-denominator ratio is at
+least twice the weighted source-time row trace. The previously proved
+positive lower-face cross-time Gram constructively forces that source row's
+same-time norm to be positive. Its weighted term is retained in the complete
+row trace, giving the explicit checked chain
+
+    0 < 2*bulkSourcePositiveHeronLowerFaceRowTraceFloor <= radialRatio.
+
+This is a finite product-Gaussian, formula-source statement. The floor still
+depends on the side and selected Heron stage. No cutoff-uniform physical
+normalization, original-source identification, original/free-law comparison,
+H1, EVERY-state physical decay, continuum QFT, Hamiltonian gap or Clay
+conclusion follows from it.
+
+The final monitored commands for each new module were the focused source
+check and dependency-complete `:olean` build through
+`scripts/safe_lean_build.py`, with one worker, a 20-GiB worker cap, default
+heartbeat budget and 12-GiB OS reserve. They exited zero. Every printed
+load-bearing declaration stays within `[propext, Quot.sound]`; one generic
+nonnegativity declaration uses only `[propext]`. The focused prohibited-source
+scan and `git diff --check` passed. No `Classical.choice`, `sorryAx`, custom
+axiom, `native_decide`, noncomputable declaration or enlarged heartbeat budget
+was introduced. Frozen source SHA-256 values are:
+
+    SU2QuaternionFiniteGaussianWeightedRadialCovariance.lean
+      d00f1ddbe5e9b48e89f78d1948fcf597d2ba73c6a84d728ec4dda35c6a4fbacc
+    SU2QuaternionFiniteGaussianOpenCubeBulkHeronRadialNumeratorTrace.lean
+      8f50323865540993f9851180d0849ebc3892f2f39c9810c3455782a6365887ad
+
+NEXT is a quantitative dyadic-side estimate for this explicit lower-face
+row-trace floor under the normalization needed by its actual consumer. A
+separate original-source and original-interacting-law bridge remains required
+before any H1 or physical mass-gap use. No full tree build, root guard or
+repository-wide axiom audit was run. No canonical displayed claim changes.
+
+## Central positive ratio witness with uniform coefficient factor (KERNEL-CHECKED)
+
+2026-10-15. The side-dependent boundary coefficient in the previous selected
+ratio term has been replaced by a literal central source witness.  The new
+result keeps the exact source factor `3^(-18)` uniform on sides `4*m`; it does
+not yet make the complete ratio floor uniform because the staged row norm and
+exact covariance remain side-dependent.
+
+`SU2QuaternionFiniteGaussianOpenCubeBulkCentralCrossCovarianceFloor.lean`
+selects `bulkSourceFaceAt (4*m) m m m .p01`, proves that its upper-`x`,
+`y`-directed edge is a comb chord with curl coefficient one, and obtains a
+strictly positive exact one-bond covariance.  Membership in the checked
+central half-carrier gives the coefficient-square floor `3^(-36)`.
+Constructive order reflection for positive rational squares then yields the
+single-weight floor `3^(-18)`, with no square-root witness or classical step.
+The selected weighted covariance square is retained in the complete exact
+trace.
+
+`SU2QuaternionFiniteGaussianOpenCubeBulkCentralHeronPositiveStage.lean`
+reuses the generic finite Heron residual factorization.  Its explicit
+geometric modulus chooses a central-positive stage where the staged mixed
+covariance retains half of the exact positive value.  The corresponding
+color-zero source row has positive norm, is retained in the complete weighted
+row trace, and keeps the uniform `3^(-18)` coefficient factor.  Generic
+residual and cross-Gram summand declarations in the earlier lower-face Heron
+module were exported for this reuse without changing their proofs.
+
+`SU2QuaternionFiniteGaussianOpenCubeBulkCentralHeronRadialRatioFloor.lean`
+retains the central color-zero square in the complete staged cross-Gram trace,
+constructs the positive radial denominator, and specializes the exact
+weighted sixth-covariance identity.  The kernel checks
+
+    0 < 2*centralRowTraceFloor <= centralRadialRatio
+
+and
+
+    2 * (3^(-18) * centralStagedRowNorm2) <= centralRadialRatio.
+
+This replaces the ineffective boundary-coefficient route by a central
+witness with the required coefficient scale.  It remains only a finite
+formula-source/product-Gaussian statement.  No uniform staged row-norm bound,
+original-source identification, original/free-law comparison, H1,
+EVERY-state physical decay, continuum QFT, Hamiltonian gap or Clay conclusion
+is claimed.
+
+Focused monitored checks and dependency-complete `:olean` builds for the
+three new modules and the shared Heron provider exited zero with one worker,
+a 20-GiB worker cap, default heartbeat budget and 12-GiB OS reserve. Every
+printed declaration stays within the allowed gate; the shared provider has
+one `[propext]` helper and one axiom-free helper, and all other printed
+declarations use exactly `[propext, Quot.sound]`. The
+focused prohibited-source scan and `git diff --check` passed. No
+`Classical.choice`, `sorryAx`, custom axiom, `native_decide`, noncomputable
+declaration or enlarged heartbeat budget was introduced. Current SHA-256
+values are:
+
+    SU2QuaternionFiniteGaussianOpenCubeBulkCentralCrossCovarianceFloor.lean
+      1d637597725a920f1115be2297da49c1153f207a39c066e8e80379d29c899436
+    SU2QuaternionFiniteGaussianOpenCubeBulkCentralHeronPositiveStage.lean
+      195880e71889e77d2167bded66f88ee66a1291e3a5c44185bc46dedc45f2392d
+    SU2QuaternionFiniteGaussianOpenCubeBulkCentralHeronRadialRatioFloor.lean
+      9b04ff8d414a1f87041360bacca3f96f1bfb4eaf2d02a949824533d3ebb55004
+    SU2QuaternionFiniteGaussianOpenCubeBulkHeronPositiveStage.lean
+      6d7ea66cc8eaad421c35e9a3de416033c650601e80e60af0a62c4a603bfbccce
+
+NEXT is to quantify the central staged row norm, or equivalently the exact
+central cross covariance together with its checked half-retention, along the
+dyadic schedule under the actual consumer normalization.  The original-source
+and original-interacting-law joins remain separate. No full tree build, root
+guard or repository-wide axiom audit was run. No canonical displayed claim
+changes.
+
+## Uniform finite central row and radial-ratio floor (KERNEL-CHECKED)
+
+2026-10-15. The side-dependent staged row norm left by the preceding central
+witness is now replaced by a cutoff- and stage-independent finite rational
+floor.
+
+`SU2QuaternionFiniteGaussianOpenCubeCombPrecisionDiagonalBound.lean` proves
+the local combinatorial estimate behind the constant.  An internal chord is
+incident to at most six enumerated internal faces, each oriented incidence
+coefficient has square at most one, and therefore the spatial comb precision
+diagonal is at most six.  Adding the one temporal history bond gives a
+time-zero history precision diagonal at most seven.
+
+The generic constructive matrix layer was extended without changing its
+contract. `FiniteRationalPositiveDefiniteLDLProducer.lean` proves that each
+positive LDL pivot is bounded above by the corresponding input-matrix
+diagonal. `FiniteRationalUnitLowerInverse.lean` proves the unit-lower shape
+of the recursively produced inverse. Consequently
+`SU2QuaternionFiniteGaussianOpenCubeCombCovarianceDiagonalFloor.lean`
+checks both the unit-upper shape of the covariance factor used by the pullback
+and the uniform reciprocal-pivot estimate
+
+    1/7 <= covarianceLDL.diagonal(timeZeroChord).
+
+`SU2QuaternionFiniteGaussianOpenCubeBulkCentralHeronRowNormFloor.lean`
+proves that the selected central `p01` curl has exactly two possible nonzero
+chord coordinates and chooses their minimum.  All earlier curl coordinates
+vanish.  Upper-triangularity kills every later physical-row contribution to
+the selected noise coordinate, while the selected diagonal factor is one.
+Thus the pulled-row square at that coordinate is exactly the corresponding
+Heron square.  Combining the covariance-pivot floor with
+`CReal.heronSeq_sq_ge` gives the checked, stage-independent estimate
+
+    1/7 <= finiteRowNorm2(actual central color-zero Heron row).
+
+`SU2QuaternionFiniteGaussianOpenCubeBulkCentralHeronUniformRadialRatioFloor.lean`
+then consumes the preceding audit's weighted ratio inequality and defines
+
+    bulkCentralHeronRadialRatioFloor
+      = 2 * (bulkCoefficientFloor * combCovarianceDiagonalFloor)
+      = 2 * (3^(-18) * (1/7)).
+
+Its strict positivity and the uniform bound
+
+    bulkCentralHeronRadialRatioFloor
+      <= bulkSourceCentralPositiveHeronRadialRatio(m)
+
+are kernel-checked for every `m>0`.
+
+This closes the quantitative finite FREE-reference edge by a sparse-factor
+argument, without estimating the exact cross covariance along a dyadic
+schedule. It remains a formula-level finite product-Gaussian theorem. It does
+not identify the retained original source, compare to the ORIGINAL
+interacting law, supply a physical normalization, construct a continuum
+OS/Wightman theory or Hamiltonian, or prove a physical/Clay mass gap.
+
+Focused monitored checks and dependency-complete `:olean` builds for the six
+supporting/final modules exited zero with one worker, a 20-GiB worker cap,
+default heartbeat budget and 12-GiB OS reserve. The final floor positivity
+uses `[propext]`; the other printed load-bearing declarations use exactly
+`[propext, Quot.sound]`, apart from the axiom-free incidence-square helper.
+The focused prohibited-source scan and `git diff --check` passed. No
+`Classical.choice`, `sorryAx`, custom axiom, `native_decide`,
+noncomputable declaration or enlarged heartbeat budget was introduced.
+Current source SHA-256 values are:
+
+    FiniteRationalUnitLowerInverse.lean
+      922704f5cc4bc6bdf632a52a0d035573836dfe36bd212eebe2b76d57b8b99861
+    FiniteRationalPositiveDefiniteLDLProducer.lean
+      974df608d2f400c9ebf4dde68bb72a29b4118be32d786970b456a41a78ab6ef3
+    SU2QuaternionFiniteGaussianOpenCubeCombPrecisionDiagonalBound.lean
+      ef16b57a66c23df8a8c1180e34a96aaecfa2e179f71b34e005eabd95690f2e56
+    SU2QuaternionFiniteGaussianOpenCubeCombCovarianceDiagonalFloor.lean
+      f12f8317feb1f8944081599ef0a7e14d3b6d02d0ec6e2d5829014fc05623a4ca
+    SU2QuaternionFiniteGaussianOpenCubeBulkCentralHeronRowNormFloor.lean
+      ba488f9f8c735d74dc04e6aa959f1951161a2bacbc2b74a634ea2792f058b68b
+    SU2QuaternionFiniteGaussianOpenCubeBulkCentralHeronUniformRadialRatioFloor.lean
+      aa9c34378fff56d3e410e766fb05e317596a87c62f2b0a6d0b314fc7ca5bd2c4
+
+NEXT is the actual consumer join: identify the finite bulk formula source with
+the retained original-source observable in its real normalization, then prove
+a denominator-relative comparison from the finite product-Gaussian law to the
+ORIGINAL interacting law. No full tree build, root guard or repository-wide
+axiom audit was run. No canonical displayed claim changes.
+
+## Canonical original spatial support for the bulk source (KERNEL-CHECKED)
+
+2026-10-15. The geometric part of the original-source join is now checked.
+Every face in the rational formula-level list `bulkSourceFaces s` is
+literally a member of the canonical original `spatialFaces (s*s)` list.
+
+The initial bridge import exposed the same generated
+`BF4ExactSlabVacuumReflectionCheck2Face0` object-file obstruction recorded
+earlier.  No worker limit was raised and no generated check was retried.
+Instead the dependency was traced to
+`BF4ExactSlabFixedSpatialTwoLayerGeometry.lean`.  That file used none of
+`BF4ExactSlabFaceLinkLocality.lean`; its definitions and proofs require only
+`Z4FiniteBoxExhaustion` and `Z4HalfTimeReflectionFaceReindex`.  Replacing
+the unused heavyweight import by those actual providers made the canonical
+face-placement object independently checkable while preserving every public
+declaration and proof.
+
+`SU2QuaternionFiniteGaussianOpenCubeBulkSource.lean` exports its existing
+offset-room theorem
+
+    bulkSourceOffset s + s <= s*s.
+
+The new
+`SU2QuaternionFiniteGaussianOriginalBulkSourceBridge.lean` unfolds the
+duplicate-free bulk enumeration, retains the three literal planes
+`p01,p02,p12`, and applies `spatialFaces_mem_iff`.  It proves
+`bulkSourceFace_mem_spatialFaces_square` and the family-level statement
+`bulkSourceFaces_spatial`, both with exactly
+`[propext, Quot.sound]`.
+
+This result closes support geometry only.  It does not yet instantiate the
+heavy original Wilson-expression/source-polynomial compiler, prove equality
+between the Gaussian curl linearization and the compact-Haar character,
+compare denominators or laws, establish H1/EVERY-state decay, or construct the
+continuum Hamiltonian and Clay mass gap.
+
+Focused monitored checks for the dependency-reduced two-layer geometry,
+canonical face placement, exported offset theorem and bridge passed.  The
+dependency-complete bridge `:olean` build exited zero with one worker, a
+20-GiB worker cap, default heartbeat budget and 12-GiB OS reserve.  The
+focused prohibited-source scan and `git diff --check` passed. Current source
+SHA-256 values are:
+
+    BF4ExactSlabFixedSpatialTwoLayerGeometry.lean
+      0501e21f6cb885b3866815675d68108667b10343571f86bca469dcc4249a4520
+    SU2QuaternionFiniteGaussianOpenCubeBulkSource.lean
+      3ef6a80e2a60ba8e77782c7ef3c82dd355d76e740c9a8fd9a8a0e20ba5dc4687
+    SU2QuaternionFiniteGaussianOriginalBulkSourceBridge.lean
+      8130206175734a3d7c09c2b0fd52b3e6a4d1eb7e503f36d33bee8582a38a2d67
+
+NEXT is the polynomial and measure part of the consumer join: instantiate the
+radius-zero original Wilson family with this exact face list and
+`bulkSourceCoefficient`, using a dependency-light source compiler, and then
+state the local-linearization remainder required for a
+denominator-relative FREE-to-ORIGINAL comparison. No full tree build, root
+guard or repository-wide axiom audit was run. No canonical displayed claim
+changes.
+
+## Canonical original adjacent-time bulk labels (KERNEL-CHECKED)
+
+2026-10-15. The exact rational bulk family now enters the canonical original
+adjacent-time label schedule without recoding.  The new module
+`SU2QuaternionFiniteGaussianOriginalBulkPlaquetteFamilyLabels.lean`
+instantiates `doubledLabels` and `doubledCoeff` with `bulkSourceFaces s` and
+`bulkSourceCoefficient s hs` and proves:
+
+* the doubled labels are duplicate-free;
+* every doubled label is a literal physical original plaquette under
+  `s*s <= extent` and `n+1 <= extent`;
+* the lower coefficient is unchanged and the upper coefficient is exactly
+  its negative;
+* the complete doubled coefficient-square sum is `Q'.eqv` to twice the
+  original bulk coefficient-square mass; and
+* that doubled sum is strictly positive for every `s>0`.
+
+These are the exact labels and coefficients consumed by the existing
+original plaquette-family energy theorem.  They do not themselves evaluate
+an interacting expectation, compare the free and original denominators, or
+prove an OS/physical/Clay gap.
+
+The focused monitored command
+
+    python3 scripts/safe_lean_build.py --jobs 1 \
+      --check-worker-limit-gib 20 \
+      --check lean/YMGap/Continuum/\
+SU2QuaternionFiniteGaussianOriginalBulkPlaquetteFamilyLabels.lean
+
+and the dependency-complete module build
+
+    python3 scripts/safe_lean_build.py --jobs 1 \
+      --lake-worker-limit-gib 20 -- \
+      +YMGap.Continuum.\
+SU2QuaternionFiniteGaussianOriginalBulkPlaquetteFamilyLabels:olean
+
+both exited zero.  Every printed declaration uses exactly
+`[propext, Quot.sound]`.  Source SHA-256:
+
+    SU2QuaternionFiniteGaussianOriginalBulkPlaquetteFamilyLabels.lean
+      2a81a006c5931e55f81d73ffea9ba1b0bfc6014fdda556821b1af32ba1dc7e6c
+
+A direct specialization of `family_energy_floor` initially remained blocked
+on the absent generated object
+`BF4ExactSlabVacuumReflectionCheck2Face0.olean` through the genuine
+reflected-Haar proof chain.  That obstruction and the law-level specialization
+are resolved in the next audit entry.  No full tree build, root guard or
+repository-wide axiom audit was run. No canonical displayed claim changes.
+
+## Original interacting bulk temporal-energy floor (KERNEL-CHECKED)
+
+2026-10-15. The exact rational bulk family now reaches the existing original
+interacting plaquette-family energy theorem without weakening the
+reflected-Haar dependency chain.
+
+Five generated reflection objects needed by that chain were absent.  Four
+monolithic 64-term `compactCovarianceCheck` decisions and the final
+source-to-canonical decision exceeded the mandatory 20-GiB Lean worker cap.
+No cap was raised.  Their public statements were preserved while the source
+computations were factored into eight independently kernel-checked eight-term
+raw blocks.  A list splitting theorem assembles those blocks, and a separate
+kernel decision checks the unchanged target canonicalization.  The repaired
+modules are:
+
+    BF4ExactSlabVacuumReflectionCheck2Face0.lean
+    BF4ExactSlabVacuumReflectionCheck3Face0.lean
+    BF4ExactSlabVacuumReflectionCheck4Face6.lean
+    BF4ExactSlabVacuumReflectionCheck5Face2.lean
+    BF4ExactSlabVacuumReflectionCheck5Face11Source.lean
+
+All candidate raw literals remain untrusted data: the Lean kernel checks each
+literal block against the computed source and checks the final canonical
+identity.  Focused checks and dependency-complete `:olean` builds passed for
+all five repaired modules.  Their printed public declarations use exactly
+`[propext, Quot.sound]`.
+
+`SU2QuaternionFiniteGaussianOriginalBulkPlaquetteFamilyEnergy.lean` then
+specializes `family_energy_floor` with width `s*s`, the literal list
+`bulkSourceFaces s`, and the exact function `bulkSourceCoefficient s hs`.
+It proves
+
+    lower w * listQSum
+      (fun face => bulkSourceCoefficient s hs face ^ 2)
+      (bulkSourceFaces s)
+      <= (600 * upper w) * normalizedEnergy(...,
+        spatialSpan (s*s) (bulkSourceCoefficient s hs)
+          (bulkSourceFaces s)).
+
+The theorem is uniform in the heat cutoff `K`, adjacent-time location `n`,
+and containing spatial volume in its admitted finite setting.  The focused
+check and direct `--check-output` materialization passed, and the theorem uses
+exactly `[propext, Quot.sound]`.
+
+This is a genuine original interacting energy lower bound, but it is not the
+denominator-relative upper comparison required to transfer the finite
+product-Gaussian radial-ratio floor.  It does not identify the two laws,
+establish H1/EVERY-state physical decay, construct a continuum theory or
+Hamiltonian, or prove the Clay mass gap.
+
+Current source SHA-256 values are:
+
+    BF4ExactSlabVacuumReflectionCheck2Face0.lean
+      57607840ee0ad2481c2cbc617f459a51f6fbad0229fdcc374a5a34061be4edd5
+    BF4ExactSlabVacuumReflectionCheck3Face0.lean
+      09a2c92afb4227a721ddd986478377b1ce91f5e5cec3376a97b930f9f44cabd3
+    BF4ExactSlabVacuumReflectionCheck4Face6.lean
+      fa4020b20ea12ce3dbc5a8fad3062b35deb312ce4ddb208e8f4c4ab96308e1e7
+    BF4ExactSlabVacuumReflectionCheck5Face2.lean
+      a4af3418dcc7269e6e5b53acb585b4da3c817ec891572d03a69b298464f97096
+    BF4ExactSlabVacuumReflectionCheck5Face11Source.lean
+      5f365fe5fafa0faa94cb96686d01266de84adfd5663a67f791ccdfc94257a066
+    SU2QuaternionFiniteGaussianOriginalBulkPlaquetteFamilyEnergy.lean
+      8f2a79ce950955f33815a1b26b314291ca267969f3fb0364180005048f16c3ac
+
+NEXT is a denominator-relative local-linearization/remainder theorem for the
+same literal source, with the direction required to carry the milestone-283
+FREE radial-ratio floor into the ORIGINAL normalized interacting law.  No
+full tree build, root guard or repository-wide axiom audit was run. No
+canonical displayed claim changes.
+
+## Nonabelian pointwise quadratic-relative obstruction (KERNEL-CHECKED)
+
+2026-10-15. The first proposed local remainder shape has been ruled out
+exactly.  The existing Cayley polynomial definitions were extracted, without
+renaming or changing them, to the lightweight module
+`BF4ExactSlabPlaquetteCayleyPolynomial.lean`.  The original expansion module
+imports this layer and retains its exact original-slab source-matching
+theorems; its focused check and direct materialization passed with the same
+`[propext, Quot.sound]` gate.
+
+For the directed commutator loop `x,y,-x,-y`, with
+`x=(1,0,0)` and `y=(0,1,0)`, the new module
+`BF4ExactSlabPlaquetteCayleyQuadraticRelativeObstruction.lean` proves
+
+    H2 = 0, H3 = 0, H4 = 64, H5 = 0, H6 = 0
+
+and, symbolically for every rational `e`,
+
+    cayleyDeficit(e,x,y,-x,-y) ~= 64 * ((e*e)*(e*e)).
+
+The extracted polynomial layer proves every Cayley denominator strictly
+positive and defines the exact denominator-normalized local deficit.  The
+commutator's normalized deficit remains strictly positive for every `e>0`,
+so `no_universal_normalizedCayleyDeficit_quadratic_upper_bound` rules out the
+same pointwise comparison even after division by the literal denominator.
+
+Thus every positive chart scale gives a strictly positive exact deficit at a
+configuration with zero quadratic coefficient.  The theorem
+`no_universal_cayleyDeficit_quadratic_upper_bound` proves that no rational
+constant `C` can make
+
+    cayleyDeficit e a b c d <= C * ((e*e) * H2 a b c d)
+
+hold for all directed chart vectors.  Its printed axiom set, and that of the
+symbolic deficit identity, is exactly `[propext, Quot.sound]`.
+
+The attempted dependency-complete materialization also exposed three stale
+generated reflection objects.  Their monolithic 64-term decisions exceeded
+the unchanged 20-GiB kernel cap.  The files
+`BF4ExactSlabVacuumReflectionCheck2Face2.lean`,
+`BF4ExactSlabVacuumReflectionCheck3Face1.lean` and
+`BF4ExactSlabVacuumReflectionCheck4Face7.lean` now use eight independently
+checked eight-term source blocks, exact list reassembly and an independent
+canonical target decision.  All three direct materializations passed and all
+three public declarations use exactly `[propext, Quot.sound]`.  No generated
+reflection object remains absent.
+
+This is a route-pruning theorem only.  It does not bound an averaged
+remainder, compare normalized denominators, transfer the FREE radial-ratio
+floor, establish H1/EVERY-state physical decay, or construct a continuum
+Hamiltonian or Clay mass gap.  The denominator-relative comparison must
+retain the quartic commutator contribution or exploit expectation-level
+cancellation/localization before dividing by any quadratic quantity.
+
+Current source SHA-256 values are:
+
+    BF4ExactSlabPlaquetteCayleyPolynomial.lean
+      e4fd97c12b51f817fa03fde2fba311898a7f4368e16651e2c71d70e515da064b
+    BF4ExactSlabPlaquetteCayleyExpansion.lean
+      1c63facaa4eb2512c18658c2fffbdea924202b53e78548b14a13f37c12fe793d
+    BF4ExactSlabPlaquetteCayleyQuadraticRelativeObstruction.lean
+      f32397f006ff94040505be35c6b84fe34b54726b73947aba8f57aea8664354ac
+    BF4ExactSlabVacuumReflectionCheck2Face2.lean
+      5db1b2de7609af0f6023a914492c3406c2f25573f913dc66c4e610aa11df7594
+    BF4ExactSlabVacuumReflectionCheck3Face1.lean
+      058887315983d0a47da0afbed5888f18e5bbd0b689a3768ff8bd326bdb9cc69f
+    BF4ExactSlabVacuumReflectionCheck4Face7.lean
+      88de65c3a5d3b8b7538b1b661e1c88fbc9fa5e8949df247be312ad7be668aa21
+
+NEXT is an expectation-level or quartic-retaining denominator-relative
+comparison for the same literal source.  No full tree build, root guard or
+repository-wide axiom audit was run. No canonical displayed claim changes.
+
+## Exact finite-Gaussian expectation of the Cayley quartic (KERNEL-CHECKED)
+
+2026-10-15. The first expectation-level producer selected after the
+pointwise obstruction is now checked.  It retains the full cleared Cayley
+quartic rather than replacing it by a radial or commuting surrogate.
+
+`SU2QuaternionFiniteGaussianFourRowMoment.lean` derives the arbitrary
+rational-row Wick identity directly from the existing finite Stein and
+derivative machinery.  Its connected form cancels the disconnected pairing
+exactly and retains the two cross-pairings.  The generic dot-product consumer
+in `SU2QuaternionFiniteGaussianDotProductCovariance.lean` sums these identities
+over finite component families, proving both the raw and connected moments in
+computed Gram data.  At component count three these are exactly the
+dot-times-norm and dot-times-dot building blocks of the Cayley quartic.
+
+`BF4ExactSlabPlaquetteCayleyQuarticDotIdentity.lean` proves the exact
+three-dimensional cross-dot identity and rewrites the EXISTING `H4` as a
+shared fifteen-term signed list: twelve dot-times-norm products of weight
+`-8`, followed by the ordered nonabelian weights `-32,+32,-32`.  The theorem
+`H4_eq_dotTermSum` identifies this list with the existing Cayley coefficient;
+it does not introduce a new quartic definition in place of `H4`.
+
+`SU2QuaternionFiniteGaussianCayleyQuarticExpectation.lean` lifts that SAME
+term list to four arbitrary directed finite-Gaussian row triples.  The theorem
+`finiteProductGaussian_cayleyH4` computes its exact expectation as a finite
+sum of Gram-trace products and connected cross-pairings.  Thus the
+commutator channel that defeated pointwise `H2` division survives explicitly
+through the averaging calculation.
+
+Focused monitored checks and direct materializations passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  Every printed load-bearing
+declaration uses exactly `[propext, Quot.sound]`.  Source SHA-256 values are:
+
+    SU2QuaternionFiniteGaussianFourRowMoment.lean
+      02134a959b9643970deb1760f8ceca0155397a6ea73fac46aa8af1c263855f9f
+    SU2QuaternionFiniteGaussianDotProductCovariance.lean
+      2db026a103431e47b05629b6076bb2b7746b35e2c2c7e4f7ca4cf132e47d936c
+    BF4ExactSlabPlaquetteCayleyQuarticDotIdentity.lean
+      6337b837dfa04adbafedcfbe4754b5ee00e75873af56466784bb3da4c2d03a3e
+    SU2QuaternionFiniteGaussianCayleyQuarticExpectation.lean
+      4bed1b6b71edade7e32358457db8c578ded29a249c3844a0f30e7d617f4227f6
+
+This pays only the cleared-numerator `H4` expectation.  The normalized
+quartic coefficient also contains `-(sum_i norm(v_i))*H2`; actual open-cube
+row selection, the complete signed OLD-centered response, original
+chart/heat/gauge/terminal matching, and a uniform denominator-relative
+remainder remain open.  No radial-ratio transfer, H1/EVERY-state physical
+decay, continuum Hamiltonian or Clay mass gap is claimed.
+
+NEXT is the exact normalized-quartic reference join for the SAME four
+directed finite-Gaussian plaquette rows, followed by the signed averaged
+FREE-to-ORIGINAL comparison for the literal `s^2` source.  No full tree
+build, root guard or repository-wide axiom audit was run. No canonical
+displayed claim changes.
+
+## Denominator-normalized Cayley quartic reference join (KERNEL-CHECKED)
+
+2026-10-15. The normalized quartic correction that remained after the raw
+`H4` expectation is now exact.  In
+`BF4ExactSlabPlaquetteCayleyNormalizedQuartic.lean` the coefficient
+
+    F4 = H4 - (sum of the four directed slot norms) * H2
+
+is accompanied by a literal finite remainder.  The theorem
+`cayleyDeficit_normalized_quartic` proves
+
+    cayleyDeficit
+      ~= cayleyDenominator*(e^2 H2+e^3 H3+e^4 F4)
+         + e^5*normalizedQuarticRemainder,
+
+where the remainder retains every order-five-through-twelve term.  This is a
+division-free rational polynomial identity and remains meaningful at
+`H2=0`; no analytic expansion or big-O premise is used.
+
+`SU2QuaternionFiniteGaussianNormalizedCayleyQuarticExpectation.lean`
+then computes the finite Gaussian expectation of the literal normalized
+coefficient.  Twelve slot/color rows encode the sum of the four norms and
+three summed color rows encode `|a+b+c+d|^2`.  The checked arbitrary
+row-dot fourth moment supplies the disconnected Gram product and both
+connected cross-pairings.  Combined with the exact fifteen-term `H4`
+expectation, this proves the full finite-Gram formula for `E[F4]` without
+pointwise division by `H2`.
+
+Focused checks and direct materializations passed with one worker, the
+unchanged 20-GiB cap and 12-GiB reserve.  Both printed load-bearing
+declarations use exactly `[propext, Quot.sound]`.  Source SHA-256 values are:
+
+    BF4ExactSlabPlaquetteCayleyNormalizedQuartic.lean
+      643639a2124ac5900d4aef50fbe9261a03d08f51f8c9343b0fe32b244b74b45e
+    SU2QuaternionFiniteGaussianNormalizedCayleyQuarticExpectation.lean
+      9c4269a4eecb3d881060ab6c9ca965e0023f07033771d8283240b89b44bc5965
+
+This closes the normalized quartic reference algebra only.  Actual open-cube
+row selection, a useful sign or scale-uniform estimate, the explicit
+order-five remainder bound, the complete signed OLD-centered response,
+original chart/heat/gauge/terminal matching and the FREE-to-ORIGINAL
+denominator-relative inequality remain open.  No radial-ratio transfer,
+H1/EVERY-state physical decay, continuum Hamiltonian or Clay mass gap is
+claimed.
+
+NEXT is specialization to the actual four directed finite open-cube
+plaquette rows and insertion into the signed bulk-source response, followed
+by an explicit higher-remainder and ORIGINAL-law comparison in the required
+inequality direction.  No full tree build, root guard or repository-wide
+axiom audit was run. No canonical displayed claim changes.
+
+## Actual open-cube plaquette-row specialization (KERNEL-CHECKED)
+
+2026-10-15. The normalized quartic reference formula is now tied to the
+literal four links of an internal finite open-cube plaquette.  In
+`SU2QuaternionFiniteGaussianOpenCubePlaquetteRows.lean`, a physical-history
+row extracts one rooted-comb-gauge link coordinate at one time, vanishes on
+comb-tree links, and is pulled back through the existing certified staged
+Heron factor to independent rational Gaussian noise.  The three-color lift
+then supplies the SU(2) components.
+
+The plaquette slots use the exact directed order `a,b,-c,-d`; in particular,
+the inverse-word links C and D are negated before entering the SAME normalized
+Cayley quartic polynomial.  For an internal open-cube face and an in-range
+history time, the theorem
+`finiteProductGaussian_openCubePlaquette_normalized_cayleyH4` computes the
+expectation as the previously checked finite Gram expression for `F4`.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  The printed load-bearing
+declaration uses exactly `[propext, Quot.sound]`.  The source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubePlaquetteRows.lean
+      61cce004b8b6351d8386b5617469224ce091a72618e2fa7cd42b13681d571019
+
+This result identifies the actual reference rows but does not yet compute the
+signed source response.  That response inserts the quartic against two
+quadratic source observables and therefore requires connected Gaussian
+moments through degree eight, including OLD-centering subtractions.  A sum of
+facewise `E[F4]` values would not discharge that obligation.  A sign or
+scale-uniform response bound, the explicit higher remainder, ORIGINAL-law
+matching, radial-ratio transfer, H1/EVERY-state decay, continuum Hamiltonian
+and Clay mass gap all remain open.
+
+NEXT is a constructive arbitrary-row Wick/Stein recursion (or its exact
+eight-row consequence) under `finiteProductGaussian`, consumed by the two
+normalized quadratic-source insertions.  No full tree build, root guard or
+repository-wide axiom audit was run. No canonical displayed claim changes.
+
+## Arbitrary-row Wick recursion and connected 2+2+4 cumulant (KERNEL-CHECKED)
+
+2026-10-15. The missing degree-eight finite rational-row moment primitive is
+now checked without assuming Wick's formula.  In
+`SU2QuaternionFiniteGaussianRowWordWick.lean`, the ordered product of any
+nonempty row word is handled by one finite Stein step.  Its leading row is
+paired with every later row in turn, and an explicit polynomial accumulator
+preserves the rows passed by the sweep.  Each recursive application lowers
+the degree by two.  Exact two- and four-row Gram bases and explicit six- and
+eight-row specializations are included.
+
+The append theorem for nonempty row words proves coefficientwise that the
+product of two ordered blocks is the row word of their concatenation.  This
+allows the ordinary polynomial third cumulant to be tied to its row-block
+presentation without reordering the source or quartic blocks.
+
+`SU2QuaternionFiniteGaussianTwoTwoFourCumulant.lean` defines the complete
+connected subtraction for two quadratic blocks and one quartic block.  The
+theorem `finiteGaussianThirdCumulant_row_blocks_wick` reduces its degree-eight
+and degree-six raw moments to the new Wick steps and its degree-two/four raw
+moments to explicit finite Gram contractions.  This is exactly the termwise
+Gaussian algebra required by a normalized `F4` insertion against both
+quadratic source observables.
+
+Focused monitored checks and direct materializations passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  Every printed load-bearing
+declaration uses exactly `[propext, Quot.sound]`.  Source SHA-256 values are:
+
+    SU2QuaternionFiniteGaussianRowWordWick.lean
+      20ae57be9a6be4349ac9eb07ca3050f7272c3e6bf5f1195b765082ad71815b3d
+    SU2QuaternionFiniteGaussianTwoTwoFourCumulant.lean
+      06de8f9cd9a9d1b7e1e3d33ff7188baf5cc111c0f7ae52a59aca55d508600e93
+
+This pays the moment recursion only.  The actual quadratic source polynomials
+are finite weighted sums over the bulk-source color rows, and the actual
+normalized plaquette quartic is a finite signed sum of quartic row words.
+Trilinearity and the exact term-list lift, OWN normalization, supplied OLD
+center, sign and uniform response estimate, explicit higher remainder,
+ORIGINAL-law comparison, radial-ratio transfer, H1/EVERY-state decay,
+continuum Hamiltonian and Clay mass gap remain open.
+
+NEXT is the exact trilinear expansion over those two source term lists and the
+SAME actual-plaquette normalized-`F4` term list, reducing every summand by the
+checked `2+2+4` theorem.  No full tree build, root guard or repository-wide
+axiom audit was run. No canonical displayed claim changes.
+
+## Actual finite source/plaquette normalized-quartic cumulant (KERNEL-CHECKED)
+
+2026-10-15. The exact finite term-list lift requested by the previous audit
+entry is now checked.  `SU2QuaternionFiniteGaussianThirdCumulantTrilinear.lean`
+proves coefficientwise congruence, additivity, rational homogeneity and the
+finite weighted triple-sum expansion of the ordinary third cumulant.
+It also proves that subtracting arbitrary scalar centers from both source
+blocks leaves the third cumulant unchanged.  The specialized theorem
+`finiteGaussianThirdCumulant_openCube_bulk_old_centered_normalizedH4_wick`
+therefore shows that THIS connected quartic insertion is independent of the
+supplied OLD centers.  The distinct mean-residual products in the complete
+order-six OLD-centered response are not removed by this fact.
+
+`SU2QuaternionFiniteGaussianOpenCubeBulkQuadraticTerms.lean` exposes each
+actual bulk-source radial square as its weighted list of squared Heron-pulled
+color-curl rows.  `SU2QuaternionFiniteGaussianNormalizedCayleyQuarticTerms.lean`
+flattens the literal normalized Cayley `F4` into ordered four-row words.  The
+list contains all `15*3*3` component words from the shared signed `H4` list
+and all `12*3` words of weight `-4` from the exact denominator correction.
+Thus the term lift retains the full 171-term quartic polynomial rather than a
+radial, commuting or cleared-numerator surrogate.
+
+`SU2QuaternionFiniteGaussianOpenCubeBulkNormalizedQuarticCumulant.lean`
+then packages the two source lists and the SAME rooted-comb/Heron plaquette
+list as explicit row blocks.  The theorem
+`finiteGaussianThirdCumulant_openCube_bulk_normalizedH4_wick` identifies their
+ordinary connected polynomial cumulant with the nested finite weighted sum of
+`finiteGaussianTwoTwoFourWickReduction`.  Its proof applies the checked
+`2+2+4` row-block theorem to every summand; it assumes neither Wick's formula
+nor independence and drops no connected subtraction.
+
+The additional theorem
+`finiteGaussianThirdCumulant_openCube_bulk_old_centered_normalizedH4_family_wick`
+accepts an arbitrary finite rationally weighted list of plaquette/time
+insertions and sums the exact one-plaquette Wick expressions.  It is the
+direct finite shape needed by a complete action insertion list.  This theorem
+does not identify that physical list's coefficients or estimate the sum.
+
+Focused monitored checks and direct materializations passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  Every printed load-bearing
+declaration stays within `[propext, Quot.sound]`.  Source SHA-256 values are:
+
+    SU2QuaternionFiniteGaussianThirdCumulantTrilinear.lean
+      360986b87634a3af2e7ecf3991d5b3ffc2b6fd2a2a5ee5a3bd8a1e19584acbf2
+    SU2QuaternionFiniteGaussianOpenCubeBulkQuadraticTerms.lean
+      6cf49349132a253a86a60ef170f2803fc8f3c785ba16d48b93dc6abaeb5d44d0
+    SU2QuaternionFiniteGaussianNormalizedCayleyQuarticTerms.lean
+      6cc21690532f5196fec948e402f081b78b899d27930682a1dd3371915c34d3a6
+    SU2QuaternionFiniteGaussianOpenCubeBulkNormalizedQuarticCumulant.lean
+      6b974909bdf3288975528270d1b0b81674ba0e83fe887d8c3aa2c1b624eb3e2f
+
+This closes only the finite FREE reference-Gaussian algebra.  OWN source
+normalization, supplied OLD-center residuals, a useful sign and
+cutoff-/volume-uniform estimate, the explicit normalized higher remainder,
+ORIGINAL chart/heat/gauge/terminal matching, the denominator-relative
+FREE-to-ORIGINAL inequality, radial-ratio transfer, H1/EVERY-state physical
+decay, continuum Hamiltonian construction and the Clay mass gap remain open.
+The algebraic identity is valid without face-membership or time-range
+premises; later physical use must supply and preserve them.
+
+NEXT is the complete OWN-normalized, OLD-centered signed response and its
+uniform bound in the required comparison direction, followed by the explicit
+higher-remainder and ORIGINAL-law denominator estimates.  No full tree build,
+root guard or repository-wide axiom audit was run. No canonical displayed
+claim changes.
+
+## Complete spatial-face heat-action fourth cumulant (KERNEL-CHECKED)
+
+2026-10-15. The normalized `F4` insertion from the preceding checkpoint was
+only one part of the exact zero-winding spatial-face heat-action coefficient
+
+    F4/4 + F2^2/48 - F2/6,
+
+with `F2=4*|B|^2` for the directed sum of the SAME four actual plaquette
+rows.  The two omitted pieces are therefore `|B|^4/3` and
+`-2*|B|^2/3`; neither may be dropped from the order-six response.
+
+`SU2QuaternionFiniteGaussianThreeSquareThirdCumulant.lean` now proves
+
+    kappa(B^2,D^2,E^2)
+      = 8*G(B,D)*G(B,E)*G(D,E)
+
+from the checked finite sixth moment.  This is the exact `2+2+2` consumer
+needed by the quadratic `-F2/6` insertion.
+
+`SU2QuaternionFiniteGaussianOpenCubeBulkSpatialHeatActionCumulant.lean`
+constructs nine explicit four-row blocks of weight `1/3` for `|B|^4/3` and
+three explicit row-square blocks of weight `-2/3` for `-2*|B|^2/3`.
+Coefficientwise certificates identify both block lists with the literal
+finite Gaussian polynomials.  The one-face theorem joins their checked Wick
+and Gram-triangle values to one quarter of the milestone-292 normalized-`F4`
+Wick sum.  The finite-family theorem retains arbitrary scalar OLD centers and
+arbitrary rational weights on actual plaquette/time insertions.
+
+Focused monitored checks and direct materializations passed with one worker,
+the 20-GiB worker cap and 12-GiB OS reserve.  Printed load-bearing gates are
+within `[propext, Quot.sound]`; the quadratic coefficient certificate uses
+only `[propext]`.  Source SHA-256 values are:
+
+    SU2QuaternionFiniteGaussianThreeSquareThirdCumulant.lean
+      da622d8a53b7e4d783267191c9b08dcdfad00a6d5d24ad53dd6c792b57a4c396
+    SU2QuaternionFiniteGaussianOpenCubeBulkSpatialHeatActionCumulant.lean
+      4ded4825bc34636743276c2bf8f326cf83a5f71d4139a1bb8e4b20dffce99b6f
+
+This closes the complete SPATIAL-FACE fourth heat-action insertion only.  The
+actual two-link kinetic quartic, Cayley Haar `J2`, unfolded terminal histories,
+remaining gauge/measure pieces, OWN partition normalization and OLD-center
+mean residuals still belong to the full signed order-six response.  No
+cutoff-/volume-uniform signed neighboring-time bound, higher-remainder bound,
+ORIGINAL-law denominator comparison, radial-ratio transfer, continuum
+Hamiltonian or Clay theorem follows.  NEXT is the complete finite reference
+response assembly on the same history carrier, before any absolute estimate.
+
+## Complete finite kinetic fourth-action cumulant (KERNEL-CHECKED)
+
+2026-10-15. The actual temporal-gauge two-link deficit has
+
+    F2 = 4*|a-b|^2,
+    F4 = -4*|a-b|^2*(|a|^2+|b|^2),
+
+so its complete fourth heat-action coefficient is exactly
+
+    -|a-b|^2*(|a|^2+|b|^2)
+      + |a-b|^4/3 - 2*|a-b|^2/3.
+
+`SU2QuaternionFiniteGaussianOpenCubeBulkKineticHeatActionCumulant.lean`
+implements this on the SAME rooted-comb/Heron history coordinates used by the
+finite FREE precision.  The first two quartic products and the square term
+give twenty-seven explicit four-row blocks; the final quadratic term gives
+three row-square blocks.  Coefficientwise certificates identify both finite
+lists with the displayed literal polynomial.
+
+The one-bond/edge theorem reduces the insertion against the two actual bulk
+sources to checked `2+2+4` Wick values plus checked three-square Gram
+triangles.  The canonical OLD-centered family ranges over
+`List.range timeBonds` and `combGaugeLinks width`, hence retains every
+forward temporal bond and every gauge-fixed edge coordinate, including the
+first and last bonds whenever present.
+
+The focused monitored check and direct materialization passed with one
+worker, the 20-GiB cap and 12-GiB OS reserve.  Printed declaration gates stay
+within `[propext, Quot.sound]`, with the quadratic coefficient certificate at
+`[propext]`.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeBulkKineticHeatActionCumulant.lean
+      e907139c4910d604e5b53704c393e6c5c654b9d860f76052a80299fa457dc4ae
+
+This pays the finite FREE kinetic fourth-action term only.  The spatial
+cubic-pair density term `V3^2/2`, Cayley Haar `J2`, OWN normalization,
+supplied OLD-center mean residuals, remaining gauge and measure corrections,
+higher remainders and ORIGINAL-law matching remain open.  No uniform signed
+neighboring-time bound or continuum/Clay conclusion follows.  NEXT is the
+exact complete-history Haar insertion, then the cubic pair, before any signed
+full finite coefficient assembly or absolute estimate.
+
+## Complete finite reference Cayley-Haar `J2` cumulant (KERNEL-CHECKED)
+
+2026-10-15. The product Cayley-chart Haar density coefficient
+
+    J2 = -3 * sum_(history slices, gauge-fixed links) |a|^2
+
+is now represented on the SAME rooted-comb/Heron finite FREE history carrier.
+`SU2QuaternionFiniteGaussianOpenCubeBulkCayleyHaarCumulant.lean` exposes each
+local term as three weighted row squares, proves coefficientwise equality to
+`-3*|a|^2`, and reduces its insertion against both actual bulk-source
+quadratics to the checked three-square Gram triangle.
+
+The canonical OLD-centered family ranges over
+`List.range (timeBonds+1)` and `combGaugeLinks width`.  It therefore retains
+both terminal slices, every interior slice and every actual comb-gauge edge
+coordinate.  Arbitrary rational insertion weights remain available in the
+more general family theorem.
+
+The focused monitored check and direct materialization passed with one
+worker, the 20-GiB cap and 12-GiB OS reserve.  The coefficient certificate
+uses `[propext]`; both connected declarations use exactly
+`[propext, Quot.sound]`.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeBulkCayleyHaarCumulant.lean
+      d1f33451b5f63f09f58a574f86a68b5aa317eae1a4a4881398475a0e5329b7c2
+
+This is the finite FREE product-chart Haar term, not an ORIGINAL
+gauge-reduced Jacobian identification.  The complete second density
+coefficient remains `V3^2/2-V4+J2`: the spatial cubic-pair `V3^2/2` is still
+unbuilt, as are OWN/OLD mean residuals, higher remainders and ORIGINAL-law
+matching.  NEXT is the actual plaquette cubic term and its complete pair
+product, requiring a ten-row Wick specialization and a `2+2+6` connected
+compiler before signed assembly.
+
+## Complete finite TOTAL spatial cubic-pair cumulant (KERNEL-CHECKED)
+
+2026-10-15. The previously unpaid spatial density term `V3^2/2` is now an
+exact finite FREE reference-Gaussian insertion on the SAME rooted-comb/Heron
+history carrier.
+
+`SU2QuaternionFiniteGaussianTwoTwoSixCumulant.lean` adds a ten-row
+specialization of the checked arbitrary-row Wick recursion and reduces the
+literal connected `2+2+6` cumulant through degree-eight, degree-six,
+degree-four and degree-two checked moments.  It introduces no tenth-moment
+axiom or independence premise.
+
+`SU2QuaternionFiniteGaussianCayleyCubicPairTerms.lean` proves the scalar pin
+
+    V3_face = H3/4
+            = 4*(det(a,b,c)+det(a,b,d)+det(a,c,d)+det(b,c,d))
+
+and expands the four determinants into twenty-four signed ordered cubic row
+words.  Its half-product certificate uses the full ordered Cartesian square,
+so each plaquette-site pair contributes `24*24=576` sextic blocks and every
+off-diagonal pair remains present.
+
+`SU2QuaternionFiniteGaussianOpenCubeBulkSpatialCubicPairCumulant.lean`
+specializes those blocks to the actual directed plaquette rows.  The TOTAL
+cubic ranges over every site in
+`List.range (timeBonds+1) x internalOpenCubeFaces width`; its half-square is
+the full ordered square of that list, including all cross-face and cross-time
+terms.  Coefficientwise theorems pin both the total cubic and its half-square
+to their flattened row-block lists.  The final theorem reduces the connected
+insertion against both actual bulk-source quadratics to the checked finite
+weighted `2+2+6` sum.  Arbitrary scalar OLD centers cancel inside this
+connected insertion, not in the separate mean-residual terms.
+
+Focused monitored checks and direct materializations passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  Every printed load-bearing gate
+is within `[propext, Quot.sound]`; the scalar `H3/4` pin uses `[propext]`.
+Source SHA-256 values are:
+
+    SU2QuaternionFiniteGaussianTwoTwoSixCumulant.lean
+      838aff7ff424f8717032aa5fd74d9b52f87532c26ce5c89ffdd44a0bf4700f2a
+    SU2QuaternionFiniteGaussianCayleyCubicPairTerms.lean
+      feafaf4171d97690fcf8d7cc46fb4886a6b8b1d37f8f4bcf983f3b751c517871
+    SU2QuaternionFiniteGaussianOpenCubeBulkSpatialCubicPairCumulant.lean
+      8e89568ff5cfbecb27b87fdb25f2ea25d10119c3d89b4625a1fce8e7cad981fc
+
+This pays the finite FREE TOTAL spatial cubic pair only.  The separate pieces
+of `V3^2/2-V4+J2` now exist, but their literal signed common-carrier assembly,
+the source's OWN normalization and supplied OLD-center mean residuals, any
+remaining gauge-reduction density, higher remainder and ORIGINAL-law match
+remain open.  No uniform signed estimate, denominator-relative comparison,
+radial-ratio transfer, continuum Hamiltonian or Clay conclusion follows.
+NEXT is the exact signed finite assembly before testing cancellation or any
+cutoff- and volume-uniform bound.
+
+## Complete finite signed second-density cumulant (KERNEL-CHECKED)
+
+2026-10-15. The four finite FREE components are now joined on one literal
+history carrier.  `SU2QuaternionFiniteGaussianOpenCubeBulkCompleteSecondDensityCumulant.lean`
+defines the exact polynomial
+
+    V3^2/2 - V4_spatial - V4_kinetic + J2
+
+and proves its third cumulant with the two OLD-centered actual bulk-source
+quadratics equals the signed sum of the already checked component values.
+
+The newly explicit complete spatial fourth-action family ranges over every
+site in `List.range (timeBonds+1) x internalOpenCubeFaces width`.  The kinetic
+family retains every forward temporal bond and comb-gauge edge; the Haar
+family retains every history slice and comb-gauge edge; and the total cubic
+half-square retains every ordered cross-face and cross-time pair.  Exact
+cumulant additivity and rational homogeneity insert the two `-V4` signs.
+`J2` retains its local negative Cayley-Jacobian coefficient.  No term is
+discarded by parity, independence or a stationary-boundary replacement.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  The printed theorem's
+gate is exactly `[propext, Quot.sound]`.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeBulkCompleteSecondDensityCumulant.lean
+      ac83e37138385ffee714e8e3df4c5520580ef36eb2c6b61d031abfd0b6c3d351
+
+This closes the finite FREE connected action/density insertion only.  Scalar
+OLD centers cancel inside that connected cumulant, but the complete order-six
+OWN-normalized response has separate supplied-OLD mean-residual products.
+OWN normalization, those residuals, any remaining gauge-reduction density,
+higher remainder and ORIGINAL-law comparison remain open.  No signed uniform
+bound, denominator-relative estimate, radial-ratio transfer, continuum
+Hamiltonian or Clay conclusion follows.  NEXT is the exact OWN/OLD finite
+response assembly before testing common-action cancellation or a cutoff- and
+volume-uniform neighboring-time estimate.
+
+## Exact finite Cayley trace-source coefficients (KERNEL-CHECKED)
+
+2026-10-15. `SU2QuaternionFiniteGaussianOpenCubeBulkCayleySourceCoefficients.lean`
+now places the exact trace-deficit source coefficients
+
+    A2 = H2 = 4*|B|^2,
+    A3 = H3,
+    A4 = normalizedCayleyH4 = F4
+
+on the SAME actual directed open-cube plaquette rows and rational bulk profile
+as the checked source quadratic.  The quadratic row squares receive scale
+four; the twenty-four signed cubic action blocks receive scale four because
+that existing action primitive is `H3/4`; and the normalized Cayley quartic
+blocks are used without replacing them by the different heat-action
+coefficient.
+
+Independent coefficientwise theorems identify all three literal source
+polynomials with their flattened weighted row-block lists over every actual
+internal spatial face at one selected history time.  The focused monitored
+check and direct materialization passed with one worker, the unchanged
+20-GiB cap and 12-GiB reserve.  Each printed theorem's gate is exactly
+`[propext, Quot.sound]`.  The prohibited-token scan and `git diff --check`
+were clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeBulkCayleySourceCoefficients.lean
+      2a44069a221d2ff106963c494000f870bad03a65d4d4e813f730c33615fdfb6d
+
+This is the finite source carrier, not the complete order-six response.  The
+source-source covariances, mixed source/action cumulants, OWN means, supplied
+OLD-center residuals, higher remainder and ORIGINAL-law comparison remain
+open.  No uniform signed estimate, continuum Hamiltonian or Clay conclusion
+follows.  NEXT is the exact source-only contraction compiler, followed by
+assembly with the checked complete second-density insertion.
+
+## Even source-source order-six covariance (KERNEL-CHECKED)
+
+2026-10-15. `SU2QuaternionFiniteGaussianOpenCubeBulkCayleySourceEvenCovariance.lean`
+now reduces
+
+    Cov(A4(left),A2(right)) + Cov(A2(left),A4(right))
+
+to finite weighted sums of exact six-row Wick contractions.  The generic
+`2+4` compiler retains the full degree-six moment and subtracts the explicit
+quadratic and quartic means.  Finite-sum bilinearity and coefficient transport
+are proved from the literal evaluator.  Covariance symmetry is also derived
+coefficientwise, so the first term can reuse the same ordered compiler without
+an added probability premise.
+
+The final theorem consumes the milestone-298 `A2` and `A4` row-block
+certificates at arbitrary selected left and right history times.  The focused
+monitored check and direct materialization passed with one worker, the
+unchanged 20-GiB cap and 12-GiB reserve.  Every printed load-bearing theorem
+uses exactly `[propext, Quot.sound]`.  The prohibited-token scan and
+`git diff --check` were clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeBulkCayleySourceEvenCovariance.lean
+      59ac1c5f43a099f641703a66ecf9771d3c99f5f09d5dadc61342363f4a6e84e6
+
+This pays only the two even source-source contractions.  The cubic-cubic
+source covariance, mixed source/action cumulants, complete `R6`, OWN/OLD
+residuals, higher remainder and ORIGINAL-law comparison remain open.  No
+uniform estimate or continuum/Clay conclusion follows.  NEXT is the exact
+cubic odd-mean cancellation and cubic-cubic covariance on the same rows.
+
+## Complete source-source order-six covariance (KERNEL-CHECKED)
+
+2026-10-15. The remaining source-source term
+
+    Cov(A3(left),A3(right))
+
+is now an exact finite weighted six-row Wick sum, and it has been joined to
+the two checked even source covariance terms.
+
+`SU2QuaternionFiniteProductGaussianIBP.lean` exports the constructive facts
+that the finite-row derivative of `polyOne` is coefficientwise zero and that
+every finite rational linear row has zero finite product-Gaussian mean.  The
+proof is a direct corollary of the existing row Stein theorem.
+
+`SU2QuaternionFiniteGaussianOpenCubeBulkCayleySourceCubicCovariance.lean`
+uses that result in the arbitrary-row Wick recursion to prove every three-row
+word has zero mean.  Therefore the connected cubic/cubic covariance is just
+the complete six-row Wick value.  Finite-sum bilinearity applies this compiler
+to every pair in the exact weighted `A3` lists at the selected left and right
+history times.  Its final theorem proves the complete source-source sum
+
+    Cov(A4(left),A2(right))
+      + Cov(A2(left),A4(right))
+      + Cov(A3(left),A3(right)).
+
+Focused monitored checks and direct materializations passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  Printed gates stay within
+`[propext, Quot.sound]`; the derivative coefficient theorem uses only
+`[propext]`.  The prohibited-code scan had no code occurrence, with one
+textual match in the existing contract comment, and `git diff --check` was
+clean.  Current source SHA-256 values are:
+
+    SU2QuaternionFiniteProductGaussianIBP.lean
+      b760e106d50e8b6c3f4da3594dff4c3ca9ebbc00b57b6b27d41d13c67b6cbee8
+    SU2QuaternionFiniteGaussianOpenCubeBulkCayleySourceEvenCovariance.lean
+      59ac1c5f43a099f641703a66ecf9771d3c99f5f09d5dadc61342363f4a6e84e6
+    SU2QuaternionFiniteGaussianOpenCubeBulkCayleySourceCubicCovariance.lean
+      641767890886aef3890c9fb5fe7a201730b1192f2f8a4f8b9e1773dea37f8eb1
+
+This closes only the finite FREE source-source connected part.  The two
+mixed cubic-action cumulants, complete `R6`, OWN/OLD residuals, higher
+remainder and ORIGINAL-law comparison remain open.  No uniform estimate or
+continuum/Clay conclusion follows.  NEXT is the exact `3+2+3` cumulant
+compiler and its two actual open-cube consumers.
+
+## Complete finite connected Cayley trace-source R6 (KERNEL-CHECKED)
+
+2026-10-15. The complete connected order-six coefficient
+
+    R6 = Cov(A4(left),A2(right))
+       + Cov(A2(left),A4(right))
+       + Cov(A3(left),A3(right))
+       - kappa(A3(left),A2(right),V3)
+       - kappa(A2(left),A3(right),V3)
+       + kappa(A2(left),A2(right),V3^2/2-V4+J2)
+
+is now one exact finite FREE reference-Gaussian Wick identity.
+
+`SU2QuaternionFiniteGaussianThreeTwoThreeCumulant.lean` proves five-row odd
+means vanish, reduces the literal `3+2+3` connected subtraction to its
+degree-eight Wick step minus the degree-six cubic/cubic Wick step times the
+quadratic Gram, proves first-two-slot cumulant symmetry, and lifts the result
+through finite weighted triple sums.
+
+`SU2QuaternionFiniteGaussianOpenCubeBulkCayleySourceMixedCubicActionCumulant.lean`
+uses the exact milestone-298 source rows and the complete TOTAL spatial `V3`
+list over every history slice and internal face.  Both mixed orientations and
+their negative response signs are checked.
+
+`SU2QuaternionFiniteGaussianOpenCubeBulkCayleyTraceConnectedR6.lean` joins
+those terms to the complete source-source covariance and second density.  It
+explicitly applies source homogeneity twice in the density insertion, paying
+the exact factor `4*(4*base)` required because both trace-source quadratics
+are four times the historical bulk radial square.
+
+Focused monitored checks and direct materializations passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  Every printed declaration uses
+exactly `[propext, Quot.sound]`.  The prohibited-token scan and
+`git diff --check` were clean.  Current source SHA-256 values are:
+
+    SU2QuaternionFiniteGaussianThreeTwoThreeCumulant.lean
+      91d7c19de356c46898202d0d7074a4787fc9b4184b6bfb49a71eb300453c3ce0
+    SU2QuaternionFiniteGaussianOpenCubeBulkCayleySourceMixedCubicActionCumulant.lean
+      6c2d70b0adb2600ae5bec2b57a9deb963a2910812ed6fcb7538b7e3151173492
+    SU2QuaternionFiniteGaussianOpenCubeBulkCayleyTraceConnectedR6.lean
+      6a320346476b74d2b21cf0070bb7a8d45b8822bb9836cf276396272ebc2b5459
+
+This closes connected finite `R6`, not the complete OWN-normalized,
+OLD-centered response.  OWN means, supplied OLD residual products, higher
+remainder, ORIGINAL-law comparison and every uniform/continuum conclusion
+remain open.  NEXT is the literal finite `P4,P5,P6` residual assembly.
+
+## Exact finite OWN/OLD P4, P5, P6 assembly (KERNEL-CHECKED)
+
+2026-10-15. `SU2QuaternionFiniteGaussianOpenCubeBulkCayleyTraceOwnOldResponse.lean`
+now defines the actual finite OWN coefficients
+
+    a2 = E_G A2,
+    a3 = E_G A3 - Cov(A2,V3),
+    a4 = E_G A4 - Cov(A3,V3) + Cov(A2,J2-V4)
+           + (1/2)*kappa(A2,V3,V3),
+
+and the exact supplied-OLD response coefficients
+
+    P4 = R4 + (a2-c2)*(b2-c2),
+    P5 = (a2-c2)*(b3-c3) + (a3-c3)*(b2-c2),
+    P6 = R6 + (a2-c2)*(b4-c4) + (a3-c3)*(b3-c3)
+           + (a4-c4)*(b2-c2).
+
+All polynomials are the actual finite open-cube coefficients already checked
+on the common rooted-comb/Heron carrier.  The `J2-V4` mean insertion retains
+complete Haar, spatial fourth-action and kinetic fourth-action terms, and
+the repeated cubic term retains its literal factor one half.
+
+The module proves arbitrary weighted cubic means vanish and weighted
+quadratic/cubic covariances vanish, using the checked three- and five-row odd
+theorems.  Hence `a3=b3=0`.  Crucially, the supplied OLD `c3` is not reset:
+the parity-normalized `P5` retains both linear `-c3` residuals and `P6`
+retains `(-c3)*(-c3)`.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  Every printed theorem
+uses exactly `[propext, Quot.sound]`.  The prohibited-token scan and
+`git diff --check` were clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeBulkCayleyTraceOwnOldResponse.lean
+      8121fd2a0af49eaf6535a9ca87cf9f19b4004c3ac168c5401c1c6463546cccbd
+
+This closes the exact finite FREE response algebra only.  Explicit single
+Wick-sum certificates for `a2,a4`, an ORIGINAL OLD-center pin, normalized
+higher remainder, denominator comparison and every uniform/continuum result
+remain open.  NEXT is the finite mean compiler followed by the complete
+`P6` signed cancellation test.
+
+## Complete finite OWN-mean and P6 Wick certificates (KERNEL-CHECKED)
+
+2026-10-15. The finite OWN coefficients `a2` and `a4` and the complete
+parity-normalized OLD-centered `P6` now have explicit finite Gram/Wick
+certificates on the actual common open-cube carrier.
+
+`SU2QuaternionFiniteGaussianOpenCubeBulkCayleyTraceOwnMeanWick.lean`
+compiles weighted quadratic expectations to row-Gram sums, weighted quartic
+expectations to four-row Wick sums, `Cov(A3,V3)` to the full weighted
+six-row sum, and `kappa(A2,V3,V3)` to the checked weighted `3+2+3` sum.
+
+`SU2QuaternionFiniteGaussianOpenCubeBulkCayleyTraceOwnEvenDensityCovariance.lean`
+adds the connected weighted `2+2` compiler and reduces the full
+`Cov(A2,J2-V4)` term.  Its explicit family sums include every canonical Haar
+link/time insertion, every complete spatial fourth-action face/time
+insertion, and every kinetic bond/link insertion with the exact density
+signs.
+
+`SU2QuaternionFiniteGaussianOpenCubeBulkCayleyTraceOwnMeanCompleteWick.lean`
+joins these pieces into the exact `a4` Wick value and substitutes the checked
+`a2,a4` values into parity-normalized `P6`.  The supplied OLD `c3` is not
+identified with zero; `(-c3)*(-c3)` remains explicit.
+
+Focused monitored checks and direct materializations passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  Every printed load-bearing
+theorem uses exactly `[propext, Quot.sound]`.  The prohibited-token scan and
+`git diff --check` were clean.  Source SHA-256 values are:
+
+    SU2QuaternionFiniteGaussianOpenCubeBulkCayleyTraceOwnMeanWick.lean
+      45ba322ae59090f2292f164363b10c7e230bface037deaab9e28f8b8ceaf0f3e
+    SU2QuaternionFiniteGaussianOpenCubeBulkCayleyTraceOwnEvenDensityCovariance.lean
+      a7318c5431e95da7ad549258229efec22355107925724aebb7b31f93408f0ba5
+    SU2QuaternionFiniteGaussianOpenCubeBulkCayleyTraceOwnMeanCompleteWick.lean
+      360677fb9e02d0efc10d45763f8face7f5b39779bf4fa98d29a6b47473e95039
+
+This closes the finite FREE evaluation compiler only.  No neighboring-time
+sign, common-action cancellation, cutoff-/volume-uniform estimate, ORIGINAL
+OLD-center identification, higher-remainder estimate, denominator-relative
+comparison or continuum/Clay conclusion follows.  NEXT is to expose exact
+cancellations in the complete `P6` sum and isolate the residual kernel for
+the required uniform signed bound.
+
+## Exact common heat-action split with finite-Heron residual (KERNEL-CHECKED)
+
+2026-10-15. `SU2QuaternionFiniteGaussianOpenCubeBulkCayleyTraceCommonHeatAction.lean`
+now transfers the audited common quadratic heat-action grouping to the
+literal finite open-cube Heron carrier.  It defines `S0` as the complete sum
+of all spatial `F2/4` terms, including terminal slices, plus all kinetic
+quadratic terms on temporal bonds.  The exact coefficient theorems prove
+
+    V4_quadratic = -(2/3)*S0,
+    -V4_quadratic = +(2/3)*S0.
+
+No exact-whitening claim is inserted.  For the rational finite Heron stage,
+the module instead defines
+
+    dA = Cov(A2,S0)-E[A2],
+    dB = Cov(B2,S0)-E[B2],
+    D  = kappa(A2,B2,S0)-2*R4
+
+and proves the actual OLD-centered additive `P6` contribution is
+
+    (4/3)*P4
+      + (2/3)*c2*((a2-c2)+(b2-c2))
+      + (2/3)*(D+(a2-c2)*dB+dA*(b2-c2)).
+
+The universal `(4/3)*P4` term cancels exactly from every cleared comparison
+`P4(t2)*P6(t1)-P4(t1)*P6(t2)`.  The fixed OLD-center term is retained, and
+the last line is the precise finite-Heron scaling residual that remains to
+be bounded.  This corrects the tempting but invalid shortcut of applying the
+exact Gaussian rescaling identity directly to a finite rational approximate
+Heron factor.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  Every printed
+load-bearing declaration uses exactly `[propext, Quot.sound]`.  The
+prohibited-token scan and `git diff --check` were clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeBulkCayleyTraceCommonHeatAction.lean
+      2b87c2a75f2c8ea3e95f81d14ff79bf01988c8da91d488d87647195a40ca1bc1
+
+This closes only the exact common heat-action decomposition.  No bound on
+`dA,dB,D`, neighboring-scale sign, ORIGINAL-law comparison, higher-remainder
+estimate, denominator-relative estimate or continuum/Clay conclusion is
+proved.  NEXT is to propagate the existing finite Heron bilinear residual
+envelopes through these three defects and test whether the resulting bound
+is uniform in cutoff and volume.
+
+## Complete finite Wick form of the heat-scaling residual (KERNEL-CHECKED)
+
+2026-10-15. `SU2QuaternionFiniteGaussianOpenCubeBulkCayleyTraceCommonHeatActionWick.lean`
+now compiles the entire milestone-304 scaling residual to explicit finite
+row-Gram sums.  The complete `S0` row list retains every internal spatial
+face on every history slice and every temporal bond/link difference.  The
+trace-source `A2` row list retains the exact factor four and the original
+bulk profile weights.
+
+The weighted `2+2` compiler evaluates `Cov(A2,S0)` and `R4`; the weighted
+three-square compiler evaluates `kappa(A2,B2,S0)`.  Subtracting the checked
+Gram means and covariance gives explicit finite expressions for
+
+    dA, dB, D,
+
+and the final theorem substitutes them into
+
+    D + (a2-c2)*dB + dA*(b2-c2).
+
+Thus no evaluator, covariance, or cumulant remains in the heat-scaling
+residual.  This does not yet turn the sum into a norm bound: the next needed
+identity is its contraction with the finite whitening defect, followed by a
+uniform summation estimate using the existing Heron residual envelopes.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  Every printed
+load-bearing declaration uses exactly `[propext, Quot.sound]`.  The
+prohibited-token scan and `git diff --check` were clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeBulkCayleyTraceCommonHeatActionWick.lean
+      11a9c6dd33625405131c1be6d1310914dcb7b1a4cfa72a98731c6307281f9241
+
+No uniform estimate, neighboring-scale sign, ORIGINAL comparison,
+higher-remainder control, denominator-relative bound or continuum/Clay
+conclusion follows from this finite Wick certificate alone.
+
+## Heat-normalization correction and `(2L)^{-1}` carrier (KERNEL-CHECKED)
+
+2026-10-15. A normalization audit of the preceding common-action branch found
+a factor-two obstruction before any residual bound was attempted.  The
+complete spatial-curl plus temporal-difference action is the quadratic form
+with matrix `L`, while the existing comb-history covariance was constructed
+as the exact inverse of `L`.  Because the finite product-Gaussian evaluator is
+the standard variance-one Gaussian, a pullback through a factor of `L^{-1}`
+represents density `exp(-S0/2)`, not the required heat density `exp(-S0)`.
+The latter requires precision `2L` and covariance `(2L)^{-1}`.
+
+This is not only a convention-level observation.  The checked
+one-coordinate specialization gives
+
+    E[z^2] = 1,
+    Cov(z^2,z^2) = 2 = 2*E[z^2],
+    kappa_3(z^2,z^2,z^2) = 8 = 4*Cov(z^2,z^2).
+
+Therefore the milestone-304/305 quantities
+
+    Cov(A2,S0)-E[A2],
+    kappa(A2,B2,S0)-2*R4
+
+contain a deterministic normalization debt on the inverse-of-`L` carrier,
+even at exact whitening.  Their algebraic decomposition and explicit Wick
+sums remain correct on that carrier, but they are not pure finite-Heron errors
+and do not transfer the PAPER heat-law cancellation.
+
+`SU2QuaternionFiniteGaussianOpenCubeCombHeatFreeHistoryPositiveDefinite.lean`
+constructs the corrected finite carrier instead.  It defines the doubled
+precision `2L`, proves it symmetric and strictly positive, produces its exact
+rational two-sided inverse and positive covariance LDL data, and exposes the
+rational Heron transform with a checked entrywise covariance-residual bound.
+Heat-normalized coordinate, arbitrary physical-row, three-color curl and
+weighted radial-square constructors are included for the downstream source
+and action rebuild.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  Every printed
+load-bearing declaration uses exactly `[propext, Quot.sound]`.  The
+prohibited-token scan was clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeCombHeatFreeHistoryPositiveDefinite.lean
+      12418a2e417b6868a95d7e7ba52de78b3872f2e8f7692e9389aea7c5e4be4652
+
+This closes the normalization diagnosis and constructs the corrected finite
+FREE heat covariance only.  It does not yet rebuild the complete Cayley
+source/action/OWN-OLD response, prove a uniform sign, compare the ORIGINAL
+law, control the higher remainder, or establish any continuum/Clay result.
+NEXT is the literal directed-link, plaquette, bulk-source and complete-action
+row rebuild on the new heat Heron transform, followed by a fresh common-action
+split in that corrected scope.
+
+## Heat-normalized directed rows and complete quadratic action (KERNEL-CHECKED)
+
+2026-10-15. `SU2QuaternionFiniteGaussianOpenCubeHeatNormalizedRows.lean`
+now migrates the literal open-cube quadratic layer to the corrected heat
+covariance.  It rebuilds the comb-gauge directed link rows, signed plaquette
+word rows, weighted bulk-source quadratic and trace-source `A2`, together with
+all spatial and temporal quadratic action rows, using only the milestone-306
+Heron factor for the exact inverse of `2L`.
+
+The gauge section, plaquette orientation, three color blocks, source profile,
+history slices and canonical insertion families are unchanged.  The exact
+local Cayley and kinetic coefficient certificates apply to the new rows and
+give the complete coefficient identity
+
+    completeHeatV4Quadratic = -(2/3) * completeHeatS0.
+
+Hence the earlier normalization error was in the covariance carrier, not in
+the `-2/3` heat-action coefficient.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All five printed
+declarations use exactly `[propext, Quot.sound]`.  The prohibited-token scan
+was clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatNormalizedRows.lean
+      e894c43c749dd0e58dad0c21f76c0327e7b91c89160265b2aa8abb2e5e5ac3de
+
+This closes only the corrected directed-row, `A2` and quadratic-action layer.
+The heat-normalized `A3,A4`, complete `V3/V4/J2`, OWN/OLD response,
+neighboring-time sign, ORIGINAL-law comparison, higher remainder and every
+continuum/Clay conclusion remain open.  NEXT is the cubic/quartic row-block
+migration followed by reassembly of `R4/R6` and `P4/P6` on this corrected
+carrier.
+
+## Heat-normalized Cayley trace-source coefficients (KERNEL-CHECKED)
+
+2026-10-15. `SU2QuaternionFiniteGaussianOpenCubeHeatCayleySourceCoefficients.lean`
+now places the complete finite trace-source coefficient triple on the
+corrected heat rows:
+
+    A2 = H2 = 4|B|^2,
+    A3 = H3,
+    A4 = F4.
+
+The source profile, selected faces, history placement and directed plaquette
+word are unchanged.  `A2` is the full weighted two-row list with factor four;
+`A3` is the complete weighted family of the twenty-four signed `H3/4` blocks
+with factor four; and `A4` is the complete normalized-Cayley four-row list,
+including the denominator correction.  Coefficientwise theorems identify all
+three literal polynomials with their block lists, making the corrected carrier
+available to the existing generic Wick compilers.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All three printed
+declarations use exactly `[propext, Quot.sound]`.  The prohibited-token scan
+was clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatCayleySourceCoefficients.lean
+      fce873be2b00f9354300a5b2cd28896dc70e5ec975d606a8e9681594c72c89ee
+
+This closes only the corrected source-coefficient row compiler.  The complete
+heat-normalized `V3/V4/J2`, connected and OWN/OLD response, uniform sign,
+ORIGINAL comparison, higher remainder and every continuum/Clay conclusion
+remain open.  NEXT is the complete density-row migration followed by reuse of
+the already checked finite Wick algebra.
+
+## Complete heat-normalized spatial cubic-pair response (KERNEL-CHECKED)
+
+2026-10-15. `SU2QuaternionFiniteGaussianOpenCubeHeatSpatialCubicPairCumulant.lean`
+now reconstructs the total spatial cubic action `V3` and its complete ordered
+half-square `V3^2/2` on the corrected heat rows.  The cubic block list includes
+every internal spatial face on every history slice.  Its ordered Cartesian
+square retains every cross-face and cross-time pair, with both off-diagonal
+orientations and the exact factor one half.
+
+The final theorem applies the milestone-308 actual `A2` block certificates in
+both source slots and reduces
+
+    kappa(A2(left), A2(right), V3^2/2)
+
+to the existing finite weighted `2+2+6` Wick sum.  Both exact source factors
+four are retained; no rescaling convention is imposed after the fact.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All three printed
+declarations use exactly `[propext, Quot.sound]`.  The prohibited-token scan
+was clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatSpatialCubicPairCumulant.lean
+      acb69e08dca45f39c60b3efc68ad5e743f58323d229ccaa417c757d761bfd1ed
+
+This closes only the corrected cubic-pair density term.  Spatial/kinetic
+`V4`, Cayley-Haar `J2`, complete `R6`, OWN/OLD response, uniform sign,
+ORIGINAL comparison, higher remainder and every continuum/Clay conclusion
+remain open.  NEXT is the remaining complete second-density row migration.
+
+## Heat-normalized fourth-action and Cayley-Haar responses (KERNEL-CHECKED)
+
+2026-10-15. `SU2QuaternionFiniteGaussianOpenCubeHeatFourthActionHaarCumulant.lean`
+now migrates all three remaining complete second-density components to the
+corrected `(2L)^{-1}` heat rows.  The spatial `V4` family retains every
+face/time insertion and both its quartic and quadratic Cayley pieces.  The
+kinetic `V4` family retains every bond/link insertion and both its quartic and
+quadratic kinetic pieces.  The product-Cayley Haar `J2` family retains every
+history-slice/link row square.
+
+The actual heat trace-source `A2` block lists are consumed in both source
+slots.  Their diagonal two-row blocks are identified coefficientwise with
+literal row squares.  The existing weighted `2+2+4` compiler and weighted
+three-square triangle compiler then give explicit finite values for
+
+    kappa(A2(left), A2(right), spatialV4),
+    kappa(A2(left), A2(right), kineticV4),
+    kappa(A2(left), A2(right), J2).
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All three printed
+load-bearing declarations use exactly `[propext, Quot.sound]`.  The
+prohibited-token scan was clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatFourthActionHaarCumulant.lean
+      8946db62fd9e361f29d1f4d67bf376975257b818e0d744883c0ce7a8a3e4df0c
+
+This closes the remaining corrected component compilers only.  The signed
+sum `V3^2/2-spatialV4-kineticV4+J2`, source-source and mixed source/action
+terms, complete `R6`, OWN/OLD response, uniform sign, ORIGINAL comparison,
+higher remainder and every continuum/Clay conclusion remain open.  NEXT is
+the complete corrected second-density response assembly.
+
+## Complete corrected second-density response (KERNEL-CHECKED)
+
+2026-10-15. `SU2QuaternionFiniteGaussianOpenCubeHeatCompleteSecondDensityCumulant.lean`
+now assembles the exact corrected-carrier polynomial
+
+    V3^2/2 - spatialV4 - kineticV4 + J2
+
+and its connected insertion against the two actual heat trace-source
+quadratics.  Finite-cumulant additivity and scalar homogeneity combine the
+four milestone-309/310 component certificates without changing their common
+`(2L)^{-1}` row carrier.  The output is one explicit finite rational value:
+the cubic-pair Wick sum minus both fourth-action Wick sums plus the Haar
+triangle sum.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  The printed
+load-bearing declaration uses exactly `[propext, Quot.sound]`.  The
+prohibited-token scan was clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatCompleteSecondDensityCumulant.lean
+      395a677cc94444364be85651ddac13cb01580ea5dbe424573813d44e082dd63a
+
+This closes only the pure second-density connected contribution.  The
+source-source and mixed source/action order-six pieces, corrected `R6`,
+OWN/OLD `P4/P6`, uniform sign, ORIGINAL comparison, higher remainder and every
+continuum/Clay conclusion remain open.  NEXT is the remaining corrected
+order-six response assembly.
+
+## Heat source-source and mixed order-six responses (KERNEL-CHECKED)
+
+2026-10-15. `SU2QuaternionFiniteGaussianOpenCubeHeatSourceOrderSixCumulants.lean`
+now compiles every remaining connected order-six component on the corrected
+heat carrier.  The actual heat `A2,A3,A4` source blocks give the complete
+source-source value
+
+    Cov(A4(left),A2(right))
+      + Cov(A2(left),A4(right))
+      + Cov(A3(left),A3(right))
+
+through the existing weighted `2+4` and `3+3` six-row Wick theorems.  The
+complete heat spatial cubic block list gives both signed mixed terms
+
+    -kappa(A3(left),A2(right),V3)
+    -kappa(A2(left),A3(right),V3)
+
+through the weighted `3+2+3` compiler.  Every source factor, face, history
+slice and cross-term remains explicit in the finite lists.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  Both printed
+load-bearing declarations use exactly `[propext, Quot.sound]`.  The
+prohibited-token scan was clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatSourceOrderSixCumulants.lean
+      95b536c29ceab0c2cf30e4914957e1c416616ab304e12c78c002962101872a51
+
+This closes the remaining corrected connected components only.  Their
+assembly into corrected `R6`, OWN/OLD `P4/P6`, uniform sign, ORIGINAL
+comparison, higher remainder and every continuum/Clay conclusion remain
+open.  NEXT is the corrected connected `R6` sum.
+
+## Complete corrected connected R6 (KERNEL-CHECKED)
+
+2026-10-15. `SU2QuaternionFiniteGaussianOpenCubeHeatConnectedR6.lean`
+now assembles the full connected order-six Cayley trace-source coefficient on
+the corrected heat carrier.  Its exact left-hand side is the sum of all three
+source-source covariances, both signed mixed source/action cumulants and the
+complete second-density cumulant.  The output is the corresponding signed sum
+of the milestone-311/312 finite Wick values.
+
+All source polynomials are the literal heat `A2,A3,A4` coefficients; in
+particular both factor-four `A2` normalizations are already present and no
+separate factor-sixteen transport is applied.  All components share the same
+finite `(2L)^{-1}` Heron rows.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  The printed
+load-bearing declaration uses exactly `[propext, Quot.sound]`.  The
+prohibited-token scan was clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatConnectedR6.lean
+      598b1b696348026ec1077d781beb7b6ff53c9a6980f4d4ae096e7ca54c7fe862
+
+This closes corrected connected finite FREE `R6` only.  Corrected `R4`, OWN
+means, supplied OLD-center products, `P4/P6`, uniform sign, ORIGINAL
+comparison, higher remainder and every continuum/Clay conclusion remain
+open.  NEXT is the corrected OWN/OLD response layer.
+
+## Corrected R4 and complete OWN means (KERNEL-CHECKED)
+
+2026-10-15. `SU2QuaternionFiniteGaussianOpenCubeHeatOwnMeanWick.lean`
+now supplies corrected connected `R4` and every one-source OWN coefficient on
+the common heat carrier.  `R4=Cov(A2(left),A2(right))` is reduced to the
+weighted `2+2` Wick sum.  `a2=E[A2]` is reduced to a weighted Gram sum, and
+`a3=E[A3]-Cov(A2,V3)` vanishes by exact finite Gaussian parity.
+
+The complete fourth OWN coefficient is retained literally as
+
+    E[A4] - Cov(A3,V3)
+      + Cov(A2,J2-spatialV4-kineticV4)
+      + (1/2)*kappa(A2,V3,V3).
+
+Each term has an explicit finite Gram/Wick compiler on the corrected rows;
+the even-density covariance includes every complete spatial and kinetic
+fourth-action insertion and every Cayley-Haar row square.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All three printed
+load-bearing declarations use exactly `[propext, Quot.sound]`.  The
+prohibited-token scan was clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatOwnMeanWick.lean
+      cf972ff1eb69bb52b561862e77c6051b32612c5cea4823301d1df5b79ee39b3f
+
+This closes corrected finite FREE `R4` and OWN means only.  Supplied
+OLD-center `P4/P5/P6`, uniform sign, ORIGINAL comparison, higher remainder
+and every continuum/Clay conclusion remain open.  NEXT is the exact corrected
+OWN/OLD response bookkeeping.
+
+## Complete corrected OWN/OLD response (KERNEL-CHECKED)
+
+2026-10-15. `SU2QuaternionFiniteGaussianOpenCubeHeatOwnOldResponse.lean`
+now assembles corrected OLD-centered `P4,P5,P6` and substitutes every
+heat-carrier connected/OWN coefficient by its complete finite Gram/Wick
+certificate.  The supplied `CayleyTraceOldCenter` remains arbitrary.
+
+Finite Gaussian parity proves only the OWN cubic mean `a3` vanishes.  It does
+not set the supplied OLD `c3` to zero.  Consequently parity-normalized `P6`
+retains the literal square `(-c3)*(-c3)` alongside connected `R6` and the two
+`a2/a4` OWN-minus-OLD residual products.  `P4` and `P5` likewise retain every
+supplied-center residual.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All three printed
+load-bearing declarations use exactly `[propext, Quot.sound]`.  The
+prohibited-token scan was clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatOwnOldResponse.lean
+      a41fda6e4a3e7e986c9e4a33f8801ef8188f2b953b6e8c5110ea917d2139a0e2
+
+This closes the corrected finite FREE response algebra only.  Uniform signed
+comparison, ORIGINAL-law identification, higher-remainder control and every
+continuum/Clay conclusion remain open.  NEXT is the corrected common-action
+split and residual analysis.
+
+## Corrected common-action P6 split (KERNEL-CHECKED)
+
+2026-10-15. `SU2QuaternionFiniteGaussianOpenCubeHeatCommonAction.lean`
+now applies the exact corrected-row coefficient identity
+`-V4_quadratic=(2/3)S0` inside the complete OLD-centered response.  Its
+contribution decomposes into
+
+    (4/3)P4,
+    (2/3)c2*((a2(left)-c2)+(a2(right)-c2)),
+    (2/3) times the scaling residual.
+
+The universal `(4/3)P4` term cancels identically from every cleared
+two-response comparison.  The fixed supplied-OLD-center term is retained.
+The corrected scaling residual targets exactly
+
+    Cov(A2,S0)=E[A2],
+    kappa(A2(left),A2(right),S0)=2*R4.
+
+Unlike the old inverse-of-`L` branch, these targets have the correct heat-law
+normalization.  A finite rational Heron stage still leaves an approximation
+residual, which has not yet been bounded.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All three printed
+load-bearing declarations use exactly `[propext, Quot.sound]`.  The
+prohibited-token scan was clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatCommonAction.lean
+      dd4ef66c70f0fbd8d2ceb336d38e0b54401d39cf0692698b2fb589cf1d2bb5e0
+
+This closes only the corrected common-action algebra.  Explicit Gram
+contraction, uniform bounds, a signed comparison, ORIGINAL-law transfer,
+higher-remainder control and every continuum/Clay conclusion remain open.
+NEXT is the corrected residual Wick compiler.
+
+## Corrected heat residual Wick compiler (KERNEL-CHECKED)
+
+2026-10-15. `SU2QuaternionFiniteGaussianOpenCubeHeatCommonActionWick.lean`
+now constructs weighted row-square representations of the actual heat `A2`
+sources and the complete corrected action `S0`, retaining every spatial and
+kinetic insertion.  It reduces the corrected defects
+
+    Cov(A2,S0)-E[A2],
+    kappa(A2(left),A2(right),S0)-2*R4
+
+to explicit finite Gram and three-square triangle sums.  Substitution into
+the milestone-316 formula gives a complete explicit Gram certificate for the
+OLD-centered `P6` scaling residual.  No evaluator-level covariance or
+cumulant remains.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All five printed
+load-bearing declarations use exactly `[propext, Quot.sound]`.  The
+prohibited-token scan was clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatCommonActionWick.lean
+      52279d0cc8583f220e359301caa264f08b14c7acb49ed03371b50bfd60acd2f6
+
+This closes only the corrected finite residual compiler.  Its contraction
+with the checked heat covariance defect, any uniform bound or sign,
+ORIGINAL-law transfer, higher-remainder control and every continuum/Clay
+conclusion remain open.  NEXT is the cancellation-preserving covariance-defect
+contraction.
+
+## One-kernel contraction of the corrected heat defects (KERNEL-CHECKED)
+
+2026-10-15. `SU2QuaternionFiniteGaussianOpenCubeHeatCommonActionResidualContraction.lean`
+now factors both corrected common-action defects through the single finite
+row-pair kernel
+
+    D(u,v) = 2*sum_a w_a<u,a><v,a> - <u,v>.
+
+The exact checked contractions are
+
+    Cov(A2,S0)-E[A2] = sum_u w_u D(u,u),
+
+and
+
+    kappa(A2(left),A2(right),S0)-2*R4
+      = sum_{u,v} w_u w_v 4<u,v>D(u,v).
+
+The literal heat A2 rows and the complete spatial-plus-kinetic action rows are
+used.  The defining Wick leaf additionally exports an exact list equality
+between its A2 row squares and the pre-existing diagonal quadratic blocks, so
+no source representation is changed or assumed.
+
+Focused monitored checks and direct materialization passed for the updated
+Wick dependency and the new contraction consumer with one worker, the
+unchanged 20-GiB cap and 12-GiB reserve.  All four printed load-bearing
+consumer declarations use exactly `[propext, Quot.sound]`.  The prohibited
+scan was clean.  Current source SHA-256 values are:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatCommonActionWick.lean
+      52279d0cc8583f220e359301caa264f08b14c7acb49ed03371b50bfd60acd2f6
+    SU2QuaternionFiniteGaussianOpenCubeHeatCommonActionResidualContraction.lean
+      08492fd7915e8cac20dfd167c41e4ca226bff983749e428210d6ea70ff91a541
+
+This closes only the exact finite cancellation-preserving contraction.  Its
+matrix rewrite through `C_stage-C`, all uniform bounds or signs, ORIGINAL-law
+transfer, higher-remainder control and every continuum/Clay conclusion remain
+open.  NEXT is the exact stage-covariance residual identity.
+
+## Exact heat stage-covariance residual identity (KERNEL-CHECKED)
+
+2026-10-15. `SU2QuaternionFiniteGaussianOpenCubeHeatCovarianceScalingResidual.lean`
+now proves the finite matrix identity
+
+    C_stage*(P*C_stage)-C_stage
+      = (C_stage-C)*(P*C_stage),
+
+assuming the explicitly supplied exact left inverse `C*P=I`.  The checked
+heat specialization uses the doubled precision `P=2L`, its constructive
+rational inverse `C=(2L)^{-1}`, and the factor covariance generated by the
+rational Heron transform.  The identity is also transported to arbitrary
+finite physical-row bilinear forms.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All three printed
+load-bearing declarations use exactly `[propext, Quot.sound]`; the
+prohibited scan was clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatCovarianceScalingResidual.lean
+      e8e3618f97d697d0e822732ec22e06806a7725fa7759d81734f518f3d68b1e5c
+
+This closes only the exact finite matrix rewrite.  Equality between the
+complete action-row Gram and this doubled precision, all residual bounds or
+signs, ORIGINAL-law transfer, higher-remainder control and every
+continuum/Clay conclusion remain open.  NEXT is the complete action-row
+precision bridge.
+
+## Exact physical action-row Gram/precision bridge (KERNEL-CHECKED)
+
+2026-10-15. `SU2QuaternionFiniteGaussianOpenCubeHeatPhysicalActionPrecision.lean`
+now defines the canonical complete physical action-row family: every
+internal comb-curl row on every history slice and every comb-coordinate
+forward difference on every temporal bond.  Its entrywise finite Gram is
+proved exactly equal to the complete FREE-history precision `L`; hence twice
+the Gram is exactly the heat precision `2L` used by the corrected carrier.
+
+The proof is a literal finite sparse-sum calculation.  It retains both
+terminal spatial slices, every temporal bond and every comb coordinate, and
+uses the checked temporal-difference Gram theorem rather than a Fourier or
+spectral surrogate.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  Both printed
+load-bearing declarations use exactly `[propext, Quot.sound]`; the
+prohibited scan was clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatPhysicalActionPrecision.lean
+      2d1cb12f94189b0b0ce47747d757c4935d9319238cdd706aca05fcb57c5bbd69
+
+This closes only the physical-coordinate half of the bridge.  The literal
+three-color Heron-pulled plaquette/link action list still must be identified
+with these rows before the milestone-318 kernel is the milestone-319 matrix
+residual.  Uniform bounds or signs, ORIGINAL-law transfer, higher-remainder
+control and every continuum/Clay conclusion remain open.  NEXT is that
+literal row pullback and kernel/bilinear join.
+
+## Literal physical plaquette/kinetic row identification (KERNEL-CHECKED)
+
+2026-10-15. `SU2QuaternionFiniteGaussianOpenCubeHeatPhysicalActionRows.lean`
+now proves the exact pointwise physical-row identities behind the action
+list.  The directed plaquette word `+A,+B,-C,-D` equals the selected comb-curl
+row for every listed internal face.  The kinetic link difference
+`slice(bond)-slice(bond+1)` equals the negative canonical temporal-incidence
+row for every listed comb-gauge link.  The latter sign is retained explicitly
+and vanishes only after forming the row Gram.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  Both printed
+load-bearing declarations use exactly `[propext, Quot.sound]`; the
+prohibited scan was clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatPhysicalActionRows.lean
+      c5f429cefeb404d8c184cccc33e78789cc238889f3b12dd2cffc9aa8339147d8
+
+This closes only the literal physical-coordinate row seam.  Pullback through
+the three-color heat Heron transform, complete-list summation, residual
+bounds or signs, ORIGINAL-law transfer, higher-remainder control and every
+continuum/Clay conclusion remain open.  NEXT is that pullback and exact
+kernel/bilinear join.
+
+## Literal heat action-row Heron pullback (KERNEL-CHECKED)
+
+2026-10-15. `SU2QuaternionFiniteGaussianOpenCubeHeatActionRowPullback.lean`
+now proves the exact finite linearity needed to transport physical rows through
+the rational heat Heron transform and the disjoint three-color embedding.  The
+literal normalized plaquette total row is exactly the pullback of the directed
+physical word `+A,+B,-C,-D`, and the normalized kinetic difference row is
+exactly the pullback of `slice(bond)-slice(bond+1)`.  The module also exports
+the exact color-diagonal Gram of arbitrary pulled physical rows.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  All three printed load-bearing
+declarations use exactly `[propext, Quot.sound]`; the prohibited scan was
+clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatActionRowPullback.lean
+      b74403ffed3ba6a2a48240eddc494a36594f42e4ebae8367f1587dba7ee0ca22
+
+This closes only the pointwise row-pullback seam.  Complete weighted action-list
+summation, the exact action-kernel/covariance-residual bilinear join, all
+uniform bounds or signs, ORIGINAL-law transfer, higher-remainder control and
+every continuum/Clay conclusion remain open.  NEXT is the complete-list sum
+and exact finite kernel/bilinear join.
+
+## Complete literal physical action Gram (KERNEL-CHECKED)
+
+2026-10-15.
+`SU2QuaternionFiniteGaussianOpenCubeHeatCompletePhysicalActionGram.lean`
+now sums the actual internal-face plaquette rows on every history slice and
+the actual comb-gauge-link kinetic rows on every forward temporal bond.  Exact
+duplicate-free `getD`/`idxOf` reindexing identifies this literal carrier with
+the canonical finite row ranges, so its complete Gram is exactly the
+FREE-history precision `L`.  The opposite kinetic orientation is retained at
+row level and cancels only in the product of two entries.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  All three printed load-bearing
+declarations use exactly `[propext, Quot.sound]`; the prohibited scan was
+clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatCompletePhysicalActionGram.lean
+      ffc16a2892d898ed789a573e1d59cc2474085e5040fc2d700d41949bb0c6a8a6
+
+This closes only the complete physical-list Gram.  The complete three-color
+noise-row sum, exact scaling-kernel/covariance-residual bilinear join, all
+uniform bounds or signs, ORIGINAL-law transfer, higher-remainder control and
+every continuum/Clay conclusion remain open.  NEXT is the noise-list sum and
+exact finite kernel/bilinear join.
+
+## Complete heat action pullback Gram (KERNEL-CHECKED)
+
+2026-10-15.
+`SU2QuaternionFiniteGaussianOpenCubeHeatCompleteActionPullbackGram.lean`
+now transports every row of the complete weighted spatial-plus-kinetic heat
+action list through the exact three-color Heron pullback.  Its action Gram
+sandwich is exactly zero between distinct color blocks and, on a matching
+color, is the staged physical-covariance sandwich over all actual internal
+faces, slices, comb-gauge links and temporal bonds.  Every literal insertion
+weight is retained.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  The printed load-bearing
+declaration uses exactly `[propext, Quot.sound]`; the prohibited scan was
+clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatCompleteActionPullbackGram.lean
+      171e7ac7294167be3778cef9309d058805a49a0159bb581b1a0c2e661cc02ec8
+
+This closes only the complete noise-list-to-physical-sandwich transport.  The
+matrix-product rewrite and exact scaling-kernel/covariance-residual join, all
+uniform bounds or signs, ORIGINAL-law transfer, higher-remainder control and
+every continuum/Clay conclusion remain open.  NEXT is the exact finite matrix
+join using the checked complete physical Gram `L`.
+
+## Complete physical action sandwich matrix form (KERNEL-CHECKED)
+
+2026-10-15.
+`SU2QuaternionFiniteGaussianOpenCubeHeatActionSandwichMatrix.lean` proves by
+constructive finite distributivity and Fubini that the covariance sandwich of
+any finite row family is the bilinear form for
+`C * Gram(rows) * C^T`.  For the complete literal physical open-cube action
+rows, the checked Gram is the FREE-history precision `L`, and the explicit
+Heron stage covariance is symmetric.  Therefore the complete milestone-324
+matching-color sandwich is exactly `B_(C_stage * (L * C_stage))`.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  All three printed load-bearing
+declarations use exactly `[propext, Quot.sound]`; the prohibited scan was
+clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatActionSandwichMatrix.lean
+      35209117c92054c5876ae54a055d0e0bbf1d6a3e28ddd95b4010c673cd4d0450
+
+This closes only the complete finite matrix-product rewrite.  The exact
+factor-two subtraction and scaling-kernel/covariance-residual contraction
+join, all uniform bounds or signs, ORIGINAL-law transfer, higher-remainder
+control and every continuum/Clay conclusion remain open.  NEXT is the exact
+full finite kernel join using milestones 318, 319, 324 and 325.
+
+## Complete heat scaling kernel covariance-residual join (KERNEL-CHECKED)
+
+2026-10-15.
+`SU2QuaternionFiniteGaussianOpenCubeHeatActionScalingKernelMatrix.lean`
+now identifies the complete weighted noise-coordinate action scaling kernel
+without dropping any insertion or color block.  Between distinct colors the
+kernel is exactly zero.  On a matching color it is the bilinear form for
+`C_stage * ((2L) * C_stage) - C_stage`, and the checked inverse identity
+rewrites this exactly as the contraction
+`(C_stage-C_exact) * ((2L) * C_stage)`.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  Both printed load-bearing
+declarations use exactly `[propext, Quot.sound]`; the prohibited scan was
+clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatActionScalingKernelMatrix.lean
+      b295a8244850c539ccea98152c87139c313165e46cd4d4d0ad9f70b62c90a165
+
+This closes only the exact finite action-kernel/covariance-residual join.  Its
+entrywise or row-pair bounds, cutoff-/volume-uniform control, neighboring-time
+sign, ORIGINAL-law transfer, higher-remainder control and every continuum/Clay
+conclusion remain open.  NEXT is to transport the existing entrywise Heron
+covariance-error envelope through the explicit contraction.
+
+## Complete heat scaling kernel finite Heron envelope (KERNEL-CHECKED)
+
+2026-10-15.
+`SU2QuaternionFiniteGaussianOpenCubeHeatActionScalingKernelEnvelope.lean`
+rewrites the checked covariance-residual contraction against physical rows as
+the staged-minus-exact covariance bilinear with right row transformed by
+`(2L) * C_stage`.  The existing entrywise Heron certificate then gives the
+literal coefficient-weighted bound
+
+    |B_((C_stage-C_exact)*((2L)*C_stage))(u,v)|
+      <= HeronResidualEnvelope(u,((2L)*C_stage)*v).
+
+The same bound applies to the complete action scaling kernel on matching
+colors, while distinct colors remain exactly zero.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  Both printed load-bearing
+declarations use exactly `[propext, Quot.sound]`; the prohibited scan was
+clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatActionScalingKernelEnvelope.lean
+      e1aa46dfc3db6de375c73dd17e2e481650257521cfa8611ae6bbc0260716cfbb
+
+The milestone-325 source hash was updated because its already-proven generic
+matrix projection/product lemmas were exposed for this consumer; no
+mathematical statement or axiom gate changed.
+
+This closes only the literal finite envelope transport.  Uniform control of
+the envelope and transformed rows, neighboring-time sign, ORIGINAL-law
+transfer, higher-remainder control and every continuum/Clay conclusion remain
+open.  NEXT is to analyze the explicit LDL/Heron residual and transformed-row
+structure for cancellation or locality before taking absolute-value sums.
+
+## Complete heat scaling-kernel geometric envelope factor (KERNEL-CHECKED)
+
+2026-10-15.
+`SU2QuaternionFiniteGaussianOpenCubeHeatActionScalingKernelGeometricEnvelope.lean`
+extracts the exact Heron factor `(1/2)^stage` from the complete finite kernel
+envelope.  The remaining named coefficient is the stage-zero LDL residual
+coefficient envelope evaluated on the left row and the transformed right row
+`((2L) * C_stage) * v`.  Thus the matching-color complete kernel is bounded by
+that coefficient times `(1/2)^stage`, while distinct colors remain exactly
+zero.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  Both printed load-bearing
+declarations use exactly `[propext, Quot.sound]`; the prohibited scan was
+clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatActionScalingKernelGeometricEnvelope.lean
+      113206df8695510d32a4c8c073e751f4d2d532fb412db4d750627f9ad9d4b9c0
+
+This closes only the exact geometric-factor extraction.  The coefficient is
+still stage-, cutoff- and volume-dependent through the transformed row, so no
+uniform decay, sign, ORIGINAL-law transfer, remainder, continuum or Clay
+claim is closed.  NEXT is the exact identity-transform-plus-residual
+decomposition of `((2L) * C_stage) * v`.
+
+## Heat scaling residual first-order/quadratic split (KERNEL-CHECKED)
+
+2026-10-15.
+`SU2QuaternionFiniteGaussianOpenCubeHeatActionScalingKernelResidualSplit.lean`
+uses `(2L) * C_exact = I` to prove the exact in-range transformed-row identity
+
+    ((2L) * C_stage) * v
+      = v + (2L) * (C_stage-C_exact) * v.
+
+For `E=C_stage-C_exact` and `r=(2L)*E*v`, the complete matching-color
+covariance-residual contraction then splits exactly as
+
+    B_(E*((2L)*C_stage))(u,v) = B_E(u,v) + B_E(u,r).
+
+The second term is genuinely quadratic in the same finite Heron covariance
+error; no asymptotic series or omitted insertion is involved.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  Both printed load-bearing
+declarations use exactly `[propext, Quot.sound]`; the prohibited scan was
+clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatActionScalingKernelResidualSplit.lean
+      e24c02cf54dc2ea1e4a948cac75fa134fbbdc7c7ba3e94ec6a57bbefb9bf05fb
+
+Milestone 327's already-checked intermediate error-bilinear identity was made
+public for this consumer; its theorem and axiom gate are unchanged.
+
+This closes only the exact finite first-order/quadratic split.  Uniform bounds
+for the residual row or either coefficient piece, neighboring-time sign,
+ORIGINAL-law transfer, higher-remainder control and every continuum/Clay claim
+remain open.  NEXT is an explicit geometric bound for the residual correction
+row.
+
+## Residual correction row geometric envelope (KERNEL-CHECKED)
+
+2026-10-15.
+`SU2QuaternionFiniteGaussianOpenCubeHeatActionScalingKernelResidualRightEnvelope.lean`
+identifies every coordinate of `(2L)(C_stage-C_exact)v` with a finite
+covariance-error bilinear whose left row is the corresponding doubled-precision
+row.  The checked LDL/Heron envelope therefore gives
+
+    |((2L)(C_stage-C_exact)v)_k|
+      <= R_coeff(k;v) * (1/2)^stage,
+
+where `R_coeff` is explicit and stage-independent.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  The printed load-bearing
+declaration uses exactly `[propext, Quot.sound]`; the prohibited scan was
+clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatActionScalingKernelResidualRightEnvelope.lean
+      d976d24b90918b023f42e35daa76400b4c83a81e120e4f16c313119529f2cbe8
+
+Milestone 327's generic bilinear subtraction lemma was exposed for this actual
+consumer; its checked mathematics and axiom gate are unchanged.
+
+This closes only the pointwise finite residual-row bound.  The summed
+quadratic coefficient, cutoff-/volume-uniform control, neighboring-time sign,
+ORIGINAL-law transfer, higher-remainder control and every continuum/Clay claim
+remain open.  NEXT is the explicit first-order `2^-stage` plus quadratic
+`2^-2stage` kernel estimate.
+
+## Complete heat scaling-kernel two-order geometric envelope (KERNEL-CHECKED)
+
+2026-10-15.
+`SU2QuaternionFiniteGaussianOpenCubeHeatActionScalingKernelTwoOrderEnvelope.lean`
+combines the exact first/quadratic residual split with the pointwise
+residual-right bound.  It defines explicit stage-independent finite rational
+coefficients `A(u,v)` and `B(u,v)` and proves
+
+    |B_((C_stage-C_exact)*((2L)*C_stage))(u,v)|
+      <= A(u,v) * (1/2)^stage
+         + (B(u,v) * (1/2)^stage) * (1/2)^stage.
+
+The complete weighted noise-coordinate action scaling kernel inherits this
+bound on matching colors and is exactly zero on distinct colors.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  Both printed load-bearing
+declarations use exactly `[propext, Quot.sound]`; the prohibited scan was
+clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatActionScalingKernelTwoOrderEnvelope.lean
+      484da792bb73c5bff42275f6cf2e6883f8f045b6b2e0e76d1d4455b397e01fdd
+
+This closes only the explicit finite stage-decay structure through quadratic
+order.  Cutoff-/volume-uniform bounds for `A` and `B`, neighboring-time sign,
+ORIGINAL-law transfer, higher-remainder control and every continuum/Clay claim
+remain open.  NEXT is specialization to the actual bulk-source physical rows
+and analysis of coefficient growth or cancellation.
+
+## Actual bulk-source heat scaling envelope (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceScalingEnvelope.lean`
+identifies every indexed heat row in the literal bulk-source `A2` carrier with
+the Heron pullback of the concrete physical history curl row
+
+    combGaugeFreeHistoryCurlRow
+      (bulkSourceWidth side) time
+      (bulkSourceInternalFaceIndex side (rowIndex / 3)),
+
+embedded in color block `rowIndex % 3`.  It then specializes the complete
+action scaling-kernel estimate to any pair of these actual source rows.  The
+matching-color kernel is bounded by the source-specialized
+`A_source*2^-stage + B_source*2^-2stage`, and distinct colors remain exactly
+zero.  Both coefficients are explicit finite rational sums independent of
+the Heron stage.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  Both printed load-bearing
+declarations use exactly `[propext, Quot.sound]`; the prohibited scan was
+clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceScalingEnvelope.lean
+      542b288f0a3042132484fe69f6ad8d049cdde9d63340beb6b24dd07c6d0e0e0c
+
+This closes only the exact source-row specialization and its finite pairwise
+stage-decay bound.  Uniform control of the specialized coefficients, weighted
+summation over the actual source carrier, neighboring-time sign, ORIGINAL-law
+transfer, higher-remainder control and every continuum/Clay conclusion remain
+open.  NEXT is literal support/LDL-coefficient analysis for these source rows.
+
+## Actual bulk-source physical support (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourcePhysicalSupport.lean`
+constructs four explicit candidate history coordinates for every physical
+bulk-source curl row, one from each oriented link in the selected source
+face.  The candidate list has length exactly four.  For every actual source
+row index and every in-range physical history coordinate, the row coefficient
+is exactly zero outside that list.  Tree links contribute zero rather than
+hidden long-range support.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  The support theorem uses exactly
+`[propext, Quot.sound]`, the length theorem uses `[propext]`, and the
+prohibited scan was clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourcePhysicalSupport.lean
+      2d038527833ee7c7401ba4b578d225a3a81ab614b7af4c08c1c98724044dceba
+
+This closes only source-row support growth.  Exact localization of the
+source-specialized coefficient sums, uniform bounds for the surviving LDL
+entries, weighted source summation, neighboring-time sign, ORIGINAL-law
+transfer, higher-remainder control and every continuum/Clay conclusion remain
+open.  NEXT is exact four-support localization of the first-order coefficient.
+
+## Actual bulk-source first-order support localization (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceFirstOrderSupport.lean`
+filters the full physical history range against each source row's four-entry
+candidate carrier and proves that the actual source-specialized first-order
+coefficient is exactly the double sum over those filtered supports.  Every
+discarded summand is zero by the checked physical support theorem.  Supported
+coordinates are separately certified to be both in range and members of the
+four-entry candidate list.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  The printed load-bearing
+declaration uses exactly `[propext, Quot.sound]`; the prohibited scan was
+clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceFirstOrderSupport.lean
+      1ca27f35bb099d3fc7299393fe6c99794df7b0acaf148ee7fb2eb44f690da1d8
+
+This closes ambient-coordinate growth from zero source-row entries only.
+Uniform bounds for the surviving LDL residual coefficients, localization or
+control of the quadratic coefficient, weighted source summation,
+neighboring-time sign, ORIGINAL-law transfer, higher-remainder control and
+every continuum/Clay conclusion remain open.  NEXT is direct analysis of the
+surviving LDL residual entries on four-link source coordinate pairs.
+
+## Heat covariance LDL suffix structure (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOpenCubeHeatCovarianceLDLSuffix.lean` proves that
+the canonical heat-covariance Gram factor is unit-upper: it is the transpose
+of the explicit unit-lower inverse of the precision factor.  Therefore every
+in-range entrywise LDL residual coefficient is exactly the suffix sum over
+channels `k` satisfying `max(left,right) <= k < n`; every lower channel
+vanishes exactly.
+
+This rules out the proposed local-prefix shortcut.  Milestones 333--334 still
+reduce each source row to four physical coordinates, but a surviving pair can
+retain an ordering-dependent upper suffix through the full carrier.  The
+result identifies a possible fill-in growth mechanism without claiming that
+all suffix terms are nonzero or that the coefficient diverges.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  All three printed load-bearing
+declarations use exactly `[propext, Quot.sound]`; the prohibited scan was
+clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatCovarianceLDLSuffix.lean
+      7ffe74a10e0cad891e41762ff29fda1973a62df4a1a1cde8953a69fa3234aff3
+
+This closes only the exact triangular support pattern.  Uniform energy or
+row-square control of the retained suffix, source-coefficient bounds,
+quadratic localization, weighted source summation, neighboring-time sign,
+ORIGINAL-law transfer, higher-remainder control and every continuum/Clay
+conclusion remain open.  NEXT is to seek a weighted inverse-factor identity
+that avoids entrywise absolute-value summation.
+
+## Heat covariance LDL Young-energy reduction (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOpenCubeHeatCovarianceLDLYoungEnergy.lean`
+defines the positive stage-zero diagonal residual energy
+
+    E(row) = sum_{k<n} errAt(diagonal_k,0) * factor(row,k)^2
+
+and proves that every absolute LDL residual coefficient is bounded by
+`(E(left)+E(right))/2`.  It separately proves that `E(row)` equals the
+diagonal absolute residual coefficient and is exactly the stage-zero Heron
+factor covariance overshoot above the checked covariance diagonal.  The
+result is specialized to the canonical heat covariance using its existing
+positive-LDL checker.
+
+This replaces the dense unit-upper suffix obligation from the preceding
+milestone by two positive diagonal quantities.  It does not prove those
+quantities are uniformly bounded; that is now the precise finite analytic
+frontier.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  All five printed load-bearing
+declarations use exactly `[propext, Quot.sound]`; the prohibited scan was
+clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatCovarianceLDLYoungEnergy.lean
+      e277b929276caba6ef4187872957ed40a2a5216dbe8ec3f3546e981a8d5b3d3c
+
+This closes only the off-diagonal-to-diagonal energy reduction and its exact
+stage-zero interpretation.  Uniform diagonal-energy control, source
+coefficient bounds, quadratic localization, weighted source summation,
+neighboring-time sign, ORIGINAL-law transfer, higher-remainder control and
+every continuum/Clay conclusion remain open.  NEXT is a direct bound or
+quantitative obstruction for the source-coordinate diagonal overshoots.
+
+## Source first-order Young-energy reduction (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceFirstOrderYoungEnergy.lean`
+applies the diagonal Young-energy estimate to the exactly localized source
+coefficient.  The generic supported double sum factors into supported row
+absolute masses and supported diagonal-energy masses.  For the literal
+source curl rows, a constructive duplicate-free support count gives at most
+four retained coordinates and direct cubical incidence analysis bounds every
+row coefficient in absolute value by one.  The final checked estimate is
+
+    A_source(leftRow,rightRow)
+      <= 2 * (leftSupportedDiagonalEnergySum
+                + rightSupportedDiagonalEnergySum).
+
+Each sum has at most four terms, and every term is the exact stage-zero
+diagonal covariance overshoot identified in the preceding milestone.  Thus a
+uniform pointwise bound `E <= K` would imply the explicit pairwise bound
+`A_source <= 16*K`.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  All seven printed declarations
+use exactly `[propext, Quot.sound]`.  A transient `Classical.choice`
+dependency from `List.nodup_range` was detected by the axiom print and removed
+by replacing it with a constructive local induction.  The prohibited scan was
+clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceFirstOrderYoungEnergy.lean
+      8bd5daca942f205a023d3524ccfd5d83851096d31f197c4fa3ec2a07472fe489
+
+This closes only the finite source-geometric reduction of the first-order
+coefficient.  Uniform diagonal-energy control, quadratic localization,
+weighted source summation, neighboring-time sign, ORIGINAL-law transfer,
+higher-remainder control and every continuum/Clay conclusion remain open.
+NEXT is a uniform bound or quantitative obstruction for the at-most-four
+source-coordinate diagonal overshoots.
+
+## Pairwise adaptive source-scaling stage (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceScalingAdaptiveStage.lean`
+defines the sum of the actual source-specialized first- and second-order
+action-scaling coefficients and proves it nonnegative.  Applying the existing
+constructive geometric modulus to that finite coefficient gives an explicit
+stage after fixing a cutoff, source-row pair and positive rational tolerance.
+At every later stage, the matching-color action-scaling kernel is below the
+tolerance and the distinct-color kernel remains exactly zero.
+
+The proof uses the elementary compression
+
+    A * 2^(-stage) + (B * 2^(-stage)) * 2^(-stage)
+      <= geoTail(A + B, stage)
+
+for nonnegative `A` and `B`.  Thus a cutoff-uniform diagonal-energy estimate
+is not required merely to remove the Heron approximation for one fixed row
+pair.  The selected stage is allowed to depend on the cutoff and pair.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  Both printed load-bearing
+declarations use exactly `[propext, Quot.sound]`; the prohibited scan was
+clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceScalingAdaptiveStage.lean
+      3ce7c4dd6192ee421c609ec6ff90bade2a262c60b5e29969208a43ca451ca90a
+
+This closes only pairwise fixed-cutoff convergence.  A common stage for the
+complete weighted source carrier, weighted summation, cutoff-uniform rates,
+neighboring-time sign, ORIGINAL-law transfer, higher-remainder control and
+every continuum/Clay conclusion remain open.  NEXT is to aggregate the finite
+weighted carrier coefficients and choose one constructive common stage.
+
+## Weighted one-point source adaptive stage (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceMeanScalingAdaptiveStage.lean`
+identifies the complete heat `A2` row-square carrier with its explicit finite
+color-row index map.  It weights each diagonal pair coefficient
+`A_source(row,row)+B_source(row,row)` by the actual positive `A2` source
+weight and sums these terms into a nonnegative stage-independent coefficient
+`C_mean`.
+
+Finite-sum triangle and the pairwise two-order estimate give
+
+    abs(mean residual contraction) <= geoTail(C_mean,stage).
+
+The constructive modulus `geoOuterModulus(C_mean,epsilon)` therefore chooses
+one stage for the complete weighted one-point carrier.  The exact checked
+Wick-defect/residual-contraction identity transfers this estimate to the
+actual corrected one-point common-action scaling defect.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  All six printed load-bearing
+declarations use exactly `[propext, Quot.sound]`; the prohibited scan was
+clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceMeanScalingAdaptiveStage.lean
+      fb832e1af6e3f8403dda622845e32c5f134d8f5ea90294961cb3fc1a1a43dd7a
+
+This closes only the one-point finite-carrier scaling defect.  The connected
+two-source contraction, a cutoff-uniform stage, neighboring-time sign,
+ORIGINAL-law transfer, higher-remainder control and every continuum/Clay
+conclusion remain open.  NEXT is a stage-independent bound for the additional
+source-row Gram factor in the connected contraction, followed by the same
+finite aggregate-modulus construction.
+
+## Stage-uniform actual source-row Gram envelope (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceRowGramUniformEnvelope.lean`
+derives the physical bilinear covariance-error estimate from the existing
+entrywise Heron residual certificate.  For actual source rows it combines
+that estimate with `2^(-stage) <= 1` and first-order coefficient
+nonnegativity, yielding
+
+    abs(Gram_stage(leftRow,rightRow))
+      <= abs(C_exact[leftPhysical,rightPhysical]) + A_source(leftRow,rightRow)
+
+for matching colors, uniformly over every stage.  Distinct color blocks are
+exactly orthogonal by the existing color-pullback Gram identity.  The finite
+right-hand side is explicitly named and proved nonnegative.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  All three printed load-bearing
+declarations use exactly `[propext, Quot.sound]`; the prohibited scan was
+clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceRowGramUniformEnvelope.lean
+      7a2b1b8079669f41242087014eea031351071300323b75d3d32be3f704fff09f
+
+This closes only the extra stage-independent Gram factor in each connected
+source-pair summand.  Connected double-carrier aggregation, a cutoff-uniform
+stage, neighboring-time sign, ORIGINAL-law transfer, higher-remainder control
+and every continuum/Clay conclusion remain open.  NEXT is the finite weighted
+double sum and one aggregate geometric modulus.
+
+## Weighted connected source adaptive stage (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceConnectedScalingAdaptiveStage.lean`
+weights every source-row pair coefficient by the two positive actual heat
+`A2` weights, the Wick factor `4`, and the stage-independent actual source-row
+Gram envelope.  The resulting finite double sum is a nonnegative aggregate
+coefficient `C_connected`.
+
+Double finite-sum triangle, the stage-uniform Gram bound, pairwise two-order
+action-scaling control and exact `geoTail` linearity give
+
+    abs(connected residual contraction)
+      <= geoTail(C_connected,stage).
+
+The constructive modulus `geoOuterModulus(C_connected,epsilon)` therefore
+chooses one stage for the complete weighted connected carrier.  The exact
+checked Wick-defect/residual-contraction identity transfers this estimate to
+the actual corrected connected common-action scaling defect.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  All five printed load-bearing
+declarations use exactly `[propext, Quot.sound]`; the prohibited scan was
+clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceConnectedScalingAdaptiveStage.lean
+      9e19c7375d676d0de512f6bfe3320aa5daf114d73b5298edd8f174a8d8f88668
+
+This closes only the connected finite-carrier Heron scaling defect.  The
+adaptive stage remains cutoff-, side-, time- and tolerance-dependent.
+Neighboring-time sign, OWN-OLD and ORIGINAL-law transfer, higher-remainder
+control and every continuum/Clay conclusion remain open.  NEXT is to trace
+the exact signed response consumer and use the now-controlled one-point and
+connected common-action defects in the corrected second-density assembly.
+
+## Complete OLD-centered P6 scaling adaptive stage (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceP6ScalingAdaptiveStage.lean`
+constructs a stage-independent finite envelope `M_time` for each complete
+weighted heat `A2` OWN mean from the actual positive source weights and the
+stage-uniform diagonal source-row Gram envelopes.  It combines these with the
+one-point and connected tail coefficients into
+
+    C_P6 = C_connected
+      + (M_left + abs(c2)) * C_mean_right
+      + C_mean_left * (M_right + abs(c2)).
+
+The exact OLD-centered residual is the connected defect plus the two
+mean-defect products.  Product absolute-value estimates, the mean envelopes,
+the three public geometric-tail bounds and exact tail linearity give
+
+    abs(P6ScalingResidual) <= geoTail(C_P6,stage).
+
+The constructive modulus `geoOuterModulus(C_P6,epsilon)` therefore supplies
+one stage for the complete corrected supplied-OLD-centered residual.  The
+exact Wick identity transports the estimate back to the actual `P6` scaling
+residual.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  All six printed load-bearing
+declarations use exactly `[propext, Quot.sound]`; the prohibited scan was
+clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceP6ScalingAdaptiveStage.lean
+      1b1263272cd245a665c86f5f81e6d4d537dda52171574f7104fcea6be0bf4cdd
+
+This closes only the complete fixed-cutoff common-action scaling residual.
+The stage remains cutoff-, side-, time-, OLD-center- and tolerance-dependent.
+Neighboring-time sign, ORIGINAL-law center identification, higher-remainder
+control and every continuum/Clay conclusion remain open.  NEXT is to insert
+the bound into the exact negative-quadratic `P6` decomposition and isolate its
+residual-free retained terms before analyzing the non-common signed response.
+
+## Negative-quadratic P6 residual-free approximation (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceNegativeQuadraticP6AdaptiveStage.lean`
+defines the same-stage retained expression
+
+    (4/3) * P4
+      + ((2/3) * c2) * ((a2(left)-c2) + (a2(right)-c2)).
+
+The exact corrected common-action decomposition shows that the literal
+negative-quadratic `P6` contribution minus this expression is precisely
+`(2/3) * P6ScalingResidual`.  Scaling milestone 342's aggregate coefficient
+and tail therefore yields
+
+    abs(negativeQuadraticP6 - residualFreeValue)
+      <= geoTail((2/3)*C_P6,stage).
+
+The corresponding constructive modulus gives one explicit fixed-cutoff
+stage for every positive rational tolerance.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  All four printed load-bearing
+declarations use exactly `[propext, Quot.sound]`; the prohibited scan was
+clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceNegativeQuadraticP6AdaptiveStage.lean
+      d15edcc3841eb621c355f5cd0c510c5f11f51301195cde86ad8e834c1891d018
+
+This removes only the complete common-action scaling residual from the
+literal negative-quadratic component at fixed cutoff.  The retained value is
+still stage-dependent and has no proved sign.  Non-common corrected `P6`
+terms, ORIGINAL-law identification, higher remainders and every
+continuum/Clay conclusion remain open.  NEXT is an exact split of complete
+corrected `P6` into this component and the remaining finite Wick terms.
+
+## Complete P6 non-common split and residual-free approximation (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceP6ResidualFreeDecomposition.lean`
+defines the exact connected remainder after deleting the literal
+negative-quadratic cumulant and the two exact fourth-OWN-minus-OLD remainders
+after deleting their negative-quadratic covariances.  Together with the
+retained `(-c3)*(-c3)` term they form a named non-common corrected `P6`
+remainder.
+
+Constructive ring normalization proves
+
+    P6 - negativeQuadraticP6 = P6_withoutNegativeQuadratic.
+
+Replacing only the negative-quadratic component by milestone 343's retained
+same-stage expression defines `P6_residualFree`.  The complete error is
+exactly the already controlled component error, so
+
+    abs(P6 - P6_residualFree)
+      <= geoTail((2/3)*C_P6,stage),
+
+with the same adaptive-stage tolerance theorem.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  All four printed load-bearing
+declarations use exactly `[propext, Quot.sound]`; the prohibited scan was
+clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceP6ResidualFreeDecomposition.lean
+      abc5b9ba604f04c41c24bd5577427d8fb0329b0b361c78bbbbe10de1a8966ba0
+
+This closes the complete fixed-cutoff common-action Heron residual inside
+corrected `P6`, not the sign of the residual-free response.  The remaining
+finite sign burden is carried by the named non-common remainders and retained
+OLD-center terms.  ORIGINAL-law identification, higher-remainder control,
+uniform signed comparison and every continuum/Clay conclusion remain open.
+
+## Denominator-cleared corrected P6/P4 sign frontier (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceClearedP6Frontier.lean`
+defines the project-relevant cleared orientation
+
+    P4(second) * P6(first) - P4(first) * P6(second)
+
+for two arbitrary finite response slots.  After inserting milestone 344's
+residual-free complete `P6`, constructive ring normalization cancels the
+universal `(4/3)P4` products exactly.  The surviving value is the sum of
+
+    P4(second)*R_noncommon(first) - P4(first)*R_noncommon(second)
+
+and
+
+    ((2/3)*c2) *
+      (P4(second)*S(first) - P4(first)*S(second)),
+
+with `S=(a2(left)-c2)+(a2(right)-c2)`.  A second exact theorem identifies the
+actual-minus-residual-free cleared comparison as the two `P4`-weighted
+complete `P6` approximation errors.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  Both printed load-bearing
+declarations use exactly `[propext, Quot.sound]`; the prohibited scan was
+clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceClearedP6Frontier.lean
+      c1df10f49a3c3151d02cdd89f8aef5b473d5ac3cd3dae50aa008df25c802f092
+
+This exposes the exact finite sign obligation but proves no sign or
+denominator positivity.  The OLD-`c2` and non-common terms survive.  ORIGINAL
+matching, higher remainders, uniform control and every continuum/Clay
+conclusion remain open.  NEXT is a stage-independent finite `P4` envelope and
+one common adaptive stage for removing the two cleared Heron errors.
+
+## Corrected P4 stage-independent finite envelope (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceP4UniformEnvelope.lean`
+constructs the explicit connected envelope
+
+    sum_left sum_right
+      weight(left) * weight(right) * 2 * GramEnvelope(left,right)^2
+
+over the finite source color-row carrier.  The row-square Wick reduction and
+milestone 340's uniform Gram bound prove that it bounds the actual connected
+`R4` Wick sum at every Heron stage.  Adding the product of the two centered
+one-point envelopes gives
+
+    P4Envelope = R4Envelope
+      + (MeanEnvelope(left) + abs(c2))
+          * (MeanEnvelope(right) + abs(c2)),
+
+and the complete Wick identity proves `abs(P4(stage)) <= P4Envelope`.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  All four printed load-bearing
+declarations use exactly `[propext, Quot.sound]`; the prohibited scan was
+clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceP4UniformEnvelope.lean
+      445aa9a70bca05f1aeebe23d6402e24854ab14cad582df996c3518710314df9b
+
+This proves only a finite fixed-cutoff magnitude bound.  It does not prove
+`P4` positivity, denominator nonvanishing or the residual-free cleared sign.
+ORIGINAL matching, higher remainders, uniform control and every continuum/
+Clay conclusion remain open.  NEXT is one common adaptive stage for the
+actual cleared numerator using the two `P4` envelopes and the two complete
+`P6` residual tails.
+
+## Cleared corrected P6/P4 adaptive approximation (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceClearedP6AdaptiveStage.lean`
+combines the opposite-slot `P4` envelopes with the two complete `P6`
+approximation coefficients into
+
+    C_cleared
+      = P4Envelope(second) * C_P6_error(first)
+          + P4Envelope(first) * C_P6_error(second).
+
+Using the exact cleared-error identity, the two product bounds and geometric-
+tail linearity proves
+
+    abs(actualCleared - residualFreeCleared)
+      <= geoTail(C_cleared,stage).
+
+Thus `geoOuterModulus(C_cleared,epsilon)` gives one common fixed-cutoff stage
+for every positive rational tolerance.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  All three printed load-bearing
+declarations use exactly `[propext, Quot.sound]`; the prohibited scan was
+clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceClearedP6AdaptiveStage.lean
+      bf56fb50cb77d5245d2ee76bebc3b839bf91bb398f9b85325ea2a46970251796
+
+This proves no sign for the residual-free frontier and no denominator
+positivity.  The non-common and OLD-`c2` terms, ORIGINAL matching, higher
+remainders, uniform control and every continuum/Clay conclusion remain open.
+NEXT is the neighboring-time specialization of the residual-free frontier and
+an audit of any remaining exact cancellation before a genuine sign estimate.
+
+## Neighboring residual-free shared-time cancellation (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceNeighboringResidualFreeFrontier.lean`
+specializes the residual-free cleared comparison to `(t,t+s)` versus
+`(t,t+s+1)`.  With centered means `x,y,z` at these three times and connected
+fourth coefficients `R4_first,R4_second`, constructive ring normalization
+proves
+
+    (R4_second+x*z)*(x+y) - (R4_first+x*y)*(x+z)
+      = R4_second*(x+y) - R4_first*(x+z) + x^2*(z-y).
+
+Thus the mixed cubic product `x*y*z` cancels exactly from the retained
+supplied-OLD-`c2` term.  The complete residual-free neighboring frontier is
+the specialized non-common cleared term plus `(2/3)c2` times this reduced
+bracket.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  Both printed load-bearing
+declarations use exactly `[propext, Quot.sound]`; the prohibited scan was
+clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceNeighboringResidualFreeFrontier.lean
+      13283b9f4513a33bc37409fd2b3b06da804faa321a3c51442e981eaa791cdd75
+
+This proves no sign.  The connected `R4` terms, one-point increment,
+non-common cleared contribution, supplied `c2`, ORIGINAL matching, higher
+remainders, uniform control and every continuum/Clay conclusion remain open.
+NEXT is the minimal exact split of the specialized non-common term into
+response-independent OLD residues and genuinely time-dependent cumulants.
+
+## Neighboring OLD cubic-square split (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceNeighboringNonCommonOldCubicSplit.lean`
+deletes the response-independent `(-c3)^2` term from the named non-common
+corrected `P6` remainder and proves the exact additive split.  The square is
+nonnegative.  In the neighboring cleared comparison it contributes
+
+    (-c3)^2*((R4_second-R4_first)+x*(z-y)),
+
+because the corrected `P4` difference has that exact shared-time reduction.
+Combining this with milestone 348 gives the final three-part residual-free
+frontier: the no-OLD-cubic-square cleared term, this reduced cubic residue,
+and the reduced OLD-quadratic term.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  The square nonnegativity theorem
+uses `[propext]`; the other three printed declarations use exactly
+`[propext, Quot.sound]`.  The prohibited scan was clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceNeighboringNonCommonOldCubicSplit.lean
+      b3100be420965c73b917827bdc782eddf8d54cd6eb48df861e4aa75daac84702
+
+No sign follows because the neighboring `P4` difference is unsigned.  The
+supplied OLD quartic center, time-dependent source/action cumulants, ORIGINAL
+matching, higher remainders, uniform control and every continuum/Clay
+conclusion remain open.  NEXT is to extract the common `c4` residue and
+combine its shared cleared bracket with the existing OLD-`c2` coefficient.
+
+## Neighboring OLD quartic-center split (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceNeighboringOldQuarticSplit.lean`
+removes the supplied `c4` from each fourth OWN residual and proves the exact
+slotwise split.  In the neighboring cleared comparison the resulting `-c4`
+term multiplies the same bracket as milestone 348's `(2/3)c2` term.  The
+shared-time reduction is
+
+    B_even = R4_second*(x+y) - R4_first*(x+z) + x^2*(z-y).
+
+Hence the complete residual-free neighboring frontier is exactly
+
+    cleared(P6_withoutOldCubicOrQuartic)
+      + (-c3)^2*((R4_second-R4_first)+x*(z-y))
+      + ((2/3)c2-c4)*B_even.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  All five printed load-bearing
+declarations use exactly `[propext, Quot.sound]`; the prohibited scan was
+clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceNeighboringOldQuarticSplit.lean
+      e786e1410abf0d364e44063bdabeb865be3f037275d6dce2a2412a726df5fe99
+
+No sign follows.  The combined OLD-even coefficient and bracket are unsigned,
+and `c2` remains inside the no-OLD-quartic non-common remainder.  ORIGINAL
+matching, higher remainders, uniform control and every continuum/Clay
+conclusion remain open.  NEXT is to test whether that remaining `c2`
+dependence shares an existing neighboring bracket before declaring the first
+new signed analytic estimate.
+
+## Remaining OLD quadratic-center P6-remainder split (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceNeighboringOldQuadraticRemainderSplit.lean`
+removes the last supplied `c2` from the non-common `P6` slot remainder.  The
+slotwise residue is `(-c2)` times the sum of the two c4-free fourth OWN
+responses.  Its shared-time cleared bracket reduces exactly to
+
+    R4_second*(A4_base+A4_lag)
+      - R4_first*(A4_base+A4_next)
+      + x*((z-y)*A4_base + z*A4_lag - y*A4_next).
+
+This is a new bracket, not the OLD-even bracket or neighboring `P4`
+difference.  The complete residual-free frontier is therefore the sum of the
+OLD-field-free `P6` remainder comparison, `(-c2)` times this bracket, the
+reduced `(-c3)^2` term, and `((2/3)c2-c4)` times the OLD-even bracket.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  All four printed load-bearing
+declarations use exactly `[propext, Quot.sound]`; the prohibited scan was
+clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceNeighboringOldQuadraticRemainderSplit.lean
+      e6525a5f05e05ba8d82f5e6eb27b041f23bb7b6f6de3e0ebe25439435e1005a2
+
+The algebraic peeling stops here: all four surviving terms are genuinely
+unsigned.  ORIGINAL matching, higher remainders, uniform control and every
+continuum/Clay conclusion remain open.  NEXT is an explicit signed-margin
+consumer that transfers a residual-free frontier margin through the known
+Heron approximation tail; the missing producer remains that margin estimate.
+
+## Neighboring cleared sign transfer (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceNeighboringClearedSignTransfer.lean`
+specializes milestone 347's aggregate modulus to `(t,t+s)` versus
+`(t,t+s+1)`.  Constructive order algebra proves that an absolute approximation
+bound implies `actual <= reference + epsilon`.  Hence, at every stage beyond
+the explicit neighboring modulus,
+
+    residualFreeNeighboring + epsilon < 0
+
+implies strict negativity of the actual cleared numerator.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  The printed load-bearing
+declaration uses exactly `[propext, Quot.sound]`; the prohibited scan was
+clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceNeighboringClearedSignTransfer.lean
+      f18c949238368cbc61ed386e6b40726b6de8e18802690d56abf980fcb016a3a4
+
+This is the exact consumer, not the missing margin producer.  Corrected `P4`
+positivity, ratio division, ORIGINAL matching, higher remainders, uniform
+control and every continuum/Clay conclusion remain open.  NEXT is a strict
+negative estimate for the four-term residual-free neighboring normal form
+that dominates the explicit Heron tolerance.
+
+## Arbitrary OLD quartic-center sign obstruction (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceNeighboringOldQuarticSensitivity.lean`
+proves that changing only the supplied OLD quartic center by `c4 -> c4+delta`
+changes the residual-free neighboring cleared frontier by exactly
+
+    -delta*B_even,
+
+where `B_even` is milestone 350's reduced OLD-even bracket.  The OLD-free
+`P6` remainder comparison, the separate `(-c2)` fourth-response bracket and
+the OLD cubic-square contribution are unchanged.
+
+For either strict sign of `B_even`, the file constructs an explicit rational
+quartic-center shift using positive division.  The shifted frontier is exactly
+
+    frontier + abs(frontier) + 1,
+
+and is therefore strictly positive.  Consequently a negative margin cannot
+hold uniformly over every arbitrary `CayleyTraceOldCenter` whenever
+`B_even` is nonzero.  The missing producer exposed by milestone 352 must first
+pin the OLD center to the intended ORIGINAL law (or carry equivalent exact
+matching data); treating the center as a free parameter is a dead end.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  All three printed load-bearing
+declarations use exactly `[propext, Quot.sound]`; the prohibited scan was clean
+apart from the intentional `#print axioms` commands.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceNeighboringOldQuarticSensitivity.lean
+      d26960c34a18eb5bd09dee659142756a5ba0c5829bcd17d1f132bbc5f45519fd
+
+No bracket sign, ORIGINAL-law center identification, corrected-`P4`
+positivity, higher-remainder control, uniform physical estimate, continuum
+Hamiltonian or Clay theorem follows.  NEXT is a center-matched frontier on
+the same finite carrier, followed by its actual signed estimate.
+
+## Fixed finite FREE-own center pin (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceNeighboringFiniteOwnCenterPin.lean`
+defines one nonarbitrary center available on the current finite heat-Gaussian
+carrier: the checked OWN coefficients `a2,a3,a4` at a fixed stage and history
+time.  Its cubic field is zero by finite Gaussian parity.  At that pinning
+point every OWN-minus-center residual vanishes, and exact polynomial
+normalization gives
+
+    P4=R4,   P5=0,   P6=R6.
+
+The neighboring residual-free and actual cleared comparisons are specialized
+to this fixed center.  The existing adaptive sign-transfer theorem therefore
+accepts a finite-own-centered negative margin directly and produces strict
+negativity of the corresponding actual cleared numerator after the explicit
+Heron stage.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  All five printed load-bearing
+declarations use exactly `[propext, Quot.sound]`; the prohibited scan was clean
+apart from the intentional `#print axioms` commands.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceNeighboringFiniteOwnCenterPin.lean
+      4b87561d7c8785e8769afd8b2b0bf0d1ff025a6dab243c152ca9733d78389ff6
+
+This is a finite FREE-own pin, not the ORIGINAL interacting center.  The
+required next bridge must identify or quantitatively compare the ORIGINAL
+fixed center's `c2,c3,c4` coefficients.  In particular milestone 353 proves
+that its quartic-center discrepancy cannot be left arbitrary during the sign
+estimate.  No neighboring margin or continuum/Clay result follows.
+
+## OLD quartic-center mismatch budget (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceNeighboringOldQuarticMismatchBudget.lean`
+turns the exact affine `c4` sensitivity into the absolute estimate
+
+    abs(frontier(c4+delta)-frontier(c4))
+      <= abs(delta)*abs(B_even).
+
+It then composes this center payment with the existing Heron approximation
+tail.  If the product above is bounded by `centerError`, the shifted center's
+adaptive stage has been reached and the base-center residual-free frontier
+satisfies
+
+    frontier(c4)+centerError+epsilon < 0,
+
+then the actual cleared neighboring numerator using `c4+delta` is strictly
+negative.  This is the exact comparison direction needed from a future
+ORIGINAL-to-reference quartic-center estimate.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  All three printed load-bearing
+declarations use exactly `[propext, Quot.sound]`; the prohibited scan was clean
+apart from the intentional `#print axioms` commands.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceNeighboringOldQuarticMismatchBudget.lean
+      a0af58f5d810c1c527b4ff1ee6419d4a8191ee5ade3f4e06ca0420fe77e8bb50
+
+No ORIGINAL `c4` estimate or OLD-even-bracket bound is supplied.  Mismatches
+in `c2,c3`, corrected-`P4` positivity, higher remainders and every
+continuum/Clay conclusion remain open.
+
+## OLD cubic-center mismatch budget (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceNeighboringOldCubicMismatchBudget.lean`
+proves that `c3 -> c3+delta` changes the complete residual-free neighboring
+frontier by exactly
+
+    ((2*c3)*delta+delta^2)
+      * ((R4_second-R4_first)+x*(z-y)).
+
+Its absolute value is the corresponding canonical center payment, and a
+base-center margin paying that amount plus the Heron tolerance transfers to
+strict negativity of the shifted-center actual cleared numerator.  At the
+checked finite FREE-own center, Gaussian parity gives `c3=0`, so this payment
+is exactly quadratic in `delta`.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  All five printed load-bearing
+declarations use exactly `[propext, Quot.sound]`; the prohibited-token and
+trailing-whitespace scans were clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceNeighboringOldCubicMismatchBudget.lean
+      ba0de54d0421ed2f6109bdd92418c2ec8e1531bf775b76e705c1bed57552efc1
+
+No ORIGINAL `c3` extraction or error bound is supplied, and the multiplying
+bracket remains unsigned.  No neighboring margin or continuum/Clay result
+follows.
+
+## OLD quadratic-center mismatch budget (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceNeighboringOldQuadraticMismatchBudget.lean`
+proves the exact complete-frontier identity
+
+    frontier(c2+delta)
+      = frontier(c2)+delta*oldQuadraticCenterShiftResponse(delta).
+
+The named response preserves the four distinct `c2` effects: the corrected
+`P4` weights on OLD-free `P6` remainders, the c4-free fourth-response bracket,
+the cubic-square bracket, and the combined OLD-even bracket.  Therefore
+
+    abs(frontier(c2+delta)-frontier(c2))
+      <= abs(delta)*abs(oldQuadraticCenterShiftResponse(delta)),
+
+and a margin paying this center error plus the Heron tolerance transfers to
+strict negativity of the shifted-center actual cleared numerator.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  All eight printed load-bearing
+declarations use exactly `[propext, Quot.sound]`; the prohibited-token and
+trailing-whitespace scans were clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOpenCubeHeatBulkSourceNeighboringOldQuadraticMismatchBudget.lean
+      6151a58e1988148fc3a128c91b2fddc1ed8927e2d63575f932d930afad189fd7
+
+The coordinatewise center-payment consumers are complete, but the actual
+interacting coefficients are not.  The finite ORIGINAL source bridge proves
+geometric source identification only.  Although the exact interacting mean
+`expressionOwnMean` exists, no checked jet theorem extracts its `c2,c3,c4`
+coefficients into `CayleyTraceOldCenter`.  NEXT is that coefficient-extraction
+bridge, beginning with the odd cubic coefficient and its parity value if
+available; no numerical center estimate should be claimed before it exists.
+
+## ORIGINAL northern-sector Cayley extraction (KERNEL-CHECKED)
+
+2026-10-16.
+`BF4ExactSlabPlaquetteNorthernCayleyExtraction.lean` removes the four supplied
+chart pins from the exact original plaquette identity on the explicit event
+that the four actual link values have nonnegative scalar coordinate.  The
+constructive `inverseChart` witnesses and semantic scale-by-one congruence
+give the pins directly, so the original corrected-slab scalar satisfies the
+exact denominator-cleared Cayley identity at chart scale one.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  The three printed declarations
+use only the allowed gate: `[propext]` for scale-by-one triple equivalence and
+`[propext, Quot.sound]` for stereographic congruence and the final original
+plaquette theorem.  Prohibited-token and trailing-whitespace scans were clean.
+Source SHA-256 is:
+
+    BF4ExactSlabPlaquetteNorthernCayleyExtraction.lean
+      6e414e5b5a020ef42ee36e1e0dd8017ecdb890db4fb55b2d7088cff10768625c
+
+This audit also corrects the previous NEXT description.  The exact ORIGINAL
+functional accepts polynomial probes, while inverse Cayley coordinates contain
+`(1+link.r)^{-1}` and are rational rather than `RatPoly`.  An unconsumed
+generic polynomial-jet draft was therefore removed instead of being recorded
+as an ORIGINAL coefficient extraction.  The checked result is pointwise only
+on the northern sector.  The other sign sectors, central-sign bookkeeping,
+same-carrier integration of rational chart probes, interacting `c2,c3,c4`
+values, neighboring margin, and all continuum/Clay conclusions remain open.
+
+## ORIGINAL all-sign-sector Cayley extraction (KERNEL-CHECKED)
+
+2026-10-16.
+`BF4ExactSlabPlaquetteSignedCayleyExtraction.lean` removes the northern-sector
+restriction.  Each actual link is multiplied by its computed central chart
+sign, producing a northern representative with a constructive inverse chart.
+The central sign algebra is checked on the full rational unit-quaternion
+carrier: multiplication is Boolean xor, conjugation preserves the sign, and
+the ordered plaquette word carries the xor of all four link signs.  Hence all
+sixteen sectors satisfy one exact denominator-cleared Cayley identity, with
+the computed xor acting on the ORIGINAL corrected-slab polynomial scalar.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  All five printed load-bearing
+declarations use exactly `[propext, Quot.sound]`; prohibited-token and
+trailing-whitespace scans were clean.  Source SHA-256 is:
+
+    BF4ExactSlabPlaquetteSignedCayleyExtraction.lean
+      ca374e6b52727e88f2f292288c5d4bf7cca6b467dca9a8ccb1dff89888950463
+
+This is a pointwise finite identity, not an integrated coefficient theorem.
+The current ORIGINAL expectation accepts supported `RatPoly` probes, while
+the exhaustive chart expression contains both inverse-chart reciprocals and
+computed sign predicates.  A fixed-sector denominator-clearing theorem plus
+an honest same-carrier consumer for its sector/denominator data is still
+required before interacting `c2,c3,c4` values can be extracted.  The center
+comparison, neighboring margin, uniform limits, and every continuum/Clay
+conclusion remain open.
+
+## ORIGINAL fixed-sector polynomial Cayley clearing (KERNEL-CHECKED)
+
+2026-10-16.
+`BF4ExactSlabPlaquetteCayleyCommonDenominator.lean` proves that a common
+reciprocal witness `D*e ≈ 1` removes all inverse-chart denominators after
+multiplication by `D^8`.  The four chart factors become `D^2+norm3`, and the
+degree-two-through-six deficit becomes
+
+    D^6*H2 + D^5*H3 + D^4*H4 + D^3*H5 + D^2*H6.
+
+`BF4ExactSlabPlaquetteSignedCayleyPolynomialClear.lean` applies that compiler
+to the four actual northern representatives of every ORIGINAL corrected-slab
+plaquette.  Its common denominator is the product of their four positive
+chart denominators, while each cleared numerator triple contains the other
+three factors.  Exact rational cancellation supplies the common-scale chart
+pins.  The final fixed-sector theorem accepts four explicit equalities between
+the actual computed chart signs and supplied Booleans, and then states the
+fully reciprocal-free polynomial Cayley identity with their xor acting on the
+ORIGINAL polynomial plaquette scalar.
+
+The focused monitored checks and direct materializations passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All ten printed
+load-bearing declarations across the two modules use exactly
+`[propext, Quot.sound]`; prohibited-token and trailing-whitespace scans were
+clean.  Source SHA-256 values are:
+
+    BF4ExactSlabPlaquetteCayleyCommonDenominator.lean
+      548288499bd5204ebdd548aa2048d90c6e72072da1b7fbe794c098f9eab14f92
+    BF4ExactSlabPlaquetteSignedCayleyPolynomialClear.lean
+      71bf7f2c167c72d8dd3da7d504dc306a36ba8034a23b4c70cda785d6b4557182
+
+The reciprocal obstruction is closed, but the functional bridge is not.  The
+four Boolean equalities expose the exact sector indicators that must still be
+summed or integrated on the same ORIGINAL carrier, unless a gauge-fixed
+polynomial coordinate formula removes them.  No interacting `c2,c3,c4`,
+center comparison, neighboring margin, uniform limit, continuum Hamiltonian
+or Clay conclusion follows.
+
+## ORIGINAL global division-free polynomial Cayley clearing (KERNEL-CHECKED)
+
+2026-10-16.
+`BF4ExactSlabPlaquetteGlobalCayleyPolynomialClear.lean` removes both remaining
+chart obstructions without splitting the measure.  Its generic algebraic core
+uses the raw quaternion
+
+    (D^2 - norm3 a, 2*D*a)
+
+and proves the exact cleared Cayley identity for arbitrary `D` and arbitrary
+four triples.  The actual-link layer uses only each link's polynomial unit-norm
+equation to identify this raw factor with the corresponding cleared scalar
+multiple of the link.  The argument remains valid at `r=-1`, where the raw and
+cleared factors vanish, so no inverse chart, positivity hypothesis, central
+sign or sector indicator is required.
+
+Four checked bilinearity steps and the existing `plaquette_scalar_pin` then
+give `original_plaquette_global_cayley_polynomial_cleared` for the literal
+ORIGINAL corrected-slab plaquette, with its two actual inverse factors,
+shared/repeated links and original fallback unchanged.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  All three printed load-bearing
+declarations use exactly `[propext, Quot.sound]`; prohibited-token and
+trailing-whitespace scans were clean, and `git diff --check` passed.  Source
+SHA-256 is:
+
+    BF4ExactSlabPlaquetteGlobalCayleyPolynomialClear.lean
+      3a266bb2f3830f606853c8f93f5670ab40f05ac4e6472237e1ecb01c26c8983c
+
+This is still pointwise, not an expectation-level coefficient extraction.
+The displayed composites are mathematically polynomial in the original link
+coordinates but have not yet been reified as supported `RatPoly` probes for
+the ORIGINAL functional.  That explicit syntax-and-evaluation bridge is next;
+interacting `c2,c3,c4`, center comparison, neighboring margin, all uniform
+limits and every continuum/Clay conclusion remain open.
+
+## ORIGINAL global Cayley RatPoly reification (KERNEL-CHECKED)
+
+2026-10-16.
+`BF4ExactSlabPlaquetteGlobalCayleyRatPoly.lean` compiles the global
+division-free Cayley formula into two explicit finite-support `RatPoly`
+probes.  Sixteen atoms are the coordinates of the four literally oriented
+corrected-slab link polynomials and the seventeenth is the existing plaquette
+scalar polynomial.  The compiler and its evaluation theorem reconstruct the
+common denominator, four cleared triples, cleared denominator and complete
+degree-two-through-six deficit without reciprocals or sign sectors.
+
+`global_cayley_ratPoly_eval` proves equality of the two compiled evaluations
+for every ORIGINAL `Nat -> UnitNorm` assignment.  Shared links, reversed
+incidences, original block indices and the identity fallback are unchanged.
+The same module now also compiles the generic raw four-factor scalar and shared
+denominator and proves the two coefficient normal forms used by the carrier
+consumer: the deficit is `2*denominator-2*rawScalar`, while the left probe is
+`2*denominator-2*(denominator*originalPlaquetteScalar)`.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  All fourteen printed declarations
+use only `[propext, Quot.sound]`; prohibited-token and trailing-whitespace
+scans were clean, and `git diff --check` passed.  Source SHA-256 is:
+
+    BF4ExactSlabPlaquetteGlobalCayleyRatPoly.lean
+      430121dce3dad235e85ad110e01470330c73aa51137577df04947679778a1471
+
+The arbitrary-insertion carrier and ORIGINAL expectation closure are recorded
+in the next section.  No interacting `c2,c3,c4`, center comparison,
+neighboring margin, uniform limit or continuum/Clay conclusion follows from
+the reification module alone.
+
+## ORIGINAL global Cayley carrier and expectation closure (KERNEL-CHECKED)
+
+2026-10-16.
+`BF4ExactSlabPlaquetteGlobalCayleyCarrierClear.lean` proves unit norm on the
+full ORIGINAL link carrier for every literally oriented corrected-slab link,
+including the identity fallback.  It applies the generic one-factor raw
+Cayley clearing four times and composes the results with
+`PolyQuaternionHaarCarrierEqv.mul`, preserving shared and repeated links and
+allowing every later polynomial insertion.
+
+The resulting scalar is coefficientwise the shared denominator times the
+SAME ORIGINAL plaquette scalar; the raw scalar is coefficientwise the global
+raw-scalar probe.  Together with the two staged normal forms this gives
+`globalCayleyPolynomial_carrier`, an arbitrary-insertion `HaarCarrierEqv`
+between the global left and deficit probes.  At extent `centralExtent half`,
+`globalCayley_originalExpectation_congr` applies the existing normalized
+ORIGINAL expectation congruence without changing the action or partition
+function.
+
+The focused monitored check and direct materialization passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  All thirteen printed declarations
+use exactly `[propext, Quot.sound]`; prohibited-token and trailing-whitespace
+scans were clean, and `git diff --check` passed.  Current source SHA-256 values
+are:
+
+    BF4ExactSlabPlaquetteGlobalCayleyPolynomialClear.lean
+      3a266bb2f3830f606853c8f93f5670ab40f05ac4e6472237e1ecb01c26c8983c
+    BF4ExactSlabPlaquetteGlobalCayleyRatPoly.lean
+      430121dce3dad235e85ad110e01470330c73aa51137577df04947679778a1471
+    BF4ExactSlabPlaquetteGlobalCayleyCarrierClear.lean
+      a39278c24c918c9a8dd5ee16c3e49f92c1937bcae7a378ff6698cd96f39edf7f
+
+This closes the finite functional obstruction after the chart extraction:
+the division-free Cayley formula now holds in the SAME ORIGINAL interacting
+expectation.  It does not extract the source-scaled interacting `c2,c3,c4`,
+compare them with the finite FREE-own center, pay the neighboring mismatch
+budgets, control higher remainders, establish uniform limits, construct a
+continuum Hamiltonian, or prove the Clay mass gap.  The next checked target is
+the source-scaled coefficient decomposition and its named
+`CayleyTraceOldCenter` consumer.
+
+## ORIGINAL homogeneous cleared-Cayley expectations (KERNEL-CHECKED)
+
+2026-10-16.
+`BF4ExactSlabPlaquetteGlobalCayleyRatPoly.lean` exports five literal ORIGINAL
+probes for `D^6*H2`, `D^5*H3`, `D^4*H4`, `D^3*H5`, and `D^2*H6` and proves
+their coefficientwise sum is the complete global deficit.  No reciprocal,
+chart sign, independent-link surrogate or replacement law reappears.
+
+`BF4ExactSlabPlaquetteGlobalCayleyCarrierClear.lean` names the normalized
+ORIGINAL `CReal` expectation of each term and proves that the expected global
+deficit is their nested sum.  The proof uses the existing ORIGINAL expectation
+coefficient congruence and additivity, so action and partition normalization
+remain unchanged.
+
+The focused monitored checks and direct materializations passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  Both new printed
+declarations use exactly `[propext, Quot.sound]`; prohibited-token and
+trailing-whitespace scans were clean, and `git diff --check` passed.  Current
+source SHA-256 values are:
+
+    BF4ExactSlabPlaquetteGlobalCayleyRatPoly.lean
+      430121dce3dad235e85ad110e01470330c73aa51137577df04947679778a1471
+    BF4ExactSlabPlaquetteGlobalCayleyCarrierClear.lean
+      a39278c24c918c9a8dd5ee16c3e49f92c1937bcae7a378ff6698cd96f39edf7f
+
+The extracted values are constructive-real expectations, not the rational
+fields of `CayleyTraceOldCenter`.  More importantly, they retain the common
+Cayley denominator weight.  Rational approximation of these weighted values
+alone therefore cannot identify the unweighted source jet of the finite-chain
+`expressionOwnMean`.  No ORIGINAL cubic parity, FREE-center mismatch bound,
+neighboring sign margin or continuum/Clay conclusion follows.  The next
+required bridge must first supply a SAME-law de-weighting/chart pushforward,
+or an equivalent bounded group-coordinate jet, with explicit integrability
+and approximation error before populating the existing center record.
+
+## ORIGINAL normalized quartic clearing identity (KERNEL-CHECKED)
+
+2026-10-16.
+`BF4ExactSlabPlaquetteGlobalCayleyRatPoly.lean` now expresses the raw cleared
+quartic probe in the finite-Gaussian normalized convention
+
+    F4 = H4 - normSum*H2.
+
+`globalCayleyDegreeFourPolynomial_coeff_normalized` proves coefficientwise
+
+    D^4*H4 = D^4*F4 + D^4*normSum*H2
+
+after literal ORIGINAL face substitution.  The two right-hand probes are
+`globalCayleyNormalizedDegreeFourPolynomial` and
+`globalCayleyQuarticNormalizationCorrectionPolynomial`.
+
+`BF4ExactSlabPlaquetteGlobalCayleyCarrierClear.lean` names their SAME-law
+normalized ORIGINAL expectations, and
+`globalCayley_originalDegreeFour_normalized` proves their `CReal` sum equals
+the raw degree-four expectation without changing the interacting action or
+partition function.
+
+Focused monitored checks and direct materializations passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  All fourteen RatPoly and all
+thirteen carrier printed declarations use exactly `[propext, Quot.sound]`;
+prohibited-token and trailing-whitespace scans were clean, and
+`git diff --check` passed.  Current source SHA-256 values are:
+
+    BF4ExactSlabPlaquetteGlobalCayleyPolynomialClear.lean
+      3a266bb2f3830f606853c8f93f5670ab40f05ac4e6472237e1ecb01c26c8983c
+    BF4ExactSlabPlaquetteGlobalCayleyRatPoly.lean
+      430121dce3dad235e85ad110e01470330c73aa51137577df04947679778a1471
+    BF4ExactSlabPlaquetteGlobalCayleyCarrierClear.lean
+      a39278c24c918c9a8dd5ee16c3e49f92c1937bcae7a378ff6698cd96f39edf7f
+
+This aligns the quartic algebra with the `CayleyTraceOldCenter.c4`
+normalization but does not extract that rational field.  Both terms remain
+denominator-cleared and weighted.  A SAME-ORIGINAL-law de-weighting/chart
+pushforward with integrability and explicit error control, or a proved
+equivalent bounded group-coordinate source jet, remains necessary before any
+old-center pin or neighboring-margin estimate.
+
+## Global polynomial Cayley de-weighting obstruction (KERNEL-CHECKED)
+
+2026-10-16.
+`BF4ExactSlabCayleyPolynomialDeweightingObstruction.lean` isolates the literal
+one-link Cayley denominator `1+r` and evaluates it at the existing rational
+unit south pole `unitNegativeOne`.  Both the denominator and its product with
+an arbitrary `RatPoly` corrector are exactly zero at the all-south-pole unit
+assignment.
+
+The module proves three consequences.  No polynomial corrector is an exact
+inverse on all rational unit assignments; no coefficientwise polynomial
+inverse exists; and no corrected product has a strictly positive uniform
+lower bound on the full rational unit carrier.  Because an arbitrary
+corrector can absorb all remaining polynomial denominator factors, this
+precludes a global polynomial/geometric-series de-weighting of the cleared
+Cayley probes without excluding the south-pole region.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All five printed
+declarations use exactly `[propext, Quot.sound]`; prohibited-token and
+trailing-whitespace scans were clean, and `git diff --check` passed.  Source
+SHA-256 is:
+
+    BF4ExactSlabCayleyPolynomialDeweightingObstruction.lean
+      2fab1c4fccaa572d42482db99d67c5cb1b3e4e5280e6d1fdb94159d2c3f7111f
+
+This is not a proof that unweighted Cayley moments diverge and does not rule
+out multi-chart integration or controlled chart excision.  The productive
+frontier is therefore a bounded SAME-ORIGINAL group-coordinate source jet,
+or else a multi-chart/excision theorem that supplies its own excluded-region
+probability and moment-error estimates before comparison with
+`expressionOwnMean`.
+
+## Bounded ORIGINAL bulk Wilson source and moment center (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOriginalBulkBoundedSource.lean` compiles the
+literal `bulkSourceFaces s` and `bulkSourceCoefficient s hs` family into one
+radius-zero `WindowExpression` at the canonical containing width `s^2`.
+`originalBulkExpression_source_pin` proves coefficient equality with the
+existing ORIGINAL `spatialSpan`; analogous theorems pin the square, cube and
+fourth power to the corresponding polynomial powers without changing the
+face list, coefficients or interacting law.
+
+`originalBulkOwnMean` is the actual finite odd-window mean of that bounded
+source.  `OriginalBulkBoundedMomentCenter` separately records the finite
+second through fourth moments as `m2/m3/m4`, with exact `middleRatio` pins.
+The naming is intentionally disjoint from `CayleyTraceOldCenter.c2/c3/c4`:
+the new fields are moments of a single exact bounded Wilson source, not the
+homogeneous `A2/A3/A4` Cayley coefficients.  The moving mean and all three
+moment fields converge to their matching SAME-ORIGINAL `originalJointLimit`s.
+At every lattice lag, `originalBulkOwn_centeredPair_converges` also sends the
+finite moving OWN-centered pair to the existing SAME-ORIGINAL
+`centeredTimeMoment` of the exact bulk state.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All thirteen printed
+declarations use exactly `[propext, Quot.sound]`; prohibited-token and
+trailing-whitespace scans were clean.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOriginalBulkBoundedSource.lean
+      09130fb8abea558df8b615cf1cca312353b3a5a43e71ae1639ad6e9f5439738a
+
+This supplies a bounded SAME-law object but no identification with the FREE
+Gaussian Cayley center, no ORIGINAL cubic parity theorem, no neighboring
+strict margin, and no cutoff-/volume-uniform or continuum/Clay conclusion.
+The next comparison must either reformulate the sign consumer for this exact
+bounded observable or quantify its small-field relation to the homogeneous
+finite-Gaussian coefficients; the two center conventions must not be silently
+identified.
+
+## Exact bounded physical-deficit recentering (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOriginalBulkDeficitCentering.lean` defines the
+weighted fundamental plaquette deficit as the exact affine bounded ORIGINAL
+expression `2 * sum(coefficients) - originalBulkExpression`.  Its source pin
+uses the same face list, coefficient profile and `spatialSpan` as the existing
+compiled Wilson source.
+
+The actual finite odd-window OWN mean obeys the same affine identity.  After
+subtracting those finite means, the deficit source is coefficientwise the
+negative of the compiled source.  The two signs cancel in the chronological
+product, so `originalBulkDeficitOwn_centeredPair_pin` identifies the finite
+centered pair at every stage and lag.  Combining the two existing diagonal
+convergences gives
+`originalBulkDeficit_centeredTimeMoment_equiv`, an exact SAME-ORIGINAL
+equivalence of the limiting centered responses.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All six printed
+declarations use exactly `[propext, Quot.sound]`; prohibited-token and
+trailing-whitespace scans were clean, and the targeted `git diff --check`
+passed.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOriginalBulkDeficitCentering.lean
+      18a7ac566c52a98d481bab522b643fbda997dda277f96955c6f8fe4d1cf7da05
+
+This closes only the exact bounded physical-observable identification.  It
+does not compare ORIGINAL and FREE laws, identify bounded moments with the
+homogeneous Cayley jet, transfer the neighboring strict margin, or imply any
+cutoff-uniform, continuum, Hamiltonian or Clay mass-gap statement.  The next
+required input is a quantitative OWN-centered small-field remainder estimate
+that the existing sign or margin consumer can actually use.
+
+## Global ORIGINAL bulk-deficit square remainder (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOriginalBulkDeficitJetRemainder.lean` proves the
+division-free unit-quaternion identity
+
+    2 * (1-r) = i^2 + j^2 + k^2 + (1-r)^2
+
+for each literal fixed-slice plaquette under every Haar insertion.  Summing
+with the exact positive bulk coefficients gives a SAME-ORIGINAL decomposition
+of the bounded physical deficit into a vector-coordinate quadratic jet and a
+scalar-square remainder.  The summed deficit is coefficientwise the source
+polynomial from `originalBulkDeficitExpression`.
+
+Both summands have explicit constructive square certificates.  Their actual
+finite `middleRatio`s are therefore nonnegative, the scalar-square remainder
+ratio is at most the full deficit ratio, and the actual finite odd-window OWN
+mean splits exactly into jet and remainder means.  The remainder OWN mean is
+itself nonnegative and bounded by the deficit OWN mean.  No Cayley chart,
+denominator inverse or excluded carrier region enters these results.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All ten printed
+declarations use exactly `[propext, Quot.sound]`; prohibited-token and
+trailing-whitespace scans were clean, and the targeted `git diff --check`
+passed.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOriginalBulkDeficitJetRemainder.lean
+      d60363bfe2341b9faf797db4c698e22569b1149fa39fbfb4099183e21ceedb3b
+
+This is a finite same-law positive decomposition, not yet the required
+OWN-centered covariance estimate.  The shifted scalar-square remainder still
+needs a SAME-ORIGINAL variance/Cauchy bound, and the shifted vector jet still
+needs an explicit uniform comparison with the FREE Gaussian quadratic source
+before the existing neighboring strict sign or margin can be transferred.
+No cutoff removal, continuum Hamiltonian or Clay mass gap follows.
+
+## Centered ORIGINAL bulk-deficit remainder budget (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOriginalBulkDeficitCenteredRemainder.lean`
+combines the global Haar-carrier deficit decomposition with the exact split
+of the actual finite OWN center.  The resulting shifted-source theorem is
+extended to the full chronological carrier in place and lifted to the second
+time copy, so the literal finite centered deficit pair splits into jet--jet,
+jet--remainder, remainder--jet and remainder--remainder terms under the same
+normalized ORIGINAL `windowRatio`.
+
+The module also derives ordinary finite Cauchy--Schwarz directly from the
+existing square positivity of that same window functional.  Each of the
+three terms containing the shifted scalar-square remainder therefore has an
+explicit sharp square bound by its two literal diagonal ORIGINAL window
+norms.  This supplies the previously missing finite covariance budget; it
+does not assert that either diagonal norm is uniformly small.
+
+The same pre-inner form now also publishes the square-root-free Young bound
+`2*abs(cross) <= lowerDiagonal + liftedUpperDiagonal`, both for arbitrary
+supported window polynomials and for a chronological pair.  These two public
+interfaces are the exact input used by the later absolute remainder assembly.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All nine printed
+declarations use exactly `[propext, Quot.sound]`; prohibited-token and
+trailing-whitespace scans were clean.  The materialized `.olean` is 494592
+bytes.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOriginalBulkDeficitCenteredRemainder.lean
+      c3a8c1341c0bc355bf89ec7bd9e346a5d04ccb8bd5fcb391cb8713ca7e1fe0c6
+
+The open consumer input is now precise: obtain cutoff-/volume-uniform control
+of the actual diagonal norms, beginning with the OWN-shifted scalar-square
+remainder, and combine it with an explicit ORIGINAL-to-FREE comparison for
+the shifted vector jet.  Until those errors fit inside the existing
+neighboring strict margin, no sign transfer, cutoff removal, continuum
+Hamiltonian or Clay mass gap follows.
+
+## ORIGINAL scalar-square remainder diagonal reduction (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOriginalBulkDeficitRemainderDiagonal.lean`
+constructs the literal one-plaquette interval `0 <= (1-r)^2 <= 4` and sums it
+with the existing positive bulk coefficients.  The resulting global
+scalar-square remainder has explicit cap
+`4 * originalBulkCoefficientSum s hs`, and its actual finite OWN mean is at
+most that cap.
+
+The module certifies the division-free identity
+
+    B*(R+mu) - (R-mu)^2
+      = R*(B-R) + mu*(B-mu) + 2*mu*R
+
+and applies positivity of the unchanged normalized ORIGINAL window
+functional.  The global deficit decomposition and nonnegative vector jet
+then dominate the remainder first moment by the full bounded-deficit first
+moment at every lag.  Both the unlifted and chronologically lifted diagonal
+norms of the actual OWN-shifted remainder are consequently bounded by
+
+    B * (lagged full-deficit mean + actual deficit OWN mean).
+
+The lifted result uses the existing endpoint equality and a genuine lifted
+cap carrier, not a changed action, law, center or normalization.  These two
+diagonal estimates directly feed the three finite Cauchy bounds from the
+preceding centered-remainder milestone.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All six printed
+declarations use exactly `[propext, Quot.sound]`; prohibited-token and
+trailing-whitespace scans were clean.  The materialized `.olean` is 616808
+bytes.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOriginalBulkDeficitRemainderDiagonal.lean
+      91d027dd14826b93176c13fb0806e1dae2bb930725e3ba63455f6a181c469edd
+
+This is a finite first-moment reduction, not a uniform smallness theorem.
+The coefficient-sum cap and the two deficit first moments still need a
+cutoff-/volume-uniform estimate strong enough for the neighboring strict
+margin, and the shifted vector jet still needs an explicit ORIGINAL-to-FREE
+comparison.  No sign transfer, cutoff removal, continuum Hamiltonian or Clay
+mass gap follows yet.
+
+## ORIGINAL deficit lag control (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOriginalBulkDeficitLagControl.lean` gives the
+complete weighted trace deficit the same explicit symmetric interval cap
+`B = 4 * originalBulkCoefficientSum s hs` as the scalar-square remainder and
+transfers that cap to the already compiled bounded deficit source.  Its actual
+finite OWN mean is nonnegative and is exactly the one-step lower endpoint mean
+of the chronological window.
+
+The existing common-tail endpoint comparison then bounds every finite-lag
+deficit mean by
+
+    OWN deficit mean + mixRate(w,s*s)^n * (B+B).
+
+Both literal diagonal shifted-remainder norms from the preceding milestone
+are therefore bounded by the single same-law scalar budget
+
+    B * ((OWN deficit mean + lag error) + OWN deficit mean).
+
+This removes the arbitrary-lag full-deficit first moment as an independent
+input to the three centered-remainder Cauchy bounds without changing the
+action, partition, observable, center or normalization.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All eight printed
+declarations use exactly `[propext, Quot.sound]`; prohibited-token and
+trailing-whitespace scans were clean.  The materialized `.olean` is 465552
+bytes.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOriginalBulkDeficitLagControl.lean
+      60f60cd7b0b8e2badae1c1d0d9ddf557124d820ce1ebb5a9edc8e57c92895519
+
+The error still uses the existing width-dependent `mixRate`.  The checked
+theorem `no_width_uniform_computed_rate` rules out bounding that computed rate
+by one common `q<1` over every positive width, so uniformity requires an
+explicit width/depth schedule together with control of the growing cap and
+the actual OWN deficit mean.  The vector jet also still needs a quantitative
+ORIGINAL-to-FREE comparison.  No neighboring-margin transfer, cutoff removal,
+continuum Hamiltonian or Clay mass gap follows.
+
+## ORIGINAL deficit lag schedule (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOriginalBulkDeficitLagSchedule.lean` constructs a
+strictly positive rate below one that dominates the actual fixed-width
+endpoint-mixing rate:
+
+    safeRate = 1 - (1/2) * mixFraction(w,s*s).
+
+For `B = originalBulkScalarSquareRemainderCap s hs` and every positive
+rational `epsilon`, it feeds
+`epsilon / (1 + (B+B))` to the constructive `powBaseCutoff`.  The resulting
+Type-level natural depth satisfies the exact milestone-372 estimate
+
+    mixRate(w,s*s)^depth * (B+B) <= epsilon.
+
+At this same returned depth, every arbitrary-lag deficit first moment is at
+most the actual finite OWN deficit mean plus `epsilon`.  Both literal
+shifted-remainder diagonal norms entering the three milestone-370 Cauchy
+bounds are therefore bounded by
+
+    B * ((OWN deficit mean + epsilon) + OWN deficit mean).
+
+The construction permits an actual zero `mixRate` and retains the proved
+width dependence; it does not use a nonexistent width-uniform common rate.
+The action, partition, observable, center and normalization are unchanged.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All ten printed
+declarations use exactly `[propext, Quot.sound]`; prohibited-token and
+trailing-whitespace scans were clean.  The materialized `.olean` is 319432
+bytes.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOriginalBulkDeficitLagSchedule.lean
+      f17de0fb1a8dfb969f8bbafa79f28425d667f237cc1674b1495f389792492107
+
+This closes the explicit chronological-depth selection problem at each fixed
+width, not the concentration problem.  The actual OWN deficit mean and its
+coefficient-cap scaling still need an estimate strong enough for the existing
+neighboring strict margin, and the vector jet still needs a quantitative
+ORIGINAL-to-FREE comparison.  No sign transfer, cutoff removal, continuum
+Hamiltonian or Clay mass gap follows.
+
+## Cap-aware ORIGINAL remainder-diagonal lag schedule (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOriginalBulkDeficitDiagonalLagSchedule.lean`
+feeds `epsilon / (1+B)` to the preceding fixed-width lag schedule, where
+`B = originalBulkScalarSquareRemainderCap s hs`.  This second scheduling layer
+pays the outer remainder cap that multiplies the endpoint-mixing error in the
+literal diagonal estimates.  The returned Type-level depth satisfies
+
+    B * lagError(depth) <= epsilon.
+
+An exact rational-polynomial rearrangement then yields
+
+    B * ((OWN deficit mean + lagError) + OWN deficit mean)
+      <= B * (OWN deficit mean + OWN deficit mean) + epsilon.
+
+Both the lower shifted-remainder diagonal and its chronologically lifted copy
+obey this common bound at the same depth.  These are the two diagonal factors
+entering the three SAME-ORIGINAL Cauchy estimates, so the complete lag payment
+is now independently arbitrarily small at every fixed width.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All seven printed
+declarations use exactly `[propext, Quot.sound]`; prohibited-token and
+trailing-whitespace scans were clean.  The materialized `.olean` is 281248
+bytes.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOriginalBulkDeficitDiagonalLagSchedule.lean
+      7f1570d420ce38b5a40503717840d55fda7746d3159c1529d03c19fa5793717a
+
+This does not supply a width-uniform rate or estimate the surviving actual
+OWN deficit mean.  The crude cap-times-first-mean reduction still has the
+wrong potential coefficient scaling for the neighboring strict margin.  The
+next sharper candidate is a SAME-ORIGINAL pairwise spatial covariance
+expansion combined with the existing distance decay, while the vector jet
+still needs a quantitative ORIGINAL-to-FREE comparison.  No sign transfer,
+cutoff removal, continuum Hamiltonian or Clay mass gap follows.
+
+## SAME-selected scalar-remainder covariance split (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOriginalBulkDeficitRemainderCovariance.lean`
+recodes every local scalar-square remainder by the exact physical-character
+identity
+
+    4*(1-r)^2 = 5 - 4*chi_1(r) + chi_2(r),
+
+with an outer quarter coefficient preserving the original bulk
+normalization.  Finite rational linearity proves that the resulting complete
+scheduled `sourceSpan` is exactly the chronological lift of the previously
+defined global scalar-square remainder.
+
+The existing bilinear original-window pin and a derived linear empty-schedule
+pin identify its first and second moments with `finiteValue`s under the same
+selected original chain in the canonical ambient slab.  Consequently every
+centered diagonal has the exact finite identity
+
+    windowRatio((R-c)^2)
+      = finiteCovariance_selected(R,R)
+          + (finiteValue_selected(R)-c)^2.
+
+The module specializes this identity to the actual remainder OWN center for
+both the lower and chronologically lifted upper diagonals entering the three
+remainder Cauchy estimates.  The action, selected face list, partition,
+cutoff, center and normalization are unchanged.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All six printed
+declarations use exactly `[propext, Quot.sound]`; prohibited-token and
+trailing-whitespace scans were clean.  The materialized `.olean` is 653840
+bytes.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOriginalBulkDeficitRemainderCovariance.lean
+      ffc38adbb4e695145ad00c91bfe8c7396e5654397345c16a900385d9f947ea70
+
+This exposes the desired connected, potentially coefficient-square route but
+does not yet prove its spatial sum or control the finite mean mismatch.  The
+next consumer must expand the selected covariance over face pairs, attach
+locality and interval witnesses, apply the existing two-probe distance decay,
+and pay the mismatch by endpoint mixing.  The shifted vector jet still needs
+a quantitative ORIGINAL-to-FREE comparison.  No neighboring-margin transfer,
+cutoff removal, continuum Hamiltonian or Clay mass gap follows.
+
+## SAME-selected remainder pairwise covariance and mismatch payment (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOriginalBulkDeficitRemainderPairwiseCovariance.lean`
+expands the complete selected bulk covariance exactly as
+
+    sum_p sum_q (a_p*a_q) Cov(R_p,R_q),
+
+with the literal one-quarter bulk weights `a_p` and the unscaled local
+character factors `R_p = 5 - 4*chi_1 + chi_2`.  The proof derives finite-value
+linearity and covariance bilinearity for the same finite selected action; it
+does not replace the action, partition, cutoff or normalization.
+
+Each actual time-shifted local factor has a checked singleton interval cap,
+exact four-link `edgesOf` locality, and the existing singleton plaquette
+carrier.  Consequently every pair in the expansion satisfies the existing
+selected two-probe `distanceBudget`.  Separately, the selected finite means
+are pinned to the corresponding original-window endpoint means.  Common-tail
+mixing and exact endpoint symmetry bound both lower and lifted-upper
+OWN-center mismatch squares by
+
+    (mixRate(w,s*s)^n * (B+B))^2.
+
+The module now also publishes the generic exact weighted-sum pairwise
+covariance expansion reused by the vector-jet consumer.  This adds no new
+scalar-remainder claim and avoids duplicating the finite bilinearity proof.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All ten printed
+declarations use exactly `[propext, Quot.sound]`; prohibited-token and
+trailing-whitespace scans were clean.  The materialized `.olean` is 489824
+bytes.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOriginalBulkDeficitRemainderPairwiseCovariance.lean
+      8ad4a465b84c333b01e27e9dbb8cfc7c538423e17414e61f3b5c5593da296d7b
+
+This closes the exact pairwise expansion, each local analytic witness, and
+the finite mean-mismatch subproblem.  It does not yet sum the absolute
+coefficient-product distance budgets into a width-uniform coefficient-square
+bound; paying the full face-pair cardinality would be insufficient.  The next
+consumer must prove the weighted geometric convolution for the explicit bulk
+profile.  The shifted vector jet still needs a quantitative ORIGINAL-to-FREE
+comparison.  No neighboring-margin transfer, cutoff removal, continuum
+Hamiltonian or Clay mass gap follows.
+
+## SAME-selected remainder geometric convolution (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOriginalBulkDeficitRemainderGeometricConvolution.lean`
+proves a generic constructive finite Young convolution: for nonnegative
+weights and a nonnegative symmetric kernel whose rows are bounded by `C`,
+
+    sum_p sum_q a_p*a_q*K(p,q)
+      <= C*sum_p a_p^2 + C*sum_p a_p^2.
+
+The proof uses rational AM-GM and exact finite Fubini, so it pays no list
+cardinality.  For the actual remainder, common time translation preserves
+`linfDist`, the face cap is one fixed closed rational, and the two-singleton
+distance budget factors into a translation-independent amplitude times
+
+    rate(w)^(linfDist(p,q)-1).
+
+The existing four-dimensional finite geometric-sum theorem bounds every row
+over the duplicate-free `bulkSourceFaces` by one `tailCap` independent of the
+side, selected volume and cutoff.  Positivity of the literal quarter bulk
+weights and two nested triangle inequalities then give the complete selected
+covariance estimate
+
+    |Cov_selected(R_bulk,R_bulk)|
+      <= pairAmplitude(w) *
+           (rowCap(w)*sum_p a_p^2 + rowCap(w)*sum_p a_p^2).
+
+Thus the full spatial sum has coefficient-square scaling without a
+`(3*s^3)^2` loss.  The profile remains explicit in `a_p`; no separate profile
+upper bound is assumed or needed at this step.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All fourteen printed
+declarations use at most `[propext, Quot.sound]`; prohibited-token and
+trailing-whitespace scans were clean.  The materialized `.olean` is 430456
+bytes.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOriginalBulkDeficitRemainderGeometricConvolution.lean
+      6e3d6ff89f60d4b1f5663646f944d56c7fabb2ba572cca72b71acda3e6eb3b3f
+
+This closes the absolute covariance convolution, not the complete diagonal
+or strict-margin payment.  The next consumer must combine it with the two
+exact covariance-plus-mismatch identities and the scheduled endpoint
+mismatch squares, feed those bounds into the three SAME-ORIGINAL Cauchy
+estimates, and compare the resulting coefficient-square quantity with the
+neighboring strict margin.  The shifted vector jet still needs a quantitative
+ORIGINAL-to-FREE comparison.  No sign transfer, cutoff removal, continuum
+Hamiltonian or Clay mass gap follows.
+
+## SAME-ORIGINAL remainder diagonals and Cauchy consumers (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOriginalBulkDeficitRemainderDiagonalGeometric.lean`
+inserts the geometric selected-covariance bound and both endpoint
+mean-mismatch squares into the exact lower and lifted-upper remainder
+diagonal identities.  Both diagonals are bounded by the same explicit
+nonnegative quantity
+
+    diagonalBudget
+      = pairAmplitude *
+          (rowCap*quarterWeightSquareMass
+            + rowCap*quarterWeightSquareMass)
+        + selectedMeanError^2.
+
+The three existing SAME-ORIGINAL Cauchy estimates are then specialized.  The
+remainder--remainder square is at most `diagonalBudget^2`; the jet--remainder
+square retains only the lower vector-jet diagonal times `diagonalBudget`; and
+the remainder--jet square retains only `diagonalBudget` times the lifted upper
+vector-jet diagonal.  The necessary support enlargements, chronological lifts
+and square nonnegativity hypotheses are discharged constructively.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All twelve printed
+declarations use exactly `[propext, Quot.sound]`; prohibited-token and
+trailing-whitespace scans were clean.  The materialized `.olean` is 380048
+bytes.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOriginalBulkDeficitRemainderDiagonalGeometric.lean
+      023b64ed99df3c901c3c50b92864b0c6f5c722443c8475111b5dcb7a51432c7d
+
+This closes the finite scalar-remainder diagonal and Cauchy assembly, not the
+neighboring strict-margin comparison.  The surviving vector-jet diagonals
+still need a quantitative ORIGINAL-to-FREE Gaussian comparison under the
+same scaling, after which their error and the displayed remainder budget must
+be paid against the strict margin.  No sign transfer, cutoff removal,
+continuum Hamiltonian or Clay mass gap follows.
+
+## Scalar-remainder normalized coefficient mass (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOriginalBulkDeficitRemainderCoefficientMass.lean`
+proves that the literal quarter coefficient in each scalar-square remainder
+costs exactly `1/16` after squaring.  Consequently the complete finite
+remainder weight-square mass is exactly
+
+    (1/16) * sum_p bulkSourceCoefficient(p)^2,
+
+and normalization by the common literal face count `3*s^3` preserves the
+same factor.  The existing dyadic normalized source-profile floor transfers
+without additional side dependence:
+
+    1 / (128 * 3^36)
+      <= normalized remainder coefficient-square mass at side 2^scale.
+
+This aligns the remainder diagonal budget with the normalized coefficient
+mass already used by the finite FREE Gaussian source.  It does not estimate
+the geometric amplitude and row cap or compare the ORIGINAL and FREE laws.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All seven printed
+public declarations use at most `[propext, Quot.sound]`; prohibited-token and
+trailing-whitespace scans were clean.  The materialized `.olean` is 157888
+bytes.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOriginalBulkDeficitRemainderCoefficientMass.lean
+      8ac3293fc00f8915cacba002986c680b418a0968ee41501c5af667afc297c7be
+
+The next consumer remains the vector-jet ORIGINAL-to-FREE diagonal
+comparison under the same scaling, followed by an explicit payment of that
+error and the now-normalized remainder budget against the neighboring strict
+margin.  No sign transfer, cutoff removal, continuum Hamiltonian or Clay mass
+gap follows.
+
+## ORIGINAL vector-jet physical-character covariance split (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOriginalBulkDeficitVectorJetCovariance.lean`
+uses the unit-quaternion carrier identity
+
+    4*(i^2+j^2+k^2) = 3 - chi_2(r)
+
+to recode every local vector-coordinate jet as one bounded spin-two physical
+character factor.  The outer quarter coefficient cancels the factor four,
+and finite addition proves that the complete weighted jet is the chronological
+lift of the displayed character schedule under every insertion.  The bulk
+face list and coefficient profile are unchanged.
+
+The same module now also proves the sharp complement
+`1-vectorJet=scalar^2` and publishes the supported extension of the schedule
+identity to every complete lag window containing its offset.
+
+Using the same canonical ambient slab and selected original action as the
+scalar remainder, the module proves at every chronological offset
+
+    shifted vector-jet diagonal
+      = selected vector-jet covariance
+          + (selected mean - supplied center)^2.
+
+Specialization to the actual vector-jet OWN center gives both the lower and
+full-lag lifted upper diagonals required by the mixed Cauchy estimates.  This
+is a SAME-ORIGINAL covariance interface, not an ORIGINAL-to-FREE comparison.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All ten printed
+public declarations use exactly `[propext, Quot.sound]`; prohibited-token and
+trailing-whitespace scans were clean.  The materialized `.olean` is 704792
+bytes.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOriginalBulkDeficitVectorJetCovariance.lean
+      a2020a28b58d78d98c1cb01dbfe8a25d206cd71828bed2cd1fb559c046b709ef
+
+The next finite consumer is the pairwise spatial-covariance expansion,
+endpoint mismatch payment and weighted geometric convolution for the local
+factor `3-chi_2`.  Once those vector diagonals are explicit, the genuine open
+law bridge is only the pure lagged jet--jet response versus the finite FREE
+Gaussian `A2` response.  No neighboring sign transfer, cutoff removal,
+continuum Hamiltonian or Clay mass gap follows.
+
+## ORIGINAL vector-jet pairwise covariance and mismatch payment (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOriginalBulkDeficitVectorJetPairwiseCovariance.lean`
+expands the complete selected vector-jet covariance exactly as
+
+    sum_p sum_q (a_p*a_q) Cov(J_p,J_q),
+
+with the literal quarter bulk weights and local physical factors
+`J_p=3-chi_2`.  Each placed factor has a checked interval, exact four-link
+locality and singleton plaquette carrier, so every face pair satisfies the
+existing selected two-probe distance budget.
+
+The sharp complement `1-(i^2+j^2+k^2)=r^2` constructs the global interval
+
+    0 <= vectorJet <= originalBulkCoefficientSum.
+
+The selected mean is pinned to the corresponding ORIGINAL window mean and
+the actual finite OWN center to the lower one-step endpoint.  Common-tail
+mixing and endpoint symmetry then bound both literal mismatch squares by
+
+    (mixRate(w,s*s)^n * (C+C))^2,
+
+where `C=originalBulkCoefficientSum s hs`.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All eleven printed
+public declarations use exactly `[propext, Quot.sound]`; prohibited-token and
+trailing-whitespace scans were clean.  The materialized `.olean` is 649320
+bytes.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOriginalBulkDeficitVectorJetPairwiseCovariance.lean
+      7e267ce0bfd9889bc7b64893b6bce6079adac16c0726a55684d3d569ae643a3e
+
+This closes the exact local expansion and both endpoint mismatch payments,
+not the absolute geometric convolution.  The next consumer must apply the
+existing symmetric-kernel Young bound and geometric row cap, insert the
+result into both vector diagonal identities, and discharge the two mixed
+Cauchy terms.  The pure lagged jet--jet ORIGINAL-to-FREE comparison remains
+open.  No neighboring sign transfer, cutoff removal, continuum Hamiltonian
+or Clay mass gap follows.
+
+## ORIGINAL vector-jet geometric convolution (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOriginalBulkDeficitVectorJetGeometricConvolution.lean`
+factors the selected two-probe distance budget for the local vector factor
+`3-chi_2` into one translation-independent pair amplitude and the symmetric
+kernel
+
+    geometricRate^(linfDist(p,q)-1).
+
+The existing four-dimensional row estimate uniformly bounds every row of
+this kernel, independently of source side, selected volume and cutoff.
+Applying the milestone-377 symmetric-kernel Young inequality to the positive
+quarter bulk weights gives
+
+    abs(selectedCovariance(vectorJet,vectorJet))
+      <= vectorPairAmplitude
+           * (rowCap * faceWeightSquareMass
+                + rowCap * faceWeightSquareMass).
+
+No face-pair cardinality enters.  The exact coefficient-square mass remains
+visible for the later normalized strict-margin comparison.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All eleven printed
+public declarations use at most exactly `[propext, Quot.sound]`; prohibited-
+token and trailing-whitespace scans were clean.  The materialized `.olean`
+is 294864 bytes.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOriginalBulkDeficitVectorJetGeometricConvolution.lean
+      fa6035a224345d711a8990db159c6ca0ac8ecd60172ca33f69f52515a9775ece
+
+This closes the selected vector covariance convolution, not the final vector
+diagonal assembly, mixed Cauchy specialization, pure lagged jet--jet
+ORIGINAL-to-FREE comparison or neighboring strict-margin payment.  The next
+consumer must add the milestone-381 endpoint-mismatch square to this budget,
+bound both milestone-380 diagonals, and feed them to the two milestone-378
+mixed terms.  No sign transfer, cutoff removal, continuum Hamiltonian or Clay
+mass gap follows.
+
+## ORIGINAL vector diagonals and mixed Cauchy payment (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOriginalBulkDeficitVectorJetDiagonalGeometric.lean`
+adds the milestone-381 endpoint-mixing square to the milestone-382 selected
+covariance bound.  Both exact milestone-380 diagonal identities therefore
+satisfy the same explicit estimate:
+
+    lower vector diagonal <= vectorDiagonalBudget,
+    lifted upper vector diagonal <= vectorDiagonalBudget.
+
+The vector coefficient-square mass, row cap, pair amplitude, sharp complete
+jet cap and endpoint error are all constructively nonnegative.  Substituting
+the two diagonal bounds into the existing mixed Cauchy consumers gives
+
+    (jet--remainder lagged pair)^2
+      <= vectorDiagonalBudget * remainderDiagonalBudget,
+    (remainder--jet lagged pair)^2
+      <= remainderDiagonalBudget * vectorDiagonalBudget.
+
+Thus every scalar-remainder contribution in the centered ORIGINAL lagged
+deficit split has an explicit finite geometric payment with no face-count
+loss and no surviving opaque diagonal.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All twelve printed
+public declarations use exactly `[propext, Quot.sound]`; prohibited-token and
+trailing-whitespace scans were clean.  The materialized `.olean` is 339184
+bytes.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOriginalBulkDeficitVectorJetDiagonalGeometric.lean
+      a3cf0baf950d777da7813f4a1d464b4f644fd9cd38cf83a4f4c60da85a497838
+
+This closes the SAME-ORIGINAL diagonal and mixed-remainder assembly, not the
+pure lagged vector-jet ORIGINAL-to-FREE comparison or the neighboring
+strict-margin payment.  The next consumer must quantify that genuine law
+bridge and combine its error with the now-explicit finite remainder budgets.
+No sign transfer, cutoff removal, continuum Hamiltonian or Clay mass gap
+follows.
+
+## Centered ORIGINAL non-jet absolute geometric budget (KERNEL-CHECKED)
+
+2026-10-16.
+`SU2QuaternionFiniteGaussianOriginalBulkDeficitCenteredRemainderGeometric.lean`
+uses the square-root-free chronological Young inequality to pay each non-jet
+term in the exact centered ORIGINAL deficit split by its two actual diagonal
+norms.  Substitution of the already-checked vector and scalar-remainder
+geometric diagonal estimates gives
+
+    2*abs(jet--remainder) <= vectorBudget + remainderBudget,
+    2*abs(remainder--jet) <= remainderBudget + vectorBudget,
+    2*abs(remainder--remainder) <= remainderBudget + remainderBudget.
+
+Applying the triangle inequality to the exact four-term split and cancelling
+the positive rational factor `2` proves the aggregate bound
+
+    abs(actual centered ORIGINAL deficit pair - pure jet--jet pair)
+      <= vectorDiagonalBudget + 2 * remainderDiagonalBudget.
+
+This is an absolute SAME-law estimate with no square roots, face-count loss or
+opaque window diagonals.  It quantitatively isolates the pure vector-jet
+response but does not compare that response with the FREE Gaussian law.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All six printed public
+declarations use exactly `[propext, Quot.sound]`; prohibited-token and
+trailing-whitespace scans were clean.  The materialized `.olean` is 335680
+bytes.  Source SHA-256 is:
+
+    SU2QuaternionFiniteGaussianOriginalBulkDeficitCenteredRemainderGeometric.lean
+      4ad0bb7a3ff7d170c72e77760de7a5172130d5e4eb4a331c4c89aec369a6d8b4
+
+The next consumer is the genuine pure vector-jet ORIGINAL-to-FREE Gaussian
+comparison under the same finite scaling.  Its explicit law error must be
+added to this remainder budget and paid against the neighboring strict
+margin.  No sign transfer, cutoff removal, continuum Hamiltonian or Clay mass
+gap follows.
+
+## Exact Cayley quadratic split for the plaquette vector jet (KERNEL-CHECKED)
+
+2026-10-16.
+`BF4ExactSlabPlaquetteCayleyVectorJet.lean` proves first that every rational
+unit quaternion satisfies
+
+    i^2+j^2+k^2 = 1-r^2.
+
+For the actual ordered stereographic plaquette word, it combines this with
+the exact denominator-cleared Cayley deficit and the scalar identity
+`4*(1-r^2)=4*delta-delta^2`.  Writing `D` for the common Cayley denominator
+gives
+
+    4*D^2*vectorJet = 4*D*deficit-deficit^2.
+
+The existing exact degree-two-through-six deficit expansion is then split at
+its finite-Gaussian quadratic term:
+
+    4*D^2*vectorJet
+      = 4*D*(e^2*H2)
+          + (4*D*cayleyDeficitHigher-deficit^2).
+
+This is a division-free pointwise identity.  The residual explicitly retains
+all cubic-through-sixth terms and the nonlinear deficit square, so the result
+does not assume positivity, small fields, denominator inversion, measure
+comparison, or continuum control.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All five printed theorem
+declarations use at most `[propext, Quot.sound]`; the generic complement uses
+only `[propext]`.  Prohibited-token and trailing-whitespace scans were clean.
+The materialized `.olean` is 278656 bytes.  Source SHA-256 is:
+
+    BF4ExactSlabPlaquetteCayleyVectorJet.lean
+      b726a8d2b8e865f9a1cd00cc8c6119e09df4d5caf48b6a5c517799583548d6e7
+
+The next consumer must lift the exact common-denominator identity through the
+finite weighted source and lag pair, then bound the denominator deformation
+and explicit residual with the existing polynomial/Wick machinery.  The
+literal `H2` pair is thereby left as the FREE-reference carrier.  The law
+comparison, neighboring strict-margin payment, cutoff removal, continuum
+Hamiltonian and Clay mass gap all remain open.
+
+## Global ORIGINAL-carrier Cayley vector-jet split (KERNEL-CHECKED)
+
+2026-10-16.
+`BF4ExactSlabPlaquetteGlobalCayleyVectorJet.lean` lifts the exact pointwise
+Cayley vector-jet identity to the literal global `RatPoly` carrier of the
+corrected-slab plaquette.  Haar-unit norm first gives the arbitrary-insertion
+carrier equivalence between its three-coordinate vector norm and `1-r^2`.
+
+With `D` the global common denominator, `N` the global cleared deficit and
+`J` the literal vector jet, the module proves
+
+    4*D^2*J ~= 4*D*N-N^2.
+
+It then regroups the exact homogeneous expansion as
+
+    N = P2 + (P3+P4+P5+P6)
+
+and obtains
+
+    4*D^2*J
+      ~= 4*D*P2
+          + (4*D*(P3+P4+P5+P6)-N^2).
+
+Every relation is valid after an arbitrary later Haar insertion.  The final
+theorem applies the existing carrier congruence and additivity of the
+normalized ORIGINAL polynomial expectation, yielding the same exact
+quadratic-plus-residual split without changing the action or partition.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All five printed
+declarations use exactly `[propext, Quot.sound]`; prohibited-token and
+trailing-whitespace scans were clean.  The materialized `.olean` is 140304
+bytes.  Source SHA-256 is:
+
+    BF4ExactSlabPlaquetteGlobalCayleyVectorJet.lean
+      446b517ac18396835aaa97890a75118b6e5490d9849a4915d6ee687762145019
+
+The next consumer is the exact two-plaquette product and weighted
+chronological-source expansion isolating the `P2`--`P2` term.  Bounds for the
+three terms containing a global residual, the denominator deformation, the
+FREE comparison, neighboring strict-margin payment, cutoff removal,
+continuum Hamiltonian and Clay mass gap all remain open.
+
+## Exact two-plaquette global Cayley vector-jet split (KERNEL-CHECKED)
+
+2026-10-16.
+`BF4ExactSlabPlaquetteGlobalCayleyVectorJetPair.lean` writes the milestone-386
+one-face split as `clearedJet_f ~= Q_f+R_f`, where
+`Q_f=4*D_f*P2_f` and `R_f` is the explicit nonlinear Cayley residual.  Exact
+arbitrary-insertion carrier multiplication gives, for two physical slab
+faces,
+
+    clearedJet_f*clearedJet_g
+      ~= Q_f*Q_g
+          + (Q_f*R_g + (R_f*Q_g + R_f*R_g)).
+
+The three residual products are grouped in one named polynomial.  The only
+term free of a nonlinear Cayley residual is therefore the literal
+degree-two--degree-two product with both common-denominator factors retained.
+Normalized ORIGINAL expectation carrier congruence and additivity transfer
+the split without changing the action or partition function.
+
+A generic polynomial-normalizer proof of binomial distribution hit its
+heartbeat limit.  The final checked proof instead uses the exact constructive
+distributivity and associativity APIs, requires no increased resource limit,
+and finishes immediately.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  Both printed
+declarations use exactly `[propext, Quot.sound]`; prohibited-token and
+trailing-whitespace scans were clean.  The materialized `.olean` is 80912
+bytes.  Source SHA-256 is:
+
+    BF4ExactSlabPlaquetteGlobalCayleyVectorJetPair.lean
+      d67172f7707fb493969e855cc6b61cecfa5869e8c2cf59f073f99bc4c5e76803
+
+The next consumer must aggregate the identity over both literal weighted
+source lists and chronological placements, then expand the two mean terms to
+obtain a centered `P2`--`P2` covariance plus one explicit aggregate residual.
+Residual bounds, denominator deformation, FREE comparison, neighboring
+strict-margin payment, cutoff removal, continuum Hamiltonian and Clay mass
+gap remain open.
+
+## Literal weighted chronological bulk-source Cayley split (KERNEL-CHECKED)
+
+2026-10-16.
+`BF4ExactSlabPlaquetteGlobalCayleyVectorJetBulkSource.lean` aggregates the
+global one-face Cayley split over the literal `bulkSourceFaces s`, unchanged
+positive `bulkSourceCoefficient s hs`, and chronological
+`timeShiftPlaquette`.  Under the physical conditions `s*s <= extent+1` and
+both offsets at most `extent`, finite-sum carrier congruence proves
+
+    clearedSource_t ~= quadraticSource_t + remainderSource_t
+
+and exact multiplication gives
+
+    clearedSource_left*clearedSource_right
+      ~= quadraticSource_left*quadraticSource_right
+          + (quadraticSource_left*remainderSource_right
+              + (remainderSource_left*quadraticSource_right
+                  + remainderSource_left*remainderSource_right)).
+
+The one-source and two-source identities both pass through carrier congruence
+and additivity to the normalized ORIGINAL expectation with the same action
+and partition function.  This supplies the exact pair response and both mean
+expansions needed for centering; it supplies no estimate.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All five printed
+declarations use exactly `[propext, Quot.sound]`; prohibited-token and
+trailing-whitespace scans were clean.  The materialized `.olean` is 152872
+bytes.  Source SHA-256 is:
+
+    BF4ExactSlabPlaquetteGlobalCayleyVectorJetBulkSource.lean
+      be0e05f69018bae82deec2f87fd361fbe9e89757f10a02a3f0488a9f3b61221d
+
+The next consumer must combine the pair identity with the two exact mean
+splits to isolate a centered quadratic response and an explicit centered
+residual.  Residual bounds, denominator deformation, FREE comparison,
+neighboring strict-margin payment, cutoff removal, continuum Hamiltonian and
+Clay mass gap remain open.
+
+## Exact centered weighted Cayley response split (KERNEL-CHECKED)
+
+2026-10-16.
+`BF4ExactSlabPlaquetteGlobalCayleyVectorJetBulkCentered.lean` combines the
+literal pair split with both one-source expectation splits.  If `Q_L,Q_R`
+are the weighted quadratic means, `R_L,R_R` the weighted one-source residual
+means and `R_pair` the aggregate pair-residual expectation, the checked
+identity is
+
+    centeredClearedResponse
+      ~= centeredQuadraticResponse
+          + (R_pair-(Q_L*R_R+(R_L*Q_R+R_L*R_R))).
+
+Every residual-bearing product from the pair and mean expansions remains
+visible.  Neither center, action nor partition function changes, and no term
+is estimated or discarded.  A generic six-variable normalizer exceeded its
+heartbeat budget; exact constructive `Q'.eqv` distribution, negation and
+reassociation replace that dead end and check immediately without increased
+resource limits.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  The printed theorem
+uses exactly `[propext, Quot.sound]`; prohibited-token and trailing-whitespace
+scans were clean.  The materialized `.olean` is 158888 bytes.  Source SHA-256
+is:
+
+    BF4ExactSlabPlaquetteGlobalCayleyVectorJetBulkCentered.lean
+      cd26fcf76af02017231277d3452a3364596de50bfb0633289fbe286ba5a10b94
+
+The next consumer must quantify the denominator deformation in the weighted
+quadratic source, compare the resulting denominator-free quadratic ORIGINAL
+response with the finite FREE Gaussian response, and bound the displayed
+centered Cayley residual.  Those errors must then be combined with the
+milestone-384 SAME-ORIGINAL non-jet budget and paid against the neighboring
+strict margin.  Cutoff removal, the continuum Hamiltonian and the Clay mass
+gap remain open.
+
+## Parametric centered outer-Cayley-denominator split (KERNEL-CHECKED)
+
+2026-10-16.
+`BF4ExactSlabPlaquetteGlobalCayleyVectorJetBulkOuterDenominator.lean` splits
+the extracted quadratic carrier at an arbitrary rational reference `c`:
+
+    4*D*P2 = 4*c*P2 + 4*(D-c)*P2.
+
+The identity is coefficientwise, is aggregated over the unchanged literal
+weighted chronological source, and yields exact one-source and pair
+expectation splits under the same normalized ORIGINAL law.  Centering keeps
+the pair deformation and all three residual-bearing mean products explicit.
+Consequently
+
+    centeredClearedResponse
+      ~= centeredReferenceQuadraticResponse
+          + (centeredOuterDenominatorRemainder
+              + centeredCayleyRemainder).
+
+The reference remains parametric rather than guessing an identity-chart
+normalization.  An implicit scalar-distribution proof hit the heartbeat
+limit; the final proof uses the exact coefficientwise `smul_add` lemma and
+checks immediately without increased resources.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All seven printed
+declarations use exactly `[propext, Quot.sound]`; prohibited-token and
+trailing-whitespace scans were clean.  The materialized `.olean` is 316680
+bytes.  Source SHA-256 is:
+
+    BF4ExactSlabPlaquetteGlobalCayleyVectorJetBulkOuterDenominator.lean
+      9a910c8179c62634a769bf665d6af9ea963de4af846a1e39e0bea523828b6080
+
+This isolates only the outer denominator.  The reference value is unpinned,
+and `P2` still contains its six shared denominator powers and weighted link
+vectors.  The next consumer must prove the identity normalization, isolate
+the complete denominator-free quadratic curl carrier and bound both named
+centered deformations before any finite FREE comparison or strict-margin
+payment.  Cutoff removal, the continuum Hamiltonian and the Clay mass gap
+remain open.
+
+## Identity value of the global Cayley denominator (KERNEL-CHECKED)
+
+2026-10-16.
+`BF4ExactSlabPlaquetteGlobalCayleyVectorJetBulkIdentityDenominator.lean`
+evaluates the actual global denominator polynomial at the all-identity
+ORIGINAL link assignment.  Each oriented link evaluates to `unitOne`, each
+chart denominator to `2`, each three-link complement to `8`, each cleared
+factor to `256`, and the four-factor product to
+
+    256^4 = 2^32 = 4294967296.
+
+Coefficient equivalence transfers that explicit compiled calculation to the
+literal face polynomial.  The module therefore specializes the parametric
+outer split and the complete centered capstone at the proved reference
+`2^32`; the outer deformation and Cayley residual both remain explicit.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All three printed
+declarations use exactly `[propext, Quot.sound]`; prohibited-token and
+trailing-whitespace scans were clean.  A generic four-factor evaluation lemma
+uses one local 2,000,000-heartbeat scope.  The materialized `.olean` is 215248
+bytes.  Source SHA-256 is:
+
+    BF4ExactSlabPlaquetteGlobalCayleyVectorJetBulkIdentityDenominator.lean
+      e617f5c27b5a8fd665f943d6202c3c2364f4e676ddfff7d02b2bd15df9885b31
+
+This proves the identity value, not concentration of the denominator around
+that value.  The inner `P2` normalization, both deformation bounds, the FREE
+comparison, neighboring strict-margin payment, cutoff removal, continuum
+Hamiltonian and Clay mass gap remain open at this checkpoint.
+
+## Identity-chart inner Cayley quadratic source (KERNEL-CHECKED)
+
+2026-10-16.
+`BF4ExactSlabPlaquetteGlobalCayleyVectorJetBulkIdentityQuadratic.lean`
+exposes the exact four-link compiler for `P2=D^6 H2` and proves its
+coefficientwise equality with the literal ORIGINAL face polynomial.  Freezing
+the identity-chart values `D=16` and all four complements at `8` gives
+
+    P2_identity = 16^6 * 4 * 8^2 * |curl|^2
+                = 2^32 * |curl|^2.
+
+The complete difference is retained as `innerDenominatorRemainder`, so the
+canonical outer-reference term splits exactly as
+
+    4*2^32*P2
+      = identityVectorJetQuadratic
+          + innerDenominatorVectorJetRemainder.
+
+The identity quadratic has total scale `2^66`, and finite-sum congruence
+aggregates it together with the complete inner correction over the literal
+weighted chronological bulk source.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  Four printed structural
+declarations use exactly `[propext, Quot.sound]`, while both rational scale
+declarations use no axioms.  Prohibited-token and trailing-whitespace scans
+were clean, and the default heartbeat limit suffices.  The materialized
+`.olean` is 275496 bytes.  Source SHA-256 is:
+
+    BF4ExactSlabPlaquetteGlobalCayleyVectorJetBulkIdentityQuadratic.lean
+      4e756fb0430747e4a35738510a8e4e100fdade741c5a11395680037484992706
+
+This is an exact source-carrier normalization only.  The ORIGINAL oriented
+link variables have not been identified with the rooted-comb/Heron FREE
+coordinates used by `openCubeBulkCayleyTraceA2`, and no denominator correction
+has been bounded.  The explicit finite substitution/source pin, law
+comparison, neighboring strict-margin payment, cutoff removal, continuum
+Hamiltonian and Clay mass gap remain open.
+
+## Physical-link/Heron pullback and FREE A2 covariance pin (KERNEL-CHECKED)
+
+2026-10-16.
+`BF4ExactSlabPlaquetteGlobalCayleyVectorJetBulkFreeA2Pullback.lean` supplies
+the explicit finite gauge-fixed substitution requested by the preceding
+checkpoint.  For every row in the actual weighted bulk family, it pulls the
+four directed physical plaquette-link rows through the exact rational Heron
+transform and three-color embedding, then proves that row pointwise equal in
+`Q'.eqv` to the canonical bulk Heron curl row.
+
+The reusable `finiteLinearRow_coeffEqv` theorem added to
+`SU2QuaternionFiniteProductGaussianIBP.lean` transports pointwise row
+equivalence to coefficientwise polynomial equivalence on the exact finite
+prefix.  Applying it through row squares, rational source weights and the
+finite row sum proves
+
+    bulkSourceHeronRadialSquare
+      ~= bulkSourcePhysicalLinkPullbackRadialSquare.
+
+The milestone-392 scale then factors exactly as `2^66 = 2^64 * 4`, giving
+
+    identityVectorJetPhysicalPullback
+      ~= 2^64 * openCubeBulkCayleyTraceA2.
+
+The finite product-Gaussian covariance of two such pullbacks is consequently
+exactly `(2^64 * 2^64)` times the existing FREE `A2` covariance at the two
+chosen history times.
+
+Focused monitored checks and direct materializations passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  Five printed structural
+declarations use exactly `[propext, Quot.sound]`; the scale declaration uses
+no axioms.  The prohibited-construct scan found no prohibited construct; the
+only literal match was the explanatory word `axiom` in the pre-existing IBP
+header.  Trailing-whitespace and focused diff checks were clean.  Evidence:
+
+    SU2QuaternionFiniteProductGaussianIBP.olean
+      370744 bytes
+    SU2QuaternionFiniteProductGaussianIBP.lean
+      b05bc242541e83c2e81d01eaf4a570709dd5b62611d35a771debeb14642dc087
+
+    BF4ExactSlabPlaquetteGlobalCayleyVectorJetBulkFreeA2Pullback.olean
+      276872 bytes
+    BF4ExactSlabPlaquetteGlobalCayleyVectorJetBulkFreeA2Pullback.lean
+      3afd4bdcfbd289d25b373eff93f58e955babede83c10bda343b621b2c2293df8
+
+This is a finite gauge-fixed row substitution and FREE-law covariance pin,
+not an ORIGINAL-law pushforward theorem.  The next consumer must place this
+FREE covariance beside the exact centered ORIGINAL identity-quadratic
+response and isolate the complete comparison error without assuming the two
+laws agree.  That error, the outer and inner denominator deformations and the
+centered Cayley residual remain unbounded.  Neighboring strict-margin
+payment, cutoff removal, the continuum Hamiltonian and the Clay mass gap
+remain open.
+
+## Centered ORIGINAL-to-FREE four-error capstone (KERNEL-CHECKED)
+
+2026-10-16.
+`BF4ExactSlabPlaquetteGlobalCayleyVectorJetBulkOriginalFreeComparison.lean`
+passes the identity-quadratic/inner-denominator source split through pair
+multiplication, the unchanged normalized ORIGINAL expectation and centering:
+
+    centeredReferenceQuadraticResponse(2^32)
+      ~= centeredIdentityQuadraticOriginalResponse
+          + centeredInnerDenominatorRemainder.
+
+It embeds the milestone-393 finite FREE physical-link covariance at the same
+finite central extent into `CReal` and verifies that it is exactly
+`(2^64 * 2^64)` times the existing FREE `A2` covariance.  The complete
+ORIGINAL-to-FREE difference is then named by subtraction, yielding the exact
+identity
+
+    centeredIdentityQuadraticOriginalResponse
+      ~= finiteFreeIdentityCovariance
+          + originalToFreeComparisonRemainder.
+
+After combining with the already checked outer-denominator and Cayley split,
+the complete centered cleared ORIGINAL response is exactly the finite FREE
+covariance plus four separately visible contributions: the ORIGINAL-to-FREE
+comparison remainder, centered inner-denominator remainder, centered
+outer-denominator remainder and centered Cayley remainder.
+
+The focused monitored check and direct materialization passed with one
+worker, the unchanged 20-GiB cap and 12-GiB reserve.  All five printed
+declarations use exactly `[propext, Quot.sound]`; prohibited-construct,
+trailing-whitespace and focused diff scans were clean.  The materialized
+`.olean` is 284120 bytes.  Source SHA-256 is:
+
+    BF4ExactSlabPlaquetteGlobalCayleyVectorJetBulkOriginalFreeComparison.lean
+      7919adbaeeb04d3464d335f8078e19343602e6e4b9ddce2bf414c64d19cb23ea
+
+This is exact bookkeeping, not an analytic comparison estimate.  The
+ORIGINAL-to-FREE remainder is unconstrained, and all three Cayley remainder
+families remain unbounded.  The next obligation is a constructive finite
+bound derived from the actual ORIGINAL density/action and the same physical
+source, followed by a joint strict-margin payment.  Cutoff removal, the
+continuum Hamiltonian and the Clay mass gap remain open.
+
+## Finite ORIGINAL-to-FREE comparison bound (KERNEL-CHECKED)
+
+2026-10-16.
+`BF4ExactSlabPolynomialExpectation.lean` now gives every normalized ORIGINAL
+polynomial expectation the explicit rational absolute bound
+
+    polynomialCoefficientL1(p)
+      * heatProductBound * reciprocalCeiling.
+
+`BF4ExactSlabPlaquetteGlobalCayleyVectorJetBulkOriginalFreeComparisonBound.lean`
+uses it on the exact identity-quadratic pair and one-source polynomials.  If
+their bounds are `B_pair`, `B_left`, and `B_right`, and `C_free` is the exact
+finite physical-link pullback covariance, the checked bound is
+
+    |originalToFreeComparisonRemainder|
+      <= B_pair + B_left * B_right + |C_free|.
+
+This estimate uses the actual ORIGINAL numerator/action and the already
+pinned finite FREE source.  It assumes no pushforward or equality of laws.
+
+Focused monitored checks and direct materializations passed with one worker,
+the unchanged 20-GiB cap and 12-GiB reserve.  All eleven new printed
+declarations use exactly `[propext, Quot.sound]`; prohibited-construct and
+trailing-whitespace scans were clean.  Evidence:
+
+    BF4ExactSlabPolynomialExpectation.olean
+      602536 bytes
+    BF4ExactSlabPolynomialExpectation.lean
+      fdec2a4cace00327d0a6dc809ebccce84753dd274c45f86cc8c85bcf6a97e929
+
+    BF4ExactSlabPlaquetteGlobalCayleyVectorJetBulkOriginalFreeComparisonBound.olean
+      85872 bytes
+    BF4ExactSlabPlaquetteGlobalCayleyVectorJetBulkOriginalFreeComparisonBound.lean
+      0f7bbe216011e0e14c85ecfccdec8b611d8376ed00a1c7bbe3023833d2ef683a
+
+The estimate is finite but not proved small or cutoff-/volume-uniform.  Its
+separate numerator and reciprocal ceilings lose centered normalization
+cancellation, and the inner, outer and Cayley remainders remain unbounded.
+No neighboring strict-margin payment, cutoff removal, continuum Hamiltonian
+or Clay mass gap follows.

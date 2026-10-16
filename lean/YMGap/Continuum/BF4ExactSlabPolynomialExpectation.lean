@@ -129,6 +129,46 @@ theorem reciprocal_approx_productBound (p : RatPoly) (n : Nat) :
         (Q'.le_of_eqv (Q'.add_comm_eqv _ _)))
       (Q'.add_le_self_of_nonneg _ 1 Q'.zero_le_one))
 
+/-- Exact rational absolute bound obtained from the existing numerator and
+partition-reciprocal bounds. -/
+def expectationAbsBound (p : RatPoly) : Q' :=
+  numeratorBound w half p * reciprocalCeiling w hw0 hw1 half
+
+include hw0 in
+theorem expectationAbsBound_nonnegative (p : RatPoly) :
+    (0 : Q') ≤ expectationAbsBound w hw0 hw1 half p :=
+  Q'.mul_nonneg _ _
+    (numeratorBound_nonnegative w hw0 half p)
+    (Q'.le_of_lt (reciprocalCeiling_pos w hw0 hw1 half))
+
+/-- Every approximant of the actual normalized ORIGINAL expectation is
+bounded by the explicit numerator-bound times reciprocal-ceiling product. -/
+theorem expectation_approx_abs_le (p : RatPoly) (n : Nat) :
+    Q'.abs ((expectation w hw0 hw1 half p).approx n) ≤
+      expectationAbsBound w hw0 hw1 half p := by
+  have hreciprocal : Q'.abs ((lambda).approx n) ≤
+      reciprocalCeiling w hw0 hw1 half := by
+    rw [ExpNeg.abs_of_nonneg
+      (Q'.le_of_lt (actionReciprocal_approx_pos w hw0 hw1 half n))]
+    exact actionReciprocal_approx_le w hw0 hw1 half n
+  exact Q'.le_trans' _ _ _
+    (ExpNeg.abs_mul_le ((N p).approx n) ((lambda).approx n))
+    (Q'.le_trans' _ _ _
+      (Q'.mul_le_mul_of_nonneg_right _ _ _
+        (numerator_approx_abs_le w hw0 hw1 half p n)
+        (Q'.abs_nonneg ((lambda).approx n)))
+      (Q'.mul_le_mul_of_nonneg_left _ _ _ hreciprocal
+        (numeratorBound_nonnegative w hw0 half p)))
+
+/-- Sound constructive-real absolute bound for the normalized ORIGINAL
+expectation. -/
+theorem expectation_abs_le (p : RatPoly) :
+    CReal.leEv
+      (CReal.abs (expectation w hw0 hw1 half p))
+      (CReal.ofQ' (expectationAbsBound w hw0 hw1 half p)) :=
+  CReal.leEv_le_ofQ'_of_approx_le
+    (expectation_approx_abs_le w hw0 hw1 half p)
+
 /-- Explicit modulus for the ACTUAL normalized CReal approximants. -/
 def expectationCauchy (p : RatPoly) : CReal.QCauchy (expectation w hw0 hw1 half p).approx :=
   productCauchy
@@ -174,6 +214,10 @@ end YMGap.Continuum.BF4ExactSlabPolynomialExpectation
 #print axioms YMGap.Continuum.BF4ExactSlabPolynomialExpectation.productBound_pos
 #print axioms YMGap.Continuum.BF4ExactSlabPolynomialExpectation.numerator_approx_productBound
 #print axioms YMGap.Continuum.BF4ExactSlabPolynomialExpectation.reciprocal_approx_productBound
+#print axioms YMGap.Continuum.BF4ExactSlabPolynomialExpectation.expectationAbsBound
+#print axioms YMGap.Continuum.BF4ExactSlabPolynomialExpectation.expectationAbsBound_nonnegative
+#print axioms YMGap.Continuum.BF4ExactSlabPolynomialExpectation.expectation_approx_abs_le
+#print axioms YMGap.Continuum.BF4ExactSlabPolynomialExpectation.expectation_abs_le
 #print axioms YMGap.Continuum.BF4ExactSlabPolynomialExpectation.expectationCauchy
 #print axioms YMGap.Continuum.BF4ExactSlabPolynomialExpectation.expectationModulus
 #print axioms YMGap.Continuum.BF4ExactSlabPolynomialExpectation.expectationModulus_eq
