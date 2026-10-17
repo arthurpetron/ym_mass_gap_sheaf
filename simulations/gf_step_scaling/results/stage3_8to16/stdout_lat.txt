@@ -1,0 +1,177 @@
+
+== 4->8 c=0.3 norm=lat M=2 betas=[2.6, 2.8, 3.0, 3.2, 3.4, 3.6, 3.9, 4.3, 5.0] chi2/dof(L)=0.22 chi2/dof(2L)=3.09
+   beta=2.600 u=3.6109(0.0061) Sigma_raw=5.7436(0.0182)
+   beta=2.800 u=3.0178(0.0047) Sigma_raw=4.2393(0.0110)
+   beta=3.000 u=2.6008(0.0041) Sigma_raw=3.4047(0.0079)
+   beta=3.200 u=2.2877(0.0034) Sigma_raw=2.8596(0.0063)
+   beta=3.400 u=2.0506(0.0030) Sigma_raw=2.4920(0.0056)
+   beta=3.600 u=1.8556(0.0026) Sigma_raw=2.2009(0.0052)
+   beta=3.900 u=1.6287(0.0023) Sigma_raw=1.8812(0.0040)
+   beta=4.300 u=1.4027(0.0019) Sigma_raw=1.5771(0.0035)
+   beta=5.000 u=1.1276(0.0015) Sigma_raw=1.2274(0.0025)
+   u=1.300 beta*=4.525(0.002) Sigma=1.4448(0.0023) 1/u-1/Sigma=0.0771(0.0011) [1-loop 0.0644] Sigma_1loop=1.4187
+   u=1.600 beta*=3.944(0.001) Sigma=1.8355(0.0021) 1/u-1/Sigma=0.0802(0.0006) [1-loop 0.0644] Sigma_1loop=1.7837
+   u=2.000 beta*=3.447(0.001) Sigma=2.4084(0.0030) 1/u-1/Sigma=0.0848(0.0005) [1-loop 0.0644] Sigma_1loop=2.2956
+   u=2.400 beta*=3.123(0.001) Sigma=3.0562(0.0045) 1/u-1/Sigma=0.0895(0.0005) [1-loop 0.0644] Sigma_1loop=2.8386
+
+== 4->8 c=0.3 norm=lat M=3 betas=[2.6, 2.8, 3.0, 3.2, 3.4, 3.6, 3.9, 4.3, 5.0] chi2/dof(L)=0.27 chi2/dof(2L)=0.59
+   beta=2.600 u=3.6109(0.0061) Sigma_raw=5.7436(0.0182)
+   beta=2.800 u=3.0178(0.0047) Sigma_raw=4.2393(0.0110)
+   beta=3.000 u=2.6008(0.0041) Sigma_raw=3.4047(0.0079)
+   beta=3.200 u=2.2877(0.0034) Sigma_raw=2.8596(0.0063)
+   beta=3.400 u=2.0506(0.0030) Sigma_raw=2.4920(0.0056)
+   beta=3.600 u=1.8556(0.0026) Sigma_raw=2.2009(0.0052)
+   beta=3.900 u=1.6287(0.0023) Sigma_raw=1.8812(0.0040)
+   beta=4.300 u=1.4027(0.0019) Sigma_raw=1.5771(0.0035)
+   beta=5.000 u=1.1276(0.0015) Sigma_raw=1.2274(0.0025)
+   u=1.300 beta*=4.525(0.002) Sigma=1.4445(0.0023) 1/u-1/Sigma=0.0769(0.0011) [1-loop 0.0644] Sigma_1loop=1.4187
+   u=1.600 beta*=3.944(0.002) Sigma=1.8411(0.0029) 1/u-1/Sigma=0.0818(0.0008) [1-loop 0.0644] Sigma_1loop=1.7837
+   u=2.000 beta*=3.447(0.001) Sigma=2.4133(0.0033) 1/u-1/Sigma=0.0856(0.0006) [1-loop 0.0644] Sigma_1loop=2.2956
+   u=2.400 beta*=3.123(0.001) Sigma=3.0514(0.0048) 1/u-1/Sigma=0.0889(0.0005) [1-loop 0.0644] Sigma_1loop=2.8386
+
+== 6->12 c=0.3 norm=lat M=2 betas=[3.0, 3.2, 3.4, 3.6, 3.8, 4.1, 4.5, 5.0] chi2/dof(L)=1.39 chi2/dof(2L)=0.43
+   beta=3.000 u=3.0853(0.0041) Sigma_raw=3.9666(0.0140)
+   beta=3.200 u=2.6442(0.0033) Sigma_raw=3.2439(0.0107)
+   beta=3.400 u=2.3153(0.0028) Sigma_raw=2.7564(0.0086)
+   beta=3.600 u=2.0731(0.0025) Sigma_raw=2.4108(0.0076)
+   beta=3.800 u=1.8673(0.0023) Sigma_raw=2.1392(0.0067)
+   beta=4.100 u=1.6327(0.0019) Sigma_raw=1.8265(0.0052)
+   beta=4.500 u=1.3983(0.0016) Sigma_raw=1.5367(0.0046)
+   beta=5.000 u=1.1887(0.0013) Sigma_raw=1.2884(0.0035)
+   u=1.300 beta*=4.715(0.002) Sigma=1.4195(0.0028) 1/u-1/Sigma=0.0648(0.0014) [1-loop 0.0644] Sigma_1loop=1.4187
+   u=1.600 beta*=4.148(0.001) Sigma=1.7883(0.0026) 1/u-1/Sigma=0.0658(0.0008) [1-loop 0.0644] Sigma_1loop=1.7837
+   u=2.000 beta*=3.664(0.001) Sigma=2.3119(0.0038) 1/u-1/Sigma=0.0674(0.0007) [1-loop 0.0644] Sigma_1loop=2.2956
+   u=2.400 beta*=3.345(0.001) Sigma=2.8777(0.0049) 1/u-1/Sigma=0.0692(0.0006) [1-loop 0.0644] Sigma_1loop=2.8386
+
+== 6->12 c=0.3 norm=lat M=3 betas=[3.0, 3.2, 3.4, 3.6, 3.8, 4.1, 4.5, 5.0] chi2/dof(L)=1.66 chi2/dof(2L)=0.54
+   beta=3.000 u=3.0853(0.0041) Sigma_raw=3.9666(0.0140)
+   beta=3.200 u=2.6442(0.0033) Sigma_raw=3.2439(0.0107)
+   beta=3.400 u=2.3153(0.0028) Sigma_raw=2.7564(0.0086)
+   beta=3.600 u=2.0731(0.0025) Sigma_raw=2.4108(0.0076)
+   beta=3.800 u=1.8673(0.0023) Sigma_raw=2.1392(0.0067)
+   beta=4.100 u=1.6327(0.0019) Sigma_raw=1.8265(0.0052)
+   beta=4.500 u=1.3983(0.0016) Sigma_raw=1.5367(0.0046)
+   beta=5.000 u=1.1887(0.0013) Sigma_raw=1.2884(0.0035)
+   u=1.300 beta*=4.715(0.002) Sigma=1.4195(0.0028) 1/u-1/Sigma=0.0648(0.0014) [1-loop 0.0644] Sigma_1loop=1.4187
+   u=1.600 beta*=4.149(0.002) Sigma=1.7878(0.0035) 1/u-1/Sigma=0.0657(0.0011) [1-loop 0.0644] Sigma_1loop=1.7837
+   u=2.000 beta*=3.664(0.001) Sigma=2.3118(0.0039) 1/u-1/Sigma=0.0674(0.0007) [1-loop 0.0644] Sigma_1loop=2.2956
+   u=2.400 beta*=3.345(0.001) Sigma=2.8785(0.0065) 1/u-1/Sigma=0.0693(0.0008) [1-loop 0.0644] Sigma_1loop=2.8386
+
+== 8->16 c=0.3 norm=lat M=2 betas=[3.4, 3.6, 3.9, 4.3, 5.0] chi2/dof(L)=0.41 chi2/dof(2L)=0.05
+   beta=3.400 u=2.4920(0.0056) Sigma_raw=3.0040(0.0110)
+   beta=3.600 u=2.2009(0.0052) Sigma_raw=2.5886(0.0098)
+   beta=3.900 u=1.8812(0.0040) Sigma_raw=2.1447(0.0080)
+   beta=4.300 u=1.5771(0.0035) Sigma_raw=1.7536(0.0062)
+   beta=5.000 u=1.2274(0.0025) Sigma_raw=1.3361(0.0059)
+   u=1.300 beta*=4.824(0.005) Sigma=1.4205(0.0054) 1/u-1/Sigma=0.0653(0.0027) [1-loop 0.0644] Sigma_1loop=1.4187
+   u=1.600 beta*=4.262(0.003) Sigma=1.7850(0.0050) 1/u-1/Sigma=0.0648(0.0016) [1-loop 0.0644] Sigma_1loop=1.7837
+   u=2.000 beta*=3.778(0.003) Sigma=2.3039(0.0069) 1/u-1/Sigma=0.0660(0.0013) [1-loop 0.0644] Sigma_1loop=2.2956
+   u=2.400 beta*=3.458(0.003) Sigma=2.8699(0.0096) 1/u-1/Sigma=0.0682(0.0012) [1-loop 0.0644] Sigma_1loop=2.8386
+
+== 8->16 c=0.3 norm=lat M=3 betas=[3.4, 3.6, 3.9, 4.3, 5.0] chi2/dof(L)=0.02 chi2/dof(2L)=0.03
+   beta=3.400 u=2.4920(0.0056) Sigma_raw=3.0040(0.0110)
+   beta=3.600 u=2.2009(0.0052) Sigma_raw=2.5886(0.0098)
+   beta=3.900 u=1.8812(0.0040) Sigma_raw=2.1447(0.0080)
+   beta=4.300 u=1.5771(0.0035) Sigma_raw=1.7536(0.0062)
+   beta=5.000 u=1.2274(0.0025) Sigma_raw=1.3361(0.0059)
+   u=1.300 beta*=4.825(0.005) Sigma=1.4198(0.0054) 1/u-1/Sigma=0.0649(0.0027) [1-loop 0.0644] Sigma_1loop=1.4187
+   u=1.600 beta*=4.265(0.005) Sigma=1.7815(0.0070) 1/u-1/Sigma=0.0637(0.0022) [1-loop 0.0644] Sigma_1loop=1.7837
+   u=2.000 beta*=3.777(0.003) Sigma=2.3073(0.0082) 1/u-1/Sigma=0.0666(0.0015) [1-loop 0.0644] Sigma_1loop=2.2956
+   u=2.400 beta*=3.457(0.003) Sigma=2.8716(0.0098) 1/u-1/Sigma=0.0684(0.0012) [1-loop 0.0644] Sigma_1loop=2.8386
+
+== 4->8 c=0.4 norm=lat M=2 betas=[2.6, 2.8, 3.0, 3.2, 3.4, 3.6, 3.9, 4.3, 5.0] chi2/dof(L)=0.37 chi2/dof(2L)=2.45
+   beta=2.600 u=4.2270(0.0110) Sigma_raw=6.7079(0.0388)
+   beta=2.800 u=3.3942(0.0081) Sigma_raw=4.6683(0.0209)
+   beta=3.000 u=2.8478(0.0068) Sigma_raw=3.6440(0.0150)
+   beta=3.200 u=2.4625(0.0055) Sigma_raw=3.0077(0.0115)
+   beta=3.400 u=2.1797(0.0048) Sigma_raw=2.5988(0.0099)
+   beta=3.600 u=1.9489(0.0040) Sigma_raw=2.2769(0.0084)
+   beta=3.900 u=1.6932(0.0036) Sigma_raw=1.9337(0.0078)
+   beta=4.300 u=1.4410(0.0029) Sigma_raw=1.6086(0.0060)
+   beta=5.000 u=1.1435(0.0023) Sigma_raw=1.2379(0.0046)
+   u=1.300 beta*=4.591(0.004) Sigma=1.4327(0.0039) 1/u-1/Sigma=0.0713(0.0019) [1-loop 0.0644] Sigma_1loop=1.4187
+   u=1.600 beta*=4.030(0.002) Sigma=1.8048(0.0036) 1/u-1/Sigma=0.0709(0.0011) [1-loop 0.0644] Sigma_1loop=1.7837
+   u=2.000 beta*=3.552(0.002) Sigma=2.3374(0.0045) 1/u-1/Sigma=0.0722(0.0008) [1-loop 0.0644] Sigma_1loop=2.2956
+   u=2.400 beta*=3.241(0.002) Sigma=2.9220(0.0065) 1/u-1/Sigma=0.0744(0.0008) [1-loop 0.0644] Sigma_1loop=2.8386
+
+== 4->8 c=0.4 norm=lat M=3 betas=[2.6, 2.8, 3.0, 3.2, 3.4, 3.6, 3.9, 4.3, 5.0] chi2/dof(L)=0.30 chi2/dof(2L)=0.51
+   beta=2.600 u=4.2270(0.0110) Sigma_raw=6.7079(0.0388)
+   beta=2.800 u=3.3942(0.0081) Sigma_raw=4.6683(0.0209)
+   beta=3.000 u=2.8478(0.0068) Sigma_raw=3.6440(0.0150)
+   beta=3.200 u=2.4625(0.0055) Sigma_raw=3.0077(0.0115)
+   beta=3.400 u=2.1797(0.0048) Sigma_raw=2.5988(0.0099)
+   beta=3.600 u=1.9489(0.0040) Sigma_raw=2.2769(0.0084)
+   beta=3.900 u=1.6932(0.0036) Sigma_raw=1.9337(0.0078)
+   beta=4.300 u=1.4410(0.0029) Sigma_raw=1.6086(0.0060)
+   beta=5.000 u=1.1435(0.0023) Sigma_raw=1.2379(0.0046)
+   u=1.300 beta*=4.590(0.004) Sigma=1.4307(0.0040) 1/u-1/Sigma=0.0703(0.0020) [1-loop 0.0644] Sigma_1loop=1.4187
+   u=1.600 beta*=4.031(0.003) Sigma=1.8107(0.0045) 1/u-1/Sigma=0.0727(0.0014) [1-loop 0.0644] Sigma_1loop=1.7837
+   u=2.000 beta*=3.553(0.002) Sigma=2.3456(0.0055) 1/u-1/Sigma=0.0737(0.0010) [1-loop 0.0644] Sigma_1loop=2.2956
+   u=2.400 beta*=3.240(0.002) Sigma=2.9227(0.0065) 1/u-1/Sigma=0.0745(0.0008) [1-loop 0.0644] Sigma_1loop=2.8386
+
+== 6->12 c=0.4 norm=lat M=2 betas=[3.0, 3.2, 3.4, 3.6, 3.8, 4.1, 4.5, 5.0] chi2/dof(L)=1.23 chi2/dof(2L)=0.26
+   beta=3.000 u=3.3030(0.0075) Sigma_raw=4.3461(0.0270)
+   beta=3.200 u=2.7878(0.0059) Sigma_raw=3.4612(0.0198)
+   beta=3.400 u=2.4120(0.0050) Sigma_raw=2.9095(0.0160)
+   beta=3.600 u=2.1473(0.0044) Sigma_raw=2.5169(0.0127)
+   beta=3.800 u=1.9217(0.0038) Sigma_raw=2.2100(0.0122)
+   beta=4.100 u=1.6672(0.0033) Sigma_raw=1.8736(0.0095)
+   beta=4.500 u=1.4166(0.0028) Sigma_raw=1.5716(0.0079)
+   beta=5.000 u=1.1987(0.0022) Sigma_raw=1.3080(0.0064)
+   u=1.300 beta*=4.748(0.004) Sigma=1.4279(0.0050) 1/u-1/Sigma=0.0689(0.0025) [1-loop 0.0644] Sigma_1loop=1.4187
+   u=1.600 beta*=4.195(0.002) Sigma=1.7954(0.0045) 1/u-1/Sigma=0.0680(0.0014) [1-loop 0.0644] Sigma_1loop=1.7837
+   u=2.000 beta*=3.722(0.002) Sigma=2.3161(0.0063) 1/u-1/Sigma=0.0682(0.0012) [1-loop 0.0644] Sigma_1loop=2.2956
+   u=2.400 beta*=3.413(0.002) Sigma=2.8784(0.0086) 1/u-1/Sigma=0.0693(0.0010) [1-loop 0.0644] Sigma_1loop=2.8386
+
+== 6->12 c=0.4 norm=lat M=3 betas=[3.0, 3.2, 3.4, 3.6, 3.8, 4.1, 4.5, 5.0] chi2/dof(L)=1.41 chi2/dof(2L)=0.32
+   beta=3.000 u=3.3030(0.0075) Sigma_raw=4.3461(0.0270)
+   beta=3.200 u=2.7878(0.0059) Sigma_raw=3.4612(0.0198)
+   beta=3.400 u=2.4120(0.0050) Sigma_raw=2.9095(0.0160)
+   beta=3.600 u=2.1473(0.0044) Sigma_raw=2.5169(0.0127)
+   beta=3.800 u=1.9217(0.0038) Sigma_raw=2.2100(0.0122)
+   beta=4.100 u=1.6672(0.0033) Sigma_raw=1.8736(0.0095)
+   beta=4.500 u=1.4166(0.0028) Sigma_raw=1.5716(0.0079)
+   beta=5.000 u=1.1987(0.0022) Sigma_raw=1.3080(0.0064)
+   u=1.300 beta*=4.748(0.004) Sigma=1.4280(0.0051) 1/u-1/Sigma=0.0689(0.0025) [1-loop 0.0644] Sigma_1loop=1.4187
+   u=1.600 beta*=4.196(0.003) Sigma=1.7943(0.0060) 1/u-1/Sigma=0.0677(0.0019) [1-loop 0.0644] Sigma_1loop=1.7837
+   u=2.000 beta*=3.723(0.002) Sigma=2.3155(0.0067) 1/u-1/Sigma=0.0681(0.0013) [1-loop 0.0644] Sigma_1loop=2.2956
+   u=2.400 beta*=3.412(0.002) Sigma=2.8801(0.0102) 1/u-1/Sigma=0.0695(0.0012) [1-loop 0.0644] Sigma_1loop=2.8386
+
+== 8->16 c=0.4 norm=lat M=2 betas=[3.4, 3.6, 3.9, 4.3, 5.0] chi2/dof(L)=0.49 chi2/dof(2L)=0.03
+   beta=3.400 u=2.5988(0.0099) Sigma_raw=3.1986(0.0207)
+   beta=3.600 u=2.2769(0.0084) Sigma_raw=2.7174(0.0187)
+   beta=3.900 u=1.9337(0.0078) Sigma_raw=2.2312(0.0140)
+   beta=4.300 u=1.6086(0.0060) Sigma_raw=1.8080(0.0113)
+   beta=5.000 u=1.2379(0.0046) Sigma_raw=1.3612(0.0100)
+   u=1.300 beta*=4.856(0.009) Sigma=1.4340(0.0095) 1/u-1/Sigma=0.0719(0.0046) [1-loop 0.0644] Sigma_1loop=1.4187
+   u=1.600 beta*=4.308(0.006) Sigma=1.7997(0.0086) 1/u-1/Sigma=0.0694(0.0027) [1-loop 0.0644] Sigma_1loop=1.7837
+   u=2.000 beta*=3.835(0.005) Sigma=2.3215(0.0124) 1/u-1/Sigma=0.0692(0.0023) [1-loop 0.0644] Sigma_1loop=2.2956
+   u=2.400 beta*=3.519(0.004) Sigma=2.8944(0.0147) 1/u-1/Sigma=0.0712(0.0018) [1-loop 0.0644] Sigma_1loop=2.8386
+
+== 8->16 c=0.4 norm=lat M=3 betas=[3.4, 3.6, 3.9, 4.3, 5.0] chi2/dof(L)=0.05 chi2/dof(2L)=0.00
+   beta=3.400 u=2.5988(0.0099) Sigma_raw=3.1986(0.0207)
+   beta=3.600 u=2.2769(0.0084) Sigma_raw=2.7174(0.0187)
+   beta=3.900 u=1.9337(0.0078) Sigma_raw=2.2312(0.0140)
+   beta=4.300 u=1.6086(0.0060) Sigma_raw=1.8080(0.0113)
+   beta=5.000 u=1.2379(0.0046) Sigma_raw=1.3612(0.0100)
+   u=1.300 beta*=4.857(0.009) Sigma=1.4334(0.0095) 1/u-1/Sigma=0.0716(0.0046) [1-loop 0.0644] Sigma_1loop=1.4187
+   u=1.600 beta*=4.314(0.008) Sigma=1.7966(0.0125) 1/u-1/Sigma=0.0684(0.0039) [1-loop 0.0644] Sigma_1loop=1.7837
+   u=2.000 beta*=3.833(0.005) Sigma=2.3232(0.0134) 1/u-1/Sigma=0.0696(0.0025) [1-loop 0.0644] Sigma_1loop=2.2956
+   u=2.400 beta*=3.516(0.004) Sigma=2.8979(0.0183) 1/u-1/Sigma=0.0716(0.0022) [1-loop 0.0644] Sigma_1loop=2.8386
+
+{'c': 0.3, 'norm': 'lat', 'M': 2, 'npairs': 3, 'u': 1.3, 'Sigma_cont': np.float64(1.4083), 'Sigma_cont_err': np.float64(0.0053), 'inv_shift': np.float64(0.0592), 'inv_shift_err': np.float64(0.0027), 'one_loop_shift': 0.0644, 'Sigma_1loop': 1.4187, 'slope': np.float64(0.5649), 'note': 'linear in (a/L)^2'}
+{'c': 0.3, 'norm': 'lat', 'M': 2, 'npairs': 3, 'u': 1.6, 'Sigma_cont': np.float64(1.7627), 'Sigma_cont_err': np.float64(0.005), 'inv_shift': np.float64(0.0577), 'inv_shift_err': np.float64(0.0016), 'one_loop_shift': 0.0644, 'Sigma_1loop': 1.7837, 'slope': np.float64(1.1393), 'note': 'linear in (a/L)^2'}
+{'c': 0.3, 'norm': 'lat', 'M': 2, 'npairs': 3, 'u': 2.0, 'Sigma_cont': np.float64(2.2584), 'Sigma_cont_err': np.float64(0.0068), 'inv_shift': np.float64(0.0572), 'inv_shift_err': np.float64(0.0013), 'one_loop_shift': 0.0644, 'Sigma_1loop': 2.2956, 'slope': np.float64(2.35), 'note': 'linear in (a/L)^2'}
+{'c': 0.3, 'norm': 'lat', 'M': 2, 'npairs': 3, 'u': 2.4, 'Sigma_cont': np.float64(2.7852), 'Sigma_cont_err': np.float64(0.0096), 'inv_shift': np.float64(0.0576), 'inv_shift_err': np.float64(0.0012), 'one_loop_shift': 0.0644, 'Sigma_1loop': 2.8386, 'slope': np.float64(4.2313), 'note': 'linear in (a/L)^2'}
+{'c': 0.3, 'norm': 'lat', 'M': 3, 'npairs': 3, 'u': 1.3, 'Sigma_cont': np.float64(1.4078), 'Sigma_cont_err': np.float64(0.0053), 'inv_shift': np.float64(0.0589), 'inv_shift_err': np.float64(0.0027), 'one_loop_shift': 0.0644, 'Sigma_1loop': 1.4187, 'slope': np.float64(0.569), 'note': 'linear in (a/L)^2'}
+{'c': 0.3, 'norm': 'lat', 'M': 3, 'npairs': 3, 'u': 1.6, 'Sigma_cont': np.float64(1.7565), 'Sigma_cont_err': np.float64(0.0069), 'inv_shift': np.float64(0.0557), 'inv_shift_err': np.float64(0.0022), 'one_loop_shift': 0.0644, 'Sigma_1loop': 1.7837, 'slope': np.float64(1.3296), 'note': 'linear in (a/L)^2'}
+{'c': 0.3, 'norm': 'lat', 'M': 3, 'npairs': 3, 'u': 2.0, 'Sigma_cont': np.float64(2.2591), 'Sigma_cont_err': np.float64(0.008), 'inv_shift': np.float64(0.0573), 'inv_shift_err': np.float64(0.0016), 'one_loop_shift': 0.0644, 'Sigma_1loop': 2.2956, 'slope': np.float64(2.4085), 'note': 'linear in (a/L)^2'}
+{'c': 0.3, 'norm': 'lat', 'M': 3, 'npairs': 3, 'u': 2.4, 'Sigma_cont': np.float64(2.7895), 'Sigma_cont_err': np.float64(0.01), 'inv_shift': np.float64(0.0582), 'inv_shift_err': np.float64(0.0013), 'one_loop_shift': 0.0644, 'Sigma_1loop': 2.8386, 'slope': np.float64(4.0878), 'note': 'linear in (a/L)^2'}
+{'c': 0.4, 'norm': 'lat', 'M': 2, 'npairs': 3, 'u': 1.3, 'Sigma_cont': np.float64(1.4311), 'Sigma_cont_err': np.float64(0.0094), 'inv_shift': np.float64(0.0705), 'inv_shift_err': np.float64(0.0046), 'one_loop_shift': 0.0644, 'Sigma_1loop': 1.4187, 'slope': np.float64(0.0109), 'note': 'linear in (a/L)^2'}
+{'c': 0.4, 'norm': 'lat', 'M': 2, 'npairs': 3, 'u': 1.6, 'Sigma_cont': np.float64(1.7949), 'Sigma_cont_err': np.float64(0.0085), 'inv_shift': np.float64(0.0679), 'inv_shift_err': np.float64(0.0026), 'one_loop_shift': 0.0644, 'Sigma_1loop': 1.7837, 'slope': np.float64(0.1447), 'note': 'linear in (a/L)^2'}
+{'c': 0.4, 'norm': 'lat', 'M': 2, 'npairs': 3, 'u': 2.0, 'Sigma_cont': np.float64(2.3108), 'Sigma_cont_err': np.float64(0.0121), 'inv_shift': np.float64(0.0673), 'inv_shift_err': np.float64(0.0023), 'one_loop_shift': 0.0644, 'Sigma_1loop': 2.2956, 'slope': np.float64(0.4008), 'note': 'linear in (a/L)^2'}
+{'c': 0.4, 'norm': 'lat', 'M': 2, 'npairs': 3, 'u': 2.4, 'Sigma_cont': np.float64(2.8723), 'Sigma_cont_err': np.float64(0.0148), 'inv_shift': np.float64(0.0685), 'inv_shift_err': np.float64(0.0018), 'one_loop_shift': 0.0644, 'Sigma_1loop': 2.8386, 'slope': np.float64(0.736), 'note': 'linear in (a/L)^2'}
+{'c': 0.4, 'norm': 'lat', 'M': 3, 'npairs': 3, 'u': 1.3, 'Sigma_cont': np.float64(1.4317), 'Sigma_cont_err': np.float64(0.0094), 'inv_shift': np.float64(0.0708), 'inv_shift_err': np.float64(0.0046), 'one_loop_shift': 0.0644, 'Sigma_1loop': 1.4187, 'slope': np.float64(-0.0278), 'note': 'linear in (a/L)^2'}
+{'c': 0.4, 'norm': 'lat', 'M': 3, 'npairs': 3, 'u': 1.6, 'Sigma_cont': np.float64(1.7886), 'Sigma_cont_err': np.float64(0.0123), 'inv_shift': np.float64(0.0659), 'inv_shift_err': np.float64(0.0038), 'one_loop_shift': 0.0644, 'Sigma_1loop': 1.7837, 'slope': np.float64(0.3393), 'note': 'linear in (a/L)^2'}
+{'c': 0.4, 'norm': 'lat', 'M': 3, 'npairs': 3, 'u': 2.0, 'Sigma_cont': np.float64(2.3082), 'Sigma_cont_err': np.float64(0.013), 'inv_shift': np.float64(0.0668), 'inv_shift_err': np.float64(0.0024), 'one_loop_shift': 0.0644, 'Sigma_1loop': 2.2956, 'slope': np.float64(0.5647), 'note': 'linear in (a/L)^2'}
+{'c': 0.4, 'norm': 'lat', 'M': 3, 'npairs': 3, 'u': 2.4, 'Sigma_cont': np.float64(2.8761), 'Sigma_cont_err': np.float64(0.018), 'inv_shift': np.float64(0.069), 'inv_shift_err': np.float64(0.0022), 'one_loop_shift': 0.0644, 'Sigma_1loop': 2.8386, 'slope': np.float64(0.6825), 'note': 'linear in (a/L)^2'}
