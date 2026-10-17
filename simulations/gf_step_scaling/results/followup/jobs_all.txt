@@ -1,0 +1,65 @@
+ff_u1_L4_b100|u1gf --L 4 --beta 100 --therm 100 --nmeas 600 --sep 2 --nor 4 --eps 0.02 --c 0.3,0.4,0.5 --seed 7043 --start cold --ckpt-every 100
+ff_u1_L4_b400|u1gf --L 4 --beta 400 --therm 100 --nmeas 600 --sep 2 --nor 4 --eps 0.02 --c 0.3,0.4,0.5 --seed 7052 --start cold --ckpt-every 100
+ff_u1_L4_b1600|u1gf --L 4 --beta 1600 --therm 100 --nmeas 600 --sep 2 --nor 4 --eps 0.02 --c 0.3,0.4,0.5 --seed 7088 --start cold --ckpt-every 100
+ff_u1_L6_b100|u1gf --L 6 --beta 100 --therm 100 --nmeas 600 --sep 2 --nor 4 --eps 0.02 --c 0.3,0.4,0.5 --seed 7063 --start cold --ckpt-every 100
+ff_u1_L6_b400|u1gf --L 6 --beta 400 --therm 100 --nmeas 600 --sep 2 --nor 4 --eps 0.02 --c 0.3,0.4,0.5 --seed 7072 --start cold --ckpt-every 100
+ff_u1_L6_b1600|u1gf --L 6 --beta 1600 --therm 100 --nmeas 600 --sep 2 --nor 4 --eps 0.02 --c 0.3,0.4,0.5 --seed 7108 --start cold --ckpt-every 100
+ff_u1_L8_b100|u1gf --L 8 --beta 100 --therm 100 --nmeas 600 --sep 2 --nor 4 --eps 0.02 --c 0.3,0.4,0.5 --seed 7083 --start cold --ckpt-every 100
+ff_u1_L8_b400|u1gf --L 8 --beta 400 --therm 100 --nmeas 600 --sep 2 --nor 4 --eps 0.02 --c 0.3,0.4,0.5 --seed 7092 --start cold --ckpt-every 100
+ff_u1_L8_b1600|u1gf --L 8 --beta 1600 --therm 100 --nmeas 600 --sep 2 --nor 4 --eps 0.02 --c 0.3,0.4,0.5 --seed 7128 --start cold --ckpt-every 100
+u1_L16_b1.20|u1gf --L 16 --beta 1.2 --therm 500 --nmeas 300 --sep 5 --nor 4 --eps 0.04 --alt-eps 0.02 --alt-every 50 --c 0.3,0.4 --seed 81101 --start cold --ckpt-every 25
+u1_L16_b1.40|u1gf --L 16 --beta 1.4 --therm 500 --nmeas 300 --sep 5 --nor 4 --eps 0.04 --alt-eps 0.02 --alt-every 50 --c 0.3,0.4 --seed 81102 --start cold --ckpt-every 25
+u1_L16_b1.70|u1gf --L 16 --beta 1.7 --therm 500 --nmeas 300 --sep 5 --nor 4 --eps 0.04 --alt-eps 0.02 --alt-every 50 --c 0.3,0.4 --seed 81103 --start cold --ckpt-every 25
+u1_L16_b2.20|u1gf --L 16 --beta 2.2 --therm 500 --nmeas 300 --sep 5 --nor 4 --eps 0.04 --alt-eps 0.02 --alt-every 50 --c 0.3,0.4 --seed 81104 --start cold --ckpt-every 25
+u1_L16_b3.00|u1gf --L 16 --beta 3.0 --therm 500 --nmeas 300 --sep 5 --nor 4 --eps 0.04 --alt-eps 0.02 --alt-every 50 --c 0.3,0.4 --seed 81105 --start cold --ckpt-every 25
+u1_L16_b6.00|u1gf --L 16 --beta 6.0 --therm 500 --nmeas 300 --sep 5 --nor 4 --eps 0.04 --alt-eps 0.02 --alt-every 50 --c 0.3,0.4 --seed 81106 --start cold --ckpt-every 25
+u1_L16_b12.00|u1gf --L 16 --beta 12.0 --therm 500 --nmeas 300 --sep 5 --nor 4 --eps 0.04 --alt-eps 0.02 --alt-every 50 --c 0.3,0.4 --seed 81107 --start cold --ckpt-every 25
+u1_L4_b6.00|u1gf --L 4 --beta 6.0 --therm 500 --nmeas 4000 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4 --seed 82108 --start cold --ckpt-every 50
+u1_L6_b6.00|u1gf --L 6 --beta 6.0 --therm 500 --nmeas 3000 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4 --seed 82109 --start cold --ckpt-every 50
+u1_L8_b6.00|u1gf --L 8 --beta 6.0 --therm 500 --nmeas 1500 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4 --seed 82110 --start cold --ckpt-every 50
+u1_L12_b6.00|u1gf --L 12 --beta 6.0 --therm 500 --nmeas 400 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4 --seed 82111 --start cold --ckpt-every 50
+u1_L4_b12.00|u1gf --L 4 --beta 12.0 --therm 500 --nmeas 4000 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4 --seed 82112 --start cold --ckpt-every 50
+u1_L6_b12.00|u1gf --L 6 --beta 12.0 --therm 500 --nmeas 3000 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4 --seed 82113 --start cold --ckpt-every 50
+u1_L8_b12.00|u1gf --L 8 --beta 12.0 --therm 500 --nmeas 1500 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4 --seed 82114 --start cold --ckpt-every 50
+u1_L12_b12.00|u1gf --L 12 --beta 12.0 --therm 500 --nmeas 400 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4 --seed 82115 --start cold --ckpt-every 50
+su2_L8c5_b2.60|su2gf --L 8 --beta 2.6 --therm 500 --nmeas 1200 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --seed 83001 --start hot --ckpt-every 50
+su2_L8c5_b2.80|su2gf --L 8 --beta 2.8 --therm 500 --nmeas 1200 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --seed 83002 --start hot --ckpt-every 50
+su2_L8c5_b3.00|su2gf --L 8 --beta 3.0 --therm 500 --nmeas 1200 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --seed 83003 --start hot --ckpt-every 50
+su2_L8c5_b3.20|su2gf --L 8 --beta 3.2 --therm 500 --nmeas 1200 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --seed 83004 --start hot --ckpt-every 50
+su2_L8c5_b3.40|su2gf --L 8 --beta 3.4 --therm 500 --nmeas 1200 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --seed 83005 --start hot --ckpt-every 50
+su2_L8c5_b3.60|su2gf --L 8 --beta 3.6 --therm 500 --nmeas 1200 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --seed 83006 --start hot --ckpt-every 50
+su2_L8c5_b3.90|su2gf --L 8 --beta 3.9 --therm 500 --nmeas 1200 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --seed 83007 --start hot --ckpt-every 50
+su2_L8c5_b4.30|su2gf --L 8 --beta 4.3 --therm 500 --nmeas 1200 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --seed 83008 --start hot --ckpt-every 50
+su2_L8c5_b5.00|su2gf --L 8 --beta 5.0 --therm 500 --nmeas 1200 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --seed 83009 --start hot --ckpt-every 50
+su2_L16_b4.28_ch1|su2gf --L 16 --beta 4.28 --therm 300 --nmeas 400 --sep 10 --nor 4 --eps 0.04 --alt-eps 0.02 --alt-every 50 --c 0.3,0.4 --seed 84007 --start hot --ckpt-every 25
+su2_L16_b4.28_ch2|su2gf --L 16 --beta 4.28 --therm 300 --nmeas 400 --sep 10 --nor 4 --eps 0.04 --alt-eps 0.02 --alt-every 50 --c 0.3,0.4 --seed 84014 --start hot --ckpt-every 25
+su2_L16_b4.28_ch3|su2gf --L 16 --beta 4.28 --therm 300 --nmeas 400 --sep 10 --nor 4 --eps 0.04 --alt-eps 0.02 --alt-every 50 --c 0.3,0.4 --seed 84021 --start hot --ckpt-every 25
+su2_L16_b4.28_ch4|su2gf --L 16 --beta 4.28 --therm 300 --nmeas 400 --sep 10 --nor 4 --eps 0.04 --alt-eps 0.02 --alt-every 50 --c 0.3,0.4 --seed 84028 --start hot --ckpt-every 25
+su2_L16_b4.28_c5|su2gf --L 16 --beta 4.28 --therm 300 --nmeas 400 --sep 10 --nor 4 --eps 0.04 --alt-eps 0.02 --alt-every 50 --c 0.3,0.4,0.5 --seed 84035 --start hot --ckpt-every 25
+su2_L8_b4.28_ch1|su2gf --L 8 --beta 4.28 --therm 500 --nmeas 1500 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --seed 85042 --start hot --ckpt-every 50
+su2_L8_b4.28_ch2|su2gf --L 8 --beta 4.28 --therm 500 --nmeas 1500 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --seed 85049 --start hot --ckpt-every 50
+su2_L8_b4.28_ch3|su2gf --L 8 --beta 4.28 --therm 500 --nmeas 1500 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --seed 85056 --start hot --ckpt-every 50
+su2_L8_b4.28_ch4|su2gf --L 8 --beta 4.28 --therm 500 --nmeas 1500 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --seed 85063 --start hot --ckpt-every 50
+su2_L16_b3.49_ch1|su2gf --L 16 --beta 3.49 --therm 300 --nmeas 400 --sep 10 --nor 4 --eps 0.04 --alt-eps 0.02 --alt-every 50 --c 0.3,0.4 --seed 84070 --start hot --ckpt-every 25
+su2_L16_b3.49_ch2|su2gf --L 16 --beta 3.49 --therm 300 --nmeas 400 --sep 10 --nor 4 --eps 0.04 --alt-eps 0.02 --alt-every 50 --c 0.3,0.4 --seed 84077 --start hot --ckpt-every 25
+su2_L16_b3.49_ch3|su2gf --L 16 --beta 3.49 --therm 300 --nmeas 400 --sep 10 --nor 4 --eps 0.04 --alt-eps 0.02 --alt-every 50 --c 0.3,0.4 --seed 84084 --start hot --ckpt-every 25
+su2_L16_b3.49_ch4|su2gf --L 16 --beta 3.49 --therm 300 --nmeas 400 --sep 10 --nor 4 --eps 0.04 --alt-eps 0.02 --alt-every 50 --c 0.3,0.4 --seed 84091 --start hot --ckpt-every 25
+su2_L16_b3.49_c5|su2gf --L 16 --beta 3.49 --therm 300 --nmeas 400 --sep 10 --nor 4 --eps 0.04 --alt-eps 0.02 --alt-every 50 --c 0.3,0.4,0.5 --seed 84098 --start hot --ckpt-every 25
+su2_L8_b3.49_ch1|su2gf --L 8 --beta 3.49 --therm 500 --nmeas 1500 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --seed 85105 --start hot --ckpt-every 50
+su2_L8_b3.49_ch2|su2gf --L 8 --beta 3.49 --therm 500 --nmeas 1500 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --seed 85112 --start hot --ckpt-every 50
+su2_L8_b3.49_ch3|su2gf --L 8 --beta 3.49 --therm 500 --nmeas 1500 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --seed 85119 --start hot --ckpt-every 50
+su2_L8_b3.49_ch4|su2gf --L 8 --beta 3.49 --therm 500 --nmeas 1500 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --seed 85126 --start hot --ckpt-every 50
+su2_L4_b1.80_lowb|su2gf --L 4 --beta 1.8 --therm 500 --nmeas 4000 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --seed 86007 --start hot --ckpt-every 50
+su2_L4_b2.00_lowb|su2gf --L 4 --beta 2.0 --therm 500 --nmeas 4000 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --seed 86014 --start hot --ckpt-every 50
+su2_L4_b2.20_lowb|su2gf --L 4 --beta 2.2 --therm 500 --nmeas 4000 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --seed 86021 --start hot --ckpt-every 50
+su2_L4_b2.40_lowb|su2gf --L 4 --beta 2.4 --therm 500 --nmeas 4000 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --seed 86028 --start hot --ckpt-every 50
+su2_L6_b2.00_lowb|su2gf --L 6 --beta 2.0 --therm 500 --nmeas 4000 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --seed 86035 --start hot --ckpt-every 50
+su2_L6_b2.20_lowb|su2gf --L 6 --beta 2.2 --therm 500 --nmeas 4000 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --seed 86042 --start hot --ckpt-every 50
+su2_L6_b2.40_lowb|su2gf --L 6 --beta 2.4 --therm 500 --nmeas 4000 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --seed 86049 --start hot --ckpt-every 50
+su2_L6_b2.60_lowb|su2gf --L 6 --beta 2.6 --therm 500 --nmeas 4000 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --seed 86056 --start hot --ckpt-every 50
+su2_L8_b2.20_lowb|su2gf --L 8 --beta 2.2 --therm 500 --nmeas 1500 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --seed 86063 --start hot --ckpt-every 50
+su2_L8_b2.40_lowb|su2gf --L 8 --beta 2.4 --therm 500 --nmeas 1500 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --seed 86070 --start hot --ckpt-every 50
+su2_L12_b2.40_lowb|su2gf --L 12 --beta 2.4 --therm 300 --nmeas 600 --sep 10 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --seed 86077 --start hot --ckpt-every 50
+su2_L8_b3.60_tau1|su2gf --L 8 --beta 3.6 --therm 500 --nmeas 2500 --sep 1 --nor 4 --eps 0.02 --c 0.3,0.4 --seed 87084 --start hot --ckpt-every 100
+su2_L12_b3.60_tau1|su2gf --L 12 --beta 3.6 --therm 500 --nmeas 800 --sep 1 --nor 4 --eps 0.02 --c 0.3,0.4 --seed 87091 --start hot --ckpt-every 100
+su2_L16_b3.60_tau1|su2gf --L 16 --beta 3.6 --therm 300 --nmeas 500 --sep 1 --nor 4 --eps 0.04 --c 0.3,0.4 --seed 87098 --start hot --ckpt-every 100

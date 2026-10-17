@@ -1,0 +1,13 @@
+# followup start 2026-10-17 14:44:11 PDT
+16
+68719476736
+14:44  up 10 days, 16:51, 2 users, load averages: 4.25 7.15 8.14
+Mach Virtual Memory Statistics: (page size of 16384 bytes)
+Pages free:                              856931.
+Pages active:                           1223387.
+Pages inactive:                         1176124.
+Pages speculative:                        59431.
+Pages throttled:                              0.
+System-wide memory free percentage: 80%
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=22085731)	80%; AC attached; not charging present: true
