@@ -1,6 +1,6 @@
 # SU(2) 4D torus step scaling — results, stage 1 (L/a = 4 -> 8) — 2026-10-17
 
-**Status: Monte Carlo measurement only. Not a proof, not a bound, no Lean consequence.** Stage 1 of `docs/4D_STEP_SCALING_PLAN.md` (rev. 2): formula verification, pipeline validation, SU(2) 4->8, compact U(1) control 4->8. **6->12 and 8->16 have NOT been run** (code, job lists and analysis exist; see "What remains"). With only one lattice pair there is **no continuum extrapolation and no claim of running** (plan rule).
+**Status: Monte Carlo measurement only. Not a proof, not a bound, no Lean consequence.** Stage 1 of `docs/4D_STEP_SCALING_PLAN.md` (rev. 2): formula verification, pipeline validation, SU(2) 4->8, compact U(1) control 4->8. **stage 1 only in the sections above; see Stage 2 below for 6->12 (interim) and 8->16 (in progress)**. With only one lattice pair there is **no continuum extrapolation and no claim of running** (plan rule).
 
 ## Setup (what was actually done)
 * Action/ensemble: SU(2) Wilson plaquette action, beta = 4/g0^2, **periodic boundary conditions in all 4 directions** (no twist, no background field), L^4 torus. Update: Kennedy–Pendleton heatbath + 4 microcanonical overrelaxation sweeps per sweep. Hot start unless noted; 500 thermalisation sweeps discarded; measurements every 5 sweeps.
@@ -117,13 +117,119 @@ Result: with **tree-improved N the ratio Sigma/u is 0.96–0.98 (c = 0.3) and 0.
 
 ## Resources (Mac darthurtron.local, strict rules)
 * hw.ncpu = 16, hw.memsize = 64 GiB. Before runs: load averages 33.2/32.2/25.9 (first check 01:05 PDT; higher than ncpu all session because of other tenants' jobs: Pantheon python workers), memory_pressure "free percentage" 66%, `vm_stat` pages free 4351 (page 16 KiB; free+inactive ~ 22 GiB), AC power, battery 80%.
-* Our processes: single-threaded, `nice -n 19`, at most 3 alive; `run_guard.sh` (30 s samples; log `results/resource_guard_log_stage1.log`) SIGSTOPs all but the oldest one process whenever load1 > ncpu (throttle) and all if free memory < 15%. Over the 130 guard samples (01:18–02:23 PDT) load1 ranged **14.4–85.9** (min 14.4 at the very end), free-memory percentage **63–73%** (never < 15%), state throttled-to-1-process in 118/130 samples, running freely in 12. RAM per process: estimated from the data structures (links 32 B x 4 V plus flow arrays; 8^4 ~ 2 MB), not measured with ps; certainly well below the 2 GB cap, total < 0.2 GB. Peak concurrent running processes: 1 (throttled) or up to 3 at load <= 16.
+* Our processes: single-threaded, `nice -n 19`, at most 3 alive; `run_guard.sh` (30 s samples; log `results/resource_guard_log_stage1.log`) SIGSTOPs all but the oldest one process whenever load1 > ncpu (throttle) and all if free memory < 15%. Over the 130 guard samples (01:18–02:23 PDT) load1 ranged **14.4–85.9** (min 14.4 at the very end), free-memory percentage **63–73%** (never < 15%), state throttled-to-1-process in 118/130 samples, running freely in 12. RAM per process (stage 1, L<=8): estimated, not measured; stage-2 `ps` measurements show the true footprint is larger than my stage-1 estimate (~380–420 MB RSS per process at L=16, see Stage 2), still under the 2 GB cap for all 3 processes together. Peak concurrent running processes: 1 (throttled) or up to 3 at load <= 16.
 * Disclosure: the initial development tests (compile, tiny self-tests, tree-level and U(1) validation, ~8 min nice-19 CPU in total) and the first 3 minutes of the scout/production jobs ran before/while the guard had started at load 30–40 without the throttle (the first queue was killed when the shell exited, restarted detached with the guard). No Pantheon or other processes were touched.
 * Run time: 4 -> 8 production: L=4 ~40 s CPU per beta, L=8 ~4–8 min wall per beta under throttle (about 0.2 s CPU per measurement incl. flow to c=0.4); wall clock for all of stage 1 ~65 min (01:18–02:23 PDT).
 
 ## Files
 * Code: `simulations/gf_step_scaling/src/{lib.rs,bin/su2gf.rs,bin/u1gf.rs}` (no external crates; build with `CARGO_TARGET_DIR=/Users/darthur/ym_numerics_runs/target cargo build --release --offline`), `analysis/*.py`, `run_guard.sh`, `run_queue.py`.
 * Small result tables: `simulations/gf_step_scaling/results/` (ensemble tables, step-scaling CSVs/logs, U(1) control, resource log, stage-1 job list with all seeds/parameters). Raw ensembles (csv per ensemble, per-sweep plaquette series, checkpoints with configs and RNG state) are outside git in `/Users/darthur/ym_numerics_runs/prod/` (reproducible: seeds in `jobs_stage1.txt`; deterministic given binary).
+
+<!-- STAGE2 BEGIN -->
+## Stage 2 (2026-10-17, 06:32 PDT onward): 6 -> 12 (and 8 -> 16 in progress)
+**Status of this section: interim — 6 -> 12 analysed; 8 -> 16 (L=16 production) still running when this was written. MC only, not a proof or a bound.**
+
+Data added: L=6, beta = 3.0, 3.2, 3.4, 3.6, 3.8, 4.1, 4.5, 5.0 (4000 measurements, sep 5; plus one cold start at beta=3.6, 1500 meas); L=12 at the same 8 betas (600 meas, sep 10 sweeps, 300 therm); dedicated sep=1 runs for tau_int (L=4 4000, L=6 3000, L=8 2500, L=12 500 meas). Same action, flow, observable, fits and error analysis as stage 1 (analysis rerun: `analysis/stepscale.py ... --pairs 4:8,6:12`, `analysis/make_tables.py`).
+
+### Tree-improved normalisation: 4->8 and 6->12 (stat.+interpolation errors; (xx) = last digits)
+| c | pair | u | beta* (L) | Sigma (M=2) | 1/u-1/Sigma (M=2) | 1/u-1/Sigma (M=3) | one-loop 0.0644 ratio (M=2) | chi2/dof L, 2L (M=2) |
+|---|---|---|---|---|---|---|---|---|
+| 0.3 | 4->8 | 1.3 | 4.525 | 1.4448(23) | 0.0771(11) | 0.0769(11) | 1.20 | 0.2, 3.1 |
+| 0.3 | 4->8 | 1.6 | 3.944 | 1.8355(21) | 0.0802(6) | 0.0818(8) | 1.25 | 0.2, 3.1 |
+| 0.3 | 4->8 | 2.0 | 3.447 | 2.4084(30) | 0.0848(5) | 0.0856(6) | 1.32 | 0.2, 3.1 |
+| 0.3 | 4->8 | 2.4 | 3.123 | 3.0562(45) | 0.0895(5) | 0.0889(5) | 1.39 | 0.2, 3.1 |
+| 0.3 | 6->12 | 1.3 | 4.715 | 1.4195(28) | 0.0648(14) | 0.0648(14) | 1.01 | 1.4, 0.4 |
+| 0.3 | 6->12 | 1.6 | 4.148 | 1.7883(26) | 0.0658(8) | 0.0657(11) | 1.02 | 1.4, 0.4 |
+| 0.3 | 6->12 | 2.0 | 3.664 | 2.3119(38) | 0.0674(7) | 0.0674(7) | 1.05 | 1.4, 0.4 |
+| 0.3 | 6->12 | 2.4 | 3.345 | 2.8777(49) | 0.0692(6) | 0.0693(8) | 1.07 | 1.4, 0.4 |
+| 0.4 | 4->8 | 1.3 | 4.591 | 1.4327(39) | 0.0713(19) | 0.0703(20) | 1.11 | 0.4, 2.4 |
+| 0.4 | 4->8 | 1.6 | 4.030 | 1.8048(36) | 0.0709(11) | 0.0727(14) | 1.10 | 0.4, 2.4 |
+| 0.4 | 4->8 | 2.0 | 3.552 | 2.3374(45) | 0.0722(8) | 0.0737(10) | 1.12 | 0.4, 2.4 |
+| 0.4 | 4->8 | 2.4 | 3.241 | 2.9220(65) | 0.0744(8) | 0.0745(8) | 1.16 | 0.4, 2.4 |
+| 0.4 | 6->12 | 1.3 | 4.748 | 1.4279(50) | 0.0689(25) | 0.0689(25) | 1.07 | 1.2, 0.3 |
+| 0.4 | 6->12 | 1.6 | 4.195 | 1.7954(45) | 0.0680(14) | 0.0677(19) | 1.06 | 1.2, 0.3 |
+| 0.4 | 6->12 | 2.0 | 3.722 | 2.3161(63) | 0.0682(12) | 0.0681(13) | 1.06 | 1.2, 0.3 |
+| 0.4 | 6->12 | 2.4 | 3.413 | 2.8784(86) | 0.0693(10) | 0.0695(12) | 1.08 | 1.2, 0.3 |
+
+Reading (tree-improved normalisation):
+* **6->12 is much closer to one-loop than 4->8.** 1/u - 1/Sigma = 0.0648(14) ... 0.0692(6) at c = 0.3 (ratio to the one-loop 0.0644: 1.01 ... 1.07) and 0.0680(14) ... 0.0693(10) at c = 0.4 (1.06 ... 1.08); the corresponding 4->8 numbers are 0.077 ... 0.090 (c=0.3, 1.20 ... 1.39) and 0.071 ... 0.074 (c=0.4).
+* **The c = 0.3 / c = 0.4 scheme spread collapses**: at u = 2.0 the 4->8 shifts differ by 0.0126 (0.0848 vs 0.0722), the 6->12 shifts by 0.0008 (0.0674(7) vs 0.0682(12)). A shrinking spread is what lattice artifacts vanishing at fixed physical scheme would produce.
+* The shift still grows slowly with u in 6->12 (0.065 -> 0.069 for c=0.3, 0.068 -> 0.069 for c=0.4): consistent with higher-loop (2-loop-like) terms, whose size in the one/two-loop reference is < 1.1% in Sigma (indicative only) — I do not claim that the residual 1–8% above one-loop is physics rather than residual cutoff effect.
+* **Two-pair (a/L)^2 extrapolation (4->8 and 6->12): EXACT (2 points, 2 parameters) AND UNCHECKED — there is no degree of freedom to test the linear-in-(a/L)^2 assumption.** It gives shifts of 0.051 ... 0.055 for c=0.3 and 0.064 ... 0.068 for c=0.4 (table below). The two schemes extrapolate to **different** values (0.0525(15) vs 0.0650(23) at u = 2.0) although the one-loop shift is universal; this signals that the a/L = 1/4 pair is outside the regime where a pure (a/L)^2 form holds (or that an a/L^2·log or O(a/L)... term is present), so the extrapolated numbers (c=0.3 is 18% *below* one-loop) must not be quoted as a continuum result. The 6->12 values by themselves are the more trustworthy indicator; a third pair (8->16) is the minimum check.
+
+Extrapolation (tree-improved normalisation, both M, `UNCONSTRAINED` = exact 2-point fit):
+
+(file: `results/stage2_6to12/continuum_lat.csv`)
+
+| c | M | #pairs | u | Sigma(a/L->0) | 1/u-1/Sigma(a/L->0) | one-loop | note |
+|---|---|---|---|---|---|---|---|
+| 0.3 | 2 | 2 | 1.3 | 1.3993(54) | 0.0546(28) | 0.0644 | UNCONSTRAINED: 2 points |
+| 0.3 | 2 | 2 | 1.6 | 1.7505(49) | 0.0537(16) | 0.0644 | UNCONSTRAINED: 2 points |
+| 0.3 | 2 | 2 | 2.0 | 2.2346(73) | 0.0525(15) | 0.0644 | UNCONSTRAINED: 2 points |
+| 0.3 | 2 | 2 | 2.4 | 2.7349(97) | 0.0510(13) | 0.0644 | UNCONSTRAINED: 2 points |
+| 0.3 | 3 | 2 | 1.3 | 1.3996(54) | 0.0547(28) | 0.0644 | UNCONSTRAINED: 2 points |
+| 0.3 | 3 | 2 | 1.6 | 1.7451(67) | 0.0520(22) | 0.0644 | UNCONSTRAINED: 2 points |
+| 0.3 | 3 | 2 | 2.0 | 2.2305(76) | 0.0517(15) | 0.0644 | UNCONSTRAINED: 2 points |
+| 0.3 | 3 | 2 | 2.4 | 2.7402(121) | 0.0517(16) | 0.0644 | UNCONSTRAINED: 2 points |
+| 0.4 | 2 | 2 | 1.3 | 1.4240(97) | 0.0670(48) | 0.0644 | UNCONSTRAINED: 2 points |
+| 0.4 | 2 | 2 | 1.6 | 1.7879(86) | 0.0657(27) | 0.0644 | UNCONSTRAINED: 2 points |
+| 0.4 | 2 | 2 | 2.0 | 2.2990(120) | 0.0650(23) | 0.0644 | UNCONSTRAINED: 2 points |
+| 0.4 | 2 | 2 | 2.4 | 2.8436(164) | 0.0650(20) | 0.0644 | UNCONSTRAINED: 2 points |
+| 0.4 | 3 | 2 | 1.3 | 1.4258(98) | 0.0679(48) | 0.0644 | UNCONSTRAINED: 2 points |
+| 0.4 | 3 | 2 | 1.6 | 1.7811(114) | 0.0635(36) | 0.0644 | UNCONSTRAINED: 2 points |
+| 0.4 | 3 | 2 | 2.0 | 2.2914(131) | 0.0636(25) | 0.0644 | UNCONSTRAINED: 2 points |
+| 0.4 | 3 | 2 | 2.4 | 2.8460(192) | 0.0653(24) | 0.0644 | UNCONSTRAINED: 2 points |
+
+### Continuum-normalised N (scheme-defining N(c)): shown for completeness, not interpretable at these a/L
+| c | pair | u | beta* (L) | Sigma (M=2) | 1/u-1/Sigma (M=2) | 1/u-1/Sigma (M=3) | one-loop 0.0644 ratio (M=2) | chi2/dof L, 2L (M=2) |
+|---|---|---|---|---|---|---|---|---|
+| 0.3 | 4->8 | 1.3 | 3.272 | 2.5219(36) | 0.3727(6) | 0.3730(6) | 5.79 | 15.9, 5.1 |
+| 0.3 | 4->8 | 1.6 | 2.951 | 3.3332(52) | 0.3250(5) | 0.3261(6) | 5.05 | 15.9, 5.1 |
+| 0.3 | 4->8 | 2.0 | 2.668 | 4.7452(138) | 0.2893(6) | 0.2893(6) | 4.49 | 15.9, 5.1 |
+| 0.3 | 6->12 | 1.3 | 4.283 | 1.6317(25) | 0.1564(9) | 0.1557(12) | 2.43 | 2.5, 0.4 |
+| 0.3 | 6->12 | 1.6 | 3.803 | 2.0657(33) | 0.1409(8) | 0.1406(9) | 2.19 | 2.5, 0.4 |
+| 0.3 | 6->12 | 2.0 | 3.394 | 2.6890(48) | 0.1281(7) | 0.1285(8) | 1.99 | 2.5, 0.4 |
+| 0.3 | 6->12 | 2.4 | 3.124 | 3.3788(74) | 0.1207(6) | 0.1210(7) | 1.87 | 2.5, 0.4 |
+| 0.4 | 4->8 | 1.3 | 3.951 | 1.7997(35) | 0.2136(11) | 0.2143(14) | 3.32 | 3.5, 3.0 |
+| 0.4 | 4->8 | 1.6 | 3.521 | 2.2895(45) | 0.1882(9) | 0.1889(10) | 2.92 | 3.5, 3.0 |
+| 0.4 | 4->8 | 2.0 | 3.160 | 3.0092(68) | 0.1677(8) | 0.1678(8) | 2.60 | 3.5, 3.0 |
+| 0.4 | 4->8 | 2.4 | 2.923 | 3.8354(96) | 0.1559(7) | 0.1557(9) | 2.42 | 3.5, 3.0 |
+| 0.4 | 6->12 | 1.3 | 4.529 | 1.5267(46) | 0.1142(20) | 0.1139(21) | 1.77 | 1.4, 0.3 |
+| 0.4 | 6->12 | 1.6 | 4.019 | 1.9246(48) | 0.1054(13) | 0.1049(18) | 1.64 | 1.4, 0.3 |
+| 0.4 | 6->12 | 2.0 | 3.585 | 2.4910(73) | 0.0986(12) | 0.0986(12) | 1.53 | 1.4, 0.3 |
+| 0.4 | 6->12 | 2.4 | 3.301 | 3.1085(93) | 0.0950(10) | 0.0954(13) | 1.48 | 1.4, 0.3 |
+
+| c | M | #pairs | u | Sigma(a/L->0) | 1/u-1/Sigma(a/L->0) | one-loop | note |
+|---|---|---|---|---|---|---|---|
+| 0.3 | 2 | 2 | 1.3 | 0.9196(54) | -0.3182(63) | 0.0644 | UNCONSTRAINED: 2 points |
+| 0.3 | 2 | 2 | 1.6 | 1.0517(72) | -0.3258(65) | 0.0644 | UNCONSTRAINED: 2 points |
+| 0.3 | 2 | 2 | 2.0 | 1.0439(138) | -0.4579(126) | 0.0644 | UNCONSTRAINED: 2 points |
+| 0.3 | 3 | 2 | 1.3 | 0.9147(65) | -0.3240(78) | 0.0644 | UNCONSTRAINED: 2 points |
+| 0.3 | 3 | 2 | 1.6 | 1.0390(88) | -0.3374(82) | 0.0644 | UNCONSTRAINED: 2 points |
+| 0.3 | 3 | 2 | 2.0 | 1.0479(148) | -0.4543(134) | 0.0644 | UNCONSTRAINED: 2 points |
+| 0.4 | 2 | 2 | 1.3 | 1.3083(89) | 0.0049(52) | 0.0644 | UNCONSTRAINED: 2 points |
+| 0.4 | 2 | 2 | 1.6 | 1.6328(93) | 0.0125(35) | 0.0644 | UNCONSTRAINED: 2 points |
+| 0.4 | 2 | 2 | 2.0 | 2.0764(142) | 0.0184(33) | 0.0644 | UNCONSTRAINED: 2 points |
+| 0.4 | 2 | 2 | 2.4 | 2.5270(186) | 0.0209(29) | 0.0644 | UNCONSTRAINED: 2 points |
+| 0.4 | 3 | 2 | 1.3 | 1.3049(95) | 0.0029(56) | 0.0644 | UNCONSTRAINED: 2 points |
+| 0.4 | 3 | 2 | 1.6 | 1.6261(124) | 0.0100(47) | 0.0644 | UNCONSTRAINED: 2 points |
+| 0.4 | 3 | 2 | 2.0 | 2.0764(143) | 0.0184(33) | 0.0644 | UNCONSTRAINED: 2 points |
+| 0.4 | 3 | 2 | 2.4 | 2.5372(247) | 0.0225(38) | 0.0644 | UNCONSTRAINED: 2 points |
+
+With continuum N the L=4 data carry a 21–40% tree-level cutoff factor, the (a/L)^2 extrapolation is pathological (c=0.3 shifts extrapolate to negative values; c=0.4 to 0.00–0.02): **do not read these as results**. This is a demonstration that the 4->8 pair is too coarse for the continuum-normalised definition, in line with stage 1.
+
+### tau_int, thermalisation, topology (L = 6, 12 and dedicated sep=1 runs)
+* **tau_int of g^2_GF measured at sep = 1 sweep** (sweep = 1 heatbath + 4 overrelaxation; units: sweeps; Gamma method, S = 1.5): L=4 beta=3.2: 0.75 (c=0.3), 0.72 (c=0.4); L=6 beta=3.6: 0.71, 0.68; L=8 beta=3.2: 0.69, 0.75; L=12 beta=3.6 (500 meas only): 0.82, 0.93. Plaquette: 0.7–0.85. So tau_int(g^2) is below one sweep (tau_int = 0.5 means uncorrelated) at all L <= 12 tested, no growth with L visible; the 5- and 10-sweep spaced production series are uncorrelated (tau_int reported as the 2.5 / 5 floor in the ensemble table). This closes the stage-1 open item for one beta per L (not at all betas, and at L=12 with limited statistics).
+* **Thermalisation**: hot-start L=6 beta=3.6: g^2(c=0.3) = 1.77936(210) (4000 meas) vs cold-start 1.77506(387) (1500 meas) vs sep-1 hot run 1.77493(291): differences 0.4–1.0 sigma, consistent. First-half vs second-half z-scores: L=6: -2.5 (beta=3.0), then |z| < 1.4; L=12: +2.3/+2.4 (beta=4.1), then |z| < 1.4 for the rest (c = 0.3/0.4 are highly correlated tests, so these are 2 of ~16 independent tests beyond 2 sigma, mildly more than the ~0.7 expected — errors could be slightly optimistic, as in stage 1).
+* **Topology**: for all L=6 and L=12 ensembles the flowed clover charge Q (c=0.4) stays at zero: max |Q| = 0.013 (L=6, beta=3.0) down to 0.0016 (L=6 beta=5.0); L=12: max |Q| <= 0.0034, <Q^2> <= 4e-7; **no Q != 0 configurations and no tunnelling to freeze or test** (action cost of a charge-1 configuration >> kT here). Sampling the Q != 0 sectors would need smaller beta (outside the target range) — this is an untested sector, not a verified one. Same conclusion as stage 1.
+* eps = 0.01 vs 0.02 flow-step check: max relative difference of E(t) <= 1.4e-5 (L=6), <= 6.1e-6 (L=12).
+
+### Resources, stage 2 (Mac darthurtron.local, strict rules)
+* Start (06:32 PDT): hw.ncpu = 16, hw.memsize = 64 GiB, load averages 6.20/6.53/7.07, free memory 77–78%, pages free 211297, AC power, battery 80% (see `results/stage2_6to12/resource_guard_stage2_interim.log`; copy of the guard log at the time of writing).
+* Guard thresholds: throttle to one process if load1 > 16 (= ncpu), pause all if free memory < 15%. Interim stats (202 samples, 06:32–08:12 PDT): **load1 min 6.2, max 26.0, mean 12.4**; free memory **76–80%** (never close to the 15% floor); 188 samples at full speed (<= 3 of our processes), 14 throttled to one process; process count 3 in 182 samples. All processes `nice -n 19`, single-threaded, <= 3 alive.
+* **Measured RSS** (`ps`) of L=16 su2gf: 373–418 MB per process (so ~1.2 GB for the 3 concurrent L=16 jobs); L<=12 are smaller. This corrects the stage-1 text (RAM < 0.2 GB was an unmeasured estimate for small L): the total stays under the 2 GB cap.
+* Wall time: L=12 (600 meas, sep 10, 300+6000 sweeps) ~13.5 min per beta with 3 concurrent; L=6 (4000 meas) ~8 min per beta; U(1) L=12 ~15 min per beta; L=16 (400 meas, sep 10) ~50 min per beta with 3 concurrent. Two interruptions of the agent session did not kill the detached queue/guard; some jobs resumed from checkpoints (a few truncated lines in two CSVs were skipped by the loader; duplicates identical).
+<!-- STAGE2 END -->
 
 ## What remains
 1. **6 -> 12** (job list `prod/jobs_stage2.txt` written and partly started: L=6 beta 3.0..5.0, L=12 beta 3.0..5.0 with 600 measurements at sep 10, plus U(1) 6->12): not done; L=12 costs ~1.5 s CPU per measurement-cycle (about 15 min per beta).

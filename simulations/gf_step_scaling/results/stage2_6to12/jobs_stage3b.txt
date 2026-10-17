@@ -1,0 +1,12 @@
+su2_L16_b3.40|su2gf --L 16 --beta 3.40 --therm 300 --nmeas 400 --sep 10 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4 --times 0.05,0.1 --seed 734016 --start hot --ckpt-every 25
+su2_L16_b3.60|su2gf --L 16 --beta 3.60 --therm 300 --nmeas 400 --sep 10 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4 --times 0.05,0.1 --seed 736016 --start hot --ckpt-every 25
+su2_L16_b3.90|su2gf --L 16 --beta 3.90 --therm 300 --nmeas 400 --sep 10 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4 --times 0.05,0.1 --seed 739016 --start hot --ckpt-every 25
+su2_L16_b4.30|su2gf --L 16 --beta 4.30 --therm 300 --nmeas 400 --sep 10 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4 --times 0.05,0.1 --seed 743016 --start hot --ckpt-every 25
+su2_L16_b5.00|su2gf --L 16 --beta 5.00 --therm 300 --nmeas 400 --sep 10 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4 --times 0.05,0.1 --seed 750016 --start hot --ckpt-every 25
+u1_L12_b2.20|u1gf --L 12 --beta 2.2 --therm 500 --nmeas 400 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --times 0.05,0.1 --seed 62236 --start cold --ckpt-every 50
+u1_L6_b3.00|u1gf --L 6 --beta 3.0 --therm 500 --nmeas 1500 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --times 0.05,0.1 --seed 33018 --start cold --ckpt-every 50
+u1_L12_b3.00|u1gf --L 12 --beta 3.0 --therm 500 --nmeas 400 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --times 0.05,0.1 --seed 63036 --start cold --ckpt-every 50
+u1_L4_b1.70_tau|u1gf --L 4 --beta 1.7 --therm 500 --nmeas 4000 --sep 1 --nor 4 --eps 0.02 --c 0.3,0.4,0.5 --seed 4444 --start cold --ckpt-every 100
+u1_L8_b1.70_tau|u1gf --L 8 --beta 1.7 --therm 500 --nmeas 2500 --sep 1 --nor 4 --eps 0.02 --c 0.3,0.4,0.5 --seed 4545 --start cold --ckpt-every 100
+u1_L6_b1.70_tau|u1gf --L 6 --beta 1.7 --therm 500 --nmeas 3000 --sep 1 --nor 4 --eps 0.02 --c 0.3,0.4,0.5 --seed 4848 --start cold --ckpt-every 100
+u1_L12_b1.70_tau|u1gf --L 12 --beta 1.7 --therm 500 --nmeas 600 --sep 1 --nor 4 --eps 0.02 --c 0.3,0.4,0.5 --seed 4949 --start cold --ckpt-every 100
