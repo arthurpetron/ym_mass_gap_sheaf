@@ -19,7 +19,7 @@ def sigma_twoloop(u):
 def load_ensembles(rundir, prefix='su2_'):
     ens = {}
     for f in sorted(glob.glob(os.path.join(rundir, prefix + 'L*_b*.csv'))):
-        if f.endswith('.alt.csv'): continue
+        if f.endswith('.alt.csv') or '_cold' in f or '_tau' in f: continue
         r = load_run(f, 3)
         if len(r['sweep']) < 10: continue
         ens[(r['L'], round(r['beta'], 6))] = dict(run=r, path=f)

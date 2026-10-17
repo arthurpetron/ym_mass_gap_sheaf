@@ -4,6 +4,7 @@ Uses the abelian normalisation (N_U1(c), and its lattice tree-level variant). us
 import sys, os, glob, numpy as np
 sys.path.insert(0, os.path.dirname(__file__))
 from gfana import *
+from ensemble_table import read_plq
 from scipy.stats import kurtosis, skew
 
 def get(rundir, L, beta):
@@ -36,7 +37,7 @@ def main(rundir, out, pairs):
                 if (LL, b) in seen: continue
                 seen.add((LL, b))
                 pf = os.path.join(rundir, f'u1_L{LL}_b{b:.2f}.plaq')
-                p = np.array([[float(x) for x in l.split()] for l in open(pf) if len(l.split()) == 2]); _, ix = np.unique(p[:, 0], return_index=True); p = p[ix]; p = p[p[:, 0] > rr['therm'], 1]
+                p = np.array(read_plq(pf)); _, ix = np.unique(p[:, 0], return_index=True); p = p[ix]; p = p[p[:, 0] > rr['therm'], 1]
                 pm, pe, pt, _ = gamma_method(p)
                 plq.append(f'| {LL} | {b:.2f} | {len(rr["sweep"])} | {pm:.5f}({pe*1e5:.0f}e-5) | {pt:.1f} | {p.min():.4f} | {p.max():.4f} | {kurtosis(p):+.2f} |')
     open(out, 'w').write('\n'.join(lines) + '\n\n' + '\n'.join(plq) + '\n')

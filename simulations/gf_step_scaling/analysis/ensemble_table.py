@@ -6,8 +6,17 @@ import sys, os, glob, numpy as np
 sys.path.insert(0, os.path.dirname(__file__))
 from gfana import *
 
+def read_plq(path):
+    out = []
+    for l in open(path):
+        f = l.split()
+        if len(f) != 2: continue
+        try: out.append([float(f[0]), float(f[1])])
+        except ValueError: pass  # line truncated by a kill; the resumed run re-writes it
+    return out
+
 def plaq_series(path, therm):
-    d = np.array([[float(x) for x in l.split()] for l in open(path) if len(l.split()) == 2])
+    d = np.array(read_plq(path))
     _, idx = np.unique(d[:, 0], return_index=True)
     d = d[idx]
     return d[d[:, 0] > therm, 1]
@@ -62,7 +71,11 @@ def main(rundir, out, kind):
                 pass
         if kind == 'su2':
             for c in (0.4, 0.5):
-                i = time_index(r, c); Q = r['E'][:, i, 2]
+                try:
+                    i = time_index(r, c)
+                except AssertionError:
+                    continue
+                Q = r['E'][:, i, 2]
                 qs = q_stats(Q)
                 row[f'Q2_c{c}'] = qs['Q2']; row[f'maxabsQ_c{c}'] = qs['maxabsQ']; row[f'fracQgt0.5_c{c}'] = qs['fracbig']; row[f'Qnearint_c{c}'] = qs['near_int']; row[f'Qchanges_c{c}'] = qs['nchg']
                 row[f'Qhist_c{c}'] = str(qs['hist']).replace(',', ';')

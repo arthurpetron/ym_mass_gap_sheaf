@@ -114,6 +114,8 @@ def load_run(path, ncol_per_t):
         if len(f) != 3 + nt * ncol_per_t:  # truncated line after an interruption
             continue
         rows[int(f[0])] = [float(v) for v in f]  # duplicates after resume are bit-identical; keep last
+    if not rows:
+        return dict(L=L, beta=beta, sep=sep, therm=therm, eps=eps, times=np.array(times), sweep=np.zeros(0), plaq=np.zeros(0), E=np.zeros((0, nt, ncol_per_t)))
     d = np.array([rows[k] for k in sorted(rows)])
     E = d[:, 3:3 + nt * ncol_per_t].reshape(len(d), nt, ncol_per_t)
     return dict(L=L, beta=beta, sep=sep, therm=therm, eps=eps, times=np.array(times), sweep=d[:, 1], plaq=d[:, 2], E=E)
