@@ -82870,3 +82870,7 @@ input.
 Non-goals of this track until f/g land: claiming any group's mass gap; the
 existing `MassGap/AllSimpleTypes` theorems remain scalar-row conditional
 statements.
+
+## Low-priority technique notes (not frontier; added 2026-10-17 PT)
+
+Rational-certificate recipe (technique-only; arXiv 2610.12700, Q. Gao, Laughlin gap H^2 >= gamma*H, gamma > 1/5): re-solve SOS/SDP with margins 1e-9..1e-7, extract low-rank rows, round to integers over a common denominator (1e10..1e15), re-optimize coefficients, verify exactly via LDL^T / Leverrier-Faddeev char-poly signs; ship a hashed JSON certificate plus a standalone verifier, port the verifier to Lean Rat. Not a lattice gauge theory; gives no evidence on positive-scale H1 or the 1/s energy bound; the U(1)-at-strong-coupling rule still applies. First experiment (optional): toy H^2 >= eps*H SOS on a 2-3 plaquette truncated-link SU(2) Hamiltonian. Related, NOT USEFUL for the gap: arXiv 2610.06272 (Z2-only SDP two-sided ground-energy bounds, fixed finite lattices, floating-point MOSEK, no gap, not volume-uniform); only a template for a Lean-checkable finite-volume energy bracket, e.g. a rational-rounded dual certificate for the Z2 2x2 pure-gauge E0 lower bound.
