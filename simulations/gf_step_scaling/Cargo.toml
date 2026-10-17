@@ -1,0 +1,11 @@
+[package]
+name = "gf_step_scaling"
+version = "0.1.0"
+edition = "2021"
+description = "SU(2) and compact U(1) Wilson-action MC with Wilson gradient flow on the periodic 4D torus (MC measurement only; no proof content)"
+
+[dependencies]
+
+[profile.release]
+opt-level = 3
+debug = false
