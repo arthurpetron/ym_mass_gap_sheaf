@@ -125,3 +125,33 @@ def time_index(run, c):
     i = int(np.argmin(np.abs(run['times'] - t)))
     assert abs(run['times'][i] - t) < 1e-9, (t, run['times'])
     return i
+
+# ---------------- generalised tree-level normalisations (follow-up program) ----------------
+_cache2 = {}
+def _nz_modes(c, L, clover=True):
+    """Exact mode sum of the free abelian lattice theory (beta->inf), per colour, for the Wilson-flowed field:
+    sum over p != 0 of exp(-2 t phat^2) * (1/2) sum_{mu<nu} <|F_{mu nu}|^2> [* clover factor cos^2(p_mu/2) cos^2(p_nu/2)],
+    times t^2 / L^4.  clover=True reproduces _lat_nonzero (checked to 1e-12); clover=False is the plaquette-type E
+    (E_p ~ sum_{mu<nu} (1/2) theta_p^2 for SU(2), same leading normalisation as E_clover)."""
+    key = (round(c, 9), L, clover)
+    if key in _cache2: return _cache2[key]
+    t = c * c * L * L / 8.0
+    p = 2 * pi * np.fft.fftfreq(L)
+    P = np.meshgrid(p, p, p, p, indexing='ij')
+    q = [np.exp(1j * x) - 1 for x in P]
+    q2 = sum(np.abs(x) ** 2 for x in q); zero = q2 < 1e-14; q2s = np.where(zero, 1.0, q2)
+    e = [x / np.sqrt(q2s) for x in q]
+    tot = 0.0
+    for mu in range(4):
+        for nu in range(mu + 1, 4):
+            Pnn = 1 - np.abs(e[nu]) ** 2; Pmm = 1 - np.abs(e[mu]) ** 2; Pnm = -e[nu] * np.conj(e[mu])
+            FF = (np.abs(q[mu]) ** 2 * Pnn + np.abs(q[nu]) ** 2 * Pmm - 2 * np.real(q[mu] * np.conj(q[nu]) * Pnm)) / q2s
+            w = (np.cos(P[mu] / 2) * np.cos(P[nu] / 2)) ** 2 if clover else 1.0
+            v = 0.5 * FF * w * np.exp(-2 * t * q2); v[zero] = 0.0
+            tot += v.sum() / L ** 4
+    res = t * t * tot
+    _cache2[key] = res
+    return res
+
+def N_lat_plaq(c, L, Nc=2):
+    return (Nc ** 2 - 1) * (_nz_modes(c, L, clover=False) + c ** 4 / 64.0)
