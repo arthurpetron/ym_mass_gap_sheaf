@@ -7,8 +7,12 @@ sys.path.insert(0, os.path.dirname(__file__))
 from joint_fit import *
 out, nb, dirs = sys.argv[1], int(sys.argv[2]), sys.argv[3].split(',')
 d = Data(dirs, obs='clover', norm='lat')
-two = lambda u: 2 * np.log(2) * (11 / (24 * np.pi ** 2) + 34 / 3 / (16 * np.pi ** 2) ** 2 * u)
-L = [f'one-loop 2 b0 ln2 = {S0:.4f}\n', '| beta | c | n(L=24) | u = g2(12) | g2(24) | s(12->24) | s(8->16) at same u (M=2, M=3) | 2-pair extrap (M=2) | one-loop | first-order two-loop |', '|---|---|---|---|---|---|---|---|---|---|']
+def two(u, n=4000):
+    """exact (numerically integrated) two-loop shift 1/u - 1/Sigma for L->2L: d(1/g2)/dlnL = -(2 b0 + 2 b1 g2), b0 = 11/(24 pi^2), b1 = (136/3)/(16 pi^2)^2 (SU(2), Nf=0)"""
+    b0 = 11 / (24 * np.pi ** 2); b1 = 136 / 3 / (16 * np.pi ** 2) ** 2; x = 1 / u; h = np.log(2) / n
+    for _ in range(n): x -= h * (2 * b0 + 2 * b1 / x)
+    return 1 / u - x
+L = [f'one-loop 2 b0 ln2 = {S0:.4f}\n', '| beta | c | n(L=24) | u = g2(12) | g2(24) | s(12->24) | s(8->16) at same u (M=2, M=3) | 2-pair extrap (M=2) | one-loop | exact two-loop |', '|---|---|---|---|---|---|---|---|---|---|']
 rng = np.random.default_rng(3)
 for b in sorted({b for (l, b) in d.runs if l == 24}):
     for c in (0.3, 0.4):
