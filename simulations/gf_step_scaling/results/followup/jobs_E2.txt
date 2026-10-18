@@ -1,0 +1,1 @@
+su2_L24_b4.50_cs|su2gf --L 24 --beta 4.5 --therm 300 --nmeas 300 --sep 10 --nor 4 --eps 0.04 --alt-eps 0.02 --alt-every 50 --c 0.3,0.4 --seed 88025 --start cold --ckpt-every 10
