@@ -1,0 +1,4 @@
+su2_L6_b5.63_u10p|su2gf --L 6 --beta 5.63 --therm 500 --nmeas 600 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --start cold --ckpt-every 50 --seed 91001
+su2_L8_b5.74_u10p|su2gf --L 8 --beta 5.74 --therm 500 --nmeas 400 --sep 5 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --start cold --ckpt-every 50 --seed 91002
+su2_L12_b5.89_u10p|su2gf --L 12 --beta 5.89 --therm 300 --nmeas 150 --sep 10 --nor 4 --eps 0.02 --alt-eps 0.01 --alt-every 100 --c 0.3,0.4,0.5 --start cold --ckpt-every 50 --seed 91003
+su2_L16_b6.00_u10p|su2gf --L 16 --beta 6.0 --therm 300 --nmeas 100 --sep 10 --nor 4 --eps 0.04 --alt-eps 0.02 --alt-every 50 --c 0.3,0.4,0.5 --start cold --ckpt-every 25 --seed 91004
