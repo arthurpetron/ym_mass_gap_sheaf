@@ -12,7 +12,17 @@ S0 = 2 * B0 * log(2.0)             # 2 b0 ln 2 : 1/Sigma = 1/u - S0
 B1 = 22.0 / 3.0; B2 = 136.0 / 3.0  # L^2 dg^2/dL^2 = B1 g^4/(16pi^2) + B2 g^6/(16pi^2)^2   (SU(2), Nf=0)
 
 def sigma_oneloop(u): return u / (1 - S0 * u)
+def shift_twoloop_exact(u, n=4000):
+    """Exact two-loop shift 1/u - 1/Sigma for L -> 2L: d(1/g2)/dlnL = -(2 b0 + 2 b1 g2) integrated numerically; b0 = B1/(16pi^2), b1 = B2/(16pi^2)^2
+    (SU(2), Nf=0; b0, b1 universal, the u^2 (three-loop) term in the shift is scheme dependent).  Use this, not sigma_twoloop, to compare the measured shift."""
+    k = 1 / (16 * pi ** 2); b0 = B1 * k; b1 = B2 * k * k; x = 1.0 / u; h = log(2.0) / n
+    for _ in range(n): x -= h * (2 * b0 + 2 * b1 / x)
+    return 1.0 / u - x
+
 def sigma_twoloop(u):
+    # NOTE: Sigma from the series truncated at O(u^3) (coefficients correct, b1 = B2/(16pi^2)^2 with B2 = 136/3). Correct for small u only: its shift 1/u - 1/Sigma
+    # (0.0667 -> 0.0674 for u = 1.3 -> 2.4) UNDERESTIMATES the exact two-loop shift (0.0678 -> 0.0710, shift_twoloop_exact).  The "<1.1%" difference to one-loop is a
+    # statement about Sigma, not about the shift.  Label in output rows kept as 'Sigma_2loop' (= truncated series) for backward compatibility; indicative only.
     k = 1 / (16 * pi ** 2)
     return u + log(4.0) * (B1 * k * u ** 2 + (B1 ** 2 * log(4.0) + B2) * k ** 2 * u ** 3)
 
@@ -106,7 +116,7 @@ def run_all(rundir, outdir, pairs, targets, norm, cs=(0.3, 0.4), Ms=(2, 3), nboo
                         continue
                     sm = d['samples']; inv = 1 / u - 1 / sm
                     rows.append(dict(c=c, norm=norm, pair=f'{L}->{L2}', aL=1.0 / L, M=M, u=u, beta=d['beta'], beta_err=d['beta_err'], Sigma=d['sigma'], Sigma_err=d['sigma_err'],
-                                     inv_shift=1 / u - 1 / d['sigma'], inv_shift_err=inv.std(), one_loop_shift=S0, Sigma_1loop=sigma_oneloop(u), Sigma_2loop=sigma_twoloop(u),
+                                     inv_shift=1 / u - 1 / d['sigma'], inv_shift_err=inv.std(), one_loop_shift=S0, Sigma_1loop=sigma_oneloop(u), Sigma_2loop=sigma_twoloop(u), shift_2loop_exact=shift_twoloop_exact(u),
                                      chi_L=r['chi_L'], chi_2L=r['chi_2L']))
                     lines.append(f"   u={u:.3f} beta*={d['beta']:.3f}({d['beta_err']:.3f}) Sigma={d['sigma']:.4f}({d['sigma_err']:.4f}) 1/u-1/Sigma={1/u-1/d['sigma']:.4f}({inv.std():.4f}) [1-loop {S0:.4f}] Sigma_1loop={sigma_oneloop(u):.4f}")
         # continuum extrapolation (linear in (a/L)^2) using all pairs available at fixed M
