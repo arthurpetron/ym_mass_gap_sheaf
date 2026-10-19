@@ -5,7 +5,7 @@ import sys, os, glob, re, numpy as np
 from scipy import stats
 sys.path.insert(0, os.path.dirname(__file__))
 from gfana import *
-R = '/Users/darthur/ym_numerics_runs'; DIRS = [R + '/prod', R + '/prod2', R + '/prod3']
+R = '/Users/darthur/ym_numerics_runs'; DIRS = [R + '/prod', R + '/prod2', R + '/prod3', R + '/prod4']
 out = sys.argv[1]; O = []
 def P(s=''): O.append(s); print(s)
 
@@ -59,7 +59,7 @@ groups = {}
 for d in DIRS:
     for f in sorted(glob.glob(d + '/su2_L*_b*.csv')):
         n = os.path.basename(f)
-        if any(k in n for k in ('.alt', '_cold', '_tau', 'bad_')): continue
+        if any(k in n for k in ('.alt', '.zeu', '_cold', '_tau', 'bad_')): continue
         mm = re.match(r'su2_L(\d+)_b([\d.]+?)(?:_|\.csv)', n)
         if not mm: continue
         L = int(mm.group(1)); b = float(mm.group(2)); r = load_run(f, 3)
