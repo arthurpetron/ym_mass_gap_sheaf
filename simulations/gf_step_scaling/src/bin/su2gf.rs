@@ -9,6 +9,19 @@ use std::io::Write;
 type Q = [f64; 4];
 const PI: f64 = std::f64::consts::PI;
 
+/// 't Hooft twist n_12 = 1 (SU(2): z = -1) in the (x0,x1) plane of the code (= Ramos' x1-x2 plane), arXiv:1409.1445:
+/// the (0,1)-plaquettes with lower-left corner at x0 = x1 = L-1 (one per (x2,x3)) enter action, force and observables multiplied by z.
+static TWIST: std::sync::atomic::AtomicBool = std::sync::atomic::AtomicBool::new(false);
+#[inline]
+fn tz(g: &Geom, base: usize, mu: usize, nu: usize) -> f64 {
+    if !TWIST.load(std::sync::atomic::Ordering::Relaxed) { return 1.0; }
+    if !((mu == 0 && nu == 1) || (mu == 1 && nu == 0)) { return 1.0; }
+    let l = g.l;
+    if base % l == l - 1 && (base / l) % l == l - 1 { -1.0 } else { 1.0 }
+}
+#[inline]
+fn qscale(a: &Q, f: f64) -> Q { [a[0] * f, a[1] * f, a[2] * f, a[3] * f] }
+
 #[inline]
 fn qmul(a: &Q, b: &Q) -> Q {
     [
@@ -52,10 +65,10 @@ fn staple(l: &[Q], g: &Geom, s: usize, mu: usize) -> Q {
             continue;
         }
         let su = g.up[s][nu];
-        let t1 = qmul(&qmul(&l[sm * 4 + nu], &qd(&l[su * 4 + mu])), &qd(&l[s * 4 + nu]));
+        let t1 = qscale(&qmul(&qmul(&l[sm * 4 + nu], &qd(&l[su * 4 + mu])), &qd(&l[s * 4 + nu])), tz(g, s, mu, nu));
         let sd = g.dn[s][nu];
         let smd = g.up[sd][mu];
-        let t2 = qmul(&qmul(&qd(&l[smd * 4 + nu]), &qd(&l[sd * 4 + mu])), &l[sd * 4 + nu]);
+        let t2 = qscale(&qmul(&qmul(&qd(&l[smd * 4 + nu]), &qd(&l[sd * 4 + mu])), &l[sd * 4 + nu]), tz(g, sd, mu, nu));
         qadd(&mut c, &t1);
         qadd(&mut c, &t2);
     }
@@ -147,19 +160,19 @@ fn measure(l: &[Q], g: &Geom) -> (f64, f64, f64) {
     for s in 0..g.vol {
         let mut gv = [[0.0f64; 3]; 6];
         for (pi, &(mu, nu)) in PLANES.iter().enumerate() {
-            let l1 = leaf1(l, g, s, mu, nu);
+            let l1 = qscale(&leaf1(l, g, s, mu, nu), tz(g, s, mu, nu));
             ep += 4.0 * (1.0 - l1[0]);
             // L2 = U_nu(x) U_mu(x-mu+nu)^† U_nu(x-mu)^† U_mu(x-mu)
             let sdm = g.dn[s][mu];
             let sdm_up_nu = g.up[sdm][nu];
-            let l2 = qmul(&qmul(&qmul(&l[s * 4 + nu], &qd(&l[sdm_up_nu * 4 + mu])), &qd(&l[sdm * 4 + nu])), &l[sdm * 4 + mu]);
+            let l2 = qscale(&qmul(&qmul(&qmul(&l[s * 4 + nu], &qd(&l[sdm_up_nu * 4 + mu])), &qd(&l[sdm * 4 + nu])), &l[sdm * 4 + mu]), tz(g, sdm, mu, nu));
             // L3 = U_mu(x-mu)^† U_nu(x-mu-nu)^† U_mu(x-mu-nu) U_nu(x-nu)
             let sdn = g.dn[s][nu];
             let sdmdn = g.dn[sdm][nu];
-            let l3 = qmul(&qmul(&qmul(&qd(&l[sdm * 4 + mu]), &qd(&l[sdmdn * 4 + nu])), &l[sdmdn * 4 + mu]), &l[sdn * 4 + nu]);
+            let l3 = qscale(&qmul(&qmul(&qmul(&qd(&l[sdm * 4 + mu]), &qd(&l[sdmdn * 4 + nu])), &l[sdmdn * 4 + mu]), &l[sdn * 4 + nu]), tz(g, sdmdn, mu, nu));
             // L4 = U_nu(x-nu)^† U_mu(x-nu) U_nu(x+mu-nu) U_mu(x)^†
             let sup_dn = g.up[sdn][mu];
-            let l4 = qmul(&qmul(&qmul(&qd(&l[sdn * 4 + nu]), &l[sdn * 4 + mu]), &l[sup_dn * 4 + nu]), &qd(&l[s * 4 + mu]));
+            let l4 = qscale(&qmul(&qmul(&qmul(&qd(&l[sdn * 4 + nu]), &l[sdn * 4 + mu]), &l[sup_dn * 4 + nu]), &qd(&l[s * 4 + mu])), tz(g, sdn, mu, nu));
             let mut q = [0.0; 3];
             for k in 0..3 {
                 q[k] = l1[k + 1] + l2[k + 1] + l3[k + 1] + l4[k + 1];
@@ -178,7 +191,7 @@ fn avg_plaq(l: &[Q], g: &Geom) -> f64 {
     let mut p = 0.0;
     for s in 0..g.vol {
         for &(mu, nu) in PLANES.iter() {
-            p += leaf1(l, g, s, mu, nu)[0];
+            p += leaf1(l, g, s, mu, nu)[0] * tz(g, s, mu, nu);
         }
     }
     p / (6.0 * g.vol as f64)
@@ -238,6 +251,7 @@ fn vec3(m: &Q) -> [f64; 3] { [m[1], m[2], m[3]] }
 /// Luescher-Weisz tree-level coefficients c0 = 5/3, c1 = -1/12 (Ramos-Sint, arXiv:1508.05552, eq. (5)).
 /// `f` is a scratch buffer of the same size as `z`.
 fn zfield_zeuthen(l: &[Q], g: &Geom, eps: f64, z: &mut [[f64; 3]], f: &mut [[f64; 3]]) {
+    assert!(!TWIST.load(std::sync::atomic::Ordering::Relaxed), "Zeuthen flow (rectangles) not implemented with twisted b.c.");
     let c0 = 5.0 / 3.0;
     let c1 = -1.0 / 12.0;
     for s in 0..g.vol {
@@ -386,11 +400,20 @@ fn main() {
     let test = a.get::<u32>("selftest", 0);
     let zeuthen: u32 = a.get("zeuthen", 0);   // 1: also measure the Zeuthen flow (LW force + a^2/12 nabla*nabla) on the same configs -> OUT.zeu.csv
     let zeu_eps: f64 = a.get("zeu-eps", eps);
+    let twist: u32 = a.get("twist", 0);   // 1: twisted b.c. n_12 = 1 (Ramos TGF scheme); cold start = twist-eater (zero action)
+    if twist > 0 { TWIST.store(true, std::sync::atomic::Ordering::Relaxed); }
 
     let g = Geom::new(lat);
     let times = flow_times(lat, &cs, &extra);
     let mut rng = Rng::new(seed);
     let mut l: Vec<Q> = vec![[1.0, 0.0, 0.0, 0.0]; g.vol * 4];
+    if twist > 0 && start != "hot" {
+        // twist eater: U_0(x) = i sigma_1 at x0 = L-1, U_1(x) = i sigma_2 at x1 = L-1, else 1  ->  A B A^+ B^+ = -1 on the twisted plaquettes, all U_p z_p = 1
+        for s in 0..g.vol {
+            if s % lat == lat - 1 { l[s * 4] = [0.0, 1.0, 0.0, 0.0]; }
+            if (s / lat) % lat == lat - 1 { l[s * 4 + 1] = [0.0, 0.0, 1.0, 0.0]; }
+        }
+    }
     if start == "hot" {
         for q in l.iter_mut() {
             let mut v = [rng.uni() - 0.5, rng.uni() - 0.5, rng.uni() - 0.5, rng.uni() - 0.5];
@@ -407,13 +430,52 @@ fn main() {
             let mut direct = 0.0;
             for nu in 0..4 {
                 if nu == mu { continue; }
-                direct += leaf1(&l, &g, sd, mu, nu)[0];
+                direct += leaf1(&l, &g, sd, mu, nu)[0] * tz(&g, sd, mu, nu);
                 // plaquette at x-nu in plane (mu,nu): contains U_mu(x-nu+...)? it contains U_mu(x-nu) not U_mu(x); use plane (nu,mu) at x-nu: U_nu(x-nu)U_mu(x)U_nu(x+mu-nu)^† U_mu(x-nu)^†
                 let sdn = g.dn[sd][nu];
-                direct += leaf1(&l, &g, sdn, nu, mu)[0];
+                direct += leaf1(&l, &g, sdn, nu, mu)[0] * tz(&g, sdn, nu, mu);
             }
             println!("mu={} a0(UC)={:.12} direct={:.12}", mu, uc[0], direct);
         }
+        return;
+    }
+    if test == 5 {
+        // twisted b.c. self-tests (run with --twist 1 and default cold start = twist eater)
+        let (ec, ep, qt) = measure(&l, &g);
+        println!("twist-eater: twist={} plaq(with z)={:.15} Ec={:e} Ep={:e} Q={:e}", twist, avg_plaq(&l, &g), ec, ep, qt);
+        let r0 = flow_measure(&l, &g, &[0.5, 1.0], 0.05, false);
+        println!("twist-eater after flow t=0.5,1.0: Ec = {:e}, {:e}", r0[0].0, r0[1].0);
+        // force on the twist eater vanishes
+        let n = l.len(); let mut z = vec![[0.0; 3]; n]; zfield(&l, &g, 1.0, &mut z);
+        let fm = z.iter().map(|v| (v[0] * v[0] + v[1] * v[1] + v[2] * v[2]).sqrt()).fold(0.0, f64::max);
+        println!("max |force| on twist eater = {:e}", fm);
+        // hot config: staple <-> plaquette consistency with z factors, gauge invariance of flowed E and of the action
+        for q in l.iter_mut() { let mut v = [rng.uni() - 0.5, rng.uni() - 0.5, rng.uni() - 0.5, rng.uni() - 0.5]; qnorm(&mut v); *q = v; }
+        let mut dmax = 0.0f64;
+        for sd in [0usize, g.vol - 1, (lat - 1) + lat * (lat - 1), 37 % g.vol] {
+            for mu in 0..4 {
+                let uc = qmul(&l[sd * 4 + mu], &staple(&l, &g, sd, mu));
+                let mut direct = 0.0;
+                for nu in 0..4 { if nu == mu { continue; }
+                    direct += leaf1(&l, &g, sd, mu, nu)[0] * tz(&g, sd, mu, nu);
+                    let sdn = g.dn[sd][nu]; direct += leaf1(&l, &g, sdn, nu, mu)[0] * tz(&g, sdn, nu, mu);
+                }
+                dmax = dmax.max((uc[0] - direct).abs());
+            }
+        }
+        println!("staple vs plaquettes (incl. twisted corner sites): max diff {:e}", dmax);
+        let mut gt: Vec<Q> = Vec::new();
+        for _ in 0..g.vol { let mut v = [rng.uni() - 0.5, rng.uni() - 0.5, rng.uni() - 0.5, rng.uni() - 0.5]; qnorm(&mut v); gt.push(v); }
+        let mut l2 = l.clone();
+        for s in 0..g.vol { for mu in 0..4 { l2[s * 4 + mu] = qmul(&qmul(&gt[s], &l[s * 4 + mu]), &qd(&gt[g.up[s][mu]])); } }
+        println!("plaquette (with z): {:.14} vs gauge-transformed {:.14}", avg_plaq(&l, &g), avg_plaq(&l2, &g));
+        let r1 = flow_measure(&l, &g, &[0.3, 0.8], 0.05, false); let r2 = flow_measure(&l2, &g, &[0.3, 0.8], 0.05, false);
+        for i in 0..2 { println!("flowed Ec: {:.13} vs gauge-transformed {:.13} diff {:e}; Q {:.6} vs {:.6}", r1[i].0, r2[i].0, r1[i].0 - r2[i].0, r1[i].2, r2[i].2); }
+        // the twist is not a gauge artefact: shifting the twisted corner by a gauge-equivalent relabelling must not matter, while the twist eater without z has action
+        TWIST.store(false, std::sync::atomic::Ordering::Relaxed);
+        let mut te: Vec<Q> = vec![[1.0, 0.0, 0.0, 0.0]; g.vol * 4];
+        for s in 0..g.vol { if s % lat == lat - 1 { te[s * 4] = [0.0, 1.0, 0.0, 0.0]; } if (s / lat) % lat == lat - 1 { te[s * 4 + 1] = [0.0, 0.0, 1.0, 0.0]; } }
+        println!("twist eater evaluated WITHOUT twist factors: plaq = {:.12} (expected 1 - 2/(6 L^2) = {:.12})", avg_plaq(&te, &g), 1.0 - 2.0 / (6.0 * (lat * lat) as f64));
         return;
     }
     if test == 4 {
@@ -513,8 +575,8 @@ fn main() {
     let mut plq = std::fs::OpenOptions::new().create(true).append(true).open(format!("{}.plaq", out)).unwrap();
     if !resumed {
         let hdr = format!(
-            "# su2gf L={} beta={} therm={} sep={} nor={} eps={} alt_eps={} seed={} start={} times={:?}\n# cols: meas sweep plaq then per time t: Ec Ep Q\n",
-            lat, beta, therm, sep, nor, eps, alt_eps, seed, start, times
+            "# su2gf L={} beta={} therm={} sep={} nor={} eps={} alt_eps={} seed={} start={}{} times={:?}\n# cols: meas sweep plaq then per time t: Ec Ep Q\n",
+            lat, beta, therm, sep, nor, eps, alt_eps, seed, start, if twist > 0 { " twist=n12" } else { "" }, times
         );
         csv.write_all(hdr.as_bytes()).unwrap();
         altcsv.write_all(hdr.as_bytes()).unwrap();
