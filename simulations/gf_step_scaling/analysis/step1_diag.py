@@ -59,7 +59,7 @@ groups = {}
 for d in DIRS:
     for f in sorted(glob.glob(d + '/su2_L*_b*.csv')):
         n = os.path.basename(f)
-        if any(k in n for k in ('.alt', '.zeu', '_cold', '_tau', 'bad_')): continue
+        if any(k in n for k in ('.alt', '.zeu', '_cold', '_tau', 'bad_', '_z1p', '_z2p')): continue
         mm = re.match(r'su2_L(\d+)_b([\d.]+?)(?:_|\.csv)', n)
         if not mm: continue
         L = int(mm.group(1)); b = float(mm.group(2)); r = load_run(f, 3)

@@ -5,7 +5,7 @@ Usage: run_queue.py JOBFILE OUTDIR [MAXP]"""
 import subprocess, sys, time, os, shlex
 jobfile, outdir = sys.argv[1], sys.argv[2]
 maxp = min(4, int(sys.argv[3]) if len(sys.argv) > 3 else 3)
-BIN = '/Users/darthur/ym_numerics_runs/target/release/'
+BIN = os.environ.get('YM_BIN_DIR', '/Users/darthur/ym_numerics_runs/target/release/')
 os.makedirs(outdir, exist_ok=True)
 jobs = [l.strip().split('|', 1) for l in open(jobfile) if l.strip() and not l.startswith('#')]
 running = []

@@ -17,7 +17,7 @@ from gfana import load_run, time_index, N_lat, gamma_method
 from stepscale import fit_inv, inv_model, solve_beta, S0
 R = '/Users/darthur/ym_numerics_runs'
 DIRS = [R + '/prod', R + '/prod2', R + '/prod3', R + '/prod4']
-EXC = ('_cold', '_tau', '.alt', '.zeu', 'bad_')
+EXC = ('_cold', '_tau', '.alt', '.zeu', 'bad_', '_z1p', '_z2p')   # _z1p/_z2p: step-2 (Zeuthen + Wilson on same configs) runs, analysed separately
 b0 = 11 / (24 * np.pi ** 2); b1 = 136 / 3 / (16 * np.pi ** 2) ** 2; K1_2L = 0.0026
 GH1, GH2 = 7 / 11, 63 / 55
 CS = (0.3, 0.4)

@@ -194,6 +194,81 @@ fn zfield(l: &[Q], g: &Geom, eps: f64, z: &mut [[f64; 3]]) {
     }
 }
 
+/// Staple sum over the 18 rectangular (1x2 / 2x1) loops containing link (s,mu); loop = U_mu(x) * C.
+fn rect_staple(l: &[Q], g: &Geom, s: usize, mu: usize) -> Q {
+    let mut c = [0.0; 4];
+    let u = |x: usize, m: usize| -> &Q { &l[x * 4 + m] };
+    let xp = g.up[s][mu];           // x+mu
+    let xpp = g.up[xp][mu];         // x+2mu
+    let xm = g.dn[s][mu];           // x-mu
+    for nu in 0..4 {
+        if nu == mu { continue; }
+        let xn = g.up[s][nu];       // x+nu
+        let xd = g.dn[s][nu];       // x-nu
+        // --- A1(+nu): U_mu(x+mu) U_nu(x+2mu) U_mu^+(x+mu+nu) U_mu^+(x+nu) U_nu^+(x)
+        let t = qmul(&qmul(&qmul(&qmul(u(xp, mu), u(xpp, nu)), &qd(u(g.up[xp][nu], mu))), &qd(u(xn, mu))), &qd(u(s, nu)));
+        qadd(&mut c, &t);
+        // --- A1(-nu): U_mu(x+mu) U_nu^+(x+2mu-nu) U_mu^+(x+mu-nu) U_mu^+(x-nu) U_nu(x-nu)
+        let t = qmul(&qmul(&qmul(&qmul(u(xp, mu), &qd(u(g.dn[xpp][nu], nu))), &qd(u(g.dn[xp][nu], mu))), &qd(u(xd, mu))), u(xd, nu));
+        qadd(&mut c, &t);
+        // --- A2(+nu): U_nu(x+mu) U_mu^+(x+nu) U_mu^+(x-mu+nu) U_nu^+(x-mu) U_mu(x-mu)
+        let t = qmul(&qmul(&qmul(&qmul(u(xp, nu), &qd(u(xn, mu))), &qd(u(g.up[xm][nu], mu))), &qd(u(xm, nu))), u(xm, mu));
+        qadd(&mut c, &t);
+        // --- A2(-nu): U_nu^+(x+mu-nu) U_mu^+(x-nu) U_mu^+(x-mu-nu) U_nu(x-mu-nu) U_mu(x-mu)
+        let xmd = g.dn[xm][nu];
+        let t = qmul(&qmul(&qmul(&qmul(&qd(u(g.dn[xp][nu], nu)), &qd(u(xd, mu))), &qd(u(xmd, mu))), u(xmd, nu)), u(xm, mu));
+        qadd(&mut c, &t);
+        // --- B(+2nu): U_nu(x+mu) U_nu(x+mu+nu) U_mu^+(x+2nu) U_nu^+(x+nu) U_nu^+(x)
+        let xn2 = g.up[xn][nu];
+        let t = qmul(&qmul(&qmul(&qmul(u(xp, nu), u(g.up[xp][nu], nu)), &qd(u(xn2, mu))), &qd(u(xn, nu))), &qd(u(s, nu)));
+        qadd(&mut c, &t);
+        // --- B(-2nu): U_nu^+(x+mu-nu) U_nu^+(x+mu-2nu) U_mu^+(x-2nu) U_nu(x-2nu) U_nu(x-nu)
+        let xd2 = g.dn[xd][nu];
+        let t = qmul(&qmul(&qmul(&qmul(&qd(u(g.dn[xp][nu], nu)), &qd(u(g.dn[g.dn[xp][nu]][nu], nu))), &qd(u(xd2, mu))), u(xd2, nu)), u(xd, nu));
+        qadd(&mut c, &t);
+    }
+    c
+}
+
+/// vector part of U_mu(x) * C
+#[inline]
+fn vec3(m: &Q) -> [f64; 3] { [m[1], m[2], m[3]] }
+
+/// Zeuthen-flow force field  Z = -eps (1 + (1/12) nabla*_mu nabla_mu) [c0 * plaquette part + c1 * rectangle part],
+/// Luescher-Weisz tree-level coefficients c0 = 5/3, c1 = -1/12 (Ramos-Sint, arXiv:1508.05552, eq. (5)).
+/// `f` is a scratch buffer of the same size as `z`.
+fn zfield_zeuthen(l: &[Q], g: &Geom, eps: f64, z: &mut [[f64; 3]], f: &mut [[f64; 3]]) {
+    let c0 = 5.0 / 3.0;
+    let c1 = -1.0 / 12.0;
+    for s in 0..g.vol {
+        for mu in 0..4 {
+            let cp = staple(l, g, s, mu);
+            let cr = rect_staple(l, g, s, mu);
+            let mp = vec3(&qmul(&l[s * 4 + mu], &cp));
+            let mr = vec3(&qmul(&l[s * 4 + mu], &cr));
+            for k in 0..3 { f[s * 4 + mu][k] = c0 * mp[k] + c1 * mr[k]; }
+        }
+    }
+    for s in 0..g.vol {
+        for mu in 0..4 {
+            let sp = g.up[s][mu];
+            let sm = g.dn[s][mu];
+            // Ad(U_mu(x)) f_mu(x+mu)  and  Ad(U_mu(x-mu))^-1 f_mu(x-mu)
+            let u1 = l[s * 4 + mu];
+            let a = f[sp * 4 + mu];
+            let r1 = qmul(&qmul(&u1, &[0.0, a[0], a[1], a[2]]), &qd(&u1));
+            let u2 = l[sm * 4 + mu];
+            let b = f[sm * 4 + mu];
+            let r2 = qmul(&qmul(&qd(&u2), &[0.0, b[0], b[1], b[2]]), &u2);
+            let fc = f[s * 4 + mu];
+            for k in 0..3 {
+                let v = fc[k] + (r1[k + 1] + r2[k + 1] - 2.0 * fc[k]) / 12.0;
+                z[s * 4 + mu][k] = -eps * v;
+            }
+        }
+    }
+}
+
 fn apply(l: &mut [Q], z: &[[f64; 3]], a: &[[f64; 3]], b: &[[f64; 3]], ca: f64, cb: f64, cz: f64) {
     // l <- exp(cz*z + ca*a + cb*b) l   (z, a, b are Z-arrays; unused ones passed with 0 coef)
     for i in 0..l.len() {
@@ -204,12 +279,16 @@ fn apply(l: &mut [Q], z: &[[f64; 3]], a: &[[f64; 3]], b: &[[f64; 3]], ca: f64, c
     }
 }
 
-fn flow_step(l: &mut [Q], g: &Geom, eps: f64, z0: &mut Vec<[f64; 3]>, z1: &mut Vec<[f64; 3]>, z2: &mut Vec<[f64; 3]>) {
-    zfield(l, g, eps, z0);
+fn force(l: &[Q], g: &Geom, eps: f64, zeu: bool, z: &mut Vec<[f64; 3]>, scratch: &mut Vec<[f64; 3]>) {
+    if zeu { zfield_zeuthen(l, g, eps, z, scratch); } else { zfield(l, g, eps, z); }
+}
+
+fn flow_step(l: &mut [Q], g: &Geom, eps: f64, zeu: bool, z0: &mut Vec<[f64; 3]>, z1: &mut Vec<[f64; 3]>, z2: &mut Vec<[f64; 3]>, scratch: &mut Vec<[f64; 3]>) {
+    force(l, g, eps, zeu, z0, scratch);
     apply(l, z0, z0, z0, 0.0, 0.0, 0.25);
-    zfield(l, g, eps, z1);
+    force(l, g, eps, zeu, z1, scratch);
     apply(l, z1, z0, z0, -17.0 / 36.0, 0.0, 8.0 / 9.0);
-    zfield(l, g, eps, z2);
+    force(l, g, eps, zeu, z2, scratch);
     // exp(3/4 Z2 - 8/9 Z1 + 17/36 Z0)
     for i in 0..l.len() {
         let v = [
@@ -224,12 +303,13 @@ fn flow_step(l: &mut [Q], g: &Geom, eps: f64, z0: &mut Vec<[f64; 3]>, z1: &mut V
 }
 
 /// flow a copy of l, measuring at each requested time
-fn flow_measure(l0: &[Q], g: &Geom, times: &[f64], eps: f64) -> Vec<(f64, f64, f64)> {
+fn flow_measure(l0: &[Q], g: &Geom, times: &[f64], eps: f64, zeu: bool) -> Vec<(f64, f64, f64)> {
     let mut l = l0.to_vec();
     let n = l.len();
     let mut z0 = vec![[0.0; 3]; n];
     let mut z1 = vec![[0.0; 3]; n];
     let mut z2 = vec![[0.0; 3]; n];
+    let mut scratch = vec![[0.0; 3]; if zeu { n } else { 0 }];
     let mut t = 0.0;
     let mut out = vec![];
     for &tt in times {
@@ -237,7 +317,7 @@ fn flow_measure(l0: &[Q], g: &Geom, times: &[f64], eps: f64) -> Vec<(f64, f64, f
             let ns = ((tt - t) / eps - 1e-9).ceil().max(1.0) as usize;
             let h = (tt - t) / ns as f64;
             for _ in 0..ns {
-                flow_step(&mut l, g, h, &mut z0, &mut z1, &mut z2);
+                flow_step(&mut l, g, h, zeu, &mut z0, &mut z1, &mut z2, &mut scratch);
             }
             t = tt;
         }
@@ -304,6 +384,8 @@ fn main() {
     let out = a.gets("out", "run");
     let ckpt_every: u64 = a.get("ckpt-every", 10);
     let test = a.get::<u32>("selftest", 0);
+    let zeuthen: u32 = a.get("zeuthen", 0);   // 1: also measure the Zeuthen flow (LW force + a^2/12 nabla*nabla) on the same configs -> OUT.zeu.csv
+    let zeu_eps: f64 = a.get("zeu-eps", eps);
 
     let g = Geom::new(lat);
     let times = flow_times(lat, &cs, &extra);
@@ -332,6 +414,41 @@ fn main() {
             }
             println!("mu={} a0(UC)={:.12} direct={:.12}", mu, uc[0], direct);
         }
+        return;
+    }
+    if test == 4 {
+        // Zeuthen force: (i) rectangle-staple identity, (ii) gauge covariance of the force field, (iii) E_c invariance after a Zeuthen flow
+        for q in l.iter_mut() { let mut v = [rng.uni() - 0.5, rng.uni() - 0.5, rng.uni() - 0.5, rng.uni() - 0.5]; qnorm(&mut v); *q = v; }
+        let mut lhs = 0.0; let mut rhs = 0.0;
+        for s in 0..g.vol { for mu in 0..4 {
+            lhs += qmul(&l[s * 4 + mu], &rect_staple(&l, &g, s, mu))[0];
+            for nu in 0..4 { if nu == mu { continue; }
+                let xp = g.up[s][mu]; let xpp = g.up[xp][mu]; let xn = g.up[s][nu];
+                let r = qmul(&qmul(&qmul(&qmul(&qmul(&l[s * 4 + mu], &l[xp * 4 + mu]), &l[xpp * 4 + nu]), &qd(&l[g.up[xp][nu] * 4 + mu])), &qd(&l[xn * 4 + mu])), &qd(&l[s * 4 + nu]));
+                rhs += r[0];
+            }
+        } }
+        println!("rect identity: sum_links a0(U C_rect) = {:.10}, 6 * sum_rect a0 = {:.10}, diff = {:e}", lhs, 6.0 * rhs, lhs - 6.0 * rhs);
+        let n = l.len();
+        let mut z = vec![[0.0; 3]; n]; let mut sc = vec![[0.0; 3]; n];
+        zfield_zeuthen(&l, &g, 1.0, &mut z, &mut sc);
+        let mut gt: Vec<Q> = Vec::new();
+        for _ in 0..g.vol { let mut v = [rng.uni() - 0.5, rng.uni() - 0.5, rng.uni() - 0.5, rng.uni() - 0.5]; qnorm(&mut v); gt.push(v); }
+        let mut l2 = l.clone();
+        for s in 0..g.vol { for mu in 0..4 { l2[s * 4 + mu] = qmul(&qmul(&gt[s], &l[s * 4 + mu]), &qd(&gt[g.up[s][mu]])); } }
+        let mut z2 = vec![[0.0; 3]; n];
+        zfield_zeuthen(&l2, &g, 1.0, &mut z2, &mut sc);
+        let mut dmax = 0.0f64;
+        for s in 0..g.vol { for mu in 0..4 {
+            let a = z[s * 4 + mu];
+            let r = qmul(&qmul(&gt[s], &[0.0, a[0], a[1], a[2]]), &qd(&gt[s]));
+            for k in 0..3 { dmax = dmax.max((r[k + 1] - z2[s * 4 + mu][k]).abs()); }
+        } }
+        println!("gauge covariance of Zeuthen force: max|Z'-g Z g^+| = {:e}", dmax);
+        let tt = [0.2f64, 0.5];
+        let r1 = flow_measure(&l, &g, &tt, 0.05, true);
+        let r2 = flow_measure(&l2, &g, &tt, 0.05, true);
+        for i in 0..tt.len() { println!("Zeuthen flow t={} E_c: {:.12} vs gauge-transformed {:.12} diff {:e}", tt[i], r1[i].0, r2[i].0, r1[i].0 - r2[i].0); }
         return;
     }
     if test == 3 {
@@ -392,6 +509,7 @@ fn main() {
     let csv_path = format!("{}.csv", out);
     let mut csv = std::fs::OpenOptions::new().create(true).append(true).open(&csv_path).unwrap();
     let mut altcsv = std::fs::OpenOptions::new().create(true).append(true).open(format!("{}.alt.csv", out)).unwrap();
+    let mut zcsv = if zeuthen > 0 { Some(std::fs::OpenOptions::new().create(true).append(true).open(format!("{}.zeu.csv", out)).unwrap()) } else { None };
     let mut plq = std::fs::OpenOptions::new().create(true).append(true).open(format!("{}.plaq", out)).unwrap();
     if !resumed {
         let hdr = format!(
@@ -400,6 +518,7 @@ fn main() {
         );
         csv.write_all(hdr.as_bytes()).unwrap();
         altcsv.write_all(hdr.as_bytes()).unwrap();
+        if let Some(zf) = zcsv.as_mut() { zf.write_all(hdr.replace("# su2gf", "# su2gf ZEUTHEN-flow(LW force + a2/12 nabla*nabla; same eps unless --zeu-eps)").as_bytes()).unwrap(); }
     }
     let t0 = std::time::Instant::now();
     while meas < nmeas {
@@ -409,14 +528,20 @@ fn main() {
             sweeps += 1;
             writeln!(plq, "{} {:.8}", sweeps, avg_plaq(&l, &g)).unwrap();
         }
-        let res = flow_measure(&l, &g, &times, eps);
+        let res = flow_measure(&l, &g, &times, eps, false);
         let mut line = format!("{} {} {:.8}", meas, sweeps, avg_plaq(&l, &g));
         for (ec, ep, q) in &res {
             line += &format!(" {:.10e} {:.10e} {:.8}", ec, ep, q);
         }
         writeln!(csv, "{}", line).unwrap();
+        if let Some(zf) = zcsv.as_mut() {
+            let rz = flow_measure(&l, &g, &times, zeu_eps, true);
+            let mut lz = format!("{} {} {:.8}", meas, sweeps, avg_plaq(&l, &g));
+            for (ec, ep, q) in &rz { lz += &format!(" {:.10e} {:.10e} {:.8}", ec, ep, q); }
+            writeln!(zf, "{}", lz).unwrap();
+        }
         if alt_eps > 0.0 && meas % alt_every == 0 {
-            let r2 = flow_measure(&l, &g, &times, alt_eps);
+            let r2 = flow_measure(&l, &g, &times, alt_eps, false);
             let mut l2 = format!("{} {} {:.8}", meas, sweeps, avg_plaq(&l, &g));
             for (ec, ep, q) in &r2 {
                 l2 += &format!(" {:.10e} {:.10e} {:.8}", ec, ep, q);
@@ -426,6 +551,7 @@ fn main() {
         meas += 1;
         if meas % ckpt_every == 0 || meas == nmeas {
             csv.flush().unwrap();
+            if let Some(zf) = zcsv.as_mut() { zf.flush().unwrap(); }
             altcsv.flush().unwrap();
             plq.flush().unwrap();
             save_ckpt(&ck, lat, beta, sweeps, meas, &rng, &l);
