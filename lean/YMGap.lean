@@ -7610,6 +7610,8 @@ import YMGap.Continuum.BF4WilsonAllNomeH1FixedScale
 -- Shifted H1 for T^(side/2) Y_j (lag shift R(n+2h)): exact shifted telescope;
 -- shifted H1 + nondegeneracy => A03 package; OPEN AF-calibrated schedule Props.
 import YMGap.Continuum.BF4WilsonAllNomeShiftedH1Anchor
+-- NO-GO: uniform rate r_j <= r < 1 contradicts shifted H1 (side_j(1-r) > c0).
+import YMGap.Continuum.BF4WilsonAllNomeShiftedH1UniformRateNoGo
 -- Shifted H1 from backward-window survival theta R(side/2) <= R(side+1):
 -- convexity telescope (m(k,2) >= 0), c0 = 2(1-theta)/theta; OPEN window survival.
 import YMGap.Continuum.BF4WilsonAllNomeShiftedWindowSurvival

@@ -1,5 +1,11 @@
 # Canonical one-page project status
 
+NO-GO checked (2026-10-21 PT): `BF4WilsonAllNomeShiftedH1UniformRateNoGo.shiftedH1_uniformRate_noGo`
+shows a scale-uniform certified rate `r_j <= r < 1` is incompatible with the
+shifted H1 `PathShiftedEpsBound` (+ nondegeneracy): `side_j(1-r)` exceeds `c0`.
+Axioms {propext, Quot.sound}. Obstruction only; H1 and all endpoints remain OPEN.
+Evidence: `audits/AUDIT-NOGO-SHIFTEDH1-UNIFORM-RATE-2026-10-21.md`.
+
 Supporting ORIGINAL initial variance and completed norm checked (2026-10-11 UTC):
 `BF4DyadicWilsonSquareFisherWard.paddedSquare_original_own_variance_nome_defect_floor:546`
 and `paddedSquare_centeredNorm_fisher_floor:631` prove the literal padded

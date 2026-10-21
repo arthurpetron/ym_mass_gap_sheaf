@@ -4,6 +4,17 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## NO-GO: uniform contraction rate vs shifted H1 (2026-10-21 PT)
+
+`shiftedH1_uniformRate_noGo`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeShiftedH1UniformRateNoGo.lean`, proves
+that `PathShiftedEpsBound tr c0` + `PathShiftedNondegenerate` + certified
+rates `r_j <= r < 1` uniform in `j` give `False`: via
+`path_shiftedEps_forces_rate`, `side_j(1-r) <= c0` for all `j >= 1`, but
+`side_j = 2^j` grows past `c0` (explicit Archimedean witness). NO-GO label:
+shifted H1 forces `r_j -> 1` like `1 - c0/side_j`. No new hypothesis. Focused
+capped check PASS; axioms {propext, Quot.sound}. No gap, continuum or Clay claim.
+
 ## Actual completed adjoint matrix and sign descent (2026-10-10 UTC)
 
 `rawMatrix_mul`,
