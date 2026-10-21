@@ -303,3 +303,21 @@ With k2 free, k2 = +0.0013(10) (c=0.3) and +0.0011(15) (c=0.4), chi2 = 0.5 and 0
 * **Design and errors.** Only 3 u, so with k2 free the slope fit has 1 dof and k1 and k2 are strongly degenerate. There are 2 L=24 chains per β, and one is borderline thermalised (above). Errors are statistical only. The two-loop reference at large u is indicative because the u² term is scheme dependent. Twisted versus periodic comparisons use independent ensembles at slightly different u.
 
 **CPU and resources (prod5).** CPU time = sum of per-process elapsed at the final stderr line (single-threaded, niced 19; an upper bound): **22.04 CPU-h** (L=24 18.99, L=16 2.02, L=12 0.90, L=8 0.10, L=6 0.03; the estimate was ≈ 23). Guard log `resource_guard_tw.log` (30 s): 928 samples, 2026-10-19 15:14:33 – 22:58:40 PDT. Machine: 16 cores (hw.ncpu), 64 GiB (68719476736 B). Free RAM (memory_pressure) min 80% / max 86% (free + inactive ≥ 25.1 GiB). load1 min 2.26 / max 13.02 / mean 6.35, never > 16. Our processes: 3 in 873 samples, 2 in 7, 1 in 5, 0 in 43. State = run in 928/928 samples (0% throttled, 0% paused). Wall time: queue 15:14:33 → 22:38:21 PDT = 7 h 24 min. Analysis on the Mac: pre-run 23:41:41 PDT showed 16 cores, 84% memory free, load 2.49/2.14/2.19 and 0 simulation processes. It ran niced 10 as one process at a time; sampler log `resource_analysis_tw.log` (30 s, 20 samples 23:41:41–23:51:12 PDT): load1 2.18–3.69 (mean 2.85), free 84–85%, analysis ≤ 1 core (98.5%). Total analysis CPU ≈ 3 min (< 0.1 CPU-h). No new MC launched.
+
+## 2026-10-20 — prod6 FINAL: A2 weak-coupling N̂_T check and 4th u ≈ 2.0 (4-u twisted fit)
+
+Full summary: `simulations/gf_step_scaling/results/followup/S8_prod6_summary.md`. Details are in `S8_a2_analysis.md`, `S8_tw4_analysis*.md` and `S8_tw6_checks.md`. MC evidence only; this is not a proof.
+All 19 prod6 jobs are complete from their outputs (queue 13:43:05 → 20:05:22 PDT).
+
+* **A2 (β = 20/40, L = 8–24).** δ(L) = 2R40 − R20 − 1, c=0.3: −0.0114(32), −0.0011(40), −0.0075(43), +0.0047(51). c=0.4: −0.0122(59), +0.0020(76), −0.0123(86), +0.0099(99).
+  * The lattice N̂_T is confirmed against the continuum N_T (which is off by −20σ at L=8).
+  * There is no resolved L-dependence for L ≥ 12 (≲ 0.5%).
+  * There is a −1.1(3)% residual at L=8, c=0.3 (3.6σ). It is not separable from O(g0⁴) with two β, and it gives a 1/L² slope at −2.4σ.
+  * L=6 is untested by A2.
+  * The L24 β=20 chains scatter: χ² = 7.9/2.
+* **B (4 u: 1.5, 2.0, 2.4, 2.9).**
+  * k1 (T1.636, k2 free) = −0.0004 ± 0.0021 (c=0.3) and +0.0013 ± 0.0035 (c=0.4). **ORIGINAL rule: UNDECIDED** for all forms and variants.
+  * Precision requirements: (1) FAIL, (2) PASS (+0.9σ), (3) FAIL (c=0.4 a⁴ spread).
+  * Continuum c-gap (a²-type, T1.636): +0.0020(9) (2.3σ). The a⁴ forms give −0.0041(23). The 12→24 pair-level gap is ≈ −0.0002(8).
+  * The L24 β=3.929 twd/twe chains differ at 2.6σ. Excluding either one moves k1(c=0.3) between −0.0019 and +0.0010.
+* **CPU / resources.** 18.99 CPU-h in production. 16 cores / 64 GiB, load1 5.6–19.3 (mean 10.9), free RAM 61–71%, throttled 0.6%.

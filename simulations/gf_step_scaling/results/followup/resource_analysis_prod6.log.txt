@@ -1,0 +1,12 @@
+# analysis sampler start 2026-10-20 21:02:32 PDT ncpu=16 memsize=68719476736 interval=30
+# pre-run: 21:02  up 13 days, 23:09, 2 users, load averages: 8.54 7.99 7.61 | System-wide memory free percentage: 62% | su2gf procs: 0
+2026-10-20 21:02:32 load1=8.54 freepct=62% py=602.3%
+2026-10-20 21:03:02 load1=8.92 freepct=60% py=508.8%
+2026-10-20 21:03:32 load1=10.40 freepct=63% py=776.2%
+2026-10-20 21:04:02 load1=9.91 freepct=62% py=536.8%
+2026-10-20 21:04:32 load1=8.34 freepct=62% py=478.7%
+2026-10-20 21:05:02 load1=8.61 freepct=63% py=775.3%
+2026-10-20 21:05:32 load1=7.23 freepct=62% py=721.5%
+2026-10-20 21:06:02 load1=8.30 freepct=62% py=707%
+2026-10-20 21:06:32 load1=9.93 freepct=62% py=686.4%
+2026-10-20 21:07:02 load1=9.83 freepct=60% py=244.5%

@@ -1,0 +1,20 @@
+=== A2 probe: su2_L12_b30_wcprobe ===
+L=12 beta=30.0 N=400 sweeps 300..4290  g0^2=4/beta=0.13333; plaq mean 0.974825
+c=0.3: g2/(4/beta) = 1.06418 +- 0.00347 (Gamma, tau_int=0.50, W=2); jackknife(20 bins of 20) +- 0.00238; block-boot B10 +- 0.00333, B20 +- 0.00296
+      rel err 0.326%  per-meas rel sigma 0.0661, effective (x sqrt(2tau)) 0.0661; halves 1.06459(504) / 1.06377(481) diff -0.1 sig; first 10% 1.05217(1087)
+c=0.4: g2/(4/beta) = 1.06265 +- 0.00634 (Gamma, tau_int=0.50, W=1); jackknife(20 bins of 20) +- 0.00432; block-boot B10 +- 0.00550, B20 +- 0.00490
+      rel err 0.597%  per-meas rel sigma 0.1238, effective (x sqrt(2tau)) 0.1238; halves 1.06029(919) / 1.06502(879) diff +0.4 sig; first 10% 1.04550(1988)
+corr(c0.3,c0.4) = 0.910; Q rms at c=0.3 time: 1.58e-05
+
+=== B tuning (twisted, c=0.3 target u=2.0) ===
+L=12 beta=3.88 N=300: c=0.3: g2=2.0508(97) boot(90) tau=0.50 drift +0.5sig; c=0.4: g2=2.1746(229) boot(215) tau=0.64 drift +0.2sig
+L=12 beta=4.0 N=300: c=0.3: g2=1.9316(88) boot(92) tau=0.50 drift -1.0sig; c=0.4: g2=2.0511(218) boot(200) tau=0.69 drift -0.4sig
+L=6 beta=3.6 N=300: c=0.3: g2=2.0648(104) boot(97) tau=0.64 drift +2.2sig; c=0.4: g2=2.2032(180) boot(209) tau=0.50 drift +1.9sig
+L=6 beta=3.72 N=300: c=0.3: g2=1.9342(90) boot(88) tau=0.50 drift -0.8sig; c=0.4: g2=2.0590(176) boot(197) tau=0.50 drift -1.3sig
+L=8 beta=3.73 N=300: c=0.3: g2=2.0683(88) boot(98) tau=0.50 drift +0.3sig; c=0.4: g2=2.1968(173) boot(177) tau=0.50 drift +0.4sig
+L=8 beta=3.85 N=300: c=0.3: g2=1.9247(77) boot(72) tau=0.50 drift -0.9sig; c=0.4: g2=2.0384(167) boot(158) tau=0.50 drift -0.6sig
+
+Interpolation linear in 1/g2 vs beta between the two tune points (convention: g2_TGF c=0.3, lattice Nhat_T; error by MC over both points, independent):
+L=6: tune betas 3.6,3.72: c=0.3 beta*(u=2.0) = 3.6576 +- 0.0064; d(1/g2)/dbeta=0.2726; quad fit over 4 nearest betas (tune+prod5): 3.6561; [c=0.4 beta(g2=2.0) 3.7740]
+L=8: tune betas 3.73,3.85: c=0.3 beta*(u=2.0) = 3.7849 +- 0.0054; d(1/g2)/dbeta=0.3007; quad fit over 4 nearest betas (tune+prod5): 3.7809; [c=0.4 beta(g2=2.0) 3.8820]
+L=12: tune betas 3.88,4.0: c=0.3 beta*(u=2.0) = 3.9294 +- 0.0069; d(1/g2)/dbeta=0.2508; quad fit over 4 nearest betas (tune+prod5): 3.9293; [c=0.4 beta(g2=2.0) 4.0539]

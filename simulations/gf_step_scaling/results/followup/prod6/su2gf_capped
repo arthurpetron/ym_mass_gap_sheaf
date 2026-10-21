@@ -1,0 +1,5 @@
+#!/bin/bash
+# usage: su2gf_capped CPU_SECONDS args...  -> per-job hard CPU-time cap (RLIMIT_CPU) then exec the real binary (checkpointed; rerun resumes)
+CAP="$1"; shift
+ulimit -t "$CAP"
+exec /Users/darthur/ym_numerics_runs/target/release/su2gf "$@"

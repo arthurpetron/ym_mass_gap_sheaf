@@ -1,0 +1,2 @@
+2026-10-20 12:00:14 pre-launch ncpu=16 mem=68719476736 { 46.72 39.25 29.03 } free=59%
+2026-10-20 13:43:05 PDT PRODUCTION pre-launch ncpu=16 mem=68719476736 loadavg={ 8.39 7.99 8.66 } System-wide memory free percentage: 68% running_su2gf=0 jobs=19 est=19.83CPU-h caps=24.97CPU-h maxp=3

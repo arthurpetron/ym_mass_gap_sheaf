@@ -1,0 +1,41 @@
+2026-10-20 12:00:15 queue start jobs=7 maxp=3
+2026-10-20 12:00:15 launched su2_L12_b30_wcprobe pid=81788
+2026-10-20 12:00:15 launched tune_L6 3.60_b_tw pid=81793
+2026-10-20 12:00:15 launched tune_L6 3.72_b_tw pid=81794
+2026-10-20 12:00:30 launched tune_L8 3.73_b_tw pid=81810
+2026-10-20 12:00:30 launched tune_L8 3.85_b_tw pid=81811
+2026-10-20 12:01:07 queue 81777 killed: malformed tune_ job lines (zsh no word-split); tune_ outputs removed; L12 probe 81788 kept running
+2026-10-20 12:01:18 queue start jobs=6 maxp=2
+2026-10-20 12:01:18 launched tune_L6_b3.60_tw pid=82035
+2026-10-20 12:01:18 launched tune_L6_b3.72_tw pid=82036
+2026-10-20 12:01:33 launched tune_L8_b3.73_tw pid=82042
+2026-10-20 12:01:33 launched tune_L8_b3.85_tw pid=82043
+2026-10-20 12:04:33 launched tune_L12_b3.88_tw pid=82280
+2026-10-20 12:05:03 launched tune_L12_b4.00_tw pid=82326
+2026-10-20 12:07:16 finished tune_L12_b3.88_tw rc=0
+2026-10-20 12:09:00 finished tune_L12_b4.00_tw rc=0
+2026-10-20 12:09:00 queue end
+2026-10-20 13:43:05 queue start jobs=19 maxp=3
+2026-10-20 13:43:05 launched su2_L24_b3.929_twd pid=87221
+2026-10-20 13:43:05 launched su2_L24_b3.929_twe pid=87222
+2026-10-20 13:43:05 launched su2_L24_b40_wca pid=87223
+2026-10-20 15:53:13 launched su2_L24_b40_wcb pid=93002
+2026-10-20 16:53:54 launched su2_L24_b40_wcc pid=95713
+2026-10-20 16:55:55 launched su2_L24_b20_wca pid=95791
+2026-10-20 18:01:56 launched su2_L24_b20_wcb pid=99046
+2026-10-20 18:02:21 launched su2_L24_b20_wcc pid=99066
+2026-10-20 19:03:03 launched su2_L16_b40_wca pid=2336
+2026-10-20 19:07:33 launched su2_L16_b3.785_twd pid=2502
+2026-10-20 19:07:58 launched su2_L16_b20_wca pid=2524
+2026-10-20 19:35:36 launched su2_L12_b40_wca pid=3880
+2026-10-20 19:48:32 launched su2_L12_b3.929_twd pid=4455
+2026-10-20 19:50:47 launched su2_L12_b3.658_twd pid=4572
+2026-10-20 19:57:43 launched su2_L12_b20_wca pid=4882
+2026-10-20 19:57:43 launched su2_L8_b40_wca pid=4883
+2026-10-20 19:59:58 launched su2_L8_b3.785_twd pid=4981
+2026-10-20 20:00:59 launched su2_L8_b20_wca pid=5036
+2026-10-20 20:02:09 launched su2_L6_b3.658_twd pid=5082
+2026-10-20 20:05:22 finished su2_L12_b20_wca rc=0
+2026-10-20 20:05:22 finished su2_L8_b20_wca rc=0
+2026-10-20 20:05:22 finished su2_L6_b3.658_twd rc=0
+2026-10-20 20:05:22 queue end
