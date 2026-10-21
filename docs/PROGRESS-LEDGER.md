@@ -4,6 +4,18 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Strong-coupling clustering, BF4 carrier + OPEN torus bridge (2026-10-21 PT)
+
+`pilot_even_correlator_decay`,
+`lean/YMGap/Continuum/BF4StrongCouplingClusteringBridge.lean`: at `w = 1/1024`,
+every width, vacuum-orthogonal `y` has `B(y, T^(2m) y) <= (timeRate^2)^m B(y,y)`,
+`timeRate = 1/4` (checked by `decide`), from `allNome_strongCoupling_vacuumSq`
+via `vacuumSq_iterate`/`even_correlator_decay`. The SU(2) torus chi1 link is the
+explicit OPEN hypothesis `TorusChiBridge` (`torus_chi_decay_of_bridge`); no
+BF4/torus identification exists. Even lags only. Labels: U(1)-true,
+fixed-coupling gap, NOT evidence for a non-abelian mass gap. Axioms
+{propext, Quot.sound}. Audit: `audits/AUDIT-SC-CLUSTERING-TORUS-BRIDGE-2026-10-21.md`.
+
 ## NO-GO: uniform contraction rate vs shifted H1 (2026-10-21 PT)
 
 `shiftedH1_uniformRate_noGo`,

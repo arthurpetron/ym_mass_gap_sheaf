@@ -1,5 +1,10 @@
 # Canonical one-page project status
 
+Strong-coupling clustering checked (2026-10-21 PT): `BF4StrongCouplingClusteringBridge.pilot_even_correlator_decay`
+gives `(1/4)^n` even-lag truncated-correlator decay on the BF4 carrier at w=1/1024,
+uniform in width. Torus chi1 transfer is the OPEN hypothesis `TorusChiBridge`.
+U(1)-true, fixed-coupling gap, NOT non-abelian mass-gap evidence. Axioms {propext, Quot.sound}.
+
 NO-GO checked (2026-10-21 PT): `BF4WilsonAllNomeShiftedH1UniformRateNoGo.shiftedH1_uniformRate_noGo`
 shows a scale-uniform certified rate `r_j <= r < 1` is incompatible with the
 shifted H1 `PathShiftedEpsBound` (+ nondegeneracy): `side_j(1-r)` exceeds `c0`.
