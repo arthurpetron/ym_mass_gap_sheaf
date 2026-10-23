@@ -4,6 +4,18 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## NO-GO: Wilson coefficients not dominated by the BF4 heat-kernel weight (2026-10-23 ET)
+
+`wilson_not_coeffDominated`,
+`lean/YMGap/Continuum/WilsonHeatCoeffDominationNoGo.lean`: at `betaS = 1/(2*10^12)`
+and `w = 1/1024`, `wCoeff (wilsonA betaS) K s <= wCoeff .. K 0 * coeffW w s` holds
+for `K = 2` (`pilot_K2_dominated`) but fails at `K = s = 3`
+(`c_3 = 1/(3.84*10^38)` vs `~2.8*10^-45`, `wilson_coeff_counterexample`) and at
+`K = s = 4`. Rules out candidate (c) (coefficient-domination) for
+`TorusChiBridge`. All `decide`; no axioms. Labels: U(1)-true; rules out
+coefficient-domination bridges; not gap evidence.
+Audit: `audits/AUDIT-NOGO-WILSON-HEAT-COEFF-DOMINATION-2026-10-23.md`.
+
 ## Strong-coupling clustering, BF4 carrier + OPEN torus bridge (2026-10-21 PT)
 
 `pilot_even_correlator_decay`,

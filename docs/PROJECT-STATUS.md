@@ -1,5 +1,10 @@
 # Canonical one-page project status
 
+Coefficient-domination no-go checked (2026-10-23 ET): `WilsonHeatCoeffDominationNoGo.wilson_not_coeffDominated`
+shows the betaS Wilson character coefficients are not dominated by `coeffW (1/1024)` uniformly in K
+(fails at K=s=3). Candidate (c) for `TorusChiBridge` is closed; the bridge stays OPEN.
+U(1)-true, not gap evidence. No axioms.
+
 Strong-coupling clustering checked (2026-10-21 PT): `BF4StrongCouplingClusteringBridge.pilot_even_correlator_decay`
 gives `(1/4)^n` even-lag truncated-correlator decay on the BF4 carrier at w=1/1024,
 uniform in width. Torus chi1 transfer is the OPEN hypothesis `TorusChiBridge`.
