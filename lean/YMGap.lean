@@ -8242,3 +8242,5 @@ import YMGap.Continuum.SU2QuaternionSymmetricPowerSignDescent
 -- Source matching only, not a heat/measure/remainder/gap estimate; registration
 -- here does not constitute a root build or repository-wide axiom audit.
 import YMGap.Continuum.BF4ExactSlabPlaquetteCayleyExpansion
+-- Same-action heat-kernel torus clustering bridge (SU2TruncRatio ↔ BF4StrongCouplingClusteringBridge, conditional on hcov; U(1)-true, fixed-coupling heat-kernel action)
+import YMGap.Continuum.SU2HeatKernelTorusClusteringBridge

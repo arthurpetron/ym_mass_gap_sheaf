@@ -4,6 +4,21 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Same-action heat-kernel torus clustering bridge (2026-10-25 ET)
+
+`ZHK_pos`, `covHK_decay`, `ehatHK_polymer_decay`, `HeatKernelTorusSemigroupBridge`,
+`ehatHK_semigroup_decay_of_bridge`, `pilot_ehatHK_semigroup_decay_of_bridge`,
+`pilot_ehatHK_two_rate_envelope`,
+`lean/YMGap/Continuum/SU2HeatKernelTorusClusteringBridge.lean`:
+connects `BF4StrongCouplingClusteringBridge` to `SU2TruncRatio`'s same-action heat-kernel
+torus (`ZObs w0 S_trunc` on `torusLinks (2M)` and `torusPlaquettes (2M)` with `coeffW`
+plaquette weights, avoiding `WilsonHeatCoeffDominationNoGo` on Taylor-Wilson `T_K`), proves
+unconditional polymer clustering `Rq (EhatHK m) <= Rq ((Ctr * lam) * (lam^2)^m)` (`2m+1 <= M`,
+`lam = 6/7`), isolates the explicit observable-to-semigroup hypothesis `hcov`, and proves
+conditional semigroup decay `(timeRate^2)^m` (`timeRate = 1/4` at `existingPilotNome`). Labels:
+U(1)-true, fixed-coupling heat-kernel action, conditional on `hcov`, NOT gap evidence. Axioms
+{propext, Quot.sound}. Audit: `audits/AUDIT-HEAT-KERNEL-TORUS-CLUSTERING-BRIDGE-2026-10-25.md`.
+
 ## OPEN H1 / Clay scale-dependent contraction conjecture interface (2026-10-25 ET)
 
 `ScaleDependentShiftedH1Conjecture`, `conjecture_iff_pathShiftedEpsBound`,

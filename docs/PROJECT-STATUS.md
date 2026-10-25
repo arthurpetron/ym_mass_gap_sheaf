@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Same-action heat-kernel torus clustering bridge checked (2026-10-25 ET):
+`SU2HeatKernelTorusClusteringBridge` connects `BF4StrongCouplingClusteringBridge` to
+`SU2TruncRatio`'s `coeffW` heat-kernel torus (`ZObs w0 S_trunc`), proves `ZHK_pos`,
+`covHK_decay`, and `ehatHK_polymer_decay` (`(Ctr * lam) * (lam^2)^m` for `2m+1 <= M`),
+isolates the explicit observable-to-semigroup hypothesis `HeatKernelTorusSemigroupBridge` (`hcov`),
+and proves `ehatHK_semigroup_decay_of_bridge` and `pilot_ehatHK_two_rate_envelope`.
+U(1)-true, fixed-coupling heat-kernel action, conditional on `hcov`, not gap evidence.
+Axioms {propext, Quot.sound}.
+
 Open H1 / Clay scale-dependent contraction interface checked (2026-10-25 ET):
 `BF4WilsonAllNomeScaleDependentContractionInterface.ScaleDependentShiftedH1Conjecture`
 packages `r_j R_j(side_j) <= R_j(side_j+1)` with `side_j(1-r_j) <= c0` (`j >= 1`), proves
