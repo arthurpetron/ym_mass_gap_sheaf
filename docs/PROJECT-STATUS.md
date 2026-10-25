@@ -1,5 +1,13 @@
 # Canonical one-page project status
 
+Open H1 / Clay scale-dependent contraction interface checked (2026-10-25 ET):
+`BF4WilsonAllNomeScaleDependentContractionInterface.ScaleDependentShiftedH1Conjecture`
+packages `r_j R_j(side_j) <= R_j(side_j+1)` with `side_j(1-r_j) <= c0` (`j >= 1`), proves
+equivalence with `PathShiftedEpsBound` (`1 <= c0`) and compatibility with
+`shiftedH1_forbids_uniformRate`, and closes `ShiftedAnchorPackage` on padded and AF-calibrated
+trajectories from this single open input. Conditional / open Clay-level input, not a proof.
+Axioms {propext, Quot.sound}.
+
 Coefficient-domination no-go checked (2026-10-23 ET): `WilsonHeatCoeffDominationNoGo.wilson_not_coeffDominated`
 shows the betaS Wilson character coefficients are not dominated by `coeffW (1/1024)` uniformly in K
 (fails at K=s=3). Candidate (c) for `TorusChiBridge` is closed; the bridge stays OPEN.

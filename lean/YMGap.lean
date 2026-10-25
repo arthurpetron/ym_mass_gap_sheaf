@@ -7612,6 +7612,8 @@ import YMGap.Continuum.BF4WilsonAllNomeH1FixedScale
 import YMGap.Continuum.BF4WilsonAllNomeShiftedH1Anchor
 -- NO-GO: uniform rate r_j <= r < 1 contradicts shifted H1 (side_j(1-r) > c0).
 import YMGap.Continuum.BF4WilsonAllNomeShiftedH1UniformRateNoGo
+-- OPEN Clay/H1 scale-dependent contraction conjecture interface closing ShiftedAnchorPackage.
+import YMGap.Continuum.BF4WilsonAllNomeScaleDependentContractionInterface
 -- Strong-coupling clustering (BF4, w=1/1024, timeRate=1/4, even lags); OPEN torus chi1
 -- bridge as explicit hypothesis. U(1)-true, fixed-coupling, NOT non-abelian gap evidence.
 import YMGap.Continuum.BF4StrongCouplingClusteringBridge

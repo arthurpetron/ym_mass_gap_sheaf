@@ -4,6 +4,20 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## OPEN H1 / Clay scale-dependent contraction conjecture interface (2026-10-25 ET)
+
+`ScaleDependentShiftedH1Conjecture`, `conjecture_iff_pathShiftedEpsBound`,
+`conjecture_closes_padded_shifted_anchor`, `afPadded_closed_by_conjecture`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeScaleDependentContractionInterface.lean`:
+packages the scale-dependent shifted response retention hypothesis
+(`r_j <= 1`, `r_j R_j(side_j) <= R_j(side_j+1)`, `side_j(1 - r_j) <= c0` for `j >= 1`,
+compatible with `shiftedH1_forbids_uniformRate`) as a single audited open conjecture
+structure, proves equivalence with `PathShiftedEpsBound tr c0` (`1 <= c0`), and proves
+that this single open input closes `ShiftedAnchorPackage` (including on
+`afPaddedZeroMomentumTrajectory` with `NomeScheduleAFCalibrated`). Labels: conditional /
+open Clay-level dimensional-transmutation input, NOT a proof of the conjecture. Axioms
+{propext, Quot.sound}. Audit: `audits/AUDIT-OPEN-H1-SCALE-DEPENDENT-INTERFACE-2026-10-25.md`.
+
 ## NO-GO: Wilson coefficients not dominated by the BF4 heat-kernel weight (2026-10-23 ET)
 
 `wilson_not_coeffDominated`,
