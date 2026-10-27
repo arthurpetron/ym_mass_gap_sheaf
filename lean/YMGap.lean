@@ -8244,3 +8244,5 @@ import YMGap.Continuum.SU2QuaternionSymmetricPowerSignDescent
 import YMGap.Continuum.BF4ExactSlabPlaquetteCayleyExpansion
 -- Same-action heat-kernel torus clustering bridge (SU2TruncRatio ↔ BF4StrongCouplingClusteringBridge, conditional on hcov; U(1)-true, fixed-coupling heat-kernel action)
 import YMGap.Continuum.SU2HeatKernelTorusClusteringBridge
+-- Variational Schur-complement / shorted-operator gluing defect D_tau >= 0 and multiplicative retention (V4/V2 RG infrastructure; 4D non-abelian Gram-loss bound remains OPEN Clay input)
+import YMGap.RG.SchurComplementShortedDefect

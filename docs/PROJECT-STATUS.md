@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Variational Schur-complement / shorted-operator gluing defect checked (2026-10-27 PT):
+`SchurComplementShortedDefect` formalizes Hayakawa (`2610.23695`) shorted-operator coarse-graining
+(`SchurBlockEnergy`, `VariationalLocalizationStep.gluingDefect_nonneg` `D_tau >= 0`, and
+`multiplicative_retention_of_nonneg_defect` avoiding additive `sum 2^j eff_j` blowup), connects to
+`ScaleDependentContractionCertificate` / `GroupedContractionDoor`, and proves `PathShortedGramLossBound`
+(`side_j * thetaBar_j <= c0` with `D_j >= 0`) inhabits `ScaleDependentShiftedH1Conjecture`.
+Linear-algebraic / variational RG infrastructure (`V4`/`V2`); 4D non-abelian `thetaBar_j <= c0/side_j`
+remains the open Clay input. Axioms {propext, Quot.sound}.
+
 Same-action heat-kernel torus clustering bridge checked (2026-10-25 ET):
 `SU2HeatKernelTorusClusteringBridge` connects `BF4StrongCouplingClusteringBridge` to
 `SU2TruncRatio`'s `coeffW` heat-kernel torus (`ZObs w0 S_trunc`), proves `ZHK_pos`,

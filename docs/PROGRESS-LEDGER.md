@@ -4,6 +4,21 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Variational Schur-complement / shorted-operator gluing defect (`D_τ ≥ 0`) and multiplicative RG retention (2026-10-27 PT)
+
+`SchurBlockEnergy`, `VariationalLocalizationStep`, `gluingDefect_nonneg`,
+`multiplicative_retention_of_nonneg_defect`, `ShortedGramLossContractionCertificate`,
+`PathShortedGramLossBound`, `shortedGramLoss_inhabits_conjecture`,
+`afPadded_closed_by_shortedGramLoss`, `lean/YMGap/RG/SchurComplementShortedDefect.lean`:
+formalizes Hayakawa (`2610.23695`, Lemma 2.4, Lemma 3.7, Prop. 3.10, Thm. 5.2) shorted-operator
+coarse-graining where relaxing common-parent compatibility to independent child minimizers yields a
+nonnegative gluing defect `D_τ ≥ 0`, so dropping `D_τ ≥ 0` in lower bounds avoids additive
+`∑ 2^j eff_j` error blowup and leaves multiplicative retention `∏_k (1 - θ̄_k)`. Exports
+`ScaleDependentContractionCertificate` / `GroupedContractionDoor` and proves `side_j · θ̄_j ≤ c0`
+with `D_j ≥ 0` inhabits `ScaleDependentShiftedH1Conjecture`. Labels: linear-algebraic / variational
+RG descent infrastructure (`V4`/`V2`); 4D non-abelian `θ̄_j ≤ c0/side_j` remains the open Clay input.
+Axioms {propext, Quot.sound}. Audit: `audits/AUDIT-SCHUR-COMPLEMENT-SHORTED-DEFECT-2026-10-27.md`.
+
 ## Same-action heat-kernel torus clustering bridge (2026-10-25 ET)
 
 `ZHK_pos`, `covHK_decay`, `ehatHK_polymer_decay`, `HeatKernelTorusSemigroupBridge`,
