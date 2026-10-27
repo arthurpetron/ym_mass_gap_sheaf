@@ -8246,3 +8246,5 @@ import YMGap.Continuum.BF4ExactSlabPlaquetteCayleyExpansion
 import YMGap.Continuum.SU2HeatKernelTorusClusteringBridge
 -- Variational Schur-complement / shorted-operator gluing defect D_tau >= 0 and multiplicative retention (V4/V2 RG infrastructure; 4D non-abelian Gram-loss bound remains OPEN Clay input)
 import YMGap.RG.SchurComplementShortedDefect
+-- Two-cut torus reflection and semigroup handle dominance reducing HeatKernelTorusSemigroupBridge (hcov) to TorusSliceTraceIdentity (U(1)-true, fixed-coupling heat-kernel action)
+import YMGap.Continuum.SU2HeatKernelTorusTransferBridge

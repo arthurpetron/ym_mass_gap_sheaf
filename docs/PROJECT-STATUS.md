@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Two-cut torus reflection and semigroup handle dominance bridge checked (2026-10-27 PT):
+`SU2HeatKernelTorusTransferBridge` factors `HeatKernelTorusSemigroupBridge` (`hcov`) for `2m+1 <= M`
+into (i) proved algebraic semigroup handle dominance `B(y, T^(2M-2m) y) <= B(y, T^(2m) y)` (and
+strict vacuum-complement decay `(r^2)^(M-2m) B(y, T^(2m) y)`) and (ii) the minimal two-cut slice
+disintegration identity `TorusSliceTraceIdentity` (`2610.29019` App. F.5), proving
+`torusSliceTraceIdentity_implies_hcov` and `(timeRate^2)^m` (`(1/16)^m`) decay at
+`existingPilotNome = 1/1024`. U(1)-true, fixed-coupling heat-kernel action, not gap evidence.
+Axioms {propext, Quot.sound}.
+
 Variational Schur-complement / shorted-operator gluing defect checked (2026-10-27 PT):
 `SchurComplementShortedDefect` formalizes Hayakawa (`2610.23695`) shorted-operator coarse-graining
 (`SchurBlockEnergy`, `VariationalLocalizationStep.gluingDefect_nonneg` `D_tau >= 0`, and

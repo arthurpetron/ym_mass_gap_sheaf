@@ -4,6 +4,23 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Two-cut torus reflection and semigroup handle dominance reducing `HeatKernelTorusSemigroupBridge` (`hcov`) (2026-10-27 PT)
+
+`backward_handle_le_forward_handle`, `backward_handle_strict_decay`,
+`two_handle_pairing_le_forward`, `TorusSliceTraceIdentity`, `TorusSliceExactTwoHandlePin`,
+`torusSliceTraceIdentity_implies_hcov`, `ehatHK_decay_of_torusSliceTraceIdentity`,
+`pilot_ehatHK_semigroup_decay_of_torusSliceTraceIdentity`,
+`pilot_ehatHK_two_rate_of_torusSliceTraceIdentity`,
+`lean/YMGap/Continuum/SU2HeatKernelTorusTransferBridge.lean`:
+factors `HeatKernelTorusSemigroupBridge` (`hcov`) on the periodic `2M`-torus (`2m + 1 ≤ M`, backward
+handle `2M - 2m ≥ 2m + 2`) into (i) the proved algebraic semigroup handle-dominance bound
+`B(y, T^{2M-2m} y) ≤ B(y, T^{2m} y)` (and vacuum-complement decay `(r²)^{M-2m} B(y, T^{2m} y)`) on
+`Completion hw0 hw1 width`, and (ii) the minimal two-cut slice-disintegration identity
+`TorusSliceTraceIdentity` (`2610.29019` App. F.5), proving `TorusSliceTraceIdentity → hcov` with
+`C = cfwd + cbwd` and `(timeRate²)^m` (`(1/16)^m`) decay at `existingPilotNome = 1/1024`. Labels:
+U(1)-true, fixed-coupling heat-kernel action, NOT gap evidence. Axioms {propext, Quot.sound}. Audit:
+`audits/AUDIT-HEAT-KERNEL-TORUS-TRANSFER-BRIDGE-2026-10-27.md`.
+
 ## Variational Schur-complement / shorted-operator gluing defect (`D_τ ≥ 0`) and multiplicative RG retention (2026-10-27 PT)
 
 `SchurBlockEnergy`, `VariationalLocalizationStep`, `gluingDefect_nonneg`,
