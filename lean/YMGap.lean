@@ -8248,3 +8248,4 @@ import YMGap.Continuum.SU2HeatKernelTorusClusteringBridge
 import YMGap.RG.SchurComplementShortedDefect
 -- Two-cut torus reflection and semigroup handle dominance reducing HeatKernelTorusSemigroupBridge (hcov) to TorusSliceTraceIdentity (U(1)-true, fixed-coupling heat-kernel action)
 import YMGap.Continuum.SU2HeatKernelTorusTransferBridge
+import YMGap.Continuum.ScaleParameterizedTorusDescentSpine
