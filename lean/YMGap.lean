@@ -8249,3 +8249,5 @@ import YMGap.RG.SchurComplementShortedDefect
 -- Two-cut torus reflection and semigroup handle dominance reducing HeatKernelTorusSemigroupBridge (hcov) to TorusSliceTraceIdentity (U(1)-true, fixed-coupling heat-kernel action)
 import YMGap.Continuum.SU2HeatKernelTorusTransferBridge
 import YMGap.Continuum.ScaleParameterizedTorusDescentSpine
+-- Relative-dissipation scale chain: Schur decomposition -> per-scale contraction, AF-quadratic prefix budget (conditional reduction; hupper/hschur/hafdelta OPEN; not gap evidence)
+import YMGap.RG.RelativeDissipationScaleChain
