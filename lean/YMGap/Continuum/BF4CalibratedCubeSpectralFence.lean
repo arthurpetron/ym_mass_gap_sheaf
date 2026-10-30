@@ -355,7 +355,7 @@ theorem physicallyRecentered_cube_defect_le_rowMass
     exact Q'.abs_eqv_congr
       (Q'.add_eqv_congr_right _ _ _ holdEntry)
   unfold physicalCenteredEndpointRowMass
-    finiteJointDifferenceAbsRowMass endpoint
+    finiteJointDifferenceAbsRowMass
   exact Q'.le_trans' _ _ _
     (Q'.ge_of_eqv hentry) hmember
 
