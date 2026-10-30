@@ -8251,3 +8251,5 @@ import YMGap.Continuum.SU2HeatKernelTorusTransferBridge
 import YMGap.Continuum.ScaleParameterizedTorusDescentSpine
 -- Relative-dissipation scale chain: Schur decomposition -> per-scale contraction, AF-quadratic prefix budget (conditional reduction; hupper/hschur/hafdelta OPEN; not gap evidence)
 import YMGap.RG.RelativeDissipationScaleChain
+-- Two-block Schur-margin gap assembly (Hayakawa 2609.39802 Lemma 9 / Prop 8); infrastructure, holds for every finite group incl. abelian; not gap evidence
+import YMGap.RG.TwoBlockSchurMarginGap
