@@ -1,14 +1,12 @@
 /-
 # Scale-parameterized 4D heat-kernel torus family, matched-coupling transfer bridge, and inter-scale Schur / signed-remainder descent spine
 
-**Labels: U(1)-true for the arbitrary-nome 4D torus family and two-handle semigroup dominance;
-the inter-scale Schur pullback + signed-remainder descent spine reduces `ScaleDependentShiftedH1Conjecture`
-to a finite IR strong-coupling anchor `[1, j0]` (unconditionally certified at `w ≤ 1/1024` / `w0`)
-plus UV inter-scale Schur retention across doubling steps `2M_j → M_j` (`j+1 → j`). The 4D
-non-abelian UV Gram-loss bound `side_j · θ̄_j ≤ c0` remains the explicit OPEN Clay input. NOT a
-proof of the 4D Yang-Mills mass gap.**
-Companion to `SU2HeatKernelTorusClusteringBridge` (`r45`), `SchurComplementShortedDefect` (`r46`),
-`SU2HeatKernelTorusTransferBridge` (`r47`), and Milestone 447. ADDITIVE.
+**Labels (corrected per YM Bot audit, 2026-10-29): U(1)-true bookkeeping; NOT gap evidence.**
+`InterScaleAnchoredDescentPackage` is `PathShortedGramLossBound` split at `j0` (equivalent in
+content to the r44 interface via `θ = 1 - r`, `D = 0`); `InterScaleSchurRemainderStep` is NOT
+connected to `tr.response`; `ir_anchor` is ASSUMED (the pilot-nome `1/4` rate at `w = 1/1024` is
+an upper contraction rate, not a lower retention bound on `w_j`); `ZHKAt_pos` needs `hz`.
+Companion to `r45`, `r46`, `r47`, and Milestone 447. ADDITIVE.
 -/
 
 import YMGap.RG.SchurComplementShortedDefect
@@ -315,15 +313,15 @@ theorem interScaleAnchoredDescent_implies_shortedGramLoss (tr : DyadicSmoothedTr
   intro j hj; by_cases hle : j ≤ j0
   · exact H.ir_anchor j hj hle
   · exact (H.uv_interScale_step j (Nat.gt_of_not_le hle)).2
-/-- **Inter-Scale Descent Theorem: UV-to-IR Schur descent discharges
-`ScaleDependentShiftedH1Conjecture` (PROVED).** -/
+/-- Repackaging: the ASSUMED split package yields `ScaleDependentShiftedH1Conjecture`
+(name kept for stability; this is NOT an unconditional discharge). -/
 theorem interScale_descent_discharges_conjecture (tr : DyadicSmoothedTrajectory)
     (j0 : Nat) (thetaBar : Nat → Q') (defect : Nat → RC) (c0 : Q') (hc0 : (1 : Q') ≤ c0)
     (H : InterScaleAnchoredDescentPackage tr j0 thetaBar defect c0) :
     ScaleDependentShiftedH1Conjecture tr c0 :=
   shortedGramLoss_inhabits_conjecture tr thetaBar defect c0 hc0
     (interScaleAnchoredDescent_implies_shortedGramLoss tr j0 thetaBar defect c0 H)
-/-- **Inter-Scale Descent Theorem closes the shifted H1 anchor (`ShiftedAnchorPackage`, PROVED).** -/
+/-- Repackaging into `ShiftedAnchorPackage` from the ASSUMED split package (conditional). -/
 theorem interScale_descent_closes_shifted_anchor
     (tr : DyadicSmoothedTrajectory) (j0 : Nat) (thetaBar : Nat → Q') (defect : Nat → RC)
     (c0 delta : Q') (a : Nat) (ha : 1 ≤ a) (hc0 : (1 : Q') ≤ c0)
