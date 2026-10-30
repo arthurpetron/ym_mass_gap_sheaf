@@ -8255,3 +8255,5 @@ import YMGap.RG.RelativeDissipationScaleChain
 import YMGap.RG.TwoBlockSchurMarginGap
 -- Fekete-style seed certificate: submultiplicative Lambda + Lambda_N <= rho^N => Lambda(kN) <= rho^(kN); certified Lambda_N OPEN; not gap evidence
 import YMGap.RG.FeketeSeedCertificate
+-- Backward-arc power monotonicity for the two-arc torus covariance; U(1)-true; does not discharge hcov (identification OPEN)
+import YMGap.Continuum.TorusBackwardArcMonotone
