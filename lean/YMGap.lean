@@ -8257,3 +8257,5 @@ import YMGap.RG.TwoBlockSchurMarginGap
 import YMGap.RG.FeketeSeedCertificate
 -- Backward-arc power monotonicity for the two-arc torus covariance; U(1)-true; does not discharge hcov (identification OPEN)
 import YMGap.Continuum.TorusBackwardArcMonotone
+-- Finite check: fixed two-block margin cannot meet shifted H1 side_j*theta_j <= c0 (no-go; margin must shrink like 1/(side_j a_j)); not gap evidence
+import YMGap.RG.TwoBlockMarginShiftedH1Check
