@@ -272,6 +272,268 @@ theorem lowerSix_dirichletPayment_k10 :
 theorem growingResidualLowerSix_k10 : GrowingResidualLowerSix 10 :=
   growingResidualLowerSix_of_dirichletPayment lowerSix_dirichletPayment_k10
 
+/-! Per-scale exact payments, one small kernel check each (proof split). -/
+
+theorem lowerSix_dirichletPayment_at_11 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 11) (growingAnchor 11 + 2) ≤
+      lowerSixDirichletSum 11 + Q'.ofNat 4 * integerThetaTerm (harmW 11) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_12 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 12) (growingAnchor 12 + 2) ≤
+      lowerSixDirichletSum 12 + Q'.ofNat 4 * integerThetaTerm (harmW 12) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_13 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 13) (growingAnchor 13 + 2) ≤
+      lowerSixDirichletSum 13 + Q'.ofNat 4 * integerThetaTerm (harmW 13) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_14 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 14) (growingAnchor 14 + 2) ≤
+      lowerSixDirichletSum 14 + Q'.ofNat 4 * integerThetaTerm (harmW 14) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_15 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 15) (growingAnchor 15 + 2) ≤
+      lowerSixDirichletSum 15 + Q'.ofNat 4 * integerThetaTerm (harmW 15) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_16 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 16) (growingAnchor 16 + 2) ≤
+      lowerSixDirichletSum 16 + Q'.ofNat 4 * integerThetaTerm (harmW 16) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_17 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 17) (growingAnchor 17 + 2) ≤
+      lowerSixDirichletSum 17 + Q'.ofNat 4 * integerThetaTerm (harmW 17) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_18 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 18) (growingAnchor 18 + 2) ≤
+      lowerSixDirichletSum 18 + Q'.ofNat 4 * integerThetaTerm (harmW 18) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_19 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 19) (growingAnchor 19 + 2) ≤
+      lowerSixDirichletSum 19 + Q'.ofNat 4 * integerThetaTerm (harmW 19) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_20 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 20) (growingAnchor 20 + 2) ≤
+      lowerSixDirichletSum 20 + Q'.ofNat 4 * integerThetaTerm (harmW 20) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_21 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 21) (growingAnchor 21 + 2) ≤
+      lowerSixDirichletSum 21 + Q'.ofNat 4 * integerThetaTerm (harmW 21) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_22 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 22) (growingAnchor 22 + 2) ≤
+      lowerSixDirichletSum 22 + Q'.ofNat 4 * integerThetaTerm (harmW 22) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_23 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 23) (growingAnchor 23 + 2) ≤
+      lowerSixDirichletSum 23 + Q'.ofNat 4 * integerThetaTerm (harmW 23) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_24 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 24) (growingAnchor 24 + 2) ≤
+      lowerSixDirichletSum 24 + Q'.ofNat 4 * integerThetaTerm (harmW 24) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_25 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 25) (growingAnchor 25 + 2) ≤
+      lowerSixDirichletSum 25 + Q'.ofNat 4 * integerThetaTerm (harmW 25) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_26 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 26) (growingAnchor 26 + 2) ≤
+      lowerSixDirichletSum 26 + Q'.ofNat 4 * integerThetaTerm (harmW 26) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_27 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 27) (growingAnchor 27 + 2) ≤
+      lowerSixDirichletSum 27 + Q'.ofNat 4 * integerThetaTerm (harmW 27) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_28 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 28) (growingAnchor 28 + 2) ≤
+      lowerSixDirichletSum 28 + Q'.ofNat 4 * integerThetaTerm (harmW 28) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_29 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 29) (growingAnchor 29 + 2) ≤
+      lowerSixDirichletSum 29 + Q'.ofNat 4 * integerThetaTerm (harmW 29) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_30 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 30) (growingAnchor 30 + 2) ≤
+      lowerSixDirichletSum 30 + Q'.ofNat 4 * integerThetaTerm (harmW 30) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_31 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 31) (growingAnchor 31 + 2) ≤
+      lowerSixDirichletSum 31 + Q'.ofNat 4 * integerThetaTerm (harmW 31) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_32 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 32) (growingAnchor 32 + 2) ≤
+      lowerSixDirichletSum 32 + Q'.ofNat 4 * integerThetaTerm (harmW 32) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_33 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 33) (growingAnchor 33 + 2) ≤
+      lowerSixDirichletSum 33 + Q'.ofNat 4 * integerThetaTerm (harmW 33) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_34 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 34) (growingAnchor 34 + 2) ≤
+      lowerSixDirichletSum 34 + Q'.ofNat 4 * integerThetaTerm (harmW 34) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_35 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 35) (growingAnchor 35 + 2) ≤
+      lowerSixDirichletSum 35 + Q'.ofNat 4 * integerThetaTerm (harmW 35) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_36 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 36) (growingAnchor 36 + 2) ≤
+      lowerSixDirichletSum 36 + Q'.ofNat 4 * integerThetaTerm (harmW 36) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_37 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 37) (growingAnchor 37 + 2) ≤
+      lowerSixDirichletSum 37 + Q'.ofNat 4 * integerThetaTerm (harmW 37) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_39 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 39) (growingAnchor 39 + 2) ≤
+      lowerSixDirichletSum 39 + Q'.ofNat 4 * integerThetaTerm (harmW 39) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_40 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 40) (growingAnchor 40 + 2) ≤
+      lowerSixDirichletSum 40 + Q'.ofNat 4 * integerThetaTerm (harmW 40) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_41 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 41) (growingAnchor 41 + 2) ≤
+      lowerSixDirichletSum 41 + Q'.ofNat 4 * integerThetaTerm (harmW 41) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_42 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 42) (growingAnchor 42 + 2) ≤
+      lowerSixDirichletSum 42 + Q'.ofNat 4 * integerThetaTerm (harmW 42) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_43 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 43) (growingAnchor 43 + 2) ≤
+      lowerSixDirichletSum 43 + Q'.ofNat 4 * integerThetaTerm (harmW 43) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_44 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 44) (growingAnchor 44 + 2) ≤
+      lowerSixDirichletSum 44 + Q'.ofNat 4 * integerThetaTerm (harmW 44) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_45 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 45) (growingAnchor 45 + 2) ≤
+      lowerSixDirichletSum 45 + Q'.ofNat 4 * integerThetaTerm (harmW 45) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_46 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 46) (growingAnchor 46 + 2) ≤
+      lowerSixDirichletSum 46 + Q'.ofNat 4 * integerThetaTerm (harmW 46) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_47 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 47) (growingAnchor 47 + 2) ≤
+      lowerSixDirichletSum 47 + Q'.ofNat 4 * integerThetaTerm (harmW 47) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+theorem lowerSix_dirichletPayment_at_38 :
+    Q'.ofNat 4 * integerThetaTerm (harmW 38) (growingAnchor 38 + 2) ≤
+      lowerSixDirichletSum 38 + Q'.ofNat 4 * integerThetaTerm (harmW 38) 1 := by
+  unfold lowerSixDirichletSum lowerSixDirichletIncrement
+    lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
+    integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow
+  decide
+
 /-- Exact derived prefix.  This is not the all-scale argument; it moves the
 symbolic Dirichlet/Abel residual to the first scale where the existing
 square-root-window infrastructure is available. -/
@@ -281,21 +543,63 @@ theorem lowerSix_dirichletPayment_below_thirty_eight {k : Nat}
         integerThetaTerm (harmW k) (growingAnchor k + 2) ≤
       lowerSixDirichletSum k +
         Q'.ofNat 4 * integerThetaTerm (harmW k) 1 := by
-  have hcases :
-      k = 10 ∨ k = 11 ∨ k = 12 ∨ k = 13 ∨ k = 14 ∨ k = 15 ∨
-      k = 16 ∨ k = 17 ∨ k = 18 ∨ k = 19 ∨ k = 20 ∨ k = 21 ∨
-      k = 22 ∨ k = 23 ∨ k = 24 ∨ k = 25 ∨ k = 26 ∨ k = 27 ∨
-      k = 28 ∨ k = 29 ∨ k = 30 ∨ k = 31 ∨ k = 32 ∨ k = 33 ∨
-      k = 34 ∨ k = 35 ∨ k = 36 ∨ k = 37 := by
-    omega
-  rcases hcases with
-      rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl |
-      rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl |
-      rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl <;>
-    unfold lowerSixDirichletSum lowerSixDirichletIncrement
-      lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
-      integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow <;>
-    decide
+  rcases Nat.eq_or_lt_of_le hk0 with rfl | h
+  · exact lowerSix_dirichletPayment_k10
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_11
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_12
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_13
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_14
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_15
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_16
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_17
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_18
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_19
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_20
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_21
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_22
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_23
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_24
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_25
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_26
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_27
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_28
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_29
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_30
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_31
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_32
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_33
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_34
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_35
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_36
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_37
+  exact absurd (Nat.lt_of_le_of_lt h hk1) (by decide)
 
 theorem growingResidualLowerSix_below_thirty_eight {k : Nat}
     (hk0 : 10 ≤ k) (hk1 : k < 38) : GrowingResidualLowerSix k :=
@@ -309,15 +613,27 @@ theorem lowerSix_dirichletPayment_firstBand {k : Nat}
         integerThetaTerm (harmW k) (growingAnchor k + 2) ≤
       lowerSixDirichletSum k +
         Q'.ofNat 4 * integerThetaTerm (harmW k) 1 := by
-  have hcases : k = 38 ∨ k = 39 ∨ k = 40 ∨ k = 41 ∨ k = 42 ∨
-      k = 43 ∨ k = 44 ∨ k = 45 ∨ k = 46 ∨ k = 47 := by
-    omega
-  rcases hcases with
-      rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl <;>
-    unfold lowerSixDirichletSum lowerSixDirichletIncrement
-      lowerSixDirichletProfile thetaDirichletCell thetaRootTerm
-      integerThetaTerm growingAnchor harmW harmU oneSub unit finSum qpow <;>
-    decide
+  rcases Nat.eq_or_lt_of_le hk0 with rfl | h
+  · exact lowerSix_dirichletPayment_at_38
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_39
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_40
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_41
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_42
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_43
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_44
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_45
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_46
+  rcases Nat.eq_or_lt_of_le h with rfl | h
+  · exact lowerSix_dirichletPayment_at_47
+  exact absurd (Nat.le_trans h hk1) (by decide)
 
 theorem growingResidualLowerSix_firstBand {k : Nat}
     (hk0 : 38 ≤ k) (hk1 : k ≤ 47) : GrowingResidualLowerSix k :=
@@ -330,7 +646,8 @@ theorem growingResidualLowerSix_below_forty_eight {k : Nat}
     (hk0 : 10 ≤ k) (hk1 : k < 48) : GrowingResidualLowerSix k := by
   by_cases hk38 : k < 38
   · exact growingResidualLowerSix_below_thirty_eight hk0 hk38
-  · exact growingResidualLowerSix_firstBand (by omega) (by omega)
+  · exact growingResidualLowerSix_firstBand (Nat.le_of_not_lt hk38)
+      (Nat.le_of_lt_succ hk1)
 
 #print axioms lowerSixDirichletSum_eqv
 #print axioms growingLowerSixGap_eqv_dirichlet
