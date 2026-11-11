@@ -8259,3 +8259,5 @@ import YMGap.RG.FeketeSeedCertificate
 import YMGap.Continuum.TorusBackwardArcMonotone
 -- Finite check: fixed two-block margin cannot meet shifted H1 side_j*theta_j <= c0 (no-go; margin must shrink like 1/(side_j a_j)); not gap evidence
 import YMGap.RG.TwoBlockMarginShiftedH1Check
+-- Polynomial-prefactor clustering => coupled-mode bound, family/cover form, two negative controls; infrastructure, not gap evidence; U(1)-true
+import YMGap.Continuum.ClusteringImpliesGapPoly
