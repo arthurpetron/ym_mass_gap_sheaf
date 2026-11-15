@@ -1,6 +1,6 @@
 # AUDIT — SeededAfNomeSchedule (2026-11-15)
 
-File: `lean/YMGap/RG/SeededAfNomeSchedule.lean` (155 lines). Label: **PROVED construction and PROVED seed, plus OPEN crossover inputs. NOT gap evidence. No chart closure and no mass-gap claim.**
+File: `lean/YMGap/RG/SeededAfNomeSchedule.lean` (164 lines). Label: **PROVED construction and PROVED seed, plus OPEN crossover inputs. NOT gap evidence. No chart closure and no mass-gap claim.**
 
 U(1) note: the seed is abelian-valid strong-coupling work, so it is not non-abelian evidence. Every theorem docstring carries this note.
 
