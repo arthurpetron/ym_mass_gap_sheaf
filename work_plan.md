@@ -94045,3 +94045,19 @@ Rational-certificate recipe (technique-only; arXiv 2610.12700, Q. Gao, Laughlin 
    - `lean_axiom_audit.py` checks axioms. The companion `audits/lean_hypothesis_map.py` would list, for each capstone theorem, the explicit hypotheses it takes: binder names ending in `_OPEN`, plus `Prop`-valued structure or def arguments such as `UniformSeedGap`, `SchurDecomposition`, `ScaleDependentShiftedH1Conjecture` and `HeatKernelTorusSemigroupBridge`.
    - Each hypothesis is tagged PROVED-SATISFIABLE (cite the witness theorem), KNOWN-VACUOUS (cite the no-go) or OPEN, and U(1)-satisfies: yes / expected / no / unknown. The source of truth for the tags is the audit `audits/AUDIT-HYPOTHESIS-SATISFIABILITY-2026-11-15.md`.
    - Method: parse `#check`-style signatures from a temp Lean file (deleted afterwards) or from the source text. Output Markdown and JSON next to `AXIOM_AUDIT.md`. This is the AWM App. C.7 "statement audit" step: it flags capstones whose premises are unsatisfiable, which the kernel cannot detect.
+
+## V3 seed no-go and `UniformSeedGap` (OPEN along AF schedules) (2026-11-15)
+
+**Status: OPEN** along AF schedules; PROVED at strong coupling (pilot nome `w = 1/1024`) only.
+
+- No-go (`lean/YMGap/RG/MixRateSeedWidthNoGo.lean`): the only proved r49 seed, `mixRate = 1 − headFloor^F/prefixCap^F` with `F ≥ width`, gives `1 − seed < ε` beyond `seedWidth ε`. The r49 floor `(1−seed)(seed − C·afA²/(j0+3))` is then `< ε`, so it is vacuous in large volume (`scaleChain_mixRate_floor_lt`, `no_width_uniform_mixRate_floor`). This builds on the existing `BF4ExactSlabFixedSpatialRateWidthObstruction`.
+- Replacement input (`lean/YMGap/RG/UniformSeedGap.lean`): `UniformSeedGap hw0 hw1 budget := ∃ s, budget < s < 1 ∧ ∀ width, WilsonVacuumSqContraction hw0 hw1 width s`.
+  - It is exactly the width-uniform r49 seed slot (`uniformSeedGap_iff_chainSeedSlot`).
+  - With it, one width-independent `s` gives a strictly positive floor for every width function (`scaleChain_afBudget_floor_of_uniformSeedGap`). This is still conditional on `hupper_OPEN`, `hschur_OPEN` and `hafδ_OPEN`.
+  - mixRate cannot witness it (`mixRate_cannot_witness_uniformSeed`).
+- Satisfiability:
+  - PROVED at `w = 1/1024` for `budget < timeRate` (`uniformSeedGap_existingNome`, from `existingNome_allNome_strongCoupling`), including the r49 example budget (`uniformSeedGap_existingNome_afBudget`). Any nome equal to `1/1024` inherits it (`uniformSeedGap_of_eq_pilot`).
+  - OPEN at the weak-coupling nomes `w_j → 1`.
+  - U(1) is **expected** to satisfy the analogue at strong coupling (abelian cluster expansion); this is not formalized.
+- Scope correction: this is the r49 seed input, NOT r44's input. r44's `ScaleDependentShiftedH1Conjecture` needs retention plus an upper bound `side_j(1−r_j) ≤ c0`. The r49 chain gives contraction plus a lower margin, which is the opposite direction.
+- Audits: `audits/AUDIT-MIXRATE-SEED-WIDTH-NOGO-2026-11-15.md`, `audits/AUDIT-UNIFORM-SEED-GAP-2026-11-15.md`.

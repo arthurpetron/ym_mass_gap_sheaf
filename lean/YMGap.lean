@@ -8265,3 +8265,5 @@ import YMGap.Continuum.ClusteringImpliesGapPoly
 import YMGap.Continuum.LogBounds
 -- V3 no-go: proved mixRate seed is not width-uniform; r49 floor vacuous in large volume (builds on BF4ExactSlabFixedSpatialRateWidthObstruction); not gap evidence
 import YMGap.RG.MixRateSeedWidthNoGo
+-- UniformSeedGap: width-uniform r49 seed slot as OPEN hypothesis; proved at pilot nome 1/1024 only; no r44 claim; not gap evidence
+import YMGap.RG.UniformSeedGap
