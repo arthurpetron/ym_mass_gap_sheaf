@@ -8267,3 +8267,5 @@ import YMGap.Continuum.LogBounds
 import YMGap.RG.MixRateSeedWidthNoGo
 -- UniformSeedGap: width-uniform r49 seed slot as OPEN hypothesis; proved at pilot nome 1/1024 only; no r44 claim; not gap evidence
 import YMGap.RG.UniformSeedGap
+-- PilotScheduleGap: pilot nome 1/1024 is never a nome of dyadic/AF/precision schedules; seed interpolation recorded as OPEN; not gap evidence
+import YMGap.RG.PilotScheduleGap

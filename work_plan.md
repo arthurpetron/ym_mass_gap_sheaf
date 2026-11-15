@@ -94061,3 +94061,12 @@ Rational-certificate recipe (technique-only; arXiv 2610.12700, Q. Gao, Laughlin 
   - U(1) is **expected** to satisfy the analogue at strong coupling (abelian cluster expansion); this is not formalized.
 - Scope correction: this is the r49 seed input, NOT r44's input. r44's `ScaleDependentShiftedH1Conjecture` needs retention plus an upper bound `side_j(1−r_j) ≤ c0`. The r49 chain gives contraction plus a lower margin, which is the opposite direction.
 - Audits: `audits/AUDIT-MIXRATE-SEED-WIDTH-NOGO-2026-11-15.md`, `audits/AUDIT-UNIFORM-SEED-GAP-2026-11-15.md`.
+
+## Pilot nome → schedule seed interpolation (OPEN) (2026-11-15)
+
+**Status: OPEN.** `uniformSeedGap_of_eq_pilot` never fires on an existing schedule. This is PROVED in `lean/YMGap/RG/PilotScheduleGap.lean`.
+- `dyadicNomeSchedule`, `afNomeSchedule` and `precisionNomeSchedule` all start strictly above `1/1024`, at `w_0 ≥ 1/2`. Every `NomeSchedule` is nondecreasing, so `w_j ≠ 1/1024` for all `j`, and shifting `j0` cannot help.
+- OPEN input: `PilotToScheduleSeedInterpolation ns j0 budget`, i.e. seed transfer from `w = 1/1024` to `w_{j0} ≥ 1/2`. For `budget < timeRate` it is equivalent to `UniformSeedGap` at `w_{j0}` (`interpolation_iff`).
+- r49 then also needs: the budget condition `C·afA²/(j0+2) < timeRate` (decidable for concrete `C` and `j0`), plus `hafδ_OPEN`, `hupper_OPEN` and `hschur_OPEN` (`scaleChain_floor_of_pilotInterpolation`).
+- The strong-coupling witness is abelian-valid, so it is not non-abelian evidence.
+- Audit: `audits/AUDIT-PILOT-SCHEDULE-GAP-2026-11-15.md`.
