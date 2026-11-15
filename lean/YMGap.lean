@@ -8269,3 +8269,5 @@ import YMGap.RG.MixRateSeedWidthNoGo
 import YMGap.RG.UniformSeedGap
 -- PilotScheduleGap: pilot nome 1/1024 is never a nome of dyadic/AF/precision schedules; seed interpolation recorded as OPEN; not gap evidence
 import YMGap.RG.PilotScheduleGap
+-- StrongCouplingNomeThreshold: SC uniform seed for all w <= 1/55 (dyadic 1/64), rate 1/4; no-go w >= 1/54 for this method (bottleneck entropy degree 625); abelian-valid, not gap evidence
+import YMGap.RG.StrongCouplingNomeThreshold

@@ -94070,3 +94070,14 @@ Rational-certificate recipe (technique-only; arXiv 2610.12700, Q. Gao, Laughlin 
 - r49 then also needs: the budget condition `C·afA²/(j0+2) < timeRate` (decidable for concrete `C` and `j0`), plus `hafδ_OPEN`, `hupper_OPEN` and `hschur_OPEN` (`scaleChain_floor_of_pilotInterpolation`).
 - The strong-coupling witness is abelian-valid, so it is not non-abelian evidence.
 - Audit: `audits/AUDIT-PILOT-SCHEDULE-GAP-2026-11-15.md`.
+
+## Strong-coupling seed: how far up in `w` (2026-11-15)
+
+**Status: PROVED up to `w = 1/55`. PROVED no-go for this method at `w ≥ 1/54`.** File: `lean/YMGap/RG/StrongCouplingNomeThreshold.lean`.
+- Threshold function: `T(δ) = 625·(2δ+δ²)·(1−δ)^(−48) < 1` with `δ = 128w³`, plus `32w³ ≤ 1/2` and `δ < 1`.
+- Rate: `timeRate = 1/4` at every admissible `w`; it does not depend on `w`.
+- Largest dyadic point: `w = 1/64`. The true threshold is `w* ≈ 0.0182`, about 27× below 1/2.
+- Bottleneck: the core-count entropy degree 625. Even without it, `δ < 1` caps the method at `w < 0.198`.
+- Reaching `w_{j0} ≥ 1/2` (`PilotToScheduleSeedInterpolation`) needs a different method; it stays OPEN.
+- The work is abelian-valid strong coupling, so it is not non-abelian evidence.
+- Audit: `audits/AUDIT-STRONG-COUPLING-NOME-THRESHOLD-2026-11-15.md`.
