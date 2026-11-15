@@ -8277,3 +8277,5 @@ import YMGap.RG.SeededAfNomeSchedule
 import YMGap.RG.SmoothSeededAfNomeSchedule
 -- CrossoverScaleChain: NEW r49 variant with explicit crossover budget hcross_OPEN (additive loss via relativeRate_side_floor); r49 untouched; not gap evidence
 import YMGap.RG.CrossoverScaleChain
+-- CrossoverInstance: k=4, eta=1/32 instance of scaleChain_crossover_floor (floor 7483977/110000000 > 0); eta=1/16 fails; old budget forces delta_0 < 1/32; not gap evidence
+import YMGap.RG.CrossoverInstance

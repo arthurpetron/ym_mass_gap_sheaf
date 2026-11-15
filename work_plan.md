@@ -94093,3 +94093,17 @@ Rational-certificate recipe (technique-only; arXiv 2610.12700, Q. Gao, Laughlin 
 - U(1) has its phase transition in this crossover, so non-abelian input must enter there.
 - 625-constant analysis: see the addendum in `audits/AUDIT-STRONG-COUPLING-NOME-THRESHOLD-2026-11-15.md`. With K = 1 the method still stops at w ≈ 0.072.
 - Audit: `audits/AUDIT-SEEDED-AF-NOME-SCHEDULE-2026-11-15.md`.
+
+## Crossover budget `hcross_OPEN` (OPEN) (2026-11-15)
+
+**Status: OPEN** (`hcross_OPEN`). The reduction and the instance are PROVED.
+- Files: `lean/YMGap/RG/SmoothSeededAfNomeSchedule.lean`, `CrossoverScaleChain.lean`, `CrossoverInstance.lean`.
+- `scaleChain_crossover_floor` is a new statement next to r49; r49 is untouched.
+  - Steps `n < k` satisfy `δ_n ≤ η_n` (`hcross_OPEN`); steps `n ≥ k` use the old `hafδ`.
+  - The loss is additive (from `relativeRate_side_floor`): the floor is `(1−s)(s − E − C·afA²/(j0+3))`, positive when `E + C·afA²/(j0+3) < s < 1`.
+- Instance: `smoothAfNomeSchedule 8 4`, `s = 1/4`, `C = 1/10`.
+  - `η = 1/32` works, with floor `7483977/110000000 ≈ 0.068`.
+  - `η = 1/16` fails, since `E = s`.
+- The old budget would force `δ_0 ≤ 0.00214`.
+- Open: the non-abelian content is in `hcross_OPEN` (the crossover from 1/64 to ≈0.89, where U(1) has its transition) plus `hafδ`, `hupper` and `hschur`. No gap claim.
+- Audits: `AUDIT-SMOOTH-SEEDED-AF-NOME-SCHEDULE`, `AUDIT-CROSSOVER-SCALE-CHAIN`, `AUDIT-CROSSOVER-INSTANCE` (all 2026-11-15).
