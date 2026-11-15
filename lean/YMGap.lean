@@ -8271,3 +8271,5 @@ import YMGap.RG.UniformSeedGap
 import YMGap.RG.PilotScheduleGap
 -- StrongCouplingNomeThreshold: SC uniform seed for all w <= 1/55 (dyadic 1/64), rate 1/4; no-go w >= 1/54 for this method (bottleneck entropy degree 625); abelian-valid, not gap evidence
 import YMGap.RG.StrongCouplingNomeThreshold
+-- SeededAfNomeSchedule: NomeSchedule starting at 1/64 (proved SC region) joining afNomeSchedule after j0; UniformSeedGap at j0; crossover inputs OPEN (U(1) transition region); not gap evidence
+import YMGap.RG.SeededAfNomeSchedule

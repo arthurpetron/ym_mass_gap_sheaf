@@ -61,3 +61,22 @@ U(1) note: everything here is abelian-valid strong-coupling work, so it is not n
 'YMGap.RG.StrongCouplingNomeThreshold.not_scGuards_dyadic' depends on axioms: [propext, Quot.sound]
 'YMGap.RG.StrongCouplingNomeThreshold.remainder_ge_one_quarter_half' does not depend on any axioms
 ```
+
+## Addendum: could the 625 be improved? (ANALYSIS, not a theorem)
+- **Where 625 comes from.** `ClusterCount4DProgress.lean:44,300` gives `K = (D+1)² = 625` with `D = 24`, the degree of the Z⁴ plaquette adjacency graph (`z4Chain`). That is the tour-plus-mask lattice-animal code of `BddLatticeAnimal`. It is used as the per-size count rate `625^n` in `BF4ExactSlabActiveCoreCount.lean:6,104`, and so enters `entropyRate 625` in the guard.
+- **Room to improve.** The tour code is crude. The standard Klarner/Kesten bound is about `e·D ≈ 65`, and the true plaquette-animal growth constant is smaller still. Sharper polymer counting is plausible but is not formalized here.
+- **Reachable `w` if the constant were K** (numerical solution of `K·(2δ+δ²)·(1−δ)^(−48) = 1`, `δ = 128w³`, with the actual guard expressions):
+
+| K | best w | about |
+|---|---|---|
+| 625 | 0.01819 | 1/55, proved |
+| 65 | 0.0357 | 1/28 |
+| 25 | 0.0447 | 1/22 |
+| 1 | 0.0718 | 1/14 |
+
+- **Analysis, checked against the guard definitions:**
+  - Even with `K = 1`, the binding factor is `pairedRate δ = 2δ+δ²` together with the collar factor `(1−δ)^(−48)`. The 48 comes from `adjustedCoreRate = pairedHeatRate · inverseFaceFloor^48`.
+  - Guard 2, `heatRemainderBound w = 128w³ < 1`, gives `w < (1/128)^(1/3) ≈ 0.198`.
+  - Guard 1, `heatRatio w = 32w³ ≤ 1/2`, gives `w ≤ 1/4`.
+  - These two only bind after the entropy and collar factors are gone. So improving the counting constant alone cannot pass `w ≈ 0.072`, and `w = 1/2` is out of reach for this whole guard structure.
+- The proved statement remains `not_scGuards_of_inv54_le`, with `K = 625`.

@@ -94081,3 +94081,15 @@ Rational-certificate recipe (technique-only; arXiv 2610.12700, Q. Gao, Laughlin 
 - Reaching `w_{j0} ≥ 1/2` (`PilotToScheduleSeedInterpolation`) needs a different method; it stays OPEN.
 - The work is abelian-valid strong coupling, so it is not non-abelian evidence.
 - Audit: `audits/AUDIT-STRONG-COUPLING-NOME-THRESHOLD-2026-11-15.md`.
+
+## Seeded AF schedule and the crossover (OPEN) (2026-11-15)
+
+**Status: construction PROVED; crossover OPEN.** File: `lean/YMGap/RG/SeededAfNomeSchedule.lean`.
+- `NomeSchedule` does not force `w_0 ≥ 1/2`; it has no step relation and no AF rate. r49 uses the fixed `afGap(j0+k)`.
+- `seededAfNomeSchedule j0` is `1/64` up to `j0`, then `afNomeSchedule` at the same index.
+- `UniformSeedGap` at `j0` is PROVED. The budget example `C = 1/10`, `j0 = 8` is below 1/4 (decidable).
+- Left: `hafδ_OPEN`, `hupper_OPEN` and `hschur_OPEN` (`seeded_r49_floor`), above all at `n = 0`, the jump `1/64 → ≈0.86`.
+- Analysis: the AF-sized `hafδ` across that jump is plausibly false. A crossover budget would need a modified r49 statement.
+- U(1) has its phase transition in this crossover, so non-abelian input must enter there.
+- 625-constant analysis: see the addendum in `audits/AUDIT-STRONG-COUPLING-NOME-THRESHOLD-2026-11-15.md`. With K = 1 the method still stops at w ≈ 0.072.
+- Audit: `audits/AUDIT-SEEDED-AF-NOME-SCHEDULE-2026-11-15.md`.
