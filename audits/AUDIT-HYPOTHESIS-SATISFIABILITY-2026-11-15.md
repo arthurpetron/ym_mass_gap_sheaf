@@ -1,0 +1,41 @@
+# Audit — Hypothesis-satisfiability audit of the r44–r53 open inputs (2026-11-15)
+
+This is a doc-only audit in the spirit of AWM (arXiv 2610.40503) App. C.7, which was read for this audit on 2026-11-15. C.7 calls for a separate statement audit that flags theorems true only because their premises cannot be satisfied, since "the kernel verifies that conclusions follow from their premises, not whether those premises are meaningful".
+
+No Lean is added in this commit. Each classification below rests on the cited code. A "(reasoned)" tag marks an informal argument that has not been formalized.
+
+**Build status of cited new theorems (2026-11-15).** Rows 1–2 cite `RG/MixRateSeedWidthNoGo.lean` and `RG/UniformSeedGap.lean`. These files are written but NOT yet compiled or committed. The box dependency build stopped on a memory limit (`FourAnchorWindowRetune.lean:449`, kernel `decide` exceeds an 11 GiB cap; this is not a Lean error). Treat those citations as pending until those modules build. Every other citation is to code already in `e57df53c`.
+
+Legend:
+- **SAT**: known satisfiable, with the Lean witness cited.
+- **VAC**: known vacuous, or shown unsatisfiable in the needed regime, with the no-go cited.
+- **OPEN**: neither is known.
+- **U(1)**: yes / expected / no / unknown. "Expected" means not formalized; the repo carrier is SU(2).
+
+| # | Hypothesis (where) | Status | Evidence | U(1) |
+|---|---|---|---|---|
+| 1 | `hseed` (r49 `scaleChain_afBudget_floor`, `RG/RelativeDissipationScaleChain.lean:256`) | **SAT per width; floor VAC uniformly** | SAT: `wilsonVacuumSqContraction_mixRate` (any nome, any width). VAC uniformly: `MixRateSeedWidthNoGo.scaleChain_mixRate_floor_lt` and `no_width_uniform_mixRate_floor` show the floor from the mixRate seed is `< ε` beyond `seedWidth ε`. | yes (the mixRate argument is group-agnostic in shape; expected) |
+| 2 | `UniformSeedGap` (`RG/UniformSeedGap.lean`) | **SAT at strong coupling; OPEN on AF nomes** | `uniformSeedGap_existingNome` (`w = 1/1024`, `budget < timeRate`), `uniformSeedGap_of_eq_pilot`. mixRate cannot witness it: `mixRate_cannot_witness_uniformSeed`. For `w_j → 1` nothing is known. | expected (strong coupling) |
+| 3 | `hupper_OPEN` (r49) | **OPEN jointly**; alone trivially SAT (reasoned) | With `Phi := 0` (`0 ∈ vac⊥`), `‖Φy‖ ≤ ‖y‖` holds trivially. It is only meaningful together with `hschur_OPEN` for the same `Phi`. No Lean witness of the joint pair. | unknown |
+| 4 | `hschur_OPEN` (r49 `SchurDecomposition`) | **OPEN in the needed regime**; SAT at `δ = 1` (reasoned) | At `δ_n = 1`, `D := A − F ≥ 0` is the two-step contraction (`completedInner_time_contraction`-type lemmas), so the decomposition holds. But `δ_n = 1` violates `hafδ_OPEN` once `C·afGap² < 1`, and `afGap → 0` (`afGap_le`). The file's own docstring notes it is equivalent to the relative comparison. | unknown |
+| 5 | `hafδ_OPEN` (r49) | **OPEN** | Alone it is SAT with `δ ≡ 0`. Jointly with `hschur_OPEN` at `δ ≡ 0` it requires `F ≤ C'`-type comparisons not available. No witness. | unknown |
+| 6 | r50 `hA_OPEN`, Schur margin `s < 1` (`hcross`), `hloc_OPEN`, `hcov_OPEN`, `hG2_OPEN` (`RG/TwoBlockSchurMarginGap.lean:112,150`) | **OPEN** on the repo carrier | Abstract rational forms only. The identification with r49 `SchurDecomposition` is not formalized (file docstring). | yes: the file states it holds for any finite group, including abelian ones (Hayakawa 2609.39802) |
+| 7 | r50 fixed margin + fixed floor | **VAC** (against shifted H1) | r53 `twoBlock_fixedMargin_noGo` (`RG/TwoBlockMarginShiftedH1Check.lean:46`). The margin must shrink: `twoBlock_margin_must_shrink` (`:37`). | yes (abelian-valid per file) |
+| 8 | r51 `hcert_OPEN` (`RG/FeketeSeedCertificate.lean:82`) | **OPEN** (no certificate computed); superseded at the pilot nome | At `w = 1/1024` the seed already exists (row 2), so a Fekete certificate is not needed there. At a weak-coupling crossover nome it is OPEN. | expected (strong coupling, per file) |
+| 9 | r52 `hstep` on `completedTime` (`Continuum/TorusBackwardArcMonotone.lean`) | **OPEN** (expected SAT) | Even lags follow from the existing contraction (`backward_handle_le_forward_handle`, `SU2HeatKernelTorusTransferBridge.lean:165`). Odd steps need positivity of `T`, which is not formalized here. | yes (file: power monotonicity of a positive contraction) |
+| 10 | r45 `HeatKernelTorusSemigroupBridge` (`hcov`, `SU2HeatKernelTorusClusteringBridge.lean:172`) | **OPEN** | Reduced by r47 to `TorusSliceTraceIdentity` (`SU2HeatKernelTorusTransferBridge.lean:227`), also OPEN. | yes (U(1)-true label) |
+| 11 | r46 `side_j·θ̄_j ≤ c0` (`RG/SchurComplementShortedDefect.lean`) | **OPEN** (Clay-level) | File label. It inhabits r44 (`ShortedGramLoss… → ScaleDependentShiftedH1Conjecture`). | unknown |
+| 12 | r48 `ir_anchor` (`Continuum/ScaleParameterizedTorusDescentSpine.lean`) | **OPEN (assumed)** | The file docstring says the pilot `1/4` rate is an upper contraction rate, not a lower retention bound. `InterScaleAnchoredDescentPackage` is equivalent to r44. | yes (U(1)-true bookkeeping) |
+| 13 | r44 `ScaleDependentShiftedH1Conjecture tr c0` (`Continuum/BF4WilsonAllNomeScaleDependentContractionInterface.lean:98`) | **OPEN**; uniform-rate version **VAC** | `conjecture_forbids_uniform_rayleigh_rate` (`:221`) and `shiftedH1_forbids_uniformRate`. Note it is an UPPER bound on `1 − r_j` plus retention. `UniformSeedGap` does not feed it (see `AUDIT-UNIFORM-SEED-GAP-2026-11-15.md`). | unknown. A massless (Coulomb-phase) U(1) may well satisfy an upper bound on `1 − r_j`; this has not been analysed. |
+| 14 | r53 | n/a (no-go only) | — | — |
+| 15 | C5 TraceSandwich (ledger row F) | upper end **SAT** at `w = 1/1024`; two-sided `specMax` interval **OPEN** | `audits/AUDIT-C5-TRACESANDWICH-REAL-CARRIER-2026-10-07.md`: `allNome_strongCoupling_vacuumSq_all_widths`. No `specMax` object exists on the real carrier. | expected (strong coupling) |
+| 16 | C2, C4 bridges | **UNCERTAIN: not identified** | No definition of "C2 bridge" / "C4 bridge" was found in `docs/`, `audits/` or `work_plan.md`. "C5" appears both as TraceSandwich (row 15) and, in `docs/continuum-closure-research-map.md:259`, as finite-lattice reflection positivity (proved, `ReflectionPositivity`). These rows need the intended references. | — |
+
+## Findings
+- **No capstone examined is vacuous as stated.** Each listed hypothesis is individually satisfiable, or at least not refuted. The vacuity found is *asymptotic*: the mixRate-seeded r49 floor tends to 0 in width (row 1), and fixed two-block margins contradict the shifted H1 (row 7).
+- **The seed problem is solved at strong coupling.** `UniformSeedGap` is proved at `w = 1/1024`. So the r49 chain, seeded at an index with `w_{j0} = 1/1024`, has a width-uniform positive floor conditional only on `hupper`, `hschur` and `hafδ`. In the needed regime the remaining open content is rows 3–5.
+- **Joint satisfiability of rows 3–5 is the real open question.** Each is trivially satisfiable alone (`Phi = 0`; `δ = 1`; `δ = 0`), but the trivial witnesses are mutually incompatible (reasoned, rows 4–5). A future `lean_hypothesis_map.py` (work_plan (B)) should mark them as one joint bundle.
+- **Direction mismatch.** r44 (upper bound on `1 − r_j`, retention) and r49 (lower margin, contraction) bound the same rates from opposite sides. A chart that combines them needs both. Neither implies the other.
+- **References.** arXiv 2611.17119 is Duch–Gubinelli, "Mass gap for the fractional Φ⁴₂ model" (stochastic quantisation). It does not mention this repo's `mixRate` / `hseed`. The no-go in this round comes from the repo code itself.
+
+Labels: doc-only; not gap evidence; no chart-closure claim.
