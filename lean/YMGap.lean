@@ -8275,3 +8275,5 @@ import YMGap.RG.StrongCouplingNomeThreshold
 import YMGap.RG.SeededAfNomeSchedule
 -- SmoothSeededAfNomeSchedule: 1/64 seed region, k geometric crossover steps, then afNomeSchedule; NomeSchedule obligations proved; not gap evidence
 import YMGap.RG.SmoothSeededAfNomeSchedule
+-- CrossoverScaleChain: NEW r49 variant with explicit crossover budget hcross_OPEN (additive loss via relativeRate_side_floor); r49 untouched; not gap evidence
+import YMGap.RG.CrossoverScaleChain
