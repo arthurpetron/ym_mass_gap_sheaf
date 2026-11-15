@@ -94030,3 +94030,18 @@ displayed claim changes.
 ## Low-priority technique notes (not frontier; added 2026-10-17 PT)
 
 Rational-certificate recipe (technique-only; arXiv 2610.12700, Q. Gao, Laughlin gap H^2 >= gamma*H, gamma > 1/5): re-solve SOS/SDP with margins 1e-9..1e-7, extract low-rank rows, round to integers over a common denominator (1e10..1e15), re-optimize coefficients, verify exactly via LDL^T / Leverrier-Faddeev char-poly signs; ship a hashed JSON certificate plus a standalone verifier, port the verifier to Lean Rat. Not a lattice gauge theory; gives no evidence on positive-scale H1 or the 1/s energy bound; the U(1)-at-strong-coupling rule still applies. First experiment (optional): toy H^2 >= eps*H SOS on a 2-3 plaquette truncated-link SU(2) Hamiltonian. Related, NOT USEFUL for the gap: arXiv 2610.06272 (Z2-only SDP two-sided ground-energy bounds, fixed finite lattices, floating-point MOSEK, no gap, not volume-uniform); only a template for a Lean-checkable finite-volume energy bracket, e.g. a rational-rounded dual certificate for the Z2 2x2 pure-gauge E0 lower bound.
+
+## (B) Ledger anchors: model-to-carrier transfer theorem and hypothesis-dependency map (planned; doc-only, 2026-11-15)
+
+**Status: PLANNED (no Lean yet).** These entries plan the work; nothing is proved here.
+
+1. **Transfer theorem as a ledger anchor** (analogue of AWM arXiv 2610.40503 Thm A.1 "transfer under sufficient cover" and Lemma A.3 "budget-local invariant transfer"; read 2026-11-15).
+   - AWM: if a model `M̂` reproduces every optimal winning run of the environment `E` through a fixed map `h`, then model impossibility transfers to `E` (A.1). Separately, an invariant that holds initially, is preserved by every admissible real step and excludes every goal rules out a win (A.3).
+   - Repo analogue: one generic theorem `transfer_of_sufficientCover`.
+     - Given a model datum (e.g. an abstract `SpectralModel`, or the rational quadratic forms of `TwoBlockSchurMarginGap`), a map `h` into the completed Wilson carrier, and a *sufficient-cover* hypothesis, a model-level bound transfers to the carrier statement (`WilsonVacuumSqContraction`, `SchurDecomposition`, `hcov`). The cover hypothesis says `h` intertwines exactly the quantities the bound uses: the inner product, the time step and the vacuum projection.
+     - Ledger rule: every bridge row (r45 `hcov`, r47 slice identity, r50 → r49 `SchurDecomposition` identification, C5 TraceSandwich `specMax` link) must name its cover map `h` and the cover hypothesis, or be marked "no cover; model-only".
+   - Deliverable: `lean/YMGap/Ledger/SufficientCoverTransfer.lean` (abstract, ≤ 150 lines) and one instance (pilot nome, U(1)-true). Label: infrastructure, not gap evidence.
+2. **Hypothesis-dependency map alongside `audits/lean_axiom_audit.py`.**
+   - `lean_axiom_audit.py` checks axioms. The companion `audits/lean_hypothesis_map.py` would list, for each capstone theorem, the explicit hypotheses it takes: binder names ending in `_OPEN`, plus `Prop`-valued structure or def arguments such as `UniformSeedGap`, `SchurDecomposition`, `ScaleDependentShiftedH1Conjecture` and `HeatKernelTorusSemigroupBridge`.
+   - Each hypothesis is tagged PROVED-SATISFIABLE (cite the witness theorem), KNOWN-VACUOUS (cite the no-go) or OPEN, and U(1)-satisfies: yes / expected / no / unknown. The source of truth for the tags is the audit `audits/AUDIT-HYPOTHESIS-SATISFIABILITY-2026-11-15.md`.
+   - Method: parse `#check`-style signatures from a temp Lean file (deleted afterwards) or from the source text. Output Markdown and JSON next to `AXIOM_AUDIT.md`. This is the AWM App. C.7 "statement audit" step: it flags capstones whose premises are unsatisfiable, which the kernel cannot detect.
