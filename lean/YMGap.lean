@@ -8273,3 +8273,5 @@ import YMGap.RG.PilotScheduleGap
 import YMGap.RG.StrongCouplingNomeThreshold
 -- SeededAfNomeSchedule: NomeSchedule starting at 1/64 (proved SC region) joining afNomeSchedule after j0; UniformSeedGap at j0; crossover inputs OPEN (U(1) transition region); not gap evidence
 import YMGap.RG.SeededAfNomeSchedule
+-- SmoothSeededAfNomeSchedule: 1/64 seed region, k geometric crossover steps, then afNomeSchedule; NomeSchedule obligations proved; not gap evidence
+import YMGap.RG.SmoothSeededAfNomeSchedule
