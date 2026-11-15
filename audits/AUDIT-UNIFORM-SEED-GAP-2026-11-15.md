@@ -38,3 +38,8 @@ The brief asked to show that `UniformSeedGap` is "exactly what r44 needs". **It 
 'YMGap.RG.UniformSeedGap.uniformSeedGap_of_eq_pilot' depends on axioms: [propext, Quot.sound]
 ```
 
+
+## Doc-only addendum (2026-11-15, later commit)
+I added a one-line U(1) note to the docstring of the `UniformSeedGap` def and of each of its six theorems: "the strong-coupling witness is abelian-valid, so it is not non-abelian evidence." There is no change to any statement or proof; the diff is docstring text only.
+- Recompiled on the box by direct `lean` against the overlay, as above: rc 0, zero warnings. Peak RSS 1,689 MiB, minimum free RAM 12,448 MiB.
+- The dependent `PilotScheduleGap` was also recompiled: rc 0.

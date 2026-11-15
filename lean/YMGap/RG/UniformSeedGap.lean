@@ -50,11 +50,13 @@ open YMGap.RG.RelativeDissipationScaleChain
 open YMGap.Continuum.BF4WilsonDescentUniformConnectedDecay (timeRate)
 open YMGap.Continuum.BF4WilsonStrongCouplingUniformRate (existingPilotNome)
 
-/-- **OPEN.** One seed rate `s ∈ (budget, 1)` with the vacuum contraction at every width. -/
+/-- **OPEN.** One seed rate `s ∈ (budget, 1)` with the vacuum contraction at every width.
+U(1) note: the strong-coupling witness is abelian-valid, so it is not non-abelian evidence. -/
 def UniformSeedGap {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) (budget : Q') : Prop :=
   ∃ s : Q', budget < s ∧ s < (1 : Q') ∧ ∀ width : Nat, WilsonVacuumSqContraction hw0 hw1 width s
 
-/-- **Exactly the r49 seed slot, uniform in width (PROVED, for `budget ≥ 0`).** -/
+/-- **Exactly the r49 seed slot, uniform in width (PROVED, for `budget ≥ 0`).**
+U(1) note: the strong-coupling witness is abelian-valid, so it is not non-abelian evidence. -/
 theorem uniformSeedGap_iff_chainSeedSlot {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
     (budget : Q') (hb : (0 : Q') ≤ budget) :
     UniformSeedGap hw0 hw1 budget ↔
@@ -64,7 +66,8 @@ theorem uniformSeedGap_iff_chainSeedSlot {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w 
    fun ⟨s, _, hs1, hbs, hc⟩ => ⟨s, hbs, hs1, hc⟩⟩
 
 /-- **`UniformSeedGap` ⇒ one width-independent seed with positive floor for the r49 capstone
-(PROVED; still conditional on `hupper_OPEN`, `hschur_OPEN`, `hafδ_OPEN`).** -/
+(PROVED; still conditional on `hupper_OPEN`, `hschur_OPEN`, `hafδ_OPEN`).**
+U(1) note: the strong-coupling witness is abelian-valid, so it is not non-abelian evidence. -/
 theorem scaleChain_afBudget_floor_of_uniformSeedGap (ns : NomeSchedule) (j0 : Nat) (C : Q')
     (hC : (0 : Q') ≤ C)
     (hU : UniformSeedGap (ns.nome_pos j0) (ns.nome_lt_one j0) (C * (afA * afA) * inv (j0+2))) :
@@ -101,13 +104,15 @@ theorem scaleChain_afBudget_floor_of_uniformSeedGap (ns : NomeSchedule) (j0 : Na
 
 /-- **The proved mixRate route cannot witness a width-uniform seed (PROVED).** No `s < 1`
 dominates `mixRate(width)` at every positive width, so monotonicity of the contraction in the
-rate cannot lift `wilsonVacuumSqContraction_mixRate` to `UniformSeedGap`. -/
+rate cannot lift `wilsonVacuumSqContraction_mixRate` to `UniformSeedGap`.
+U(1) note: the strong-coupling witness is abelian-valid, so it is not non-abelian evidence. -/
 theorem mixRate_cannot_witness_uniformSeed {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) :
     ¬ ∃ s : Q', s < (1 : Q') ∧ ∀ width : Nat, 0 < width → mixRate hw0 hw1 width ≤ s :=
   fun ⟨s, hs1, h⟩ => no_width_uniform_computed_rate hw0 hw1 s hs1 h
 
 /-- **PROVED at strong coupling only.** At the pilot nome `w = 1/1024`, `UniformSeedGap` holds for
-every `budget < timeRate`. Not an AF statement: every `NomeSchedule` has `w_j → 1`. -/
+every `budget < timeRate`. Not an AF statement: every `NomeSchedule` has `w_j → 1`.
+U(1) note: the strong-coupling witness is abelian-valid, so it is not non-abelian evidence. -/
 theorem uniformSeedGap_existingNome (budget : Q') (hb : budget < timeRate) :
     ∃ (hw0 : (0 : Q') < existingPilotNome) (hw1 : existingPilotNome < (1 : Q')),
       UniformSeedGap hw0 hw1 budget := by
@@ -115,14 +120,16 @@ theorem uniformSeedGap_existingNome (budget : Q') (hb : budget < timeRate) :
     YMGap.Continuum.BF4WilsonAllNomeStrongCouplingUniformRate.existingNome_allNome_strongCoupling
   exact ⟨hw0, hw1, timeRate, hb, h1, hc⟩
 
-/-- The r49 example budget `C = 1/10`, `j0 = 8` lies below `timeRate` (decidable). -/
+/-- The r49 example budget `C = 1/10`, `j0 = 8` lies below `timeRate` (decidable).
+U(1) note: the strong-coupling witness is abelian-valid, so it is not non-abelian evidence. -/
 theorem uniformSeedGap_existingNome_afBudget :
     ∃ (hw0 : (0 : Q') < existingPilotNome) (hw1 : existingPilotNome < (1 : Q')),
       UniformSeedGap hw0 hw1 (Q'.mkPos 1 10 (by decide) * (afA * afA) * inv (8+2)) :=
   uniformSeedGap_existingNome _ (by decide)
 
 /-- Any nome literally equal to the pilot nome inherits the strong-coupling witness (e.g. a
-`NomeSchedule` whose IR seed index `j0` sits at `w_{j0} = 1/1024`). -/
+`NomeSchedule` whose IR seed index `j0` sits at `w_{j0} = 1/1024`).
+U(1) note: the strong-coupling witness is abelian-valid, so it is not non-abelian evidence. -/
 theorem uniformSeedGap_of_eq_pilot {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
     (h : w = existingPilotNome) (budget : Q') (hb : budget < timeRate) :
     UniformSeedGap hw0 hw1 budget := by
