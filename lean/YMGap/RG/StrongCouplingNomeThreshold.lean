@@ -2,7 +2,11 @@
 # How far up in `w` does the strong-coupling width-uniform seed reach?
 
 **Label: PROVED threshold + PROVED no-go (V3) for this method. NOT gap evidence.**
-U(1) note: everything here is abelian-valid strong-coupling work; it is not non-abelian evidence.
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs).
+Convention: repo nome `w` matches the Numerics `t = -4 ln w`; U(1) is confined only for
+w ≤ 1/8 and already Coulomb (massless) at w = 1/2 and 0.5145 (YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved).
 
 `BF4WilsonAllNomeStrongCouplingUniformRate.allNome_strongCoupling_vacuumSq_all_widths` is already
 general in `w`; `w = 1/1024` enters ONLY through its three small-nome guards (`SCGuards`):
@@ -43,18 +47,24 @@ open YMGap.Continuum.BF4WilsonAllNomeExprMixRateContraction (WilsonVacuumSqContr
 open YMGap.RG.UniformSeedGap (UniformSeedGap)
 
 /-- The three small-nome guards of the strong-coupling uniform-rate theorem.
-U(1) note: abelian-valid strong-coupling work, not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 def SCGuards (w : Q') : Prop :=
   heatRatio w ≤ HalfPow.half ∧
     ∃ hd : heatRemainderBound w < 1, entropyRate 625 (adjustedCoreRate w hd) < 1
 
 /-- Threshold function `T(δ) = 625·(2δ+δ²)·(1-δ)^(-48)`, `δ = 128w³`.
-U(1) note: abelian-valid strong-coupling work, not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 def threshold (d : Q') (hd : d < 1) : Q' :=
   entropyRate 625 (pairedRate d * (Q'.recipPos (1 + -d) (YMGap.Continuum.HKPos.one_sub_pos hd))^48)
 
 /-- **Guards ⇒ width-uniform rate `timeRate = 1/4` at `w` (PROVED, existing theorem).**
-U(1) note: abelian-valid strong-coupling work, not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem uniformRate_of_guards {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
     (hG : SCGuards w) : ∀ width : Nat, WilsonVacuumSqContraction hw0 hw1 width timeRate :=
   let ⟨hs, hd, he⟩ := hG
@@ -62,7 +72,9 @@ theorem uniformRate_of_guards {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
     hw0 hw1 hs hd he
 
 /-- **Guards ⇒ `UniformSeedGap` for every `budget < timeRate` (PROVED).**
-U(1) note: abelian-valid strong-coupling work, not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem uniformSeedGap_of_guards {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
     (hG : SCGuards w) (budget : Q') (hb : budget < timeRate) : UniformSeedGap hw0 hw1 budget :=
   ⟨timeRate, hb, timeRate_lt_one, uniformRate_of_guards hw0 hw1 hG⟩
@@ -88,7 +100,9 @@ private theorem q_lt_irrefl (a : Q') : ¬ a < a := fun h => by
   exact Int.lt_irrefl _ e
 
 /-- **Closed-form threshold (PROVED).** `δ(w) ≤ δ0 ≤ 1/2` and `T(δ0) < 1` give all guards.
-U(1) note: abelian-valid strong-coupling work, not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem guards_of_delta_le {w d0 : Q'} (hw : (0 : Q') ≤ w) (hd0 : d0 < 1)
     (hhalf : d0 ≤ HalfPow.half) (hle : heatRemainderBound w ≤ d0) (hT : threshold d0 hd0 < 1) :
     SCGuards w := by
@@ -129,34 +143,46 @@ def inv55 : Q' := Q'.mkPos 1 55 (by decide)
 def inv54 : Q' := Q'.mkPos 1 54 (by decide)
 
 /-- **`T(δ(1/55)) < 1` (decidable, cheap).**
-U(1) note: abelian-valid strong-coupling work, not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem threshold_inv55 : threshold (heatRemainderBound inv55) (by decide) < 1 := by
   decide +kernel
 
 /-- **All guards for every `0 ≤ w ≤ 1/55` (PROVED).**
-U(1) note: abelian-valid strong-coupling work, not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem scGuards_of_le_inv55 {w : Q'} (hw : (0 : Q') ≤ w) (h : w ≤ inv55) : SCGuards w :=
   guards_of_delta_le hw (by decide) (by decide) (remainder_mono hw h) threshold_inv55
 
 /-- **Width-uniform seed for every `0 < w ≤ 1/55`, every `budget < timeRate = 1/4` (PROVED).**
-U(1) note: abelian-valid strong-coupling work, not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem uniformSeedGap_of_le_inv55 {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
     (h : w ≤ inv55) (budget : Q') (hb : budget < timeRate) : UniformSeedGap hw0 hw1 budget :=
   uniformSeedGap_of_guards hw0 hw1 (scGuards_of_le_inv55 (Q'.le_of_lt hw0) h) budget hb
 
 /-- **Largest dyadic instance: `w = 1/64` (PROVED).**
-U(1) note: abelian-valid strong-coupling work, not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem uniformSeedGap_inv64 (budget : Q') (hb : budget < timeRate) :
     UniformSeedGap (w := Q'.mkPos 1 64 (by decide)) (by decide) (by decide) budget :=
   uniformSeedGap_of_le_inv55 _ _ (by decide) budget hb
 
 /-- `timeRate = 1/4` (the rate at every `w ≤ 1/55`, independent of `w`).
-U(1) note: abelian-valid strong-coupling work, not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem timeRate_eq : Q'.eqv timeRate (Q'.mkPos 1 4 (by decide)) := by decide
 
 /-- **V3 no-go for this method (PROVED).** For every `w ≥ 1/54` the entropy guard fails for
 every proof `hd`: already `625·pairedRate(δ) ≥ 1` since `inverseFaceFloor ≥ 1`.
-U(1) note: abelian-valid strong-coupling work, not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem not_scGuards_of_inv54_le {w : Q'} (h : inv54 ≤ w) : ¬ SCGuards w := by
   intro ⟨_, hd, he⟩
   have hw : (0 : Q') ≤ w := Q'.le_trans' _ _ _ (by decide) h
@@ -180,7 +206,9 @@ theorem not_scGuards_of_inv54_le {w : Q'} (h : inv54 ≤ w) : ¬ SCGuards w := b
   exact q_lt_irrefl _ (Q'.lt_of_le_of_lt hge he)
 
 /-- **The dyadic points `1/32, 1/16, 1/8, 1/4, 1/2` are out of reach (PROVED).**
-U(1) note: abelian-valid strong-coupling work, not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem not_scGuards_dyadic :
     ¬ SCGuards (Q'.mkPos 1 32 (by decide)) ∧ ¬ SCGuards (Q'.mkPos 1 16 (by decide)) ∧
       ¬ SCGuards (Q'.mkPos 1 8 (by decide)) ∧ ¬ SCGuards (Q'.mkPos 1 4 (by decide)) ∧
@@ -190,7 +218,9 @@ theorem not_scGuards_dyadic :
    not_scGuards_of_inv54_le (by decide)⟩
 
 /-- **Independent of the entropy count, `w = 1/4` and `w = 1/2` already break `δ < 1`
-(decidable).** U(1) note: abelian-valid strong-coupling work, not non-abelian evidence. -/
+(decidable).** U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem remainder_ge_one_quarter_half :
     ¬ heatRemainderBound (Q'.mkPos 1 4 (by decide)) < 1 ∧ ¬ heatRemainderBound HalfPow.half < 1 :=
   ⟨by decide, by decide⟩

@@ -21,6 +21,11 @@ PROVED, this input is EQUIVALENT to `UniformSeedGap` at `w_{j0}` (`interpolation
 name for the gap, not a weakening of it.
 
 Constructive, no external library; axioms within `propext`, `Quot.sound`.
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs).
+Convention: repo nome `w` matches the Numerics `t = -4 ln w`; U(1) is confined only for
+w ≤ 1/8 and already Coulomb (massless) at w = 1/2 and 0.5145 (YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved).
 -/
 
 import YMGap.RG.UniformSeedGap
@@ -49,53 +54,83 @@ private theorem q_lt_irrefl (a : Q') : ¬ a < a := fun h => by
   have e : a.num * (a.den : Int) < a.num * (a.den : Int) := h
   exact Int.lt_irrefl _ e
 
-/-- **Monotone schedules stay above the pilot (PROVED).** -/
+/-- **Monotone schedules stay above the pilot (PROVED).**
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem pilot_lt_of_start (ns : NomeSchedule) (h0 : existingPilotNome < ns.nome 0) :
     ∀ j, existingPilotNome < ns.nome j
   | 0 => h0
   | j+1 => YMGap.Continuum.MatchedRetuneBridge.q_lt_of_lt_of_le
       (pilot_lt_of_start ns h0 j) (ns.nome_mono j)
 
-/-- **No index of such a schedule is the pilot nome (PROVED).** -/
+/-- **No index of such a schedule is the pilot nome (PROVED).**
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem nome_ne_pilot_of_start (ns : NomeSchedule) (h0 : existingPilotNome < ns.nome 0)
     (j : Nat) : ns.nome j ≠ existingPilotNome := fun h => by
   have hl := pilot_lt_of_start ns h0 j
   rw [h] at hl
   exact q_lt_irrefl _ hl
 
-/-- `w_0 = 1/2` for the dyadic schedule (decidable). -/
+/-- `w_0 = 1/2` for the dyadic schedule (decidable).
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem dyadic_pilot_lt_start : existingPilotNome < dyadicNomeSchedule.nome 0 := by decide
 
-/-- `w_0 = 1 - 234982/484000 ≈ 0.5145` for the AF schedule (decidable). -/
+/-- `w_0 = 1 - 234982/484000 ≈ 0.5145` for the AF schedule (decidable).
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem af_pilot_lt_start : existingPilotNome < afNomeSchedule.nome 0 := by decide
 
-/-- `w_0 = 1 - gap_0 ≥ 1/2` for the precision schedule (`gap_le_half`). -/
+/-- `w_0 = 1 - gap_0 ≥ 1/2` for the precision schedule (`gap_le_half`).
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem precision_pilot_lt_start : existingPilotNome < precisionNomeSchedule.nome 0 :=
   YMGap.Continuum.MatchedRetuneBridge.q_lt_of_lt_of_le
     (show existingPilotNome < (1 : Q') - HalfPow.half by decide)
     (Q'.add_le_add_left 1 _ _
       (Q'.neg_le_neg (YMGap.Continuum.AFPrecisionNomeSchedule.gap_le_half 0)))
 
-/-- **`uniformSeedGap_of_eq_pilot` never fires on the dyadic schedule (PROVED).** -/
+/-- **`uniformSeedGap_of_eq_pilot` never fires on the dyadic schedule (PROVED).**
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem dyadic_nome_ne_pilot (j : Nat) : dyadicNomeSchedule.nome j ≠ existingPilotNome :=
   nome_ne_pilot_of_start _ dyadic_pilot_lt_start j
 
-/-- **… nor on the AF (padded-trajectory) schedule (PROVED).** -/
+/-- **… nor on the AF (padded-trajectory) schedule (PROVED).**
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem af_nome_ne_pilot (j : Nat) : afNomeSchedule.nome j ≠ existingPilotNome :=
   nome_ne_pilot_of_start _ af_pilot_lt_start j
 
-/-- **… nor on the precision AF schedule (PROVED).** -/
+/-- **… nor on the precision AF schedule (PROVED).**
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem precision_nome_ne_pilot (j : Nat) : precisionNomeSchedule.nome j ≠ existingPilotNome :=
   nome_ne_pilot_of_start _ precision_pilot_lt_start j
 
 /-- **OPEN interpolation input.** Transfer of the width-uniform seed from the strong-coupling
-pilot nome `1/1024` to the schedule's IR seed nome `w_{j0}` (≥ 1/2 on every existing schedule). -/
+pilot nome `1/1024` to the schedule's IR seed nome `w_{j0}` (≥ 1/2 on every existing schedule).
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 def PilotToScheduleSeedInterpolation (ns : NomeSchedule) (j0 : Nat) (budget : Q') : Prop :=
   ∀ (hp0 : (0 : Q') < existingPilotNome) (hp1 : existingPilotNome < (1 : Q')),
     UniformSeedGap hp0 hp1 budget → UniformSeedGap (ns.nome_pos j0) (ns.nome_lt_one j0) budget
 
 /-- **Honesty check (PROVED):** below `timeRate` the interpolation input is equivalent to the
-seed at `w_{j0}` itself; it names the gap and does not shrink it. -/
+seed at `w_{j0}` itself; it names the gap and does not shrink it.
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem interpolation_iff (ns : NomeSchedule) (j0 : Nat) (budget : Q') (hb : budget < timeRate) :
     PilotToScheduleSeedInterpolation ns j0 budget ↔
       UniformSeedGap (ns.nome_pos j0) (ns.nome_lt_one j0) budget :=
@@ -106,7 +141,10 @@ theorem interpolation_iff (ns : NomeSchedule) (j0 : Nat) (budget : Q') (hb : bud
 
 /-- **What the r49 capstone still needs from the pilot (PROVED reduction).** Given the budget
 condition `C·afA²/(j0+2) < timeRate` and the OPEN interpolation, the r49 floor follows, still
-conditional on `hafδ_OPEN`, `hupper_OPEN`, `hschur_OPEN` at every scale `j0+n`. -/
+conditional on `hafδ_OPEN`, `hupper_OPEN`, `hschur_OPEN` at every scale `j0+n`.
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem scaleChain_floor_of_pilotInterpolation (ns : NomeSchedule) (j0 : Nat) (C : Q')
     (hC : (0 : Q') ≤ C) (hbudget : C * (afA * afA) * inv (j0+2) < timeRate)
     (hI_OPEN : PilotToScheduleSeedInterpolation ns j0 (C * (afA * afA) * inv (j0+2))) :
@@ -133,7 +171,10 @@ theorem scaleChain_floor_of_pilotInterpolation (ns : NomeSchedule) (j0 : Nat) (C
   scaleChain_afBudget_floor_of_uniformSeedGap ns j0 C hC
     ((interpolation_iff ns j0 _ hbudget).mp hI_OPEN)
 
-/-- The budget condition is decidable for concrete data; e.g. `C = 1/10`, `j0 = 8`. -/
+/-- The budget condition is decidable for concrete data; e.g. `C = 1/10`, `j0 = 8`.
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem budget_lt_timeRate_example :
     Q'.mkPos 1 10 (by decide) * (afA * afA) * inv (8+2) < timeRate := by decide
 

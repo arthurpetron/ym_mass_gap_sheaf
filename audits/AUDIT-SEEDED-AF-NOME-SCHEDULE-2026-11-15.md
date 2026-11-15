@@ -33,7 +33,7 @@ The r49 capstone `scaleChain_afBudget_floor` (`RelativeDissipationScaleChain.lea
   - `hschur_OPEN 0`;
   - `hafδ_OPEN 0`, which says `delta 0 ≤ C·afGap(8)² ≈ 0.0021` for `C = 1/10`.
 - Analysis, not a theorem: an AF-sized defect across the largest coupling jump is a very strong demand. As stated, `hafδ_OPEN` is plausibly false at `n = 0`. A realistic route would replace the AF-shaped budget on the first few steps with a crossover budget, which changes the r49 statement. This is not done here.
-- This crossover sits at intermediate coupling, where 4D U(1) lattice gauge theory has its (deconfinement) phase transition. The abelian strong-coupling seed cannot be pushed through it by abelian-valid arguments alone. **Non-abelian input must enter exactly there.**
+- This crossover sits at intermediate coupling: per the numerics, the U(1) transition lies between 1/8 and 1/2, inside the crossover (YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved). A uniform gap past `w ≈ 1/8` would fail for U(1), so abelian-valid arguments alone cannot carry the seed through. **Non-abelian input must enter there.**
 
 ## Verification
 - Box only. Nothing was run on the Mac.
@@ -59,3 +59,13 @@ The r49 capstone `scaleChain_afBudget_floor` (`RelativeDissipationScaleChain.lea
 'YMGap.RG.SeededAfNomeSchedule.seeded_budget_example' does not depend on any axioms
 'YMGap.RG.SeededAfNomeSchedule.seeded_r49_floor' depends on axioms: [propext, Quot.sound]
 ```
+
+## U(1) note, sharpened (doc-only addendum, 2026-11-15)
+
+Input: YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved. The repo nome `w` matches the Numerics convention `t = −4 ln w`. At matched β, 4D U(1) is already in the Coulomb (massless) phase at `w = 1/2` and at `w = 0.5145`; only `w ≤ 1/8` is confined for U(1).
+
+- The seed witness at `w ≤ 1/55` is abelian-valid, so it isn't non-abelian evidence.
+- Any uniform gap at `w ≳ 1/8` would NOT hold for U(1), so it would be genuine non-abelian content. That covers `hcross_OPEN` beyond `1/8` and the AF-regime hypotheses (`hafδ_OPEN`, `hupper_OPEN`, `hschur_OPEN`).
+- Every earlier phrase "the crossover is where U(1) has its phase transition" is replaced by: per the numerics, the U(1) transition lies between 1/8 and 1/2, inside the crossover (YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved).
+
+Lean change: docstrings only (the module header and every theorem docstring now carry the sharpened note). No statement or proof changed. Recompiled with the same direct-`lean` method against the overlay (`LEAN_PATH=/workspace/v3logs/overlay`, `-M 6144`), because the box can't rebuild `BF4ExactSlabOriginalTubeHeatValue`: rc 0, zero warnings, peak Lean RSS ≈ 1.7 GiB. `#print axioms` for all 64 theorems in the seven files (plus the 7 in `MixRateSeedWidthNoGo`, 71 total) is identical to before (71 total: 53 `[propext, Quot.sound]`, 5 `[propext]`, 13 none).

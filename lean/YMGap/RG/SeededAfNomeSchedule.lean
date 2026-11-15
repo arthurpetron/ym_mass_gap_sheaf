@@ -2,7 +2,11 @@
 # `seededAfNomeSchedule`: a `NomeSchedule` that starts inside the proved strong-coupling region
 
 **Label: PROVED construction + PROVED seed + OPEN crossover inputs. NOT gap evidence.**
-U(1) note: the seed is abelian-valid strong-coupling work; it is not non-abelian evidence.
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs).
+Convention: repo nome `w` matches the Numerics `t = -4 ln w`; U(1) is confined only for
+w ≤ 1/8 and already Coulomb (massless) at w = 1/2 and 0.5145 (YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved).
 
 What `NomeSchedule` requires (`BF4WilsonAllNomeDyadicSmoothedTrajectory.lean:266`): `nome`, `0 < w_j`,
 `w_j < 1`, `w_j ≤ w_{j+1}`, and `w_j → 1` with an explicit `limitModulus`. Nothing else: no step
@@ -16,9 +20,9 @@ schedule.
 seed index `j0`, then the AF schedule at the SAME index (so for `j > j0` its gap is `afGap j`, the
 gap `hafδ_OPEN` refers to). The jump at `j0 → j0+1` goes from `w0` to `w_{j0+1}^{AF} ≥ 0.5145`. The
 structure allows such a jump. All the physics of the crossover sits in the OPEN inputs `hupper_OPEN`,
-`hschur_OPEN`, `hafδ_OPEN` at `n = 0, 1, …` (`seeded_r49_floor`). This intermediate-coupling
-crossover is where 4D U(1) lattice gauge theory has its phase transition, so a NON-ABELIAN input must
-enter exactly there; nothing here supplies it.
+`hschur_OPEN`, `hafδ_OPEN` at `n = 0, 1, …` (`seeded_r49_floor`). In this intermediate-coupling crossover,
+per the YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved,
+the 4D U(1) transition lies between w = 1/8 and w = 1/2, inside the crossover; a uniform gap past w ≈ 1/8 needs NON-ABELIAN input, and nothing here supplies it.
 
 Constructive, no external library; axioms within `propext`, `Quot.sound`.
 -/
@@ -63,7 +67,9 @@ private theorem seeded_mono {w0 : Q'} (h : w0 ≤ inv55) (j0 j : Nat) :
       exact afNomeSchedule.nome_mono j
 
 /-- **The seeded schedule is a `NomeSchedule` (PROVED)** for any `0 < w0 ≤ 1/55`.
-U(1) note: abelian-valid strong-coupling work, not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 def seededSchedule (w0 : Q') (hw0 : (0 : Q') < w0) (h55 : w0 ≤ inv55) (j0 : Nat) : NomeSchedule where
   nome := seededNome w0 j0
   nome_pos := fun j => by
@@ -89,12 +95,16 @@ def seededSchedule (w0 : Q') (hw0 : (0 : Q') < w0) (h55 : w0 ≤ inv55) (j0 : Na
 def inv64 : Q' := Q'.mkPos 1 64 (by decide)
 
 /-- **`seededAfNomeSchedule j0`: start at `1/64`, join `afNomeSchedule` after `j0` (PROVED).**
-U(1) note: abelian-valid strong-coupling work, not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 def seededAfNomeSchedule (j0 : Nat) : NomeSchedule :=
   seededSchedule inv64 (by decide) (by decide) j0
 
 /-- **`w_0 ≥ 1/2` is NOT forced by `NomeSchedule` (PROVED):** `w_0 = 1/64`.
-U(1) note: abelian-valid strong-coupling work, not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem seeded_nome_zero_lt_half (j0 : Nat) :
     (seededAfNomeSchedule j0).nome 0 < HalfPow.half := by
   change seededNome inv64 j0 0 < HalfPow.half
@@ -103,7 +113,9 @@ theorem seeded_nome_zero_lt_half (j0 : Nat) :
   decide
 
 /-- Every index up to `j0` lies in the proved region `w ≤ 1/55`.
-U(1) note: abelian-valid strong-coupling work, not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem seeded_nome_le_inv55 (j0 j : Nat) (hj : j ≤ j0) :
     (seededAfNomeSchedule j0).nome j ≤ inv55 := by
   change seededNome inv64 j0 j ≤ inv55
@@ -112,7 +124,9 @@ theorem seeded_nome_le_inv55 (j0 j : Nat) (hj : j ≤ j0) :
   decide
 
 /-- For `j > j0` the schedule IS the AF schedule (gap `afGap j`).
-U(1) note: abelian-valid strong-coupling work, not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem seeded_nome_af (j0 j : Nat) (hj : ¬ j ≤ j0) :
     (seededAfNomeSchedule j0).nome j = afNomeSchedule.nome j := by
   change seededNome inv64 j0 j = _
@@ -120,21 +134,27 @@ theorem seeded_nome_af (j0 j : Nat) (hj : ¬ j ≤ j0) :
   rw [if_neg hj]
 
 /-- **`UniformSeedGap` at the seed index `j0` for every `budget < timeRate = 1/4` (PROVED).**
-U(1) note: abelian-valid strong-coupling work, not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem seeded_uniformSeedGap (j0 : Nat) (budget : Q') (hb : budget < timeRate) :
     UniformSeedGap ((seededAfNomeSchedule j0).nome_pos j0)
       ((seededAfNomeSchedule j0).nome_lt_one j0) budget :=
   uniformSeedGap_of_le_inv55 _ _ (seeded_nome_le_inv55 j0 j0 (Nat.le_refl j0)) budget hb
 
 /-- **r49 budget below `timeRate` (decidable):** `C = 1/10`, `j0 = 8`: `0.1·afA²/10 ≈ 0.038 < 1/4`.
-U(1) note: abelian-valid strong-coupling work, not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem seeded_budget_example :
     Q'.mkPos 1 10 (by decide) * (afA * afA) * inv (8+2) < timeRate := by decide
 
 /-- **What is left (PROVED reduction).** On `seededAfNomeSchedule j0`, with the budget condition, the r49
 floor holds once `hafδ_OPEN`, `hupper_OPEN`, `hschur_OPEN` are supplied at every `n`; at `n = 0` they
-cross from `w = 1/64` to `w ≥ 0.5145` (the crossover: U(1) has its phase transition there, so
-non-abelian input must enter). U(1) note: the seed is abelian-valid, not non-abelian evidence. -/
+cross from `w = 1/64` to `w ≥ 0.5145` (the crossover; per the YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved,
+the 4D U(1) transition lies between w = 1/8 and w = 1/2, inside the crossover). U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem seeded_r49_floor (j0 : Nat) (C : Q') (hC : (0 : Q') ≤ C)
     (hbudget : C * (afA * afA) * inv (j0+2) < timeRate) :
     let ns := seededAfNomeSchedule j0

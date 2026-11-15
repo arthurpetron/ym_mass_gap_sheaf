@@ -2,7 +2,11 @@
 # Non-vacuity of `scaleChain_crossover_floor` and why the relaxation is needed
 
 **Label: PROVED decidable instance + PROVED converse. NOT gap evidence.**
-U(1) note: the seed is abelian-valid strong coupling; nothing here is non-abelian evidence.
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs).
+Convention: repo nome `w` matches the Numerics `t = -4 ln w`; U(1) is confined only for
+w ≤ 1/8 and already Coulomb (massless) at w = 1/2 and 0.5145 (YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved).
 
 Instance: `smoothAfNomeSchedule 8 4` (`w0 = 1/64`, `j0 = 8`, `k = 4` crossover steps), seed
 `s = timeRate = 1/4` (the witness inside `seeded_uniformSeedGap`, here taken directly from
@@ -50,7 +54,9 @@ private theorem tail : ∀ m, finSum (crossPart 4 eta32) (m+4) ≤ Q'.mkPos 1 8 
     exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (QPoly.q_add_zero_eqv _)) (tail m)
 
 /-- **Crossover budget `∑_{n<4} 1/32 ≤ 1/8` for every prefix (PROVED).**
-U(1) note: abelian-valid bookkeeping; not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem eta32_budget : ∀ n, finSum (crossPart 4 eta32) n ≤ Q'.mkPos 1 8 (by decide)
   | 0 => by decide
   | 1 => by decide
@@ -59,19 +65,25 @@ theorem eta32_budget : ∀ n, finSum (crossPart 4 eta32) n ≤ Q'.mkPos 1 8 (by 
   | m+4 => tail m
 
 /-- **`η = 1/16` does not fit (decidable):** `1/4 + B < 1/4` is false.
-U(1) note: abelian-valid bookkeeping; not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem budget_eta16_fails :
     ¬ (Q'.mkPos 1 4 (by decide) + Q'.mkPos 1 10 (by decide) * (afA * afA) * inv (8+2) < timeRate) := by
   decide
 
 /-- **`η = 1/32` fits (decidable):** `1/8 + B < 1/4`.
-U(1) note: abelian-valid bookkeeping; not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem budget_eta32_ok :
     Q'.mkPos 1 8 (by decide) + Q'.mkPos 1 10 (by decide) * (afA * afA) * inv (8+2) < timeRate := by
   decide
 
 /-- **The instance floor is `7483977/110000000 > 0` (decidable).**
-U(1) note: abelian-valid bookkeeping; not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem floor_eta32_value :
     Q'.eqv (((1 : Q') - timeRate) * (timeRate -
         (Q'.mkPos 1 8 (by decide) + Q'.mkPos 1 10 (by decide) * (afA * afA) * inv (8+2))))
@@ -81,7 +93,9 @@ theorem floor_eta32_value :
   ⟨by decide, crossover_floor_pos _ _ timeRate_lt_one budget_eta32_ok⟩
 
 /-- **The seed at `w_8 = 1/64` (PROVED):** width-uniform contraction at `timeRate`.
-U(1) note: abelian-valid strong-coupling seed; not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem smooth_seed (width : Nat) :
     WilsonVacuumSqContraction ((smoothAfNomeSchedule 8 4).nome_pos 8)
       ((smoothAfNomeSchedule 8 4).nome_lt_one 8) width timeRate :=
@@ -91,8 +105,11 @@ theorem smooth_seed (width : Nat) :
 
 /-- **Non-vacuous instance of `scaleChain_crossover_floor` (PROVED reduction):** `k = 4`, `η = 1/32`,
 `s = 1/4`, `C = 1/10`, `E = 1/8`; floor `> 0` by `floor_eta32_value`. What remains is exactly
-`hcross_OPEN` (crossover; U(1) phase transition there), `hafδ_OPEN`, `hupper_OPEN`, `hschur_OPEN`.
-U(1) note: the seed is abelian-valid; not non-abelian evidence. -/
+`hcross_OPEN` (crossover; per the YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved,
+the 4D U(1) transition lies between w = 1/8 and w = 1/2, inside the crossover), `hafδ_OPEN`, `hupper_OPEN`, `hschur_OPEN`.
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem crossover_instance :
     let ns := smoothAfNomeSchedule 8 4
     ∀ (width : Nat → Nat) (delta : Nat → Q')
@@ -124,7 +141,9 @@ theorem crossover_instance :
 
 /-- **Converse: the old single-step budget at `n = 0` (exact, decidable):**
 `(1/10)·afGap(8)² = 13804135081/6440062500000 ≈ 0.00214`, strictly below `η_0 = 1/32`.
-U(1) note: abelian-valid bookkeeping; not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem old_first_step_bound :
     Q'.eqv (Q'.mkPos 1 10 (by decide) * (afGap 8 * afGap 8))
       (Q'.mkPos 13804135081 6440062500000 (by decide)) ∧
@@ -133,7 +152,9 @@ theorem old_first_step_bound :
 
 /-- **Why the relaxation is needed (PROVED):** under the old r49 budget (`hafδ` from `n = 0`,
 `j0 = 8`, `C = 1/10`), the first crossover defect must be `< 1/32`; the crossover budget allows `1/32`.
-U(1) note: abelian-valid bookkeeping; not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem old_budget_forces_small_first_step (delta : Nat → Q')
     (hafδ_old : ∀ k, delta k ≤ Q'.mkPos 1 10 (by decide) * (afGap (8+k) * afGap (8+k))) :
     delta 0 < Q'.mkPos 1 32 (by decide) :=

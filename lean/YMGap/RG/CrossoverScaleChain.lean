@@ -2,9 +2,9 @@
 # `scaleChain_crossover_floor`: r49 with an explicit crossover budget (NEW statement next to r49)
 
 **Label: PROVED reduction from explicit OPEN inputs. NOT gap evidence. r49 itself is untouched.**
-U(1) note: the seed is abelian-valid strong coupling; the non-abelian content sits in `hcross_OPEN`
-(the crossover, where 4D U(1) has its phase transition) and in `hafδ_OPEN`/`hupper_OPEN`/
-`hschur_OPEN` in the AF regime.
+Non-abelian content sits in `hcross_OPEN` beyond w ≈ 1/8 (the crossover; per the YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved,
+the 4D U(1) transition lies between w = 1/8 and w = 1/2, inside the crossover)
+and in `hafδ_OPEN`/`hupper_OPEN`/`hschur_OPEN` in the AF regime.
 
 Steps `n < k` obey `δ_n ≤ η_n` (`hcross_OPEN`); steps `n ≥ k` obey the old AF budget
 `δ_n ≤ C·afGap(j0+n)²` (`hafδ_OPEN`). The loss the ACTUAL recursion gives is read off the existing
@@ -14,6 +14,11 @@ product. With `∑_{n<k} η_n ≤ E` (`hE`) and `afQuadratic_prefix_budget` for 
 `(1 - s)(s - (E + C·afA²·inv(j0+2))) ≤ 2^n (1 - r_n)`, positive when `E + C·afA²·inv(j0+2) < s < 1`.
 
 Constructive, no external library; axioms within `propext`, `Quot.sound`.
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs).
+Convention: repo nome `w` matches the Numerics `t = -4 ln w`; U(1) is confined only for
+w ≤ 1/8 and already Coulomb (massless) at w = 1/2 and 0.5145 (YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved).
 -/
 
 import YMGap.RG.SmoothSeededAfNomeSchedule
@@ -77,7 +82,9 @@ private theorem split_le (C : Q') (j0 k : Nat) (delta eta : Nat → Q')
         (fun _ => C * (afGap (j0+m) * afGap (j0+m)))))
 
 /-- **Prefix budget with a crossover (PROVED):** `finSum δ n ≤ E + C·afA²·inv(j0+2)`.
-U(1) note: abelian-valid bookkeeping; not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem crossover_prefix_budget (C E : Q') (hC : (0 : Q') ≤ C) (j0 k : Nat) (delta eta : Nat → Q')
     (hcross_OPEN : ∀ n, n < k → delta n ≤ eta n)
     (hafδ_OPEN : ∀ n, k ≤ n → delta n ≤ C * (afGap (j0+n) * afGap (j0+n)))
@@ -88,7 +95,9 @@ theorem crossover_prefix_budget (C E : Q') (hC : (0 : Q') ≤ C) (j0 k : Nat) (d
       (afQuadratic_prefix_budget C hC j0 (afPart C j0 k) (afPart_le C hC j0 k) n))
 
 /-- **Positivity condition (PROVED, sufficient):** `E + B < s < 1` gives floor `> 0`.
-U(1) note: abelian-valid bookkeeping; not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem crossover_floor_pos (s Dq : Q') (hs1 : s < (1 : Q')) (hD : Dq < s) :
     (0 : Q') < ((1 : Q') - s) * (s - Dq) :=
   Q'.mul_pos (YMGap.Continuum.HKPos.one_sub_pos hs1)
@@ -96,8 +105,9 @@ theorem crossover_floor_pos (s Dq : Q') (hs1 : s < (1 : Q')) (hD : Dq < s) :
 
 /-- **`scaleChain_crossover_floor` (PROVED from explicit OPEN inputs).** Contraction at every scale
 and the floor `(1-s)(s - (E + C·afA²·inv(j0+2))) ≤ 2^n (1 - r_n)`.
-U(1) note: the seed `hseed` can be the abelian-valid strong-coupling one; non-abelian content is in
-`hcross_OPEN` (crossover; U(1) phase transition) and in `hafδ_OPEN`, `hupper_OPEN`, `hschur_OPEN`. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem scaleChain_crossover_floor (ns : NomeSchedule) (width : Nat → Nat) (j0 k : Nat)
     (seed C E : Q') (delta eta : Nat → Q') (hs0 : (0 : Q') ≤ seed) (hs1 : seed < (1 : Q'))
     (hC : (0 : Q') ≤ C) (hE0 : (0 : Q') ≤ E)

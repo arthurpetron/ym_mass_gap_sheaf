@@ -2,7 +2,11 @@
 # Smooth seeded schedule: `1/64` → AF over `k` geometric crossover steps
 
 **Label: PROVED construction. NOT gap evidence.**
-U(1) note: the seed region is abelian-valid strong coupling; nothing here is non-abelian evidence.
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs).
+Convention: repo nome `w` matches the Numerics `t = -4 ln w`; U(1) is confined only for
+w ≤ 1/8 and already Coulomb (massless) at w = 1/2 and 0.5145 (YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved).
 
 `smoothNome w0 j0 k j` (with `A := afNomeSchedule.nome (j0+k)`):
 * `j ≤ j0`: `w0` (inside the proved strong-coupling region, `w0 ≤ 1/55`);
@@ -11,7 +15,8 @@ U(1) note: the seed region is abelian-valid strong coupling; nothing here is non
 
 The `k` chain steps `n < k` (scales `j0+n → j0+n+1`) are the crossover; steps `n ≥ k` are AF.
 `smoothSchedule` proves all `NomeSchedule` obligations for every `j0`, `k`, `0 < w0 ≤ 1/55`.
-The crossover is where 4D U(1) has its phase transition; non-abelian input must enter there.
+Crossover: per the YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved,
+the 4D U(1) transition lies between w = 1/8 and w = 1/2, inside the crossover; non-abelian input must enter past w ≈ 1/8.
 
 Constructive, no external library; axioms within `propext`, `Quot.sound`.
 -/
@@ -102,7 +107,9 @@ private theorem smooth_mono {w0 : Q'} (h : w0 ≤ inv55) (j0 k j : Nat) :
         exact afNomeSchedule.nome_mono j
 
 /-- **The smooth seeded schedule is a `NomeSchedule` (PROVED)** for every `j0`, `k`, `0 < w0 ≤ 1/55`.
-U(1) note: abelian-valid strong-coupling seed; not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 def smoothSchedule (w0 : Q') (hw0 : (0 : Q') < w0) (h55 : w0 ≤ inv55) (j0 k : Nat) :
     NomeSchedule where
   nome := smoothNome w0 j0 k
@@ -138,12 +145,16 @@ def smoothSchedule (w0 : Q') (hw0 : (0 : Q') < w0) (h55 : w0 ≤ inv55) (j0 k : 
     exact afNomeSchedule.nome_limit eps he j (Nat.le_trans (Nat.le_add_left _ _) hj)
 
 /-- `smoothAfNomeSchedule j0 k`: `w0 = 1/64`, `k` crossover steps.
-U(1) note: abelian-valid strong-coupling seed; not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 def smoothAfNomeSchedule (j0 k : Nat) : NomeSchedule :=
   smoothSchedule YMGap.RG.SeededAfNomeSchedule.inv64 (by decide) (by decide) j0 k
 
 /-- Up to `j0` the schedule sits at `1/64 ≤ 1/55` (proved strong-coupling region).
-U(1) note: abelian-valid strong-coupling seed; not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem smooth_nome_le_inv55 (j0 k j : Nat) (hj : j ≤ j0) :
     (smoothAfNomeSchedule j0 k).nome j ≤ inv55 := by
   change smoothNome YMGap.RG.SeededAfNomeSchedule.inv64 j0 k j ≤ inv55
@@ -152,7 +163,9 @@ theorem smooth_nome_le_inv55 (j0 k j : Nat) (hj : j ≤ j0) :
   decide
 
 /-- From `j0+k` on the schedule IS the AF schedule (gap `afGap j`).
-U(1) note: abelian-valid strong-coupling seed; not non-abelian evidence. -/
+U(1) note: the seed witness at w ≤ 1/55 is abelian-valid, so it is not non-abelian evidence.
+Any uniform gap at w ≳ 1/8 would NOT hold for U(1) (massless Coulomb phase at matched β;
+YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved), so it would be genuine non-abelian content (hcross_OPEN beyond 1/8, AF-regime inputs). -/
 theorem smooth_nome_af (j0 k j : Nat) (hj0 : ¬ j ≤ j0) (hk : j0+k ≤ j) :
     (smoothAfNomeSchedule j0 k).nome j = afNomeSchedule.nome j := by
   change smoothNome YMGap.RG.SeededAfNomeSchedule.inv64 j0 k j = _

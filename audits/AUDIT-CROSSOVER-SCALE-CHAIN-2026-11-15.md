@@ -2,7 +2,7 @@
 
 File: `lean/YMGap/RG/CrossoverScaleChain.lean` (136 lines). Label: **PROVED reduction from explicit OPEN inputs. This is a NEW statement next to r49; r49 (`scaleChain_afBudget_floor`) and all existing files are untouched. NOT gap evidence. No chart closure and no mass-gap claim.**
 
-U(1) note: the seed is abelian-valid. The non-abelian content sits in `hcross_OPEN` (the crossover, where 4D U(1) has its phase transition) and in `hafδ_OPEN`, `hupper_OPEN` and `hschur_OPEN` in the AF regime.
+U(1) note: the seed is abelian-valid. The non-abelian content sits in `hcross_OPEN` (beyond `w ≈ 1/8`; per the numerics, the U(1) transition lies between 1/8 and 1/2, inside the crossover (YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved)) and in `hafδ_OPEN`, `hupper_OPEN` and `hschur_OPEN` in the AF regime.
 
 ## Statement
 `scaleChain_crossover_floor` (:101):
@@ -37,3 +37,13 @@ U(1) note: the seed is abelian-valid. The non-abelian content sits in `hcross_OP
 'YMGap.RG.CrossoverScaleChain.crossover_floor_pos' depends on axioms: [propext]
 'YMGap.RG.CrossoverScaleChain.scaleChain_crossover_floor' depends on axioms: [propext, Quot.sound]
 ```
+
+## U(1) note, sharpened (doc-only addendum, 2026-11-15)
+
+Input: YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved. The repo nome `w` matches the Numerics convention `t = −4 ln w`. At matched β, 4D U(1) is already in the Coulomb (massless) phase at `w = 1/2` and at `w = 0.5145`; only `w ≤ 1/8` is confined for U(1).
+
+- The seed witness at `w ≤ 1/55` is abelian-valid, so it isn't non-abelian evidence.
+- Any uniform gap at `w ≳ 1/8` would NOT hold for U(1), so it would be genuine non-abelian content. That covers `hcross_OPEN` beyond `1/8` and the AF-regime hypotheses (`hafδ_OPEN`, `hupper_OPEN`, `hschur_OPEN`).
+- Every earlier phrase "the crossover is where U(1) has its phase transition" is replaced by: per the numerics, the U(1) transition lies between 1/8 and 1/2, inside the crossover (YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved).
+
+Lean change: docstrings only (the module header and every theorem docstring now carry the sharpened note). No statement or proof changed. Recompiled with the same direct-`lean` method against the overlay (`LEAN_PATH=/workspace/v3logs/overlay`, `-M 6144`), because the box can't rebuild `BF4ExactSlabOriginalTubeHeatValue`: rc 0, zero warnings, peak Lean RSS ≈ 1.7 GiB. `#print axioms` for all 64 theorems in the seven files (plus the 7 in `MixRateSeedWidthNoGo`, 71 total) is identical to before (71 total: 53 `[propext, Quot.sound]`, 5 `[propext]`, 13 none).
