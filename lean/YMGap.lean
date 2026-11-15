@@ -8263,3 +8263,5 @@ import YMGap.RG.TwoBlockMarginShiftedH1Check
 import YMGap.Continuum.ClusteringImpliesGapPoly
 -- Division-free -log sandwich interface over Q', rational truncated series inhabitants, physical-units restatement, rhoToy L(rho)/a -> 0; infrastructure, not gap evidence; U(1)-true
 import YMGap.Continuum.LogBounds
+-- V3 no-go: proved mixRate seed is not width-uniform; r49 floor vacuous in large volume (builds on BF4ExactSlabFixedSpatialRateWidthObstruction); not gap evidence
+import YMGap.RG.MixRateSeedWidthNoGo
