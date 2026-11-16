@@ -94133,3 +94133,8 @@ Rational-certificate recipe (technique-only; arXiv 2610.12700, Q. Gao, Laughlin 
 - PROVED (`UndershootPhysicalUnits`): telescoping weights give 2ⁿ·a_n ≤ P·a_0 with P = 96256076646951/2500000000000 ≈ 38.50 (U ≈ 5.27), under `hspacing_OPEN`.
 - PROVED (`UndershootCrossoverInstance`): floor 114517/5000000; in physical units, margin_n/a_n ≥ floor/(P·a_0) ≈ 5.95e-4/a_0.
 - CAVEAT: direct lean against oleans copied from the Mac after the box restore, not lake-verified. δ_min = 0 is necessary only. Next step: Numerics checks ℓ_j ≤ 1 and δ_min on the new schedule.
+
+## Robust undershooting schedule (2026-11-15, additive)
+- PROVED (`RobustUndershootAfSchedule`): `robustUndershootSchedule : NomeSchedule`, made of dyTable for j < 6, a deeper window for j = 6..10 (every Numerics §9 model has 1 − ℓ − 2σ ≥ 0.03), and a tail with realised u ≈ 0.050–0.057 g⁴ (design 0.045 g⁴). `DyadicRGStep` holds for n < 45. The robustness is numerical only.
+- PROVED (`RobustUndershootPhysicalUnits`): 2ⁿ·a_n ≤ P'·a_0 with P' = 1075597539489/19531250000 ≈ 55.07 (U' ≈ 5.78), under `hspacing_OPEN` (exactly ρ ≥ 2^{1−ℓ}).
+- PROVED (`RobustUndershootCrossoverInstance`): floor 114517/5000000; in physical units, margin_n/a_n ≥ 4.16e-4/a_0. hspacing/hmargin are unchanged in form. δ_min = 0 is only necessary; hafδ is still OPEN. Not lake-verified.
