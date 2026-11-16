@@ -94193,3 +94193,10 @@ Rational-certificate recipe (technique-only; arXiv 2610.12700, Q. Gao, Laughlin 
   - non-vacuity of the spacing and positivity part, via `spacing_nonvacuous` (2^{-j}) and `HK_hyps_of_seq`.
 - OPEN: the window (MC task2k, not proof), off-window, hcross, hafδ, hupper and hschur. j8: switch to `lo hi = 6 8` once w9 is reported.
 - CAVEAT: direct lean against copied oleans, not lake-verified. δ_min = 0 is necessary only. No chart closure.
+
+## Robust3: r3Nome injective, genuine aHK witness, STATUS audit (2026-11-16, additive)
+- PROVED (`Robust3NomeInjective`, 211 lines):
+  - `ecomp_strict`, `r3Nome_strict`, `r3Nome_inj`;
+  - `aHKw` (classical-free bounded decidable search), with `aHKw_hyps` covering positivity, window and off-window for every lo and hi.
+- STATUS (`audits/STATUS-R49-ROBUST3-CHAIN-2026-11-16.md`): the open hypotheses of `robust3_physical_floor_noMargin_HK`, with Lean locations, evidence and U(1) status. Not chart closure.
+- CAVEAT: direct lean against copied oleans, not lake-verified. δ_min = 0 is necessary only. HK window evidence is MC, not proof.
