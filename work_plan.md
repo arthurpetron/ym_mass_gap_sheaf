@@ -94173,3 +94173,14 @@ Rational-certificate recipe (technique-only; arXiv 2610.12700, Q. Gao, Laughlin 
   - Supporting lemmas: `dD_lean` (D(κ'_n) − D(κ'_N) ≤ 2^-n) and `D_le` (D ≤ 2m).
 - Uses 362 Lean lines against a ~400-line budget. The limit N → ∞ is SERIES_LIMITS_OPEN (unchanged). F (iv), the log2 link and j6/rho6/w6 were not touched.
 - CAVEAT: direct lean against copied oleans, not lake-verified. δ_min = 0 is necessary only. No chart closure.
+
+## Numerics task2k: heat-kernel MC at the window, plus an hspacing heat-kernel scope note (2026-11-16, docs only)
+- task2k (MC, NOT proof): ℓ6 = 0.678±0.018 (+0.204, 11σ) and ℓ7 = 0.676±0.018 (+0.077, 4.4σ), directly in w at the Lean nomes.
+  - ρ needed at 2σ: 1.28/1.28 for the primary estimator (≤ 1.30/1.28 across estimators), against Lean 1.44/1.32.
+  - P′ minimum slack is +0.181 to +0.209.
+  - The naive-map j6 failure is an artefact; no j6/ρ6/w6 change is needed. j8 is pending (w9 at L ≥ 20–24).
+  - Details: `audits/ADDENDUM-TASK2K-HEAT-KERNEL-MC-2026-11-16.md`.
+- SCOPE (`audits/SCOPE-HSPACING-HEAT-KERNEL-WINDOW-2026-11-16.md`): Lean `hspacing_OPEN` is already map-free (an abstract `a`).
+  - Proposed: an additive `hspacingHK_window` on aHK ∘ r3Nome for j6–8, about 80–140 lines.
+  - Blockers: the j8 data, and aHK stays abstract.
+- CAVEAT: δ_min = 0 is necessary only. No chart closure.
