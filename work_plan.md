@@ -94230,3 +94230,12 @@ Rational-certificate recipe (technique-only; arXiv 2610.12700, Q. Gao, Laughlin 
 - Result: none of the fetched rigorous results gives "area law ⇒ uniform vac⊥ TM gap"; all go gap ⇒ area law. The SZZ threshold reaches only w_char ≈ 0.275 < 0.35.
   **No Lean reduction was built** (it would be fake). The honest next step is a sector split, flux (U(1)-failing) vs neutral residual; deferred.
 - No Lean runs. Not chart closure. MC is not proof.
+
+## Docs: GO/NO-GO for the sector split of hcross_unif (2026-11-16)
+- `audits/GO-NOGO-SECTOR-SPLIT-HCROSS-UNIF-2026-11-16.md`: **NO-GO**.
+  - G1: the carrier is an open Nat box of closed loops (`SourceLoop`, `SliceLink`), so the center acts trivially and the flux sector is {0}.
+  - G2: `strongCoupling_areaLaw` is only a per-plaquette activity bound.
+  - G3: the neutral residual is the same as hcross_unif.
+  - G4: a periodic carrier would cost far more than 300 lines.
+- Also scopes the SU(2) character route in u = w³: SCGuards needs K from 128 down to ≤ 2.4 even in the ideal case. Discrepancy: the 32w³ ≤ 1/2 guard gives w ≤ 0.25.
+- Uses task2o (PARTIAL). No Lean was built; RAM was 20 %, below the floor anyway. Not chart closure.
