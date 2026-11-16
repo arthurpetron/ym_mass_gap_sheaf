@@ -94200,3 +94200,8 @@ Rational-certificate recipe (technique-only; arXiv 2610.12700, Q. Gao, Laughlin 
   - `aHKw` (classical-free bounded decidable search), with `aHKw_hyps` covering positivity, window and off-window for every lo and hi.
 - STATUS (`audits/STATUS-R49-ROBUST3-CHAIN-2026-11-16.md`): the open hypotheses of `robust3_physical_floor_noMargin_HK`, with Lean locations, evidence and U(1) status. Not chart closure.
 - CAVEAT: direct lean against copied oleans, not lake-verified. δ_min = 0 is necessary only. HK window evidence is MC, not proof.
+
+## Robust3: Schur budget from spectral data, task2n (A) abstract form (2026-11-16, additive)
+- PROVED (`Robust3SchurRankOne`, 263 lines): `schur_of_spectral` (repo `SchurDecomposition` from a fine two-step factor f, coarse attainment c, and `SchurBudget f c δ`), `budget_eps` (ε cost (1−δ)ε), `robust3_physical_floor_spectral_HK`, `robust3_physical_floor_lmax_HK` (hcross, hafδ and hschur discharged in favour of `hbudget_OPEN` = ℓ ≤ ℓ_max, rational form).
+- OPEN: the rank-one Φ (no real scalar action on the carrier), the spectral facts, the TM identification. Audit: `audits/AUDIT-ROBUST3-SCHUR-RANK-ONE-2026-11-16.md`.
+- CAVEAT: direct lean against copied oleans, not lake-verified. Not chart closure.
