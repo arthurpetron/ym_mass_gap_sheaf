@@ -94143,3 +94143,9 @@ Rational-certificate recipe (technique-only; arXiv 2610.12700, Q. Gao, Laughlin 
 - PROVED (`Robust2UndershootAfSchedule`): `robust2UndershootSchedule : NomeSchedule`. Same crossover and window; the tail coefficient is 16/((i+4)(i+21)), giving realised u ≈ 0.064–0.10 g⁴. `DyadicRGStep` holds for n < 45. Numerically, all 15 §10 models, including matched + c held, have 1 − ℓ − 2σ ≥ 0.0061 g⁴ for j = 11..2000, with exact β_char. There is no taper, because c held keeps the requirement at ≈ 0.062 g⁴.
 - PROVED (`Robust2UndershootPhysicalUnits`): P₂ = 127996107199191/1562500000000 ≈ 81.92 (U₂ ≈ 6.36). The tail weight is (m+13)/m with m = i−7.
 - PROVED (`Robust2UndershootCrossoverInstance`): floor 114517/5000000, margin_n/a_n ≥ 2.80e-4/a_0. δ_min = 0 is only necessary, and hafδ is still OPEN. Not lake-verified.
+
+## Robust3 exact-rational schedule (2026-11-15, additive)
+- PROVED (`Robust3UndershootAfSchedule`): `robust3UndershootSchedule : NomeSchedule` with no integer floors. The tail is w = 1 − 1/E, where E = D·B is an exact closed form (harmonic numbers, the 16/((m)(m+17)) undershoot, a κ'²(H_m+1)/m log correction, and series bounds L_n ≤ ln2, P_n ≥ π², so that A'_n ≥ A converges like 2^-n). The running max and floor make monotonicity and the modulus structural. `DyadicRGStep` holds for n < 45 (8 s compile).
+- PROVED (`Robust3UndershootPhysicalUnits`): P₃ = P₂ = 127996107199191/1562500000000 ≈ 81.92.
+- PROVED (`Robust3UndershootCrossoverInstance`): floor 114517/5000000, margin_n/a_n ≥ 2.80e-4/a_0.
+- ANALYSIS (not Lean): every model has 1 − ℓ − 2σ ≥ 0.0074·g⁴ for all j ≥ 2000, with limit 0.0077 (matched + c held). The spacing ratio limit is 1.0655. Checked numerically to j = 10⁷. δ_min = 0 is only necessary, and hafδ is still OPEN. Not lake-verified.
