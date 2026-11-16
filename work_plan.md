@@ -94159,3 +94159,9 @@ Rational-certificate recipe (technique-only; arXiv 2610.12700, Q. Gao, Laughlin 
 - SCOPED, not started: task2h (a) Bessel-ratio bounds (~350–600 lines conditional; unconditional blocked by the lack of calculus) and (d) §4 error propagation (~1500–3000 lines). See `audits/SCOPE-TASK2H-BESSEL-AND-ERROR-PROPAGATION-2026-11-16.md`. Suggested first item: Lemma F.
 - CAVEAT: direct lean against copied oleans, not lake-verified. δ_min = 0 is necessary only. No chart closure.
 - ON HOLD: Row64, route (i), strong-coupling constants, q_n chain.
+
+## Robust3: ecomp monotone, r3E = ecomp, Lemma F (i)–(ii) (2026-11-16, additive)
+- PROVED (`Robust3EcompMonoBounds`, `Robust3EcompMono`): `ecomp_mono` (structural, all k) and `r3E_eq : r3E k = ecomp k`. The running max and the floor never activate. Step margin: D_{k+1} − D_k ≥ 1 − 1/100 − 31/100 − 4/17; B_n is increasing.
+- PROVED (`Robust3LemmaF`): `lemmaF_i` (B_n ≤ B_{n+j} ≤ B_n + 2^-n) and `lemmaF_ii` (κ'_{n+j} ≤ κ'_n ≤ κ'_{n+j} + 0.9/((n+1)2^n)), for n ≥ 14. The limit step to the ideal B and κ' is SERIES_LIMITS_OPEN (unchanged).
+- STOPPED: Lemma F (iii) (+300–400 lines, over the ~600-line step threshold); F (iv) (needs Lemmas N/M and the I3 interface); linking log2 = 2·artanh(1/3) to L_n (needs a power-series identity interface). See `audits/AUDIT-ROBUST3-LEMMA-F-2026-11-16.md`.
+- CAVEAT: direct lean against copied oleans, not lake-verified. δ_min = 0 is necessary only. No chart closure.
