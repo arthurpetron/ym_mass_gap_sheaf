@@ -125,6 +125,13 @@ Fetched sources are in `/workspace/hcross_lit/` on the box: arXiv PDFs and `pdft
 - No reduction with verified hypotheses exists, so per instructions no Lean file was written.
 - A sector-split interface (item 3.1) would be honest, but its residual neutral-sector hypothesis is not U(1)-failing *because of* center
   symmetry. It is deferred, pending approval.
+- **Clarification (2026-11-16, 3:10 PM PT, after YM Bot's check):** the U(1) photon has zero electric flux, so it lives in the
+  **neutral** sector. A width-uniform neutral-sector gap at w in [0.35, 0.56] therefore **fails for U(1)**. That residual
+  hypothesis is where the essential non-abelian content sits: it is the open core. "Not U(1)-failing *because of* center symmetry" above
+  means only that center symmetry / area-law arguments do not control that sector, so they cannot discharge it. It does not mean U(1)
+  satisfies it. The flux-sector hypothesis also fails for U(1) in the Coulomb phase (no area law), but on its own it is not enough.
+  One sentence in the 3:06 PM report to YM Bot ("would NOT fail for U(1)") was misworded and is superseded by this clarification.
+  The sector split stays on hold until Numerics task2o reports which quantity separates SU(2) from U(1) uniformly in L.
 
 ## 5. Repo interfaces found (rg over lean/ and audits/)
 - `lean/YMGap/Continuum/WilsonAreaLaw.lean`: `ScaleCovariantWilsonAreaLaw` :113, `rectangularWilsonAreaLaw_of_general` :164, `StrongCouplingPlaquetteActivity` :204,
