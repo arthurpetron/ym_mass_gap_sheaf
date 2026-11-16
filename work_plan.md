@@ -94111,3 +94111,8 @@ Rational-certificate recipe (technique-only; arXiv 2610.12700, Q. Gao, Laughlin 
 ## Crossover instance `smoothAfNomeSchedule 8 4`: numerically implausible (2026-11-15)
 - YM Numerics (README §4, numerical only, not proof): the last crossover step `0.779 → 0.8875` (join at afNome index 12) skips about 8 dyadic scales and needs `δ_min ≈ 0.97–0.99`. So `E < 0.21` is implausible.
 - `CrossoverInstance` / `SmoothSeededAfNomeSchedule` are kept unchanged but should not be used as targets. They are replaced by a schedule with no scale-skipping step (`DyadicCrossoverSchedule`, `DyadicCrossoverInstance`).
+
+## Dyadic crossover schedule plus instance (2026-11-15)
+- PROVED: `DyadicCrossoverSchedule` (1/64 → afNome 12 in 12 steps, each a `DyadicRGStep`, checked by decidable proofs; all four old steps fail the check).
+- PROVED: `DyadicCrossoverInstance` (j0 = 0, k = 12, η_n = 1/128, E = 3/32, B ≈ 0.1257, floor 114517/5000000 ≈ 0.0229).
+- OPEN: `hcross_OPEN` (δ_n ≤ 1/128 on 12 dyadic steps; Numerics to check δ_min), plus `hafδ`, `hupper` and `hschur`. The AF tail of `DyadicRGStep` for every j is not proved (decidable up to j = 28).
