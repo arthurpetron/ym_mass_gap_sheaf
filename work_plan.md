@@ -94149,3 +94149,13 @@ Rational-certificate recipe (technique-only; arXiv 2610.12700, Q. Gao, Laughlin 
 - PROVED (`Robust3UndershootPhysicalUnits`): P₃ = P₂ = 127996107199191/1562500000000 ≈ 81.92.
 - PROVED (`Robust3UndershootCrossoverInstance`): floor 114517/5000000, margin_n/a_n ≥ 2.80e-4/a_0.
 - ANALYSIS (not Lean): every model has 1 − ℓ − 2σ ≥ 0.0074·g⁴ for all j ≥ 2000, with limit 0.0077 (matched + c held). The spacing ratio limit is 1.0655. Checked numerically to j = 10⁷. δ_min = 0 is only necessary, and hafδ is still OPEN. Not lake-verified.
+
+## Robust3 is the current AF schedule; brackets, strict floor, hmargin (2026-11-16, additive)
+- DECISION: `robust3UndershootSchedule` (79883f3e/7b072c89/c2ad3d15) is the current AF schedule. Undershoot, Robust and Robust2 are superseded for forward work (Robust2 fails ℓ ≤ 1 from j = 35128, Numerics task2f/2g); their files are unchanged. See `audits/AUDIT-ROBUST3-CURRENT-SCHEDULE-AND-NUMERICS-2026-11-16.md`.
+- NUMERICS (not Lean): task2g arb certifies (T), (S), (E) for 10 ≤ j ≤ 10⁷, nfail = 0. Task2h proves the same for j ≥ 1,000,007 analytically, modulo the cited L1/L1′/I2, the handwritten §4 and the computer-assisted Lemma P/P1 certificates. It covers 10 analytic models only; the window j6–9 and the data models are empirical.
+- PROVED (`Robust3SeriesBrackets`, b8766249): `ln2_partial_bracket`, `pi2_partial_bracket`, `pUp_lower/upper` and `t_le_pow4` on the exact `lnS`/`piST`/`pUp`. NAMED ASSUMPTION `SERIES_LIMITS_OPEN` (ln2 = lim L_n, π²/18 = lim S_n) is not formalised and is not linked to the `CReal` `log2`/`pi`.
+- PROVED (`Robust3StrictFloor`, 70739a3a): `r3Floor_lt_ecomp`, `r3Raw_eq` (floor never active) and `r3Floor_lt_r3E`. Monotonicity of `ecomp` itself (envelope inactive) is still analysis/numerics only.
+- PROVED (`Robust3MarginDischarge`, 70739a3a): `robust3_margin_nonneg`, `robust3_physical_floor_noMargin`. hmargin_OPEN is removed; hcross/hafδ/hupper/hschur/hspacing remain OPEN.
+- SCOPED, not started: task2h (a) Bessel-ratio bounds (~350–600 lines conditional; unconditional blocked by the lack of calculus) and (d) §4 error propagation (~1500–3000 lines). See `audits/SCOPE-TASK2H-BESSEL-AND-ERROR-PROPAGATION-2026-11-16.md`. Suggested first item: Lemma F.
+- CAVEAT: direct lean against copied oleans, not lake-verified. δ_min = 0 is necessary only. No chart closure.
+- ON HOLD: Row64, route (i), strong-coupling constants, q_n chain.
