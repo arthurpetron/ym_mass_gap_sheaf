@@ -94213,3 +94213,8 @@ Rational-certificate recipe (technique-only; arXiv 2610.12700, Q. Gao, Laughlin 
   - Lemma G (K3 = 27/10, β̄ ≥ m/4, 0 < Δβ ≤ 26/100) is [P] and not in Lean.
 - `audits/SCOPE-HCROSS-UNIF-2026-11-16.md`: a volume-uniform `hcross_unif` (W-indexed Φ, D; δ independent of W), plugging pointwise into `robust3_physical_floor(_noMargin)` and `_HK`. About 70–110 lines; not implemented.
 - CAVEAT: numerics are evidence, not proof. Not chart closure.
+
+## Robust3: width-uniform floor from hcross_unif (2026-11-16, additive)
+- PROVED (`Robust3CrossUniform`, 151 lines): `robust3_floor_width_uniform`, giving at every width W (a) the carrier contraction at the W-independent rate `relativeRate timeRate capDelta n` and (b) the same floor. Open hypotheses: `hupper_unif`, `hcross_unif`, `hafδ_unif`, `hpos`, `hwin_MC`, `hoff_OPEN`. A Schur-form variant (Φ and D indexed by W) is included.
+- U(1): finite-volume hcross does not give hcross_unif; U(1) is expected to fail it at step 2 (estimate). Audit: `audits/AUDIT-ROBUST3-CROSS-UNIFORM-2026-11-16.md`.
+- CAVEAT: direct lean against copied oleans, not lake-verified. Not chart closure.
