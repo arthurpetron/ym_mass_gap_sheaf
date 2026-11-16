@@ -94184,3 +94184,12 @@ Rational-certificate recipe (technique-only; arXiv 2610.12700, Q. Gao, Laughlin 
   - Proposed: an additive `hspacingHK_window` on aHK ∘ r3Nome for j6–8, about 80–140 lines.
   - Blockers: the j8 data, and aHK stays abstract.
 - CAVEAT: δ_min = 0 is necessary only. No chart closure.
+
+## Robust3: hspacing on the heat-kernel a(w), window j6–7 (2026-11-16, additive)
+- PROVED (`Robust3SpacingHeatKernel`, 156 lines):
+  - `hspacing_of_HK`;
+  - `robust3_spacing_bound_HK` (2ⁿ aHK(w_n) ≤ P₃ aHK(w_0));
+  - `robust3_physical_floor_noMargin_HK`, with a := aHK ∘ r3Nome and positivity `hposHK`;
+  - non-vacuity of the spacing and positivity part, via `spacing_nonvacuous` (2^{-j}) and `HK_hyps_of_seq`.
+- OPEN: the window (MC task2k, not proof), off-window, hcross, hafδ, hupper and hschur. j8: switch to `lo hi = 6 8` once w9 is reported.
+- CAVEAT: direct lean against copied oleans, not lake-verified. δ_min = 0 is necessary only. No chart closure.
