@@ -94218,3 +94218,7 @@ Rational-certificate recipe (technique-only; arXiv 2610.12700, Q. Gao, Laughlin 
 - PROVED (`Robust3CrossUniform`, 151 lines): `robust3_floor_width_uniform`, giving at every width W (a) the carrier contraction at the W-independent rate `relativeRate timeRate capDelta n` and (b) the same floor. Open hypotheses: `hupper_unif`, `hcross_unif`, `hafδ_unif`, `hpos`, `hwin_MC`, `hoff_OPEN`. A Schur-form variant (Φ and D indexed by W) is included.
 - U(1): finite-volume hcross does not give hcross_unif; U(1) is expected to fail it at step 2 (estimate). Audit: `audits/AUDIT-ROBUST3-CROSS-UNIFORM-2026-11-16.md`.
 - CAVEAT: direct lean against copied oleans, not lake-verified. Not chart closure.
+
+## Docs: FRONTIER for the width-uniform theorem (2026-11-16)
+- `audits/FRONTIER-ROBUST3-WIDTH-UNIFORM-2026-11-16.md` covers the open hypotheses of `robust3_floor_width_uniform`: what would discharge each one, and the literature (Osterwalder–Seiler, Balaban, Chatterjee, with uncertain fits marked).
+- assessment-1 is at `/workspace/ym_release/assessment-1.pdf` (Nov 10). It covers none of the hypotheses and lists a uniform mass gap as open.
