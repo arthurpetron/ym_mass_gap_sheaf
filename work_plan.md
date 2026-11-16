@@ -94165,3 +94165,11 @@ Rational-certificate recipe (technique-only; arXiv 2610.12700, Q. Gao, Laughlin 
 - PROVED (`Robust3LemmaF`): `lemmaF_i` (B_n ≤ B_{n+j} ≤ B_n + 2^-n) and `lemmaF_ii` (κ'_{n+j} ≤ κ'_n ≤ κ'_{n+j} + 0.9/((n+1)2^n)), for n ≥ 14. The limit step to the ideal B and κ' is SERIES_LIMITS_OPEN (unchanged).
 - STOPPED: Lemma F (iii) (+300–400 lines, over the ~600-line step threshold); F (iv) (needs Lemmas N/M and the I3 interface); linking log2 = 2·artanh(1/3) to L_n (needs a power-series identity interface). See `audits/AUDIT-ROBUST3-LEMMA-F-2026-11-16.md`.
 - CAVEAT: direct lean against copied oleans, not lake-verified. δ_min = 0 is necessary only. No chart closure.
+
+## Robust3: Lemma F (iii) on partial sums (2026-11-16, additive)
+- PROVED (`Robust3LemmaFiiiAlg`, `Robust3LemmaFiii`), for m ≥ 60:
+  - `lemmaF_iii_C`: |E^L_C − D(κ'_N,m)B_N| ≤ (2m+1)2^-n.
+  - `lemmaF_iii_P`: |(E^L_F − E^L_C) − Δ_N B_N| ≤ (3m+3)2^-n (subtraction-free form).
+  - Supporting lemmas: `dD_lean` (D(κ'_n) − D(κ'_N) ≤ 2^-n) and `D_le` (D ≤ 2m).
+- Uses 362 Lean lines against a ~400-line budget. The limit N → ∞ is SERIES_LIMITS_OPEN (unchanged). F (iv), the log2 link and j6/rho6/w6 were not touched.
+- CAVEAT: direct lean against copied oleans, not lake-verified. δ_min = 0 is necessary only. No chart closure.
