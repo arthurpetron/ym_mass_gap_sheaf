@@ -38,7 +38,7 @@ strong-coupling-model analogue (m ≈ 3t) of ℓ ≤ 1 and has no link to the ca
   (with `hupper_OPEN`). Handling: `c` is a rational parameter; a rational approximation of ‖y‖ or v_C gives `c = c₀ − ε`, and
   `budget_eps` shows that the budget then costs `(1−δ)ε`.
 - The necessity direction (δ ≥ δ_min for every Φ) is not formalised. It is not needed for the reduction.
-- The spectral facts f ≥ ρ_F⁴-type contraction and c ≈ ρ_C², the TM identification, and δ_min = 0 ⇔ ℓ ≤ 1 (needs exp/log) are not formalised.
+- The spectral facts (hfine true needs f ≥ ρ_F⁴; hcoarse true needs c ≤ ρ_C², with c = ρ_C² − ε in the rank-one reading), the TM identification, and δ_min = 0 ⇔ ℓ ≤ 1 (needs exp/log) are not formalised.
 - Non-vacuity: there is no joint witness for hupper + hfine + hcoarse + hbudget. The proved seed rate `mixRate` would give a
   valid `hfine`, but it is close to 1, so the budget would fail for small δ. Not attempted.
 

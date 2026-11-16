@@ -94205,3 +94205,11 @@ Rational-certificate recipe (technique-only; arXiv 2610.12700, Q. Gao, Laughlin 
 - PROVED (`Robust3SchurRankOne`, 263 lines): `schur_of_spectral` (repo `SchurDecomposition` from a fine two-step factor f, coarse attainment c, and `SchurBudget f c δ`), `budget_eps` (ε cost (1−δ)ε), `robust3_physical_floor_spectral_HK`, `robust3_physical_floor_lmax_HK` (hcross, hafδ and hschur discharged in favour of `hbudget_OPEN` = ℓ ≤ ℓ_max, rational form).
 - OPEN: the rank-one Φ (no real scalar action on the carrier), the spectral facts, the TM identification. Audit: `audits/AUDIT-ROBUST3-SCHUR-RANK-ONE-2026-11-16.md`.
 - CAVEAT: direct lean against copied oleans, not lake-verified. Not chart closure.
+
+## Docs: STATUS addendum after task2n/task2j and an hcross_unif scope note (2026-11-16)
+- `audits/STATUS-R49-ROBUST3-CHAIN-ADDENDUM-TASK2N-2026-11-16.md` (supersedes rows of the base STATUS, which is kept intact):
+  - hafδ: δ_min is exact under the KS carrier (analytic and handwritten, conditional; the numbers are numerical);
+  - hcross is satisfied by U(1) at finite volume (≤ 12 sites), failing only volume-uniformly at step 2 (estimate);
+  - Lemma G (K3 = 27/10, β̄ ≥ m/4, 0 < Δβ ≤ 26/100) is [P] and not in Lean.
+- `audits/SCOPE-HCROSS-UNIF-2026-11-16.md`: a volume-uniform `hcross_unif` (W-indexed Φ, D; δ independent of W), plugging pointwise into `robust3_physical_floor(_noMargin)` and `_HK`. About 70–110 lines; not implemented.
+- CAVEAT: numerics are evidence, not proof. Not chart closure.
