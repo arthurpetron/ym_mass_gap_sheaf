@@ -94122,3 +94122,8 @@ Rational-certificate recipe (technique-only; arXiv 2610.12700, Q. Gao, Laughlin 
 - NUMERICAL (YM Numerics §7, not proof): the jump step 14→15 needs δ ≈ 0.23, so hafδ on afNome is very likely false at j = 2^m − 2 → 2^m − 1. This affects r49 on afNome and both crossover instances' AF tails.
 - SCOPED, not built (`ROUTE-SCOPE-QN-SCALE-CHAIN`): a q_n-ratio chain is additive but estimated at about 500–750 lines. Alternative: a smooth-log schedule.
 - DEFERRED: the all-j version of `dyadic_steps_af_prefix` (needs nonlinear Int arithmetic without omega).
+
+## Two-loop AF nome schedule (2026-11-15)
+- PROVED (`TwoLoopAfSchedule`): `twoLoopSchedule : NomeSchedule`. It is dyTable for j < 6, the two-loop SU(2) table for j = 6..30 (each step a factor-2 change in a, w_6 = 779/1000), and the closed-form tail `1 − 1941659/(10⁶j + 1197103 + Σ⌊608078/k⌋)` for j ≥ 31. `DyadicRGStep` holds for all n < 40.
+- PROVED (`TwoLoopCrossoverInstance`): j0 = 0, k = 6, η = 1/64, floor 114517/5000000.
+- NUMERICAL: the two-loop table is extrapolated at β ≈ 2.0–2.6 (j = 6..8). Next step: Numerics checks log₂(m_C/m_F) per step and δ_n.
