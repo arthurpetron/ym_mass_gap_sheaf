@@ -94116,3 +94116,9 @@ Rational-certificate recipe (technique-only; arXiv 2610.12700, Q. Gao, Laughlin 
 - PROVED: `DyadicCrossoverSchedule` (1/64 → afNome 12 in 12 steps, each a `DyadicRGStep`, checked by decidable proofs; all four old steps fail the check).
 - PROVED: `DyadicCrossoverInstance` (j0 = 0, k = 12, η_n = 1/128, E = 3/32, B ≈ 0.1257, floor 114517/5000000 ≈ 0.0229).
 - OPEN: `hcross_OPEN` (δ_n ≤ 1/128 on 12 dyadic steps; Numerics to check δ_min), plus `hafδ`, `hupper` and `hschur`. The AF tail of `DyadicRGStep` for every j is not proved (decidable up to j = 28).
+
+## hafδ at the afNome log2 jumps; q_n chain scope (2026-11-15)
+- PROVED (`AfDeltaJumpAllowance`): under the r49 budget, every hafδ allowance is ≤ 1/(j+4) for any C. For C = 1/10 the allowance is < 1/100 at the jump indices. A scalar necessary condition shows hafδ forces near-halving.
+- NUMERICAL (YM Numerics §7, not proof): the jump step 14→15 needs δ ≈ 0.23, so hafδ on afNome is very likely false at j = 2^m − 2 → 2^m − 1. This affects r49 on afNome and both crossover instances' AF tails.
+- SCOPED, not built (`ROUTE-SCOPE-QN-SCALE-CHAIN`): a q_n-ratio chain is additive but estimated at about 500–750 lines. Alternative: a smooth-log schedule.
+- DEFERRED: the all-j version of `dyadic_steps_af_prefix` (needs nonlinear Int arithmetic without omega).
