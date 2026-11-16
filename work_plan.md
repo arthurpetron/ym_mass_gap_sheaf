@@ -94127,3 +94127,9 @@ Rational-certificate recipe (technique-only; arXiv 2610.12700, Q. Gao, Laughlin 
 - PROVED (`TwoLoopAfSchedule`): `twoLoopSchedule : NomeSchedule`. It is dyTable for j < 6, the two-loop SU(2) table for j = 6..30 (each step a factor-2 change in a, w_6 = 779/1000), and the closed-form tail `1 − 1941659/(10⁶j + 1197103 + Σ⌊608078/k⌋)` for j ≥ 31. `DyadicRGStep` holds for all n < 40.
 - PROVED (`TwoLoopCrossoverInstance`): j0 = 0, k = 6, η = 1/64, floor 114517/5000000.
 - NUMERICAL: the two-loop table is extrapolated at β ≈ 2.0–2.6 (j = 6..8). Next step: Numerics checks log₂(m_C/m_F) per step and δ_n.
+
+## Undershooting AF schedule and physical units (2026-11-15)
+- PROVED (`UndershootAfSchedule`): `undershootSchedule : NomeSchedule`, made of dyTable for j < 6, five data-window steps for j = 6..10, and a Nat-recursion tail with two-loop step 1 − 7/((i+8)(i+16)) ≈ 1 − 0.03 g⁴. `DyadicRGStep` holds for n < 45.
+- PROVED (`UndershootPhysicalUnits`): telescoping weights give 2ⁿ·a_n ≤ P·a_0 with P = 96256076646951/2500000000000 ≈ 38.50 (U ≈ 5.27), under `hspacing_OPEN`.
+- PROVED (`UndershootCrossoverInstance`): floor 114517/5000000; in physical units, margin_n/a_n ≥ floor/(P·a_0) ≈ 5.95e-4/a_0.
+- CAVEAT: direct lean against oleans copied from the Mac after the box restore, not lake-verified. δ_min = 0 is necessary only. Next step: Numerics checks ℓ_j ≤ 1 and δ_min on the new schedule.
