@@ -94107,3 +94107,7 @@ Rational-certificate recipe (technique-only; arXiv 2610.12700, Q. Gao, Laughlin 
 - The old budget would force `δ_0 ≤ 0.00214`.
 - Open: the non-abelian content is in `hcross_OPEN` (the crossover from 1/64 to ≈0.89, where U(1) has its transition) plus `hafδ`, `hupper` and `hschur`. No gap claim.
 - Audits: `AUDIT-SMOOTH-SEEDED-AF-NOME-SCHEDULE`, `AUDIT-CROSSOVER-SCALE-CHAIN`, `AUDIT-CROSSOVER-INSTANCE` (all 2026-11-15).
+
+## Crossover instance `smoothAfNomeSchedule 8 4`: numerically implausible (2026-11-15)
+- YM Numerics (README §4, numerical only, not proof): the last crossover step `0.779 → 0.8875` (join at afNome index 12) skips about 8 dyadic scales and needs `δ_min ≈ 0.97–0.99`. So `E < 0.21` is implausible.
+- `CrossoverInstance` / `SmoothSeededAfNomeSchedule` are kept unchanged but should not be used as targets. They are replaced by a schedule with no scale-skipping step (`DyadicCrossoverSchedule`, `DyadicCrossoverInstance`).

@@ -53,3 +53,14 @@ Input: YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), n
 - Every earlier phrase "the crossover is where U(1) has its phase transition" is replaced by: per the numerics, the U(1) transition lies between 1/8 and 1/2, inside the crossover (YM Numerics interim report (numerical, relayed via YM Bot, 2026-11-15), not proved).
 
 Lean change: docstrings only (the module header and every theorem docstring now carry the sharpened note). No statement or proof changed. Recompiled with the same direct-`lean` method against the overlay (`LEAN_PATH=/workspace/v3logs/overlay`, `-M 6144`), because the box can't rebuild `BF4ExactSlabOriginalTubeHeatValue`: rc 0, zero warnings, peak Lean RSS ≈ 1.7 GiB. `#print axioms` for all 64 theorems in the seven files (plus the 7 in `MixRateSeedWidthNoGo`, 71 total) is identical to before (71 total: 53 `[propext, Quot.sound]`, 5 `[propext]`, 13 none).
+
+## Addendum (2026-11-15, 4:07 PM PST): instance numerically IMPLAUSIBLE (doc-only)
+
+Source: YM Numerics, `/workspace/ym_tmgap_2026-11-15/README.md` §4 (Task 2). This is **numerical evidence only, not proof**. Numerics flags its own caveats: small open volumes, continuum `m/√σ`, and two-loop running at `w = 0.8875`.
+
+- Numerics computed a necessary spectral lower bound `δ_min(n) = max(0, 1 − (1 − ρ_{n+1}⁴)/(1 − ρ_n²))` with `ρ = e^{−m(w)}`, for the four crossover steps of `smoothAfNomeSchedule 8 4`.
+- Steps 0–2 (`1/64 → 0.452 → 0.670 → 0.779`) need `δ_min ≈ 0 – 0.002`. Step 3 (`0.779 → 0.8875 = afNomeSchedule.nome 12`) needs `δ_min ≈ 0.969–0.990`, because the join at index `j0 + k = 12` skips about 8 dyadic RG scales.
+- So `E < 0.2157` (and `δ_3 ≤ 1/32`) is numerically implausible for this instance.
+- The instance's conclusion would also force `gap(0.8875) ≥ floor/16 ≈ 0.00425`. The κ₁-matched literature estimate `0.0024` violates that.
+- Status: the Lean statements remain PROVED and are untouched. They are conditional on `hcross_OPEN`, which is now judged numerically FALSE-in-practice for this schedule. Do not use this instance as a target.
+- Replacement: `DyadicCrossoverSchedule` / `DyadicCrossoverInstance`, which have no scale-skipping step (see their audits).
