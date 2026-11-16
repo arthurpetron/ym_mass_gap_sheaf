@@ -94222,3 +94222,11 @@ Rational-certificate recipe (technique-only; arXiv 2610.12700, Q. Gao, Laughlin 
 ## Docs: FRONTIER for the width-uniform theorem (2026-11-16)
 - `audits/FRONTIER-ROBUST3-WIDTH-UNIFORM-2026-11-16.md` covers the open hypotheses of `robust3_floor_width_uniform`: what would discharge each one, and the literature (Osterwalder–Seiler, Balaban, Chatterjee, with uncertain fits marked).
 - assessment-1 is at `/workspace/ym_release/assessment-1.pdf` (Nov 10). It covers none of the hypotheses and lists a uniform mass gap as open.
+
+## Docs: PROOF-STRATEGY for hcross_unif step 2 (2026-11-16)
+- `audits/PROOF-STRATEGY-HCROSS-UNIF-2026-11-16.md` reviews these mechanisms: OS78, Seiler LNP 159, SZZ, Chatterjee, Durhuus–Fröhlich, Mack–Petkova, 't Hooft/Tomboulis, assessment-1.
+  For each it records the source URL and section, whether the text was fetched or is UNVERIFIED, and its reach on the repo map
+  w = e^{-t/4}, β = 2/t / β_char.
+- Result: none of the fetched rigorous results gives "area law ⇒ uniform vac⊥ TM gap"; all go gap ⇒ area law. The SZZ threshold reaches only w_char ≈ 0.275 < 0.35.
+  **No Lean reduction was built** (it would be fake). The honest next step is a sector split, flux (U(1)-failing) vs neutral residual; deferred.
+- No Lean runs. Not chart closure. MC is not proof.
