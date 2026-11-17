@@ -94246,3 +94246,10 @@ Rational-certificate recipe (technique-only; arXiv 2610.12700, Q. Gao, Laughlin 
   - Even ideal sup-norm constants (δ = 4w³, bare count 96) miss w = 1/8 by 2.2×. Reaching it needs a new orthogonality-based expansion (new math).
 - The 625 is only a route to adjustedCoreRate ≤ 1/384; the honest weakening reaches w = 1/48 (≈ 400 lines, not built). The proven reach stays at w ≤ 1/55.
 - Includes the U(1) check. RAM was 17.5–18 %, below the floor; no Lean runs. Not chart closure.
+
+## Docs: SCOPE for the orthogonality-based SU(2) expansion (2026-11-16)
+- `audits/SCOPE-SU2-ORTHOGONALITY-EXPANSION-2026-11-16.md`: closed-surface polymers via character orthogonality; reuse map (file:line); reach arithmetic.
+  - With per-face activity 2w³ and κ = 96: w ≤ 1/9.16 at rate 1/4; w = 1/8 at rate 3/8 (or with κ ≤ 64).
+  - Step 2 is unreachable by any lattice-animal entropy.
+- U(1)-valid except for the Casimir exponent. KP is verified via Ueltschi Thm 1; Drouffe–Zuber and Münster are UNVERIFIED.
+- Module plan O1–O6, ≈ 1500–2350 lines. First milestone: O1 link-orthogonality vanishing. No Lean.
