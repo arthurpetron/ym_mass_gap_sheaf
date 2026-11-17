@@ -65,3 +65,7 @@ Not chart closure.
 - Edit in one commit. Rebuild the 64 modules in import order with direct `lean -M 6144`, one at a time, RAM ≥ 25 %.
 - Axiom check on `scGuards_of_le_inv48`, `uniformRate_of_guards`, `allNome_strongCoupling_vacuumSq_all_widths`, `r3_seed`, and `robust3_floor_width_uniform`: must be ⊆ {propext, Quot.sound}.
 - Zero warnings. Re-verify the bundle.
+
+## 6. Status update — 2026-11-16 (PT)
+- **DEFERRED.** Per the 4:18 PM PT decision (darthur: "Okay. Please commit and push when it is a good place to do so."; YM Bot chose option (1)), the 625 in-place edit is **deferred to its own next build-and-push checkpoint**.
+- The current push covers only the additive work through 3654e7cf plus this note. No `.lean` file is edited for the 625 fix in this checkpoint.
