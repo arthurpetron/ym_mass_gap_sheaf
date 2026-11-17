@@ -94239,3 +94239,10 @@ Rational-certificate recipe (technique-only; arXiv 2610.12700, Q. Gao, Laughlin 
   - G4: a periodic carrier would cost far more than 300 lines.
 - Also scopes the SU(2) character route in u = w³: SCGuards needs K from 128 down to ≤ 2.4 even in the ideal case. Discrepancy: the 32w³ ≤ 1/2 guard gives w ≤ 0.25.
 - Uses task2o (PARTIAL). No Lean was built; RAM was 20 %, below the floor anyway. Not chart closure.
+
+## STOP: character-route milestone at w = 1/8 (2026-11-16)
+- `audits/STOP-CHARACTER-ROUTE-W18-2026-11-16.md`: stopped, with no Lean written. Two reasons:
+  - The 16ⁿ cap (δ = heatRemainderBound = 128w³) is hard-wired through the cluster chain (305 files mention it), so a sharper cap means re-proving the chain. Over budget.
+  - Even ideal sup-norm constants (δ = 4w³, bare count 96) miss w = 1/8 by 2.2×. Reaching it needs a new orthogonality-based expansion (new math).
+- The 625 is only a route to adjustedCoreRate ≤ 1/384; the honest weakening reaches w = 1/48 (≈ 400 lines, not built). The proven reach stays at w ≤ 1/55.
+- Includes the U(1) check. RAM was 17.5–18 %, below the floor; no Lean runs. Not chart closure.
