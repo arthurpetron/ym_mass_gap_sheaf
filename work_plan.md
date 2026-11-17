@@ -94253,3 +94253,15 @@ Rational-certificate recipe (technique-only; arXiv 2610.12700, Q. Gao, Laughlin 
   - Step 2 is unreachable by any lattice-animal entropy.
 - U(1)-valid except for the Casimir exponent. KP is verified via Ueltschi Thm 1; Drouffe–Zuber and Münster are UNVERIFIED.
 - Module plan O1–O6, ≈ 1500–2350 lines. First milestone: O1 link-orthogonality vanishing. No Lean.
+
+## Docs: PLAN for an in-place 625 → 384 guard fix, plus the convenience-constants audit (2026-11-16)
+- `audits/PLAN-FIX-625-GUARD-IN-PLACE-2026-11-16.md`:
+  - 8 files: 5 with statement hypotheses weakened, 3 call-site bridges. About 14 statements.
+  - `not_scGuards_of_inv54_le` becomes false and is replaced by an inv46 version.
+  - New instance at 1/48 (abelian-valid).
+  - Robust3/crossover statements unchanged; recompile only.
+  - Rebuild: 64-module import closure (≈ 14.5k lines), est. 10–60 CPU-min, peak 2–5 GB. Needs darthur's OK on where it runs.
+- `audits/CONVENIENCE-CONSTANTS-AUDIT-2026-11-16.md`, ranked; nothing fixed:
+  - A (625 → 384, 1/48), B (n = 1 cap 32 → 5, ≈ 1/20 with A), C, D (fixed rate 1/4), J (area-law 4 vs 32/15): verified loose.
+  - E, F, G: suspected.
+- No parallel 1/48 copies were written. No Lean edits or runs.
