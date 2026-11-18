@@ -24,6 +24,7 @@ set_option autoImplicit false
 
 open YMGap.Constructive
 open YMGap.Continuum
+open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledBaseEdgeFloor
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledConstructedUniformCRealGap
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledEntryPerturbation
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledNontrivialGapObservable
