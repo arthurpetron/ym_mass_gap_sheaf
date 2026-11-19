@@ -8288,4 +8288,5 @@ import YMGap.RG.Robust3Width2Electric
 -- Step-0 Dobrushin uniform: TV certs + CentredPowerDecay interface + evenDecay
 -- + fineAt W 0 (1/64) from hDob_OPEN; not chart closure
 import YMGap.RG.Step0DobrushinUniform
+import YMGap.RG.Step1DobrushinUniform
 
