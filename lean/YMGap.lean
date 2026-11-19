@@ -7578,6 +7578,7 @@ import YMGap.Continuum.BF4WilsonAllNomeWindowSignedCost
 -- Completed-response CS/log-convexity; a survival floor compiles the macro
 -- ratio. The floor itself on a justified family remains OPEN (A03).
 import YMGap.Continuum.BF4WilsonAllNomeCompletedLogConvexity
+import YMGap.Continuum.CRealLogConvexRatioMono
 -- Necessary screen: any window budget caps kappa by the SAME carrier's
 -- fixed-nome rate mixRate^u, which is volume-close to one (vacuous screen).
 import YMGap.Continuum.BF4WilsonAllNomeWindowBudgetRateScreen
@@ -7685,6 +7686,7 @@ import YMGap.Continuum.BF4WilsonAllNomeStrongCouplingUniformRate
 -- REDUCTION: RG-step composition (rate algebra + ApproxRgIntertwiner + conditional
 -- dyadic lower margin from envelope). No Φ_j inhabited. Not AF.
 import YMGap.Continuum.BF4WilsonAllNomeRGStepComposition
+import YMGap.Continuum.EvenDecayTwoStepFactor
 -- REDUCTION: step-ratio upper ceiling LINEAR in C (16(C+1), was 2^(2C+3));
 -- absolute seed lower margin from J on. Same open inputs. Not AF.
 import YMGap.Continuum.BF4WilsonAllNomeStepRatioLinearCeiling
@@ -7847,6 +7849,7 @@ import YMGap.Continuum.SU2SliceOrder
 import YMGap.Continuum.SU2TailHaar
 import YMGap.Continuum.SU2SliceIntegrate
 import YMGap.Continuum.SU2LogConvexGap
+import YMGap.Continuum.SU2LogConvexGapInfinite
 import YMGap.Continuum.SU2WilsonSliceGood
 import YMGap.Continuum.SU2TimeShift
 import YMGap.Continuum.SU2TransferTrace
