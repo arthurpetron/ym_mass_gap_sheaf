@@ -8282,3 +8282,6 @@ import YMGap.RG.CrossoverScaleChain
 import YMGap.RG.CrossoverInstance
 -- Coarse-constant-0 reduction: coarseAt at c=0 is trivial by completedInner_nonnegative; yields hcross_unif at (f,c)=(1/64,0) from a fine-factor hypothesis; additive, not gap evidence
 import YMGap.RG.CoarseConstantZero
+-- Robust3 width-2 electric: L3 specialised Width2Model (ℓ=B(U,·), κ=1-ρ),
+-- form_bound vac-kill, CS→WilsonVacuumSqFactor, fineAt step-2 assembly; not chart closure
+import YMGap.RG.Robust3Width2Electric
