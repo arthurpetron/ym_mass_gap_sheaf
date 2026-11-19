@@ -8285,3 +8285,7 @@ import YMGap.RG.CoarseConstantZero
 -- Robust3 width-2 electric: L3 specialised Width2Model (ℓ=B(U,·), κ=1-ρ),
 -- form_bound vac-kill, CS→WilsonVacuumSqFactor, fineAt step-2 assembly; not chart closure
 import YMGap.RG.Robust3Width2Electric
+-- Step-0 Dobrushin uniform: TV certs + CentredPowerDecay interface + evenDecay
+-- + fineAt W 0 (1/64) from hDob_OPEN; not chart closure
+import YMGap.RG.Step0DobrushinUniform
+
