@@ -8277,3 +8277,5 @@ import YMGap.RG.SmoothSeededAfNomeSchedule
 import YMGap.RG.CrossoverScaleChain
 -- CrossoverInstance: k=4, eta=1/32 instance of scaleChain_crossover_floor (floor 7483977/110000000 > 0); eta=1/16 fails; old budget forces delta_0 < 1/32; not gap evidence
 import YMGap.RG.CrossoverInstance
+-- Coarse-constant-0 reduction: coarseAt at c=0 is trivial by completedInner_nonnegative; yields hcross_unif at (f,c)=(1/64,0) from a fine-factor hypothesis; additive, not gap evidence
+import YMGap.RG.CoarseConstantZero
