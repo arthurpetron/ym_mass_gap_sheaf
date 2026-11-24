@@ -8,8 +8,9 @@ inequality.
 
 For a final coarse observable, each later physical kernel supplies its literal
 conditional-expectation pullback.  Finite Fubini then proves that the final
-blocked-minus-Wilson expectation is exactly the recursive sum of one-step
-signed remainder expectations evaluated on those downstream pullbacks.
+blocked-minus-coarse (multiplicity-product law) expectation is exactly the
+recursive sum of one-step signed remainder expectations evaluated on those
+downstream pullbacks.
 
 This is the finite algebraic consumer needed by an observable-specific AF
 estimate.  It proves no smallness or summability of the signed terms, does not
@@ -224,8 +225,9 @@ private theorem signed_telescope_step
     (priorBlocked + (-priorCoarse)) priorTelescope nextRemainder hprior
 
 /-- **Exact finite signed telescope.**  Along a matched trajectory, the final
-blocked-minus-Wilson expectation is the recursive sum of the literal one-step
-remainder expectations on their actual downstream-pulled observables. -/
+blocked-minus-coarse (multiplicity-product law) expectation is the recursive
+sum of the literal one-step remainder expectations on their actual
+downstream-pulled observables. -/
 theorem blockedExpectation_sub_coarseWilson_eqv_signedRemainderTelescope
     (trajectory : AllCutoffOriginalActionTrajectory)
     (hmatched : Matched trajectory)

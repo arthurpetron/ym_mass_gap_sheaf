@@ -21142,8 +21142,8 @@ control, and the Clay theorem remain open.
 
 ## The BF4 sector Gram majorant factors into two physical profiles (2026-08-23)
 
-`BF4PhysicalVacuumSectorCenteredGramProfiles` splits the literal actual
-boundary-Gram Tonelli majorant into two independently meaningful quantities:
+`BF4PhysicalVacuumSectorCenteredGramProfiles` splits the Tonelli majorant of
+the boundary-Gram of the multiplicity-product slab law into two independently meaningful quantities:
 the total absolute centered target profile at one fixed-time boundary
 channel, and the channel-weighted centered boundary profile visible from one
 vacuum-sector source state.
@@ -21638,7 +21638,8 @@ remain open.
 ## The physical centered-Gram frontier is contracted to its exact row rate (2026-08-23)
 
 `BF4PhysicalVacuumSectorExactCenteredGramRowRate` totalizes, on every actual
-finite source index, the centered physical Gram row majorant divided by its
+finite source index, the centered row majorant of the boundary-Gram of the
+multiplicity-product slab law divided by its
 strictly positive component-conditioned stationary weight.  Its located
 finite maximum is the exact common row coefficient
 
@@ -33706,8 +33707,8 @@ mass gap is proved.
 
 ## Same-object BF4 form is one boundary conditional-expectation norm (2026-08-25)
 
-`BF4PhysicalVacuumSectorBoundaryTransform` reorganizes the actual physical
-Gram mathematics at the operator level.  For a finite vacuum-sector
+`BF4PhysicalVacuumSectorBoundaryTransform` reorganizes the boundary-Gram of the
+multiplicity-product slab law at the operator level.  For a finite vacuum-sector
 coefficient vector `f`, the concrete boundary numerator
 
 `C_K f(b) = sum_x f(x) A_K(x,b)`

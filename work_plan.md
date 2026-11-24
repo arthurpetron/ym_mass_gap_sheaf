@@ -46854,8 +46854,10 @@ introduced.  No full-root audit is claimed.
 
 #### Split the all-cutoff physical pushforward by coherent probability mass (2026-09-10)
 
-`CompactDualAllCutoffPhysicalPushforward` pushes the normalized fine Gibbs
-law through the all-cutoff total kernel and separates the result into two
+`CompactDualAllCutoffPhysicalPushforward` pushes the normalized fine
+multiplicity-product surrogate law (not the SU(2) heat-kernel Gibbs law; see
+notes/physical-gibbs-semantic-gap.md) through the all-cutoff total kernel and
+separates the result into two
 literal nonnegative columns:
 
 ```text
@@ -53019,10 +53021,13 @@ the previous factor-three consumers remain only as compatibility paths.  This
 is a genuine unconditional strengthening, but boundedness still supplies no
 refining-scale `O(a)` estimate by itself.
 
-`CompactDualPhysicalConnectedObservableRawCross.lean` now clears both Gibbs
-normalizations for that structured observable.  It defines the literal
+Scope: multiplicity-product law; U(1)-exact, not SU(2) YM.
+
+`CompactDualPhysicalConnectedObservableRawCross.lean` now clears both
+surrogate-law Gibbs normalizations for that structured observable.  It defines the literal
 unnormalized coarse numerator and the raw pushed numerator obtained by applying
-the actual finite physical kernel before dividing by the fine partition.  The
+the actual finite surrogate-law physical kernel before dividing by the fine
+partition.  The
 normalized connected defect is exactly
 
 ```text
@@ -53075,7 +53080,8 @@ estimate the preferred producer because no normalized observable coefficient
 remains hidden in its statement.
 
 `CompactDualPhysicalConnectedCovarianceActualRawKernel.lean` specializes that
-determinant to the actual cutoff-one globally link-glued physical kernel.  For
+determinant to the actual surrogate-law cutoff-one globally link-glued physical
+kernel.  For
 an arbitrary Boolean event, dependent recursion removes every Gibbs-null fine
 row and proves that the pushed raw numerator is exactly
 
