@@ -94271,3 +94271,49 @@ Rational-certificate recipe (technique-only; arXiv 2610.12700, Q. Gao, Laughlin 
   - A (625 → 384, 1/48), B (n = 1 cap 32 → 5, ≈ 1/20 with A), C, D (fixed rate 1/4), J (area-law 4 vs 32/15): verified loose.
   - E, F, G: suspected.
 - No parallel 1/48 copies were written. No Lean edits or runs.
+
+## YB-14: interacting-slab curvature scope, observer/scale-time exploration, new queue (2026-11-27, docs only)
+Approved by darthur (t341u). Paper + box numerics; **no Lean, no chart change** (`docs/PROJECT-STATUS.md` nodes unchanged).
+Machine-checked: nothing new. Exact-rational: the BE no-go inequality below. Everything else is paper or heuristic numerics.
+
+**Slab curvature (`audits/SCOPE-SLAB-CURVATURE-2026-11-27.md`).**
+- Dictionary: `coeffW w s = (s+1)w^{s(s+2)}`, u = w³, τ = −4 ln w (radius-2 S³, K = ½) = 4t with t = −ln w on the unit S³ (Ric = 2).
+- **No-go NG-BE (V3; exact-rational inequality, geometric half on paper).** Configuration-uniform Bakry–Émery (and so the Ollivier route through it) fails for the repo's temporal-gauge slab at **every strong-tier step from 1 on**: at the π-flux × time-staggered centre configuration, Ric + Hess S = 2I + φ''(π)Q with λ_max(Q) → 16, giving K = −1.2 (w = 7/20), −10.2 (1/2), −28.2 (0.607), −160 (0.779). The threshold is w\* ≈ 0.304. This is independent of per-link metric weights and survives axial gauge fixing.
+- Reach ladder for the fine nome: TV-Dobrushin 0.2418 < **BE 0.304** < W₁-Dobrushin (certified at 7/20; ideal ≈ 0.37–0.40) < step-2 target 0.5. Curvature adds nothing to the strong tier. The free-link w⁸ pass (`w2_w27_hand.md`) is a property of the non-interacting kernel only.
+- Rescues fail at w = 1/2: single-link conditional BE (2 + 6φ''_min = −2.6), Holley–Stroock/Zegarlinski (ρ_s ≈ 0.005), axial slice, and one-link integration (an UNVERIFIED preprint claims β_W < 0.272; we need 0.505).
+- **Only surviving non-abelian lead: the SO(3) × Z₂-vortex split (CANDIDATE).**
+  - The adjoint part −log f_e has curvature defect O(9w⁸).
+  - Heuristic search for the configuration infimum gives λ_min ≈ +1.1 at w = 1/2, +0.15 at 0.55 and **−1.9 at 0.607**. Those are upper bounds on the infimum, so they prove nothing positive.
+  - The fundamental coupling moves entirely into a Z₂ vortex sector with activity up to 0.48 at w = 1/2, where Dobrushin fails (18·0.48 ≫ 1).
+  - U(1): the adjoint half is U(1)-false, since U(1)/Z₂ ≅ U(1) has Ric = 0. The vortex half is U(1)-analogous.
+- **Step 4 (w = 0.779)** is out of reach of any uniform curvature or Dobrushin method by about 2 orders of magnitude. Curvature is a cutoff-scale (electric-Casimir) effect, so no curvature bound is uniform along AF.
+  - What step 4 needs: a non-uniform small-field/large-field multiscale argument, or a finite-box Dobrushin–Shlosman certificate with box side ≳ 8. Neither exists.
+
+**Observer / scale-time (`audits/OBSERVER-TIME-2026-11-27.md`).**
+- Euclidean time and kinetic heat time are exact semigroups (f_w ⋆ f_w = f_{w²}); RG scale is not. The schedule's wf² ≤ wc means t_c ≤ 2t_f, so each RG step's real content is spatial blocking.
+- Log-convexity makes the per-tick decorrelation rate nonincreasing in time separation. Consequences:
+  - effective masses are upper bounds on the gap;
+  - finite data can refute a gap but never certify one;
+  - a certificate must be a finite inequality that implies uniformity (Dobrushin–Shlosman type);
+  - every sup over a compact configuration space needs an explicit modulus;
+  - width-uniformity is the constructive replacement for compactness limits.
+- The gap is a rate witness (rational floor), not a located real.
+
+**Candidate lemmas (status, U(1)).**
+- `DOB-NEU` (CANDIDATE, Lean-easy; U(1)-true): finite C ≥ 0, ℕ-metric d, r ≤ 1, Σ_j C_ij r^{−d_ij} ≤ α ⇒ (C^k)_ij ≤ α^k r^{d_ij}. This is the combinatorial half of `hDob_OPEN`/`hDobW1_OPEN`.
+- `GRID-SUP` (CANDIDATE; U(1)-true): an explicit-Lipschitz bound on S³ plus a rational δ-net gives a uniform bound. It is needed to bring the 7/20 κ-certificate into Lean.
+- `TB-DOB` (OPEN framework; U(1)-true): a time-weighted slab-block Dobrushin criterion. It is the only finite-computation route we know that could reach step 2.
+- `PW-CONVEX` (CANDIDATE, Lean via P4; U(1)-true; V3 honesty lemma): torus Tr(T^{N−n}FT^nF) is log-convex.
+- `NG-BE-ℚ` (CANDIDATE, arithmetic only; low priority).
+- `SO3-BE` (OPEN; U(1)-false) and `Z2-VORTEX` (OPEN; U(1)-analogous) together would give step 2.
+- `DOB-CAUCHY` (CANDIDATE; U(1)-true): a constructive infinite-volume limit from DOB-NEU.
+- Vacuous for the gap (recorded only): modular/thermal time on the lattice, Perron–Frobenius finite-volume gaps, and non-abelian edge entropy.
+
+**Doc correction.** The box notes `math_frontier_1126/extra_crossover.md` and `strong_tier_spec.md` were corrected (2026-11-27): the AF half of `DyadicRGStep` fails **only at step 4** (D-jump 1.981 > 750/971; step 3's jump of 0.5435 passes). `Robust3CrossStrongTier.lean` already said this.
+
+**Queue (highest usefulness first):**
+1. `DOB-NEU` → Prover.
+2. `TB-DOB` feasibility at w = 1/2: MC typical block influence (V2).
+3. `GRID-SUP` scope.
+4. `Z2-VORTEX` feasibility.
+5. `PW-CONVEX` (optional).
