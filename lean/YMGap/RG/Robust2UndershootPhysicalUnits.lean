@@ -36,7 +36,20 @@ set_option autoImplicit false
 open YMGap.Constructive
 open YMGap.RG.UndershootPhysicalUnits (spacing_bound)
 
-/-- Head `ρ_i`, `i < 11`. -/
+/-- Head `ρ_i`, `i < 11`.
+
+**Warning: as values for the heat-kernel `a√σ`, `ρ₀..ρ₃` are FALSE.** The Numerics recheck
+(`math_frontier_1126/spacing_recheck.md`, FINAL; numerical, not proved) needs `ρ_j ≥ 2·a(w_{j+1})/a(w_j)` with:
+* j0: 1.414 (table 101/100);
+* j1: 1.421 (table 41/40);
+* j2: 1.486 (table 6/5);
+* j3: 1.633 (table 3/2);
+* j4: 1.659 (table 5/3; holds, but only marginally, on the χ2₂ estimator);
+* j5: 1.452 (table 9/5; holds).
+
+So `hspacing_OPEN` on this table is unsatisfiable by `a√σ` at steps 0–3. The values and theorems here are unchanged.
+The corrected table `3/2, 3/2, 8/5, 7/4, 7/4` (then this table from `j = 5`) and its floors, with `P ≈ 290.80`,
+are in `Robust3SpacingCorrected.lean`. -/
 def r2RhoTab : Nat → Q'
   | 0 => Q'.mkPos 101 100 (by decide)
   | 1 => Q'.mkPos 41 40 (by decide)
