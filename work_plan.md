@@ -94317,3 +94317,15 @@ Machine-checked: nothing new. Exact-rational: the BE no-go inequality below. Eve
 3. `GRID-SUP` scope.
 4. `Z2-VORTEX` feasibility.
 5. `PW-CONVEX` (optional).
+
+### YB-14 Phase 4 results (2026-11-27, docs only; `audits/PHASE4-LOG-2026-11-27.md`)
+- **TB-DOB budget (exact):** allowed total slice influence κ_tot = 0.273 at step 2, 0.417 at steps 3 and 4.
+- **Kinetic-influence MC (lower bounds, typical boundaries):**
+  - direct ≈ 0.94u at w = 1/2;
+  - no in-slice spread above noise at w = 1/2 and 0.607;
+  - at 0.779 the direct term is 0.384, which is 92% of the budget, and neighbour spread is visible.
+  - So TB-DOB is open, not refuted, at steps 2–3, and numerically implausible at step 4.
+- **New reduction (CANDIDATE, U(1)-true):** step 2 ⇐ `SLICE-AMP(1/2)`, a worst-case 3D slice response bound with amplification ≲ 2. It still needs a 3D block or finite-box certificate.
+- **SO(3)-part BE:** λ_min found +1.1 at w = 1/2 and −1.9 at 0.607. It can serve step 2 at most.
+- **Literature:** steps 2–3 lie beyond every published rigorous strong-coupling regime we checked (SZZ β_W < 1/12). The repo's step-1 certificate (β_W ≈ 0.17) already exceeds SZZ, pending `hDobW1_OPEN`.
+- **Queue update:** 1 `DOB-NEU` (Prover); 2 `SLICE-AMP` scope (3D block-Dobrushin certificate design at u = 1/8); 3 `GRID-SUP`; 4 `Z2-VORTEX`; 5 `PW-CONVEX` (optional).
